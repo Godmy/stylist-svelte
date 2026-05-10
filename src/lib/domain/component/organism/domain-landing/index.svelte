@@ -113,44 +113,82 @@
 	{:else}
 		<section class="c-domain-landing" aria-label="Domain landing">
 			<div class="landing-surface">
-				<div class="eyebrow-row">
-					<span class="eyebrow">Domain workspace</span>
-					<span class="eyebrow eyebrow--muted">Explorer hidden</span>
+				<div class="hero-grid">
+					<div class="hero-copy">
+						<div class="eyebrow-row">
+							<span class="eyebrow">Domain workspace</span>
+							<span class="eyebrow eyebrow--muted">Explorer hidden</span>
+						</div>
+
+						<h1>Keep the whole design system readable, navigable and reviewable.</h1>
+						<p class="lead">
+							Move through the library as a structured product map instead of a raw filesystem.
+							Domains, previews, diagnostics and implementation context stay connected in one workspace.
+						</p>
+
+						<div class="hero-points">
+							<div class="hero-point">
+								<strong>Structure before chaos</strong>
+								<span>Browse the system through domains, clusters, joints and families.</span>
+							</div>
+							<div class="hero-point">
+								<strong>Faster engineering review</strong>
+								<span>Inspect code, stories, markdown and JSON without switching tools.</span>
+							</div>
+						</div>
+					</div>
+
+					<aside class="hero-aside">
+						<div class="hero-panel hero-panel--primary">
+							<p class="hero-panel-label">Why it matters</p>
+							<ul class="hero-list">
+								<li>Reduce navigation overhead in large component libraries</li>
+								<li>Keep architecture visible while reviewing real implementation files</li>
+								<li>Connect diagnostics and backlog context to the active family</li>
+							</ul>
+						</div>
+
+						<div class="hero-metrics">
+							<div class="metric-card">
+								<strong>{tree.length}</strong>
+								<span>root domains</span>
+							</div>
+							<div class="metric-card">
+								<strong>{Object.keys(storyModules).length}</strong>
+								<span>story modules</span>
+							</div>
+						</div>
+					</aside>
 				</div>
 
-				<h1>Domain landing</h1>
-				<p class="lead">
-					Open the domain explorer from the top-right menu to browse domains, files and previews.
-				</p>
-
 				<div class="feature-grid">
-					<article class="feature-card">
+					<article class="feature-card feature-card--domain">
 						<div class="feature-icon">
-							<Icon name="domain" size={18} />
+							<Icon name="domain" size={20} />
 						</div>
 						<div>
 							<h2>Domain explorer</h2>
-							<p>Switch to the full taxonomy tree, preview tabs and source viewer.</p>
+							<p>Open the full taxonomy tree, switch files and inspect implementation in context.</p>
 						</div>
 					</article>
 
-					<article class="feature-card">
+					<article class="feature-card feature-card--diagnostics">
 						<div class="feature-icon">
-							<Icon name="diagnostics" size={18} />
+							<Icon name="diagnostics" size={20} />
 						</div>
 						<div>
 							<h2>Diagnostics</h2>
-							<p>Inspect the current structure and keep architectural issues visible.</p>
+							<p>Run story diagnostics across the library and surface breakages before release.</p>
 						</div>
 					</article>
 
-					<article class="feature-card">
+					<article class="feature-card feature-card--backlog">
 						<div class="feature-icon">
-							<Icon name="backlog" size={18} />
+							<Icon name="backlog" size={20} />
 						</div>
 						<div>
 							<h2>Backlog</h2>
-							<p>Store notes for the active family without leaving the workspace.</p>
+							<p>Review the active family backlog without disconnecting decisions from structure.</p>
 						</div>
 					</article>
 				</div>
@@ -188,26 +226,44 @@
 		place-items: center;
 		padding: clamp(1.5rem, 3vw, 3rem);
 		background:
-			radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary-500) 12%, transparent), transparent 36%),
-			radial-gradient(circle at bottom right, color-mix(in srgb, var(--color-primary-400) 10%, transparent), transparent 30%),
+			radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary-500) 18%, transparent), transparent 34%),
+			radial-gradient(circle at 78% 16%, rgba(249, 115, 22, 0.16), transparent 20%),
+			radial-gradient(circle at bottom right, color-mix(in srgb, var(--color-primary-400) 12%, transparent), transparent 30%),
 			linear-gradient(
-				180deg,
-				color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
-				color-mix(in srgb, var(--color-background-primary) 88%, var(--color-background-secondary) 12%)
+				160deg,
+				color-mix(in srgb, var(--color-background-primary) 97%, white 3%),
+				color-mix(in srgb, var(--color-background-primary) 84%, var(--color-background-secondary) 16%)
 			);
 	}
 
 	.landing-surface {
 		width: min(64rem, 100%);
 		display: grid;
-		gap: 1.4rem;
-		padding: clamp(1.5rem, 2.2vw, 2.4rem);
+		gap: 1.75rem;
+		padding: clamp(1.5rem, 2.3vw, 2.6rem);
 		border: 1px solid color-mix(in srgb, var(--color-border-primary) 82%, transparent);
 		border-radius: 32px;
-		background: color-mix(in srgb, var(--color-background-primary) 92%, white 8%);
+		background:
+			linear-gradient(
+				180deg,
+				color-mix(in srgb, var(--color-background-primary) 95%, white 5%),
+				color-mix(in srgb, var(--color-background-primary) 88%, var(--color-background-secondary) 12%)
+			);
 		box-shadow:
 			0 28px 80px rgba(15, 23, 42, 0.12),
 			inset 0 1px 0 rgba(255, 255, 255, 0.5);
+	}
+
+	.hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.85fr);
+		gap: 1.25rem;
+		align-items: start;
+	}
+
+	.hero-copy {
+		display: grid;
+		gap: 1rem;
 	}
 
 	.eyebrow-row {
@@ -235,16 +291,113 @@
 
 	h1 {
 		margin: 0;
-		font-size: clamp(2.4rem, 4vw, 4.25rem);
-		line-height: 0.96;
+		max-width: 12ch;
+		font-size: clamp(2.8rem, 5vw, 5rem);
+		line-height: 0.9;
 		letter-spacing: -0.04em;
 	}
 
 	.lead {
-		max-width: 44rem;
+		max-width: 42rem;
 		margin: 0;
-		font-size: 1.02rem;
-		line-height: 1.6;
+		font-size: 1.05rem;
+		line-height: 1.7;
+		color: var(--color-text-secondary);
+	}
+
+	.hero-points {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.85rem;
+	}
+
+	.hero-point,
+	.hero-panel,
+	.metric-card,
+	.feature-card {
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 78%, transparent);
+		background: color-mix(in srgb, var(--color-background-primary) 90%, white 10%);
+		box-shadow: 0 16px 42px rgba(15, 23, 42, 0.05);
+	}
+
+	.hero-point {
+		display: grid;
+		gap: 0.35rem;
+		padding: 0.95rem 1rem;
+		border-radius: 20px;
+	}
+
+	.hero-point strong {
+		font-size: 0.95rem;
+	}
+
+	.hero-point span {
+		font-size: 0.9rem;
+		line-height: 1.55;
+		color: var(--color-text-secondary);
+	}
+
+	.hero-aside {
+		display: grid;
+		gap: 0.9rem;
+	}
+
+	.hero-panel {
+		display: grid;
+		gap: 0.8rem;
+		padding: 1rem;
+		border-radius: 24px;
+	}
+
+	.hero-panel--primary {
+		background:
+			linear-gradient(
+				180deg,
+				color-mix(in srgb, var(--color-primary-500) 10%, var(--color-background-primary)) 0%,
+				color-mix(in srgb, var(--color-background-primary) 92%, white 8%) 100%
+			);
+	}
+
+	.hero-panel-label {
+		margin: 0;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-text-secondary);
+	}
+
+	.hero-list {
+		margin: 0;
+		padding-left: 1rem;
+		display: grid;
+		gap: 0.6rem;
+		color: var(--color-text-secondary);
+		line-height: 1.55;
+	}
+
+	.hero-metrics {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.85rem;
+	}
+
+	.metric-card {
+		display: grid;
+		gap: 0.25rem;
+		padding: 0.95rem 1rem;
+		border-radius: 20px;
+	}
+
+	.metric-card strong {
+		font-size: 2rem;
+		line-height: 1;
+	}
+
+	.metric-card span {
+		font-size: 0.76rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
 		color: var(--color-text-secondary);
 	}
 
@@ -258,18 +411,40 @@
 		display: grid;
 		grid-template-columns: auto minmax(0, 1fr);
 		gap: 0.9rem;
-		padding: 1rem;
-		border: 1px solid color-mix(in srgb, var(--color-border-primary) 78%, transparent);
+		padding: 1.05rem;
 		border-radius: 22px;
-		background: color-mix(in srgb, var(--color-background-secondary) 74%, transparent);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.feature-card::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 3px;
+		opacity: 0.9;
+	}
+
+	.feature-card--domain::after {
+		background: linear-gradient(90deg, #2563eb, #0ea5e9);
+	}
+
+	.feature-card--diagnostics::after {
+		background: linear-gradient(90deg, #f97316, #f59e0b);
+	}
+
+	.feature-card--backlog::after {
+		background: linear-gradient(90deg, #16a34a, #22c55e);
 	}
 
 	.feature-icon {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.6rem;
-		height: 2.6rem;
+		width: 2.8rem;
+		height: 2.8rem;
 		border-radius: 14px;
 		background: color-mix(in srgb, var(--color-primary-500) 12%, var(--color-background-primary));
 		color: var(--color-primary-600);
@@ -295,6 +470,9 @@
 	}
 
 	@media (max-width: 900px) {
+		.hero-grid,
+		.hero-points,
+		.hero-metrics,
 		.feature-grid {
 			grid-template-columns: 1fr;
 		}

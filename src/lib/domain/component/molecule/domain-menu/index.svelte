@@ -41,7 +41,7 @@
 		aria-label="Show landing"
 		title="Show landing"
 	>
-		<Icon name="playground" size={18} />
+		<Icon name="landing" size={18} />
 	</button>
 
 	<button
@@ -133,9 +133,16 @@
 	.menu-button {
 		border: 1px solid color-mix(in srgb, var(--color-border-primary) 78%, transparent);
 		border-radius: 999px;
-		background: color-mix(in srgb, var(--color-background-secondary) 88%, transparent);
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 97%, white 3%) 0%,
+			color-mix(in srgb, var(--color-background-primary) 92%, var(--color-background-secondary) 8%) 100%
+		);
 		color: var(--color-text-primary);
 		cursor: pointer;
+		box-shadow:
+			0 8px 20px rgba(15, 23, 42, 0.06),
+			inset 0 1px 0 rgba(255, 255, 255, 0.55);
 		transition:
 			transform 120ms ease,
 			background-color 120ms ease,
@@ -167,13 +174,33 @@
 	.menu-button:hover {
 		transform: translateY(-1px);
 		border-color: color-mix(in srgb, var(--color-primary-500) 44%, var(--color-border-primary) 56%);
-		background: color-mix(in srgb, var(--color-background-primary) 86%, var(--color-primary-500) 14%);
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 86%, var(--color-primary-500) 14%) 0%,
+			color-mix(in srgb, var(--color-background-primary) 82%, var(--color-primary-500) 18%) 100%
+		);
 	}
 
 	.menu-button.active {
-		border-color: color-mix(in srgb, var(--color-primary-500) 58%, transparent);
-		background: color-mix(in srgb, var(--color-primary-500) 12%, var(--color-background-primary));
-		color: var(--color-primary-600);
+		border-color: color-mix(in srgb, var(--color-primary-500) 48%, var(--color-border-primary) 52%);
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 78%, var(--color-primary-500) 22%) 0%,
+			color-mix(in srgb, var(--color-background-primary) 72%, var(--color-primary-600) 28%) 100%
+		);
+		color: var(--color-text-primary);
+		box-shadow:
+			0 10px 24px rgba(15, 23, 42, 0.16),
+			inset 0 1px 0 rgba(255, 255, 255, 0.22);
+	}
+
+	.menu-button.active:hover {
+		border-color: color-mix(in srgb, var(--color-primary-500) 56%, var(--color-border-primary) 44%);
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 70%, var(--color-primary-500) 30%) 0%,
+			color-mix(in srgb, var(--color-background-primary) 66%, var(--color-primary-600) 34%) 100%
+		);
 	}
 
 	@media (max-width: 840px) {

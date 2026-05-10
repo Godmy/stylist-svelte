@@ -24,6 +24,7 @@ export const TOKEN_DOMAIN_ICON = [
 	'interface',
 	'joint',
 	'json',
+	'landing',
 	'manager',
 	'map',
 	'md',

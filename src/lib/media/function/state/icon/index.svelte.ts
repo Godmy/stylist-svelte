@@ -43,13 +43,19 @@ export function createIconState(props: IconProps) {
 	const numericSize = $derived.by(() => (typeof size === 'number' ? size : undefined));
 
 	const iconClasses = $derived.by(() =>
-		IconStyleManager.getIconChevronClasses({
-			size: typeof size === 'number' ? 'md' : size,
-			direction,
-			variant,
-			disabled,
-			className
-		})
+		effectiveName === 'chevron-up'
+		|| effectiveName === 'chevron-down'
+		|| effectiveName === 'chevron-left'
+		|| effectiveName === 'chevron-right'
+		|| effectiveName === 'chevron'
+			? IconStyleManager.getIconChevronClasses({
+					size: typeof size === 'number' ? 'md' : size,
+					direction,
+					variant,
+					disabled,
+					className
+				})
+			: IconStyleManager.getIconClasses(typeof size === 'number' ? 'md' : size, className)
 	);
 
 	const containerClasses = $derived.by(() => {

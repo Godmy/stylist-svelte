@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PortGroupProps } from '$stylist/science/type/struct/port-group-props';
 	import { createPortGroupState } from '$stylist/science/function/state/port-group';
-	import { GraphPort } from '$stylist/canvas';
+	import GraphPort from '$stylist/science/component/atom/graph-port/index.svelte';
 	import { Divider } from '$stylist/layout';
 
 	let props: PortGroupProps = $props();

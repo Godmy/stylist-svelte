@@ -1318,6 +1318,12 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M9.3 11.1 14.7 7.9"/>
   <path d="M9.3 12.9 14.7 16.1"/>
 </svg>`, // domain,
+	'landing': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <title>landing</title>
+  <path d="M3.5 11.5 12 4l8.5 7.5" />
+  <path d="M5.5 10.5V20h13V10.5" />
+  <path d="M9.5 20v-5.5h5V20" />
+</svg>`, // domain,
 	'manager': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M5 20c.8-4 3.5-6 7-6s6.2 2 7 6"/><path d="M18 7h3"/><path d="M19.5 5.5v3"/></svg>`, // domain,
 	'map': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="7" height="4" rx="1"/><rect x="2" y="14" width="7" height="4" rx="1"/><rect x="15" y="6" width="7" height="4" rx="1"/><rect x="15" y="14" width="7" height="4" rx="1"/><path d="M9 8h3l2 0"/><path d="M9 16h3l2 0"/><path d="M13 7l2 1-2 1"/><path d="M13 15l2 1-2 1"/></svg>`, // domain,
 	'md': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15V9l3 3 3-3v6"/><path d="M16 9v6"/><path d="m14 13 2 2 2-2"/></svg>`, // domain,

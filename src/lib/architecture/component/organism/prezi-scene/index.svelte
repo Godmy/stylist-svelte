@@ -2,7 +2,7 @@
 	import type { PreziSceneContract } from '$stylist/architecture/type/struct/prezi-scene';
 	import { usePreziState } from '$stylist/architecture/function/state/prezi-scene';
 	import PresenterNodeShell from '$stylist/architecture/component/molecule/presenter-node-shell/index.svelte';
-	import { Minimap } from '$stylist/canvas';
+	import Minimap from '$stylist/science/component/organism/minimap/index.svelte';
 	import { Icon } from '$stylist/media';
 	import { Grid } from '$stylist/layout';
 
@@ -11,7 +11,6 @@
 
 	let viewportElement: HTMLDivElement | null = null;
 
-	// РћС‚СЃР»РµР¶РёРІР°РµРј СЂР°Р·РјРµСЂ РІСЊСЋРїРѕСЂС‚Р° С‡РµСЂРµР· ResizeObserver
 	$effect(() => {
 		if (!viewportElement) return;
 		const el = viewportElement;
@@ -24,7 +23,6 @@
 		return () => observer.disconnect();
 	});
 
-	// РЎРёРЅС…СЂРѕРЅРёР·Р°С†РёСЏ controlled selectedNodeId
 	$effect(() => {
 		if (props.selectedNodeId !== undefined) {
 			if (props.selectedNodeId === null) {
@@ -36,8 +34,6 @@
 		}
 	});
 
-	// Camera РґР»СЏ РЅРѕРґ: x/y/zoom = 0/0/1, С‚.Рє. РЅРѕРґС‹ Р¶РёРІСѓС‚ РІРЅСѓС‚СЂРё world-div,
-	// РєРѕС‚РѕСЂС‹Р№ СѓР¶Рµ РЅРµСЃС‘С‚ CSS-С‚СЂР°РЅСЃС„РѕСЂРј. depth Рё viewport РЅСѓР¶РЅС‹ РґР»СЏ semantic zoom.
 	const nodeCamera = $derived({
 		x: 0,
 		y: 0,
@@ -274,8 +270,6 @@
 		border: 1px solid var(--color-border-primary, #e5e7eb);
 		overflow: hidden;
 	}
-
-	/* в”Ђв”Ђв”Ђ Header в”Ђв”Ђв”Ђ */
 
 	.prezi-scene__header {
 		display: flex;
