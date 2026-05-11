@@ -11,17 +11,13 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M5 12h2"/>
   <path d="M17 12h2"/>
 </svg>`, // animation,
-	'layout': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>layout</title>
-  <circle cx="12" cy="12" r="7"/>
-  <path d="M12 5v14M5 12h14"/>
-  <path d="m8 8 8 8M16 8l-8 8"/>
-</svg>`, // animation,
-	'motion': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>motion</title>
-  <circle cx="12" cy="12" r="7"/>
-  <path d="M12 5v14M5 12h14"/>
-  <path d="m8 8 8 8M16 8l-8 8"/>
+	'motion': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="8" cy="12" r="3" fill="currentColor" opacity="0.2"/>
+  <circle cx="16" cy="12" r="3" fill="currentColor" opacity="0.2"/>
+  <circle cx="8" cy="12" r="1.5" fill="currentColor"/>
+  <circle cx="16" cy="12" r="1.5" fill="currentColor"/>
+  <line x1="10.5" y1="12" x2="13.5" y2="12"/>
+  <circle cx="12" cy="12" r="8" stroke-dasharray="2 2"/>
 </svg>`, // animation,
 	'architecture': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="3" y="3" width="7" height="7" rx="1"/>
@@ -40,32 +36,12 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="3" y="3" width="18" height="18" rx="2"/>
   <path d="M3 12h18M9 3v18"/>
 </svg>`, // architecture,
-	'canvas-toolbar': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>canvas-toolbar</title>
-  <circle cx="12" cy="12" r="8.4"/>
-  <path d="M12 12 12.0 12.0"/>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M3 7h18M14 3v18"/>
-</svg>`, // architecture,
-	'canvas': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>canvas</title>
-  <circle cx="12" cy="12" r="7"/>
-  <path d="M12 5v14M5 12h14"/>
-  <path d="m8 8 8 8M16 8l-8 8"/>
-</svg>`, // architecture,
 	'diagrams-organism': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>diagrams-organism</title>
   <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
   <path d="M6 9.0h12"/>
   <circle cx="6" cy="10" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="12" cy="18" r="2"/>
   <path d="M7.7 7.2 16.3 6.8M7 7.5l4 8m6.3-5.9-4.1 7.4"/>
-</svg>`, // architecture,
-	'drawing-surface': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>drawing-surface</title>
-  <circle cx="12" cy="12" r="9.0"/>
-  <path d="M12 12 9.0 16.0"/>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M3 10h18M7 3v18"/>
 </svg>`, // architecture,
 	'graph-edge': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>graph-edge</title>
@@ -101,13 +77,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M9 11h6M9 15h4"/>
   <path d="M10 4h4l1 3H9l1-3z"/>
 </svg>`, // architecture,
-	'shared-canvas': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>shared-canvas</title>
-  <circle cx="12" cy="12" r="7.8"/>
-  <path d="M12 12 14.0 6.0"/>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M3 11h18M8 3v18"/>
-</svg>`, // architecture,
 	'calendar-molecule': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>calendar-molecule</title>
   <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
@@ -124,20 +93,15 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M8 3v4M16 3v4M3 10h18"/>
   <path d="M8 13h8M8 14h5"/>
 </svg>`, // calendar,
-	'calendar': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>calendar</title>
-  <circle cx="12" cy="12" r="7.8"/>
-  <path d="M12 12 6.0 6.0"/>
-  <rect x="3" y="5" width="18" height="16" rx="2"/>
-  <path d="M8 3v4M16 3v4M3 10h18"/>
-  <path d="M8 13h8M8 14h5"/>
+	'calendar': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M8 2v4" />
+  <path d="M16 2v4" />
+  <rect x="3" y="4" width="18" height="18" rx="2" />
+  <path d="M3 10h18" />
 </svg>`, // calendar,
-	'clock': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>clock</title>
-  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
-  <path d="M6 9.0h12"/>
-  <rect x="4" y="4" width="16" height="16" rx="3"/>
-  <path d="M8 8h8M8 12h6M8 16h4"/>
+	'clock': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9" />
+  <path d="M12 7v5l3 2" />
 </svg>`, // calendar,
 	'event-calendar': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>event-calendar</title>
@@ -189,11 +153,33 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M12 5v14M5 12h14"/>
   <path d="m8 8 8 8M16 8l-8 8"/>
 </svg>`, // calendar,
+	'canvas-toolbar': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>canvas-toolbar</title>
+  <path d="M5 7h14"/>
+  <path d="M7 7v12h10V7"/>
+  <path d="M9 11h6M9 15h4"/>
+  <path d="M10 4h4l1 3H9l1-3z"/>
+</svg>`, // canvas,
+	'canvas': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>canvas</title>
+  <rect x="3" y="4" width="18" height="14" rx="2"/>
+  <path d="M7 20h10"/>
+  <path d="M12 18v2"/>
+  <path d="M7 8h10"/>
+  <path d="M7 12h5"/>
+  <path d="M15 12l2 2 3-4"/>
+</svg>`, // canvas,
 	'connection-line': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>connection-line</title>
   <rect x="3" y="5" width="18" height="14" rx="2"/>
   <path d="M7 9h10M7 13h6"/>
   <path d="M17 17l3 3"/>
+</svg>`, // canvas,
+	'drawing-surface': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>drawing-surface</title>
+  <circle cx="12" cy="12" r="7"/>
+  <path d="M12 5v14M5 12h14"/>
+  <path d="m8 8 8 8M16 8l-8 8"/>
 </svg>`, // canvas,
 	'graph-canvas': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>graph-canvas</title>
@@ -213,6 +199,13 @@ export const TOKEN_ICON_REGISTRY = {
   <circle cx="12" cy="12" r="7"/>
   <path d="M12 5v14M5 12h14"/>
   <path d="m8 8 8 8M16 8l-8 8"/>
+</svg>`, // canvas,
+	'shared-canvas': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>shared-canvas</title>
+  <rect x="4" y="4" width="6" height="6" rx="1.5"/>
+  <rect x="14" y="4" width="6" height="6" rx="1.5"/>
+  <rect x="4" y="14" width="6" height="6" rx="1.5"/>
+  <path d="M10 7h4M7 10v4M10 17h8a2 2 0 0 0 2-2V7"/>
 </svg>`, // canvas,
 	'stage': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>stage</title>
@@ -387,24 +380,11 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="m3 13 4 4 6-6"/>
   <path d="m10 13 4 4 7-8"/>
 </svg>`, // chat,
-	'collaborate': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>collaborate</title>
-  <path d="M5 7h14"/>
-  <path d="M7 7v12h10V7"/>
-  <path d="M9 11h6M9 15h4"/>
-  <path d="M10 4h4l1 3H9l1-3z"/>
-</svg>`, // chat,
 	'communication': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M5 6.5A3.5 3.5 0 0 1 8.5 3h7A3.5 3.5 0 0 1 19 6.5v4A3.5 3.5 0 0 1 15.5 14H11l-4.5 3v-3A3.5 3.5 0 0 1 3 10.5v-4"/>
   <path d="M8 8h8"/>
   <path d="M8 11h5"/>
   <path d="M13 17h3l3.5 2.5V17A2.5 2.5 0 0 0 22 14.5V12"/>
-</svg>`, // chat,
-	'input': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>input</title>
-  <circle cx="12" cy="12" r="7"/>
-  <path d="M12 5v14M5 12h14"/>
-  <path d="m8 8 8 8M16 8l-8 8"/>
 </svg>`, // chat,
 	'italic': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>italic</title>
@@ -420,18 +400,10 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M4 7h2V5H4"/>
   <path d="M4 13h2.5a1.5 1.5 0 0 1 0 3H4l2.5 0"/>
 </svg>`, // chat,
-	'list': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>list</title>
-  <path d="M9 6h11"/>
-  <path d="M9 12h11"/>
-  <path d="M9 18h11"/>
-  <path d="M4 6h.01"/>
-  <path d="M4 12h.01"/>
-  <path d="M4 18h.01"/>
-</svg>`, // chat,
-	'message-circle': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>message-circle</title>
-  <path d="M7 18 3 21l1.2-4.8A8 8 0 1 1 20 12a8 8 0 0 1-8 8 7.9 7.9 0 0 1-5-2"/>
+	'message-circle': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M7 10h10" />
+  <path d="M7 14h6" />
+  <path d="M21 12a8.5 8.5 0 0 1-8.5 8.5A8.4 8.4 0 0 1 8 19.3L3 21l1.7-5A8.4 8.4 0 0 1 3.5 12 8.5 8.5 0 0 1 12 3.5h.5A8.5 8.5 0 0 1 21 12Z" />
 </svg>`, // chat,
 	'message-input': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>message-input</title>
@@ -464,20 +436,13 @@ export const TOKEN_ICON_REGISTRY = {
   <title>paperclip</title>
   <path d="m21.4 11.1-8.9 8.9a5 5 0 1 1-7.1-7.1l9.2-9.2a3.5 3.5 0 1 1 5 5L9.8 18.5a2 2 0 1 1-2.8-2.8l8.5-8.5"/>
 </svg>`, // chat,
-	'reply': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>reply</title>
-  <path d="m9 17-5-5 5-5"/>
-  <path d="M20 18v-2a6 6 0 0 0-6-6H4"/>
+	'reply': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m9 17-5-5 5-5" />
+  <path d="M20 18v-2a4 4 0 0 0-4-4H4" />
 </svg>`, // chat,
-	'send': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>send</title>
-  <path d="M3 20 21 12 3 4l4 8-4 8z"/>
-  <path d="M7 12h14"/>
-</svg>`, // chat,
-	'settings': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>settings</title>
-  <circle cx="12" cy="12" r="3"/>
-  <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5h.1a1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z"/>
+	'send': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M22 2 11 13" />
+  <path d="m22 2-7 20-4-9-9-4Z" />
 </svg>`, // chat,
 	'share': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>share</title>
@@ -517,19 +482,6 @@ export const TOKEN_ICON_REGISTRY = {
   <circle cx="14" cy="7.5" r="1"/>
   <circle cx="16.5" cy="11" r="1"/>
 </svg>`, // color,
-	'controls': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>controls</title>
-  <path d="M5 7h14"/>
-  <path d="M7 7v12h10V7"/>
-  <path d="M9 11h6M9 15h4"/>
-  <path d="M10 4h4l1 3H9l1-3z"/>
-</svg>`, // color,
-	'data-display': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>data-display</title>
-  <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
-  <path d="M8 10h8M8 14h8"/>
-  <path d="M12 7v10"/>
-</svg>`, // color,
 	'billing-summary': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>billing-summary</title>
   <rect x="3" y="5" width="18" height="14" rx="2"/>
@@ -542,12 +494,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M3 10.0h18"/>
   <path d="M3 4h2l1.8 9.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L21 7H7.2"/>
   <circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>
-</svg>`, // commerce,
-	'card': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>card</title>
-  <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
-  <path d="M8 10h8M8 14h8"/>
-  <path d="M12 7v10"/>
 </svg>`, // commerce,
 	'cards': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>cards</title>
@@ -582,8 +528,8 @@ export const TOKEN_ICON_REGISTRY = {
 </svg>`, // commerce,
 	'currency-converter': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>currency-converter</title>
-  <rect x="4" y="4" width="16" height="16" rx="2"/>
-  <path d="M8 8h8M8 12h8M8 16h5"/>
+  <circle cx="12" cy="12" r="9.0"/>
+  <path d="M12 8v8M10 10c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2 1-2 2 1 2 2 2 2-1 2-2"/>
 </svg>`, // commerce,
 	'discount-applier': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>discount-applier</title>
@@ -600,22 +546,23 @@ export const TOKEN_ICON_REGISTRY = {
 </svg>`, // commerce,
 	'order-confirmation': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>order-confirmation</title>
-  <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z"/>
-  <path d="M4 6l8 3 8-3"/>
-  <path d="M12 9v12"/>
+  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
+  <path d="M6 11.0h12"/>
+  <path d="M3 4h2l1.8 9.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L21 7H7.2"/>
+  <circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>
+  <path d="M17 6h2M17 8h3"/>
 </svg>`, // commerce,
 	'order-history': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>order-history</title>
-  <path d="M5 7h14"/>
-  <path d="M7 7v12h10V7"/>
-  <path d="M9 11h6M9 15h4"/>
-  <path d="M10 4h4l1 3H9l1-3z"/>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M10.0 3v18"/>
+  <path d="M3 4h2l1.8 9.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L21 7H7.2"/>
+  <circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>
 </svg>`, // commerce,
 	'order-tracking': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>order-tracking</title>
-  <rect x="3" y="5" width="18" height="14" rx="2"/>
-  <path d="M7 9h10M7 13h6"/>
-  <path d="M17 17l3 3"/>
+  <title>send</title>
+  <path d="M3 20 21 12 3 4l4 8-4 8z"/>
+  <path d="M7 12h14"/>
 </svg>`, // commerce,
 	'payment': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>payment</title>
@@ -626,9 +573,8 @@ export const TOKEN_ICON_REGISTRY = {
 </svg>`, // commerce,
 	'prices': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>prices</title>
-  <circle cx="12" cy="12" r="7"/>
-  <path d="M12 5v14M5 12h14"/>
-  <path d="m8 8 8 8M16 8l-8 8"/>
+  <path d="M4 6h16v12H4Z"/>
+  <path d="M12 8v8M10 10c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2 1-2 2 1 2 2 2 2-1 2-2"/>
 </svg>`, // commerce,
 	'product': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>product</title>
@@ -639,9 +585,9 @@ export const TOKEN_ICON_REGISTRY = {
 </svg>`, // commerce,
 	'products': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>products</title>
-  <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
-  <path d="M8 10h8M8 14h8"/>
-  <path d="M12 7v10"/>
+  <path d="M4 6h16v12H4Z"/>
+  <path d="M3 4h2l1.8 9.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L21 7H7.2"/>
+  <circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>
 </svg>`, // commerce,
 	'quote-request': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>quote-request</title>
@@ -763,6 +709,13 @@ export const TOKEN_ICON_REGISTRY = {
   <circle cx="12" cy="12" r="3"/>
   <path d="M4 12h2M18 12h2M12 4v2M12 18v2M6.5 6.5l1.4 1.4M16.1 16.1l1.4 1.4M17.5 6.5l-1.4 1.4M7.9 16.1l-1.4 1.4"/>
 </svg>`, // control,
+	'controls': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>controls</title>
+  <rect x="3" y="3" width="18" height="18" rx="2.0"/>
+  <path d="M3 9.0h18"/>
+  <circle cx="12" cy="12" r="3"/>
+  <path d="M4 12h2M18 12h2M12 4v2M12 18v2M6.5 6.5l1.4 1.4M16.1 16.1l1.4 1.4M17.5 6.5l-1.4 1.4M7.9 16.1l-1.4 1.4"/>
+</svg>`, // control,
 	'cube-control': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>cube-control</title>
   <circle cx="12" cy="12" r="7"/>
@@ -793,11 +746,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z"/>
   <path d="M4 6l8 3 8-3"/>
   <path d="M12 9v12"/>
-</svg>`, // control,
-	'lists': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>lists</title>
-  <rect x="4" y="4" width="16" height="16" rx="2"/>
-  <path d="M8 8h8M8 12h8M8 16h5"/>
 </svg>`, // control,
 	'menus': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>menus</title>
@@ -846,11 +794,9 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M10 9h7M10 14h6"/>
   <circle cx="7" cy="9" r="1.4"/><circle cx="7" cy="14" r="1.4"/>
 </svg>`, // control,
-	'search': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>search</title>
-  <circle cx="12" cy="12" r="7"/>
-  <path d="M12 5v14M5 12h14"/>
-  <path d="m8 8 8 8M16 8l-8 8"/>
+	'search': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="11" cy="11" r="7" />
+  <path d="m20 20-3.5-3.5" />
 </svg>`, // control,
 	'selector': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>selector</title>
@@ -919,12 +865,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M7 7v12h10V7"/>
   <path d="M9 11h6M9 15h4"/>
   <path d="M10 4h4l1 3H9l1-3z"/>
-</svg>`, // control,
-	'tag': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>tag</title>
-  <path d="M4 12h4l2-6 4 12 2-6h4"/>
-  <circle cx="6" cy="12" r="2"/>
-  <circle cx="18" cy="12" r="2"/>
 </svg>`, // control,
 	'toggle': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>toggle</title>
@@ -1035,9 +975,6 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="4" y="4" width="16" height="16" rx="2"/>
   <path d="M8 8h8M8 12h8M8 16h5"/>
 </svg>`, // development,
-	'check': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M20 6 9 17l-5-5" />
-</svg>`, // development,
 	'chevron-right': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="m9 18 6-6-6-6" />
 </svg>`, // development,
@@ -1056,9 +993,10 @@ export const TOKEN_ICON_REGISTRY = {
 </svg>`, // development,
 	'code-diff': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>code-diff</title>
-  <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
-  <path d="M8 10h8M8 14h8"/>
-  <path d="M12 7v10"/>
+  <rect x="3" y="3" width="18" height="18" rx="2.0"/>
+  <path d="M3 13.0h18"/>
+  <path d="m8 8-4 4 4 4M16 8l4 4-4 4"/>
+  <path d="m13 5-3 14"/>
 </svg>`, // development,
 	'code-editor-dev': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>code-editor-dev</title>
@@ -1110,10 +1048,6 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="4" y="4" width="16" height="16" rx="2"/>
   <path d="M8 8h8M8 12h8M8 16h5"/>
 </svg>`, // development,
-	'copy': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-</svg>`, // development,
 	'copyable-code-block': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>copyable-code-block</title>
   <rect x="4" y="4" width="16" height="16" rx="2"/>
@@ -1144,20 +1078,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="m16 8 4 4-4 4"/>
   <path d="m14 5-4 14"/>
 </svg>`, // development,
-	'documentation-block': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>documentation-block</title>
-  <path d="M5 7h14"/>
-  <path d="M7 7v12h10V7"/>
-  <path d="M9 11h6M9 15h4"/>
-  <path d="M10 4h4l1 3H9l1-3z"/>
-</svg>`, // development,
-	'errors': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>errors</title>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M13.0 3v18"/>
-  <circle cx="12" cy="12" r="9"/>
-  <path d="m9 9 6 6m0-6-6 6"/>
-</svg>`, // development,
 	'file-code': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
   <path d="M14 2v6h6" />
@@ -1169,13 +1089,6 @@ export const TOKEN_ICON_REGISTRY = {
 </svg>`, // development,
 	'folder': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z" />
-</svg>`, // development,
-	'json': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>json</title>
-  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
-  <path d="M6 14.0h12"/>
-  <path d="m8 8-4 4 4 4M16 8l4 4-4 4"/>
-  <path d="m14 5-3 14"/>
 </svg>`, // development,
 	'layers': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="m12 2 10 6-10 6L2 8z" />
@@ -1194,12 +1107,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="m3.3 7 8.7 5 8.7-5" />
   <path d="M12 22V12" />
 </svg>`, // development,
-	'privacy-settings': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>privacy-settings</title>
-  <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z"/>
-  <path d="M4 6l8 3 8-3"/>
-  <path d="M12 9v12"/>
-</svg>`, // development,
 	'resource-optimizer': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>resource-optimizer</title>
   <path d="M5 7h14"/>
@@ -1207,11 +1114,12 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M9 11h6M9 15h4"/>
   <path d="M10 4h4l1 3H9l1-3z"/>
 </svg>`, // development,
-	'stack': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>stack</title>
-  <rect x="3" y="5" width="18" height="14" rx="2"/>
-  <path d="M7 9h10M7 13h6"/>
-  <path d="M17 17l3 3"/>
+	'settings': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>settings</title>
+  <circle cx="12" cy="12" r="8.6"/>
+  <path d="M12 12 7.0 9.0"/>
+  <circle cx="12" cy="12" r="3"/>
+  <path d="M4 12h2M18 12h2M12 4v2M12 18v2M6.5 6.5l1.4 1.4M16.1 16.1l1.4 1.4M17.5 6.5l-1.4 1.4M7.9 16.1l-1.4 1.4"/>
 </svg>`, // development,
 	'stylist': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>stylist</title>
@@ -1318,6 +1226,7 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M9.3 11.1 14.7 7.9"/>
   <path d="M9.3 12.9 14.7 16.1"/>
 </svg>`, // domain,
+	'json': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a3 3 0 0 0-3 3v1a3 3 0 0 1-2 3 3 3 0 0 1 2 3v1a3 3 0 0 0 3 3h2"/><path d="M15 5h2a3 3 0 0 1 3 3v1a3 3 0 0 0 2 3 3 3 0 0 0-2 3v1a3 3 0 0 1-3 3h-2"/><path d="M10 9h4"/><path d="M10 15h4"/></svg>`, // domain,
 	'landing': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
   <title>landing</title>
   <path d="M3.5 11.5 12 4l8.5 7.5" />
@@ -1378,13 +1287,10 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M14 3v6h6"/>
   <path d="M12 9v6m-2-2 2 2 2-2"/>
 </svg>`, // file,
-	'download': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>download</title>
-  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
-  <path d="M6 6.0h12"/>
-  <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
-  <path d="M14 3v6h6"/>
-  <path d="M12 9v6m-2-2 2 2 2-2"/>
+	'download': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3v12" />
+  <path d="m7 10 5 5 5-5" />
+  <path d="M5 21h14" />
 </svg>`, // file,
 	'drag-drop-file-upload': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>drag-drop-file-upload</title>
@@ -1436,13 +1342,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M14 3v5h5"/>
   <path d="M8 13h8"/>
   <path d="M8 17h5"/>
-</svg>`, // file,
-	'forms': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>forms</title>
-  <rect x="4" y="4" width="6" height="6" rx="1.5"/>
-  <rect x="14" y="4" width="6" height="6" rx="1.5"/>
-  <rect x="4" y="14" width="6" height="6" rx="1.5"/>
-  <path d="M10 7h4M7 10v4M10 17h8a2 2 0 0 0 2-2V7"/>
 </svg>`, // file,
 	'import': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -1549,6 +1448,12 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="4" y="4" width="16" height="16" rx="3"/>
   <path d="M8 8h8M8 12h6M8 16h4"/>
 </svg>`, // form,
+	'forms': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>forms</title>
+  <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z"/>
+  <path d="M4 6l8 3 8-3"/>
+  <path d="M12 9v12"/>
+</svg>`, // form,
 	'input-field': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>input-field</title>
   <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -1641,9 +1546,9 @@ export const TOKEN_ICON_REGISTRY = {
 </svg>`, // geo,
 	'route-planner': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>route-planner</title>
-  <circle cx="12" cy="12" r="7"/>
-  <path d="M12 5v14M5 12h14"/>
-  <path d="m8 8 8 8M16 8l-8 8"/>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M12 21s6-5.6 6-10a6 6 0 1 0-12 0c0 4.4 6 10 6 10Z"/>
+  <circle cx="12" cy="11" r="1.5"/>
 </svg>`, // geo,
 	'store-locator': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>store-locator</title>
@@ -1656,21 +1561,6 @@ export const TOKEN_ICON_REGISTRY = {
   <circle cx="12" cy="12" r="10" class="text-green-600"/>
   <circle cx="12" cy="12" r="6" fill="currentColor" opacity="0.2"/>
   <path d="M12 9v4l2 2"/>
-</svg>`, // information,
-	'activity': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>activity</title>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M13.0 3v18"/>
-  <circle cx="12" cy="12" r="8"/>
-  <path d="M12 12 18 12"/>
-  <path d="M12 12 11.37 6.03"/>
-</svg>`, // information,
-	'agile': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>agile</title>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M15.0 3v18"/>
-  <circle cx="6" cy="8" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="12" cy="18" r="2"/>
-  <path d="M7.7 7.2 16.3 6.8M7 7.5l4 8m6.3-5.9-4.1 7.4"/>
 </svg>`, // information,
 	'alert-card': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>alert-card</title>
@@ -1697,41 +1587,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M4 6h16v12H4Z"/>
   <path d="M13.0 6v12"/>
   <path d="M4 6h16M8 6v12M16 6v12M6 18h12"/>
-</svg>`, // information,
-	'audio-player': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>audio-player</title>
-  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
-  <path d="M6 12.0h12"/>
-  <path d="M4 14h3l4 4V6L7 10H4Z"/>
-  <path d="M15 10a3 3 0 0 1 0 4M17.5 8a6 6 0 0 1 0 8"/>
-</svg>`, // information,
-	'audio-slider': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>audio-slider</title>
-  <rect x="3" y="3" width="18" height="18" rx="3.8"/>
-  <path d="M3 18.0h18"/>
-  <path d="M4 14h3l4 4V6L7 10H4Z"/>
-  <path d="M15 10a4 4 0 0 1 0 4M17.5 8a6 6 0 0 1 0 8"/>
-</svg>`, // information,
-	'audio-visualizer': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>audio-visualizer</title>
-  <rect x="3" y="3" width="18" height="18" rx="2.0"/>
-  <path d="M3 8.0h18"/>
-  <path d="M4 14h3l4 4V6L7 10H4Z"/>
-  <path d="M15 10a4 4 0 0 1 0 4M17.5 8a6 6 0 0 1 0 8"/>
-</svg>`, // information,
-	'avatar-group': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>avatar-group</title>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M12.0 3v18"/>
-  <circle cx="12" cy="8" r="3.2"/>
-  <path d="M6 19a6 6 0 0 1 13 0"/>
-</svg>`, // information,
-	'avatar': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>avatar</title>
-  <rect x="3" y="3" width="18" height="18" rx="3.2"/>
-  <path d="M3 8.0h18"/>
-  <circle cx="12" cy="8" r="3.2"/>
-  <path d="M5 19a7 7 0 0 1 14 0"/>
 </svg>`, // information,
 	'badge': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>badge</title>
@@ -1769,10 +1624,10 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M4 19h16"/>
   <path d="M7 16v-8M12 16v-6M17 16v-10"/>
 </svg>`, // information,
-	'check-circle': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>check-circle</title>
+	'check': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>check</title>
   <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M8.0 3v18"/>
+  <path d="M16.0 3v18"/>
   <circle cx="12" cy="12" r="9"/>
   <path d="m8 12.5 2.6 2.6L16 9.7"/>
 </svg>`, // information,
@@ -1818,13 +1673,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="m8 8-4 4 4 4M16 8l4 4-4 4"/>
   <path d="m13 5-3 14"/>
 </svg>`, // information,
-	'conversion-funnel': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>conversion-funnel</title>
-  <path d="M4 6h16v12H4Z"/>
-  <path d="M10.0 6v12"/>
-  <rect x="3" y="5" width="18" height="14" rx="2"/>
-  <path d="M7 9h10M7 13h7"/>
-</svg>`, // information,
 	'country-flag': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>country-flag</title>
   <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -1838,6 +1686,13 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M6 12.0h12"/>
   <rect x="3" y="5" width="18" height="14" rx="2"/>
   <path d="M7 9h10M7 13h7"/>
+</svg>`, // information,
+	'data-display': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>data-display</title>
+  <rect x="4" y="4" width="6" height="6" rx="1.5"/>
+  <rect x="14" y="4" width="6" height="6" rx="1.5"/>
+  <rect x="4" y="14" width="6" height="6" rx="1.5"/>
+  <path d="M10 7h4M7 10v4M10 17h8a2 2 0 0 0 2-2V7"/>
 </svg>`, // information,
 	'densities': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>densities</title>
@@ -1872,6 +1727,12 @@ export const TOKEN_ICON_REGISTRY = {
   <line x1="9" y1="9" x2="15" y2="15" opacity="0.3"/>
   <line x1="15" y1="9" x2="9" y2="15" opacity="0.3"/>
 </svg>`, // information,
+	'documentation-block': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>documentation-block</title>
+  <path d="M4 6h16v12H4Z"/>
+  <path d="M9.0 6v12"/>
+  <path d="M4 6h16M8 6v12M16 6v12M6 17h12"/>
+</svg>`, // information,
 	'empty': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="4 4"/>
   <circle cx="12" cy="12" r="3"/>
@@ -1892,14 +1753,6 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="3" y="5" width="18" height="14" rx="2"/>
   <path d="M7 9h10M7 13h7"/>
 </svg>`, // information,
-	'favicon': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>favicon</title>
-  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
-  <path d="M6 11.0h12"/>
-  <rect x="3" y="5" width="18" height="14" rx="2"/>
-  <circle cx="10" cy="9" r="1.2"/>
-  <path d="m6 16 3-3 3 3 2-2 4 4"/>
-</svg>`, // information,
 	'gradients': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>gradients</title>
   <rect x="3" y="3" width="18" height="18" rx="2.6"/>
@@ -1913,30 +1766,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M6 14.0h12"/>
   <circle cx="6" cy="8" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="12" cy="18" r="2"/>
   <path d="M7.7 7.2 16.3 6.8M7 7.5l4 8m6.3-5.9-4.1 7.4"/>
-</svg>`, // information,
-	'image-gallery': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>image-gallery</title>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M15.0 3v18"/>
-  <rect x="3" y="5" width="18" height="14" rx="2"/>
-  <circle cx="8" cy="9" r="1.2"/>
-  <path d="m6 16 3-3 3 3 2-2 4 4"/>
-</svg>`, // information,
-	'image-with-caption': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>image-with-caption</title>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M9.0 3v18"/>
-  <rect x="3" y="5" width="18" height="14" rx="2"/>
-  <circle cx="10" cy="9" r="1.2"/>
-  <path d="m6 16 3-3 3 3 2-2 4 4"/>
-</svg>`, // information,
-	'image': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>image</title>
-  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
-  <path d="M6 13.0h12"/>
-  <rect x="3" y="5" width="18" height="14" rx="2"/>
-  <circle cx="12" cy="9" r="1.2"/>
-  <path d="m6 16 3-3 3 3 2-2 4 4"/>
 </svg>`, // information,
 	'indicators': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>indicators</title>
@@ -1979,13 +1808,6 @@ export const TOKEN_ICON_REGISTRY = {
   <circle cx="6" cy="9" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="12" cy="18" r="2"/>
   <path d="M7.7 7.2 16.3 6.8M7 7.5l4 8m6.3-5.9-4.1 7.4"/>
 </svg>`, // information,
-	'kanban': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>kanban</title>
-  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
-  <path d="M6 9.0h12"/>
-  <circle cx="6" cy="7" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="12" cy="18" r="2"/>
-  <path d="M7.7 7.2 16.3 6.8M7 7.5l4 8m6.3-5.9-4.1 7.4"/>
-</svg>`, // information,
 	'kpi-indicator': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>kpi-indicator</title>
   <rect x="3" y="3" width="18" height="18" rx="3.8"/>
@@ -2014,6 +1836,21 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="3" y="5" width="18" height="14" rx="2"/>
   <path d="M7 9h10M7 13h7"/>
 </svg>`, // information,
+	'list': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>list</title>
+  <path d="M9 6h11"/>
+  <path d="M9 12h11"/>
+  <path d="M9 18h11"/>
+  <path d="M4 6h.01"/>
+  <path d="M4 12h.01"/>
+  <path d="M4 18h.01"/>
+</svg>`, // information,
+	'lists': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>lists</title>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M8.0 3v18"/>
+  <path d="M4 7h16M4 12h16M4 17h16"/>
+</svg>`, // information,
 	'loading': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="10" opacity="0.2"/>
   <circle cx="12" cy="12" r="10" stroke-dasharray="4 4">
@@ -2034,14 +1871,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M12 12 10.0 11.0"/>
   <rect x="3" y="3" width="18" height="18" rx="2"/>
   <path d="M3 13h18M10 3v18"/>
-</svg>`, // information,
-	'media-library': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>media-library</title>
-  <path d="M4 6h16v12H4Z"/>
-  <path d="M17.0 6v12"/>
-  <rect x="3" y="5" width="18" height="14" rx="2"/>
-  <circle cx="9" cy="9" r="1.2"/>
-  <path d="m6 16 3-3 3 3 2-2 4 4"/>
 </svg>`, // information,
 	'message-bubble': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>message-bubble</title>
@@ -2107,13 +1936,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M4 19h16"/>
   <path d="M7 16v-7M12 16v-4M17 16v-5"/>
 </svg>`, // information,
-	'npm-badge': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>npm-badge</title>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M6.0 3v18"/>
-  <rect x="3" y="5" width="18" height="14" rx="2"/>
-  <path d="M7 9h10M7 13h7"/>
-</svg>`, // information,
 	'number-flow': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>number-flow</title>
   <path d="M4 6h16v12H4Z"/>
@@ -2135,13 +1957,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M3 9.0h18"/>
   <circle cx="6" cy="10" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="12" cy="18" r="2"/>
   <path d="M7.7 7.2 16.3 6.8M7 7.5l4 8m6.3-5.9-4.1 7.4"/>
-</svg>`, // information,
-	'operations-history': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>operations-history</title>
-  <rect x="3" y="3" width="18" height="18" rx="3.8"/>
-  <path d="M3 13.0h18"/>
-  <rect x="3" y="5" width="18" height="14" rx="2"/>
-  <path d="M7 9h10M7 13h7"/>
 </svg>`, // information,
 	'pending': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="10" opacity="0.2"/>
@@ -2170,13 +1985,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M10 9h8M10 14h5"/>
   <path d="M6 9h2M6 14h2"/>
 </svg>`, // information,
-	'popover': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>popover</title>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M14.0 3v18"/>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M3 15h18M12 3v18"/>
-</svg>`, // information,
 	'positions': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>positions</title>
   <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
@@ -2191,6 +1999,14 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M12 12 15.0 8.0"/>
   <rect x="3" y="5" width="18" height="14" rx="2"/>
   <path d="M7 9h10M7 13h7"/>
+</svg>`, // information,
+	'privacy-settings': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>privacy-settings</title>
+  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
+  <path d="M6 13.0h12"/>
+  <path d="M12 3 5 6v6c0 4.6 3.1 7.9 7 9 3.9-1.1 7-4.4 7-9V6l-7-3Z"/>
+  <path d="m9.5 12 2 2 3.5-3.5"/>
+  <path d="M18 5h2M19 4v2"/>
 </svg>`, // information,
 	'process-step': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>process-step</title>
@@ -2241,21 +2057,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M3 4h2l1.8 9.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L21 7H7.2"/>
   <circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>
 </svg>`, // information,
-	'progress': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>progress</title>
-  <rect x="3" y="3" width="18" height="18" rx="3.2"/>
-  <path d="M3 6.0h18"/>
-  <circle cx="12" cy="12" r="8"/>
-  <path d="M12 12 18 12"/>
-  <path d="M12 12 10.55 6.18"/>
-</svg>`, // information,
-	'rating': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>rating</title>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M11.0 3v18"/>
-  <path d="M4 19h16"/>
-  <path d="M7 16v-3M12 16v-8M17 16v-8"/>
-</svg>`, // information,
 	'rich-text-editor': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>rich-text-editor</title>
   <circle cx="12" cy="12" r="8.0"/>
@@ -2283,13 +2084,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M6 7.0h12"/>
   <path d="M4 19h16"/>
   <path d="M7 16v-6M12 16v-6M17 16v-6"/>
-</svg>`, // information,
-	'stepper': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>stepper</title>
-  <circle cx="12" cy="12" r="8.0"/>
-  <path d="M12 12 14.0 8.0"/>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M3 12h18M9 3v18"/>
 </svg>`, // information,
 	'success': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="10" class="text-green-500"/>
@@ -2330,6 +2124,13 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M4 8h16M6 8V6h4v2M12 8V6h4v2"/>
   <rect x="4" y="8" width="16" height="10" rx="2"/>
 </svg>`, // information,
+	'tag': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>tag</title>
+  <rect x="3" y="3" width="18" height="18" rx="3.8"/>
+  <path d="M3 17.0h18"/>
+  <rect x="4" y="4" width="16" height="16" rx="3"/>
+  <path d="M8 8h8M8 12h6M8 16h4"/>
+</svg>`, // information,
 	'team-avatar-stack': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>team-avatar-stack</title>
   <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -2363,12 +2164,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M9.0 6v12"/>
   <path d="M4 6h16M8 6v12M16 6v12M6 18h12"/>
 </svg>`, // information,
-	'text': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>text</title>
-  <path d="M4 6h16v12H4Z"/>
-  <path d="M7.0 6v12"/>
-  <path d="M4 6h16M8 6v12M16 6v12M6 18h12"/>
-</svg>`, // information,
 	'trending-down': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>trending-down</title>
   <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -2387,12 +2182,6 @@ export const TOKEN_ICON_REGISTRY = {
   <title>typography-indicator</title>
   <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
   <path d="M6 8.0h12"/>
-  <path d="M4 6h16M8 6v12M16 6v12M6 17h12"/>
-</svg>`, // information,
-	'typography': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>typography</title>
-  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
-  <path d="M6 6.0h12"/>
   <path d="M4 6h16M8 6v12M16 6v12M6 17h12"/>
 </svg>`, // information,
 	'user-card': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
@@ -2422,14 +2211,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M11.0 6v12"/>
   <path d="M4 19h16"/>
   <path d="M7 16v-8M12 16v-8M17 16v-5"/>
-</svg>`, // information,
-	'video-player': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>video-player</title>
-  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
-  <path d="M6 13.0h12"/>
-  <rect x="3" y="5" width="18" height="14" rx="2"/>
-  <circle cx="12" cy="9" r="1.2"/>
-  <path d="m6 16 3-3 3 3 2-2 4 4"/>
 </svg>`, // information,
 	'warning': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="10" class="text-amber-500"/>
@@ -2461,6 +2242,11 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z"/>
   <path d="M4 6l8 3 8-3"/>
   <path d="M12 9v12"/>
+</svg>`, // input,
+	'input': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>input</title>
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <path d="M8 8h8M8 12h8M8 16h5"/>
 </svg>`, // input,
 	'add': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="10"/>
@@ -2511,6 +2297,12 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M6 14.0h12"/>
   <circle cx="12" cy="12" r="3"/>
   <path d="M4 12h2M18 12h2M12 4v2M12 18v2M6.5 6.5l1.4 1.4M16.1 16.1l1.4 1.4M17.5 6.5l-1.4 1.4M7.9 16.1l-1.4 1.4"/>
+</svg>`, // interaction,
+	'copy': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="9" y="9" width="13" height="13" rx="2"/>
+  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+  <path d="M13 13l-3-3"/>
+  <path d="M10 13h3v-3"/>
 </svg>`, // interaction,
 	'cut': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M6 9V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5"/>
@@ -2616,12 +2408,10 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M7 7l10 10"/>
   <path d="M17 7L7 17"/>
 </svg>`, // interaction,
-	'save': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>save</title>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M10.0 3v18"/>
-  <rect x="4" y="4" width="16" height="16" rx="3"/>
-  <path d="M8 8h8M8 12h6M8 16h4"/>
+	'save': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z" />
+  <path d="M17 21v-8H7v8" />
+  <path d="M7 3v5h8" />
 </svg>`, // interaction,
 	'search-bar': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>search-bar</title>
@@ -2784,13 +2574,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M10 12h4"/>
   <path d="M10 16h4"/>
 </svg>`, // layout,
-	'general-toolbar': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>general-toolbar</title>
-  <rect x="3" y="3" width="18" height="18" rx="3.8"/>
-  <path d="M3 17.0h18"/>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M3 15h18M12 3v18"/>
-</svg>`, // layout,
 	'gradient-background': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>gradient background</title>
   <rect x="3.5" y="5" width="17" height="14" rx="3"/>
@@ -2851,13 +2634,6 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M8 22l-2-2"/>
   <path d="M16 22l2-2"/>
 </svg>`, // layout,
-	'hero': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>hero</title>
-  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
-  <path d="M6 13.0h12"/>
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M3 12h18M9 3v18"/>
-</svg>`, // layout,
 	'horizontal-layout': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>horizontal-layout</title>
   <circle cx="12" cy="12" r="8.8"/>
@@ -2880,6 +2656,12 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M4 5h16M4 19h16M8 5v14"/>
   <rect x="7" y="8" width="10" height="3" rx="1"/>
   <rect x="9" y="13" width="6" height="3" rx="1"/>
+</svg>`, // layout,
+	'layout': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="4" width="18" height="16" rx="2"/>
+  <path d="M3 9h18"/>
+  <path d="M9 9v11"/>
+  <path d="M15 9v11"/>
 </svg>`, // layout,
 	'margin': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="2 2"/>
@@ -2988,6 +2770,13 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="3" y="3" width="18" height="18" rx="2"/>
   <path d="M3 10h18M7 3v18"/>
 </svg>`, // layout,
+	'popover': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>popover</title>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M14.0 3v18"/>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M3 15h18M12 3v18"/>
+</svg>`, // layout,
 	'radius': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>radius</title>
   <path d="M5 19V7h7"/>
@@ -3047,6 +2836,13 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="3" y="3" width="18" height="18" rx="2"/>
   <path d="M3 7h18M14 3v18"/>
 </svg>`, // layout,
+	'stack': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>stack</title>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M8.0 3v18"/>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M3 14h18M11 3v18"/>
+</svg>`, // layout,
 	'stacked-layout': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>stacked-layout</title>
   <path d="M6 4h12l4 4v12l-4 4H6l-4-4V8Z"/>
@@ -3100,10 +2896,6 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="3" y="3" width="18" height="18" rx="2"/>
   <path d="M3 15h18M12 3v18"/>
 </svg>`, // layout,
-	'edit-3': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M12 20h9" />
-  <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" />
-</svg>`, // localization,
 	'globe': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="9" />
   <path d="M3 12h18" />
@@ -3140,6 +2932,18 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M10 11v6" />
   <path d="M14 11v6" />
 </svg>`, // localization,
+	'agile': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>agile</title>
+  <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
+  <path d="M8 10h8M8 14h8"/>
+  <path d="M12 7v10"/>
+</svg>`, // management,
+	'card': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>card</title>
+  <circle cx="12" cy="12" r="7"/>
+  <path d="M12 5v14M5 12h14"/>
+  <path d="m8 8 8 8M16 8l-8 8"/>
+</svg>`, // management,
 	'dashboards': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>dashboards</title>
   <path d="M4 12h4l2-6 4 12 2-6h4"/>
@@ -3157,6 +2961,11 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="4" y="4" width="16" height="16" rx="2"/>
   <path d="M8 8h8M8 12h8M8 16h5"/>
 </svg>`, // management,
+	'kanban': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>kanban</title>
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <path d="M8 8h8M8 12h8M8 16h5"/>
+</svg>`, // management,
 	'management': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="3"/>
   <path d="M12 3v3"/>
@@ -3168,10 +2977,12 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="m18.4 5.6-2.1 2.1"/>
   <path d="m7.7 16.3-2.1 2.1"/>
 </svg>`, // management,
-	'navigation': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>navigation</title>
-  <rect x="4" y="4" width="16" height="16" rx="2"/>
-  <path d="M8 8h8M8 12h8M8 16h5"/>
+	'operations-history': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>operations-history</title>
+  <rect x="3" y="3" width="18" height="18" rx="3.8"/>
+  <path d="M3 13.0h18"/>
+  <rect x="3" y="5" width="18" height="14" rx="2"/>
+  <path d="M7 9h10M7 13h7"/>
 </svg>`, // management,
 	'performance-dashboard': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>performance-dashboard</title>
@@ -3285,6 +3096,11 @@ export const TOKEN_ICON_REGISTRY = {
     </g>
   </g>
 </svg>`, // marketing,
+	'conversion-funnel': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>conversion-funnel</title>
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <path d="M8 8h8M8 12h8M8 16h5"/>
+</svg>`, // marketing,
 	'cta-banner': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>cta-banner</title>
   <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
@@ -3292,6 +3108,11 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="3" y="5" width="18" height="11" rx="2"/>
   <path d="M10 16 7 19v-3"/>
   <path d="M7 9h10M7 12h6"/>
+</svg>`, // marketing,
+	'hero': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>hero</title>
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <path d="M8 8h8M8 12h8M8 16h5"/>
 </svg>`, // marketing,
 	'marketing': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M4 13V8l12-4v14L4 13z"/>
@@ -3321,6 +3142,36 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M5 19a7 7 0 0 1 14 0"/>
   <path d="M16 8V5M18 8V4"/>
 </svg>`, // marketing,
+	'audio-player': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>audio-player</title>
+  <rect x="4" y="4" width="6" height="6" rx="1.5"/>
+  <rect x="14" y="4" width="6" height="6" rx="1.5"/>
+  <rect x="4" y="14" width="6" height="6" rx="1.5"/>
+  <path d="M10 7h4M7 10v4M10 17h8a2 2 0 0 0 2-2V7"/>
+</svg>`, // media,
+	'audio-slider': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>audio-slider</title>
+  <path d="M4 12h4l2-6 4 12 2-6h4"/>
+  <circle cx="6" cy="12" r="2"/>
+  <circle cx="18" cy="12" r="2"/>
+</svg>`, // media,
+	'audio-visualizer': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>audio-visualizer</title>
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <path d="M8 8h8M8 12h8M8 16h5"/>
+</svg>`, // media,
+	'avatar-group': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>avatar-group</title>
+  <circle cx="12" cy="12" r="7"/>
+  <path d="M12 5v14M5 12h14"/>
+  <path d="m8 8 8 8M16 8l-8 8"/>
+</svg>`, // media,
+	'avatar': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>avatar</title>
+  <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
+  <path d="M8 10h8M8 14h8"/>
+  <path d="M12 7v10"/>
+</svg>`, // media,
 	'blur': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>blur</title>
   <circle cx="9" cy="12" r="3.2"/>
@@ -3342,6 +3193,13 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="4" y="4" width="16" height="16" rx="3"/>
   <path d="M8 8h8M8 12h6M8 16h4"/>
 </svg>`, // media,
+	'favicon': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>favicon</title>
+  <rect x="4" y="4" width="6" height="6" rx="1.5"/>
+  <rect x="14" y="4" width="6" height="6" rx="1.5"/>
+  <rect x="4" y="14" width="6" height="6" rx="1.5"/>
+  <path d="M10 7h4M7 10v4M10 17h8a2 2 0 0 0 2-2V7"/>
+</svg>`, // media,
 	'icon': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>icon</title>
   <circle cx="12" cy="12" r="7"/>
@@ -3354,6 +3212,31 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M12 12 14.0 18.0"/>
   <circle cx="12" cy="12" r="3"/>
   <path d="M4 12h2M18 12h2M12 4v2M12 18v2M6.5 6.5l1.4 1.4M16.1 16.1l1.4 1.4M17.5 6.5l-1.4 1.4M7.9 16.1l-1.4 1.4"/>
+</svg>`, // media,
+	'image-gallery': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>image-gallery</title>
+  <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z"/>
+  <path d="M4 6l8 3 8-3"/>
+  <path d="M12 9v12"/>
+</svg>`, // media,
+	'image-with-caption': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>image-with-caption</title>
+  <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z"/>
+  <path d="M4 6l8 3 8-3"/>
+  <path d="M12 9v12"/>
+</svg>`, // media,
+	'image': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>image</title>
+  <path d="M5 7h14"/>
+  <path d="M7 7v12h10V7"/>
+  <path d="M9 11h6M9 15h4"/>
+  <path d="M10 4h4l1 3H9l1-3z"/>
+</svg>`, // media,
+	'media-library': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>media-library</title>
+  <rect x="3" y="5" width="18" height="14" rx="2"/>
+  <path d="M7 9h10M7 13h6"/>
+  <path d="M17 17l3 3"/>
 </svg>`, // media,
 	'media': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <rect x="3" y="5" width="18" height="14" rx="2"/>
@@ -3379,6 +3262,13 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
   <path d="M8 10h8M8 14h8"/>
   <path d="M12 7v10"/>
+</svg>`, // media,
+	'video-player': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>video-player</title>
+  <path d="M5 7h14"/>
+  <path d="M7 7v12h10V7"/>
+  <path d="M9 11h6M9 15h4"/>
+  <path d="M10 4h4l1 3H9l1-3z"/>
 </svg>`, // media,
 	'accordion-molecule': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>accordion-molecule</title>
@@ -3431,6 +3321,12 @@ export const TOKEN_ICON_REGISTRY = {
   <circle cx="6" cy="12" r="2"/>
   <circle cx="18" cy="12" r="2"/>
 </svg>`, // navigation,
+	'general-toolbar': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>general-toolbar</title>
+  <circle cx="12" cy="12" r="7"/>
+  <path d="M12 5v14M5 12h14"/>
+  <path d="m8 8 8 8M16 8l-8 8"/>
+</svg>`, // navigation,
 	'menu': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>menu</title>
   <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
@@ -3444,6 +3340,10 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="4" y="4" width="16" height="16" rx="3"/>
   <path d="M8 8h8M8 12h6M8 16h4"/>
 </svg>`, // navigation,
+	'navigation': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3 4 21l8-4 8 4-8-18z"/>
+  <path d="M12 3v14"/>
+</svg>`, // navigation,
 	'pagination': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>pagination</title>
   <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
@@ -3455,6 +3355,13 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="3" y="5" width="18" height="14" rx="2"/>
   <path d="M7 9h10M7 13h6"/>
   <path d="M17 17l3 3"/>
+</svg>`, // navigation,
+	'stepper': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>stepper</title>
+  <path d="M5 7h14"/>
+  <path d="M7 7v12h10V7"/>
+  <path d="M9 11h6M9 15h4"/>
+  <path d="M10 4h4l1 3H9l1-3z"/>
 </svg>`, // navigation,
 	'toolbars-molecule': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>toolbars-molecule</title>
@@ -3504,6 +3411,12 @@ export const TOKEN_ICON_REGISTRY = {
   <rect x="4" y="4" width="16" height="16" rx="3"/>
   <path d="M8 8h8M8 12h6M8 16h4"/>
 </svg>`, // notification,
+	'errors': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>errors</title>
+  <rect x="3" y="5" width="18" height="14" rx="2"/>
+  <path d="M7 9h10M7 13h6"/>
+  <path d="M17 17l3 3"/>
+</svg>`, // notification,
 	'lazy-loader': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>lazy-loader</title>
   <rect x="4" y="4" width="16" height="16" rx="2"/>
@@ -3544,6 +3457,12 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M7 7v12h10V7"/>
   <path d="M9 11h6M9 15h4"/>
   <path d="M10 4h4l1 3H9l1-3z"/>
+</svg>`, // notification,
+	'progress': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>progress</title>
+  <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
+  <path d="M8 10h8M8 14h8"/>
+  <path d="M12 7v10"/>
 </svg>`, // notification,
 	'response-viewer': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>response-viewer</title>
@@ -3807,6 +3726,9 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M10 18h4"/>
   <circle cx="12" cy="11" r="1"/>
 </svg>`, // science,
+	'activity': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M22 12h-4l-3 8-6-16-3 8H2" />
+</svg>`, // social,
 	'apple': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
   <path d="M16.7 12.4c0-2.4 1.9-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.5-.2-2.9.9-3.6.9-.8 0-1.9-.9-3.2-.9-1.6 0-3.1.9-4 2.3-1.7 2.9-.4 7.1 1.2 9.4.8 1.1 1.7 2.4 2.9 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.1-.8-2.1-3.7Z" />
   <path d="M14.4 5.5c.6-.8 1-1.9.9-3-1 .1-2.1.7-2.8 1.5-.6.7-1.1 1.8-1 2.9 1 .1 2.2-.5 2.9-1.4Z" />
@@ -3830,6 +3752,10 @@ export const TOKEN_ICON_REGISTRY = {
 	'bookmark': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M19 21 12 17 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z" />
 </svg>`, // social,
+	'check-circle': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10" />
+  <path d="m9 12 2 2 4-4" />
+</svg>`, // social,
 	'chrome': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
   <circle cx="12" cy="12" r="10" />
   <circle cx="12" cy="12" r="4" />
@@ -3839,6 +3765,13 @@ export const TOKEN_ICON_REGISTRY = {
 </svg>`, // social,
 	'circle': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
   <circle cx="12" cy="12" r="9" />
+</svg>`, // social,
+	'collaborate': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>collaborate</title>
+  <circle cx="12" cy="12" r="8.8"/>
+  <path d="M12 12 9.0 13.0"/>
+  <circle cx="6" cy="6" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="12" cy="18" r="2"/>
+  <path d="M7.7 7.2 16.3 6.8M7 7.5l4 8m6.3-5.9-4.1 7.4"/>
 </svg>`, // social,
 	'comment-system': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>comment-system</title>
@@ -3857,6 +3790,10 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M9.0 3v18"/>
   <rect x="3" y="5" width="18" height="14" rx="2"/>
   <path d="M7 9h10M7 13h7"/>
+</svg>`, // social,
+	'edit-3': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 20h9" />
+  <path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z" />
 </svg>`, // social,
 	'facebook': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
   <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v5h4v-5h3l1-4h-4V9c0-.7.3-1 1-1Z" />
@@ -3906,6 +3843,12 @@ export const TOKEN_ICON_REGISTRY = {
 </svg>`, // social,
 	'phone': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.8l-2 2a16 16 0 0 0 6 6l2-2a2 2 0 0 1 1.8-.6l3 .5a2 2 0 0 1 1.7 2Z" />
+</svg>`, // social,
+	'rating': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>rating</title>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M11.0 3v18"/>
+  <path d="M7 16v-3M12 16v-8M17 16v-8"/>
 </svg>`, // social,
 	'share-2': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="18" cy="5" r="3" />
@@ -4102,10 +4045,28 @@ export const TOKEN_ICON_REGISTRY = {
   <path d="M8 10h8M8 14h8"/>
   <path d="M12 7v10"/>
 </svg>`, // typography,
+	'npm-badge': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>navigation</title>
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <path d="M8 8h8M8 12h8M8 16h5"/>
+</svg>`, // typography,
 	'text-alignments': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>text-alignments</title>
   <rect x="3" y="3" width="18" height="18" rx="2.0"/>
   <path d="M3 14.0h18"/>
   <path d="M4 6h16M8 6v12M16 6v12M6 17h12"/>
+</svg>`, // typography,
+	'text': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>text</title>
+  <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
+  <path d="M8 10h8M8 14h8"/>
+  <path d="M12 7v10"/>
+</svg>`, // typography,
+	'typography': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 5h16"/>
+  <path d="M8 5v3"/>
+  <path d="M16 5v3"/>
+  <path d="M12 5v14"/>
+  <path d="M8 19h8"/>
 </svg>`, // typography
 } as const;

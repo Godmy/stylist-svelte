@@ -1,8 +1,6 @@
 export const TOKEN_FILE_ICON = [
 	'archive',
 	'attachment-preview',
-	'cards',
-	'controls',
 	'data-exporter',
 	'download',
 	'download-card',
@@ -13,9 +11,7 @@ export const TOKEN_FILE_ICON = [
 	'file-input',
 	'file-list-item',
 	'file-upload',
-	'forms',
 	'import',
-	'input',
 	'preview',
 	'upload',
 	'upload-progress'

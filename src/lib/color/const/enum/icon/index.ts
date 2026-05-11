@@ -1,6 +1,3 @@
 export const TOKEN_COLOR_ICON = [
-	'color',
-	'controls',
-	'data-display',
-	'input'
+	'color'
 ] as const;

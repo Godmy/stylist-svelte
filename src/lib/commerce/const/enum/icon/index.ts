@@ -1,13 +1,11 @@
 export const TOKEN_COMMERCE_ICON = [
 	'billing-summary',
 	'bulk-order-form',
-	'card',
 	'cards',
 	'cart-summary',
 	'checkout-form',
 	'commerce',
 	'contracts',
-	'controls',
 	'currency-converter',
 	'discount-applier',
 	'inventory-tracker',

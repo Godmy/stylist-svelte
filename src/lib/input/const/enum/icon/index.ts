@@ -1,7 +1,5 @@
 export const TOKEN_INPUT_ICON = [
 	'content',
 	'editors',
-	'input',
-	'pickers',
-	'search'
+	'input'
 ] as const;

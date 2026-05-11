@@ -1,5 +1,4 @@
 export const TOKEN_PLAYGROUND_ICON = [
-	'playground',
 	'playground-ai-assistant',
 	'playground-ai-chat',
 	'playground-ai-panel',

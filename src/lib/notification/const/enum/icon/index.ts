@@ -14,7 +14,6 @@ export const TOKEN_NOTIFICATION_ICON = [
 	'placeholders',
 	'progress',
 	'response-viewer',
-	'spinner',
 	'states',
 	'toast',
 	'toasts',

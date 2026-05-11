@@ -1,5 +1,4 @@
 export const TOKEN_MEDIA_ICON = [
-	'announcement-banner',
 	'audio-player',
 	'audio-slider',
 	'audio-visualizer',
@@ -8,8 +7,6 @@ export const TOKEN_MEDIA_ICON = [
 	'blur',
 	'box',
 	'components',
-	'country-flag',
-	'editors',
 	'favicon',
 	'icon',
 	'icons',
@@ -21,8 +18,5 @@ export const TOKEN_MEDIA_ICON = [
 	'models',
 	'node-icon',
 	'picture-toolbar',
-	'promo-banner',
-	'svg',
-	'team-avatar-stack',
 	'video-player'
 ] as const;

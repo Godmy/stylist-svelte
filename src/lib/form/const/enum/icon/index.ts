@@ -2,7 +2,6 @@ export const TOKEN_FORM_ICON = [
 	'advanced-password-input',
 	'autocomplete',
 	'characters-count',
-	'checkout-form',
 	'form',
 	'form-error',
 	'form-footer',
@@ -14,7 +13,6 @@ export const TOKEN_FORM_ICON = [
 	'input-field',
 	'input-organism',
 	'number-input',
-	'rfqform',
 	'tag-input',
 	'validation'
 ] as const;

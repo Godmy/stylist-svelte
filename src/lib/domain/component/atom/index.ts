@@ -2,6 +2,9 @@
 export { CardShell } from './card-shell/index';
 export { CloseIcon } from './close-icon/index';
 export { DomainEntity } from './domain-entity/index';
+export { DomainLandingFeatureCard } from './domain-landing-feature-card/index';
+export { DomainLandingHeroPoint } from './domain-landing-hero-point/index';
+export { DomainLandingMetricCard } from './domain-landing-metric-card/index';
 export { DomainListHeader } from './domain-list-header/index';
 export { OpenIcon } from './open-icon/index';
 export { OrbitBackground } from './orbit-background/index';

@@ -1,5 +1,4 @@
 export const TOKEN_NAVIGATION_ICON = [
-	'accordion',
 	'accordion-molecule',
 	'arrow-down',
 	'arrow-up',
@@ -7,16 +6,12 @@ export const TOKEN_NAVIGATION_ICON = [
 	'breadcrumb-link',
 	'breadcrumb-separator',
 	'breadcrumbs',
-	'chevron-down',
-	'chevron-up',
 	'dialogs',
 	'general-toolbar',
 	'menu',
 	'menus-molecule',
 	'navigation',
 	'pagination',
-	'panels',
-	'side-by-side-layout',
 	'sidebar',
 	'stepper',
 	'toolbars-molecule'
