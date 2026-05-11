@@ -54,24 +54,68 @@ export function createButtonMoleculeState(props: ButtonMoleculeProps) {
 
 	const restAttrs = $derived.by(() => {
 		const {
-			variant, size, disabled, loading, block, loadingLabel: _loadingLabel,
-			children, class: className, background, backgroundColor, backgroundImage,
-			backgroundPosition, backgroundSize, backgroundRepeat, gradient, opacity,
-			borderStyle, borderWidth, borderColor, borderRadius, borderTop, borderBottom,
-			borderLeft, borderRight, animated, onclick, ondblclick, oncontextmenu,
-			onmousedown, onmouseup, onmouseenter, onmouseleave, pressEffect, hoverEffect,
-			cursor, layoutLevel, layoutShape, layoutGravity, layoutMargin, layoutPadding,
-			layoutElevation, layoutGutter, layoutAnchor, 'data-theme': dataTheme,
-			'data-variant': dataVariant, 'data-tone': dataTone, 'data-state': dataState,
-			'data-gradient': dataGradient, interactionIntent, interactionFeedback,
-			interactionDelay, interactionDuration, interactionState, ...rest
+			variant,
+			size,
+			disabled,
+			loading,
+			block,
+			loadingLabel: _loadingLabel,
+			children,
+			class: className,
+			background,
+			backgroundColor,
+			backgroundImage,
+			backgroundPosition,
+			backgroundSize,
+			backgroundRepeat,
+			gradient,
+			opacity,
+			borderStyle,
+			borderWidth,
+			borderColor,
+			borderRadius,
+			borderTop,
+			borderBottom,
+			borderLeft,
+			borderRight,
+			animated,
+			onclick,
+			ondblclick,
+			oncontextmenu,
+			onmousedown,
+			onmouseup,
+			onmouseenter,
+			onmouseleave,
+			pressEffect,
+			hoverEffect,
+			cursor,
+			layoutLevel,
+			layoutShape,
+			layoutGravity,
+			layoutMargin,
+			layoutPadding,
+			layoutElevation,
+			layoutGutter,
+			layoutAnchor,
+			'data-theme': dataTheme,
+			'data-variant': dataVariant,
+			'data-tone': dataTone,
+			'data-state': dataState,
+			'data-gradient': dataGradient,
+			interactionIntent,
+			interactionFeedback,
+			interactionDelay,
+			interactionDuration,
+			interactionState,
+			...rest
 		} = props as ButtonPropsRecord;
 		return rest;
 	});
 
 	const isDisabled = $derived(atoms.click?.state.disabled ?? isLoading);
 
-	const BASE_BUTTON_CLASSES = 'inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+	const BASE_BUTTON_CLASSES =
+		'inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
 	const LOADER_CLASSES = 'w-4 h-4 mr-2 animate-spin';
 	const SR_ONLY_CLASSES = 'sr-only';
 

@@ -4,4 +4,4 @@ export type SlotCartItem = {
 	price: number;
 	quantity: number;
 	thumbnail?: string;
-}
+};

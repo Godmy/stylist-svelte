@@ -4,7 +4,6 @@ import type { GridMoleculeGap } from '$stylist/layout/type/enum/grid-molecule-ga
 import type { GridMoleculeJustify } from '$stylist/layout/type/enum/grid-molecule-justify';
 import type { GridMoleculeProps } from '$stylist/layout/type/struct/layout-extended/grid-molecule-props';
 
-
 export function createGridMoleculeState(props: GridMoleculeProps) {
 	const cols = $derived(props.cols ?? 2);
 	const gap = $derived<GridMoleculeGap>(props.gap ?? 'md');
@@ -12,7 +11,14 @@ export function createGridMoleculeState(props: GridMoleculeProps) {
 	const alignItems = $derived<GridMoleculeAlign>(props.alignItems ?? 'stretch');
 	const justifyContent = $derived<GridMoleculeJustify>(props.justifyContent ?? 'start');
 	const classes = $derived(
-		GridMoleculeStyleManager.getHostClass(cols, gap, alignItems, justifyContent, responsive, props.class)
+		GridMoleculeStyleManager.getHostClass(
+			cols,
+			gap,
+			alignItems,
+			justifyContent,
+			responsive,
+			props.class
+		)
 	);
 
 	const restProps = $derived.by(() => {
@@ -30,13 +36,27 @@ export function createGridMoleculeState(props: GridMoleculeProps) {
 	});
 
 	return {
-		get cols() { return cols; },
-		get gap() { return gap; },
-		get responsive() { return responsive; },
-		get alignItems() { return alignItems; },
-		get justifyContent() { return justifyContent; },
-		get classes() { return classes; },
-		get restProps() { return restProps; }
+		get cols() {
+			return cols;
+		},
+		get gap() {
+			return gap;
+		},
+		get responsive() {
+			return responsive;
+		},
+		get alignItems() {
+			return alignItems;
+		},
+		get justifyContent() {
+			return justifyContent;
+		},
+		get classes() {
+			return classes;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

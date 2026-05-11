@@ -4,7 +4,8 @@ import type { SlotCoordinates as Coordinates } from '$stylist/geo/interface/slot
 import type { SlotLocationPickerMarker } from '$stylist/geo/interface/slot/location-picker-marker';
 import type { SlotCoordinates } from '$stylist/geo/interface/slot/coordinates';
 
-export interface SlotLocationPicker extends Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> {
+export interface SlotLocationPicker
+	extends Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> {
 	center?: SlotCoordinates;
 	zoom?: number;
 	markers?: SlotLocationPickerMarker[];

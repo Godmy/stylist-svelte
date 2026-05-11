@@ -3,11 +3,14 @@ import type { Layout } from '$stylist/commerce/type/struct/layout';
 
 export function createProductCatalogState(props: Props) {
 	const layout = $derived(props.layout ?? 'grid');
-	const containerClass = $derived(`bg-[var(--color-background-primary)] rounded-lg shadow ${props.class ?? ''}`);
+	const containerClass = $derived(
+		`bg-[var(--color-background-primary)] rounded-lg shadow ${props.class ?? ''}`
+	);
 
-	const contentClass = $derived(layout === 'grid'
-		? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6'
-		: 'flex flex-col p-4'
+	const contentClass = $derived(
+		layout === 'grid'
+			? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6'
+			: 'flex flex-col p-4'
 	);
 
 	function getGridItemClass(): string {
@@ -23,9 +26,15 @@ export function createProductCatalogState(props: Props) {
 	}
 
 	return {
-		get layout() { return layout; },
-		get containerClass() { return containerClass; },
-		get contentClass() { return contentClass; },
+		get layout() {
+			return layout;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get contentClass() {
+			return contentClass;
+		},
 		getGridItemClass,
 		getListItemClass,
 		isGridLayout

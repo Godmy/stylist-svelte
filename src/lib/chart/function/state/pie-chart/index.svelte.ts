@@ -29,27 +29,46 @@ export function createPieChartState(props: PieChartRecipe) {
 	});
 
 	return {
-		get data() { return data; },
-		get width() { return width; },
-		get height() { return height; },
-		get colors() { return colors; },
-		get resolvedColors() { return resolvedColors; },
-		get total() { return total; },
-		get segments() { return segments; },
-		get containerClasses() { return containerClasses; },
-		get legendClasses() { return legendClasses; },
-		get legendItemClasses() { return legendItemClasses; },
-		get legendSwatchClasses() { return legendSwatchClasses; },
-		get legendTextClasses() { return legendTextClasses; },
-		get restProps() { return restProps; }
+		get data() {
+			return data;
+		},
+		get width() {
+			return width;
+		},
+		get height() {
+			return height;
+		},
+		get colors() {
+			return colors;
+		},
+		get resolvedColors() {
+			return resolvedColors;
+		},
+		get total() {
+			return total;
+		},
+		get segments() {
+			return segments;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get legendClasses() {
+			return legendClasses;
+		},
+		get legendItemClasses() {
+			return legendItemClasses;
+		},
+		get legendSwatchClasses() {
+			return legendSwatchClasses;
+		},
+		get legendTextClasses() {
+			return legendTextClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 
 export default createPieChartState;
-
-
-
-
-
-
-

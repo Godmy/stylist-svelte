@@ -99,24 +99,24 @@ export const createRichTextEditorState = (props: RichTextEditorStateProps) => {
 		)
 	);
 
-	const buttonClasses = $derived.by(() =>
-		'p-2 rounded hover:bg-[var(--color-background-tertiary)]'
+	const buttonClasses = $derived.by(
+		() => 'p-2 rounded hover:bg-[var(--color-background-tertiary)]'
 	);
 
-	const dividerClasses = $derived.by(() =>
-		'w-px h-6 bg-[var(--color-background-tertiary)] mx-1'
+	const dividerClasses = $derived.by(() => 'w-px h-6 bg-[var(--color-background-tertiary)] mx-1');
+
+	const linkInputClasses = $derived.by(
+		() =>
+			'absolute z-[var(--z-index-docked)] mt-1 w-64 p-3 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md shadow-lg'
 	);
 
-	const linkInputClasses = $derived.by(() =>
-		'absolute z-[var(--z-index-docked)] mt-1 w-64 p-3 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md shadow-lg'
+	const linkInputFieldClasses = $derived.by(
+		() => 'flex-1 px-2 py-1 border border-[var(--color-border-primary)] rounded-l text-sm'
 	);
 
-	const linkInputFieldClasses = $derived.by(() =>
-		'flex-1 px-2 py-1 border border-[var(--color-border-primary)] rounded-l text-sm'
-	);
-
-	const linkInputButtonClasses = $derived.by(() =>
-		'px-3 py-1 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded-r text-sm'
+	const linkInputButtonClasses = $derived.by(
+		() =>
+			'px-3 py-1 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded-r text-sm'
 	);
 
 	const iconButtonClasses = $derived.by(() => 'h-4 w-4');

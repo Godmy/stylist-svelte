@@ -22,7 +22,9 @@ export function createTreeNodeItemState(props: TreeNodeItemProps) {
 	const noToggleClasses = $derived(TreeNodeItemStyleManager.getNoToggleClasses());
 	const textClasses = $derived(TreeNodeItemStyleManager.getNodeTextClasses());
 	const secondaryIconClasses = $derived(TreeNodeItemStyleManager.getSecondaryIconClasses());
-	const secondaryIconImageClasses = $derived(TreeNodeItemStyleManager.getSecondaryIconImageClasses());
+	const secondaryIconImageClasses = $derived(
+		TreeNodeItemStyleManager.getSecondaryIconImageClasses()
+	);
 	const childrenClasses = $derived(TreeNodeItemStyleManager.getNodeChildrenClasses());
 
 	function handleSelect() {
@@ -61,27 +63,61 @@ export function createTreeNodeItemState(props: TreeNodeItemProps) {
 	});
 
 	return {
-		get node() { return node; },
-		get className() { return className; },
-		get faIcon() { return faIcon; },
-		get secondaryIcon() { return secondaryIcon; },
-		get expandedNodes() { return expandedNodes; },
-		get expanded() { return expanded; },
-		get hasChildren() { return hasChildren; },
-		get containerClasses() { return containerClasses; },
-		get headerClasses() { return headerClasses; },
-		get toggleIconClasses() { return toggleIconClasses; },
-		get noToggleClasses() { return noToggleClasses; },
-		get textClasses() { return textClasses; },
-		get secondaryIconClasses() { return secondaryIconClasses; },
-		get secondaryIconImageClasses() { return secondaryIconImageClasses; },
-		get childrenClasses() { return childrenClasses; },
+		get node() {
+			return node;
+		},
+		get className() {
+			return className;
+		},
+		get faIcon() {
+			return faIcon;
+		},
+		get secondaryIcon() {
+			return secondaryIcon;
+		},
+		get expandedNodes() {
+			return expandedNodes;
+		},
+		get expanded() {
+			return expanded;
+		},
+		get hasChildren() {
+			return hasChildren;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get toggleIconClasses() {
+			return toggleIconClasses;
+		},
+		get noToggleClasses() {
+			return noToggleClasses;
+		},
+		get textClasses() {
+			return textClasses;
+		},
+		get secondaryIconClasses() {
+			return secondaryIconClasses;
+		},
+		get secondaryIconImageClasses() {
+			return secondaryIconImageClasses;
+		},
+		get childrenClasses() {
+			return childrenClasses;
+		},
 		ChevronRight,
 		ChevronDown,
 		handleSelect,
 		toggleExpand,
-		get filteredRestProps() { return filteredRestProps; },
-		get children() { return props.children; }
+		get filteredRestProps() {
+			return filteredRestProps;
+		},
+		get children() {
+			return props.children;
+		}
 	};
 }
 

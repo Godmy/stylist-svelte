@@ -7,14 +7,22 @@ export function createBillingSummaryState(props: IBillingSummaryProps) {
 	const containerClasses = $derived(
 		`c-billing-summary ${BillingSummaryStyleManager.getContainerClasses(props.class ?? '')}`
 	);
-	const headerClasses = $derived(BillingSummaryStyleManager.getHeaderClasses(props.headerClass ?? ''));
+	const headerClasses = $derived(
+		BillingSummaryStyleManager.getHeaderClasses(props.headerClass ?? '')
+	);
 	const titleClasses = $derived(BillingSummaryStyleManager.getTitleClasses());
 	const subtitleClasses = $derived(BillingSummaryStyleManager.getSubtitleClasses());
 	const totalAmountClasses = $derived(BillingSummaryStyleManager.getTotalAmountClasses());
-	const summaryClasses = $derived(BillingSummaryStyleManager.getSummaryClasses(props.summaryClass ?? ''));
+	const summaryClasses = $derived(
+		BillingSummaryStyleManager.getSummaryClasses(props.summaryClass ?? '')
+	);
 	const metricCardClasses = $derived(BillingSummaryStyleManager.getMetricCardClasses());
-	const metricIconContainerClasses = $derived(BillingSummaryStyleManager.getMetricIconContainerClasses());
-	const footerClasses = $derived(BillingSummaryStyleManager.getFooterClasses(props.footerClass ?? ''));
+	const metricIconContainerClasses = $derived(
+		BillingSummaryStyleManager.getMetricIconContainerClasses()
+	);
+	const footerClasses = $derived(
+		BillingSummaryStyleManager.getFooterClasses(props.footerClass ?? '')
+	);
 	const invoiceIdClasses = $derived(BillingSummaryStyleManager.getInvoiceIdClasses());
 	const invoiceIdFontClass = $derived(BillingSummaryStyleManager.getInvoiceIdFontClass());
 	const generatedDateClasses = $derived(BillingSummaryStyleManager.getGeneratedDateClasses());
@@ -37,10 +45,14 @@ export function createBillingSummaryState(props: IBillingSummaryProps) {
 
 	function getStatusText(status?: string) {
 		switch (status) {
-			case 'paid': return 'Paid';
-			case 'overdue': return 'Overdue';
-			case 'cancelled': return 'Cancelled';
-			default: return 'Pending';
+			case 'paid':
+				return 'Paid';
+			case 'overdue':
+				return 'Overdue';
+			case 'cancelled':
+				return 'Cancelled';
+			default:
+				return 'Pending';
 		}
 	}
 
@@ -69,24 +81,60 @@ export function createBillingSummaryState(props: IBillingSummaryProps) {
 	}
 
 	return {
-		get total() { return total; },
-		get containerClasses() { return containerClasses; },
-		get headerClasses() { return headerClasses; },
-		get titleClasses() { return titleClasses; },
-		get subtitleClasses() { return subtitleClasses; },
-		get totalAmountClasses() { return totalAmountClasses; },
-		get summaryClasses() { return summaryClasses; },
-		get metricCardClasses() { return metricCardClasses; },
-		get metricIconContainerClasses() { return metricIconContainerClasses; },
-		get footerClasses() { return footerClasses; },
-		get invoiceIdClasses() { return invoiceIdClasses; },
-		get invoiceIdFontClass() { return invoiceIdFontClass; },
-		get generatedDateClasses() { return generatedDateClasses; },
-		get itemsListContainerClasses() { return itemsListContainerClasses; },
-		get itemsListItemClasses() { return itemsListItemClasses; },
-		get itemDescriptionClasses() { return itemDescriptionClasses; },
-		get itemDateClasses() { return itemDateClasses; },
-		get itemAmountClasses() { return itemAmountClasses; },
+		get total() {
+			return total;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get subtitleClasses() {
+			return subtitleClasses;
+		},
+		get totalAmountClasses() {
+			return totalAmountClasses;
+		},
+		get summaryClasses() {
+			return summaryClasses;
+		},
+		get metricCardClasses() {
+			return metricCardClasses;
+		},
+		get metricIconContainerClasses() {
+			return metricIconContainerClasses;
+		},
+		get footerClasses() {
+			return footerClasses;
+		},
+		get invoiceIdClasses() {
+			return invoiceIdClasses;
+		},
+		get invoiceIdFontClass() {
+			return invoiceIdFontClass;
+		},
+		get generatedDateClasses() {
+			return generatedDateClasses;
+		},
+		get itemsListContainerClasses() {
+			return itemsListContainerClasses;
+		},
+		get itemsListItemClasses() {
+			return itemsListItemClasses;
+		},
+		get itemDescriptionClasses() {
+			return itemDescriptionClasses;
+		},
+		get itemDateClasses() {
+			return itemDateClasses;
+		},
+		get itemAmountClasses() {
+			return itemAmountClasses;
+		},
 		formatCurrency,
 		formatDate,
 		getStatusText,

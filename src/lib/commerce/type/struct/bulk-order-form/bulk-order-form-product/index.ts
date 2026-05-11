@@ -6,4 +6,4 @@ export type BulkOrderFormProduct = {
 	thumbnail?: string;
 	minOrder?: number;
 	available?: number;
-}
+};

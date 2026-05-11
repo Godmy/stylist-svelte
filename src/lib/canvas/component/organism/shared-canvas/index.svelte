@@ -42,7 +42,6 @@
 		state.endDrawing();
 		state.redrawCanvas(ctx, canvasRef);
 	}
-
 </script>
 
 <div class={state.containerClass} {...state.restProps}>
@@ -66,13 +65,14 @@
 
 			<div class={state.toolbarGroupClass}>
 				<label class={state.colorLabelClass}>
-					<BaseIcon name={state.actionIcons.color} class="h-4 w-4 mr-1" />
+					<BaseIcon name={state.actionIcons.color} class="mr-1 h-4 w-4" />
 					Color:
 					<input
 						type="color"
 						class={state.colorInputClass}
 						value={state.selectedColor}
-						oninput={(event) => state.setSelectedColor((event.currentTarget as HTMLInputElement).value)}
+						oninput={(event) =>
+							state.setSelectedColor((event.currentTarget as HTMLInputElement).value)}
 						aria-label="Select color"
 					/>
 				</label>

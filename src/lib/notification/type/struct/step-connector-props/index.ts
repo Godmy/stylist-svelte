@@ -5,4 +5,4 @@ export type StepConnectorProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	status?: 'pending' | 'active' | 'completed' | 'error';
 	class?: string;
 	children?: Snippet;
-}
+};

@@ -91,9 +91,15 @@ export const createTransformableState = (props: TransformProps) => {
 		},
 
 		// SlotState
-		get classes() { return classes; },
-		get inlineStyle() { return inlineStyle; },
-		get restProps() { return restProps; },
+		get classes() {
+			return classes;
+		},
+		get inlineStyle() {
+			return inlineStyle;
+		},
+		get restProps() {
+			return restProps;
+		},
 
 		// Handlers
 		handleMouseEnter,

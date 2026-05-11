@@ -35,23 +35,14 @@ export class ProgressBarStyleManager {
 	}
 
 	static getProgressBarContainerClasses(className?: string): string {
-		return this.join([
-			'w-full',
-			className
-		]);
+		return this.join(['w-full', className]);
 	}
 
 	static getProgressBarLabelClasses(className?: string): string {
-		return this.join([
-			'text-sm font-medium text-[var(--color-text-secondary)]',
-			className
-		]);
+		return this.join(['text-sm font-medium text-[var(--color-text-secondary)]', className]);
 	}
 
 	static getProgressBarValueClasses(className?: string): string {
-		return this.join([
-			'text-sm font-medium text-[var(--color-text-primary)]',
-			className
-		]);
+		return this.join(['text-sm font-medium text-[var(--color-text-primary)]', className]);
 	}
 }

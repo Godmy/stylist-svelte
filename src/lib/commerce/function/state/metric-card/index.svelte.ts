@@ -18,9 +18,13 @@ export function createMetricCardState(props: MetricCardStateProps) {
 	const titleClasses = $derived(MetricCardStyleManager.getTitleClasses());
 	const valueClasses = $derived(MetricCardStyleManager.getValueClasses());
 	const descriptionClasses = $derived(MetricCardStyleManager.getDescriptionClasses());
-	const progressBarContainerClasses = $derived(MetricCardStyleManager.getProgressBarContainerClasses());
+	const progressBarContainerClasses = $derived(
+		MetricCardStyleManager.getProgressBarContainerClasses()
+	);
 	const progressBarClasses = $derived(MetricCardStyleManager.getProgressBarClasses());
-	const progressBarFillClasses = $derived(MetricCardStyleManager.getProgressBarFillClasses(variant, percentage));
+	const progressBarFillClasses = $derived(
+		MetricCardStyleManager.getProgressBarFillClasses(variant, percentage)
+	);
 	const percentageClasses = $derived(MetricCardStyleManager.getPercentageClasses(variant));
 	const progressBarWidth = $derived(ObjectManagerMetricCard.resolveProgressBarWidth(percentage));
 

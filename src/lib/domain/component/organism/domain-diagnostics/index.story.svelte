@@ -3,7 +3,9 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import DomainDiagnostics from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [{ name: 'compact', type: 'boolean', defaultValue: true }];
+	const controls: InterfaceControllerSettings[] = [
+		{ name: 'compact', type: 'boolean', defaultValue: true }
+	];
 </script>
 
 <Story

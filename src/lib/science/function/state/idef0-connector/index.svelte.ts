@@ -11,9 +11,15 @@ export function createIdef0ConnectorState(props: Idef0ConnectorProps) {
 	const labelClasses = $derived(Idef0StyleManager.getConnectorLabelClasses());
 
 	return {
-		get groupClasses() { return groupClasses; },
-		get lineClasses() { return lineClasses; },
-		get labelClasses() { return labelClasses; }
+		get groupClasses() {
+			return groupClasses;
+		},
+		get lineClasses() {
+			return lineClasses;
+		},
+		get labelClasses() {
+			return labelClasses;
+		}
 	};
 }
 

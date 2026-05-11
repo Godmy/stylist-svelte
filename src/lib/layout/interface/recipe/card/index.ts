@@ -12,18 +12,18 @@ import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface CardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IMediaSlot,
-		IStatusSlot,
-		IClickable,
-		ISized,
-		IShapeable,
-		ISpaced,
-		IElevatable,
-		SlotTheme,
-		HTMLAttributes<HTMLDivElement>
-	]>
-{}
-
+	extends StructIntersectAll<
+		[
+			ILabelSlot,
+			ICaptionSlot,
+			IMediaSlot,
+			IStatusSlot,
+			IClickable,
+			ISized,
+			IShapeable,
+			ISpaced,
+			IElevatable,
+			SlotTheme,
+			HTMLAttributes<HTMLDivElement>
+		]
+	> {}

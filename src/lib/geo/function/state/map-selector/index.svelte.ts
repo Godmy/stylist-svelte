@@ -111,8 +111,10 @@ export function createMapSelectorState(props: MapSelectorStateProps) {
 	}
 
 	function calculateMarkerPosition(location: MapSelectorLocation): { x: number; y: number } {
-		const offsetX = (location.longitude - currentCenter.lng) / 0.01 * Math.pow(2, currentZoom - 10);
-		const offsetY = (currentCenter.lat - location.latitude) / 0.01 * Math.pow(2, currentZoom - 10);
+		const offsetX =
+			((location.longitude - currentCenter.lng) / 0.01) * Math.pow(2, currentZoom - 10);
+		const offsetY =
+			((currentCenter.lat - location.latitude) / 0.01) * Math.pow(2, currentZoom - 10);
 
 		const x = 50 + offsetX + mapOffset.x;
 		const y = 50 + offsetY + mapOffset.y;

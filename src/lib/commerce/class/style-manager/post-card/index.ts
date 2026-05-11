@@ -3,7 +3,11 @@ import { CardStyleManager } from '$stylist/information/class/style-manager/card'
 
 export class PostCardStyleManager {
 	static getContainerClasses(className = ''): string {
-		return mergeClassNames('max-w-sm rounded-lg shadow-md overflow-hidden', CardStyleManager.getBaseClasses(), className);
+		return mergeClassNames(
+			'max-w-sm rounded-lg shadow-md overflow-hidden',
+			CardStyleManager.getBaseClasses(),
+			className
+		);
 	}
 
 	static getImageClasses(className = ''): string {
@@ -47,7 +51,10 @@ export class PostCardStyleManager {
 	}
 
 	static getTagClasses(className = ''): string {
-		return mergeClassNames('text-xs bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] px-2 py-1 rounded', className);
+		return mergeClassNames(
+			'text-xs bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] px-2 py-1 rounded',
+			className
+		);
 	}
 
 	static getActionsClasses(className = ''): string {
@@ -55,7 +62,9 @@ export class PostCardStyleManager {
 	}
 
 	static getActionButtonClasses(className = ''): string {
-		return mergeClassNames('px-3 py-1 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] text-sm rounded hover:bg-[var(--color-primary-600)]', className);
+		return mergeClassNames(
+			'px-3 py-1 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] text-sm rounded hover:bg-[var(--color-primary-600)]',
+			className
+		);
 	}
 }
-

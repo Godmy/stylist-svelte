@@ -8,7 +8,12 @@
 		{ name: 'startY', type: 'number', defaultValue: 120, step: 10 },
 		{ name: 'endX', type: 'number', defaultValue: 420, step: 10 },
 		{ name: 'endY', type: 'number', defaultValue: 260, step: 10 },
-		{ name: 'type', type: 'select', defaultValue: 'bezier', options: ['straight', 'bezier', 'step'] },
+		{
+			name: 'type',
+			type: 'select',
+			defaultValue: 'bezier',
+			options: ['straight', 'bezier', 'step']
+		},
 		{ name: 'width', type: 'number', defaultValue: 3, min: 1, max: 10, step: 1 },
 		{ name: 'color', type: 'color', defaultValue: '#64748b' },
 		{ name: 'activeColor', type: 'color', defaultValue: '#2563eb' },
@@ -35,9 +40,13 @@
 
 			<svg width="520" height="360" class="connection-stage">
 				<rect x="52" y="88" width="76" height="64" rx="18" fill="#0f766e"></rect>
-				<text x="90" y="126" text-anchor="middle" fill="white" font-size="12" font-weight="700">A</text>
+				<text x="90" y="126" text-anchor="middle" fill="white" font-size="12" font-weight="700"
+					>A</text
+				>
 				<rect x="388" y="226" width="84" height="68" rx="18" fill="#1d4ed8"></rect>
-				<text x="430" y="266" text-anchor="middle" fill="white" font-size="12" font-weight="700">B</text>
+				<text x="430" y="266" text-anchor="middle" fill="white" font-size="12" font-weight="700"
+					>B</text
+				>
 
 				<ConnectionLine
 					id="connection-1"

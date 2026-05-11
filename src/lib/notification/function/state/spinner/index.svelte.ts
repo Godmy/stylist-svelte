@@ -27,7 +27,7 @@ export function createSpinnerState(props: SpinnerProps) {
 
 	const sizeClasses = $derived(sizeClassesMap[size] || sizeClassesMap.md);
 	const colorClasses = $derived(colorClassesMap[color] || `text-[${color}]`);
-	
+
 	const iconColorClasses = $derived.by(() => {
 		if (color === 'blue') return 'text-[var(--color-primary-500)]';
 		if (color === 'gray') return 'text-[var(--color-text-secondary)]';
@@ -38,18 +38,38 @@ export function createSpinnerState(props: SpinnerProps) {
 		return 'text-[var(--color-primary-500)]';
 	});
 
-	const containerClasses = $derived(`flex flex-col items-center justify-center ${props.class ?? ''}`);
+	const containerClasses = $derived(
+		`flex flex-col items-center justify-center ${props.class ?? ''}`
+	);
 
 	return {
-		get variant() { return variant; },
-		get size() { return size; },
-		get color() { return color; },
-		get label() { return label; },
-		get showLabel() { return showLabel; },
-		get sizeClasses() { return sizeClasses; },
-		get colorClasses() { return colorClasses; },
-		get iconColorClasses() { return iconColorClasses; },
-		get containerClasses() { return containerClasses; }
+		get variant() {
+			return variant;
+		},
+		get size() {
+			return size;
+		},
+		get color() {
+			return color;
+		},
+		get label() {
+			return label;
+		},
+		get showLabel() {
+			return showLabel;
+		},
+		get sizeClasses() {
+			return sizeClasses;
+		},
+		get colorClasses() {
+			return colorClasses;
+		},
+		get iconColorClasses() {
+			return iconColorClasses;
+		},
+		get containerClasses() {
+			return containerClasses;
+		}
 	};
 }
 

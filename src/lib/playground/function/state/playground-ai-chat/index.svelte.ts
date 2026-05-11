@@ -10,7 +10,8 @@ export function createPlaygroundAiChatState(props: PlaygroundAiChatProps) {
 	let messages = $state<PlaygroundAiChatChatMessage[]>([
 		{
 			role: 'assistant',
-			content: 'Здравствуйте! Я помогу вам с анализом скриншота. Опишите, что вы хотите узнать или обсудить.'
+			content:
+				'Здравствуйте! Я помогу вам с анализом скриншота. Опишите, что вы хотите узнать или обсудить.'
 		}
 	]);
 
@@ -18,8 +19,11 @@ export function createPlaygroundAiChatState(props: PlaygroundAiChatProps) {
 
 	const containerClass = $derived(PlaygroundAiChatStyleManager.getContainerClasses());
 	const headerClass = $derived(PlaygroundAiChatStyleManager.getHeaderClasses());
-	const messagesContainerClass = $derived(PlaygroundAiChatStyleManager.getMessagesContainerClasses());
-	const messageClass = (role: 'user' | 'assistant') => PlaygroundAiChatStyleManager.getMessageClasses(role);
+	const messagesContainerClass = $derived(
+		PlaygroundAiChatStyleManager.getMessagesContainerClasses()
+	);
+	const messageClass = (role: 'user' | 'assistant') =>
+		PlaygroundAiChatStyleManager.getMessageClasses(role);
 	const inputContainerClass = $derived(PlaygroundAiChatStyleManager.getInputContainerClasses());
 
 	function sendMessage() {
@@ -47,17 +51,37 @@ export function createPlaygroundAiChatState(props: PlaygroundAiChatProps) {
 	}
 
 	return {
-		get X() { return X; },
-		get Send() { return Send; },
-		get inputMessage() { return inputMessage; },
-		set inputMessage(v: string) { inputMessage = v; },
-		get messages() { return messages; },
-		get onClose() { return onClose; },
-		get containerClass() { return containerClass; },
-		get headerClass() { return headerClass; },
-		get messagesContainerClass() { return messagesContainerClass; },
+		get X() {
+			return X;
+		},
+		get Send() {
+			return Send;
+		},
+		get inputMessage() {
+			return inputMessage;
+		},
+		set inputMessage(v: string) {
+			inputMessage = v;
+		},
+		get messages() {
+			return messages;
+		},
+		get onClose() {
+			return onClose;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get headerClass() {
+			return headerClass;
+		},
+		get messagesContainerClass() {
+			return messagesContainerClass;
+		},
 		messageClass,
-		get inputContainerClass() { return inputContainerClass; },
+		get inputContainerClass() {
+			return inputContainerClass;
+		},
 		sendMessage,
 		handleKeyPress
 	};

@@ -2,7 +2,11 @@ import type { CodeSectionProps } from '$stylist/development/type/struct/code-sec
 import { CodeSectionStyleManager } from '$stylist/development/class/style-manager/code-section';
 
 export function createCodeSectionState(props: CodeSectionProps) {
-	const containerClass = $derived(CodeSectionStyleManager.getContainerClass(typeof props.class === 'string' ? props.class : undefined));
+	const containerClass = $derived(
+		CodeSectionStyleManager.getContainerClass(
+			typeof props.class === 'string' ? props.class : undefined
+		)
+	);
 	const headerContainerClass = $derived(CodeSectionStyleManager.getHeaderContainerClass());
 	const headerContentClass = $derived(CodeSectionStyleManager.getHeaderContentClass());
 	const titleClass = $derived(CodeSectionStyleManager.getTitleClass());

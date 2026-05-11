@@ -38,8 +38,3 @@ export class NodeHeaderStyleManager {
 		return 'node-header__action-btn';
 	}
 }
-
-
-
-
-

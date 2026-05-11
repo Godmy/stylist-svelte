@@ -6,6 +6,9 @@
 	const state = createPageEllipsisState(props);
 </script>
 
-<div class={`flex items-center px-3 py-2 text-sm font-medium text-[var(--color-text-primary)] ${props.class ?? ''}`} {...props}>
+<div
+	class={`flex items-center px-3 py-2 text-sm font-medium text-[var(--color-text-primary)] ${props.class ?? ''}`}
+	{...props}
+>
 	<span>…</span>
 </div>

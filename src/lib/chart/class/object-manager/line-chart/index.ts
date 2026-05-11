@@ -53,9 +53,7 @@ export class ObjectManagerLineChart {
 		const segmentWidth = chartWidth / (seriesLength - 1 || 1);
 		const x = (showAxis ? 50 : 5) + pointIndex * segmentWidth;
 		const y =
-			chartHeight +
-			(showAxis ? 10 : 5) -
-			((pointValue / (calculatedMaxValue || 1)) * chartHeight);
+			chartHeight + (showAxis ? 10 : 5) - (pointValue / (calculatedMaxValue || 1)) * chartHeight;
 
 		return { x, y };
 	}

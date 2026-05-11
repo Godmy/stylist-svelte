@@ -5,8 +5,7 @@ import type { TokenGradient } from '$stylist/layout/type/enum/gradient-mode';
 import type { ThemeGradientBackgroundDirection } from '$stylist/layout/type/enum/gradient-background-direction';
 
 export interface ThemeGradientBackgroundRecipe
-	extends StructIntersectAll<[InformationHTMLAttributes<HTMLDivElement>]>
-{
+	extends StructIntersectAll<[InformationHTMLAttributes<HTMLDivElement>]> {
 	variant?: TokenGradient;
 	colors?: string[];
 	speed?: number;

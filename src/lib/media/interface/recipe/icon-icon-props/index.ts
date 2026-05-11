@@ -6,7 +6,8 @@ import type { IconShape } from '$stylist/media/type/alias/icon-shape';
 import type { IconSize } from '$stylist/media/type/alias/icon-size';
 import type { IconVariant } from '$stylist/media/type/alias/icon-variant';
 
-export interface IconProps extends StructIntersectAll<[InformationHTMLAttributes<HTMLSpanElement>]> {
+export interface IconProps
+	extends StructIntersectAll<[InformationHTMLAttributes<HTMLSpanElement>]> {
 	name?: string;
 	svg?: string;
 	size?: IconSize;

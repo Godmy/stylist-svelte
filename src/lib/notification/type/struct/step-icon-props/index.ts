@@ -8,4 +8,4 @@ export type StepIconProps = InteractionHTMLAttributes<HTMLSpanElement> & {
 	iconName?: string;
 	class?: string;
 	children?: Snippet;
-}
+};

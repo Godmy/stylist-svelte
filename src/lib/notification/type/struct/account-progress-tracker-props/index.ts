@@ -5,4 +5,4 @@ export type AccountProgressTrackerProps = InteractionHTMLAttributes<HTMLDivEleme
 	currentStep?: number;
 	class?: string;
 	[propName: string]: unknown;
-}
+};

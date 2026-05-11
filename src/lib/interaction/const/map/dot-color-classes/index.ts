@@ -16,4 +16,3 @@ export const DOT_COLOR_CLASSES = {
 	dark: 'bg-[--color-neutral-800]',
 	light: 'bg-[--color-neutral-300]'
 } as const;
-

@@ -84,10 +84,18 @@
 			<div class="variant-panel">
 				<h3>Size Ladder</h3>
 				<div class="size-ladder">
-					<div class="ladder-row"><GraphPort id="port-xs" size="xs" label="XS" direction="output" /></div>
-					<div class="ladder-row"><GraphPort id="port-sm" size="sm" label="SM" direction="output" /></div>
-					<div class="ladder-row"><GraphPort id="port-md" size="md" label="MD" direction="output" /></div>
-					<div class="ladder-row"><GraphPort id="port-lg" size="lg" label="LG" direction="output" /></div>
+					<div class="ladder-row">
+						<GraphPort id="port-xs" size="xs" label="XS" direction="output" />
+					</div>
+					<div class="ladder-row">
+						<GraphPort id="port-sm" size="sm" label="SM" direction="output" />
+					</div>
+					<div class="ladder-row">
+						<GraphPort id="port-md" size="md" label="MD" direction="output" />
+					</div>
+					<div class="ladder-row">
+						<GraphPort id="port-lg" size="lg" label="LG" direction="output" />
+					</div>
 				</div>
 			</div>
 			<div class="variant-panel">
@@ -194,21 +202,45 @@
 		right: 0;
 	}
 
-	.ladder-row:nth-child(1) { top: 10px; }
-	.ladder-row:nth-child(2) { top: 42px; }
-	.ladder-row:nth-child(3) { top: 76px; }
-	.ladder-row:nth-child(4) { top: 112px; }
+	.ladder-row:nth-child(1) {
+		top: 10px;
+	}
+	.ladder-row:nth-child(2) {
+		top: 42px;
+	}
+	.ladder-row:nth-child(3) {
+		top: 76px;
+	}
+	.ladder-row:nth-child(4) {
+		top: 112px;
+	}
 
 	.type-gallery {
 		height: 272px;
 	}
 
-	.type-row:nth-child(1) { top: 10px; }
-	.type-row:nth-child(2) { top: 42px; }
-	.type-row:nth-child(3) { top: 74px; }
-	.type-row:nth-child(4) { top: 106px; }
-	.type-row:nth-child(5) { top: 138px; }
-	.type-row:nth-child(6) { top: 170px; }
-	.type-row:nth-child(7) { top: 202px; }
-	.type-row:nth-child(8) { top: 234px; }
+	.type-row:nth-child(1) {
+		top: 10px;
+	}
+	.type-row:nth-child(2) {
+		top: 42px;
+	}
+	.type-row:nth-child(3) {
+		top: 74px;
+	}
+	.type-row:nth-child(4) {
+		top: 106px;
+	}
+	.type-row:nth-child(5) {
+		top: 138px;
+	}
+	.type-row:nth-child(6) {
+		top: 170px;
+	}
+	.type-row:nth-child(7) {
+		top: 202px;
+	}
+	.type-row:nth-child(8) {
+		top: 234px;
+	}
 </style>

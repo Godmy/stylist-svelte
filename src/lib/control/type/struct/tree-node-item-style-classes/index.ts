@@ -1,5 +1,5 @@
 export type ITreeNodeItemStyleClasses = {
-  expanded: string;
-  selected: string;
-  disabled: string;
-}
+	expanded: string;
+	selected: string;
+	disabled: string;
+};

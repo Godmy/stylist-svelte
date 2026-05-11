@@ -5,7 +5,9 @@ export function createComparisonCardState(props: Props) {
 	const classes = $derived(ComparisonCardStyleManager.getBaseClasses(props.class));
 	const headerClasses = $derived(ComparisonCardStyleManager.getHeaderClasses());
 	const titleClasses = $derived(ComparisonCardStyleManager.getTitleClasses());
-	const comparisonContainerClasses = $derived(ComparisonCardStyleManager.getComparisonContainerClasses());
+	const comparisonContainerClasses = $derived(
+		ComparisonCardStyleManager.getComparisonContainerClasses()
+	);
 	const sectionClasses = $derived(ComparisonCardStyleManager.getSectionClasses());
 	const sectionTitleClasses = $derived(ComparisonCardStyleManager.getSectionTitleClasses());
 	const comparisonListClasses = $derived(ComparisonCardStyleManager.getComparisonListClasses());
@@ -16,18 +18,42 @@ export function createComparisonCardState(props: Props) {
 	const afterTitleClasses = $derived(ComparisonCardStyleManager.getAfterTitleClasses());
 
 	return {
-		get classes() { return classes; },
-		get headerClasses() { return headerClasses; },
-		get titleClasses() { return titleClasses; },
-		get comparisonContainerClasses() { return comparisonContainerClasses; },
-		get sectionClasses() { return sectionClasses; },
-		get sectionTitleClasses() { return sectionTitleClasses; },
-		get comparisonListClasses() { return comparisonListClasses; },
-		get comparisonItemClasses() { return comparisonItemClasses; },
-		get comparisonLabelClasses() { return comparisonLabelClasses; },
-		get comparisonValueClasses() { return comparisonValueClasses; },
-		get beforeTitleClasses() { return beforeTitleClasses; },
-		get afterTitleClasses() { return afterTitleClasses; }
+		get classes() {
+			return classes;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get comparisonContainerClasses() {
+			return comparisonContainerClasses;
+		},
+		get sectionClasses() {
+			return sectionClasses;
+		},
+		get sectionTitleClasses() {
+			return sectionTitleClasses;
+		},
+		get comparisonListClasses() {
+			return comparisonListClasses;
+		},
+		get comparisonItemClasses() {
+			return comparisonItemClasses;
+		},
+		get comparisonLabelClasses() {
+			return comparisonLabelClasses;
+		},
+		get comparisonValueClasses() {
+			return comparisonValueClasses;
+		},
+		get beforeTitleClasses() {
+			return beforeTitleClasses;
+		},
+		get afterTitleClasses() {
+			return afterTitleClasses;
+		}
 	};
 }
 

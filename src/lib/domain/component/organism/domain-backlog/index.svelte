@@ -64,12 +64,11 @@
 		padding: 1.2rem 1.2rem 1rem;
 		border: 1px solid color-mix(in srgb, var(--color-border-primary) 78%, transparent);
 		border-radius: 24px;
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
-				color-mix(in srgb, var(--color-background-primary) 90%, var(--color-background-secondary) 10%)
-			);
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
+			color-mix(in srgb, var(--color-background-primary) 90%, var(--color-background-secondary) 10%)
+		);
 		box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
 	}
 

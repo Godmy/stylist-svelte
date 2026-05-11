@@ -24,12 +24,18 @@ export class MessageStyleManager {
 		return MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.draft;
 	}
 
-	static getAuthorClasses(align: MessageAlignment = 'left', variant: TokenMessageState = 'draft'): string {
+	static getAuthorClasses(
+		align: MessageAlignment = 'left',
+		variant: TokenMessageState = 'draft'
+	): string {
 		const textClass = MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.draft;
 		return `${'text-sm font-semibold mb-1'} ${textClass}`;
 	}
 
-	static getContentClasses(align: MessageAlignment = 'left', variant: TokenMessageState = 'draft'): string {
+	static getContentClasses(
+		align: MessageAlignment = 'left',
+		variant: TokenMessageState = 'draft'
+	): string {
 		const textClass = MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.draft;
 		return `${'text-[--color-text-primary] word-wrap-break-word whitespace-pre-wrap'} ${textClass}`;
 	}
@@ -154,8 +160,13 @@ export class MessageStyleManager {
 		return `mb-1 flex items-center text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-secondary)] ${className}`.trim();
 	}
 
-	static getChatMessageBubbleShellClasses(isOwn: boolean, variantClass: string, className = ''): string {
-		const ownClasses = 'rounded-[1.25rem] rounded-br-md bg-[var(--color-primary-500)] px-4 py-3 text-[var(--color-text-inverse)] shadow-custom28';
+	static getChatMessageBubbleShellClasses(
+		isOwn: boolean,
+		variantClass: string,
+		className = ''
+	): string {
+		const ownClasses =
+			'rounded-[1.25rem] rounded-br-md bg-[var(--color-primary-500)] px-4 py-3 text-[var(--color-text-inverse)] shadow-custom28';
 		const baseClasses = 'rounded-[1.25rem] rounded-bl-md px-4 py-3 shadow-custom28';
 		return `${baseClasses} ${isOwn ? ownClasses : variantClass} ${className}`.trim();
 	}
@@ -180,4 +191,3 @@ export class MessageStyleManager {
 		return `h-3 w-3 ${isRead ? 'text-[var(--color-primary-600)]' : 'text-[var(--color-text-tertiary)]'}`;
 	}
 }
-

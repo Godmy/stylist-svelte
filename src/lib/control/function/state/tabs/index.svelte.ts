@@ -6,7 +6,11 @@ export const createTabsState = (props: TabsProps) => {
 	const size = $derived(props.size ?? 'md');
 	const disabled = $derived(props.disabled ?? false);
 	const classes = $derived(
-		joinClassNames('inline-flex items-center gap-1', disabled ? 'opacity-[var(--opacity-50)] pointer-events-none' : '', props.class)
+		joinClassNames(
+			'inline-flex items-center gap-1',
+			disabled ? 'opacity-[var(--opacity-50)] pointer-events-none' : '',
+			props.class
+		)
 	);
 	const tabsId = $derived(Math.random().toString(36).substring(2, 9));
 	let selectedTabId = $state(props.selectedId || '');
@@ -56,12 +60,4 @@ export const createTabsState = (props: TabsProps) => {
 	};
 };
 
-
 export default createTabsState;
-
-
-
-
-
-
-

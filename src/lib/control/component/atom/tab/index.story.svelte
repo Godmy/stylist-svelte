@@ -8,9 +8,19 @@
 	import TabPanel from '../tab-panel/index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'selectedId', type: 'select', defaultValue: 'overview', options: ['overview', 'activity', 'settings'] },
+		{
+			name: 'selectedId',
+			type: 'select',
+			defaultValue: 'overview',
+			options: ['overview', 'activity', 'settings']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
-		{ name: 'variant', type: 'select', defaultValue: 'primary', options: ['primary', 'secondary', 'ghost', 'outline'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'ghost', 'outline']
+		},
 		{ name: 'disableSettings', type: 'boolean', defaultValue: false }
 	];
 </script>
@@ -23,7 +33,9 @@
 				<Tab id="activity">Activity</Tab>
 				<Tab id="settings" disabled={values.disableSettings}>Settings</Tab>
 			</TabList>
-			<TabPanels class="rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-4">
+			<TabPanels
+				class="rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-4"
+			>
 				<TabPanel id="overview">Project summary and latest highlights.</TabPanel>
 				<TabPanel id="activity">Recent actions, updates, and timeline events.</TabPanel>
 				<TabPanel id="settings">Configuration options for this workspace.</TabPanel>
@@ -31,6 +43,3 @@
 		</Tabs>
 	{/snippet}
 </Story>
-
-
-

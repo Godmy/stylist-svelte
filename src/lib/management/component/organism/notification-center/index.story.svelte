@@ -1,56 +1,77 @@
 <script lang="ts">
-  import type { NotificationItem } from '$stylist/chat/type/struct/notification-item';
-  import { NotificationStyleManager } from '$stylist/chat';
-  import { Story } from '$stylist/playground/component';
-  import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import type { NotificationItem } from '$stylist/chat/type/struct/notification-item';
+	import { NotificationStyleManager } from '$stylist/chat';
+	import { Story } from '$stylist/playground/component';
+	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
-  import NotificationCenter from './index.svelte';
+	import NotificationCenter from './index.svelte';
 
-  const controls: InterfaceControllerSettings[] = [
-    { name: 'showUnreadCount', type: 'boolean', defaultValue: true },
-    { name: 'showMarkAllRead', type: 'boolean', defaultValue: true },
-    { name: 'showClearAll', type: 'boolean', defaultValue: true },
-    { name: 'showTimestamp', type: 'boolean', defaultValue: true },
-    { name: 'pollingInterval', type: 'number', defaultValue: 30000 }
-  ];
+	const controls: InterfaceControllerSettings[] = [
+		{ name: 'showUnreadCount', type: 'boolean', defaultValue: true },
+		{ name: 'showMarkAllRead', type: 'boolean', defaultValue: true },
+		{ name: 'showClearAll', type: 'boolean', defaultValue: true },
+		{ name: 'showTimestamp', type: 'boolean', defaultValue: true },
+		{ name: 'pollingInterval', type: 'number', defaultValue: 30000 }
+	];
 
-  const notifications: NotificationItem[] = [
-    { id: '1', title: 'Welcome', message: 'Welcome to the platform.', type: 'info', read: false, timestamp: new Date(Date.now() - 1000 * 60 * 2) },
-    { id: '2', title: 'Build complete', message: 'Production build completed successfully.', type: 'success', read: true, timestamp: new Date(Date.now() - 1000 * 60 * 15) },
-    { id: '3', title: 'Invoice ready', message: 'Your invoice is now available.', type: 'info', read: false, timestamp: new Date(Date.now() - 1000 * 60 * 60) }
-  ];
+	const notifications: NotificationItem[] = [
+		{
+			id: '1',
+			title: 'Welcome',
+			message: 'Welcome to the platform.',
+			type: 'info',
+			read: false,
+			timestamp: new Date(Date.now() - 1000 * 60 * 2)
+		},
+		{
+			id: '2',
+			title: 'Build complete',
+			message: 'Production build completed successfully.',
+			type: 'success',
+			read: true,
+			timestamp: new Date(Date.now() - 1000 * 60 * 15)
+		},
+		{
+			id: '3',
+			title: 'Invoice ready',
+			message: 'Your invoice is now available.',
+			type: 'info',
+			read: false,
+			timestamp: new Date(Date.now() - 1000 * 60 * 60)
+		}
+	];
 </script>
 
 <Story
-  id="organisms-notification-center"
-  title="Organisms / Interaction / Feedback / Notifications / Notification Center"
-  component={NotificationCenter}
-  category="Organisms/Interaction/Feedback/Notifications"
-  description="Notification center with a compact unread summary."
-  controls={controls}
+	id="organisms-notification-center"
+	title="Organisms / Interaction / Feedback / Notifications / Notification Center"
+	component={NotificationCenter}
+	category="Organisms/Interaction/Feedback/Notifications"
+	description="Notification center with a compact unread summary."
+	{controls}
 >
-  {#snippet children(values: any)}
-    <div class={NotificationStyleManager.preferences('p-4')}>
-      <NotificationCenter
-        {notifications}
-        showUnreadCount={values.showUnreadCount}
-        showMarkAllRead={values.showMarkAllRead}
-        showClearAll={values.showClearAll}
-        showTimestamp={values.showTimestamp}
-        pollingInterval={values.pollingInterval}
-        onNotificationClick={(notification: NotificationItem) => {
-          console.log('Notification clicked:', notification);
-        }}
-        onMarkAllRead={() => {
-          console.log('Mark all as read');
-        }}
-        onClearAll={() => {
-          console.log('Clear all notifications');
-        }}
-        onFetchMore={() => {
-          console.log('Fetch more notifications');
-        }}
-      />
-    </div>
-  {/snippet}
+	{#snippet children(values: any)}
+		<div class={NotificationStyleManager.preferences('p-4')}>
+			<NotificationCenter
+				{notifications}
+				showUnreadCount={values.showUnreadCount}
+				showMarkAllRead={values.showMarkAllRead}
+				showClearAll={values.showClearAll}
+				showTimestamp={values.showTimestamp}
+				pollingInterval={values.pollingInterval}
+				onNotificationClick={(notification: NotificationItem) => {
+					console.log('Notification clicked:', notification);
+				}}
+				onMarkAllRead={() => {
+					console.log('Mark all as read');
+				}}
+				onClearAll={() => {
+					console.log('Clear all notifications');
+				}}
+				onFetchMore={() => {
+					console.log('Fetch more notifications');
+				}}
+			/>
+		</div>
+	{/snippet}
 </Story>

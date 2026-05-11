@@ -13,9 +13,14 @@
 	];
 </script>
 
-<Story component={FileInput} title="FileInput" description="File picker with single or multiple upload mode." {controls}>
+<Story
+	component={FileInput}
+	title="FileInput"
+	description="File picker with single or multiple upload mode."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<div class="space-y-3 max-w-md">
+		<div class="max-w-md space-y-3">
 			<FileInput
 				placeholder={values.placeholder}
 				accept={values.accept}
@@ -31,6 +36,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-

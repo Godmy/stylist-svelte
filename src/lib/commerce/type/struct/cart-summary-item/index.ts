@@ -8,4 +8,4 @@ export type CartSummaryItem = {
 	thumbnail?: string;
 	inStock?: boolean;
 	maxQuantity?: number;
-}
+};

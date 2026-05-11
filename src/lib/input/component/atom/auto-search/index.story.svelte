@@ -10,14 +10,20 @@
 	];
 </script>
 
-<Story component={AutoSearch} title="AutoSearch" description="Text search field with immediate change callbacks." {controls}>
+<Story
+	component={AutoSearch}
+	title="AutoSearch"
+	description="Text search field with immediate change callbacks."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<div class="max-w-md space-y-2">
-			<AutoSearch value={query} placeholder={values.placeholder} onValueChange={(next) => (query = next)} />
+			<AutoSearch
+				value={query}
+				placeholder={values.placeholder}
+				onValueChange={(next) => (query = next)}
+			/>
 			<p class="text-sm text-[--color-text-secondary]">Query: {query || 'empty'}</p>
 		</div>
 	{/snippet}
 </Story>
-
-
-

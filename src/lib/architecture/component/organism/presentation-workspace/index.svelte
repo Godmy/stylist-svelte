@@ -151,7 +151,8 @@
 			id: 'media',
 			label: '03',
 			title: 'Switch to a supporting content area',
-			summary: 'Demonstrate that the canvas can jump sideways to a different content mode without losing context.',
+			summary:
+				'Demonstrate that the canvas can jump sideways to a different content mode without losing context.',
 			nodeId: 'media-cluster',
 			checklist: [
 				'Show a non-linear move to another area of the deck.',
@@ -164,7 +165,8 @@
 			id: 'qna',
 			label: '04',
 			title: 'Finish on a closing frame',
-			summary: 'End in a stable state that can support recap, discussion or transition to questions.',
+			summary:
+				'End in a stable state that can support recap, discussion or transition to questions.',
 			nodeId: 'qna-zone',
 			checklist: [
 				'Demonstrate a final destination for wrap-up.',
@@ -211,9 +213,7 @@
 		const maxY = Math.max(...sceneNodes.map((node) => node.position.y)) + padding;
 		const width = maxX - minX;
 		const height = maxY - minY;
-		const zoom = clampZoom(
-			Math.min(DEMO_VIEWPORT_WIDTH / width, DEMO_VIEWPORT_HEIGHT / height, 1)
-		);
+		const zoom = clampZoom(Math.min(DEMO_VIEWPORT_WIDTH / width, DEMO_VIEWPORT_HEIGHT / height, 1));
 		const centerX = minX + width / 2;
 		const centerY = minY + height / 2;
 
@@ -294,8 +294,8 @@
 
 	const currentStep = $derived(stepsState[stepIndex]);
 	const currentPreset = $derived(getPresetForStep(currentStep));
-	const selectedNode = $derived(selectedNodeId ? nodeById.get(selectedNodeId) ?? null : null);
-	const currentStepNoteDraft = $derived(currentStep ? notesByStep[currentStep.id] ?? '' : '');
+	const selectedNode = $derived(selectedNodeId ? (nodeById.get(selectedNodeId) ?? null) : null);
+	const currentStepNoteDraft = $derived(currentStep ? (notesByStep[currentStep.id] ?? '') : '');
 	const completionPercent = $derived(
 		stepsState.length === 0 ? 0 : Math.round(((stepIndex + 1) / stepsState.length) * 100)
 	);
@@ -368,7 +368,7 @@
 
 	function addStep(): void {
 		const seedNodeId = selectedNodeId ?? null;
-		const seedNode = seedNodeId ? nodeById.get(seedNodeId) ?? null : null;
+		const seedNode = seedNodeId ? (nodeById.get(seedNodeId) ?? null) : null;
 		const nextSteps = reindexSteps([
 			...stepsState,
 			{
@@ -450,7 +450,10 @@
 				steps?: DemoStep[];
 				notesByStep?: Record<string, string>;
 			};
-			const nextSteps = Array.isArray(payload.steps) && payload.steps.length > 0 ? payload.steps : cloneSteps(initialSteps);
+			const nextSteps =
+				Array.isArray(payload.steps) && payload.steps.length > 0
+					? payload.steps
+					: cloneSteps(initialSteps);
 			stepsState = reindexSteps(
 				nextSteps.map((step) => ({
 					...step,
@@ -566,7 +569,9 @@
 			try {
 				const stored = JSON.parse(raw) as Partial<StoredUiState>;
 				stepsState = reindexSteps(
-					Array.isArray(stored.steps) && stored.steps.length > 0 ? cloneSteps(stored.steps) : cloneSteps(initialSteps)
+					Array.isArray(stored.steps) && stored.steps.length > 0
+						? cloneSteps(stored.steps)
+						: cloneSteps(initialSteps)
 				);
 				stepIndex = Math.max(0, Math.min(stored.stepIndex ?? 0, stepsState.length - 1));
 				presenterMode = stored.presenterMode ?? false;
@@ -616,7 +621,10 @@
 
 	$effect(() => {
 		const inferredPreset = resolveMotionPreset(animationDurationMs);
-		if (motionPreset !== inferredPreset && (inferredPreset === 'swift' || inferredPreset === 'smooth' || inferredPreset === 'cinematic')) {
+		if (
+			motionPreset !== inferredPreset &&
+			(inferredPreset === 'swift' || inferredPreset === 'smooth' || inferredPreset === 'cinematic')
+		) {
 			motionPreset = inferredPreset;
 		}
 	});
@@ -626,19 +634,22 @@
 			return;
 		}
 
-		const timer = window.setTimeout(() => {
-			if (stepIndex >= stepsState.length - 1) {
-				if (loopPlayback) {
-					syncStageWithStep(0);
+		const timer = window.setTimeout(
+			() => {
+				if (stepIndex >= stepsState.length - 1) {
+					if (loopPlayback) {
+						syncStageWithStep(0);
+						return;
+					}
+
+					autoPlayEnabled = false;
 					return;
 				}
 
-				autoPlayEnabled = false;
-				return;
-			}
-
-			syncStageWithStep(stepIndex + 1);
-		}, Math.max(autoPlayIntervalMs, animationDurationMs + 400));
+				syncStageWithStep(stepIndex + 1);
+			},
+			Math.max(autoPlayIntervalMs, animationDurationMs + 400)
+		);
 
 		return () => window.clearTimeout(timer);
 	});
@@ -654,7 +665,12 @@
 		</div>
 
 		<div class="prezi-demo__hero-actions">
-			<button type="button" class="prezi-demo__action prezi-demo__action--primary" onclick={goToPreviousStep} disabled={stepIndex === 0}>
+			<button
+				type="button"
+				class="prezi-demo__action prezi-demo__action--primary"
+				onclick={goToPreviousStep}
+				disabled={stepIndex === 0}
+			>
 				Previous
 			</button>
 			<button
@@ -665,13 +681,21 @@
 			>
 				Next
 			</button>
-			<button type="button" class="prezi-demo__action" onclick={() => (presenterMode = !presenterMode)}>
+			<button
+				type="button"
+				class="prezi-demo__action"
+				onclick={() => (presenterMode = !presenterMode)}
+			>
 				{presenterMode ? 'Exit presenter mode' : 'Presenter mode'}
 			</button>
 			<button type="button" class="prezi-demo__action" onclick={() => void toggleFullscreen()}>
 				Fullscreen
 			</button>
-			<button type="button" class="prezi-demo__action" onclick={() => (showShortcuts = !showShortcuts)}>
+			<button
+				type="button"
+				class="prezi-demo__action"
+				onclick={() => (showShortcuts = !showShortcuts)}
+			>
 				Shortcuts
 			</button>
 		</div>
@@ -698,7 +722,8 @@
 			{#each focusOptions as option (option.id)}
 				<button
 					type="button"
-					class:prezi-demo__chip--active={selectedNodeId === option.nodeId || (option.nodeId === null && selectedNodeId === null)}
+					class:prezi-demo__chip--active={selectedNodeId === option.nodeId ||
+						(option.nodeId === null && selectedNodeId === null)}
 					class="prezi-demo__chip"
 					onclick={() => focusNodeById(option.nodeId)}
 				>
@@ -710,7 +735,12 @@
 
 	<section class="prezi-demo__transport">
 		<div class="prezi-demo__transport-group">
-			<button type="button" class="prezi-demo__transport-button" onclick={goToPreviousStep} disabled={stepIndex === 0}>
+			<button
+				type="button"
+				class="prezi-demo__transport-button"
+				onclick={goToPreviousStep}
+				disabled={stepIndex === 0}
+			>
 				Back
 			</button>
 			<button
@@ -809,7 +839,11 @@
 					<p class="prezi-demo__panel-kicker">Presentation Steps</p>
 					<div class="prezi-demo__panel-actions">
 						<button type="button" class="prezi-demo__panel-toggle" onclick={addStep}>Add</button>
-						<button type="button" class="prezi-demo__panel-toggle" onclick={() => (leftPanelCollapsed = !leftPanelCollapsed)}>
+						<button
+							type="button"
+							class="prezi-demo__panel-toggle"
+							onclick={() => (leftPanelCollapsed = !leftPanelCollapsed)}
+						>
 							{leftPanelCollapsed ? 'Expand' : 'Collapse'}
 						</button>
 					</div>
@@ -854,7 +888,12 @@
 				<div class="prezi-demo__panel">
 					<p class="prezi-demo__panel-kicker">Step Actions</p>
 					<div class="prezi-demo__author-actions">
-						<button type="button" class="prezi-demo__small-action" onclick={() => moveCurrentStep(-1)} disabled={stepIndex === 0}>
+						<button
+							type="button"
+							class="prezi-demo__small-action"
+							onclick={() => moveCurrentStep(-1)}
+							disabled={stepIndex === 0}
+						>
 							Move up
 						</button>
 						<button
@@ -908,11 +947,11 @@
 						}}
 						initialDepth={currentPreset.depth}
 						selectedNodeId={currentPreset.selectedNodeId}
-						animationDurationMs={animationDurationMs}
+						{animationDurationMs}
 						showHeader={true}
-						showGrid={showGrid}
-						showMinimap={showMinimap}
-						showInspector={showInspector}
+						{showGrid}
+						{showMinimap}
+						{showInspector}
 						onNodeSelect={handleNodeSelect}
 					/>
 				{/key}
@@ -923,7 +962,11 @@
 			<div class="prezi-demo__panel">
 				<div class="prezi-demo__panel-head">
 					<p class="prezi-demo__panel-kicker">Presenter Note</p>
-					<button type="button" class="prezi-demo__panel-toggle" onclick={() => (rightPanelCollapsed = !rightPanelCollapsed)}>
+					<button
+						type="button"
+						class="prezi-demo__panel-toggle"
+						onclick={() => (rightPanelCollapsed = !rightPanelCollapsed)}
+					>
 						{rightPanelCollapsed ? 'Expand' : 'Collapse'}
 					</button>
 				</div>
@@ -967,8 +1010,8 @@
 								oninput={(event) => {
 									const target = event.currentTarget as HTMLTextAreaElement;
 									updateCurrentStepField('summary', target.value);
-								}}
-							>{currentStep.summary}</textarea>
+								}}>{currentStep.summary}</textarea
+							>
 						</label>
 						<label>
 							<span>Focus Node</span>
@@ -977,7 +1020,10 @@
 								value={currentStep.nodeId ?? 'overview'}
 								onchange={(event) => {
 									const target = event.currentTarget as HTMLSelectElement;
-									updateCurrentStepField('nodeId', target.value === 'overview' ? null : target.value);
+									updateCurrentStepField(
+										'nodeId',
+										target.value === 'overview' ? null : target.value
+									);
 								}}
 							>
 								<option value="overview">Overview</option>
@@ -994,8 +1040,8 @@
 								oninput={(event) => {
 									const target = event.currentTarget as HTMLTextAreaElement;
 									updateCurrentStepField('checklist', parseChecklist(target.value));
-								}}
-							>{currentChecklistText}</textarea>
+								}}>{currentChecklistText}</textarea
+							>
 						</label>
 						<label>
 							<span>Default note</span>
@@ -1005,8 +1051,8 @@
 								oninput={(event) => {
 									const target = event.currentTarget as HTMLTextAreaElement;
 									updateCurrentStepField('note', target.value);
-								}}
-							>{currentStep.note}</textarea>
+								}}>{currentStep.note}</textarea
+							>
 						</label>
 					</div>
 				</div>
@@ -1048,8 +1094,12 @@
 					<div class="prezi-demo__panel-head">
 						<p class="prezi-demo__panel-kicker">Scenario JSON</p>
 						<div class="prezi-demo__panel-actions">
-							<button type="button" class="prezi-demo__panel-toggle" onclick={exportScenario}>Export</button>
-							<button type="button" class="prezi-demo__panel-toggle" onclick={importScenario}>Import</button>
+							<button type="button" class="prezi-demo__panel-toggle" onclick={exportScenario}
+								>Export</button
+							>
+							<button type="button" class="prezi-demo__panel-toggle" onclick={importScenario}
+								>Import</button
+							>
 						</div>
 					</div>
 					<textarea

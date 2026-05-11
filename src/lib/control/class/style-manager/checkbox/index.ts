@@ -37,10 +37,7 @@ export class CheckboxStyleManager {
 	}
 
 	static getCheckboxContainerClasses(className?: string): string {
-		return this.join([
-			'inline-flex items-center gap-2',
-			className
-		]);
+		return this.join(['inline-flex items-center gap-2', className]);
 	}
 
 	static getCheckboxLabelClasses(disabled = false, className?: string): string {

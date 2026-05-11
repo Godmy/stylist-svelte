@@ -6,4 +6,4 @@ export type ProgressCircleProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'gray';
 	strokeWidth?: number;
 	class?: string;
-}
+};

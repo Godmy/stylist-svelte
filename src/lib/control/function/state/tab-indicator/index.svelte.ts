@@ -41,10 +41,3 @@ export const createTabIndicatorState = (props: TabIndicatorProps) => {
 };
 
 export default createTabIndicatorState;
-
-
-
-
-
-
-

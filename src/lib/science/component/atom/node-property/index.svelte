@@ -9,7 +9,11 @@
 	const state = createNodePropertyState(props);
 </script>
 
-<div class={`${state.propertyState.classes} ${state.className}`} data-property-type={state.propertyState.type} {...state.restProps}>
+<div
+	class={`${state.propertyState.classes} ${state.className}`}
+	data-property-type={state.propertyState.type}
+	{...state.restProps}
+>
 	{#if state.propertyState.hasLabel || props.icon}
 		<div class="node-property__header">
 			{#if props.icon}
@@ -119,12 +123,15 @@
 							<input
 								type="number"
 								class="node-property__input node-property__input--number"
-								value={Array.isArray(state.currentValue) ? Number(state.currentValue[index] ?? 0) : 0}
+								value={Array.isArray(state.currentValue)
+									? Number(state.currentValue[index] ?? 0)
+									: 0}
 								step={props.step ?? 0.1}
-						disabled={!state.propertyState.editable}
+								disabled={!state.propertyState.editable}
 								onfocus={props.onfocus}
 								onblur={props.onblur}
-								onchange={(event) => state.handleVectorChange(index, (event.target as HTMLInputElement).value)}
+								onchange={(event) =>
+									state.handleVectorChange(index, (event.target as HTMLInputElement).value)}
 							/>
 						</div>
 					{/each}
@@ -159,7 +166,9 @@
 		background: color-mix(in srgb, var(--color-background-primary) 50%, transparent);
 		border-radius: var(--border-radius-base);
 		border: 1px solid transparent;
-		transition: border-color var(--duration-120) var(--animation-ease), background-color var(--duration-120) var(--animation-ease);
+		transition:
+			border-color var(--duration-120) var(--animation-ease),
+			background-color var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.node-property:hover) {
@@ -340,5 +349,3 @@
 		margin: 0;
 	}
 </style>
-
-

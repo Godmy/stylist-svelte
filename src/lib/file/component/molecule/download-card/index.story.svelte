@@ -9,7 +9,12 @@
 	];
 </script>
 
-<Story component={DownloadCard} title="DownloadCard" description="Download action card for files and resources." {controls}>
+<Story
+	component={DownloadCard}
+	title="DownloadCard"
+	description="Download action card for files and resources."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<DownloadCard
 			file={{ name: values.productName + '.pdf', size: 2457600, type: 'PDF', date: '2026-02-21' }}
@@ -18,6 +23,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

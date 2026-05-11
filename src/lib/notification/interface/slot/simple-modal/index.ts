@@ -3,8 +3,8 @@ import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct
 import type { Snippet } from 'svelte';
 
 export interface SlotSimpleModal extends InteractionHTMLAttributes<HTMLDivElement> {
-  open?: boolean;
-  title?: string;
-  class?: string;
-  onClose?: () => void;
+	open?: boolean;
+	title?: string;
+	class?: string;
+	onClose?: () => void;
 }

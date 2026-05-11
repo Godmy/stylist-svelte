@@ -91,4 +91,3 @@ export function useCamera(initialCamera: SceneCameraInput = {}) {
 }
 
 export default useCamera;
-

@@ -17,12 +17,10 @@
 		</div>
 	{/each}
 	<div class="account-progress-tracker-progress">
-		<p>Step {state.localCurrentStep + 1} of {state.steps.length}: {state.steps[state.localCurrentStep]}</p>
+		<p>
+			Step {state.localCurrentStep + 1} of {state.steps.length}: {state.steps[
+				state.localCurrentStep
+			]}
+		</p>
 	</div>
 </div>
-
-
-
-
-
-

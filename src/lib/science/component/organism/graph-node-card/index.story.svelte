@@ -26,24 +26,19 @@
 </script>
 
 <Story
-  {controls}
-  title="GraphNodeCard"
-  category="Organisms/Card"
-  description="Graph node card component for displaying node information."
-  tags={['card', 'graph', 'node', 'ontology']}
+	{controls}
+	title="GraphNodeCard"
+	category="Organisms/Card"
+	description="Graph node card component for displaying node information."
+	tags={['card', 'graph', 'node', 'ontology']}
 >
-  {#snippet children(values: any)}
-    <GraphNodeCard
-      node={node1}
-      expanded={values.expanded}
-      showDetails={values.showDetails}
-      selected={values.selected}
-      highlight={values.highlight}
-    />
-  {/snippet}
+	{#snippet children(values: any)}
+		<GraphNodeCard
+			node={node1}
+			expanded={values.expanded}
+			showDetails={values.showDetails}
+			selected={values.selected}
+			highlight={values.highlight}
+		/>
+	{/snippet}
 </Story>
-
-
-
-
-

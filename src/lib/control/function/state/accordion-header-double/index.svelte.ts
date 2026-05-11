@@ -17,11 +17,7 @@ export function createAccordionHeaderDoubleState(props: AccordionHeaderDoublePro
 	);
 
 	const chevronClasses = $derived(
-		joinClassNames(
-			'accordion-chevron',
-			'size-md',
-			props.open ? 'rotated' : ''
-		)
+		joinClassNames('accordion-chevron', 'size-md', props.open ? 'rotated' : '')
 	);
 
 	return {
@@ -37,8 +33,3 @@ export function createAccordionHeaderDoubleState(props: AccordionHeaderDoublePro
 }
 
 export default createAccordionHeaderDoubleState;
-
-
-
-
-

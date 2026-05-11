@@ -12,18 +12,18 @@ import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavi
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface ToggleRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IStatusSlot,
-		ISelectable<boolean>,
-		IFocusable,
-		ISized,
-		IShapeable,
-		ISpaced,
-		SlotTheme,
-		HTMLAttributes<HTMLInputElement>
-	]>,
-		ToggleSpecificProps
-{}
-
+	extends StructIntersectAll<
+			[
+				ILabelSlot,
+				ICaptionSlot,
+				IStatusSlot,
+				ISelectable<boolean>,
+				IFocusable,
+				ISized,
+				IShapeable,
+				ISpaced,
+				SlotTheme,
+				HTMLAttributes<HTMLInputElement>
+			]
+		>,
+		ToggleSpecificProps {}

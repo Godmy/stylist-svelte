@@ -5,4 +5,4 @@ export type PaymentSummaryItem = {
 	quantity: number;
 	price: number;
 	total: number;
-}
+};

@@ -45,7 +45,12 @@ export class ObjectManagerDraggableCard {
 	/**
 	 * Определяет, нужно ли показывать handle
 	 */
-	static shouldShowHandle(showHandle: boolean, draggable: boolean, disabled: boolean, variant: string): boolean {
+	static shouldShowHandle(
+		showHandle: boolean,
+		draggable: boolean,
+		disabled: boolean,
+		variant: string
+	): boolean {
 		return showHandle && draggable && !disabled && variant !== 'compact';
 	}
 

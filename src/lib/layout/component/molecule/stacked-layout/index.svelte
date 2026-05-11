@@ -9,8 +9,3 @@
 <div class={state.classes} {...state.restProps}>
 	{#if props.children}{@render props.children()}{/if}
 </div>
-
-
-
-
-

@@ -118,12 +118,11 @@
 		padding: 0.5rem;
 		border: 1px solid color-mix(in srgb, var(--color-border-primary) 80%, transparent);
 		border-radius: 18px;
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
-				color-mix(in srgb, var(--color-background-primary) 90%, var(--color-background-secondary) 10%)
-			);
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
+			color-mix(in srgb, var(--color-background-primary) 90%, var(--color-background-secondary) 10%)
+		);
 		box-shadow:
 			0 16px 38px rgba(15, 23, 42, 0.1),
 			inset 0 1px 0 rgba(255, 255, 255, 0.55);
@@ -136,7 +135,8 @@
 		background: linear-gradient(
 			180deg,
 			color-mix(in srgb, var(--color-background-primary) 97%, white 3%) 0%,
-			color-mix(in srgb, var(--color-background-primary) 92%, var(--color-background-secondary) 8%) 100%
+			color-mix(in srgb, var(--color-background-primary) 92%, var(--color-background-secondary) 8%)
+				100%
 		);
 		color: var(--color-text-primary);
 		cursor: pointer;

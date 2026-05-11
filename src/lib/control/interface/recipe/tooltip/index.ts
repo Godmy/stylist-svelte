@@ -9,15 +9,15 @@ import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface TooltipRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IFocusable,
-		ISized,
-		IShapeable,
-		IMotionPreset,
-		SlotTheme,
-		HTMLAttributes<HTMLDivElement>
-	]>
-{}
-
+	extends StructIntersectAll<
+		[
+			ILabelSlot,
+			ICaptionSlot,
+			IFocusable,
+			ISized,
+			IShapeable,
+			IMotionPreset,
+			SlotTheme,
+			HTMLAttributes<HTMLDivElement>
+		]
+	> {}

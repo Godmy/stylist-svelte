@@ -17,11 +17,12 @@
 	tags={['chart', 'name', 'label']}
 >
 	{#snippet children(values: any)}
-		<svg width="460" height="70" class="rounded border border-[--color-border-primary] bg-[--color-background-primary]">
+		<svg
+			width="460"
+			height="70"
+			class="rounded border border-[--color-border-primary] bg-[--color-background-primary]"
+		>
 			<ChartName text={values.text} x={16} y={30} color={values.color} />
 		</svg>
 	{/snippet}
 </Story>
-
-
-

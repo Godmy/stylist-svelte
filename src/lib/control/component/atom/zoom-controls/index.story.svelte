@@ -7,9 +7,17 @@
 	];
 </script>
 
-<Story {controls} component={ZoomControls} title="ZoomControls" category="Atoms/Control/ZoomControls" description="Zoom controls for canvas and design tools">
+<Story
+	{controls}
+	component={ZoomControls}
+	title="ZoomControls"
+	category="Atoms/Control/ZoomControls"
+	description="Zoom controls for canvas and design tools"
+>
 	{#snippet children(values: any)}
-		<div style="display: flex; gap: 8px; padding: 20px; background: var(--color-background-primary);">
+		<div
+			style="display: flex; gap: 8px; padding: 20px; background: var(--color-background-primary);"
+		>
 			<ZoomControls initialValue={Number(values.initialValue) || 100} />
 		</div>
 	{/snippet}

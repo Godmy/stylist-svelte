@@ -44,11 +44,19 @@
 
 	function logEvent(name: string, data?: any) {
 		const timestamp = new Date().toLocaleTimeString();
-		dragEvents = [`${timestamp} - ${name}${data ? ': ' + JSON.stringify(data) : ''}`, ...dragEvents].slice(0, 10);
+		dragEvents = [
+			`${timestamp} - ${name}${data ? ': ' + JSON.stringify(data) : ''}`,
+			...dragEvents
+		].slice(0, 10);
 	}
 </script>
 
-<Story {controls} component={DragAndDrop} title="Drag-and-Drop Component" description="Атом для перетаскивания элементов и зон сброса">
+<Story
+	{controls}
+	component={DragAndDrop}
+	title="Drag-and-Drop Component"
+	description="Атом для перетаскивания элементов и зон сброса"
+>
 	{#snippet children(values: any)}
 		<div class="w-full rounded-lg py-4">
 			<div class="grid grid-cols-2 gap-4">
@@ -57,7 +65,7 @@
 					{...values}
 					draggable={values.draggable}
 					dropzone={false}
-					class="p-6 bg-[var(--color-background-secondary)] rounded-lg"
+					class="rounded-lg bg-[var(--color-background-secondary)] p-6"
 					dragData={{ source: 'draggable-item', timestamp: Date.now() }}
 					onDragStart={() => logEvent('dragStart')}
 					onDragEnd={() => logEvent('dragEnd')}
@@ -65,7 +73,7 @@
 					{#snippet children()}
 						<div class="text-center">
 							<p class="font-medium">📦 Перетащи меня</p>
-							<p class="text-xs text-muted mt-1">Drag me to the drop zone</p>
+							<p class="text-muted mt-1 text-xs">Drag me to the drop zone</p>
 						</div>
 					{/snippet}
 				</DragAndDrop>
@@ -75,7 +83,7 @@
 					{...values}
 					draggable={false}
 					dropzone={true}
-					class="p-6 bg-[var(--color-background-tertiary)] rounded-lg border-2 border-dashed"
+					class="rounded-lg border-2 border-dashed bg-[var(--color-background-tertiary)] p-6"
 					onDrop={(e: any) => {
 						const data = e.dragData;
 						droppedData = data;
@@ -88,7 +96,9 @@
 						<div class="text-center">
 							<p class="font-medium">📥 Зона сброса</p>
 							{#if droppedData}
-								<p class="text-xs text-muted mt-2">Последние данные: {JSON.stringify(droppedData)}</p>
+								<p class="text-muted mt-2 text-xs">
+									Последние данные: {JSON.stringify(droppedData)}
+								</p>
 							{/if}
 						</div>
 					{/snippet}
@@ -96,9 +106,9 @@
 			</div>
 
 			<!-- Event log -->
-			<div class="mt-4 p-4 bg-[var(--color-background-tertiary)] rounded-lg">
-				<p class="text-sm font-medium mb-2">События:</p>
-				<ul class="text-xs text-muted space-y-1">
+			<div class="mt-4 rounded-lg bg-[var(--color-background-tertiary)] p-4">
+				<p class="mb-2 text-sm font-medium">События:</p>
+				<ul class="text-muted space-y-1 text-xs">
 					{#each dragEvents as event}
 						<li>{event}</li>
 					{/each}
@@ -107,4 +117,3 @@
 		</div>
 	{/snippet}
 </Story>
-

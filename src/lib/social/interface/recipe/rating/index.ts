@@ -18,13 +18,6 @@ import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface RatingRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IIconSlot,
-		ISelectable<number>,
-		IFocusable,
-		ISizable
-	]>
-{}
-
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IIconSlot, ISelectable<number>, IFocusable, ISizable]
+	> {}

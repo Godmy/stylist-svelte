@@ -6,7 +6,9 @@ export function createTableWithGroupingState(props: TableWithGroupingProps) {
 	const groups = $derived(
 		ObjectManagerTableControls.groupRows(props.data ?? [], props.groupBy ?? 'group')
 	);
-	const rootClass = $derived(TableExtendedStyleManager.root('c-table-with-grouping', props.class ?? ''));
+	const rootClass = $derived(
+		TableExtendedStyleManager.root('c-table-with-grouping', props.class ?? '')
+	);
 
 	return {
 		get groups() {

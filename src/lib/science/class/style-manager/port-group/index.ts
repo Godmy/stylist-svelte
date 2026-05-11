@@ -37,11 +37,3 @@ export class PortGroupStyleManager {
 		return mergeClassNames('port-group__item', hasDivider && 'port-group__item--divider');
 	}
 }
-
-
-
-
-
-
-
-

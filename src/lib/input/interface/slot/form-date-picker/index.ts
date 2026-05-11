@@ -1,8 +1,10 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 
 export interface SlotFormDatePicker
-	extends Omit<InteractionHTMLAttributes<HTMLInputElement>, 'class' | 'value' | 'on:input' | 'on:change'>
-{
+	extends Omit<
+		InteractionHTMLAttributes<HTMLInputElement>,
+		'class' | 'value' | 'on:input' | 'on:change'
+	> {
 	value?: string;
 	class?: string;
 	inputClass?: string;

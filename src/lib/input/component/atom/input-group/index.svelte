@@ -6,7 +6,8 @@
 	import { Button } from '$stylist/control';
 
 	let props: IInputGroupProps &
-		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> = $props();
+		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> =
+		$props();
 	const state = createInputGroupState(props);
 
 	let inputElement: HTMLInputElement | null = null;
@@ -43,7 +44,11 @@
 			class={`${state.inputClasses} ${state.groupInputClasses} rounded-r-none border-r-0`}
 			oninput={state.handleInput}
 			onchange={state.handleChange}
-			aria-describedby={state.hasError && (props.showErrors ?? true) ? state.errorId : props.helperText ? undefined : undefined}
+			aria-describedby={state.hasError && (props.showErrors ?? true)
+				? state.errorId
+				: props.helperText
+					? undefined
+					: undefined}
 			aria-invalid={state.hasError ? 'true' : 'false'}
 			aria-required={props.required ? 'true' : 'false'}
 		/>

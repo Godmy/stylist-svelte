@@ -1,7 +1,8 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { Snippet } from 'svelte';
 
-export interface ProductCardWithActionsProps extends StructIntersectAll<[]> {	title?: string;
+export interface ProductCardWithActionsProps extends StructIntersectAll<[]> {
+	title?: string;
 	price?: number;
 	currency?: string;
 	image?: string;

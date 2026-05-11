@@ -33,21 +33,35 @@ export function createSentimentAnalysisState(props: SentimentAnalysisContract) {
 		}
 	}
 
-	const containerClass = $derived(SentimentAnalysisStyleManager.getContainerClass(props.class ?? ''));
-	const headerClass = $derived(SentimentAnalysisStyleManager.getHeaderClass(props.headerClass ?? ''));
+	const containerClass = $derived(
+		SentimentAnalysisStyleManager.getContainerClass(props.class ?? '')
+	);
+	const headerClass = $derived(
+		SentimentAnalysisStyleManager.getHeaderClass(props.headerClass ?? '')
+	);
 	const titleClass = $derived(SentimentAnalysisStyleManager.getTitleClass());
-	const contentClass = $derived(SentimentAnalysisStyleManager.getContentClass(props.contentClass ?? ''));
+	const contentClass = $derived(
+		SentimentAnalysisStyleManager.getContentClass(props.contentClass ?? '')
+	);
 	const inputLabelClass = $derived(SentimentAnalysisStyleManager.getInputLabelClass());
-	const inputAreaClass = $derived(SentimentAnalysisStyleManager.getInputAreaClass(props.inputClass ?? ''));
+	const inputAreaClass = $derived(
+		SentimentAnalysisStyleManager.getInputAreaClass(props.inputClass ?? '')
+	);
 	const analyzeButtonClass = $derived(
 		SentimentAnalysisStyleManager.getAnalyzeButtonClass(status === 'analyzing', !inputText.trim())
 	);
 	const loadingSpinnerClass = $derived(SentimentAnalysisStyleManager.getLoadingSpinnerClass());
-	const errorMessageContainerClass = $derived(SentimentAnalysisStyleManager.getErrorMessageContainerClass());
+	const errorMessageContainerClass = $derived(
+		SentimentAnalysisStyleManager.getErrorMessageContainerClass()
+	);
 	const errorIconClass = $derived(SentimentAnalysisStyleManager.getErrorIconClass());
 	const errorMessageClass = $derived(SentimentAnalysisStyleManager.getErrorMessageClass());
-	const resultSectionClass = $derived(SentimentAnalysisStyleManager.getResultSectionClass(props.resultClass ?? ''));
-	const sentimentIconContainerClass = $derived(SentimentAnalysisStyleManager.getSentimentIconContainerClass());
+	const resultSectionClass = $derived(
+		SentimentAnalysisStyleManager.getResultSectionClass(props.resultClass ?? '')
+	);
+	const sentimentIconContainerClass = $derived(
+		SentimentAnalysisStyleManager.getSentimentIconContainerClass()
+	);
 	const confidenceLabelClass = $derived(SentimentAnalysisStyleManager.getConfidenceLabelClass());
 	const breakdownHeaderClass = $derived(SentimentAnalysisStyleManager.getBreakdownHeaderClass());
 	const breakdownBarClass = $derived(SentimentAnalysisStyleManager.getBreakdownBarClass());
@@ -55,10 +69,14 @@ export function createSentimentAnalysisState(props: SentimentAnalysisContract) {
 	const neutralSegmentClass = $derived(SentimentAnalysisStyleManager.getNeutralSegmentClass());
 	const positiveSegmentClass = $derived(SentimentAnalysisStyleManager.getPositiveSegmentClass());
 	const sentimentLabelClass = $derived(SentimentAnalysisStyleManager.getSentimentLabelClass());
-	const sentimentScaleContainerClass = $derived(SentimentAnalysisStyleManager.getSentimentScaleContainerClass());
+	const sentimentScaleContainerClass = $derived(
+		SentimentAnalysisStyleManager.getSentimentScaleContainerClass()
+	);
 	const gradientScaleClass = $derived(SentimentAnalysisStyleManager.getGradientScaleClass());
 	const scaleLabelsClass = $derived(SentimentAnalysisStyleManager.getScaleLabelsClass());
-	const footerClass = $derived(SentimentAnalysisStyleManager.getFooterClass(props.footerClass ?? ''));
+	const footerClass = $derived(
+		SentimentAnalysisStyleManager.getFooterClass(props.footerClass ?? '')
+	);
 
 	return {
 		get inputText() {

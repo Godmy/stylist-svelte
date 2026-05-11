@@ -7,9 +7,7 @@ export function createColumnManagerState(props: ColumnManagerProps) {
 		localColumns = props.columns.map((column) => ({ ...column }));
 	});
 
-	function emit(
-		nextColumns: Array<(typeof props.columns)[number]>
-	) {
+	function emit(nextColumns: Array<(typeof props.columns)[number]>) {
 		localColumns = nextColumns.map((column) => ({ ...column }));
 		props.onColumnsChange?.(nextColumns.map((column) => ({ ...column })));
 	}

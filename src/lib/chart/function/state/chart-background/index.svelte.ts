@@ -6,10 +6,14 @@ function resolveClassName(className: unknown): string | undefined {
 }
 
 export function createChartBackgroundState(props: ChartBackgroundRecipe) {
-	const classes = $derived(ChartStyleManager.getChartBackgroundClasses(resolveClassName(props.class)));
+	const classes = $derived(
+		ChartStyleManager.getChartBackgroundClasses(resolveClassName(props.class))
+	);
 
 	return {
-		get classes() { return classes; }
+		get classes() {
+			return classes;
+		}
 	};
 }
 

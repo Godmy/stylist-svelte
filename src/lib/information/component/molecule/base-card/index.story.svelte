@@ -5,19 +5,27 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Workspace Summary' },
-		{ name: 'description', type: 'text', defaultValue: 'All systems operational for the current release.' }
+		{
+			name: 'description',
+			type: 'text',
+			defaultValue: 'All systems operational for the current release.'
+		}
 	];
 </script>
 
-<Story component={BaseCard} title="BaseCard" description="Generic information card with header and body slots." {controls}>
+<Story
+	component={BaseCard}
+	title="BaseCard"
+	description="Generic information card with header and body slots."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<BaseCard title={values.title} description={values.description}>
 			{#snippet children()}
-				<div class="text-sm text-[--color-text-secondary]">Body content can contain any custom UI.</div>
+				<div class="text-sm text-[--color-text-secondary]">
+					Body content can contain any custom UI.
+				</div>
 			{/snippet}
 		</BaseCard>
 	{/snippet}
 </Story>
-
-
-

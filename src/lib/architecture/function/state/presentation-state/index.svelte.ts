@@ -16,14 +16,30 @@ export function createPresentationState(initial?: Partial<PresentationState>): P
 	});
 
 	return {
-		get mode() { return state.mode; },
-		get currentFrameIndex() { return state.currentFrameIndex; },
-		get frames() { return state.frames; },
-		get isPlaying() { return state.isPlaying; },
-		setMode(mode: PresentationMode) { state.mode = mode; },
-		setCurrentFrame(index: number) { state.currentFrameIndex = index; },
-		setFrames(frames: PresentationFrame[]) { state.frames = frames; },
-		togglePlaying() { state.isPlaying = !state.isPlaying; }
+		get mode() {
+			return state.mode;
+		},
+		get currentFrameIndex() {
+			return state.currentFrameIndex;
+		},
+		get frames() {
+			return state.frames;
+		},
+		get isPlaying() {
+			return state.isPlaying;
+		},
+		setMode(mode: PresentationMode) {
+			state.mode = mode;
+		},
+		setCurrentFrame(index: number) {
+			state.currentFrameIndex = index;
+		},
+		setFrames(frames: PresentationFrame[]) {
+			state.frames = frames;
+		},
+		togglePlaying() {
+			state.isPlaying = !state.isPlaying;
+		}
 	};
 }
 

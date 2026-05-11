@@ -9,7 +9,11 @@ export class ResponseViewerStyleManager {
 	 * Get base classes for response viewer
 	 */
 	static root(base: string, className?: string): string {
-		return mergeClassNames(base, 'overflow-hidden rounded-lg border border-[var(--color-border-primary)]', className);
+		return mergeClassNames(
+			base,
+			'overflow-hidden rounded-lg border border-[var(--color-border-primary)]',
+			className
+		);
 	}
 
 	/**
@@ -23,7 +27,11 @@ export class ResponseViewerStyleManager {
 	 * Get classes for code content
 	 */
 	static code(base: string, className?: string): string {
-		return mergeClassNames(base, 'overflow-auto p-4 font-mono text-sm text-[var(--color-text-primary)]', className);
+		return mergeClassNames(
+			base,
+			'overflow-auto p-4 font-mono text-sm text-[var(--color-text-primary)]',
+			className
+		);
 	}
 
 	/**

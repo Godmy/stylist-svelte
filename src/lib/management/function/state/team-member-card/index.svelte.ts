@@ -13,7 +13,9 @@ export function createTeamMemberCardState(props: TeamMemberCardStateProps) {
 	const variant = $derived(props.variant ?? 'default');
 
 	// Computed classes
-	const classes = $derived(TeamMemberCardStyleManager.getBaseClasses(variant as any, props.class ?? ''));
+	const classes = $derived(
+		TeamMemberCardStyleManager.getBaseClasses(variant as any, props.class ?? '')
+	);
 	const headerClasses = $derived(TeamMemberCardStyleManager.getHeaderClasses());
 	const avatarContainerClasses = $derived(TeamMemberCardStyleManager.getAvatarContainerClasses());
 	const avatarClasses = $derived(TeamMemberCardStyleManager.getAvatarClasses());
@@ -30,9 +32,7 @@ export function createTeamMemberCardState(props: TeamMemberCardStateProps) {
 		TeamMemberCardStyleManager.getAchievementsTitleClasses()
 	);
 	const achievementItemClasses = $derived(TeamMemberCardStyleManager.getAchievementItemClasses());
-	const achievementTitleClasses = $derived(
-		TeamMemberCardStyleManager.getAchievementTitleClasses()
-	);
+	const achievementTitleClasses = $derived(TeamMemberCardStyleManager.getAchievementTitleClasses());
 	const achievementDescriptionClasses = $derived(
 		TeamMemberCardStyleManager.getAchievementDescriptionClasses()
 	);

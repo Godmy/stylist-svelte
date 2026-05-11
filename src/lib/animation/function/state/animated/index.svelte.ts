@@ -63,7 +63,9 @@ export const createAnimatedState = (props: AnimateProps) => {
 	$effect(() => {
 		const _to = normalizedProps.to; // отслеживаем изменения
 		startAnimation();
-		return () => { isAnimating = false; };
+		return () => {
+			isAnimating = false;
+		};
 	});
 
 	// Запуск анимации
@@ -119,9 +121,15 @@ export const createAnimatedState = (props: AnimateProps) => {
 		},
 
 		// SlotState
-		get classes() { return classes; },
-		get inlineStyle() { return inlineStyle; },
-		get restProps() { return restProps; },
+		get classes() {
+			return classes;
+		},
+		get inlineStyle() {
+			return inlineStyle;
+		},
+		get restProps() {
+			return restProps;
+		},
 
 		// Actions
 		startAnimation,

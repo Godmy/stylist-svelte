@@ -17,14 +17,9 @@ import type { Snippet } from 'svelte';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface BaseCardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IMediaSlot,
-		IBadgeSlot,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IMediaSlot, IBadgeSlot, ThemeAttributes<HTMLDivElement>]
+	> {
 	title?: string;
 	description?: string;
 	variant?: string;
@@ -34,4 +29,3 @@ export interface BaseCardRecipe
 	bodyClass?: string;
 	children?: Snippet;
 }
-

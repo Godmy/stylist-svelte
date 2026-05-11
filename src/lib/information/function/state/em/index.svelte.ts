@@ -19,10 +19,3 @@ export function createEmState(props: ThemeEmRecipe) {
 }
 
 export default createEmState;
-
-
-
-
-
-
-

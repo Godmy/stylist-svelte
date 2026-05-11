@@ -26,4 +26,4 @@ export type CheckoutFormProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & 
 	requireAccount?: boolean;
 	currency?: string;
 	locale?: string;
-}
+};

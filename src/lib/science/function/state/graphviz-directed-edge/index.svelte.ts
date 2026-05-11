@@ -11,8 +11,12 @@ export function createGraphvizDirectedEdgeState(props: GraphvizDirectedEdgeRecip
 	const color = $derived(props.color ?? 'var(--color-text-primary)');
 	const width = $derived(props.width ?? 2);
 	const strokeStyle = $derived(props.style ?? 'solid');
-	const dashArray = $derived(strokeStyle === 'dashed' ? '5,5' : strokeStyle === 'dotted' ? '2,2' : 'none');
-	const rootClass = $derived(GraphvizDirectedEdgeStyleManager.root(typeof props.class === 'string' ? props.class : ''));
+	const dashArray = $derived(
+		strokeStyle === 'dashed' ? '5,5' : strokeStyle === 'dotted' ? '2,2' : 'none'
+	);
+	const rootClass = $derived(
+		GraphvizDirectedEdgeStyleManager.root(typeof props.class === 'string' ? props.class : '')
+	);
 	const labelX = $derived((sourceX + targetX) / 2);
 	const labelY = $derived((sourceY + targetY) / 2 - 10);
 

@@ -52,10 +52,13 @@ export class UserCardStyleManager {
 
 	static getStatusIndicatorClass(status: UserStatus): string {
 		return `absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-[var(--color-background-primary)] ${
-			status === 'online' ? 'bg-[var(--color-success-500)]' :
-			status === 'away' ? 'bg-yellow-500' :
-			status === 'busy' ? 'bg-[var(--color-danger-500)]' :
-			'bg-[var(--color-neutral-400)]'
+			status === 'online'
+				? 'bg-[var(--color-success-500)]'
+				: status === 'away'
+					? 'bg-yellow-500'
+					: status === 'busy'
+						? 'bg-[var(--color-danger-500)]'
+						: 'bg-[var(--color-neutral-400)]'
 		}`;
 	}
 

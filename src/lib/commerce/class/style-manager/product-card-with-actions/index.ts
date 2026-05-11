@@ -32,7 +32,12 @@ export class ProductCardWithActionsStyleManager {
 	}
 
 	static getStarClass(isFilled: boolean): string {
-		return mergeClassNames('h-4 w-4', isFilled ? ProductCardStyleManager.getFilledStarClass() : ProductCardStyleManager.getEmptyStarClass());
+		return mergeClassNames(
+			'h-4 w-4',
+			isFilled
+				? ProductCardStyleManager.getFilledStarClass()
+				: ProductCardStyleManager.getEmptyStarClass()
+		);
 	}
 
 	static getReviewCountClass(): string {
@@ -55,6 +60,3 @@ export class ProductCardWithActionsStyleManager {
 		return 'flex items-center gap-2';
 	}
 }
-
-
-

@@ -14,7 +14,10 @@ import type { TokenMonitoringType } from '$stylist/management/type/enum/monitori
 import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 
-export interface RecipePriceAlert extends StructIntersectAll<[ BehaviorSizable, BehaviorClickable, ThemeAttributes<HTMLDivElement> ]> {
+export interface RecipePriceAlert
+	extends StructIntersectAll<
+		[BehaviorSizable, BehaviorClickable, ThemeAttributes<HTMLDivElement>]
+	> {
 	/** Current price */
 	currentPrice?: number;
 	/** Target price */

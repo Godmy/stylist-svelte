@@ -10,12 +10,24 @@ export function createFormHeaderState(props: FormHeaderProps) {
 	let actionsClass = $derived(FormHeaderStyleManager.actions(props.actionsClass ?? ''));
 
 	return {
-		get rootClass() { return rootClass; },
-		get backButtonClass() { return backButtonClass; },
-		get titleClass() { return titleClass; },
-		get subtitleClass() { return subtitleClass; },
-		get descriptionClass() { return descriptionClass; },
-		get actionsClass() { return actionsClass; }
+		get rootClass() {
+			return rootClass;
+		},
+		get backButtonClass() {
+			return backButtonClass;
+		},
+		get titleClass() {
+			return titleClass;
+		},
+		get subtitleClass() {
+			return subtitleClass;
+		},
+		get descriptionClass() {
+			return descriptionClass;
+		},
+		get actionsClass() {
+			return actionsClass;
+		}
 	};
 }
 

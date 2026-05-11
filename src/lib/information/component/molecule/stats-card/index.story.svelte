@@ -12,11 +12,19 @@
 	];
 </script>
 
-<Story component={StatsCard} title="StatsCard" description="Compact KPI card with trend indicator." {controls}>
+<Story
+	component={StatsCard}
+	title="StatsCard"
+	description="Compact KPI card with trend indicator."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<StatsCard label={values.label} value={values.value} trend={values.trend} trendValue={values.trendValue} description={values.description} />
+		<StatsCard
+			label={values.label}
+			value={values.value}
+			trend={values.trend}
+			trendValue={values.trendValue}
+			description={values.description}
+		/>
 	{/snippet}
 </Story>
-
-
-

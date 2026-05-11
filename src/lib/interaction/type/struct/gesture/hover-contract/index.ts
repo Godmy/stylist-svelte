@@ -8,4 +8,4 @@ export type HoverContract = GestureContract & {
 	onMouseEnter?: (event: MouseEvent) => void;
 	/** Обработчик ухода с элемента */
 	onMouseLeave?: (event: MouseEvent) => void;
-}
+};

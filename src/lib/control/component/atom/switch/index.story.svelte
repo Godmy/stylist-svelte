@@ -5,7 +5,11 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'label', type: 'text', defaultValue: 'Включить уведомления' },
-		{ name: 'description', type: 'text', defaultValue: 'Получать email-уведомления о новых событиях' },
+		{
+			name: 'description',
+			type: 'text',
+			defaultValue: 'Получать email-уведомления о новых событиях'
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'checked', type: 'boolean', defaultValue: true },
@@ -32,6 +36,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

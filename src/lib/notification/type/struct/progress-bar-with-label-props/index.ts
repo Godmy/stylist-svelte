@@ -8,4 +8,4 @@ export type ProgressBarWithLabelProps = InteractionHTMLAttributes<HTMLDivElement
 	color?: string;
 	height?: string;
 	class?: string;
-}
+};

@@ -13,13 +13,9 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface WishlistButtonRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IIconSlot,
-		IBadgeSlot,
-		ThemeAttributes<HTMLButtonElement>
-	]>
-{
+	extends StructIntersectAll<
+		[ILabelSlot, IIconSlot, IBadgeSlot, ThemeAttributes<HTMLButtonElement>]
+	> {
 	inWishlist?: boolean;
 	buttonClass?: string;
 	showLabel?: boolean;
@@ -28,4 +24,3 @@ export interface WishlistButtonRecipe
 	onSuccess?: () => void;
 	onError?: (error: Error) => void;
 }
-

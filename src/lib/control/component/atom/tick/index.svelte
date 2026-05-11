@@ -8,7 +8,14 @@
 
 	const restProps = $derived(
 		(() => {
-			const { class: _class, value: _value, position: _position, active: _active, label: _label, ...rest } = props;
+			const {
+				class: _class,
+				value: _value,
+				position: _position,
+				active: _active,
+				label: _label,
+				...rest
+			} = props;
 			return rest;
 		})()
 	);
@@ -21,6 +28,3 @@
 		{state.value}
 	{/if}
 </div>
-
-
-

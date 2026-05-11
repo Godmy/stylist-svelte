@@ -1,5 +1,4 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-﻿/**
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all'; /**
  * Dot — точка-индикатор..
  *
  * LEGO-состав:

@@ -9,4 +9,3 @@ export class DrawingSurfaceStyleManager {
 		return mergeClassNames('drawing-surface', extraClass);
 	}
 }
-

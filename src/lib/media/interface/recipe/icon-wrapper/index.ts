@@ -9,9 +9,4 @@ import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface IconWrapperRecipe
-	extends StructIntersectAll<[
-		IIconSlot,
-		ThemeAttributes<HTMLSpanElement>
-	]>
-{}
-
+	extends StructIntersectAll<[IIconSlot, ThemeAttributes<HTMLSpanElement>]> {}

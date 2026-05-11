@@ -12,15 +12,17 @@ import type { ScatterPlotDataPoint } from '$stylist/chart/type/struct/scatter-pl
  * ScatterPlot = label + frame + axis config + legend toggle + scatter dataset.
  */
 export interface ScatterPlotRecipe
-	extends StructIntersectAll<[
-		IDimensionable,
-		ILabelSlot,
-		IChartAxis,
-		ILegendable,
-		IPointClickable<ScatterPlotDataPoint>,
-		IChartColorable,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<
+		[
+			IDimensionable,
+			ILabelSlot,
+			IChartAxis,
+			ILegendable,
+			IPointClickable<ScatterPlotDataPoint>,
+			IChartColorable,
+			ThemeAttributes<HTMLDivElement>
+		]
+	> {
 	data: ScatterPlotDataPoint[];
 	title?: string;
 	showAxis?: boolean;
@@ -30,4 +32,3 @@ export interface ScatterPlotRecipe
 	pointSize?: number;
 	showLabels?: boolean;
 }
-

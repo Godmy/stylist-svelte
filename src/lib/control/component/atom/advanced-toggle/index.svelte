@@ -39,8 +39,3 @@
 		<span class={state.labelTextClasses}>{state.label}</span>
 	</label>
 </div>
-
-
-
-
-

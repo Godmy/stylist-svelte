@@ -5,4 +5,3 @@ export const STATUS_INDICATOR_STATUS_CLASSES = {
 	busy: 'bg-[--color-danger-500]',
 	typing: 'bg-[--color-info-500]'
 } as const;
-

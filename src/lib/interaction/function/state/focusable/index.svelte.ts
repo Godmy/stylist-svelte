@@ -17,14 +17,7 @@ export const createFocusableState = (props: FocusProps) => {
 
 	// Извлечение rest props
 	const restProps = $derived.by(() => {
-		const {
-			class: _class,
-			onFocus,
-			onBlur,
-			disabled,
-			focusEffect,
-			...rest
-		} = props;
+		const { class: _class, onFocus, onBlur, disabled, focusEffect, ...rest } = props;
 		return rest;
 	});
 
@@ -53,8 +46,12 @@ export const createFocusableState = (props: FocusProps) => {
 		},
 
 		// SlotState
-		get classes() { return classes; },
-		get restProps() { return restProps; },
+		get classes() {
+			return classes;
+		},
+		get restProps() {
+			return restProps;
+		},
 
 		// Handlers
 		handleFocus,

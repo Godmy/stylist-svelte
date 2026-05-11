@@ -29,11 +29,7 @@ export class GraphCanvasStyleManager {
 	/**
 	 * РџРѕР»СѓС‡Р°РµС‚ СЃС‚РёР»Рё СЃРµС‚РєРё
 	 */
-	static getGridStyles(
-		gridSize: number,
-		gridColor: string,
-		backgroundColor?: string
-	): string {
+	static getGridStyles(gridSize: number, gridColor: string, backgroundColor?: string): string {
 		let result = `--grid-size: ${gridSize}px; --grid-color: ${gridColor};`;
 		if (backgroundColor) result += ` --background-color: ${backgroundColor};`;
 		return result.trim();
@@ -81,17 +77,3 @@ export class GraphCanvasStyleManager {
 		`.trim();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -16,7 +16,10 @@ export function generateBurnDownXLabels(
 	for (let index = 0; index < points.length; index += interval) {
 		const point = points[index];
 		const x = margins.left + (index * innerWidth) / (points.length - 1);
-		const dateStr = new Date(point.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' });
+		const dateStr = new Date(point.date).toLocaleDateString('ru-RU', {
+			day: 'numeric',
+			month: 'short'
+		});
 
 		labels.push({ x, y: height - 10, text: dateStr });
 	}

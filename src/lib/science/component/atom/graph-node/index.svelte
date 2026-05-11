@@ -58,7 +58,10 @@
 		box-shadow: var(--shadow-custom26);
 		user-select: none;
 		cursor: pointer;
-		transition: transform var(--duration-120) var(--animation-ease), box-shadow var(--duration-120) var(--animation-ease), border-color var(--duration-120) var(--animation-ease);
+		transition:
+			transform var(--duration-120) var(--animation-ease),
+			box-shadow var(--duration-120) var(--animation-ease),
+			border-color var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.graph-node:hover) {

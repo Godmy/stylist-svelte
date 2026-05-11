@@ -3,4 +3,4 @@ export type CardInfo = {
 	expiry: string;
 	cvv: string;
 	name: string;
-}
+};

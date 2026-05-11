@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media'; const X = 'x'; const Loader2 = 'loader-2';
-import type { SlotButtonElement as ButtonElementProps } from '$stylist/control/interface/slot/button-element';
-import { createCloseButtonState } from '$stylist/control/function/state/close-button';
+	import { Icon as BaseIcon } from '$stylist/media';
+	const X = 'x';
+	const Loader2 = 'loader-2';
+	import type { SlotButtonElement as ButtonElementProps } from '$stylist/control/interface/slot/button-element';
+	import { createCloseButtonState } from '$stylist/control/function/state/close-button';
 
 	/**
 	 * CloseButton component - A standardized close button (X icon)
@@ -51,18 +53,3 @@ import { createCloseButtonState } from '$stylist/control/function/state/close-bu
 		<BaseIcon name={X} class="h-4 w-4" />
 	{/if}
 </button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -9,11 +9,21 @@
 		{ name: 'label', type: 'text', defaultValue: 'Deployment progress' },
 		{ name: 'showPercentage', type: 'boolean', defaultValue: true },
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
-		{ name: 'variant', type: 'select', defaultValue: 'primary', options: ['primary', 'success', 'warning', 'danger'] }
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'success', 'warning', 'danger']
+		}
 	];
 </script>
 
-<Story component={ProgressBar} title="ProgressBar" description="Linear progress indicator with label and visual variants." {controls}>
+<Story
+	component={ProgressBar}
+	title="ProgressBar"
+	description="Linear progress indicator with label and visual variants."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<ProgressBar
 			value={values.value}
@@ -25,6 +35,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

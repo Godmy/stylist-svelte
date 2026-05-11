@@ -45,7 +45,11 @@
 		bind:this={textareaElement}
 		class={`${state.classes} resize-y`}
 		oninput={() => state.handleInput(textareaElement)}
-		aria-describedby={state.hasError && (props.showErrors ?? true) ? state.errorId : props.helperText ? undefined : undefined}
+		aria-describedby={state.hasError && (props.showErrors ?? true)
+			? state.errorId
+			: props.helperText
+				? undefined
+				: undefined}
 		aria-invalid={state.hasError ? 'true' : 'false'}
 		aria-required={props.required ? 'true' : 'false'}
 	></textarea>
@@ -61,10 +65,10 @@
 	{/if}
 
 	{#if props.maxlength}
-		<p class="text-xs text-[var(--color-text-secondary)] mt-1">
+		<p class="mt-1 text-xs text-[var(--color-text-secondary)]">
 			{state.currentLength} / {props.maxlength}
 			{#if state.remainingChars !== null && state.remainingChars <= 10}
-				<span class="text-orange-600 ml-2">Осталось символов: {state.remainingChars}</span>
+				<span class="ml-2 text-orange-600">Осталось символов: {state.remainingChars}</span>
 			{/if}
 		</p>
 	{/if}

@@ -7,9 +7,15 @@ export function createCardSkeletonState(props: CardSkeletonProps) {
 	let cardClass = $derived(CardSkeletonStyleManager.card());
 
 	return {
-		get cards() { return cards; },
-		get rootClass() { return rootClass; },
-		get cardClass() { return cardClass; }
+		get cards() {
+			return cards;
+		},
+		get rootClass() {
+			return rootClass;
+		},
+		get cardClass() {
+			return cardClass;
+		}
 	};
 }
 

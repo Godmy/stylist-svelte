@@ -5,8 +5,17 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Ship Features Faster' },
-		{ name: 'subtitle', type: 'text', defaultValue: 'Design, build, and deploy with a unified workflow.' },
-		{ name: 'backgroundVariant', type: 'select', defaultValue: 'gradient', options: ['gradient', 'image', 'particles'] },
+		{
+			name: 'subtitle',
+			type: 'text',
+			defaultValue: 'Design, build, and deploy with a unified workflow.'
+		},
+		{
+			name: 'backgroundVariant',
+			type: 'select',
+			defaultValue: 'gradient',
+			options: ['gradient', 'image', 'particles']
+		},
 		{ name: 'height', type: 'select', defaultValue: 'screen', options: ['auto', 'half', 'screen'] }
 	];
 
@@ -17,21 +26,25 @@
 	];
 </script>
 
-<Story component={Hero} title="Hero" description="Large header section with title, stats, and CTAs." {controls}>
+<Story
+	component={Hero}
+	title="Hero"
+	description="Large header section with title, stats, and CTAs."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<Hero {...({
-			title: values.title,
-			subtitle: values.subtitle,
-			backgroundVariant: values.backgroundVariant,
-			height: values.height,
-			backgroundImage: '',
-			stats,
-			primaryCTA: { label: 'Get started', onClick: () => {} },
-			secondaryCTA: { label: 'View docs', onClick: () => {} },
-			children: undefined
-		} as any)} />
+		<Hero
+			{...{
+				title: values.title,
+				subtitle: values.subtitle,
+				backgroundVariant: values.backgroundVariant,
+				height: values.height,
+				backgroundImage: '',
+				stats,
+				primaryCTA: { label: 'Get started', onClick: () => {} },
+				secondaryCTA: { label: 'View docs', onClick: () => {} },
+				children: undefined
+			} as any}
+		/>
 	{/snippet}
 </Story>
-
-
-

@@ -15,7 +15,9 @@ export function createTokenControlComposerState(props: TokenControlComposerProps
 
 	const textValue = $derived.by(() => {
 		if (controlKind !== 'range' && controlKind !== 'radio' && controlKind !== 'select') {
-			return typeof props.value === 'string' ? props.value : String(props.value ?? props.definition.defaultValue ?? '');
+			return typeof props.value === 'string'
+				? props.value
+				: String(props.value ?? props.definition.defaultValue ?? '');
 		}
 		return undefined;
 	});

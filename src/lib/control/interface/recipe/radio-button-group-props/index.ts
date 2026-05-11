@@ -5,7 +5,10 @@ import type { HtmlAttributesWithChildren } from '$stylist/information/interface/
 import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
 import type { TokenSelectionType } from '$stylist/control/type/record/selection-type';
 
-export interface RecipeRadioButtonGroupProps extends StructIntersectAll<[Omit< HtmlAttributesWithChildren<HTMLDivElement>, 'size' | 'class' | 'onchange' | 'oninput' >]> {
+export interface RecipeRadioButtonGroupProps
+	extends StructIntersectAll<
+		[Omit<HtmlAttributesWithChildren<HTMLDivElement>, 'size' | 'class' | 'onchange' | 'oninput'>]
+	> {
 	value?: string;
 	disabled?: boolean;
 	orientation?: TokenOrientation;

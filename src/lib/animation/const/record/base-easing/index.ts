@@ -1,4 +1,7 @@
-import type { EasingFunction, EasingType } from '$stylist/animation/type/script/get-easing-function';
+import type {
+	EasingFunction,
+	EasingType
+} from '$stylist/animation/type/script/get-easing-function';
 
 export const BASE_EASING: Record<EasingType, EasingFunction> = {
 	linear: (t) => t,

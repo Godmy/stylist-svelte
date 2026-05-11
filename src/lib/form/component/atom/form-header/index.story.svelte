@@ -6,15 +6,26 @@
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Personal information' },
 		{ name: 'subtitle', type: 'text', defaultValue: 'Step 1 of 3' },
-		{ name: 'description', type: 'text', defaultValue: 'Fill in profile details to continue setup.' },
+		{
+			name: 'description',
+			type: 'text',
+			defaultValue: 'Fill in profile details to continue setup.'
+		},
 		{ name: 'showBackButton', type: 'boolean', defaultValue: true },
 		{ name: 'backButtonLabel', type: 'text', defaultValue: 'Back' }
 	];
 </script>
 
-<Story component={FormHeader} title="FormHeader" description="Consistent heading section for multi-step forms." {controls}>
+<Story
+	component={FormHeader}
+	title="FormHeader"
+	description="Consistent heading section for multi-step forms."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<div class="rounded-xl border border-[--color-border-primary] bg-[var(--color-background-primary)] p-5">
+		<div
+			class="rounded-xl border border-[--color-border-primary] bg-[var(--color-background-primary)] p-5"
+		>
 			<FormHeader
 				title={values.title}
 				subtitle={values.subtitle}
@@ -25,7 +36,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-

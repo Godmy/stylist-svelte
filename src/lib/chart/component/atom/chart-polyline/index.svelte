@@ -4,7 +4,6 @@
 
 	let props: ChartPolylineProps = $props();
 	const state = createChartPolylineState(props);
-
 </script>
 
 <polyline
@@ -16,5 +15,3 @@
 	stroke-linejoin="round"
 	fill="none"
 />
-
-

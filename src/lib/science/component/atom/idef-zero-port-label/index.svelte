@@ -15,5 +15,3 @@
 >
 	{props.text}
 </text>
-
-

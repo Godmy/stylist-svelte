@@ -21,10 +21,7 @@ export class AccordionPanelStyleManager {
 	}
 
 	static getAccordionPanelContentClasses(className?: string): string {
-		return this.join([
-			'',
-			className
-		]);
+		return this.join(['', className]);
 	}
 
 	static getAccordionClasses(className?: string): string {

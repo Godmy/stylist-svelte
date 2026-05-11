@@ -4,7 +4,7 @@ import type { ProductCardStateProps } from '$stylist/commerce/interface/recipe/p
 
 export function createProductCardState(props: ProductCardStateProps) {
 	// Props with defaults
-	const variant = $derived(props.variant ?? 'detailed' as TierContent);
+	const variant = $derived(props.variant ?? ('detailed' as TierContent));
 	const title = $derived(props.title ?? '');
 	const price = $derived(props.price ?? 0);
 	const currency = $derived(props.currency ?? '$');
@@ -18,15 +18,19 @@ export function createProductCardState(props: ProductCardStateProps) {
 	const badgeKey = $derived(
 		badge === 'sale' || badge === 'new' || badge === 'popular' ? badge : 'default'
 	);
-	const badgeStyles = $derived({
-		sale: ProductCardStyleManager.getSaleBadgeClass(),
-		new: ProductCardStyleManager.getNewBadgeClass(),
-		popular: ProductCardStyleManager.getPopularBadgeClass(),
-		default: ProductCardStyleManager.getDefaultBadgeClass()
-	}[badgeKey]);
+	const badgeStyles = $derived(
+		{
+			sale: ProductCardStyleManager.getSaleBadgeClass(),
+			new: ProductCardStyleManager.getNewBadgeClass(),
+			popular: ProductCardStyleManager.getPopularBadgeClass(),
+			default: ProductCardStyleManager.getDefaultBadgeClass()
+		}[badgeKey]
+	);
 
 	// Classes
-	const containerClass = $derived(ProductCardStyleManager.getContainerClass(props.class ?? '', variant));
+	const containerClass = $derived(
+		ProductCardStyleManager.getContainerClass(props.class ?? '', variant)
+	);
 	const imageContainerClass = $derived(ProductCardStyleManager.getImageContainerClass(variant));
 	const imageClass = $derived(ProductCardStyleManager.getImageClass());
 	const badgeClass = $derived(ProductCardStyleManager.getBadgeClass(badgeStyles));

@@ -12,7 +12,12 @@
 	];
 </script>
 
-<Story component={WidgetContainer} title="WidgetContainer" description="Card-like widget shell with controls and collapse behavior." {controls}>
+<Story
+	component={WidgetContainer}
+	title="WidgetContainer"
+	description="Card-like widget shell with controls and collapse behavior."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<WidgetContainer
 			title={values.title}
@@ -22,11 +27,10 @@
 			maximizable={values.maximizable}
 		>
 			{#snippet content()}
-				<div class="text-sm text-[--color-text-secondary]">No incidents detected in the last 24 hours.</div>
+				<div class="text-sm text-[--color-text-secondary]">
+					No incidents detected in the last 24 hours.
+				</div>
 			{/snippet}
 		</WidgetContainer>
 	{/snippet}
 </Story>
-
-
-

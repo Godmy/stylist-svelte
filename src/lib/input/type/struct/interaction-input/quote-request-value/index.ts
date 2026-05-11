@@ -11,4 +11,4 @@ export type QuoteRequestValue = {
 	message: string;
 	urgent?: boolean;
 	validUntil?: Date;
-}
+};

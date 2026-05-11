@@ -47,13 +47,9 @@
 						{ id: '6', label: 'Info', variant: 'info', size: 'md' }
 					]}
 					maxVisible={Number(values.maxVisible) || 5}
-					showOverflow={values.showOverflow as boolean ?? true}
+					showOverflow={(values.showOverflow as boolean) ?? true}
 				/>
 			</div>
 		</div>
 	{/snippet}
 </Story>
-
-
-
-

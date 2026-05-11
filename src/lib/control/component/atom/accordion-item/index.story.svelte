@@ -31,7 +31,3 @@
 		</ComplexAccordion>
 	{/snippet}
 </Story>
-
-
-
-

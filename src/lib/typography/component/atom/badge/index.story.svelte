@@ -59,8 +59,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-

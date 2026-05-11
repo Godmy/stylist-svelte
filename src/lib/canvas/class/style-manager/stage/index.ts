@@ -17,4 +17,3 @@ export class StageStyleManager {
 		return `transform: translate(${-cameraX}px, ${-cameraY}px) scale(${cameraZoom});`;
 	}
 }
-

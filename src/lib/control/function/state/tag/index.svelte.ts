@@ -8,7 +8,6 @@ type TagProps = TagRecipe & {
 	onClose?: () => void;
 };
 
-
 export const createTagState = (props: TagProps) => {
 	const variant = $derived((props.variant ?? 'default') as string);
 	const size = $derived((props.size ?? 'md') as TokenSize);
@@ -24,7 +23,9 @@ export const createTagState = (props: TagProps) => {
 	const text = $derived(props.text);
 	const disabled = $derived(props.disabled ?? false);
 	const closable = $derived(props.closable ?? false);
-	const closeButtonClasses = $derived(TagStyleManager.getCloseButtonClasses(props.disabled ?? false));
+	const closeButtonClasses = $derived(
+		TagStyleManager.getCloseButtonClasses(props.disabled ?? false)
+	);
 	const closeButtonIconClasses = $derived(TagStyleManager.getCloseButtonIconClasses());
 
 	return {
@@ -60,11 +61,3 @@ export const createTagState = (props: TagProps) => {
 };
 
 export default createTagState;
-
-
-
-
-
-
-
-

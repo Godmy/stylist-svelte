@@ -10,7 +10,12 @@
 	];
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'variant', type: 'select', defaultValue: 'primary', options: ['primary','secondary','success','warning','danger','outline','ghost','link'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'outline', 'ghost', 'link']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'primaryLabel', type: 'text', defaultValue: 'Action' }
@@ -29,12 +34,9 @@
 			variant={values.variant as any}
 			size={values.size as 'sm' | 'md' | 'lg'}
 			disabled={values.disabled as boolean}
-			items={items}
+			{items}
 			primaryAction={() => {}}
 			primaryLabel={values.primaryLabel as string}
 		/>
 	{/snippet}
 </Story>
-
-
-

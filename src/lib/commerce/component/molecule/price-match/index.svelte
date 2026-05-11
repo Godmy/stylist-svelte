@@ -9,9 +9,15 @@
 <div class={state.containerClass}>
 	<h3 class={state.titleClass}>{props.productName || 'Price Match'}</h3>
 	<div class={state.priceInfoClass}>
-		<p class={state.yourPriceClass}>Your price: <span class={state.boldClass}>{props.currency ?? '$'}{props.targetPrice ?? 0}</span></p>
+		<p class={state.yourPriceClass}>
+			Your price: <span class={state.boldClass}
+				>{props.currency ?? '$'}{props.targetPrice ?? 0}</span
+			>
+		</p>
 		{#if state.isLowerAvailable}
-			<p class={state.lowerPriceClass}>Lower price found: {props.currency ?? '$'}{state.bestPrice}</p>
+			<p class={state.lowerPriceClass}>
+				Lower price found: {props.currency ?? '$'}{state.bestPrice}
+			</p>
 		{:else}
 			<p class={state.bestPriceClass}>Best price available!</p>
 		{/if}
@@ -29,11 +35,6 @@
 	{/if}
 
 	{#if state.isLowerAvailable}
-		<button
-			onclick={props.onFindLower}
-			class={state.buttonClass}
-		>
-			Find Lower Price
-		</button>
+		<button onclick={props.onFindLower} class={state.buttonClass}> Find Lower Price </button>
 	{/if}
 </div>

@@ -11,10 +11,18 @@ export function createSkeletonTextState(props: SkeletonTextProps) {
 	let style = $derived(SkeletonTextStyleManager.style(props.width ?? '100%'));
 
 	return {
-		get content() { return content; },
-		get restProps() { return restProps; },
-		get rootClass() { return rootClass; },
-		get style() { return style; }
+		get content() {
+			return content;
+		},
+		get restProps() {
+			return restProps;
+		},
+		get rootClass() {
+			return rootClass;
+		},
+		get style() {
+			return style;
+		}
 	};
 }
 

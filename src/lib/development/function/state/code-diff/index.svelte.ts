@@ -29,11 +29,15 @@ function computeDiffLines(original: string, modified: string): CodeDiffDiffLine[
 export function createCodeDiffState(props: CodeDiffProps) {
 	const diffLines = $derived(computeDiffLines(props.original ?? '', props.modified ?? ''));
 	const containerClass = $derived(CodeDiffStyleManager.getContainerClass(props.class ?? ''));
-	const headerClassComputed = $derived(CodeDiffStyleManager.getHeaderClass(props.headerClass ?? ''));
+	const headerClassComputed = $derived(
+		CodeDiffStyleManager.getHeaderClass(props.headerClass ?? '')
+	);
 	const mainContentClass = $derived(CodeDiffStyleManager.getMainContentClass());
 	const lineNumbersContainerClass = $derived(CodeDiffStyleManager.getLineNumbersContainerClass());
 	const lineNumberItemClass = $derived(CodeDiffStyleManager.getLineNumberItemClass());
-	const contentContainerClass = $derived(CodeDiffStyleManager.getContentContainerClass(props.contentClass ?? ''));
+	const contentContainerClass = $derived(
+		CodeDiffStyleManager.getContentContainerClass(props.contentClass ?? '')
+	);
 	const diffLineClass = (type: string) => CodeDiffStyleManager.getDiffLineClass(type);
 	const diffSpanClass = (type: string) => CodeDiffStyleManager.getDiffSpanClass(type);
 	const getDiffContentClass = $derived(CodeDiffStyleManager.getDiffContentClass());

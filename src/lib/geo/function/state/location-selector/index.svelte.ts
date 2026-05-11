@@ -1,5 +1,8 @@
 import { untrack } from 'svelte';
-import type { LocationSelectorLocation, LocationSelectorProps } from '$stylist/geo/type/struct/location-selector';
+import type {
+	LocationSelectorLocation,
+	LocationSelectorProps
+} from '$stylist/geo/type/struct/location-selector';
 import type { LocationSelectorStateProps } from '$stylist/geo/interface/recipe/location-selector';
 
 export function createLocationSelectorState(props: LocationSelectorStateProps) {
@@ -23,22 +26,23 @@ export function createLocationSelectorState(props: LocationSelectorStateProps) {
 		let result: LocationSelectorLocation[] = [...locations];
 		if (searchQuery) {
 			const query = searchQuery.toLowerCase();
-			result = result.filter(location =>
-				location.name.toLowerCase().includes(query) ||
-				(location.address && location.address.toLowerCase().includes(query)) ||
-				(location.description && location.description.toLowerCase().includes(query)) ||
-				(location.tags && location.tags.some(tag => tag.toLowerCase().includes(query)))
+			result = result.filter(
+				(location) =>
+					location.name.toLowerCase().includes(query) ||
+					(location.address && location.address.toLowerCase().includes(query)) ||
+					(location.description && location.description.toLowerCase().includes(query)) ||
+					(location.tags && location.tags.some((tag) => tag.toLowerCase().includes(query)))
 			);
 		}
 		if (selectedCategory !== 'all') {
-			result = result.filter(location => location.category === selectedCategory);
+			result = result.filter((location) => location.category === selectedCategory);
 		}
 		filteredLocations = result.slice(0, maxLocations);
 	});
 
 	$effect(() => {
 		const uniqueCategories: Set<string> = new Set<string>();
-		locations.forEach(location => {
+		locations.forEach((location) => {
 			if (location.category) {
 				uniqueCategories.add(location.category);
 			}
@@ -99,28 +103,64 @@ export function createLocationSelectorState(props: LocationSelectorStateProps) {
 	});
 
 	return {
-		get locations() { return locations; },
-		get currentView() { return currentView; },
-		get showSearch() { return showSearch; },
-		get showCategoryFilter() { return showCategoryFilter; },
-		get showMapToggle() { return showMapToggle; },
-		get showDistance() { return showDistance; },
-		get searchPlaceholder() { return searchPlaceholder; },
-		get defaultCategory() { return defaultCategory; },
-		get maxLocations() { return maxLocations; },
-		get mapView() { return mapView; },
-		get searchQuery() { return searchQuery; },
-		get selectedCategory() { return selectedCategory; },
-		get filteredLocations() { return filteredLocations; },
-		get categories() { return categories; },
-		get restProps() { return restProps; },
+		get locations() {
+			return locations;
+		},
+		get currentView() {
+			return currentView;
+		},
+		get showSearch() {
+			return showSearch;
+		},
+		get showCategoryFilter() {
+			return showCategoryFilter;
+		},
+		get showMapToggle() {
+			return showMapToggle;
+		},
+		get showDistance() {
+			return showDistance;
+		},
+		get searchPlaceholder() {
+			return searchPlaceholder;
+		},
+		get defaultCategory() {
+			return defaultCategory;
+		},
+		get maxLocations() {
+			return maxLocations;
+		},
+		get mapView() {
+			return mapView;
+		},
+		get searchQuery() {
+			return searchQuery;
+		},
+		get selectedCategory() {
+			return selectedCategory;
+		},
+		get filteredLocations() {
+			return filteredLocations;
+		},
+		get categories() {
+			return categories;
+		},
+		get restProps() {
+			return restProps;
+		},
 		handleSearchInput,
 		handleCategoryChangeEvent,
 		handleLocationSelect,
 		formatDistance,
-		set searchQuery(value: string) { searchQuery = value; },
-		set selectedCategory(value: string) { selectedCategory = value; },
-		set currentView(value: 'list' | 'grid' | 'map') { /* local state for view toggle */ }
+		set searchQuery(value: string) {
+			searchQuery = value;
+		},
+		set selectedCategory(value: string) {
+			selectedCategory = value;
+		},
+		set currentView(value: 'list' | 'grid' | 'map') {
+			/* local state for view toggle */
+		}
 	};
 }
 

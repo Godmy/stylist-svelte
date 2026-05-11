@@ -2,7 +2,9 @@ import type { SlotLanguageSelector as ILanguageSelectorProps } from '$stylist/lo
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import { LanguageSelectorStyleManager } from '$stylist/localization/class/style-manager/language-selector';
 
-function createLanguageSelectorState(props: ILanguageSelectorProps & InteractionHTMLAttributes<HTMLDivElement>) {
+function createLanguageSelectorState(
+	props: ILanguageSelectorProps & InteractionHTMLAttributes<HTMLDivElement>
+) {
 	let isOpen = $state(false);
 	let searchQuery = $state('');
 
@@ -22,7 +24,9 @@ function createLanguageSelectorState(props: ILanguageSelectorProps & Interaction
 
 	const selectedLanguage = $derived(languages.find((lang) => lang.code === currentLanguage));
 
-	const baseClasses = $derived(`${LanguageSelectorStyleManager.getBaseClasses()} ${props.class ?? ''}`);
+	const baseClasses = $derived(
+		`${LanguageSelectorStyleManager.getBaseClasses()} ${props.class ?? ''}`
+	);
 	const buttonBaseClasses = $derived(
 		`${LanguageSelectorStyleManager.getButtonBaseClasses()} ${LanguageSelectorStyleManager.getButtonVariantClasses(props.variant ?? 'default')} ${LanguageSelectorStyleManager.getButtonSizeClasses(props.size ?? 'md')} ${props.buttonClass ?? ''}`
 	);

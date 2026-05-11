@@ -12,10 +12,8 @@ import type { BehaviorWishlistButtonEvents } from '$stylist/commerce/interface/b
 import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
 
 export interface ContractWishlistButton
-	extends StructIntersectAll<[
-		BehaviorClickable,
-		ThemeAttributes<HTMLButtonElement>
-	]>, BehaviorWishlistButtonEvents {
+	extends StructIntersectAll<[BehaviorClickable, ThemeAttributes<HTMLButtonElement>]>,
+		BehaviorWishlistButtonEvents {
 	/** Is item in wishlist */
 	inWishlist?: boolean;
 	/** Show label */

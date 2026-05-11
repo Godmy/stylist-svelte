@@ -4,14 +4,18 @@ import type { CanvasToolbarProps } from '$stylist/canvas/type/struct/canvas-tool
 
 export function createCanvasToolbarState(
 	props: CanvasToolbarProps,
-	dispatch: (type: 'tool-change' | 'clear-canvas' | 'undo' | 'redo' | 'save', detail?: unknown) => void
+	dispatch: (
+		type: 'tool-change' | 'clear-canvas' | 'undo' | 'redo' | 'save',
+		detail?: unknown
+	) => void
 ) {
 	let currentTool = $state<CanvasToolbarDrawingTool>(props.selectedTool ?? 'pen');
 	let currentOptions = $state<CanvasToolbarDrawingOptions>({
 		lineWidth: props.drawingOptions?.lineWidth ?? 2,
 		strokeColor: props.drawingOptions?.strokeColor ?? 'black',
 		tool: props.drawingOptions?.tool ?? props.selectedTool ?? 'pen',
-		mode: props.drawingOptions?.mode ?? ((props.selectedTool ?? 'pen') === 'eraser' ? 'erase' : 'draw')
+		mode:
+			props.drawingOptions?.mode ?? ((props.selectedTool ?? 'pen') === 'eraser' ? 'erase' : 'draw')
 	});
 
 	$effect(() => {
@@ -20,7 +24,9 @@ export function createCanvasToolbarState(
 			lineWidth: props.drawingOptions?.lineWidth ?? 2,
 			strokeColor: props.drawingOptions?.strokeColor ?? 'black',
 			tool: props.drawingOptions?.tool ?? props.selectedTool ?? 'pen',
-			mode: props.drawingOptions?.mode ?? ((props.selectedTool ?? 'pen') === 'eraser' ? 'erase' : 'draw')
+			mode:
+				props.drawingOptions?.mode ??
+				((props.selectedTool ?? 'pen') === 'eraser' ? 'erase' : 'draw')
 		};
 	});
 
@@ -52,8 +58,12 @@ export function createCanvasToolbarState(
 	}
 
 	return {
-		get currentTool() { return currentTool; },
-		get currentOptions() { return currentOptions; },
+		get currentTool() {
+			return currentTool;
+		},
+		get currentOptions() {
+			return currentOptions;
+		},
 		selectTool,
 		handleOptionsUpdate,
 		clearCanvas,

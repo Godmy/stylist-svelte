@@ -8,7 +8,9 @@ export class TagStyleManager {
 	}
 
 	static getVariantClass(variant?: string): string {
-		return InteractionStyleManager.getVariantClasses((variant ?? 'default') as Parameters<typeof InteractionStyleManager.getVariantClasses>[0]);
+		return InteractionStyleManager.getVariantClasses(
+			(variant ?? 'default') as Parameters<typeof InteractionStyleManager.getVariantClasses>[0]
+		);
 	}
 
 	static getSizeClass(size: TokenSize = 'md'): string {
@@ -42,4 +44,3 @@ export class TagStyleManager {
 		return this.join(['w-3 h-3', className]);
 	}
 }
-

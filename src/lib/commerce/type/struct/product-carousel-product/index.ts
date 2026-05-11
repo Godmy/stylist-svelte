@@ -4,4 +4,4 @@ export type ProductCarouselProduct = {
 	currency: string;
 	image: string;
 	rating: number;
-}
+};

@@ -1,29 +1,36 @@
 <script lang="ts">
-  import { createErrorMessageState } from '$stylist/notification/function/state/error-message';
-  import type { SlotErrorMessage as ErrorMessageProps } from '$stylist/notification/interface/slot/error-message-error-message';
+	import { createErrorMessageState } from '$stylist/notification/function/state/error-message';
+	import type { SlotErrorMessage as ErrorMessageProps } from '$stylist/notification/interface/slot/error-message-error-message';
 
-  let props: ErrorMessageProps = $props();
+	let props: ErrorMessageProps = $props();
 
-  const state = createErrorMessageState(props);
+	const state = createErrorMessageState(props);
 
-  const restProps = $derived(
-    (() => {
-      const { class: _class, title: _title, error: _error, showRetry: _showRetry, onRetry: _onRetry, ...rest } = props;
-      return rest;
-    })()
-  );
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				title: _title,
+				error: _error,
+				showRetry: _showRetry,
+				onRetry: _onRetry,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 </script>
 
 {#if state.errorMessage}
-  <div class={state.containerClasses} {...restProps}>
-    <div class={state.titleClasses}>{state.title}</div>
-    <div class={state.textClasses}>{state.errorMessage}</div>
-    {#if state.showRetry && state.onRetry}
-      <div class={state.buttonContainerClasses}>
-        <button class={state.buttonClasses} onclick={state.onRetry} aria-label="Retry action">Retry</button>
-      </div>
-    {/if}
-  </div>
+	<div class={state.containerClasses} {...restProps}>
+		<div class={state.titleClasses}>{state.title}</div>
+		<div class={state.textClasses}>{state.errorMessage}</div>
+		{#if state.showRetry && state.onRetry}
+			<div class={state.buttonContainerClasses}>
+				<button class={state.buttonClasses} onclick={state.onRetry} aria-label="Retry action"
+					>Retry</button
+				>
+			</div>
+		{/if}
+	</div>
 {/if}
-
-

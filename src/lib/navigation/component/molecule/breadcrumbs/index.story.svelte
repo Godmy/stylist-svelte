@@ -6,8 +6,12 @@
 	let activeId = $state('breadcrumb-dropdown-node');
 </script>
 
-<Story component={Breadcrumbs} title="Breadcrumbs" description="Breadcrumb trail with hover dropdown transitions.">
+<Story
+	component={Breadcrumbs}
+	title="Breadcrumbs"
+	description="Breadcrumb trail with hover dropdown transitions."
+>
 	{#snippet children()}
-		<Breadcrumbs crumbs={BREADCRUMB_TEMPLATE} activeId={activeId} onNavigate={(id) => (activeId = id)} />
+		<Breadcrumbs crumbs={BREADCRUMB_TEMPLATE} {activeId} onNavigate={(id) => (activeId = id)} />
 	{/snippet}
 </Story>

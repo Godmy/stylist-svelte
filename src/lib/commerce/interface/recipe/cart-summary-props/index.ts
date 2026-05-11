@@ -2,7 +2,8 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { CartSummaryItem } from '$stylist/commerce/type/struct/cart-summary-item';
 import type { CartSummaryPromotion } from '$stylist/commerce/type/struct/cart-summary-promotion';
 
-export interface CartSummaryProps extends StructIntersectAll<[]> {	items?: CartSummaryItem[];
+export interface CartSummaryProps extends StructIntersectAll<[]> {
+	items?: CartSummaryItem[];
 	promotions?: CartSummaryPromotion[];
 	shippingCost?: number;
 	taxCost?: number;

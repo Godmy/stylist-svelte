@@ -3,5 +3,4 @@ import type { TokenAppearance } from '$stylist/interaction/type/record/appearanc
 import type { HtmlAttributesWithChildren } from '$stylist/information/interface/slot';
 import type { SlotInlineBase } from '$stylist/navigation/interface/slot/inline-base';
 
-export interface SlotInlineCode extends SlotInlineBase {
-}
+export interface SlotInlineCode extends SlotInlineBase {}

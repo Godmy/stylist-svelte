@@ -27,13 +27,15 @@
 				<div class={ProductCardStyleManager.getStarsContainerClass()}>
 					{#each Array(5) as _, i}
 						<svg
-							class={`w-4 h-4 ${ProductCardStyleManager.getStarClass(i < Math.floor(state.rating))}`}
+							class={`h-4 w-4 ${ProductCardStyleManager.getStarClass(i < Math.floor(state.rating))}`}
 							viewBox="0 0 24 24"
 							fill={i < Math.floor(state.rating) ? 'currentColor' : 'none'}
 							stroke="currentColor"
 							stroke-width="2"
 						>
-							<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+							<path
+								d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+							/>
 						</svg>
 					{/each}
 				</div>
@@ -47,7 +49,7 @@
 			<p class={state.descriptionClass}>{state.description}</p>
 		{/if}
 
-		<div class="flex items-center justify-between mt-auto">
+		<div class="mt-auto flex items-center justify-between">
 			<span class={state.priceClass}>{state.currency}{state.price.toFixed(2)}</span>
 
 			{#if (state.variant === 'detailed' || state.variant === 'screen') && props.actions}

@@ -5,11 +5,11 @@ export function createStepIconState(props: StepIconProps) {
 	const status = $derived(props.status ?? 'pending');
 	const size = $derived(props.size ?? 'md');
 	const iconSize = $derived(size === 'sm' ? 14 : size === 'lg' ? 22 : 18);
-	
+
 	const classes = $derived(
 		joinClassNames('step-icon', `status-${status}`, `size-${size}`, props.class ?? '')
 	);
-	
+
 	const content = $derived(
 		(() => {
 			if (status === 'completed') {
@@ -23,8 +23,12 @@ export function createStepIconState(props: StepIconProps) {
 	);
 
 	return {
-		get classes() { return classes; },
-		get content() { return content; },
+		get classes() {
+			return classes;
+		},
+		get content() {
+			return content;
+		},
 		Check: 'check' as const,
 		X: 'x' as const
 	};

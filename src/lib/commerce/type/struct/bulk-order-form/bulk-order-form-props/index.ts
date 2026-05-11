@@ -19,4 +19,4 @@ export type BulkOrderFormProps = Omit<HTMLAttributes<HTMLElement>, 'class'> & {
 	onItemsChange?: (items: BulkOrderFormItem[]) => void;
 	currency?: string;
 	locale?: string;
-}
+};

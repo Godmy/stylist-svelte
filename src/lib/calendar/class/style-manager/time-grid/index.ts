@@ -1,62 +1,66 @@
 export class TimeGridStyleManager {
-  static getWrapperClasses(): string {
-    return 'c-time-grid border border-[--color-border-primary] rounded-[--radius-lg] overflow-auto';
-  }
+	static getWrapperClasses(): string {
+		return 'c-time-grid border border-[--color-border-primary] rounded-[--radius-lg] overflow-auto';
+	}
 
-  static getHeaderClasses(): string {
-    return 'flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-primary]';
-  }
+	static getHeaderClasses(): string {
+		return 'flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-primary]';
+	}
 
-  static getTimeGridClasses(): string {
-    return 'grid grid-cols-8 min-w-max h-[calc(100vh-200px)]';
-  }
+	static getTimeGridClasses(): string {
+		return 'grid grid-cols-8 min-w-max h-[calc(100vh-200px)]';
+	}
 
-  static getTimeSlotClasses(): string {
-    return 'border-b border-[--color-border-tertiary] relative';
-  }
+	static getTimeSlotClasses(): string {
+		return 'border-b border-[--color-border-tertiary] relative';
+	}
 
-  static getDayColumnClasses(isWeekend: boolean): string {
-    const baseClasses = 'border-r border-[--color-border-primary]';
-    const weekendClass = isWeekend ? 'bg-[--color-background-tertiary]' : '';
+	static getDayColumnClasses(isWeekend: boolean): string {
+		const baseClasses = 'border-r border-[--color-border-primary]';
+		const weekendClass = isWeekend ? 'bg-[--color-background-tertiary]' : '';
 
-    return `${baseClasses} ${weekendClass}`;
-  }
+		return `${baseClasses} ${weekendClass}`;
+	}
 
-  static getDayHeaderClasses(isToday: boolean, headerClass: string = ''): string {
-    const baseClasses = 'p-[--spacing-sm] text-center text-[--text-size-sm] font-[--font-weight-medium]';
-    const todayClass = isToday ? 'bg-[--color-primary-100]' : '';
+	static getDayHeaderClasses(isToday: boolean, headerClass: string = ''): string {
+		const baseClasses =
+			'p-[--spacing-sm] text-center text-[--text-size-sm] font-[--font-weight-medium]';
+		const todayClass = isToday ? 'bg-[--color-primary-100]' : '';
 
-    return `${baseClasses} ${todayClass} ${headerClass}`;
-  }
+		return `${baseClasses} ${todayClass} ${headerClass}`;
+	}
 
-  static getTimeIndicatorClasses(): string {
-    return 'absolute w-full h-[--spacing-0.5] bg-[--color-danger-500] z-[10]';
-  }
+	static getTimeIndicatorClasses(): string {
+		return 'absolute w-full h-[--spacing-0.5] bg-[--color-danger-500] z-[10]';
+	}
 
-  static getEventClasses(color?: string, eventClass: string = ''): string {
-    const baseClasses = 'absolute left-[--spacing-xs] right-[--spacing-xs] p-[--spacing-xs] text-[--text-size-xs] rounded-[--radius-sm] m-[--spacing-0.5] truncate';
-    const colorClass = color || 'bg-[--color-primary-100] text-[--color-text-primary]';
+	static getEventClasses(color?: string, eventClass: string = ''): string {
+		const baseClasses =
+			'absolute left-[--spacing-xs] right-[--spacing-xs] p-[--spacing-xs] text-[--text-size-xs] rounded-[--radius-sm] m-[--spacing-0.5] truncate';
+		const colorClass = color || 'bg-[--color-primary-100] text-[--color-text-primary]';
 
-    return `${baseClasses} ${colorClass} ${eventClass}`;
-  }
+		return `${baseClasses} ${colorClass} ${eventClass}`;
+	}
 
-  static getAllDayEventClasses(): string {
-    return 'h-[--spacing-lg]';
-  }
+	static getAllDayEventClasses(): string {
+		return 'h-[--spacing-lg]';
+	}
 
-  static getTimeLabelClasses(isFirstSlot: boolean): string {
-    const baseClasses = 'absolute top-0 right-0 w-full text-right pr-[--spacing-sm] pt-[--spacing-xs] text-[--text-size-xs]';
-    const colorClass = isFirstSlot ? 'text-[--color-text-primary]' : 'text-[--color-text-secondary]';
+	static getTimeLabelClasses(isFirstSlot: boolean): string {
+		const baseClasses =
+			'absolute top-0 right-0 w-full text-right pr-[--spacing-sm] pt-[--spacing-xs] text-[--text-size-xs]';
+		const colorClass = isFirstSlot
+			? 'text-[--color-text-primary]'
+			: 'text-[--color-text-secondary]';
 
-    return `${baseClasses} ${colorClass}`;
-  }
+		return `${baseClasses} ${colorClass}`;
+	}
 
-  static getNavigationButtonClasses(): string {
-    return 'h-[--spacing-xl] w-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
-  }
+	static getNavigationButtonClasses(): string {
+		return 'h-[--spacing-xl] w-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
+	}
 
-  static getViewToggleButtonClasses(): string {
-    return 'h-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
-  }
+	static getViewToggleButtonClasses(): string {
+		return 'h-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
+	}
 }
-

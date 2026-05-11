@@ -10,17 +10,12 @@ import type { Metric } from '$stylist/management/type/struct/performance-dashboa
  * PerformanceDashboard = shared information slots + time range filter + size.
  */
 export interface PerformanceDashboardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		ITimeRangeFilter,
-		ISizable,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, ITimeRangeFilter, ISizable, ThemeAttributes<HTMLDivElement>]
+	> {
 	metrics: Metric[];
 	headerClass?: string;
 	metricsClass?: string;
 	metricCardClass?: string;
 	variant?: 'default' | 'compact' | 'minimal';
 }
-

@@ -10,7 +10,9 @@ import type { SlotWarrantyPeriod } from '$stylist/commerce/interface/slot/warran
 import type { SlotWarrantyClaim } from '$stylist/commerce/interface/slot/warranty-claim';
 import type { BehaviorWarrantyInfoEvents } from '$stylist/commerce/interface/behavior/warranty-info-events';
 
-export interface RecipeWarrantyInfo extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorWarrantyInfoEvents {
+export interface RecipeWarrantyInfo
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorWarrantyInfoEvents {
 	/** Product name */
 	productName: string;
 	/** Purchase date */

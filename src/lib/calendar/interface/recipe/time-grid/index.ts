@@ -21,5 +21,6 @@ export interface RecipeTimeGrid extends StructIntersectAll<[]> {
 	eventClass?: string;
 	headerClass?: string;
 	onEventClick?: (event: SlotTimeGridEvent) => void;
-	onSlotClick?: (slotDate: Date) => void;	children?: Snippet;
+	onSlotClick?: (slotDate: Date) => void;
+	children?: Snippet;
 }

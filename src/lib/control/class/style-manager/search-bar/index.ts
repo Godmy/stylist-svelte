@@ -18,10 +18,7 @@ export class SearchBarStyleManager {
 	}
 
 	static getSearchBarContainerClasses(className?: string): string {
-		return this.join([
-			'relative flex items-center',
-			className
-		]);
+		return this.join(['relative flex items-center', className]);
 	}
 
 	static getSearchBarIconClasses(className?: string): string {
@@ -32,26 +29,22 @@ export class SearchBarStyleManager {
 	}
 
 	static getSearchBarInputWrapperClasses(className?: string): string {
-		return this.join([
-			'flex-1',
-			className
-		]);
+		return this.join(['flex-1', className]);
 	}
 
 	static getSearchBarClearButtonClasses(disabled = false, className?: string): string {
 		return this.join([
 			'absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)] hover:text-[var(--color-text-primary)]',
 			'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-500)]',
-			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : 'cursor-pointer',
+			disabled
+				? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none'
+				: 'cursor-pointer',
 			className
 		]);
 	}
 
 	static getSearchBarClearIconClasses(className?: string): string {
-		return this.join([
-			'w-3.5 h-3.5',
-			className
-		]);
+		return this.join(['w-3.5 h-3.5', className]);
 	}
 
 	// Legacy aliases for backward compatibility

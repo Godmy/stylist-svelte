@@ -16,4 +16,3 @@ export const MARKER_COLOR_CLASSES = {
 	dark: 'text-[--color-neutral-900]',
 	light: 'text-[--color-neutral-100]'
 } as const;
-

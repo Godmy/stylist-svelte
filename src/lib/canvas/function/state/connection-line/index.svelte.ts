@@ -20,12 +20,12 @@ export function createConnectionLineState(props: ConnectionLineRecipe) {
 	const pathClasses = $derived(ConnectionLineStyleManager.getPathClasses());
 	const hitAreaClasses = $derived(ConnectionLineStyleManager.getHitAreaClasses());
 
-	const dashArray = $derived(
-		style === 'dashed' ? '5,5' : style === 'dotted' ? '2,2' : 'none'
-	);
+	const dashArray = $derived(style === 'dashed' ? '5,5' : style === 'dotted' ? '2,2' : 'none');
 
 	const arrowMarkerId = $derived(`arrow-${id}`);
-	const arrowMarkerHtml = $derived(ConnectionLineStyleManager.getArrowMarker(arrowSize, activeColor));
+	const arrowMarkerHtml = $derived(
+		ConnectionLineStyleManager.getArrowMarker(arrowSize, activeColor)
+	);
 
 	const restProps = $derived.by(() => {
 		const {
@@ -49,26 +49,66 @@ export function createConnectionLineState(props: ConnectionLineRecipe) {
 	});
 
 	return {
-		get id() { return id; },
-		get startX() { return startX; },
-		get startY() { return startY; },
-		get endX() { return endX; },
-		get endY() { return endY; },
-		get label() { return label; },
-		get color() { return color; },
-		get activeColor() { return activeColor; },
-		get width() { return width; },
-		get style() { return style; },
-		get animated() { return animated; },
-		get showArrow() { return showArrow; },
-		get arrowSize() { return arrowSize; },
-		get classes() { return classes; },
-		get pathClasses() { return pathClasses; },
-		get hitAreaClasses() { return hitAreaClasses; },
-		get dashArray() { return dashArray; },
-		get arrowMarkerId() { return arrowMarkerId; },
-		get arrowMarkerHtml() { return arrowMarkerHtml; },
-		get restProps() { return restProps; }
+		get id() {
+			return id;
+		},
+		get startX() {
+			return startX;
+		},
+		get startY() {
+			return startY;
+		},
+		get endX() {
+			return endX;
+		},
+		get endY() {
+			return endY;
+		},
+		get label() {
+			return label;
+		},
+		get color() {
+			return color;
+		},
+		get activeColor() {
+			return activeColor;
+		},
+		get width() {
+			return width;
+		},
+		get style() {
+			return style;
+		},
+		get animated() {
+			return animated;
+		},
+		get showArrow() {
+			return showArrow;
+		},
+		get arrowSize() {
+			return arrowSize;
+		},
+		get classes() {
+			return classes;
+		},
+		get pathClasses() {
+			return pathClasses;
+		},
+		get hitAreaClasses() {
+			return hitAreaClasses;
+		},
+		get dashArray() {
+			return dashArray;
+		},
+		get arrowMarkerId() {
+			return arrowMarkerId;
+		},
+		get arrowMarkerHtml() {
+			return arrowMarkerHtml;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

@@ -11,5 +11,3 @@
 		{@render props.content()}
 	{/if}
 </tr>
-
-

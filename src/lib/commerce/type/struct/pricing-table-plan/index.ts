@@ -5,4 +5,4 @@ export type PricingTablePlan = {
 	features: string[];
 	cta: string;
 	highlighted?: boolean;
-}
+};

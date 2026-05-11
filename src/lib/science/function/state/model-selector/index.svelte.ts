@@ -31,20 +31,34 @@ export function createModelSelectorState(props: ModelSelectorContract) {
 		return rest;
 	});
 	const containerClass = $derived(ModelSelectorStyleManager.getContainerClass(props.class ?? ''));
-	const dropdownButtonClass = $derived(ModelSelectorStyleManager.getDropdownButtonClass(props.dropdownClass ?? ''));
+	const dropdownButtonClass = $derived(
+		ModelSelectorStyleManager.getDropdownButtonClass(props.dropdownClass ?? '')
+	);
 	const modelInfoContainerClass = $derived(ModelSelectorStyleManager.getModelInfoContainerClass());
 	const selectedModelNameClass = $derived(ModelSelectorStyleManager.getSelectedModelNameClass());
-	const selectedModelDescriptionClass = $derived(ModelSelectorStyleManager.getSelectedModelDescriptionClass());
+	const selectedModelDescriptionClass = $derived(
+		ModelSelectorStyleManager.getSelectedModelDescriptionClass()
+	);
 	const placeholderClass = $derived(ModelSelectorStyleManager.getPlaceholderClass());
 	const chevronClass = $derived(ModelSelectorStyleManager.getChevronClass(isOpen));
-	const dropdownMenuClass = $derived(ModelSelectorStyleManager.getDropdownMenuClass(props.dropdownClass ?? ''));
-	const modelDetailsContainerClass = $derived(ModelSelectorStyleManager.getModelDetailsContainerClass());
+	const dropdownMenuClass = $derived(
+		ModelSelectorStyleManager.getDropdownMenuClass(props.dropdownClass ?? '')
+	);
+	const modelDetailsContainerClass = $derived(
+		ModelSelectorStyleManager.getModelDetailsContainerClass()
+	);
 	const modelNameClass = $derived(ModelSelectorStyleManager.getModelNameClass());
-	const modelProviderVersionClass = $derived(ModelSelectorStyleManager.getModelProviderVersionClass());
+	const modelProviderVersionClass = $derived(
+		ModelSelectorStyleManager.getModelProviderVersionClass()
+	);
 	const modelDescriptionClass = $derived(ModelSelectorStyleManager.getModelDescriptionClass());
-	const capabilitiesContainerClass = $derived(ModelSelectorStyleManager.getCapabilitiesContainerClass());
+	const capabilitiesContainerClass = $derived(
+		ModelSelectorStyleManager.getCapabilitiesContainerClass()
+	);
 	const capabilityTagClass = $derived(ModelSelectorStyleManager.getCapabilityTagClass());
-	const moreCapabilitiesTagClass = $derived(ModelSelectorStyleManager.getMoreCapabilitiesTagClass());
+	const moreCapabilitiesTagClass = $derived(
+		ModelSelectorStyleManager.getMoreCapabilitiesTagClass()
+	);
 	const tagsContainerClass = $derived(ModelSelectorStyleManager.getTagsContainerClass());
 	const tagClass = $derived(ModelSelectorStyleManager.getTagClass());
 

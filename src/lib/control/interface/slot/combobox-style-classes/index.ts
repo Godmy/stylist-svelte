@@ -1,9 +1,9 @@
 // Combobox style classes interface
 export interface SlotComboboxStyleClasses {
-  base: string;
-  input: string;
-  listbox: string;
-  option: string;
-  selected: string;
-  highlighted: string;
+	base: string;
+	input: string;
+	listbox: string;
+	option: string;
+	selected: string;
+	highlighted: string;
 }

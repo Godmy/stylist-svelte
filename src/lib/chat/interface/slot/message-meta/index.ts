@@ -5,9 +5,9 @@
 import type { Snippet } from 'svelte';
 
 export interface SlotMessageMeta {
-  class?: string;
-  timestamp?: string;
-  sender?: string;
-  status?: 'sent' | 'delivered' | 'read';
-  children?: Snippet;
+	class?: string;
+	timestamp?: string;
+	sender?: string;
+	status?: 'sent' | 'delivered' | 'read';
+	children?: Snippet;
 }

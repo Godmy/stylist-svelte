@@ -27,7 +27,12 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'side', type: 'select', defaultValue: 'left', options: ['left', 'right'] },
-		{ name: 'sidebarWidth', type: 'select', defaultValue: 'sm', options: ['xs', 'sm', 'md', 'lg', 'xl'] },
+		{
+			name: 'sidebarWidth',
+			type: 'select',
+			defaultValue: 'sm',
+			options: ['xs', 'sm', 'md', 'lg', 'xl']
+		},
 		{ name: 'gap', type: 'select', defaultValue: 'sm', options: ['none', 'sm', 'md', 'lg', 'xl'] },
 		{ name: 'collapsed', type: 'boolean', defaultValue: false },
 		{ name: 'responsive', type: 'boolean', defaultValue: false }
@@ -125,7 +130,11 @@
 																{#snippet secondary()}
 																	<StackedLayout direction="vertical" gap="sm" class="h-full">
 																		{#snippet children()}
-																			<Card shape="rounded" elevation={2} class="hero-panel hero-panel--compact">
+																			<Card
+																				shape="rounded"
+																				elevation={2}
+																				class="hero-panel hero-panel--compact"
+																			>
 																				{#snippet children()}
 																					<div class="hero-line hero-line--wide"></div>
 																					<div class="hero-chip-row">
@@ -134,7 +143,11 @@
 																					</div>
 																				{/snippet}
 																			</Card>
-																			<Card shape="rounded" elevation={2} class="hero-panel hero-panel--compact">
+																			<Card
+																				shape="rounded"
+																				elevation={2}
+																				class="hero-panel hero-panel--compact"
+																			>
 																				{#snippet children()}
 																					<div class="hero-line hero-line--wide"></div>
 																					<div class="hero-line"></div>
@@ -196,7 +209,9 @@
 											{#snippet children()}
 												<div>
 													<p class="shell-title">Operations board</p>
-													<p class="shell-subtitle">Composite demo built from layout primitives only.</p>
+													<p class="shell-subtitle">
+														Composite demo built from layout primitives only.
+													</p>
 												</div>
 												<Spacer />
 												<Popover title="View options" position="bottom">
@@ -222,7 +237,11 @@
 											<Grid cols={4} gap="sm" responsive={false}>
 												{#snippet children()}
 													{#each shellMetrics as metric}
-														<Card shape="rounded" elevation={metric.tone === 'accent' ? 4 : 1} class="metric-card">
+														<Card
+															shape="rounded"
+															elevation={metric.tone === 'accent' ? 4 : 1}
+															class="metric-card"
+														>
 															{#snippet children()}
 																<span class="metric-label">{metric.label}</span>
 																<strong class="metric-value">{metric.value}</strong>
@@ -232,13 +251,20 @@
 												{/snippet}
 											</Grid>
 
-											<SplitLayout primarySize="2/3" secondarySize="1/3" gap="sm" responsive={false}>
+											<SplitLayout
+												primarySize="2/3"
+												secondarySize="1/3"
+												gap="sm"
+												responsive={false}
+											>
 												{#snippet primary()}
 													<Card shape="rounded" elevation={2} class="analysis-card">
 														{#snippet header()}
 															<div class="card-header">
 																<p class="card-title">Queue distribution</p>
-																<p class="card-copy">GridLayout handles spanning tiles inside a card shell.</p>
+																<p class="card-copy">
+																	GridLayout handles spanning tiles inside a card shell.
+																</p>
 															</div>
 														{/snippet}
 														{#snippet children()}
@@ -264,12 +290,17 @@
 																	<VerticalLayout gap="xs">
 																		{#snippet children()}
 																			<span class="metric-label">Pinned note</span>
-																			<p class="card-copy">StickyLayout keeps navigation and actions visible.</p>
+																			<p class="card-copy">
+																				StickyLayout keeps navigation and actions visible.
+																			</p>
 																		{/snippet}
 																	</VerticalLayout>
 																{/snippet}
 															</Card>
-															<ContainerQuery containerType="inline-size" containerName="signal-panel">
+															<ContainerQuery
+																containerType="inline-size"
+																containerName="signal-panel"
+															>
 																{#snippet children()}
 																	<Card shape="rounded" elevation={1}>
 																		{#snippet children()}
@@ -423,7 +454,9 @@
 							<div class="card-head">
 								<p class="kicker">Breakpoints</p>
 								<h3>Responsive prefixes</h3>
-								<p class="copy">Same breakpoint language for utility classes and container-aware composition.</p>
+								<p class="copy">
+									Same breakpoint language for utility classes and container-aware composition.
+								</p>
 							</div>
 							<div class="preview">
 								<Grid cols={6} gap="sm" responsive={false}>
@@ -468,7 +501,9 @@
 							<div class="preview">
 								<ContainerQuery containerType="inline-size" containerName="token-panel">
 									{#snippet children()}
-										<div class="token-panel-copy">Resize the surface and keep the adaptation local.</div>
+										<div class="token-panel-copy">
+											Resize the surface and keep the adaptation local.
+										</div>
 										<div class="cq-panel">
 											<div class="demo-block">Filters</div>
 											<div class="demo-block demo-block--accent">Results</div>

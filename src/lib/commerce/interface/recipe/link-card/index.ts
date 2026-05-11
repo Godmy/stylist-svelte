@@ -15,14 +15,9 @@ import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/medi
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface LinkCardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IMediaSlot,
-		IIconSlot,
-		ThemeAttributes<HTMLAnchorElement>
-	]>
-{
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IMediaSlot, IIconSlot, ThemeAttributes<HTMLAnchorElement>]
+	> {
 	title?: string;
 	description?: string;
 	href: string;
@@ -31,4 +26,3 @@ export interface LinkCardRecipe
 	icon?: string;
 	showArrow?: boolean;
 }
-

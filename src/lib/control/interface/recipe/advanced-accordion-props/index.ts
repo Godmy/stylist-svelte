@@ -9,6 +9,6 @@ import type { SlotAdvancedAccordionItem } from '$stylist/control/interface/slot/
 
 /** Пропсы компонента AdvancedAccordion */
 export interface RecipeAdvancedAccordionProps extends StructIntersectAll<[]> {
-  items: SlotAdvancedAccordionItem[];
-  class?: string;
+	items: SlotAdvancedAccordionItem[];
+	class?: string;
 }

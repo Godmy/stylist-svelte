@@ -32,19 +32,14 @@ export class RadioStyleManager {
 		return this.join([
 			'inline-flex items-center justify-center rounded-full border-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-500)] focus-visible:ring-offset-2',
 			this.getRadioSizeClass(size),
-			checked
-				? 'border-[var(--color-primary-600)]'
-				: 'border-[var(--color-border-primary)]',
+			checked ? 'border-[var(--color-primary-600)]' : 'border-[var(--color-border-primary)]',
 			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : 'cursor-pointer',
 			className
 		]);
 	}
 
 	static getRadioContainerClasses(className?: string): string {
-		return this.join([
-			'inline-flex items-center gap-2',
-			className
-		]);
+		return this.join(['inline-flex items-center gap-2', className]);
 	}
 
 	static getRadioLabelClasses(disabled = false, className?: string): string {

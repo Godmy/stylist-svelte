@@ -26,6 +26,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

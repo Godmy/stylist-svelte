@@ -6,4 +6,3 @@ export const MARKER_SIZE_CLASSES = {
 	xl: 'h-7 w-7 text-lg',
 	'2xl': 'h-8 w-8 text-xl'
 } as const;
-

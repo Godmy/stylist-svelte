@@ -7,13 +7,6 @@ import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior
 import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavior/spaced';
 
 export interface LoadingRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ISized,
-		IShapeable,
-		ISpaced,
-		SlotTheme,
-		HTMLAttributes<HTMLDivElement>
-	]>
-{}
-
+	extends StructIntersectAll<
+		[ILabelSlot, ISized, IShapeable, ISpaced, SlotTheme, HTMLAttributes<HTMLDivElement>]
+	> {}

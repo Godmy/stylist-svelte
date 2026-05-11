@@ -23,11 +23,21 @@ export function createConfirmationDialogState(props: ConfirmationDialogProps) {
 	let footerClass = $derived(ConfirmationDialogStyleManager.footer(props.footerClass ?? ''));
 
 	return {
-		get overlayClass() { return overlayClass; },
-		get contentClass() { return contentClass; },
-		get headerClass() { return headerClass; },
-		get bodyClass() { return bodyClass; },
-		get footerClass() { return footerClass; },
+		get overlayClass() {
+			return overlayClass;
+		},
+		get contentClass() {
+			return contentClass;
+		},
+		get headerClass() {
+			return headerClass;
+		},
+		get bodyClass() {
+			return bodyClass;
+		},
+		get footerClass() {
+			return footerClass;
+		},
 		handleConfirm,
 		handleCancel,
 		handleClose

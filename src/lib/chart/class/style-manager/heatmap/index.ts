@@ -1,135 +1,95 @@
 export class HeatmapStyleManager {
-  static getContainerClasses(additionalClass?: string): string {
-    const baseClasses = [
-      'c-heatmap',
-      'relative'
-    ];
+	static getContainerClasses(additionalClass?: string): string {
+		const baseClasses = ['c-heatmap', 'relative'];
 
-    if (additionalClass) {
-      baseClasses.push(additionalClass);
-    }
+		if (additionalClass) {
+			baseClasses.push(additionalClass);
+		}
 
-    return baseClasses.join(' ');
-  }
+		return baseClasses.join(' ');
+	}
 
-  static getChartContainerClasses(additionalClass?: string): string {
-    const baseClasses = [
-      'chart-container',
-      'border',
-      'rounded-lg',
-      'p-4',
-      'bg-[var(--color-background-primary)]',
-      'border-[var(--color-border-primary)]'
-    ];
+	static getChartContainerClasses(additionalClass?: string): string {
+		const baseClasses = [
+			'chart-container',
+			'border',
+			'rounded-lg',
+			'p-4',
+			'bg-[var(--color-background-primary)]',
+			'border-[var(--color-border-primary)]'
+		];
 
-    if (additionalClass) {
-      baseClasses.push(additionalClass);
-    }
+		if (additionalClass) {
+			baseClasses.push(additionalClass);
+		}
 
-    return baseClasses.join(' ');
-  }
+		return baseClasses.join(' ');
+	}
 
-  static getTitleClasses(): string {
-    return [
-      'text-lg',
-      'font-medium',
-      'text-[--color-text-primary]'
-    ].join(' ');
-  }
+	static getTitleClasses(): string {
+		return ['text-lg', 'font-medium', 'text-[--color-text-primary]'].join(' ');
+	}
 
-  static getSvgClasses(): string {
-    return [
-      'overflow-visible'
-    ].join(' ');
-  }
+	static getSvgClasses(): string {
+		return ['overflow-visible'].join(' ');
+	}
 
-  static getCellClasses(isHovered: boolean = false): string {
-    const baseClasses = [
-      'cursor-pointer',
-      'transition-all',
-      'duration-[var(--duration-200)]',
-      'ease-in-out'
-    ];
+	static getCellClasses(isHovered: boolean = false): string {
+		const baseClasses = [
+			'cursor-pointer',
+			'transition-all',
+			'duration-[var(--duration-200)]',
+			'ease-in-out'
+		];
 
-    if (isHovered) {
-      baseClasses.push('opacity-[var(--opacity-80)]');
-    } else {
-      baseClasses.push('opacity-[var(--opacity-100)]');
-    }
+		if (isHovered) {
+			baseClasses.push('opacity-[var(--opacity-80)]');
+		} else {
+			baseClasses.push('opacity-[var(--opacity-100)]');
+		}
 
-    return baseClasses.join(' ');
-  }
+		return baseClasses.join(' ');
+	}
 
-  static getCellTextClasses(emphasizedText: boolean): string {
-    const baseClasses = [
-      'pointer-events-none',
-      'text-xs'
-    ];
+	static getCellTextClasses(emphasizedText: boolean): string {
+		const baseClasses = ['pointer-events-none', 'text-xs'];
 
-    if (emphasizedText) {
-      baseClasses.push('fill-[--color-text-inverse]', 'text-[--color-text-inverse]');
-    } else {
-      baseClasses.push('fill-[--color-text-primary]', 'text-[--color-text-primary]');
-    }
+		if (emphasizedText) {
+			baseClasses.push('fill-[--color-text-inverse]', 'text-[--color-text-inverse]');
+		} else {
+			baseClasses.push('fill-[--color-text-primary]', 'text-[--color-text-primary]');
+		}
 
-    return baseClasses.join(' ');
-  }
+		return baseClasses.join(' ');
+	}
 
-  static getAxisClasses(): string {
-    return [
-      'stroke-[--color-border-primary]'
-    ].join(' ');
-  }
+	static getAxisClasses(): string {
+		return ['stroke-[--color-border-primary]'].join(' ');
+	}
 
-  static getAxisTextClasses(): string {
-    return [
-      'text-xs',
-      'fill-[--color-text-secondary]',
-      'text-[--color-text-secondary]'
-    ].join(' ');
-  }
+	static getAxisTextClasses(): string {
+		return ['text-xs', 'fill-[--color-text-secondary]', 'text-[--color-text-secondary]'].join(' ');
+	}
 
-  static getLegendClasses(): string {
-    return [
-      'mt-4'
-    ].join(' ');
-  }
+	static getLegendClasses(): string {
+		return ['mt-4'].join(' ');
+	}
 
-  static getLegendTitleClasses(): string {
-    return [
-      'text-xs',
-      'text-[--color-text-primary]',
-      'mt-1',
-      'text-center'
-    ].join(' ');
-  }
+	static getLegendTitleClasses(): string {
+		return ['text-xs', 'text-[--color-text-primary]', 'mt-1', 'text-center'].join(' ');
+	}
 
-  static getLegendGradientClasses(): string {
-    return [
-      'h-4',
-      'w-full',
-      'rounded-full'
-    ].join(' ');
-  }
+	static getLegendGradientClasses(): string {
+		return ['h-4', 'w-full', 'rounded-full'].join(' ');
+	}
 
-  static getLegendLabelsClasses(): string {
-    return [
-      'flex',
-      'justify-between',
-      'text-xs',
-      'text-[--color-text-secondary]',
-      'mb-1'
-    ].join(' ');
-  }
+	static getLegendLabelsClasses(): string {
+		return ['flex', 'justify-between', 'text-xs', 'text-[--color-text-secondary]', 'mb-1'].join(
+			' '
+		);
+	}
 
-  static getTooltipButtonClasses(): string {
-    return [
-      'h-4',
-      'w-4',
-      'text-[--color-text-tertiary]'
-    ].join(' ');
-  }
+	static getTooltipButtonClasses(): string {
+		return ['h-4', 'w-4', 'text-[--color-text-tertiary]'].join(' ');
+	}
 }
-
-
-

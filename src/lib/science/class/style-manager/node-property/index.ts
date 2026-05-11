@@ -3,7 +3,6 @@ import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { SlotNodePropertyState } from '$stylist/science/interface/slot/node-property';
 
-
 /**
  * Менеджер стилей для свойств узлов графа
  */

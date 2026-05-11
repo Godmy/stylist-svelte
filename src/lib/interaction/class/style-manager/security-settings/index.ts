@@ -15,7 +15,9 @@ export class SecuritySettingsStyleManager {
 	}
 
 	static session(base: string, current?: boolean, className?: string): string {
-		const currentClass = current ? 'border-[--color-info-200] bg-[--color-info-50]' : 'border-[--color-border-secondary] bg-[--color-background-primary]';
+		const currentClass = current
+			? 'border-[--color-info-200] bg-[--color-info-50]'
+			: 'border-[--color-border-secondary] bg-[--color-background-primary]';
 		return `${base} ${currentClass} border rounded-lg p-4 ${className || ''}`.trim();
 	}
 

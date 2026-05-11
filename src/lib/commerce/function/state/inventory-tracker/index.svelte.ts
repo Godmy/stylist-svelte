@@ -11,17 +11,22 @@ export function createInventoryTrackerState(props: InventoryTrackerContract) {
 
 	const filteredItems = $derived(
 		searchQuery
-			? items.filter(item =>
-				item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				item.sku.toLowerCase().includes(searchQuery.toLowerCase())
-			)
+			? items.filter(
+					(item) =>
+						item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+						item.sku.toLowerCase().includes(searchQuery.toLowerCase())
+				)
 			: items
 	);
 
-	const containerClasses = $derived(InventoryTrackerStyleManager.getContainerClasses(String(props.class ?? '')));
+	const containerClasses = $derived(
+		InventoryTrackerStyleManager.getContainerClasses(String(props.class ?? ''))
+	);
 	const headerClasses = $derived(InventoryTrackerStyleManager.getHeaderClasses());
 	const titleClasses = $derived(InventoryTrackerStyleManager.getTitleClasses());
-	const filtersContainerClasses = $derived(InventoryTrackerStyleManager.getFiltersContainerClasses());
+	const filtersContainerClasses = $derived(
+		InventoryTrackerStyleManager.getFiltersContainerClasses()
+	);
 	const searchInputClasses = $derived(InventoryTrackerStyleManager.getSearchInputClasses());
 	const itemsContainerClasses = $derived(InventoryTrackerStyleManager.getItemsContainerClasses());
 	const itemClasses = $derived(InventoryTrackerStyleManager.getItemClasses());
@@ -31,7 +36,9 @@ export function createInventoryTrackerState(props: InventoryTrackerContract) {
 	const itemSkuClasses = $derived(InventoryTrackerStyleManager.getItemSkuClasses());
 	const stockLevelClasses = $derived(InventoryTrackerStyleManager.getStockLevelClasses());
 	const progressBarClasses = $derived(InventoryTrackerStyleManager.getProgressBarClasses());
-	const actionsContainerClasses = $derived(InventoryTrackerStyleManager.getActionsContainerClasses());
+	const actionsContainerClasses = $derived(
+		InventoryTrackerStyleManager.getActionsContainerClasses()
+	);
 	const actionButtonClasses = $derived(InventoryTrackerStyleManager.getActionButtonClasses());
 	const alertBadgeClasses = $derived(InventoryTrackerStyleManager.getAlertBadgeClasses());
 	const alertsContainerClasses = $derived(InventoryTrackerStyleManager.getAlertsContainerClasses());
@@ -47,29 +54,75 @@ export function createInventoryTrackerState(props: InventoryTrackerContract) {
 	}
 
 	return {
-		get searchQuery() { return searchQuery; },
-		set searchQuery(v: string) { searchQuery = v; },
-		get items() { return items; },
-		get alerts() { return alerts; },
-		get filteredItems() { return filteredItems; },
-		get containerClasses() { return containerClasses; },
-		get headerClasses() { return headerClasses; },
-		get titleClasses() { return titleClasses; },
-		get filtersContainerClasses() { return filtersContainerClasses; },
-		get searchInputClasses() { return searchInputClasses; },
-		get itemsContainerClasses() { return itemsContainerClasses; },
-		get itemClasses() { return itemClasses; },
-		get itemThumbnailClasses() { return itemThumbnailClasses; },
-		get itemInfoClasses() { return itemInfoClasses; },
-		get itemNameClasses() { return itemNameClasses; },
-		get itemSkuClasses() { return itemSkuClasses; },
-		get stockLevelClasses() { return stockLevelClasses; },
-		get progressBarClasses() { return progressBarClasses; },
-		get actionsContainerClasses() { return actionsContainerClasses; },
-		get actionButtonClasses() { return actionButtonClasses; },
-		get alertBadgeClasses() { return alertBadgeClasses; },
-		get alertsContainerClasses() { return alertsContainerClasses; },
-		get alertItemClasses() { return alertItemClasses; },
+		get searchQuery() {
+			return searchQuery;
+		},
+		set searchQuery(v: string) {
+			searchQuery = v;
+		},
+		get items() {
+			return items;
+		},
+		get alerts() {
+			return alerts;
+		},
+		get filteredItems() {
+			return filteredItems;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get filtersContainerClasses() {
+			return filtersContainerClasses;
+		},
+		get searchInputClasses() {
+			return searchInputClasses;
+		},
+		get itemsContainerClasses() {
+			return itemsContainerClasses;
+		},
+		get itemClasses() {
+			return itemClasses;
+		},
+		get itemThumbnailClasses() {
+			return itemThumbnailClasses;
+		},
+		get itemInfoClasses() {
+			return itemInfoClasses;
+		},
+		get itemNameClasses() {
+			return itemNameClasses;
+		},
+		get itemSkuClasses() {
+			return itemSkuClasses;
+		},
+		get stockLevelClasses() {
+			return stockLevelClasses;
+		},
+		get progressBarClasses() {
+			return progressBarClasses;
+		},
+		get actionsContainerClasses() {
+			return actionsContainerClasses;
+		},
+		get actionButtonClasses() {
+			return actionButtonClasses;
+		},
+		get alertBadgeClasses() {
+			return alertBadgeClasses;
+		},
+		get alertsContainerClasses() {
+			return alertsContainerClasses;
+		},
+		get alertItemClasses() {
+			return alertItemClasses;
+		},
 		getStatusBadgeClasses,
 		getStockProgress
 	};

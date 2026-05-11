@@ -8,4 +8,4 @@ export type FocusContract = GestureContract & {
 	onFocus?: (event: FocusEvent) => void;
 	/** Обработчик потери фокуса */
 	onBlur?: (event: FocusEvent) => void;
-}
+};

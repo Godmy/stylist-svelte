@@ -83,8 +83,9 @@ export const createVariablesEditorState = (props: VariablesEditorStateProps) => 
 		)
 	);
 
-	const labelClasses = $derived.by(() =>
-		'text-xs font-medium text-[var(--color-text-primary)] dark:text-[var(--color-text-tertiary)]'
+	const labelClasses = $derived.by(
+		() =>
+			'text-xs font-medium text-[var(--color-text-primary)] dark:text-[var(--color-text-tertiary)]'
 	);
 
 	const textareaClasses = $derived.by(() =>
@@ -96,16 +97,18 @@ export const createVariablesEditorState = (props: VariablesEditorStateProps) => 
 		)
 	);
 
-	const placeholderClasses = $derived.by(() =>
-		'absolute inset-0 flex items-center justify-center pointer-events-none'
+	const placeholderClasses = $derived.by(
+		() => 'absolute inset-0 flex items-center justify-center pointer-events-none'
 	);
 
-	const placeholderContentClasses = $derived.by(() =>
-		'text-[var(--color-text-tertiary)] dark:text-[var(--color-text-secondary)] text-center p-4'
+	const placeholderContentClasses = $derived.by(
+		() =>
+			'text-[var(--color-text-tertiary)] dark:text-[var(--color-text-secondary)] text-center p-4'
 	);
 
-	const invalidJsonBadgeClasses = $derived.by(() =>
-		'absolute top-2 right-2 bg-[var(--color-danger-500)] text-[var(--color-text-inverse)] text-xs px-2 py-1 rounded'
+	const invalidJsonBadgeClasses = $derived.by(
+		() =>
+			'absolute top-2 right-2 bg-[var(--color-danger-500)] text-[var(--color-text-inverse)] text-xs px-2 py-1 rounded'
 	);
 
 	const iconClasses = $derived.by(() => 'h-8 w-8 mx-auto mb-1');

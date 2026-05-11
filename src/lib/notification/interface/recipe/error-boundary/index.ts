@@ -6,12 +6,4 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/slot/status';
 
 export interface ErrorBoundaryRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IStatusSlot,
-		IClickable,
-		IFocusable
-	]>
-{}
-
+	extends StructIntersectAll<[ILabelSlot, ICaptionSlot, IStatusSlot, IClickable, IFocusable]> {}

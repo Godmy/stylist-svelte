@@ -15,7 +15,9 @@ export const createTimePickerState = (props: ITimePickerProps) => {
 		props.onValueInput?.(selectedTime);
 		props.onValueChange?.(selectedTime);
 		props.onChange?.(selectedTime);
-		timeInputRef?.dispatchEvent(new CustomEvent('change', { detail: { time: selectedTime }, bubbles: true }));
+		timeInputRef?.dispatchEvent(
+			new CustomEvent('change', { detail: { time: selectedTime }, bubbles: true })
+		);
 	}
 
 	function toggleDropdown() {
@@ -51,7 +53,9 @@ export const createTimePickerState = (props: ITimePickerProps) => {
 			for (let minute = 0; minute < 60; minute += 15) {
 				if (props.showSeconds) {
 					for (let second = 0; second < 60; second += 15) {
-						values.push(`${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`);
+						values.push(
+							`${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`
+						);
 					}
 				} else {
 					values.push(`${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`);

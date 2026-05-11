@@ -8,7 +8,9 @@ import { isWeekend } from '$stylist/calendar/function/script/is-weekend';
 
 export function createScheduleCalendarState(props: ScheduleCalendarContract) {
 	let viewStartDate = $state(new Date(props.startDate ?? new Date()));
-	let viewEndDate = $state(new Date(props.endDate ?? new Date(new Date().setDate(new Date().getDate() + 6))));
+	let viewEndDate = $state(
+		new Date(props.endDate ?? new Date(new Date().setDate(new Date().getDate() + 6)))
+	);
 
 	const events = $derived(props.events ?? []);
 	const startTime = $derived(props.startTime ?? 8);
@@ -153,18 +155,42 @@ export function createScheduleCalendarState(props: ScheduleCalendarContract) {
 	}
 
 	return {
-		get viewStartDate() { return viewStartDate; },
-		get viewEndDate() { return viewEndDate; },
-		get schedule() { return schedule; },
-		get showHeader() { return showHeader; },
-		get showTimeGutter() { return showTimeGutter; },
-		get timeSlotHeight() { return timeSlotHeight; },
-		get slotClass() { return slotClass; },
-		get eventClass() { return eventClass; },
-		get wrapperClasses() { return wrapperClasses; },
-		get headerClasses() { return headerClasses; },
-		get gridClasses() { return gridClasses; },
-		get restProps() { return restProps; },
+		get viewStartDate() {
+			return viewStartDate;
+		},
+		get viewEndDate() {
+			return viewEndDate;
+		},
+		get schedule() {
+			return schedule;
+		},
+		get showHeader() {
+			return showHeader;
+		},
+		get showTimeGutter() {
+			return showTimeGutter;
+		},
+		get timeSlotHeight() {
+			return timeSlotHeight;
+		},
+		get slotClass() {
+			return slotClass;
+		},
+		get eventClass() {
+			return eventClass;
+		},
+		get wrapperClasses() {
+			return wrapperClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get gridClasses() {
+			return gridClasses;
+		},
+		get restProps() {
+			return restProps;
+		},
 		generateTimeSlots,
 		handleEventClick,
 		handleSlotClick,

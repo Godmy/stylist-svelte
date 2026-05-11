@@ -11,4 +11,4 @@ export type GestureContract = {
 	cursor: TokenCursor;
 	pressEffect: boolean;
 	hoverEffect: boolean;
-}
+};

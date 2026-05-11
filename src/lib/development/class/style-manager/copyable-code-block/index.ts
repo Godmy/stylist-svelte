@@ -3,7 +3,11 @@ import { CodeStyleManager } from '$stylist/development/class/style-manager/code-
 
 export class CopyableCodeStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return mergeClassNames('c-copyable-code-block', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
+		return mergeClassNames(
+			'c-copyable-code-block',
+			CodeStyleManager.getSurfaceBaseClasses(),
+			extraClasses
+		);
 	}
 
 	static getHeaderClass(extraClasses = ''): string {
@@ -15,7 +19,11 @@ export class CopyableCodeStyleManager {
 	}
 
 	static getPreClass(extraClasses = ''): string {
-		return mergeClassNames(CodeStyleManager.getPreBaseClasses(), 'max-w-full overflow-x-auto', extraClasses);
+		return mergeClassNames(
+			CodeStyleManager.getPreBaseClasses(),
+			'max-w-full overflow-x-auto',
+			extraClasses
+		);
 	}
 
 	static getCopyButtonContainerClass(): string {
@@ -23,9 +31,9 @@ export class CopyableCodeStyleManager {
 	}
 
 	static getIconClass(isCopied: boolean): string {
-		return mergeClassNames(CodeStyleManager.getIconBaseClasses(), isCopied ? 'text-[var(--color-success-600)]' : '');
+		return mergeClassNames(
+			CodeStyleManager.getIconBaseClasses(),
+			isCopied ? 'text-[var(--color-success-600)]' : ''
+		);
 	}
 }
-
-
-

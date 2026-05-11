@@ -5,4 +5,4 @@ export type CartSummaryPromotion = {
 	discountType: 'percentage' | 'fixed';
 	discountValue: number;
 	applied?: boolean;
-}
+};

@@ -38,24 +38,60 @@ export function createStatCardState(props: StatCardRecipe) {
 	});
 
 	return {
-		get label() { return label; },
-		get value() { return value; },
-		get icon() { return icon; },
-		get trend() { return trend; },
-		get trendValue() { return trendValue; },
-		get description() { return description; },
-		get variant() { return variant; },
-		get animated() { return animated; },
-		get numericValue() { return numericValue; },
-		get classes() { return classes; },
-		get titleClasses() { return titleClasses; },
-		get valueClasses() { return valueClasses; },
-		get trendContainerClasses() { return trendContainerClasses; },
-		get trendTextClasses() { return trendTextClasses; },
-		get trendIconClasses() { return trendIconClasses; },
-		get descriptionClasses() { return descriptionClasses; },
-		get iconContainerClasses() { return iconContainerClasses; },
-		get restProps() { return restProps; }
+		get label() {
+			return label;
+		},
+		get value() {
+			return value;
+		},
+		get icon() {
+			return icon;
+		},
+		get trend() {
+			return trend;
+		},
+		get trendValue() {
+			return trendValue;
+		},
+		get description() {
+			return description;
+		},
+		get variant() {
+			return variant;
+		},
+		get animated() {
+			return animated;
+		},
+		get numericValue() {
+			return numericValue;
+		},
+		get classes() {
+			return classes;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get valueClasses() {
+			return valueClasses;
+		},
+		get trendContainerClasses() {
+			return trendContainerClasses;
+		},
+		get trendTextClasses() {
+			return trendTextClasses;
+		},
+		get trendIconClasses() {
+			return trendIconClasses;
+		},
+		get descriptionClasses() {
+			return descriptionClasses;
+		},
+		get iconContainerClasses() {
+			return iconContainerClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

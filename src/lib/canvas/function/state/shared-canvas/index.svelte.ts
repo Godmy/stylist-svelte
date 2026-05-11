@@ -15,7 +15,8 @@ import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-ca
 export function createSharedCanvasState(contract: SharedCanvasContract) {
 	let selectedTool = $state<SharedCanvasTool>('select');
 	let selectedColor = $state(
-		contract.users?.find(u => u.id === contract.currentUserId)?.color ?? 'var(--color-primary-500)'
+		contract.users?.find((u) => u.id === contract.currentUserId)?.color ??
+			'var(--color-primary-500)'
 	);
 	let isDrawing = $state(false);
 	let startPoint = $state<SharedCanvasPoint>({ x: 0, y: 0 });
@@ -57,8 +58,9 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 	const userSwatchClass = $derived(StyleManagerSharedCanvas.getUserSwatchClass());
 	const userNameClass = $derived(StyleManagerSharedCanvas.getUserNameClass());
 	const currentUserClass = $derived(StyleManagerSharedCanvas.getCurrentUserClass());
-	const toolButtonClass = $derived.by(() => (tool: SharedCanvasTool) =>
-		StyleManagerSharedCanvas.getToolButtonClass(selectedTool === tool)
+	const toolButtonClass = $derived.by(
+		() => (tool: SharedCanvasTool) =>
+			StyleManagerSharedCanvas.getToolButtonClass(selectedTool === tool)
 	);
 	const actionButtonClass = $derived(StyleManagerSharedCanvas.getActionButtonClass());
 	const actionIcons = $derived(ObjectManagerSharedCanvas.actionIcons);
@@ -295,4 +297,3 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 }
 
 export default createSharedCanvasState;
-

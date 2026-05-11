@@ -4,7 +4,11 @@ import type { SlotTabContainer as TabContainerProps } from '$stylist/control/int
 export const createTabListState = (props: TabContainerProps) => {
 	const disabled = $derived(props.disabled ?? false);
 	const classes = $derived(
-		joinClassNames('flex items-center gap-1', disabled ? 'opacity-[var(--opacity-50)]' : '', props.class)
+		joinClassNames(
+			'flex items-center gap-1',
+			disabled ? 'opacity-[var(--opacity-50)]' : '',
+			props.class
+		)
 	);
 	return {
 		get disabled() {
@@ -17,9 +21,3 @@ export const createTabListState = (props: TabContainerProps) => {
 };
 
 export default createTabListState;
-
-
-
-
-
-

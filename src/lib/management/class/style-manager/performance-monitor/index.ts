@@ -25,4 +25,3 @@ export class PerformanceMonitorStyleManager {
 		return mergeClassNames('h-2.5 rounded-full', statusBarClass);
 	}
 }
-

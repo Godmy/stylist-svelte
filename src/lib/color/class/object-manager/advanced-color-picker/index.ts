@@ -28,4 +28,3 @@ export class ObjectManagerAdvancedColorPicker {
 		return ObjectManagerAdvancedColorPicker.palette;
 	}
 }
-

@@ -1,4 +1,4 @@
 export type PlaygroundDrawingOverlayProps = {
-  drawColor?: string;
-  onClose?: () => void;
-}
+	drawColor?: string;
+	onClose?: () => void;
+};

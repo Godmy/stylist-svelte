@@ -7,10 +7,18 @@ export function createSelectedItem(initial?: Partial<SelectedItem>) {
 	});
 
 	return {
-		get id() { return item.id; },
-		get type() { return item.type; },
-		setId(id: string) { item.id = id; },
-		setType(type: SelectedItem['type']) { item.type = type; }
+		get id() {
+			return item.id;
+		},
+		get type() {
+			return item.type;
+		},
+		setId(id: string) {
+			item.id = id;
+		},
+		setType(type: SelectedItem['type']) {
+			item.type = type;
+		}
 	};
 }
 

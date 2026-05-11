@@ -96,11 +96,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-
-
-

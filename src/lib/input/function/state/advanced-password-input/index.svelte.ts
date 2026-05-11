@@ -65,7 +65,10 @@ export const createAdvancedPasswordInputState = (
 		AdvancedPasswordInputStyleManager.getInputClass(props.disabled ?? false, props.inputClass)
 	);
 	const buttonClass = $derived(
-		AdvancedPasswordInputStyleManager.getToggleButtonClass(props.disabled ?? false, props.buttonClass)
+		AdvancedPasswordInputStyleManager.getToggleButtonClass(
+			props.disabled ?? false,
+			props.buttonClass
+		)
 	);
 	const eyeIconClass = $derived(AdvancedPasswordInputStyleManager.getEyeIconClass());
 	const strengthMeterContainerClass = $derived(

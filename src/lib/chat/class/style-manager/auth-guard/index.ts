@@ -19,4 +19,3 @@ export class AuthGuardStyleManager {
 		return 'inline-flex items-center rounded-full bg-[--color-primary-600] px-4 py-2 text-sm font-medium text-[--color-text-inverse] transition-colors hover:bg-[--color-primary-700]';
 	}
 }
-

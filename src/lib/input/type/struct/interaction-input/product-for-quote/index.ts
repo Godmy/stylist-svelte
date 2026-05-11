@@ -4,4 +4,4 @@ export type ProductForQuote = {
 	quantity: number;
 	unitPrice?: number;
 	notes?: string;
-}
+};

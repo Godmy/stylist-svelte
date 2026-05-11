@@ -7,12 +7,14 @@ export function createCartSummaryState(props: CartSummaryProps) {
 	const items = $derived(props.items ?? []);
 	const promotions = $derived(props.promotions ?? []);
 
-	const subtotal = $derived(items.reduce((sum: number, item) => sum + item.price * item.quantity, 0));
+	const subtotal = $derived(
+		items.reduce((sum: number, item) => sum + item.price * item.quantity, 0)
+	);
 	const total = $derived(
-		subtotal
-		- (props.discountAmount ?? 0)
-		+ (props.showShipping ? (props.shippingCost ?? 0) : 0)
-		+ (props.showTaxes ? (props.taxCost ?? 0) : 0)
+		subtotal -
+			(props.discountAmount ?? 0) +
+			(props.showShipping ? (props.shippingCost ?? 0) : 0) +
+			(props.showTaxes ? (props.taxCost ?? 0) : 0)
 	);
 
 	const containerClasses = $derived(CartSummaryStyleManager.getContainerClasses(props.class ?? ''));
@@ -37,7 +39,7 @@ export function createCartSummaryState(props: CartSummaryProps) {
 	const discountBadgeClasses = $derived(CartSummaryStyleManager.getDiscountBadgeClasses());
 
 	function formatPrice(amount: number) {
-		return `${props.currency === 'USD' ? '$' : props.currency ?? '$'}${amount.toFixed(2)}`;
+		return `${props.currency === 'USD' ? '$' : (props.currency ?? '$')}${amount.toFixed(2)}`;
 	}
 
 	function handleApplyPromo() {
@@ -48,32 +50,84 @@ export function createCartSummaryState(props: CartSummaryProps) {
 	}
 
 	return {
-		get items() { return items; },
-		get promotions() { return promotions; },
-		get promoCode() { return promoCode; },
-		set promoCode(v: string) { promoCode = v; },
-		get subtotal() { return subtotal; },
-		get total() { return total; },
-		get containerClasses() { return containerClasses; },
-		get headerClasses() { return headerClasses; },
-		get titleClasses() { return titleClasses; },
-		get itemClasses() { return itemClasses; },
-		get thumbnailClasses() { return thumbnailClasses; },
-		get itemNameClasses() { return itemNameClasses; },
-		get itemPriceClasses() { return itemPriceClasses; },
-		get quantityControlClasses() { return quantityControlClasses; },
-		get quantityButtonClasses() { return quantityButtonClasses; },
-		get quantityInputClasses() { return quantityInputClasses; },
-		get removeButtonClasses() { return removeButtonClasses; },
-		get summaryClasses() { return summaryClasses; },
-		get summaryTitleClasses() { return summaryTitleClasses; },
-		get summaryRowClasses() { return summaryRowClasses; },
-		get summaryLabelClasses() { return summaryLabelClasses; },
-		get summaryValueClasses() { return summaryValueClasses; },
-		get totalClasses() { return totalClasses; },
-		get promoCodeInputClasses() { return promoCodeInputClasses; },
-		get promoCodeButtonClasses() { return promoCodeButtonClasses; },
-		get discountBadgeClasses() { return discountBadgeClasses; },
+		get items() {
+			return items;
+		},
+		get promotions() {
+			return promotions;
+		},
+		get promoCode() {
+			return promoCode;
+		},
+		set promoCode(v: string) {
+			promoCode = v;
+		},
+		get subtotal() {
+			return subtotal;
+		},
+		get total() {
+			return total;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get itemClasses() {
+			return itemClasses;
+		},
+		get thumbnailClasses() {
+			return thumbnailClasses;
+		},
+		get itemNameClasses() {
+			return itemNameClasses;
+		},
+		get itemPriceClasses() {
+			return itemPriceClasses;
+		},
+		get quantityControlClasses() {
+			return quantityControlClasses;
+		},
+		get quantityButtonClasses() {
+			return quantityButtonClasses;
+		},
+		get quantityInputClasses() {
+			return quantityInputClasses;
+		},
+		get removeButtonClasses() {
+			return removeButtonClasses;
+		},
+		get summaryClasses() {
+			return summaryClasses;
+		},
+		get summaryTitleClasses() {
+			return summaryTitleClasses;
+		},
+		get summaryRowClasses() {
+			return summaryRowClasses;
+		},
+		get summaryLabelClasses() {
+			return summaryLabelClasses;
+		},
+		get summaryValueClasses() {
+			return summaryValueClasses;
+		},
+		get totalClasses() {
+			return totalClasses;
+		},
+		get promoCodeInputClasses() {
+			return promoCodeInputClasses;
+		},
+		get promoCodeButtonClasses() {
+			return promoCodeButtonClasses;
+		},
+		get discountBadgeClasses() {
+			return discountBadgeClasses;
+		},
 		formatPrice,
 		handleApplyPromo
 	};

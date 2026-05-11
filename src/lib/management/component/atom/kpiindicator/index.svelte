@@ -12,12 +12,15 @@
 		<div>
 			<h3 class={state.titleClasses}>{state.label}</h3>
 			<p class={state.valueClasses}>
-				{state.currentValue}{state.unit} <span class="text-sm font-normal text-[--stylist-kpi-subvalue-text]">/ {state.targetValue}{state.unit}</span>
+				{state.currentValue}{state.unit}
+				<span class="text-sm font-normal text-[--stylist-kpi-subvalue-text]"
+					>/ {state.targetValue}{state.unit}</span
+				>
 			</p>
 		</div>
 		<div class="flex items-center">
 			<div class="mr-3">
-				<div class="w-3 h-3 rounded-full bg-current"></div>
+				<div class="h-3 w-3 rounded-full bg-current"></div>
 			</div>
 			<div class="flex items-center">
 				<span class={state.trendColorClasses}>
@@ -33,21 +36,12 @@
 	</div>
 
 	<div class="mt-3">
-		<div class="flex items-center justify-between text-sm text-[--stylist-kpi-status-text] mb-1">
+		<div class="mb-1 flex items-center justify-between text-sm text-[--stylist-kpi-status-text]">
 			<span>{state.statusText}</span>
 			<span>{state.percentage}%</span>
 		</div>
 		<div class={state.progressTrackClasses}>
-			<div
-				class={state.progressFillClasses}
-				style={`width: ${state.percentage}%`}
-			></div>
+			<div class={state.progressFillClasses} style={`width: ${state.percentage}%`}></div>
 		</div>
 	</div>
 </div>
-
-
-
-
-
-

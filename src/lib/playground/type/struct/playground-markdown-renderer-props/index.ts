@@ -1,4 +1,4 @@
 export type PlaygroundMarkdownRendererProps = {
-  content: string;
-  class?: string;
-}
+	content: string;
+	class?: string;
+};

@@ -11,11 +11,18 @@
 	];
 </script>
 
-<Story component={PriceAlert} title="PriceAlert" description="Tracks current vs target product price." {controls}>
+<Story
+	component={PriceAlert}
+	title="PriceAlert"
+	description="Tracks current vs target product price."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<PriceAlert productName={values.productName} currentPrice={values.currentPrice} targetPrice={values.targetPrice} currency={values.currency} />
+		<PriceAlert
+			productName={values.productName}
+			currentPrice={values.currentPrice}
+			targetPrice={values.targetPrice}
+			currency={values.currency}
+		/>
 	{/snippet}
 </Story>
-
-
-

@@ -6,11 +6,7 @@
 	const state = createAnimatedState(props);
 </script>
 
-<div
-	class={state.classes}
-	style={state.inlineStyle}
-	{...state.restProps}
->
+<div class={state.classes} style={state.inlineStyle} {...state.restProps}>
 	{#if props.children}
 		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 	{:else}

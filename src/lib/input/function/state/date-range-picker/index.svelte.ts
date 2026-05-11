@@ -52,7 +52,9 @@ export const createDateRangePickerState = (props: DateRangePickerComponentProps)
 	const calendarDates = $derived.by(() =>
 		Array.from({ length: 42 }, (_, index) => {
 			const date = new Date(currentDateView.getFullYear(), currentDateView.getMonth(), 1);
-			date.setDate(index - new Date(currentDateView.getFullYear(), currentDateView.getMonth(), 1).getDay() + 1);
+			date.setDate(
+				index - new Date(currentDateView.getFullYear(), currentDateView.getMonth(), 1).getDay() + 1
+			);
 			return date;
 		})
 	);

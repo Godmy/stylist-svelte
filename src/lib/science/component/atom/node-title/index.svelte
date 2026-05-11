@@ -1,4 +1,4 @@
-	<script lang="ts">
+<script lang="ts">
 	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { NodeTitleRecipe } from '$stylist/science/interface/recipe/node-title';
 	import { createNodeTitleState } from '$stylist/science/function/state/node-title';
@@ -65,7 +65,9 @@
 		color: var(--node-title-color, var(--color-text-primary));
 		cursor: default;
 		user-select: none;
-		transition: color var(--duration-120) var(--animation-ease), background-color var(--duration-120) var(--animation-ease);
+		transition:
+			color var(--duration-120) var(--animation-ease),
+			background-color var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.node-title__input) {
@@ -154,11 +156,11 @@
 	}
 
 	/* Interactive */
-	:global(.node-title[editable="true"]) {
+	:global(.node-title[editable='true']) {
 		cursor: pointer;
 	}
 
-	:global(.node-title[editable="true"]:hover) {
+	:global(.node-title[editable='true']:hover) {
 		background-color: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
 		border-radius: var(--border-radius-base);
 	}

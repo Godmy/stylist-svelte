@@ -37,7 +37,9 @@ export function createTranslationEditorState(props: TranslationEditorStateProps)
 	}
 
 	// Classes
-	const rootClass = $derived(InteractionInputStyleManager.root('c-translation-editor', props.class ?? ''));
+	const rootClass = $derived(
+		InteractionInputStyleManager.root('c-translation-editor', props.class ?? '')
+	);
 	const panelClass = $derived(InteractionInputStyleManager.panel('overflow-hidden'));
 	const headerClass = $derived(props.headerClass ?? '');
 	const tableClass = $derived(props.tableClass ?? '');

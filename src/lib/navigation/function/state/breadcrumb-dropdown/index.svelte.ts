@@ -29,13 +29,7 @@ export function createBreadcrumbDropdownState(
 	}
 
 	const restProps = $derived.by(() => {
-		const {
-			open: _open,
-			items: _items,
-			onSelect: _onSelect,
-			class: _class,
-			...rest
-		} = props;
+		const { open: _open, items: _items, onSelect: _onSelect, class: _class, ...rest } = props;
 
 		return rest;
 	});

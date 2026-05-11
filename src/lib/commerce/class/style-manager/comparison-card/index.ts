@@ -3,7 +3,11 @@ import { CardStyleManager } from '$stylist/information/class/style-manager/card'
 
 export class ComparisonCardStyleManager {
 	static getBaseClasses(className = ''): string {
-		return mergeClassNames('comparison-card overflow-hidden', CardStyleManager.getBaseClasses(), className);
+		return mergeClassNames(
+			'comparison-card overflow-hidden',
+			CardStyleManager.getBaseClasses(),
+			className
+		);
 	}
 
 	static getHeaderClasses(): string {
@@ -50,7 +54,3 @@ export class ComparisonCardStyleManager {
 		return 'mb-4 text-center text-lg font-semibold text-[var(--color-success-600)]';
 	}
 }
-
-
-
-

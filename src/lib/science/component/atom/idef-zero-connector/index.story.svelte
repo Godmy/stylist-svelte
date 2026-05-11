@@ -9,7 +9,12 @@
 	];
 </script>
 
-<Story {controls} component={Idef0Connector} title="IDEF0Connector" description="Input/output connection arrow for IDEF0.">
+<Story
+	{controls}
+	component={Idef0Connector}
+	title="IDEF0Connector"
+	description="Input/output connection arrow for IDEF0."
+>
 	{#snippet children(values: any)}
 		<svg width="420" height="120">
 			{#if values.direction === 'input'}
@@ -20,6 +25,3 @@
 		</svg>
 	{/snippet}
 </Story>
-
-
-

@@ -82,7 +82,11 @@
 		{max}
 		{step}
 		class={state.classes}
-		aria-describedby={state.hasError && showErrors ? state.errorId : helperText ? undefined : undefined}
+		aria-describedby={state.hasError && showErrors
+			? state.errorId
+			: helperText
+				? undefined
+				: undefined}
 		aria-invalid={state.hasError ? 'true' : 'false'}
 		aria-required={required ? 'true' : 'false'}
 		{...restProps}

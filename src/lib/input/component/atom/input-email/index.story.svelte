@@ -7,7 +7,22 @@
 		{ name: 'label', type: 'text', defaultValue: 'Email' },
 		{ name: 'placeholder', type: 'text', defaultValue: 'example@email.com' },
 		{ name: 'value', type: 'text', defaultValue: '' },
-		{ name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'filled', 'outline', 'ghost', 'info', 'success', 'warning', 'danger', 'solid'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'default',
+			options: [
+				'default',
+				'filled',
+				'outline',
+				'ghost',
+				'info',
+				'success',
+				'warning',
+				'danger',
+				'solid'
+			]
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'error', type: 'boolean', defaultValue: false },
@@ -40,7 +55,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-
-

@@ -66,6 +66,10 @@ export class DraggableStyleManager {
 			return mergeClassNames(this.BASE, this.HANDLE, className);
 		}
 
-		return mergeClassNames(this.BASE, draggable ? 'cursor-grab active:cursor-grabbing' : '', className);
+		return mergeClassNames(
+			this.BASE,
+			draggable ? 'cursor-grab active:cursor-grabbing' : '',
+			className
+		);
 	}
 }

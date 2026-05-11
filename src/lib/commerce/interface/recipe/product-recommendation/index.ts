@@ -12,7 +12,9 @@ import type { SlotRecommendationProduct } from '$stylist/commerce/interface/slot
 import type { BehaviorProductRecommendationEvents } from '$stylist/commerce/interface/behavior/product-recommendation-events';
 import type { SlotLabel } from '$stylist/typography/interface/slot/label';
 
-export interface RecipeProductRecommendation extends StructIntersectAll<[ SlotLabel, ThemeAttributes<HTMLDivElement> ]>, BehaviorProductRecommendationEvents {
+export interface RecipeProductRecommendation
+	extends StructIntersectAll<[SlotLabel, ThemeAttributes<HTMLDivElement>]>,
+		BehaviorProductRecommendationEvents {
 	/** List of recommended products */
 	products: SlotRecommendationProduct[];
 }

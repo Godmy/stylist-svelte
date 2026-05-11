@@ -28,7 +28,11 @@
 
 			<div class="stage-frame">
 				<Stage
-					camera={{ x: Number(values.cameraX) || 0, y: Number(values.cameraY) || 0, zoom: Number(values.zoom) || 1 }}
+					camera={{
+						x: Number(values.cameraX) || 0,
+						y: Number(values.cameraY) || 0,
+						zoom: Number(values.zoom) || 1
+					}}
 					worldWidth={Number(values.worldWidth) || 1600}
 					worldHeight={Number(values.worldHeight) || 1200}
 				>

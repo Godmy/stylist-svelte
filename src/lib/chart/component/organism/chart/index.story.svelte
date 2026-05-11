@@ -78,7 +78,7 @@
 			width={values.width}
 			height={values.height}
 			title="Function Comparison"
-			series={series}
+			{series}
 			xScale={[Math.min(values.xMin, values.xMax), Math.max(values.xMin, values.xMax)]}
 			yScale={[Math.min(values.yMin, values.yMax), Math.max(values.yMin, values.yMax)]}
 			xTickCount={values.xTickCount}
@@ -94,6 +94,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

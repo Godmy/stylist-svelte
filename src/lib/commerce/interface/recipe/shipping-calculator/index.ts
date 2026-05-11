@@ -12,7 +12,9 @@ import type { SlotState } from '$stylist/commerce/interface/slot/state';
 import type { SlotDimensions } from '$stylist/commerce/interface/slot/dimensions';
 import type { BehaviorShippingCalculatorEvents } from '$stylist/commerce/interface/behavior/shipping-calculator-events';
 
-export interface RecipeShippingCalculator extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorShippingCalculatorEvents {
+export interface RecipeShippingCalculator
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorShippingCalculatorEvents {
 	/** List of shipping options */
 	shippingOptions: SlotShippingOption[];
 	/** List of countries */

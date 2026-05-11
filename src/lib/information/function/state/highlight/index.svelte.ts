@@ -19,10 +19,3 @@ export function createHighlightState(props: ThemeHighlightRecipe) {
 }
 
 export default createHighlightState;
-
-
-
-
-
-
-

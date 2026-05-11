@@ -1,10 +1,16 @@
 import { untrack } from 'svelte';
-import type { MapWithMarkersMarker, MapWithMarkersView, MapWithMarkersProps } from '$stylist/geo/type/struct/map-with-markers';
+import type {
+	MapWithMarkersMarker,
+	MapWithMarkersView,
+	MapWithMarkersProps
+} from '$stylist/geo/type/struct/map-with-markers';
 import type { MapWithMarkersStateProps } from '$stylist/geo/interface/recipe/map-with-markers';
 
 export function createMapWithMarkersState(props: MapWithMarkersStateProps) {
 	const markers = $derived(props.markers ?? []);
-	const initialView = $derived(props.initialView ?? { center: { lat: 51.505, lng: -0.09 }, zoom: 13 });
+	const initialView = $derived(
+		props.initialView ?? { center: { lat: 51.505, lng: -0.09 }, zoom: 13 }
+	);
 	const maxZoom = $derived(props.maxZoom ?? 18);
 	const minZoom = $derived(props.minZoom ?? 1);
 	const mapType = $derived(props.mapType ?? 'roadmap');
@@ -18,10 +24,12 @@ export function createMapWithMarkersState(props: MapWithMarkersStateProps) {
 	const currency = $derived(props.currency ?? 'USD');
 	const locale = $derived(props.locale ?? 'en-US');
 
-	let currentView = $state<MapWithMarkersView>(untrack(() => ({
-		center: { ...initialView.center },
-		zoom: initialView.zoom
-	})));
+	let currentView = $state<MapWithMarkersView>(
+		untrack(() => ({
+			center: { ...initialView.center },
+			zoom: initialView.zoom
+		}))
+	);
 	let searchQuery = $state('');
 	let isDragging = $state(false);
 	let dragStart = $state({ x: 0, y: 0 });
@@ -47,7 +55,8 @@ export function createMapWithMarkersState(props: MapWithMarkersStateProps) {
 		const x = e.clientX - rect.left;
 		const y = e.clientY - rect.top;
 		const offsetX = (x - rect.width / 2 - mapOffset.x) / Math.pow(2, currentView.zoom - 10) / 10000;
-		const offsetY = (y - rect.height / 2 - mapOffset.y) / Math.pow(2, currentView.zoom - 10) / 10000;
+		const offsetY =
+			(y - rect.height / 2 - mapOffset.y) / Math.pow(2, currentView.zoom - 10) / 10000;
 		const lat = currentView.center.lat - offsetY;
 		const lng = currentView.center.lng + offsetX;
 		props.onMapClick?.({ lat, lng });
@@ -98,7 +107,12 @@ export function createMapWithMarkersState(props: MapWithMarkersStateProps) {
 		mapOffset = { x: 0, y: 0 };
 	}
 
-	function latLngToPixel(lat: number, lng: number, containerWidth: number, containerHeight: number): { x: number; y: number } {
+	function latLngToPixel(
+		lat: number,
+		lng: number,
+		containerWidth: number,
+		containerHeight: number
+	): { x: number; y: number } {
 		const offsetX = (lng - currentView.center.lng) * 10000 * Math.pow(2, currentView.zoom - 10);
 		const offsetY = (currentView.center.lat - lat) * 10000 * Math.pow(2, currentView.zoom - 10);
 		const x = containerWidth / 2 + offsetX + mapOffset.x;
@@ -143,27 +157,69 @@ export function createMapWithMarkersState(props: MapWithMarkersStateProps) {
 	});
 
 	return {
-		get markers() { return markers; },
-		get initialView() { return initialView; },
-		get maxZoom() { return maxZoom; },
-		get minZoom() { return minZoom; },
-		get mapType() { return mapType; },
-		get showTooltip() { return showTooltip; },
-		get showSearch() { return showSearch; },
-		get showZoomControls() { return showZoomControls; },
-		get showCurrentLocation() { return showCurrentLocation; },
-		get showScale() { return showScale; },
-		get showCompass() { return showCompass; },
-		get showResetView() { return showResetView; },
-		get currency() { return currency; },
-		get locale() { return locale; },
-		get currentView() { return currentView; },
-		get searchQuery() { return searchQuery; },
-		get isDragging() { return isDragging; },
-		get dragStart() { return dragStart; },
-		get mapOffset() { return mapOffset; },
-		get hoveredMarker() { return hoveredMarker; },
-		get restProps() { return restProps; },
+		get markers() {
+			return markers;
+		},
+		get initialView() {
+			return initialView;
+		},
+		get maxZoom() {
+			return maxZoom;
+		},
+		get minZoom() {
+			return minZoom;
+		},
+		get mapType() {
+			return mapType;
+		},
+		get showTooltip() {
+			return showTooltip;
+		},
+		get showSearch() {
+			return showSearch;
+		},
+		get showZoomControls() {
+			return showZoomControls;
+		},
+		get showCurrentLocation() {
+			return showCurrentLocation;
+		},
+		get showScale() {
+			return showScale;
+		},
+		get showCompass() {
+			return showCompass;
+		},
+		get showResetView() {
+			return showResetView;
+		},
+		get currency() {
+			return currency;
+		},
+		get locale() {
+			return locale;
+		},
+		get currentView() {
+			return currentView;
+		},
+		get searchQuery() {
+			return searchQuery;
+		},
+		get isDragging() {
+			return isDragging;
+		},
+		get dragStart() {
+			return dragStart;
+		},
+		get mapOffset() {
+			return mapOffset;
+		},
+		get hoveredMarker() {
+			return hoveredMarker;
+		},
+		get restProps() {
+			return restProps;
+		},
 		handleMarkerClick,
 		handleMapClick,
 		handleMouseDown,
@@ -176,12 +232,24 @@ export function createMapWithMarkersState(props: MapWithMarkersStateProps) {
 		latLngToPixel,
 		handleKeyDown,
 		handleMarkerKeyDown,
-		set currentView(value: MapWithMarkersView) { currentView = value; },
-		set searchQuery(value: string) { searchQuery = value; },
-		set isDragging(value: boolean) { isDragging = value; },
-		set dragStart(value: { x: number; y: number }) { dragStart = value; },
-		set mapOffset(value: { x: number; y: number }) { mapOffset = value; },
-		set hoveredMarker(value: string | null) { hoveredMarker = value; }
+		set currentView(value: MapWithMarkersView) {
+			currentView = value;
+		},
+		set searchQuery(value: string) {
+			searchQuery = value;
+		},
+		set isDragging(value: boolean) {
+			isDragging = value;
+		},
+		set dragStart(value: { x: number; y: number }) {
+			dragStart = value;
+		},
+		set mapOffset(value: { x: number; y: number }) {
+			mapOffset = value;
+		},
+		set hoveredMarker(value: string | null) {
+			hoveredMarker = value;
+		}
 	};
 }
 

@@ -1,5 +1,9 @@
 import { untrack } from 'svelte';
-import type { Coordinates, MapMarker, LocationPickerProps } from '$stylist/geo/type/struct/location-picker';
+import type {
+	Coordinates,
+	MapMarker,
+	LocationPickerProps
+} from '$stylist/geo/type/struct/location-picker';
 import type { LocationPickerStateProps } from '$stylist/geo/interface/recipe/location-picker';
 
 export function createLocationPickerState(props: LocationPickerStateProps) {
@@ -24,7 +28,11 @@ export function createLocationPickerState(props: LocationPickerStateProps) {
 		currentZoom = zoom;
 	});
 
-	function coordsToPixel(coords: Coordinates, containerWidth: number, containerHeight: number): { x: number; y: number } {
+	function coordsToPixel(
+		coords: Coordinates,
+		containerWidth: number,
+		containerHeight: number
+	): { x: number; y: number } {
 		const centerX = containerWidth / 2;
 		const centerY = containerHeight / 2;
 		const x = centerX + (coords.lng - currentCenter.lng) * 1000 * Math.pow(2, currentZoom - 10);
@@ -32,7 +40,12 @@ export function createLocationPickerState(props: LocationPickerStateProps) {
 		return { x, y };
 	}
 
-	function pixelToCoords(x: number, y: number, containerWidth: number, containerHeight: number): Coordinates {
+	function pixelToCoords(
+		x: number,
+		y: number,
+		containerWidth: number,
+		containerHeight: number
+	): Coordinates {
 		const centerX = containerWidth / 2;
 		const centerY = containerHeight / 2;
 		const lng = currentCenter.lng + (x - centerX) / (1000 * Math.pow(2, currentZoom - 10));
@@ -111,21 +124,51 @@ export function createLocationPickerState(props: LocationPickerStateProps) {
 	});
 
 	return {
-		get center() { return center; },
-		get zoom() { return zoom; },
-		get markers() { return markers; },
-		get selectedMarker() { return selectedMarker; },
-		get showSearch() { return showSearch; },
-		get showCoordinates() { return showCoordinates; },
-		get showCurrentLocation() { return showCurrentLocation; },
-		get disableInteraction() { return disableInteraction; },
-		get maxZoom() { return maxZoom; },
-		get minZoom() { return minZoom; },
-		get currentCenter() { return currentCenter; },
-		get currentZoom() { return currentZoom; },
-		get searchQuery() { return searchQuery; },
-		get mapDimensions() { return mapDimensions; },
-		get restProps() { return restProps; },
+		get center() {
+			return center;
+		},
+		get zoom() {
+			return zoom;
+		},
+		get markers() {
+			return markers;
+		},
+		get selectedMarker() {
+			return selectedMarker;
+		},
+		get showSearch() {
+			return showSearch;
+		},
+		get showCoordinates() {
+			return showCoordinates;
+		},
+		get showCurrentLocation() {
+			return showCurrentLocation;
+		},
+		get disableInteraction() {
+			return disableInteraction;
+		},
+		get maxZoom() {
+			return maxZoom;
+		},
+		get minZoom() {
+			return minZoom;
+		},
+		get currentCenter() {
+			return currentCenter;
+		},
+		get currentZoom() {
+			return currentZoom;
+		},
+		get searchQuery() {
+			return searchQuery;
+		},
+		get mapDimensions() {
+			return mapDimensions;
+		},
+		get restProps() {
+			return restProps;
+		},
 		handleMapClick,
 		handleMarkerClick,
 		handleZoomIn,
@@ -137,10 +180,18 @@ export function createLocationPickerState(props: LocationPickerStateProps) {
 		pixelToCoords,
 		handleKeyDown,
 		handleMarkerKeyDown,
-		set currentCenter(value: Coordinates) { currentCenter = value; },
-		set currentZoom(value: number) { currentZoom = value; },
-		set searchQuery(value: string) { searchQuery = value; },
-		set mapDimensions(value: { width: number; height: number }) { mapDimensions = value; }
+		set currentCenter(value: Coordinates) {
+			currentCenter = value;
+		},
+		set currentZoom(value: number) {
+			currentZoom = value;
+		},
+		set searchQuery(value: string) {
+			searchQuery = value;
+		},
+		set mapDimensions(value: { width: number; height: number }) {
+			mapDimensions = value;
+		}
 	};
 }
 

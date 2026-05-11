@@ -50,7 +50,6 @@
 		disabled,
 		class: className
 	});
-
 </script>
 
 <div class={state.containerClasses}>
@@ -88,9 +87,3 @@
 		</p>
 	{/if}
 </div>
-
-
-
-
-
-

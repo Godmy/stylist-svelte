@@ -54,6 +54,3 @@ export class CategoryCardStyleManager {
 		return 'rounded bg-[var(--color-background-secondary)] px-2 py-1 text-xs text-[var(--color-text-secondary)]';
 	}
 }
-
-
-

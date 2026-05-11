@@ -19,10 +19,12 @@ export class InteractionStyleManager {
 		return mergeClassNames(VARIANT_CLASSES[variant], className);
 	}
 
-	static getInteractiveClasses(options: {
-		variant?: keyof typeof VARIANT_CLASSES;
-		className?: string;
-	} = {}): string {
+	static getInteractiveClasses(
+		options: {
+			variant?: keyof typeof VARIANT_CLASSES;
+			className?: string;
+		} = {}
+	): string {
 		return mergeClassNames(
 			StyleManagerBase.classes.interactive,
 			VARIANT_CLASSES[options.variant ?? 'default'],
@@ -42,4 +44,3 @@ export class InteractionStyleManager {
 		return VARIANT_CLASSES.primary;
 	}
 }
-

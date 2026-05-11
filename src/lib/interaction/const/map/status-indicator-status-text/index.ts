@@ -5,4 +5,3 @@ export const STATUS_INDICATOR_STATUS_TEXT = {
 	busy: 'Busy',
 	typing: 'Typing'
 } as const;
-

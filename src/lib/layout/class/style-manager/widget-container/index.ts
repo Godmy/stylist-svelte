@@ -46,4 +46,3 @@ export class WidgetContainerStyleManager {
 		return mergeClassNames('p-4', className);
 	}
 }
-

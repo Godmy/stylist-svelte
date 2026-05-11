@@ -15,7 +15,9 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	const headerClassProp = $derived(props.headerClass ?? '');
 
 	const wrapperClasses = $derived(`${CalendarViewStyleManager.getWrapperClasses()} ${className}`);
-	const headerClasses = $derived(`${CalendarViewStyleManager.getHeaderClasses()} ${headerClassProp}`);
+	const headerClasses = $derived(
+		`${CalendarViewStyleManager.getHeaderClasses()} ${headerClassProp}`
+	);
 	const gridClasses = $derived(CalendarViewStyleManager.getGridClasses());
 	const weekdayHeaderClasses = $derived(CalendarViewStyleManager.getWeekdayHeaderClasses());
 	const todayButtonClasses = $derived(CalendarViewStyleManager.getTodayButtonClasses());
@@ -23,7 +25,9 @@ export function createCalendarViewState(props: CalendarViewContract) {
 
 	const days = $derived.by<RecipeCalendarViewDay[]>(() => getDaysInMonth(currentDate));
 	const weekdays = $derived(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']);
-	const monthYear = $derived(currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }));
+	const monthYear = $derived(
+		currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+	);
 
 	const restProps = $derived.by(() => {
 		const {
@@ -122,22 +126,54 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	}
 
 	return {
-		get currentDate() { return currentDate; },
-		get events() { return events; },
-		get viewMode() { return viewMode; },
-		get showWeekNumbers() { return showWeekNumbers; },
-		get dayClass() { return dayClass; },
-		get eventClass() { return eventClass; },
-		get days() { return days; },
-		get weekdays() { return weekdays; },
-		get monthYear() { return monthYear; },
-		get wrapperClasses() { return wrapperClasses; },
-		get headerClasses() { return headerClasses; },
-		get gridClasses() { return gridClasses; },
-		get weekdayHeaderClasses() { return weekdayHeaderClasses; },
-		get todayButtonClasses() { return todayButtonClasses; },
-		get navigationButtonClasses() { return navigationButtonClasses; },
-		get restProps() { return restProps; },
+		get currentDate() {
+			return currentDate;
+		},
+		get events() {
+			return events;
+		},
+		get viewMode() {
+			return viewMode;
+		},
+		get showWeekNumbers() {
+			return showWeekNumbers;
+		},
+		get dayClass() {
+			return dayClass;
+		},
+		get eventClass() {
+			return eventClass;
+		},
+		get days() {
+			return days;
+		},
+		get weekdays() {
+			return weekdays;
+		},
+		get monthYear() {
+			return monthYear;
+		},
+		get wrapperClasses() {
+			return wrapperClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get gridClasses() {
+			return gridClasses;
+		},
+		get weekdayHeaderClasses() {
+			return weekdayHeaderClasses;
+		},
+		get todayButtonClasses() {
+			return todayButtonClasses;
+		},
+		get navigationButtonClasses() {
+			return navigationButtonClasses;
+		},
+		get restProps() {
+			return restProps;
+		},
 		navigateMonth,
 		navigateToToday,
 		handleDayClick,

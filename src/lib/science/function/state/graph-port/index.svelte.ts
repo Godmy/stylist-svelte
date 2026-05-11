@@ -10,8 +10,7 @@ export function createGraphPortState(props: GraphPortProps) {
 	const connected = $derived(Boolean(props.connected));
 	const active = $derived(Boolean(props.active));
 	const color = $derived(
-		props.color ??
-			GraphPortStyleManager.getDataTypeColor(dataType as keyof GraphPortDataTypeColor)
+		props.color ?? GraphPortStyleManager.getDataTypeColor(dataType as keyof GraphPortDataTypeColor)
 	);
 
 	const sizeClasses = $derived(GraphPortStyleManager.getPortSizeClasses(size));
@@ -56,7 +55,3 @@ export function createGraphPortState(props: GraphPortProps) {
 }
 
 export default createGraphPortState;
-
-
-
-

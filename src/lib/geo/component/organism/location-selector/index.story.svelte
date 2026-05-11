@@ -88,131 +88,122 @@
 </script>
 
 <Story
-  id="organisms-location-selector"
-  title="Organisms / Interaction / Geo / LocationSelector"
-  component={LocationSelector}
-  category="Organisms/Interaction/Geo"
-  description="Interactive location selector with list and grid views, search and filtering capabilities."
-  controls={controls}
+	id="organisms-location-selector"
+	title="Organisms / Interaction / Geo / LocationSelector"
+	component={LocationSelector}
+	category="Organisms/Interaction/Geo"
+	description="Interactive location selector with list and grid views, search and filtering capabilities."
+	{controls}
 >
-  {#snippet children(values: any)}
-    <div class="sb-organisms-location-selector p-4">
-      <h1 class="text-lg font-semibold mb-4">LocationSelector Component</h1>
+	{#snippet children(values: any)}
+		<div class="sb-organisms-location-selector p-4">
+			<h1 class="mb-4 text-lg font-semibold">LocationSelector Component</h1>
 
-      <div class="mb-6 p-4 border rounded">
-        <h2 class="text-md font-semibold mb-2">Interactive LocationSelector</h2>
-        <div class="max-w-3xl mx-auto">
-          <LocationSelector
-            {locations}
-            currentView={values.currentView}
-            showSearch={values.showSearch}
-            showCategoryFilter={values.showCategoryFilter}
-            showMapToggle={values.showMapToggle}
-            showDistance={values.showDistance}
-            searchPlaceholder={values.searchPlaceholder}
-            defaultCategory={values.defaultCategory}
-            maxLocations={values.maxLocations}
-            onLocationSelect={(location: LocationSelectorLocation) => {
-              console.log('Location selected:', location.name);
-            }}
-            onSearch={(query: string) => {
-              console.log('Search query:', query);
-            }}
-            onCategoryChange={(category: string) => {
-              console.log('Category changed to:', category);
-            }}
-          />
-        </div>
+			<div class="mb-6 rounded border p-4">
+				<h2 class="text-md mb-2 font-semibold">Interactive LocationSelector</h2>
+				<div class="mx-auto max-w-3xl">
+					<LocationSelector
+						{locations}
+						currentView={values.currentView}
+						showSearch={values.showSearch}
+						showCategoryFilter={values.showCategoryFilter}
+						showMapToggle={values.showMapToggle}
+						showDistance={values.showDistance}
+						searchPlaceholder={values.searchPlaceholder}
+						defaultCategory={values.defaultCategory}
+						maxLocations={values.maxLocations}
+						onLocationSelect={(location: LocationSelectorLocation) => {
+							console.log('Location selected:', location.name);
+						}}
+						onSearch={(query: string) => {
+							console.log('Search query:', query);
+						}}
+						onCategoryChange={(category: string) => {
+							console.log('Category changed to:', category);
+						}}
+					/>
+				</div>
 
-        <div class="mt-4 flex flex-wrap gap-2">
-          <div>
-            <label for="view-type" class="block text-sm mb-1">View Type:</label>
-            <select
-              id="view-type"
-              bind:value={currentView}
-              class="border rounded p-1"
-            >
-              <option value="list">List</option>
-              <option value="grid">Grid</option>
-            </select>
-          </div>
+				<div class="mt-4 flex flex-wrap gap-2">
+					<div>
+						<label for="view-type" class="mb-1 block text-sm">View Type:</label>
+						<select id="view-type" bind:value={currentView} class="rounded border p-1">
+							<option value="list">List</option>
+							<option value="grid">Grid</option>
+						</select>
+					</div>
 
-          <div class="flex items-end">
-            <label for="show-search" class="flex items-center gap-1">
-              <input id="show-search" type="checkbox" bind:checked={showSearch} />
-              Show Search
-            </label>
-          </div>
+					<div class="flex items-end">
+						<label for="show-search" class="flex items-center gap-1">
+							<input id="show-search" type="checkbox" bind:checked={showSearch} />
+							Show Search
+						</label>
+					</div>
 
-          <div class="flex items-end">
-            <label for="show-category" class="flex items-center gap-1">
-              <input id="show-category" type="checkbox" bind:checked={showCategoryFilter} />
-              Show Category Filter
-            </label>
-          </div>
+					<div class="flex items-end">
+						<label for="show-category" class="flex items-center gap-1">
+							<input id="show-category" type="checkbox" bind:checked={showCategoryFilter} />
+							Show Category Filter
+						</label>
+					</div>
 
-          <div class="flex items-end">
-            <label for="show-map-toggle" class="flex items-center gap-1">
-              <input id="show-map-toggle" type="checkbox" bind:checked={showMapToggle} />
-              Show View Toggle
-            </label>
-          </div>
+					<div class="flex items-end">
+						<label for="show-map-toggle" class="flex items-center gap-1">
+							<input id="show-map-toggle" type="checkbox" bind:checked={showMapToggle} />
+							Show View Toggle
+						</label>
+					</div>
 
-          <div class="flex items-end">
-            <label for="show-distance" class="flex items-center gap-1">
-              <input id="show-distance" type="checkbox" bind:checked={showDistance} />
-              Show Distance
-            </label>
-          </div>
+					<div class="flex items-end">
+						<label for="show-distance" class="flex items-center gap-1">
+							<input id="show-distance" type="checkbox" bind:checked={showDistance} />
+							Show Distance
+						</label>
+					</div>
 
-          <div>
-            <label for="max-locations" class="block text-sm mb-1">Max Locations:</label>
-            <input
-              id="max-locations"
-              type="number"
-              bind:value={maxLocations}
-              class="border rounded p-1 w-16"
-              min="1"
-              max="50"
-            />
-          </div>
-        </div>
-      </div>
+					<div>
+						<label for="max-locations" class="mb-1 block text-sm">Max Locations:</label>
+						<input
+							id="max-locations"
+							type="number"
+							bind:value={maxLocations}
+							class="w-16 rounded border p-1"
+							min="1"
+							max="50"
+						/>
+					</div>
+				</div>
+			</div>
 
-      <div class="p-4 border rounded">
-        <h2 class="text-md font-semibold mb-2">LocationSelector Variations</h2>
-        <div class="space-y-4">
-          <div>
-            <h3 class="text-sm font-medium mb-2">Grid View</h3>
-            <div class="max-w-3xl mx-auto">
-              <LocationSelector
-                {locations}
-                currentView="grid"
-                showSearch={true}
-                showCategoryFilter={true}
-                showDistance={true}
-              />
-            </div>
-          </div>
-          <div>
-            <h3 class="text-sm font-medium mb-2">Without Distance</h3>
-            <div class="max-w-3xl mx-auto">
-              <LocationSelector
-                {locations}
-                currentView="list"
-                showSearch={true}
-                showCategoryFilter={false}
-                showDistance={false}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  {/snippet}
+			<div class="rounded border p-4">
+				<h2 class="text-md mb-2 font-semibold">LocationSelector Variations</h2>
+				<div class="space-y-4">
+					<div>
+						<h3 class="mb-2 text-sm font-medium">Grid View</h3>
+						<div class="mx-auto max-w-3xl">
+							<LocationSelector
+								{locations}
+								currentView="grid"
+								showSearch={true}
+								showCategoryFilter={true}
+								showDistance={true}
+							/>
+						</div>
+					</div>
+					<div>
+						<h3 class="mb-2 text-sm font-medium">Without Distance</h3>
+						<div class="mx-auto max-w-3xl">
+							<LocationSelector
+								{locations}
+								currentView="list"
+								showSearch={true}
+								showCategoryFilter={false}
+								showDistance={false}
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{/snippet}
 </Story>
-
-
-
-
-

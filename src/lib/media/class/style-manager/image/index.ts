@@ -2,10 +2,6 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 import { ANNOUNCEMENT_BANNER_CLASSES } from '$stylist/media/const/map/announcement-banner-classes';
 import { IMAGE_WITH_CAPTION_CLASSES } from '$stylist/media/const/record/image-with-caption-classes';
 
-
-
-
-
 export class ImageStyleManager {
 	static getFaviconUrl(url?: string): string | null {
 		if (!url) return null;
@@ -22,7 +18,10 @@ export class ImageStyleManager {
 	}
 
 	static getFaviconFallbackClasses(baseClasses: string): string {
-		return mergeClassNames('flex items-center justify-center bg-[--color-background-secondary] text-[--color-text-secondary] text-xs', baseClasses);
+		return mergeClassNames(
+			'flex items-center justify-center bg-[--color-background-secondary] text-[--color-text-secondary] text-xs',
+			baseClasses
+		);
 	}
 
 	static getFaviconStyle(size: number): string {
@@ -91,8 +90,3 @@ export class ImageStyleManager {
 		return mergeClassNames(ANNOUNCEMENT_BANNER_CLASSES.childrenContainer, className);
 	}
 }
-
-
-
-
-

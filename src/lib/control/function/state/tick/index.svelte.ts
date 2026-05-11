@@ -32,9 +32,3 @@ export function createSliderTickState(props: SliderTickProps) {
 }
 
 export default createSliderTickState;
-
-
-
-
-
-

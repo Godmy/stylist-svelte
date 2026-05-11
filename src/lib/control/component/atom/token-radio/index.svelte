@@ -39,11 +39,16 @@
 	}
 
 	.token-radio-control__chip--active {
-		border-color: color-mix(in srgb, var(--accent, var(--color-primary-500)) 70%, var(--line, var(--color-border-primary)) 30%);
-		background: color-mix(in srgb, var(--accent, var(--color-primary-500)) 18%, var(--surface, var(--color-background-primary)) 82%);
+		border-color: color-mix(
+			in srgb,
+			var(--accent, var(--color-primary-500)) 70%,
+			var(--line, var(--color-border-primary)) 30%
+		);
+		background: color-mix(
+			in srgb,
+			var(--accent, var(--color-primary-500)) 18%,
+			var(--surface, var(--color-background-primary)) 82%
+		);
 		box-shadow: var(--shadow-custom43);
 	}
 </style>
-
-
-

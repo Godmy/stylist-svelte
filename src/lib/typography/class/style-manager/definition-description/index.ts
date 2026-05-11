@@ -5,4 +5,3 @@ export class DefinitionDescriptionStyleManager {
 		return mergeClassNames('definition-description', className);
 	}
 }
-

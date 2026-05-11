@@ -1,6 +1,7 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
-export interface ContractAudioSlider extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
+export interface ContractAudioSlider
+	extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
 	/** Current volume */
 	volume?: number;
 	/** Muted state */

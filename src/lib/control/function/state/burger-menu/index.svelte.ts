@@ -29,7 +29,9 @@ export function createBurgerMenuState(props: BurgerMenuProps) {
 	);
 
 	const iconClasses = $derived(iconSizes[size] ?? iconSizes.md);
-	const lineClasses = $derived('absolute left-0 h-0.5 w-full rounded-full transition-all duration-[var(--duration-200)]');
+	const lineClasses = $derived(
+		'absolute left-0 h-0.5 w-full rounded-full transition-all duration-[var(--duration-200)]'
+	);
 	const ariaLabel = $derived((props as any)['aria-label'] ?? (open ? 'Close menu' : 'Open menu'));
 
 	function handleClick(e: MouseEvent) {

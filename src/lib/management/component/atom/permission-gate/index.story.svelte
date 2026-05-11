@@ -23,10 +23,12 @@
 	component={PermissionGate}
 	category="Atoms"
 	description="Conditionally renders content based on permission state"
-	controls={controls}
+	{controls}
 >
 	{#snippet children(values: any)}
-		<div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-6">
+		<div
+			class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-6"
+		>
 			{#if values.useCustomFallback}
 				<PermissionGate hasPermission={values.hasPermission as boolean}>
 					{#snippet children()}
@@ -52,7 +54,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-

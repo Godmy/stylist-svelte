@@ -5,8 +5,12 @@ export function createPermissionGateState(props: PermissionGateProps) {
 	const fallback = $derived(props.fallback);
 
 	return {
-		get hasPermission() { return hasPermission; },
-		get fallback() { return fallback; }
+		get hasPermission() {
+			return hasPermission;
+		},
+		get fallback() {
+			return fallback;
+		}
 	};
 }
 

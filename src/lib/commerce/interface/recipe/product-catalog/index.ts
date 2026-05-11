@@ -8,7 +8,8 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 import type { SlotProductCatalogItem } from '$stylist/commerce/interface/slot/product-catalog-item';
 
-export interface RecipeProductCatalog extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]> {
+export interface RecipeProductCatalog
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	/** List of products */
 	products: SlotProductCatalogItem[];
 	/** Layout type */

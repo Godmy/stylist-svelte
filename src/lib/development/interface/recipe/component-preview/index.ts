@@ -2,7 +2,8 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { Snippet } from 'svelte';
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
-export interface RecipeComponentPreview extends StructIntersectAll<[Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>]> {
+export interface RecipeComponentPreview
+	extends StructIntersectAll<[Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>]> {
 	/** Preview title */
 	title: string;
 	/** Preview description */

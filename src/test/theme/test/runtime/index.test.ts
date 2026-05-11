@@ -36,7 +36,9 @@ describe('theme runtime helpers', () => {
 		expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
 		expect(document.documentElement.getAttribute('data-scheme')).toBe('forest');
 		expect(document.documentElement.classList.contains('dark')).toBe(true);
-		expect(document.documentElement.style.getPropertyValue('--color-background-primary')).not.toBe('');
+		expect(document.documentElement.style.getPropertyValue('--color-background-primary')).not.toBe(
+			''
+		);
 		expect(document.documentElement.style.getPropertyValue('--opacity-80')).toBe('0.8');
 	});
 

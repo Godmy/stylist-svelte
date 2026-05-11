@@ -26,10 +26,7 @@ export function createChipState(props: ChipProps) {
 		props.disabled ? 'disabled' : ''
 	);
 
-	const closeButtonIconClasses = joinClassNames(
-		'chip-close-icon',
-		`size-${props.size ?? 'sm'}`
-	);
+	const closeButtonIconClasses = joinClassNames('chip-close-icon', `size-${props.size ?? 'sm'}`);
 
 	return {
 		classes,
@@ -47,9 +44,3 @@ export function createChipState(props: ChipProps) {
 }
 
 export default createChipState;
-
-
-
-
-
-

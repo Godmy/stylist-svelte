@@ -3,4 +3,3 @@ export const MESSAGE_ALIGNMENT_CLASSES = {
 	right: 'items-end',
 	center: 'items-center'
 } as const;
-

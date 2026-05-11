@@ -1,7 +1,6 @@
 import { StickyLayoutStyleManager } from '$stylist/layout/class/style-manager/sticky-layout';
 import type { StickyLayoutProps } from '$stylist/layout/type/struct/layout-extended/sticky-layout-props';
 
-
 export function createStickyLayoutState(props: StickyLayoutProps) {
 	const fillHeight = $derived(props.fillHeight ?? true);
 	const headerShadow = $derived(props.headerShadow ?? true);
@@ -27,14 +26,30 @@ export function createStickyLayoutState(props: StickyLayoutProps) {
 	});
 
 	return {
-		get fillHeight() { return fillHeight; },
-		get headerShadow() { return headerShadow; },
-		get footerShadow() { return footerShadow; },
-		get classes() { return classes; },
-		get headerClass() { return headerClass; },
-		get contentClass() { return contentClass; },
-		get footerClass() { return footerClass; },
-		get restProps() { return restProps; }
+		get fillHeight() {
+			return fillHeight;
+		},
+		get headerShadow() {
+			return headerShadow;
+		},
+		get footerShadow() {
+			return footerShadow;
+		},
+		get classes() {
+			return classes;
+		},
+		get headerClass() {
+			return headerClass;
+		},
+		get contentClass() {
+			return contentClass;
+		},
+		get footerClass() {
+			return footerClass;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

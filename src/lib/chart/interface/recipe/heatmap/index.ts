@@ -13,16 +13,18 @@ import type { IHeatmapCell } from '$stylist/chart/type/struct/heatmap/cell';
  * Heatmap = label + frame + axis config + legend/tooltip toggles + heatmap cells.
  */
 export interface HeatmapRecipe
-	extends StructIntersectAll<[
-		IDimensionable,
-		ILabelSlot,
-		IChartAxis,
-		ILegendable,
-		ITooltipable,
-		ICellClickable<IHeatmapCell>,
-		IChartColorable,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<
+		[
+			IDimensionable,
+			ILabelSlot,
+			IChartAxis,
+			ILegendable,
+			ITooltipable,
+			ICellClickable<IHeatmapCell>,
+			IChartColorable,
+			ThemeAttributes<HTMLDivElement>
+		]
+	> {
 	data: IHeatmapCell[];
 	title?: string;
 	chartClass?: string;
@@ -32,4 +34,3 @@ export interface HeatmapRecipe
 	showAxisArrows?: boolean;
 	cellPadding?: number;
 }
-

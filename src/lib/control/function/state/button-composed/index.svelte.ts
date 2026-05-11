@@ -18,7 +18,8 @@ export function createButtonComposedState(props: ButtonComposedRecipe) {
 	const loadingLabel = $derived(props.loadingLabel ?? 'Loading...');
 	const badgeText = $derived.by(() => {
 		if (props.badge !== undefined) return String(props.badge);
-		if (props.count !== undefined && (props.count > 0 || props.showBadge)) return String(props.count);
+		if (props.count !== undefined && (props.count > 0 || props.showBadge))
+			return String(props.count);
 		return undefined;
 	});
 	const showDot = $derived(Boolean(props.dot && !badgeText));

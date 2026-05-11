@@ -11,18 +11,42 @@ export function createPresentationFrame(initial?: Partial<PresentationFrame>) {
 	});
 
 	return {
-		get id() { return frame.id; },
-		get title() { return frame.title; },
-		get targetX() { return frame.targetX; },
-		get targetY() { return frame.targetY; },
-		get targetZoom() { return frame.targetZoom; },
-		get duration() { return frame.duration; },
-		setId(id: string) { frame.id = id; },
-		setTitle(title: string) { frame.title = title; },
-		setTargetX(x: number) { frame.targetX = x; },
-		setTargetY(y: number) { frame.targetY = y; },
-		setTargetZoom(zoom: number) { frame.targetZoom = zoom; },
-		setDuration(duration: number) { frame.duration = duration; }
+		get id() {
+			return frame.id;
+		},
+		get title() {
+			return frame.title;
+		},
+		get targetX() {
+			return frame.targetX;
+		},
+		get targetY() {
+			return frame.targetY;
+		},
+		get targetZoom() {
+			return frame.targetZoom;
+		},
+		get duration() {
+			return frame.duration;
+		},
+		setId(id: string) {
+			frame.id = id;
+		},
+		setTitle(title: string) {
+			frame.title = title;
+		},
+		setTargetX(x: number) {
+			frame.targetX = x;
+		},
+		setTargetY(y: number) {
+			frame.targetY = y;
+		},
+		setTargetZoom(zoom: number) {
+			frame.targetZoom = zoom;
+		},
+		setDuration(duration: number) {
+			frame.duration = duration;
+		}
 	};
 }
 

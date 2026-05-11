@@ -36,8 +36,3 @@ export function createCountBadgeState(props: CountBadgeRecipe) {
 }
 
 export default createCountBadgeState;
-
-
-
-
-

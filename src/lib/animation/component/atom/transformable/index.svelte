@@ -8,7 +8,9 @@
 
 <div
 	class={state.classes}
-	style={state.inlineStyle !== 'none' ? `transform: ${state.inlineStyle}; transition: transform 300ms ease-in-out;` : undefined}
+	style={state.inlineStyle !== 'none'
+		? `transform: ${state.inlineStyle}; transition: transform 300ms ease-in-out;`
+		: undefined}
 	{...state.restProps}
 	onmouseenter={state.handleMouseEnter}
 	onmouseleave={state.handleMouseLeave}

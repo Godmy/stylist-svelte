@@ -9,7 +9,9 @@ export function createChartNameState(props: ChartNameProps) {
 	const classes = $derived(ChartStyleManager.getChartNameClasses(resolveClassName(props.class)));
 
 	return {
-		get classes() { return classes; }
+		get classes() {
+			return classes;
+		}
 	};
 }
 

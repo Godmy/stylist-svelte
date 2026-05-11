@@ -5,7 +5,12 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'content', type: 'text', defaultValue: 'Caption text' },
-		{ name: 'variant', type: 'select', defaultValue: 'primary', options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'block', type: 'boolean', defaultValue: false }
@@ -33,12 +38,12 @@
 
 			<div class="grid gap-2 text-sm text-[var(--color-text-secondary)]">
 				<p>SlotState preview:</p>
-				<p>variant={values.variant}, size={values.size}, disabled={String(values.disabled)}, block={String(values.block)}</p>
+				<p>
+					variant={values.variant}, size={values.size}, disabled={String(values.disabled)}, block={String(
+						values.block
+					)}
+				</p>
 			</div>
 		</div>
 	{/snippet}
 </Story>
-
-
-
-

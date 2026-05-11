@@ -35,10 +35,3 @@ export function createSeparatorState(props: SeparatorProps) {
 }
 
 export default createSeparatorState;
-
-
-
-
-
-
-

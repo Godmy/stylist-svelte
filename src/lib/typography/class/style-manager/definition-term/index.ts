@@ -5,4 +5,3 @@ export class DefinitionTermStyleManager {
 		return mergeClassNames('definition-term', 'font-semibold', className);
 	}
 }
-

@@ -3,7 +3,9 @@ import type { SlotTabContainer as TabContainerProps } from '$stylist/control/int
 
 export const createTabPanelsState = (props: TabContainerProps) => {
 	const disabled = $derived(props.disabled ?? false);
-	const classes = $derived(joinClassNames('mt-4', disabled ? 'opacity-[var(--opacity-50)]' : '', props.class));
+	const classes = $derived(
+		joinClassNames('mt-4', disabled ? 'opacity-[var(--opacity-50)]' : '', props.class)
+	);
 	return {
 		get disabled() {
 			return disabled;
@@ -15,9 +17,3 @@ export const createTabPanelsState = (props: TabContainerProps) => {
 };
 
 export default createTabPanelsState;
-
-
-
-
-
-

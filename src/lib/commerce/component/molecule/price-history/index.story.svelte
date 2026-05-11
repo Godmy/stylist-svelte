@@ -18,11 +18,13 @@
 	];
 </script>
 
-<Story component={PriceHistory} title="PriceHistory" description="Time-series history chart of product price." {controls}>
+<Story
+	component={PriceHistory}
+	title="PriceHistory"
+	description="Time-series history chart of product price."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<PriceHistory title={values.title} currency={values.currency} data={data} />
+		<PriceHistory title={values.title} currency={values.currency} {data} />
 	{/snippet}
 </Story>
-
-
-

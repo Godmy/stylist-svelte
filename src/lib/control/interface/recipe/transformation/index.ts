@@ -12,10 +12,4 @@ import type { BehaviorTransformable as ITransformable } from '$stylist/animation
 import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
 
 export interface TransformationRecipe
-	extends StructIntersectAll<[
-		ITransformable,
-		IFocusable,
-		ISizable
-	]>
-{}
-
+	extends StructIntersectAll<[ITransformable, IFocusable, ISizable]> {}

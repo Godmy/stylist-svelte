@@ -35,7 +35,6 @@
 			return rest;
 		})()
 	);
-
 </script>
 
 <div
@@ -50,7 +49,8 @@
 	tabindex={0}
 	onmousedown={(event) => props.onConnectionStart?.(event)}
 	onmouseup={(event) => props.onConnectionEnd?.(event)}
-	onclick={(event) => props.onclick?.(event as MouseEvent & { currentTarget: EventTarget & HTMLDivElement })}
+	onclick={(event) =>
+		props.onclick?.(event as MouseEvent & { currentTarget: EventTarget & HTMLDivElement })}
 	{...restProps}
 >
 	<div class="graph-port__hit-area" aria-hidden="true"></div>
@@ -81,7 +81,9 @@
 		gap: var(--spacing-2);
 		cursor: crosshair;
 		user-select: none;
-		transition: transform var(--duration-120) var(--animation-ease), opacity var(--duration-120) var(--animation-ease);
+		transition:
+			transform var(--duration-120) var(--animation-ease),
+			opacity var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.graph-port:hover) {
@@ -108,7 +110,10 @@
 
 	:global(.graph-port:hover .graph-port__hit-area) {
 		opacity: var(--opacity-10);
-		background: var(--color-graph-port-state-hovered, var(--graph-port-color, var(--color-border-secondary)));
+		background: var(
+			--color-graph-port-state-hovered,
+			var(--graph-port-color, var(--color-border-secondary))
+		);
 	}
 
 	/* Port circle */
@@ -119,7 +124,9 @@
 		border-radius: 50%;
 		border: 2px solid var(--color-background-primary);
 		box-shadow: var(--shadow-custom27);
-		transition: transform var(--duration-120) var(--animation-ease), box-shadow var(--duration-120) var(--animation-ease);
+		transition:
+			transform var(--duration-120) var(--animation-ease),
+			box-shadow var(--duration-120) var(--animation-ease);
 		z-index: var(--z-index-layer1);
 	}
 
@@ -130,16 +137,21 @@
 
 	:global(.graph-port--connected .graph-port__circle) {
 		border-color: var(--color-background-primary);
-		box-shadow: 0 0 0 2px var(--color-graph-port-state-connected), var(--shadow-custom12);
+		box-shadow:
+			0 0 0 2px var(--color-graph-port-state-connected),
+			var(--shadow-custom12);
 	}
 
 	:global(.graph-port--active .graph-port__circle) {
-		box-shadow: 0 0 0 2px var(--color-graph-port-state-active), var(--shadow-custom34);
+		box-shadow:
+			0 0 0 2px var(--color-graph-port-state-active),
+			var(--shadow-custom34);
 		animation: graph-port-pulse var(--duration-1500) var(--animation-ease-in-out) infinite;
 	}
 
 	@keyframes graph-port-pulse {
-		0%, 100% {
+		0%,
+		100% {
 			transform: scale(1);
 			opacity: var(--opacity-100);
 		}
@@ -160,11 +172,11 @@
 		z-index: var(--z-index-layer1);
 	}
 
-	:global(.graph-port[data-port-direction="input"] .graph-port__label) {
+	:global(.graph-port[data-port-direction='input'] .graph-port__label) {
 		margin-left: var(--spacing-3);
 	}
 
-	:global(.graph-port[data-port-direction="output"] .graph-port__label) {
+	:global(.graph-port[data-port-direction='output'] .graph-port__label) {
 		margin-right: var(--spacing-3);
 	}
 
@@ -199,12 +211,12 @@
 	}
 
 	/* Position variants */
-	:global(.graph-port[data-port-direction="input"]) {
+	:global(.graph-port[data-port-direction='input']) {
 		left: -6px;
 		transform: translate(-100%, -50%);
 	}
 
-	:global(.graph-port[data-port-direction="output"]) {
+	:global(.graph-port[data-port-direction='output']) {
 		right: -6px;
 		transform: translate(100%, -50%);
 	}
@@ -213,16 +225,11 @@
 		transform: translateY(-50%) scale(1.1);
 	}
 
-	:global(.graph-port[data-port-direction="input"]:hover) {
+	:global(.graph-port[data-port-direction='input']:hover) {
 		transform: translate(-100%, -50%) scale(1.1);
 	}
 
-	:global(.graph-port[data-port-direction="output"]:hover) {
+	:global(.graph-port[data-port-direction='output']:hover) {
 		transform: translate(100%, -50%) scale(1.1);
 	}
 </style>
-
-
-
-
-

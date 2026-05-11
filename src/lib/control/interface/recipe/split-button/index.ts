@@ -16,12 +16,4 @@ import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface SplitButtonRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IIconSlot,
-		IClickable,
-		IFocusable,
-		ISizable
-	]>
-{}
-
+	extends StructIntersectAll<[ILabelSlot, IIconSlot, IClickable, IFocusable, ISizable]> {}

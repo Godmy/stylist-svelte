@@ -22,15 +22,15 @@ import type { BehaviorMotionToken as IMotionToken } from '$stylist/animation/int
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface MediaItemRecipe
-	extends StructIntersectAll<[
-		IMediaSlot,
-		ILabelSlot,
-		ICaptionSlot,
-		IClickable,
-		ISizable,
-		IElevatable,
-		IMotionToken,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{}
-
+	extends StructIntersectAll<
+		[
+			IMediaSlot,
+			ILabelSlot,
+			ICaptionSlot,
+			IClickable,
+			ISizable,
+			IElevatable,
+			IMotionToken,
+			ThemeAttributes<HTMLDivElement>
+		]
+	> {}

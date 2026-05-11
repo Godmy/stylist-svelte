@@ -9,7 +9,9 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { SlotWishlistItem } from '$stylist/commerce/interface/slot/wishlist-item';
 import type { BehaviorProductWishlistEvents } from '$stylist/commerce/interface/behavior/product-wishlist-events';
 
-export interface RecipeProductWishlist extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorProductWishlistEvents {
+export interface RecipeProductWishlist
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorProductWishlistEvents {
 	/** List of wishlist items */
 	items: SlotWishlistItem[];
 }

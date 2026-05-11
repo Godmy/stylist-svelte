@@ -15,14 +15,9 @@ import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/s
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface CategoryCardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IMediaSlot,
-		IStatusSlot,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IMediaSlot, IStatusSlot, ThemeAttributes<HTMLDivElement>]
+	> {
 	title?: string;
 	icon?: string;
 	count?: number;
@@ -30,4 +25,3 @@ export interface CategoryCardRecipe
 	link?: string;
 	examples?: string[];
 }
-

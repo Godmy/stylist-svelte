@@ -10,4 +10,4 @@ export type StateProps = {
 	class?: string;
 	icon?: Snippet;
 	children?: Snippet;
-}
+};

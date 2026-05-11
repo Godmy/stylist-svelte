@@ -27,8 +27,18 @@
 		{ name: 'showFlags', type: 'boolean', defaultValue: true },
 		{ name: 'showNativeName', type: 'boolean', defaultValue: false },
 		{ name: 'searchable', type: 'boolean', defaultValue: true },
-		{ name: 'dropdownPlacement', type: 'select', options: ['top', 'bottom'], defaultValue: 'bottom' },
-		{ name: 'variant', type: 'select', options: ['default', 'ghost', 'subtle'], defaultValue: 'default' },
+		{
+			name: 'dropdownPlacement',
+			type: 'select',
+			options: ['top', 'bottom'],
+			defaultValue: 'bottom'
+		},
+		{
+			name: 'variant',
+			type: 'select',
+			options: ['default', 'ghost', 'subtle'],
+			defaultValue: 'default'
+		},
 		{ name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' }
 	];
 </script>
@@ -39,16 +49,16 @@
 	component={LanguageSelector}
 	category="Organisms/Interaction/Controls"
 	description="Language selector component with search, flags, and native language names."
-	controls={controls}
+	{controls}
 >
 	{#snippet children(values: any)}
 		<div class="sb-organisms-language-selector p-4">
-			<h1 class="text-lg font-semibold mb-4">LanguageSelector Component</h1>
-			<div class="mb-6 p-4 border rounded">
-				<h2 class="text-md font-semibold mb-2">Interactive LanguageSelector</h2>
+			<h1 class="mb-4 text-lg font-semibold">LanguageSelector Component</h1>
+			<div class="mb-6 rounded border p-4">
+				<h2 class="text-md mb-2 font-semibold">Interactive LanguageSelector</h2>
 				<LanguageSelector
 					{languages}
-					currentLanguage={currentLanguage}
+					{currentLanguage}
 					onLanguageChange={handleLanguageChange}
 					showFlags={values.showFlags}
 					showNativeName={values.showNativeName}
@@ -58,24 +68,24 @@
 					size={values.size}
 				/>
 			</div>
-			<div class="p-4 border rounded">
-				<h2 class="text-md font-semibold mb-2">LanguageSelector Variants</h2>
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+			<div class="rounded border p-4">
+				<h2 class="text-md mb-2 font-semibold">LanguageSelector Variants</h2>
+				<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 					<div>
-						<h3 class="text-sm font-medium mb-2">Subtle Variant</h3>
+						<h3 class="mb-2 text-sm font-medium">Subtle Variant</h3>
 						<LanguageSelector
 							{languages}
-							currentLanguage={currentLanguage}
+							{currentLanguage}
 							onLanguageChange={handleLanguageChange}
 							variant="subtle"
 							size="sm"
 						/>
 					</div>
 					<div>
-						<h3 class="text-sm font-medium mb-2">Ghost Variant (No Flags)</h3>
+						<h3 class="mb-2 text-sm font-medium">Ghost Variant (No Flags)</h3>
 						<LanguageSelector
 							{languages}
-							currentLanguage={currentLanguage}
+							{currentLanguage}
 							onLanguageChange={handleLanguageChange}
 							showFlags={false}
 							variant="ghost"

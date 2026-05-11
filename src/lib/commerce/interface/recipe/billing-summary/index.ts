@@ -16,7 +16,8 @@ import type { ContractBillingItem } from '$stylist/commerce/interface/contract/b
 import type { SlotCaption } from '$stylist/typography/interface/slot/caption';
 import type { SlotLabel } from '$stylist/typography/interface/slot/label';
 
-export interface RecipeBillingSummary extends StructIntersectAll<[ SlotLabel, SlotCaption, ThemeAttributes<HTMLDivElement> ]> {
+export interface RecipeBillingSummary
+	extends StructIntersectAll<[SlotLabel, SlotCaption, ThemeAttributes<HTMLDivElement>]> {
 	/** Total amount */
 	totalAmount?: number;
 	/** SlotCurrency code */

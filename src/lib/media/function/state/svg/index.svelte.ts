@@ -15,7 +15,10 @@ function resolveSize(value?: number | string): string {
 	return typeof value === 'number' ? `${value}px` : String(value);
 }
 
-function buildSvgMarkup(rawSvg: string, options: { className?: string; size?: number | string; strokeWidth?: number; ariaLabel?: string }): string {
+function buildSvgMarkup(
+	rawSvg: string,
+	options: { className?: string; size?: number | string; strokeWidth?: number; ariaLabel?: string }
+): string {
 	const normalized = rawSvg.trim();
 	const attrs: string[] = [];
 
@@ -55,7 +58,9 @@ export function createSvgState(props: SvgProps) {
 	const ariaLabel = $derived.by(() =>
 		typeof props['aria-label'] === 'string' ? String(props['aria-label']) : undefined
 	);
-	const markup = $derived.by(() => buildSvgMarkup(svg, { className, size, strokeWidth, ariaLabel }));
+	const markup = $derived.by(() =>
+		buildSvgMarkup(svg, { className, size, strokeWidth, ariaLabel })
+	);
 
 	const restProps = $derived.by(() => {
 		const { class: _class, svg: _svg, size: _size, strokeWidth: _strokeWidth, ...rest } = props;
@@ -63,13 +68,27 @@ export function createSvgState(props: SvgProps) {
 	});
 
 	return {
-		get svg() { return svg; },
-		get size() { return size; },
-		get strokeWidth() { return strokeWidth; },
-		get className() { return className; },
-		get ariaLabel() { return ariaLabel; },
-		get markup() { return markup; },
-		get restProps() { return restProps; },
+		get svg() {
+			return svg;
+		},
+		get size() {
+			return size;
+		},
+		get strokeWidth() {
+			return strokeWidth;
+		},
+		get className() {
+			return className;
+		},
+		get ariaLabel() {
+			return ariaLabel;
+		},
+		get markup() {
+			return markup;
+		},
+		get restProps() {
+			return restProps;
+		},
 		escapeAttr,
 		resolveSize,
 		buildSvgMarkup

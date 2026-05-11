@@ -135,9 +135,7 @@
 	const availableConnectionTargets = $derived(
 		nodeLayouts.filter((node) => node.id !== selectedNodeId)
 	);
-	const nodeCategories = $derived(
-		Array.from(new Set(nodeLayouts.map((node) => node.category)))
-	);
+	const nodeCategories = $derived(Array.from(new Set(nodeLayouts.map((node) => node.category))));
 	const selectedNodeConnections = $derived(
 		selectedNodeId
 			? connections.filter(
@@ -399,7 +397,10 @@
 		nodeLayouts = nodeLayouts.map((node) => (node.id === nodeId ? updater(node) : node));
 	}
 
-	function updateSelectedNodeField<K extends keyof WorkspaceNode>(field: K, value: WorkspaceNode[K]) {
+	function updateSelectedNodeField<K extends keyof WorkspaceNode>(
+		field: K,
+		value: WorkspaceNode[K]
+	) {
 		if (!selectedNodeId) {
 			return;
 		}
@@ -501,8 +502,7 @@
 		const nextNodes = nodeLayouts.filter((node) => node.id !== selectedNodeId);
 		nodeLayouts = nextNodes;
 		connections = connections.filter(
-			(connection) =>
-				connection.startId !== selectedNodeId && connection.endId !== selectedNodeId
+			(connection) => connection.startId !== selectedNodeId && connection.endId !== selectedNodeId
 		);
 
 		selectedNodeId = nextNodes[0]?.id ?? '';
@@ -510,7 +510,11 @@
 	}
 
 	function addConnection() {
-		if (!selectedNodeId || !pendingConnectionTargetId || selectedNodeId === pendingConnectionTargetId) {
+		if (
+			!selectedNodeId ||
+			!pendingConnectionTargetId ||
+			selectedNodeId === pendingConnectionTargetId
+		) {
 			return;
 		}
 
@@ -860,11 +864,14 @@
 								endY={points.endY}
 								type={index % 2 === 0 ? 'straight' : 'curve'}
 								style={index % 2 === 0 ? 'solid' : 'dashed'}
-								width={connection.startId === selectedNodeId || connection.endId === selectedNodeId ? 3 : 2}
+								width={connection.startId === selectedNodeId || connection.endId === selectedNodeId
+									? 3
+									: 2}
 								color="color-mix(in srgb, var(--workspace-line) 78%, transparent)"
 								activeColor="var(--workspace-line-active)"
 								hoverColor="var(--workspace-line-hover)"
-								active={connection.startId === selectedNodeId || connection.endId === selectedNodeId}
+								active={connection.startId === selectedNodeId ||
+									connection.endId === selectedNodeId}
 								showArrow={true}
 								animated={activeTool === 'frame'}
 							/>
@@ -1038,7 +1045,11 @@
 						<button type="button" class="action-button" onclick={duplicateSelectedNode}>
 							Duplicate
 						</button>
-						<button type="button" class="action-button action-button--danger" onclick={deleteSelectedNode}>
+						<button
+							type="button"
+							class="action-button action-button--danger"
+							onclick={deleteSelectedNode}
+						>
 							Delete
 						</button>
 					</div>
@@ -1071,7 +1082,11 @@
 						</label>
 					</div>
 					<div class="action-row">
-						<button type="button" class="action-button action-button--primary" onclick={addConnection}>
+						<button
+							type="button"
+							class="action-button action-button--primary"
+							onclick={addConnection}
+						>
 							Add connection
 						</button>
 					</div>
@@ -1108,17 +1123,17 @@
 						<span>Live</span>
 					</div>
 					<pre class="debug-block">{JSON.stringify(
-						{
-							tool: activeTool,
-							camera,
-							selectedNodeId,
-							nodeCount: nodeLayouts.length,
-							connectionCount: connections.length,
-							draggedNodeId
-						},
-						null,
-						2
-					)}</pre>
+							{
+								tool: activeTool,
+								camera,
+								selectedNodeId,
+								nodeCount: nodeLayouts.length,
+								connectionCount: connections.length,
+								draggedNodeId
+							},
+							null,
+							2
+						)}</pre>
 				</section>
 			{/if}
 		</aside>
@@ -1220,7 +1235,11 @@
 		border-radius: 1.5rem;
 		overflow: hidden;
 		background:
-			radial-gradient(circle at top center, color-mix(in srgb, var(--workspace-chrome) 78%, white), transparent 34%),
+			radial-gradient(
+				circle at top center,
+				color-mix(in srgb, var(--workspace-chrome) 78%, white),
+				transparent 34%
+			),
 			linear-gradient(
 				180deg,
 				var(--workspace-canvas) 0%,

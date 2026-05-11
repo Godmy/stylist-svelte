@@ -33,10 +33,7 @@
 		const ratioX = clamp((event.clientX - rect.left) / rect.width, 0, 1);
 		const ratioY = clamp((event.clientY - rect.top) / rect.height, 0, 1);
 
-		props.ontargetchange?.(
-			(ratioX * 2 - 1) * targetRange,
-			(1 - ratioY * 2) * targetRange
-		);
+		props.ontargetchange?.((ratioX * 2 - 1) * targetRange, (1 - ratioY * 2) * targetRange);
 	}
 
 	function startTargetDrag(event: PointerEvent): void {
@@ -178,9 +175,12 @@
 		background:
 			linear-gradient(rgb(255 255 255 / 9%) 1px, transparent 1px),
 			linear-gradient(90deg, rgb(255 255 255 / 9%) 1px, transparent 1px),
-			radial-gradient(circle at center, rgb(34 197 94 / 18%), transparent 58%),
-			rgb(15 23 42 / 88%);
-		background-size: 25% 25%, 25% 25%, auto, auto;
+			radial-gradient(circle at center, rgb(34 197 94 / 18%), transparent 58%), rgb(15 23 42 / 88%);
+		background-size:
+			25% 25%,
+			25% 25%,
+			auto,
+			auto;
 		touch-action: none;
 		cursor: crosshair;
 	}

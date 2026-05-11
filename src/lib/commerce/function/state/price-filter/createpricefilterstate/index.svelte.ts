@@ -15,7 +15,9 @@ export function createPriceFilterState(props: PriceFilterProps) {
 	const labelsContainerClass = $derived(PriceFilterStyleManager.getLabelsContainerClass());
 	const labelClass = $derived(PriceFilterStyleManager.getLabelClass());
 	const sliderClass = $derived(PriceFilterStyleManager.getSliderClass());
-	const secondSliderClass = $derived(`${PriceFilterStyleManager.getSliderClass()} ${PriceFilterStyleManager.getSecondSliderClass()}`);
+	const secondSliderClass = $derived(
+		`${PriceFilterStyleManager.getSliderClass()} ${PriceFilterStyleManager.getSecondSliderClass()}`
+	);
 	const priceRangeClass = $derived(PriceFilterStyleManager.getPriceRangeClass());
 
 	function handleMinChange(e: Event) {
@@ -31,15 +33,33 @@ export function createPriceFilterState(props: PriceFilterProps) {
 	}
 
 	return {
-		get min() { return min; },
-		get max() { return max; },
-		get containerClass() { return containerClass; },
-		get rangeContainerClass() { return rangeContainerClass; },
-		get labelsContainerClass() { return labelsContainerClass; },
-		get labelClass() { return labelClass; },
-		get sliderClass() { return sliderClass; },
-		get secondSliderClass() { return secondSliderClass; },
-		get priceRangeClass() { return priceRangeClass; },
+		get min() {
+			return min;
+		},
+		get max() {
+			return max;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get rangeContainerClass() {
+			return rangeContainerClass;
+		},
+		get labelsContainerClass() {
+			return labelsContainerClass;
+		},
+		get labelClass() {
+			return labelClass;
+		},
+		get sliderClass() {
+			return sliderClass;
+		},
+		get secondSliderClass() {
+			return secondSliderClass;
+		},
+		get priceRangeClass() {
+			return priceRangeClass;
+		},
 		handleMinChange,
 		handleMaxChange
 	};

@@ -8,12 +8,16 @@
 		size: 'md',
 		class: props.class
 	});
-	const classes = $derived([
-		state.classes,
-		(props.position ?? 'left') === 'left'
-			? 'rounded-l-md border-r border-r-transparent'
-			: 'rounded-r-md border-l border-l-transparent'
-	].filter(Boolean).join(' '));
+	const classes = $derived(
+		[
+			state.classes,
+			(props.position ?? 'left') === 'left'
+				? 'rounded-l-md border-r border-r-transparent'
+				: 'rounded-r-md border-l border-l-transparent'
+		]
+			.filter(Boolean)
+			.join(' ')
+	);
 </script>
 
 <div class={classes}>

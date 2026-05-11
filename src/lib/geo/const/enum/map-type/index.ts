@@ -4,9 +4,4 @@
  * Таксономия: Geo (domain-specific)
  * Используется в: IMapWithMarkersProps, IMapInteractionProps, etc.
  */
-export const TOKEN_MAP_TYPE = [
-	'roadmap',
-	'satellite',
-	'terrain',
-	'hybrid'
-] as const;
+export const TOKEN_MAP_TYPE = ['roadmap', 'satellite', 'terrain', 'hybrid'] as const;

@@ -54,5 +54,3 @@ export function createDividerState(props: DividerProps) {
 }
 
 export default createDividerState;
-
-

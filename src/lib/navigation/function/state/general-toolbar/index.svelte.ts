@@ -16,6 +16,5 @@ export function createGeneralToolbarState(props: GeneralToolbarRecipe) {
 		}
 	};
 }
- 
- 
-export default createGeneralToolbarState; 
+
+export default createGeneralToolbarState;

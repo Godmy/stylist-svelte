@@ -9,9 +9,16 @@
 	];
 </script>
 
-<Story component={SkeletonCircle} title="SkeletonCircle" description="Circular placeholder for avatars and icon blocks." {controls}>
+<Story
+	component={SkeletonCircle}
+	title="SkeletonCircle"
+	description="Circular placeholder for avatars and icon blocks."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<div class="flex items-center gap-4 rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-4">
+		<div
+			class="flex items-center gap-4 rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-4"
+		>
 			<SkeletonCircle size={values.size} class={values.class} />
 			<div class="space-y-2">
 				<div class="h-3 w-28 rounded bg-[--color-skeleton]"></div>
@@ -20,6 +27,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-

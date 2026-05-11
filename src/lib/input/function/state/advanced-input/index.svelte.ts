@@ -2,15 +2,15 @@ import { createInputState as createBaseInputState } from '$stylist/interaction/p
 import { INPUT_FIELD_PRESET } from '$stylist/input/preset/input';
 import type { InputStateOptions } from '$stylist/layout/type/struct/component-state-input-state-options';
 
-export function createAdvancedInputState(
-	props: InputStateOptions
-) {
+export function createAdvancedInputState(props: InputStateOptions) {
 	const inputState = createBaseInputState(INPUT_FIELD_PRESET, props);
 	const containerClass = $derived(['w-full', String(props.class ?? '')].filter(Boolean).join(' '));
 	const labelClass = $derived(
 		[
 			'block text-sm font-medium text-[--color-text-primary] mb-[--spacing-xs]',
-			inputState.isDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : ''
+			inputState.isDisabled
+				? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none'
+				: ''
 		]
 			.filter(Boolean)
 			.join(' ')
@@ -31,5 +31,3 @@ export function createAdvancedInputState(
 }
 
 export default createAdvancedInputState;
-
-

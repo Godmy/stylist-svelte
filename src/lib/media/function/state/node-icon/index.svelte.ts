@@ -9,12 +9,24 @@ export function createNodeIconState(props: NodeIconProps) {
 	const iconTextStyle = $derived(`color: ${accent}; font-size: ${size * 0.6}px;`);
 
 	return {
-		get icon() { return icon; },
-		get size() { return size; },
-		get accent() { return accent; },
-		get background() { return background; },
-		get iconStyle() { return iconStyle; },
-		get iconTextStyle() { return iconTextStyle; }
+		get icon() {
+			return icon;
+		},
+		get size() {
+			return size;
+		},
+		get accent() {
+			return accent;
+		},
+		get background() {
+			return background;
+		},
+		get iconStyle() {
+			return iconStyle;
+		},
+		get iconTextStyle() {
+			return iconTextStyle;
+		}
 	};
 }
 

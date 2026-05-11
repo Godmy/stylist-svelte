@@ -16,12 +16,6 @@ import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface RangeInputRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		ISelectable<number>,
-		IFocusable,
-		ISizable
-	]>
-{}
-
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, ISelectable<number>, IFocusable, ISizable]
+	> {}

@@ -196,8 +196,10 @@
 
 	const filteredThreads = $derived.by(() => {
 		return chatThreads.filter((entry) => {
-			const haystack = `${entry.chat.name ?? ''} ${entry.summary} ${entry.chat.participants.map((item) => item.name).join(' ')}`.toLowerCase();
-			const matchesSearch = draftSearch.trim() === '' || haystack.includes(draftSearch.toLowerCase());
+			const haystack =
+				`${entry.chat.name ?? ''} ${entry.summary} ${entry.chat.participants.map((item) => item.name).join(' ')}`.toLowerCase();
+			const matchesSearch =
+				draftSearch.trim() === '' || haystack.includes(draftSearch.toLowerCase());
 			const matchesFilter =
 				activeFilter === 'all' ||
 				(activeFilter === 'unread' && (entry.chat.unreadCount ?? 0) > 0) ||
@@ -331,42 +333,49 @@
 			]
 		};
 
-		const timer = window.setTimeout(() => {
-			const thread = chatThreads.find((entry) => entry.chat.id === chatId);
-			if (!thread) return;
+		const timer = window.setTimeout(
+			() => {
+				const thread = chatThreads.find((entry) => entry.chat.id === chatId);
+				if (!thread) return;
 
-			const responders = thread.chat.participants.filter((item) => item.id !== currentUser.id);
-			const responder = responders[Math.floor(Math.random() * responders.length)] ?? participants.alex;
-			const templates = replyMap[chatId] ?? ['Acknowledged.'];
-			const replyContent = templates[Math.floor(Math.random() * templates.length)];
-			const replyAt = new Date();
-			const incoming: Message = {
-				id: crypto.randomUUID(),
-				senderId: responder.id,
-				content: replyContent,
-				timestamp: replyAt,
-				status: 'read'
-			};
+				const responders = thread.chat.participants.filter((item) => item.id !== currentUser.id);
+				const responder =
+					responders[Math.floor(Math.random() * responders.length)] ?? participants.alex;
+				const templates = replyMap[chatId] ?? ['Acknowledged.'];
+				const replyContent = templates[Math.floor(Math.random() * templates.length)];
+				const replyAt = new Date();
+				const incoming: Message = {
+					id: crypto.randomUUID(),
+					senderId: responder.id,
+					content: replyContent,
+					timestamp: replyAt,
+					status: 'read'
+				};
 
-			chatThreads = chatThreads.map((entry) =>
-				entry.chat.id === chatId
-					? {
-							...entry,
-							chat: {
-								...entry.chat,
-								lastMessage: incoming,
-								lastMessageTime: replyAt,
-								unreadCount: entry.chat.id === activeChatId ? 0 : (entry.chat.unreadCount ?? 0) + 1
-							},
-							messages: [...entry.messages, incoming]
-						}
-					: entry
-			);
+				chatThreads = chatThreads.map((entry) =>
+					entry.chat.id === chatId
+						? {
+								...entry,
+								chat: {
+									...entry.chat,
+									lastMessage: incoming,
+									lastMessageTime: replyAt,
+									unreadCount:
+										entry.chat.id === activeChatId ? 0 : (entry.chat.unreadCount ?? 0) + 1
+								},
+								messages: [...entry.messages, incoming]
+							}
+						: entry
+				);
 
-			if (chatId === activeChatId) {
-				pushLog(`${responder.name} replied in ${thread.chat.name ?? deriveChatName(thread.chat)}.`);
-			}
-		}, 900 + Math.round(Math.random() * 1200));
+				if (chatId === activeChatId) {
+					pushLog(
+						`${responder.name} replied in ${thread.chat.name ?? deriveChatName(thread.chat)}.`
+					);
+				}
+			},
+			900 + Math.round(Math.random() * 1200)
+		);
 
 		replyTimers = [...replyTimers, timer];
 	}
@@ -482,7 +491,7 @@
 				<div class="list-frame">
 					<ChatList
 						chats={filteredThreads.map((entry) => entry.chat)}
-						currentUser={currentUser}
+						{currentUser}
 						activeChatId={activeThread.chat.id}
 						onChatSelect={selectChat}
 						onChatDelete={removeChat}
@@ -496,19 +505,30 @@
 				<div class="conversation-shell">
 					<ChatHeader
 						chat={activeThread.chat}
-						currentUser={currentUser}
+						{currentUser}
 						showActions={true}
-						onCall={() => pushLog(`Started voice call for ${activeThread.chat.name ?? deriveChatName(activeThread.chat)}.`)}
-						onVideoCall={() => pushLog(`Started video call for ${activeThread.chat.name ?? deriveChatName(activeThread.chat)}.`)}
-						onInfo={() => pushLog(`Opened chat info for ${activeThread.chat.name ?? deriveChatName(activeThread.chat)}.`)}
+						onCall={() =>
+							pushLog(
+								`Started voice call for ${activeThread.chat.name ?? deriveChatName(activeThread.chat)}.`
+							)}
+						onVideoCall={() =>
+							pushLog(
+								`Started video call for ${activeThread.chat.name ?? deriveChatName(activeThread.chat)}.`
+							)}
+						onInfo={() =>
+							pushLog(
+								`Opened chat info for ${activeThread.chat.name ?? deriveChatName(activeThread.chat)}.`
+							)}
 					/>
 
 					<div class="thread-shell">
 						<MessageList
 							messages={activeThread.messages}
-							currentUser={currentUser}
-							onMessageAction={(action, message) => pushLog(`${action} on "${message.content.slice(0, 36)}"`)}
-							onMessageReaction={(messageId, reaction) => pushLog(`Reaction ${reaction} on ${messageId}`)}
+							{currentUser}
+							onMessageAction={(action, message) =>
+								pushLog(`${action} on "${message.content.slice(0, 36)}"`)}
+							onMessageReaction={(messageId, reaction) =>
+								pushLog(`Reaction ${reaction} on ${messageId}`)}
 						/>
 					</div>
 
@@ -538,7 +558,7 @@
 				<div class="presence-grid">
 					<UserStatus user={currentUser} showAvatar={true} showName={true} showStatusText={true} />
 					{#each Object.values(participants) as user}
-						<UserStatus user={user} showAvatar={true} showName={true} showStatusText={true} />
+						<UserStatus {user} showAvatar={true} showName={true} showStatusText={true} />
 					{/each}
 				</div>
 			</div>
@@ -728,8 +748,7 @@
 		grid-template-columns: minmax(0, 1.6fr) auto auto;
 		gap: 0.8rem;
 		align-items: center;
-		background:
-			linear-gradient(180deg, rgba(255, 252, 247, 0.96), rgba(246, 240, 232, 0.92));
+		background: linear-gradient(180deg, rgba(255, 252, 247, 0.96), rgba(246, 240, 232, 0.92));
 	}
 
 	.search-shell {
@@ -798,8 +817,7 @@
 		padding: 1rem;
 		display: grid;
 		gap: 0.9rem;
-		background:
-			linear-gradient(180deg, rgba(255, 251, 246, 0.94), rgba(246, 240, 232, 0.9));
+		background: linear-gradient(180deg, rgba(255, 251, 246, 0.94), rgba(246, 240, 232, 0.9));
 	}
 
 	.panel__head {
@@ -891,8 +909,7 @@
 	}
 
 	.chat-workbench :global(.chat-list) {
-		background:
-			linear-gradient(180deg, rgba(255, 253, 249, 0.98), rgba(242, 235, 226, 0.94));
+		background: linear-gradient(180deg, rgba(255, 253, 249, 0.98), rgba(242, 235, 226, 0.94));
 		border-right: 0;
 	}
 
@@ -913,8 +930,7 @@
 	}
 
 	.chat-workbench :global(.chat-item.active) {
-		background:
-			linear-gradient(90deg, rgba(15, 118, 110, 0.12), rgba(255, 255, 255, 0.78));
+		background: linear-gradient(90deg, rgba(15, 118, 110, 0.12), rgba(255, 255, 255, 0.78));
 		box-shadow: inset 3px 0 0 var(--accent-ink);
 	}
 
@@ -931,8 +947,7 @@
 
 	.chat-workbench :global(.c-chat-header) {
 		padding: 1rem 1.15rem;
-		background:
-			linear-gradient(180deg, rgba(255, 252, 248, 0.96), rgba(243, 236, 228, 0.9));
+		background: linear-gradient(180deg, rgba(255, 252, 248, 0.96), rgba(243, 236, 228, 0.9));
 		border-bottom: 1px solid rgba(148, 163, 184, 0.18);
 	}
 

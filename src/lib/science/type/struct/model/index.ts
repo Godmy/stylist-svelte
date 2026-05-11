@@ -6,4 +6,4 @@ export type Model = {
 	provider: string;
 	version: string;
 	tags?: string[];
-}
+};

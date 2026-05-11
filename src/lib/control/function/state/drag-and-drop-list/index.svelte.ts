@@ -38,9 +38,9 @@ export function createDragAndDropListState(props: DragAndDropListProps) {
 
 		if (!draggedItem) return;
 
-		if (dropIndex !== items.findIndex(item => item.id === draggedItem!.id)) {
+		if (dropIndex !== items.findIndex((item) => item.id === draggedItem!.id)) {
 			const newItems = [...items];
-			const dragIndex = newItems.findIndex(item => item.id === draggedItem!.id);
+			const dragIndex = newItems.findIndex((item) => item.id === draggedItem!.id);
 			const [removed] = newItems.splice(dragIndex, 1);
 			const adjustedDropIndex = dropIndex > dragIndex ? dropIndex - 1 : dropIndex;
 			newItems.splice(adjustedDropIndex, 0, removed);

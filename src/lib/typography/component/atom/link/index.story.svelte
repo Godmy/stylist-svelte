@@ -5,11 +5,21 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'href', type: 'text', defaultValue: '#' },
-		{ name: 'variant', type: 'select', defaultValue: 'primary', options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'underline'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'underline']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'underline', type: 'boolean', defaultValue: true },
-		{ name: 'target', type: 'select', defaultValue: '_self', options: ['_self', '_blank', '_parent', '_top'] },
+		{
+			name: 'target',
+			type: 'select',
+			defaultValue: '_self',
+			options: ['_self', '_blank', '_parent', '_top']
+		},
 		{ name: 'text', type: 'text', defaultValue: 'Open link' }
 	];
 </script>
@@ -35,6 +45,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

@@ -11,7 +11,12 @@
 	];
 </script>
 
-<Story component={ToggleWithDescription} title="ToggleWithDescription" description="Feature toggle with supporting descriptive text." {controls}>
+<Story
+	component={ToggleWithDescription}
+	title="ToggleWithDescription"
+	description="Feature toggle with supporting descriptive text."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<ToggleWithDescription
 			checked={values.checked}
@@ -21,6 +26,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

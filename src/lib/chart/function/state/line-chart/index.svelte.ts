@@ -5,30 +5,44 @@ import { ObjectManagerLineChart } from '$stylist/chart/class/object-manager/line
 export function createLineChartState(props: LineChartRecipe) {
 	const hostClass = $derived(typeof props.class === 'string' ? props.class : undefined);
 	const chartClass = $derived(typeof props.chartClass === 'string' ? props.chartClass : undefined);
-	const resolvedColorScheme = $derived((props.colorScheme ?? 'default') as 'default' | 'neutral' | 'warm' | 'cool');
+	const resolvedColorScheme = $derived(
+		(props.colorScheme ?? 'default') as 'default' | 'neutral' | 'warm' | 'cool'
+	);
 	let hoveredPoint = $state<{ seriesIndex: number; pointIndex: number } | null>(null);
 
-	const baseClasses = $derived(`${LineChartStyleManager.getBaseClasses()} ${LineChartStyleManager.getVariantClasses(props.variant ?? 'default')} ${hostClass}`);
+	const baseClasses = $derived(
+		`${LineChartStyleManager.getBaseClasses()} ${LineChartStyleManager.getVariantClasses(props.variant ?? 'default')} ${hostClass}`
+	);
 	const titleContainerClasses = $derived(LineChartStyleManager.getTitleContainerClasses());
 	const titleClasses = $derived(LineChartStyleManager.getTitleClasses());
-	const chartContainerClasses = $derived(`${LineChartStyleManager.getChartContainerClasses()} ${chartClass}`);
+	const chartContainerClasses = $derived(
+		`${LineChartStyleManager.getChartContainerClasses()} ${chartClass}`
+	);
 	const infoIconClasses = $derived(LineChartStyleManager.getInfoIconClasses());
 	const legendContainerClasses = $derived(LineChartStyleManager.getLegendContainerClasses());
 	const legendItemClasses = $derived(LineChartStyleManager.getLegendItemClasses());
 	const legendLabelClasses = $derived(LineChartStyleManager.getLegendLabelClasses());
 
-	const calculatedMaxValue = $derived(ObjectManagerLineChart.resolveMaxValue(props.data ?? [], props.maxValue));
-	const chartWidth = $derived(ObjectManagerLineChart.resolveChartWidth(props.width ?? 600, props.showAxis ?? true));
-	const chartHeight = $derived(ObjectManagerLineChart.resolveChartHeight(props.height ?? 400, props.showAxis ?? true));
+	const calculatedMaxValue = $derived(
+		ObjectManagerLineChart.resolveMaxValue(props.data ?? [], props.maxValue)
+	);
+	const chartWidth = $derived(
+		ObjectManagerLineChart.resolveChartWidth(props.width ?? 600, props.showAxis ?? true)
+	);
+	const chartHeight = $derived(
+		ObjectManagerLineChart.resolveChartHeight(props.height ?? 400, props.showAxis ?? true)
+	);
 	const yAxisValues = $derived(ObjectManagerLineChart.resolveYAxisValues(calculatedMaxValue));
-	const linePaths = $derived(ObjectManagerLineChart.resolveLinePaths({
-		data: props.data ?? [],
-		chartWidth,
-		chartHeight,
-		showAxis: props.showAxis ?? true,
-		calculatedMaxValue,
-		smooth: props.smooth ?? true
-	}));
+	const linePaths = $derived(
+		ObjectManagerLineChart.resolveLinePaths({
+			data: props.data ?? [],
+			chartWidth,
+			chartHeight,
+			showAxis: props.showAxis ?? true,
+			calculatedMaxValue,
+			smooth: props.smooth ?? true
+		})
+	);
 
 	function focusPoint(seriesIndex: number, pointIndex: number) {
 		hoveredPoint = { seriesIndex, pointIndex };

@@ -62,8 +62,8 @@ export const createSearchBarState = (props: SearchBarStateProps) => {
 		)
 	);
 
-	const iconContainerClasses = $derived.by(() =>
-		'flex items-center justify-center text-[var(--color-text-secondary)]'
+	const iconContainerClasses = $derived.by(
+		() => 'flex items-center justify-center text-[var(--color-text-secondary)]'
 	);
 
 	const inputClasses = $derived.by(() =>
@@ -74,17 +74,13 @@ export const createSearchBarState = (props: SearchBarStateProps) => {
 		)
 	);
 
-	const controlsContainerClasses = $derived.by(() =>
-		'flex items-center gap-1'
+	const controlsContainerClasses = $derived.by(() => 'flex items-center gap-1');
+
+	const clearButtonClasses = $derived.by(
+		() => 'p-2 rounded-md hover:bg-[var(--color-background-hover)]'
 	);
 
-	const clearButtonClasses = $derived.by(() =>
-		'p-2 rounded-md hover:bg-[var(--color-background-hover)]'
-	);
-
-	const searchButtonClasses = $derived.by(() =>
-		'ml-1'
-	);
+	const searchButtonClasses = $derived.by(() => 'ml-1');
 
 	const iconClasses = $derived.by(() => 'h-5 w-5');
 

@@ -11,12 +11,7 @@ import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/s
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface AuthGuardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IStatusSlot,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+	extends StructIntersectAll<[ILabelSlot, IStatusSlot, ThemeAttributes<HTMLDivElement>]> {
 	isAuthenticated?: boolean;
 	requiredRole?: string;
 	allowedRoles?: string[];
@@ -29,4 +24,3 @@ export interface AuthGuardRecipe
 	contentClass?: string;
 	fallbackClass?: string;
 }
-

@@ -9,10 +9,4 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
 import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
 
-export interface ClickRecipe
-	extends StructIntersectAll<[
-		IClickable,
-		IFocusable
-	]>
-{}
-
+export interface ClickRecipe extends StructIntersectAll<[IClickable, IFocusable]> {}

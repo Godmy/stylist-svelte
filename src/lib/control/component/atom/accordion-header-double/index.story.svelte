@@ -27,6 +27,3 @@
 		</AccordionHeaderDouble>
 	{/snippet}
 </Story>
-
-
-

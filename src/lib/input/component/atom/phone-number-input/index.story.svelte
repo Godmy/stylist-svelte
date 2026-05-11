@@ -14,11 +14,16 @@
 	];
 </script>
 
-<Story component={PhoneNumberInput} title="PhoneNumberInput" description="Formatted phone input with normalized value output." {controls}>
+<Story
+	component={PhoneNumberInput}
+	title="PhoneNumberInput"
+	description="Formatted phone input with normalized value output."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<div class="space-y-2 max-w-sm">
+		<div class="max-w-sm space-y-2">
 			<PhoneNumberInput
-				value={value}
+				{value}
 				placeholder={values.placeholder}
 				helpText={values.helpText}
 				disabled={values.disabled}
@@ -30,6 +35,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-

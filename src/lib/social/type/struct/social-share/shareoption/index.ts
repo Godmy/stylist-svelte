@@ -1,8 +1,8 @@
 import type { SocialPlatform } from '../socialplatform';
 
 export type ShareOption = {
-  platform: SocialPlatform;
-  label: string;
-  icon: any;
-  enabled: boolean;
+	platform: SocialPlatform;
+	label: string;
+	icon: any;
+	enabled: boolean;
 };

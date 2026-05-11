@@ -39,7 +39,9 @@
 >
 	{#snippet children(values: any)}
 		{@const variant =
-			typeof values.variant === 'string' ? (values.variant as NonNullable<Props['variant']>) : 'info'}
+			typeof values.variant === 'string'
+				? (values.variant as NonNullable<Props['variant']>)
+				: 'info'}
 		{@const title = typeof values.title === 'string' ? values.title : 'Sample Alert'}
 		{@const closable = typeof values.closable === 'boolean' ? values.closable : false}
 		<div class="max-w-md p-4">
@@ -55,10 +57,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-
-

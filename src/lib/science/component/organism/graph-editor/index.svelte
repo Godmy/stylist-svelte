@@ -51,10 +51,10 @@
 				searchQuery={state.paletteSearchQuery}
 				selectedCategory={state.paletteSelectedCategory}
 				viewMode="list"
-				onSearch={(query: string) => state.paletteSearchQuery = query}
+				onSearch={(query: string) => (state.paletteSearchQuery = query)}
 				onNodeSelect={state.handlePaletteNodeSelect}
-				onClose={() => state.isPaletteOpen = false}
-				onCategorySelect={(category: string) => state.paletteSelectedCategory = category}
+				onClose={() => (state.isPaletteOpen = false)}
+				onCategorySelect={(category: string) => (state.paletteSelectedCategory = category)}
 			/>
 		</div>
 	{/if}
@@ -71,7 +71,7 @@
 				showHeader={true}
 				showClose={true}
 				onPropertyChange={state.handlePropertyChange}
-				onclose={() => state.isPropertiesPanelOpen = false}
+				onclose={() => (state.isPropertiesPanelOpen = false)}
 			/>
 		</div>
 	{/if}
@@ -133,12 +133,7 @@
 			<Icon name="settings" size={18} />
 		</IconButton>
 
-		<IconButton
-			variant="ghost"
-			size="md"
-			aria-label="Help"
-			title="Help"
-		>
+		<IconButton variant="ghost" size="md" aria-label="Help" title="Help">
 			<Icon name="info" size={18} />
 		</IconButton>
 	</div>

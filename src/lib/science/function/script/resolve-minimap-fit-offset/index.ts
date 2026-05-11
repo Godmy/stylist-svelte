@@ -1,6 +1,11 @@
 import type { MinimapOffset } from '$stylist/science/type/struct/minimap/minimap-offset';
 
-export function resolveMinimapFitOffset(bounds: { minX: number; minY: number; maxX: number; maxY: number }): MinimapOffset {
+export function resolveMinimapFitOffset(bounds: {
+	minX: number;
+	minY: number;
+	maxX: number;
+	maxY: number;
+}): MinimapOffset {
 	const contentWidth = bounds.maxX - bounds.minX;
 	const contentHeight = bounds.maxY - bounds.minY;
 

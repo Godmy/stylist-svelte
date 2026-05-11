@@ -68,26 +68,13 @@
 		{@const showPercentage =
 			typeof values.showPercentage === 'boolean' ? values.showPercentage : true}
 		{@const color =
-			typeof values.color === 'string' ? (values.color as ProgressBarWithLabelStoryProps['color']) : 'blue'}
+			typeof values.color === 'string'
+				? (values.color as ProgressBarWithLabelStoryProps['color'])
+				: 'blue'}
 		{@const height = typeof values.height === 'string' ? values.height : 'h-2'}
 		<div class="rounded-lg bg-[var(--color-background-secondary)] p-8">
 			<h2 class="mb-4 text-xl font-bold">ProgressBarWithLabel Story</h2>
-			<ProgressBarWithLabel
-				{value}
-				{max}
-				{label}
-				{showPercentage}
-				{color}
-				{height}
-			/>
+			<ProgressBarWithLabel {value} {max} {label} {showPercentage} {color} {height} />
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-
-
-

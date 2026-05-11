@@ -43,7 +43,9 @@ export function createNodePropertyState(props: NodePropertyProps) {
 		emitChange(base.slice(0, vectorDimensions));
 	}
 
-	const classes = $derived(NodePropertyStyleManager.getPropertyClasses(type, size, { error, editable }));
+	const classes = $derived(
+		NodePropertyStyleManager.getPropertyClasses(type, size, { error, editable })
+	);
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,
@@ -147,11 +149,7 @@ export function createNodePropertyState(props: NodePropertyProps) {
 		handleBlur,
 		emitChange,
 		handleVectorChange
-		};
-		}
+	};
+}
 
 export default createNodePropertyState;
-
-
-
-

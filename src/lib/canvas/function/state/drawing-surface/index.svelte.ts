@@ -4,7 +4,10 @@ import type { DrawingSurfaceProps } from '$stylist/canvas/type/struct/drawing-su
 
 export function createDrawingSurfaceState(
 	props: DrawingSurfaceProps,
-	dispatch: (type: 'canvas-cleared' | 'expose-methods', detail: {} | DrawingSurfaceExposeMethodsEvent) => void
+	dispatch: (
+		type: 'canvas-cleared' | 'expose-methods',
+		detail: {} | DrawingSurfaceExposeMethodsEvent
+	) => void
 ) {
 	let isDrawing = $state(false);
 
@@ -15,7 +18,9 @@ export function createDrawingSurfaceState(
 	const strokeColor = $derived(props.strokeColor ?? 'var(--color-text-primary)');
 	const strokeWidth = $derived(props.strokeWidth ?? 2);
 	const backgroundColor = $derived(props.backgroundColor ?? 'var(--color-background-primary)');
-	const canvasClass = $derived(DrawingSurfaceStyleManager.getCanvasClass(props.class?.toString() ?? ''));
+	const canvasClass = $derived(
+		DrawingSurfaceStyleManager.getCanvasClass(props.class?.toString() ?? '')
+	);
 	const restProps = $derived.by(() => {
 		const {
 			width: _width,

@@ -68,11 +68,15 @@
 				>
 					{values.quote as string}
 				</Blockquote>
-				<p class="mt-4 text-sm text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-					SlotToggle border/background to preview different emphasis treatments while keeping the same
-					content.
+				<p
+					class="mt-4 text-sm text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]"
+				>
+					SlotToggle border/background to preview different emphasis treatments while keeping the
+					same content.
 				</p>
-				<p class="text-sm text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
+				<p
+					class="text-sm text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]"
+				>
 					Current values: quote="{values.quote as string}", cite="{values.cite as string}"
 				</p>
 			</div>
@@ -96,8 +100,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-

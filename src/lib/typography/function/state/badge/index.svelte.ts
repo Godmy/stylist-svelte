@@ -5,7 +5,11 @@ import type { BadgeRecipe } from '$stylist/typography/interface/recipe/badge';
 export function createBadgeState(props: BadgeRecipe) {
 	const baseState = createBaseBadgeState(props);
 	const classes = $derived(BadgeStyleManager.root(baseState.classes));
-	return { get classes() { return classes; } };
+	return {
+		get classes() {
+			return classes;
+		}
+	};
 }
 
 export default createBadgeState;

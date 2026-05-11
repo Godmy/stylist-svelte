@@ -9,4 +9,4 @@ export type AddressData = {
 	street?: string;
 	apartment?: string;
 	phone?: string;
-}
+};

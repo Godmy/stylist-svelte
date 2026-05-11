@@ -15,15 +15,11 @@ export class DrawerStyleManager {
 	}
 
 	static getDrawerClasses(position: DrawerPosition, hostClass = ''): string {
-		return mergeClassNames(
-			DRAWER_BASE_CLASS,
-			DRAWER_POSITION_CLASSES[position] ?? '',
-			hostClass
-		);
+		return mergeClassNames(DRAWER_BASE_CLASS, DRAWER_POSITION_CLASSES[position] ?? '', hostClass);
 	}
 
 	static getDrawerOpenClasses(isOpen: boolean, position: DrawerPosition): string {
-		return isOpen ? DRAWER_OPEN_POSITION_CLASSES[position] ?? '' : '';
+		return isOpen ? (DRAWER_OPEN_POSITION_CLASSES[position] ?? '') : '';
 	}
 
 	static getHeaderClasses(): string {

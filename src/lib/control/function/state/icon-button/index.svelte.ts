@@ -7,10 +7,3 @@ export function createIconButtonState(
 }
 
 export default createIconButtonState;
-
-
-
-
-
-
-

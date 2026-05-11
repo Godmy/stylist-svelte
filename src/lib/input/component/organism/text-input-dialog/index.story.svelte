@@ -10,7 +10,9 @@
 		{ name: 'rows', type: 'number', defaultValue: 10 }
 	];
 
-	let draft = $state('Document the edge cases for this component story.\nAdd concrete examples for keyboard and pointer states.');
+	let draft = $state(
+		'Document the edge cases for this component story.\nAdd concrete examples for keyboard and pointer states.'
+	);
 	let saveCount = $state(0);
 </script>
 

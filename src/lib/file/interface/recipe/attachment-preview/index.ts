@@ -4,7 +4,8 @@ import type { ContractAttachment } from '$stylist/file/interface/contract/attach
 import type { BehaviorAttachmentPreviewEvents } from '$stylist/file/interface/behavior/attachment-preview-events';
 import type { SlotAttachment } from '$stylist/file/interface/slot/attachment';
 
-export interface RecipeAttachmentPreview extends StructIntersectAll<[BehaviorAttachmentPreviewEvents]> {
+export interface RecipeAttachmentPreview
+	extends StructIntersectAll<[BehaviorAttachmentPreviewEvents]> {
 	/** SlotAttachment data */
 	attachment: ContractAttachment;
 	/** Show actions */

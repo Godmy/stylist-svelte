@@ -2,7 +2,8 @@ import type { HTMLImgAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { ImageSize } from '$stylist/media/type/struct/image-size';
 
-export interface ContractImage extends Omit<HTMLImgAttributes, 'class' | 'src' | 'alt' | 'width' | 'height' | 'loading'> {
+export interface ContractImage
+	extends Omit<HTMLImgAttributes, 'class' | 'src' | 'alt' | 'width' | 'height' | 'loading'> {
 	/** Image variant */
 	variant?: 'default';
 	/** Image size */

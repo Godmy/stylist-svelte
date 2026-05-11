@@ -7,11 +7,14 @@ export const createMessageListState = (props: {
 	currentUser: User;
 	onMessageAction?: (action: string, message: Message) => void;
 }) => {
-	const containerClasses = MessageStyleManager.getMessageListContainerClasses('flex-1 bg-[var(--color-background-secondary)]');
+	const containerClasses = MessageStyleManager.getMessageListContainerClasses(
+		'flex-1 bg-[var(--color-background-secondary)]'
+	);
 
 	const scrollbarTrackClasses = 'bg-[var(--color-background-secondary)]';
 
-	const scrollbarThumbClasses = 'bg-[var(--color-border-secondary)] rounded-sm hover:bg-[var(--color-text-secondary)]';
+	const scrollbarThumbClasses =
+		'bg-[var(--color-border-secondary)] rounded-sm hover:bg-[var(--color-text-secondary)]';
 
 	function handleMessageClick(message: Message) {
 		// dispatch('messageClick', { message })

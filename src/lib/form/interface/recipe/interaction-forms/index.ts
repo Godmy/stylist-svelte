@@ -14,11 +14,4 @@ import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface InteractionFormsRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IFocusable,
-		ISizable
-	]>
-{}
-
+	extends StructIntersectAll<[ILabelSlot, ICaptionSlot, IFocusable, ISizable]> {}

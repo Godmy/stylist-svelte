@@ -18,7 +18,9 @@ export function createStatusDashboardState(props: StatusDashboardStateProps) {
 	const headerClassStr = $derived(headerClass == null ? undefined : String(headerClass));
 	const itemClassStr = $derived(itemClass == null ? undefined : String(itemClass));
 
-	const containerClass = $derived(StatusDashboardStyleManager.getContainerClass(variant, size, classNameStr));
+	const containerClass = $derived(
+		StatusDashboardStyleManager.getContainerClass(variant, size, classNameStr)
+	);
 	const headerClassComputed = $derived(StatusDashboardStyleManager.getHeaderClass(headerClassStr));
 	const titleClass = StatusDashboardStyleManager.getTitleClass();
 	const subtitleClass = StatusDashboardStyleManager.getSubtitleClass();
@@ -51,29 +53,75 @@ export function createStatusDashboardState(props: StatusDashboardStateProps) {
 	});
 
 	return {
-		get title() { return title; },
-		get subtitle() { return subtitle; },
-		get items() { return items; },
-		get layout() { return layout; },
-		get size() { return size; },
-		get variant() { return variant; },
-		get containerClass() { return containerClass; },
-		get headerClassComputed() { return headerClassComputed; },
-		get titleClass() { return titleClass; },
-		get subtitleClass() { return subtitleClass; },
-		get itemsGridClass() { return itemsGridClass; },
-		get itemCardClass() { return itemCardClass; },
-		get itemContentClass() { return itemContentClass; },
-		get itemHeaderClass() { return itemHeaderClass; },
-		get itemTitleClass() { return itemTitleClass; },
-		get itemValueClass() { return itemValueClass; },
-		get itemDescriptionClass() { return itemDescriptionClass; },
-		get itemFooterClass() { return itemFooterClass; },
-		get itemActionsClass() { return itemActionsClass; },
-		get statusIconWrapperClass() { return statusIconWrapperClass; },
-		get statusIconClass() { return statusIconClass; },
-		get restProps() { return restProps; },
-		resolveStatusPresentation: ObjectManagerStatusDashboard.resolveStatusPresentation.bind(ObjectManagerStatusDashboard)
+		get title() {
+			return title;
+		},
+		get subtitle() {
+			return subtitle;
+		},
+		get items() {
+			return items;
+		},
+		get layout() {
+			return layout;
+		},
+		get size() {
+			return size;
+		},
+		get variant() {
+			return variant;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get headerClassComputed() {
+			return headerClassComputed;
+		},
+		get titleClass() {
+			return titleClass;
+		},
+		get subtitleClass() {
+			return subtitleClass;
+		},
+		get itemsGridClass() {
+			return itemsGridClass;
+		},
+		get itemCardClass() {
+			return itemCardClass;
+		},
+		get itemContentClass() {
+			return itemContentClass;
+		},
+		get itemHeaderClass() {
+			return itemHeaderClass;
+		},
+		get itemTitleClass() {
+			return itemTitleClass;
+		},
+		get itemValueClass() {
+			return itemValueClass;
+		},
+		get itemDescriptionClass() {
+			return itemDescriptionClass;
+		},
+		get itemFooterClass() {
+			return itemFooterClass;
+		},
+		get itemActionsClass() {
+			return itemActionsClass;
+		},
+		get statusIconWrapperClass() {
+			return statusIconWrapperClass;
+		},
+		get statusIconClass() {
+			return statusIconClass;
+		},
+		get restProps() {
+			return restProps;
+		},
+		resolveStatusPresentation: ObjectManagerStatusDashboard.resolveStatusPresentation.bind(
+			ObjectManagerStatusDashboard
+		)
 	};
 }
 

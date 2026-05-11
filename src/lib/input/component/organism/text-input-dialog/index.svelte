@@ -50,12 +50,7 @@
 				{#if loading}
 					<p class="dialog-status">Loading...</p>
 				{:else}
-					<textarea
-						class="dialog-textarea"
-						{rows}
-						bind:value
-						{placeholder}
-					></textarea>
+					<textarea class="dialog-textarea" {rows} bind:value {placeholder}></textarea>
 				{/if}
 
 				{#if error}

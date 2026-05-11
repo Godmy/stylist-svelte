@@ -13,7 +13,9 @@ import type { SlotExchangeRate } from '$stylist/commerce/interface/slot/exchange
 import type { BehaviorCurrencyConverterEvents } from '$stylist/commerce/interface/behavior/currency-converter-events';
 import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
 
-export interface RecipeCurrencyConverter extends StructIntersectAll<[ BehaviorClickable, ThemeAttributes<HTMLDivElement> ]>, BehaviorCurrencyConverterEvents {
+export interface RecipeCurrencyConverter
+	extends StructIntersectAll<[BehaviorClickable, ThemeAttributes<HTMLDivElement>]>,
+		BehaviorCurrencyConverterEvents {
 	/** Amount to convert */
 	amount: number;
 	/** Source currency code */

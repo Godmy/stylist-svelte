@@ -7,4 +7,4 @@ export type GraphPortStateColor = {
 	active: string;
 	error: string;
 	selected: string;
-}
+};

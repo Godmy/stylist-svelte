@@ -12,8 +12,7 @@ import type { BehaviorDraggable } from '$stylist/interaction/interface/behavior/
  */
 export interface SlotDragAndDrop
 	extends Omit<BehaviorDraggable, 'draggable' | 'dragCursor'>,
-		Omit<InteractionHTMLAttributes<HTMLDivElement>, 'draggable'>
-{
+		Omit<InteractionHTMLAttributes<HTMLDivElement>, 'draggable'> {
 	/** Разрешить перетаскивание */
 	draggable?: boolean;
 	/** Разрешить сброс элемента (drop zone) */

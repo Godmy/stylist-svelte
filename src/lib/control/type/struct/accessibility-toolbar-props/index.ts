@@ -11,4 +11,5 @@ export type AccessibilityToolbarProps = {
 	buttonClass?: string;
 	variant?: 'default' | 'minimal' | 'compact';
 	size?: 'sm' | 'md' | 'lg';
-} & ArchitectureHTMLAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>;
+} & ArchitectureHTMLAttributes<HTMLDivElement> &
+	HTMLAttributes<HTMLDivElement>;

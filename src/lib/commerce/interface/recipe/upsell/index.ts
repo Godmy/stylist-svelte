@@ -15,7 +15,9 @@ import type { BehaviorUpsellEvents } from '$stylist/commerce/interface/behavior/
 import type { SlotCaption } from '$stylist/typography/interface/slot/caption';
 import type { SlotLabel } from '$stylist/typography/interface/slot/label';
 
-export interface RecipeUpsell extends StructIntersectAll<[ SlotLabel, SlotCaption, ThemeAttributes<HTMLDivElement> ]>, BehaviorUpsellEvents {
+export interface RecipeUpsell
+	extends StructIntersectAll<[SlotLabel, SlotCaption, ThemeAttributes<HTMLDivElement>]>,
+		BehaviorUpsellEvents {
 	/** Current product */
 	currentProduct: SlotUpsellProduct;
 	/** List of upsell products */

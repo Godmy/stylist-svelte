@@ -1,6 +1,16 @@
 import type { SlotReactionPicker as IReactionPickerProps } from '$stylist/input/interface/slot/reaction-picker';
 
-type ReactionType = 'like' | 'love' | 'laugh' | 'wow' | 'sad' | 'angry' | 'care' | 'share' | 'save' | 'view';
+type ReactionType =
+	| 'like'
+	| 'love'
+	| 'laugh'
+	| 'wow'
+	| 'sad'
+	| 'angry'
+	| 'care'
+	| 'share'
+	| 'save'
+	| 'view';
 type Reaction = {
 	type: string;
 	count: number;
@@ -77,29 +87,34 @@ export const createReactionPickerState = (props: IReactionPickerProps) => {
 	}
 
 	const sizeClass = $derived(
-		({
-			sm: 'h-5 w-5',
-			md: 'h-6 w-6',
-			lg: 'h-8 w-8'
-		} as const)[props.size ?? 'md']
+		(
+			{
+				sm: 'h-5 w-5',
+				md: 'h-6 w-6',
+				lg: 'h-8 w-8'
+			} as const
+		)[props.size ?? 'md']
 	);
 
 	const textSizeClass = $derived(
-		({
-			sm: 'text-xs',
-			md: 'text-sm',
-			lg: 'text-base'
-		} as const)[props.size ?? 'md']
+		(
+			{
+				sm: 'text-xs',
+				md: 'text-sm',
+				lg: 'text-base'
+			} as const
+		)[props.size ?? 'md']
 	);
 	const reactions = $derived(
-		props.reactions ?? [
-			{ type: 'like', count: 0, active: false },
-			{ type: 'love', count: 0, active: false },
-			{ type: 'laugh', count: 0, active: false },
-			{ type: 'wow', count: 0, active: false },
-			{ type: 'sad', count: 0, active: false },
-			{ type: 'angry', count: 0, active: false }
-		] satisfies Reaction[]
+		props.reactions ??
+			([
+				{ type: 'like', count: 0, active: false },
+				{ type: 'love', count: 0, active: false },
+				{ type: 'laugh', count: 0, active: false },
+				{ type: 'wow', count: 0, active: false },
+				{ type: 'sad', count: 0, active: false },
+				{ type: 'angry', count: 0, active: false }
+			] satisfies Reaction[])
 	);
 	const firstActiveReaction = $derived(reactions.find((reaction) => reaction.active));
 	const hasActiveReaction = $derived(reactions.some((reaction) => reaction.active));

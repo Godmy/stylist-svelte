@@ -20,7 +20,7 @@ export function createComplexAccordionState(props: ComplexAccordionProps) {
 	function handleValueChange(panelId: string) {
 		let nextOpenPanels: string[];
 
-		if ((props.multiple ?? false)) {
+		if (props.multiple ?? false) {
 			nextOpenPanels = openPanels.includes(panelId)
 				? openPanels.filter((id) => id !== panelId)
 				: [...openPanels, panelId];
@@ -54,8 +54,3 @@ export function createComplexAccordionState(props: ComplexAccordionProps) {
 }
 
 export default createComplexAccordionState;
-
-
-
-
-

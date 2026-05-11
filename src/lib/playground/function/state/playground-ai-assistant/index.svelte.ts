@@ -16,7 +16,7 @@ const providerNames: Record<string, string> = {
 	gemini: 'Gemini',
 	qwen: 'Qwen',
 	claude: 'Claude',
-	codex: 'Codex',
+	codex: 'Codex'
 };
 
 export function createPlaygroundAiAssistantState(props: PlaygroundAiAssistantProps) {
@@ -42,11 +42,18 @@ export function createPlaygroundAiAssistantState(props: PlaygroundAiAssistantPro
 
 	const containerClass = $derived(PlaygroundAiAssistantStyleManager.getContainerClasses());
 	const headerClass = $derived(PlaygroundAiAssistantStyleManager.getHeaderClasses());
-	const messagesContainerClass = $derived(PlaygroundAiAssistantStyleManager.getMessagesContainerClasses());
-	const messageClass = (role: 'user' | 'assistant') => PlaygroundAiAssistantStyleManager.getMessageClasses(role);
-	const inputContainerClass = $derived(PlaygroundAiAssistantStyleManager.getInputContainerClasses());
+	const messagesContainerClass = $derived(
+		PlaygroundAiAssistantStyleManager.getMessagesContainerClasses()
+	);
+	const messageClass = (role: 'user' | 'assistant') =>
+		PlaygroundAiAssistantStyleManager.getMessageClasses(role);
+	const inputContainerClass = $derived(
+		PlaygroundAiAssistantStyleManager.getInputContainerClasses()
+	);
 	const errorBannerClass = $derived(PlaygroundAiAssistantStyleManager.getErrorBannerClasses());
-	const loadingIndicatorClass = $derived(PlaygroundAiAssistantStyleManager.getLoadingIndicatorClasses());
+	const loadingIndicatorClass = $derived(
+		PlaygroundAiAssistantStyleManager.getLoadingIndicatorClasses()
+	);
 
 	// Send message to AI
 	async function sendMessage() {
@@ -55,7 +62,7 @@ export function createPlaygroundAiAssistantState(props: PlaygroundAiAssistantPro
 		const userMessage: PlaygroundAiAssistantChatMessage = {
 			role: 'user',
 			content: inputMessage.trim(),
-			timestamp: Date.now(),
+			timestamp: Date.now()
 		};
 
 		messages.push(userMessage);
@@ -70,13 +77,13 @@ export function createPlaygroundAiAssistantState(props: PlaygroundAiAssistantPro
 		try {
 			const response = await aiClient.chat({
 				prompt: userPrompt,
-				autoApproveTools: true,
+				autoApproveTools: true
 			});
 
 			const assistantMessage: PlaygroundAiAssistantChatMessage = {
 				role: 'assistant',
 				content: response.text || '(empty response)',
-				timestamp: Date.now(),
+				timestamp: Date.now()
 			};
 
 			messages.push(assistantMessage);
@@ -85,7 +92,8 @@ export function createPlaygroundAiAssistantState(props: PlaygroundAiAssistantPro
 			console.error('AI chat error:', err);
 
 			if (err instanceof TypeError && err.message.includes('Failed to fetch')) {
-				const sessionId = typeof aiClient.getSessionId === 'function' ? aiClient.getSessionId() : undefined;
+				const sessionId =
+					typeof aiClient.getSessionId === 'function' ? aiClient.getSessionId() : undefined;
 				error = `Cannot connect to ${currentProviderName} server. Please check:\n1. Server is running\n2. URL is correct: ${sessionId ? 'configured' : 'not configured'}\n3. CORS is enabled`;
 			} else {
 				error = err instanceof Error ? err.message : 'Failed to get response from AI';
@@ -123,35 +131,79 @@ export function createPlaygroundAiAssistantState(props: PlaygroundAiAssistantPro
 			{
 				role: 'assistant',
 				content: `Здравствуйте! Я ${currentProviderName} AI Assistant. Чем могу помочь?`,
-				timestamp: Date.now(),
-			},
+				timestamp: Date.now()
+			}
 		];
 	});
 
 	return {
-		get X() { return X; },
-		get Send() { return Send; },
-		get Trash2() { return Trash2; },
-		get RotateCcw() { return RotateCcw; },
-		get Loader2() { return Loader2; },
-		get inputMessage() { return inputMessage; },
-		set inputMessage(v: string) { inputMessage = v; },
-		get messages() { return messages; },
-		get isLoading() { return isLoading; },
-		get error() { return error; },
-		get messagesContainer() { return messagesContainer; },
-		set messagesContainer(v: HTMLDivElement | undefined) { messagesContainer = v; },
-		get providerId() { return providerId; },
-		get aiClient() { return aiClient; },
-		get currentProviderName() { return currentProviderName; },
-		get onClose() { return onClose; },
-		get containerClass() { return containerClass; },
-		get headerClass() { return headerClass; },
-		get messagesContainerClass() { return messagesContainerClass; },
+		get X() {
+			return X;
+		},
+		get Send() {
+			return Send;
+		},
+		get Trash2() {
+			return Trash2;
+		},
+		get RotateCcw() {
+			return RotateCcw;
+		},
+		get Loader2() {
+			return Loader2;
+		},
+		get inputMessage() {
+			return inputMessage;
+		},
+		set inputMessage(v: string) {
+			inputMessage = v;
+		},
+		get messages() {
+			return messages;
+		},
+		get isLoading() {
+			return isLoading;
+		},
+		get error() {
+			return error;
+		},
+		get messagesContainer() {
+			return messagesContainer;
+		},
+		set messagesContainer(v: HTMLDivElement | undefined) {
+			messagesContainer = v;
+		},
+		get providerId() {
+			return providerId;
+		},
+		get aiClient() {
+			return aiClient;
+		},
+		get currentProviderName() {
+			return currentProviderName;
+		},
+		get onClose() {
+			return onClose;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get headerClass() {
+			return headerClass;
+		},
+		get messagesContainerClass() {
+			return messagesContainerClass;
+		},
 		messageClass,
-		get inputContainerClass() { return inputContainerClass; },
-		get errorBannerClass() { return errorBannerClass; },
-		get loadingIndicatorClass() { return loadingIndicatorClass; },
+		get inputContainerClass() {
+			return inputContainerClass;
+		},
+		get errorBannerClass() {
+			return errorBannerClass;
+		},
+		get loadingIndicatorClass() {
+			return loadingIndicatorClass;
+		},
 		sendMessage,
 		handleKeyPress,
 		clearChat,

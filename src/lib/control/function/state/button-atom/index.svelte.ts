@@ -8,12 +8,24 @@ export function createButtonState(props: ButtonElementProps & HTMLButtonAttribut
 	const state = $derived.by(() => createOriginalButtonState(factoryInput));
 
 	return {
-		get factoryInput() { return factoryInput; },
-		get state() { return state; },
-		get classes() { return state.classes; },
-		get attrs() { return state.attrs; },
-		get loading() { return state.loading; },
-		get loaderClasses() { return state.loaderClasses; }
+		get factoryInput() {
+			return factoryInput;
+		},
+		get state() {
+			return state;
+		},
+		get classes() {
+			return state.classes;
+		},
+		get attrs() {
+			return state.attrs;
+		},
+		get loading() {
+			return state.loading;
+		},
+		get loaderClasses() {
+			return state.loaderClasses;
+		}
 	};
 }
 

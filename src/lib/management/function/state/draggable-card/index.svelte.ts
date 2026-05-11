@@ -19,7 +19,9 @@ export function createDraggableCardState(props: DraggableCardStateProps) {
 	const rootClass = $derived(
 		DraggableCardStyleManager.getRootClass(
 			`${isDragging ? DraggableCardStyleManager.getDraggingClass() : 'opacity-[var(--opacity-100)]'} ${
-				variant === 'compact' ? DraggableCardStyleManager.getCompactClass() : DraggableCardStyleManager.getDefaultClass()
+				variant === 'compact'
+					? DraggableCardStyleManager.getCompactClass()
+					: DraggableCardStyleManager.getDefaultClass()
 			} ${hostClass}`
 		)
 	);
@@ -81,29 +83,75 @@ export function createDraggableCardState(props: DraggableCardStateProps) {
 	});
 
 	return {
-		get data() { return data; },
-		get hostClass() { return hostClass; },
-		get contentClass() { return contentClass; },
-		get headerClass() { return headerClass; },
-		get bodyClass() { return bodyClass; },
-		get footerClass() { return footerClass; },
-		get disabled() { return disabled; },
-		get draggable() { return draggable; },
-		get showHandle() { return showHandle; },
-		get showMenu() { return showMenu; },
-		get variant() { return variant; },
-		get isDragging() { return isDragging; },
-		get rootClass() { return rootClass; },
-		get handleClass() { return handleClass; },
-		get gripIconClass() { return gripIconClass; },
-		get titleClass() { return titleClass; },
-		get descriptionClass() { return descriptionClass; },
-		get tagsContainerClass() { return tagsContainerClass; },
-		get tagClass() { return tagClass; },
-		get metadataClass() { return metadataClass; },
-		get dateClass() { return dateClass; },
-		get assigneeClass() { return assigneeClass; },
-		get restProps() { return restProps; },
+		get data() {
+			return data;
+		},
+		get hostClass() {
+			return hostClass;
+		},
+		get contentClass() {
+			return contentClass;
+		},
+		get headerClass() {
+			return headerClass;
+		},
+		get bodyClass() {
+			return bodyClass;
+		},
+		get footerClass() {
+			return footerClass;
+		},
+		get disabled() {
+			return disabled;
+		},
+		get draggable() {
+			return draggable;
+		},
+		get showHandle() {
+			return showHandle;
+		},
+		get showMenu() {
+			return showMenu;
+		},
+		get variant() {
+			return variant;
+		},
+		get isDragging() {
+			return isDragging;
+		},
+		get rootClass() {
+			return rootClass;
+		},
+		get handleClass() {
+			return handleClass;
+		},
+		get gripIconClass() {
+			return gripIconClass;
+		},
+		get titleClass() {
+			return titleClass;
+		},
+		get descriptionClass() {
+			return descriptionClass;
+		},
+		get tagsContainerClass() {
+			return tagsContainerClass;
+		},
+		get tagClass() {
+			return tagClass;
+		},
+		get metadataClass() {
+			return metadataClass;
+		},
+		get dateClass() {
+			return dateClass;
+		},
+		get assigneeClass() {
+			return assigneeClass;
+		},
+		get restProps() {
+			return restProps;
+		},
 		handleDragStart,
 		handleDragEnd,
 		handleClick,

@@ -12,4 +12,4 @@ export type ModelSelectorProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	dropdownClass?: string;
 	modelItemClass?: string;
 	headerClass?: string;
-}
+};

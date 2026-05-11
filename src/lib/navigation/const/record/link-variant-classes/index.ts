@@ -11,7 +11,8 @@ export const LINK_VARIANT_CLASSES: Record<TokenAppearance, string> = {
 	error: 'text-[var(--color-danger-600)] hover:text-[var(--color-danger-700)]',
 	info: 'text-[var(--color-info-600)] hover:text-[var(--color-info-700)]',
 	solid: 'text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)]',
-	outline: 'text-[var(--color-text-primary)] border border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]',
+	outline:
+		'text-[var(--color-text-primary)] border border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]',
 	ghost: 'text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]',
 	link: 'text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)] underline underline-offset-2',
 	subtle: 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]',

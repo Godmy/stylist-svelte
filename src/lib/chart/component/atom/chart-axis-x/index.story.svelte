@@ -22,12 +22,22 @@
 	tags={['chart', 'axis', 'x']}
 >
 	{#snippet children(values: any)}
-		<svg width="400" height="90" class="rounded border border-[--color-border-primary] bg-[--color-background-primary]">
-			<ChartAxisX y={48} startX={20} endX={380} {ticks} tickCount={values.tickCount} label={values.label} showGrid={values.showGrid} showArrow={values.showArrow} color={values.color} />
+		<svg
+			width="400"
+			height="90"
+			class="rounded border border-[--color-border-primary] bg-[--color-background-primary]"
+		>
+			<ChartAxisX
+				y={48}
+				startX={20}
+				endX={380}
+				{ticks}
+				tickCount={values.tickCount}
+				label={values.label}
+				showGrid={values.showGrid}
+				showArrow={values.showArrow}
+				color={values.color}
+			/>
 		</svg>
 	{/snippet}
 </Story>
-
-
-
-

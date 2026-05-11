@@ -12,7 +12,3 @@ export const COLORS_SCALES_TEAL: RecordColorScale = {
 	800: '#115e59',
 	900: '#134e4a'
 };
-
-
-
-

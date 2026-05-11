@@ -19,7 +19,10 @@
 	<div class={state.headerClasses}>
 		<div class={state.chatInfoClasses}>
 			<h3 class={state.titleClasses} aria-label={state.title}>{state.title}</h3>
-			<div class={state.participantsClasses} aria-label={`Participants: ${state.participants.join(', ')}`}>
+			<div
+				class={state.participantsClasses}
+				aria-label={`Participants: ${state.participants.join(', ')}`}
+			>
 				({state.participants.join(', ')})
 			</div>
 		</div>
@@ -30,9 +33,16 @@
 			<div class="flex {getChatMessageAlignmentClass(!!message.isOwn)}">
 				<div class="max-w-xs md:max-w-md">
 					{#if !message.isOwn}
-						<div class="mb-1 flex items-center text-xs font-semibold text-[var(--color-text-secondary)]">
+						<div
+							class="mb-1 flex items-center text-xs font-semibold text-[var(--color-text-secondary)]"
+						>
 							{#if state.showAvatars && message.avatar}
-								<Avatar src={message.avatar} alt={message.sender ?? message.author} size="sm" class="mr-2" />
+								<Avatar
+									src={message.avatar}
+									alt={message.sender ?? message.author}
+									size="sm"
+									class="mr-2"
+								/>
 							{/if}
 							<span>{message.sender ?? message.author}</span>
 						</div>
@@ -42,15 +52,23 @@
 						<p class="text-sm">{message.text}</p>
 					</div>
 
-					<div class="mt-1 flex items-center justify-end text-xs text-[var(--color-text-secondary)]">
+					<div
+						class="mt-1 flex items-center justify-end text-xs text-[var(--color-text-secondary)]"
+					>
 						{#if message.timestamp}
 							<span>{message.timestamp}</span>
 						{/if}
 						{#if message.isOwn && message.status}
 							{#if message.status === 'read'}
-								<BaseIcon name={CHAT_PREVIEW_ICON_CHECK_CHECK} class="ml-1 h-3 w-3 text-[var(--color-primary-500)]" />
+								<BaseIcon
+									name={CHAT_PREVIEW_ICON_CHECK_CHECK}
+									class="ml-1 h-3 w-3 text-[var(--color-primary-500)]"
+								/>
 							{:else}
-								<BaseIcon name={CHAT_PREVIEW_ICON_CHECK} class="ml-1 h-3 w-3 text-[var(--color-text-tertiary)]" />
+								<BaseIcon
+									name={CHAT_PREVIEW_ICON_CHECK}
+									class="ml-1 h-3 w-3 text-[var(--color-text-tertiary)]"
+								/>
 							{/if}
 						{/if}
 					</div>
@@ -59,7 +77,3 @@
 		{/each}
 	</div>
 </div>
-
-
-
-

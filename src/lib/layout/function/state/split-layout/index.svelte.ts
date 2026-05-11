@@ -4,7 +4,6 @@ import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap'
 import type { SplitLayoutPanelSize } from '$stylist/layout/type/enum/split-layout-panel-size';
 import type { SplitLayoutProps } from '$stylist/layout/type/struct/layout-extended/split-layout-props';
 
-
 export function createSplitLayoutState(props: SplitLayoutProps) {
 	const direction = $derived<SplitLayoutDirection>(props.direction ?? 'horizontal');
 	const gap = $derived<SplitLayoutGap>(props.gap ?? 'md');
@@ -38,15 +37,33 @@ export function createSplitLayoutState(props: SplitLayoutProps) {
 	});
 
 	return {
-		get direction() { return direction; },
-		get gap() { return gap; },
-		get primarySize() { return primarySize; },
-		get secondarySize() { return secondarySize; },
-		get responsive() { return responsive; },
-		get classes() { return classes; },
-		get primaryClasses() { return primaryClasses; },
-		get secondaryClasses() { return secondaryClasses; },
-		get restProps() { return restProps; }
+		get direction() {
+			return direction;
+		},
+		get gap() {
+			return gap;
+		},
+		get primarySize() {
+			return primarySize;
+		},
+		get secondarySize() {
+			return secondarySize;
+		},
+		get responsive() {
+			return responsive;
+		},
+		get classes() {
+			return classes;
+		},
+		get primaryClasses() {
+			return primaryClasses;
+		},
+		get secondaryClasses() {
+			return secondaryClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

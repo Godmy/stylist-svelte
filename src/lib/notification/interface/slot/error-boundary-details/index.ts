@@ -6,9 +6,9 @@ import type { Snippet } from 'svelte';
  * @description Interface for error details passed to the component
  */
 export interface SlotErrorBoundaryDetails {
-  error: Error;
-  details: {
-    reset: () => void;
-    componentStack: string;
-  };
+	error: Error;
+	details: {
+		reset: () => void;
+		componentStack: string;
+	};
 }

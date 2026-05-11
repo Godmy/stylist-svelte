@@ -24,23 +24,47 @@ function createAddressState(source?: Address): Address {
 }
 
 export function createCheckoutFormState(props: Props) {
-	const countries = $derived(props.countries ?? [
-		{ value: 'US', label: 'United States' },
-		{ value: 'CA', label: 'Canada' },
-		{ value: 'GB', label: 'United Kingdom' },
-		{ value: 'DE', label: 'Germany' },
-		{ value: 'FR', label: 'France' }
-	]);
-	const states = $derived(props.states ?? [
-		{ value: 'AL', label: 'Alabama' },
-		{ value: 'AK', label: 'Alaska' },
-		{ value: 'AZ', label: 'Arizona' }
-	]);
-	const shippingOptions = $derived(props.shippingOptions ?? [
-		{ id: 'standard', name: 'Standard Shipping', description: '5-7 business days', price: 5.99, estimatedDays: 7 },
-		{ id: 'express', name: 'Express Shipping', description: '2-3 business days', price: 12.99, estimatedDays: 3 },
-		{ id: 'overnight', name: 'Overnight Shipping', description: 'Next business day', price: 24.99, estimatedDays: 1 }
-	]);
+	const countries = $derived(
+		props.countries ?? [
+			{ value: 'US', label: 'United States' },
+			{ value: 'CA', label: 'Canada' },
+			{ value: 'GB', label: 'United Kingdom' },
+			{ value: 'DE', label: 'Germany' },
+			{ value: 'FR', label: 'France' }
+		]
+	);
+	const states = $derived(
+		props.states ?? [
+			{ value: 'AL', label: 'Alabama' },
+			{ value: 'AK', label: 'Alaska' },
+			{ value: 'AZ', label: 'Arizona' }
+		]
+	);
+	const shippingOptions = $derived(
+		props.shippingOptions ?? [
+			{
+				id: 'standard',
+				name: 'Standard Shipping',
+				description: '5-7 business days',
+				price: 5.99,
+				estimatedDays: 7
+			},
+			{
+				id: 'express',
+				name: 'Express Shipping',
+				description: '2-3 business days',
+				price: 12.99,
+				estimatedDays: 3
+			},
+			{
+				id: 'overnight',
+				name: 'Overnight Shipping',
+				description: 'Next business day',
+				price: 24.99,
+				estimatedDays: 1
+			}
+		]
+	);
 
 	let currentStep = $state(untrack(() => props.step ?? 'information'));
 	let billingAddress = $state<Address>(untrack(() => createAddressState(props.defaultAddress)));
@@ -63,7 +87,13 @@ export function createCheckoutFormState(props: Props) {
 	let termsAccepted = $state(false);
 	let errors = $state<Record<string, string>>({});
 
-	const orderedSteps = $derived(['information', 'shipping', 'payment', 'review', 'confirmation'] as CheckoutStep[]);
+	const orderedSteps = $derived([
+		'information',
+		'shipping',
+		'payment',
+		'review',
+		'confirmation'
+	] as CheckoutStep[]);
 	const stepTitleMap = $derived({
 		cart: 'Cart',
 		information: 'Information',
@@ -73,10 +103,18 @@ export function createCheckoutFormState(props: Props) {
 		confirmation: 'Confirmation'
 	} as Record<CheckoutStep, string>);
 
-	const formattedSubtotal = $derived(formatCurrency(props.subtotal, props.currency ?? 'USD', props.locale ?? 'en-US'));
-	const formattedTax = $derived(formatCurrency(props.tax, props.currency ?? 'USD', props.locale ?? 'en-US'));
-	const formattedShipping = $derived(formatCurrency(props.shipping, props.currency ?? 'USD', props.locale ?? 'en-US'));
-	const formattedTotal = $derived(formatCurrency(props.total, props.currency ?? 'USD', props.locale ?? 'en-US'));
+	const formattedSubtotal = $derived(
+		formatCurrency(props.subtotal, props.currency ?? 'USD', props.locale ?? 'en-US')
+	);
+	const formattedTax = $derived(
+		formatCurrency(props.tax, props.currency ?? 'USD', props.locale ?? 'en-US')
+	);
+	const formattedShipping = $derived(
+		formatCurrency(props.shipping, props.currency ?? 'USD', props.locale ?? 'en-US')
+	);
+	const formattedTotal = $derived(
+		formatCurrency(props.total, props.currency ?? 'USD', props.locale ?? 'en-US')
+	);
 
 	$effect(() => {
 		if (props.step !== undefined) {
@@ -112,7 +150,10 @@ export function createCheckoutFormState(props: Props) {
 	}
 
 	function getCountryName(code: string): string {
-		return countries.find((country: { value: string; label: string }) => country.value === code)?.label ?? code;
+		return (
+			countries.find((country: { value: string; label: string }) => country.value === code)
+				?.label ?? code
+		);
 	}
 
 	function getStepIndex(step: CheckoutStep | string): number {
@@ -142,7 +183,11 @@ export function createCheckoutFormState(props: Props) {
 		return formatStepTitle(orderedSteps[previousIndex]);
 	}
 
-	function handleInputChange(field: keyof Address, value: string, isShipping: boolean = false): void {
+	function handleInputChange(
+		field: keyof Address,
+		value: string,
+		isShipping: boolean = false
+	): void {
 		if (isShipping) {
 			shippingAddress = { ...shippingAddress, [field]: value };
 		} else {
@@ -173,7 +218,8 @@ export function createCheckoutFormState(props: Props) {
 				break;
 			case 'payment':
 				if (paymentMethod.type === 'credit_card') {
-					if (!cardInfo.number || cardInfo.number.length < 13) newErrors.cardNumber = 'Valid card number is required';
+					if (!cardInfo.number || cardInfo.number.length < 13)
+						newErrors.cardNumber = 'Valid card number is required';
 					if (!cardInfo.expiry) newErrors.expiry = 'Expiry date is required';
 					if (!cardInfo.cvv || cardInfo.cvv.length < 3) newErrors.cvv = 'CVV is required';
 					if (!cardInfo.name) newErrors.cardName = 'Cardholder name is required';
@@ -228,28 +274,72 @@ export function createCheckoutFormState(props: Props) {
 	}
 
 	return {
-		get currentStep() { return currentStep; },
-		get billingAddress() { return billingAddress; },
-		get shippingAddress() { return shippingAddress; },
-		get selectedShippingOption() { return selectedShippingOption; },
-		get selectedShippingDetails() { return selectedShippingDetails; },
-		get sameAsBilling() { return sameAsBilling; },
-		get paymentMethod() { return paymentMethod; },
-		get cardInfo() { return cardInfo; },
-		get termsAccepted() { return termsAccepted; },
-		get errors() { return errors; },
-		get countries() { return countries; },
-		get states() { return states; },
-		get shippingOptions() { return shippingOptions; },
-		get formattedSubtotal() { return formattedSubtotal; },
-		get formattedTax() { return formattedTax; },
-		get formattedShipping() { return formattedShipping; },
-		get formattedTotal() { return formattedTotal; },
-		get orderedSteps() { return orderedSteps; },
-		get stepTitleMap() { return stepTitleMap; },
-		set sameAsBilling(value: boolean) { sameAsBilling = value; },
-		set termsAccepted(value: boolean) { termsAccepted = value; },
-		set selectedShippingOption(value: string) { selectedShippingOption = value; },
+		get currentStep() {
+			return currentStep;
+		},
+		get billingAddress() {
+			return billingAddress;
+		},
+		get shippingAddress() {
+			return shippingAddress;
+		},
+		get selectedShippingOption() {
+			return selectedShippingOption;
+		},
+		get selectedShippingDetails() {
+			return selectedShippingDetails;
+		},
+		get sameAsBilling() {
+			return sameAsBilling;
+		},
+		get paymentMethod() {
+			return paymentMethod;
+		},
+		get cardInfo() {
+			return cardInfo;
+		},
+		get termsAccepted() {
+			return termsAccepted;
+		},
+		get errors() {
+			return errors;
+		},
+		get countries() {
+			return countries;
+		},
+		get states() {
+			return states;
+		},
+		get shippingOptions() {
+			return shippingOptions;
+		},
+		get formattedSubtotal() {
+			return formattedSubtotal;
+		},
+		get formattedTax() {
+			return formattedTax;
+		},
+		get formattedShipping() {
+			return formattedShipping;
+		},
+		get formattedTotal() {
+			return formattedTotal;
+		},
+		get orderedSteps() {
+			return orderedSteps;
+		},
+		get stepTitleMap() {
+			return stepTitleMap;
+		},
+		set sameAsBilling(value: boolean) {
+			sameAsBilling = value;
+		},
+		set termsAccepted(value: boolean) {
+			termsAccepted = value;
+		},
+		set selectedShippingOption(value: string) {
+			selectedShippingOption = value;
+		},
 		formatCurrency,
 		formatCardNumber,
 		formatExpiryDate,

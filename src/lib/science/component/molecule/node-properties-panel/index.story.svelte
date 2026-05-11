@@ -16,12 +16,55 @@
 	];
 
 	const sampleProperties: LiteGraphNodeProperty[] = [
-		{ id: 'name', name: 'name', type: 'string', value: 'My Node', label: 'Node Name', description: 'The name of the node' },
-		{ id: 'type', name: 'type', type: 'enum', value: 'processor', label: 'Type', description: 'Node type', options: ['processor', 'memory', 'storage', 'network'] },
-		{ id: 'status', name: 'status', type: 'enum', value: 'active', label: 'Status', options: ['active', 'inactive', 'pending'] },
-		{ id: 'priority', name: 'priority', type: 'number', value: 5, label: 'Priority', description: 'Priority level (1-10)' },
-		{ id: 'enabled', name: 'enabled', type: 'boolean', value: true, label: 'Enabled', description: 'Enable this node' },
-		{ id: 'tags', name: 'tags', type: 'string', value: 'production, critical', label: 'Tags', description: 'Comma-separated tags' }
+		{
+			id: 'name',
+			name: 'name',
+			type: 'string',
+			value: 'My Node',
+			label: 'Node Name',
+			description: 'The name of the node'
+		},
+		{
+			id: 'type',
+			name: 'type',
+			type: 'enum',
+			value: 'processor',
+			label: 'Type',
+			description: 'Node type',
+			options: ['processor', 'memory', 'storage', 'network']
+		},
+		{
+			id: 'status',
+			name: 'status',
+			type: 'enum',
+			value: 'active',
+			label: 'Status',
+			options: ['active', 'inactive', 'pending']
+		},
+		{
+			id: 'priority',
+			name: 'priority',
+			type: 'number',
+			value: 5,
+			label: 'Priority',
+			description: 'Priority level (1-10)'
+		},
+		{
+			id: 'enabled',
+			name: 'enabled',
+			type: 'boolean',
+			value: true,
+			label: 'Enabled',
+			description: 'Enable this node'
+		},
+		{
+			id: 'tags',
+			name: 'tags',
+			type: 'string',
+			value: 'production, critical',
+			label: 'Tags',
+			description: 'Comma-separated tags'
+		}
 	];
 </script>
 
@@ -44,9 +87,9 @@
 			editable={values.editable as boolean}
 			groupByType={values.groupByType as boolean}
 			properties={sampleProperties}
-			onPropertyChange={(propertyId: string, value: unknown) => console.log('Property changed:', propertyId, value)}
+			onPropertyChange={(propertyId: string, value: unknown) =>
+				console.log('Property changed:', propertyId, value)}
 			onclose={() => console.log('Panel closed')}
 		/>
 	{/snippet}
 </Story>
-

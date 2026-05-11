@@ -17,9 +17,3 @@
 		<Skeleton />
 	{/snippet}
 </Story>
-
-
-
-
-
-

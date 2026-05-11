@@ -10,15 +10,10 @@ import type { BehaviorTrendable as ITrendable } from '$stylist/management/interf
  * KPIIndicator = shared label + metric + trend + size with analytics KPI status.
  */
 export interface KPIIndicatorRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IMetricValue,
-		ITrendable,
-		ISizable,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<
+		[ILabelSlot, IMetricValue, ITrendable, ISizable, ThemeAttributes<HTMLDivElement>]
+	> {
 	status?: TokenKPI;
 	titleClass?: string;
 	valueClass?: string;
 }
-

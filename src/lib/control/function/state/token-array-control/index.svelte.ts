@@ -1,7 +1,9 @@
 import type { TokenArrayControlProps } from '$stylist/control/type/struct/token-array-control-props';
 
 export function createTokenArrayControlState(props: TokenArrayControlProps) {
-	const displayTokens = $derived(props.dedupe ? Array.from(new Set(props.tokens)) : [...props.tokens]);
+	const displayTokens = $derived(
+		props.dedupe ? Array.from(new Set(props.tokens)) : [...props.tokens]
+	);
 	const title = $derived(props.title);
 	const className = $derived(props.class ?? '');
 

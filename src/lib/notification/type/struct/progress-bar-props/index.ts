@@ -8,4 +8,4 @@ export type ProgressBarProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	size?: 'sm' | 'md' | 'lg';
 	variant?: 'primary' | 'success' | 'warning' | 'danger';
 	class?: string;
-}
+};

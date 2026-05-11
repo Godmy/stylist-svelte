@@ -97,18 +97,10 @@
 				<BaseIcon name={ListOrdered} class={state.iconButtonClasses} />
 			</button>
 			<div class={state.dividerClasses}></div>
-			<button
-				type="button"
-				class={state.buttonClasses}
-				title="Add Image"
-			>
+			<button type="button" class={state.buttonClasses} title="Add Image">
 				<BaseIcon name={Image} class={state.iconButtonClasses} />
 			</button>
-			<button
-				type="button"
-				class={state.buttonClasses}
-				title="Add Link"
-			>
+			<button type="button" class={state.buttonClasses} title="Add Link">
 				<BaseIcon name={Link} class={state.iconButtonClasses} />
 			</button>
 
@@ -122,12 +114,7 @@
 			>
 				<BaseIcon name={Eye} class={state.iconButtonClasses} />
 			</button>
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={state.handleSave}
-				title="Save"
-			>
+			<button type="button" class={state.buttonClasses} onclick={state.handleSave} title="Save">
 				<BaseIcon name={Save} class={state.iconButtonClasses} />
 			</button>
 		</div>
@@ -155,7 +142,10 @@
 		{:else}
 			{#each state.contentElements as element, index}
 				<div
-					class={ContentEditorStyleManager.getContentClass(state.contentClasses, state.activeElementId === element.id)}
+					class={ContentEditorStyleManager.getContentClass(
+						state.contentClasses,
+						state.activeElementId === element.id
+					)}
 					role="button"
 					tabindex="0"
 					onclick={() => state.setActiveElementId(element.id)}
@@ -193,12 +183,14 @@
 					{:else if element.type === 'image'}
 						<div class={ContentEditorStyleManager.getImagePlaceholderClasses()}>
 							<BaseIcon name={Image} class={ContentEditorStyleManager.getImageIconClasses()} />
-							<p class={ContentEditorStyleManager.getImageTextClasses()}>Image: {element.content || 'No image selected'}</p>
+							<p class={ContentEditorStyleManager.getImageTextClasses()}>
+								Image: {element.content || 'No image selected'}
+							</p>
 							<p class={ContentEditorStyleManager.getImageHintClasses()}>Click to add image</p>
 						</div>
 					{/if}
 
-					<div class="flex justify-end space-x-1 mt-1">
+					<div class="mt-1 flex justify-end space-x-1">
 						<button
 							type="button"
 							class={ContentEditorStyleManager.getMoveButtonClass()}
@@ -207,7 +199,12 @@
 							title="Move up"
 						>
 							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M5 15l7-7 7 7"
+								/>
 							</svg>
 						</button>
 						<button
@@ -218,7 +215,12 @@
 							title="Move down"
 						>
 							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M19 9l-7 7-7-7"
+								/>
 							</svg>
 						</button>
 						<button
@@ -229,21 +231,36 @@
 							title="Delete"
 						>
 							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+								/>
 							</svg>
 						</button>
 					</div>
 				</div>
 
 				<!-- Add button between elements -->
-				<div class="flex justify-center my-2">
+				<div class="my-2 flex justify-center">
 					<button
 						type="button"
 						class={ContentEditorStyleManager.getAddButtonClass()}
 						onclick={() => state.addNewElement(index)}
 					>
-						<svg class={ContentEditorStyleManager.getAddIconClass()} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+						<svg
+							class={ContentEditorStyleManager.getAddIconClass()}
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+							/>
 						</svg>
 						Add
 					</button>
@@ -251,14 +268,24 @@
 			{/each}
 
 			<!-- Add button at the end -->
-			<div class="flex justify-center mt-4">
+			<div class="mt-4 flex justify-center">
 				<button
 					type="button"
 					class={ContentEditorStyleManager.getAddButtonClass()}
 					onclick={() => state.addNewElement(state.contentElements.length - 1)}
 				>
-					<svg class={ContentEditorStyleManager.getAddIconClass()} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+					<svg
+						class={ContentEditorStyleManager.getAddIconClass()}
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+						/>
 					</svg>
 					Add new block
 				</button>

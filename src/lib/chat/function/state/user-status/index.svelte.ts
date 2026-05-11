@@ -13,7 +13,9 @@ export const createUserStatusState = (props: {
 
 	const statusText = $derived.by(() => {
 		const userStatus = props.user.status;
-		const lastSeen = ((props.user as unknown) as Record<string, unknown>).lastSeen as Date | undefined;
+		const lastSeen = (props.user as unknown as Record<string, unknown>).lastSeen as
+			| Date
+			| undefined;
 		switch (userStatus) {
 			case 'online':
 				return 'в сети';

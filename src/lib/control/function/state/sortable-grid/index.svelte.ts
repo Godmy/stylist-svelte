@@ -3,7 +3,14 @@ import { SortableGridStyleManager } from '$stylist/control/class/style-manager/s
 import type { SortableGridItem } from '$stylist/control/type/alias/sortable-grid-item';
 import type { SortableGridProps } from '$stylist/control/type/alias/sortable-grid-props';
 
-const gridColsMap: Record<number | string, string> = { 1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3', 4: 'grid-cols-4', 5: 'grid-cols-5', 6: 'grid-cols-6' };
+const gridColsMap: Record<number | string, string> = {
+	1: 'grid-cols-1',
+	2: 'grid-cols-2',
+	3: 'grid-cols-3',
+	4: 'grid-cols-4',
+	5: 'grid-cols-5',
+	6: 'grid-cols-6'
+};
 const gapMap: Record<string, string> = { none: 'gap-0', sm: 'gap-2', md: 'gap-4', lg: 'gap-6' };
 
 export function createSortableGridState(props: SortableGridProps) {
@@ -15,7 +22,9 @@ export function createSortableGridState(props: SortableGridProps) {
 	const draggable = $derived(props.draggable ?? true);
 
 	const gridColsClass = $derived(
-		typeof cols === 'number' ? gridColsMap[cols as keyof typeof gridColsMap] ?? 'grid-cols-3' : gridColsMap[cols] ?? 'grid-cols-3'
+		typeof cols === 'number'
+			? (gridColsMap[cols as keyof typeof gridColsMap] ?? 'grid-cols-3')
+			: (gridColsMap[cols] ?? 'grid-cols-3')
 	);
 	const gapClass = $derived(gapMap[gap] ?? 'gap-4');
 
@@ -42,9 +51,9 @@ export function createSortableGridState(props: SortableGridProps) {
 
 		if (!draggedItem) return;
 
-		if (dropIndex !== items.findIndex(item => item.id === draggedItem!.id)) {
+		if (dropIndex !== items.findIndex((item) => item.id === draggedItem!.id)) {
 			const newItems = [...items];
-			const dragIndex = newItems.findIndex(item => item.id === draggedItem!.id);
+			const dragIndex = newItems.findIndex((item) => item.id === draggedItem!.id);
 			const [removed] = newItems.splice(dragIndex, 1);
 			const adjustedDropIndex = dropIndex > dragIndex ? dropIndex - 1 : dropIndex;
 			newItems.splice(adjustedDropIndex, 0, removed);
@@ -64,17 +73,39 @@ export function createSortableGridState(props: SortableGridProps) {
 	);
 
 	return {
-		get items() { return items; },
-		get className() { return className; },
-		get itemClass() { return itemClass; },
-		get cols() { return cols; },
-		get gap() { return gap; },
-		get draggable() { return draggable; },
-		get gridColsClass() { return gridColsClass; },
-		get gapClass() { return gapClass; },
-		get containerClass() { return containerClass; },
-		get draggedItem() { return draggedItem; },
-		get draggedOverIndex() { return draggedOverIndex; },
+		get items() {
+			return items;
+		},
+		get className() {
+			return className;
+		},
+		get itemClass() {
+			return itemClass;
+		},
+		get cols() {
+			return cols;
+		},
+		get gap() {
+			return gap;
+		},
+		get draggable() {
+			return draggable;
+		},
+		get gridColsClass() {
+			return gridColsClass;
+		},
+		get gapClass() {
+			return gapClass;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get draggedItem() {
+			return draggedItem;
+		},
+		get draggedOverIndex() {
+			return draggedOverIndex;
+		},
 		handleDragStart,
 		handleDragOver,
 		handleDragLeave,

@@ -11,10 +11,14 @@ export function createKPIIndicatorState(props: KPIIndicatorRecipe) {
 	const trend = $derived((props as any).trend ?? 'neutral');
 	const trendValue = $derived((props as any).trendValue ?? 0);
 	const size = $derived((props as any).size ?? 'md');
-	const percentage = $derived(ObjectManagerKPIIndicator.resolvePercentage(currentValue, targetValue));
+	const percentage = $derived(
+		ObjectManagerKPIIndicator.resolvePercentage(currentValue, targetValue)
+	);
 	const statusText = $derived(ObjectManagerKPIIndicator.resolveStatusText(status));
 	const trendIcon = $derived(ObjectManagerKPIIndicator.resolveTrendIconName(trend));
-	const containerClasses = $derived(`${KPIIndicatorStyleManager.getContainerClasses(size)} ${KPIIndicatorStyleManager.getStatusColorClasses(status)} ${props.class ?? ''}`.trim());
+	const containerClasses = $derived(
+		`${KPIIndicatorStyleManager.getContainerClasses(size)} ${KPIIndicatorStyleManager.getStatusColorClasses(status)} ${props.class ?? ''}`.trim()
+	);
 	const titleClasses = $derived(KPIIndicatorStyleManager.getTitleClasses(props.titleClass ?? ''));
 	const valueClasses = $derived(KPIIndicatorStyleManager.getValueClasses(props.valueClass ?? ''));
 	const trendColorClasses = $derived(KPIIndicatorStyleManager.getTrendColorClasses(trend));
@@ -39,24 +43,60 @@ export function createKPIIndicatorState(props: KPIIndicatorRecipe) {
 	});
 
 	return {
-		get label() { return label; },
-		get currentValue() { return currentValue; },
-		get targetValue() { return targetValue; },
-		get unit() { return unit; },
-		get status() { return status; },
-		get trend() { return trend; },
-		get trendValue() { return trendValue; },
-		get size() { return size; },
-		get percentage() { return percentage; },
-		get statusText() { return statusText; },
-		get trendIcon() { return trendIcon; },
-		get containerClasses() { return containerClasses; },
-		get titleClasses() { return titleClasses; },
-		get valueClasses() { return valueClasses; },
-		get trendColorClasses() { return trendColorClasses; },
-		get progressTrackClasses() { return progressTrackClasses; },
-		get progressFillClasses() { return progressFillClasses; },
-		get restProps() { return restProps; }
+		get label() {
+			return label;
+		},
+		get currentValue() {
+			return currentValue;
+		},
+		get targetValue() {
+			return targetValue;
+		},
+		get unit() {
+			return unit;
+		},
+		get status() {
+			return status;
+		},
+		get trend() {
+			return trend;
+		},
+		get trendValue() {
+			return trendValue;
+		},
+		get size() {
+			return size;
+		},
+		get percentage() {
+			return percentage;
+		},
+		get statusText() {
+			return statusText;
+		},
+		get trendIcon() {
+			return trendIcon;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get valueClasses() {
+			return valueClasses;
+		},
+		get trendColorClasses() {
+			return trendColorClasses;
+		},
+		get progressTrackClasses() {
+			return progressTrackClasses;
+		},
+		get progressFillClasses() {
+			return progressFillClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

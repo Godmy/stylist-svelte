@@ -16,11 +16,19 @@
 	];
 </script>
 
-<Story component={PriceMatch} title="PriceMatch" description="Compares your price against competitor offers." {controls}>
+<Story
+	component={PriceMatch}
+	title="PriceMatch"
+	description="Compares your price against competitor offers."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<PriceMatch productName={values.productName} targetPrice={values.targetPrice} currency={values.currency} competitorPrices={competitors} onFindLower={() => {}} />
+		<PriceMatch
+			productName={values.productName}
+			targetPrice={values.targetPrice}
+			currency={values.currency}
+			competitorPrices={competitors}
+			onFindLower={() => {}}
+		/>
 	{/snippet}
 </Story>
-
-
-

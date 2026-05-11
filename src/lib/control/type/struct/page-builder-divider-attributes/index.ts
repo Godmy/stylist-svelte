@@ -1,3 +1,3 @@
 export type PageBuilderDividerAttributes = {
-  color?: string;
-}
+	color?: string;
+};

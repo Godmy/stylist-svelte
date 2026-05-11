@@ -5,4 +5,3 @@ export const PERFORMANCE_MONITOR_STATUS_COLOR = {
 	warning: 'bg-yellow-500',
 	critical: 'bg-[var(--color-danger-500)]'
 } as const satisfies Record<PerformanceMonitorStatus, string>;
-

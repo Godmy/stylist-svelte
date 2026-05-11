@@ -57,18 +57,25 @@
 	];
 </script>
 
-<Story {controls} component={Border} title="Border Component" description="Компонент для управления границами с поддержкой различных стилей и анимации">
+<Story
+	{controls}
+	component={Border}
+	title="Border Component"
+	description="Компонент для управления границами с поддержкой различных стилей и анимации"
+>
 	{#snippet children(values: any)}
 		<div class="w-full rounded-lg py-4">
-			<Border {...values} class="p-6 bg-[var(--color-background-secondary)]">
+			<Border {...values} class="bg-[var(--color-background-secondary)] p-6">
 				{#snippet children()}
 					<div class="text-center">
-						<p class="font-medium">Border style: <strong>{values.borderStyle || 'solid'}</strong></p>
+						<p class="font-medium">
+							Border style: <strong>{values.borderStyle || 'solid'}</strong>
+						</p>
 						{#if values.borderColor}
-							<p class="text-sm text-muted mt-1">Color: {values.borderColor}</p>
+							<p class="text-muted mt-1 text-sm">Color: {values.borderColor}</p>
 						{/if}
 						{#if values.borderRadius && values.borderRadius !== 'none'}
-							<p class="text-sm text-muted mt-1">Radius: {values.borderRadius}</p>
+							<p class="text-muted mt-1 text-sm">Radius: {values.borderRadius}</p>
 						{/if}
 					</div>
 				{/snippet}
@@ -76,4 +83,3 @@
 		</div>
 	{/snippet}
 </Story>
-

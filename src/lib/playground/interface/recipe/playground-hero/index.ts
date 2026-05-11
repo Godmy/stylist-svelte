@@ -3,7 +3,8 @@ import type { InformationHTMLAttributes } from '$stylist/information/type/struct
 import type { Snippet } from 'svelte';
 import type { SlotAiModel } from '$stylist/development/interface/slot/ai-model';
 
-export interface RecipePlaygroundHero extends StructIntersectAll<[Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>]> {
+export interface RecipePlaygroundHero
+	extends StructIntersectAll<[Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>]> {
 	/** Title */
 	title?: string;
 	/** Subtitle */

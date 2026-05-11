@@ -75,13 +75,11 @@ export const createDraggableState = (props: DragProps) => {
 
 		isDragging = true;
 
-		const sourceElement =
-			event.currentTarget instanceof HTMLElement ? event.currentTarget : null;
+		const sourceElement = event.currentTarget instanceof HTMLElement ? event.currentTarget : null;
 
 		if (sourceElement && event.dataTransfer) {
 			const previewCandidate = Array.from(sourceElement.children).find(
-				(child) =>
-					child instanceof HTMLElement && !child.classList.contains('drag-handle-icon')
+				(child) => child instanceof HTMLElement && !child.classList.contains('drag-handle-icon')
 			);
 			const previewSource =
 				previewCandidate instanceof HTMLElement ? previewCandidate : sourceElement;

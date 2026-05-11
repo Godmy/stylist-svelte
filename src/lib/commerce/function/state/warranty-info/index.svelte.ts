@@ -10,8 +10,12 @@ export function createWarrantyInfoState(props: WarrantyInfoContract) {
 	const coverage = $derived(props.warrantyPeriod?.coverage ?? []);
 	const exclusions = $derived(props.warrantyPeriod?.exclusions ?? []);
 
-	const containerClasses = $derived(WarrantyInfoStyleManager.getContainerClasses(String(props.class ?? '')));
-	const headerClasses = $derived(WarrantyInfoStyleManager.getHeaderClasses(props.headerClass ?? ''));
+	const containerClasses = $derived(
+		WarrantyInfoStyleManager.getContainerClasses(String(props.class ?? ''))
+	);
+	const headerClasses = $derived(
+		WarrantyInfoStyleManager.getHeaderClasses(props.headerClass ?? '')
+	);
 	const titleClasses = $derived(WarrantyInfoStyleManager.getTitleClasses());
 	const contentContainerClasses = $derived(WarrantyInfoStyleManager.getContentContainerClasses());
 	const sectionClasses = $derived(WarrantyInfoStyleManager.getSectionClasses());
@@ -31,7 +35,9 @@ export function createWarrantyInfoState(props: WarrantyInfoContract) {
 	const inputClasses = $derived(WarrantyInfoStyleManager.getInputClasses());
 	const textAreaClasses = $derived(WarrantyInfoStyleManager.getTextAreaClasses());
 	const iconClasses = $derived(WarrantyInfoStyleManager.getIconClasses());
-	const warrantyPeriodBadgeClasses = $derived(WarrantyInfoStyleManager.getWarrantyPeriodBadgeClasses());
+	const warrantyPeriodBadgeClasses = $derived(
+		WarrantyInfoStyleManager.getWarrantyPeriodBadgeClasses()
+	);
 
 	function getClaimStatusBadgeClasses(status: string) {
 		return WarrantyInfoStyleManager.getClaimStatusBadgeClasses(status);
@@ -65,35 +71,93 @@ export function createWarrantyInfoState(props: WarrantyInfoContract) {
 	}
 
 	return {
-		get claimIssue() { return claimIssue; },
-		set claimIssue(v: string) { claimIssue = v; },
-		get claimDescription() { return claimDescription; },
-		set claimDescription(v: string) { claimDescription = v; },
-		get claims() { return claims; },
-		get coverage() { return coverage; },
-		get exclusions() { return exclusions; },
-		get containerClasses() { return containerClasses; },
-		get headerClasses() { return headerClasses; },
-		get titleClasses() { return titleClasses; },
-		get contentContainerClasses() { return contentContainerClasses; },
-		get sectionClasses() { return sectionClasses; },
-		get sectionTitleClasses() { return sectionTitleClasses; },
-		get coverageListClasses() { return coverageListClasses; },
-		get coverageItemClasses() { return coverageItemClasses; },
-		get coverageIconClasses() { return coverageIconClasses; },
-		get coverageTextClasses() { return coverageTextClasses; },
-		get exclusionsListClasses() { return exclusionsListClasses; },
-		get exclusionItemClasses() { return exclusionItemClasses; },
-		get exclusionIconClasses() { return exclusionIconClasses; },
-		get exclusionTextClasses() { return exclusionTextClasses; },
-		get claimsContainerClasses() { return claimsContainerClasses; },
-		get claimItemClasses() { return claimItemClasses; },
-		get claimTitleClasses() { return claimTitleClasses; },
-		get formContainerClasses() { return formContainerClasses; },
-		get inputClasses() { return inputClasses; },
-		get textAreaClasses() { return textAreaClasses; },
-		get iconClasses() { return iconClasses; },
-		get warrantyPeriodBadgeClasses() { return warrantyPeriodBadgeClasses; },
+		get claimIssue() {
+			return claimIssue;
+		},
+		set claimIssue(v: string) {
+			claimIssue = v;
+		},
+		get claimDescription() {
+			return claimDescription;
+		},
+		set claimDescription(v: string) {
+			claimDescription = v;
+		},
+		get claims() {
+			return claims;
+		},
+		get coverage() {
+			return coverage;
+		},
+		get exclusions() {
+			return exclusions;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get contentContainerClasses() {
+			return contentContainerClasses;
+		},
+		get sectionClasses() {
+			return sectionClasses;
+		},
+		get sectionTitleClasses() {
+			return sectionTitleClasses;
+		},
+		get coverageListClasses() {
+			return coverageListClasses;
+		},
+		get coverageItemClasses() {
+			return coverageItemClasses;
+		},
+		get coverageIconClasses() {
+			return coverageIconClasses;
+		},
+		get coverageTextClasses() {
+			return coverageTextClasses;
+		},
+		get exclusionsListClasses() {
+			return exclusionsListClasses;
+		},
+		get exclusionItemClasses() {
+			return exclusionItemClasses;
+		},
+		get exclusionIconClasses() {
+			return exclusionIconClasses;
+		},
+		get exclusionTextClasses() {
+			return exclusionTextClasses;
+		},
+		get claimsContainerClasses() {
+			return claimsContainerClasses;
+		},
+		get claimItemClasses() {
+			return claimItemClasses;
+		},
+		get claimTitleClasses() {
+			return claimTitleClasses;
+		},
+		get formContainerClasses() {
+			return formContainerClasses;
+		},
+		get inputClasses() {
+			return inputClasses;
+		},
+		get textAreaClasses() {
+			return textAreaClasses;
+		},
+		get iconClasses() {
+			return iconClasses;
+		},
+		get warrantyPeriodBadgeClasses() {
+			return warrantyPeriodBadgeClasses;
+		},
 		getClaimStatusBadgeClasses,
 		getButtonClasses,
 		formatDate,

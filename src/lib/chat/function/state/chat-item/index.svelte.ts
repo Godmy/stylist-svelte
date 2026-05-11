@@ -2,18 +2,28 @@ import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 import { ChatStyleManager } from '$stylist/chat/class/style-manager/chat';
 
-export const createChatItemState = (props: { chat: Chat; currentUser: User; isActive?: boolean; class?: string }) => {
+export const createChatItemState = (props: {
+	chat: Chat;
+	currentUser: User;
+	isActive?: boolean;
+	class?: string;
+}) => {
 	const isActiveVal = $derived(props.isActive ?? false);
 	const isGroupChat = $derived(props.chat.participants.length > 2);
 
 	const otherUser = $derived(
-		!isGroupChat ? props.chat.participants.find((user: User) => user.id !== props.currentUser.id) : null
+		!isGroupChat
+			? props.chat.participants.find((user: User) => user.id !== props.currentUser.id)
+			: null
 	);
 
 	const lastMessagePreview = $derived.by(() => {
 		if (!props.chat.lastMessage) return 'No messages yet';
 
-		const content = typeof props.chat.lastMessage === 'object' ? props.chat.lastMessage.content : props.chat.lastMessage || '';
+		const content =
+			typeof props.chat.lastMessage === 'object'
+				? props.chat.lastMessage.content
+				: props.chat.lastMessage || '';
 		return content.length > 30 ? `${content.substring(0, 30)}...` : content;
 	});
 

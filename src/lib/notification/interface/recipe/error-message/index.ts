@@ -5,11 +5,4 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/slot/status';
 
 export interface ErrorMessageRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IStatusSlot,
-		IIconSlot
-	]>
-{}
-
+	extends StructIntersectAll<[ILabelSlot, ICaptionSlot, IStatusSlot, IIconSlot]> {}

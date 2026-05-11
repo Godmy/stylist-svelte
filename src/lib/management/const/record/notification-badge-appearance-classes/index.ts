@@ -21,7 +21,9 @@ export const NOTIFICATION_BADGE_APPEARANCE_CLASSES: Record<TokenAppearance, stri
 	link: 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)]',
 	subtle: 'bg-[var(--color-neutral-200)] text-[var(--color-text-primary)]',
 	dark: 'bg-[var(--color-neutral-900)] text-[var(--color-text-inverse)]',
-	light: 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] border border-[var(--color-border-primary)]',
-	elevated: 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] shadow-md border border-[var(--color-border-secondary)]',
+	light:
+		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] border border-[var(--color-border-primary)]',
+	elevated:
+		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] shadow-md border border-[var(--color-border-secondary)]',
 	flat: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]'
 };

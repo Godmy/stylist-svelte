@@ -6,6 +6,9 @@ import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
 import type { TokenSelectionType } from '$stylist/control/type/record/selection-type';
 import type { RecipeToggleBaseProps } from '$stylist/control/interface/recipe/toggle-base-props';
 
-export interface RecipeToggleInputProps extends StructIntersectAll<[Omit<HTMLInputAttributes, 'size' | 'disabled' | 'checked' | 'class'>, RecipeToggleBaseProps]> {
+export interface RecipeToggleInputProps
+	extends StructIntersectAll<
+		[Omit<HTMLInputAttributes, 'size' | 'disabled' | 'checked' | 'class'>, RecipeToggleBaseProps]
+	> {
 	checked?: boolean;
 }

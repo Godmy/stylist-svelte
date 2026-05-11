@@ -12,6 +12,3 @@ export const COLORS_SCALES_GRAY: RecordColorScale = {
 	800: '#1f2937',
 	900: '#111827'
 };
-
-
-

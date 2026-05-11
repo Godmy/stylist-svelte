@@ -86,7 +86,10 @@ export function createTransformationState(props: TransformationProps) {
 		}
 
 		// Transition
-		if (!disabled && (typeof duration === 'number' && duration > 0 || animateOnHover || animateOnClick)) {
+		if (
+			!disabled &&
+			((typeof duration === 'number' && duration > 0) || animateOnHover || animateOnClick)
+		) {
 			styles.transition = `transform ${typeof duration === 'number' ? duration : 300}ms ${easing} ${delay}ms`;
 		}
 

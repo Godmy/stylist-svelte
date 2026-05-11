@@ -40,16 +40,10 @@ export class ToggleStyleManager {
 	}
 
 	static getToggleGroupClasses(className?: string): string {
-		return this.join([
-			'inline-flex items-center gap-1',
-			className
-		]);
+		return this.join(['inline-flex items-center gap-1', className]);
 	}
 
 	static getToggleIconClasses(className?: string): string {
-		return this.join([
-			'w-4 h-4',
-			className
-		]);
+		return this.join(['w-4 h-4', className]);
 	}
 }

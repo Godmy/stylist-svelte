@@ -8,12 +8,15 @@ export function createComponentPreviewState(props: ComponentPreviewProps) {
 	const headerClasses = $derived(ComponentPreviewStyleManager.getHeaderClasses());
 	const titleClasses = $derived(ComponentPreviewStyleManager.getTitleClasses());
 	const descriptionClasses = $derived(ComponentPreviewStyleManager.getDescriptionClasses());
-	const previewContainerClasses = $derived(ComponentPreviewStyleManager.getPreviewContainerClasses());
+	const previewContainerClasses = $derived(
+		ComponentPreviewStyleManager.getPreviewContainerClasses()
+	);
 	const demoContainerClasses = $derived(ComponentPreviewStyleManager.getDemoContainerClasses());
 	const codeContainerClasses = $derived(ComponentPreviewStyleManager.getCodeContainerClasses());
 	const tabContainerClasses = $derived(ComponentPreviewStyleManager.getTabContainerClasses());
 	const tabListClasses = $derived(ComponentPreviewStyleManager.getTabListClasses());
-	const tabButtonClasses = (isActive: boolean) => ComponentPreviewStyleManager.getTabButtonClasses(isActive);
+	const tabButtonClasses = (isActive: boolean) =>
+		ComponentPreviewStyleManager.getTabButtonClasses(isActive);
 
 	function setPreviewTab(tab: 'preview' | 'code') {
 		activeTab = tab;

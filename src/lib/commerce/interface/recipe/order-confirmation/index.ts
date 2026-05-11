@@ -13,7 +13,9 @@ import type { ContractShippingAddress } from '$stylist/commerce/interface/contra
 import type { SlotOrderConfirmationPaymentInfo as ContractOrderConfirmationPaymentInfo } from '$stylist/commerce/interface/slot/order-confirmation-payment-info';
 import type { SlotOrderConfirmationEvents as BehaviorOrderConfirmationEvents } from '$stylist/commerce/interface/slot/order-confirmation-events';
 
-export interface RecipeOrderConfirmation extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorOrderConfirmationEvents {
+export interface RecipeOrderConfirmation
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorOrderConfirmationEvents {
 	/** SlotOrder ID */
 	orderId: string;
 	/** SlotOrder date */

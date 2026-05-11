@@ -31,9 +31,3 @@
 		</button>
 	{/each}
 </div>
-
-
-
-
-
-

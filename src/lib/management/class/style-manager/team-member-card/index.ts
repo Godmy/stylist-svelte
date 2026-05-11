@@ -4,10 +4,7 @@ import { CardStyleManager } from '$stylist/information/class/style-manager/card'
 import { TEAM_MEMBER_CARD_VARIANT_CLASSES } from '$stylist/management/const/record/team-member-card-variant-classes';
 
 export class TeamMemberCardStyleManager {
-	static getBaseClasses(
-		variant: TierContent = 'detailed',
-		className = ''
-	): string {
+	static getBaseClasses(variant: TierContent = 'detailed', className = ''): string {
 		return mergeClassNames(
 			'team-member-card overflow-hidden',
 			CardStyleManager.getBaseClasses(),
@@ -17,7 +14,9 @@ export class TeamMemberCardStyleManager {
 	}
 
 	static getVariantClasses(variant: TierContent): string {
-		return TEAM_MEMBER_CARD_VARIANT_CLASSES[variant] ?? TEAM_MEMBER_CARD_VARIANT_CLASSES.detailed ?? '';
+		return (
+			TEAM_MEMBER_CARD_VARIANT_CLASSES[variant] ?? TEAM_MEMBER_CARD_VARIANT_CLASSES.detailed ?? ''
+		);
 	}
 
 	static getHeaderClasses(): string {
@@ -76,4 +75,3 @@ export class TeamMemberCardStyleManager {
 		return 'mt-1 text-xs text-[var(--color-text-secondary)]';
 	}
 }
-

@@ -4,4 +4,4 @@ export type BulkOrderFormItem = {
 	quantity: number;
 	price: number;
 	note?: string;
-}
+};

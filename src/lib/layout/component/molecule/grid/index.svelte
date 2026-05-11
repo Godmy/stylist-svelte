@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { GridProps } from '$stylist/layout/type/struct/grid/grid-props';
-  import { stateFn } from '$stylist/layout/function/state/grid';
+	import type { GridProps } from '$stylist/layout/type/struct/grid/grid-props';
+	import { stateFn } from '$stylist/layout/function/state/grid';
 
-  let props: GridProps = $props();
-  const state = stateFn(props);
+	let props: GridProps = $props();
+	const state = stateFn(props);
 </script>
 
 <div class={state.gridClass} {...state.restProps}>
-  {#if props.children}{@render props.children()}{/if}
+	{#if props.children}{@render props.children()}{/if}
 </div>

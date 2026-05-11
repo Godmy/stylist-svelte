@@ -9,14 +9,10 @@ import type { BehaviorMetricValue as IMetricValue } from '$stylist/information/i
  * MetricCard = shared information slots + metric value + analytics progress affordance.
  */
 export interface MetricCardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IMetricValue,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IMetricValue, ThemeAttributes<HTMLDivElement>]
+	> {
 	percentage: number;
 	variant?: TokenAppearance;
 	showProgressBar?: boolean;
 }
-

@@ -8,7 +8,13 @@
 </script>
 
 <TokenControlBase definition={state.definition} layout="inline">
-	<input class="token-text-control" type="text" value={state.value} placeholder={state.placeholder} oninput={state.handleInput} />
+	<input
+		class="token-text-control"
+		type="text"
+		value={state.value}
+		placeholder={state.placeholder}
+		oninput={state.handleInput}
+	/>
 </TokenControlBase>
 
 <style>
@@ -22,6 +28,3 @@
 		min-width: 220px;
 	}
 </style>
-
-
-

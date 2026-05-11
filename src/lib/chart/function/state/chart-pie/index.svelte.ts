@@ -6,7 +6,9 @@ export function createPieChartState(props: PieChartProps & { width?: number; hei
 	const width = $derived(props.width ?? 200);
 	const height = $derived(props.height ?? 200);
 	const restProps = $derived(ObjectManagerChart.getPieChartRestProps(props));
-	const segments = $derived(ObjectManagerChart.getPieChartSegments(props.data ?? [], width, height));
+	const segments = $derived(
+		ObjectManagerChart.getPieChartSegments(props.data ?? [], width, height)
+	);
 	const containerClasses = $derived(
 		DataDisplayStyleManager.getPieChartContainerClasses(
 			typeof props.class === 'string' ? props.class : undefined
@@ -37,9 +39,3 @@ export function createPieChartState(props: PieChartProps & { width?: number; hei
 }
 
 export default createPieChartState;
-
-
-
-
-
-

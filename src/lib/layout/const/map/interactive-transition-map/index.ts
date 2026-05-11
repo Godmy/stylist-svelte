@@ -5,4 +5,3 @@ export const INTERACTIVE_TRANSITION_MAP = {
 	transform: 'transition-transform duration-150 ease-in-out',
 	opacity: 'transition-opacity duration-150 ease-in-out'
 } as const;
-

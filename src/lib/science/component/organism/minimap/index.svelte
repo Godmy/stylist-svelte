@@ -27,12 +27,7 @@
 		aria-label="Mini map navigation"
 		tabindex="0"
 	>
-		<rect
-			width={state.width}
-			height={state.height}
-			fill={state.backgroundColor}
-			rx={8}
-		/>
+		<rect width={state.width} height={state.height} fill={state.backgroundColor} rx={8} />
 
 		<pattern
 			id="minimap-grid"
@@ -40,18 +35,9 @@
 			height={20 * state.miniMapZoom}
 			patternUnits="userSpaceOnUse"
 		>
-			<circle
-				cx={1}
-				cy={1}
-				r={1}
-				fill={state.gridColor}
-			/>
+			<circle cx={1} cy={1} r={1} fill={state.gridColor} />
 		</pattern>
-		<rect
-			width={state.width}
-			height={state.height}
-			fill="url(#minimap-grid)"
-		/>
+		<rect width={state.width} height={state.height} fill="url(#minimap-grid)" />
 
 		{#each state.nodes as node}
 			{@const rect = state.getNodeRect(node)}
@@ -155,8 +141,13 @@
 	}
 
 	@keyframes minimap-viewport-pulse {
-		0%, 100% { opacity: var(--opacity-100); }
-		50% { opacity: var(--opacity-70); }
+		0%,
+		100% {
+			opacity: var(--opacity-100);
+		}
+		50% {
+			opacity: var(--opacity-70);
+		}
 	}
 
 	:global(.minimap__controls) {

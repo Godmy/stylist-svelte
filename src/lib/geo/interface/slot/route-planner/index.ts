@@ -22,7 +22,10 @@ export interface SlotRoutePlanner extends Omit<InformationHTMLAttributes<HTMLDiv
 	optionClass?: string;
 	onRouteCalculated?: (route: SlotRouteOption) => void;
 	onRouteSelect?: (routeId: string) => void;
-	onLocationChange?: (type: 'start' | 'end' | 'waypoint', location: SlotRoutePlannerLocation) => void;
+	onLocationChange?: (
+		type: 'start' | 'end' | 'waypoint',
+		location: SlotRoutePlannerLocation
+	) => void;
 	height?: string;
 	width?: string;
 }

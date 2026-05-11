@@ -7,9 +7,9 @@ import type { SlotChat } from '$stylist/chat/interface/slot/chat';
 
 // ChatHeader props interface
 export interface SlotChatHeader extends InteractionHTMLAttributes<HTMLDivElement> {
-  chat: SlotChat;
-  currentUser: SlotUser;
-  showActions?: boolean;
-  class?: string;
-  children?: Snippet;
+	chat: SlotChat;
+	currentUser: SlotUser;
+	showActions?: boolean;
+	class?: string;
+	children?: Snippet;
 }

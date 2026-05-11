@@ -70,10 +70,10 @@
 		<div class="story-preview">
 			<StylistMenu
 				class={className}
-				triggerIcon={triggerIcon}
-				avatarLabel={avatarLabel}
-				avatarName={avatarName}
-				avatarEmail={avatarEmail}
+				{triggerIcon}
+				{avatarLabel}
+				{avatarName}
+				{avatarEmail}
 				onItemClick={handleItemClick}
 				onFunctionalTabClick={handleFunctionalTabClick}
 				onAtomicTabClick={handleAtomicTabClick}

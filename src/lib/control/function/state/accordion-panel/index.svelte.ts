@@ -12,15 +12,12 @@ type AccordionPanelStateProps = AccordionPanelProps & {
 export function createAccordionPanelState(props: AccordionPanelStateProps) {
 	const ctx = props.accordionContext;
 	const isOpen = $derived(ctx.isPanelOpen(props.value));
-	const classes = $derived(joinClassNames('accordion-panel', isOpen ? 'open' : 'closed', props.class));
+	const classes = $derived(
+		joinClassNames('accordion-panel', isOpen ? 'open' : 'closed', props.class)
+	);
 
 	const contentClasses = $derived(
-		joinClassNames(
-			'accordion-panel-content',
-			props.paddingClass,
-			props.borderClass,
-			props.bgClass
-		)
+		joinClassNames('accordion-panel-content', props.paddingClass, props.borderClass, props.bgClass)
 	);
 
 	return {

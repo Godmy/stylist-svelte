@@ -2,7 +2,7 @@
 	import type { PieChartProps } from '$stylist/chart/interface/recipe/pie-chart-props';
 	import { createPieChartState } from '$stylist/chart/function/state/chart-pie';
 
-let props: PieChartProps & { width?: number; height?: number } = $props();
+	let props: PieChartProps & { width?: number; height?: number } = $props();
 	const state = createPieChartState(props);
 	const restProps = $derived(
 		(() => {
@@ -21,12 +21,10 @@ let props: PieChartProps & { width?: number; height?: number } = $props();
 	);
 </script>
 
-<div class={state.containerClasses} {...(restProps as any)}>
+<div class={state.containerClasses} {...restProps as any}>
 	<svg width={state.width} height={state.height} class={state.svgClasses}>
 		{#each state.segments as segment, i (i)}
 			<path d={segment.path} fill={segment.fill} />
 		{/each}
 	</svg>
 </div>
-
-

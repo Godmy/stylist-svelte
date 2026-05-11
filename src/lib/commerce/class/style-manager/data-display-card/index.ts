@@ -3,7 +3,11 @@ import { CardStyleManager } from '$stylist/information/class/style-manager/card'
 
 export class DataDisplayCardStyleManager {
 	static getContainerClasses(className = ''): string {
-		return mergeClassNames('rounded-lg shadow-md overflow-hidden', CardStyleManager.getBaseClasses(), className);
+		return mergeClassNames(
+			'rounded-lg shadow-md overflow-hidden',
+			CardStyleManager.getBaseClasses(),
+			className
+		);
 	}
 
 	static getImageClasses(className = ''): string {
@@ -39,7 +43,9 @@ export class DataDisplayCardStyleManager {
 	}
 
 	static getFooterClasses(className = ''): string {
-		return mergeClassNames('px-6 py-3 bg-[var(--color-background-secondary)] border-t border-[var(--color-border-primary)]', className);
+		return mergeClassNames(
+			'px-6 py-3 bg-[var(--color-background-secondary)] border-t border-[var(--color-border-primary)]',
+			className
+		);
 	}
 }
-

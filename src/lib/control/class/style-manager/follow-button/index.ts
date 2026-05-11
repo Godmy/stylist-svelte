@@ -33,23 +33,19 @@ export class FollowButtonStyleManager {
 		return this.join([
 			'inline-flex items-center justify-center gap-1.5 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-500)]',
 			sizeClasses[size] ?? sizeClasses.md,
-			following ? FOLLOW_BUTTON_VARIANT_CLASSES.following : FOLLOW_BUTTON_VARIANT_CLASSES.notFollowing,
+			following
+				? FOLLOW_BUTTON_VARIANT_CLASSES.following
+				: FOLLOW_BUTTON_VARIANT_CLASSES.notFollowing,
 			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : '',
 			className
 		]);
 	}
 
 	static getFollowButtonIconClasses(className?: string): string {
-		return this.join([
-			'w-4 h-4',
-			className
-		]);
+		return this.join(['w-4 h-4', className]);
 	}
 
 	static getFollowButtonTextClasses(className?: string): string {
-		return this.join([
-			'',
-			className
-		]);
+		return this.join(['', className]);
 	}
 }

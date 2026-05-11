@@ -29,6 +29,3 @@
 		<Favicon url={values.url as string} size={Number.isNaN(parsedSize) ? 24 : parsedSize} />
 	{/snippet}
 </Story>
-
-
-

@@ -7,5 +7,9 @@ export function formatTime(date: Date, localeCode: string, timeZone: string): st
 }
 
 export function formatDateTime(date: Date, localeCode: string, timeZone: string): string {
-	return new Intl.DateTimeFormat(localeCode, { dateStyle: 'long', timeStyle: 'short', timeZone }).format(date);
+	return new Intl.DateTimeFormat(localeCode, {
+		dateStyle: 'long',
+		timeStyle: 'short',
+		timeZone
+	}).format(date);
 }

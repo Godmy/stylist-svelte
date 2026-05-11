@@ -2,7 +2,10 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 
 export class InlineCodeStyleManager {
 	static getInlineCodeClasses(className = ''): string {
-		return mergeClassNames('inline-code', 'px-1 py-0.5 text-sm font-mono rounded bg-[var(--color-neutral-100)] text-[var(--color-danger-500)]', className);
+		return mergeClassNames(
+			'inline-code',
+			'px-1 py-0.5 text-sm font-mono rounded bg-[var(--color-neutral-100)] text-[var(--color-danger-500)]',
+			className
+		);
 	}
 }
-

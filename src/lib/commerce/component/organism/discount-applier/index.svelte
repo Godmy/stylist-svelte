@@ -17,7 +17,9 @@
 				type="text"
 				placeholder="Enter promo code"
 				value={state.codeInput}
-				oninput={(e) => { state.codeInput = (e.target as HTMLInputElement).value; }}
+				oninput={(e) => {
+					state.codeInput = (e.target as HTMLInputElement).value;
+				}}
 				class={state.promoCodeInputClasses}
 			/>
 			<button onclick={state.handleApplyCode} class={state.applyButtonClasses}>Apply</button>
@@ -25,21 +27,25 @@
 	{/if}
 
 	{#if state.message}
-		<div class={state.message.type === 'success' ? state.successMessageClasses : state.errorMessageClasses}>
+		<div
+			class={state.message.type === 'success'
+				? state.successMessageClasses
+				: state.errorMessageClasses}
+		>
 			{state.message.text}
 		</div>
 	{/if}
 
 	{#if props.showAppliedRules !== false && state.appliedCodes.length > 0}
 		<div class={state.appliedRulesContainerClasses}>
-			<h3 class="text-sm font-medium mb-2">Applied Codes</h3>
+			<h3 class="mb-2 text-sm font-medium">Applied Codes</h3>
 			{#each state.appliedCodes as code}
 				<div class="flex items-center justify-between py-1">
 					<span class={state.appliedBadgeClasses}>{code}</span>
 					<button
 						onclick={() => state.handleRemoveRule(code)}
-						class="text-sm text-[--color-error-600]"
-					>&times; Remove</button>
+						class="text-sm text-[--color-error-600]">&times; Remove</button
+					>
 				</div>
 			{/each}
 		</div>
@@ -61,8 +67,8 @@
 					{:else}
 						<button
 							onclick={() => state.handleApplyRule(rule)}
-							class="text-sm text-[--color-primary-600] font-medium"
-						>Apply</button>
+							class="text-sm font-medium text-[--color-primary-600]">Apply</button
+						>
 					{/if}
 				</div>
 			{/each}

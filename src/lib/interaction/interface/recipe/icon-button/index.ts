@@ -9,15 +9,15 @@ import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavi
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface IconButtonRecipe
-	extends StructIntersectAll<[
-		IIconSlot,
-		IClickable,
-		IFocusable,
-		ISized,
-		IShapeable,
-		ISpaced,
-		SlotTheme,
-		HTMLAttributes<HTMLButtonElement>
-	]>
-{}
-
+	extends StructIntersectAll<
+		[
+			IIconSlot,
+			IClickable,
+			IFocusable,
+			ISized,
+			IShapeable,
+			ISpaced,
+			SlotTheme,
+			HTMLAttributes<HTMLButtonElement>
+		]
+	> {}

@@ -25,5 +25,3 @@
 		</footer>
 	{/if}
 </blockquote>
-
-

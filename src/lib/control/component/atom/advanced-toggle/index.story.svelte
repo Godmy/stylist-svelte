@@ -49,11 +49,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-
-
-

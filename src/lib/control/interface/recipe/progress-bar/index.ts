@@ -12,10 +12,4 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/slot/status';
 
 export interface ProgressBarRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IStatusSlot
-	]>
-{}
-
+	extends StructIntersectAll<[ILabelSlot, ICaptionSlot, IStatusSlot]> {}

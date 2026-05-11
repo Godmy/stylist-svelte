@@ -16,7 +16,15 @@ export interface ButtonFactoryHtmlInput {
 	type?: HTMLButtonAttributes['type'];
 	attrs: Omit<
 		HTMLButtonAttributes,
-		'class' | 'type' | 'disabled' | 'children' | 'ariaLabel' | 'variant' | 'size' | 'loading' | 'block'
+		| 'class'
+		| 'type'
+		| 'disabled'
+		| 'children'
+		| 'ariaLabel'
+		| 'variant'
+		| 'size'
+		| 'loading'
+		| 'block'
 	>;
 }
 

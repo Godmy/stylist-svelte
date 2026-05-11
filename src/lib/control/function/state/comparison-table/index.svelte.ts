@@ -2,11 +2,15 @@ import type { ComparisonTableProps } from '$stylist/control/type/struct/comparis
 
 export function createComparisonTableState(props: ComparisonTableProps) {
 	const containerClass = $derived(`overflow-x-auto ${props.class ?? ''}`);
-	const headerClass = $derived(`${props.headerClass ?? ''} ${(props.showHeader ?? true) ? '' : 'sr-only'}`);
+	const headerClass = $derived(
+		`${props.headerClass ?? ''} ${(props.showHeader ?? true) ? '' : 'sr-only'}`
+	);
 	const featureClass = $derived(props.featureClass ?? '');
 	const productClass = $derived(props.productClass ?? '');
 	const valueClass = $derived(props.valueClass ?? '');
-	const primaryProductClass = $derived(props.primaryProductClass ?? 'ring-2 ring-blue-500 ring-offset-2');
+	const primaryProductClass = $derived(
+		props.primaryProductClass ?? 'ring-2 ring-blue-500 ring-offset-2'
+	);
 
 	return {
 		get containerClass() {

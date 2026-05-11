@@ -21,7 +21,12 @@
 	};
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'value', type: 'select', defaultValue: 'center', options: ['start', 'center', 'end', 'stretch'] }
+		{
+			name: 'value',
+			type: 'select',
+			defaultValue: 'center',
+			options: ['start', 'center', 'end', 'stretch']
+		}
 	];
 </script>
 
@@ -35,10 +40,9 @@
 >
 	{#snippet children(values: any)}
 		<TokenRadio
-			definition={definition}
+			{definition}
 			value={values.value as string}
 			onChange={(v) => console.log('Selected:', v)}
 		/>
 	{/snippet}
 </Story>
-

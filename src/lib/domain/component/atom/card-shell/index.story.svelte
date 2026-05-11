@@ -17,13 +17,27 @@
 	description="Expandable shell used by the orbit tooling panel."
 >
 	{#snippet children(values: any)}
-		<div class="relative h-72 overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_top,#dbeafe,transparent_60%),#eff6ff] p-8">
-			<div class="absolute left-10 top-16">
+		<div
+			class="relative h-72 overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_top,#dbeafe,transparent_60%),#eff6ff] p-8"
+		>
+			<div class="absolute top-16 left-10">
 				<CardShell expanded={Boolean(values.expanded)} title={values.title as string}>
 					{#snippet children()}
-						<button type="button" class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">Layout</button>
-						<button type="button" class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">Variants</button>
-						<button type="button" class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">States</button>
+						<button
+							type="button"
+							class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700"
+							>Layout</button
+						>
+						<button
+							type="button"
+							class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700"
+							>Variants</button
+						>
+						<button
+							type="button"
+							class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700"
+							>States</button
+						>
 					{/snippet}
 
 					{#snippet close()}

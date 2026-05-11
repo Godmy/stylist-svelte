@@ -13,16 +13,22 @@ export function createPrivacySettingsState(props: PrivacySettingsProps) {
 	const settingItemClass = $derived(PrivacySettingsStyleManager.getSettingItemClass());
 	const settingContentClass = $derived(PrivacySettingsStyleManager.getSettingContentClass());
 	const settingLabelClass = $derived(PrivacySettingsStyleManager.getSettingLabelClass());
-	const settingDescriptionClass = $derived(PrivacySettingsStyleManager.getSettingDescriptionClass());
+	const settingDescriptionClass = $derived(
+		PrivacySettingsStyleManager.getSettingDescriptionClass()
+	);
 	const toggleContainerClass = $derived(PrivacySettingsStyleManager.getToggleContainerClass());
 	const toggleInputClass = $derived(PrivacySettingsStyleManager.getToggleInputClass());
-	const toggleTrackClass = (isEnabled: boolean) => PrivacySettingsStyleManager.getToggleTrackClass(isEnabled);
-	const toggleThumbClass = (isEnabled: boolean) => PrivacySettingsStyleManager.getToggleThumbClass(isEnabled);
-	const saveButtonContainerClass = $derived(PrivacySettingsStyleManager.getSaveButtonContainerClass());
+	const toggleTrackClass = (isEnabled: boolean) =>
+		PrivacySettingsStyleManager.getToggleTrackClass(isEnabled);
+	const toggleThumbClass = (isEnabled: boolean) =>
+		PrivacySettingsStyleManager.getToggleThumbClass(isEnabled);
+	const saveButtonContainerClass = $derived(
+		PrivacySettingsStyleManager.getSaveButtonContainerClass()
+	);
 	const saveButtonClass = $derived(PrivacySettingsStyleManager.getSaveButtonClass());
 
 	function toggleSetting(id: string) {
-		const index = localSettings.findIndex(s => s.id === id);
+		const index = localSettings.findIndex((s) => s.id === id);
 		if (index !== -1) {
 			localSettings[index] = {
 				...localSettings[index],

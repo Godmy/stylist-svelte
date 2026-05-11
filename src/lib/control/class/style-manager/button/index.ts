@@ -35,7 +35,9 @@ export class ButtonStyleManager {
 			'relative',
 			this.getButtonVariantClass(variant),
 			this.getButtonSizeClass(size),
-			disabled || loading ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : '',
+			disabled || loading
+				? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none'
+				: '',
 			block ? 'w-full' : '',
 			loading ? 'text-transparent' : '',
 			className

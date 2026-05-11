@@ -14,7 +14,12 @@ export function createDrawerState(props: DrawerProps) {
 	const closable = $derived(props.closable ?? true);
 	const showBackdrop = $derived(props.showBackdrop ?? true);
 	const backdropClasses = $derived(DrawerStyleManager.getBackdropClasses(showBackdrop));
-	const drawerClasses = $derived(DrawerStyleManager.getDrawerClasses(position, typeof props.class === 'string' ? props.class : ''));
+	const drawerClasses = $derived(
+		DrawerStyleManager.getDrawerClasses(
+			position,
+			typeof props.class === 'string' ? props.class : ''
+		)
+	);
 	const drawerOpenClasses = $derived(DrawerStyleManager.getDrawerOpenClasses(isOpen, position));
 	const headerClasses = $derived(DrawerStyleManager.getHeaderClasses());
 	const contentClasses = $derived(DrawerStyleManager.getContentClasses());
@@ -92,6 +97,5 @@ export function createDrawerState(props: DrawerProps) {
 		handleEscapeFn
 	};
 }
-
 
 export default createDrawerState;

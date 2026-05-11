@@ -11,10 +11,18 @@ export function createSkeletonCircleState(props: SkeletonCircleProps) {
 	let style = $derived(SkeletonCircleStyleManager.style(props.size ?? 40));
 
 	return {
-		get content() { return content; },
-		get restProps() { return restProps; },
-		get rootClass() { return rootClass; },
-		get style() { return style; }
+		get content() {
+			return content;
+		},
+		get restProps() {
+			return restProps;
+		},
+		get rootClass() {
+			return rootClass;
+		},
+		get style() {
+			return style;
+		}
 	};
 }
 

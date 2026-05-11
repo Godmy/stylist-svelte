@@ -20,11 +20,72 @@
 	];
 
 	const sampleNodes: LiteGraphNodeProps[] = [
-		{ id: 'node-1', title: 'Collector', type: 'source' as const, x: 80, y: 100, color: '#0f766e', width: 160, height: 84, inputs: [], outputs: [], properties: [] },
-		{ id: 'node-2', title: 'Router', type: 'processor' as const, x: 320, y: 160, color: '#b45309', width: 180, height: 96, inputs: [], outputs: [], properties: [] },
-		{ id: 'node-3', title: 'Dashboard', type: 'output' as const, x: 620, y: 120, color: '#1d4ed8', width: 180, height: 90, inputs: [], outputs: [], properties: [] },
-		{ id: 'node-4', title: 'Archive', type: 'custom' as const, x: 250, y: 360, color: '#7c3aed', width: 150, height: 78, inputs: [], outputs: [], properties: [] },
-		{ id: 'node-5', title: 'Inspector', type: 'custom' as const, x: 760, y: 300, color: '#0f766e', width: 150, height: 78, inputs: [], outputs: [], properties: [], selected: true }
+		{
+			id: 'node-1',
+			title: 'Collector',
+			type: 'source' as const,
+			x: 80,
+			y: 100,
+			color: '#0f766e',
+			width: 160,
+			height: 84,
+			inputs: [],
+			outputs: [],
+			properties: []
+		},
+		{
+			id: 'node-2',
+			title: 'Router',
+			type: 'processor' as const,
+			x: 320,
+			y: 160,
+			color: '#b45309',
+			width: 180,
+			height: 96,
+			inputs: [],
+			outputs: [],
+			properties: []
+		},
+		{
+			id: 'node-3',
+			title: 'Dashboard',
+			type: 'output' as const,
+			x: 620,
+			y: 120,
+			color: '#1d4ed8',
+			width: 180,
+			height: 90,
+			inputs: [],
+			outputs: [],
+			properties: []
+		},
+		{
+			id: 'node-4',
+			title: 'Archive',
+			type: 'custom' as const,
+			x: 250,
+			y: 360,
+			color: '#7c3aed',
+			width: 150,
+			height: 78,
+			inputs: [],
+			outputs: [],
+			properties: []
+		},
+		{
+			id: 'node-5',
+			title: 'Inspector',
+			type: 'custom' as const,
+			x: 760,
+			y: 300,
+			color: '#0f766e',
+			width: 150,
+			height: 78,
+			inputs: [],
+			outputs: [],
+			properties: [],
+			selected: true
+		}
 	];
 </script>
 
@@ -144,11 +205,31 @@
 		box-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
 	}
 
-	.scene-card-source { left: 48px; top: 52px; background: #0f766e; }
-	.scene-card-router { left: 220px; top: 120px; background: #b45309; }
-	.scene-card-dashboard { left: 430px; top: 72px; background: #1d4ed8; }
-	.scene-card-archive { left: 160px; top: 240px; background: #7c3aed; }
-	.scene-card-inspector { left: 520px; top: 220px; background: #0f766e; }
+	.scene-card-source {
+		left: 48px;
+		top: 52px;
+		background: #0f766e;
+	}
+	.scene-card-router {
+		left: 220px;
+		top: 120px;
+		background: #b45309;
+	}
+	.scene-card-dashboard {
+		left: 430px;
+		top: 72px;
+		background: #1d4ed8;
+	}
+	.scene-card-archive {
+		left: 160px;
+		top: 240px;
+		background: #7c3aed;
+	}
+	.scene-card-inspector {
+		left: 520px;
+		top: 220px;
+		background: #0f766e;
+	}
 
 	.viewport-frame {
 		position: absolute;

@@ -9,11 +9,7 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { ChartSeries } from '$stylist/chart/type/struct/chart-series';
 import type { ChartScale } from '$stylist/chart/type/struct/chart-scale';
 
-export interface ChartCanvasRecipe
-	extends StructIntersectAll<[
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+export interface ChartCanvasRecipe extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	width?: number;
 	height?: number;
 	padding?: number;
@@ -31,4 +27,3 @@ export interface ChartCanvasRecipe
 	zAxisLabel?: string;
 	title?: string;
 }
-

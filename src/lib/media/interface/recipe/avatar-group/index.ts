@@ -20,14 +20,14 @@ import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/beha
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface AvatarRecipe
-	extends StructIntersectAll<[
-		IMediaSlot,
-		ILabelSlot,
-		IStatusSlot,
-		IBadgeSlot,
-		IClickable,
-		ISizable,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{}
-
+	extends StructIntersectAll<
+		[
+			IMediaSlot,
+			ILabelSlot,
+			IStatusSlot,
+			IBadgeSlot,
+			IClickable,
+			ISizable,
+			ThemeAttributes<HTMLDivElement>
+		]
+	> {}

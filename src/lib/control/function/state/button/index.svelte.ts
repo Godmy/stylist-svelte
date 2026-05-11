@@ -11,7 +11,8 @@ import { buildPresetClassNames } from '$stylist/interaction/function/script/buil
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
-interface ButtonStateProps<V extends string, S extends string> extends Omit<Props, 'variant' | 'size'> {
+interface ButtonStateProps<V extends string, S extends string>
+	extends Omit<Props, 'variant' | 'size'> {
 	variant?: V;
 	size?: S;
 }
@@ -19,10 +20,14 @@ interface ButtonStateProps<V extends string, S extends string> extends Omit<Prop
 function createButtonPreset(): Preset<TokenAppearance, TokenSize> & {
 	loaderSize?: Record<string, string>;
 } {
-	return createBasePreset<TokenAppearance, TokenSize>(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
-		variant: 'primary',
-		size: 'md'
-	});
+	return createBasePreset<TokenAppearance, TokenSize>(
+		InteractionStyleManager.getInteractiveVariants(),
+		TOKEN_SIZE,
+		{
+			variant: 'primary',
+			size: 'md'
+		}
+	);
 }
 
 function createSharedButtonState<V extends string, S extends string>(
@@ -46,11 +51,18 @@ function createSharedButtonState<V extends string, S extends string>(
 		})
 	);
 
-	const ariaLabel = $derived(resolveAriaLabel(typeof props.ariaLabel === 'string' ? props.ariaLabel : undefined, props as Record<string, unknown>, ''));
+	const ariaLabel = $derived(
+		resolveAriaLabel(
+			typeof props.ariaLabel === 'string' ? props.ariaLabel : undefined,
+			props as Record<string, unknown>,
+			''
+		)
+	);
 
 	const loaderClasses = $derived.by(() => {
 		const sizeKey = size as keyof typeof RECORD_ICON_SIZE;
-		const loaderSize = preset.loaderSize?.[size as string] ?? RECORD_ICON_SIZE[sizeKey] ?? 'w-4 h-4';
+		const loaderSize =
+			preset.loaderSize?.[size as string] ?? RECORD_ICON_SIZE[sizeKey] ?? 'w-4 h-4';
 		return `animate-spin ${loaderSize}`;
 	});
 
@@ -127,7 +139,9 @@ export function createButtonState<V extends string, S extends string>(
 	preset: Preset<V, S> & { loaderSize?: Record<string, string> },
 	props: ButtonStateProps<V, S> & HTMLButtonAttributes
 ): ReturnType<typeof createSharedButtonState<V, S>>;
-export function createButtonState(input: ButtonFactoryInput): ReturnType<typeof createButtonStateFromFactoryInput>;
+export function createButtonState(
+	input: ButtonFactoryInput
+): ReturnType<typeof createButtonStateFromFactoryInput>;
 export function createButtonState<V extends string, S extends string>(
 	inputOrPreset: ButtonFactoryInput | (Preset<V, S> & { loaderSize?: Record<string, string> }),
 	props?: ButtonStateProps<V, S> & HTMLButtonAttributes
@@ -143,7 +157,3 @@ export function createButtonState<V extends string, S extends string>(
 }
 
 export default createButtonState;
-
-
-
-

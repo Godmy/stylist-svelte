@@ -5,13 +5,22 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'title', type: 'text', defaultValue: 'No items found' },
-		{ name: 'description', type: 'text', defaultValue: 'Try changing filters or create a new item.' },
+		{
+			name: 'description',
+			type: 'text',
+			defaultValue: 'Try changing filters or create a new item.'
+		},
 		{ name: 'showAction', type: 'boolean', defaultValue: true },
 		{ name: 'actionLabel', type: 'text', defaultValue: 'Create item' }
 	];
 </script>
 
-<Story component={EmptyState} title="EmptyState" description="Fallback state for empty datasets, lists, and search results." {controls}>
+<Story
+	component={EmptyState}
+	title="EmptyState"
+	description="Fallback state for empty datasets, lists, and search results."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<EmptyState
 			title={values.title}
@@ -20,6 +29,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

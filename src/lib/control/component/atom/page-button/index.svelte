@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media'; const Loader2 = 'loader-2';
-import type { SlotPageButton as PageButtonProps } from '$stylist/control/interface/slot/page-button';
-import { createPageButtonState } from '$stylist/control/function/state/page-button';
+	import { Icon as BaseIcon } from '$stylist/media';
+	const Loader2 = 'loader-2';
+	import type { SlotPageButton as PageButtonProps } from '$stylist/control/interface/slot/page-button';
+	import { createPageButtonState } from '$stylist/control/function/state/page-button';
 
 	/**
 	 * PageButton component - A button for pagination
@@ -50,18 +51,3 @@ import { createPageButtonState } from '$stylist/control/function/state/page-butt
 		{props.page}
 	{/if}
 </button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -12,10 +12,18 @@ export function createIdef0DiagramState(props: Idef0DiagramProps) {
 	const height = $derived(props.height ?? 460);
 
 	return {
-		get containerClasses() { return containerClasses; },
-		get svgClasses() { return svgClasses; },
-		get width() { return width; },
-		get height() { return height; }
+		get containerClasses() {
+			return containerClasses;
+		},
+		get svgClasses() {
+			return svgClasses;
+		},
+		get width() {
+			return width;
+		},
+		get height() {
+			return height;
+		}
 	};
 }
 

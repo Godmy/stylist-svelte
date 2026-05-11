@@ -9,13 +9,22 @@
 	];
 </script>
 
-<Story {controls} component={Idef0FunctionBox} title="IDEF0FunctionBox" description="IDEF0 function block atom.">
+<Story
+	{controls}
+	component={Idef0FunctionBox}
+	title="IDEF0FunctionBox"
+	description="IDEF0 function block atom."
+>
 	{#snippet children(values: any)}
 		<svg width="420" height="250">
-			<Idef0FunctionBox title={values.title} subtitle={values.subtitle} x={50} y={20} width={320} height={200} />
+			<Idef0FunctionBox
+				title={values.title}
+				subtitle={values.subtitle}
+				x={50}
+				y={20}
+				width={320}
+				height={200}
+			/>
 		</svg>
 	{/snippet}
 </Story>
-
-
-

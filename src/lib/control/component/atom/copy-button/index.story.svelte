@@ -7,7 +7,12 @@
 		{ name: 'text', type: 'text', defaultValue: 'npm install stylist-svelte' },
 		{ name: 'label', type: 'text', defaultValue: 'Copy command' },
 		{ name: 'showIcon', type: 'boolean', defaultValue: true },
-		{ name: 'variant', type: 'select', defaultValue: 'outline', options: ['primary','secondary','success','warning','danger','outline','ghost','link'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'outline',
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'outline', 'ghost', 'link']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false }
 	];
@@ -22,7 +27,8 @@
 >
 	{#snippet children(values: any)}
 		<div class="space-y-3">
-			<pre class="overflow-auto rounded border bg-[var(--color-background-secondary)] p-3 text-sm">{values.text as string}</pre>
+			<pre
+				class="overflow-auto rounded border bg-[var(--color-background-secondary)] p-3 text-sm">{values.text as string}</pre>
 			<CopyButton
 				text={values.text as string}
 				label={values.label as string}
@@ -34,7 +40,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-

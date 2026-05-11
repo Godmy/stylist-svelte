@@ -9,12 +9,24 @@ export function createFocusState(initial?: Partial<FocusState>) {
 	});
 
 	return {
-		get target() { return state.target; },
-		get isFocused() { return state.isFocused; },
-		get isFullscreen() { return state.isFullscreen; },
-		setTarget(target: FocusTarget | null) { state.target = target; },
-		setFocused(focused: boolean) { state.isFocused = focused; },
-		setFullscreen(fullscreen: boolean) { state.isFullscreen = fullscreen; }
+		get target() {
+			return state.target;
+		},
+		get isFocused() {
+			return state.isFocused;
+		},
+		get isFullscreen() {
+			return state.isFullscreen;
+		},
+		setTarget(target: FocusTarget | null) {
+			state.target = target;
+		},
+		setFocused(focused: boolean) {
+			state.isFocused = focused;
+		},
+		setFullscreen(fullscreen: boolean) {
+			state.isFullscreen = fullscreen;
+		}
 	};
 }
 

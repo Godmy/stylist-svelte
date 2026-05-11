@@ -12,7 +12,9 @@ import type { BehaviorPreziSceneMethods } from '$stylist/architecture/interface/
  * Coordinate system: CSS-translate — transform: translate(x, y) scale(zoom) с origin 0 0.
  * Nodes внутри world-div используют raw position (не трансформированные).
  */
-export function usePreziState(contract: PreziSceneContract): PreziSceneState & BehaviorPreziSceneMethods {
+export function usePreziState(
+	contract: PreziSceneContract
+): PreziSceneState & BehaviorPreziSceneMethods {
 	const {
 		nodes = [],
 		initialCamera = { x: 0, y: 0, zoom: 1 },
@@ -219,32 +221,78 @@ export function usePreziState(contract: PreziSceneContract): PreziSceneState & B
 	const getPresentation = (node: SceneNode) => resolveSemanticZoomNode(node, camera.depth);
 
 	return {
-		get camera() { return camera; },
-		get viewportWidth() { return viewportWidth; },
-		get viewportHeight() { return viewportHeight; },
-		get selectedNode() { return selectedNode; },
-		get selectedNodeId() { return selectedNodeId; },
-		get isPanning() { return isPanning; },
-		get isAnimating() { return isAnimating; },
-		get showGrid() { return showGrid; },
-		get showMinimap() { return showMinimap; },
-		get showInspector() { return showInspector; },
-		get showHeader() { return showHeaderProp; },
-		get title() { return title; },
-		get subtitle() { return subtitle; },
-		get panMode() { return panMode; },
-		get zoomEnabled() { return zoomEnabled; },
-		get panEnabled() { return panEnabled; },
-		get minZoom() { return minZoom; },
-		get maxZoom() { return maxZoom; },
-		get nodes() { return nodes; },
-		get restProps() { return restProps; },
+		get camera() {
+			return camera;
+		},
+		get viewportWidth() {
+			return viewportWidth;
+		},
+		get viewportHeight() {
+			return viewportHeight;
+		},
+		get selectedNode() {
+			return selectedNode;
+		},
+		get selectedNodeId() {
+			return selectedNodeId;
+		},
+		get isPanning() {
+			return isPanning;
+		},
+		get isAnimating() {
+			return isAnimating;
+		},
+		get showGrid() {
+			return showGrid;
+		},
+		get showMinimap() {
+			return showMinimap;
+		},
+		get showInspector() {
+			return showInspector;
+		},
+		get showHeader() {
+			return showHeaderProp;
+		},
+		get title() {
+			return title;
+		},
+		get subtitle() {
+			return subtitle;
+		},
+		get panMode() {
+			return panMode;
+		},
+		get zoomEnabled() {
+			return zoomEnabled;
+		},
+		get panEnabled() {
+			return panEnabled;
+		},
+		get minZoom() {
+			return minZoom;
+		},
+		get maxZoom() {
+			return maxZoom;
+		},
+		get nodes() {
+			return nodes;
+		},
+		get restProps() {
+			return restProps;
+		},
 		setCamera,
 		setViewportSize,
 		selectNode,
-		toggleGrid: () => { showGrid = !showGrid; },
-		toggleMinimap: () => { showMinimap = !showMinimap; },
-		toggleInspector: () => { showInspector = !showInspector; },
+		toggleGrid: () => {
+			showGrid = !showGrid;
+		},
+		toggleMinimap: () => {
+			showMinimap = !showMinimap;
+		},
+		toggleInspector: () => {
+			showInspector = !showInspector;
+		},
 		handleWheel,
 		handlePointerDown,
 		handlePointerMove,

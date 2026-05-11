@@ -11,5 +11,3 @@
 		{#if props.children}{@render props.children()}{/if}
 	{/if}
 </div>
-
-

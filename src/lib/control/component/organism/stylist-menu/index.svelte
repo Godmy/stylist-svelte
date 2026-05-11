@@ -62,10 +62,20 @@
 	</div>
 
 	<div class="menu-tools" aria-label="User actions">
-		<button type="button" class="tool-btn" onclick={() => props.onThemeButtonClick?.()} aria-label="Theme">
+		<button
+			type="button"
+			class="tool-btn"
+			onclick={() => props.onThemeButtonClick?.()}
+			aria-label="Theme"
+		>
 			Theme
 		</button>
-		<button type="button" class="tool-btn" onclick={() => props.onSettingsButtonClick?.()} aria-label="Settings">
+		<button
+			type="button"
+			class="tool-btn"
+			onclick={() => props.onSettingsButtonClick?.()}
+			aria-label="Settings"
+		>
 			Settings
 		</button>
 		<div class="avatar-menu-shell">
@@ -81,7 +91,13 @@
 				{state.avatarLabel}
 			</button>
 			{#if state.avatarMenuOpen}
-				<div class="avatar-menu" role="menu" tabindex="0" aria-label="Profile menu" onkeydown={state.handleAvatarMenuKeydown}>
+				<div
+					class="avatar-menu"
+					role="menu"
+					tabindex="0"
+					aria-label="Profile menu"
+					onkeydown={state.handleAvatarMenuKeydown}
+				>
 					<div class="avatar-menu-header">
 						<strong>{state.avatarName}</strong>
 						<small>{state.avatarEmail}</small>
@@ -220,7 +236,9 @@
 		font-weight: var(--font-weight-semibold);
 		opacity: var(--opacity-0);
 		transform: translateX(-0.25rem);
-		transition: opacity var(--duration-120) var(--animation-ease), transform var(--duration-150) var(--animation-ease);
+		transition:
+			opacity var(--duration-120) var(--animation-ease),
+			transform var(--duration-150) var(--animation-ease);
 	}
 
 	.menu-item.is-expanded .menu-text {
@@ -405,4 +423,3 @@
 		}
 	}
 </style>
-

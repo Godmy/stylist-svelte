@@ -6,9 +6,33 @@
 	import ModelSelector from './index.svelte';
 
 	const sampleModels: SlotModelOption[] = [
-		{ id: 'gpt-4', name: 'GPT-4', description: 'Most capable model', capabilities: ['text', 'code'], provider: 'OpenAI', version: '4.0', tags: ['flagship'] },
-		{ id: 'gpt-3.5', name: 'GPT-3.5', description: 'Fast and capable', capabilities: ['text', 'code'], provider: 'OpenAI', version: '3.5', tags: ['fast'] },
-		{ id: 'claude', name: 'Claude', description: 'Balanced model', capabilities: ['text'], provider: 'Anthropic', version: '2.0', tags: ['reasoning'] }
+		{
+			id: 'gpt-4',
+			name: 'GPT-4',
+			description: 'Most capable model',
+			capabilities: ['text', 'code'],
+			provider: 'OpenAI',
+			version: '4.0',
+			tags: ['flagship']
+		},
+		{
+			id: 'gpt-3.5',
+			name: 'GPT-3.5',
+			description: 'Fast and capable',
+			capabilities: ['text', 'code'],
+			provider: 'OpenAI',
+			version: '3.5',
+			tags: ['fast']
+		},
+		{
+			id: 'claude',
+			name: 'Claude',
+			description: 'Balanced model',
+			capabilities: ['text'],
+			provider: 'Anthropic',
+			version: '2.0',
+			tags: ['reasoning']
+		}
 	];
 
 	const controls: InterfaceControllerSettings[] = [
@@ -20,23 +44,21 @@
 </script>
 
 <Story
-  {controls}
-  component={ModelSelector}
-  title="ModelSelector Component"
-  description="A component for selecting AI models from a list"
+	{controls}
+	component={ModelSelector}
+	title="ModelSelector Component"
+	description="A component for selecting AI models from a list"
 >
-  {#snippet children(controlValues: any)}
-	<ModelSelector
-		models={sampleModels}
-		selectedModel={controlValues.selectedModel as string}
-		placeholder={controlValues.placeholder as string}
-		showTags={controlValues.showTags as boolean}
-		showCapabilities={controlValues.showCapabilities as boolean}
-		onModelSelect={(modelId: string) => {
-			console.log('Selected model:', modelId);
-		}}
-	/>
-  {/snippet}
+	{#snippet children(controlValues: any)}
+		<ModelSelector
+			models={sampleModels}
+			selectedModel={controlValues.selectedModel as string}
+			placeholder={controlValues.placeholder as string}
+			showTags={controlValues.showTags as boolean}
+			showCapabilities={controlValues.showCapabilities as boolean}
+			onModelSelect={(modelId: string) => {
+				console.log('Selected model:', modelId);
+			}}
+		/>
+	{/snippet}
 </Story>
-
-

@@ -13,14 +13,22 @@
 
 <g class={state.groupClasses}>
 	<rect class={state.rectClasses} {x} {y} {width} {height} rx="10" ry="10" stroke-width="1.5" />
-	<text class={state.titleClasses} x={x + width / 2} y={y + height / 2 - (props.subtitle ? 10 : 0)} text-anchor="middle">
+	<text
+		class={state.titleClasses}
+		x={x + width / 2}
+		y={y + height / 2 - (props.subtitle ? 10 : 0)}
+		text-anchor="middle"
+	>
 		{props.title}
 	</text>
 	{#if props.subtitle}
-		<text class={state.subtitleClasses} x={x + width / 2} y={y + height / 2 + 14} text-anchor="middle">
+		<text
+			class={state.subtitleClasses}
+			x={x + width / 2}
+			y={y + height / 2 + 14}
+			text-anchor="middle"
+		>
 			{props.subtitle}
 		</text>
 	{/if}
 </g>
-
-

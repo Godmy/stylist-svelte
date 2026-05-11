@@ -13,25 +13,51 @@ export function createProcessStepState(props: ProcessStepStateProps) {
 	const hostClass = $derived(className == null ? undefined : String(className));
 
 	const classes = $derived(ProcessStepStyleManager.getBaseClasses(active, hostClass));
-	const numberContainerClasses = $derived(ProcessStepStyleManager.getNumberContainerClasses(active));
+	const numberContainerClasses = $derived(
+		ProcessStepStyleManager.getNumberContainerClasses(active)
+	);
 	const contentContainerClasses = $derived(ProcessStepStyleManager.getContentContainerClasses());
 	const titleClasses = $derived(ProcessStepStyleManager.getTitleClasses(active));
 	const agentBadgeClasses = $derived(ProcessStepStyleManager.getAgentBadgeClasses());
 	const descriptionClasses = $derived(ProcessStepStyleManager.getDescriptionClasses());
 
 	return {
-		get number() { return number; },
-		get title() { return title; },
-		get description() { return description; },
-		get agent() { return agent; },
-		get icon() { return icon; },
-		get active() { return active; },
-		get classes() { return classes; },
-		get numberContainerClasses() { return numberContainerClasses; },
-		get contentContainerClasses() { return contentContainerClasses; },
-		get titleClasses() { return titleClasses; },
-		get agentBadgeClasses() { return agentBadgeClasses; },
-		get descriptionClasses() { return descriptionClasses; }
+		get number() {
+			return number;
+		},
+		get title() {
+			return title;
+		},
+		get description() {
+			return description;
+		},
+		get agent() {
+			return agent;
+		},
+		get icon() {
+			return icon;
+		},
+		get active() {
+			return active;
+		},
+		get classes() {
+			return classes;
+		},
+		get numberContainerClasses() {
+			return numberContainerClasses;
+		},
+		get contentContainerClasses() {
+			return contentContainerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get agentBadgeClasses() {
+			return agentBadgeClasses;
+		},
+		get descriptionClasses() {
+			return descriptionClasses;
+		}
 	};
 }
 

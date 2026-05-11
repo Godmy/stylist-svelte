@@ -20,10 +20,18 @@ export function createNotificationCenterState(props: NotificationCenterStateProp
 	});
 
 	return {
-		get notifications() { return notifications; },
-		get unread() { return unread; },
-		get containerClasses() { return containerClasses; },
-		get restProps() { return restProps; }
+		get notifications() {
+			return notifications;
+		},
+		get unread() {
+			return unread;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

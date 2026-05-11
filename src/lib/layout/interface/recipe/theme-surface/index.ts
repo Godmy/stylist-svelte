@@ -4,7 +4,8 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { ContractThemeContext } from '$stylist/theme/interface/contract/theme-context';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
-export interface ThemeSurfaceRecipe extends StructIntersectAll<[SlotTheme, HTMLAttributes<HTMLElement>]> {
+export interface ThemeSurfaceRecipe
+	extends StructIntersectAll<[SlotTheme, HTMLAttributes<HTMLElement>]> {
 	class?: string;
 	headerClass?: string;
 	contentClass?: string;
@@ -13,4 +14,3 @@ export interface ThemeSurfaceRecipe extends StructIntersectAll<[SlotTheme, HTMLA
 	content: Snippet<[ContractThemeContext | null]>;
 	footer?: Snippet<[ContractThemeContext | null]>;
 }
-

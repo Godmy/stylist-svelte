@@ -70,11 +70,7 @@
 	</span>
 
 	{#if state.isVisible}
-		<span
-			bind:this={state.tooltipRef}
-			role="tooltip"
-			class={state.tooltipClasses}
-		>
+		<span bind:this={state.tooltipRef} role="tooltip" class={state.tooltipClasses}>
 			{#if typeof state.content === 'string'}
 				{state.content}
 			{:else}
@@ -86,4 +82,3 @@
 		</span>
 	{/if}
 </span>
-

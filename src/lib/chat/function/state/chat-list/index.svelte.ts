@@ -2,7 +2,11 @@ import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 import { ChatStyleManager } from '$stylist/chat/class/style-manager/chat';
 
-export const createChatListState = (props: { chats: Chat[]; currentUser: User; activeChatId?: string }) => {
+export const createChatListState = (props: {
+	chats: Chat[];
+	currentUser: User;
+	activeChatId?: string;
+}) => {
 	const containerClasses = ChatStyleManager.getListContainerClasses();
 
 	function handleChatSelect(chat: Chat) {

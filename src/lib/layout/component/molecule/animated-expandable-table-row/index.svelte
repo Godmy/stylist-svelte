@@ -14,7 +14,9 @@
 <tr {...state.restProps} class="parent-row {state.className}">
 	<!-- Cell for expand icon -->
 	{#if state.expandable}
-		<td class="expand-cell px-6 py-4 whitespace-nowrap text-sm text-[var(--color-text-secondary)] w-12">
+		<td
+			class="expand-cell w-12 px-6 py-4 text-sm whitespace-nowrap text-[var(--color-text-secondary)]"
+		>
 			<button
 				class="expand-toggle focus:outline-none"
 				onclick={state.toggle}
@@ -27,12 +29,10 @@
 					{:else}
 						<BaseIcon name={ChevronUp} class="h-5 w-5 text-[var(--color-text-secondary)]" />
 					{/if}
+				{:else if state.expandIcon}
+					{@html state.expandIcon}
 				{:else}
-					{#if state.expandIcon}
-						{@html state.expandIcon}
-					{:else}
-						<BaseIcon name={ChevronDown} class="h-5 w-5 text-[var(--color-text-secondary)]" />
-					{/if}
+					<BaseIcon name={ChevronDown} class="h-5 w-5 text-[var(--color-text-secondary)]" />
 				{/if}
 			</button>
 		</td>
@@ -47,7 +47,7 @@
 	<tr class="expanded-row">
 		<td
 			colspan={state.expandable ? state.colspan : state.colspan - 1}
-			class="expanded-cell px-6 py-4 bg-[var(--color-background-secondary)] text-sm text-[var(--color-text-primary)]"
+			class="expanded-cell bg-[var(--color-background-secondary)] px-6 py-4 text-sm text-[var(--color-text-primary)]"
 		>
 			<div class="details-content p-4">
 				{@render state.details()}

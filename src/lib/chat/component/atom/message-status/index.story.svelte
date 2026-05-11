@@ -4,7 +4,12 @@
 	import MessageStatus from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'status', type: 'select', defaultValue: 'read', options: ['sent', 'delivered', 'read'] },
+		{
+			name: 'status',
+			type: 'select',
+			defaultValue: 'read',
+			options: ['sent', 'delivered', 'read']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
 	];
 </script>
@@ -18,7 +23,9 @@
 	tags={['message', 'status', 'delivery']}
 >
 	{#snippet children(values: any)}
-		<div class="flex items-center gap-3 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4">
+		<div
+			class="flex items-center gap-3 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4"
+		>
 			<span class="text-sm text-[var(--color-text-secondary)]">Status:</span>
 			<MessageStatus
 				status={values.status as 'sent' | 'delivered' | 'read'}
@@ -27,6 +34,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-

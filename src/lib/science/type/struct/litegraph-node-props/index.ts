@@ -10,7 +10,10 @@ export type LitegraphNodeProps = LitegraphNodeRecipe & {
 	showActions?: boolean;
 	onNodeSelect?: (nodeId?: string) => void;
 	onNodeDrag?: (nodeId: string | undefined, position: { x: number; y: number }) => void;
-	onNodeResize?: (nodeId: string | undefined, size: { width?: number; height?: number | 'auto' }) => void;
+	onNodeResize?: (
+		nodeId: string | undefined,
+		size: { width?: number; height?: number | 'auto' }
+	) => void;
 	ondelete?: (nodeId?: string) => void;
 	onduplicate?: (nodeId?: string) => void;
 	onConnectionStart?: (port: LiteGraphPort, event: MouseEvent) => void;

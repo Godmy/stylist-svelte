@@ -39,7 +39,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-
-

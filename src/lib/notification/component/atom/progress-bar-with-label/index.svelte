@@ -15,10 +15,7 @@
 		</div>
 	{/if}
 	<div class={state.trackClasses}>
-		<div
-			class={state.fillClasses}
-			style={`width: ${state.percentage}%`}
-		></div>
+		<div class={state.fillClasses} style={`width: ${state.percentage}%`}></div>
 	</div>
 	{#if !state.label && state.showPercentage}
 		<div class="mt-1 text-right">
@@ -26,10 +23,3 @@
 		</div>
 	{/if}
 </div>
-
-
-
-
-
-
-

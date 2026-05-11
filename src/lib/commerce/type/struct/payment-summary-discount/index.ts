@@ -3,4 +3,4 @@ export type PaymentSummaryDiscount = {
 	name: string;
 	amount: number;
 	type: 'percentage' | 'fixed';
-}
+};

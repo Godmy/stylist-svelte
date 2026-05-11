@@ -6,8 +6,9 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { NodeTitleVariant } from '$stylist/science/type/enum/node-title-variant';
 
 export interface NodeTitleRecipe
-	extends StructIntersectAll<[Omit<ThemeAttributes<HTMLHeadingElement>, 'title' | 'onchange'>, ChildrenProp]>
-{
+	extends StructIntersectAll<
+		[Omit<ThemeAttributes<HTMLHeadingElement>, 'title' | 'onchange'>, ChildrenProp]
+	> {
 	title?: string;
 	variant?: NodeTitleVariant;
 	size?: TokenSize;

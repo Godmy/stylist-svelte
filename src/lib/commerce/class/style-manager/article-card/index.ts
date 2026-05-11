@@ -3,7 +3,11 @@ import { CardStyleManager } from '$stylist/information/class/style-manager/card'
 
 export class ArticleCardStyleManager {
 	static getContainerClasses(className = ''): string {
-		return mergeClassNames('max-w-sm rounded-lg shadow-md overflow-hidden', CardStyleManager.getBaseClasses(), className);
+		return mergeClassNames(
+			'max-w-sm rounded-lg shadow-md overflow-hidden',
+			CardStyleManager.getBaseClasses(),
+			className
+		);
 	}
 
 	static getImageClasses(className = ''): string {
@@ -27,7 +31,9 @@ export class ArticleCardStyleManager {
 	}
 
 	static getActionButtonClasses(className = ''): string {
-		return mergeClassNames('px-4 py-2 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded hover:bg-[var(--color-primary-600)]', className);
+		return mergeClassNames(
+			'px-4 py-2 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded hover:bg-[var(--color-primary-600)]',
+			className
+		);
 	}
 }
-

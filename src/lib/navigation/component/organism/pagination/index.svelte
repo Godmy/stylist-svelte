@@ -12,7 +12,9 @@
 		{#if state.showFirstLast}
 			<button
 				type="button"
-				class={state.currentPage === 1 ? state.disabledButtonClassComputed : state.buttonClassComputed}
+				class={state.currentPage === 1
+					? state.disabledButtonClassComputed
+					: state.buttonClassComputed}
 				onclick={state.goToFirst}
 				disabled={state.currentPage === 1 || state.disabled}
 				aria-label="First page"
@@ -50,7 +52,9 @@
 		{#each state.getVisiblePages() as page}
 			<button
 				type="button"
-				class={page === state.currentPage ? state.activeButtonClassComputed : state.buttonClassComputed}
+				class={page === state.currentPage
+					? state.activeButtonClassComputed
+					: state.buttonClassComputed}
 				onclick={() => state.goToPage(page)}
 				aria-current={page === state.currentPage ? 'page' : undefined}
 				aria-label={`Go to page ${page}`}
@@ -76,7 +80,9 @@
 		{#if state.showPrevNext}
 			<button
 				type="button"
-				class={state.currentPage === state.totalPages ? state.disabledButtonClassComputed : state.iconButtonClass}
+				class={state.currentPage === state.totalPages
+					? state.disabledButtonClassComputed
+					: state.iconButtonClass}
 				onclick={state.goToNext}
 				disabled={state.currentPage === state.totalPages || state.disabled}
 				aria-label="Next page"
@@ -88,7 +94,9 @@
 		{#if state.showFirstLast}
 			<button
 				type="button"
-				class={state.currentPage === state.totalPages ? state.disabledButtonClassComputed : state.buttonClassComputed}
+				class={state.currentPage === state.totalPages
+					? state.disabledButtonClassComputed
+					: state.buttonClassComputed}
 				onclick={state.goToLast}
 				disabled={state.currentPage === state.totalPages || state.disabled}
 				aria-label="Last page"

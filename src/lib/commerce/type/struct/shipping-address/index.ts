@@ -7,4 +7,4 @@ export type ShippingAddress = {
 	state: string;
 	zipCode: string;
 	country: string;
-}
+};

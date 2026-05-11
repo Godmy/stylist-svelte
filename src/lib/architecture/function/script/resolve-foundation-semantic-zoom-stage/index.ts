@@ -9,7 +9,9 @@ export function resolveFoundationSemanticZoomStage(
 ): FoundationSemanticZoomStage {
 	const distance = getFoundationDepthDistance(worldDepth, cameraDepth);
 	return (
-		FOUNDATION_DEPTH_THRESHOLDS.find((threshold: { maxDistance: number; stage: FoundationSemanticZoomStage }) => distance <= threshold.maxDistance)?.stage ??
-		'dot'
+		FOUNDATION_DEPTH_THRESHOLDS.find(
+			(threshold: { maxDistance: number; stage: FoundationSemanticZoomStage }) =>
+				distance <= threshold.maxDistance
+		)?.stage ?? 'dot'
 	);
 }

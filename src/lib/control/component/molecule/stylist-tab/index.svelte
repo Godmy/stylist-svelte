@@ -21,7 +21,12 @@
 	});
 </script>
 
-<div class={`stylist-tab ${state.className}`} role="tablist" aria-label="Functional taxonomy" {...restProps}>
+<div
+	class={`stylist-tab ${state.className}`}
+	role="tablist"
+	aria-label="Functional taxonomy"
+	{...restProps}
+>
 	{#each state.items as item}
 		<button
 			type="button"
@@ -90,7 +95,9 @@
 		font-weight: var(--font-weight-semibold);
 		opacity: var(--opacity-0);
 		transform: translateX(-0.2rem);
-		transition: opacity var(--duration-120) var(--animation-ease), transform var(--duration-150) var(--animation-ease);
+		transition:
+			opacity var(--duration-120) var(--animation-ease),
+			transform var(--duration-150) var(--animation-ease);
 	}
 
 	.tab-item.is-active .tab-text {
@@ -130,4 +137,3 @@
 		flex: 0 0 auto;
 	}
 </style>
-

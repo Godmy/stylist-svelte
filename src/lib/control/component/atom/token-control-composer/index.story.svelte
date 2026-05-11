@@ -1,18 +1,10 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import TokenControlComposer from './index.svelte';
-	import type {
-		TokenRadioControlDefinition
-	} from '$stylist/control/type/struct/radio-control-definition';
-	import type {
-		TokenRangeControlDefinition
-	} from '$stylist/control/type/struct/range-control-definition';
-	import type {
-		TokenSelectControlDefinition
-	} from '$stylist/control/type/struct/select-control-definition';
-	import type {
-		TokenTextControlDefinition
-	} from '$stylist/control/type/struct/text-control-definition';
+	import type { TokenRadioControlDefinition } from '$stylist/control/type/struct/radio-control-definition';
+	import type { TokenRangeControlDefinition } from '$stylist/control/type/struct/range-control-definition';
+	import type { TokenSelectControlDefinition } from '$stylist/control/type/struct/select-control-definition';
+	import type { TokenTextControlDefinition } from '$stylist/control/type/struct/text-control-definition';
 
 	const radioDefinition: TokenRadioControlDefinition = {
 		id: 'token-composer-alignment',
@@ -78,9 +70,18 @@
 >
 	{#snippet children()}
 		<div class="flex flex-col gap-4">
-			<TokenControlComposer definition={radioDefinition} onChange={(v) => console.log('SlotRadio:', v)} />
-			<TokenControlComposer definition={selectDefinition} onChange={(v) => console.log('Select:', v)} />
-			<TokenControlComposer definition={rangeDefinition} onChange={(v) => console.log('Range:', v)} />
+			<TokenControlComposer
+				definition={radioDefinition}
+				onChange={(v) => console.log('SlotRadio:', v)}
+			/>
+			<TokenControlComposer
+				definition={selectDefinition}
+				onChange={(v) => console.log('Select:', v)}
+			/>
+			<TokenControlComposer
+				definition={rangeDefinition}
+				onChange={(v) => console.log('Range:', v)}
+			/>
 			<TokenControlComposer definition={textDefinition} onChange={(v) => console.log('Text:', v)} />
 		</div>
 	{/snippet}

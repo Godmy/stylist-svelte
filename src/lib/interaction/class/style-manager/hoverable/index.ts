@@ -47,10 +47,6 @@ export class HoverableStyleManager {
 			return mergeClassNames(this.BASE, this.HOVERED, className);
 		}
 
-		return mergeClassNames(
-			this.BASE,
-			hoverEffect ? this.HOVER_EFFECT : '',
-			className
-		);
+		return mergeClassNames(this.BASE, hoverEffect ? this.HOVER_EFFECT : '', className);
 	}
 }

@@ -11,17 +11,17 @@ import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface ButtonRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IIconSlot,
-		IBadgeSlot,
-		IClickable,
-		IFocusable,
-		ISized,
-		IShapeable,
-		SlotTheme,
-		HTMLAttributes<HTMLButtonElement>
-	]>,
-		ButtonSpecificProps
-{}
-
+	extends StructIntersectAll<
+			[
+				ILabelSlot,
+				IIconSlot,
+				IBadgeSlot,
+				IClickable,
+				IFocusable,
+				ISized,
+				IShapeable,
+				SlotTheme,
+				HTMLAttributes<HTMLButtonElement>
+			]
+		>,
+		ButtonSpecificProps {}

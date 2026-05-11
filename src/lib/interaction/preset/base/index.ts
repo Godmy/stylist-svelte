@@ -52,13 +52,19 @@ export const createBasePreset = <V extends string, S extends string>(
 			sizes.map((s) => [
 				s,
 				RECORD_CLASS_SIZE[s as keyof typeof RECORD_CLASS_SIZE] ??
-					(s === 'sm' ? 'h-8 px-3 text-xs' : s === 'lg' ? 'h-11 px-6 text-base' : 'h-9 px-4 text-sm')
+					(s === 'sm'
+						? 'h-8 px-3 text-xs'
+						: s === 'lg'
+							? 'h-11 px-6 text-base'
+							: 'h-9 px-4 text-sm')
 			])
 		) as Record<S, string>,
 		variant: Object.fromEntries(
 			variants.map((v) => [
 				v,
-				InteractionStyleManager.getVariantClasses(v as Parameters<typeof InteractionStyleManager.getVariantClasses>[0]) ??
+				InteractionStyleManager.getVariantClasses(
+					v as Parameters<typeof InteractionStyleManager.getVariantClasses>[0]
+				) ??
 					(v === 'outline'
 						? 'border bg-transparent'
 						: 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] border border-transparent hover:bg-[var(--color-primary-700)]')
@@ -70,8 +76,3 @@ export const createBasePreset = <V extends string, S extends string>(
 		sizes.map((s) => [s, s === 'sm' ? 'w-3 h-3' : s === 'lg' ? 'w-5 h-5' : 'w-4 h-4'])
 	) as Record<S, string>
 });
-
-
-
-
-

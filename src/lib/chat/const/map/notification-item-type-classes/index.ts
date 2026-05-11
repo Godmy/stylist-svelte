@@ -4,4 +4,3 @@ export const NOTIFICATION_ITEM_TYPE_CLASSES = {
 	warning: 'border-[var(--color-warning-200)] bg-[var(--color-warning-50)]',
 	error: 'border-[var(--color-danger-200)] bg-[var(--color-danger-50)]'
 } as const;
-

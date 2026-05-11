@@ -2,8 +2,12 @@ import type { RecipeReturnPolicy as ReturnPolicyContract } from '$stylist/commer
 import { ReturnPolicyStyleManager } from '$stylist/commerce/class/style-manager/return-policy';
 
 export function createReturnPolicyState(props: ReturnPolicyContract) {
-	const containerClasses = $derived(ReturnPolicyStyleManager.getContainerClasses(String(props.class ?? '')));
-	const headerClasses = $derived(ReturnPolicyStyleManager.getHeaderClasses(props.headerClass ?? ''));
+	const containerClasses = $derived(
+		ReturnPolicyStyleManager.getContainerClasses(String(props.class ?? ''))
+	);
+	const headerClasses = $derived(
+		ReturnPolicyStyleManager.getHeaderClasses(props.headerClass ?? '')
+	);
 	const titleClasses = $derived(ReturnPolicyStyleManager.getTitleClasses());
 	const contentContainerClasses = $derived(ReturnPolicyStyleManager.getContentContainerClasses());
 	const sectionClasses = $derived(ReturnPolicyStyleManager.getSectionClasses());
@@ -12,7 +16,9 @@ export function createReturnPolicyState(props: ReturnPolicyContract) {
 	const conditionsListClasses = $derived(ReturnPolicyStyleManager.getConditionsListClasses());
 	const conditionItemClasses = $derived(ReturnPolicyStyleManager.getConditionItemClasses());
 	const conditionTitleClasses = $derived(ReturnPolicyStyleManager.getConditionTitleClasses());
-	const conditionDescriptionClasses = $derived(ReturnPolicyStyleManager.getConditionDescriptionClasses());
+	const conditionDescriptionClasses = $derived(
+		ReturnPolicyStyleManager.getConditionDescriptionClasses()
+	);
 	const stepsListClasses = $derived(ReturnPolicyStyleManager.getStepsListClasses());
 	const stepItemClasses = $derived(ReturnPolicyStyleManager.getStepItemClasses());
 	const stepNumberClasses = $derived(ReturnPolicyStyleManager.getStepNumberClasses());
@@ -35,33 +41,87 @@ export function createReturnPolicyState(props: ReturnPolicyContract) {
 	}
 
 	return {
-		get containerClasses() { return containerClasses; },
-		get headerClasses() { return headerClasses; },
-		get titleClasses() { return titleClasses; },
-		get contentContainerClasses() { return contentContainerClasses; },
-		get sectionClasses() { return sectionClasses; },
-		get sectionTitleClasses() { return sectionTitleClasses; },
-		get policyDescriptionClasses() { return policyDescriptionClasses; },
-		get conditionsListClasses() { return conditionsListClasses; },
-		get conditionItemClasses() { return conditionItemClasses; },
-		get conditionTitleClasses() { return conditionTitleClasses; },
-		get conditionDescriptionClasses() { return conditionDescriptionClasses; },
-		get stepsListClasses() { return stepsListClasses; },
-		get stepItemClasses() { return stepItemClasses; },
-		get stepNumberClasses() { return stepNumberClasses; },
-		get stepContentClasses() { return stepContentClasses; },
-		get stepTitleClasses() { return stepTitleClasses; },
-		get stepDescriptionClasses() { return stepDescriptionClasses; },
-		get faqListClasses() { return faqListClasses; },
-		get faqItemClasses() { return faqItemClasses; },
-		get faqQuestionClasses() { return faqQuestionClasses; },
-		get faqAnswerClasses() { return faqAnswerClasses; },
-		get shippingInfoClasses() { return shippingInfoClasses; },
-		get shippingInfoItemClasses() { return shippingInfoItemClasses; },
-		get shippingInfoLabelClasses() { return shippingInfoLabelClasses; },
-		get shippingInfoValueClasses() { return shippingInfoValueClasses; },
-		get badgeClasses() { return badgeClasses; },
-		get iconClasses() { return iconClasses; },
+		get containerClasses() {
+			return containerClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get contentContainerClasses() {
+			return contentContainerClasses;
+		},
+		get sectionClasses() {
+			return sectionClasses;
+		},
+		get sectionTitleClasses() {
+			return sectionTitleClasses;
+		},
+		get policyDescriptionClasses() {
+			return policyDescriptionClasses;
+		},
+		get conditionsListClasses() {
+			return conditionsListClasses;
+		},
+		get conditionItemClasses() {
+			return conditionItemClasses;
+		},
+		get conditionTitleClasses() {
+			return conditionTitleClasses;
+		},
+		get conditionDescriptionClasses() {
+			return conditionDescriptionClasses;
+		},
+		get stepsListClasses() {
+			return stepsListClasses;
+		},
+		get stepItemClasses() {
+			return stepItemClasses;
+		},
+		get stepNumberClasses() {
+			return stepNumberClasses;
+		},
+		get stepContentClasses() {
+			return stepContentClasses;
+		},
+		get stepTitleClasses() {
+			return stepTitleClasses;
+		},
+		get stepDescriptionClasses() {
+			return stepDescriptionClasses;
+		},
+		get faqListClasses() {
+			return faqListClasses;
+		},
+		get faqItemClasses() {
+			return faqItemClasses;
+		},
+		get faqQuestionClasses() {
+			return faqQuestionClasses;
+		},
+		get faqAnswerClasses() {
+			return faqAnswerClasses;
+		},
+		get shippingInfoClasses() {
+			return shippingInfoClasses;
+		},
+		get shippingInfoItemClasses() {
+			return shippingInfoItemClasses;
+		},
+		get shippingInfoLabelClasses() {
+			return shippingInfoLabelClasses;
+		},
+		get shippingInfoValueClasses() {
+			return shippingInfoValueClasses;
+		},
+		get badgeClasses() {
+			return badgeClasses;
+		},
+		get iconClasses() {
+			return iconClasses;
+		},
 		getButtonClasses
 	};
 }

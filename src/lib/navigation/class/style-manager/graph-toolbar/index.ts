@@ -53,8 +53,3 @@ export class GraphToolbarStyleManager {
 		);
 	}
 }
-
-
-
-
-

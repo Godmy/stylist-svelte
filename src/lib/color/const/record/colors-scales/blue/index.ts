@@ -12,6 +12,3 @@ export const COLORS_SCALES_BLUE: RecordColorScale = {
 	800: '#1e40af',
 	900: '#1e3a8a'
 };
-
-
-

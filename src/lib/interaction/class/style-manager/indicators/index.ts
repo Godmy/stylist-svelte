@@ -15,24 +15,18 @@ import { STATUS_INDICATOR_STATUS_TEXT } from '$stylist/interaction/const/map/sta
 import { TOKEN_STATUS_LABEL_CONTAINER } from '$stylist/interaction/const/enum/status-label-container';
 import { STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES } from '$stylist/interaction/const/map/status-indicator-with-label-size-classes';
 
-
-
-
-
 export class IndicatorsStyleManager {
 	static getDotClasses(
-		color:
-			| 'primary'
-			| 'secondary'
-			| 'success'
-			| 'warning'
-			| 'danger'
-			| 'info'
-			| 'gray' = 'primary',
+		color: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'gray' = 'primary',
 		size: 'sm' | 'md' | 'lg' = 'md',
 		className = ''
 	): string {
-		return mergeClassNames('inline-block rounded-full', DOT_COLOR_CLASSES[color], DOT_SIZE_CLASSES[size], className);
+		return mergeClassNames(
+			'inline-block rounded-full',
+			DOT_COLOR_CLASSES[color],
+			DOT_SIZE_CLASSES[size],
+			className
+		);
 	}
 
 	static getCounterClasses(
@@ -72,14 +66,7 @@ export class IndicatorsStyleManager {
 	}
 
 	static getMarkerClasses(
-		color:
-			| 'primary'
-			| 'secondary'
-			| 'success'
-			| 'warning'
-			| 'danger'
-			| 'info'
-			| 'gray' = 'primary',
+		color: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'gray' = 'primary',
 		size: 'sm' | 'md' | 'lg' = 'md',
 		className = ''
 	): string {
@@ -149,7 +136,9 @@ export class IndicatorsStyleManager {
 		return mergeClassNames(
 			'inline-block rounded-full mr-2',
 			STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES[size],
-			customColor ? `bg-[${customColor}]` : appearanceClassMap[appearance] ?? 'bg-[--color-neutral-500]',
+			customColor
+				? `bg-[${customColor}]`
+				: (appearanceClassMap[appearance] ?? 'bg-[--color-neutral-500]'),
 			indicatorClass
 		);
 	}

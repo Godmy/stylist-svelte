@@ -18,5 +18,6 @@ export interface RecipePromptBuilder extends StructIntersectAll<[]> {
 	headerClass?: string;
 	editorClass?: string;
 	variablesClass?: string;
-	footerClass?: string;	children?: Snippet;
+	footerClass?: string;
+	children?: Snippet;
 }

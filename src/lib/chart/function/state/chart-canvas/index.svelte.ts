@@ -15,11 +15,21 @@ export function createChartCanvasState(props: ChartCanvasProps) {
 	const svgClasses = $derived(ChartStyleManager.getChartSvgClasses());
 
 	return {
-		get width() { return width; },
-		get height() { return height; },
-		get padding() { return padding; },
-		get wrapperClasses() { return wrapperClasses; },
-		get svgClasses() { return svgClasses; }
+		get width() {
+			return width;
+		},
+		get height() {
+			return height;
+		},
+		get padding() {
+			return padding;
+		},
+		get wrapperClasses() {
+			return wrapperClasses;
+		},
+		get svgClasses() {
+			return svgClasses;
+		}
 	};
 }
 

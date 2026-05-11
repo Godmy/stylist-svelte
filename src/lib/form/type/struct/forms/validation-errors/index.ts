@@ -6,4 +6,4 @@ export type ValidationErrors = {
 	password?: string;
 	phone?: string;
 	[key: string]: string | undefined;
-}
+};

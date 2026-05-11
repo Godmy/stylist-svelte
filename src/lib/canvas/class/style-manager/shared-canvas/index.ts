@@ -2,7 +2,11 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 export class StyleManagerSharedCanvas {
-	static getContainerClass(variant: string, size: TokenSize | undefined, className?: string): string {
+	static getContainerClass(
+		variant: string,
+		size: TokenSize | undefined,
+		className?: string
+	): string {
 		const sizeClasses =
 			{
 				sm: 'text-sm',
@@ -98,4 +102,3 @@ export class StyleManagerSharedCanvas {
 		return 'px-3 py-1.5 text-sm rounded-md bg-[--color-primary-500] text-[--color-text-inverse] hover:bg-[--color-primary-600] transition-colors disabled:opacity-50 disabled:cursor-not-allowed';
 	}
 }
-

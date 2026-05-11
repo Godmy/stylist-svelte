@@ -1,7 +1,8 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import type { SlotImageItem } from '$stylist/media/interface/slot/image-item';
 
-export interface ContractImageGallery extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
+export interface ContractImageGallery
+	extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
 	/** List of images */
 	images: SlotImageItem[];
 	/** Show thumbnails */

@@ -24,7 +24,9 @@ export function createNotificationBadgeState(props: NotificationBadgeStateProps)
 	const shouldShow = $derived(count > 0 || showZero || showDot);
 
 	const containerClasses = $derived(NotificationBadgeStyleManager.getContainerClasses(className));
-	const badgeClasses = $derived(NotificationBadgeStyleManager.getBadgeClasses(marker, appearance, position, badgeClass));
+	const badgeClasses = $derived(
+		NotificationBadgeStyleManager.getBadgeClasses(marker, appearance, position, badgeClass)
+	);
 
 	const restProps = $derived.by(() => {
 		const {
@@ -43,18 +45,42 @@ export function createNotificationBadgeState(props: NotificationBadgeStateProps)
 	});
 
 	return {
-		get count() { return count; },
-		get maxCount() { return maxCount; },
-		get marker() { return marker; },
-		get appearance() { return appearance; },
-		get position() { return position; },
-		get showZero() { return showZero; },
-		get showDot() { return showDot; },
-		get badgeContent() { return badgeContent; },
-		get shouldShow() { return shouldShow; },
-		get containerClasses() { return containerClasses; },
-		get badgeClasses() { return badgeClasses; },
-		get restProps() { return restProps; }
+		get count() {
+			return count;
+		},
+		get maxCount() {
+			return maxCount;
+		},
+		get marker() {
+			return marker;
+		},
+		get appearance() {
+			return appearance;
+		},
+		get position() {
+			return position;
+		},
+		get showZero() {
+			return showZero;
+		},
+		get showDot() {
+			return showDot;
+		},
+		get badgeContent() {
+			return badgeContent;
+		},
+		get shouldShow() {
+			return shouldShow;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get badgeClasses() {
+			return badgeClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

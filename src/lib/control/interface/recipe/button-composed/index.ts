@@ -13,20 +13,21 @@ import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface ButtonComposedRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IIconSlot,
-		IBadgeSlot,
-		IClickable,
-		IFocusable,
-		ISized,
-		IShapeable,
-		ContainerProps,
-		ThemeBackgroundRecipe,
-		BorderRecipe,
-		HTMLButtonAttributes
-	]>
-{
+	extends StructIntersectAll<
+		[
+			ILabelSlot,
+			IIconSlot,
+			IBadgeSlot,
+			IClickable,
+			IFocusable,
+			ISized,
+			IShapeable,
+			ContainerProps,
+			ThemeBackgroundRecipe,
+			BorderRecipe,
+			HTMLButtonAttributes
+		]
+	> {
 	children?: Snippet;
 	loadingLabel?: string;
 	block?: boolean;

@@ -6,4 +6,4 @@ export type LazyLoaderProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	text?: string;
 	children?: Snippet;
 	class?: string;
-}
+};

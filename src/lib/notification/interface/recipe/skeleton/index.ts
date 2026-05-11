@@ -8,14 +8,7 @@ import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavi
 import type { SkeletonSpecificProps } from '$stylist/notification/interface/recipe/skeleton-specific-props';
 
 export interface SkeletonRecipe
-	extends StructIntersectAll<[
-		ISized,
-		IShapeable,
-		ISpaced,
-		IScrollable,
-		SlotTheme,
-		HTMLAttributes<HTMLDivElement>
-	]>,
-		SkeletonSpecificProps
-{}
-
+	extends StructIntersectAll<
+			[ISized, IShapeable, ISpaced, IScrollable, SlotTheme, HTMLAttributes<HTMLDivElement>]
+		>,
+		SkeletonSpecificProps {}

@@ -4,11 +4,21 @@
 	import Stepper from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'orientation', type: 'select', defaultValue: 'horizontal', options: ['horizontal', 'vertical'] }
+		{
+			name: 'orientation',
+			type: 'select',
+			defaultValue: 'horizontal',
+			options: ['horizontal', 'vertical']
+		}
 	];
 </script>
 
-<Story component={Stepper} title="Stepper" description="Step progress indicator for multi-step flows." {controls}>
+<Story
+	component={Stepper}
+	title="Stepper"
+	description="Step progress indicator for multi-step flows."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<Stepper
 			orientation={values.orientation}
@@ -20,6 +30,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

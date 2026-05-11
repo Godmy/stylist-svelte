@@ -4,7 +4,8 @@ import type { SlotGeoJsonFeatureCollection } from '$stylist/geo/interface/slot/g
 import type { SlotGeoJsonLayer } from '$stylist/geo/interface/slot/geo-json-layer';
 import type { SlotMapView } from '$stylist/geo/interface/slot/map-view';
 
-export interface SlotGeoJSONViewer extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
+export interface SlotGeoJSONViewer
+	extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
 	geojsonData?: SlotGeoJsonFeatureCollection;
 	layers?: SlotGeoJsonLayer[];
 	class?: string;

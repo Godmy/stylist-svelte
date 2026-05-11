@@ -13,7 +13,8 @@ export class ProductCardStyleManager {
 		return mergeClassNames(
 			'c-product-card border border-[var(--color-border-primary)]',
 			CardStyleManager.getBaseClasses(),
-			PRODUCT_CARD_CONTAINER_VARIANT_CLASSES[variant] ?? PRODUCT_CARD_CONTAINER_VARIANT_CLASSES.detailed,
+			PRODUCT_CARD_CONTAINER_VARIANT_CLASSES[variant] ??
+				PRODUCT_CARD_CONTAINER_VARIANT_CLASSES.detailed,
 			extraClasses
 		);
 	}
@@ -23,7 +24,11 @@ export class ProductCardStyleManager {
 	}
 
 	static getImageContainerClass(variant: TierContent = 'detailed'): string {
-		return PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES[variant] ?? PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES.detailed ?? '';
+		return (
+			PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES[variant] ??
+			PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES.detailed ??
+			''
+		);
 	}
 
 	static getImageClass(): string {
@@ -59,7 +64,11 @@ export class ProductCardStyleManager {
 	}
 
 	static getContentClass(variant: TierContent = 'detailed'): string {
-		return PRODUCT_CARD_CONTENT_VARIANT_CLASSES[variant] ?? PRODUCT_CARD_CONTENT_VARIANT_CLASSES.detailed ?? '';
+		return (
+			PRODUCT_CARD_CONTENT_VARIANT_CLASSES[variant] ??
+			PRODUCT_CARD_CONTENT_VARIANT_CLASSES.detailed ??
+			''
+		);
 	}
 
 	static getHeaderClass(): string {
@@ -67,11 +76,19 @@ export class ProductCardStyleManager {
 	}
 
 	static getTitleClass(variant: TierContent = 'detailed'): string {
-		return PRODUCT_CARD_TITLE_VARIANT_CLASSES[variant] ?? PRODUCT_CARD_TITLE_VARIANT_CLASSES.detailed ?? '';
+		return (
+			PRODUCT_CARD_TITLE_VARIANT_CLASSES[variant] ??
+			PRODUCT_CARD_TITLE_VARIANT_CLASSES.detailed ??
+			''
+		);
 	}
 
 	static getDescriptionClass(variant: TierContent = 'detailed'): string {
-		return PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES[variant] ?? PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES.detailed ?? '';
+		return (
+			PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES[variant] ??
+			PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES.detailed ??
+			''
+		);
 	}
 
 	static getRatingContainerClass(): string {
@@ -102,4 +119,3 @@ export class ProductCardStyleManager {
 		return 'ml-3 flex items-center gap-2';
 	}
 }
-

@@ -11,7 +11,9 @@ export function createIdef0OutputsState(props: Idef0OutputsProps) {
 	const positions = $derived(calculatePortPositions(props.ports, props.boxY, props.boxHeight));
 
 	return {
-		get positions() { return positions; }
+		get positions() {
+			return positions;
+		}
 	};
 }
 

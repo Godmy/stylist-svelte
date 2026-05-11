@@ -2,7 +2,6 @@ import { OverlayLayoutStyleManager } from '$stylist/layout/class/style-manager/o
 import type { OverlayLayoutAlign } from '$stylist/layout/type/enum/overlay-layout-align';
 import type { OverlayLayoutProps } from '$stylist/layout/type/struct/layout-extended/overlay-layout-props';
 
-
 export function createOverlayLayoutState(props: OverlayLayoutProps) {
 	const overlayAlign = $derived<OverlayLayoutAlign>(props.overlayAlign ?? 'fill');
 	const overlayZIndex = $derived(props.overlayZIndex ?? 10);
@@ -28,12 +27,24 @@ export function createOverlayLayoutState(props: OverlayLayoutProps) {
 	});
 
 	return {
-		get overlayAlign() { return overlayAlign; },
-		get overlayZIndex() { return overlayZIndex; },
-		get overlayPointerEvents() { return overlayPointerEvents; },
-		get baseClass() { return baseClass; },
-		get overlayClass() { return overlayClass; },
-		get restProps() { return restProps; }
+		get overlayAlign() {
+			return overlayAlign;
+		},
+		get overlayZIndex() {
+			return overlayZIndex;
+		},
+		get overlayPointerEvents() {
+			return overlayPointerEvents;
+		},
+		get baseClass() {
+			return baseClass;
+		},
+		get overlayClass() {
+			return overlayClass;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

@@ -11,7 +11,9 @@ export function createToggleState(props: ToggleStateProps) {
 	const checked = $derived(props.checked ?? false);
 	const ariaLabel = $derived(props.ariaLabel ?? 'SlotToggle');
 
-	const containerClasses = $derived(TogglesStyleManager.getToggleContainerClasses(props.class as string | undefined));
+	const containerClasses = $derived(
+		TogglesStyleManager.getToggleContainerClasses(props.class as string | undefined)
+	);
 	const inputClasses = $derived(TogglesStyleManager.getSwitchInputClasses(disabled));
 	const trackClasses = $derived(TogglesStyleManager.getToggleTrackClasses(disabled, checked));
 	const thumbClasses = $derived(TogglesStyleManager.getToggleThumbClasses(size, disabled, checked));

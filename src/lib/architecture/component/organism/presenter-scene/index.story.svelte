@@ -36,4 +36,3 @@
 	description="Interactive presenter scene with camera pan, zoom and semantic zoom stages."
 	tags={['presenter', 'scene', 'camera', 'semantic-zoom', 'canvas']}
 />
-

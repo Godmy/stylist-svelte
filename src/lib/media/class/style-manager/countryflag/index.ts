@@ -12,13 +12,13 @@ export class CountryFlagStyleManager {
 	}
 
 	static getCountryFlagFallbackClasses(className = ''): string {
-		return mergeClassNames('inline-flex items-center justify-center rounded bg-[--color-background-secondary] text-[--color-text-secondary]', className);
+		return mergeClassNames(
+			'inline-flex items-center justify-center rounded bg-[--color-background-secondary] text-[--color-text-secondary]',
+			className
+		);
 	}
 
 	static getCountryFlagStyle(size: number): string {
 		return `width: ${size}px; height: ${size}px; font-size: ${size}px; line-height: ${size}px;`;
 	}
 }
-
-
-

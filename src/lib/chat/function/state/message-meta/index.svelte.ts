@@ -21,7 +21,9 @@ export const createMessageMetaState = (props: {
 	);
 
 	const displayStatus = $derived(
-		props.message?.status === 'sent' || props.message?.status === 'delivered' || props.message?.status === 'read'
+		props.message?.status === 'sent' ||
+			props.message?.status === 'delivered' ||
+			props.message?.status === 'read'
 			? props.message.status
 			: undefined
 	);

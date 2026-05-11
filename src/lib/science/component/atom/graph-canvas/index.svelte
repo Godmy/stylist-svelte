@@ -36,13 +36,20 @@
 >
 	<!-- Grid layer -->
 	<div
-		class={GraphCanvasStyleManager.getGridClass((props.gridMode ?? 'none') as import('$stylist/architecture/type/enum/marker').TokenMarker, props.gridClass)}
+		class={GraphCanvasStyleManager.getGridClass(
+			(props.gridMode ?? 'none') as import('$stylist/architecture/type/enum/marker').TokenMarker,
+			props.gridClass
+		)}
 		style={`${GraphCanvasStyleManager.getGridStyles(state.gridSize, props.gridColor ?? '')} ${GraphCanvasStyleManager.getTransformStyles(state.offset.x, state.offset.y, state.zoom)}`}
 		aria-hidden="true"
 	></div>
 
 	<!-- Content layer -->
-	<div bind:this={contentRef} class={GraphCanvasStyleManager.getContentClass(props.contentClass)} style={GraphCanvasStyleManager.getTransformStyles(state.offset.x, state.offset.y, state.zoom)}>
+	<div
+		bind:this={contentRef}
+		class={GraphCanvasStyleManager.getContentClass(props.contentClass)}
+		style={GraphCanvasStyleManager.getTransformStyles(state.offset.x, state.offset.y, state.zoom)}
+	>
 		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 	</div>
 </div>

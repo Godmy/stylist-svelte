@@ -5,7 +5,8 @@
 	import InputText from '../input-text/index.svelte';
 
 	let props: IInputEmailProps &
-		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> = $props();
+		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> =
+		$props();
 	const state = createInputEmailState(props);
 </script>
 

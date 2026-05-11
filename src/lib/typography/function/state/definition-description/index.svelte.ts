@@ -4,7 +4,9 @@ import type { ThemeDefinitionDescriptionRecipe } from '$stylist/typography/inter
 
 export function createDefinitionDescriptionState(props: ThemeDefinitionDescriptionRecipe) {
 	const baseState = createBaseDefinitionDescriptionState(props);
-	const classes = $derived(DefinitionDescriptionStyleManager.getDefinitionDescriptionClasses(baseState.classes));
+	const classes = $derived(
+		DefinitionDescriptionStyleManager.getDefinitionDescriptionClasses(baseState.classes)
+	);
 	return {
 		get classes() {
 			return classes;

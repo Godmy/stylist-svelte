@@ -32,7 +32,13 @@ export const createInputPasswordState = (props: IInputPasswordProps) => {
 		if (/[^a-zA-Z0-9]/.test(value)) strength++;
 
 		const labels = ['Weak', 'Fair', 'Good', 'Strong', 'Very Strong'];
-		const colors = ['bg-[var(--color-danger-500)]', 'bg-orange-500', 'bg-yellow-500', 'bg-lime-500', 'bg-[var(--color-success-500)]'];
+		const colors = [
+			'bg-[var(--color-danger-500)]',
+			'bg-orange-500',
+			'bg-yellow-500',
+			'bg-lime-500',
+			'bg-[var(--color-success-500)]'
+		];
 
 		return {
 			value: strength,

@@ -13,4 +13,3 @@ export class GridStyleManager {
 		return `width: ${gridSize}px; height: ${gridSize}px;`;
 	}
 }
-

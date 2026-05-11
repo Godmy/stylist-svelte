@@ -5,6 +5,6 @@
 import type { HTMLSelectAttributes } from 'svelte/elements';
 
 export interface SlotSelectOption {
-  value: string;
-  label: string;
+	value: string;
+	label: string;
 }

@@ -10,8 +10,12 @@ export function createPaymentInfoState(props: PaymentInfoProps) {
 	const rootClass = $derived(PaymentInfoStyleManager.root(props.class ?? ''));
 
 	return {
-		get selectedMethodId() { return selectedMethodId; },
-		get rootClass() { return rootClass; },
+		get selectedMethodId() {
+			return selectedMethodId;
+		},
+		get rootClass() {
+			return rootClass;
+		},
 		handleMethodSelect(method: PaymentMethod) {
 			if (method.disabled) return;
 			selectedMethodId = method.id;

@@ -1,5 +1,6 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-export interface ProductWishlistProps extends StructIntersectAll<[]> {	items: Array<{
+export interface ProductWishlistProps extends StructIntersectAll<[]> {
+	items: Array<{
 		id: string;
 		title: string;
 		price: number;

@@ -6,12 +6,7 @@
 	const state = createNodeDotState(props);
 </script>
 
-<div
-	class="node-dot"
-	style={state.style}
-	role="img"
-	aria-label="Node dot"
-></div>
+<div class="node-dot" style={state.style} role="img" aria-label="Node dot"></div>
 
 <style>
 	.node-dot {

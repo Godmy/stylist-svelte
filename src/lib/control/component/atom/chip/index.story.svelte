@@ -5,7 +5,12 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'label', type: 'text', defaultValue: 'Example chip' },
-		{ name: 'variant', type: 'select', defaultValue: 'primary', options: ['primary', 'secondary', 'success', 'warning', 'danger'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'success', 'warning', 'danger']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'closable', type: 'boolean', defaultValue: false },
 		{ name: 'disabled', type: 'boolean', defaultValue: false }
@@ -31,6 +36,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

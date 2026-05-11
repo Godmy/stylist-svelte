@@ -15,9 +15,15 @@ export function createSecureFormState(props: SecureFormStateProps) {
 	});
 
 	return {
-		get token() { return token; },
-		get containerClasses() { return containerClasses; },
-		get restProps() { return restProps; }
+		get token() {
+			return token;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

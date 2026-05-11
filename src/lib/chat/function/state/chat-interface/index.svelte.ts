@@ -13,19 +13,37 @@ export const createChatInterfaceState = (props: ChatInterfaceProps) => {
 	let newMessage = $state('');
 	let selectedProvider = $state(props.currentProvider ?? '');
 
-	const containerClass = $derived(ChatInterfaceStyleManager.getContainerClass(`c-chat-interface ${props.class ?? ''}`));
-	const headerClassComputed = $derived(ChatInterfaceStyleManager.getHeaderClass(props.headerClass ?? ''));
-	const messageListContainerClass = $derived(ChatInterfaceStyleManager.getMessagesContainerClass(props.messageListClass ?? ''));
-	const userMessageClass = $derived(ChatInterfaceStyleManager.getMessageClass(true, props.messageClass ?? ''));
-	const aiMessageClass = $derived(ChatInterfaceStyleManager.getMessageClass(false, props.messageClass ?? ''));
-	const messageContentWrapperClass = $derived(ChatInterfaceStyleManager.getMessageContentWrapperClass());
+	const containerClass = $derived(
+		ChatInterfaceStyleManager.getContainerClass(`c-chat-interface ${props.class ?? ''}`)
+	);
+	const headerClassComputed = $derived(
+		ChatInterfaceStyleManager.getHeaderClass(props.headerClass ?? '')
+	);
+	const messageListContainerClass = $derived(
+		ChatInterfaceStyleManager.getMessagesContainerClass(props.messageListClass ?? '')
+	);
+	const userMessageClass = $derived(
+		ChatInterfaceStyleManager.getMessageClass(true, props.messageClass ?? '')
+	);
+	const aiMessageClass = $derived(
+		ChatInterfaceStyleManager.getMessageClass(false, props.messageClass ?? '')
+	);
+	const messageContentWrapperClass = $derived(
+		ChatInterfaceStyleManager.getMessageContentWrapperClass()
+	);
 	const botIconClass = $derived(ChatInterfaceStyleManager.getBotIconClass());
 	const userIconClass = $derived(ChatInterfaceStyleManager.getUserIconClass());
 	const timestampClass = $derived(ChatInterfaceStyleManager.getTimestampClass(false));
 	const userTimestampClass = $derived(ChatInterfaceStyleManager.getTimestampClass(true));
-	const inputAreaClass = $derived(ChatInterfaceStyleManager.getInputAreaClass(props.footerClass ?? ''));
-	const messageInputClass = $derived(ChatInterfaceStyleManager.getMessageInputClass(props.inputClass ?? ''));
-	const sendButtonClass = $derived(ChatInterfaceStyleManager.getSendButtonClass(!newMessage.trim()));
+	const inputAreaClass = $derived(
+		ChatInterfaceStyleManager.getInputAreaClass(props.footerClass ?? '')
+	);
+	const messageInputClass = $derived(
+		ChatInterfaceStyleManager.getMessageInputClass(props.inputClass ?? '')
+	);
+	const sendButtonClass = $derived(
+		ChatInterfaceStyleManager.getSendButtonClass(!newMessage.trim())
+	);
 	const sendIconClass = $derived(ChatInterfaceStyleManager.getSendIconClass());
 	const providerSelectorClass = $derived(ChatInterfaceStyleManager.getProviderSelectorClass());
 	const settingsButtonClass = $derived(ChatInterfaceStyleManager.getSettingsButtonClass());

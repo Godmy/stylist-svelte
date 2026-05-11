@@ -13,7 +13,9 @@ export function createPaginationState(props: PaginationStateProps) {
 	const disabled = $derived(props.disabled ?? false);
 
 	// Computed classes
-	const containerClass = $derived(PaginationStyleManager.getPaginationContainerClasses(props.class));
+	const containerClass = $derived(
+		PaginationStyleManager.getPaginationContainerClasses(props.class)
+	);
 	const navClass = $derived(PaginationStyleManager.getPaginationClasses(size));
 	const buttonClassComputed = $derived(
 		PaginationStyleManager.getPageItemClasses(false, false, size, props.buttonClass)

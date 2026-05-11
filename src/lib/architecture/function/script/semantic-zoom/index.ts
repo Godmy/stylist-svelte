@@ -1,6 +1,4 @@
-import {
-	getFoundationDepthDistance
-} from '$stylist/architecture/function/script/get-foundation-depth-distance';
+import { getFoundationDepthDistance } from '$stylist/architecture/function/script/get-foundation-depth-distance';
 import { normalizeFoundationDepthDistance } from '$stylist/architecture/function/script/normalize-foundation-depth-distance';
 import { resolveFoundationSemanticZoomStage } from '$stylist/architecture/function/script/resolve-foundation-semantic-zoom-stage';
 import { RECORD_DENSITY } from '$stylist/architecture/const/record/density/index';
@@ -19,7 +17,10 @@ export function resolveSemanticZoomPresentation(
 ): SemanticZoomPresentation {
 	const distance = getFoundationDepthDistance(worldDepth, cameraDepth);
 	const proximity = normalizeFoundationDepthDistance(distance);
-	const stage: FoundationSemanticZoomStage = resolveFoundationSemanticZoomStage(worldDepth, cameraDepth);
+	const stage: FoundationSemanticZoomStage = resolveFoundationSemanticZoomStage(
+		worldDepth,
+		cameraDepth
+	);
 	const frame = RECORD_FRAME[stage];
 
 	return {

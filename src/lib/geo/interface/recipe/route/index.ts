@@ -5,11 +5,11 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { BehaviorLocationProto as ILocationProto } from '$stylist/geo/interface/behavior/location';
 
 export interface IRouteRecipe extends StructIntersectAll<[]> {
-  start: ILocationProto;
-  end: ILocationProto;
-  waypoints?: ILocationProto[];
-  mode?: 'driving' | 'walking' | 'cycling' | 'transit';
-  showOptions?: boolean;
-  showDirections?: boolean;
-  showMap?: boolean;
+	start: ILocationProto;
+	end: ILocationProto;
+	waypoints?: ILocationProto[];
+	mode?: 'driving' | 'walking' | 'cycling' | 'transit';
+	showOptions?: boolean;
+	showDirections?: boolean;
+	showMap?: boolean;
 }

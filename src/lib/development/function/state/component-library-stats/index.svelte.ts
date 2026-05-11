@@ -4,7 +4,12 @@ import type { ComponentLibraryStatsComponentStats } from '$stylist/development/t
 import { ComponentLibraryStatsStyleManager } from '$stylist/development/class/style-manager/component-library-stats';
 
 export function createComponentLibraryStatsState(props: ComponentLibraryStatsProps) {
-	let animatedStats = $state<ComponentLibraryStatsComponentStats>({ totalComponents: 0, atoms: 0, molecules: 0, organisms: 0 });
+	let animatedStats = $state<ComponentLibraryStatsComponentStats>({
+		totalComponents: 0,
+		atoms: 0,
+		molecules: 0,
+		organisms: 0
+	});
 	let animationStarted = $state(false);
 
 	const sectionId = $derived(props.sectionId ?? 'stats-section');
@@ -74,7 +79,15 @@ export function createComponentLibraryStatsState(props: ComponentLibraryStatsPro
 	});
 
 	const restProps = $derived.by(() => {
-		const { class: _className, stats: _stats, sectionId: _sectionId, animateOnVisible: _animate, durationMs: _duration, steps: _steps, ...rest } = props;
+		const {
+			class: _className,
+			stats: _stats,
+			sectionId: _sectionId,
+			animateOnVisible: _animate,
+			durationMs: _duration,
+			steps: _steps,
+			...rest
+		} = props;
 		return rest;
 	});
 

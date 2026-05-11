@@ -15,4 +15,3 @@
 </script>
 
 <span class={state.classes} {...restProps}></span>
-

@@ -30,24 +30,15 @@ export class TabsStyleManager {
 	}
 
 	static getTabsListClasses(className?: string): string {
-		return this.join([
-			'flex items-center',
-			className
-		]);
+		return this.join(['flex items-center', className]);
 	}
 
 	static getTabsContentClasses(className?: string): string {
-		return this.join([
-			'flex-1',
-			className
-		]);
+		return this.join(['flex-1', className]);
 	}
 
 	static getTabsPanelClasses(className?: string): string {
-		return this.join([
-			'pt-4',
-			className
-		]);
+		return this.join(['pt-4', className]);
 	}
 
 	static getTabClass(
@@ -59,7 +50,9 @@ export class TabsStyleManager {
 	): string {
 		return this.join([
 			'px-4 py-2 font-medium transition-colors',
-			selected ? 'text-[var(--color-primary-500)] border-b-2 border-[var(--color-primary-500)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]',
+			selected
+				? 'text-[var(--color-primary-500)] border-b-2 border-[var(--color-primary-500)]'
+				: 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]',
 			disabled && 'opacity-50 cursor-not-allowed',
 			className
 		]);

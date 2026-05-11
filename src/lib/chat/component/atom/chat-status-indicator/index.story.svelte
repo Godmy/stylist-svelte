@@ -4,7 +4,12 @@
 	import ChatStatusIndicator from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'status', type: 'select', defaultValue: 'online', options: ['online', 'offline', 'away', 'typing'] },
+		{
+			name: 'status',
+			type: 'select',
+			defaultValue: 'online',
+			options: ['online', 'offline', 'away', 'typing']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'sm', options: ['sm', 'md', 'lg'] },
 		{ name: 'showLabel', type: 'boolean', defaultValue: false }
 	];
@@ -18,7 +23,9 @@
 	description="User presence indicator for chat interfaces"
 >
 	{#snippet children(values: any)}
-		<div class="rounded border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4">
+		<div
+			class="rounded border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4"
+		>
 			<ChatStatusIndicator
 				status={values.status as 'online' | 'offline' | 'away' | 'typing'}
 				size={values.size as 'sm' | 'md' | 'lg'}
@@ -27,7 +34,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-

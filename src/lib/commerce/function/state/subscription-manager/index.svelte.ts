@@ -4,23 +4,37 @@ import { SubscriptionManagerStyleManager } from '$stylist/commerce/class/style-m
 export function createSubscriptionManagerState(props: SubscriptionManagerContract) {
 	const subscription = $derived(props.subscription);
 
-	const containerClasses = $derived(SubscriptionManagerStyleManager.getContainerClasses(String(props.class ?? '')));
-	const headerClasses = $derived(SubscriptionManagerStyleManager.getHeaderClasses(props.headerClass ?? ''));
+	const containerClasses = $derived(
+		SubscriptionManagerStyleManager.getContainerClasses(String(props.class ?? ''))
+	);
+	const headerClasses = $derived(
+		SubscriptionManagerStyleManager.getHeaderClasses(props.headerClass ?? '')
+	);
 	const titleClasses = $derived(SubscriptionManagerStyleManager.getTitleClasses());
 	const subtitleClasses = $derived(SubscriptionManagerStyleManager.getSubtitleClasses());
 	const planContainerClasses = $derived(SubscriptionManagerStyleManager.getPlanContainerClasses());
 	const planNameClasses = $derived(SubscriptionManagerStyleManager.getPlanNameClasses());
-	const planDescriptionClasses = $derived(SubscriptionManagerStyleManager.getPlanDescriptionClasses());
+	const planDescriptionClasses = $derived(
+		SubscriptionManagerStyleManager.getPlanDescriptionClasses()
+	);
 	const planPriceClasses = $derived(SubscriptionManagerStyleManager.getPlanPriceClasses());
-	const planPricePeriodClasses = $derived(SubscriptionManagerStyleManager.getPlanPricePeriodClasses());
+	const planPricePeriodClasses = $derived(
+		SubscriptionManagerStyleManager.getPlanPricePeriodClasses()
+	);
 	const featuresListClasses = $derived(SubscriptionManagerStyleManager.getFeaturesListClasses());
 	const featureItemClasses = $derived(SubscriptionManagerStyleManager.getFeatureItemClasses());
 	const featureIconClasses = $derived(SubscriptionManagerStyleManager.getFeatureIconClasses());
 	const featureTextClasses = $derived(SubscriptionManagerStyleManager.getFeatureTextClasses());
-	const actionsContainerClasses = $derived(SubscriptionManagerStyleManager.getActionsContainerClasses());
+	const actionsContainerClasses = $derived(
+		SubscriptionManagerStyleManager.getActionsContainerClasses()
+	);
 	const billingInfoClasses = $derived(SubscriptionManagerStyleManager.getBillingInfoClasses());
-	const billingInfoLabelClasses = $derived(SubscriptionManagerStyleManager.getBillingInfoLabelClasses());
-	const billingInfoValueClasses = $derived(SubscriptionManagerStyleManager.getBillingInfoValueClasses());
+	const billingInfoLabelClasses = $derived(
+		SubscriptionManagerStyleManager.getBillingInfoLabelClasses()
+	);
+	const billingInfoValueClasses = $derived(
+		SubscriptionManagerStyleManager.getBillingInfoValueClasses()
+	);
 
 	function getActionButtonClasses(variant: 'primary' | 'secondary' | 'danger') {
 		return SubscriptionManagerStyleManager.getActionButtonClasses(variant);
@@ -40,24 +54,60 @@ export function createSubscriptionManagerState(props: SubscriptionManagerContrac
 	}
 
 	return {
-		get subscription() { return subscription; },
-		get containerClasses() { return containerClasses; },
-		get headerClasses() { return headerClasses; },
-		get titleClasses() { return titleClasses; },
-		get subtitleClasses() { return subtitleClasses; },
-		get planContainerClasses() { return planContainerClasses; },
-		get planNameClasses() { return planNameClasses; },
-		get planDescriptionClasses() { return planDescriptionClasses; },
-		get planPriceClasses() { return planPriceClasses; },
-		get planPricePeriodClasses() { return planPricePeriodClasses; },
-		get featuresListClasses() { return featuresListClasses; },
-		get featureItemClasses() { return featureItemClasses; },
-		get featureIconClasses() { return featureIconClasses; },
-		get featureTextClasses() { return featureTextClasses; },
-		get actionsContainerClasses() { return actionsContainerClasses; },
-		get billingInfoClasses() { return billingInfoClasses; },
-		get billingInfoLabelClasses() { return billingInfoLabelClasses; },
-		get billingInfoValueClasses() { return billingInfoValueClasses; },
+		get subscription() {
+			return subscription;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get subtitleClasses() {
+			return subtitleClasses;
+		},
+		get planContainerClasses() {
+			return planContainerClasses;
+		},
+		get planNameClasses() {
+			return planNameClasses;
+		},
+		get planDescriptionClasses() {
+			return planDescriptionClasses;
+		},
+		get planPriceClasses() {
+			return planPriceClasses;
+		},
+		get planPricePeriodClasses() {
+			return planPricePeriodClasses;
+		},
+		get featuresListClasses() {
+			return featuresListClasses;
+		},
+		get featureItemClasses() {
+			return featureItemClasses;
+		},
+		get featureIconClasses() {
+			return featureIconClasses;
+		},
+		get featureTextClasses() {
+			return featureTextClasses;
+		},
+		get actionsContainerClasses() {
+			return actionsContainerClasses;
+		},
+		get billingInfoClasses() {
+			return billingInfoClasses;
+		},
+		get billingInfoLabelClasses() {
+			return billingInfoLabelClasses;
+		},
+		get billingInfoValueClasses() {
+			return billingInfoValueClasses;
+		},
 		getActionButtonClasses,
 		getStatusBadgeClasses,
 		formatDate,

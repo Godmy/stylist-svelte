@@ -8,4 +8,3 @@ export const ANNOUNCEMENT_BANNER_CLASSES = {
 	childrenContainer: 'mt-4',
 	flexContainer: 'flex items-start'
 } as const;
-

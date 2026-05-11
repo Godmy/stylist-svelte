@@ -45,11 +45,7 @@
 </script>
 
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-<section
-	class="prezi-scene"
-	class:is-panning={state.isPanning}
-	{...state.restProps}
->
+<section class="prezi-scene" class:is-panning={state.isPanning} {...state.restProps}>
 	{#if state.showHeader}
 		<header class="prezi-scene__header">
 			<div class="prezi-scene__header-content">
@@ -67,7 +63,8 @@
 						type="button"
 						class="prezi-scene__control-button"
 						title="Zoom out"
-						onclick={() => state.setCamera({ zoom: Math.max(state.minZoom, state.camera.zoom / 1.2) })}
+						onclick={() =>
+							state.setCamera({ zoom: Math.max(state.minZoom, state.camera.zoom / 1.2) })}
 						disabled={!state.zoomEnabled || state.camera.zoom <= state.minZoom}
 					>
 						<Icon name="minus" />
@@ -77,7 +74,8 @@
 						type="button"
 						class="prezi-scene__control-button"
 						title="Zoom in"
-						onclick={() => state.setCamera({ zoom: Math.min(state.maxZoom, state.camera.zoom * 1.2) })}
+						onclick={() =>
+							state.setCamera({ zoom: Math.min(state.maxZoom, state.camera.zoom * 1.2) })}
 						disabled={!state.zoomEnabled || state.camera.zoom >= state.maxZoom}
 					>
 						<Icon name="plus" />
@@ -145,7 +143,8 @@
 			<div
 				class="prezi-scene__world"
 				class:prezi-scene__world--animating={state.isAnimating}
-				style="transform: translate({state.camera.x}px, {state.camera.y}px) scale({state.camera.zoom}); --prezi-animation-duration: {props.animationDurationMs ?? 600}ms;"
+				style="transform: translate({state.camera.x}px, {state.camera.y}px) scale({state.camera
+					.zoom}); --prezi-animation-duration: {props.animationDurationMs ?? 600}ms;"
 			>
 				{#each state.nodes as node (node.id)}
 					<PresenterNodeShell
@@ -220,7 +219,9 @@
 					<div class="prezi-scene__inspector-field">
 						<span class="prezi-scene__inspector-label">Position</span>
 						<span class="prezi-scene__inspector-value">
-							x: {Math.round(state.selectedNode.position.x)}, y: {Math.round(state.selectedNode.position.y)}
+							x: {Math.round(state.selectedNode.position.x)}, y: {Math.round(
+								state.selectedNode.position.y
+							)}
 						</span>
 					</div>
 
@@ -523,5 +524,3 @@
 		color: var(--color-border-primary, #e5e7eb);
 	}
 </style>
-
-

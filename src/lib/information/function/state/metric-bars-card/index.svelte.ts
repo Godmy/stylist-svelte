@@ -9,9 +9,7 @@ export function createMetricBarsCardState(props: MetricBarsCardRecipe) {
 	const color = $derived(props.color ?? 'var(--color-primary-500)');
 	const trackColor = $derived(props.trackColor ?? 'var(--color-neutral-200)');
 	const containerClasses = $derived(
-		MetricBarsCardStyleManager.getContainerClasses(
-			props.class == null ? '' : String(props.class)
-		)
+		MetricBarsCardStyleManager.getContainerClasses(props.class == null ? '' : String(props.class))
 	);
 	const headerClasses = $derived(MetricBarsCardStyleManager.getHeaderClasses());
 	const titleClasses = $derived(MetricBarsCardStyleManager.getTitleClasses());

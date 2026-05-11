@@ -40,4 +40,3 @@ export class StatsCardStyleManager {
 		return 'text-[var(--color-text-secondary)]';
 	}
 }
-

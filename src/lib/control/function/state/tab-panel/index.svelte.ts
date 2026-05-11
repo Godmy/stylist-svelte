@@ -5,7 +5,11 @@ export const createTabPanelState = (props: TabPanelProps, selected: () => boolea
 	const isSelected = $derived.by(selected);
 	const disabled = $derived(props.disabled ?? false);
 	const classes = $derived(
-		joinClassNames(isSelected ? 'block' : 'hidden', disabled ? 'opacity-[var(--opacity-50)]' : '', props.class)
+		joinClassNames(
+			isSelected ? 'block' : 'hidden',
+			disabled ? 'opacity-[var(--opacity-50)]' : '',
+			props.class
+		)
 	);
 
 	return {
@@ -21,12 +25,4 @@ export const createTabPanelState = (props: TabPanelProps, selected: () => boolea
 	};
 };
 
-
 export default createTabPanelState;
-
-
-
-
-
-
-

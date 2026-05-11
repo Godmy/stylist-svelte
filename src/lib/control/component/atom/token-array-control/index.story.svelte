@@ -8,7 +8,12 @@
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Frameworks' },
 		{ name: 'dedupe', type: 'boolean', defaultValue: true },
-		{ name: 'selected', type: 'select', defaultValue: '', options: ['', 'React', 'Vue', 'Svelte', 'Angular', 'Solid'] }
+		{
+			name: 'selected',
+			type: 'select',
+			defaultValue: '',
+			options: ['', 'React', 'Vue', 'Svelte', 'Angular', 'Solid']
+		}
 	];
 </script>
 
@@ -23,11 +28,10 @@
 	{#snippet children(values: any)}
 		<TokenArrayControl
 			title={values.title as string}
-			tokens={tokens}
+			{tokens}
 			dedupe={values.dedupe as boolean}
-			value={values.selected as string || undefined}
+			value={(values.selected as string) || undefined}
 			onSelect={(token: string) => console.log('Selected:', token)}
 		/>
 	{/snippet}
 </Story>
-

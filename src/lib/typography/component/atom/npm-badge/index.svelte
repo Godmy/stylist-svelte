@@ -36,4 +36,3 @@
 		<span class="npm-badge-value ml-1">{value}</span>
 	</span>
 {/if}
-

@@ -9,7 +9,9 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { SlotTrackingInfo } from '$stylist/commerce/interface/slot/tracking-info';
 import type { BehaviorOrderTrackingEvents } from '$stylist/commerce/interface/behavior/order-tracking-events';
 
-export interface RecipeOrderTracking extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorOrderTrackingEvents {
+export interface RecipeOrderTracking
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorOrderTrackingEvents {
 	/** Tracking information */
 	trackingInfo: SlotTrackingInfo;
 	/** Show recipient details */

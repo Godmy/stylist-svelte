@@ -12,10 +12,7 @@
 	</div>
 
 	{#if state.isVisible}
-		<div
-			bind:this={state.popoverElement}
-			class={state.popoverClass}
-		>
+		<div bind:this={state.popoverElement} class={state.popoverClass}>
 			{#if props.title}
 				<h3 class={state.titleClass}>{props.title}</h3>
 			{/if}
@@ -25,9 +22,3 @@
 		</div>
 	{/if}
 </div>
-
-
-
-
-
-

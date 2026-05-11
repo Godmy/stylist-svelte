@@ -5,4 +5,4 @@ export type OrderItem = {
 	quantity: number;
 	thumbnail?: string;
 	variant?: string;
-}
+};

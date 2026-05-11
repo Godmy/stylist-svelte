@@ -15,5 +15,6 @@ export interface RecipeModelSelector extends StructIntersectAll<[]> {
 	class?: string;
 	dropdownClass?: string;
 	modelItemClass?: string;
-	headerClass?: string;	children?: Snippet;
+	headerClass?: string;
+	children?: Snippet;
 }

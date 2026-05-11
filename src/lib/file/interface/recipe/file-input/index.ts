@@ -3,7 +3,8 @@ import type { HTMLInputAttributes } from 'svelte/elements';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
-export interface RecipeFileInput extends StructIntersectAll<[Omit<HTMLInputAttributes, 'size' | 'class'>]> {
+export interface RecipeFileInput
+	extends StructIntersectAll<[Omit<HTMLInputAttributes, 'size' | 'class'>]> {
 	/** Selected file(s) */
 	value?: File | File[];
 	/** Multiple files allowed */

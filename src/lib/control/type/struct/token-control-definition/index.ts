@@ -1,4 +1,7 @@
-import type { TokenControlDefinitionData, TokenControlKind } from '$stylist/control/type/struct/token-control-domain';
+import type {
+	TokenControlDefinitionData,
+	TokenControlKind
+} from '$stylist/control/type/struct/token-control-domain';
 import type { TokenRadioControlDefinition } from '$stylist/control/type/struct/radio-control-definition';
 import type { TokenRangeControlDefinition } from '$stylist/control/type/struct/range-control-definition';
 import type { TokenSelectControlDefinition } from '$stylist/control/type/struct/select-control-definition';

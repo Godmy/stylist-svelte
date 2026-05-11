@@ -67,8 +67,10 @@ export class LanguageSelectorStyleManager {
 	): ILanguageSelectorStyleClasses {
 		return {
 			base: this.getBaseClasses(className),
-			button: `${this.getButtonBaseClasses()} ${this.getButtonVariantClasses(variant)} ${this.getButtonSizeClasses(size)}`.trim(),
-			dropdown: `${this.getDropdownBaseClasses()} ${this.getDropdownPositionClasses(position)}`.trim(),
+			button:
+				`${this.getButtonBaseClasses()} ${this.getButtonVariantClasses(variant)} ${this.getButtonSizeClasses(size)}`.trim(),
+			dropdown:
+				`${this.getDropdownBaseClasses()} ${this.getDropdownPositionClasses(position)}`.trim(),
 			languageItem: this.getLanguageItemBaseClasses(false),
 			activeLanguage: this.getLanguageItemBaseClasses(true),
 			searchInput: this.getSearchInputClasses(),

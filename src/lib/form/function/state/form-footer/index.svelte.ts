@@ -17,9 +17,15 @@ export function createFormFooterState(props: FormFooterProps) {
 	);
 
 	return {
-		get rootClass() { return rootClass; },
-		get secondaryButtonClass() { return secondaryButtonClass; },
-		get primaryButtonClass() { return primaryButtonClass; }
+		get rootClass() {
+			return rootClass;
+		},
+		get secondaryButtonClass() {
+			return secondaryButtonClass;
+		},
+		get primaryButtonClass() {
+			return primaryButtonClass;
+		}
 	};
 }
 

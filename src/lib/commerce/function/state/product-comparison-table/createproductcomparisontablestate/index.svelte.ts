@@ -2,10 +2,14 @@ import { ProductComparisonTableStyleManager } from '$stylist/commerce/class/styl
 import type { ProductComparisonTableProps } from '$stylist/commerce/interface/recipe/product-comparison-table-props';
 
 export function createProductComparisonTableState(props: ProductComparisonTableProps) {
-	const containerClass = $derived(ProductComparisonTableStyleManager.getContainerClass(props.class ?? ''));
+	const containerClass = $derived(
+		ProductComparisonTableStyleManager.getContainerClass(props.class ?? '')
+	);
 
 	return {
-		get containerClass() { return containerClass; }
+		get containerClass() {
+			return containerClass;
+		}
 	};
 }
 

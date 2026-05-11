@@ -18,17 +18,10 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { ComparisonCardColumn } from '$stylist/commerce/interface/slot/comparison-card-column';
 
 export interface ComparisonCardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IMediaSlot,
-		IBadgeSlot,
-		IStatusSlot,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IMediaSlot, IBadgeSlot, IStatusSlot, ThemeAttributes<HTMLDivElement>]
+	> {
 	title?: string;
 	before: ComparisonCardColumn;
 	after: ComparisonCardColumn;
 }
-

@@ -10,7 +10,9 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 	// Props with defaults
 	const geojsonData = $derived(props.geojsonData);
 	const layers = $derived(props.layers ?? []);
-	const initialView = $derived(props.initialView ?? { center: { lat: 51.505, lng: -0.09 }, zoom: 10 });
+	const initialView = $derived(
+		props.initialView ?? { center: { lat: 51.505, lng: -0.09 }, zoom: 10 }
+	);
 	const showControls = $derived(props.showControls ?? true);
 	const showLayers = $derived(props.showLayers ?? true);
 	const showLegend = $derived(props.showLegend ?? true);
@@ -29,14 +31,16 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 	// Initialize layers
 	$effect(() => {
 		if (geojsonData) {
-			currentLayers = [{
-				id: 'default',
-				name: 'Default Layer',
-				data: geojsonData,
-				visible: true,
-				color: 'var(--color-primary-500)',
-				opacity: 0.8
-			}];
+			currentLayers = [
+				{
+					id: 'default',
+					name: 'Default Layer',
+					data: geojsonData,
+					visible: true,
+					color: 'var(--color-primary-500)',
+					opacity: 0.8
+				}
+			];
 		} else if (layers.length > 0) {
 			currentLayers = [...layers];
 		}
@@ -71,20 +75,37 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 	});
 
 	// Computed
-	const hostClasses = $derived(GeoJSONViewerStyleManager.getHostClasses({ class: props.class ?? '', ...restProps }));
-	const mapContainerClasses = $derived(GeoJSONViewerStyleManager.getMapContainerClasses({ mapClass: props.mapClass ?? '', ...restProps }));
+	const hostClasses = $derived(
+		GeoJSONViewerStyleManager.getHostClasses({ class: props.class ?? '', ...restProps })
+	);
+	const mapContainerClasses = $derived(
+		GeoJSONViewerStyleManager.getMapContainerClasses({
+			mapClass: props.mapClass ?? '',
+			...restProps
+		})
+	);
 	const mapContainerStyles = $derived(GeoJSONViewerStyleManager.getMapContainerStyles());
 	const layersPanelClasses = $derived(GeoJSONViewerStyleManager.getLayersPanelClasses());
 	const layersPanelStyles = $derived(GeoJSONViewerStyleManager.getLayersPanelStyles());
 	const fileUploadButtonClasses = $derived(GeoJSONViewerStyleManager.getFileUploadButtonClasses());
 	const fileUploadButtonStyles = $derived(GeoJSONViewerStyleManager.getFileUploadButtonStyles());
-	const fileUploadButtonHoverClasses = $derived(GeoJSONViewerStyleManager.getFileUploadButtonClasses());
-	const fileUploadButtonHoverStyles = $derived(GeoJSONViewerStyleManager.getFileUploadButtonHoverStyles());
+	const fileUploadButtonHoverClasses = $derived(
+		GeoJSONViewerStyleManager.getFileUploadButtonClasses()
+	);
+	const fileUploadButtonHoverStyles = $derived(
+		GeoJSONViewerStyleManager.getFileUploadButtonHoverStyles()
+	);
 	const layerControlItemClasses = $derived(GeoJSONViewerStyleManager.getLayerControlItemClasses());
 	const layerControlItemStyles = $derived(GeoJSONViewerStyleManager.getLayerControlItemStyles());
-	const layerVisibilityCheckboxClasses = $derived(GeoJSONViewerStyleManager.getLayerVisibilityCheckboxClasses());
-	const layerVisibilityCheckboxStyles = $derived(GeoJSONViewerStyleManager.getLayerVisibilityCheckboxStyles());
-	const layerOpacitySliderClasses = $derived(GeoJSONViewerStyleManager.getLayerOpacitySliderClasses());
+	const layerVisibilityCheckboxClasses = $derived(
+		GeoJSONViewerStyleManager.getLayerVisibilityCheckboxClasses()
+	);
+	const layerVisibilityCheckboxStyles = $derived(
+		GeoJSONViewerStyleManager.getLayerVisibilityCheckboxStyles()
+	);
+	const layerOpacitySliderClasses = $derived(
+		GeoJSONViewerStyleManager.getLayerOpacitySliderClasses()
+	);
 	const svgClasses = $derived(GeoJSONViewerStyleManager.getSvgClasses());
 	const geometryElementClasses = $derived(GeoJSONViewerStyleManager.getGeometryElementClasses());
 	const featureInfoPanelClasses = $derived(GeoJSONViewerStyleManager.getFeatureInfoPanelClasses());
@@ -97,8 +118,10 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 		const x = e.clientX - rect.left;
 		const y = e.clientY - rect.top;
 
-		const lat = currentView.center.lat - (y - rect.height / 2) * 0.00001 * Math.pow(2, 20 - currentView.zoom);
-		const lng = currentView.center.lng + (x - rect.width / 2) * 0.00001 * Math.pow(2, 20 - currentView.zoom);
+		const lat =
+			currentView.center.lat - (y - rect.height / 2) * 0.00001 * Math.pow(2, 20 - currentView.zoom);
+		const lng =
+			currentView.center.lng + (x - rect.width / 2) * 0.00001 * Math.pow(2, 20 - currentView.zoom);
 
 		props.onMapClick?.({ lat, lng });
 	}
@@ -127,13 +150,13 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 	}
 
 	function toggleLayerVisibility(layerId: string): void {
-		currentLayers = currentLayers.map(layer =>
+		currentLayers = currentLayers.map((layer) =>
 			layer.id === layerId ? { ...layer, visible: !layer.visible } : layer
 		);
 	}
 
 	function changeLayerOpacity(layerId: string, opacity: number): void {
-		currentLayers = currentLayers.map(layer =>
+		currentLayers = currentLayers.map((layer) =>
 			layer.id === layerId ? { ...layer, opacity } : layer
 		);
 	}
@@ -143,8 +166,8 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 	}
 
 	function calculatePixelPosition(lng: number, lat: number): { x: number; y: number } {
-		const x = 50 + ((lng - currentView.center.lng) * 1000 * Math.pow(2, currentView.zoom - 10));
-		const y = 50 + ((currentView.center.lat - lat) * 1000 * Math.pow(2, currentView.zoom - 10));
+		const x = 50 + (lng - currentView.center.lng) * 1000 * Math.pow(2, currentView.zoom - 10);
+		const y = 50 + (currentView.center.lat - lat) * 1000 * Math.pow(2, currentView.zoom - 10);
 		return { x, y };
 	}
 
@@ -157,14 +180,16 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 				throw new Error('Invalid GeoJSON format');
 			}
 
-			currentLayers = [{
-				id: 'uploaded-data',
-				name: file.name.replace('.geojson', ''),
-				data: parsed,
-				visible: true,
-				color: 'var(--color-primary-500)',
-				opacity: 0.8
-			}];
+			currentLayers = [
+				{
+					id: 'uploaded-data',
+					name: file.name.replace('.geojson', ''),
+					data: parsed,
+					visible: true,
+					color: 'var(--color-primary-500)',
+					opacity: 0.8
+				}
+			];
 
 			props.onDataChange?.(parsed);
 		} catch (error) {
@@ -206,40 +231,108 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 	}
 
 	return {
-		get geojsonData() { return geojsonData; },
-		get layers() { return layers; },
-		get initialView() { return initialView; },
-		get showControls() { return showControls; },
-		get showLayers() { return showLayers; },
-		get showLegend() { return showLegend; },
-		get maxZoom() { return maxZoom; },
-		get minZoom() { return minZoom; },
-		get mapType() { return mapType; },
-		get currentLayers() { return currentLayers; },
-		get currentView() { return currentView; },
-		get selectedFeature() { return selectedFeature; },
-		get mapOffset() { return mapOffset; },
-		get isDragging() { return isDragging; },
-		get dragStart() { return dragStart; },
-		get hostClasses() { return hostClasses; },
-		get mapContainerClasses() { return mapContainerClasses; },
-		get mapContainerStyles() { return mapContainerStyles; },
-		get layersPanelClasses() { return layersPanelClasses; },
-		get layersPanelStyles() { return layersPanelStyles; },
-		get fileUploadButtonClasses() { return fileUploadButtonClasses; },
-		get fileUploadButtonStyles() { return fileUploadButtonStyles; },
-		get fileUploadButtonHoverClasses() { return fileUploadButtonHoverClasses; },
-		get fileUploadButtonHoverStyles() { return fileUploadButtonHoverStyles; },
-		get layerControlItemClasses() { return layerControlItemClasses; },
-		get layerControlItemStyles() { return layerControlItemStyles; },
-		get layerVisibilityCheckboxClasses() { return layerVisibilityCheckboxClasses; },
-		get layerVisibilityCheckboxStyles() { return layerVisibilityCheckboxStyles; },
-		get layerOpacitySliderClasses() { return layerOpacitySliderClasses; },
-		get svgClasses() { return svgClasses; },
-		get geometryElementClasses() { return geometryElementClasses; },
-		get featureInfoPanelClasses() { return featureInfoPanelClasses; },
-		get featureInfoPanelStyles() { return featureInfoPanelStyles; },
-		get restProps() { return restProps; },
+		get geojsonData() {
+			return geojsonData;
+		},
+		get layers() {
+			return layers;
+		},
+		get initialView() {
+			return initialView;
+		},
+		get showControls() {
+			return showControls;
+		},
+		get showLayers() {
+			return showLayers;
+		},
+		get showLegend() {
+			return showLegend;
+		},
+		get maxZoom() {
+			return maxZoom;
+		},
+		get minZoom() {
+			return minZoom;
+		},
+		get mapType() {
+			return mapType;
+		},
+		get currentLayers() {
+			return currentLayers;
+		},
+		get currentView() {
+			return currentView;
+		},
+		get selectedFeature() {
+			return selectedFeature;
+		},
+		get mapOffset() {
+			return mapOffset;
+		},
+		get isDragging() {
+			return isDragging;
+		},
+		get dragStart() {
+			return dragStart;
+		},
+		get hostClasses() {
+			return hostClasses;
+		},
+		get mapContainerClasses() {
+			return mapContainerClasses;
+		},
+		get mapContainerStyles() {
+			return mapContainerStyles;
+		},
+		get layersPanelClasses() {
+			return layersPanelClasses;
+		},
+		get layersPanelStyles() {
+			return layersPanelStyles;
+		},
+		get fileUploadButtonClasses() {
+			return fileUploadButtonClasses;
+		},
+		get fileUploadButtonStyles() {
+			return fileUploadButtonStyles;
+		},
+		get fileUploadButtonHoverClasses() {
+			return fileUploadButtonHoverClasses;
+		},
+		get fileUploadButtonHoverStyles() {
+			return fileUploadButtonHoverStyles;
+		},
+		get layerControlItemClasses() {
+			return layerControlItemClasses;
+		},
+		get layerControlItemStyles() {
+			return layerControlItemStyles;
+		},
+		get layerVisibilityCheckboxClasses() {
+			return layerVisibilityCheckboxClasses;
+		},
+		get layerVisibilityCheckboxStyles() {
+			return layerVisibilityCheckboxStyles;
+		},
+		get layerOpacitySliderClasses() {
+			return layerOpacitySliderClasses;
+		},
+		get svgClasses() {
+			return svgClasses;
+		},
+		get geometryElementClasses() {
+			return geometryElementClasses;
+		},
+		get featureInfoPanelClasses() {
+			return featureInfoPanelClasses;
+		},
+		get featureInfoPanelStyles() {
+			return featureInfoPanelStyles;
+		},
+		get restProps() {
+			return restProps;
+		},
 		handleMapClick,
 		handleFeatureClick,
 		handleZoomIn,
@@ -255,12 +348,24 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 		getLineStringStyles,
 		handleKeyDown,
 		handleFeatureKeyDown,
-		set currentLayers(value: GeoJsonLayer[]) { currentLayers = value; },
-		set currentView(value: MapView) { currentView = value; },
-		set selectedFeature(value: GeoJsonFeature | null) { selectedFeature = value; },
-		set mapOffset(value: { x: number; y: number }) { mapOffset = value; },
-		set isDragging(value: boolean) { isDragging = value; },
-		set dragStart(value: { x: number; y: number }) { dragStart = value; }
+		set currentLayers(value: GeoJsonLayer[]) {
+			currentLayers = value;
+		},
+		set currentView(value: MapView) {
+			currentView = value;
+		},
+		set selectedFeature(value: GeoJsonFeature | null) {
+			selectedFeature = value;
+		},
+		set mapOffset(value: { x: number; y: number }) {
+			mapOffset = value;
+		},
+		set isDragging(value: boolean) {
+			isDragging = value;
+		},
+		set dragStart(value: { x: number; y: number }) {
+			dragStart = value;
+		}
 	};
 }
 

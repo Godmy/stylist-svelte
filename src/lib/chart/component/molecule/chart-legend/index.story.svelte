@@ -26,6 +26,3 @@
 		<ChartLegend items={values.mode === 'single' ? single : multi} />
 	{/snippet}
 </Story>
-
-
-

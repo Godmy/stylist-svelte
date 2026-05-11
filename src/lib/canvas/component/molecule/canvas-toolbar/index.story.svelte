@@ -4,7 +4,12 @@
 	import CanvasToolbar from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'selectedTool', type: 'select', defaultValue: 'pen', options: ['pen', 'eraser', 'select', 'text', 'shape'] },
+		{
+			name: 'selectedTool',
+			type: 'select',
+			defaultValue: 'pen',
+			options: ['pen', 'eraser', 'select', 'text', 'shape']
+		},
 		{ name: 'lineWidth', type: 'number', defaultValue: 2, min: 1, max: 20, step: 1 },
 		{ name: 'strokeColor', type: 'color', defaultValue: '#2563eb' }
 	];
@@ -21,7 +26,7 @@
 			<div class="canvas-stage">
 				<div class="whiteboard-note">Whiteboard controls</div>
 				<CanvasToolbar
-					{...({
+					{...{
 						selectedTool: values.selectedTool,
 						drawingOptions: {
 							lineWidth: values.lineWidth,
@@ -29,7 +34,7 @@
 							tool: values.selectedTool,
 							mode: values.selectedTool === 'eraser' ? 'erase' : 'draw'
 						}
-					} as any)}
+					} as any}
 				/>
 			</div>
 		</div>

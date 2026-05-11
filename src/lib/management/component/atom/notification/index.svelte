@@ -8,11 +8,7 @@
 </script>
 
 {#if state.isVisible}
-	<div
-		class={state.containerClasses}
-		role="alert"
-		{...state.restProps}
-	>
+	<div class={state.containerClasses} role="alert" {...state.restProps}>
 		<div class="flex items-start">
 			<div class="flex-shrink-0">
 				<BaseIcon name={state.iconComponent} class="h-5 w-5"></BaseIcon>
@@ -35,7 +31,7 @@
 				{/if}
 			</div>
 			{#if state.closable}
-				<div class="ml-4 flex-shrink-0 flex">
+				<div class="ml-4 flex flex-shrink-0">
 					<button
 						type="button"
 						class={state.closeButtonClasses}

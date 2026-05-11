@@ -19,10 +19,3 @@ export function createDefinitionTermState(props: ThemeDefinitionTermRecipe) {
 }
 
 export default createDefinitionTermState;
-
-
-
-
-
-
-

@@ -5,7 +5,12 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'content', type: 'text', defaultValue: 'Deprecated value' },
-		{ name: 'variant', type: 'select', options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'], defaultValue: 'primary' },
+		{
+			name: 'variant',
+			type: 'select',
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'],
+			defaultValue: 'primary'
+		},
 		{ name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'block', type: 'boolean', defaultValue: false }
@@ -30,6 +35,3 @@
 		</StrikeThrough>
 	{/snippet}
 </Story>
-
-
-

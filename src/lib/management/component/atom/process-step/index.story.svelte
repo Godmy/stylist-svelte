@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import ProcessStep from './index.svelte';
-	
+
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	
+
 	const controls: InterfaceControllerSettings[] = [
 		{
 			name: 'number',
@@ -33,9 +33,16 @@
 	];
 </script>
 
-<Story {controls} component={ProcessStep} title="ProcessStep Component" description="A component to display process steps in a workflow">
+<Story
+	{controls}
+	component={ProcessStep}
+	title="ProcessStep Component"
+	description="A component to display process steps in a workflow"
+>
 	{#snippet children(values: any)}
-		<div class="max-w-md rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4">
+		<div
+			class="max-w-md rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4"
+		>
 			<ProcessStep
 				number={Number(values.number) || 1}
 				title={values.title as string}
@@ -46,7 +53,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-

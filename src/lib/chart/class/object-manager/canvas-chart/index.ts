@@ -179,7 +179,17 @@ export class ObjectManagerCanvasChart {
 			context.fill();
 		});
 
-		this.drawCartesianLabels(context, canvas, data, padding, minY, yRange, chartHeight, xStep, false);
+		this.drawCartesianLabels(
+			context,
+			canvas,
+			data,
+			padding,
+			minY,
+			yRange,
+			chartHeight,
+			xStep,
+			false
+		);
 	}
 
 	private static drawBarChart(
@@ -208,7 +218,17 @@ export class ObjectManagerCanvasChart {
 			context.fillRect(x, y, barWidth, barHeight);
 		});
 
-		this.drawCartesianLabels(context, canvas, data, padding, minY, yRange, chartHeight, xStep, true);
+		this.drawCartesianLabels(
+			context,
+			canvas,
+			data,
+			padding,
+			minY,
+			yRange,
+			chartHeight,
+			xStep,
+			true
+		);
 	}
 
 	private static drawCartesianLabels(

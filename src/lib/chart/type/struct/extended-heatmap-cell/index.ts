@@ -8,4 +8,4 @@ export type IExtendedHeatmapCell = IHeatmapCell & {
 	height: number;
 	color: string;
 	intensity: number;
-}
+};

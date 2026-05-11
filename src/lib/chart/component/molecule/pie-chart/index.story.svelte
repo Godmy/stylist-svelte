@@ -15,11 +15,13 @@
 	];
 </script>
 
-<Story component={PieChart} title="PieChart" description="Simple pie chart with legend list." {controls}>
+<Story
+	component={PieChart}
+	title="PieChart"
+	description="Simple pie chart with legend list."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<PieChart data={data} width={values.width} height={values.height} />
+		<PieChart {data} width={values.width} height={values.height} />
 	{/snippet}
 </Story>
-
-
-

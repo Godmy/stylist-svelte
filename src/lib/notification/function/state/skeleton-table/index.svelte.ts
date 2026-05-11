@@ -20,16 +20,36 @@ export function createSkeletonTableState(props: SkeletonTableProps) {
 	let tableClass = $derived(SkeletonTableStyleManager.table());
 
 	return {
-		get columnIndexes() { return columnIndexes; },
-		get containerClass() { return containerClass; },
-		get dataBarStyle() { return dataBarStyle; },
-		get dataCellClass() { return dataCellClass; },
-		get headerBarStyle() { return headerBarStyle; },
-		get headerCellClass() { return headerCellClass; },
-		get headerClass() { return headerClass; },
-		get restProps() { return restProps; },
-		get rowIndexes() { return rowIndexes; },
-		get tableClass() { return tableClass; }
+		get columnIndexes() {
+			return columnIndexes;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get dataBarStyle() {
+			return dataBarStyle;
+		},
+		get dataCellClass() {
+			return dataCellClass;
+		},
+		get headerBarStyle() {
+			return headerBarStyle;
+		},
+		get headerCellClass() {
+			return headerCellClass;
+		},
+		get headerClass() {
+			return headerClass;
+		},
+		get restProps() {
+			return restProps;
+		},
+		get rowIndexes() {
+			return rowIndexes;
+		},
+		get tableClass() {
+			return tableClass;
+		}
 	};
 }
 

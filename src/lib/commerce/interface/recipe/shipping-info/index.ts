@@ -9,7 +9,7 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { SlotShippingOptionInfo } from '$stylist/commerce/interface/slot/shipping-option-info';
 import type { RecipeShippingRegion } from '$stylist/commerce/interface/recipe/shipping-region';
 
-export interface RecipeShippingInfo extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]> {
+export interface RecipeShippingInfo extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	/** List of shipping options */
 	shippingOptions: SlotShippingOptionInfo[];
 	/** List of shipping regions */

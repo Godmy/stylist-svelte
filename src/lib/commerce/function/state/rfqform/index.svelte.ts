@@ -38,7 +38,11 @@ export function createRFQFormState(props: RFQFormProps) {
 		handleInputChange(field: keyof RFQFormData, value: RFQFormData[keyof RFQFormData]) {
 			rfqData = { ...rfqData, [field]: value };
 		},
-		handleProductChange(index: number, field: keyof RFQProduct, value: RFQProduct[keyof RFQProduct]) {
+		handleProductChange(
+			index: number,
+			field: keyof RFQProduct,
+			value: RFQProduct[keyof RFQProduct]
+		) {
 			const nextProducts = [...rfqData.products];
 			nextProducts[index] = { ...nextProducts[index], [field]: value };
 			rfqData = { ...rfqData, products: nextProducts };

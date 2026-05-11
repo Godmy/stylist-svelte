@@ -13,16 +13,18 @@ import type { IChartDataPoint } from '$stylist/chart/type/struct/bar-chart';
  * BarChart = label + frame + axis config + legend/tooltip toggles + bar dataset.
  */
 export interface BarChartRecipe
-	extends StructIntersectAll<[
-		IDimensionable,
-		ILabelSlot,
-		IChartAxis,
-		ILegendable,
-		ITooltipable,
-		IBarClickable<IChartDataPoint>,
-		IChartColorable,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<
+		[
+			IDimensionable,
+			ILabelSlot,
+			IChartAxis,
+			ILegendable,
+			ITooltipable,
+			IBarClickable<IChartDataPoint>,
+			IChartColorable,
+			ThemeAttributes<HTMLDivElement>
+		]
+	> {
 	data: IChartDataPoint[];
 	title?: string;
 	chartClass?: string;
@@ -33,4 +35,3 @@ export interface BarChartRecipe
 	barGap?: number;
 	barWidth?: number;
 }
-

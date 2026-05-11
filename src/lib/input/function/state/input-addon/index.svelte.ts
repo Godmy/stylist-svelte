@@ -7,6 +7,3 @@ export function createInputAddonState(
 }
 
 export default createInputAddonState;
-
-
-

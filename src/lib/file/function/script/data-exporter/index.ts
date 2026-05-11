@@ -7,25 +7,26 @@ import { convertToCSV } from '$stylist/file/function/script/convert-to-csv';
  * Export data as file
  */
 export function exportData(
-  data: DataItem[],
-  format: ExportFormat,
-  fileName: string,
-  formats: Record<ExportFormat, ExportFormatDetails>,
-  dispatch: (event: 'export', detail: { format: ExportFormat; fileName: string }) => void
+	data: DataItem[],
+	format: ExportFormat,
+	fileName: string,
+	formats: Record<ExportFormat, ExportFormatDetails>,
+	dispatch: (event: 'export', detail: { format: ExportFormat; fileName: string }) => void
 ): void {
-  const selectedFormat = formats[format as keyof typeof formats];
-  const dataStr = format === 'json'
-    ? JSON.stringify(data, null, 2)
-    : format === 'csv'
-      ? convertToCSV(data)
-      : JSON.stringify(data);
+	const selectedFormat = formats[format as keyof typeof formats];
+	const dataStr =
+		format === 'json'
+			? JSON.stringify(data, null, 2)
+			: format === 'csv'
+				? convertToCSV(data)
+				: JSON.stringify(data);
 
-  const dataUri = `data:${selectedFormat.mime};charset=utf-8,${encodeURIComponent(dataStr)}`;
+	const dataUri = `data:${selectedFormat.mime};charset=utf-8,${encodeURIComponent(dataStr)}`;
 
-  const link = document.createElement('a');
-  link.href = dataUri;
-  link.download = `${fileName}.${selectedFormat.ext}`;
-  link.click();
+	const link = document.createElement('a');
+	link.href = dataUri;
+	link.download = `${fileName}.${selectedFormat.ext}`;
+	link.click();
 
-  dispatch('export', { format, fileName });
+	dispatch('export', { format, fileName });
 }

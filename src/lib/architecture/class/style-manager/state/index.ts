@@ -17,9 +17,14 @@ export class StyleManagerState {
 	}
 
 	static getClasses(
-		keys: keyof typeof StyleManagerState.classes | readonly (keyof typeof StyleManagerState.classes)[],
+		keys:
+			| keyof typeof StyleManagerState.classes
+			| readonly (keyof typeof StyleManagerState.classes)[],
 		additionalClass = ''
 	): string {
-		return joinClassNames(...normalizeKeys(keys).map((key) => StyleManagerState.classes[key]), additionalClass);
+		return joinClassNames(
+			...normalizeKeys(keys).map((key) => StyleManagerState.classes[key]),
+			additionalClass
+		);
 	}
 }

@@ -14,4 +14,3 @@ export const TEXTAREA_SIZE_CLASSES = {
 	'3/4': 'px-6 text-base rounded-lg min-h-[200px]',
 	full: 'px-7 text-xl rounded-xl min-h-[240px] w-full'
 } as const;
-

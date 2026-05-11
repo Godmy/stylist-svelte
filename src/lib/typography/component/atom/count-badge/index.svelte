@@ -19,4 +19,3 @@
 		{state.displayCount}
 	</span>
 {/if}
-

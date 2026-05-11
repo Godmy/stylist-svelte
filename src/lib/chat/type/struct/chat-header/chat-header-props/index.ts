@@ -9,4 +9,4 @@ export type ChatHeaderProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'c
 	showActions?: boolean;
 	class?: string;
 	children?: Snippet;
-}
+};

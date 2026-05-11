@@ -32,10 +32,7 @@
 			<div class="p-4">
 				<div class="space-y-4">
 					<p>Content before separator</p>
-					<Separator
-						orientation={values.orientation}
-						decorative={values.decorative}
-					/>
+					<Separator orientation={values.orientation} decorative={values.decorative} />
 					<p>Content after separator</p>
 				</div>
 			</div>
@@ -75,11 +72,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-
-
-

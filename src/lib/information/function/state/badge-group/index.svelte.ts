@@ -57,7 +57,3 @@ export function createBadgeGroupState(props: BadgeGroupRecipe) {
 }
 
 export default createBadgeGroupState;
-
-
-
-

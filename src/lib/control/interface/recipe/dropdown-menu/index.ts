@@ -18,13 +18,6 @@ import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface DropdownMenuRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IIconSlot,
-		IClickable,
-		IFocusable,
-		ISizable,
-		IScrollable
-	]>
-{}
-
+	extends StructIntersectAll<
+		[ILabelSlot, IIconSlot, IClickable, IFocusable, ISizable, IScrollable]
+	> {}

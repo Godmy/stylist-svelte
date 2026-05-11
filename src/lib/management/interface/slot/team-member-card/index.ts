@@ -9,49 +9,49 @@ import type { SlotAchievement } from '$stylist/management/interface/slot/achieve
  * Single Responsibility: Define the contract for TeamMemberCard component
  */
 export interface SlotTeamMemberCard {
-  /**
-   * Name of the team member
-   */
-  name: string;
+	/**
+	 * Name of the team member
+	 */
+	name: string;
 
-  /**
-   * Role of the team member
-   */
-  role: string;
+	/**
+	 * Role of the team member
+	 */
+	role: string;
 
-  /**
-   * AI model information (e.g. "Claude Sonnet 4.5")
-   */
-  model: string;
+	/**
+	 * AI model information (e.g. "Claude Sonnet 4.5")
+	 */
+	model: string;
 
-  /**
-   * URL for the team member's avatar
-   */
-  avatar: string;
+	/**
+	 * URL for the team member's avatar
+	 */
+	avatar: string;
 
-  /**
-   * Array of badge labels to display
-   */
-  badges: string[];
+	/**
+	 * Array of badge labels to display
+	 */
+	badges: string[];
 
-  /**
-   * Description of the team member's expertise
-   */
-  description: string;
+	/**
+	 * Description of the team member's expertise
+	 */
+	description: string;
 
-  /**
-   * Array of achievements
-   */
-  achievements: SlotAchievement[];
+	/**
+	 * Array of achievements
+	 */
+	achievements: SlotAchievement[];
 
-  /**
-   * Visual variant of the team member card
-   * @default 'default'
-   */
-  variant?: TierContent;
+	/**
+	 * Visual variant of the team member card
+	 * @default 'default'
+	 */
+	variant?: TierContent;
 
-  /**
-   * Additional CSS classes to apply to the component
-   */
-  class?: string;
+	/**
+	 * Additional CSS classes to apply to the component
+	 */
+	class?: string;
 }

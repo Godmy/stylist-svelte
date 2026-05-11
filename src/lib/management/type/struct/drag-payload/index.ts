@@ -1,4 +1,4 @@
 export type DragPayload = {
-  cardId: string;
-  fromColumnId: string;
+	cardId: string;
+	fromColumnId: string;
 };

@@ -6,4 +6,4 @@ export type CatalogProduct = {
 	image: string;
 	rating: number;
 	badge?: string;
-}
+};

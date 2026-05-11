@@ -9,7 +9,12 @@
 		{ name: 'height', type: 'number', defaultValue: 360, min: 220, max: 600, step: 20 },
 		{ name: 'showLegend', type: 'boolean', defaultValue: true },
 		{ name: 'showAxis', type: 'boolean', defaultValue: true },
-		{ name: 'colorScheme', type: 'select', defaultValue: 'minimal', options: ['minimal', 'ocean', 'forest', 'sunset'] }
+		{
+			name: 'colorScheme',
+			type: 'select',
+			defaultValue: 'minimal',
+			options: ['minimal', 'ocean', 'forest', 'sunset']
+		}
 	];
 
 	const data = [
@@ -20,11 +25,21 @@
 	];
 </script>
 
-<Story component={BarChart} title="BarChart" description="Categorical bar chart with legend and axis options." {controls}>
+<Story
+	component={BarChart}
+	title="BarChart"
+	description="Categorical bar chart with legend and axis options."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<BarChart data={data} title={values.title} width={values.width} height={values.height} showLegend={values.showLegend} showAxis={values.showAxis} colorScheme={values.colorScheme} />
+		<BarChart
+			{data}
+			title={values.title}
+			width={values.width}
+			height={values.height}
+			showLegend={values.showLegend}
+			showAxis={values.showAxis}
+			colorScheme={values.colorScheme}
+		/>
 	{/snippet}
 </Story>
-
-
-

@@ -1,1 +1,4 @@
-export type CodeDiffRestProps = Omit<import('$stylist/information/type/struct').InformationHTMLAttributes<HTMLDivElement>, 'class'>;
+export type CodeDiffRestProps = Omit<
+	import('$stylist/information/type/struct').InformationHTMLAttributes<HTMLDivElement>,
+	'class'
+>;

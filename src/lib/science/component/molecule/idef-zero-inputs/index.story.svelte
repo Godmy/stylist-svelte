@@ -9,7 +9,11 @@
 	];
 </script>
 
-<Story component={Idef0Inputs} title="IDEF0Inputs" description="Input connectors for IDEF0 black-box.">
+<Story
+	component={Idef0Inputs}
+	title="IDEF0Inputs"
+	description="Input connectors for IDEF0 black-box."
+>
 	{#snippet children()}
 		<svg width="460" height="260">
 			<rect x="180" y="30" width="220" height="200" fill="none" stroke="#cbd5e1" />
@@ -17,5 +21,3 @@
 		</svg>
 	{/snippet}
 </Story>
-
-

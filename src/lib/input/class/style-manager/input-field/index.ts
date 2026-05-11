@@ -22,10 +22,7 @@ export class InputFieldStyleManager {
 	}
 
 	static getInputFieldContainerClasses(className?: string): string {
-		return this.join([
-			'flex flex-col gap-1',
-			className
-		]);
+		return this.join(['flex flex-col gap-1', className]);
 	}
 
 	static getInputFieldLabelClasses(required = false, className?: string): string {
@@ -37,17 +34,11 @@ export class InputFieldStyleManager {
 	}
 
 	static getInputFieldHelperTextClasses(className?: string): string {
-		return this.join([
-			'text-xs text-[var(--color-text-secondary)]',
-			className
-		]);
+		return this.join(['text-xs text-[var(--color-text-secondary)]', className]);
 	}
 
 	static getInputFieldErrorTextClasses(className?: string): string {
-		return this.join([
-			'text-xs text-[var(--color-danger-600)]',
-			className
-		]);
+		return this.join(['text-xs text-[var(--color-danger-600)]', className]);
 	}
 
 	static getInputFieldIconClasses(className?: string): string {
@@ -58,9 +49,6 @@ export class InputFieldStyleManager {
 	}
 
 	static getInputFieldWrapperClasses(className?: string): string {
-		return this.join([
-			'relative',
-			className
-		]);
+		return this.join(['relative', className]);
 	}
 }

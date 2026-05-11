@@ -64,8 +64,12 @@ export const createClickableState = (props: ClickProps) => {
 		},
 
 		// SlotState
-		get classes() { return classes; },
-		get restProps() { return restProps; },
+		get classes() {
+			return classes;
+		},
+		get restProps() {
+			return restProps;
+		},
 
 		// Handlers
 		handleClick,

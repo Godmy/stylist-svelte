@@ -5,4 +5,4 @@ export type TypographyTextProps = {
 	disabled?: boolean;
 	block?: boolean;
 	ariaLabel?: string;
-}
+};

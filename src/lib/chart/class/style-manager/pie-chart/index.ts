@@ -21,4 +21,3 @@ export class PieChartStyleManager {
 		return 'text-sm';
 	}
 }
-

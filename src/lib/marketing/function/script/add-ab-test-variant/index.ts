@@ -12,7 +12,9 @@ export function addABTestVariant(
 	let newVariantWeight = newVariantWeightInput;
 
 	if (newVariantWeight <= 0) {
-		const activeVariantsCount = updatedTest.variants.filter((variant: ABTestVariant) => variant.isActive).length;
+		const activeVariantsCount = updatedTest.variants.filter(
+			(variant: ABTestVariant) => variant.isActive
+		).length;
 		const remainingWeight = 100 - calculateABTestTotalWeight(updatedTest.variants);
 		newVariantWeight = Math.round(remainingWeight / (activeVariantsCount + 1));
 	}

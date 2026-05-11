@@ -66,7 +66,3 @@ export class GraphPortStyleManager {
 		return `var(--color-graph-port-state-${state}, var(--color-graph-port-state-default))`;
 	}
 }
-
-
-
-

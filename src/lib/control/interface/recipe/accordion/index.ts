@@ -13,19 +13,19 @@ import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavi
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface AccordionRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IIconSlot,
-		ISelectable<string | string[]>,
-		IFocusable,
-		ISized,
-		IShapeable,
-		ISpaced,
-		IScrollable,
-		SlotTheme,
-		HTMLAttributes<HTMLDivElement>
-	]>,
-		AccordionSpecificProps
-{}
-
+	extends StructIntersectAll<
+			[
+				ILabelSlot,
+				ICaptionSlot,
+				IIconSlot,
+				ISelectable<string | string[]>,
+				IFocusable,
+				ISized,
+				IShapeable,
+				ISpaced,
+				IScrollable,
+				SlotTheme,
+				HTMLAttributes<HTMLDivElement>
+			]
+		>,
+		AccordionSpecificProps {}

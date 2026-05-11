@@ -26,9 +26,9 @@
 >
 	{#snippet children(values: any)}
 		{@const parsedSize = Number(values.size)}
-		<CountryFlag countryCode={values.countryCode as string} size={Number.isNaN(parsedSize) ? 24 : parsedSize} />
+		<CountryFlag
+			countryCode={values.countryCode as string}
+			size={Number.isNaN(parsedSize) ? 24 : parsedSize}
+		/>
 	{/snippet}
 </Story>
-
-
-

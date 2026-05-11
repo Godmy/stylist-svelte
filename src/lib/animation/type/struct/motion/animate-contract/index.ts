@@ -10,4 +10,4 @@ export type AnimateContract = MotionContract & {
 	to: number;
 	/** Форматирование значения */
 	format?: (value: number) => string;
-}
+};

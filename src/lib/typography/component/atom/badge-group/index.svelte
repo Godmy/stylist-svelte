@@ -33,7 +33,10 @@
 			role="button"
 			tabindex={0}
 			onkeydown={(event: KeyboardEvent) =>
-				(event.key === 'Enter' || event.key === ' ') && !badge.disabled && badge.onClick && badge.onClick()}
+				(event.key === 'Enter' || event.key === ' ') &&
+				!badge.disabled &&
+				badge.onClick &&
+				badge.onClick()}
 		>
 			{() => badge.label}
 		</Badge>
@@ -45,5 +48,3 @@
 		</span>
 	{/if}
 </div>
-
-

@@ -20,4 +20,4 @@ export type MotionContract = {
 	direction: 'normal' | 'reverse' | 'alternate' | 'alternate-reverse';
 	/** Количество повторений */
 	iterations: number | 'infinite';
-}
+};

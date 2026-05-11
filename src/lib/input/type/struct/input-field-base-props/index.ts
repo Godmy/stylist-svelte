@@ -3,4 +3,4 @@ export type InputFieldBaseProps = {
 	helperText?: string;
 	error?: boolean;
 	errorMessage?: string;
-}
+};

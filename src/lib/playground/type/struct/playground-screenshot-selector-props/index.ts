@@ -1,4 +1,4 @@
 export type PlaygroundScreenshotSelectorProps = {
-  drawingMode?: boolean;
-  drawColor?: string;
-}
+	drawingMode?: boolean;
+	drawColor?: string;
+};

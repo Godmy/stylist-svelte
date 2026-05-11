@@ -33,17 +33,17 @@ import type { LayoutSpecificProps } from '$stylist/navigation/interface/recipe/l
  *   - Container: type='container', пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
  */
 export interface LayoutRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IIconSlot,
-		IClickable,
-		IDraggable,
-		ITransformable,
-		IFocusable,
-		ISizable,
-		IScrollable,
-		ThemeAttributes<HTMLDivElement>
-	]>,
-		LayoutSpecificProps
-{}
-
+	extends StructIntersectAll<
+			[
+				ILabelSlot,
+				IIconSlot,
+				IClickable,
+				IDraggable,
+				ITransformable,
+				IFocusable,
+				ISizable,
+				IScrollable,
+				ThemeAttributes<HTMLDivElement>
+			]
+		>,
+		LayoutSpecificProps {}

@@ -16,16 +16,18 @@ import type { LineChartPoint } from '$stylist/chart/type/struct/line-chart';
  * LineChart = label + frame + axis config + legend/tooltip toggles + line dataset.
  */
 export interface LineChartRecipe
-	extends StructIntersectAll<[
-		IDimensionable,
-		ILabelSlot,
-		IChartAxis,
-		ILegendable,
-		ITooltipable,
-		IPointClickable<LineChartPoint, LineChartData>,
-		IChartColorable,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<
+		[
+			IDimensionable,
+			ILabelSlot,
+			IChartAxis,
+			ILegendable,
+			ITooltipable,
+			IPointClickable<LineChartPoint, LineChartData>,
+			IChartColorable,
+			ThemeAttributes<HTMLDivElement>
+		]
+	> {
 	data: LineChartData[];
 	title?: string;
 	chartClass?: string;
@@ -38,4 +40,3 @@ export interface LineChartRecipe
 	variant?: TokenLineType;
 	size?: TokenSize;
 }
-

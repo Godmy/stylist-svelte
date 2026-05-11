@@ -8,11 +8,7 @@
 	const state = createGraphToolbarState(props);
 </script>
 
-<div
-	class={state.classes}
-	data-toolbar-id={props.id}
-	{...state.restProps}
->
+<div class={state.classes} data-toolbar-id={props.id} {...state.restProps}>
 	{#each state.items as item (item.id)}
 		{#if item.type === 'button'}
 			<IconButton
@@ -21,7 +17,7 @@
 				disabled={item.disabled}
 				icon={item.icon}
 				aria-label={item.tooltip ?? item.label ?? item.id}
-				title={state.showTooltips ? item.tooltip ?? item.label : undefined}
+				title={state.showTooltips ? (item.tooltip ?? item.label) : undefined}
 				onclick={() => state.handleItemClick(item)}
 			>
 				{#if !item.icon && item.label}
@@ -34,7 +30,8 @@
 				value={String(item.value ?? '')}
 				disabled={item.disabled}
 				title={state.showTooltips ? item.tooltip : undefined}
-				onchange={(event) => state.handleValueChange(item, (event.target as HTMLSelectElement).value)}
+				onchange={(event) =>
+					state.handleValueChange(item, (event.target as HTMLSelectElement).value)}
 			>
 				{#each item.options ?? [] as option}
 					<option value={option}>{option}</option>
@@ -48,7 +45,8 @@
 				placeholder={item.label}
 				disabled={item.disabled}
 				title={state.showTooltips ? item.tooltip : undefined}
-				onchange={(event) => state.handleValueChange(item, (event.target as HTMLInputElement).value)}
+				onchange={(event) =>
+					state.handleValueChange(item, (event.target as HTMLInputElement).value)}
 			/>
 		{:else if item.type === 'separator'}
 			<Separator
@@ -104,7 +102,9 @@
 		border-radius: var(--border-radius-base);
 		outline: none;
 		cursor: pointer;
-		transition: border-color var(--duration-120) var(--animation-ease), box-shadow var(--duration-120) var(--animation-ease);
+		transition:
+			border-color var(--duration-120) var(--animation-ease),
+			box-shadow var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.graph-toolbar__select:hover),
@@ -120,9 +120,12 @@
 
 	:global(.graph-toolbar__select:disabled),
 	:global(.graph-toolbar__input:disabled) {
-		background: color-mix(in srgb, var(--color-background-primary) 85%, var(--color-background-secondary) 15%);
+		background: color-mix(
+			in srgb,
+			var(--color-background-primary) 85%,
+			var(--color-background-secondary) 15%
+		);
 		color: var(--color-text-tertiary);
 		cursor: not-allowed;
 	}
 </style>
-

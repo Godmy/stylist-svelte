@@ -40,7 +40,17 @@
 		{
 			name: 'transformOrigin',
 			type: 'select',
-			options: ['center', 'top', 'bottom', 'left', 'right', 'top left', 'top right', 'bottom left', 'bottom right'],
+			options: [
+				'center',
+				'top',
+				'bottom',
+				'left',
+				'right',
+				'top left',
+				'top right',
+				'bottom left',
+				'bottom right'
+			],
 			defaultValue: 'center'
 		},
 		{
@@ -69,18 +79,28 @@
 	];
 </script>
 
-<Story {controls} component={Transformation} title="Transformation Component" description="Атом для CSS-трансформаций: scale, rotate, translate, skew">
+<Story
+	{controls}
+	component={Transformation}
+	title="Transformation Component"
+	description="Атом для CSS-трансформаций: scale, rotate, translate, skew"
+>
 	{#snippet children(values: any)}
 		<div class="w-full rounded-lg py-4">
-			<div class="flex justify-center items-center h-64 bg-[var(--color-background-tertiary)] rounded-lg overflow-hidden">
-				<Transformation {...values} class="p-6 bg-[var(--color-background-primary)] rounded-lg shadow-lg">
+			<div
+				class="flex h-64 items-center justify-center overflow-hidden rounded-lg bg-[var(--color-background-tertiary)]"
+			>
+				<Transformation
+					{...values}
+					class="rounded-lg bg-[var(--color-background-primary)] p-6 shadow-lg"
+				>
 					{#snippet children()}
 						<div class="text-center">
 							<p class="font-medium">🎯 Transform</p>
-							<p class="text-xs text-muted mt-1">
+							<p class="text-muted mt-1 text-xs">
 								scale: {values.scale || 1} | rotate: {values.rotate || 0}°
 							</p>
-							<p class="text-xs text-muted">
+							<p class="text-muted text-xs">
 								translate: ({values.translateX || 0}, {values.translateY || 0})
 							</p>
 						</div>
@@ -90,17 +110,19 @@
 
 			<!-- Transform values -->
 			<div class="mt-4 grid grid-cols-3 gap-2 text-xs">
-				<div class="p-2 bg-[var(--color-background-secondary)] rounded">
-					<span class="text-muted">Origin:</span> {values.transformOrigin || 'center'}
+				<div class="rounded bg-[var(--color-background-secondary)] p-2">
+					<span class="text-muted">Origin:</span>
+					{values.transformOrigin || 'center'}
 				</div>
-				<div class="p-2 bg-[var(--color-background-secondary)] rounded">
-					<span class="text-muted">Duration:</span> {values.duration || 300}ms
+				<div class="rounded bg-[var(--color-background-secondary)] p-2">
+					<span class="text-muted">Duration:</span>
+					{values.duration || 300}ms
 				</div>
-				<div class="p-2 bg-[var(--color-background-secondary)] rounded">
-					<span class="text-muted">Easing:</span> {values.easing || 'ease'}
+				<div class="rounded bg-[var(--color-background-secondary)] p-2">
+					<span class="text-muted">Easing:</span>
+					{values.easing || 'ease'}
 				</div>
 			</div>
 		</div>
 	{/snippet}
 </Story>
-

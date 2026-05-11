@@ -28,11 +28,16 @@
 	];
 </script>
 
-<Story component={FileListItem} title="FileListItem" description="Interactive file row with selection and actions." {controls}>
+<Story
+	component={FileListItem}
+	title="FileListItem"
+	description="Interactive file row with selection and actions."
+	{controls}
+>
 	{#snippet children(args: any)}
-		<div class="border rounded">
+		<div class="rounded border">
 			<FileListItem
-				item={item}
+				{item}
 				showThumbnail={args.showThumbnail as boolean}
 				showSize={args.showSize as boolean}
 				showModified={args.showModified as boolean}

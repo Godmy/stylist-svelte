@@ -2,10 +2,13 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 import { CodeStyleManager } from '$stylist/development/class/style-manager/code-block';
 import type { TokenDiffType } from '$stylist/development/type/enum/diff-type';
 
-
 export class CodeDiffStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return mergeClassNames('c-code-diff relative', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
+		return mergeClassNames(
+			'c-code-diff relative',
+			CodeStyleManager.getSurfaceBaseClasses(),
+			extraClasses
+		);
 	}
 
 	static getHeaderClass(extraClasses = ''): string {
@@ -35,7 +38,10 @@ export class CodeDiffStyleManager {
 	static getDiffLineClass(type: string): string {
 		const normalizedType: TokenDiffType =
 			type === 'added' || type === 'removed' ? type : 'unchanged';
-		return mergeClassNames(CodeStyleManager.getDiffLineBaseClasses(), CodeStyleManager.getDiffLineVariantClass(normalizedType));
+		return mergeClassNames(
+			CodeStyleManager.getDiffLineBaseClasses(),
+			CodeStyleManager.getDiffLineVariantClass(normalizedType)
+		);
 	}
 
 	static getDiffSpanClass(type: string): string {
@@ -55,7 +61,3 @@ export class CodeDiffStyleManager {
 		return CodeStyleManager.getChangedContainerBaseClasses();
 	}
 }
-
-
-
-

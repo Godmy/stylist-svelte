@@ -33,7 +33,9 @@
 			<p
 				class="rounded-2xl border border-[var(--color-border-primary)]/70 bg-[var(--color-background-primary)]/80 p-5 text-[var(--color-text-primary)] shadow-sm dark:border-[var(--color-border-primary)] dark:bg-[var(--color-neutral-900)]/40 dark:text-[var(--color-neutral-100)]"
 			>
-				Product reviews surfaced <Highlight class={`${variantClasses[values.variant as 'lemon' | 'mint' | 'lavender']} rounded px-1`}>
+				Product reviews surfaced <Highlight
+					class={`${variantClasses[values.variant as 'lemon' | 'mint' | 'lavender']} rounded px-1`}
+				>
 					{values.text}
 				</Highlight>
 				we almost missed.
@@ -51,13 +53,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-
-
-
-
-

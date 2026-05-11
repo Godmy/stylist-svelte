@@ -9,4 +9,4 @@ export type SpinnerProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	showLabel?: boolean;
 	class?: string;
 	spinnerClass?: string;
-}
+};

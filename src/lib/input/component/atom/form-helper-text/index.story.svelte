@@ -5,15 +5,22 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'text', type: 'text', defaultValue: 'Use 8 or more characters.' },
-		{ name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'info', 'success', 'warning', 'danger'] }
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'default',
+			options: ['default', 'info', 'success', 'warning', 'danger']
+		}
 	];
 </script>
 
-<Story component={FormHelperText} title="FormHelperText" description="Supportive hint text for form controls." {controls}>
+<Story
+	component={FormHelperText}
+	title="FormHelperText"
+	description="Supportive hint text for form controls."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<FormHelperText text={values.text} variant={values.variant} />
 	{/snippet}
 </Story>
-
-
-

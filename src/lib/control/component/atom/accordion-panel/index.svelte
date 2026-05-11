@@ -7,7 +7,8 @@
 	let props: AccordionPanelProps = $props();
 
 	// Svelte context can only be accessed in components, pass to state function
-	const context = getContext<typeof ACCORDION_PANEL_CONTEXT>('accordion-context') ?? ACCORDION_PANEL_CONTEXT;
+	const context =
+		getContext<typeof ACCORDION_PANEL_CONTEXT>('accordion-context') ?? ACCORDION_PANEL_CONTEXT;
 	const state = createAccordionPanelState({
 		...props,
 		accordionContext: context
@@ -42,9 +43,3 @@
 		{/if}
 	</div>
 </div>
-
-
-
-
-
-

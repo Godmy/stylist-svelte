@@ -22,7 +22,9 @@
 				<Button variant="ghost" size="sm" onclick={() => state.navigateWeek(1)}>
 					<Icon name="chevron-down" direction="right" size="md" />
 				</Button>
-				<h2 class="ml-4 text-[--text-size-lg] font-[--font-weight-semibold] text-[--color-text-primary]">
+				<h2
+					class="ml-4 font-[--font-weight-semibold] text-[--color-text-primary] text-[--text-size-lg]"
+				>
 					{state.viewStartDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
 				</h2>
 			</div>
@@ -104,9 +106,11 @@
 											}
 										}}
 									>
-										<div class="font-[--font-weight-medium] truncate">{event.title}</div>
+										<div class="truncate font-[--font-weight-medium]">{event.title}</div>
 										{#if event.location}
-											<div class="text-[--color-text-secondary] flex items-center text-[--text-size-2xs]">
+											<div
+												class="flex items-center text-[--color-text-secondary] text-[--text-size-2xs]"
+											>
 												<Icon name="map-pin" size="xs" class="mr-1" />
 												<span class="truncate">{event.location}</span>
 											</div>

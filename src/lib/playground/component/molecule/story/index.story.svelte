@@ -20,16 +20,22 @@
 				<span class:hidden={!values.showAccent} class="h-3 w-3 rounded-full bg-emerald-500"></span>
 				<strong class="text-slate-900">{values.titleText as string}</strong>
 			</div>
-			<p class="text-sm text-slate-500">This inner preview reacts to the Story control panel on the right.</p>
+			<p class="text-sm text-slate-500">
+				This inner preview reacts to the Story control panel on the right.
+			</p>
 		</div>
 	{/snippet}
 
 	{#snippet variants()}
 		<div class="grid gap-2 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-4">
-			<p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Variants slot</p>
+			<p class="text-xs font-semibold tracking-[0.18em] text-slate-500 uppercase">Variants slot</p>
 			<div class="flex gap-2">
-				<span class="rounded-full bg-slate-900 px-3 py-1 text-xs font-medium text-white">Default</span>
-				<span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-800">Success</span>
+				<span class="rounded-full bg-slate-900 px-3 py-1 text-xs font-medium text-white"
+					>Default</span
+				>
+				<span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-800"
+					>Success</span
+				>
 			</div>
 		</div>
 	{/snippet}

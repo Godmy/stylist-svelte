@@ -4,7 +4,9 @@ import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { PortGroupStyleManager } from '$stylist/science/class/style-manager/port-group';
 
 export function createPortGroupState(props: PortGroupProps) {
-	const direction = $derived((props.direction === 'output' ? 'output' : 'input') as 'input' | 'output');
+	const direction = $derived(
+		(props.direction === 'output' ? 'output' : 'input') as 'input' | 'output'
+	);
 	const portSize = $derived((props.portSize ?? 'md') as TokenSize);
 	const showLabels = $derived(props.showLabels ?? true);
 	const compact = $derived(props.compact ?? false);
@@ -85,8 +87,3 @@ export function createPortGroupState(props: PortGroupProps) {
 }
 
 export default createPortGroupState;
-
-
-
-
-

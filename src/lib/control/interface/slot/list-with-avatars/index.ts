@@ -20,18 +20,18 @@ import type { SlotLabel } from '$stylist/typography/interface/slot/label';
  */
 // ListWithAvatars props interface
 export interface SlotListWithAvatars extends InteractionHTMLAttributes<HTMLDivElement> {
-  items: ListItem[];
-  showAvatar?: boolean;
-  showStatus?: boolean;
-  showSubtitle?: boolean;
-  showDescription?: boolean;
-  showActions?: boolean;
-  /** Размер списка */
-  size?: TokenSize;
-  class?: string;
-  itemClass?: string;
-  avatarClass?: string;
-  contentClass?: string;
-  actionsClass?: string;
-  children?: Snippet;
+	items: ListItem[];
+	showAvatar?: boolean;
+	showStatus?: boolean;
+	showSubtitle?: boolean;
+	showDescription?: boolean;
+	showActions?: boolean;
+	/** Размер списка */
+	size?: TokenSize;
+	class?: string;
+	itemClass?: string;
+	avatarClass?: string;
+	contentClass?: string;
+	actionsClass?: string;
+	children?: Snippet;
 }

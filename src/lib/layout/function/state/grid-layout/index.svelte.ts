@@ -8,7 +8,9 @@ export function createGridLayoutState(props: GridLayoutProps) {
 	const cols = $derived(props.cols ?? 2);
 	const gap = $derived<TokenSize>((props.gap as TokenSize) ?? 'md');
 	const responsive = $derived(props.responsive ?? true);
-	const alignItems = $derived<TokenAlignment>((props.alignItems as TokenAlignment | undefined) ?? 'center');
+	const alignItems = $derived<TokenAlignment>(
+		(props.alignItems as TokenAlignment | undefined) ?? 'center'
+	);
 	const justifyContent = $derived<TokenJustification>(
 		(props.justifyContent as TokenJustification | undefined) ?? 'justify'
 	);
@@ -71,5 +73,3 @@ export function createGridLayoutState(props: GridLayoutProps) {
 }
 
 export default createGridLayoutState;
-
-

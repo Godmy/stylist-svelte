@@ -10,15 +10,19 @@
 	];
 </script>
 
-<Story component={AiResultCard} title="AiResultCard" description="Result card for AI-generated insights." {controls}>
+<Story
+	component={AiResultCard}
+	title="AiResultCard"
+	description="Result card for AI-generated insights."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<AiResultCard title={values.title} description={values.description} icon={values.icon}>
 			{#snippet children()}
-				<button class="mt-3 rounded-md border border-[--color-border-primary] px-3 py-1 text-sm">View details</button>
+				<button class="mt-3 rounded-md border border-[--color-border-primary] px-3 py-1 text-sm"
+					>View details</button
+				>
 			{/snippet}
 		</AiResultCard>
 	{/snippet}
 </Story>
-
-
-

@@ -1,4 +1,4 @@
-	<script lang="ts">
+<script lang="ts">
 	import type { CountryFlagProps } from '$stylist/media/type/struct/country-flag';
 	import { createCountryFlagState } from '$stylist/media/function/state/country-flag';
 

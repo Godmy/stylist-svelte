@@ -12,18 +12,12 @@ export const createAdvancedToggleState = (props: RecipeAdvancedToggleProps) => {
 		localChecked = props.checked ?? false;
 	});
 
-	const containerClasses = $derived(
-		TogglesStyleManager.getToggleContainerClasses(props.class)
-	);
-	const labelWrapperClasses = $derived(
-		joinClassNames('flex items-center space-x-2')
-	);
+	const containerClasses = $derived(TogglesStyleManager.getToggleContainerClasses(props.class));
+	const labelWrapperClasses = $derived(joinClassNames('flex items-center space-x-2'));
 	const toggleContainerClasses = $derived(
 		TogglesStyleManager.getToggleContainerClasses(props.class)
 	);
-	const trackClasses = $derived(
-		TogglesStyleManager.getToggleTrackClasses(disabled, localChecked)
-	);
+	const trackClasses = $derived(TogglesStyleManager.getToggleTrackClasses(disabled, localChecked));
 	const thumbClasses = $derived(
 		TogglesStyleManager.getToggleThumbClasses('md', disabled, localChecked)
 	);
@@ -38,7 +32,10 @@ export const createAdvancedToggleState = (props: RecipeAdvancedToggleProps) => {
 	const sizeClasses = $derived(TogglesStyleManager.getToggleSizeClasses(size));
 	const disabledClass = $derived(TogglesStyleManager.getToggleDisabledClass(disabled));
 	const labelTextClasses = $derived(
-		joinClassNames('text-sm font-medium', disabled ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-primary)]')
+		joinClassNames(
+			'text-sm font-medium',
+			disabled ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-primary)]'
+		)
 	);
 
 	return {
@@ -100,17 +97,4 @@ export const createAdvancedToggleState = (props: RecipeAdvancedToggleProps) => {
 	};
 };
 
-
-
 export default createAdvancedToggleState;
-
-
-
-
-
-
-
-
-
-
-

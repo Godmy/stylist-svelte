@@ -6,4 +6,3 @@ export class ObjectManagerStatusDashboard {
 		return STATUS_DASHBOARD_PRESENTATION[status] ?? STATUS_DASHBOARD_PRESENTATION.info;
 	}
 }
-

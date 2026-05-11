@@ -12,7 +12,10 @@ export function createAccountSettingsFormState(props: AccountSettingsFormStatePr
 	const localeId = 'account-settings-locale';
 
 	const containerClasses = $derived(
-		AccountFormsStyleManager.root('c-account-settings-form border rounded-lg p-4 space-y-3', className)
+		AccountFormsStyleManager.root(
+			'c-account-settings-form border rounded-lg p-4 space-y-3',
+			className
+		)
 	);
 
 	const restProps = $derived.by(() => {
@@ -21,14 +24,30 @@ export function createAccountSettingsFormState(props: AccountSettingsFormStatePr
 	});
 
 	return {
-		get name() { return name; },
-		get email() { return email; },
-		get locale() { return locale; },
-		get nameId() { return nameId; },
-		get emailId() { return emailId; },
-		get localeId() { return localeId; },
-		get containerClasses() { return containerClasses; },
-		get restProps() { return restProps; }
+		get name() {
+			return name;
+		},
+		get email() {
+			return email;
+		},
+		get locale() {
+			return locale;
+		},
+		get nameId() {
+			return nameId;
+		},
+		get emailId() {
+			return emailId;
+		},
+		get localeId() {
+			return localeId;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

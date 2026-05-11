@@ -2,7 +2,8 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { SlotLocation } from '$stylist/geo/interface/slot/location';
 
-export interface SlotLocationSelector extends Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> {
+export interface SlotLocationSelector
+	extends Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> {
 	locations: SlotLocation[];
 	currentView?: 'list' | 'grid' | 'map';
 	showSearch?: boolean;

@@ -1,6 +1,7 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
-export interface ContractVideoPlayer extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
+export interface ContractVideoPlayer
+	extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
 	/** Video source */
 	src?: string;
 	/** Poster image */

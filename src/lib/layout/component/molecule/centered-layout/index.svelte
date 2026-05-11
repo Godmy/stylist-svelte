@@ -11,7 +11,5 @@
 		<div class={state.innerClass}>
 			{#if props.children}{@render props.children()}{/if}
 		</div>
-	{:else}
-		{#if props.children}{@render props.children()}{/if}
-	{/if}
+	{:else if props.children}{@render props.children()}{/if}
 </div>

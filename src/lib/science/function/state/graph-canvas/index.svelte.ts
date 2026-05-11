@@ -15,18 +15,22 @@ export function createGraphCanvasState(props: GraphCanvasProps) {
 	const offsetX = $derived(props.offsetX ?? 0);
 	const offsetY = $derived(props.offsetY ?? 0);
 	const gridSize = $derived(props.gridSize ?? DEFAULT_GRAPH_CANVAS.gridSize);
-	const gridMode = $derived((props.gridMode ?? 'dot') as 'dot' | 'number' | 'x' | 'letter' | 'check');
+	const gridMode = $derived(
+		(props.gridMode ?? 'dot') as 'dot' | 'number' | 'x' | 'letter' | 'check'
+	);
 	const gridColor = $derived(props.gridColor ?? DEFAULT_GRAPH_CANVAS.gridColor);
 	const backgroundColor = $derived(props.backgroundColor ?? DEFAULT_GRAPH_CANVAS.backgroundColor);
 	const snapToGrid = $derived(props.snapToGrid ?? false);
 
 	const containerClass = $derived(
-		GraphCanvasStyleManager.getContainerClass(
-			props.class == null ? undefined : String(props.class)
-		)
+		GraphCanvasStyleManager.getContainerClass(props.class == null ? undefined : String(props.class))
 	);
-	const gridClass = $derived(GraphCanvasStyleManager.getGridClass(gridMode, props.gridClass ?? undefined));
-	const contentClass = $derived(GraphCanvasStyleManager.getContentClass(props.contentClass ?? undefined));
+	const gridClass = $derived(
+		GraphCanvasStyleManager.getGridClass(gridMode, props.gridClass ?? undefined)
+	);
+	const contentClass = $derived(
+		GraphCanvasStyleManager.getContentClass(props.contentClass ?? undefined)
+	);
 
 	const transformStyle = $derived(
 		`transform: translate(${offsetX}px, ${offsetY}px) scale(${zoom}); transform-origin: 0 0;`
@@ -94,11 +98,15 @@ export function createGraphCanvasState(props: GraphCanvasProps) {
 		props.oncanvasclick?.(event);
 	}
 
-	function handleDoubleClick(event: MouseEvent & { currentTarget: EventTarget & HTMLDivElement }): void {
+	function handleDoubleClick(
+		event: MouseEvent & { currentTarget: EventTarget & HTMLDivElement }
+	): void {
 		props.ondblclick?.(event);
 	}
 
-	function handleContextMenu(event: MouseEvent & { currentTarget: EventTarget & HTMLDivElement }): void {
+	function handleContextMenu(
+		event: MouseEvent & { currentTarget: EventTarget & HTMLDivElement }
+	): void {
 		props.oncontextmenu?.(event);
 	}
 
@@ -257,7 +265,3 @@ export function createGraphCanvasState(props: GraphCanvasProps) {
 }
 
 export default createGraphCanvasState;
-
-
-
-

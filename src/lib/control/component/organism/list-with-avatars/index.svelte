@@ -1,108 +1,116 @@
 <script lang="ts">
-  import type { ListWithAvatarsProps } from '$stylist/control/type/struct/list-with-avatars-props';
-  import { createListWithAvatarsState } from '$stylist/control/function/state/list-with-avatars';
+	import type { ListWithAvatarsProps } from '$stylist/control/type/struct/list-with-avatars-props';
+	import { createListWithAvatarsState } from '$stylist/control/function/state/list-with-avatars';
 
-  let {
-    items = [],
-    showAvatar = true,
-    showStatus = true,
-    showSubtitle = true,
-    showDescription = true,
-    showActions = false,
-    size = 'md',
-    class: className = '',
-    itemClass = '',
-    avatarClass = '',
-    contentClass = '',
-    actionsClass = '',
-    ...restProps
-  }: ListWithAvatarsProps = $props();
-  const state = createListWithAvatarsState({
-    items,
-    showAvatar,
-    showStatus,
-    showSubtitle,
-    showDescription,
-    showActions,
-    size,
-    class: className,
-    itemClass,
-    avatarClass,
-    contentClass,
-    actionsClass,
-    ...restProps
-  });
+	let {
+		items = [],
+		showAvatar = true,
+		showStatus = true,
+		showSubtitle = true,
+		showDescription = true,
+		showActions = false,
+		size = 'md',
+		class: className = '',
+		itemClass = '',
+		avatarClass = '',
+		contentClass = '',
+		actionsClass = '',
+		...restProps
+	}: ListWithAvatarsProps = $props();
+	const state = createListWithAvatarsState({
+		items,
+		showAvatar,
+		showStatus,
+		showSubtitle,
+		showDescription,
+		showActions,
+		size,
+		class: className,
+		itemClass,
+		avatarClass,
+		contentClass,
+		actionsClass,
+		...restProps
+	});
 </script>
 
-<div class={`c-list-with-avatars divide-y divide-gray-200 rounded-md border border-[var(--color-border-primary)] ${className}`} {...restProps}>
-  {#each items as item}
-    <div class={`flex items-center ${state.paddingClass} px-4 ${itemClass}`}>
-      {#if showAvatar}
-        <div class="relative flex-shrink-0 mr-3">
-          {#if item.avatar}
-            <img
-              src={item.avatar}
-              alt={`${item.title}'s avatar`}
-              class={`${state.avatarSize} rounded-full object-cover ${avatarClass}`}
-            />
-          {:else}
-            <div class={`${state.avatarSize} rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center ${avatarClass}`}>
-              <span class="text-[var(--color-text-secondary)] font-medium">
-                {item.title ? item.title.charAt(0).toUpperCase() : '?'}
-              </span>
-            </div>
-          {/if}
+<div
+	class={`c-list-with-avatars divide-y divide-gray-200 rounded-md border border-[var(--color-border-primary)] ${className}`}
+	{...restProps}
+>
+	{#each items as item}
+		<div class={`flex items-center ${state.paddingClass} px-4 ${itemClass}`}>
+			{#if showAvatar}
+				<div class="relative mr-3 flex-shrink-0">
+					{#if item.avatar}
+						<img
+							src={item.avatar}
+							alt={`${item.title}'s avatar`}
+							class={`${state.avatarSize} rounded-full object-cover ${avatarClass}`}
+						/>
+					{:else}
+						<div
+							class={`${state.avatarSize} flex items-center justify-center rounded-full bg-[var(--color-background-tertiary)] ${avatarClass}`}
+						>
+							<span class="font-medium text-[var(--color-text-secondary)]">
+								{item.title ? item.title.charAt(0).toUpperCase() : '?'}
+							</span>
+						</div>
+					{/if}
 
-          {#if showStatus && item.status}
-            <div class={`absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border border-[var(--color-background-primary)] ${
-              item.status === 'online' ? 'bg-[var(--color-success-500)]' :
-              item.status === 'away' ? 'bg-yellow-500' :
-              item.status === 'busy' ? 'bg-[var(--color-danger-500)]' :
-              'bg-[var(--color-neutral-400)]'
-            }`}></div>
-          {/if}
-        </div>
-      {/if}
+					{#if showStatus && item.status}
+						<div
+							class={`absolute right-0 bottom-0 h-2.5 w-2.5 rounded-full border border-[var(--color-background-primary)] ${
+								item.status === 'online'
+									? 'bg-[var(--color-success-500)]'
+									: item.status === 'away'
+										? 'bg-yellow-500'
+										: item.status === 'busy'
+											? 'bg-[var(--color-danger-500)]'
+											: 'bg-[var(--color-neutral-400)]'
+							}`}
+						></div>
+					{/if}
+				</div>
+			{/if}
 
-      <div class={`flex-1 min-w-0 ${contentClass}`}>
-        <p class={`font-medium text-[var(--color-text-primary)] truncate ${state.textSize}`}>
-          {item.title}
-        </p>
+			<div class={`min-w-0 flex-1 ${contentClass}`}>
+				<p class={`truncate font-medium text-[var(--color-text-primary)] ${state.textSize}`}>
+					{item.title}
+				</p>
 
-        {#if showSubtitle && item.subtitle}
-          <p class={`text-[var(--color-text-secondary)] truncate ${state.textSize}`}>
-            {item.subtitle}
-          </p>
-        {/if}
+				{#if showSubtitle && item.subtitle}
+					<p class={`truncate text-[var(--color-text-secondary)] ${state.textSize}`}>
+						{item.subtitle}
+					</p>
+				{/if}
 
-        {#if showDescription && item.description}
-          <p class={`text-[var(--color-text-tertiary)] truncate ${state.textSize}`}>
-            {item.description}
-          </p>
-        {/if}
-      </div>
+				{#if showDescription && item.description}
+					<p class={`truncate text-[var(--color-text-tertiary)] ${state.textSize}`}>
+						{item.description}
+					</p>
+				{/if}
+			</div>
 
-      {#if showActions && item.actions && item.actions.length > 0}
-        <div class={`ml-4 flex space-x-2 ${actionsClass}`}>
-          {#each item.actions as action}
-            <button
-              type="button"
-              class={`px-3 py-1 rounded text-xs font-medium ${
-                action.variant === 'primary' ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)] hover:bg-[var(--color-primary-200)]' :
-                action.variant === 'danger' ? 'bg-[var(--color-danger-100)] text-[var(--color-danger-700)] hover:bg-[var(--color-danger-200)]' :
-                'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-tertiary)]'
-              }`}
-              onclick={action.onClick}
-            >
-              {action.label}
-            </button>
-          {/each}
-        </div>
-      {/if}
-    </div>
-  {/each}
+			{#if showActions && item.actions && item.actions.length > 0}
+				<div class={`ml-4 flex space-x-2 ${actionsClass}`}>
+					{#each item.actions as action}
+						<button
+							type="button"
+							class={`rounded px-3 py-1 text-xs font-medium ${
+								action.variant === 'primary'
+									? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)] hover:bg-[var(--color-primary-200)]'
+									: action.variant === 'danger'
+										? 'bg-[var(--color-danger-100)] text-[var(--color-danger-700)] hover:bg-[var(--color-danger-200)]'
+										: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-tertiary)]'
+							}`}
+							onclick={action.onClick}
+						>
+							{action.label}
+						</button>
+					{/each}
+				</div>
+			{/if}
+		</div>
+	{/each}
 </div>
-
-
-
-

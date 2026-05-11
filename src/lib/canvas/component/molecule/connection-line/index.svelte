@@ -6,10 +6,7 @@
 	const state = createConnectionLineState(props);
 </script>
 
-<g
-	class={state.classes}
-	data-connection-id={state.id}
->
+<g class={state.classes} data-connection-id={state.id}>
 	{#if state.showArrow}
 		<defs>
 			{@html state.arrowMarkerHtml}
@@ -24,7 +21,7 @@
 		stroke-width={state.width}
 		stroke-dasharray={state.dashArray}
 		stroke-linecap="round"
-		{...(state.showArrow ? { 'marker-end': `url(#${state.arrowMarkerId})` } : {})}
+		{...state.showArrow ? { 'marker-end': `url(#${state.arrowMarkerId})` } : {}}
 	>
 		{#if state.animated}
 			<animate
@@ -69,7 +66,9 @@
 	}
 
 	:global(.connection-line__path) {
-		transition: stroke var(--duration-120) var(--animation-ease), stroke-width var(--duration-120) var(--animation-ease);
+		transition:
+			stroke var(--duration-120) var(--animation-ease),
+			stroke-width var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.connection-line--animated .connection-line__path) {

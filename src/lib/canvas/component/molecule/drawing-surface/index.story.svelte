@@ -29,7 +29,7 @@
 			</div>
 
 			<DrawingSurface
-				{...({
+				{...{
 					width: values.width,
 					height: values.height,
 					drawingEnabled: values.drawingEnabled,
@@ -37,7 +37,7 @@
 					strokeWidth: values.strokeWidth,
 					strokeColor: values.strokeColor,
 					backgroundColor: values.backgroundColor
-				} as any)}
+				} as any}
 			/>
 		</div>
 	{/snippet}

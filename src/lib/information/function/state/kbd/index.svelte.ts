@@ -19,10 +19,3 @@ export function createKbdState(props: ThemeKbdRecipe) {
 }
 
 export default createKbdState;
-
-
-
-
-
-
-

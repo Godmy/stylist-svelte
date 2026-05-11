@@ -4,11 +4,17 @@
 
 	let props: ChartAxisYProps = $props();
 	const state = createChartAxisYState(props);
-
 </script>
 
 <g class={state.axisClasses}>
-	<line x1={state.x} y1={state.startY} x2={state.x} y2={state.endY} stroke={props.color ?? 'currentColor'} stroke-width="1" />
+	<line
+		x1={state.x}
+		y1={state.startY}
+		x2={state.x}
+		y2={state.endY}
+		stroke={props.color ?? 'currentColor'}
+		stroke-width="1"
+	/>
 	{#if state.showArrow}
 		<path
 			d={`M ${state.x} ${state.startY} L ${state.x - 4} ${state.startY + 8} M ${state.x} ${state.startY} L ${state.x + 4} ${state.startY + 8}`}
@@ -19,7 +25,14 @@
 	{/if}
 
 	{#each state.ticks as tick, i}
-		<line x1={state.x} y1={tick} x2={state.x - state.tickSize} y2={tick} stroke={props.color ?? 'currentColor'} stroke-width="1" />
+		<line
+			x1={state.x}
+			y1={tick}
+			x2={state.x - state.tickSize}
+			y2={tick}
+			stroke={props.color ?? 'currentColor'}
+			stroke-width="1"
+		/>
 		{#if props.showGrid}
 			<line
 				class={state.gridClasses}
@@ -49,5 +62,3 @@
 		{/if}
 	{/each}
 </g>
-
-

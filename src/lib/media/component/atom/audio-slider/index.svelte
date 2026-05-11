@@ -9,8 +9,9 @@
 <div class={`w-full ${state.className}`} {...state.restProps}>
 	<div class="flex items-center">
 		{#if state.label}
-			<label for="audio-slider" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1"
-				>{state.label}</label
+			<label
+				for="audio-slider"
+				class="mb-1 block text-sm font-medium text-[var(--color-text-primary)]">{state.label}</label
 			>
 		{/if}
 		<input
@@ -20,7 +21,7 @@
 			max={state.max}
 			step={state.step}
 			bind:value={state.value}
-			class="w-full h-2 bg-[var(--color-background-tertiary)] rounded-lg appearance-none cursor-pointer accent-blue-500"
+			class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-[var(--color-background-tertiary)] accent-blue-500"
 		/>
 		{#if state.showValue}
 			<span class="ml-4 w-12 text-center font-medium">{state.value}</span>

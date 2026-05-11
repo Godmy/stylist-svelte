@@ -11,9 +11,11 @@ const positionClassesMap = {
 };
 
 const colorClassesMap: Record<ToastType, string> = {
-	success: 'bg-[var(--color-success-50)] border-[var(--color-success-200)] text-[var(--color-success-800)]',
+	success:
+		'bg-[var(--color-success-50)] border-[var(--color-success-200)] text-[var(--color-success-800)]',
 	warning: 'bg-yellow-50 border-[var(--color-success-200)] text-yellow-800',
-	error: 'bg-[var(--color-danger-50)] border-[var(--color-danger-200)] text-[var(--color-danger-800)]',
+	error:
+		'bg-[var(--color-danger-50)] border-[var(--color-danger-200)] text-[var(--color-danger-800)]',
 	info: 'bg-[var(--color-primary-50)] border-[var(--color-primary-200)] text-[var(--color-primary-800)]'
 };
 
@@ -53,9 +55,15 @@ export function createToastStackState(props: ToastStackProps) {
 	}
 
 	return {
-		get containerClasses() { return containerClasses; },
-		get toasts() { return toasts; },
-		get maxToasts() { return maxToasts; },
+		get containerClasses() {
+			return containerClasses;
+		},
+		get toasts() {
+			return toasts;
+		},
+		get maxToasts() {
+			return maxToasts;
+		},
 		getToastColor,
 		getToastIcon,
 		getToastIconColor,

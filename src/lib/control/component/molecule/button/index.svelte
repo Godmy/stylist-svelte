@@ -31,7 +31,12 @@
 	onmouseleave={state.handleMouseLeave}
 >
 	{#if state.isLoading}
-		<svg class={state.LOADER_CLASSES} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<svg
+			class={state.LOADER_CLASSES}
+			viewBox="0 0 24 24"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
 			<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
 			<path
 				class="opacity-75"
@@ -48,6 +53,3 @@
 		{state.loadingLabel}
 	{/if}
 </button>
-
-
-

@@ -22,7 +22,12 @@
 	};
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'value', type: 'select', defaultValue: 'inter', options: ['inter', 'roboto', 'open-sans', 'lato', 'montserrat'] }
+		{
+			name: 'value',
+			type: 'select',
+			defaultValue: 'inter',
+			options: ['inter', 'roboto', 'open-sans', 'lato', 'montserrat']
+		}
 	];
 </script>
 
@@ -36,10 +41,9 @@
 >
 	{#snippet children(values: any)}
 		<TokenSelect
-			definition={definition}
+			{definition}
 			value={values.value as string}
 			onChange={(v) => console.log('Selected:', v)}
 		/>
 	{/snippet}
 </Story>
-

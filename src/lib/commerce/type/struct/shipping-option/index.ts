@@ -4,4 +4,4 @@ export type SlotShippingOption = {
 	description: string;
 	price: number;
 	estimatedDays: number;
-}
+};

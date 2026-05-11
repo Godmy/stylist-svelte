@@ -8,11 +8,7 @@ export class NodePropertiesPanelStyleManager {
 	/**
 	 * Получает классы панели
 	 */
-	static getPanelClasses(
-		size: TokenSize,
-		compact: boolean,
-		showHeader: boolean
-	): string {
+	static getPanelClasses(size: TokenSize, compact: boolean, showHeader: boolean): string {
 		return mergeClassNames(
 			'node-properties-panel',
 			`node-properties-panel--size-${size}`,
@@ -49,8 +45,3 @@ export class NodePropertiesPanelStyleManager {
 		return 'node-properties-panel__close';
 	}
 }
-
-
-
-
-

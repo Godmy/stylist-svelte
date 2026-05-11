@@ -19,10 +19,7 @@ export function createGridLines(axis: 'x' | 'z'): SceneAtom[] {
 						? { type: 'box', width: 16, height: 0.02, depth: 0.02 }
 						: { type: 'box', width: 0.02, height: 0.02, depth: 16 },
 				transform: {
-					position:
-						axis === 'x'
-							? { x: 0, y: -2.46, z: index }
-							: { x: index, y: -2.46, z: 0 }
+					position: axis === 'x' ? { x: 0, y: -2.46, z: index } : { x: index, y: -2.46, z: 0 }
 				},
 				metadata: {
 					label: `Grid ${axis.toUpperCase()} ${index}`,

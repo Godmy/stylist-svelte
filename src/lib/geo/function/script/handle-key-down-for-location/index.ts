@@ -3,12 +3,12 @@
  * Р’С‹Р·С‹РІР°РµС‚ selectLocation РїСЂРё Enter РёР»Рё Space.
  */
 export function geoHandleKeyDownForLocation(
-  e: KeyboardEvent,
-  location: { id?: string; name: string },
-  onSelect: (location: { id?: string; name: string }) => void
+	e: KeyboardEvent,
+	location: { id?: string; name: string },
+	onSelect: (location: { id?: string; name: string }) => void
 ): void {
-  if (e.key === 'Enter' || e.key === ' ') {
-    e.preventDefault();
-    onSelect(location);
-  }
+	if (e.key === 'Enter' || e.key === ' ') {
+		e.preventDefault();
+		onSelect(location);
+	}
 }

@@ -2,10 +2,14 @@ import { ProductComparisonStyleManager } from '$stylist/commerce/class/style-man
 import type { ProductComparisonProps } from '$stylist/commerce/interface/recipe/product-comparison-props';
 
 export function createProductComparisonState(props: ProductComparisonProps) {
-	const containerClass = $derived(ProductComparisonStyleManager.getContainerClass(props.class ?? ''));
+	const containerClass = $derived(
+		ProductComparisonStyleManager.getContainerClass(props.class ?? '')
+	);
 
 	return {
-		get containerClass() { return containerClass; }
+		get containerClass() {
+			return containerClass;
+		}
 	};
 }
 

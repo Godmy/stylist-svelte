@@ -28,8 +28,12 @@ export function createToastState(props: ToastProps) {
 	);
 
 	return {
-		get internalVisible() { return internalVisible; },
-		get classes() { return classes; },
+		get internalVisible() {
+			return internalVisible;
+		},
+		get classes() {
+			return classes;
+		},
 		closeToast
 	};
 }

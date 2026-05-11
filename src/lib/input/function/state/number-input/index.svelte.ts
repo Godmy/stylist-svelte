@@ -12,7 +12,9 @@ export const createNumberInputState = (props: INumberInputProps) => {
 	const min = $derived(props.min ?? Number.MIN_SAFE_INTEGER);
 	const max = $derived(props.max ?? Number.MAX_SAFE_INTEGER);
 	const step = $derived(props.step ?? 1);
-	const containerClasses = $derived(['relative inline-flex items-center', props.class ?? ''].join(' ').trim());
+	const containerClasses = $derived(
+		['relative inline-flex items-center', props.class ?? ''].join(' ').trim()
+	);
 	const inputClasses = $derived(
 		[
 			'w-20 p-2 text-center border-y border-[var(--color-border-primary)] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
@@ -117,8 +119,3 @@ export const createNumberInputState = (props: INumberInputProps) => {
 };
 
 export default createNumberInputState;
-
-
-
-
-

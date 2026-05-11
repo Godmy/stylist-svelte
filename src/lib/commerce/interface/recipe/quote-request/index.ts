@@ -10,4 +10,4 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface RecipeQuoteRequest extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]> {}
+export interface RecipeQuoteRequest extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {}

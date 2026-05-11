@@ -8,7 +8,7 @@
 </script>
 
 <div class={state.rootClass}>
-	<div class="border border-[var(--color-border-primary)] rounded-lg p-6">
+	<div class="rounded-lg border border-[var(--color-border-primary)] p-6">
 		<div class="flex items-center gap-2">
 			<BaseIcon name="credit-card" class="h-5 w-5 text-[var(--color-primary-600)]" />
 			<h3 class="text-lg font-semibold">Payment Information</h3>
@@ -16,11 +16,11 @@
 	</div>
 
 	{#if props.showMethods !== false}
-		<div class="mt-4 border border-[var(--color-border-primary)] rounded-lg p-4 space-y-3">
+		<div class="mt-4 space-y-3 rounded-lg border border-[var(--color-border-primary)] p-4">
 			{#each props.methods ?? [] as method}
 				<button
 					type="button"
-					class={`w-full text-left rounded-md border p-3 ${state.selectedMethodId === method.id ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]' : 'border-[var(--color-border-primary)]'}`}
+					class={`w-full rounded-md border p-3 text-left ${state.selectedMethodId === method.id ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]' : 'border-[var(--color-border-primary)]'}`}
 					onclick={() => state.handleMethodSelect(method)}
 					disabled={method.disabled}
 				>
@@ -28,7 +28,7 @@
 					{#if method.description}
 						<div class="text-sm text-[var(--color-text-secondary)]">{method.description}</div>
 					{/if}
-					<div class="text-xs text-[var(--color-text-secondary)] mt-1">
+					<div class="mt-1 text-xs text-[var(--color-text-secondary)]">
 						{#if props.showFees !== false && method.fee !== undefined}Fee: {method.fee}%{/if}
 						{#if props.showProcessingTime !== false && method.processingTime}
 							<span class="ml-2">{method.processingTime}</span>
@@ -40,22 +40,24 @@
 	{/if}
 
 	{#if props.showAcceptedCards !== false}
-		<div class="mt-4 border border-[var(--color-border-primary)] rounded-lg p-4">
-			<div class="text-sm font-medium mb-2">Accepted Cards</div>
+		<div class="mt-4 rounded-lg border border-[var(--color-border-primary)] p-4">
+			<div class="mb-2 text-sm font-medium">Accepted Cards</div>
 			<div class="flex flex-wrap gap-2">
 				{#each props.acceptedCards ?? ['visa', 'mastercard', 'amex'] as card}
-					<span class="px-2 py-1 rounded bg-[var(--color-background-secondary)] text-xs uppercase">{card}</span>
+					<span class="rounded bg-[var(--color-background-secondary)] px-2 py-1 text-xs uppercase"
+						>{card}</span
+					>
 				{/each}
 			</div>
 		</div>
 	{/if}
 
 	{#if props.showSecurityInfo !== false}
-		<div class="mt-4 border border-[var(--color-border-primary)] rounded-lg p-4">
+		<div class="mt-4 rounded-lg border border-[var(--color-border-primary)] p-4">
 			<div class="flex items-center gap-2 text-sm font-medium">
 				<BaseIcon name="shield" class="h-4 w-4" /> Security
 			</div>
-			<div class="mt-2 text-sm text-[var(--color-text-secondary)] flex items-center gap-2">
+			<div class="mt-2 flex items-center gap-2 text-sm text-[var(--color-text-secondary)]">
 				<BaseIcon name="lock" class="h-4 w-4" /> Encrypted payment processing
 			</div>
 		</div>

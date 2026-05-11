@@ -2,10 +2,14 @@ import { ProductRecommendationStyleManager } from '$stylist/commerce/class/style
 import type { ProductRecommendationProps } from '$stylist/commerce/interface/recipe/product-recommendation-props';
 
 export function createProductRecommendationState(props: ProductRecommendationProps) {
-	const containerClass = $derived(ProductRecommendationStyleManager.getContainerClass(props.class ?? ''));
+	const containerClass = $derived(
+		ProductRecommendationStyleManager.getContainerClass(props.class ?? '')
+	);
 
 	return {
-		get containerClass() { return containerClass; }
+		get containerClass() {
+			return containerClass;
+		}
 	};
 }
 

@@ -6,4 +6,12 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { SlotButtonAttributesBase } from '$stylist/control/interface/slot/button-attributes-base';
 import type { SlotButtonControl } from '$stylist/control/interface/slot/button-control';
 
-export interface RecipeButtonProps extends StructIntersectAll<[ SlotButtonAttributesBase, SlotButtonControl, InteractionHTMLAttributes<HTMLButtonElement>, ChildrenHtmlAttributes<HTMLButtonElement> ]> {}
+export interface RecipeButtonProps
+	extends StructIntersectAll<
+		[
+			SlotButtonAttributesBase,
+			SlotButtonControl,
+			InteractionHTMLAttributes<HTMLButtonElement>,
+			ChildrenHtmlAttributes<HTMLButtonElement>
+		]
+	> {}

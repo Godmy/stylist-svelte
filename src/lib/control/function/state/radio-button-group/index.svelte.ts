@@ -13,20 +13,20 @@ export const createRadioButtonGroupState = (props: RecipeRadioButtonGroupProps) 
 	$effect(() => {
 		selectedValue = props.value ?? '';
 	});
-	
+
 	const getOptionClass = (isDisabled: boolean) => {
 		return joinClassNames(
 			'flex items-center space-x-2 cursor-pointer',
 			isDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
 		);
 	};
-	
+
 	const radioInputClass = $derived(
 		joinClassNames(
 			'h-4 w-4 border-[var(--color-border-primary)] text-[var(--color-primary-600)] focus:ring-blue-500'
 		)
 	);
-	
+
 	const optionLabelClass = $derived(
 		joinClassNames(
 			'text-sm font-medium text-[var(--color-text-primary)]',
@@ -72,14 +72,3 @@ export const createRadioButtonGroupState = (props: RecipeRadioButtonGroupProps) 
 };
 
 export default createRadioButtonGroupState;
-
-
-
-
-
-
-
-
-
-
-

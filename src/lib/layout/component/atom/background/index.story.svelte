@@ -46,18 +46,27 @@
 	];
 </script>
 
-<Story {controls} component={Background} title="Background Component" description="Компонент для управления фоном с поддержкой цветов, изображений и градиентов">
+<Story
+	{controls}
+	component={Background}
+	title="Background Component"
+	description="Компонент для управления фоном с поддержкой цветов, изображений и градиентов"
+>
 	{#snippet children(values: any)}
 		<div class="w-full rounded-lg py-4">
-			<Background {...values} class="p-6 rounded-lg">
+			<Background {...values} class="rounded-lg p-6">
 				{#snippet children()}
 					<div class="text-center">
-						<p class="font-medium">Background type: <strong>{values.background || 'default'}</strong></p>
+						<p class="font-medium">
+							Background type: <strong>{values.background || 'default'}</strong>
+						</p>
 						{#if values.gradient}
-							<p class="text-sm text-muted mt-1">Gradient: {values.gradient.substring(0, 50)}...</p>
+							<p class="text-muted mt-1 text-sm">Gradient: {values.gradient.substring(0, 50)}...</p>
 						{/if}
 						{#if values.backgroundImage}
-							<p class="text-sm text-muted mt-1">Image: {values.backgroundImage.substring(0, 50)}...</p>
+							<p class="text-muted mt-1 text-sm">
+								Image: {values.backgroundImage.substring(0, 50)}...
+							</p>
 						{/if}
 					</div>
 				{/snippet}
@@ -65,4 +74,3 @@
 		</div>
 	{/snippet}
 </Story>
-

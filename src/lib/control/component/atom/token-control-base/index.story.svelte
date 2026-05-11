@@ -31,10 +31,7 @@
 		<TokenControlBase {definition} layout="inline">
 			<div class="flex gap-2">
 				{#each definition.options as option}
-					<button
-						type="button"
-						class="px-2 py-1 border rounded-full text-sm"
-					>
+					<button type="button" class="rounded-full border px-2 py-1 text-sm">
 						{option.label}
 					</button>
 				{/each}

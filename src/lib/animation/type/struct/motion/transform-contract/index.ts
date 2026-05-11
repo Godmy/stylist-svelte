@@ -18,4 +18,4 @@ export type TransformContract = MotionContract & {
 	skewY: number;
 	/** Точка трансформации */
 	transformOrigin: string;
-}
+};

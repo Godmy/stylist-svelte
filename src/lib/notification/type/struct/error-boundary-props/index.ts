@@ -13,4 +13,4 @@ export type ErrorBoundaryProps = {
 	showDetails?: boolean;
 	onReset?: () => void;
 	[propName: string]: unknown;
-}
+};

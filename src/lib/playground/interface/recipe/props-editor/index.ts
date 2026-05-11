@@ -10,13 +10,8 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { PropDefinition } from '$stylist/playground/type/struct/prop-definition';
 
 export interface PropsEditorRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+	extends StructIntersectAll<[ILabelSlot, ThemeAttributes<HTMLDivElement>]> {
 	propDefinitions?: PropDefinition[];
 	propValues?: Record<string, unknown>;
 	onPropChange?: (name: string, value: unknown) => void;
 }
-

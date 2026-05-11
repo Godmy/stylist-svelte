@@ -9,12 +9,24 @@ export function createIdef0BlackBoxState(props: Idef0BlackBoxProps) {
 	const boxY = $derived((height - boxHeight) / 2);
 
 	return {
-		get width() { return width; },
-		get height() { return height; },
-		get boxWidth() { return boxWidth; },
-		get boxHeight() { return boxHeight; },
-		get boxX() { return boxX; },
-		get boxY() { return boxY; }
+		get width() {
+			return width;
+		},
+		get height() {
+			return height;
+		},
+		get boxWidth() {
+			return boxWidth;
+		},
+		get boxHeight() {
+			return boxHeight;
+		},
+		get boxX() {
+			return boxX;
+		},
+		get boxY() {
+			return boxY;
+		}
 	};
 }
 

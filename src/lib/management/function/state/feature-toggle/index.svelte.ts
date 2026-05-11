@@ -32,13 +32,27 @@ export function createFeatureToggleState(props: FeatureToggleStateProps) {
 	});
 
 	return {
-		get label() { return label; },
-		get description() { return description; },
-		get checked() { return checked; },
-		get disabled() { return disabled; },
-		get isChecked() { return isChecked; },
-		get containerClasses() { return containerClasses; },
-		get restProps() { return restProps; },
+		get label() {
+			return label;
+		},
+		get description() {
+			return description;
+		},
+		get checked() {
+			return checked;
+		},
+		get disabled() {
+			return disabled;
+		},
+		get isChecked() {
+			return isChecked;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get restProps() {
+			return restProps;
+		},
 		handleChange
 	};
 }

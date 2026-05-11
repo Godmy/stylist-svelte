@@ -3,4 +3,4 @@ import type { TokenControlDefinitionData } from '$stylist/control/type/struct/to
 export type TokenTextControlDefinition = TokenControlDefinitionData & {
 	controlKind: 'text';
 	placeholder?: string;
-}
+};

@@ -4,4 +4,3 @@ export const RESPONSE_VIEWER_STATUS_CLASSES = {
 	loading: 'border-[var(--color-primary-200)] bg-[var(--color-primary-50)]',
 	info: 'border-[var(--color-neutral-200)] bg-[var(--color-background-secondary)]'
 } as const;
-

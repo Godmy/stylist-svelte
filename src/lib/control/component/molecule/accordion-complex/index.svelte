@@ -34,6 +34,3 @@
 		{@render props.content()}
 	{/if}
 </div>
-
-
-

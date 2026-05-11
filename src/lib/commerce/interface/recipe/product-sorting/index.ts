@@ -9,7 +9,8 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { Snippet } from 'svelte';
 import type { SlotProductSortingOption } from '$stylist/commerce/interface/slot/product-sorting-option';
 
-export interface RecipeProductSorting extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]> {
+export interface RecipeProductSorting
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	/** List of sorting options */
 	options?: SlotProductSortingOption[];
 	/** Current selected value */

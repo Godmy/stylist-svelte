@@ -26,7 +26,10 @@ function copyToClipboard(
 	});
 }
 
-export function createCodeWithCopyState(props: Props, dispatch: (event: string, detail?: unknown) => void) {
+export function createCodeWithCopyState(
+	props: Props,
+	dispatch: (event: string, detail?: unknown) => void
+) {
 	let copied = $state(false);
 
 	const containerClass = $derived(CodeWithCopyStyleManager.getContainerClass());
@@ -35,7 +38,12 @@ export function createCodeWithCopyState(props: Props, dispatch: (event: string, 
 	const iconClass = (isCopied: boolean) => CodeWithCopyStyleManager.getIconClass(isCopied);
 
 	function handleCopyToClipboard() {
-		copyToClipboard(copied, props.copySuccessMessage ?? 'Copied to clipboard!', props.copyErrorMessage ?? 'Failed to copy', dispatch);
+		copyToClipboard(
+			copied,
+			props.copySuccessMessage ?? 'Copied to clipboard!',
+			props.copyErrorMessage ?? 'Failed to copy',
+			dispatch
+		);
 	}
 
 	return {

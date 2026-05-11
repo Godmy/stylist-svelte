@@ -6,4 +6,4 @@ export type ComparisonCardProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> 
 	after: ComparisonColumn;
 	title?: string;
 	class?: string;
-}
+};

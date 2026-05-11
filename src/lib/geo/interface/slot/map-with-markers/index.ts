@@ -22,7 +22,8 @@ import type { SlotLabel } from '$stylist/typography/interface/slot/label';
  *   BehaviorSizable              (architecture) — marker size
  *   ThemeAttributes       (theme)       — mapType
  */
-export interface SlotMapWithMarkers extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
+export interface SlotMapWithMarkers
+	extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
 	markers?: SlotMapMarkerItem[];
 	class?: string;
 	mapClass?: string;

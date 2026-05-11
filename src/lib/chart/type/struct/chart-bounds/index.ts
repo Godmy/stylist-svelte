@@ -3,4 +3,4 @@ export type ChartBounds = {
 	maxX: number;
 	minY: number;
 	maxY: number;
-}
+};

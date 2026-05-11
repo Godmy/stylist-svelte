@@ -11,4 +11,4 @@ export type ProductCardExtendedProps = {
 	onAddToCart?: () => void;
 	onWishlist?: () => void;
 	class?: string;
-}
+};

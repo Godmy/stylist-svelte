@@ -7,4 +7,3 @@ export const CARD_ELEVATION_MAP: Record<number, string> = {
 	5: 'shadow-xl',
 	6: 'shadow-2xl'
 };
-

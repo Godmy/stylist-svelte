@@ -19,12 +19,21 @@
 	tags={['chart', 'axis', 'z']}
 >
 	{#snippet children(values: any)}
-		<svg width="220" height="220" class="rounded border border-[--color-border-primary] bg-[--color-background-primary]">
-			<ChartAxisZ startX={40} startY={180} endX={150} endY={60} tickCount={values.tickCount} label={values.label} showArrow={values.showArrow} color={values.color} />
+		<svg
+			width="220"
+			height="220"
+			class="rounded border border-[--color-border-primary] bg-[--color-background-primary]"
+		>
+			<ChartAxisZ
+				startX={40}
+				startY={180}
+				endX={150}
+				endY={60}
+				tickCount={values.tickCount}
+				label={values.label}
+				showArrow={values.showArrow}
+				color={values.color}
+			/>
 		</svg>
 	{/snippet}
 </Story>
-
-
-
-

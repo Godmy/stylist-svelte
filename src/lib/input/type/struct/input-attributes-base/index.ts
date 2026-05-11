@@ -4,4 +4,4 @@ export type InputAttributesBase = {
 	disabled?: boolean;
 	readonly?: boolean;
 	required?: boolean;
-}
+};

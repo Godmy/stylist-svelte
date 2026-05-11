@@ -16,12 +16,4 @@ import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface FollowButtonRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IBadgeSlot,
-		IClickable,
-		IFocusable,
-		ISizable
-	]>
-{}
-
+	extends StructIntersectAll<[ILabelSlot, IBadgeSlot, IClickable, IFocusable, ISizable]> {}

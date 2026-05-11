@@ -34,8 +34,3 @@ export function createDotState(props: DotRecipe) {
 }
 
 export default createDotState;
-
-
-
-
-

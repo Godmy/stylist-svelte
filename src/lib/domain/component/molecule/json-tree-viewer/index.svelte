@@ -38,9 +38,10 @@
 {#snippet renderNode(value: unknown, key: string | null, path: string, depth: number)}
 	{@const t = typeOf(value)}
 	{#if t === 'object' || t === 'array'}
-		{@const entries = t === 'array'
-			? (value as unknown[]).map((v, i) => [String(i), v] as [string, unknown])
-			: Object.entries(value as Record<string, unknown>)}
+		{@const entries =
+			t === 'array'
+				? (value as unknown[]).map((v, i) => [String(i), v] as [string, unknown])
+				: Object.entries(value as Record<string, unknown>)}
 		{@const open = isOpen(path)}
 		{@const count = entries.length}
 		<div class="node" style:padding-left="{depth * 16}px">

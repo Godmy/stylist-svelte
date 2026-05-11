@@ -6,7 +6,12 @@
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'isFollowing', type: 'boolean', defaultValue: false },
 		{ name: 'showText', type: 'boolean', defaultValue: true },
-		{ name: 'variant', type: 'select', defaultValue: 'primary', options: ['primary', 'secondary', 'outline', 'ghost'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'outline', 'ghost']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false }
 	];
@@ -29,6 +34,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

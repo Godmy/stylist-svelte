@@ -1,6 +1,6 @@
 export type PageBuilderContainerAttributes = {
-  backgroundColor?: string;
-  padding?: string;
-  margin?: string;
-  BORDER_RADIUS?: string;
-}
+	backgroundColor?: string;
+	padding?: string;
+	margin?: string;
+	BORDER_RADIUS?: string;
+};

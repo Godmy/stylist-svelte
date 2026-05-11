@@ -5,10 +5,7 @@ import { STAT_CARD_VARIANT_CLASSES } from '$stylist/management/const/map/stat-ca
 import { STAT_CARD_TREND_TEXT_CLASSES } from '$stylist/management/const/map/stat-card-trend-text-classes';
 
 export class StatCardStyleManager {
-	static getBaseClasses(
-		variant: TokenBackground = 'default',
-		className = ''
-	): string {
+	static getBaseClasses(variant: TokenBackground = 'default', className = ''): string {
 		const resolvedVariant = variant in STAT_CARD_VARIANT_CLASSES ? variant : 'default';
 		return mergeClassNames(
 			'stat-card p-6',
@@ -50,5 +47,3 @@ export class StatCardStyleManager {
 		return 'stat-card-description mt-2 text-xs text-[var(--color-text-secondary)]';
 	}
 }
-
-

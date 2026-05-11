@@ -5,8 +5,7 @@ import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface NodePropertyRecipe
-	extends StructIntersectAll<[Omit<ThemeAttributes<HTMLDivElement>, 'onchange'>]>
-{
+	extends StructIntersectAll<[Omit<ThemeAttributes<HTMLDivElement>, 'onchange'>]> {
 	id?: string;
 	name: string;
 	type?: TokenPropertyType;

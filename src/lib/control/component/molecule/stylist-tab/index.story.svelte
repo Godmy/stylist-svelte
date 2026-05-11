@@ -32,18 +32,10 @@
 	{#snippet children(controlValues: any)}
 		<div class="p-4">
 			<h3 class="mb-4 text-lg font-semibold">Functional Taxonomy Tabs</h3>
-			<StylistTab
-				selectedId={controlValues.selectedId}
-				onSelect={handleSelect}
-			/>
-			
+			<StylistTab selectedId={controlValues.selectedId} onSelect={handleSelect} />
+
 			<h3 class="mt-8 mb-4 text-lg font-semibold">Custom Items</h3>
-			<StylistTab
-				items={customItems as any}
-				selectedId="dashboard"
-				onSelect={handleSelect}
-			/>
+			<StylistTab items={customItems as any} selectedId="dashboard" onSelect={handleSelect} />
 		</div>
 	{/snippet}
 </Story>
-

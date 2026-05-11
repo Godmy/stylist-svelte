@@ -5,4 +5,3 @@ export class ViewportStyleManager {
 		return mergeClassNames('viewport', isDragging && 'dragging', extraClass);
 	}
 }
-

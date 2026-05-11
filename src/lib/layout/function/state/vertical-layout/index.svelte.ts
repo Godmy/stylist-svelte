@@ -14,7 +14,13 @@ export function createVerticalLayoutState(props: VerticalLayoutProps) {
 	);
 	const fillHeight = $derived(props.fillHeight ?? false);
 	const classes = $derived(
-		VerticalLayoutStyleManager.getHostClass(gap, alignItems, justifyContent, fillHeight, props.class)
+		VerticalLayoutStyleManager.getHostClass(
+			gap,
+			alignItems,
+			justifyContent,
+			fillHeight,
+			props.class
+		)
 	);
 
 	const restProps = $derived.by(() => {
@@ -53,5 +59,3 @@ export function createVerticalLayoutState(props: VerticalLayoutProps) {
 }
 
 export default createVerticalLayoutState;
-
-

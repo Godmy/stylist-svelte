@@ -64,6 +64,3 @@
 >
 	{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 </button>
-
-
-

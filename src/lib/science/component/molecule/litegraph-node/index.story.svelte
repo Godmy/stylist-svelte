@@ -2,12 +2,22 @@
 	import { Story } from '$stylist/playground/component';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import type { LiteGraphNodeProperty } from '$stylist/science/type/struct/litegraph-node-property';
-import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port';
+	import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port';
 	import LiteGraphNode from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'mode', type: 'select', defaultValue: 'default', options: ['default', 'once', 'always', 'never'] },
-		{ name: 'status', type: 'select', defaultValue: 'idle', options: ['idle', 'running', 'completed', 'error'] },
+		{
+			name: 'mode',
+			type: 'select',
+			defaultValue: 'default',
+			options: ['default', 'once', 'always', 'never']
+		},
+		{
+			name: 'status',
+			type: 'select',
+			defaultValue: 'idle',
+			options: ['idle', 'running', 'completed', 'error']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'color', type: 'color', defaultValue: '#3b82f6' },
 		{ name: 'selected', type: 'boolean', defaultValue: false },
@@ -33,9 +43,16 @@ import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port'
 	];
 </script>
 
-<Story component={LiteGraphNode} title="LiteGraphNode" description="Node component for litegraph-based node editors with inputs, outputs, and properties." {controls}>
+<Story
+	component={LiteGraphNode}
+	title="LiteGraphNode"
+	description="Node component for litegraph-based node editors with inputs, outputs, and properties."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<div style="position: relative; width: 100%; height: 400px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); overflow: hidden;">
+		<div
+			style="position: relative; width: 100%; height: 400px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); overflow: hidden;"
+		>
 			<LiteGraphNode
 				id="node-1"
 				title="Process Data"
@@ -57,4 +74,3 @@ import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port'
 		</div>
 	{/snippet}
 </Story>
-

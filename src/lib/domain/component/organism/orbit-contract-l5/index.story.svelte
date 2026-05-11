@@ -17,7 +17,9 @@
 	description="Orbit contract view for L5 graph-node controls across architecture, information, and interaction tiers."
 >
 	{#snippet children(values: any)}
-		<div class="grid place-items-center rounded-3xl bg-[linear-gradient(180deg,#eff6ff,#eef2ff)] p-10">
+		<div
+			class="grid place-items-center rounded-3xl bg-[linear-gradient(180deg,#eff6ff,#eef2ff)] p-10"
+		>
 			<OrbitContractL5
 				opened={Boolean(values.opened)}
 				showCore={Boolean(values.showCore)}

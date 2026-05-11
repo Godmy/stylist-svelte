@@ -1,7 +1,6 @@
 import type { ContractImageWithCaption as ImageWithCaptionContract } from '$stylist/media/interface/contract/image-with-caption';
 import { MediaStyleManager } from '$stylist/media/class/style-manager/media';
 
-
 export function createImageWithCaptionState(props: ImageWithCaptionContract) {
 	const rounded = $derived(props.rounded ?? false);
 	const bordered = $derived(props.bordered ?? false);
@@ -22,7 +21,9 @@ export function createImageWithCaptionState(props: ImageWithCaptionContract) {
 			shadow
 		})
 	);
-	const captionClasses = $derived(MediaStyleManager.getImageWithCaptionTextClasses(props.captionClass ?? ''));
+	const captionClasses = $derived(
+		MediaStyleManager.getImageWithCaptionTextClasses(props.captionClass ?? '')
+	);
 
 	return {
 		get hostClasses() {

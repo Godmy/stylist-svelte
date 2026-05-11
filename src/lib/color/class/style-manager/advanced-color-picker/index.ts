@@ -9,9 +9,7 @@ export class StyleManagerAdvancedColorPicker {
 	}
 
 	static trigger(): string {
-		return InteractionInputStyleManager.input(
-			'flex items-center px-3 py-2 min-w-[140px]'
-		);
+		return InteractionInputStyleManager.input('flex items-center px-3 py-2 min-w-[140px]');
 	}
 
 	static panel(): string {

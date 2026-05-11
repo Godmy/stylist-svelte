@@ -12,9 +12,7 @@ export function createStatusIndicatorState(props: ThemeStatusIndicatorRecipe) {
 	const indicatorClasses = $derived(
 		StyleManagerStatusIndicator.indicator(baseState.indicatorClasses)
 	);
-	const labelClasses = $derived(
-		StyleManagerStatusIndicator.label(baseState.labelClasses)
-	);
+	const labelClasses = $derived(StyleManagerStatusIndicator.label(baseState.labelClasses));
 	return {
 		get classes() {
 			return classes;

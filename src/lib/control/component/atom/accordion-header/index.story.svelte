@@ -23,14 +23,11 @@
 		<ComplexAccordion>
 			{#snippet content()}
 				<AccordionItem value={values.value as string}>
-					<AccordionHeader value={values.value as string}>{values.header as string}</AccordionHeader>
+					<AccordionHeader value={values.value as string}>{values.header as string}</AccordionHeader
+					>
 					<AccordionPanel value={values.value as string}>Panel content</AccordionPanel>
 				</AccordionItem>
 			{/snippet}
 		</ComplexAccordion>
 	{/snippet}
 </Story>
-
-
-
-

@@ -9,10 +9,4 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
-export interface FormHeaderRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot
-	]>
-{}
-
+export interface FormHeaderRecipe extends StructIntersectAll<[ILabelSlot, ICaptionSlot]> {}

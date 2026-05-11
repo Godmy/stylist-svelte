@@ -13,7 +13,9 @@ import type { SlotInventoryItem } from '$stylist/commerce/interface/slot/invento
 import type { SlotLowStockAlert } from '$stylist/commerce/interface/slot/low-stock-alert';
 import type { BehaviorInventoryTrackerEvents } from '$stylist/commerce/interface/behavior/inventory-tracker-events';
 
-export interface RecipeInventoryTracker extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorInventoryTrackerEvents {
+export interface RecipeInventoryTracker
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorInventoryTrackerEvents {
 	/** List of inventory items */
 	items: SlotInventoryItem[];
 	/** List of low stock alerts */

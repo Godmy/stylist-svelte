@@ -14,11 +14,16 @@
 	];
 </script>
 
-<Story component={NumberInput} title="NumberInput" description="Numeric input with increment/decrement controls." {controls}>
+<Story
+	component={NumberInput}
+	title="NumberInput"
+	description="Numeric input with increment/decrement controls."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<div class="space-y-2 max-w-xs">
+		<div class="max-w-xs space-y-2">
 			<NumberInput
-				value={value}
+				{value}
 				min={values.min}
 				max={values.max}
 				step={values.step}
@@ -30,6 +35,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-

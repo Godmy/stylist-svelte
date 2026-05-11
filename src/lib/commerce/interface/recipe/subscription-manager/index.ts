@@ -15,7 +15,9 @@ import type { BehaviorSubscriptionManagerEvents } from '$stylist/commerce/interf
 import type { SlotCaption } from '$stylist/typography/interface/slot/caption';
 import type { SlotLabel } from '$stylist/typography/interface/slot/label';
 
-export interface RecipeSubscriptionManager extends StructIntersectAll<[ SlotLabel, SlotCaption, ThemeAttributes<HTMLDivElement> ]>, BehaviorSubscriptionManagerEvents {
+export interface RecipeSubscriptionManager
+	extends StructIntersectAll<[SlotLabel, SlotCaption, ThemeAttributes<HTMLDivElement>]>,
+		BehaviorSubscriptionManagerEvents {
 	/** SlotSubscription data */
 	subscription: SlotSubscription;
 	/** Show actions */

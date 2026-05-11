@@ -14,7 +14,12 @@
 	];
 </script>
 
-<Story component={NodeHeader} title="NodeHeader" description="Header for node components with title, actions, and edit functionality." {controls}>
+<Story
+	component={NodeHeader}
+	title="NodeHeader"
+	description="Header for node components with title, actions, and edit functionality."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<NodeHeader
 			id="node-header-1"
@@ -29,4 +34,3 @@
 		/>
 	{/snippet}
 </Story>
-

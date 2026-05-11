@@ -16,14 +16,24 @@
 		if (tickCount === 0) {
 			return [];
 		}
-		return Array.from({ length: tickCount + 1 }, (_, i) => startX + ((endX - startX) * i) / tickCount);
+		return Array.from(
+			{ length: tickCount + 1 },
+			(_, i) => startX + ((endX - startX) * i) / tickCount
+		);
 	});
 	const tickHeight = 6;
 	const showArrow = $derived(props.showArrow ?? true);
 </script>
 
 <g class={state.axisClasses}>
-	<line x1={startX} y1={y} x2={endX} y2={y} stroke={props.color ?? 'currentColor'} stroke-width="1" />
+	<line
+		x1={startX}
+		y1={y}
+		x2={endX}
+		y2={y}
+		stroke={props.color ?? 'currentColor'}
+		stroke-width="1"
+	/>
 	{#if showArrow}
 		<path
 			d={`M ${endX} ${y} L ${endX - 8} ${y - 4} M ${endX} ${y} L ${endX - 8} ${y + 4}`}
@@ -34,7 +44,14 @@
 	{/if}
 
 	{#each ticks as tick, i}
-		<line x1={tick} y1={y} x2={tick} y2={y + tickHeight} stroke={props.color ?? 'currentColor'} stroke-width="1" />
+		<line
+			x1={tick}
+			y1={y}
+			x2={tick}
+			y2={y + tickHeight}
+			stroke={props.color ?? 'currentColor'}
+			stroke-width="1"
+		/>
 		{#if props.showGrid}
 			<line
 				class={state.gridClasses}
@@ -58,5 +75,3 @@
 		{/if}
 	{/each}
 </g>
-
-

@@ -13,11 +13,6 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface TooltipWithArrowRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IIconSlot,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{}
-
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IIconSlot, ThemeAttributes<HTMLDivElement>]
+	> {}

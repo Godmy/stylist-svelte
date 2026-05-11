@@ -1,4 +1,4 @@
 export type PlaygroundGenericCodeViewerProps = {
-  code?: string;
-  language?: string;
-}
+	code?: string;
+	language?: string;
+};

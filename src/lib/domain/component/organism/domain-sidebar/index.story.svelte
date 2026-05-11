@@ -10,12 +10,28 @@
 
 	const entitiesByDomain: Record<'interaction' | 'theme', StoryEntity[]> = {
 		interaction: [
-			{ name: 'clickable', path: '/src/lib/interaction/component/atom/clickable', files: [{ path: 'index.svelte' }, { path: 'index.story.svelte' }] },
-			{ name: 'hoverable', path: '/src/lib/interaction/component/atom/hoverable', files: [{ path: 'index.svelte' }] }
+			{
+				name: 'clickable',
+				path: '/src/lib/interaction/component/atom/clickable',
+				files: [{ path: 'index.svelte' }, { path: 'index.story.svelte' }]
+			},
+			{
+				name: 'hoverable',
+				path: '/src/lib/interaction/component/atom/hoverable',
+				files: [{ path: 'index.svelte' }]
+			}
 		],
 		theme: [
-			{ name: 'theme-provider', path: '/src/lib/theme/component/atom/theme-provider', files: [{ path: 'index.svelte' }, { path: 'index.story.svelte' }] },
-			{ name: 'theme-consumer', path: '/src/lib/theme/component/atom/theme-consumer', files: [{ path: 'index.svelte' }] }
+			{
+				name: 'theme-provider',
+				path: '/src/lib/theme/component/atom/theme-provider',
+				files: [{ path: 'index.svelte' }, { path: 'index.story.svelte' }]
+			},
+			{
+				name: 'theme-consumer',
+				path: '/src/lib/theme/component/atom/theme-consumer',
+				files: [{ path: 'index.svelte' }]
+			}
 		]
 	};
 
@@ -38,7 +54,7 @@
 				{activeDomain}
 				{activeCluster}
 				{activeJoint}
-				availableJoints={availableJoints}
+				{availableJoints}
 				entities={entitiesByDomain[activeDomain]}
 				{activeEntityPath}
 				onDomainSelect={(name) => {

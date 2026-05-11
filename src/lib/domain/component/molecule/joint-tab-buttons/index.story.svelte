@@ -4,7 +4,12 @@
 	import JointTabButtons from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'previewMode', type: 'select', defaultValue: 'file', options: ['file', 'markdown', 'story', 'json-tree'] },
+		{
+			name: 'previewMode',
+			type: 'select',
+			defaultValue: 'file',
+			options: ['file', 'markdown', 'story', 'json-tree']
+		},
 		{ name: 'previewKind', type: 'select', defaultValue: 'text', options: ['text', 'json', 'svg'] }
 	];
 
@@ -12,8 +17,14 @@
 		{ name: 'index.svelte', path: '/src/lib/interaction/component/atom/clickable/index.svelte' },
 		{ name: 'index.ts', path: '/src/lib/interaction/component/atom/clickable/index.ts' }
 	];
-	const markdownFile = { name: 'README.md', path: '/src/lib/interaction/component/atom/clickable/README.md' };
-	const storyFile = { name: 'index.story.svelte', path: '/src/lib/interaction/component/atom/clickable/index.story.svelte' };
+	const markdownFile = {
+		name: 'README.md',
+		path: '/src/lib/interaction/component/atom/clickable/README.md'
+	};
+	const storyFile = {
+		name: 'index.story.svelte',
+		path: '/src/lib/interaction/component/atom/clickable/index.story.svelte'
+	};
 
 	let activeFilePath = $state(files[0].path);
 	let actionLabel = $state('ready');

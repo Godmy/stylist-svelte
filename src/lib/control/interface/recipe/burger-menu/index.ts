@@ -14,11 +14,4 @@ import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/beha
 import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
 
 export interface BurgerMenuRecipe
-	extends StructIntersectAll<[
-		IIconSlot,
-		IClickable,
-		IFocusable,
-		ISizable
-	]>
-{}
-
+	extends StructIntersectAll<[IIconSlot, IClickable, IFocusable, ISizable]> {}

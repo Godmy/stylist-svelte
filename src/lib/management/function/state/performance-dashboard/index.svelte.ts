@@ -21,18 +21,30 @@ export function createPerformanceDashboardState(props: PerformanceDashboardState
 	const classNameStr = $derived(className == null ? undefined : String(className));
 	const headerClassStr = $derived(headerClass == null ? undefined : String(headerClass));
 	const metricsClassStr = $derived(metricsClass == null ? undefined : String(metricsClass));
-	const metricCardClassStr = $derived(metricCardClass == null ? undefined : String(metricCardClass));
+	const metricCardClassStr = $derived(
+		metricCardClass == null ? undefined : String(metricCardClass)
+	);
 
 	let selectedTimeRange = $state(untrack(() => timeRange));
 	const timeRanges = ObjectManagerPerformanceDashboard.resolveTimeRanges();
 	const chartBarHeights = ObjectManagerPerformanceDashboard.resolveChartBarHeights();
 
-	const containerClass = $derived(PerformanceDashboardStyleManager.getContainerClass(variant, size, classNameStr));
-	const headerClassComputed = $derived(PerformanceDashboardStyleManager.getHeaderClass(headerClassStr));
+	const containerClass = $derived(
+		PerformanceDashboardStyleManager.getContainerClass(variant, size, classNameStr)
+	);
+	const headerClassComputed = $derived(
+		PerformanceDashboardStyleManager.getHeaderClass(headerClassStr)
+	);
 	const timeRangeButtonClass = $derived(PerformanceDashboardStyleManager.getTimeRangeButtonClass());
-	const activeTimeRangeButtonClass = $derived(PerformanceDashboardStyleManager.getActiveTimeRangeButtonClass());
-	const metricsGridClass = $derived(PerformanceDashboardStyleManager.getMetricsGridClass(metricsClassStr));
-	const metricCardClassComputed = $derived(PerformanceDashboardStyleManager.getMetricCardClass(metricCardClassStr));
+	const activeTimeRangeButtonClass = $derived(
+		PerformanceDashboardStyleManager.getActiveTimeRangeButtonClass()
+	);
+	const metricsGridClass = $derived(
+		PerformanceDashboardStyleManager.getMetricsGridClass(metricsClassStr)
+	);
+	const metricCardClassComputed = $derived(
+		PerformanceDashboardStyleManager.getMetricCardClass(metricCardClassStr)
+	);
 	const metricHeaderClass = $derived(PerformanceDashboardStyleManager.getMetricHeaderClass());
 	const metricTitleClass = $derived(PerformanceDashboardStyleManager.getMetricTitleClass());
 	const metricValueClass = $derived(PerformanceDashboardStyleManager.getMetricValueClass());
@@ -42,7 +54,10 @@ export function createPerformanceDashboardState(props: PerformanceDashboardState
 	const chartBarClass = $derived(PerformanceDashboardStyleManager.getChartBarClass());
 
 	function handleTimeRangeChange(range: TokenTimeRange): void {
-		selectedTimeRange = ObjectManagerPerformanceDashboard.selectTimeRange(range, props.onTimeRangeChange);
+		selectedTimeRange = ObjectManagerPerformanceDashboard.selectTimeRange(
+			range,
+			props.onTimeRangeChange
+		);
 	}
 
 	function getTimeRangeLabel(range: TokenTimeRange): string {
@@ -69,28 +84,72 @@ export function createPerformanceDashboardState(props: PerformanceDashboardState
 	});
 
 	return {
-		get label() { return label; },
-		get subtitle() { return subtitle; },
-		get metrics() { return metrics; },
-		get timeRange() { return timeRange; },
-		get showTimeRangeSelector() { return showTimeRangeSelector; },
-		get selectedTimeRange() { return selectedTimeRange; },
-		get timeRanges() { return timeRanges; },
-		get chartBarHeights() { return chartBarHeights; },
-		get containerClass() { return containerClass; },
-		get headerClassComputed() { return headerClassComputed; },
-		get timeRangeButtonClass() { return timeRangeButtonClass; },
-		get activeTimeRangeButtonClass() { return activeTimeRangeButtonClass; },
-		get metricsGridClass() { return metricsGridClass; },
-		get metricCardClassComputed() { return metricCardClassComputed; },
-		get metricHeaderClass() { return metricHeaderClass; },
-		get metricTitleClass() { return metricTitleClass; },
-		get metricValueClass() { return metricValueClass; },
-		get trendPositiveClass() { return trendPositiveClass; },
-		get trendNegativeClass() { return trendNegativeClass; },
-		get chartContainerClass() { return chartContainerClass; },
-		get chartBarClass() { return chartBarClass; },
-		get restProps() { return restProps; },
+		get label() {
+			return label;
+		},
+		get subtitle() {
+			return subtitle;
+		},
+		get metrics() {
+			return metrics;
+		},
+		get timeRange() {
+			return timeRange;
+		},
+		get showTimeRangeSelector() {
+			return showTimeRangeSelector;
+		},
+		get selectedTimeRange() {
+			return selectedTimeRange;
+		},
+		get timeRanges() {
+			return timeRanges;
+		},
+		get chartBarHeights() {
+			return chartBarHeights;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get headerClassComputed() {
+			return headerClassComputed;
+		},
+		get timeRangeButtonClass() {
+			return timeRangeButtonClass;
+		},
+		get activeTimeRangeButtonClass() {
+			return activeTimeRangeButtonClass;
+		},
+		get metricsGridClass() {
+			return metricsGridClass;
+		},
+		get metricCardClassComputed() {
+			return metricCardClassComputed;
+		},
+		get metricHeaderClass() {
+			return metricHeaderClass;
+		},
+		get metricTitleClass() {
+			return metricTitleClass;
+		},
+		get metricValueClass() {
+			return metricValueClass;
+		},
+		get trendPositiveClass() {
+			return trendPositiveClass;
+		},
+		get trendNegativeClass() {
+			return trendNegativeClass;
+		},
+		get chartContainerClass() {
+			return chartContainerClass;
+		},
+		get chartBarClass() {
+			return chartBarClass;
+		},
+		get restProps() {
+			return restProps;
+		},
 		handleTimeRangeChange,
 		getTimeRangeLabel
 	};

@@ -18,7 +18,9 @@ export class NotificationBadgeStyleManager {
 		position: NotificationBadgePosition | string = 'top-end',
 		badgeClass = ''
 	): string {
-		const normalizedMarker = (marker in NOTIFICATION_BADGE_MARKER_CLASSES ? marker : 'number') as TokenMarker;
+		const normalizedMarker = (
+			marker in NOTIFICATION_BADGE_MARKER_CLASSES ? marker : 'number'
+		) as TokenMarker;
 		const markerClasses = NOTIFICATION_BADGE_MARKER_CLASSES[normalizedMarker];
 		const appearanceClasses =
 			NOTIFICATION_BADGE_APPEARANCE_CLASSES[appearance as TokenAppearance] ??
@@ -33,7 +35,12 @@ export class NotificationBadgeStyleManager {
 						: 'top-end';
 		const positionClasses = NOTIFICATION_BADGE_POSITION_CLASSES[normalizedPosition];
 
-		return mergeClassNames(NOTIFICATION_BADGE_BASE_CLASSES, positionClasses, markerClasses, appearanceClasses, badgeClass);
+		return mergeClassNames(
+			NOTIFICATION_BADGE_BASE_CLASSES,
+			positionClasses,
+			markerClasses,
+			appearanceClasses,
+			badgeClass
+		);
 	}
 }
-

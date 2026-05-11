@@ -71,4 +71,3 @@ export function createGraphToolbarState(props: GraphToolbarProps) {
 }
 
 export default createGraphToolbarState;
-

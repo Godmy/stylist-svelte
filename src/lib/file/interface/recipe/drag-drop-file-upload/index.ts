@@ -1,7 +1,8 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { BehaviorDragDropFileUploadEvents } from '$stylist/file/interface/behavior/drag-drop-file-upload-events';
 
-export interface RecipeDragDropFileUpload extends StructIntersectAll<[BehaviorDragDropFileUploadEvents]> {
+export interface RecipeDragDropFileUpload
+	extends StructIntersectAll<[BehaviorDragDropFileUploadEvents]> {
 	/** Multiple files allowed */
 	multiple?: boolean;
 	/** Accepted file types */

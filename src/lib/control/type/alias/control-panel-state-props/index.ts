@@ -1,3 +1,3 @@
 export type ControlPanelStateProps = {
-  onSearch?: (query: string) => void;
+	onSearch?: (query: string) => void;
 };

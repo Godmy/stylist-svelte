@@ -24,4 +24,3 @@
 <span class={state.classes} {...restProps}>
 	{state.displayCount}
 </span>
-

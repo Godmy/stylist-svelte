@@ -17,5 +17,6 @@ export interface RecipeSentimentAnalysis extends StructIntersectAll<[]> {
 	contentClass?: string;
 	inputClass?: string;
 	resultClass?: string;
-	footerClass?: string;	children?: Snippet;
+	footerClass?: string;
+	children?: Snippet;
 }

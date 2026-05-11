@@ -6,7 +6,7 @@ import type { SlotMessage } from '$stylist/chat/interface/slot/message';
 import type { SlotChat } from '$stylist/chat/interface/slot/chat';
 
 export interface SlotChatWindow {
-  chat: SlotChat;
-  currentUser: SlotUser;
-  messages: SlotMessage[];
+	chat: SlotChat;
+	currentUser: SlotUser;
+	messages: SlotMessage[];
 }

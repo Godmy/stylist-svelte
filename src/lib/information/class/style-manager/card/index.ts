@@ -28,9 +28,7 @@ export class CardStyleManager {
 			flat: 'shadow-none border'
 		};
 
-		return (
-			variantMap[variant] || InteractionStyleManager.getVariantClassMap().primary
-		);
+		return variantMap[variant] || InteractionStyleManager.getVariantClassMap().primary;
 	}
 
 	static getHeaderClasses(className?: string): string {
@@ -109,12 +107,18 @@ export class CardStyleManager {
 		return 'flex items-center gap-2 mt-[--spacing-md]';
 	}
 
-	static getActionButtonClasses(variant: 'primary' | 'secondary' | 'ghost' | 'outline' = 'primary', className?: string): string {
+	static getActionButtonClasses(
+		variant: 'primary' | 'secondary' | 'ghost' | 'outline' = 'primary',
+		className?: string
+	): string {
 		const variantClass = {
-			primary: 'bg-[--color-primary-500] text-[--color-text-inverse] hover:bg-[--color-primary-600]',
-			secondary: 'bg-[--color-background-secondary] text-[--color-text-primary] hover:bg-[--color-border-secondary]',
+			primary:
+				'bg-[--color-primary-500] text-[--color-text-inverse] hover:bg-[--color-primary-600]',
+			secondary:
+				'bg-[--color-background-secondary] text-[--color-text-primary] hover:bg-[--color-border-secondary]',
 			ghost: 'bg-transparent text-[--color-text-primary] hover:bg-[--color-background-secondary]',
-			outline: 'border border-[--color-border-primary] text-[--color-text-primary] hover:bg-[--color-background-secondary]'
+			outline:
+				'border border-[--color-border-primary] text-[--color-text-primary] hover:bg-[--color-background-secondary]'
 		}[variant];
 		return `${'px-4 py-2 rounded-md font-medium transition-colors duration-[var(--duration-150)]'} ${variantClass} ${className || ''}`.trim();
 	}
@@ -137,8 +141,10 @@ export class CardStyleManager {
 	}
 
 	static getProgressVariantClass(variant: TokenAppearance = 'info'): string {
-		return PROGRESS_VARIANT_CLASSES[variant] || PROGRESS_VARIANT_CLASSES.info || 'bg-[var(--color-primary-500)]';
+		return (
+			PROGRESS_VARIANT_CLASSES[variant] ||
+			PROGRESS_VARIANT_CLASSES.info ||
+			'bg-[var(--color-primary-500)]'
+		);
 	}
 }
-
-

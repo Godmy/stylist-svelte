@@ -6,13 +6,21 @@ import type { TokenJustification } from '$stylist/layout/type/enum/justification
 
 export function createStackState(props: StackProps) {
 	const direction = $derived<TokenOrientation>(
-		props.direction === 'row' ? 'horizontal' : props.direction === 'column' ? 'vertical' : 'vertical'
+		props.direction === 'row'
+			? 'horizontal'
+			: props.direction === 'column'
+				? 'vertical'
+				: 'vertical'
 	);
 	const spacing = $derived<string | number>(props.spacing ?? '1rem');
 	const align = $derived<TokenAlignment>((props.align as TokenAlignment | undefined) ?? 'center');
-	const justify = $derived<TokenJustification>((props.justify as TokenJustification | undefined) ?? 'justify');
+	const justify = $derived<TokenJustification>(
+		(props.justify as TokenJustification | undefined) ?? 'justify'
+	);
 	const gap = $derived(StackStyleManager.getStackGap(spacing));
-	const classes = $derived(StackStyleManager.getStackClasses(direction, align, justify, props.class));
+	const classes = $derived(
+		StackStyleManager.getStackClasses(direction, align, justify, props.class)
+	);
 
 	const restProps = $derived.by(() => {
 		const {
@@ -53,5 +61,3 @@ export function createStackState(props: StackProps) {
 }
 
 export default createStackState;
-
-

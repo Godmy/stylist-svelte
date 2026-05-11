@@ -3,20 +3,20 @@ import type { OrderItem } from '$stylist/commerce/type/struct/bulk-order-form/or
 
 // BulkOrderForm props interface
 export interface SlotBulkOrderForm {
-  products: Product[];
-  initialItems?: OrderItem[];
-  title?: string;
-  description?: string;
-  showTotal?: boolean;
-  showNotes?: boolean;
-  allowFileUpload?: boolean;
-  class?: string;
-  headerClass?: string;
-  formClass?: string;
-  itemClass?: string;
-  actionsClass?: string;
-  onOrderSubmit?: (items: OrderItem[]) => void;
-  onItemsChange?: (items: OrderItem[]) => void;
-  currency?: string;
-  locale?: string;
+	products: Product[];
+	initialItems?: OrderItem[];
+	title?: string;
+	description?: string;
+	showTotal?: boolean;
+	showNotes?: boolean;
+	allowFileUpload?: boolean;
+	class?: string;
+	headerClass?: string;
+	formClass?: string;
+	itemClass?: string;
+	actionsClass?: string;
+	onOrderSubmit?: (items: OrderItem[]) => void;
+	onItemsChange?: (items: OrderItem[]) => void;
+	currency?: string;
+	locale?: string;
 }

@@ -42,7 +42,7 @@
 				language={values.language}
 				showLineNumbers={values.showLineNumbers}
 			/>
-			
+
 			<h3 class="mt-8 mb-4 text-lg font-bold">Different Languages</h3>
 			<div class="space-y-4">
 				<div>
@@ -70,11 +70,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-
-
-

@@ -4,7 +4,12 @@
 	import IconToolbar from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'orientation', type: 'select', defaultValue: 'horizontal', options: ['horizontal', 'vertical'] },
+		{
+			name: 'orientation',
+			type: 'select',
+			defaultValue: 'horizontal',
+			options: ['horizontal', 'vertical']
+		},
 		{ name: 'showLabel', type: 'boolean', defaultValue: true }
 	];
 
@@ -36,7 +41,7 @@
 		<div class="rounded-2xl border border-slate-200 bg-white p-4">
 			<IconToolbar
 				{items}
-				active={active}
+				{active}
 				label="tool"
 				orientation={values.orientation as 'horizontal' | 'vertical'}
 				showLabel={Boolean(values.showLabel)}

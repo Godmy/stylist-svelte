@@ -3,8 +3,8 @@ import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct
 import type { Snippet } from 'svelte';
 
 export interface SlotResponseViewer extends HTMLAttributes<HTMLDivElement> {
-  title?: string;
-  response?: string;
-  status?: 'success' | 'error' | 'info';
-  class?: string;
+	title?: string;
+	response?: string;
+	status?: 'success' | 'error' | 'info';
+	class?: string;
 }

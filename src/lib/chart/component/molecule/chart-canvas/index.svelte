@@ -29,17 +29,33 @@
 	const showAxisArrows = $derived(props.showAxisArrows ?? true);
 
 	const bounds = $derived(ObjectManagerChartCanvas.resolveBounds(series));
-	const xScale = $derived(ObjectManagerChartCanvas.resolveScale(props.xScale, bounds.minX, bounds.maxX));
-	const yScale = $derived(ObjectManagerChartCanvas.resolveScale(props.yScale, bounds.minY, bounds.maxY));
-	const xTicks = $derived(ObjectManagerChartCanvas.resolveTickPositions(width, padding, xTickCount));
-	const yTicks = $derived(ObjectManagerChartCanvas.resolveVerticalTickPositions(height, padding, yTickCount));
+	const xScale = $derived(
+		ObjectManagerChartCanvas.resolveScale(props.xScale, bounds.minX, bounds.maxX)
+	);
+	const yScale = $derived(
+		ObjectManagerChartCanvas.resolveScale(props.yScale, bounds.minY, bounds.maxY)
+	);
+	const xTicks = $derived(
+		ObjectManagerChartCanvas.resolveTickPositions(width, padding, xTickCount)
+	);
+	const yTicks = $derived(
+		ObjectManagerChartCanvas.resolveVerticalTickPositions(height, padding, yTickCount)
+	);
 	const xTickLabels = $derived(ObjectManagerChartCanvas.resolveTickLabels(xScale, xTickCount));
-	const yTickLabels = $derived(ObjectManagerChartCanvas.resolveVerticalTickLabels(yScale, yTickCount));
+	const yTickLabels = $derived(
+		ObjectManagerChartCanvas.resolveVerticalTickLabels(yScale, yTickCount)
+	);
 </script>
 
 <div class={state.wrapperClasses}>
-	<svg class={state.svgClasses} width={width} height={height} role="img" aria-label={props.title ?? 'Chart canvas'}>
-		<ChartBackground width={width} height={height} />
+	<svg
+		class={state.svgClasses}
+		{width}
+		{height}
+		role="img"
+		aria-label={props.title ?? 'Chart canvas'}
+	>
+		<ChartBackground {width} {height} />
 		{#if props.title}
 			<ChartName text={props.title} x={padding} y={24} />
 		{/if}
@@ -82,8 +98,8 @@
 		{#each series as item (item.id)}
 			<ChartPolyline
 				points={item.points}
-				width={width}
-				height={height}
+				{width}
+				{height}
 				xDomain={xScale}
 				yDomain={yScale}
 				color={item.color}
@@ -91,4 +107,3 @@
 		{/each}
 	</svg>
 </div>
-

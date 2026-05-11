@@ -57,23 +57,16 @@
 </script>
 
 <Story
-    id="molecules-store-locator"
-    title="StoreLocator"
-    component={StoreLocator}
-    category="Molecules"
-    description="Store locator component for finding nearby stores"
-    controls={controls}
+	id="molecules-store-locator"
+	title="StoreLocator"
+	component={StoreLocator}
+	category="Molecules"
+	description="Store locator component for finding nearby stores"
+	{controls}
 >
-    {#snippet children(values: any)}
-        <div class="p-4">
-            <StoreLocator
-                stores={defaultStores}
-                radius={values.radius}
-                showMap={values.showMap}
-            />
-        </div>
-    {/snippet}
+	{#snippet children(values: any)}
+		<div class="p-4">
+			<StoreLocator stores={defaultStores} radius={values.radius} showMap={values.showMap} />
+		</div>
+	{/snippet}
 </Story>
-
-
-

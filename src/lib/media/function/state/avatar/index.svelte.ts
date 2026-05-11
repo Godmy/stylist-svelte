@@ -54,26 +54,67 @@ export function createAvatarState(props: AvatarProps & InformationHTMLAttributes
 	const alt = $derived(props.alt);
 
 	const restProps = $derived.by(() => {
-		const { class: _class, variant: _variant, size: _size, src: _src, alt: _alt, name: _name, status: _status, showStatus: _showStatus, children: _children, ...rest } = props;
+		const {
+			class: _class,
+			variant: _variant,
+			size: _size,
+			src: _src,
+			alt: _alt,
+			name: _name,
+			status: _status,
+			showStatus: _showStatus,
+			children: _children,
+			...rest
+		} = props;
 		return rest;
 	});
 
 	return {
-		get name() { return name; },
-		get status() { return status; },
-		get showStatus() { return showStatus; },
-		get size() { return size; },
-		get initials() { return initials; },
-		get sizeClasses() { return sizeClasses; },
-		get avatarClasses() { return avatarClasses; },
-		get imageClasses() { return imageClasses; },
-		get fallbackClasses() { return fallbackClasses; },
-		get statusColor() { return statusColor; },
-		get statusSize() { return statusSize; },
-		get statusIndicatorClasses() { return statusIndicatorClasses; },
-		get src() { return src; },
-		get alt() { return alt; },
-		get restProps() { return restProps; },
+		get name() {
+			return name;
+		},
+		get status() {
+			return status;
+		},
+		get showStatus() {
+			return showStatus;
+		},
+		get size() {
+			return size;
+		},
+		get initials() {
+			return initials;
+		},
+		get sizeClasses() {
+			return sizeClasses;
+		},
+		get avatarClasses() {
+			return avatarClasses;
+		},
+		get imageClasses() {
+			return imageClasses;
+		},
+		get fallbackClasses() {
+			return fallbackClasses;
+		},
+		get statusColor() {
+			return statusColor;
+		},
+		get statusSize() {
+			return statusSize;
+		},
+		get statusIndicatorClasses() {
+			return statusIndicatorClasses;
+		},
+		get src() {
+			return src;
+		},
+		get alt() {
+			return alt;
+		},
+		get restProps() {
+			return restProps;
+		},
 		getStatusClasses,
 		getStatusSizeClasses
 	};

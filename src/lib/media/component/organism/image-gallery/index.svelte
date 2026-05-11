@@ -1,7 +1,5 @@
 <script lang="ts">
-	import {
-		createImageGalleryState
-	} from '$stylist/media/function/state/image-gallery';
+	import { createImageGalleryState } from '$stylist/media/function/state/image-gallery';
 	import type { ImageGalleryStateProps } from '$stylist/media/interface/recipe/image-gallery-image-gallery-state-props';
 	import { Icon as BaseIcon } from '$stylist/media';
 	import { ImageGalleryStyleManager } from '$stylist/media/class/style-manager/image-gallery';
@@ -117,7 +115,9 @@
 				/>
 
 				{#if state.showCaptions && state.images[state.currentIndex].caption}
-					<div class={ImageGalleryStyleManager.getFullscreenCaptionClasses(props.captionClass ?? '')}>
+					<div
+						class={ImageGalleryStyleManager.getFullscreenCaptionClasses(props.captionClass ?? '')}
+					>
 						{state.images[state.currentIndex].caption}
 					</div>
 				{/if}

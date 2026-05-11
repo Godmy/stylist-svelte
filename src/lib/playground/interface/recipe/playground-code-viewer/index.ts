@@ -1,7 +1,8 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
-export interface RecipePlaygroundCodeViewer extends StructIntersectAll<[Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>]> {
+export interface RecipePlaygroundCodeViewer
+	extends StructIntersectAll<[Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>]> {
 	/** Code content */
 	code?: string;
 	/** Programming language */

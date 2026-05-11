@@ -1,6 +1,4 @@
-﻿import type {
-	AnalyticsPieChartSegment,
-} from '$stylist/chart/type/struct/pie-chart-segment';
+﻿import type { AnalyticsPieChartSegment } from '$stylist/chart/type/struct/pie-chart-segment';
 import type { PieChartDataPoint } from '$stylist/chart/type/struct/pie-chart';
 import { TOKEN_PIE_COLORS } from '$stylist/chart/const/enum/pie-colors';
 

@@ -54,7 +54,7 @@
 				<div class={state.getDateNumberClasses()}>
 					<span>{day.date.getDate()}</span>
 					{#if day.hasEvent && !state.compact}
-						<div class="flex flex-wrap justify-center gap-[var(--spacing-1)] mt-[var(--spacing-1)]">
+						<div class="mt-[var(--spacing-1)] flex flex-wrap justify-center gap-[var(--spacing-1)]">
 							{#each day.events.slice(0, 2) as event}
 								<div
 									class={state.getEventIndicatorClasses(event.color)}
@@ -71,7 +71,9 @@
 								></div>
 							{/each}
 							{#if day.events.length > 2}
-								<div class="text-[--text-size-2xs] text-[--color-text-secondary]">+{day.events.length - 2}</div>
+								<div class="text-[--color-text-secondary] text-[--text-size-2xs]">
+									+{day.events.length - 2}
+								</div>
 							{/if}
 						</div>
 					{/if}

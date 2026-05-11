@@ -7,7 +7,7 @@ import type { Snippet } from 'svelte';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 
 export interface SlotDropdownMenuStyleClasses {
-  position: string;
-  disabled: string;
-  menu: string;
+	position: string;
+	disabled: string;
+	menu: string;
 }

@@ -14,4 +14,3 @@ export const INPUT_SIZE_CLASSES = {
 	'3/4': 'h-12 px-7 text-lg rounded-xl',
 	full: 'h-14 px-8 text-xl rounded-xl w-full'
 } as const;
-

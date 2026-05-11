@@ -15,8 +15,12 @@ export function createProductGalleryState(props: ProductGalleryProps) {
 	const containerClass = $derived(ProductGalleryStyleManager.getContainerClass(props.class ?? ''));
 
 	return {
-		get currentImage() { return currentImage; },
-		get containerClass() { return containerClass; },
+		get currentImage() {
+			return currentImage;
+		},
+		get containerClass() {
+			return containerClass;
+		},
 		changeImage(image: string) {
 			currentImage = image;
 			props.onImageChange?.(image);

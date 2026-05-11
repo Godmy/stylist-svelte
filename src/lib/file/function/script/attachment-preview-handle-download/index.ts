@@ -2,8 +2,8 @@ import { createAttachmentDispatch } from '$stylist/file/function/script/attachme
 import type { SlotAttachment as Attachment } from '$stylist/file/interface/slot/attachment';
 
 export function handleDownload(
-  dispatch: ReturnType<typeof createAttachmentDispatch>,
-  attachment: Attachment
+	dispatch: ReturnType<typeof createAttachmentDispatch>,
+	attachment: Attachment
 ): void {
-  dispatch('download', { attachment });
+	dispatch('download', { attachment });
 }

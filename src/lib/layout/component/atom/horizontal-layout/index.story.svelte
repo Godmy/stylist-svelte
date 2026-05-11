@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import HorizontalLayout from './index.svelte';
-	
+
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	
+
 	const controls: InterfaceControllerSettings[] = [
 		{
 			name: 'gap',
@@ -31,7 +31,12 @@
 	];
 </script>
 
-<Story {controls} component={HorizontalLayout} title="HorizontalLayout Component" description="A flexible horizontal layout component">
+<Story
+	{controls}
+	component={HorizontalLayout}
+	title="HorizontalLayout Component"
+	description="A flexible horizontal layout component"
+>
 	{#snippet children(values: any)}
 		<div class="rounded border border-[var(--color-border-primary)] p-3">
 			<HorizontalLayout {...values}>
@@ -44,7 +49,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-

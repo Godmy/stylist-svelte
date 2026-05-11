@@ -9,7 +9,12 @@ import { isWeekend } from '$stylist/calendar/function/script/is-weekend';
 
 export function createTimeGridState(props: TimeGridContract) {
 	let viewStartDate = $state(new Date(props.startDate ?? new Date()));
-	let viewEndDate = $state(new Date(props.endDate ?? new Date(new Date(new Date().setHours(0, 0, 0, 0)).setDate(new Date().getDate() + 6))));
+	let viewEndDate = $state(
+		new Date(
+			props.endDate ??
+				new Date(new Date(new Date().setHours(0, 0, 0, 0)).setDate(new Date().getDate() + 6))
+		)
+	);
 
 	const events = $derived(props.events ?? []);
 	const startTime = $derived(props.startTime ?? 0);
@@ -23,8 +28,12 @@ export function createTimeGridState(props: TimeGridContract) {
 	const eventClass = $derived(props.eventClass ?? '');
 	const headerClassProp = $derived(props.headerClass ?? '');
 
-	const wrapperClasses = $derived(mergeClassNames(TimeGridStyleManager.getWrapperClasses(), className));
-	const headerClasses = $derived(mergeClassNames(TimeGridStyleManager.getHeaderClasses(), headerClassProp));
+	const wrapperClasses = $derived(
+		mergeClassNames(TimeGridStyleManager.getWrapperClasses(), className)
+	);
+	const headerClasses = $derived(
+		mergeClassNames(TimeGridStyleManager.getHeaderClasses(), headerClassProp)
+	);
 	const timeGridClasses = $derived(TimeGridStyleManager.getTimeGridClasses());
 
 	const timeGrid = $derived.by<RecipeTimeGridDayTimeGrid[]>(() => generateTimeGrid());
@@ -62,16 +71,24 @@ export function createTimeGridState(props: TimeGridContract) {
 				const period = hour >= 12 ? 'PM' : 'AM';
 				const displayHour = hour % 12 || 12;
 				const displayMinute = minute.toString().padStart(2, '0');
-				const timeDisplay = timeStep < 60
-					? `${displayHour}:${displayMinute} ${period}`
-					: `${displayHour} ${period}`;
+				const timeDisplay =
+					timeStep < 60 ? `${displayHour}:${displayMinute} ${period}` : `${displayHour} ${period}`;
 
 				const start = new Date();
 				start.setHours(hour, minute, 0, 0);
 				const end = new Date(start);
 				end.setMinutes(start.getMinutes() + timeStep);
 
-				slots.push({ start, end, timeLabel: timeDisplay, available: true, events: [], hour, minute, time: timeDisplay });
+				slots.push({
+					start,
+					end,
+					timeLabel: timeDisplay,
+					available: true,
+					events: [],
+					hour,
+					minute,
+					time: timeDisplay
+				});
 			}
 		}
 
@@ -174,7 +191,10 @@ export function createTimeGridState(props: TimeGridContract) {
 	}
 
 	function getDayHeaderClasses(date: Date): string {
-		return mergeClassNames(TimeGridStyleManager.getDayHeaderClasses(isToday(date)), headerClassProp);
+		return mergeClassNames(
+			TimeGridStyleManager.getDayHeaderClasses(isToday(date)),
+			headerClassProp
+		);
 	}
 
 	function getTimeIndicatorClasses(): string {
@@ -202,18 +222,42 @@ export function createTimeGridState(props: TimeGridContract) {
 	}
 
 	return {
-		get viewStartDate() { return viewStartDate; },
-		get viewEndDate() { return viewEndDate; },
-		get timeGrid() { return timeGrid; },
-		get showHeader() { return showHeader; },
-		get showCurrentTimeIndicator() { return showCurrentTimeIndicator; },
-		get showAllDayEvents() { return showAllDayEvents; },
-		get slotClass() { return slotClass; },
-		get eventClass() { return eventClass; },
-		get wrapperClasses() { return wrapperClasses; },
-		get headerClasses() { return headerClasses; },
-		get timeGridClasses() { return timeGridClasses; },
-		get restProps() { return restProps; },
+		get viewStartDate() {
+			return viewStartDate;
+		},
+		get viewEndDate() {
+			return viewEndDate;
+		},
+		get timeGrid() {
+			return timeGrid;
+		},
+		get showHeader() {
+			return showHeader;
+		},
+		get showCurrentTimeIndicator() {
+			return showCurrentTimeIndicator;
+		},
+		get showAllDayEvents() {
+			return showAllDayEvents;
+		},
+		get slotClass() {
+			return slotClass;
+		},
+		get eventClass() {
+			return eventClass;
+		},
+		get wrapperClasses() {
+			return wrapperClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get timeGridClasses() {
+			return timeGridClasses;
+		},
+		get restProps() {
+			return restProps;
+		},
 		generateTimeSlots,
 		handleEventClick,
 		handleSlotClick,

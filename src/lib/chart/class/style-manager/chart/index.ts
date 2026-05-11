@@ -14,7 +14,10 @@ export class ChartStyleManager {
 	}
 
 	static getChartCanvasWrapperClasses(className = ''): string {
-		return mergeClassNames('c-chart-canvas relative inline-flex flex-col rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-3', className);
+		return mergeClassNames(
+			'c-chart-canvas relative inline-flex flex-col rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-3',
+			className
+		);
 	}
 
 	static getChartSvgClasses(className = ''): string {
@@ -22,15 +25,24 @@ export class ChartStyleManager {
 	}
 
 	static getChartBackgroundClasses(className = ''): string {
-		return mergeClassNames('c-chart-background fill-[--color-background-secondary] stroke-[--color-border-primary]', className);
+		return mergeClassNames(
+			'c-chart-background fill-[--color-background-secondary] stroke-[--color-border-primary]',
+			className
+		);
 	}
 
 	static getChartAxisClasses(className = ''): string {
-		return mergeClassNames('c-chart-axis stroke-[--color-border-secondary] text-[--color-text-secondary]', className);
+		return mergeClassNames(
+			'c-chart-axis stroke-[--color-border-secondary] text-[--color-text-secondary]',
+			className
+		);
 	}
 
 	static getChartAxisGridClasses(className = ''): string {
-		return mergeClassNames('c-chart-axis__grid stroke-[--color-border-secondary] opacity-[var(--opacity-40)]', className);
+		return mergeClassNames(
+			'c-chart-axis__grid stroke-[--color-border-secondary] opacity-[var(--opacity-40)]',
+			className
+		);
 	}
 
 	static getChartAxisLabelClasses(className = ''): string {
@@ -38,15 +50,24 @@ export class ChartStyleManager {
 	}
 
 	static getChartPolylineClasses(className = ''): string {
-		return mergeClassNames('c-chart-polyline fill-none stroke-[--color-primary-500] transition-[stroke] duration-[var(--duration-200)]', className);
+		return mergeClassNames(
+			'c-chart-polyline fill-none stroke-[--color-primary-500] transition-[stroke] duration-[var(--duration-200)]',
+			className
+		);
 	}
 
 	static getChartNameClasses(className = ''): string {
-		return mergeClassNames('c-chart-name fill-[--color-text-primary] text-sm font-semibold', className);
+		return mergeClassNames(
+			'c-chart-name fill-[--color-text-primary] text-sm font-semibold',
+			className
+		);
 	}
 
 	static getChartLegendClasses(className = ''): string {
-		return mergeClassNames('c-chart-legend mt-3 flex flex-wrap items-center gap-3 text-xs text-[--color-text-secondary]', className);
+		return mergeClassNames(
+			'c-chart-legend mt-3 flex flex-wrap items-center gap-3 text-xs text-[--color-text-secondary]',
+			className
+		);
 	}
 
 	static getChartLegendItemClasses(className = ''): string {
@@ -57,6 +78,3 @@ export class ChartStyleManager {
 		return mergeClassNames('c-chart-legend__dot h-2.5 w-2.5 rounded-full', className);
 	}
 }
-
-
-

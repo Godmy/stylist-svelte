@@ -15,10 +15,7 @@ export class ContainerQueryStyleManager {
 	 * Builds the inline style string for container-type and optional container-name.
 	 * Named containers allow children to target `@container/name` breakpoints.
 	 */
-	static getContainerStyle(
-		containerType: ContainerQueryType,
-		containerName?: string
-	): string {
+	static getContainerStyle(containerType: ContainerQueryType, containerName?: string): string {
 		const parts: string[] = [`container-type: ${containerType}`];
 		if (containerName) parts.push(`container-name: ${containerName}`);
 		return parts.join('; ');

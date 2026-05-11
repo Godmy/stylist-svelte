@@ -5,19 +5,42 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
-		{ name: 'orientation', type: 'select', defaultValue: 'horizontal', options: ['horizontal', 'vertical'] },
+		{
+			name: 'orientation',
+			type: 'select',
+			defaultValue: 'horizontal',
+			options: ['horizontal', 'vertical']
+		},
 		{ name: 'compact', type: 'boolean', defaultValue: false },
 		{ name: 'showTooltips', type: 'boolean', defaultValue: true }
 	];
 
 	const defaultItems = [
 		{ id: 'zoom-in', type: 'button' as const, icon: 'plus', label: 'Zoom In', tooltip: 'Zoom in' },
-		{ id: 'zoom-out', type: 'button' as const, icon: 'minus', label: 'Zoom Out', tooltip: 'Zoom out' },
-		{ id: 'fit', type: 'button' as const, icon: 'maximize', label: 'Fit', tooltip: 'Fit to screen' },
+		{
+			id: 'zoom-out',
+			type: 'button' as const,
+			icon: 'minus',
+			label: 'Zoom Out',
+			tooltip: 'Zoom out'
+		},
+		{
+			id: 'fit',
+			type: 'button' as const,
+			icon: 'maximize',
+			label: 'Fit',
+			tooltip: 'Fit to screen'
+		},
 		{ id: 'separator-1', type: 'separator' as const },
 		{ id: 'layout', type: 'select' as const, options: ['Dagre', 'Force', 'Grid'], value: 'Dagre' },
 		{ id: 'separator-2', type: 'separator' as const },
-		{ id: 'export', type: 'button' as const, icon: 'download', label: 'Export', tooltip: 'Export graph' }
+		{
+			id: 'export',
+			type: 'button' as const,
+			icon: 'download',
+			label: 'Export',
+			tooltip: 'Export graph'
+		}
 	];
 </script>
 

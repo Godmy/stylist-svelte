@@ -10,7 +10,12 @@
 	];
 </script>
 
-<Story component={ArticleCard} title="ArticleCard" description="Content preview card for editorial and blog entries." {controls}>
+<Story
+	component={ArticleCard}
+	title="ArticleCard"
+	description="Content preview card for editorial and blog entries."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<ArticleCard
 			title={values.title}
@@ -20,6 +25,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

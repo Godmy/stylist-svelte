@@ -116,80 +116,216 @@ export function createCubeControlState(props: CubeControlProps) {
 	}
 
 	const selectionState: CubeSelectionState = {
-		get selectedIconId() { return selectedIconId; },
-		get selectedTitleFace() { return selectedTitleFace; },
-		get selectedCellByFace() { return [...selectedCellByFace]; }
+		get selectedIconId() {
+			return selectedIconId;
+		},
+		get selectedTitleFace() {
+			return selectedTitleFace;
+		},
+		get selectedCellByFace() {
+			return [...selectedCellByFace];
+		}
 	};
 
 	const rotationState: CubeRotation = {
-		get x() { return rotationX; },
-		get y() { return rotationY; }
+		get x() {
+			return rotationX;
+		},
+		get y() {
+			return rotationY;
+		}
 	};
 
 	return {
-		get cubeSize() { return cubeSize; },
-		get perspectiveValue() { return perspectiveValue; },
-		get durationValue() { return durationValue; },
-		get inertiaFrictionValue() { return inertiaFrictionValue; },
-		get inertiaSensitivityValue() { return inertiaSensitivityValue; },
-		get orbitTransform() { return orbitTransform; },
-		get rotationX() { return rotationX; },
-		set rotationX(v: number) { rotationX = v; },
-		get rotationY() { return rotationY; },
-		set rotationY(v: number) { rotationY = v; },
-		get isDragging() { return isDragging; },
-		get isInertiaSpinning() { return isInertiaSpinning; },
-		get lastPointerX() { return lastPointerX; },
-		set lastPointerX(v: number) { lastPointerX = v; },
-		get lastPointerY() { return lastPointerY; },
-		set lastPointerY(v: number) { lastPointerY = v; },
-		get lastMoveTime() { return lastMoveTime; },
-		set lastMoveTime(v: number) { lastMoveTime = v; },
-		get pointerTravel() { return pointerTravel; },
-		set pointerTravel(v: number) { pointerTravel = v; },
-		get velocityX() { return velocityX; },
-		set velocityX(v: number) { velocityX = v; },
-		get velocityY() { return velocityY; },
-		set velocityY(v: number) { velocityY = v; },
-		get inertiaFrame() { return inertiaFrame; },
-		set inertiaFrame(v: number | null) { inertiaFrame = v; },
-		get autoRotateFrame() { return autoRotateFrame; },
-		set autoRotateFrame(v: number | null) { autoRotateFrame = v; },
-		get autoRotatePauseUntil() { return autoRotatePauseUntil; },
-		set autoRotatePauseUntil(v: number) { autoRotatePauseUntil = v; },
-		get autoRotateRampStart() { return autoRotateRampStart; },
-		set autoRotateRampStart(v: number) { autoRotateRampStart = v; },
-		get vectorShiftInterval() { return vectorShiftInterval; },
-		set vectorShiftInterval(v: number | null) { vectorShiftInterval = v; },
-		get autoDriftX() { return autoDriftX; },
-		set autoDriftX(v: number) { autoDriftX = v; },
-		get autoDriftY() { return autoDriftY; },
-		set autoDriftY(v: number) { autoDriftY = v; },
-		get targetDriftX() { return targetDriftX; },
-		set targetDriftX(v: number) { targetDriftX = v; },
-		get targetDriftY() { return targetDriftY; },
-		set targetDriftY(v: number) { targetDriftY = v; },
-		get faceNumbers() { return faceNumbers; },
-		set faceNumbers(v: number[][]) { faceNumbers = v; },
-		get activeCells() { return activeCells; },
-		set activeCells(v: number[]) { activeCells = v; },
-		get selectedIconId() { return selectedIconId; },
-		set selectedIconId(v: string | null) { selectedIconId = v; },
-		get selectedTitleFace() { return selectedTitleFace; },
-		set selectedTitleFace(v: number | null) { selectedTitleFace = v; },
-		get selectedCellByFace() { return selectedCellByFace; },
-		set selectedCellByFace(v: number[]) { selectedCellByFace = v; },
-		get isHoveringSelectable() { return isHoveringSelectable; },
-		set isHoveringSelectable(v: boolean) { isHoveringSelectable = v; },
-		get autoRotate() { return autoRotate; },
-		get interactive() { return interactive; },
-		get faceLabels() { return faceLabels; },
-		get className() { return className; },
-		get FACE_TITLES() { return TOKEN_CUBE_FACE_TITLE; },
-		get FACE_NAMES() { return TOKEN_CUBE_FACE_NAME; },
-		get FACE_THEMES() { return CUBE_FACE_THEMES; },
-		get VERTICAL_ICONS() { return CUBE_VERTICAL_ICONS; },
-		get HORIZONTAL_ICONS() { return CUBE_HORIZONTAL_ICONS; },
+		get cubeSize() {
+			return cubeSize;
+		},
+		get perspectiveValue() {
+			return perspectiveValue;
+		},
+		get durationValue() {
+			return durationValue;
+		},
+		get inertiaFrictionValue() {
+			return inertiaFrictionValue;
+		},
+		get inertiaSensitivityValue() {
+			return inertiaSensitivityValue;
+		},
+		get orbitTransform() {
+			return orbitTransform;
+		},
+		get rotationX() {
+			return rotationX;
+		},
+		set rotationX(v: number) {
+			rotationX = v;
+		},
+		get rotationY() {
+			return rotationY;
+		},
+		set rotationY(v: number) {
+			rotationY = v;
+		},
+		get isDragging() {
+			return isDragging;
+		},
+		get isInertiaSpinning() {
+			return isInertiaSpinning;
+		},
+		get lastPointerX() {
+			return lastPointerX;
+		},
+		set lastPointerX(v: number) {
+			lastPointerX = v;
+		},
+		get lastPointerY() {
+			return lastPointerY;
+		},
+		set lastPointerY(v: number) {
+			lastPointerY = v;
+		},
+		get lastMoveTime() {
+			return lastMoveTime;
+		},
+		set lastMoveTime(v: number) {
+			lastMoveTime = v;
+		},
+		get pointerTravel() {
+			return pointerTravel;
+		},
+		set pointerTravel(v: number) {
+			pointerTravel = v;
+		},
+		get velocityX() {
+			return velocityX;
+		},
+		set velocityX(v: number) {
+			velocityX = v;
+		},
+		get velocityY() {
+			return velocityY;
+		},
+		set velocityY(v: number) {
+			velocityY = v;
+		},
+		get inertiaFrame() {
+			return inertiaFrame;
+		},
+		set inertiaFrame(v: number | null) {
+			inertiaFrame = v;
+		},
+		get autoRotateFrame() {
+			return autoRotateFrame;
+		},
+		set autoRotateFrame(v: number | null) {
+			autoRotateFrame = v;
+		},
+		get autoRotatePauseUntil() {
+			return autoRotatePauseUntil;
+		},
+		set autoRotatePauseUntil(v: number) {
+			autoRotatePauseUntil = v;
+		},
+		get autoRotateRampStart() {
+			return autoRotateRampStart;
+		},
+		set autoRotateRampStart(v: number) {
+			autoRotateRampStart = v;
+		},
+		get vectorShiftInterval() {
+			return vectorShiftInterval;
+		},
+		set vectorShiftInterval(v: number | null) {
+			vectorShiftInterval = v;
+		},
+		get autoDriftX() {
+			return autoDriftX;
+		},
+		set autoDriftX(v: number) {
+			autoDriftX = v;
+		},
+		get autoDriftY() {
+			return autoDriftY;
+		},
+		set autoDriftY(v: number) {
+			autoDriftY = v;
+		},
+		get targetDriftX() {
+			return targetDriftX;
+		},
+		set targetDriftX(v: number) {
+			targetDriftX = v;
+		},
+		get targetDriftY() {
+			return targetDriftY;
+		},
+		set targetDriftY(v: number) {
+			targetDriftY = v;
+		},
+		get faceNumbers() {
+			return faceNumbers;
+		},
+		set faceNumbers(v: number[][]) {
+			faceNumbers = v;
+		},
+		get activeCells() {
+			return activeCells;
+		},
+		set activeCells(v: number[]) {
+			activeCells = v;
+		},
+		get selectedIconId() {
+			return selectedIconId;
+		},
+		set selectedIconId(v: string | null) {
+			selectedIconId = v;
+		},
+		get selectedTitleFace() {
+			return selectedTitleFace;
+		},
+		set selectedTitleFace(v: number | null) {
+			selectedTitleFace = v;
+		},
+		get selectedCellByFace() {
+			return selectedCellByFace;
+		},
+		set selectedCellByFace(v: number[]) {
+			selectedCellByFace = v;
+		},
+		get isHoveringSelectable() {
+			return isHoveringSelectable;
+		},
+		set isHoveringSelectable(v: boolean) {
+			isHoveringSelectable = v;
+		},
+		get autoRotate() {
+			return autoRotate;
+		},
+		get interactive() {
+			return interactive;
+		},
+		get faceLabels() {
+			return faceLabels;
+		},
+		get className() {
+			return className;
+		},
+		get FACE_TITLES() {
+			return TOKEN_CUBE_FACE_TITLE;
+		},
+		get FACE_NAMES() {
+			return TOKEN_CUBE_FACE_NAME;
+		},
+		get FACE_THEMES() {
+			return CUBE_FACE_THEMES;
+		},
+		get VERTICAL_ICONS() {
+			return CUBE_VERTICAL_ICONS;
+		},
+		get HORIZONTAL_ICONS() {
+			return CUBE_HORIZONTAL_ICONS;
+		},
 		clamp,
 		stopInertia,
 		handlePointerDown,

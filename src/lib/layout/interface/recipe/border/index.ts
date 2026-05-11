@@ -4,8 +4,7 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface BorderRecipe
-	extends StructIntersectAll<[SlotTheme, HTMLAttributes<HTMLDivElement>]>
-{
+	extends StructIntersectAll<[SlotTheme, HTMLAttributes<HTMLDivElement>]> {
 	borderStyle?: 'solid' | 'dashed' | 'dotted' | 'double' | 'bold' | 'none' | 'invisible';
 	borderWidth?: string;
 	borderColor?: string;
@@ -17,4 +16,3 @@ export interface BorderRecipe
 	animated?: boolean;
 	children?: Snippet;
 }
-

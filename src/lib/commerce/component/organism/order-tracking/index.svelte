@@ -14,7 +14,7 @@
 				{state.trackingInfo.status}
 			</span>
 		</div>
-		<p class="text-sm text-[--color-text-secondary] mt-1">
+		<p class="mt-1 text-sm text-[--color-text-secondary]">
 			Tracking: {state.trackingInfo.trackingNumber} via {state.trackingInfo.carrier}
 		</p>
 	</div>
@@ -22,12 +22,9 @@
 	<!-- Progress bar -->
 	<div class={state.progressContainerClasses}>
 		<div class={state.progressBarClasses}>
-			<div
-				class={state.progressFillClasses}
-				style="width: {state.trackingInfo.progress}%"
-			></div>
+			<div class={state.progressFillClasses} style="width: {state.trackingInfo.progress}%"></div>
 		</div>
-		<p class="text-sm text-[--color-text-secondary] mt-1">
+		<p class="mt-1 text-sm text-[--color-text-secondary]">
 			Estimated delivery: {state.formatDate(state.trackingInfo.estimatedDelivery)}
 		</p>
 	</div>
@@ -52,7 +49,7 @@
 	<!-- Shipping info -->
 	{#if props.showRecipientDetails !== false}
 		<div class={state.shippingInfoClasses}>
-			<p class="text-sm font-medium text-[--color-text-primary] mb-2">Shipping Address</p>
+			<p class="mb-2 text-sm font-medium text-[--color-text-primary]">Shipping Address</p>
 			<p class={state.addressClasses}>{state.trackingInfo.shippingAddress}</p>
 			{#if state.trackingInfo.recipientName}
 				<p class={state.addressClasses}>{state.trackingInfo.recipientName}</p>
@@ -61,8 +58,8 @@
 	{/if}
 
 	{#if props.showDeliveryNotes !== false && state.trackingInfo.deliveryNotes}
-		<div class="px-6 py-4 border-t border-[--color-border-secondary]">
-			<p class="text-sm font-medium text-[--color-text-primary] mb-1">Delivery Notes</p>
+		<div class="border-t border-[--color-border-secondary] px-6 py-4">
+			<p class="mb-1 text-sm font-medium text-[--color-text-primary]">Delivery Notes</p>
 			<p class="text-sm text-[--color-text-secondary]">{state.trackingInfo.deliveryNotes}</p>
 		</div>
 	{/if}

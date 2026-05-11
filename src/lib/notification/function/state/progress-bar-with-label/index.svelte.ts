@@ -21,20 +21,42 @@ export function createProgressBarWithLabelState(props: ProgressBarWithLabelProps
 	const containerClasses = $derived(`${props.class ?? ''}`);
 	const labelWrapperClasses = $derived('mb-1 flex justify-between');
 	const labelClasses = $derived('text-sm font-medium');
-	const trackClasses = $derived(`w-full rounded-full bg-[var(--color-background-tertiary)] ${height}`);
+	const trackClasses = $derived(
+		`w-full rounded-full bg-[var(--color-background-tertiary)] ${height}`
+	);
 	const fillClasses = $derived(`h-full rounded-full ${colorClasses[color] || colorClasses.blue}`);
 
 	return {
-		get value() { return value; },
-		get max() { return max; },
-		get label() { return label; },
-		get showPercentage() { return showPercentage; },
-		get percentage() { return percentage; },
-		get containerClasses() { return containerClasses; },
-		get labelWrapperClasses() { return labelWrapperClasses; },
-		get labelClasses() { return labelClasses; },
-		get trackClasses() { return trackClasses; },
-		get fillClasses() { return fillClasses; }
+		get value() {
+			return value;
+		},
+		get max() {
+			return max;
+		},
+		get label() {
+			return label;
+		},
+		get showPercentage() {
+			return showPercentage;
+		},
+		get percentage() {
+			return percentage;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get labelWrapperClasses() {
+			return labelWrapperClasses;
+		},
+		get labelClasses() {
+			return labelClasses;
+		},
+		get trackClasses() {
+			return trackClasses;
+		},
+		get fillClasses() {
+			return fillClasses;
+		}
 	};
 }
 

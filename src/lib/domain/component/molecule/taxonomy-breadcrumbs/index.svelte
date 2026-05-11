@@ -8,7 +8,14 @@
 		class?: string;
 	}
 
-	let { domain, cluster, joint, family, file, class: className = '' }: TaxonomyBreadcrumbsProps = $props();
+	let {
+		domain,
+		cluster,
+		joint,
+		family,
+		file,
+		class: className = ''
+	}: TaxonomyBreadcrumbsProps = $props();
 
 	const dotIndex = $derived(file ? file.lastIndexOf('.') : -1);
 	const fileName = $derived(dotIndex > 0 ? file!.slice(0, dotIndex) : (file ?? ''));
@@ -25,7 +32,8 @@
 	<span class="crumb" title="family">{family || '-'}</span>
 	{#if file}
 		<span class="sep" aria-hidden="true">/</span>
-		<span class="crumb" title="file">{fileName}</span>{#if fileExt}<span class="ext">{fileExt}</span>{/if}
+		<span class="crumb" title="file">{fileName}</span>{#if fileExt}<span class="ext">{fileExt}</span
+			>{/if}
 	{/if}
 </nav>
 

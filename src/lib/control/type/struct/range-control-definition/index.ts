@@ -5,4 +5,4 @@ export type TokenRangeControlDefinition = TokenControlDefinitionData & {
 	min: number;
 	max: number;
 	step?: number;
-}
+};

@@ -27,9 +27,3 @@
 <div {...restProps} id={panelId} role="tabpanel" aria-labelledby={tabId} class={state.classes}>
 	{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 </div>
-
-
-
-
-
-

@@ -36,11 +36,7 @@ export class AnimatedStyleManager {
 	 * Полные классы для animated компонента
 	 */
 	static getClasses(options: AnimatedStyleManagerOptions = {}): string {
-		const {
-			isAnimating = false,
-			infinite = false,
-			class: className = ''
-		} = options;
+		const { isAnimating = false, infinite = false, class: className = '' } = options;
 
 		return mergeClassNames(
 			this.BASE,

@@ -6,4 +6,4 @@ export type ChartAxisYMetrics = {
 	tickSize: number;
 	showArrow: boolean;
 	ticks: number[];
-}
+};

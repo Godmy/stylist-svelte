@@ -4,11 +4,13 @@ import { DEFAULT_BADGE_LABEL } from '$stylist/typography/const/record/badge-labe
 
 export function createNpmBadgeState(props: NpmBadgeProps) {
 	const type = $derived(props.type);
-	const label = $derived(props.label ?? DEFAULT_BADGE_LABEL[type as keyof typeof DEFAULT_BADGE_LABEL]);
+	const label = $derived(
+		props.label ?? DEFAULT_BADGE_LABEL[type as keyof typeof DEFAULT_BADGE_LABEL]
+	);
 	const classes = $derived(
 		DataDisplayStyleManager.getNpmBadgeClasses(
 			type,
-			typeof props.class === "string" ? props.class : undefined
+			typeof props.class === 'string' ? props.class : undefined
 		)
 	);
 	const linkClasses = $derived(DataDisplayStyleManager.getNpmBadgeLinkClasses());
@@ -30,10 +32,3 @@ export function createNpmBadgeState(props: NpmBadgeProps) {
 }
 
 export default createNpmBadgeState;
-
-
-
-
-
-
-

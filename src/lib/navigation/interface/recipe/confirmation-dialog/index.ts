@@ -18,13 +18,6 @@ import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface ConfirmationDialogRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IIconSlot,
-		IClickable,
-		IFocusable,
-		ISizable
-	]>
-{}
-
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IIconSlot, IClickable, IFocusable, ISizable]
+	> {}

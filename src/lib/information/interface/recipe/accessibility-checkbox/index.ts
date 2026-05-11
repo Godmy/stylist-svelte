@@ -11,10 +11,4 @@ import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/s
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface AccessibilityCheckboxRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IStatusSlot,
-		ThemeAttributes<HTMLInputElement>
-	]>
-{}
-
+	extends StructIntersectAll<[ILabelSlot, IStatusSlot, ThemeAttributes<HTMLInputElement>]> {}

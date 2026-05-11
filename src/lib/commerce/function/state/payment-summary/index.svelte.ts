@@ -17,10 +17,18 @@ export function createPaymentSummaryState(props: PaymentSummaryProps) {
 	const rootClass = $derived(PaymentSummaryStyleManager.root(props.class ?? ''));
 
 	return {
-		get subtotal() { return subtotal; },
-		get discountTotal() { return discountTotal; },
-		get taxTotal() { return taxTotal; },
-		get rootClass() { return rootClass; },
+		get subtotal() {
+			return subtotal;
+		},
+		get discountTotal() {
+			return discountTotal;
+		},
+		get taxTotal() {
+			return taxTotal;
+		},
+		get rootClass() {
+			return rootClass;
+		},
 		money(v: number): string {
 			return new Intl.NumberFormat('en-US', {
 				style: 'currency',

@@ -13,8 +13,7 @@ import type { BehaviorTransformable } from '$stylist/animation/interface/behavio
  */
 export interface SlotTransformation
 	extends BehaviorTransformable,
-		InteractionHTMLAttributes<HTMLDivElement>
-{
+		InteractionHTMLAttributes<HTMLDivElement> {
 	/** Блокировка трансформации */
 	disabled?: boolean;
 }

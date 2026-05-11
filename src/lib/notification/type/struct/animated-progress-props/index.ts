@@ -7,4 +7,4 @@ export type AnimatedProgressProps = InteractionHTMLAttributes<HTMLDivElement> & 
 	label?: string;
 	showPercentage?: boolean;
 	class?: string;
-}
+};

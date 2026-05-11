@@ -12,7 +12,12 @@
 	];
 </script>
 
-<Story component={ToggleGroupRoot} title="ToggleGroupRoot" description="Context provider that coordinates single or multiple toggle selection." {controls}>
+<Story
+	component={ToggleGroupRoot}
+	title="ToggleGroupRoot"
+	description="Context provider that coordinates single or multiple toggle selection."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<div class="space-y-3">
 			<ToggleGroupRoot
@@ -31,6 +36,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-

@@ -18,15 +18,9 @@ import type { Snippet } from 'svelte';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface CardWithImageRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IMediaSlot,
-		IBadgeSlot,
-		IIconSlot,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IMediaSlot, IBadgeSlot, IIconSlot, ThemeAttributes<HTMLDivElement>]
+	> {
 	title?: string;
 	subtitle?: string;
 	description?: string;
@@ -39,4 +33,3 @@ export interface CardWithImageRecipe
 	footerClass?: string;
 	actionsClass?: string;
 }
-

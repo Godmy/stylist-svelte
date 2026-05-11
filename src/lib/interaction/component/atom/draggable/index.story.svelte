@@ -35,7 +35,9 @@
 					}}
 				>
 					{#snippet children()}
-						<div class="min-h-28 content-center text-center font-medium text-slate-900">Drag this card</div>
+						<div class="min-h-28 content-center text-center font-medium text-slate-900">
+							Drag this card
+						</div>
 					{/snippet}
 				</Draggable>
 

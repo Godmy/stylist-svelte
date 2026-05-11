@@ -4,4 +4,4 @@ import type { TokenControlOption } from '$stylist/control/type/struct/token-cont
 export type TokenRadioControlDefinition = TokenControlDefinitionData & {
 	controlKind: 'radio';
 	options: TokenControlOption[];
-}
+};

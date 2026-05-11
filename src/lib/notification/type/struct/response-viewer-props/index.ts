@@ -5,4 +5,4 @@ export type ResponseViewerProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	response?: string;
 	status?: string;
 	class?: string;
-}
+};

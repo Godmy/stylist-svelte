@@ -12,7 +12,3 @@ export const COLORS_SCALES_RED: RecordColorScale = {
 	800: '#991b1b',
 	900: '#7f1d1d'
 };
-
-
-
-

@@ -14,7 +14,9 @@ export function createPredictionResultState(props: PredictionResultContract) {
 	const onRetry = $derived(props.onRetry);
 	const maxValue = $derived(
 		Math.max(
-			...predictions.map((prediction) => (prediction.confidence !== undefined ? prediction.confidence : prediction.value)),
+			...predictions.map((prediction) =>
+				prediction.confidence !== undefined ? prediction.confidence : prediction.value
+			),
 			actualValue || 0,
 			predictedValue || 0
 		)
@@ -41,32 +43,54 @@ export function createPredictionResultState(props: PredictionResultContract) {
 
 		return rest;
 	});
-	const containerClass = $derived(PredictionResultStyleManager.getContainerClass(props.class ?? ''));
-	const headerClass = $derived(PredictionResultStyleManager.getHeaderClass(props.headerClass ?? ''));
+	const containerClass = $derived(
+		PredictionResultStyleManager.getContainerClass(props.class ?? '')
+	);
+	const headerClass = $derived(
+		PredictionResultStyleManager.getHeaderClass(props.headerClass ?? '')
+	);
 	const statusIconClass = $derived(PredictionResultStyleManager.getStatusIconClass(status));
 	const titleClass = $derived(PredictionResultStyleManager.getTitleClass());
 	const modelTagClass = $derived(PredictionResultStyleManager.getModelTagClass());
-	const contentClass = $derived(PredictionResultStyleManager.getContentClass(props.contentClass ?? ''));
+	const contentClass = $derived(
+		PredictionResultStyleManager.getContentClass(props.contentClass ?? '')
+	);
 	const descriptionClass = $derived(PredictionResultStyleManager.getDescriptionClass());
 	const centeredDisplayClass = $derived(PredictionResultStyleManager.getCenteredDisplayClass());
 	const retryButtonClass = $derived(PredictionResultStyleManager.getRetryButtonClass());
-	const predictionSummaryGridClass = $derived(PredictionResultStyleManager.getPredictionSummaryGridClass());
+	const predictionSummaryGridClass = $derived(
+		PredictionResultStyleManager.getPredictionSummaryGridClass()
+	);
 	const confidenceSectionClass = $derived(PredictionResultStyleManager.getConfidenceSectionClass());
 	const confidenceLabelClass = $derived(PredictionResultStyleManager.getConfidenceLabelClass());
-	const confidencePercentageClass = $derived(PredictionResultStyleManager.getConfidencePercentageClass());
-	const confidenceBarContainerClass = $derived(PredictionResultStyleManager.getConfidenceBarContainerClass());
+	const confidencePercentageClass = $derived(
+		PredictionResultStyleManager.getConfidencePercentageClass()
+	);
+	const confidenceBarContainerClass = $derived(
+		PredictionResultStyleManager.getConfidenceBarContainerClass()
+	);
 	const confidenceBarFillClass = $derived(PredictionResultStyleManager.getConfidenceBarFillClass());
 	const breakdownHeaderClass = $derived(PredictionResultStyleManager.getBreakdownHeaderClass());
 	const predictionItemClass = $derived(PredictionResultStyleManager.getPredictionItemClass());
-	const predictionItemLabelClass = $derived(PredictionResultStyleManager.getPredictionItemLabelClass());
-	const predictionItemValueClass = $derived(PredictionResultStyleManager.getPredictionItemValueClass());
+	const predictionItemLabelClass = $derived(
+		PredictionResultStyleManager.getPredictionItemLabelClass()
+	);
+	const predictionItemValueClass = $derived(
+		PredictionResultStyleManager.getPredictionItemValueClass()
+	);
 	const chartBarContainerClass = $derived(PredictionResultStyleManager.getChartBarContainerClass());
 	const chartBarFillClass = $derived(PredictionResultStyleManager.getChartBarFillClass());
-	const footerClass = $derived(PredictionResultStyleManager.getFooterClass(props.footerClass ?? ''));
+	const footerClass = $derived(
+		PredictionResultStyleManager.getFooterClass(props.footerClass ?? '')
+	);
 	const trendUpClass = $derived(PredictionResultStyleManager.getTrendIndicatorClass(true));
 	const trendDownClass = $derived(PredictionResultStyleManager.getTrendIndicatorClass(false));
-	const trendUpDescriptionClass = $derived(PredictionResultStyleManager.getTrendDescriptionClass(true));
-	const trendDownDescriptionClass = $derived(PredictionResultStyleManager.getTrendDescriptionClass(false));
+	const trendUpDescriptionClass = $derived(
+		PredictionResultStyleManager.getTrendDescriptionClass(true)
+	);
+	const trendDownDescriptionClass = $derived(
+		PredictionResultStyleManager.getTrendDescriptionClass(false)
+	);
 	const predictionLabelClass = $derived(PredictionResultStyleManager.getPredictionLabelClass());
 	const predictionValueClass = $derived(PredictionResultStyleManager.getPredictionValueClass());
 

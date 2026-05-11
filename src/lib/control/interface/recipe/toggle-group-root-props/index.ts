@@ -5,7 +5,8 @@ import type { HtmlAttributesWithChildren } from '$stylist/information/interface/
 import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
 import type { TokenSelectionType } from '$stylist/control/type/record/selection-type';
 
-export interface RecipeToggleGroupRootProps extends StructIntersectAll<[Omit<HTMLButtonAttributes, 'size' | 'class' | 'type'>]> {
+export interface RecipeToggleGroupRootProps
+	extends StructIntersectAll<[Omit<HTMLButtonAttributes, 'size' | 'class' | 'type'>]> {
 	value?: string;
 	disabled?: boolean;
 	orientation?: TokenOrientation;

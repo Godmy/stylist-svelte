@@ -85,7 +85,9 @@
 		background: transparent;
 		color: var(--color-text-secondary);
 		cursor: pointer;
-		transition: background-color 100ms, color 100ms;
+		transition:
+			background-color 100ms,
+			color 100ms;
 	}
 
 	.toolbar-btn:hover {

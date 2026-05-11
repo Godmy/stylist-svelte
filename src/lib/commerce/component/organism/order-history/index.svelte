@@ -17,7 +17,9 @@
 				type="text"
 				placeholder="Search orders..."
 				value={state.searchQuery}
-				oninput={(e) => { state.searchQuery = (e.target as HTMLInputElement).value; }}
+				oninput={(e) => {
+					state.searchQuery = (e.target as HTMLInputElement).value;
+				}}
 				class={state.searchInputClasses}
 			/>
 		</div>
@@ -38,13 +40,15 @@
 				</div>
 
 				{#if order.items.length > 0}
-					<div class="mt-2 flex gap-2 flex-wrap">
+					<div class="mt-2 flex flex-wrap gap-2">
 						{#each order.items.slice(0, 3) as item}
 							<div class="flex items-center gap-1">
 								{#if item.thumbnail}
 									<img src={item.thumbnail} alt={item.name} class={state.itemThumbnailClasses} />
 								{/if}
-								<span class="text-sm text-[--color-text-secondary]">{item.name} x{item.quantity}</span>
+								<span class="text-sm text-[--color-text-secondary]"
+									>{item.name} x{item.quantity}</span
+								>
 							</div>
 						{/each}
 					</div>
@@ -54,14 +58,14 @@
 					{#if props.showRepeatOrder !== false}
 						<button
 							onclick={() => props.onOrderRepeat?.(order.id)}
-							class={state.actionButtonClasses}
-						>Reorder</button>
+							class={state.actionButtonClasses}>Reorder</button
+						>
 					{/if}
 					{#if props.showDownloadInvoice && props.onDownloadInvoice}
 						<button
 							onclick={() => props.onDownloadInvoice?.(order.id)}
-							class={state.actionButtonClasses}
-						>Invoice</button>
+							class={state.actionButtonClasses}>Invoice</button
+						>
 					{/if}
 				</div>
 			</div>

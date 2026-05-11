@@ -3,22 +3,22 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { TokenTrajectory } from '$stylist/architecture/type/enum/trajectory';
 
 export interface ConnectionLineRecipe extends StructIntersectAll<[]> {
-  id?: string;
-  startX?: number;
-  startY?: number;
-  endX?: number;
-  endY?: number;
-  type?: TokenTrajectory;
-  label?: string;
-  color?: string;
-  activeColor?: string;
-  hoverColor?: string;
-  active?: boolean;
-  onclick?: () => void;
-  width?: number;
-  style?: 'solid' | 'dashed' | 'dotted';
-  animated?: boolean;
-  showArrow?: boolean;
-  arrowSize?: number;
-  class?: string;
+	id?: string;
+	startX?: number;
+	startY?: number;
+	endX?: number;
+	endY?: number;
+	type?: TokenTrajectory;
+	label?: string;
+	color?: string;
+	activeColor?: string;
+	hoverColor?: string;
+	active?: boolean;
+	onclick?: () => void;
+	width?: number;
+	style?: 'solid' | 'dashed' | 'dotted';
+	animated?: boolean;
+	showArrow?: boolean;
+	arrowSize?: number;
+	class?: string;
 }

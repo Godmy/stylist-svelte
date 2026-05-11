@@ -4,4 +4,3 @@ export const MESSAGE_VARIANT_TEXT_CLASSES = {
 	incoming: 'text-[--color-text-primary]',
 	outgoing: 'text-[--color-text-inverse]'
 } as const;
-

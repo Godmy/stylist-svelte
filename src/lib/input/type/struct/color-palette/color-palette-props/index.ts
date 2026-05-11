@@ -12,4 +12,4 @@ export type ColorPaletteProps = HTMLAttributes<HTMLDivElement> & {
 	headerClass?: string;
 	onValueInput?: (color: ColorItem) => void;
 	onValueChange?: (color: ColorItem) => void;
-}
+};

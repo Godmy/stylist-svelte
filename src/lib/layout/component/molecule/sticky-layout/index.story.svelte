@@ -10,21 +10,28 @@
 	];
 </script>
 
-<Story component={StickyLayout} title="StickyLayout" description="Layout with sticky header/footer and scrollable content zone." {controls}>
+<Story
+	component={StickyLayout}
+	title="StickyLayout"
+	description="Layout with sticky header/footer and scrollable content zone."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<StickyLayout
 			headerShadow={values.headerShadow}
 			footerShadow={values.footerShadow}
 			fillHeight={values.fillHeight}
-			class="h-64 border border-[--color-border-primary] rounded-lg overflow-hidden"
+			class="h-64 overflow-hidden rounded-lg border border-[--color-border-primary]"
 		>
 			{#snippet header()}
-				<div class="bg-[--color-background-primary] px-4 py-3 text-sm font-semibold border-b border-[--color-border-primary]">
+				<div
+					class="border-b border-[--color-border-primary] bg-[--color-background-primary] px-4 py-3 text-sm font-semibold"
+				>
 					Sticky Header
 				</div>
 			{/snippet}
 			{#snippet children()}
-				<div class="p-4 space-y-3">
+				<div class="space-y-3 p-4">
 					{#each Array(10) as _, i}
 						<div class="rounded border border-[--color-border-primary] p-2 text-sm">
 							Scrollable item {i + 1}
@@ -33,7 +40,9 @@
 				</div>
 			{/snippet}
 			{#snippet footer()}
-				<div class="bg-[--color-background-primary] px-4 py-3 text-sm border-t border-[--color-border-primary]">
+				<div
+					class="border-t border-[--color-border-primary] bg-[--color-background-primary] px-4 py-3 text-sm"
+				>
 					Sticky Footer
 				</div>
 			{/snippet}

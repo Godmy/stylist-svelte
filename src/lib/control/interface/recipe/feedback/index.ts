@@ -13,19 +13,19 @@ import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface FeedbackRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IStatusSlot,
-		IIconSlot,
-		IClickable,
-		IFocusable,
-		ISized,
-		IShapeable,
-		IMotionPreset,
-		SlotTheme,
-		HTMLAttributes<HTMLDivElement>
-	]>,
-		FeedbackSpecificProps
-{}
-
+	extends StructIntersectAll<
+			[
+				ILabelSlot,
+				ICaptionSlot,
+				IStatusSlot,
+				IIconSlot,
+				IClickable,
+				IFocusable,
+				ISized,
+				IShapeable,
+				IMotionPreset,
+				SlotTheme,
+				HTMLAttributes<HTMLDivElement>
+			]
+		>,
+		FeedbackSpecificProps {}

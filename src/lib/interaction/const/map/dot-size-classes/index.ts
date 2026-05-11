@@ -6,4 +6,3 @@ export const DOT_SIZE_CLASSES = {
 	xl: 'w-5 h-5',
 	'2xl': 'w-6 h-6'
 } as const;
-

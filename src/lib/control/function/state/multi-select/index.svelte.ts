@@ -94,55 +94,135 @@ export function createMultiSelectState(props: MultiSelectProps) {
 	}
 
 	const containerClasses = $derived(MultiSelectStyleManager.getContainerClasses(className));
-	const selectDisplayClasses = $derived(MultiSelectStyleManager.getSelectDisplayClasses(disabled, isOpen));
-	const placeholderClasses = $derived(MultiSelectStyleManager.getPlaceholderClasses(placeholderClass));
-	const selectedValueContainerClasses = $derived(MultiSelectStyleManager.getSelectedValueContainerClasses(selectedClass));
+	const selectDisplayClasses = $derived(
+		MultiSelectStyleManager.getSelectDisplayClasses(disabled, isOpen)
+	);
+	const placeholderClasses = $derived(
+		MultiSelectStyleManager.getPlaceholderClasses(placeholderClass)
+	);
+	const selectedValueContainerClasses = $derived(
+		MultiSelectStyleManager.getSelectedValueContainerClasses(selectedClass)
+	);
 	const removeButtonClasses = $derived(MultiSelectStyleManager.getRemoveButtonClasses());
-	const clearButtonClasses = $derived(MultiSelectStyleManager.getClearButtonClasses(disabled, selectedValues.length > 0));
+	const clearButtonClasses = $derived(
+		MultiSelectStyleManager.getClearButtonClasses(disabled, selectedValues.length > 0)
+	);
 	const chevronClasses = $derived(MultiSelectStyleManager.getChevronClasses(isOpen));
 	const dropdownClasses = $derived(MultiSelectStyleManager.getDropdownClasses(dropdownClass));
 	const searchContainerClasses = $derived(MultiSelectStyleManager.getSearchContainerClasses());
-	const searchInputClasses = $derived(MultiSelectStyleManager.getSearchInputClasses(searchInputClass));
+	const searchInputClasses = $derived(
+		MultiSelectStyleManager.getSearchInputClasses(searchInputClass)
+	);
 	const noOptionsMessageClasses = $derived(MultiSelectStyleManager.getNoOptionsMessageClasses());
 
 	function getOptionClasses(option: MultiSelectOption): string {
-		return MultiSelectStyleManager.getOptionClasses(optionClass, selectedValues.includes(option.value), !!option.disabled);
+		return MultiSelectStyleManager.getOptionClasses(
+			optionClass,
+			selectedValues.includes(option.value),
+			!!option.disabled
+		);
 	}
 
 	return {
-		get options() { return options; },
-		get value() { return value; },
-		get placeholder() { return placeholder; },
-		get disabled() { return disabled; },
-		get searchable() { return searchable; },
-		get maxSelections() { return maxSelections; },
-		get isOpen() { return isOpen; },
-		get selectedValues() { return selectedValues; },
-		get searchQuery() { return searchQuery; },
-		set searchQuery(v: string) { searchQuery = v; },
-		get containerRef() { return containerRef.current; },
-		set containerRef(v: HTMLDivElement | null) { containerRef.current = v; },
-		get dropdownRef() { return dropdownRef.current; },
-		set dropdownRef(v: HTMLDivElement | null) { dropdownRef.current = v; },
-		get containerClasses() { return containerClasses; },
-		get selectDisplayClasses() { return selectDisplayClasses; },
-		get placeholderClasses() { return placeholderClasses; },
-		get selectedValueContainerClasses() { return selectedValueContainerClasses; },
-		get removeButtonClasses() { return removeButtonClasses; },
-		get clearButtonClasses() { return clearButtonClasses; },
-		get chevronClasses() { return chevronClasses; },
-		get dropdownClasses() { return dropdownClasses; },
-		get searchContainerClasses() { return searchContainerClasses; },
-		get searchInputClasses() { return searchInputClasses; },
-		get noOptionsMessageClasses() { return noOptionsMessageClasses; },
-		get ChevronDown() { return ChevronDown; },
-		get X() { return X; },
-		get getFilteredOptions() { return getFilteredOptions; },
-		get selectOption() { return selectOption; },
-		get removeOption() { return removeOption; },
-		get clearSelections() { return clearSelections; },
-		get toggleDropdown() { return toggleDropdown; },
-		get getOptionClasses() { return getOptionClasses; }
+		get options() {
+			return options;
+		},
+		get value() {
+			return value;
+		},
+		get placeholder() {
+			return placeholder;
+		},
+		get disabled() {
+			return disabled;
+		},
+		get searchable() {
+			return searchable;
+		},
+		get maxSelections() {
+			return maxSelections;
+		},
+		get isOpen() {
+			return isOpen;
+		},
+		get selectedValues() {
+			return selectedValues;
+		},
+		get searchQuery() {
+			return searchQuery;
+		},
+		set searchQuery(v: string) {
+			searchQuery = v;
+		},
+		get containerRef() {
+			return containerRef.current;
+		},
+		set containerRef(v: HTMLDivElement | null) {
+			containerRef.current = v;
+		},
+		get dropdownRef() {
+			return dropdownRef.current;
+		},
+		set dropdownRef(v: HTMLDivElement | null) {
+			dropdownRef.current = v;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get selectDisplayClasses() {
+			return selectDisplayClasses;
+		},
+		get placeholderClasses() {
+			return placeholderClasses;
+		},
+		get selectedValueContainerClasses() {
+			return selectedValueContainerClasses;
+		},
+		get removeButtonClasses() {
+			return removeButtonClasses;
+		},
+		get clearButtonClasses() {
+			return clearButtonClasses;
+		},
+		get chevronClasses() {
+			return chevronClasses;
+		},
+		get dropdownClasses() {
+			return dropdownClasses;
+		},
+		get searchContainerClasses() {
+			return searchContainerClasses;
+		},
+		get searchInputClasses() {
+			return searchInputClasses;
+		},
+		get noOptionsMessageClasses() {
+			return noOptionsMessageClasses;
+		},
+		get ChevronDown() {
+			return ChevronDown;
+		},
+		get X() {
+			return X;
+		},
+		get getFilteredOptions() {
+			return getFilteredOptions;
+		},
+		get selectOption() {
+			return selectOption;
+		},
+		get removeOption() {
+			return removeOption;
+		},
+		get clearSelections() {
+			return clearSelections;
+		},
+		get toggleDropdown() {
+			return toggleDropdown;
+		},
+		get getOptionClasses() {
+			return getOptionClasses;
+		}
 	};
 }
 

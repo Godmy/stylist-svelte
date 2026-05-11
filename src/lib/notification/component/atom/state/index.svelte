@@ -23,11 +23,7 @@
 	{/if}
 	{#if state.action}
 		<div class={state.actionContainerClasses}>
-			<button
-				type="button"
-				onclick={state.action.onClick}
-				class={state.actionButtonClasses}
-			>
+			<button type="button" onclick={state.action.onClick} class={state.actionButtonClasses}>
 				<Icon name={Plus} class={state.actionIconClasses} />
 				{state.action.label}
 			</button>

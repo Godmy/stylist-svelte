@@ -11,16 +11,10 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface NumberFlowRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IBadgeSlot,
-		ThemeAttributes<HTMLSpanElement>
-	]>
-{
+	extends StructIntersectAll<[ILabelSlot, IBadgeSlot, ThemeAttributes<HTMLSpanElement>]> {
 	value?: number;
 	locales?: Intl.LocalesArgument;
 	format?: Intl.NumberFormatOptions;
 	prefix?: string;
 	suffix?: string;
 }
-

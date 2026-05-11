@@ -5,7 +5,7 @@
 import type { Snippet } from 'svelte';
 
 export interface SlotProductSortingStyleClasses {
-  base: string;
-  select: string;
-  option: string;
+	base: string;
+	select: string;
+	option: string;
 }

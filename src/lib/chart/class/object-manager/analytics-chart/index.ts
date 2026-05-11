@@ -26,10 +26,8 @@ export class ObjectManagerAnalyticsChart {
 		}));
 	}
 
-	static buildLineSeries(
-		data: AnalyticsChartDataPoint[],
-		title: string
-	): any[] { // TODO: Fix type mismatch with AnalyticsChartLineSeries
+	static buildLineSeries(data: AnalyticsChartDataPoint[], title: string): any[] {
+		// TODO: Fix type mismatch with AnalyticsChartLineSeries
 		return [
 			{
 				id: 'analytics-series',

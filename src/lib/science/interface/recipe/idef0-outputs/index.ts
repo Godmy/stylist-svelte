@@ -10,13 +10,8 @@ import type { Idef0Port } from '$stylist/science/type/struct/idef-zero/idef0port
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface Idef0OutputsRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+	extends StructIntersectAll<[ILabelSlot, ThemeAttributes<HTMLDivElement>]> {
 	ports: Idef0Port[];
 	boxY: number;
 	boxHeight: number;
 }
-

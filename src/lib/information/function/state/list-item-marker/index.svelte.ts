@@ -50,8 +50,3 @@ export function createListItemMarkerState(props: ListItemMarkerRecipe) {
 }
 
 export default createListItemMarkerState;
-
-
-
-
-

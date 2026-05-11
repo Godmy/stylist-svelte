@@ -12,7 +12,12 @@
 	];
 </script>
 
-<Story component={SlotRadio} title="SlotRadio" description="Single radio option with clear checked and disabled states." {controls}>
+<Story
+	component={SlotRadio}
+	title="SlotRadio"
+	description="Single radio option with clear checked and disabled states."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<div class="space-y-4">
 			<SlotRadio
@@ -25,12 +30,11 @@
 				required={values.required}
 				size={values.size}
 			/>
-			<div class="rounded-xl border border-[--color-border-primary] bg-[--color-background-secondary] p-3 text-sm text-[--color-text-secondary]">
+			<div
+				class="rounded-xl border border-[--color-border-primary] bg-[--color-background-secondary] p-3 text-sm text-[--color-text-secondary]"
+			>
 				Use one `name` for a group. This story renders a single controllable option.
 			</div>
 		</div>
 	{/snippet}
 </Story>
-
-
-

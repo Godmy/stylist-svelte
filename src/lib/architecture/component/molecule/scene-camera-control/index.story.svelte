@@ -13,7 +13,9 @@
 	description="Camera plane and zoom control for interactive scene navigation."
 >
 	{#snippet children()}
-		<div class="relative min-h-[24rem] overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_top,#bfdbfe,transparent_45%),linear-gradient(180deg,#0f172a,#1e293b)] p-6">
+		<div
+			class="relative min-h-[24rem] overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_top,#bfdbfe,transparent_45%),linear-gradient(180deg,#0f172a,#1e293b)] p-6"
+		>
 			<div class="absolute inset-6 rounded-2xl border border-white/10 bg-white/5"></div>
 			<SceneCameraControl
 				{radius}

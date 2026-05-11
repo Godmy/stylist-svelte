@@ -21,15 +21,14 @@ export class PageButtonStyleManager {
 			active
 				? 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)]'
 				: InteractionStyleManager.getVariantClasses(variant),
-			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : 'cursor-pointer',
+			disabled
+				? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none'
+				: 'cursor-pointer',
 			className
 		]);
 	}
 
 	static getPageButtonIconClasses(className?: string): string {
-		return this.join([
-			'w-4 h-4',
-			className
-		]);
+		return this.join(['w-4 h-4', className]);
 	}
 }

@@ -7,7 +7,7 @@
 </script>
 
 <div class={state.containerClasses}>
-	<div class="flex flex-col gap-1 flex-1">
+	<div class="flex flex-1 flex-col gap-1">
 		{#if props.label1 ?? 'Поле 1'}
 			<label for={props.id1} class={state.labelClasses}>
 				{props.label1 ?? 'Поле 1'}
@@ -36,7 +36,7 @@
 			</p>
 		{/if}
 	</div>
-	<div class="flex flex-col gap-1 flex-1">
+	<div class="flex flex-1 flex-col gap-1">
 		{#if props.label2 ?? 'Поле 2'}
 			<label for={props.id2} class={state.labelClasses}>
 				{props.label2 ?? 'Поле 2'}

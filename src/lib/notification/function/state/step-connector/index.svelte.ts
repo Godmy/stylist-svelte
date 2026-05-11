@@ -13,7 +13,9 @@ export function createStepConnectorState(props: StepConnectorProps) {
 	);
 
 	return {
-		get classes() { return classes; }
+		get classes() {
+			return classes;
+		}
 	};
 }
 

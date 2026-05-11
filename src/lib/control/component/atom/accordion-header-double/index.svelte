@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist/media';
-const ChevronDown = 'chevron-down';
+	const ChevronDown = 'chevron-down';
 
 	import { createAccordionHeaderDoubleState } from '$stylist/control/function/state/accordion-header-double';
 	import type { AccordionHeaderDoubleProps } from '$stylist/control/type/struct/accordion-header-double-props';
@@ -41,10 +41,3 @@ const ChevronDown = 'chevron-down';
 	{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 	<BaseIcon name={ChevronDown} class={state.chevronClasses} />
 </button>
-
-
-
-
-
-
-

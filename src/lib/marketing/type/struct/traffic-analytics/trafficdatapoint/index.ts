@@ -1,4 +1,4 @@
 export type TrafficDataPoint = {
-  date: Date;
-  value: number;
+	date: Date;
+	value: number;
 };

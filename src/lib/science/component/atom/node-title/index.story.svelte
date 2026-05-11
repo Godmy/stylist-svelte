@@ -16,8 +16,18 @@
 	const Check = 'check';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'selected', 'error', 'warning'] },
-		{ name: 'size', type: 'select', defaultValue: 'md', options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'default',
+			options: ['default', 'selected', 'error', 'warning']
+		},
+		{
+			name: 'size',
+			type: 'select',
+			defaultValue: 'md',
+			options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl']
+		},
 		{ name: 'title', type: 'text', defaultValue: 'Node Title' },
 		{ name: 'selected', type: 'boolean', defaultValue: false },
 		{ name: 'editable', type: 'boolean', defaultValue: false },
@@ -35,7 +45,9 @@
 >
 	{#snippet children(values: any)}
 		{@const typed = values as Props}
-		<div style="background: #1e1e1e; padding: var(--spacing-5); border-radius: var(--border-radius-lg);">
+		<div
+			style="background: #1e1e1e; padding: var(--spacing-5); border-radius: var(--border-radius-lg);"
+		>
 			<NodeTitle
 				variant={typed.variant}
 				size={typed.size}
@@ -48,7 +60,9 @@
 	{/snippet}
 
 	{#snippet variants()}
-		<div style="display: flex; flex-direction: column; gap: var(--spacing-4); background: #1e1e1e; padding: var(--spacing-5); border-radius: var(--border-radius-lg);">
+		<div
+			style="display: flex; flex-direction: column; gap: var(--spacing-4); background: #1e1e1e; padding: var(--spacing-5); border-radius: var(--border-radius-lg);"
+		>
 			<div style="display: flex; flex-direction: column; gap: var(--spacing-2);">
 				<NodeTitle size="xs" title="XS Size" />
 				<NodeTitle size="sm" title="SM Size" />
@@ -70,6 +84,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-

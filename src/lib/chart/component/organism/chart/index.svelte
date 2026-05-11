@@ -27,7 +27,7 @@
 		width={state.width}
 		height={state.height}
 		title={props.title}
-		series={series}
+		{series}
 		xScale={props.xScale}
 		yScale={props.yScale}
 		xTickCount={props.xTickCount}
@@ -44,4 +44,3 @@
 		<ChartLegend items={legendItems} />
 	{/if}
 </section>
-

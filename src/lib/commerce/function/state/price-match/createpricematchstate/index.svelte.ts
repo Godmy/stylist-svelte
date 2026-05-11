@@ -4,9 +4,7 @@ import type { PriceMatchProps } from '$stylist/commerce/interface/recipe/price-m
 export function createPriceMatchState(props: PriceMatchProps) {
 	const competitorPrices = $derived(props.competitorPrices ?? []);
 	const bestPrice = $derived(
-		competitorPrices.length > 0
-			? Math.min(...competitorPrices.map((p) => p.price))
-			: null
+		competitorPrices.length > 0 ? Math.min(...competitorPrices.map((p) => p.price)) : null
 	);
 	const isLowerAvailable = $derived(bestPrice !== null && bestPrice < (props.targetPrice ?? 0));
 
@@ -29,19 +27,45 @@ export function createPriceMatchState(props: PriceMatchProps) {
 	const buttonClass = $derived(PriceMatchStyleManager.getButtonClass());
 
 	return {
-		get competitorPrices() { return competitorPrices; },
-		get bestPrice() { return bestPrice; },
-		get isLowerAvailable() { return isLowerAvailable; },
-		get containerClass() { return containerClass; },
-		get titleClass() { return titleClass; },
-		get priceInfoClass() { return priceInfoClass; },
-		get yourPriceClass() { return yourPriceClass; },
-		get lowerPriceClass() { return lowerPriceClass; },
-		get bestPriceClass() { return bestPriceClass; },
-		get boldClass() { return boldClass; },
-		get competitorsContainerClass() { return competitorsContainerClass; },
-		get competitorRowClass() { return competitorRowClass; },
-		get buttonClass() { return buttonClass; }
+		get competitorPrices() {
+			return competitorPrices;
+		},
+		get bestPrice() {
+			return bestPrice;
+		},
+		get isLowerAvailable() {
+			return isLowerAvailable;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get titleClass() {
+			return titleClass;
+		},
+		get priceInfoClass() {
+			return priceInfoClass;
+		},
+		get yourPriceClass() {
+			return yourPriceClass;
+		},
+		get lowerPriceClass() {
+			return lowerPriceClass;
+		},
+		get bestPriceClass() {
+			return bestPriceClass;
+		},
+		get boldClass() {
+			return boldClass;
+		},
+		get competitorsContainerClass() {
+			return competitorsContainerClass;
+		},
+		get competitorRowClass() {
+			return competitorRowClass;
+		},
+		get buttonClass() {
+			return buttonClass;
+		}
 	};
 }
 

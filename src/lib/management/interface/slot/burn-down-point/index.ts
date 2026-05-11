@@ -1,5 +1,5 @@
 export interface SlotBurnDownPoint {
-  date: Date;
-  ideal: number;
-  actual: number;
+	date: Date;
+	ideal: number;
+	actual: number;
 }

@@ -19,12 +19,24 @@ export function createUserProfileCardState(props: UserProfileCardStateProps) {
 	});
 
 	return {
-		get name() { return name; },
-		get role() { return role; },
-		get email() { return email; },
-		get initial() { return initial; },
-		get containerClasses() { return containerClasses; },
-		get restProps() { return restProps; }
+		get name() {
+			return name;
+		},
+		get role() {
+			return role;
+		},
+		get email() {
+			return email;
+		},
+		get initial() {
+			return initial;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

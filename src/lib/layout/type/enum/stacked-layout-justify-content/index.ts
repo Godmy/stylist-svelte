@@ -1,1 +1,7 @@
-export type StackedLayoutJustifyContent = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
+export type StackedLayoutJustifyContent =
+	| 'start'
+	| 'center'
+	| 'end'
+	| 'between'
+	| 'around'
+	| 'evenly';

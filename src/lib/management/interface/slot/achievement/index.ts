@@ -11,13 +11,13 @@ import type { TierContent } from '$stylist/architecture/type/enum/tier';
  * Achievement interface for TeamMemberCard
  */
 export interface SlotAchievement {
-  /**
-   * Title of the achievement
-   */
-  title: string;
+	/**
+	 * Title of the achievement
+	 */
+	title: string;
 
-  /**
-   * Description of the achievement
-   */
-  description: string;
+	/**
+	 * Description of the achievement
+	 */
+	description: string;
 }

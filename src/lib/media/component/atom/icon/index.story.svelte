@@ -108,5 +108,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-

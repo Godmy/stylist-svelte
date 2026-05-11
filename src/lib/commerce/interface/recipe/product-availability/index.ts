@@ -7,7 +7,8 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface RecipeProductAvailability extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]> {
+export interface RecipeProductAvailability
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	/** Is product available */
 	available?: boolean;
 	/** Stock quantity */

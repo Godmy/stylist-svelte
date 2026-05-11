@@ -31,7 +31,9 @@
 				}}
 			>
 				{#snippet children()}
-					<div class="min-h-28 content-center rounded-xl bg-sky-50 px-4 text-center font-medium text-sky-950">
+					<div
+						class="min-h-28 content-center rounded-xl bg-sky-50 px-4 text-center font-medium text-sky-950"
+					>
 						Hover the surface
 					</div>
 				{/snippet}

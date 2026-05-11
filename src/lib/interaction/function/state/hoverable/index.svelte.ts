@@ -17,14 +17,7 @@ export const createHoverableState = (props: HoverProps) => {
 
 	// Извлечение rest props
 	const restProps = $derived.by(() => {
-		const {
-			class: _class,
-			onMouseEnter,
-			onMouseLeave,
-			disabled,
-			hoverEffect,
-			...rest
-		} = props;
+		const { class: _class, onMouseEnter, onMouseLeave, disabled, hoverEffect, ...rest } = props;
 		return rest;
 	});
 
@@ -53,8 +46,12 @@ export const createHoverableState = (props: HoverProps) => {
 		},
 
 		// SlotState
-		get classes() { return classes; },
-		get restProps() { return restProps; },
+		get classes() {
+			return classes;
+		},
+		get restProps() {
+			return restProps;
+		},
 
 		// Handlers
 		handleMouseEnter,

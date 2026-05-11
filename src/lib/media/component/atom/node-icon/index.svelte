@@ -6,12 +6,7 @@
 	const state = createNodeIconState(props);
 </script>
 
-<div
-	class="node-icon"
-	style={state.iconStyle}
-	role="img"
-	aria-label={state.icon}
->
+<div class="node-icon" style={state.iconStyle} role="img" aria-label={state.icon}>
 	<span class="icon-text" style={state.iconTextStyle}>{state.icon}</span>
 </div>
 

@@ -10,4 +10,4 @@ export type Address = {
 	country: string;
 	phone?: string;
 	email?: string;
-}
+};

@@ -7,21 +7,41 @@ function resolveClassName(className: unknown): string | undefined {
 }
 
 export function createChartAxisYState(props: ChartAxisYProps) {
-	const axisClasses = $derived(ChartStyleManager.getChartAxisClasses(resolveClassName(props.class)));
+	const axisClasses = $derived(
+		ChartStyleManager.getChartAxisClasses(resolveClassName(props.class))
+	);
 	const gridClasses = $derived(ChartStyleManager.getChartAxisGridClasses());
 	const labelClasses = $derived(ChartStyleManager.getChartAxisLabelClasses());
 	const metrics = $derived(ObjectManagerChart.getAxisYMetrics(props));
 
 	return {
-		get axisClasses() { return axisClasses; },
-		get gridClasses() { return gridClasses; },
-		get labelClasses() { return labelClasses; },
-		get x() { return metrics.x; },
-		get startY() { return metrics.startY; },
-		get endY() { return metrics.endY; },
-		get tickSize() { return metrics.tickSize; },
-		get showArrow() { return metrics.showArrow; },
-		get ticks() { return metrics.ticks; }
+		get axisClasses() {
+			return axisClasses;
+		},
+		get gridClasses() {
+			return gridClasses;
+		},
+		get labelClasses() {
+			return labelClasses;
+		},
+		get x() {
+			return metrics.x;
+		},
+		get startY() {
+			return metrics.startY;
+		},
+		get endY() {
+			return metrics.endY;
+		},
+		get tickSize() {
+			return metrics.tickSize;
+		},
+		get showArrow() {
+			return metrics.showArrow;
+		},
+		get ticks() {
+			return metrics.ticks;
+		}
 	};
 }
 

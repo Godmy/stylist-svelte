@@ -16,12 +16,24 @@ export class IconStyleManager {
 		return shapeClassMap[shape] ?? 'rounded-full';
 	}
 
-	static getIconClasses(
-		size: TokenSize = 'md',
-		className = ''
-	): string {
+	static getIconClasses(size: TokenSize = 'md', className = ''): string {
 		return mergeClassNames(
-			{ xs: 'w-3 h-3', sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6', xl: 'w-8 h-8', '2xl': 'w-10 h-10', '1/4': 'w-3 h-3', '1/3': 'w-4 h-4', '2/5': 'w-4 h-4', '1/2': 'w-5 h-5', '3/5': 'w-5 h-5', '2/3': 'w-6 h-6', '3/4': 'w-8 h-8', full: 'w-10 h-10' }[size] ?? 'w-5 h-5',
+			{
+				xs: 'w-3 h-3',
+				sm: 'w-4 h-4',
+				md: 'w-5 h-5',
+				lg: 'w-6 h-6',
+				xl: 'w-8 h-8',
+				'2xl': 'w-10 h-10',
+				'1/4': 'w-3 h-3',
+				'1/3': 'w-4 h-4',
+				'2/5': 'w-4 h-4',
+				'1/2': 'w-5 h-5',
+				'3/5': 'w-5 h-5',
+				'2/3': 'w-6 h-6',
+				'3/4': 'w-8 h-8',
+				full: 'w-10 h-10'
+			}[size] ?? 'w-5 h-5',
 			className
 		);
 	}
@@ -40,7 +52,22 @@ export class IconStyleManager {
 		const disabled = options.disabled ?? false;
 
 		return mergeClassNames(
-			{ xs: 'w-3 h-3', sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6', xl: 'w-8 h-8', '2xl': 'w-10 h-10', '1/4': 'w-3 h-3', '1/3': 'w-4 h-4', '2/5': 'w-4 h-4', '1/2': 'w-5 h-5', '3/5': 'w-5 h-5', '2/3': 'w-6 h-6', '3/4': 'w-8 h-8', full: 'w-10 h-10' }[size] ?? 'w-5 h-5',
+			{
+				xs: 'w-3 h-3',
+				sm: 'w-4 h-4',
+				md: 'w-5 h-5',
+				lg: 'w-6 h-6',
+				xl: 'w-8 h-8',
+				'2xl': 'w-10 h-10',
+				'1/4': 'w-3 h-3',
+				'1/3': 'w-4 h-4',
+				'2/5': 'w-4 h-4',
+				'1/2': 'w-5 h-5',
+				'3/5': 'w-5 h-5',
+				'2/3': 'w-6 h-6',
+				'3/4': 'w-8 h-8',
+				full: 'w-10 h-10'
+			}[size] ?? 'w-5 h-5',
 			{ up: 'rotate-0', right: 'rotate-90', down: 'rotate-180', left: '-rotate-90' }[direction],
 			variant !== 'default'
 				? {
@@ -60,11 +87,10 @@ export class IconStyleManager {
 						neutral: 'text-[--color-neutral-500]',
 						gray: 'text-[--color-neutral-500]',
 						dark: 'text-[--color-text-inverse]',
-			light: 'text-[--color-text-primary]'
-			,
-			elevated: 'text-[--color-text-primary]',
-			flat: 'text-[--color-text-primary]'
-		}[variant]
+						light: 'text-[--color-text-primary]',
+						elevated: 'text-[--color-text-primary]',
+						flat: 'text-[--color-text-primary]'
+					}[variant]
 				: '',
 			disabled ? 'opacity-[var(--opacity-50)]' : '',
 			options.className ?? ''
@@ -99,12 +125,26 @@ export class IconStyleManager {
 				neutral: 'text-[--color-neutral-500]',
 				gray: 'text-[--color-neutral-500]',
 				dark: 'text-[--color-text-inverse]',
-				light: 'text-[--color-text-primary]'
-				,
+				light: 'text-[--color-text-primary]',
 				elevated: 'text-[--color-text-primary]',
 				flat: 'text-[--color-text-primary]'
 			}[variant],
-			{ xs: 'w-3 h-3', sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6', xl: 'w-8 h-8', '2xl': 'w-10 h-10', '1/4': 'w-3 h-3', '1/3': 'w-4 h-4', '2/5': 'w-4 h-4', '1/2': 'w-5 h-5', '3/5': 'w-5 h-5', '2/3': 'w-6 h-6', '3/4': 'w-8 h-8', full: 'w-10 h-10' }[size] ?? 'w-5 h-5',
+			{
+				xs: 'w-3 h-3',
+				sm: 'w-4 h-4',
+				md: 'w-5 h-5',
+				lg: 'w-6 h-6',
+				xl: 'w-8 h-8',
+				'2xl': 'w-10 h-10',
+				'1/4': 'w-3 h-3',
+				'1/3': 'w-4 h-4',
+				'2/5': 'w-4 h-4',
+				'1/2': 'w-5 h-5',
+				'3/5': 'w-5 h-5',
+				'2/3': 'w-6 h-6',
+				'3/4': 'w-8 h-8',
+				full: 'w-10 h-10'
+			}[size] ?? 'w-5 h-5',
 			options.filled ? 'fill-current' : '',
 			options.disabled ? 'opacity-[var(--opacity-50)]' : '',
 			options.className ?? ''
@@ -126,7 +166,22 @@ export class IconStyleManager {
 
 		return mergeClassNames(
 			'inline-flex items-center justify-center',
-			{ xs: 'p-0.5', sm: 'p-1', md: 'p-1.5', lg: 'p-2', xl: 'p-3', '2xl': 'p-4', '1/4': 'p-0.5', '1/3': 'p-1', '2/5': 'p-1', '1/2': 'p-1.5', '3/5': 'p-1.5', '2/3': 'p-2', '3/4': 'p-3', full: 'p-4' }[size] ?? 'p-1.5',
+			{
+				xs: 'p-0.5',
+				sm: 'p-1',
+				md: 'p-1.5',
+				lg: 'p-2',
+				xl: 'p-3',
+				'2xl': 'p-4',
+				'1/4': 'p-0.5',
+				'1/3': 'p-1',
+				'2/5': 'p-1',
+				'1/2': 'p-1.5',
+				'3/5': 'p-1.5',
+				'2/3': 'p-2',
+				'3/4': 'p-3',
+				full: 'p-4'
+			}[size] ?? 'p-1.5',
 			this.getWrapperShapeClass(shape),
 			{
 				default: 'text-[--color-text-primary] bg-[--color-background-secondary]',
@@ -139,14 +194,14 @@ export class IconStyleManager {
 				info: 'text-[--color-info-500] bg-[--color-info-100]',
 				gray: 'text-[--color-neutral-500] bg-[--color-neutral-100]',
 				solid: 'text-[--color-primary-600] bg-[--color-primary-100]',
-				outline: 'text-[--color-text-primary] bg-transparent border border-[--color-border-primary]',
+				outline:
+					'text-[--color-text-primary] bg-transparent border border-[--color-border-primary]',
 				ghost: 'text-[--color-text-primary] bg-transparent',
 				link: 'text-[--color-primary-600] bg-transparent',
 				subtle: 'text-[--color-text-primary] bg-[--color-background-secondary]',
 				neutral: 'text-[--color-neutral-500] bg-[--color-neutral-100]',
 				dark: 'text-[--color-text-inverse] bg-[--color-neutral-800]',
-				light: 'text-[--color-text-primary] bg-[--color-neutral-50]'
-				,
+				light: 'text-[--color-text-primary] bg-[--color-neutral-50]',
 				elevated: 'text-[--color-text-primary] bg-[--color-background-primary] shadow-sm',
 				flat: 'text-[--color-text-primary] bg-[--color-background-secondary]'
 			}[color],
@@ -168,8 +223,7 @@ export class IconStyleManager {
 						neutral: 'text-[--color-neutral-500]',
 						gray: 'text-[--color-neutral-500]',
 						dark: 'text-[--color-text-inverse]',
-						light: 'text-[--color-text-primary]'
-						,
+						light: 'text-[--color-text-primary]',
 						elevated: 'text-[--color-text-primary]',
 						flat: 'text-[--color-text-primary]'
 					}[variant]
@@ -179,10 +233,3 @@ export class IconStyleManager {
 		);
 	}
 }
-
-
-
-
-
-
-

@@ -12,10 +12,18 @@ export function createIdef0FunctionBoxState(props: Idef0FunctionBoxProps) {
 	const subtitleClasses = $derived(Idef0StyleManager.getFunctionBoxSubtitleClasses());
 
 	return {
-		get groupClasses() { return groupClasses; },
-		get rectClasses() { return rectClasses; },
-		get titleClasses() { return titleClasses; },
-		get subtitleClasses() { return subtitleClasses; }
+		get groupClasses() {
+			return groupClasses;
+		},
+		get rectClasses() {
+			return rectClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get subtitleClasses() {
+			return subtitleClasses;
+		}
 	};
 }
 

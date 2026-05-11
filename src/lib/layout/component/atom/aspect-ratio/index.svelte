@@ -9,8 +9,3 @@
 <div style:--aspect-ratio={state.ratio} class={state.classes} {...state.restProps}>
 	{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 </div>
-
-
-
-
-

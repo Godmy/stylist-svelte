@@ -42,7 +42,3 @@
 		class={state.labelClasses}
 	/>
 </g>
-
-
-
-

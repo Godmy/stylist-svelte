@@ -11,7 +11,7 @@
 
 	let props: StylistProps = $props();
 	const state = createStylistState(props);
-  let rootElement: HTMLElement;
+	let rootElement: HTMLElement;
 
 	$effect(() => {
 		state.onSelectionChange?.({
@@ -68,8 +68,8 @@
 			</div>
 
 			<p class="panel-copy">
-				Выберите категорию свойств, затем уточняющую иконку. Компонент хранит выбор по
-				каждой группе отдельно.
+				Выберите категорию свойств, затем уточняющую иконку. Компонент хранит выбор по каждой группе
+				отдельно.
 			</p>
 
 			<div class="category-list" role="tablist" aria-label="Категории RecipeStylist">
@@ -138,7 +138,9 @@
 
 				<div class="summary-list">
 					{#each categories as category}
-						{@const selectedOption = category.options.find((option) => option.id === state.selections[category.id])}
+						{@const selectedOption = category.options.find(
+							(option) => option.id === state.selections[category.id]
+						)}
 						<div class="summary-item" style={`--summary-accent: ${category.accent};`}>
 							<span class="summary-icon">
 								<BaseIcon name={category.icon} class="mini-icon" />
@@ -154,6 +156,10 @@
 		</div>
 	{/if}
 </div>
+
+<story name="default">
+	<!-- RecipeStylist organism component -->
+</story>
 
 <style>
 	.stylist {
@@ -342,7 +348,11 @@
 	}
 
 	.option-button.selected {
-		border-color: color-mix(in srgb, var(--option-card-accent, var(--color-primary-600)) 58%, white);
+		border-color: color-mix(
+			in srgb,
+			var(--option-card-accent, var(--color-primary-600)) 58%,
+			white
+		);
 		background: color-mix(in srgb, var(--option-card-accent, var(--color-primary-600)) 10%, white);
 	}
 
@@ -361,7 +371,11 @@
 		width: var(--spacing-10);
 		height: var(--spacing-10);
 		border-radius: var(--border-radius-xxl);
-		background: color-mix(in srgb, var(--category-accent, var(--option-card-accent, var(--color-primary-600))) 14%, white);
+		background: color-mix(
+			in srgb,
+			var(--category-accent, var(--option-card-accent, var(--color-primary-600))) 14%,
+			white
+		);
 		color: var(--category-accent, var(--option-card-accent, var(--color-primary-600)));
 	}
 
@@ -456,7 +470,3 @@
 		}
 	}
 </style>
-
-<story name="default">
-	<!-- RecipeStylist organism component -->
-</story>

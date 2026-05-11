@@ -8,10 +8,14 @@ export function createDiscountApplierState(props: DiscountApplierContract) {
 
 	const appliedCodes = $derived(props.appliedCodes ?? []);
 
-	const containerClasses = $derived(DiscountApplierStyleManager.getContainerClasses(String(props.class ?? '')));
+	const containerClasses = $derived(
+		DiscountApplierStyleManager.getContainerClasses(String(props.class ?? ''))
+	);
 	const headerClasses = $derived(DiscountApplierStyleManager.getHeaderClasses());
 	const titleClasses = $derived(DiscountApplierStyleManager.getTitleClasses());
-	const promoCodeContainerClasses = $derived(DiscountApplierStyleManager.getPromoCodeContainerClasses());
+	const promoCodeContainerClasses = $derived(
+		DiscountApplierStyleManager.getPromoCodeContainerClasses()
+	);
 	const promoCodeInputClasses = $derived(DiscountApplierStyleManager.getPromoCodeInputClasses());
 	const applyButtonClasses = $derived(DiscountApplierStyleManager.getApplyButtonClasses());
 	const rulesListClasses = $derived(DiscountApplierStyleManager.getRulesListClasses());
@@ -20,7 +24,9 @@ export function createDiscountApplierState(props: DiscountApplierContract) {
 	const ruleDescriptionClasses = $derived(DiscountApplierStyleManager.getRuleDescriptionClasses());
 	const discountValueClasses = $derived(DiscountApplierStyleManager.getDiscountValueClasses());
 	const appliedBadgeClasses = $derived(DiscountApplierStyleManager.getAppliedBadgeClasses());
-	const appliedRulesContainerClasses = $derived(DiscountApplierStyleManager.getAppliedRulesContainerClasses());
+	const appliedRulesContainerClasses = $derived(
+		DiscountApplierStyleManager.getAppliedRulesContainerClasses()
+	);
 	const successMessageClasses = $derived(DiscountApplierStyleManager.getSuccessMessageClasses());
 	const errorMessageClasses = $derived(DiscountApplierStyleManager.getErrorMessageClasses());
 
@@ -61,25 +67,63 @@ export function createDiscountApplierState(props: DiscountApplierContract) {
 	}
 
 	return {
-		get codeInput() { return codeInput; },
-		set codeInput(v: string) { codeInput = v; },
-		get message() { return message; },
-		get appliedCodes() { return appliedCodes; },
-		get containerClasses() { return containerClasses; },
-		get headerClasses() { return headerClasses; },
-		get titleClasses() { return titleClasses; },
-		get promoCodeContainerClasses() { return promoCodeContainerClasses; },
-		get promoCodeInputClasses() { return promoCodeInputClasses; },
-		get applyButtonClasses() { return applyButtonClasses; },
-		get rulesListClasses() { return rulesListClasses; },
-		get ruleItemClasses() { return ruleItemClasses; },
-		get ruleNameClasses() { return ruleNameClasses; },
-		get ruleDescriptionClasses() { return ruleDescriptionClasses; },
-		get discountValueClasses() { return discountValueClasses; },
-		get appliedBadgeClasses() { return appliedBadgeClasses; },
-		get appliedRulesContainerClasses() { return appliedRulesContainerClasses; },
-		get successMessageClasses() { return successMessageClasses; },
-		get errorMessageClasses() { return errorMessageClasses; },
+		get codeInput() {
+			return codeInput;
+		},
+		set codeInput(v: string) {
+			codeInput = v;
+		},
+		get message() {
+			return message;
+		},
+		get appliedCodes() {
+			return appliedCodes;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get promoCodeContainerClasses() {
+			return promoCodeContainerClasses;
+		},
+		get promoCodeInputClasses() {
+			return promoCodeInputClasses;
+		},
+		get applyButtonClasses() {
+			return applyButtonClasses;
+		},
+		get rulesListClasses() {
+			return rulesListClasses;
+		},
+		get ruleItemClasses() {
+			return ruleItemClasses;
+		},
+		get ruleNameClasses() {
+			return ruleNameClasses;
+		},
+		get ruleDescriptionClasses() {
+			return ruleDescriptionClasses;
+		},
+		get discountValueClasses() {
+			return discountValueClasses;
+		},
+		get appliedBadgeClasses() {
+			return appliedBadgeClasses;
+		},
+		get appliedRulesContainerClasses() {
+			return appliedRulesContainerClasses;
+		},
+		get successMessageClasses() {
+			return successMessageClasses;
+		},
+		get errorMessageClasses() {
+			return errorMessageClasses;
+		},
 		formatDiscount,
 		isApplied,
 		handleApplyCode,

@@ -4,4 +4,4 @@ export type TextInputBaseProps = {
 	maxLength?: number;
 	minLength?: number;
 	pattern?: string;
-}
+};

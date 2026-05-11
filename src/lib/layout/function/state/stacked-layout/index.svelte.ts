@@ -3,11 +3,12 @@ import type { StackedLayoutDirection } from '$stylist/layout/type/enum/stacked-l
 import type { StackedLayoutGap } from '$stylist/layout/type/enum/stacked-layout-gap';
 import type { StackedLayoutProps } from '$stylist/layout/interface/recipe/stacked-layout';
 
-
 export function createStackedLayoutState(props: StackedLayoutProps) {
 	const direction = $derived<StackedLayoutDirection>(props.direction ?? 'vertical');
 	const gap = $derived<StackedLayoutGap>(props.gap ?? 'md');
-	const alignItems = $derived<'start' | 'center' | 'end' | 'stretch'>(props.alignItems ?? 'stretch');
+	const alignItems = $derived<'start' | 'center' | 'end' | 'stretch'>(
+		props.alignItems ?? 'stretch'
+	);
 	const justifyContent = $derived<'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'>(
 		props.justifyContent ?? 'start'
 	);

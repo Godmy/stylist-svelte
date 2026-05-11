@@ -3,4 +3,4 @@ export type PaymentSummaryTax = {
 	name: string;
 	rate: number;
 	amount: number;
-}
+};

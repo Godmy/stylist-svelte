@@ -1,6 +1,7 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
-export interface ContractImageWithCaption extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
+export interface ContractImageWithCaption
+	extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
 	/** Image source */
 	src?: string;
 	/** Alt text */

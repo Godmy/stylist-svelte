@@ -22,7 +22,13 @@
 			layer: 'layer30',
 			children: [
 				{ id: 'camera', title: 'Camera', position: { x: 0, y: 0 }, depth: 430, accent: '#f97316' },
-				{ id: 'semantic-zoom', title: 'Semantic Zoom', position: { x: 0, y: 0 }, depth: 360, accent: '#22c55e' }
+				{
+					id: 'semantic-zoom',
+					title: 'Semantic Zoom',
+					position: { x: 0, y: 0 },
+					depth: 360,
+					accent: '#22c55e'
+				}
 			]
 		},
 		{
@@ -80,4 +86,3 @@
 		viewportHeight: 720
 	}}
 />
-

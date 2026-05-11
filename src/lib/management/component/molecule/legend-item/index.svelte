@@ -1,25 +1,25 @@
 <script lang="ts">
-  import Icon from '$stylist/media/component/atom/icon/index.svelte';
-  import { createLegendItemState } from '$stylist/management/function/state/legend-item';
-  import type { LegendItemType } from '$stylist/management/type/alias/legend-item-type';
-  import type { LegendItemVariant } from '$stylist/management/type/alias/legend-item-variant';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import { createLegendItemState } from '$stylist/management/function/state/legend-item';
+	import type { LegendItemType } from '$stylist/management/type/alias/legend-item-type';
+	import type { LegendItemVariant } from '$stylist/management/type/alias/legend-item-variant';
 
-  let props: Parameters<typeof createLegendItemState>[0] = $props();
-  const state = createLegendItemState(props);
+	let props: Parameters<typeof createLegendItemState>[0] = $props();
+	const state = createLegendItemState(props);
 </script>
 
 <div
-  class={state.itemClasses}
-  onclick={state.handleClick}
-  role={props.onClick ? "button" : undefined}
-  {...(props.onClick ? {tabindex: 0} : {})}
-  onkeydown={state.handleKeyDown}
+	class={state.itemClasses}
+	onclick={state.handleClick}
+	role={props.onClick ? 'button' : undefined}
+	{...props.onClick ? { tabindex: 0 } : {}}
+	onkeydown={state.handleKeyDown}
 >
-  <div class={state.iconClasses}>
-    <Icon name={state.getIconName(state.type)} size="sm" />
-  </div>
-  <div class={state.labelClasses}>{state.label}</div>
-  {#if state.count > 0}
-    <div class={state.countClasses}>{state.count}</div>
-  {/if}
+	<div class={state.iconClasses}>
+		<Icon name={state.getIconName(state.type)} size="sm" />
+	</div>
+	<div class={state.labelClasses}>{state.label}</div>
+	{#if state.count > 0}
+		<div class={state.countClasses}>{state.count}</div>
+	{/if}
 </div>

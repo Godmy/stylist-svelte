@@ -10,7 +10,10 @@ export class StickyLayoutStyleManager {
 	}
 
 	static getStickyFooterClass(shadow: boolean): string {
-		return mergeClassNames('sticky bottom-0 z-10 shrink-0', shadow && 'shadow-[0_-1px_3px_rgba(0,0,0,0.1)]');
+		return mergeClassNames(
+			'sticky bottom-0 z-10 shrink-0',
+			shadow && 'shadow-[0_-1px_3px_rgba(0,0,0,0.1)]'
+		);
 	}
 
 	static getScrollableContentClass(fillHeight: boolean): string {

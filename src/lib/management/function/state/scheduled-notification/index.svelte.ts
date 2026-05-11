@@ -18,9 +18,15 @@ export function createScheduledNotificationState(props: ScheduledNotificationSta
 	});
 
 	return {
-		get notifications() { return notifications; },
-		get containerClasses() { return containerClasses; },
-		get restProps() { return restProps; }
+		get notifications() {
+			return notifications;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

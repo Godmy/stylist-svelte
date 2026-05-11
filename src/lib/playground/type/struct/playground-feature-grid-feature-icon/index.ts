@@ -1,1 +1,7 @@
-export type PlaygroundFeatureGridFeatureIcon = 'sparkles' | 'zap' | 'git-branch' | 'code' | 'layers' | 'users';
+export type PlaygroundFeatureGridFeatureIcon =
+	| 'sparkles'
+	| 'zap'
+	| 'git-branch'
+	| 'code'
+	| 'layers'
+	| 'users';

@@ -3,9 +3,9 @@ import type { InformationHTMLAttributes } from '$stylist/information/type/struct
 import type { TypographyTextProps } from '$stylist/typography/type/struct/typography-text-props';
 import type { Snippet } from 'svelte';
 
-export interface ThemeStrikeThroughtRecipe extends StructIntersectAll<[Omit<
-	InformationHTMLAttributes<HTMLElement>,
-	keyof TypographyTextProps
->, TypographyTextProps]> {		children?: Snippet;
-	
+export interface ThemeStrikeThroughtRecipe
+	extends StructIntersectAll<
+		[Omit<InformationHTMLAttributes<HTMLElement>, keyof TypographyTextProps>, TypographyTextProps]
+	> {
+	children?: Snippet;
 }

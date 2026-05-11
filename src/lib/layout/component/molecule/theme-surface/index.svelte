@@ -9,7 +9,9 @@
 </script>
 
 <svelte:head>
-	<style>{StyleManagerThemeSurface.getStyleSheet()}</style>
+	<style>
+{StyleManagerThemeSurface.getStyleSheet()}
+	</style>
 </svelte:head>
 
 <ThemeConsumer>

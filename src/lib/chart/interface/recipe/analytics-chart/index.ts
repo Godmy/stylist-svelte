@@ -11,13 +11,9 @@ import type { AnalyticsChartDataPoint } from '$stylist/chart/type/struct/analyti
  * AnalyticsChart = label + caption + frame + legend toggle + analytics dataset.
  */
 export interface AnalyticsChartRecipe
-	extends StructIntersectAll<[
-		IDimensionable,
-		ILabelSlot,
-		ICaptionSlot,
-		ILegendable,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<
+		[IDimensionable, ILabelSlot, ICaptionSlot, ILegendable, ThemeAttributes<HTMLDivElement>]
+	> {
 	data: AnalyticsChartDataPoint[];
 	type?: TokenAnalyticsChartType;
 	title?: string;
@@ -26,4 +22,3 @@ export interface AnalyticsChartRecipe
 	chartClass?: string;
 	legendClass?: string;
 }
-

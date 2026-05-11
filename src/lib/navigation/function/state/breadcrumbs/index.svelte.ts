@@ -2,7 +2,6 @@ import type { BreadcrumbsProps } from '$stylist/navigation/type/struct/breadcrum
 import { getBreadcrumbDropdownItems } from '$stylist/navigation/function/script/get-breadcrumb-dropdown-items';
 import { getBreadcrumbItems } from '$stylist/navigation/function/script/get-breadcrumb-items';
 
-
 export function createBreadcrumbsState(props: BreadcrumbsProps) {
 	let hoveredId = $state<string | null>(null);
 	const visibleCrumbs = $derived(getBreadcrumbItems(props.crumbs ?? [], props.activeId));

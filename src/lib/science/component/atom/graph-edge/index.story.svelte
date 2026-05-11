@@ -29,10 +29,20 @@
 	const CANVAS_HEIGHT = 320;
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'edgeType', type: 'select', options: ['straight', 'curve', 'polyline'], defaultValue: 'straight' },
+		{
+			name: 'edgeType',
+			type: 'select',
+			options: ['straight', 'curve', 'polyline'],
+			defaultValue: 'straight'
+		},
 		{ name: 'directed', type: 'boolean', defaultValue: true },
 		{ name: 'active', type: 'boolean', defaultValue: false },
-		{ name: 'nodeSize', type: 'select', options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'], defaultValue: 'md' },
+		{
+			name: 'nodeSize',
+			type: 'select',
+			options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+			defaultValue: 'md'
+		},
 		{ name: 'edgeColor', type: 'color', defaultValue: '#2563eb' },
 		{ name: 'edgeThickness', type: 'range', defaultValue: 3, min: 1, max: 8, step: 1 },
 		{ name: 'showLabels', type: 'boolean', defaultValue: true },
@@ -41,8 +51,20 @@
 
 	let nodes = $state<DemoNode[]>([
 		{ id: 'node-1', label: 'Source', type: 'source', color: '#14b8a6', position: { x: 80, y: 90 } },
-		{ id: 'node-2', label: 'Gateway', type: 'gateway', color: '#f59e0b', position: { x: 280, y: 50 } },
-		{ id: 'node-3', label: 'Target', type: 'target', color: '#3b82f6', position: { x: 500, y: 200 } }
+		{
+			id: 'node-2',
+			label: 'Gateway',
+			type: 'gateway',
+			color: '#f59e0b',
+			position: { x: 280, y: 50 }
+		},
+		{
+			id: 'node-3',
+			label: 'Target',
+			type: 'target',
+			color: '#3b82f6',
+			position: { x: 500, y: 200 }
+		}
 	]);
 
 	let selectedNodeId = $state('node-1');
@@ -164,11 +186,7 @@
 				data-graph-canvas="edge-story"
 				class="edge-stage"
 				onpointermove={(event) =>
-					dragNode(
-						event,
-						Boolean(values.snapToGrid),
-						(values.nodeSize as GraphNodeSize) ?? 'md'
-					)}
+					dragNode(event, Boolean(values.snapToGrid), (values.nodeSize as GraphNodeSize) ?? 'md')}
 				onpointerup={stopDrag}
 				onpointerleave={stopDrag}
 			>
@@ -222,11 +240,7 @@
 			</div>
 
 			<div class="grid gap-3">
-				{#each [
-					{ id: 'straight', label: 'Straight', type: 'straight', color: '#334155' },
-					{ id: 'curve', label: 'Curve', type: 'curve', color: '#2563eb' },
-					{ id: 'polyline', label: 'Polyline', type: 'polyline', color: '#0f766e' }
-				] as item}
+				{#each [{ id: 'straight', label: 'Straight', type: 'straight', color: '#334155' }, { id: 'curve', label: 'Curve', type: 'curve', color: '#2563eb' }, { id: 'polyline', label: 'Polyline', type: 'polyline', color: '#0f766e' }] as item}
 					<div class="variant-track">
 						<div class="variant-copy">
 							<strong>{item.label}</strong>
@@ -296,7 +310,9 @@
 		background:
 			radial-gradient(circle at center, rgba(148, 163, 184, 0.18), transparent 60%),
 			linear-gradient(180deg, #ffffff, #f8fafc);
-		background-size: 20px 20px, auto;
+		background-size:
+			20px 20px,
+			auto;
 	}
 
 	.edge-story-footer {
@@ -359,6 +375,10 @@
 		transform: translateY(-50%);
 	}
 
-	.variant-anchor-start { left: 8px; }
-	.variant-anchor-end { right: 8px; }
+	.variant-anchor-start {
+		left: 8px;
+	}
+	.variant-anchor-end {
+		right: 8px;
+	}
 </style>

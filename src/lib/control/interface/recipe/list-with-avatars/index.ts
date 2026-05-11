@@ -18,13 +18,6 @@ import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface ListWithAvatarsRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		ISelectable<string>,
-		IFocusable,
-		ISizable,
-		IScrollable
-	]>
-{}
-
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, ISelectable<string>, IFocusable, ISizable, IScrollable]
+	> {}

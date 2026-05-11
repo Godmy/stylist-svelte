@@ -8,12 +8,27 @@
 	import TabPanel from '../tab-panel/index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'selectedId', type: 'select', defaultValue: 'summary', options: ['summary', 'files', 'logs'] },
-		{ name: 'class', type: 'text', defaultValue: 'rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-5' }
+		{
+			name: 'selectedId',
+			type: 'select',
+			defaultValue: 'summary',
+			options: ['summary', 'files', 'logs']
+		},
+		{
+			name: 'class',
+			type: 'text',
+			defaultValue:
+				'rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-5'
+		}
 	];
 </script>
 
-<Story component={TabPanels} title="TabPanels" description="Container that groups tab panels into a consistent content region." {controls}>
+<Story
+	component={TabPanels}
+	title="TabPanels"
+	description="Container that groups tab panels into a consistent content region."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<Tabs selectedId={values.selectedId}>
 			<TabList class="mb-3">
@@ -29,6 +44,3 @@
 		</Tabs>
 	{/snippet}
 </Story>
-
-
-

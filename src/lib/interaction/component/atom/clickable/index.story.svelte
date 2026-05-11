@@ -7,7 +7,12 @@
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'hoverEffect', type: 'boolean', defaultValue: true },
 		{ name: 'pressEffect', type: 'boolean', defaultValue: true },
-		{ name: 'cursor', type: 'select', defaultValue: 'pointer', options: ['pointer', 'default', 'grab', 'not-allowed'] }
+		{
+			name: 'cursor',
+			type: 'select',
+			defaultValue: 'pointer',
+			options: ['pointer', 'default', 'grab', 'not-allowed']
+		}
 	];
 
 	let eventName = $state('click the card');
@@ -40,7 +45,9 @@
 				}}
 			>
 				{#snippet children()}
-					<div class="flex min-h-28 items-center justify-between rounded-2xl border border-slate-200 bg-white px-5 py-4">
+					<div
+						class="flex min-h-28 items-center justify-between rounded-2xl border border-slate-200 bg-white px-5 py-4"
+					>
 						<span class="font-medium text-slate-900">Interactive story card</span>
 						<strong class="text-2xl text-sky-700">{count}</strong>
 					</div>

@@ -1,8 +1,8 @@
 export type FileType = {
-  id: string;
-  name: string;
-  size: number;
-  type: string;
-  status: 'uploading' | 'success' | 'error';
-  progress?: number;
+	id: string;
+	name: string;
+	size: number;
+	type: string;
+	status: 'uploading' | 'success' | 'error';
+	progress?: number;
 };

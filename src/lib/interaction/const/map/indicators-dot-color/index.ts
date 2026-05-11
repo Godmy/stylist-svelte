@@ -16,4 +16,3 @@ export const INDICATORS_DOT_COLOR = {
 	dark: 'bg-[--color-neutral-800]',
 	light: 'bg-[--color-neutral-300]'
 } as const;
-

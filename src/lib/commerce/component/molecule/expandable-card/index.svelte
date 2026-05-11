@@ -26,16 +26,10 @@
 			</div>
 		</div>
 
-		<Icon
-			name={ObjectManagerExpandableCard.chevronIcon}
-			class={state.chevronClasses}
-		/>
+		<Icon name={ObjectManagerExpandableCard.chevronIcon} class={state.chevronClasses} />
 	</button>
 
-	<div
-		id={ObjectManagerExpandableCard.detailsId}
-		class={state.detailsContainerClasses}
-	>
+	<div id={ObjectManagerExpandableCard.detailsId} class={state.detailsContainerClasses}>
 		<div class={state.detailsContentClasses}>
 			{#if props.details}{@render props.details()}{/if}
 		</div>

@@ -5,4 +5,3 @@ export const GRID_MOLECULE_GAP_MAP = {
 	lg: 'gap-6',
 	xl: 'gap-8'
 } as const;
-

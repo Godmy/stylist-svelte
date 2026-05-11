@@ -3,7 +3,12 @@
 	import Controls from './index.svelte';
 </script>
 
-<Story component={Controls} title="Controls" category="Organisms/Control/Controls" description="Placeholder controls component">
+<Story
+	component={Controls}
+	title="Controls"
+	category="Organisms/Control/Controls"
+	description="Placeholder controls component"
+>
 	{#snippet children(values: any)}
 		<Controls />
 	{/snippet}

@@ -5,12 +5,18 @@ import type { PageBuilderHeadingAttributes } from '../../../type/struct/page-bui
 import type { PageBuilderImageAttributes } from '../../../type/struct/page-builder-image-attributes';
 import type { PageBuilderTextAttributes } from '../../../type/struct/page-builder-text-attributes';
 
-export function pageBuilderGetDefaultAttributes(type: TokenComponentType): PageBuilderElement['attributes'] {
+export function pageBuilderGetDefaultAttributes(
+	type: TokenComponentType
+): PageBuilderElement['attributes'] {
 	switch (type) {
 		case 'text':
 			return { FONT_SIZE: '16px', color: 'var(--color-text-primary)' } as PageBuilderTextAttributes;
 		case 'heading':
-			return { level: 2, FONT_SIZE: '32px', color: 'var(--color-text-primary)' } as PageBuilderHeadingAttributes;
+			return {
+				level: 2,
+				FONT_SIZE: '32px',
+				color: 'var(--color-text-primary)'
+			} as PageBuilderHeadingAttributes;
 		case 'button':
 			return {
 				backgroundColor: 'var(--color-primary-500)',

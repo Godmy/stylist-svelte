@@ -1,10 +1,6 @@
 import { formatAnimatedValue } from '$stylist/typography/function/script/format-animated-value';
 import { formatNumberFlowValue } from '$stylist/typography/function/script/format-number-flow-value';
 
-
-
-
-
 export class AnimationStyleManager {
 	static readonly defaultLanguage = 'en';
 
@@ -38,11 +34,12 @@ export class AnimationStyleManager {
 
 	static formatAnimated(
 		value: number,
-		options: { format?: 'number' | 'percent' | 'currency'; separator?: string; decimals?: number } = {}
+		options: {
+			format?: 'number' | 'percent' | 'currency';
+			separator?: string;
+			decimals?: number;
+		} = {}
 	): string {
 		return formatAnimatedValue(value, options);
 	}
 }
-
-
-

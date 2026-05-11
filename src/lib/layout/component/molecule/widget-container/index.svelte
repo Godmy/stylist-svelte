@@ -12,11 +12,7 @@
 	const state = createWidgetContainerState(props);
 </script>
 
-<div
-	class={state.rootClass}
-	class:collapsed={state.isCollapsed}
-	{...state.restProps}
->
+<div class={state.rootClass} class:collapsed={state.isCollapsed} {...state.restProps}>
 	<div class={state.headerClass}>
 		{#if state.draggable}
 			<div class={state.handleClass}>
@@ -62,21 +58,27 @@
 				>
 					{#if state.isCollapsed}
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M19 9l-7 7-7-7"
+							/>
 						</svg>
 					{:else}
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M5 15l7-7 7 7"
+							/>
 						</svg>
 					{/if}
 				</button>
 			{/if}
 
-			<button
-				type="button"
-				class={state.iconButtonClass}
-				aria-label="More options"
-			>
+			<button type="button" class={state.iconButtonClass} aria-label="More options">
 				<BaseIcon name={MoreHorizontal} class="h-5 w-5" />
 			</button>
 		</div>
@@ -88,10 +90,3 @@
 		</div>
 	{/if}
 </div>
-
-
-
-
-
-
-

@@ -2,7 +2,7 @@
 	import { Story } from '$stylist/playground/component';
 	import StepIcon from './index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-  import type { SlotStepIcon as IStepIconProps } from '$stylist/notification/interface/slot/step-icon';
+	import type { SlotStepIcon as IStepIconProps } from '$stylist/notification/interface/slot/step-icon';
 
 	let {
 		id = '',
@@ -37,10 +37,3 @@
 		<StepIcon {status} {size} {stepNumber} />
 	{/snippet}
 </Story>
-
-
-
-
-
-
-

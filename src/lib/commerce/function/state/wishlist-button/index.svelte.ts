@@ -18,12 +18,24 @@ export function createWishlistButtonState(props: WishlistButtonRecipe) {
 	);
 
 	return {
-		get isLoading() { return isLoading; },
-		get showMessage() { return showMessage; },
-		get message() { return message; },
-		get inWishlist() { return inWishlist; },
-		get containerClass() { return containerClass; },
-		get buttonClass() { return buttonClass; },
+		get isLoading() {
+			return isLoading;
+		},
+		get showMessage() {
+			return showMessage;
+		},
+		get message() {
+			return message;
+		},
+		get inWishlist() {
+			return inWishlist;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get buttonClass() {
+			return buttonClass;
+		},
 		async toggleWishlist() {
 			if (props.disabled || isLoading) return;
 			isLoading = true;
@@ -42,7 +54,9 @@ export function createWishlistButtonState(props: WishlistButtonRecipe) {
 				setTimeout(() => (showMessage = false), 1500);
 			}
 		},
-		hideMessage() { showMessage = false; }
+		hideMessage() {
+			showMessage = false;
+		}
 	};
 }
 

@@ -31,14 +31,15 @@ import type { InputSpecificProps } from '$stylist/input/type/struct/input-specif
  *   - Search: type='search', onSearch
  */
 export interface InputRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IIconSlot,
-		IStatusSlot,
-		IFocusable,
-		ISizable,
-		ThemeAttributes<HTMLInputElement>
-	]>,
-		InputSpecificProps
-{}
+	extends StructIntersectAll<
+			[
+				ILabelSlot,
+				ICaptionSlot,
+				IIconSlot,
+				IStatusSlot,
+				IFocusable,
+				ISizable,
+				ThemeAttributes<HTMLInputElement>
+			]
+		>,
+		InputSpecificProps {}

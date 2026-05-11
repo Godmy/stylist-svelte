@@ -9,7 +9,9 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { SlotProductTourStep } from '$stylist/commerce/interface/slot/product-tour-step';
 import type { BehaviorProductTourEvents } from '$stylist/commerce/interface/behavior/product-tour-events';
 
-export interface RecipeProductTour extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorProductTourEvents {
+export interface RecipeProductTour
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorProductTourEvents {
 	/** List of tour steps */
 	steps: SlotProductTourStep[];
 	/** Current step index */

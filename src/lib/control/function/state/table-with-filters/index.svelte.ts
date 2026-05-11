@@ -12,14 +12,20 @@ export function createTableWithFiltersState(props: TableWithFiltersProps) {
 	let filtered = $derived(
 		ObjectManagerTableControls.filterRows(props.data ?? [], props.columns ?? [], filters)
 	);
-	let rootClass = $derived(TableExtendedStyleManager.root('c-table-with-filters', props.class ?? ''));
+	let rootClass = $derived(
+		TableExtendedStyleManager.root('c-table-with-filters', props.class ?? '')
+	);
 
 	return {
 		get filters() {
 			return filters;
 		},
-		get filtered() { return filtered; },
-		get rootClass() { return rootClass; },
+		get filtered() {
+			return filtered;
+		},
+		get rootClass() {
+			return rootClass;
+		},
 		updateFilter
 	};
 }

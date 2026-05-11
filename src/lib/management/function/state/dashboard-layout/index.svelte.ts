@@ -19,11 +19,13 @@ export function createDashboardLayoutState(props: DashboardLayoutProps) {
 	});
 
 	// Computed
-	const variantClasses = $derived({
-		default: 'p-4',
-		compact: 'p-2',
-		spacious: 'p-6'
-	}[variant]);
+	const variantClasses = $derived(
+		{
+			default: 'p-4',
+			compact: 'p-2',
+			spacious: 'p-6'
+		}[variant]
+	);
 
 	const sidebarWidthClass = $derived(isSidebarOpen ? 'w-64' : 'w-16');
 

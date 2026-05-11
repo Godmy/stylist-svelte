@@ -17,9 +17,14 @@ export class StyleManagerBase {
 	}
 
 	static getClasses(
-		keys: keyof typeof StyleManagerBase.classes | readonly (keyof typeof StyleManagerBase.classes)[],
+		keys:
+			| keyof typeof StyleManagerBase.classes
+			| readonly (keyof typeof StyleManagerBase.classes)[],
 		additionalClass = ''
 	): string {
-		return joinClassNames(...normalizeKeys(keys).map((key) => StyleManagerBase.classes[key]), additionalClass);
+		return joinClassNames(
+			...normalizeKeys(keys).map((key) => StyleManagerBase.classes[key]),
+			additionalClass
+		);
 	}
 }

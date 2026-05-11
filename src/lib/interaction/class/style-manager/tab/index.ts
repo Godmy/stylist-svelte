@@ -28,7 +28,9 @@ export class TabStyleManager {
 			'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]',
 			this.getTabVariantClass(variant),
 			this.getTabSizeClass(size),
-			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : 'cursor-pointer',
+			disabled
+				? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none'
+				: 'cursor-pointer',
 			className
 		]);
 	}
@@ -36,7 +38,9 @@ export class TabStyleManager {
 	static getTabListClasses(variant: string = 'default', className?: string): string {
 		return this.join([
 			'inline-flex items-center gap-1',
-			variant === 'box' || variant === 'enclosed' ? 'border-b border-[var(--color-border-primary)]' : '',
+			variant === 'box' || variant === 'enclosed'
+				? 'border-b border-[var(--color-border-primary)]'
+				: '',
 			className
 		]);
 	}

@@ -11,10 +11,4 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface TextAreaControlRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		ThemeAttributes<HTMLTextAreaElement>
-	]>
-{}
-
+	extends StructIntersectAll<[ILabelSlot, ICaptionSlot, ThemeAttributes<HTMLTextAreaElement>]> {}

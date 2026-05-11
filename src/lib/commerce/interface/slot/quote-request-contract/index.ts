@@ -11,6 +11,4 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface SlotQuoteRequestContract
-	extends StructIntersectAll<[
-		ThemeAttributes<HTMLDivElement>
-	]> {}
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {}

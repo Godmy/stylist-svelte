@@ -54,8 +54,3 @@ export function createAccordionHeaderState(props: AccordionHeaderStateProps) {
 }
 
 export default createAccordionHeaderState;
-
-
-
-
-

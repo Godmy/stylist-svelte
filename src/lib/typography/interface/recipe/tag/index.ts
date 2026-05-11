@@ -1,5 +1,4 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-﻿/**
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all'; /**
  * Tag — метка с возможностью закрытия.
  *
  * LEGO-состав:
@@ -12,7 +11,8 @@ import type { ChildrenProp } from '$stylist/information/type/struct/children-pro
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface TagRecipe extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLSpanElement>]> {
+export interface TagRecipe
+	extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLSpanElement>]> {
 	variant?: TokenAppearance;
 	size?: TokenSize;
 	disabled?: boolean;

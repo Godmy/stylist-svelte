@@ -26,14 +26,7 @@ import type { LinkSpecificProps } from '$stylist/navigation/interface/recipe/lin
  *   - ButtonLink: type='button' (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ)
  */
 export interface LinkRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IIconSlot,
-		IClickable,
-		IFocusable,
-		ISizable,
-		ThemeAttributes<HTMLAnchorElement>
-	]>,
-		LinkSpecificProps
-{}
-
+	extends StructIntersectAll<
+			[ILabelSlot, IIconSlot, IClickable, IFocusable, ISizable, ThemeAttributes<HTMLAnchorElement>]
+		>,
+		LinkSpecificProps {}

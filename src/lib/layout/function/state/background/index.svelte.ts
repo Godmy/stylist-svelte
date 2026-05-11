@@ -74,5 +74,3 @@ export function createBackgroundState(props: ThemeBackgroundRecipe) {
 }
 
 export default createBackgroundState;
-
-

@@ -20,5 +20,6 @@ export interface RecipePredictionResult extends StructIntersectAll<[]> {
 	class?: string;
 	headerClass?: string;
 	contentClass?: string;
-	footerClass?: string;	children?: Snippet;
+	footerClass?: string;
+	children?: Snippet;
 }

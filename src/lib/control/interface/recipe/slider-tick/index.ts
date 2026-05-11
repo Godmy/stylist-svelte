@@ -9,9 +9,4 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface SliderTickRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ThemeAttributes<HTMLSpanElement>
-	]>
-{}
-
+	extends StructIntersectAll<[ILabelSlot, ThemeAttributes<HTMLSpanElement>]> {}

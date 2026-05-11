@@ -14,20 +14,20 @@ import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavi
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface DraggableItemRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IIconSlot,
-		IStatusSlot,
-		IDraggable,
-		ISelectable<string>,
-		ISized,
-		IShapeable,
-		ISpaced,
-		IElevatable,
-		IPositionable,
-		IMotionPreset,
-		SlotTheme,
-		HTMLAttributes<HTMLDivElement>
-	]>
-{}
-
+	extends StructIntersectAll<
+		[
+			ILabelSlot,
+			IIconSlot,
+			IStatusSlot,
+			IDraggable,
+			ISelectable<string>,
+			ISized,
+			IShapeable,
+			ISpaced,
+			IElevatable,
+			IPositionable,
+			IMotionPreset,
+			SlotTheme,
+			HTMLAttributes<HTMLDivElement>
+		]
+	> {}

@@ -10,7 +10,9 @@ import type { SlotTaxRate } from '$stylist/commerce/interface/slot/tax-rate';
 import type { SlotLocation } from '$stylist/commerce/interface/slot/location';
 import type { BehaviorTaxCalculatorEvents } from '$stylist/commerce/interface/behavior/tax-calculator-events';
 
-export interface RecipeTaxCalculator extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorTaxCalculatorEvents {
+export interface RecipeTaxCalculator
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorTaxCalculatorEvents {
 	/** List of locations */
 	locations: SlotLocation[];
 	/** List of tax rates */

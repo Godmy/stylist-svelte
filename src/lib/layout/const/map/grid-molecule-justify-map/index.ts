@@ -6,4 +6,3 @@ export const GRID_MOLECULE_JUSTIFY_MAP = {
 	around: 'justify-around',
 	evenly: 'justify-evenly'
 } as const;
-

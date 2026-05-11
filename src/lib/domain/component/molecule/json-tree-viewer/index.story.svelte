@@ -3,7 +3,9 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import JsonTreeViewer from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [{ name: 'contentState', type: 'select', defaultValue: 'valid', options: ['valid', 'invalid'] }];
+	const controls: InterfaceControllerSettings[] = [
+		{ name: 'contentState', type: 'select', defaultValue: 'valid', options: ['valid', 'invalid'] }
+	];
 
 	const validJson = JSON.stringify(
 		{

@@ -37,4 +37,3 @@ export class PresenterNodeShellStyleManager {
 		].join(';');
 	}
 }
-

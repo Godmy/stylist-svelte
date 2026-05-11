@@ -34,10 +34,18 @@ export function createZoomToolbarState(props: ZoomToolbarProps) {
 		get currentZoom() {
 			return currentZoom;
 		},
-		get rootClass() { return rootClass; },
-		get firstButtonClass() { return firstButtonClass; },
-		get buttonClass() { return buttonClass; },
-		get percentageClass() { return percentageClass; },
+		get rootClass() {
+			return rootClass;
+		},
+		get firstButtonClass() {
+			return firstButtonClass;
+		},
+		get buttonClass() {
+			return buttonClass;
+		},
+		get percentageClass() {
+			return percentageClass;
+		},
 		zoomIn,
 		zoomOut,
 		resetZoom

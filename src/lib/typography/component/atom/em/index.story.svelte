@@ -40,8 +40,7 @@
 			>
 				Ship confidently by carving time for <Em class={toneClass(values.tone)}>
 					{values.text}
-				</Em> before
-				launch.
+				</Em> before launch.
 			</p>
 
 			<p class="text-sm text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
@@ -50,13 +49,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-
-
-
-
-

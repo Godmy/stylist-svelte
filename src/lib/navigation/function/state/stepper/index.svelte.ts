@@ -5,8 +5,10 @@ export function createStepperState(props: StepperProps) {
 
 	function getStepCircleClass(status: string): string {
 		const base = 'flex flex-shrink-0 items-center justify-center w-10 h-10 rounded-full border-2';
-		if (status === 'completed') return `${base} bg-[var(--color-primary-500)] border-[var(--color-primary-500)] text-[var(--color-text-inverse)]`;
-		if (status === 'current') return `${base} bg-[var(--color-background-primary)] border-[var(--color-primary-500)] text-[var(--color-primary-500)]`;
+		if (status === 'completed')
+			return `${base} bg-[var(--color-primary-500)] border-[var(--color-primary-500)] text-[var(--color-text-inverse)]`;
+		if (status === 'current')
+			return `${base} bg-[var(--color-background-primary)] border-[var(--color-primary-500)] text-[var(--color-primary-500)]`;
 		return `${base} bg-[var(--color-background-primary)] border-[var(--color-border-primary)] text-[var(--color-text-secondary)]`;
 	}
 
@@ -38,6 +40,5 @@ export function createStepperState(props: StepperProps) {
 		getConnectorClass
 	};
 }
- 
- 
+
 export default createStepperState;

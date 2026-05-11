@@ -3,7 +3,11 @@
 	import BreadcrumbSeparator from './index.svelte';
 </script>
 
-<Story component={BreadcrumbSeparator} title="BreadcrumbSeparator" description="Separator element used between breadcrumb items.">
+<Story
+	component={BreadcrumbSeparator}
+	title="BreadcrumbSeparator"
+	description="Separator element used between breadcrumb items."
+>
 	{#snippet children()}
 		<div class="flex items-center text-sm">
 			<span>Home</span>
@@ -14,5 +18,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-

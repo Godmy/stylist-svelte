@@ -45,7 +45,7 @@ export class ObjectManagerChart {
 				: Array.from(
 						{ length: tickCount + 1 },
 						(_, index) => endY - ((endY - startY) * index) / tickCount
-				  );
+					);
 
 		return {
 			x,
@@ -86,16 +86,8 @@ export class ObjectManagerChart {
 		};
 	}
 
-	static getPieChartRestProps(
-		props: PieChartProps & { width?: number; height?: number }
-	) {
-		const {
-			class: _class,
-			data: _data,
-			width: _width,
-			height: _height,
-			...rest
-		} = props;
+	static getPieChartRestProps(props: PieChartProps & { width?: number; height?: number }) {
+		const { class: _class, data: _data, width: _width, height: _height, ...rest } = props;
 
 		return rest;
 	}

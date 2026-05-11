@@ -14,11 +14,4 @@ import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/beha
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface QuantitySelectorRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IClickable,
-		IFocusable,
-		ISizable
-	]>
-{}
-
+	extends StructIntersectAll<[ILabelSlot, IClickable, IFocusable, ISizable]> {}

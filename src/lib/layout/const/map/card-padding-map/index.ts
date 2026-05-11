@@ -5,4 +5,3 @@ export const CARD_PADDING_MAP: Record<string, string> = {
 	lg: 'p-6',
 	xl: 'p-8'
 };
-

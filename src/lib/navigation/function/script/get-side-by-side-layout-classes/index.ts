@@ -7,7 +7,7 @@ export function getSideBySideLayoutClasses(props: SideBySideLayoutProps) {
 	const gapClass = SIDE_BY_SIDE_GAP_CLASSES[props.gap ?? 'md'];
 	const alignItemsClass = SIDE_BY_SIDE_ALIGN_CLASSES[props.alignItems ?? 'stretch'];
 	const justifyContentClass = SIDE_BY_SIDE_JUSTIFY_CLASSES[props.justifyContent ?? 'start'];
-	const responsiveClass = props.responsive ?? true ? 'flex-col md:flex-row' : 'flex-row';
+	const responsiveClass = (props.responsive ?? true) ? 'flex-col md:flex-row' : 'flex-row';
 
 	return `flex ${responsiveClass} ${alignItemsClass} ${justifyContentClass} ${gapClass} ${props.class ?? ''}`;
 }

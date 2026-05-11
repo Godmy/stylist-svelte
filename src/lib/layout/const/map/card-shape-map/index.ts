@@ -6,4 +6,3 @@ export const CARD_SHAPE_MAP: Record<LayoutShape, string> = {
 	pill: 'rounded-full',
 	circular: 'rounded-full aspect-square'
 };
-

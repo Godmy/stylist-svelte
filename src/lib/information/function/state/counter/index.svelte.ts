@@ -46,8 +46,3 @@ export function createCounterState(props: CounterRecipe) {
 }
 
 export default createCounterState;
-
-
-
-
-

@@ -18,12 +18,6 @@
 	description="Segmented control for switching views"
 >
 	{#snippet children(values: any)}
-		<ActionSegmentedControl
-			{items}
-			selectedIndex={Number(values.selectedIndex) || 0}
-		/>
+		<ActionSegmentedControl {items} selectedIndex={Number(values.selectedIndex) || 0} />
 	{/snippet}
 </Story>
-
-
-

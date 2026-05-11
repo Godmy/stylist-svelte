@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist/media';
-import type { SlotButtonElement as ButtonElementProps } from '$stylist/control/interface/slot/button-element';
-import { createSplitButtonState } from '$stylist/control/function/state/split-button';
+	import type { SlotButtonElement as ButtonElementProps } from '$stylist/control/interface/slot/button-element';
+	import { createSplitButtonState } from '$stylist/control/function/state/split-button';
 	import type { SplitButtonButtonAttributes } from '$stylist/control/type/struct/split-button-button-attributes';
 
 	const ChevronDown = 'chevron-down';
@@ -34,41 +34,65 @@ import { createSplitButtonState } from '$stylist/control/function/state/split-bu
 	 * @returns A split button with primary action and dropdown menu
 	 */
 	let props: ISplitButtonElementProps = $props();
-	const state = createSplitButtonState(
-		{
-			...props,
-			class: `${props.class ?? ''} split-button__button`.trim()
-		} as any
-	);
+	const state = createSplitButtonState({
+		...props,
+		class: `${props.class ?? ''} split-button__button`.trim()
+	} as any);
 
 	// Extract div-specific attributes to avoid type conflicts
 	let divAttributes = $derived.by(() => {
 		const allProps = props as Record<string, any>;
 		const divCompatibleProps: Record<string, any> = {};
-		
+
 		// List of attributes that are compatible with div elements
 		const divAllowedAttrs = [
-			'id', 'class', 'style', 'title', 'role', 'tabindex', 'hidden',
-			'data-*', 'aria-*' // wildcard patterns would be handled separately
+			'id',
+			'class',
+			'style',
+			'title',
+			'role',
+			'tabindex',
+			'hidden',
+			'data-*',
+			'aria-*' // wildcard patterns would be handled separately
 		];
-		
+
 		// Copy only the div-compatible attributes
 		for (const [key, value] of Object.entries(allProps)) {
 			// Include standard div attributes and data/aria attributes
 			if (
-				key.startsWith('data-') || 
-				key.startsWith('aria-') || 
+				key.startsWith('data-') ||
+				key.startsWith('aria-') ||
 				![
-					'variant', 'size', 'disabled', 'loading', 'block', 'loadingLabel', 'children',
-					'items', 'primaryAction', 'primaryLabel', 'type', 'ariaLabel',
-					'onclick', 'onfocus', 'onblur', 'onkeydown', 'onkeyup', 'onmousedown', 'onmouseup',
-					'onmouseenter', 'onmouseleave', 'onsubmit', 'onreset'
+					'variant',
+					'size',
+					'disabled',
+					'loading',
+					'block',
+					'loadingLabel',
+					'children',
+					'items',
+					'primaryAction',
+					'primaryLabel',
+					'type',
+					'ariaLabel',
+					'onclick',
+					'onfocus',
+					'onblur',
+					'onkeydown',
+					'onkeyup',
+					'onmousedown',
+					'onmouseup',
+					'onmouseenter',
+					'onmouseleave',
+					'onsubmit',
+					'onreset'
 				].includes(key)
 			) {
 				divCompatibleProps[key] = value;
 			}
 		}
-		
+
 		return divCompatibleProps;
 	});
 	const restProps = $derived(divAttributes);
@@ -81,7 +105,9 @@ import { createSplitButtonState } from '$stylist/control/function/state/split-bu
 		aria-busy={typeof props.loading === 'boolean' ? props.loading : undefined}
 		aria-live={typeof props.loading === 'boolean' && props.loading ? 'polite' : undefined}
 		class={String(state.primaryButtonClasses ?? '')}
-		aria-label={typeof props.ariaLabel === 'string' ? props.ariaLabel : props.primaryLabel || undefined}
+		aria-label={typeof props.ariaLabel === 'string'
+			? props.ariaLabel
+			: props.primaryLabel || undefined}
 		onclick={props.primaryAction}
 	>
 		{#if props.children}
@@ -92,14 +118,15 @@ import { createSplitButtonState } from '$stylist/control/function/state/split-bu
 	</button>
 	<button
 		type={props.type ?? 'button'}
-		disabled={(typeof props.disabled === 'boolean' ? props.disabled : false) || (typeof props.loading === 'boolean' ? props.loading : false)}
+		disabled={(typeof props.disabled === 'boolean' ? props.disabled : false) ||
+			(typeof props.loading === 'boolean' ? props.loading : false)}
 		class={state.toggleButtonClasses}
 		onclick={state.toggleDropdown}
 		aria-haspopup="true"
 		aria-expanded={state.isOpen}
 		aria-label="Show more options"
 	>
-					<BaseIcon name={ChevronDown} class="h-4 w-4" aria-hidden="true" />
+		<BaseIcon name={ChevronDown} class="h-4 w-4" aria-hidden="true" />
 	</button>
 
 	{#if state.isOpen}
@@ -119,19 +146,3 @@ import { createSplitButtonState } from '$stylist/control/function/state/split-bu
 		</div>
 	{/if}
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

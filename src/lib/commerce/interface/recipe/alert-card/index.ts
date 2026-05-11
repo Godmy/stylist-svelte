@@ -11,17 +11,18 @@ import type { AlertCardAction } from '$stylist/commerce/interface/slot/alert-car
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface AlertCardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IIconSlot,
-		IStatusSlot,
-		IBadgeSlot,
-		IMediaSlot,
-		ISizable,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+	extends StructIntersectAll<
+		[
+			ILabelSlot,
+			ICaptionSlot,
+			IIconSlot,
+			IStatusSlot,
+			IBadgeSlot,
+			IMediaSlot,
+			ISizable,
+			ThemeAttributes<HTMLDivElement>
+		]
+	> {
 	title?: string;
 	subtitle?: string;
 	variant?: string;

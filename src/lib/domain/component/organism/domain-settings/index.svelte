@@ -31,7 +31,12 @@
 				<p class="eyebrow">Settings</p>
 				<h2>Domain settings</h2>
 			</div>
-			<button type="button" class="close-button" onclick={onClose} aria-label="Close settings panel">
+			<button
+				type="button"
+				class="close-button"
+				onclick={onClose}
+				aria-label="Close settings panel"
+			>
 				Close
 			</button>
 		</header>
@@ -60,12 +65,11 @@
 		grid-template-rows: auto minmax(0, 1fr);
 		border: 1px solid color-mix(in srgb, var(--color-border-primary) 82%, transparent);
 		border-radius: 24px;
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
-				color-mix(in srgb, var(--color-background-primary) 90%, var(--color-background-secondary) 10%)
-			);
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
+			color-mix(in srgb, var(--color-background-primary) 90%, var(--color-background-secondary) 10%)
+		);
 		box-shadow: 0 28px 80px rgba(15, 23, 42, 0.16);
 		overflow: hidden;
 	}

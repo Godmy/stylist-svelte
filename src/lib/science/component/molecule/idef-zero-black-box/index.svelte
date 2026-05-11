@@ -39,7 +39,3 @@
 		endX={state.width - rightMargin}
 	/>
 </g>
-
-
-
-

@@ -21,17 +21,39 @@ export function createProgressBarState(props: ProgressBarProps) {
 	const fillStyle = $derived(`width: ${percentage}%`);
 
 	return {
-		get value() { return value; },
-		get max() { return max; },
-		get label() { return label; },
-		get showPercentage() { return showPercentage; },
-		get percentage() { return percentage; },
-		get containerClass() { return containerClass; },
-		get labelWrapperClass() { return labelWrapperClass; },
-		get labelClass() { return labelClass; },
-		get trackClass() { return trackClass; },
-		get fillClass() { return fillClass; },
-		get fillStyle() { return fillStyle; }
+		get value() {
+			return value;
+		},
+		get max() {
+			return max;
+		},
+		get label() {
+			return label;
+		},
+		get showPercentage() {
+			return showPercentage;
+		},
+		get percentage() {
+			return percentage;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get labelWrapperClass() {
+			return labelWrapperClass;
+		},
+		get labelClass() {
+			return labelClass;
+		},
+		get trackClass() {
+			return trackClass;
+		},
+		get fillClass() {
+			return fillClass;
+		},
+		get fillStyle() {
+			return fillStyle;
+		}
 	};
 }
 

@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
-import { createFileInputState } from '$stylist/file/function/state/file-input';
-import type { Props } from '$stylist/file/type/struct/file-input';
+	import { createFileInputState } from '$stylist/file/function/state/file-input';
+	import type { Props } from '$stylist/file/type/struct/file-input';
 
 	let props: Props = $props();
 	const state = createFileInputState(props);

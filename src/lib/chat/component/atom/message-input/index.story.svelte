@@ -14,7 +14,12 @@
 	];
 </script>
 
-<Story component={MessageInput} title="MessageInput" description="Chat-like input with optional action buttons." {controls}>
+<Story
+	component={MessageInput}
+	title="MessageInput"
+	description="Chat-like input with optional action buttons."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<div class="space-y-3">
 			<MessageInput
@@ -29,6 +34,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-

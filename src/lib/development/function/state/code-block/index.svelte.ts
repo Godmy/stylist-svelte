@@ -8,9 +8,14 @@ export function createCodeBlockState(props: CodeBlockProps) {
 	let languageClass = $derived(`language-${props.language ?? 'text'}`);
 	const containerClass = $derived(CodeStyleManager.getContainerClass(props.class ?? ''));
 	const headerClassComputed = $derived(CodeStyleManager.getHeaderClass(props.headerClass ?? ''));
-	const lineNumbersContainerClass = $derived(CodeStyleManager.getLineNumbersContainerClass(props.lineNumberClass ?? ''));
-	const lineNumberItemClass = (isHighlighted: boolean) => CodeStyleManager.getLineNumberItemClass(isHighlighted);
-	const contentContainerClass = $derived(CodeStyleManager.getContentContainerClass(props.contentClass ?? ''));
+	const lineNumbersContainerClass = $derived(
+		CodeStyleManager.getLineNumbersContainerClass(props.lineNumberClass ?? '')
+	);
+	const lineNumberItemClass = (isHighlighted: boolean) =>
+		CodeStyleManager.getLineNumberItemClass(isHighlighted);
+	const contentContainerClass = $derived(
+		CodeStyleManager.getContentContainerClass(props.contentClass ?? '')
+	);
 	const preClass = $derived(CodeStyleManager.getPreClass(props.codeClass ?? ''));
 	const copyButtonContainerClass = $derived(CodeStyleManager.getCopyButtonContainerClass());
 	const iconClass = $derived(CodeStyleManager.getIconClass());

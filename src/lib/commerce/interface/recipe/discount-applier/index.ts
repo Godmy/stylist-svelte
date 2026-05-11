@@ -10,7 +10,9 @@ import type { SlotDiscountRule } from '$stylist/commerce/interface/slot/discount
 import type { SlotCartItem } from '$stylist/commerce/interface/slot/cart-item';
 import type { BehaviorDiscountApplierEvents } from '$stylist/commerce/interface/behavior/discount-applier-events';
 
-export interface RecipeDiscountApplier extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorDiscountApplierEvents {
+export interface RecipeDiscountApplier
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorDiscountApplierEvents {
 	/** List of discount rules */
 	rules: SlotDiscountRule[];
 	/** List of cart items */

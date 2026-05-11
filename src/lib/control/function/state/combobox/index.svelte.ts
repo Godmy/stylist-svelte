@@ -111,22 +111,54 @@ export function createComboboxState(props: ComboboxProps) {
 	}
 
 	return {
-		get query() { return query; },
-		set query(v: string) { query = v; },
-		get isOpen() { return isOpen; },
-		get highlighted() { return highlighted; },
-		set highlighted(v: number) { highlighted = v; },
-		get inputRef() { return inputRef.current; },
-		set inputRef(v: HTMLInputElement | null) { inputRef.current = v; },
-		get selectedItem() { return selectedItem; },
-		get filteredItems() { return filteredItems; },
-		get hasResults() { return hasResults; },
-		get disabled() { return disabled; },
-		get clearable() { return clearable; },
-		get loading() { return loading; },
-		get placeholder() { return placeholder; },
-		get emptyText() { return emptyText; },
-		get className() { return className; },
+		get query() {
+			return query;
+		},
+		set query(v: string) {
+			query = v;
+		},
+		get isOpen() {
+			return isOpen;
+		},
+		get highlighted() {
+			return highlighted;
+		},
+		set highlighted(v: number) {
+			highlighted = v;
+		},
+		get inputRef() {
+			return inputRef.current;
+		},
+		set inputRef(v: HTMLInputElement | null) {
+			inputRef.current = v;
+		},
+		get selectedItem() {
+			return selectedItem;
+		},
+		get filteredItems() {
+			return filteredItems;
+		},
+		get hasResults() {
+			return hasResults;
+		},
+		get disabled() {
+			return disabled;
+		},
+		get clearable() {
+			return clearable;
+		},
+		get loading() {
+			return loading;
+		},
+		get placeholder() {
+			return placeholder;
+		},
+		get emptyText() {
+			return emptyText;
+		},
+		get className() {
+			return className;
+		},
 		openList,
 		closeList,
 		handleInput,

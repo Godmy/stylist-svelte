@@ -4,12 +4,7 @@ import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/medi
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface CountryFlagRecipe
-	extends StructIntersectAll<[
-		IMediaSlot,
-		ILabelSlot,
-		ThemeAttributes<HTMLSpanElement>
-	]>
-{
+	extends StructIntersectAll<[IMediaSlot, ILabelSlot, ThemeAttributes<HTMLSpanElement>]> {
 	countryCode?: string;
 	size?: number;
 	content?: string;

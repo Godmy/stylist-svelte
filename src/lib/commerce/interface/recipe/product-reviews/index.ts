@@ -9,7 +9,9 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { SlotReview } from '$stylist/commerce/interface/slot/review';
 import type { BehaviorProductReviewsEvents } from '$stylist/commerce/interface/behavior/product-reviews-events';
 
-export interface RecipeProductReviews extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorProductReviewsEvents {
+export interface RecipeProductReviews
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorProductReviewsEvents {
 	/** List of reviews */
 	reviews: SlotReview[];
 	/** Average rating */

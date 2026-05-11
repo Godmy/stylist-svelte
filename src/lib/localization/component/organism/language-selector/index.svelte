@@ -36,7 +36,7 @@
 				</span>
 			{:else}
 				<span class="flex items-center">
-					<BaseIcon name={Globe} class="h-4 w-4 mr-2" />
+					<BaseIcon name={Globe} class="mr-2 h-4 w-4" />
 					Select Language
 				</span>
 			{/if}
@@ -59,9 +59,9 @@
 	{#if state.isOpen}
 		<div class={state.dropdownBaseClasses}>
 			{#if state.searchable}
-				<div class="p-2 border-b border-[--color-border-primary]">
+				<div class="border-b border-[--color-border-primary] p-2">
 					<div class="relative">
-						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+						<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
 							<svg
 								class="h-5 w-5 text-[--color-text-secondary]"
 								xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@
 				</div>
 			{/if}
 
-			<div class="py-1 max-h-60 overflow-y-auto">
+			<div class="max-h-60 overflow-y-auto py-1">
 				{#if state.filteredLanguages.length === 0}
 					<div class="px-4 py-2 text-sm text-[--color-text-secondary]">No languages found</div>
 				{:else}
@@ -102,7 +102,7 @@
 							<span class="flex-1">
 								{language.name}
 								{#if state.showNativeName && language.nativeName && language.name !== language.nativeName}
-									<span class="ml-2 text-[--color-text-secondary] text-xs">
+									<span class="ml-2 text-xs text-[--color-text-secondary]">
 										({language.nativeName})
 									</span>
 								{/if}
@@ -115,9 +115,10 @@
 				{/if}
 			</div>
 
-			<div class="py-1 border-t border-[--color-border-primary]">
+			<div class="border-t border-[--color-border-primary] py-1">
 				<div class="px-4 py-2 text-xs text-[--color-text-secondary]">
-					{state.filteredLanguages.length} language{state.filteredLanguages.length !== 1 ? 's' : ''} available
+					{state.filteredLanguages.length} language{state.filteredLanguages.length !== 1 ? 's' : ''}
+					available
 				</div>
 			</div>
 		</div>

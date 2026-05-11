@@ -46,9 +46,3 @@ export function createBlockquoteState(props: BlockquoteRecipe) {
 }
 
 export default createBlockquoteState;
-
-
-
-
-
-

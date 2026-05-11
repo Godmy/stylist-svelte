@@ -14,6 +14,3 @@
 		{@render props.content()}
 	{/if}
 </table>
-
-
-

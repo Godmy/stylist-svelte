@@ -3,7 +3,9 @@ import type { ArchitectureHTMLAttributes } from '$stylist/architecture';
 import type { TokenUserCardSize } from '$stylist/commerce/type/enum/user-card-size';
 import type { User } from '$stylist/commerce/type/struct/user';
 
-export interface UserCardProps extends StructIntersectAll<[ArchitectureHTMLAttributes<HTMLDivElement>]> {	user?: User;
+export interface UserCardProps
+	extends StructIntersectAll<[ArchitectureHTMLAttributes<HTMLDivElement>]> {
+	user?: User;
 	size?: TokenUserCardSize;
 	showEmail?: boolean;
 	showRole?: boolean;

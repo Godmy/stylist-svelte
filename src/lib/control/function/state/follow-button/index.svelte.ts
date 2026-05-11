@@ -37,7 +37,11 @@ export function createFollowButtonState(props: FollowButtonProps) {
 						: variant === 'outline'
 							? 'text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] border border-[var(--color-border-primary)]'
 							: 'text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]',
-			size === 'sm' ? 'text-xs px-2 py-1' : size === 'lg' ? 'text-base px-4 py-2' : 'text-sm px-3 py-1.5',
+			size === 'sm'
+				? 'text-xs px-2 py-1'
+				: size === 'lg'
+					? 'text-base px-4 py-2'
+					: 'text-sm px-3 py-1.5',
 			'font-medium rounded-md',
 			disabled ? 'opacity-[var(--opacity-75)] cursor-not-allowed' : 'cursor-pointer',
 			props.class

@@ -37,11 +37,7 @@ export class SkeletonStyleManager {
 	}
 
 	static getSkeletonTextClasses(lines = 1, className?: string): string {
-		return this.join([
-			'flex flex-col gap-2',
-			lines > 1 ? 'space-y-2' : '',
-			className
-		]);
+		return this.join(['flex flex-col gap-2', lines > 1 ? 'space-y-2' : '', className]);
 	}
 
 	static getSkeletonTextLineClasses(width = '100%', className?: string): string {

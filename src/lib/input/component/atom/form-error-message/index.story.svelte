@@ -9,11 +9,13 @@
 	];
 </script>
 
-<Story component={FormErrorMessage} title="FormErrorMessage" description="Validation message shown below invalid fields." {controls}>
+<Story
+	component={FormErrorMessage}
+	title="FormErrorMessage"
+	description="Validation message shown below invalid fields."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<FormErrorMessage text={values.text} visible={values.visible} />
 	{/snippet}
 </Story>
-
-
-

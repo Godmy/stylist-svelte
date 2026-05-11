@@ -8,10 +8,15 @@ export function createFilterBarState(props: FilterBarProps) {
 	const className = $derived(props.class ?? '');
 
 	let toggleState = $state<Record<string, boolean>>(
-		untrack(() => toggles.reduce((acc, current) => {
-			acc[current.id] = !!current.checked;
-			return acc;
-		}, {} as Record<string, boolean>))
+		untrack(() =>
+			toggles.reduce(
+				(acc, current) => {
+					acc[current.id] = !!current.checked;
+					return acc;
+				},
+				{} as Record<string, boolean>
+			)
+		)
 	);
 
 	let activeTags = $state<Set<string>>(

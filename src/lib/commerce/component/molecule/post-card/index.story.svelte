@@ -11,7 +11,12 @@
 	];
 </script>
 
-<Story component={PostCard} title="PostCard" description="Editorial/news card with metadata and tags." {controls}>
+<Story
+	component={PostCard}
+	title="PostCard"
+	description="Editorial/news card with metadata and tags."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<PostCard
 			title={values.title}
@@ -24,6 +29,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

@@ -1,1 +1,9 @@
-export type Provider = 'google' | 'facebook' | 'github' | 'twitter' | 'linkedin' | 'apple' | 'microsoft' | 'slack';
+export type Provider =
+	| 'google'
+	| 'facebook'
+	| 'github'
+	| 'twitter'
+	| 'linkedin'
+	| 'apple'
+	| 'microsoft'
+	| 'slack';

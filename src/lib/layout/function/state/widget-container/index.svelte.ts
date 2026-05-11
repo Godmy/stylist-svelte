@@ -17,18 +17,14 @@ export function createWidgetContainerState(props: WidgetContainerProps) {
 	const rootClass = $derived(
 		WidgetContainerStyleManager.getRootClass(isMaximized, mergeClassNames(props.class))
 	);
-	const headerClass = $derived(
-		WidgetContainerStyleManager.getHeaderClass(props.headerClass ?? '')
-	);
+	const headerClass = $derived(WidgetContainerStyleManager.getHeaderClass(props.headerClass ?? ''));
 	const titleGroupClass = $derived(WidgetContainerStyleManager.getTitleGroupClass());
 	const titleClass = $derived(WidgetContainerStyleManager.getTitleClass(size));
 	const subtitleClass = $derived(WidgetContainerStyleManager.getSubtitleClass());
 	const handleClass = $derived(WidgetContainerStyleManager.getHandleClass(draggable));
 	const actionsClass = $derived(WidgetContainerStyleManager.getActionsClass());
 	const iconButtonClass = $derived(WidgetContainerStyleManager.getIconButtonClass());
-	const bodyClass = $derived(
-		WidgetContainerStyleManager.getBodyClass(props.bodyClass ?? '')
-	);
+	const bodyClass = $derived(WidgetContainerStyleManager.getBodyClass(props.bodyClass ?? ''));
 	const restProps = $derived.by(() => {
 		const {
 			title: _title,

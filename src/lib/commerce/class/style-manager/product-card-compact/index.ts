@@ -26,7 +26,11 @@ export class ProductCardCompactStyleManager {
 	}
 
 	static getBadgeClass(badgeTypeClass = ''): string {
-		return mergeClassNames('static px-1.5 py-0.5 text-[10px]', ProductCardStyleManager.getBadgeBaseClasses(), badgeTypeClass);
+		return mergeClassNames(
+			'static px-1.5 py-0.5 text-[10px]',
+			ProductCardStyleManager.getBadgeBaseClasses(),
+			badgeTypeClass
+		);
 	}
 
 	static getSaleBadgeClass(): string {
@@ -54,7 +58,12 @@ export class ProductCardCompactStyleManager {
 	}
 
 	static getStarClass(isFilled: boolean): string {
-		return mergeClassNames('h-3 w-3', isFilled ? ProductCardStyleManager.getFilledStarClass() : ProductCardStyleManager.getEmptyStarClass());
+		return mergeClassNames(
+			'h-3 w-3',
+			isFilled
+				? ProductCardStyleManager.getFilledStarClass()
+				: ProductCardStyleManager.getEmptyStarClass()
+		);
 	}
 
 	static getPriceContainerClass(): string {
@@ -65,6 +74,3 @@ export class ProductCardCompactStyleManager {
 		return 'text-sm font-semibold text-[var(--color-text-primary)]';
 	}
 }
-
-
-

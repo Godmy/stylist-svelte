@@ -10,7 +10,12 @@
 	];
 </script>
 
-<Story component={CharacterCount} title="CharactersCount" description="Character progress indicator for text fields." {controls}>
+<Story
+	component={CharacterCount}
+	title="CharactersCount"
+	description="Character progress indicator for text fields."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<CharacterCount
 			current={values.current}
@@ -19,6 +24,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

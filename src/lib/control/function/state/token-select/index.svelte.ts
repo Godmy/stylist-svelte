@@ -9,7 +9,9 @@ export function createTokenSelectState(props: TokenSelectControlProps) {
 		);
 
 	let internalIndex = $state<number>(
-		valueToIndex(props.value ?? props.definition.defaultValue ?? props.definition.options[0]?.value ?? '')
+		valueToIndex(
+			props.value ?? props.definition.defaultValue ?? props.definition.options[0]?.value ?? ''
+		)
 	);
 
 	$effect(() => {
@@ -24,7 +26,9 @@ export function createTokenSelectState(props: TokenSelectControlProps) {
 	function handleChange(event: Event) {
 		const nextIndex = Number((event.currentTarget as HTMLSelectElement).value);
 		internalIndex = Number.isNaN(nextIndex) ? 0 : nextIndex;
-		props.onChange?.(props.definition.options[internalIndex]?.value ?? props.definition.options[0]?.value ?? '');
+		props.onChange?.(
+			props.definition.options[internalIndex]?.value ?? props.definition.options[0]?.value ?? ''
+		);
 	}
 
 	return {

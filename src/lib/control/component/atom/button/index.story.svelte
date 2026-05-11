@@ -5,7 +5,12 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'label', type: 'text', defaultValue: 'Click me' },
-		{ name: 'variant', type: 'select', defaultValue: 'primary', options: ['primary','secondary','success','warning','danger','outline','ghost','link'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'outline', 'ghost', 'link']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'loading', type: 'boolean', defaultValue: false },
@@ -32,6 +37,3 @@
 		</Button>
 	{/snippet}
 </Story>
-
-
-

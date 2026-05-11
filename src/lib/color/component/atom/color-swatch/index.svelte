@@ -6,13 +6,7 @@
 	const state = createColorSwatchState(props);
 	const restProps = $derived(
 		(() => {
-			const {
-				class: _class,
-				content: _content,
-				color: _color,
-				size: _size,
-				...rest
-			} = props;
+			const { class: _class, content: _content, color: _color, size: _size, ...rest } = props;
 			return rest;
 		})()
 	);
@@ -29,4 +23,3 @@
 		</div>
 	{/if}
 </div>
-

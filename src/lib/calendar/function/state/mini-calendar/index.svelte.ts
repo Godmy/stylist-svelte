@@ -16,14 +16,20 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 	const eventClass = $derived(props.eventClass ?? '');
 	const headerClassProp = $derived(props.headerClass ?? '');
 
-	const wrapperClasses = $derived(MiniCalendarStyleManager.getWrapperClasses(compact, `c-mini-calendar ${className}`));
+	const wrapperClasses = $derived(
+		MiniCalendarStyleManager.getWrapperClasses(compact, `c-mini-calendar ${className}`)
+	);
 	const headerClasses = $derived(MiniCalendarStyleManager.getHeaderClasses(headerClassProp));
-	const weekdayHeaderClasses = $derived(MiniCalendarStyleManager.getWeekdayHeaderClasses(headerClassProp));
+	const weekdayHeaderClasses = $derived(
+		MiniCalendarStyleManager.getWeekdayHeaderClasses(headerClassProp)
+	);
 	const gridClasses = $derived(MiniCalendarStyleManager.getGridClasses());
 
 	const days = $derived.by<RecipeMiniCalendarDay[]>(() => getDaysInMonth(currentDate));
 	const weekdays = $derived(['S', 'M', 'T', 'W', 'T', 'F', 'S']);
-	const monthYear = $derived(currentDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }));
+	const monthYear = $derived(
+		currentDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+	);
 
 	const restProps = $derived.by(() => {
 		const {
@@ -63,7 +69,7 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 			const isCurrentMonth = dayDate.getMonth() === month;
 			const isTodayDate = dayDate.getTime() === today.getTime();
 
-			const dayEvents = events.filter(event => {
+			const dayEvents = events.filter((event) => {
 				const eventDate = new Date(event.start);
 				eventDate.setHours(0, 0, 0, 0);
 				return eventDate.getTime() === dayDate.getTime();
@@ -100,8 +106,17 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 		props.onEventClick?.(event);
 	}
 
-	function getDayCellClasses(isTodayDate: boolean, isCurrentMonth: boolean, hasEvent: boolean): string {
-		return MiniCalendarStyleManager.getDayCellClasses(isTodayDate, isCurrentMonth, hasEvent, dayClass);
+	function getDayCellClasses(
+		isTodayDate: boolean,
+		isCurrentMonth: boolean,
+		hasEvent: boolean
+	): string {
+		return MiniCalendarStyleManager.getDayCellClasses(
+			isTodayDate,
+			isCurrentMonth,
+			hasEvent,
+			dayClass
+		);
 	}
 
 	function getDateNumberClasses(): string {
@@ -113,18 +128,42 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 	}
 
 	return {
-		get currentDate() { return currentDate; },
-		get days() { return days; },
-		get weekdays() { return weekdays; },
-		get monthYear() { return monthYear; },
-		get compact() { return compact; },
-		get showToday() { return showToday; },
-		get showWeekNumbers() { return showWeekNumbers; },
-		get wrapperClasses() { return wrapperClasses; },
-		get headerClasses() { return headerClasses; },
-		get weekdayHeaderClasses() { return weekdayHeaderClasses; },
-		get gridClasses() { return gridClasses; },
-		get restProps() { return restProps; },
+		get currentDate() {
+			return currentDate;
+		},
+		get days() {
+			return days;
+		},
+		get weekdays() {
+			return weekdays;
+		},
+		get monthYear() {
+			return monthYear;
+		},
+		get compact() {
+			return compact;
+		},
+		get showToday() {
+			return showToday;
+		},
+		get showWeekNumbers() {
+			return showWeekNumbers;
+		},
+		get wrapperClasses() {
+			return wrapperClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get weekdayHeaderClasses() {
+			return weekdayHeaderClasses;
+		},
+		get gridClasses() {
+			return gridClasses;
+		},
+		get restProps() {
+			return restProps;
+		},
 		navigateMonth,
 		navigateToToday,
 		handleDateSelect,

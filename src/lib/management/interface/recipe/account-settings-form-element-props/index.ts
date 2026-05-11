@@ -2,7 +2,8 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { AccountSettings } from '$stylist/management/type/struct/settings/account-settings';
 
-export interface AccountSettingsFormElementProps extends StructIntersectAll<[InteractionHTMLAttributes<HTMLFormElement> ]> {
+export interface AccountSettingsFormElementProps
+	extends StructIntersectAll<[InteractionHTMLAttributes<HTMLFormElement>]> {
 	showEmailChange?: boolean;
 	showPasswordChange?: boolean;
 	showDeleteAccount?: boolean;

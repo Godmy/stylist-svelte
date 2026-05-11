@@ -15,24 +15,24 @@ import type { TokenAppearance } from '$stylist/interaction/type/record/appearanc
 import type { SlotFileMetadata } from '$stylist/file/interface/slot/file-metadata';
 
 export interface SlotDownloadCard {
-  /** Метаданные файла */
-  file: SlotFileMetadata;
-  
-  /** Вариант оформления */
-  variant?: TokenAppearance;
-  
-  /** URL для скачивания файла */
-  downloadUrl: string;
-  
-  /** Альтернативный текст для иконки файла */
-  iconAlt?: string;
-  
-  /** Показывать ли метаданные файла */
-  showMetadata?: boolean; // default: true
-  
-  /** Пользовательская иконка для файла */
-  icon?: string;
-  
-  /** Дополнительные CSS классы */
-  class?: string;
+	/** Метаданные файла */
+	file: SlotFileMetadata;
+
+	/** Вариант оформления */
+	variant?: TokenAppearance;
+
+	/** URL для скачивания файла */
+	downloadUrl: string;
+
+	/** Альтернативный текст для иконки файла */
+	iconAlt?: string;
+
+	/** Показывать ли метаданные файла */
+	showMetadata?: boolean; // default: true
+
+	/** Пользовательская иконка для файла */
+	icon?: string;
+
+	/** Дополнительные CSS классы */
+	class?: string;
 }

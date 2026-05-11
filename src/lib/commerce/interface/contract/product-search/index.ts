@@ -12,10 +12,8 @@ import type { BehaviorProductSearchEvents } from '$stylist/commerce/interface/be
 import type { SlotLabel } from '$stylist/typography/interface/slot/label';
 
 export interface ContractProductSearch
-	extends StructIntersectAll<[
-		SlotLabel,
-		ThemeAttributes<HTMLDivElement>
-	]>, BehaviorProductSearchEvents {
+	extends StructIntersectAll<[SlotLabel, ThemeAttributes<HTMLDivElement>]>,
+		BehaviorProductSearchEvents {
 	/** Search suggestions */
 	suggestions?: string[];
 }

@@ -20,5 +20,6 @@ export interface RecipeScheduleCalendar extends StructIntersectAll<[]> {
 	headerClass?: string;
 	class?: string;
 	onSlotClick?: (date: Date) => void;
-	onEventClick?: (event: SlotScheduleCalendarEvent) => void;	children?: Snippet;
+	onEventClick?: (event: SlotScheduleCalendarEvent) => void;
+	children?: Snippet;
 }

@@ -7,4 +7,4 @@ export type TranslatableText = {
 	translations: Record<string, string>;
 	context?: string;
 	status: TokenTranslation;
-}
+};

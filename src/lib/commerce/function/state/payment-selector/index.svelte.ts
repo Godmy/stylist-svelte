@@ -7,8 +7,12 @@ export function createPaymentSelectorState(props: PaymentSelectorProps) {
 	const rootClass = $derived(PaymentSelectorStyleManager.root(props.class ?? ''));
 
 	return {
-		get selectedMethodId() { return selectedMethodId; },
-		get rootClass() { return rootClass; },
+		get selectedMethodId() {
+			return selectedMethodId;
+		},
+		get rootClass() {
+			return rootClass;
+		},
 		select(id: string) {
 			selectedMethodId = id;
 			props.onSelect?.(id);

@@ -16,7 +16,9 @@ export class AccountSettingsStyleManager {
 	}
 
 	static twoFactorSection(base: string, enabled?: boolean, className?: string): string {
-		const enabledClass = enabled ? 'border-[--color-success-200] bg-[--color-success-50]' : 'border-[--color-border-secondary] bg-[--color-background-primary]';
+		const enabledClass = enabled
+			? 'border-[--color-success-200] bg-[--color-success-50]'
+			: 'border-[--color-border-secondary] bg-[--color-background-primary]';
 		return `${base} ${enabledClass} border rounded-lg p-4 ${className || ''}`.trim();
 	}
 }

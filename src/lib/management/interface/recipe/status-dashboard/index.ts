@@ -8,16 +8,12 @@ import type { StatusItem } from '$stylist/management/type/struct/status-item';
 
 /** StatusDashboard = label + caption + size/layout + status items. */
 export interface StatusDashboardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		ISizable,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, ISizable, ThemeAttributes<HTMLDivElement>]
+	> {
 	items: StatusItem[];
 	layout?: TokenOrientation;
 	itemClass?: string;
 	headerClass?: string;
 	variant?: 'default' | 'compact' | 'minimal';
 }
-

@@ -16,4 +16,3 @@ export const INDICATORS_COUNTER_VARIANT = {
 	dark: 'bg-[--color-neutral-800] text-[var(--color-text-inverse)]',
 	light: 'bg-[--color-neutral-100] text-[--color-text-primary]'
 } as const;
-

@@ -39,8 +39,14 @@
 				class="flex items-center justify-between rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/70 p-4 shadow-sm dark:border-[var(--color-border-primary)]/80 dark:bg-[var(--color-neutral-900)]/40"
 			>
 				<div>
-					<p class="text-sm font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-text-inverse)]">Current selection</p>
-					<p class="text-sm text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
+					<p
+						class="text-sm font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-text-inverse)]"
+					>
+						Current selection
+					</p>
+					<p
+						class="text-sm text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]"
+					>
 						Combine label overrides with semantic states.
 					</p>
 				</div>
@@ -54,13 +60,25 @@
 			<div
 				class="rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/80 p-4 shadow-sm dark:border-[var(--color-border-primary)] dark:bg-[var(--color-neutral-900)]/40"
 			>
-				<p class="mb-4 text-sm font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-text-inverse)]">Team presence</p>
+				<p
+					class="mb-4 text-sm font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-text-inverse)]"
+				>
+					Team presence
+				</p>
 				<ul class="divide-y divide-gray-100 text-sm dark:divide-gray-800">
 					{#each team as member}
 						<li class="flex items-center justify-between py-3">
 							<div>
-								<p class="font-medium text-[var(--color-text-primary)] dark:text-[var(--color-text-inverse)]">{member.name}</p>
-								<p class="text-xs text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">{member.role}</p>
+								<p
+									class="font-medium text-[var(--color-text-primary)] dark:text-[var(--color-text-inverse)]"
+								>
+									{member.name}
+								</p>
+								<p
+									class="text-xs text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]"
+								>
+									{member.role}
+								</p>
 							</div>
 							<StatusIndicator status={member.status} />
 						</li>
@@ -70,13 +88,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-
-
-
-
-

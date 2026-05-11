@@ -43,11 +43,11 @@ export function createIconState(props: IconProps) {
 	const numericSize = $derived.by(() => (typeof size === 'number' ? size : undefined));
 
 	const iconClasses = $derived.by(() =>
-		effectiveName === 'chevron-up'
-		|| effectiveName === 'chevron-down'
-		|| effectiveName === 'chevron-left'
-		|| effectiveName === 'chevron-right'
-		|| effectiveName === 'chevron'
+		effectiveName === 'chevron-up' ||
+		effectiveName === 'chevron-down' ||
+		effectiveName === 'chevron-left' ||
+		effectiveName === 'chevron-right' ||
+		effectiveName === 'chevron'
 			? IconStyleManager.getIconChevronClasses({
 					size: typeof size === 'number' ? 'md' : size,
 					direction,
@@ -61,7 +61,9 @@ export function createIconState(props: IconProps) {
 	const containerClasses = $derived.by(() => {
 		if (container === 'circle') {
 			return IconStyleManager.getIconCircleClasses({
-				variant: (color !== 'default' ? color : variant) as Parameters<typeof IconStyleManager.getIconCircleClasses>[0]['variant'],
+				variant: (color !== 'default' ? color : variant) as Parameters<
+					typeof IconStyleManager.getIconCircleClasses
+				>[0]['variant'],
 				size: containerSize,
 				filled,
 				disabled,
@@ -87,39 +89,102 @@ export function createIconState(props: IconProps) {
 
 	const localSvg = $derived.by(() => {
 		if (svg) return svg;
-		return TOKEN_ICON_REGISTRY[effectiveName as keyof typeof TOKEN_ICON_REGISTRY]
-			?? TOKEN_ICON_REGISTRY.box
-			?? '';
+		return (
+			TOKEN_ICON_REGISTRY[effectiveName as keyof typeof TOKEN_ICON_REGISTRY] ??
+			TOKEN_ICON_REGISTRY.box ??
+			''
+		);
 	});
 
 	const restProps = $derived.by(() => {
-		const { class: _class, containerClass: _containerClass, name: _name, svg: _svg, size: _size, strokeWidth: _strokeWidth, variant: _variant, direction: _direction, isOpen: _isOpen, disabled: _disabled, container: _container, containerSize: _containerSize, shape: _shape, color: _color, filled: _filled, ...rest } = props;
+		const {
+			class: _class,
+			containerClass: _containerClass,
+			name: _name,
+			svg: _svg,
+			size: _size,
+			strokeWidth: _strokeWidth,
+			variant: _variant,
+			direction: _direction,
+			isOpen: _isOpen,
+			disabled: _disabled,
+			container: _container,
+			containerSize: _containerSize,
+			shape: _shape,
+			color: _color,
+			filled: _filled,
+			...rest
+		} = props;
 		return rest;
 	});
 
 	return {
-		get name() { return name; },
-		get svg() { return svg; },
-		get size() { return size; },
-		get strokeWidth() { return strokeWidth; },
-		get variant() { return variant; },
-		get direction() { return direction; },
-		get isOpen() { return isOpen; },
-		get disabled() { return disabled; },
-		get className() { return className; },
-		get containerClass() { return containerClass; },
-		get container() { return container; },
-		get containerSize() { return containerSize; },
-		get shape() { return shape; },
-		get color() { return color; },
-		get filled() { return filled; },
-		get effectiveName() { return effectiveName; },
-		get numericSize() { return numericSize; },
-		get iconClasses() { return iconClasses; },
-		get containerClasses() { return containerClasses; },
-		get ariaLabel() { return ariaLabel; },
-		get localSvg() { return localSvg; },
-		get restProps() { return restProps; },
+		get name() {
+			return name;
+		},
+		get svg() {
+			return svg;
+		},
+		get size() {
+			return size;
+		},
+		get strokeWidth() {
+			return strokeWidth;
+		},
+		get variant() {
+			return variant;
+		},
+		get direction() {
+			return direction;
+		},
+		get isOpen() {
+			return isOpen;
+		},
+		get disabled() {
+			return disabled;
+		},
+		get className() {
+			return className;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get container() {
+			return container;
+		},
+		get containerSize() {
+			return containerSize;
+		},
+		get shape() {
+			return shape;
+		},
+		get color() {
+			return color;
+		},
+		get filled() {
+			return filled;
+		},
+		get effectiveName() {
+			return effectiveName;
+		},
+		get numericSize() {
+			return numericSize;
+		},
+		get iconClasses() {
+			return iconClasses;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get ariaLabel() {
+			return ariaLabel;
+		},
+		get localSvg() {
+			return localSvg;
+		},
+		get restProps() {
+			return restProps;
+		},
 		normalizeIconName,
 		joinClasses
 	};

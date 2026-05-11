@@ -6,7 +6,19 @@ type TooltipStateProps = TooltipProps & HTMLAttributes<HTMLElement>;
 
 function normalizePlacement(
 	placement: TokenAlignment
-): 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end' {
+):
+	| 'top'
+	| 'top-start'
+	| 'top-end'
+	| 'bottom'
+	| 'bottom-start'
+	| 'bottom-end'
+	| 'left'
+	| 'left-start'
+	| 'left-end'
+	| 'right'
+	| 'right-start'
+	| 'right-end' {
 	switch (placement) {
 		case 'top':
 		case 'top-center':
@@ -36,7 +48,6 @@ function normalizePlacement(
 			return 'top';
 	}
 }
-
 
 /**
  * Unified Tooltip state creator
@@ -162,9 +173,10 @@ export function createTooltipState(props: TooltipStateProps) {
 
 	// Compute tooltip content classes based on variant
 	const tooltipClasses = $derived.by(() => {
-		const baseClasses = variant === 'invisible'
-			? 'px-3 py-2 text-sm font-medium rounded-lg shadow-sm bg-[--color-tooltip-bg] text-[--color-text-inverse]'
-			: 'px-2 py-1 text-xs text-[var(--color-text-inverse)] bg-[var(--color-neutral-900)] rounded whitespace-nowrap';
+		const baseClasses =
+			variant === 'invisible'
+				? 'px-3 py-2 text-sm font-medium rounded-lg shadow-sm bg-[--color-tooltip-bg] text-[--color-text-inverse]'
+				: 'px-2 py-1 text-xs text-[var(--color-text-inverse)] bg-[var(--color-neutral-900)] rounded whitespace-nowrap';
 
 		return `${positionClasses} ${baseClasses} ${tooltipClassName}`.trim();
 	});
@@ -265,8 +277,3 @@ export function createTooltipState(props: TooltipStateProps) {
 }
 
 export default createTooltipState;
-
-
-
-
-

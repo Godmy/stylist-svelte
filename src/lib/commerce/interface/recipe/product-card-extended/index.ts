@@ -19,7 +19,10 @@ import type { SlotBadge } from '$stylist/typography/interface/slot/badge';
 import type { SlotCaption } from '$stylist/typography/interface/slot/caption';
 import type { SlotLabel } from '$stylist/typography/interface/slot/label';
 
-export interface RecipeProductCardExtended extends StructIntersectAll<[ SlotLabel, SlotCaption, SlotBadge, SlotMedia, ThemeAttributes<HTMLDivElement> ]> {
+export interface RecipeProductCardExtended
+	extends StructIntersectAll<
+		[SlotLabel, SlotCaption, SlotBadge, SlotMedia, ThemeAttributes<HTMLDivElement>]
+	> {
 	/** Product price */
 	price?: number;
 	/** SlotCurrency symbol */

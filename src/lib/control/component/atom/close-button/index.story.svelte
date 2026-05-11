@@ -5,7 +5,12 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
-		{ name: 'variant', type: 'select', defaultValue: 'ghost', options: ['solid', 'outline', 'ghost'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'ghost',
+			options: ['solid', 'outline', 'ghost']
+		},
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'loading', type: 'boolean', defaultValue: false }
 	];
@@ -28,6 +33,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

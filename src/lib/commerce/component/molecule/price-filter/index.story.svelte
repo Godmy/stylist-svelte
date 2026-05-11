@@ -14,14 +14,23 @@
 	];
 </script>
 
-<Story component={PriceFilter} title="PriceFilter" description="Dual-slider price range selection." {controls}>
+<Story
+	component={PriceFilter}
+	title="PriceFilter"
+	description="Dual-slider price range selection."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<div class="space-y-2 max-w-md">
-			<PriceFilter minPrice={values.minPrice} maxPrice={values.maxPrice} currentMin={values.currentMin} currentMax={values.currentMax} currency={values.currency} onPriceChange={(min, max) => (selected = `${min} - ${max}`)} />
+		<div class="max-w-md space-y-2">
+			<PriceFilter
+				minPrice={values.minPrice}
+				maxPrice={values.maxPrice}
+				currentMin={values.currentMin}
+				currentMax={values.currentMax}
+				currency={values.currency}
+				onPriceChange={(min, max) => (selected = `${min} - ${max}`)}
+			/>
 			<p class="text-sm text-[--color-text-secondary]">Selected: {selected}</p>
 		</div>
 	{/snippet}
 </Story>
-
-
-

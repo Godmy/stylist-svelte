@@ -10,8 +10,18 @@
 	];
 </script>
 
-<Story {controls} component={NodeDot} title="Node Dot" category="Atoms/Typography/Indicators/Node Dot" description="Simple dot indicator component">
+<Story
+	{controls}
+	component={NodeDot}
+	title="Node Dot"
+	category="Atoms/Typography/Indicators/Node Dot"
+	description="Simple dot indicator component"
+>
 	{#snippet children(values: any)}
-		<NodeDot size={values.size as number} accent={values.accent as string} opacity={values.opacity as number} />
+		<NodeDot
+			size={values.size as number}
+			accent={values.accent as string}
+			opacity={values.opacity as number}
+		/>
 	{/snippet}
 </Story>

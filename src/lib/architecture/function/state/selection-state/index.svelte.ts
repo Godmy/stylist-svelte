@@ -5,7 +5,10 @@ export function createSelectionState(initial?: Partial<SelectionState>): Selecti
 	setMode: (mode: SelectionMode) => void;
 	toggleSelect: (id: string) => void;
 	clearSelection: () => void;
-	setMarquee: (start: { x: number; y: number } | null, current: { x: number; y: number } | null) => void;
+	setMarquee: (
+		start: { x: number; y: number } | null,
+		current: { x: number; y: number } | null
+	) => void;
 } {
 	const state = $state<SelectionState>({
 		selectedIds: initial?.selectedIds ?? new Set<string>(),
@@ -16,19 +19,33 @@ export function createSelectionState(initial?: Partial<SelectionState>): Selecti
 	});
 
 	return {
-		get selectedIds() { return state.selectedIds; },
-		get mode() { return state.mode; },
-		get isSelecting() { return state.isSelecting; },
-		get marqueeStart() { return state.marqueeStart; },
-		get marqueeCurrent() { return state.marqueeCurrent; },
-		setMode(mode: SelectionMode) { state.mode = mode; },
+		get selectedIds() {
+			return state.selectedIds;
+		},
+		get mode() {
+			return state.mode;
+		},
+		get isSelecting() {
+			return state.isSelecting;
+		},
+		get marqueeStart() {
+			return state.marqueeStart;
+		},
+		get marqueeCurrent() {
+			return state.marqueeCurrent;
+		},
+		setMode(mode: SelectionMode) {
+			state.mode = mode;
+		},
 		toggleSelect(id: string) {
 			const ids = new Set(state.selectedIds);
 			if (ids.has(id)) ids.delete(id);
 			else ids.add(id);
 			state.selectedIds = ids;
 		},
-		clearSelection() { state.selectedIds = new Set<string>(); },
+		clearSelection() {
+			state.selectedIds = new Set<string>();
+		},
 		setMarquee(start, current) {
 			state.marqueeStart = start;
 			state.marqueeCurrent = current;

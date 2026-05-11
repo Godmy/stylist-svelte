@@ -1,6 +1,10 @@
 export function formatAnimatedValue(
 	value: number | null | undefined,
-	options: { format?: 'number' | 'percent' | 'currency'; separator?: string; decimals?: number } = {}
+	options: {
+		format?: 'number' | 'percent' | 'currency';
+		separator?: string;
+		decimals?: number;
+	} = {}
 ): string {
 	const { format = 'number', decimals = 0 } = options;
 	const safeValue = Number.isFinite(value) ? (value as number) : 0;

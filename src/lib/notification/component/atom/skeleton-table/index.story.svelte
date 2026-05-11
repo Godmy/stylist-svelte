@@ -9,11 +9,13 @@
 	];
 </script>
 
-<Story component={SkeletonTable} title="SkeletonTable" description="Table loading pattern with adjustable rows and columns." {controls}>
+<Story
+	component={SkeletonTable}
+	title="SkeletonTable"
+	description="Table loading pattern with adjustable rows and columns."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<SkeletonTable rows={values.rows} columns={values.columns} />
 	{/snippet}
 </Story>
-
-
-

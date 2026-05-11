@@ -21,7 +21,8 @@
 	</div>
 	{#if state.events && state.events.length > 0}
 		<div class={TimeSlotStyleManager.getEventCountClasses()}>
-			{state.events.length} {state.events.length === 1 ? 'event' : 'events'}
+			{state.events.length}
+			{state.events.length === 1 ? 'event' : 'events'}
 		</div>
 	{/if}
 </div>

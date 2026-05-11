@@ -59,19 +59,17 @@
 		<h3 class="mt-8 mb-4 text-lg font-bold">Customizable Indicator</h3>
 		<div class="relative w-full max-w-md border-b border-[var(--color-border-primary)]">
 			<div class="flex justify-between">
-				<button class="px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]">Item A</button>
-				<button class="px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]">Item B</button>
-				<button class="px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]">Item C</button>
+				<button class="px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]"
+					>Item A</button
+				>
+				<button class="px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]"
+					>Item B</button
+				>
+				<button class="px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]"
+					>Item C</button
+				>
 			</div>
 			<TabIndicator {width} {left} {color} />
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-
-
-

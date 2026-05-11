@@ -2,7 +2,10 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 
 export class Idef0StyleManager {
 	static getDiagramContainerClasses(className = ''): string {
-		return mergeClassNames('c-idef0-diagram inline-flex flex-col gap-3 rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-3', className);
+		return mergeClassNames(
+			'c-idef0-diagram inline-flex flex-col gap-3 rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-3',
+			className
+		);
 	}
 
 	static getDiagramSvgClasses(className = ''): string {
@@ -14,15 +17,24 @@ export class Idef0StyleManager {
 	}
 
 	static getFunctionBoxRectClasses(className = ''): string {
-		return mergeClassNames('fill-[--color-background-secondary] stroke-[--color-border-primary]', className);
+		return mergeClassNames(
+			'fill-[--color-background-secondary] stroke-[--color-border-primary]',
+			className
+		);
 	}
 
 	static getFunctionBoxTitleClasses(className = ''): string {
-		return mergeClassNames('c-idef0-function-box__title fill-[--color-text-primary] text-sm font-semibold', className);
+		return mergeClassNames(
+			'c-idef0-function-box__title fill-[--color-text-primary] text-sm font-semibold',
+			className
+		);
 	}
 
 	static getFunctionBoxSubtitleClasses(className = ''): string {
-		return mergeClassNames('c-idef0-function-box__subtitle fill-[--color-text-secondary] text-xs', className);
+		return mergeClassNames(
+			'c-idef0-function-box__subtitle fill-[--color-text-secondary] text-xs',
+			className
+		);
 	}
 
 	static getConnectorGroupClasses(className = ''): string {
@@ -34,14 +46,16 @@ export class Idef0StyleManager {
 	}
 
 	static getConnectorLabelClasses(className = ''): string {
-		return mergeClassNames('c-idef0-connector__label fill-[--color-text-secondary] text-xs', className);
+		return mergeClassNames(
+			'c-idef0-connector__label fill-[--color-text-secondary] text-xs',
+			className
+		);
 	}
 
 	static getPortLabelClasses(className = ''): string {
-		return mergeClassNames('c-idef0-port-label fill-[--color-text-secondary] text-xs font-medium', className);
+		return mergeClassNames(
+			'c-idef0-port-label fill-[--color-text-secondary] text-xs font-medium',
+			className
+		);
 	}
 }
-
-
-
-

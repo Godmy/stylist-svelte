@@ -38,6 +38,3 @@
 		text-align: right;
 	}
 </style>
-
-
-

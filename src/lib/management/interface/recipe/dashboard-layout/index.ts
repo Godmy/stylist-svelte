@@ -3,7 +3,8 @@ import type { TokenDensity as DashboardLayoutVariant } from '$stylist/layout/typ
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 
-export interface DashboardLayoutProps extends StructIntersectAll<[Omit<HTMLAttributes<HTMLDivElement>, 'class'>]> {
+export interface DashboardLayoutProps
+	extends StructIntersectAll<[Omit<HTMLAttributes<HTMLDivElement>, 'class'>]> {
 	header?: Snippet;
 	sidebar?: Snippet;
 	sidebarOpen?: boolean;

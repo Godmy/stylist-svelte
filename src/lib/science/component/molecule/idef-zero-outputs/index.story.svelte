@@ -8,7 +8,11 @@
 	];
 </script>
 
-<Story component={Idef0Outputs} title="IDEF0Outputs" description="Output connectors for IDEF0 black-box.">
+<Story
+	component={Idef0Outputs}
+	title="IDEF0Outputs"
+	description="Output connectors for IDEF0 black-box."
+>
 	{#snippet children()}
 		<svg width="520" height="260">
 			<rect x="40" y="30" width="220" height="200" fill="none" stroke="#cbd5e1" />
@@ -16,5 +20,3 @@
 		</svg>
 	{/snippet}
 </Story>
-
-

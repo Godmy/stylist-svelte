@@ -28,7 +28,9 @@ export function createSelectorState(props: SelectorProps) {
 	);
 	const chevronClass = 'ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none';
 	const errorClass = 'mt-1 text-sm text-[--color-danger-500]';
-	const valueClass = $derived(selectedOption ? 'text-[--color-text-primary]' : 'text-[--color-text-secondary]');
+	const valueClass = $derived(
+		selectedOption ? 'text-[--color-text-primary]' : 'text-[--color-text-secondary]'
+	);
 
 	function handleClick() {
 		if (props.onToggle && !disabled) {

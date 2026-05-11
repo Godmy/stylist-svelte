@@ -17,14 +17,21 @@
 	];
 </script>
 
-<Story component={AutocompleteDropdown} title="AutocompleteDropdown" description="Dropdown selector with option list and controlled value." {controls}>
+<Story
+	component={AutocompleteDropdown}
+	title="AutocompleteDropdown"
+	description="Dropdown selector with option list and controlled value."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<div class="max-w-sm space-y-2">
-			<AutocompleteDropdown options={options} value={value} placeholder={values.placeholder} onValueChange={(next) => (value = next)} />
+			<AutocompleteDropdown
+				{options}
+				{value}
+				placeholder={values.placeholder}
+				onValueChange={(next) => (value = next)}
+			/>
 			<p class="text-sm text-[--color-text-secondary]">Selected: {value || 'none'}</p>
 		</div>
 	{/snippet}
 </Story>
-
-
-

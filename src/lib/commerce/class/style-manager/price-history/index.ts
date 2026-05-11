@@ -2,54 +2,51 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 import { CardStyleManager } from '$stylist/information/class/style-manager/card';
 
 export class PriceHistoryStyleManager {
-  static getContainerClass(extraClasses: string = ''): string {
-    return mergeClassNames(
-      'c-price-history border border-[var(--color-border-primary)] p-4 shadow-sm',
-      CardStyleManager.getBaseClasses(),
-      extraClasses
-    );
-  }
+	static getContainerClass(extraClasses: string = ''): string {
+		return mergeClassNames(
+			'c-price-history border border-[var(--color-border-primary)] p-4 shadow-sm',
+			CardStyleManager.getBaseClasses(),
+			extraClasses
+		);
+	}
 
-  static getTitleClass(): string {
-    return 'mb-4 font-semibold text-[var(--color-text-primary)]';
-  }
+	static getTitleClass(): string {
+		return 'mb-4 font-semibold text-[var(--color-text-primary)]';
+	}
 
-  static getChartContainerClass(): string {
-    return 'relative';
-  }
+	static getChartContainerClass(): string {
+		return 'relative';
+	}
 
-  static getSVGClass(): string {
-    return 'w-full';
-  }
+	static getSVGClass(): string {
+		return 'w-full';
+	}
 
-  static getGridLineClass(): string {
-    return 'stroke-[var(--color-border-primary)] stroke-1';
-  }
+	static getGridLineClass(): string {
+		return 'stroke-[var(--color-border-primary)] stroke-1';
+	}
 
-  static getGridTextClass(): string {
-    return 'fill-[var(--color-text-tertiary)] text-xs';
-  }
+	static getGridTextClass(): string {
+		return 'fill-[var(--color-text-tertiary)] text-xs';
+	}
 
-  static getPriceLineClass(): string {
-    return '';
-  }
+	static getPriceLineClass(): string {
+		return '';
+	}
 
-  static getDataPointClass(): string {
-    return '';
-  }
+	static getDataPointClass(): string {
+		return '';
+	}
 
-  static getNoDataClass(): string {
-    return 'flex h-48 items-center justify-center text-[var(--color-text-tertiary)]';
-  }
+	static getNoDataClass(): string {
+		return 'flex h-48 items-center justify-center text-[var(--color-text-tertiary)]';
+	}
 
-  static getInfoClass(): string {
-    return 'mt-4 text-sm text-[var(--color-text-secondary)]';
-  }
+	static getInfoClass(): string {
+		return 'mt-4 text-sm text-[var(--color-text-secondary)]';
+	}
 
-  static getInfoTextClass(): string {
-    return '';
-  }
+	static getInfoTextClass(): string {
+		return '';
+	}
 }
-
-
-

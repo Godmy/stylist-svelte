@@ -19,19 +19,12 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { ArticleCardAction } from '$stylist/commerce/interface/slot/article-card-action';
 
 export interface ArticleCardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IMediaSlot,
-		IBadgeSlot,
-		IIconSlot,
-		ThemeAttributes<HTMLElement>
-	]>
-{
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IMediaSlot, IBadgeSlot, IIconSlot, ThemeAttributes<HTMLElement>]
+	> {
 	title?: string;
 	subtitle?: string;
 	image?: string;
 	actions?: ArticleCardAction[];
 	children?: Snippet;
 }
-

@@ -110,24 +110,38 @@ export function createPromptBuilderState(props: PromptBuilderContract) {
 	const addTemplateButtonClass = $derived(PromptBuilderStyleManager.getAddTemplateButtonClass());
 	const templatesListClass = $derived(PromptBuilderStyleManager.getTemplatesListClass());
 	const templateNameClass = $derived(PromptBuilderStyleManager.getTemplateNameClass());
-	const templateDescriptionClass = $derived(PromptBuilderStyleManager.getTemplateDescriptionClass());
+	const templateDescriptionClass = $derived(
+		PromptBuilderStyleManager.getTemplateDescriptionClass()
+	);
 	const mainContentClass = $derived(PromptBuilderStyleManager.getMainContentClass());
-	const promptEditorSectionClass = $derived(PromptBuilderStyleManager.getPromptEditorSectionClass());
+	const promptEditorSectionClass = $derived(
+		PromptBuilderStyleManager.getPromptEditorSectionClass()
+	);
 	const promptEditorLabelClass = $derived(PromptBuilderStyleManager.getPromptEditorLabelClass());
-	const promptEditorClass = $derived(PromptBuilderStyleManager.getPromptEditorClass(props.editorClass ?? ''));
+	const promptEditorClass = $derived(
+		PromptBuilderStyleManager.getPromptEditorClass(props.editorClass ?? '')
+	);
 	const variablesSectionClass = $derived(PromptBuilderStyleManager.getVariablesSectionClass());
 	const variablesHeaderClass = $derived(PromptBuilderStyleManager.getVariablesHeaderClass());
 	const variablesTitleClass = $derived(PromptBuilderStyleManager.getVariablesTitleClass());
 	const addVariableButtonClass = $derived(PromptBuilderStyleManager.getAddVariableButtonClass());
 	const variablesListClass = $derived(PromptBuilderStyleManager.getVariablesListClass());
-	const variableItemClass = $derived(PromptBuilderStyleManager.getVariableItemClass(props.variablesClass ?? ''));
-	const variableInfoContainerClass = $derived(PromptBuilderStyleManager.getVariableInfoContainerClass());
+	const variableItemClass = $derived(
+		PromptBuilderStyleManager.getVariableItemClass(props.variablesClass ?? '')
+	);
+	const variableInfoContainerClass = $derived(
+		PromptBuilderStyleManager.getVariableInfoContainerClass()
+	);
 	const variableNameClass = $derived(PromptBuilderStyleManager.getVariableNameClass());
 	const variableTypeBadgeClass = $derived(PromptBuilderStyleManager.getVariableTypeBadgeClass());
 	const requiredBadgeClass = $derived(PromptBuilderStyleManager.getRequiredBadgeClass());
 	const variableActionsClass = $derived(PromptBuilderStyleManager.getVariableActionsClass());
-	const variableActionButtonClass = $derived(PromptBuilderStyleManager.getVariableActionButtonClass());
-	const variableDescriptionClass = $derived(PromptBuilderStyleManager.getVariableDescriptionClass());
+	const variableActionButtonClass = $derived(
+		PromptBuilderStyleManager.getVariableActionButtonClass()
+	);
+	const variableDescriptionClass = $derived(
+		PromptBuilderStyleManager.getVariableDescriptionClass()
+	);
 	const footerClass = $derived(PromptBuilderStyleManager.getFooterClass(props.footerClass ?? ''));
 	const cancelButtonClass = $derived(PromptBuilderStyleManager.getCancelButtonClass());
 	const saveButtonClass = $derived(PromptBuilderStyleManager.getSaveButtonClass());

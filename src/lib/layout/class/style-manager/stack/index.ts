@@ -85,7 +85,3 @@ export class StackStyleManager {
 		};
 	}
 }
-
-
-
-

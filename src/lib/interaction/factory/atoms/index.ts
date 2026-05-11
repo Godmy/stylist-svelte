@@ -76,9 +76,7 @@ export interface AtomsMap {
 /**
  * Извлекает props для атома container из общих props компонента
  */
-function extractContainerProps<T extends Record<string, any>>(
-	props: T
-): ContainerContract {
+function extractContainerProps<T extends Record<string, any>>(props: T): ContainerContract {
 	const {
 		size,
 		class: className,
@@ -122,7 +120,9 @@ function extractContainerProps<T extends Record<string, any>>(
 /**
  * Извлекает props для атома background из общих props компонента
  */
-function extractThemeBackgroundRecipe<T extends Record<string, any>>(props: T): ThemeBackgroundRecipe {
+function extractThemeBackgroundRecipe<T extends Record<string, any>>(
+	props: T
+): ThemeBackgroundRecipe {
 	const {
 		class: className,
 		background,
@@ -328,7 +328,9 @@ export function mergeAtomClasses(...classes: Array<string | undefined | null>): 
 /**
  * Объединяет стили из нескольких атомов
  */
-export function mergeAtomStyles(...styles: Array<Record<string, string | number> | undefined | null>): Record<string, string | number> {
+export function mergeAtomStyles(
+	...styles: Array<Record<string, string | number> | undefined | null>
+): Record<string, string | number> {
 	const merged: Record<string, string | number> = {};
 	for (const style of styles) {
 		if (style) {
@@ -341,7 +343,9 @@ export function mergeAtomStyles(...styles: Array<Record<string, string | number>
 /**
  * Объединяет атрибуты из нескольких атомов (для передачи restProps)
  */
-export function mergeAtomAttrs(...atoms: Array<Record<string, any> | undefined>): Record<string, any> {
+export function mergeAtomAttrs(
+	...atoms: Array<Record<string, any> | undefined>
+): Record<string, any> {
 	const merged: Record<string, any> = {};
 	for (const atom of atoms) {
 		if (atom) {

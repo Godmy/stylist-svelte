@@ -4,4 +4,4 @@ import type { TokenControlOption } from '$stylist/control/type/struct/token-cont
 export type TokenSelectControlDefinition = TokenControlDefinitionData & {
 	controlKind: 'select';
 	options: TokenControlOption[];
-}
+};

@@ -6,12 +6,12 @@ import type { SlotMapSelectorStyleClasses as IMapSelectorStyleClasses } from '$s
  * Uses CSS variables from the theme system
  */
 export class MapSelectorStyleManager {
-  static getBaseClasses(className: string): string {
-    const baseClasses = 'c-map-selector flex flex-col';
-    return `${baseClasses} ${className}`;
-  }
+	static getBaseClasses(className: string): string {
+		const baseClasses = 'c-map-selector flex flex-col';
+		return `${baseClasses} ${className}`;
+	}
 
-  static getAllClasses(className: string): string {
-    return this.getBaseClasses(className);
-  }
+	static getAllClasses(className: string): string {
+		return this.getBaseClasses(className);
+	}
 }

@@ -6,27 +6,37 @@ export function createHeatmapState(props: HeatmapRecipe) {
 	let hoveredCell = $state<string | null>(null);
 	const hostClass = $derived(typeof props.class === 'string' ? props.class : undefined);
 	const chartClass = $derived(typeof props.chartClass === 'string' ? props.chartClass : undefined);
-	const resolvedColorScheme = $derived((props.colorScheme ?? 'minimal') as 'minimal' | 'ocean' | 'forest' | 'sunset');
+	const resolvedColorScheme = $derived(
+		(props.colorScheme ?? 'minimal') as 'minimal' | 'ocean' | 'forest' | 'sunset'
+	);
 
 	const rows = $derived(ObjectManagerHeatmap.resolveRows(props.data ?? []));
 	const columns = $derived(ObjectManagerHeatmap.resolveColumns(props.data ?? []));
-	const calculatedMaxValue = $derived(ObjectManagerHeatmap.resolveMaxValue(props.data ?? [], props.maxValue));
-	const chartWidth = $derived(ObjectManagerHeatmap.resolveChartWidth(props.width ?? 600, props.showAxis ?? true));
-	const chartHeight = $derived(ObjectManagerHeatmap.resolveChartHeight(props.height ?? 400, props.showAxis ?? true));
+	const calculatedMaxValue = $derived(
+		ObjectManagerHeatmap.resolveMaxValue(props.data ?? [], props.maxValue)
+	);
+	const chartWidth = $derived(
+		ObjectManagerHeatmap.resolveChartWidth(props.width ?? 600, props.showAxis ?? true)
+	);
+	const chartHeight = $derived(
+		ObjectManagerHeatmap.resolveChartHeight(props.height ?? 400, props.showAxis ?? true)
+	);
 	const cellWidth = $derived(ObjectManagerHeatmap.resolveCellSize(chartWidth, columns.length));
 	const cellHeight = $derived(ObjectManagerHeatmap.resolveCellSize(chartHeight, rows.length));
-	const heatmapCells = $derived(ObjectManagerHeatmap.resolveHeatmapCells({
-		data: props.data ?? [],
-		rows,
-		columns,
-		cellWidth,
-		cellHeight,
-		showAxis: props.showAxis ?? true,
-		cellPadding: props.cellPadding ?? 2,
-		minValue: props.minValue ?? 0,
-		calculatedMaxValue,
-		colorScheme: resolvedColorScheme
-	}));
+	const heatmapCells = $derived(
+		ObjectManagerHeatmap.resolveHeatmapCells({
+			data: props.data ?? [],
+			rows,
+			columns,
+			cellWidth,
+			cellHeight,
+			showAxis: props.showAxis ?? true,
+			cellPadding: props.cellPadding ?? 2,
+			minValue: props.minValue ?? 0,
+			calculatedMaxValue,
+			colorScheme: resolvedColorScheme
+		})
+	);
 
 	const containerClasses = $derived(HeatmapStyleManager.getContainerClasses(hostClass));
 	const chartContainerClasses = $derived(HeatmapStyleManager.getChartContainerClasses(chartClass));
@@ -39,7 +49,9 @@ export function createHeatmapState(props: HeatmapRecipe) {
 	const legendGradientClasses = $derived(HeatmapStyleManager.getLegendGradientClasses());
 	const legendLabelsClasses = $derived(HeatmapStyleManager.getLegendLabelsClasses());
 	const tooltipButtonClasses = $derived(HeatmapStyleManager.getTooltipButtonClasses());
-	const cellClasses = $derived((isHovered: boolean) => HeatmapStyleManager.getCellClasses(isHovered));
+	const cellClasses = $derived((isHovered: boolean) =>
+		HeatmapStyleManager.getCellClasses(isHovered)
+	);
 
 	function handleCellFocus(cellId: string) {
 		hoveredCell = cellId;

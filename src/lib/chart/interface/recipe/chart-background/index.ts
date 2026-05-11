@@ -7,7 +7,8 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
  */
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface ChartBackgroundRecipe extends StructIntersectAll<[ThemeAttributes<SVGRectElement>]> {
+export interface ChartBackgroundRecipe
+	extends StructIntersectAll<[ThemeAttributes<SVGRectElement>]> {
 	width?: number;
 	height?: number;
 	fill?: string;

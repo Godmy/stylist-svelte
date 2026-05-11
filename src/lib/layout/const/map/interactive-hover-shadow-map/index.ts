@@ -4,4 +4,3 @@ export const INTERACTIVE_HOVER_SHADOW_MAP = {
 	lg: 'hover:shadow-lg',
 	xl: 'hover:shadow-xl'
 } as const;
-

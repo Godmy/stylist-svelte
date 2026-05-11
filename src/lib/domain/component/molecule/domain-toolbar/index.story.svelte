@@ -4,7 +4,12 @@
 	import DomainToolbar from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'orientation', type: 'select', defaultValue: 'vertical', options: ['horizontal', 'vertical'] },
+		{
+			name: 'orientation',
+			type: 'select',
+			defaultValue: 'vertical',
+			options: ['horizontal', 'vertical']
+		},
 		{ name: 'showLabel', type: 'boolean', defaultValue: true }
 	];
 
@@ -20,7 +25,7 @@
 	{#snippet children(values: any)}
 		<div class="rounded-2xl border border-slate-200 bg-white p-4">
 			<DomainToolbar
-				active={active}
+				{active}
 				orientation={values.orientation as 'horizontal' | 'vertical'}
 				showLabel={Boolean(values.showLabel)}
 				onSelect={(name) => {

@@ -9,7 +9,7 @@ export function createAnimatedNumberState(props: AnimatedNumberProps) {
 	const decimals = $derived(props.decimals ?? 0);
 	const classes = $derived(
 		DataDisplayStyleManager.getAnimatedNumberClasses(
-			typeof props.class === "string" ? props.class : undefined
+			typeof props.class === 'string' ? props.class : undefined
 		)
 	);
 

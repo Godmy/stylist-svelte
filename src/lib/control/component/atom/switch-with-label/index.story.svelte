@@ -11,7 +11,12 @@
 	];
 </script>
 
-<Story component={SwitchWithLabel} title="SwitchWithLabel" description="Boolean switch with label alignment control." {controls}>
+<Story
+	component={SwitchWithLabel}
+	title="SwitchWithLabel"
+	description="Boolean switch with label alignment control."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<SwitchWithLabel
 			checked={values.checked}
@@ -21,6 +26,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

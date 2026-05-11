@@ -46,6 +46,3 @@
 <div {...restProps} class={state.classes}>
 	{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 </div>
-
-
-

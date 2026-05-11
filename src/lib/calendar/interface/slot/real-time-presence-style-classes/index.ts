@@ -3,10 +3,10 @@
  */
 
 export interface SlotRealTimePresenceStyleClasses {
-  base: string;
-  user: string;
-  status: string;
-  online: string;
-  away: string;
-  offline: string;
+	base: string;
+	user: string;
+	status: string;
+	online: string;
+	away: string;
+	offline: string;
 }

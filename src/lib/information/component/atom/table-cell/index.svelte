@@ -4,7 +4,6 @@
 
 	let props: TableCellRecipe = $props();
 	const state = createTableCellState(props);
-
 </script>
 
 {#if state.variant === 'header'}
@@ -20,5 +19,3 @@
 		{/if}
 	</td>
 {/if}
-
-

@@ -16,9 +16,3 @@
 		<div class={state.progressFillClasses} style={`width: ${state.percentage}%`}></div>
 	</div>
 </div>
-
-
-
-
-
-

@@ -1,6 +1,6 @@
 export type FunnelStep = {
-  id: string;
-  name: string;
-  value: number;
-  color?: string;
+	id: string;
+	name: string;
+	value: number;
+	color?: string;
 };

@@ -72,7 +72,8 @@ export class TogglesStyleManager {
 							: switchSize === '2xl'
 								? 'translate-x-8'
 								: 'translate-x-5';
-		const state = checked === undefined ? 'translate-x-0' : checked ? translateClass : 'translate-x-0';
+		const state =
+			checked === undefined ? 'translate-x-0' : checked ? translateClass : 'translate-x-0';
 		return this.join([
 			'pointer-events-none block rounded-full bg-[--color-background-primary] shadow-lg ring-0 transition-transform',
 			sizeClasses,
@@ -117,7 +118,8 @@ export class TogglesStyleManager {
 							: size === '2xl'
 								? 'translate-x-8'
 								: 'translate-x-5';
-		const state = checked === undefined ? 'translate-x-0.5' : checked ? translateClass : 'translate-x-0.5';
+		const state =
+			checked === undefined ? 'translate-x-0.5' : checked ? translateClass : 'translate-x-0.5';
 		return this.join([
 			'pointer-events-none inline-block transform rounded-full bg-[--color-background-primary] shadow-lg ring-0 transition duration-[var(--duration-200)] ease-in-out',
 			sizeClasses,
@@ -140,11 +142,14 @@ export class TogglesStyleManager {
 		const activeClasses = isActive
 			? 'bg-primary text-primary-foreground shadow-sm'
 			: 'text-muted-foreground hover:bg-muted hover:text-foreground';
-		return this.join([baseClasses, activeClasses, disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : '']);
+		return this.join([
+			baseClasses,
+			activeClasses,
+			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
+		]);
 	}
 
 	static getToggleHandleSizeClass(size: TokenSize = 'md'): string {
 		return TOKEN_TOGGLE_HANDLE_SIZE_CLASSES[size];
 	}
 }
-

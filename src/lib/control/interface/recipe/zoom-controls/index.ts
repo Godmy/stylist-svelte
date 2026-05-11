@@ -11,17 +11,17 @@ import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavi
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface ZoomRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IIconSlot,
-		IClickable,
-		IFocusable,
-		ISized,
-		IShapeable,
-		ISpaced,
-		SlotTheme,
-		HTMLAttributes<HTMLDivElement>
-	]>,
-		ZoomSpecificProps
-{}
-
+	extends StructIntersectAll<
+			[
+				ILabelSlot,
+				IIconSlot,
+				IClickable,
+				IFocusable,
+				ISized,
+				IShapeable,
+				ISpaced,
+				SlotTheme,
+				HTMLAttributes<HTMLDivElement>
+			]
+		>,
+		ZoomSpecificProps {}

@@ -6,7 +6,9 @@ export function createTableWithStripesState(props: TableWithStripesProps) {
 	const data = $derived(props.data ?? []);
 	const columns = $derived(props.columns ?? []);
 
-	const containerClass = $derived(TableExtendedStyleManager.root('c-table-with-stripes', className));
+	const containerClass = $derived(
+		TableExtendedStyleManager.root('c-table-with-stripes', className)
+	);
 
 	return {
 		get containerClass() {
@@ -19,7 +21,9 @@ export function createTableWithStripesState(props: TableWithStripesProps) {
 			return columns;
 		},
 		getRowClass(index: number): string {
-			return index % 2 ? 'bg-[var(--color-background-secondary)]' : 'bg-[var(--color-background-primary)]';
+			return index % 2
+				? 'bg-[var(--color-background-secondary)]'
+				: 'bg-[var(--color-background-primary)]';
 		}
 	};
 }

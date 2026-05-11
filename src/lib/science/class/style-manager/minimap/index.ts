@@ -21,4 +21,3 @@ export class MinimapStyleManager {
 		return 'minimap__controls';
 	}
 }
-

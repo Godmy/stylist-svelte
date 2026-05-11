@@ -16,7 +16,11 @@
 {#if state.open && state.items.length > 0}
 	<div class={state.dropdownClass} {...state.restProps}>
 		{#each state.items as item (item.id)}
-			<button type="button" class={state.itemClass} onclick={() => state.handleSelect(item.targetId)}>
+			<button
+				type="button"
+				class={state.itemClass}
+				onclick={() => state.handleSelect(item.targetId)}
+			>
 				<span class={state.itemLabelClass}>{item.label}</span>
 				{#if item.description}
 					<span class={state.itemDescriptionClass}>{item.description}</span>

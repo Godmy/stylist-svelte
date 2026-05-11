@@ -19,16 +19,17 @@ export class LinkStyleManager {
 			'inline-flex items-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-500)] focus-visible:ring-offset-2',
 			LINK_VARIANT_CLASSES[variant] ?? LINK_VARIANT_CLASSES.default,
 			LINK_SIZE_CLASSES[size] ?? LINK_SIZE_CLASSES.md,
-			underline && variant !== 'outline' && variant !== 'ghost' ? 'underline underline-offset-2' : '',
-			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : 'cursor-pointer hover:opacity-[var(--opacity-80)]',
+			underline && variant !== 'outline' && variant !== 'ghost'
+				? 'underline underline-offset-2'
+				: '',
+			disabled
+				? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none'
+				: 'cursor-pointer hover:opacity-[var(--opacity-80)]',
 			className
 		]);
 	}
 
 	static getLinkIconClasses(className?: string): string {
-		return this.join([
-			'w-4 h-4 ml-1',
-			className
-		]);
+		return this.join(['w-4 h-4 ml-1', className]);
 	}
 }

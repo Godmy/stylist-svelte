@@ -14,7 +14,8 @@ import type { Snippet } from 'svelte';
 import type { SlotCaption } from '$stylist/typography/interface/slot/caption';
 import type { SlotLabel } from '$stylist/typography/interface/slot/label';
 
-export interface RecipeProductDemo extends StructIntersectAll<[ SlotLabel, SlotCaption, ThemeAttributes<HTMLDivElement> ]> {
+export interface RecipeProductDemo
+	extends StructIntersectAll<[SlotLabel, SlotCaption, ThemeAttributes<HTMLDivElement>]> {
 	/** Demo content snippet */
 	demoContent: Snippet;
 	/** List of features */

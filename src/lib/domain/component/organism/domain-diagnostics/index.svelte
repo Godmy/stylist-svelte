@@ -350,7 +350,9 @@
 				</thead>
 				<tbody>
 					{#each visibleResults as result (result.id)}
-						<tr class={`result-row result-row--${result.status} result-row--${getTimingTone(result.totalMs)}`}>
+						<tr
+							class={`result-row result-row--${result.status} result-row--${getTimingTone(result.totalMs)}`}
+						>
 							<td>
 								<span class={`status-pill status-pill--${result.status}`}>{result.status}</span>
 							</td>
@@ -562,7 +564,8 @@
 		padding: 0.9rem 1rem;
 		text-align: left;
 		vertical-align: top;
-		border-bottom: 1px solid color-mix(in srgb, var(--color-border-primary, #cbd5e1) 70%, transparent);
+		border-bottom: 1px solid
+			color-mix(in srgb, var(--color-border-primary, #cbd5e1) 70%, transparent);
 	}
 
 	.results-table th {

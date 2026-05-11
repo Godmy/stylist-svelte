@@ -7,6 +7,3 @@ export function createPinInputDigitState(
 }
 
 export default createPinInputDigitState;
-
-
-

@@ -14,7 +14,7 @@
 			type="button"
 			class={state.mobileButtonClass}
 			onclick={state.toggleSidebar}
-			aria-label={state.isSidebarOpen ? "Close sidebar" : "Open sidebar"}
+			aria-label={state.isSidebarOpen ? 'Close sidebar' : 'Open sidebar'}
 		>
 			{#if state.isSidebarOpen}
 				<Icon name="x" size="lg" />
@@ -42,11 +42,7 @@
 	{/if}
 
 	<!-- Sidebar -->
-	<aside
-		class={state.sidebarClass}
-		style={state.sidebarStyle}
-		aria-label="Sidebar navigation"
-	>
+	<aside class={state.sidebarClass} style={state.sidebarStyle} aria-label="Sidebar navigation">
 		<div class={state.sidebarContainerClass}>
 			<!-- Header with logo and title -->
 			<div class={state.headerClass}>

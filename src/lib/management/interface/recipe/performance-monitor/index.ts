@@ -8,11 +8,6 @@ import type { BehaviorMetricValue as IMetricValue } from '$stylist/information/i
  * PerformanceMonitor = shared label + metric value with analytics status.
  */
 export interface PerformanceMonitorRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IMetricValue,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<[ILabelSlot, IMetricValue, ThemeAttributes<HTMLDivElement>]> {
 	status?: PerformanceMonitorStatus;
 }
-

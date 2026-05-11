@@ -11,7 +11,13 @@
 	{#if props.title}
 		<h3 class="text-sm font-semibold text-[--color-text-primary]">{props.title}</h3>
 	{/if}
-	<svg class={state.svgClasses} width={state.width} height={state.height} role="img" aria-label={props.model.title}>
+	<svg
+		class={state.svgClasses}
+		width={state.width}
+		height={state.height}
+		role="img"
+		aria-label={props.model.title}
+	>
 		<Idef0BlackBox
 			title={props.model.title}
 			subtitle={props.model.subtitle}
@@ -22,7 +28,3 @@
 		/>
 	</svg>
 </section>
-
-
-
-

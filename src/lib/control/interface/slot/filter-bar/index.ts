@@ -5,10 +5,10 @@ import type { RangeFilter } from '$stylist/control/type/struct/filter-bar/range-
 
 // FilterBar props interface
 export interface SlotFilterBar {
-  toggles?: ToggleFilter[];
-  tags?: TagFilter[];
-  range?: RangeFilter;
-  onClear?: () => void;
-  class?: string;
-  children?: Snippet;
+	toggles?: ToggleFilter[];
+	tags?: TagFilter[];
+	range?: RangeFilter;
+	onClear?: () => void;
+	class?: string;
+	children?: Snippet;
 }

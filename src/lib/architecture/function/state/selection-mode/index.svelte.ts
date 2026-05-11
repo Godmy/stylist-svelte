@@ -6,8 +6,12 @@ export function createSelectionMode(initial?: SelectionMode) {
 	let mode = $state<SelectionMode>(initial ?? DEFAULT_MODE);
 
 	return {
-		get mode() { return mode; },
-		setMode(newMode: SelectionMode) { mode = newMode; }
+		get mode() {
+			return mode;
+		},
+		setMode(newMode: SelectionMode) {
+			mode = newMode;
+		}
 	};
 }
 

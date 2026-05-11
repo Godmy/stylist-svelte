@@ -18,10 +18,7 @@ export class SpinnerStyleManager {
 	}
 
 	static getSpinnerContainerClasses(className?: string): string {
-		return this.join([
-			'inline-flex items-center justify-center',
-			className
-		]);
+		return this.join(['inline-flex items-center justify-center', className]);
 	}
 
 	static getSpinnerClasses(

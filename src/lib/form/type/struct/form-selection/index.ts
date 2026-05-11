@@ -13,4 +13,4 @@ export type FormSelectionProps = InteractionHTMLAttributes<HTMLElement> & {
 	headerClass?: string;
 	contentClass?: string;
 	children: Snippet;
-}
+};

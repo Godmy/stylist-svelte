@@ -1,14 +1,15 @@
 import { MediaStyleManager } from '$stylist/media/class/style-manager/media';
 import type { CountryFlagRecipe as CountryFlagProps } from '$stylist/media/interface/recipe/country-flag';
 
-
 export function createCountryFlagState(props: CountryFlagProps) {
 	const countryCode = $derived(props.countryCode ?? '');
 	const size = $derived(props.size ?? 24);
 	const emoji = $derived(MediaStyleManager.resolveCountryFlagEmoji(countryCode));
 	const isValid = $derived(Boolean(countryCode && countryCode.length === 2));
 	const classes = $derived(
-		MediaStyleManager.getCountryFlagClasses(typeof props.class === "string" ? props.class : undefined)
+		MediaStyleManager.getCountryFlagClasses(
+			typeof props.class === 'string' ? props.class : undefined
+		)
 	);
 	const style = $derived(MediaStyleManager.getCountryFlagStyle(size));
 	const fallbackStyle = $derived(MediaStyleManager.getCountryFlagStyle(size));

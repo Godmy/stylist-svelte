@@ -8,14 +8,17 @@
 	const state = createDashboardLayoutState(props);
 </script>
 
-<div class={`c-dashboard-layout flex h-screen bg-[--color-background-secondary] ${props.class ?? ''}`} {...state.restProps}>
+<div
+	class={`c-dashboard-layout flex h-screen bg-[--color-background-secondary] ${props.class ?? ''}`}
+	{...state.restProps}
+>
 	<!-- Sidebar -->
 	{#if props.sidebar}
 		<aside
-			class={`hidden md:block ${state.sidebarWidthClass} bg-[--color-background-primary] shadow-md flex flex-col transition-all duration-[var(--duration-300)] ease-in-out ${props.sidebarClass ?? ''}`}
+			class={`hidden md:block ${state.sidebarWidthClass} flex flex-col bg-[--color-background-primary] shadow-md transition-all duration-[var(--duration-300)] ease-in-out ${props.sidebarClass ?? ''}`}
 		>
 			{#if state.collapsibleSidebar && state.showSidebarToggle}
-				<div class="p-4 flex justify-end">
+				<div class="flex justify-end p-4">
 					<Button
 						variant="ghost"
 						size="sm"
@@ -38,7 +41,7 @@
 
 	<!-- Mobile sidebar toggle button -->
 	{#if state.showSidebarToggle && props.sidebar}
-		<div class="md:hidden fixed top-4 left-4 z-[var(--z-index-modal)]">
+		<div class="fixed top-4 left-4 z-[var(--z-index-modal)] md:hidden">
 			<Button
 				variant="secondary"
 				onclick={state.toggleSidebar}
@@ -52,7 +55,7 @@
 	<!-- Mobile sidebar overlay -->
 	{#if props.sidebar && state.isSidebarOpen}
 		<div
-			class="fixed inset-0 z-[var(--z-index-overlay)] bg-[--color-overlay-primary] bg-opacity-[var(--opacity-50)] md:hidden"
+			class="bg-opacity-[var(--opacity-50)] fixed inset-0 z-[var(--z-index-overlay)] bg-[--color-overlay-primary] md:hidden"
 			onclick={state.toggleSidebar}
 			role="button"
 			tabindex={0}
@@ -70,13 +73,8 @@
 		<aside
 			class="fixed inset-y-0 left-0 z-[var(--z-index-modal)] w-64 bg-[--color-background-primary] shadow-lg md:hidden"
 		>
-			<div class="p-4 flex justify-end">
-				<Button
-					variant="ghost"
-					size="sm"
-					onclick={state.toggleSidebar}
-					aria-label="Close menu"
-				>
+			<div class="flex justify-end p-4">
+				<Button variant="ghost" size="sm" onclick={state.toggleSidebar} aria-label="Close menu">
 					<Icon name="x" size="md" />
 				</Button>
 			</div>
@@ -87,11 +85,13 @@
 	{/if}
 
 	<!-- Main content -->
-	<div class="flex-1 flex flex-col overflow-hidden">
+	<div class="flex flex-1 flex-col overflow-hidden">
 		<!-- Header -->
 		{#if props.header}
-			<header class={`bg-[--color-background-primary] shadow-sm z-[var(--z-index-docked)] ${props.headerClass ?? ''}`}>
-				<div class="px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+			<header
+				class={`z-[var(--z-index-docked)] bg-[--color-background-primary] shadow-sm ${props.headerClass ?? ''}`}
+			>
+				<div class="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
 					{@render props.header()}
 				</div>
 			</header>
@@ -104,7 +104,7 @@
 
 		<!-- Footer -->
 		{#if props.footer}
-			<footer class={`bg-[--color-background-primary] border-t ${props.footerClass ?? ''}`}>
+			<footer class={`border-t bg-[--color-background-primary] ${props.footerClass ?? ''}`}>
 				<div class="px-4 py-3 sm:px-6 lg:px-8">
 					{@render props.footer()}
 				</div>

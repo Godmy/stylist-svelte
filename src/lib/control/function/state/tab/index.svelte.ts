@@ -7,13 +7,7 @@ export function createTabState(props: TabProps) {
 	const disabled = $derived(props.disabled ?? false);
 	const isSelected = $derived(props.selected ?? false);
 	const classes = $derived(
-		TabsStyleManager.getTabClass(
-			variant,
-			size,
-			isSelected,
-			disabled,
-			props.class
-		)
+		TabsStyleManager.getTabClass(variant, size, isSelected, disabled, props.class)
 	);
 
 	return {
@@ -35,14 +29,4 @@ export function createTabState(props: TabProps) {
 	};
 }
 
-
 export default createTabState;
-
-
-
-
-
-
-
-
-

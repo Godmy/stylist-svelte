@@ -7,7 +7,8 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface RecipeProductGallery extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]> {
+export interface RecipeProductGallery
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	/** List of image URLs */
 	images: string[];
 	/** Main image URL */

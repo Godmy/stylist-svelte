@@ -9,9 +9,10 @@ export const createAutoCompleteState = (props: AutoCompleteProps) => {
 
 	$effect(() => {
 		if (inputValue) {
-			filteredOptions = (props.options ?? []).filter((option) =>
-				option.label.toLowerCase().includes(inputValue.toLowerCase()) ||
-				option.value.toLowerCase().includes(inputValue.toLowerCase())
+			filteredOptions = (props.options ?? []).filter(
+				(option) =>
+					option.label.toLowerCase().includes(inputValue.toLowerCase()) ||
+					option.value.toLowerCase().includes(inputValue.toLowerCase())
 			);
 		} else {
 			filteredOptions = props.showAllSuggestions ? (props.options ?? []) : [];

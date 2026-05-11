@@ -5,7 +5,15 @@ import { getSideBySideSectionWidthClass } from '$stylist/navigation/function/scr
 export function createSideBySideLayoutState(props: SideBySideLayoutProps) {
 	const layoutClass = $derived(getSideBySideLayoutClasses(props));
 	const restProps = $derived.by(() => {
-		const { sections, class: _class, gap: _gap, alignItems: _alignItems, justifyContent: _justifyContent, responsive: _responsive, ...rest } = props;
+		const {
+			sections,
+			class: _class,
+			gap: _gap,
+			alignItems: _alignItems,
+			justifyContent: _justifyContent,
+			responsive: _responsive,
+			...rest
+		} = props;
 		return rest;
 	});
 
@@ -21,6 +29,5 @@ export function createSideBySideLayoutState(props: SideBySideLayoutProps) {
 		}
 	};
 }
- 
- 
-export default createSideBySideLayoutState; 
+
+export default createSideBySideLayoutState;

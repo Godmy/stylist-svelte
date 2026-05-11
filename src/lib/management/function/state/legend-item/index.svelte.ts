@@ -8,20 +8,29 @@ export function createLegendItemState(props: LegendItemStateProps) {
 	const variant = $derived(props.variant ?? 'default');
 	const active = $derived(props.active ?? false);
 
-	const itemClasses = $derived(`${LegendItemStyleManager.getBaseClasses()} ${LegendItemStyleManager.getVariantClasses(variant as Parameters<typeof LegendItemStyleManager.getVariantClasses>[0], active, !!props.onClick)}`);
+	const itemClasses = $derived(
+		`${LegendItemStyleManager.getBaseClasses()} ${LegendItemStyleManager.getVariantClasses(variant as Parameters<typeof LegendItemStyleManager.getVariantClasses>[0], active, !!props.onClick)}`
+	);
 	const iconClasses = $derived(LegendItemStyleManager.getIconClasses());
 	const labelClasses = $derived(LegendItemStyleManager.getLabelClasses());
 	const countClasses = $derived(LegendItemStyleManager.getCountClasses());
 
 	function getIconName(type: string): string {
 		switch (type) {
-			case 'object': return 'object';
-			case 'interface': return 'interface';
-			case 'union': return 'union';
-			case 'enum': return 'enum';
-			case 'scalar': return 'scalar';
-			case 'input': return 'input';
-			default: return 'default';
+			case 'object':
+				return 'object';
+			case 'interface':
+				return 'interface';
+			case 'union':
+				return 'union';
+			case 'enum':
+				return 'enum';
+			case 'scalar':
+				return 'scalar';
+			case 'input':
+				return 'input';
+			default:
+				return 'default';
 		}
 	}
 
@@ -37,15 +46,33 @@ export function createLegendItemState(props: LegendItemStateProps) {
 	}
 
 	return {
-		get label() { return label; },
-		get type() { return type; },
-		get count() { return count; },
-		get variant() { return variant; },
-		get active() { return active; },
-		get itemClasses() { return itemClasses; },
-		get iconClasses() { return iconClasses; },
-		get labelClasses() { return labelClasses; },
-		get countClasses() { return countClasses; },
+		get label() {
+			return label;
+		},
+		get type() {
+			return type;
+		},
+		get count() {
+			return count;
+		},
+		get variant() {
+			return variant;
+		},
+		get active() {
+			return active;
+		},
+		get itemClasses() {
+			return itemClasses;
+		},
+		get iconClasses() {
+			return iconClasses;
+		},
+		get labelClasses() {
+			return labelClasses;
+		},
+		get countClasses() {
+			return countClasses;
+		},
 		getIconName,
 		handleClick,
 		handleKeyDown

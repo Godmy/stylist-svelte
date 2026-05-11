@@ -16,11 +16,15 @@
 
 	<p class={state.descriptionClass}>
 		{#if props.available}
-			{props.stock && props.stock > 0 ? `${props.stock} item${props.stock !== 1 ? 's' : ''} available` : 'Available'}
-			{#if props.location} at {props.location}{/if}
+			{props.stock && props.stock > 0
+				? `${props.stock} item${props.stock !== 1 ? 's' : ''} available`
+				: 'Available'}
+			{#if props.location}
+				at {props.location}{/if}
 		{:else}
 			Currently unavailable
-			{#if props.estimatedRestock} (Expected {props.estimatedRestock}){/if}
+			{#if props.estimatedRestock}
+				(Expected {props.estimatedRestock}){/if}
 		{/if}
 	</p>
 
@@ -31,7 +35,9 @@
 
 		{#if state.showNotificationForm}
 			<div class={state.notificationFormClass}>
-				<p class={state.notificationTextClass}>Enter your email to be notified when this product is back in stock.</p>
+				<p class={state.notificationTextClass}>
+					Enter your email to be notified when this product is back in stock.
+				</p>
 				<div class={state.formContainerClass}>
 					<input type="email" placeholder="Your email" class={state.emailInputClass} />
 					<button onclick={props.onNotifyMe} class={state.notifySubmitButtonClass}>Notify</button>

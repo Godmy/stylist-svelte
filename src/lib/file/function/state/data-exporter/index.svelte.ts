@@ -4,59 +4,62 @@ import type { DataItem } from '$stylist/file/type/struct/data-exporter/data-item
 import { exportData as exportDataFn } from '$stylist/file/function/script/data-exporter';
 
 export function createDataExporterState(
-  props: {
-    data?: DataItem[];
-    format?: ExportFormat;
-    disabled?: boolean;
-    fileName?: string;
-    class?: string;
-  } & Record<string, unknown>
+	props: {
+		data?: DataItem[];
+		format?: ExportFormat;
+		disabled?: boolean;
+		fileName?: string;
+		class?: string;
+	} & Record<string, unknown>
 ) {
-  const disabled = $derived(props.disabled ?? false);
-  const format = $derived(props.format ?? 'csv');
-  const fileName = $derived(props.fileName ?? 'export');
-  const data = $derived(props.data ?? []);
-  let selectedFormat = $state<ExportFormat>(props.format ?? 'csv');
-  const dispatch = createEventDispatcher<{ export: { format: ExportFormat; fileName: string } }>();
+	const disabled = $derived(props.disabled ?? false);
+	const format = $derived(props.format ?? 'csv');
+	const fileName = $derived(props.fileName ?? 'export');
+	const data = $derived(props.data ?? []);
+	let selectedFormat = $state<ExportFormat>(props.format ?? 'csv');
+	const dispatch = createEventDispatcher<{ export: { format: ExportFormat; fileName: string } }>();
 
-  const formats: Record<ExportFormat, { ext: string; mime: string }> = {
-    csv: { ext: 'csv', mime: 'text/csv' },
-    json: { ext: 'json', mime: 'application/json' },
-    excel: { ext: 'xlsx', mime: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }
-  };
+	const formats: Record<ExportFormat, { ext: string; mime: string }> = {
+		csv: { ext: 'csv', mime: 'text/csv' },
+		json: { ext: 'json', mime: 'application/json' },
+		excel: {
+			ext: 'xlsx',
+			mime: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+		}
+	};
 
-  function exportData(): void {
-    if (disabled) {
-      return;
-    }
+	function exportData(): void {
+		if (disabled) {
+			return;
+		}
 
-    exportDataFn(data, selectedFormat, fileName, formats, dispatch);
-  }
+		exportDataFn(data, selectedFormat, fileName, formats, dispatch);
+	}
 
-  return {
-    get disabled() {
-      return disabled;
-    },
-    get format() {
-      return format;
-    },
-    get fileName() {
-      return fileName;
-    },
-    get data() {
-      return data;
-    },
-    get formats() {
-      return formats;
-    },
-    get selectedFormat() {
-      return selectedFormat;
-    },
-    set selectedFormat(value: ExportFormat) {
-      selectedFormat = value;
-    },
-    exportData
-  };
+	return {
+		get disabled() {
+			return disabled;
+		},
+		get format() {
+			return format;
+		},
+		get fileName() {
+			return fileName;
+		},
+		get data() {
+			return data;
+		},
+		get formats() {
+			return formats;
+		},
+		get selectedFormat() {
+			return selectedFormat;
+		},
+		set selectedFormat(value: ExportFormat) {
+			selectedFormat = value;
+		},
+		exportData
+	};
 }
 
 export default createDataExporterState;

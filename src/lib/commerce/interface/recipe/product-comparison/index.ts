@@ -9,7 +9,8 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { SlotProductComparisonItem } from '$stylist/commerce/interface/slot/product-comparison-item';
 import type { RecipeProductComparisonFeature } from '$stylist/commerce/interface/recipe/product-comparison-feature';
 
-export interface RecipeProductComparison extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]> {
+export interface RecipeProductComparison
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	/** List of products to compare */
 	products: SlotProductComparisonItem[];
 	/** List of features to compare */

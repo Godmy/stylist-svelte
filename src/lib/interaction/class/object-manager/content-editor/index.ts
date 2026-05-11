@@ -20,7 +20,7 @@ export class ObjectManagerContentEditor {
 		if (!elements || elements.length === 0) {
 			return [{ id: '1', type: 'text', content: '' }];
 		}
-		return elements.map(el => ({
+		return elements.map((el) => ({
 			id: el.id,
 			type: el.type,
 			content: el.content ?? '',
@@ -36,9 +36,7 @@ export class ObjectManagerContentEditor {
 		id: string,
 		newContent: string
 	): ContentElement[] {
-		return elements.map(el =>
-			el.id === id ? { ...el, content: newContent } : el
-		);
+		return elements.map((el) => (el.id === id ? { ...el, content: newContent } : el));
 	}
 
 	/**
@@ -50,24 +48,17 @@ export class ObjectManagerContentEditor {
 		type: ContentType = 'text'
 	): ContentElement[] {
 		const newElement = this.createElement(type);
-		return [
-			...elements.slice(0, index + 1),
-			newElement,
-			...elements.slice(index + 1)
-		];
+		return [...elements.slice(0, index + 1), newElement, ...elements.slice(index + 1)];
 	}
 
 	/**
 	 * Удаляет элемент по ID
 	 */
-	static deleteElement(
-		elements: ContentElement[],
-		id: string
-	): ContentElement[] {
+	static deleteElement(elements: ContentElement[], id: string): ContentElement[] {
 		if (elements.length <= 1) {
 			return elements; // Keep at least one element
 		}
-		return elements.filter(el => el.id !== id);
+		return elements.filter((el) => el.id !== id);
 	}
 
 	/**
@@ -78,7 +69,7 @@ export class ObjectManagerContentEditor {
 		id: string,
 		direction: 'up' | 'down'
 	): ContentElement[] {
-		const index = elements.findIndex(el => el.id === id);
+		const index = elements.findIndex((el) => el.id === id);
 		if (index === -1) return elements;
 
 		const newElements = [...elements];
@@ -95,13 +86,10 @@ export class ObjectManagerContentEditor {
 	/**
 	 * Определяет следующий активный элемент после удаления
 	 */
-	static getNextActiveElementId(
-		elements: ContentElement[],
-		deletedId: string
-	): string | null {
+	static getNextActiveElementId(elements: ContentElement[], deletedId: string): string | null {
 		if (elements.length <= 1) return null;
 
-		const index = elements.findIndex(el => el.id === deletedId);
+		const index = elements.findIndex((el) => el.id === deletedId);
 		if (index > 0) {
 			return elements[index - 1].id;
 		}
@@ -130,13 +118,13 @@ export class ObjectManagerContentEditor {
 	 * Фильтрует элементы по типу
 	 */
 	static filterByType(elements: ContentElement[], type: ContentType): ContentElement[] {
-		return elements.filter(el => el.type === type);
+		return elements.filter((el) => el.type === type);
 	}
 
 	/**
 	 * Проверяет, содержит ли массив элементы определённого типа
 	 */
 	static containsType(elements: ContentElement[], type: ContentType): boolean {
-		return elements.some(el => el.type === type);
+		return elements.some((el) => el.type === type);
 	}
 }

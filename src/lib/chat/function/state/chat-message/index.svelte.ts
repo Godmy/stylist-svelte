@@ -25,34 +25,44 @@ export const createChatMessageState = (props: {
 	);
 
 	const variantClass = $derived(
-		(({
-			default: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]',
-			primary: 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]',
-			secondary: 'bg-[var(--color-background-tertiary)] text-[var(--color-text-primary)]'
-		}) as Partial<Record<string, string>>)[props.variant ?? 'default'] ?? ''
+		(
+			{
+				default: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]',
+				primary: 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]',
+				secondary: 'bg-[var(--color-background-tertiary)] text-[var(--color-text-primary)]'
+			} as Partial<Record<string, string>>
+		)[props.variant ?? 'default'] ?? ''
 	);
 
 	const bubbleShapeClass = $derived(props.isOwn ? 'rounded-br-none' : 'rounded-bl-none');
 
 	const statusIcon = $derived(
-		({
+		{
 			sent: 'check',
 			delivered: 'check',
 			read: 'check-check'
-		})[props.status ?? 'sent']
+		}[props.status ?? 'sent']
 	);
 
 	const statusIconClasses = $derived(
 		`ml-1 h-3 w-3 ${props.status === 'read' ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-tertiary)]'}`
 	);
 
-	const containerClasses = $derived(MessageStyleManager.getChatMessageContainerClasses(!!props.isOwn, props.class ?? ''));
+	const containerClasses = $derived(
+		MessageStyleManager.getChatMessageContainerClasses(!!props.isOwn, props.class ?? '')
+	);
 
-	const contentClasses = $derived(MessageStyleManager.getChatMessageContentClasses(props.contentClass ?? ''));
+	const contentClasses = $derived(
+		MessageStyleManager.getChatMessageContentClasses(props.contentClass ?? '')
+	);
 
-	const headerClasses = $derived(MessageStyleManager.getChatMessageHeaderClasses(props.headerClass ?? ''));
+	const headerClasses = $derived(
+		MessageStyleManager.getChatMessageHeaderClasses(props.headerClass ?? '')
+	);
 
-	const footerClasses = $derived(MessageStyleManager.getChatMessageFooterClasses(props.footerClass ?? ''));
+	const footerClasses = $derived(
+		MessageStyleManager.getChatMessageFooterClasses(props.footerClass ?? '')
+	);
 
 	const bubbleClasses = $derived(
 		MessageStyleManager.getChatMessageBubbleShellClasses(!!props.isOwn, stateVariantClass(), '')

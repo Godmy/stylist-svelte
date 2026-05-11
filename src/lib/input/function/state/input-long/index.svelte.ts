@@ -24,7 +24,10 @@ export const createInputLongState = (props: IInputLongProps) => {
 		}
 
 		textareaElement.style.height = 'auto';
-		const newHeight = Math.min(textareaElement.scrollHeight, parseFloat(String(props.maxHeight ?? '300')));
+		const newHeight = Math.min(
+			textareaElement.scrollHeight,
+			parseFloat(String(props.maxHeight ?? '300'))
+		);
 		textareaElement.style.height = `${newHeight}px`;
 	}
 

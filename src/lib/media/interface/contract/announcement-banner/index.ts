@@ -1,7 +1,8 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import type { Snippet } from 'svelte';
 
-export interface ContractAnnouncementBanner extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
+export interface ContractAnnouncementBanner
+	extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
 	/** Banner title */
 	title?: string;
 	/** Banner description */

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import GridLayout from './index.svelte';
-	
+
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	
+
 	const controls: InterfaceControllerSettings[] = [
 		{
 			name: 'columns',
@@ -16,7 +16,7 @@
 			defaultValue: '1rem'
 		}
 	];
-	
+
 	// Define sample items for the grid
 	const items = [
 		{ id: 'a', content: 'Item A' },
@@ -26,14 +26,17 @@
 	];
 </script>
 
-<Story {controls} component={GridLayout} title="GridLayout Component" description="A responsive grid layout component">
+<Story
+	{controls}
+	component={GridLayout}
+	title="GridLayout Component"
+	description="A responsive grid layout component"
+>
 	{#snippet children(values: any)}
-		<div class="rounded border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-3">
+		<div
+			class="rounded border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-3"
+		>
 			<GridLayout {...values} {items} />
 		</div>
 	{/snippet}
 </Story>
-
-
-
-

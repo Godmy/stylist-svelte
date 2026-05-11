@@ -7,7 +7,8 @@
 	let props: AccordionItemProps = $props();
 
 	// Svelte context can only be accessed in components, pass to state function
-	const context = getContext<typeof ACCORDION_ITEM_CONTEXT>('accordion-context') ?? ACCORDION_ITEM_CONTEXT;
+	const context =
+		getContext<typeof ACCORDION_ITEM_CONTEXT>('accordion-context') ?? ACCORDION_ITEM_CONTEXT;
 	const state = createAccordionItemState({
 		...props,
 		accordionContext: context
@@ -24,9 +25,3 @@
 <div {...restProps} id={state.uniqueId} class={state.classes}>
 	{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 </div>
-
-
-
-
-
-

@@ -4,8 +4,7 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface Idef0InputsRecipe
-	extends StructIntersectAll<[ILabelSlot, ThemeAttributes<HTMLDivElement>]>
-{
+	extends StructIntersectAll<[ILabelSlot, ThemeAttributes<HTMLDivElement>]> {
 	ports: Idef0Port[];
 	boxY: number;
 	boxHeight: number;

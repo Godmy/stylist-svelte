@@ -26,7 +26,11 @@ export class ValidationStyleManager {
 	/**
 	 * Get classes for password strength indicator
 	 */
-	static passwordStrength(base: string, strength?: 'weak' | 'medium' | 'strong', className?: string): string {
+	static passwordStrength(
+		base: string,
+		strength?: 'weak' | 'medium' | 'strong',
+		className?: string
+	): string {
 		const strengthClasses = {
 			weak: 'bg-[--color-danger-500]',
 			medium: 'bg-[--color-warning-500]',

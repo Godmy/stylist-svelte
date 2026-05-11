@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import Stack from './index.svelte';
-	
+
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	
+
 	const controls: InterfaceControllerSettings[] = [
 		{
 			name: 'direction',
@@ -32,9 +32,14 @@
 	];
 </script>
 
-<Story {controls} component={Stack} title="Stack Component" description="A flexible layout component for arranging elements in a linear fashion">
+<Story
+	{controls}
+	component={Stack}
+	title="Stack Component"
+	description="A flexible layout component for arranging elements in a linear fashion"
+>
 	{#snippet children(values: any)}
-		<div class="rounded border border-slate-200 p-3 min-h-40">
+		<div class="min-h-40 rounded border border-slate-200 p-3">
 			<Stack {...values}>
 				{#snippet children()}
 					<div class="rounded bg-slate-100 p-2">Item A</div>
@@ -45,6 +50,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-

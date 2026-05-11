@@ -2,7 +2,8 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { TokenMonitoringType } from '$stylist/management/type/enum/monitoring-type';
 import type { Props } from '$stylist/information/type/struct';
 
-export interface PriceAlertStateProps extends StructIntersectAll<[Omit<Props, 'variant' | 'size'>]> {
+export interface PriceAlertStateProps
+	extends StructIntersectAll<[Omit<Props, 'variant' | 'size'>]> {
 	variant?: string;
 	size?: string;
 	currentPrice?: number;

@@ -23,18 +23,19 @@ export function createStoreLocatorState(props: StoreLocatorStateProps) {
 		let result = [...stores];
 		if (searchTerm) {
 			const query = searchTerm.toLowerCase();
-			result = result.filter(store =>
-				store.name.toLowerCase().includes(query) ||
-				store.address.toLowerCase().includes(query) ||
-				store.city.toLowerCase().includes(query) ||
-				store.state.toLowerCase().includes(query)
+			result = result.filter(
+				(store) =>
+					store.name.toLowerCase().includes(query) ||
+					store.address.toLowerCase().includes(query) ||
+					store.city.toLowerCase().includes(query) ||
+					store.state.toLowerCase().includes(query)
 			);
 		}
 		if (showPickupOnly) {
-			result = result.filter(store => store.pickupAvailable);
+			result = result.filter((store) => store.pickupAvailable);
 		}
 		if (selectedService) {
-			result = result.filter(store => store.services?.includes(selectedService as string));
+			result = result.filter((store) => store.services?.includes(selectedService as string));
 		}
 		return result.slice(0, maxStores);
 	});
@@ -113,24 +114,60 @@ export function createStoreLocatorState(props: StoreLocatorStateProps) {
 	});
 
 	return {
-		get stores() { return stores; },
-		get showSearch() { return showSearch; },
-		get showFilters() { return showFilters; },
-		get showDistance() { return showDistance; },
-		get showRating() { return showRating; },
-		get showHours() { return showHours; },
-		get showServices() { return showServices; },
-		get enablePickupFilter() { return enablePickupFilter; },
-		get enableServiceFilter() { return enableServiceFilter; },
-		get maxStores() { return maxStores; },
-		get radius() { return radius; },
-		get showMap() { return showMap; },
-		get searchTerm() { return searchTerm; },
-		get showPickupOnly() { return showPickupOnly; },
-		get selectedService() { return selectedService; },
-		get filteredStores() { return filteredStores; },
-		get availableServices() { return availableServices; },
-		get restProps() { return restProps; },
+		get stores() {
+			return stores;
+		},
+		get showSearch() {
+			return showSearch;
+		},
+		get showFilters() {
+			return showFilters;
+		},
+		get showDistance() {
+			return showDistance;
+		},
+		get showRating() {
+			return showRating;
+		},
+		get showHours() {
+			return showHours;
+		},
+		get showServices() {
+			return showServices;
+		},
+		get enablePickupFilter() {
+			return enablePickupFilter;
+		},
+		get enableServiceFilter() {
+			return enableServiceFilter;
+		},
+		get maxStores() {
+			return maxStores;
+		},
+		get radius() {
+			return radius;
+		},
+		get showMap() {
+			return showMap;
+		},
+		get searchTerm() {
+			return searchTerm;
+		},
+		get showPickupOnly() {
+			return showPickupOnly;
+		},
+		get selectedService() {
+			return selectedService;
+		},
+		get filteredStores() {
+			return filteredStores;
+		},
+		get availableServices() {
+			return availableServices;
+		},
+		get restProps() {
+			return restProps;
+		},
 		handleSearchInput,
 		handlePickupFilterChange,
 		handleServiceFilterChange,
@@ -138,10 +175,18 @@ export function createStoreLocatorState(props: StoreLocatorStateProps) {
 		handleGetDirections,
 		handleCallStore,
 		formatDistance,
-		set searchTerm(value: string) { searchTerm = value; },
-		set showPickupOnly(value: boolean) { showPickupOnly = value; },
-		set selectedService(value: string | null) { selectedService = value; },
-		set radius(value: number) { /* radius is $derived from props, use local setter if needed */ }
+		set searchTerm(value: string) {
+			searchTerm = value;
+		},
+		set showPickupOnly(value: boolean) {
+			showPickupOnly = value;
+		},
+		set selectedService(value: string | null) {
+			selectedService = value;
+		},
+		set radius(value: number) {
+			/* radius is $derived from props, use local setter if needed */
+		}
 	};
 }
 

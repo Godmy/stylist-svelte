@@ -1,5 +1,5 @@
 export type PageBuilderButtonAttributes = {
-  backgroundColor?: string;
-  color?: string;
-  padding?: string;
-}
+	backgroundColor?: string;
+	color?: string;
+	padding?: string;
+};

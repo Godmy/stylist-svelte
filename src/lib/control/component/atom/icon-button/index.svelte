@@ -2,9 +2,9 @@
 	import { createButtonFactoryInput } from '$stylist/interaction/factory/button';
 	import { Icon as BaseIcon } from '$stylist/media';
 	const Loader2 = 'loader-2';
-import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { SlotIconButton as IconButtonProps } from '$stylist/control/interface/slot/icon-button';
-import { createIconButtonState } from '$stylist/control/function/state/icon-button';
+	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import type { SlotIconButton as IconButtonProps } from '$stylist/control/interface/slot/icon-button';
+	import { createIconButtonState } from '$stylist/control/function/state/icon-button';
 
 	/**
 	 * IconButton component - A button that primarily displays an icon
@@ -53,18 +53,3 @@ import { createIconButtonState } from '$stylist/control/function/state/icon-butt
 		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 	{/if}
 </button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

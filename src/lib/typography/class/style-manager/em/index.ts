@@ -5,4 +5,3 @@ export class EmStyleManager {
 		return mergeClassNames('em', 'italic', className);
 	}
 }
-

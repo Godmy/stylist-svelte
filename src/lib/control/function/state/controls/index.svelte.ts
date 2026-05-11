@@ -1,6 +1,8 @@
 export function createControlsState(props: Record<string, unknown>) {
 	return {
-		get props() { return props; }
+		get props() {
+			return props;
+		}
 	};
 }
 

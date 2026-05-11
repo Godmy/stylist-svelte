@@ -18,11 +18,13 @@
 
 	{#if props.overlays}
 		{#each props.overlays as layer}
-			<div class={OverlayLayoutStyleManager.getOverlayClass(
-				layer.align ?? 'fill',
-				layer.zIndex ?? 10,
-				layer.pointerEvents ?? false
-			)}>
+			<div
+				class={OverlayLayoutStyleManager.getOverlayClass(
+					layer.align ?? 'fill',
+					layer.zIndex ?? 10,
+					layer.pointerEvents ?? false
+				)}
+			>
 				{@render layer.content()}
 			</div>
 		{/each}

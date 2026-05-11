@@ -9,4 +9,4 @@ export type ChatHeaderChat = {
 	lastMessageTime?: Date;
 	unreadCount?: number;
 	avatar?: string;
-}
+};

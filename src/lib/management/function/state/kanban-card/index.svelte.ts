@@ -3,14 +3,16 @@ import type { KanbanCardPriority } from '$stylist/management/type/alias/kanban-c
 import type { KanbanCardStateProps } from '$stylist/management/type/alias/kanban-card-state-props';
 
 export function createKanbanCardState(props: KanbanCardStateProps) {
-	const card = $derived(props.card as {
-		title: string;
-		priority?: KanbanCardPriority;
-		description?: string;
-		tags?: string[];
-		updatedAt?: Date | string;
-		assignee?: { name?: string; avatar?: string } | string;
-	});
+	const card = $derived(
+		props.card as {
+			title: string;
+			priority?: KanbanCardPriority;
+			description?: string;
+			tags?: string[];
+			updatedAt?: Date | string;
+			assignee?: { name?: string; avatar?: string } | string;
+		}
+	);
 	const draggable = $derived(props.draggable ?? true);
 	const selected = $derived(props.selected ?? false);
 	const editable = $derived(props.editable ?? true);
@@ -75,15 +77,33 @@ export function createKanbanCardState(props: KanbanCardStateProps) {
 	);
 
 	return {
-		get card() { return card; },
-		get draggable() { return draggable; },
-		get selected() { return selected; },
-		get editable() { return editable; },
-		get archivable() { return archivable; },
-		get deletable() { return deletable; },
-		get isEditingTitle() { return isEditingTitle; },
-		get draftTitle() { return draftTitle; },
-		get containerClasses() { return containerClasses; },
+		get card() {
+			return card;
+		},
+		get draggable() {
+			return draggable;
+		},
+		get selected() {
+			return selected;
+		},
+		get editable() {
+			return editable;
+		},
+		get archivable() {
+			return archivable;
+		},
+		get deletable() {
+			return deletable;
+		},
+		get isEditingTitle() {
+			return isEditingTitle;
+		},
+		get draftTitle() {
+			return draftTitle;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
 		startTitleEdit,
 		cancelTitleEdit,
 		commitTitleEdit,

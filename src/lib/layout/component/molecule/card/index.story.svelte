@@ -4,15 +4,30 @@
 	import Card from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'shape', type: 'select', defaultValue: 'rounded', options: ['rectangular', 'rounded', 'pill'] },
+		{
+			name: 'shape',
+			type: 'select',
+			defaultValue: 'rounded',
+			options: ['rectangular', 'rounded', 'pill']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['xs', 'sm', 'md', 'lg', 'xl'] },
-		{ name: 'elevation', type: 'select', defaultValue: '1', options: ['0', '1', '2', '3', '4', '5', '6'] },
+		{
+			name: 'elevation',
+			type: 'select',
+			defaultValue: '1',
+			options: ['0', '1', '2', '3', '4', '5', '6']
+		},
 		{ name: 'clickable', type: 'boolean', defaultValue: false },
 		{ name: 'fullWidth', type: 'boolean', defaultValue: false }
 	];
 </script>
 
-<Story component={Card} title="Card" description="Flexible card container with optional media, header, and footer slots." {controls}>
+<Story
+	component={Card}
+	title="Card"
+	description="Flexible card container with optional media, header, and footer slots."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<Card
 			shape={values.shape}

@@ -6,4 +6,3 @@ export const MESSAGE_STATUS_SIZE_CLASSES = {
 	xl: 'w-6 h-6',
 	'2xl': 'w-7 h-7'
 } as const;
-

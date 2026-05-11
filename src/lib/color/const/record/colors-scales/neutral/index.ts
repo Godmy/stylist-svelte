@@ -12,7 +12,3 @@ export const COLORS_SCALES_NEUTRAL: RecordColorScale = {
 	800: '#262626',
 	900: '#171717'
 };
-
-
-
-

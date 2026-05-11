@@ -30,10 +30,9 @@
 >
 	{#snippet children(values: any)}
 		<TokenText
-			definition={definition}
+			{definition}
 			value={values.value as string}
 			onChange={(v) => console.log('Value:', v)}
 		/>
 	{/snippet}
 </Story>
-

@@ -9,15 +9,16 @@ import type { BehaviorTrendable } from '$stylist/management/interface/behavior/t
 
 /** StatCard = shared information slots + metric value + trend. */
 export interface StatCardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IIconSlot,
-		IMetricValue,
-		BehaviorTrendable,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<
+		[
+			ILabelSlot,
+			ICaptionSlot,
+			IIconSlot,
+			IMetricValue,
+			BehaviorTrendable,
+			ThemeAttributes<HTMLDivElement>
+		]
+	> {
 	variant?: TokenBackground;
 	animated?: boolean;
 }
-

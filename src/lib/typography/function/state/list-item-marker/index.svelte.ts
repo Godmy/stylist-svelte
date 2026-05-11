@@ -7,26 +7,26 @@ type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number;
 export function createListItemMarkerState(props: ThemeListItemMarkerRecipe) {
 	const baseState = createBaseListItemMarkerState(props);
 	const classes = $derived(StyleManagerListItemMarker.root(baseState.classes));
-	const bulletClasses = $derived(
-		StyleManagerListItemMarker.bullet(baseState.bulletClasses)
-	);
+	const bulletClasses = $derived(StyleManagerListItemMarker.bullet(baseState.bulletClasses));
 	const iconSize = $derived<IconSize>(
-		({
-			xs: 'xs',
-			sm: 'sm',
-			md: 'md',
-			lg: 'lg',
-			xl: 'xl',
-			'2xl': '2xl',
-			'1/4': 'xs',
-			'1/3': 'sm',
-			'2/5': 'sm',
-			'1/2': 'md',
-			'3/5': 'md',
-			'2/3': 'lg',
-			'3/4': 'xl',
-			full: 'xl'
-		} as const)[baseState.size]
+		(
+			{
+				xs: 'xs',
+				sm: 'sm',
+				md: 'md',
+				lg: 'lg',
+				xl: 'xl',
+				'2xl': '2xl',
+				'1/4': 'xs',
+				'1/3': 'sm',
+				'2/5': 'sm',
+				'1/2': 'md',
+				'3/5': 'md',
+				'2/3': 'lg',
+				'3/4': 'xl',
+				full: 'xl'
+			} as const
+		)[baseState.size]
 	);
 	const restProps = $derived.by(() => {
 		const {

@@ -33,10 +33,7 @@ export function createAutocompleteDropdownState(props: AutocompleteDropdownProps
 		}
 	};
 
-	const handleOptionKeyDown = (
-		event: KeyboardEvent,
-		option: AutocompleteDropdownOption
-	) => {
+	const handleOptionKeyDown = (event: KeyboardEvent, option: AutocompleteDropdownOption) => {
 		if (event.key === 'Enter' || event.key === ' ') {
 			event.preventDefault();
 			handleSelect(option);
@@ -59,11 +56,21 @@ export function createAutocompleteDropdownState(props: AutocompleteDropdownProps
 		get selectedOption() {
 			return selectedOption;
 		},
-		get rootClass() { return rootClass; },
-		get triggerClass() { return triggerClass; },
-		get chevronClass() { return chevronClass; },
-		get listboxClass() { return listboxClass; },
-		get optionClass() { return optionClass; },
+		get rootClass() {
+			return rootClass;
+		},
+		get triggerClass() {
+			return triggerClass;
+		},
+		get chevronClass() {
+			return chevronClass;
+		},
+		get listboxClass() {
+			return listboxClass;
+		},
+		get optionClass() {
+			return optionClass;
+		},
 		toggle,
 		handleSelect,
 		handleKeyDown,

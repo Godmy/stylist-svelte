@@ -9,9 +9,7 @@ import { InlineCodeStyleManager } from '$stylist/typography/class/style-manager/
  * @returns Reactive state object with classes and computed values
  */
 export function createInlineCodeState(props: ThemeInlineCodeRecipe) {
-	const classes = $derived(
-		InlineCodeStyleManager.getInlineCodeClasses(props.class ?? '')
-	);
+	const classes = $derived(InlineCodeStyleManager.getInlineCodeClasses(props.class ?? ''));
 
 	return {
 		get classes() {
@@ -21,13 +19,3 @@ export function createInlineCodeState(props: ThemeInlineCodeRecipe) {
 }
 
 export default createInlineCodeState;
-
-
-
-
-
-
-
-
-
-

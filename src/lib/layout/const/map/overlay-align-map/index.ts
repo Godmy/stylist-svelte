@@ -10,4 +10,3 @@ export const OVERLAY_ALIGN_MAP = {
 	'bottom-right': 'bottom-0 right-0',
 	fill: 'inset-0'
 } as const;
-

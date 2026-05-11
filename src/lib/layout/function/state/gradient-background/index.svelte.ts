@@ -15,9 +15,7 @@ export function createGradientBackgroundState(props: ThemeGradientBackgroundReci
 	const gradientClass = $derived(
 		GradientBackgroundStyleManager.getGradientClasses(variant, direction)
 	);
-	const contentWrapperClass = $derived(
-		GradientBackgroundStyleManager.getContentWrapperClasses()
-	);
+	const contentWrapperClass = $derived(GradientBackgroundStyleManager.getContentWrapperClasses());
 	const gradientStyle = $derived(
 		ObjectManagerGradientBackground.createStyle(variant, direction, colors, speed)
 	);
@@ -59,4 +57,3 @@ export function createGradientBackgroundState(props: ThemeGradientBackgroundReci
 }
 
 export default createGradientBackgroundState;
-

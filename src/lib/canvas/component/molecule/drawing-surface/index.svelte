@@ -14,9 +14,8 @@
 
 	const contract: DrawingSurfaceContract & DrawingSurfaceProps = $props();
 	let canvasRef: HTMLCanvasElement | null = null;
-	const state = createDrawingSurfaceState(
-		contract,
-		(type, detail) => dispatch(type as 'canvas-cleared' | 'expose-methods', detail as never)
+	const state = createDrawingSurfaceState(contract, (type, detail) =>
+		dispatch(type as 'canvas-cleared' | 'expose-methods', detail as never)
 	);
 
 	$effect(() => {

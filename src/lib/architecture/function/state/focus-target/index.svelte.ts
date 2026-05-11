@@ -11,18 +11,42 @@ export function createFocusTarget(initial?: Partial<FocusTarget>) {
 	});
 
 	return {
-		get id() { return target.id; },
-		get x() { return target.x; },
-		get y() { return target.y; },
-		get width() { return target.width; },
-		get height() { return target.height; },
-		get depth() { return target.depth; },
-		setId(id: string) { target.id = id; },
-		setX(x: number) { target.x = x; },
-		setY(y: number) { target.y = y; },
-		setWidth(width: number) { target.width = width; },
-		setHeight(height: number) { target.height = height; },
-		setDepth(depth: number) { target.depth = depth; }
+		get id() {
+			return target.id;
+		},
+		get x() {
+			return target.x;
+		},
+		get y() {
+			return target.y;
+		},
+		get width() {
+			return target.width;
+		},
+		get height() {
+			return target.height;
+		},
+		get depth() {
+			return target.depth;
+		},
+		setId(id: string) {
+			target.id = id;
+		},
+		setX(x: number) {
+			target.x = x;
+		},
+		setY(y: number) {
+			target.y = y;
+		},
+		setWidth(width: number) {
+			target.width = width;
+		},
+		setHeight(height: number) {
+			target.height = height;
+		},
+		setDepth(depth: number) {
+			target.depth = depth;
+		}
 	};
 }
 

@@ -1,7 +1,5 @@
 <script lang="ts">
-	import {
-		createVideoPlayerState
-	} from '$stylist/media/function/state/video-player';
+	import { createVideoPlayerState } from '$stylist/media/function/state/video-player';
 	import type { VideoPlayerProps } from '$stylist/media/interface/recipe/video-player-video-player-props';
 	import { Icon as BaseIcon } from '$stylist/media';
 	import { Button } from '$lib';
@@ -21,7 +19,7 @@
 		loop={state.loop}
 		onloadedmetadata={() => state.handleLoadedMetadata()}
 		ontimeupdate={() => state.handleTimeUpdate()}
-		class={`w-full h-full object-contain ${state.videoClass}`}
+		class={`h-full w-full object-contain ${state.videoClass}`}
 		controls={false}
 	>
 		<track kind="captions" label="No captions available" srclang="en" src="" />
@@ -29,10 +27,10 @@
 
 	{#if state.showControls}
 		<div
-			class={`absolute bottom-0 left-0 right-0 p-4 text-[var(--color-text-inverse)] ${state.controlsClass}`}
+			class={`absolute right-0 bottom-0 left-0 p-4 text-[var(--color-text-inverse)] ${state.controlsClass}`}
 			style="--gradient-start: transparent; --gradient-end: color-mix(in srgb, var(--color-text-primary) 80%, transparent); background-image: var(--gradient-directional-vertical);"
 		>
-			<div class="flex items-center justify-between mb-2">
+			<div class="mb-2 flex items-center justify-between">
 				<div class="flex items-center space-x-2">
 					<Button
 						variant="ghost"
@@ -82,7 +80,7 @@
 			</div>
 
 			<div class="flex items-center">
-				<span class="text-xs mr-2">{state.formatTime(state.currentTime)}</span>
+				<span class="mr-2 text-xs">{state.formatTime(state.currentTime)}</span>
 				<input
 					type="range"
 					min="0"
@@ -91,13 +89,13 @@
 					oninput={(e) => state.handleProgressChange(e)}
 					class="flex-1 accent-white"
 				/>
-				<span class="text-xs ml-2">{state.formatTime(state.duration)}</span>
+				<span class="ml-2 text-xs">{state.formatTime(state.duration)}</span>
 			</div>
 		</div>
 	{/if}
 
 	{#if state.title}
-		<div class="p-2 text-[var(--color-text-inverse)] bg-[var(--color-neutral-900)]/50 text-sm">
+		<div class="bg-[var(--color-neutral-900)]/50 p-2 text-sm text-[var(--color-text-inverse)]">
 			{state.title}
 		</div>
 	{/if}

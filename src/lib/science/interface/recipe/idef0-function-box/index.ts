@@ -11,12 +11,7 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface Idef0FunctionBoxRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+	extends StructIntersectAll<[ILabelSlot, ICaptionSlot, ThemeAttributes<HTMLDivElement>]> {
 	title?: string;
 	subtitle?: string;
 	x?: number;
@@ -24,4 +19,3 @@ export interface Idef0FunctionBoxRecipe
 	width?: number;
 	height?: number;
 }
-

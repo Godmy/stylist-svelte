@@ -41,7 +41,9 @@ export class SearchFormStyleManager {
 	 * Get classes for search filter
 	 */
 	static filter(base: string, active?: boolean, className?: string): string {
-		const activeClass = active ? 'bg-[--color-primary-100] text-[--color-primary-700] border-[--color-primary-300]' : 'bg-[--color-background-primary] text-[--color-text-primary] border-[--color-border-secondary]';
+		const activeClass = active
+			? 'bg-[--color-primary-100] text-[--color-primary-700] border-[--color-primary-300]'
+			: 'bg-[--color-background-primary] text-[--color-text-primary] border-[--color-border-secondary]';
 		return `${base} ${activeClass} border rounded px-3 py-1 text-sm cursor-pointer ${className || ''}`.trim();
 	}
 }

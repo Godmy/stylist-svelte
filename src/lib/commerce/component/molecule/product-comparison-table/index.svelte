@@ -7,24 +7,28 @@
 </script>
 
 <div class={state.containerClass}>
-	<table class="min-w-full bg-[var(--color-background-primary)] border border-[var(--color-border-primary)]">
+	<table
+		class="min-w-full border border-[var(--color-border-primary)] bg-[var(--color-background-primary)]"
+	>
 		<thead>
 			<tr>
-				<th class="py-3 px-4 border-b text-left"></th>
+				<th class="border-b px-4 py-3 text-left"></th>
 				{#each props.products as product}
-					<th class="py-3 px-4 border-b text-center">
+					<th class="border-b px-4 py-3 text-center">
 						<div class="flex flex-col items-center">
 							{#if product.image}
-								<img src={product.image} alt={product.name} class="w-20 h-20 object-contain mb-2" />
+								<img src={product.image} alt={product.name} class="mb-2 h-20 w-20 object-contain" />
 							{/if}
-							<span class="font-bold text-lg">{product.name}</span>
-							<div class="flex text-yellow-400 my-1">
+							<span class="text-lg font-bold">{product.name}</span>
+							<div class="my-1 flex text-yellow-400">
 								{#each Array(5) as _, j}
 									<svg
-										class={`w-4 h-4 ${j < Math.floor(product.rating) ? 'fill-current' : 'fill-gray-300'}`}
+										class={`h-4 w-4 ${j < Math.floor(product.rating) ? 'fill-current' : 'fill-gray-300'}`}
 										viewBox="0 0 24 24"
 									>
-										<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+										<path
+											d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+										/>
 									</svg>
 								{/each}
 							</div>
@@ -36,10 +40,14 @@
 		</thead>
 		<tbody>
 			{#each props.specifications as spec, i}
-				<tr class={i % 2 === 0 ? 'bg-[var(--color-background-primary)]' : 'bg-[var(--color-background-secondary)]'}>
-					<td class="py-3 px-4 border-b font-medium">{spec.name}</td>
+				<tr
+					class={i % 2 === 0
+						? 'bg-[var(--color-background-primary)]'
+						: 'bg-[var(--color-background-secondary)]'}
+				>
+					<td class="border-b px-4 py-3 font-medium">{spec.name}</td>
 					{#each spec.values as value}
-						<td class="py-3 px-4 border-b text-center">{value}</td>
+						<td class="border-b px-4 py-3 text-center">{value}</td>
 					{/each}
 				</tr>
 			{/each}

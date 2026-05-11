@@ -3,33 +3,19 @@ import type { SlotMessageThread as MessageThreadProps } from '$stylist/chat/inte
 import { MessageStyleManager } from '$stylist/chat/class/style-manager/message';
 
 export const createMessageThreadState = (props: MessageThreadProps) => {
-	const hostClasses = $derived(
-		MessageStyleManager.getThreadHostClasses(props.class)
-	);
-	
-	const headerClasses = $derived(
-		MessageStyleManager.getThreadHeaderClasses()
-	);
-	
-	const containerClasses = $derived(
-		MessageStyleManager.getThreadContainerClasses()
-	);
-	
-	const messageContainerClasses = $derived(
-		MessageStyleManager.getThreadMessageContainerClasses()
-	);
-	
-	const variantClass = $derived(
-		props.variant ? `variant-${props.variant}` : ''
-	);
-	
-	const loadingClasses = $derived(
-		MessageStyleManager.getThreadLoadingClasses()
-	);
-	
-	const spinnerClasses = $derived(
-		MessageStyleManager.getThreadSpinnerClasses()
-	);
+	const hostClasses = $derived(MessageStyleManager.getThreadHostClasses(props.class));
+
+	const headerClasses = $derived(MessageStyleManager.getThreadHeaderClasses());
+
+	const containerClasses = $derived(MessageStyleManager.getThreadContainerClasses());
+
+	const messageContainerClasses = $derived(MessageStyleManager.getThreadMessageContainerClasses());
+
+	const variantClass = $derived(props.variant ? `variant-${props.variant}` : '');
+
+	const loadingClasses = $derived(MessageStyleManager.getThreadLoadingClasses());
+
+	const spinnerClasses = $derived(MessageStyleManager.getThreadSpinnerClasses());
 
 	return {
 		get hostClasses() {
@@ -69,10 +55,3 @@ export const createMessageThreadState = (props: MessageThreadProps) => {
 };
 
 export default createMessageThreadState;
-
-
-
-
-
-
-

@@ -11,6 +11,18 @@ export interface SlotReactionPicker {
 	class?: string;
 	reactionClass?: string;
 	pickerClass?: string;
-	onReactionToggle?: (reaction: 'like' | 'love' | 'laugh' | 'wow' | 'sad' | 'angry' | 'care' | 'share' | 'save' | 'view') => void;
+	onReactionToggle?: (
+		reaction:
+			| 'like'
+			| 'love'
+			| 'laugh'
+			| 'wow'
+			| 'sad'
+			| 'angry'
+			| 'care'
+			| 'share'
+			| 'save'
+			| 'view'
+	) => void;
 	showPickerOnHover?: boolean;
 }

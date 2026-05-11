@@ -45,8 +45,8 @@
 			{name}
 			type="checkbox"
 			bind:checked
-			disabled={disabled}
-			required={required}
+			{disabled}
+			{required}
 			class={inputClasses}
 			aria-label={ariaLabel || label}
 			aria-describedby={descriptionId}
@@ -63,7 +63,7 @@
 				<span class={labelClasses}>
 					{label}
 					{#if required}
-						<span class="text-[var(--color-danger-500)] ml-1" aria-hidden="true">*</span>
+						<span class="ml-1 text-[var(--color-danger-500)]" aria-hidden="true">*</span>
 					{/if}
 				</span>
 			{/if}

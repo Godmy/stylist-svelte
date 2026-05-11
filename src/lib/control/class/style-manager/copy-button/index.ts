@@ -29,17 +29,23 @@ export class CopyButtonStyleManager {
 		};
 
 		const variantClasses: Record<string, string> = {
-			default: 'text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)] hover:text-[var(--color-text-primary)]',
-			primary: 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-700)]',
-			ghost: 'text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)] hover:text-[var(--color-text-primary)]',
-			outline: 'border border-[var(--color-border-primary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]'
+			default:
+				'text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)] hover:text-[var(--color-text-primary)]',
+			primary:
+				'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-700)]',
+			ghost:
+				'text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)] hover:text-[var(--color-text-primary)]',
+			outline:
+				'border border-[var(--color-border-primary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]'
 		};
 
 		return this.join([
 			'inline-flex items-center justify-center gap-1.5 rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-500)]',
 			sizeClasses[size] ?? sizeClasses.md,
 			variantClasses[variant] ?? variantClasses.default,
-			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : 'cursor-pointer',
+			disabled
+				? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none'
+				: 'cursor-pointer',
 			className
 		]);
 	}
@@ -62,16 +68,10 @@ export class CopyButtonStyleManager {
 			full: 'w-5.5 h-5.5'
 		};
 
-		return this.join([
-			iconSizeClasses[size] ?? iconSizeClasses.md,
-			className
-		]);
+		return this.join([iconSizeClasses[size] ?? iconSizeClasses.md, className]);
 	}
 
 	static getCopyButtonTooltipClasses(className?: string): string {
-		return this.join([
-			'text-xs text-[var(--color-text-secondary)]',
-			className
-		]);
+		return this.join(['text-xs text-[var(--color-text-secondary)]', className]);
 	}
 }

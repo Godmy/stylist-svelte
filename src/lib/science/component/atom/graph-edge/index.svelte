@@ -7,8 +7,12 @@
 	const state = createGraphEdgeState(props);
 	const fromNodeId = $derived(props.fromNodeId);
 	const toNodeId = $derived(props.toNodeId);
-	const edgeLabel = $derived(props.label ?? `${fromNodeId} ${state.directed ? '->' : '-'} ${toNodeId}`);
-	const markerId = $derived(`graph-edge-arrow-${fromNodeId}-${toNodeId}`.replace(/[^a-zA-Z0-9_-]/g, '-'));
+	const edgeLabel = $derived(
+		props.label ?? `${fromNodeId} ${state.directed ? '->' : '-'} ${toNodeId}`
+	);
+	const markerId = $derived(
+		`graph-edge-arrow-${fromNodeId}-${toNodeId}`.replace(/[^a-zA-Z0-9_-]/g, '-')
+	);
 	const visualType = $derived(
 		state.type === 'straight'
 			? 'straight'
@@ -44,7 +48,7 @@
 	data-edge-type={state.type}
 	data-edge-active={state.active}
 	aria-label={edgeLabel}
-	{...(restProps as any)}
+	{...restProps as any}
 >
 	<svg class="graph-edge__svg" viewBox="0 0 124 56" preserveAspectRatio="none" aria-hidden="true">
 		<defs>
@@ -150,4 +154,3 @@
 		color: var(--edge-active-color, var(--color-text-primary));
 	}
 </style>
-

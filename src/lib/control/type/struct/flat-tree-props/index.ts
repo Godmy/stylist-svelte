@@ -4,4 +4,4 @@ import type { TreeNode } from '../tree-node';
 export type FlatTreeProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	nodes: TreeNode[];
 	class?: string;
-}
+};

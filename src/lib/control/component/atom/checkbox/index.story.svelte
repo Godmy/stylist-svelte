@@ -34,25 +34,13 @@
 
 <Story {id} {title} {description} component={SlotCheckbox} category="Atoms" {controls}>
 	{#snippet children(values: any)}
-		{@const label =
-			typeof values.label === 'string' ? values.label : 'Accept terms and conditions'}
+		{@const label = typeof values.label === 'string' ? values.label : 'Accept terms and conditions'}
 		{@const required = typeof values.required === 'boolean' ? values.required : false}
 		{@const disabled = typeof values.disabled === 'boolean' ? values.disabled : false}
 		{@const description =
-			typeof values.description === 'string' ? values.description : 'Please read and accept our terms'}
-		<SlotCheckbox
-			id={checkboxId}
-			{label}
-			{required}
-			{disabled}
-			{description}
-		/>
+			typeof values.description === 'string'
+				? values.description
+				: 'Please read and accept our terms'}
+		<SlotCheckbox id={checkboxId} {label} {required} {disabled} {description} />
 	{/snippet}
 </Story>
-
-
-
-
-
-
-

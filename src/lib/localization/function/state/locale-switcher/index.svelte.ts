@@ -1,6 +1,10 @@
 import { LocaleSwitcherStyleManager } from '$stylist/localization/class/style-manager/locale-switcher';
 import { TOKEN_LOCALIZATION_ICON } from '$stylist/localization/const/enum/icon';
-import { formatDate, formatTime, formatDateTime } from '$stylist/localization/function/format-date-time';
+import {
+	formatDate,
+	formatTime,
+	formatDateTime
+} from '$stylist/localization/function/format-date-time';
 import type { SlotLocaleSwitcherLocale as LocaleSwitcherLocale } from '$stylist/localization/interface/slot/locale-switcher-locale';
 import type { LocaleSwitcherStateProps } from '$stylist/localization/interface/recipe/locale-switcher';
 
@@ -21,13 +25,15 @@ export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
 
 	// Computed
 	const now = new Date();
-	const currentLocaleObj = locales.find((loc: LocaleSwitcherLocale) => loc.code === currentLocale) ?? locales[0];
+	const currentLocaleObj =
+		locales.find((loc: LocaleSwitcherLocale) => loc.code === currentLocale) ?? locales[0];
 
 	// Classes
 	const rootClass = $derived(LocaleSwitcherStyleManager.getRootClass(propClassName));
 	const headerClass = $derived(LocaleSwitcherStyleManager.getHeaderClass(propHeaderClass));
 	const contentClass = $derived(LocaleSwitcherStyleManager.getContentClass(propContentClass));
-	const getLocaleButtonClass = (isActive: boolean) => LocaleSwitcherStyleManager.getLocaleButtonClass(isActive, propLocaleClass);
+	const getLocaleButtonClass = (isActive: boolean) =>
+		LocaleSwitcherStyleManager.getLocaleButtonClass(isActive, propLocaleClass);
 	const timezoneSelectClass = $derived(LocaleSwitcherStyleManager.getTimezoneSelectClass());
 	const footerClass = $derived(LocaleSwitcherStyleManager.getFooterClass(propFooterClass));
 

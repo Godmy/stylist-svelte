@@ -25,6 +25,3 @@
 		font-size: var(--font-size-3);
 	}
 </style>
-
-
-

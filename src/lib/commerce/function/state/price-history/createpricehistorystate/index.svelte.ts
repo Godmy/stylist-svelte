@@ -20,16 +20,36 @@ export function createPriceHistoryState(props: PriceHistoryProps) {
 	return {
 		chartHeight,
 		chartWidth,
-		get data() { return data; },
-		get minPrice() { return minPrice; },
-		get maxPrice() { return maxPrice; },
-		get priceRange() { return priceRange; },
-		get containerClass() { return containerClass; },
-		get titleClass() { return titleClass; },
-		get chartContainerClass() { return chartContainerClass; },
-		get noDataClass() { return noDataClass; },
-		get infoClass() { return infoClass; },
-		get infoTextClass() { return infoTextClass; }
+		get data() {
+			return data;
+		},
+		get minPrice() {
+			return minPrice;
+		},
+		get maxPrice() {
+			return maxPrice;
+		},
+		get priceRange() {
+			return priceRange;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get titleClass() {
+			return titleClass;
+		},
+		get chartContainerClass() {
+			return chartContainerClass;
+		},
+		get noDataClass() {
+			return noDataClass;
+		},
+		get infoClass() {
+			return infoClass;
+		},
+		get infoTextClass() {
+			return infoTextClass;
+		}
 	};
 }
 

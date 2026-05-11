@@ -27,7 +27,9 @@ export const createInputDoubleState = (props: IInputDoubleProps) => {
 			class: props.class
 		})
 	);
-	const containerClasses = $derived(InputStyleManager.getInputDoubleContainerClass(props.class ?? ''));
+	const containerClasses = $derived(
+		InputStyleManager.getInputDoubleContainerClass(props.class ?? '')
+	);
 	const labelClasses = $derived(InputStyleManager.getLabelClass(''));
 	const errorTextClasses = $derived(InputStyleManager.getErrorTextClass(''));
 	const requiredIndicatorClasses = $derived(InputStyleManager.getRequiredIndicatorClass(''));

@@ -19,8 +19,11 @@ export const INPUT_FIELD_PRESET: InputPreset<TokenAppearance, TokenSize> = {
 	...inputBase,
 	classes: {
 		...inputBase.classes,
-		error: 'border-[var(--color-danger-500)] focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]',
-		size: Object.fromEntries(TOKEN_SIZE.map((size) => [size, InputStyleManager.getInputSizeClass(size)])) as Record<TokenSize, string>
+		error:
+			'border-[var(--color-danger-500)] focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]',
+		size: Object.fromEntries(
+			TOKEN_SIZE.map((size) => [size, InputStyleManager.getInputSizeClass(size)])
+		) as Record<TokenSize, string>
 	}
 } as const;
 
@@ -37,8 +40,11 @@ export const TEXTAREA_PRESET: InputPreset<TokenAppearance, TokenSize> = {
 	...textareaBase,
 	classes: {
 		...textareaBase.classes,
-		error: 'border-[var(--color-danger-500)] focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]',
-		size: Object.fromEntries(TOKEN_SIZE.map((size) => [size, InputStyleManager.getTextareaSizeClass(size)])) as Record<TokenSize, string>
+		error:
+			'border-[var(--color-danger-500)] focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]',
+		size: Object.fromEntries(
+			TOKEN_SIZE.map((size) => [size, InputStyleManager.getTextareaSizeClass(size)])
+		) as Record<TokenSize, string>
 	}
 } as const;
 
@@ -80,16 +86,3 @@ export const INPUT_CONTAINER_PRESET = {
 	errorTextClass: InputStyleManager.getErrorTextClass(),
 	labelClass: InputStyleManager.getLabelClass()
 } as const;
-
-
-
-
-
-
-
-
-
-
-
-
-

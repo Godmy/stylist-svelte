@@ -31,7 +31,10 @@
 				}}
 			>
 				{#snippet children()}
-					<button type="button" class="w-full rounded-xl bg-amber-50 px-4 py-5 text-left font-medium text-amber-900">
+					<button
+						type="button"
+						class="w-full rounded-xl bg-amber-50 px-4 py-5 text-left font-medium text-amber-900"
+					>
 						Keyboard focus target
 					</button>
 				{/snippet}

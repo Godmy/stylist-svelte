@@ -13,19 +13,19 @@ import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavi
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface TableRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IIconSlot,
-		ISelectable<string | string[]>,
-		IClickable,
-		IFocusable,
-		ISized,
-		IShapeable,
-		ISpaced,
-		IScrollable,
-		SlotTheme,
-		HTMLAttributes<HTMLTableElement>
-	]>,
-		TableSpecificProps
-{}
-
+	extends StructIntersectAll<
+			[
+				ILabelSlot,
+				IIconSlot,
+				ISelectable<string | string[]>,
+				IClickable,
+				IFocusable,
+				ISized,
+				IShapeable,
+				ISpaced,
+				IScrollable,
+				SlotTheme,
+				HTMLAttributes<HTMLTableElement>
+			]
+		>,
+		TableSpecificProps {}

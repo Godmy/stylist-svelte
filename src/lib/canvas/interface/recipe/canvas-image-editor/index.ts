@@ -9,11 +9,7 @@ import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/medi
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface CanvasImageEditorRecipe
-	extends StructIntersectAll<[
-		IMediaSlot,
-		ThemeAttributes<HTMLCanvasElement>
-	]>
-{
+	extends StructIntersectAll<[IMediaSlot, ThemeAttributes<HTMLCanvasElement>]> {
 	/** РЁРёСЂРёРЅР° С…РѕР»СЃС‚Р° */
 	width?: number;
 	/** Р’С‹СЃРѕС‚Р° С…РѕР»СЃС‚Р° */
@@ -21,7 +17,16 @@ export interface CanvasImageEditorRecipe
 	/** Р’РєР»СЋС‡РµРЅ Р»Рё СЂРµР¶РёРј РѕР±СЂРµР·РєРё */
 	cropEnabled?: boolean;
 	/** РўРёРї С„РёР»СЊС‚СЂР° */
-	filter?: 'none' | 'grayscale' | 'sepia' | 'invert' | 'blur' | 'brightness' | 'contrast' | 'saturate' | 'hue-rotate';
+	filter?:
+		| 'none'
+		| 'grayscale'
+		| 'sepia'
+		| 'invert'
+		| 'blur'
+		| 'brightness'
+		| 'contrast'
+		| 'saturate'
+		| 'hue-rotate';
 	/** РћР±Р»Р°СЃС‚СЊ РѕР±СЂРµР·РєРё */
 	cropArea?: { x: number; y: number; width: number; height: number };
 	/** РЇСЂРєРѕСЃС‚СЊ (0-200) */
@@ -33,4 +38,3 @@ export interface CanvasImageEditorRecipe
 	/** РћС‚С‚РµРЅРѕРє (0-360) */
 	hue?: number;
 }
-

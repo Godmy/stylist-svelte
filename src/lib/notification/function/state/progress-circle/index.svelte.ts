@@ -22,18 +22,42 @@ export function createProgressCircleState(props: ProgressCircleProps) {
 	const labelClass = $derived('progress-circle-label');
 
 	return {
-		get progress() { return progress; },
-		get size() { return size; },
-		get color() { return color; },
-		get strokeWidth() { return strokeWidth; },
-		get normalizedProgress() { return normalizedProgress; },
-		get circumference() { return circumference; },
-		get strokeDashoffset() { return strokeDashoffset; },
-		get containerClass() { return containerClass; },
-		get svgClass() { return svgClass; },
-		get backgroundCircleClass() { return backgroundCircleClass; },
-		get progressCircleClass() { return progressCircleClass; },
-		get labelClass() { return labelClass; }
+		get progress() {
+			return progress;
+		},
+		get size() {
+			return size;
+		},
+		get color() {
+			return color;
+		},
+		get strokeWidth() {
+			return strokeWidth;
+		},
+		get normalizedProgress() {
+			return normalizedProgress;
+		},
+		get circumference() {
+			return circumference;
+		},
+		get strokeDashoffset() {
+			return strokeDashoffset;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get svgClass() {
+			return svgClass;
+		},
+		get backgroundCircleClass() {
+			return backgroundCircleClass;
+		},
+		get progressCircleClass() {
+			return progressCircleClass;
+		},
+		get labelClass() {
+			return labelClass;
+		}
 	};
 }
 

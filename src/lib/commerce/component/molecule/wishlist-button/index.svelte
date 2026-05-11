@@ -16,17 +16,19 @@
 		aria-pressed={state.inWishlist}
 	>
 		{#if state.isLoading}
-			<div class="animate-spin rounded-full h-4 w-4 border-b-2 border-current mr-2"></div>
+			<div class="mr-2 h-4 w-4 animate-spin rounded-full border-b-2 border-current"></div>
 		{:else if state.inWishlist}
-			<BaseIcon name="check" class="h-4 w-4 mr-2" />
+			<BaseIcon name="check" class="mr-2 h-4 w-4" />
 		{:else}
-			<BaseIcon name="heart" class="h-4 w-4 mr-2" />
+			<BaseIcon name="heart" class="mr-2 h-4 w-4" />
 		{/if}
 		{#if props.showLabel}<span>{state.inWishlist ? 'In Wishlist' : 'Add to Wishlist'}</span>{/if}
 	</button>
 
 	{#if state.showMessage}
-		<div class="fixed bottom-4 right-4 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md shadow-lg px-3 py-2 flex items-center gap-2 z-[var(--z-index-modal)]">
+		<div
+			class="fixed right-4 bottom-4 z-[var(--z-index-modal)] flex items-center gap-2 rounded-md border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] px-3 py-2 shadow-lg"
+		>
 			<BaseIcon name="check-circle" class="h-4 w-4 text-[var(--color-success-500)]" />
 			<span class="text-sm">{state.message}</span>
 			<button type="button" onclick={() => state.hideMessage()}>

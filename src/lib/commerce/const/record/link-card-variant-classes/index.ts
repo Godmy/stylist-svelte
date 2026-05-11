@@ -15,28 +15,18 @@ export const LINK_CARD_VARIANT_CLASSES: Partial<Record<LinkCardVariant, string>>
 		'bg-[--color-warning-50] border-[--color-warning-200] hover:border-[--color-warning-300]',
 	danger: 'bg-[--color-danger-50] border-[--color-danger-200] hover:border-[--color-danger-300]',
 	error: 'bg-[--color-danger-50] border-[--color-danger-200] hover:border-[--color-danger-300]',
-	info:
-		'bg-[--color-info-50] border-[--color-info-200] hover:border-[--color-info-300]',
-	solid:
-		'bg-[--color-primary-500] border-[--color-primary-500] text-[--color-text-inverse]',
+	info: 'bg-[--color-info-50] border-[--color-info-200] hover:border-[--color-info-300]',
+	solid: 'bg-[--color-primary-500] border-[--color-primary-500] text-[--color-text-inverse]',
 	outline:
 		'bg-transparent border-[--color-border-primary] hover:border-[--color-text-tertiary] hover:shadow-sm',
-	ghost:
-		'bg-transparent border-transparent hover:bg-[--color-background-hover]',
-	link:
-		'bg-transparent border-transparent underline hover:no-underline',
-	subtle:
-		'bg-[--color-neutral-50] border-[--color-border-secondary]',
-	neutral:
-		'bg-[--color-neutral-100] border-[--color-neutral-200]',
-	gray:
-		'bg-[--color-neutral-100] border-[--color-neutral-200]',
-	dark:
-		'bg-[--color-neutral-800] border-[--color-neutral-700] text-[--color-text-inverse]',
-	light:
-		'bg-[--color-neutral-50] border-[--color-neutral-200]',
+	ghost: 'bg-transparent border-transparent hover:bg-[--color-background-hover]',
+	link: 'bg-transparent border-transparent underline hover:no-underline',
+	subtle: 'bg-[--color-neutral-50] border-[--color-border-secondary]',
+	neutral: 'bg-[--color-neutral-100] border-[--color-neutral-200]',
+	gray: 'bg-[--color-neutral-100] border-[--color-neutral-200]',
+	dark: 'bg-[--color-neutral-800] border-[--color-neutral-700] text-[--color-text-inverse]',
+	light: 'bg-[--color-neutral-50] border-[--color-neutral-200]',
 	elevated:
 		'bg-[--color-background-primary] border-[--color-border-secondary] shadow-md hover:shadow-lg',
-	flat:
-		'bg-[--color-background-secondary] border-transparent'
+	flat: 'bg-[--color-background-secondary] border-transparent'
 };

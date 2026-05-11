@@ -32,28 +32,40 @@ export function createRealTimePresenceState(props: RealTimePresenceContract) {
 
 	function getStatusColor(status: RealTimePresenceStatus): string {
 		switch (status) {
-			case 'online': return 'bg-[var(--color-success-500)]';
-			case 'away': return 'bg-yellow-500';
-			case 'busy': return 'bg-[var(--color-danger-500)]';
-			default: return 'bg-[var(--color-neutral-500)]';
+			case 'online':
+				return 'bg-[var(--color-success-500)]';
+			case 'away':
+				return 'bg-yellow-500';
+			case 'busy':
+				return 'bg-[var(--color-danger-500)]';
+			default:
+				return 'bg-[var(--color-neutral-500)]';
 		}
 	}
 
 	function getStatusText(status: RealTimePresenceStatus): string {
 		switch (status) {
-			case 'online': return 'Online';
-			case 'away': return 'Away';
-			case 'busy': return 'Busy';
-			default: return 'Offline';
+			case 'online':
+				return 'Online';
+			case 'away':
+				return 'Away';
+			case 'busy':
+				return 'Busy';
+			default:
+				return 'Offline';
 		}
 	}
 
 	function getStatusIconClass(status: RealTimePresenceStatus): string {
 		switch (status) {
-			case 'online': return 'text-[var(--color-success-500)]';
-			case 'away': return 'text-yellow-500';
-			case 'busy': return 'text-[var(--color-danger-500)]';
-			default: return 'text-[var(--color-text-secondary)]';
+			case 'online':
+				return 'text-[var(--color-success-500)]';
+			case 'away':
+				return 'text-yellow-500';
+			case 'busy':
+				return 'text-[var(--color-danger-500)]';
+			default:
+				return 'text-[var(--color-text-secondary)]';
 		}
 	}
 
@@ -68,17 +80,39 @@ export function createRealTimePresenceState(props: RealTimePresenceContract) {
 	}
 
 	return {
-		get users() { return users; },
-		get showAvatars() { return showAvatars; },
-		get showStatus() { return showStatus; },
-		get showLastSeen() { return showLastSeen; },
-		get showCursorPositions() { return showCursorPositions; },
-		get title() { return title; },
-		get className() { return className; },
-		get userListClass() { return userListClass; },
-		get userItemClass() { return userItemClass; },
-		get statusClass() { return statusClass; },
-		get restProps() { return restProps; },
+		get users() {
+			return users;
+		},
+		get showAvatars() {
+			return showAvatars;
+		},
+		get showStatus() {
+			return showStatus;
+		},
+		get showLastSeen() {
+			return showLastSeen;
+		},
+		get showCursorPositions() {
+			return showCursorPositions;
+		},
+		get title() {
+			return title;
+		},
+		get className() {
+			return className;
+		},
+		get userListClass() {
+			return userListClass;
+		},
+		get userItemClass() {
+			return userItemClass;
+		},
+		get statusClass() {
+			return statusClass;
+		},
+		get restProps() {
+			return restProps;
+		},
 		getStatusColor,
 		getStatusText,
 		getStatusIconClass,

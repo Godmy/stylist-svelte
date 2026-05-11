@@ -32,11 +32,46 @@ export function createGraphEditorState(props: GraphEditorProps) {
 		(props.paletteNodes ?? []).length > 0
 			? [...(props.paletteNodes ?? [])]
 			: [
-					{ id: 'source', type: 'source', title: 'Source', description: 'Data source node', color: 'var(--color-success-500)', category: 'source' },
-					{ id: 'processor', type: 'processor', title: 'Processor', description: 'Process data', color: 'var(--color-secondary-500)', category: 'processor' },
-					{ id: 'output', type: 'output', title: 'Output', description: 'Output node', color: 'var(--color-warning-500)', category: 'output' },
-					{ id: 'gateway', type: 'gateway', title: 'Gateway', description: 'Decision point', color: 'var(--color-info-500)', category: 'gateway' },
-					{ id: 'custom', type: 'custom', title: 'Custom', description: 'Custom node', color: 'var(--color-primary-500)', category: 'custom' }
+					{
+						id: 'source',
+						type: 'source',
+						title: 'Source',
+						description: 'Data source node',
+						color: 'var(--color-success-500)',
+						category: 'source'
+					},
+					{
+						id: 'processor',
+						type: 'processor',
+						title: 'Processor',
+						description: 'Process data',
+						color: 'var(--color-secondary-500)',
+						category: 'processor'
+					},
+					{
+						id: 'output',
+						type: 'output',
+						title: 'Output',
+						description: 'Output node',
+						color: 'var(--color-warning-500)',
+						category: 'output'
+					},
+					{
+						id: 'gateway',
+						type: 'gateway',
+						title: 'Gateway',
+						description: 'Decision point',
+						color: 'var(--color-info-500)',
+						category: 'gateway'
+					},
+					{
+						id: 'custom',
+						type: 'custom',
+						title: 'Custom',
+						description: 'Custom node',
+						color: 'var(--color-primary-500)',
+						category: 'custom'
+					}
 				]
 	);
 

@@ -1,5 +1,4 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-﻿/**
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all'; /**
  * Blockquote — цитата..
  *
  * LEGO-состав:
@@ -9,7 +8,8 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { ChildrenProp } from '$stylist/information/type/struct/children-prop';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface BlockquoteRecipe extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLQuoteElement>]> {
+export interface BlockquoteRecipe
+	extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLQuoteElement>]> {
 	cite?: string;
 	footerPrefix?: string;
 	withBorder?: boolean;

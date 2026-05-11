@@ -2,9 +2,7 @@ import type { ExpandableCardRecipe as ExpandableCardRecipe } from '$stylist/comm
 import { ExpandableCardStyleManager } from '$stylist/commerce/class/style-manager/expandable-card';
 import { ObjectManagerExpandableCard } from '$stylist/commerce/class/object-manager/expandable-card';
 
-export function createExpandableCardState(
-	props: ExpandableCardRecipe
-) {
+export function createExpandableCardState(props: ExpandableCardRecipe) {
 	let isExpanded = $state(props.defaultExpanded ?? false);
 	const baseClasses = $derived(ExpandableCardStyleManager.getBaseClasses());
 	const themedClasses = $derived(
@@ -60,10 +58,7 @@ export function createExpandableCardState(
 			return isExpanded;
 		},
 		toggleExpanded() {
-			isExpanded = ObjectManagerExpandableCard.toggleExpanded(
-				isExpanded,
-				props.disabled ?? false
-			);
+			isExpanded = ObjectManagerExpandableCard.toggleExpanded(isExpanded, props.disabled ?? false);
 		}
 	};
 }

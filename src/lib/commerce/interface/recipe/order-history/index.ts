@@ -9,7 +9,9 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { SlotOrder } from '$stylist/commerce/interface/slot/order';
 import type { BehaviorOrderHistoryEvents } from '$stylist/commerce/interface/behavior/order-history-events';
 
-export interface RecipeOrderHistory extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorOrderHistoryEvents {
+export interface RecipeOrderHistory
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorOrderHistoryEvents {
 	/** List of orders */
 	orders: SlotOrder[];
 	/** Items per page */

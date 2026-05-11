@@ -4,14 +4,20 @@
 	import { ThemeProvider } from '$stylist/theme';
 </script>
 
-<Story component={ThemeSurface} title="ThemeSurface" description="Content-oriented molecule that renders themed header, content and footer snippets.">
+<Story
+	component={ThemeSurface}
+	title="ThemeSurface"
+	description="Content-oriented molecule that renders themed header, content and footer snippets."
+>
 	{#snippet children()}
 		<ThemeProvider initialMode="light" initialScheme="minimal">
 			<ThemeSurface>
 				{#snippet header(themeContext)}
 					<div class="space-y-1">
 						<h3 class="text-lg font-semibold">Themed Surface</h3>
-						<p class="text-sm opacity-[var(--opacity-80)]">Current mode: {themeContext?.themeMode}</p>
+						<p class="text-sm opacity-[var(--opacity-80)]">
+							Current mode: {themeContext?.themeMode}
+						</p>
 					</div>
 				{/snippet}
 
@@ -19,7 +25,10 @@
 					<div class="space-y-2">
 						<p class="text-sm">Theme mode: {themeContext?.theme.mode}</p>
 						<p class="text-sm">Theme scheme: {themeContext?.themeScheme}</p>
-						<p class="text-sm">Use this molecule for cards, callouts and dashboard sections that need contextual theme access.</p>
+						<p class="text-sm">
+							Use this molecule for cards, callouts and dashboard sections that need contextual
+							theme access.
+						</p>
 					</div>
 				{/snippet}
 

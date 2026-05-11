@@ -14,7 +14,9 @@ export const createMessageComposerState = (props: IMessageComposerProps) => {
 
 	const formClasses = $derived(MessageComposerStyleManager.getFormClasses());
 
-	const attachmentButtonClasses = $derived(MessageComposerStyleManager.getAttachmentButtonClasses());
+	const attachmentButtonClasses = $derived(
+		MessageComposerStyleManager.getAttachmentButtonClasses()
+	);
 
 	const inputContainerClasses = $derived(MessageComposerStyleManager.getInputContainerClasses());
 

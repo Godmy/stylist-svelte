@@ -12,12 +12,18 @@
 	];
 </script>
 
-<Story component={ToggleGroupItem} title="ToggleGroupItem" description="Selectable item managed by ToggleGroupRoot context." {controls}>
+<Story
+	component={ToggleGroupItem}
+	title="ToggleGroupItem"
+	description="Selectable item managed by ToggleGroupRoot context."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<div class="space-y-3">
 			<ToggleGroupRoot
 				type={values.type}
-				onValueChange={(e) => (selected = Array.isArray(e.detail.value) ? e.detail.value.join(', ') : e.detail.value)}
+				onValueChange={(e) =>
+					(selected = Array.isArray(e.detail.value) ? e.detail.value.join(', ') : e.detail.value)}
 			>
 				<ToggleGroupItem value="bold" disabled={values.disabled}>Bold</ToggleGroupItem>
 				<ToggleGroupItem value="italic" disabled={values.disabled}>Italic</ToggleGroupItem>
@@ -27,6 +33,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-

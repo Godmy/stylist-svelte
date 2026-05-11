@@ -30,8 +30,12 @@ export function createDebugConsoleState(props: DebugConsoleProps) {
 	const footerClass = $derived(props.footerClass ?? '');
 
 	const containerClass = $derived(DebugConsoleStyleManager.getContainerClasses(className));
-	const headerComputedClass = $derived(DebugConsoleStyleManager.getHeaderClasses() + ' ' + headerClass);
-	const footerComputedClass = $derived(DebugConsoleStyleManager.getInputContainerClasses() + ' ' + footerClass);
+	const headerComputedClass = $derived(
+		DebugConsoleStyleManager.getHeaderClasses() + ' ' + headerClass
+	);
+	const footerComputedClass = $derived(
+		DebugConsoleStyleManager.getInputContainerClasses() + ' ' + footerClass
+	);
 
 	$effect(() => {
 		updateFilteredLogs();
@@ -39,7 +43,7 @@ export function createDebugConsoleState(props: DebugConsoleProps) {
 
 	function updateFilteredLogs() {
 		const sourceLogs = props.logs ?? [];
-		filteredLogs = sourceLogs.filter(log => {
+		filteredLogs = sourceLogs.filter((log) => {
 			if (logLevelFilter.length > 0 && !logLevelFilter.includes(log.level)) {
 				return false;
 			}
@@ -52,7 +56,7 @@ export function createDebugConsoleState(props: DebugConsoleProps) {
 
 	function toggleLogLevel(level: DebugConsoleLogLevel) {
 		if (logLevelFilter.includes(level)) {
-			logLevelFilter = logLevelFilter.filter(l => l !== level);
+			logLevelFilter = logLevelFilter.filter((l) => l !== level);
 		} else {
 			logLevelFilter = [...logLevelFilter, level];
 		}
@@ -112,66 +116,143 @@ export function createDebugConsoleState(props: DebugConsoleProps) {
 
 	function getLevelColor(level: DebugConsoleLogLevel) {
 		switch (level) {
-			case 'error': return 'text-red-500';
-			case 'warn': return 'text-yellow-500';
-			case 'info': return 'text-blue-500';
-			case 'debug': return 'text-purple-500';
-			default: return 'text-gray-700';
+			case 'error':
+				return 'text-red-500';
+			case 'warn':
+				return 'text-yellow-500';
+			case 'info':
+				return 'text-blue-500';
+			case 'debug':
+				return 'text-purple-500';
+			default:
+				return 'text-gray-700';
 		}
 	}
 
 	function getLevelBgColor(level: DebugConsoleLogLevel) {
 		switch (level) {
-			case 'error': return 'bg-red-100';
-			case 'warn': return 'bg-yellow-100';
-			case 'info': return 'bg-blue-100';
-			case 'debug': return 'bg-purple-100';
-			default: return 'bg-gray-100';
+			case 'error':
+				return 'bg-red-100';
+			case 'warn':
+				return 'bg-yellow-100';
+			case 'info':
+				return 'bg-blue-100';
+			case 'debug':
+				return 'bg-purple-100';
+			default:
+				return 'bg-gray-100';
 		}
 	}
 
 	function formatTimestamp(timestamp: Date) {
-		return timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+		return timestamp.toLocaleTimeString([], {
+			hour: '2-digit',
+			minute: '2-digit',
+			second: '2-digit'
+		});
 	}
 
 	const restProps = $derived.by(() => {
 		const {
-			class: _className, headerClass: _headerClass, consoleClass: _consoleClass,
-			entryClass: _entryClass, footerClass: _footerClass, logs: _logs, title: _title,
-			showTimestamps: _showTimestamps, showLogLevel: _showLogLevel, maxHeight: _maxHeight,
-			allowClear: _allowClear, allowFilter: _allowFilter, initialLogLevelFilter: _filter,
-			onClear: _onClear, onLog: _onLog, ...rest
+			class: _className,
+			headerClass: _headerClass,
+			consoleClass: _consoleClass,
+			entryClass: _entryClass,
+			footerClass: _footerClass,
+			logs: _logs,
+			title: _title,
+			showTimestamps: _showTimestamps,
+			showLogLevel: _showLogLevel,
+			maxHeight: _maxHeight,
+			allowClear: _allowClear,
+			allowFilter: _allowFilter,
+			initialLogLevelFilter: _filter,
+			onClear: _onClear,
+			onLog: _onLog,
+			...rest
 		} = props;
 		return rest;
 	});
 
 	return {
-		get Terminal() { return Terminal; },
-		get Bug() { return Bug; },
-		get Play() { return Play; },
-		get Square() { return Square; },
-		get Trash2() { return Trash2; },
-		get Search() { return Search; },
-		get Filter() { return Filter; },
-		get filteredLogs() { return filteredLogs; },
-		get logLevelFilter() { return logLevelFilter; },
-		get searchQuery() { return searchQuery; },
-		set searchQuery(v: string) { searchQuery = v; },
-		get isRunning() { return isRunning; },
-		get title() { return title; },
-		get showTimestamps() { return showTimestamps; },
-		get showLogLevel() { return showLogLevel; },
-		get maxHeight() { return maxHeight; },
-		get allowClear() { return allowClear; },
-		get allowFilter() { return allowFilter; },
-		get className() { return className; },
-		get headerClass() { return headerClass; },
-		get consoleClass() { return consoleClass; },
-		get entryClass() { return entryClass; },
-		get footerClass() { return footerClass; },
-		get containerClass() { return containerClass; },
-		get headerComputedClass() { return headerComputedClass; },
-		get footerComputedClass() { return footerComputedClass; },
+		get Terminal() {
+			return Terminal;
+		},
+		get Bug() {
+			return Bug;
+		},
+		get Play() {
+			return Play;
+		},
+		get Square() {
+			return Square;
+		},
+		get Trash2() {
+			return Trash2;
+		},
+		get Search() {
+			return Search;
+		},
+		get Filter() {
+			return Filter;
+		},
+		get filteredLogs() {
+			return filteredLogs;
+		},
+		get logLevelFilter() {
+			return logLevelFilter;
+		},
+		get searchQuery() {
+			return searchQuery;
+		},
+		set searchQuery(v: string) {
+			searchQuery = v;
+		},
+		get isRunning() {
+			return isRunning;
+		},
+		get title() {
+			return title;
+		},
+		get showTimestamps() {
+			return showTimestamps;
+		},
+		get showLogLevel() {
+			return showLogLevel;
+		},
+		get maxHeight() {
+			return maxHeight;
+		},
+		get allowClear() {
+			return allowClear;
+		},
+		get allowFilter() {
+			return allowFilter;
+		},
+		get className() {
+			return className;
+		},
+		get headerClass() {
+			return headerClass;
+		},
+		get consoleClass() {
+			return consoleClass;
+		},
+		get entryClass() {
+			return entryClass;
+		},
+		get footerClass() {
+			return footerClass;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get headerComputedClass() {
+			return headerComputedClass;
+		},
+		get footerComputedClass() {
+			return footerComputedClass;
+		},
 		updateFilteredLogs,
 		toggleLogLevel,
 		clearLogs,
@@ -181,7 +262,9 @@ export function createDebugConsoleState(props: DebugConsoleProps) {
 		getLevelColor,
 		getLevelBgColor,
 		formatTimestamp,
-		get restProps() { return restProps; }
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

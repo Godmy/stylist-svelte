@@ -3,7 +3,11 @@ import { CodeStyleManager } from '$stylist/development/class/style-manager/code-
 
 export class CodeSectionStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return mergeClassNames('c-code-section', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
+		return mergeClassNames(
+			'c-code-section',
+			CodeStyleManager.getSurfaceBaseClasses(),
+			extraClasses
+		);
 	}
 
 	static getHeaderContainerClass(): string {
@@ -26,6 +30,3 @@ export class CodeSectionStyleManager {
 		return 'text-xs text-[var(--color-text-secondary)]';
 	}
 }
-
-
-

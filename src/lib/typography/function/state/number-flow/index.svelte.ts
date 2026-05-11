@@ -9,7 +9,7 @@ export function createNumberFlowState(props: NumberFlowProps) {
 	const suffix = $derived(props.suffix ?? '');
 	const containerClass = $derived(
 		DataDisplayStyleManager.getNumberFlowContainerClasses(
-			typeof props.class === "string" ? props.class : undefined
+			typeof props.class === 'string' ? props.class : undefined
 		)
 	);
 	const classes = $derived(DataDisplayStyleManager.getNumberFlowClasses(containerClass));

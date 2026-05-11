@@ -23,7 +23,9 @@
 					<div class="ml-4">
 						<h3 class={state.headerClasses}>{props.title ?? 'Something went wrong'}</h3>
 						<div class={state.bodyClasses}>
-							<p class="text-[--color-text-danger]">{props.message ?? 'An error occurred. Please try again.'}</p>
+							<p class="text-[--color-text-danger]">
+								{props.message ?? 'An error occurred. Please try again.'}
+							</p>
 							{#if props.showDetails}
 								<details class={state.detailsClasses}>
 									<summary class={state.summaryClasses}>Error details</summary>
@@ -40,7 +42,7 @@
 								onclick={() => state.handleReset(reset)}
 								class="flex items-center"
 							>
-								<Icon name={RotateCcw} class="w-4 h-4 mr-2" />
+								<Icon name={RotateCcw} class="mr-2 h-4 w-4" />
 								Try again
 							</Button>
 						</div>

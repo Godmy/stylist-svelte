@@ -31,7 +31,9 @@ export class CloseButtonStyleManager {
 			'inline-flex items-center justify-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-500)]',
 			'text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)] hover:text-[var(--color-text-primary)]',
 			sizeClasses[size] ?? sizeClasses.md,
-			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : 'cursor-pointer',
+			disabled
+				? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none'
+				: 'cursor-pointer',
 			className
 		]);
 	}
@@ -54,9 +56,6 @@ export class CloseButtonStyleManager {
 			full: 'w-5 h-5'
 		};
 
-		return this.join([
-			iconSizeClasses[size] ?? iconSizeClasses.md,
-			className
-		]);
+		return this.join([iconSizeClasses[size] ?? iconSizeClasses.md, className]);
 	}
 }

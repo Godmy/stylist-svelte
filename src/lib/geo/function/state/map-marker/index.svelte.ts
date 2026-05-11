@@ -29,20 +29,30 @@ export function createMapMarkerState(props: MapMarkerStateProps) {
 
 	// Classes
 	const hostClasses = $derived(MapMarkerStyleManager.getBaseClasses(selected, props.class ?? ''));
-	const markerContainerClasses = $derived(MapMarkerStyleManager.getMarkerContainerClasses(props.iconClass ?? ''));
+	const markerContainerClasses = $derived(
+		MapMarkerStyleManager.getMarkerContainerClasses(props.iconClass ?? '')
+	);
 	const colorClass = $derived(MapMarkerStyleManager.getColorClass(color, type));
-	const pinStyleClasses = $derived(MapMarkerStyleManager.getPinStyleClasses(size, colorClass, selected, pinStyle));
+	const pinStyleClasses = $derived(
+		MapMarkerStyleManager.getPinStyleClasses(size, colorClass, selected, pinStyle)
+	);
 	const distanceLabelClasses = $derived(MapMarkerStyleManager.getDistanceLabelClasses());
 	const popupClasses = $derived(MapMarkerStyleManager.getPopupClasses(props.popupClass ?? ''));
 	const titleClasses = $derived(MapMarkerStyleManager.getTitleClasses(''));
 	const descriptionClasses = $derived(MapMarkerStyleManager.getDescriptionClasses());
 	const ratingContainerClasses = $derived(MapMarkerStyleManager.getRatingContainerClasses());
 	const closeButtonClasses = $derived(MapMarkerStyleManager.getCloseButtonClasses());
-	const contactInfoContainerClasses = $derived(MapMarkerStyleManager.getContactInfoContainerClasses());
+	const contactInfoContainerClasses = $derived(
+		MapMarkerStyleManager.getContactInfoContainerClasses()
+	);
 	const contactItemClasses = $derived(MapMarkerStyleManager.getContactItemClasses());
 	const contactLinkClasses = $derived(MapMarkerStyleManager.getContactLinkClasses());
-	const customContentClasses = $derived(MapMarkerStyleManager.getCustomContentClasses(props.contentClass ?? ''));
-	const actionButtonsContainerClasses = $derived(MapMarkerStyleManager.getActionButtonsContainerClasses());
+	const customContentClasses = $derived(
+		MapMarkerStyleManager.getCustomContentClasses(props.contentClass ?? '')
+	);
+	const actionButtonsContainerClasses = $derived(
+		MapMarkerStyleManager.getActionButtonsContainerClasses()
+	);
 	const flagClasses = $derived(MapMarkerStyleManager.getFlagClasses(colorClass, size));
 	const flagTopClasses = $derived(MapMarkerStyleManager.getFlagTopClasses(colorClass, size));
 
@@ -206,7 +216,9 @@ export function createMapMarkerState(props: MapMarkerStateProps) {
 		getIconForType,
 		getStarClasses,
 		handleKeyDown,
-		set isPopupOpen(value: boolean) { isPopupOpen = value; }
+		set isPopupOpen(value: boolean) {
+			isPopupOpen = value;
+		}
 	};
 }
 

@@ -22,12 +22,18 @@ export function createDevelopmentErrorBoundaryState(props: DevelopmentErrorBound
 	const showReportIssue = $derived(props.showReportIssue ?? true);
 	const reportUrl = $derived(props.reportUrl ?? 'https://github.com/issues');
 	const title = $derived(props.title ?? 'Something went wrong');
-	const message = $derived(props.message ?? 'An unexpected error occurred. Our team has been notified.');
+	const message = $derived(
+		props.message ?? 'An unexpected error occurred. Our team has been notified.'
+	);
 	const className = $derived(props.class == null ? '' : String(props.class));
 	const children = $derived(props.children);
 
-	const containerClass = $derived(DevelopmentErrorBoundaryStyleManager.getContainerClasses(className));
-	const fallbackContainerClass = $derived(DevelopmentErrorBoundaryStyleManager.getFallbackContainerClasses());
+	const containerClass = $derived(
+		DevelopmentErrorBoundaryStyleManager.getContainerClasses(className)
+	);
+	const fallbackContainerClass = $derived(
+		DevelopmentErrorBoundaryStyleManager.getFallbackContainerClasses()
+	);
 	const headerComputedClass = $derived(DevelopmentErrorBoundaryStyleManager.getHeaderClasses());
 	const detailsComputedClass = $derived(DevelopmentErrorBoundaryStyleManager.getDetailsClasses());
 	const actionsComputedClass = $derived(DevelopmentErrorBoundaryStyleManager.getActionsClasses());
@@ -62,43 +68,101 @@ export function createDevelopmentErrorBoundaryState(props: DevelopmentErrorBound
 
 	const restProps = $derived.by(() => {
 		const {
-			class: _className, fallback: _fallback,
-			onError: _onError, showDetails: _showDetails, showReload: _showReload,
-			showCopyError: _showCopyError, showReportIssue: _showReportIssue,
-			reportUrl: _reportUrl, title: _title, message: _message, children: _children, ...rest
+			class: _className,
+			fallback: _fallback,
+			onError: _onError,
+			showDetails: _showDetails,
+			showReload: _showReload,
+			showCopyError: _showCopyError,
+			showReportIssue: _showReportIssue,
+			reportUrl: _reportUrl,
+			title: _title,
+			message: _message,
+			children: _children,
+			...rest
 		} = props;
 		return rest;
 	});
 
 	return {
-		get Bug() { return Bug; },
-		get RotateCcw() { return RotateCcw; },
-		get Copy() { return Copy; },
-		get FileText() { return FileText; },
-		get ExternalLink() { return ExternalLink; },
-		get hasError() { return hasError; },
-		get error() { return error; },
-		get errorInfo() { return errorInfo; },
-		get copied() { return copied; },
-		get fallback() { return fallback; },
-		get showDetails() { return showDetails; },
-		get showReload() { return showReload; },
-		get showCopyError() { return showCopyError; },
-		get showReportIssue() { return showReportIssue; },
-		get reportUrl() { return reportUrl; },
-		get title() { return title; },
-		get message() { return message; },
-		get className() { return className; },
-		get children() { return children; },
-		get containerClass() { return containerClass; },
-		get fallbackContainerClass() { return fallbackContainerClass; },
-		get headerComputedClass() { return headerComputedClass; },
-		get detailsComputedClass() { return detailsComputedClass; },
-		get actionsComputedClass() { return actionsComputedClass; },
+		get Bug() {
+			return Bug;
+		},
+		get RotateCcw() {
+			return RotateCcw;
+		},
+		get Copy() {
+			return Copy;
+		},
+		get FileText() {
+			return FileText;
+		},
+		get ExternalLink() {
+			return ExternalLink;
+		},
+		get hasError() {
+			return hasError;
+		},
+		get error() {
+			return error;
+		},
+		get errorInfo() {
+			return errorInfo;
+		},
+		get copied() {
+			return copied;
+		},
+		get fallback() {
+			return fallback;
+		},
+		get showDetails() {
+			return showDetails;
+		},
+		get showReload() {
+			return showReload;
+		},
+		get showCopyError() {
+			return showCopyError;
+		},
+		get showReportIssue() {
+			return showReportIssue;
+		},
+		get reportUrl() {
+			return reportUrl;
+		},
+		get title() {
+			return title;
+		},
+		get message() {
+			return message;
+		},
+		get className() {
+			return className;
+		},
+		get children() {
+			return children;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get fallbackContainerClass() {
+			return fallbackContainerClass;
+		},
+		get headerComputedClass() {
+			return headerComputedClass;
+		},
+		get detailsComputedClass() {
+			return detailsComputedClass;
+		},
+		get actionsComputedClass() {
+			return actionsComputedClass;
+		},
 		resetError,
 		copyError,
 		triggerError,
-		get restProps() { return restProps; }
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

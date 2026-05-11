@@ -6,15 +6,28 @@
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Team members' },
 		{ name: 'open', type: 'boolean', defaultValue: true },
-		{ name: 'position', type: 'select', defaultValue: 'bottom', options: ['top', 'bottom', 'left', 'right'] }
+		{
+			name: 'position',
+			type: 'select',
+			defaultValue: 'bottom',
+			options: ['top', 'bottom', 'left', 'right']
+		}
 	];
 </script>
 
-<Story component={Popover} title="Popover" description="Floating contextual panel anchored to a trigger." {controls}>
+<Story
+	component={Popover}
+	title="Popover"
+	description="Floating contextual panel anchored to a trigger."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<Popover title={values.title} open={values.open} position={values.position}>
 			{#snippet trigger()}
-				<button class="rounded-md bg-[--color-primary-600] px-3 py-2 text-sm font-semibold text-[var(--color-text-inverse)]">SlotToggle popover</button>
+				<button
+					class="rounded-md bg-[--color-primary-600] px-3 py-2 text-sm font-semibold text-[var(--color-text-inverse)]"
+					>SlotToggle popover</button
+				>
 			{/snippet}
 			{#snippet content()}
 				<ul class="space-y-1 text-sm">
@@ -26,7 +39,3 @@
 		</Popover>
 	{/snippet}
 </Story>
-
-
-
-

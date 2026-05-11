@@ -2,7 +2,6 @@ import { formatAnimatedValue } from '$stylist/typography/function/script/format-
 import { formatNumberFlowValue } from '$stylist/typography/function/script/format-number-flow-value';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
-
 export class DataDisplayStyleManager {
 	static getAnimatedNumberClasses(className = ''): string {
 		return mergeClassNames(className, 'font-mono');
@@ -10,7 +9,11 @@ export class DataDisplayStyleManager {
 
 	static formatAnimatedValue(
 		value: number,
-		options: { format?: 'number' | 'percent' | 'currency'; separator?: string; decimals?: number } = {}
+		options: {
+			format?: 'number' | 'percent' | 'currency';
+			separator?: string;
+			decimals?: number;
+		} = {}
 	): string {
 		return formatAnimatedValue(value, options);
 	}
@@ -54,8 +57,7 @@ export class DataDisplayStyleManager {
 					'bg-[var(--color-success-100)] text-[var(--color-success-800)] dark:bg-[var(--color-success-900)]/30 dark:text-[var(--color-success-300)]',
 				license:
 					'bg-[var(--color-secondary-100)] text-[var(--color-secondary-800)] dark:bg-[var(--color-secondary-900)]/30 dark:text-[var(--color-secondary-300)]',
-				size:
-					'bg-[var(--color-warning-100)] text-[var(--color-warning-800)] dark:bg-[var(--color-warning-900)]/30 dark:text-[var(--color-warning-300)]',
+				size: 'bg-[var(--color-warning-100)] text-[var(--color-warning-800)] dark:bg-[var(--color-warning-900)]/30 dark:text-[var(--color-warning-300)]',
 				custom:
 					'bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)] dark:bg-[var(--color-neutral-700)] dark:text-[var(--color-neutral-300)]'
 			}[type],
@@ -64,7 +66,10 @@ export class DataDisplayStyleManager {
 	}
 
 	static getNpmBadgeLinkClasses(className = ''): string {
-		return mergeClassNames('inline-flex items-center gap-1 hover:opacity-[var(--opacity-80)]', className);
+		return mergeClassNames(
+			'inline-flex items-center gap-1 hover:opacity-[var(--opacity-80)]',
+			className
+		);
 	}
 
 	static getNumberFlowContainerClasses(className = ''): string {
@@ -93,8 +98,3 @@ export class DataDisplayStyleManager {
 		return formatNumberFlowValue(value, locales, format);
 	}
 }
-
-
-
-
-

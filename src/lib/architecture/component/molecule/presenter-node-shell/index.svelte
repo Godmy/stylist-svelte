@@ -136,4 +136,3 @@
 		max-width: min(32rem, 80vw);
 	}
 </style>
-

@@ -6,4 +6,3 @@ export const COUNTER_SIZE_CLASSES = {
 	xl: 'px-2.5 min-w-[2rem] h-8 text-lg',
 	'2xl': 'px-3 min-w-[2.25rem] h-9 text-xl'
 } as const;
-

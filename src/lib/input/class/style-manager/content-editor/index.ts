@@ -4,8 +4,10 @@ import type { ContentElement } from '$stylist/input/interface/slot/content-edito
 import type { ContentEditorStyleManagerOptions } from '$stylist/input/interface/slot/content-editor-style-manager-options';
 
 export class ContentEditorStyleManager {
-	private static readonly BASE_ROOT = 'c-content-editor border border-[var(--color-border-primary)] rounded-lg overflow-hidden';
-	private static readonly BASE_TOOLBAR = 'flex items-center p-2 border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] space-x-1';
+	private static readonly BASE_ROOT =
+		'c-content-editor border border-[var(--color-border-primary)] rounded-lg overflow-hidden';
+	private static readonly BASE_TOOLBAR =
+		'flex items-center p-2 border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] space-x-1';
 	private static readonly BASE_EDITOR = 'p-4';
 	private static readonly BASE_CONTENT = 'mb-4 p-2 border rounded';
 	private static readonly BASE_CONTENT_ACTIVE = 'border-[var(--color-primary-500)]';
@@ -13,18 +15,24 @@ export class ContentEditorStyleManager {
 	private static readonly BASE_BUTTON = 'p-2 rounded hover:bg-[var(--color-background-tertiary)]';
 	private static readonly BASE_DIVIDER = 'w-px h-6 bg-[var(--color-background-tertiary)] mx-1';
 	private static readonly BASE_ICON = 'h-4 w-4';
-	private static readonly BASE_MOVE_BUTTON = 'text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)] p-1';
-	private static readonly BASE_DELETE_BUTTON = 'text-[var(--color-text-tertiary)] hover:text-[var(--color-danger-500)] p-1';
-	private static readonly BASE_ADD_BUTTON = 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-medium flex items-center';
+	private static readonly BASE_MOVE_BUTTON =
+		'text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)] p-1';
+	private static readonly BASE_DELETE_BUTTON =
+		'text-[var(--color-text-tertiary)] hover:text-[var(--color-danger-500)] p-1';
+	private static readonly BASE_ADD_BUTTON =
+		'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-medium flex items-center';
 	private static readonly BASE_ADD_ICON = 'h-4 w-4 mr-1';
 	private static readonly BASE_PREVIEW = 'prose max-w-none';
 	private static readonly BASE_HEADING = 'text-2xl font-bold mb-4';
-	private static readonly BASE_QUOTE = 'border-l-4 border-[var(--color-border-primary)] pl-4 italic my-4';
+	private static readonly BASE_QUOTE =
+		'border-l-4 border-[var(--color-border-primary)] pl-4 italic my-4';
 	private static readonly BASE_LIST = 'list-disc pl-5 my-4';
 	private static readonly BASE_TEXTAREA = 'w-full focus:outline-none';
 	private static readonly BASE_HEADING_INPUT = 'w-full text-2xl font-bold focus:outline-none';
-	private static readonly BASE_QUOTE_TEXTAREA = 'w-full italic focus:outline-none border-l-4 border-[var(--color-border-primary)] pl-4';
-	private static readonly BASE_IMAGE_PLACEHOLDER = 'border-2 border-dashed border-[var(--color-border-primary)] rounded flex flex-col items-center justify-center p-8';
+	private static readonly BASE_QUOTE_TEXTAREA =
+		'w-full italic focus:outline-none border-l-4 border-[var(--color-border-primary)] pl-4';
+	private static readonly BASE_IMAGE_PLACEHOLDER =
+		'border-2 border-dashed border-[var(--color-border-primary)] rounded flex flex-col items-center justify-center p-8';
 	private static readonly BASE_IMAGE_ICON = 'h-10 w-10 text-[var(--color-text-tertiary)] mb-2';
 	private static readonly BASE_IMAGE_TEXT = 'text-[var(--color-text-secondary)]';
 	private static readonly BASE_IMAGE_HINT = 'text-sm text-[var(--color-text-tertiary)] mt-1';

@@ -7,19 +7,35 @@ export function createSessionManagerState(props: SessionManagerStateProps) {
 	const className = $derived(props.class ?? '');
 
 	const containerClasses = $derived(
-		InteractionFormsStyleManager.root('c-session-manager border rounded-lg p-4 space-y-2', className)
+		InteractionFormsStyleManager.root(
+			'c-session-manager border rounded-lg p-4 space-y-2',
+			className
+		)
 	);
 
 	const restProps = $derived.by(() => {
-		const { class: _class, activeSessions: _activeSessions, expiresAt: _expiresAt, ...rest } = props;
+		const {
+			class: _class,
+			activeSessions: _activeSessions,
+			expiresAt: _expiresAt,
+			...rest
+		} = props;
 		return rest;
 	});
 
 	return {
-		get activeSessions() { return activeSessions; },
-		get expiresAt() { return expiresAt; },
-		get containerClasses() { return containerClasses; },
-		get restProps() { return restProps; }
+		get activeSessions() {
+			return activeSessions;
+		},
+		get expiresAt() {
+			return expiresAt;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

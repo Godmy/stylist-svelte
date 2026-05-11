@@ -1,5 +1,5 @@
 export type MockDataSelectorDataSelection = {
-  schemaId: string;
-  count: number;
-  selectedFields?: string[];
+	schemaId: string;
+	count: number;
+	selectedFields?: string[];
 };

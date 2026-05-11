@@ -2,7 +2,10 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { DateRangeValue } from '$stylist/input/type/struct/interaction-input/date-range-value';
 
-export interface DateRangePickerProps extends StructIntersectAll<[Omit<InteractionHTMLAttributes<HTMLDivElement>, 'oninput' | 'value'> ]> {
+export interface DateRangePickerProps
+	extends StructIntersectAll<
+		[Omit<InteractionHTMLAttributes<HTMLDivElement>, 'oninput' | 'value'>]
+	> {
 	value?: DateRangeValue;
 	disabled?: boolean;
 	placeholder?: string;

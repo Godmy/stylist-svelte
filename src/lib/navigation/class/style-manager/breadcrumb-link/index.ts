@@ -21,37 +21,22 @@ export class BreadcrumbLinkStyleManager {
 	}
 
 	static getBreadcrumbSeparatorClasses(className?: string): string {
-		return this.join([
-			'mx-2 text-[var(--color-text-tertiary)]',
-			className
-		]);
+		return this.join(['mx-2 text-[var(--color-text-tertiary)]', className]);
 	}
 
 	static getBreadcrumbClasses(className?: string): string {
-		return this.join([
-			'flex items-center flex-wrap',
-			className
-		]);
+		return this.join(['flex items-center flex-wrap', className]);
 	}
 
 	static getBreadcrumbItemClasses(className?: string): string {
-		return this.join([
-			'inline-flex items-center',
-			className
-		]);
+		return this.join(['inline-flex items-center', className]);
 	}
 
 	static getBreadcrumbCurrentClasses(className?: string): string {
-		return this.join([
-			'text-sm font-medium text-[var(--color-text-primary)]',
-			className
-		]);
+		return this.join(['text-sm font-medium text-[var(--color-text-primary)]', className]);
 	}
 
 	static getBreadcrumbListClasses(className?: string): string {
-		return this.join([
-			'flex items-center flex-wrap gap-1',
-			className
-		]);
+		return this.join(['flex items-center flex-wrap gap-1', className]);
 	}
 }

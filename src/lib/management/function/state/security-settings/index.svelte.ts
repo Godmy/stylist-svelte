@@ -7,7 +7,10 @@ export function createSecuritySettingsState(props: SecuritySettingsStateProps) {
 	const className = $derived(props.class ?? '');
 
 	const containerClasses = $derived(
-		InteractionFormsStyleManager.root('c-security-settings border rounded-lg p-4 space-y-2', className)
+		InteractionFormsStyleManager.root(
+			'c-security-settings border rounded-lg p-4 space-y-2',
+			className
+		)
 	);
 
 	const restProps = $derived.by(() => {
@@ -16,10 +19,18 @@ export function createSecuritySettingsState(props: SecuritySettingsStateProps) {
 	});
 
 	return {
-		get twoFactor() { return twoFactor; },
-		get loginAlerts() { return loginAlerts; },
-		get containerClasses() { return containerClasses; },
-		get restProps() { return restProps; }
+		get twoFactor() {
+			return twoFactor;
+		},
+		get loginAlerts() {
+			return loginAlerts;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

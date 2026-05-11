@@ -12,7 +12,10 @@ export function createViewportState(props: ViewportProps) {
 	const worldWidth = $derived(props.worldWidth ?? 10000);
 	const worldHeight = $derived(props.worldHeight ?? 10000);
 	const classes = $derived(
-		ViewportStyleManager.getViewportClass(isDragging, typeof props.class === 'string' ? props.class : undefined)
+		ViewportStyleManager.getViewportClass(
+			isDragging,
+			typeof props.class === 'string' ? props.class : undefined
+		)
 	);
 	const restProps = $derived.by(() => {
 		const {
@@ -94,14 +97,30 @@ export function createViewportState(props: ViewportProps) {
 	}
 
 	return {
-		get camera() { return camera; },
-		get interactive() { return interactive; },
-		get showGrid() { return showGrid; },
-		get worldWidth() { return worldWidth; },
-		get worldHeight() { return worldHeight; },
-		get isDragging() { return isDragging; },
-		get classes() { return classes; },
-		get restProps() { return restProps; },
+		get camera() {
+			return camera;
+		},
+		get interactive() {
+			return interactive;
+		},
+		get showGrid() {
+			return showGrid;
+		},
+		get worldWidth() {
+			return worldWidth;
+		},
+		get worldHeight() {
+			return worldHeight;
+		},
+		get isDragging() {
+			return isDragging;
+		},
+		get classes() {
+			return classes;
+		},
+		get restProps() {
+			return restProps;
+		},
 		handleMouseDown,
 		handleMouseMove,
 		handleMouseUp,

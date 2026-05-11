@@ -17,22 +17,22 @@ export function createSkeletonState(
 	const computedWidth = $derived(variant === 'icon' ? computedHeight : width);
 
 	let restProps = $derived.by(() => {
-		const {
-			class: _class,
-			variant: _variant,
-			width: _width,
-			height: _height,
-			...rest
-		} = props;
+		const { class: _class, variant: _variant, width: _width, height: _height, ...rest } = props;
 		return rest;
 	});
 	let rootClass = $derived(`skeleton-container variant-${variant} ${props.class ?? ''}`.trim());
 	let style = $derived(`width: ${computedWidth}; height: ${computedHeight};`);
 
 	return {
-		get restProps() { return restProps; },
-		get rootClass() { return rootClass; },
-		get style() { return style; }
+		get restProps() {
+			return restProps;
+		},
+		get rootClass() {
+			return rootClass;
+		},
+		get style() {
+			return style;
+		}
 	};
 }
 

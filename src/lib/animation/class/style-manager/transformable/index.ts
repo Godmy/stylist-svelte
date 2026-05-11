@@ -7,14 +7,7 @@ export class TransformableStyleManager {
 	private static readonly HOVER_ROTATE = 'hover:rotate-3';
 
 	static getTransformStyle(options: TransformableStyleManagerOptions = {}): string {
-		const {
-			scale = 1,
-			rotate = 0,
-			translateX = 0,
-			translateY = 0,
-			skewX = 0,
-			skewY = 0
-		} = options;
+		const { scale = 1, rotate = 0, translateX = 0, translateY = 0, skewX = 0, skewY = 0 } = options;
 
 		const transforms: string[] = [];
 
@@ -42,10 +35,7 @@ export class TransformableStyleManager {
 	}
 
 	static getClasses(options: TransformableStyleManagerOptions = {}): string {
-		const {
-			animateOnHover = false,
-			class: className = ''
-		} = options;
+		const { animateOnHover = false, class: className = '' } = options;
 
 		const hoverClasses = animateOnHover ? `${this.HOVER_SCALE} ${this.HOVER_ROTATE}` : '';
 

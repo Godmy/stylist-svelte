@@ -33,7 +33,7 @@ export class ObjectManagerSearchBar {
 		const normalizedQuery = this.normalizeQuery(query);
 		if (!normalizedQuery) return suggestions.slice(0, maxResults);
 
-		const filtered = suggestions.filter(suggestion =>
+		const filtered = suggestions.filter((suggestion) =>
 			suggestion.text.toLowerCase().includes(normalizedQuery)
 		);
 
@@ -82,10 +82,7 @@ export class ObjectManagerSearchBar {
 	/**
 	 * Создаёт поисковый запрос из объекта
 	 */
-	static createQuery(options: {
-		query?: string;
-		filters?: Record<string, string>;
-	}): string {
+	static createQuery(options: { query?: string; filters?: Record<string, string> }): string {
 		const { query = '', filters = {} } = options;
 		const filterParts = Object.entries(filters)
 			.map(([key, value]) => `${key}:${value}`)
@@ -125,10 +122,7 @@ export class ObjectManagerSearchBar {
 	/**
 	 * Определяет оптимальное значение debounce на основе контекста
 	 */
-	static getDebounceMs(
-		context: 'instant' | 'normal' | 'slow',
-		customMs?: number
-	): number {
+	static getDebounceMs(context: 'instant' | 'normal' | 'slow', customMs?: number): number {
 		if (customMs !== undefined) return customMs;
 
 		switch (context) {

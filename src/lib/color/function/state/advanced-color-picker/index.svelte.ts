@@ -4,9 +4,7 @@ import type { ThemeAdvancedColorPickerRecipe } from '$stylist/color/interface/re
 
 export function createAdvancedColorPickerState(props: ThemeAdvancedColorPickerRecipe) {
 	let isOpen = $state(false);
-	let internalValue = $state(
-		ObjectManagerAdvancedColorPicker.resolveValue(props.value)
-	);
+	let internalValue = $state(ObjectManagerAdvancedColorPicker.resolveValue(props.value));
 
 	$effect(() => {
 		internalValue = ObjectManagerAdvancedColorPicker.resolveValue(props.value);

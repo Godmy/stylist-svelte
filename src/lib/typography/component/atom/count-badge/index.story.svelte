@@ -4,8 +4,18 @@
 	import CountBadge from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'count', type: 'select', defaultValue: '12', options: ['0', '1', '3', '5', '10', '12', '25', '50', '99', '100', '152', '200'] },
-		{ name: 'max', type: 'select', defaultValue: '99', options: ['10', '50', '99', '100', '200', '500', '999'] },
+		{
+			name: 'count',
+			type: 'select',
+			defaultValue: '12',
+			options: ['0', '1', '3', '5', '10', '12', '25', '50', '99', '100', '152', '200']
+		},
+		{
+			name: 'max',
+			type: 'select',
+			defaultValue: '99',
+			options: ['10', '50', '99', '100', '200', '500', '999']
+		},
 		{ name: 'showZero', type: 'boolean', defaultValue: false }
 	];
 
@@ -28,21 +38,37 @@
 		{@const count = Number(values.count)}
 		{@const max = Number(values.max)}
 		<div class="space-y-8">
-			<div class="flex items-center gap-3 rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/70 p-4 shadow-sm dark:border-[var(--color-border-primary)]/80 dark:bg-[var(--color-neutral-900)]/40">
-				<button class="relative rounded-xl bg-[var(--color-neutral-900)] px-4 py-2 text-sm font-semibold text-[var(--color-text-inverse)]">
+			<div
+				class="flex items-center gap-3 rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/70 p-4 shadow-sm dark:border-[var(--color-border-primary)]/80 dark:bg-[var(--color-neutral-900)]/40"
+			>
+				<button
+					class="relative rounded-xl bg-[var(--color-neutral-900)] px-4 py-2 text-sm font-semibold text-[var(--color-text-inverse)]"
+				>
 					Messages
 					<span class="absolute -top-2 -right-2">
-						<CountBadge count={Number.isNaN(count) ? 12 : count} max={Number.isNaN(max) ? 99 : max} showZero={values.showZero as boolean} />
+						<CountBadge
+							count={Number.isNaN(count) ? 12 : count}
+							max={Number.isNaN(max) ? 99 : max}
+							showZero={values.showZero as boolean}
+						/>
 					</span>
 				</button>
 			</div>
 
-			<div class="rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/80 p-4 shadow-sm dark:border-[var(--color-border-primary)] dark:bg-[var(--color-neutral-900)]/40">
+			<div
+				class="rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/80 p-4 shadow-sm dark:border-[var(--color-border-primary)] dark:bg-[var(--color-neutral-900)]/40"
+			>
 				<ul class="divide-y divide-gray-100 text-sm dark:divide-gray-800">
 					{#each inboxViews as view}
 						<li class="flex items-center justify-between py-3">
-							<span class="text-[var(--color-text-primary)] dark:text-[var(--color-neutral-200)]">{view.label}</span>
-							<CountBadge count={view.label === 'Inbox' ? (Number.isNaN(count) ? 12 : count) : view.count} max={Number.isNaN(max) ? 99 : max} showZero={values.showZero as boolean} />
+							<span class="text-[var(--color-text-primary)] dark:text-[var(--color-neutral-200)]"
+								>{view.label}</span
+							>
+							<CountBadge
+								count={view.label === 'Inbox' ? (Number.isNaN(count) ? 12 : count) : view.count}
+								max={Number.isNaN(max) ? 99 : max}
+								showZero={values.showZero as boolean}
+							/>
 						</li>
 					{/each}
 				</ul>
@@ -50,8 +76,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-

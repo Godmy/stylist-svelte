@@ -14,9 +14,7 @@ export function createCategoryCardState(props: CategoryCardRecipe) {
 	const titleClasses = $derived(CategoryCardStyleManager.getTitleClasses());
 	const countBadgeClasses = $derived(CategoryCardStyleManager.getCountBadgeClasses());
 	const descriptionClasses = $derived(CategoryCardStyleManager.getDescriptionClasses());
-	const examplesContainerClasses = $derived(
-		CategoryCardStyleManager.getExamplesContainerClasses()
-	);
+	const examplesContainerClasses = $derived(CategoryCardStyleManager.getExamplesContainerClasses());
 	const examplesTitleClasses = $derived(CategoryCardStyleManager.getExamplesTitleClasses());
 	const examplesListClasses = $derived(CategoryCardStyleManager.getExamplesListClasses());
 	const exampleItemClasses = $derived(CategoryCardStyleManager.getExampleItemClasses());

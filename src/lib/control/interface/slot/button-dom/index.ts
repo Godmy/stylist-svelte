@@ -4,4 +4,5 @@ import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { Props, ClassProp } from '$stylist/information/type/struct';
 
-export interface SlotButtonDom extends Omit<HTMLButtonAttributes, 'class' | 'disabled' | 'onclick'> {}
+export interface SlotButtonDom
+	extends Omit<HTMLButtonAttributes, 'class' | 'disabled' | 'onclick'> {}

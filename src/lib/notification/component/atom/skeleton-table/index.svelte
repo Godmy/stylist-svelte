@@ -12,7 +12,10 @@
 			<tr>
 				{#each state.columnIndexes as _}
 					<th class={state.headerCellClass}>
-						<div class="h-4 animate-pulse rounded bg-[--color-skeleton]" style={state.headerBarStyle}></div>
+						<div
+							class="h-4 animate-pulse rounded bg-[--color-skeleton]"
+							style={state.headerBarStyle}
+						></div>
 					</th>
 				{/each}
 			</tr>
@@ -22,7 +25,10 @@
 				<tr>
 					{#each state.columnIndexes as _}
 						<td class={state.dataCellClass}>
-							<div class="h-4 animate-pulse rounded bg-[--color-skeleton]" style={state.dataBarStyle}></div>
+							<div
+								class="h-4 animate-pulse rounded bg-[--color-skeleton]"
+								style={state.dataBarStyle}
+							></div>
 						</td>
 					{/each}
 				</tr>

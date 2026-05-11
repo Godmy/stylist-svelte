@@ -11,12 +11,7 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface AnimatedNumberRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		IBadgeSlot,
-		ThemeAttributes<HTMLSpanElement>
-	]>
-{
+	extends StructIntersectAll<[ILabelSlot, IBadgeSlot, ThemeAttributes<HTMLSpanElement>]> {
 	value?: number;
 	format?: 'number' | 'currency' | 'percent';
 	prefix?: string;
@@ -24,4 +19,3 @@ export interface AnimatedNumberRecipe
 	separator?: string;
 	decimals?: number;
 }
-

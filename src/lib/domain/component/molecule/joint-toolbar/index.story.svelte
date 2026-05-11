@@ -4,7 +4,12 @@
 	import JointToolbar from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'orientation', type: 'select', defaultValue: 'horizontal', options: ['horizontal', 'vertical'] },
+		{
+			name: 'orientation',
+			type: 'select',
+			defaultValue: 'horizontal',
+			options: ['horizontal', 'vertical']
+		},
 		{ name: 'showLabel', type: 'boolean', defaultValue: true }
 	];
 
@@ -21,8 +26,8 @@
 	{#snippet children(values: any)}
 		<div class="rounded-2xl border border-slate-200 bg-white p-4">
 			<JointToolbar
-				active={active}
-				availableJoints={availableJoints}
+				{active}
+				{availableJoints}
 				orientation={values.orientation as 'horizontal' | 'vertical'}
 				showLabel={Boolean(values.showLabel)}
 				onSelect={(name) => {

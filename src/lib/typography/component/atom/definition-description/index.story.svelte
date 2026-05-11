@@ -43,7 +43,11 @@
 				class="rounded-2xl border border-[var(--color-border-primary)]/70 bg-[var(--color-background-primary)]/80 p-5 shadow-sm dark:border-[var(--color-border-primary)] dark:bg-[var(--color-neutral-900)]/40"
 			>
 				<DefinitionTerm>Documentation snippet</DefinitionTerm>
-				<DefinitionDescription class={values.muted ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-primary)]'}>
+				<DefinitionDescription
+					class={values.muted
+						? 'text-[var(--color-text-tertiary)]'
+						: 'text-[var(--color-text-primary)]'}
+				>
 					{values.description}
 				</DefinitionDescription>
 			</dl>
@@ -61,14 +65,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-
-
-
-
-
-

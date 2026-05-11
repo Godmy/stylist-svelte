@@ -9,14 +9,10 @@ import { copyTextToClipboard } from '$stylist/interaction/function/script/copy-t
 type CopyButtonStateProps = CopyButtonProps & HTMLButtonAttributes;
 
 export function createCopyButtonState(props: CopyButtonStateProps) {
-	const preset = createBasePreset(
-		InteractionStyleManager.getInteractiveVariants(),
-		TOKEN_SIZE,
-		{
-			variant: 'outline',
-			size: 'sm'
-		}
-	);
+	const preset = createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
+		variant: 'outline',
+		size: 'sm'
+	});
 
 	const variant = $derived((props.variant ?? preset.defaults.variant) as string);
 	const size = $derived((props.size ?? preset.defaults.size) as string);
@@ -44,11 +40,13 @@ export function createCopyButtonState(props: CopyButtonStateProps) {
 		disabled: typeof disabled === 'boolean' ? disabled : undefined
 	});
 
-	const ariaLabel = $derived(resolveAriaLabel(
-		typeof props.ariaLabel === 'string' ? props.ariaLabel : undefined,
-		props as Record<string, unknown>,
-		'Copy to clipboard'
-	));
+	const ariaLabel = $derived(
+		resolveAriaLabel(
+			typeof props.ariaLabel === 'string' ? props.ariaLabel : undefined,
+			props as Record<string, unknown>,
+			'Copy to clipboard'
+		)
+	);
 	let copied = $state(false);
 
 	const iconClasses = $derived(

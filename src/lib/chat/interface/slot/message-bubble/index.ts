@@ -18,42 +18,42 @@ import type { TokenAppearance } from '$stylist/interaction/type/record/appearanc
  * Single Responsibility: Define the contract for MessageBubble component
  */
 export interface SlotMessageBubble {
-  /**
-   * Author of the message
-   */
-  author: string;
+	/**
+	 * Author of the message
+	 */
+	author: string;
 
-  /**
-   * Content of the message
-   */
-  message: string;
+	/**
+	 * Content of the message
+	 */
+	message: string;
 
-  /**
-   * Timestamp of the message
-   * @default undefined
-   */
-  timestamp?: string;
+	/**
+	 * Timestamp of the message
+	 * @default undefined
+	 */
+	timestamp?: string;
 
-  /**
-   * TokenAlignment of the message bubble
-   * @default 'left'
-   */
-  align?: TokenAlignment;
+	/**
+	 * TokenAlignment of the message bubble
+	 * @default 'left'
+	 */
+	align?: TokenAlignment;
 
-  /**
-   * URL of the avatar image
-   * @default undefined
-   */
-  avatar?: string;
+	/**
+	 * URL of the avatar image
+	 * @default undefined
+	 */
+	avatar?: string;
 
-  /**
-   * Visual variant of the message bubble
-   * @default 'primary'
-   */
-  variant?: TokenAppearance;
+	/**
+	 * Visual variant of the message bubble
+	 * @default 'primary'
+	 */
+	variant?: TokenAppearance;
 
-  /**
-   * Additional CSS classes to apply to the component
-   */
-  class?: string;
+	/**
+	 * Additional CSS classes to apply to the component
+	 */
+	class?: string;
 }

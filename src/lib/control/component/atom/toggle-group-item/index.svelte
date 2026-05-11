@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-  import { createToggleGroupItemState } from '$stylist/control/function/state/toggle-group-item';
+	import { createToggleGroupItemState } from '$stylist/control/function/state/toggle-group-item';
 	import type { RecipeToggleGroupItemProps as RecipeToggleGroupItemProps } from '$stylist/control/interface/recipe/toggle-group-item-props';
 	import type { ToggleGroupContext } from '$stylist/control/type/struct/toggle-group-context';
 
@@ -11,7 +11,7 @@
 		value: null,
 		disabled: false
 	};
-  const state = createToggleGroupItemState({
+	const state = createToggleGroupItemState({
 		...props,
 		groupValue: context.value,
 		groupDisabled: context.disabled,
@@ -26,12 +26,12 @@
 	);
 </script>
 
-<button class={state.classes} disabled={state.disabled} onclick={state.handleClick} type="button" {...restProps}>
+<button
+	class={state.classes}
+	disabled={state.disabled}
+	onclick={state.handleClick}
+	type="button"
+	{...restProps}
+>
 	{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 </button>
-
-
-
-
-
-

@@ -7,7 +7,10 @@
 </script>
 
 {#if state.isHorizontal}
-	<div class="flex items-center text-sm text-[--color-text-secondary] {props.class ?? ''}" {...state.restProps}>
+	<div
+		class="flex items-center text-sm text-[--color-text-secondary] {props.class ?? ''}"
+		{...state.restProps}
+	>
 		<span class="{state.leftLineFlex} border-t {state.baseLineClass}"></span>
 		{#if props.label}
 			<span class="px-3 text-xs font-medium tracking-widest text-[--color-text-tertiary] uppercase">
@@ -23,8 +26,3 @@
 		{...state.restProps}
 	></div>
 {/if}
-
-
-
-
-

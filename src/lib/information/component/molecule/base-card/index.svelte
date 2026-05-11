@@ -17,7 +17,7 @@
 			{/if}
 		</div>
 	{/if}
-	
+
 	<div class={state.bodyClasses}>
 		{#if props.children}
 			{#if props.children}{@render props.children()}{/if}

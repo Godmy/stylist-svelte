@@ -1,5 +1,4 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-﻿/**
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all'; /**
  * PieChart — круговая диаграмма..
  *
  * LEGO-состав:

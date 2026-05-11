@@ -19,7 +19,7 @@
 		<div class="flex items-center justify-between">
 			<div>
 				<div class="flex items-center">
-					<BaseIcon name={DollarSign} class="h-6 w-6 text-[--color-text-tertiary] mr-2" />
+					<BaseIcon name={DollarSign} class="mr-2 h-6 w-6 text-[--color-text-tertiary]" />
 					<h3 class={state.titleClasses}>{props.title ?? 'Billing Summary'}</h3>
 				</div>
 				{#if props.subtitle}
@@ -42,7 +42,7 @@
 
 	{#if props.showDetails !== false}
 		<div class={state.summaryClasses}>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
 				<!-- Total amount -->
 				<div class={state.metricCardClasses}>
 					<div class="flex items-center">
@@ -104,7 +104,7 @@
 			<!-- Billing items -->
 			{#if (props.items ?? []).length > 0}
 				<div class="mt-8">
-					<h4 class="text-sm font-medium text-[--color-text-primary] mb-4">Billing Details</h4>
+					<h4 class="mb-4 text-sm font-medium text-[--color-text-primary]">Billing Details</h4>
 					<div class={state.itemsListContainerClasses}>
 						<ul class="divide-y divide-[--color-border-divider]">
 							{#each props.items ?? [] as item}
@@ -135,7 +135,9 @@
 	<div class={state.footerClasses}>
 		<div class="flex items-center justify-between">
 			<div class={state.invoiceIdClasses}>
-				Invoice ID: <span class={state.invoiceIdFontClass}>#INV-{Math.floor(Math.random() * 900000) + 100000}</span>
+				Invoice ID: <span class={state.invoiceIdFontClass}
+					>#INV-{Math.floor(Math.random() * 900000) + 100000}</span
+				>
 			</div>
 			<div class={state.generatedDateClasses}>
 				Generated: {new Date().toLocaleDateString()}

@@ -52,12 +52,7 @@ export function createConnectionLineState(props: ConnectionLineProps) {
 		ConnectionLineStyleManager.getLineClasses(type, lineStyle, active, animated)
 	);
 	const styles = $derived(
-		ConnectionLineStyleManager.getLineStyles(
-			color,
-			activeColor,
-			strokeWidth,
-			active
-		)
+		ConnectionLineStyleManager.getLineStyles(color, activeColor, strokeWidth, active)
 	);
 
 	return {
@@ -110,11 +105,3 @@ export function createConnectionLineState(props: ConnectionLineProps) {
 }
 
 export default createConnectionLineState;
-
-
-
-
-
-
-
-

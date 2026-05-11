@@ -1,8 +1,6 @@
 import { createButtonState as createButtonStateImpl } from '$stylist/control/function/state/button';
 
-export function createSplitButtonState(
-	...args: Parameters<typeof createButtonStateImpl>
-) {
+export function createSplitButtonState(...args: Parameters<typeof createButtonStateImpl>) {
 	const [props] = args as [Record<string, any>];
 	const buttonState = createButtonStateImpl(...args);
 	let isOpen = $state(false);
@@ -92,10 +90,3 @@ export function createSplitButtonState(
 }
 
 export default createSplitButtonState;
-
-
-
-
-
-
-

@@ -11,7 +11,3 @@
 		{#if state.children}{#if state.children}{@render state.children()}{/if}{/if}
 	{/if}
 </div>
-
-
-
-

@@ -52,16 +52,12 @@
 
 		<JointToolbar
 			active={activeJoint}
-			availableJoints={availableJoints}
+			{availableJoints}
 			showLabel={false}
 			onSelect={onJointSelect}
 		/>
 
-		<DomainList
-			{entities}
-			activePath={activeEntityPath}
-			onSelect={onEntitySelect}
-		/>
+		<DomainList {entities} activePath={activeEntityPath} onSelect={onEntitySelect} />
 	</div>
 </aside>
 

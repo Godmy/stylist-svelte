@@ -43,11 +43,7 @@
 
 	type DomainScreen = 'landing' | 'domain' | 'backlog' | 'diagnostics';
 
-	let {
-		tree = [],
-		storyModules = {},
-		class: className = ''
-	}: DomainLandingProps = $props();
+	let { tree = [], storyModules = {}, class: className = '' }: DomainLandingProps = $props();
 
 	const s = createDomainPageState({ tree, storyModules });
 	let currentScreen = $state<DomainScreen>('landing');
@@ -123,7 +119,8 @@
 						<h1>Keep the whole design system readable, navigable and reviewable.</h1>
 						<p class="lead">
 							Move through the library as a structured product map instead of a raw filesystem.
-							Domains, previews, diagnostics and implementation context stay connected in one workspace.
+							Domains, previews, diagnostics and implementation context stay connected in one
+							workspace.
 						</p>
 
 						<div class="hero-points">
@@ -168,7 +165,9 @@
 						</div>
 						<div>
 							<h2>Domain explorer</h2>
-							<p>Open the full taxonomy tree, switch files and inspect implementation in context.</p>
+							<p>
+								Open the full taxonomy tree, switch files and inspect implementation in context.
+							</p>
 						</div>
 					</article>
 
@@ -188,10 +187,25 @@
 						</div>
 						<div>
 							<h2>Backlog</h2>
-							<p>Review the active family backlog without disconnecting decisions from structure.</p>
+							<p>
+								Review the active family backlog without disconnecting decisions from structure.
+							</p>
 						</div>
 					</article>
 				</div>
+
+				<section class="landing-diagnostics">
+					<div class="landing-diagnostics-copy">
+						<span class="eyebrow">Embedded diagnostics</span>
+						<h2>Run story checks without leaving the landing page.</h2>
+						<p>
+							The diagnostics runner remains available as a dedicated screen, and this compact
+							panel keeps it visible directly on the route entry page.
+						</p>
+					</div>
+
+					<DomainDiagnostics compact={true} />
+				</section>
 			</div>
 		</section>
 	{/if}
@@ -226,13 +240,25 @@
 		place-items: center;
 		padding: clamp(1.5rem, 3vw, 3rem);
 		background:
-			radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary-500) 18%, transparent), transparent 34%),
+			radial-gradient(
+				circle at top left,
+				color-mix(in srgb, var(--color-primary-500) 18%, transparent),
+				transparent 34%
+			),
 			radial-gradient(circle at 78% 16%, rgba(249, 115, 22, 0.16), transparent 20%),
-			radial-gradient(circle at bottom right, color-mix(in srgb, var(--color-primary-400) 12%, transparent), transparent 30%),
+			radial-gradient(
+				circle at bottom right,
+				color-mix(in srgb, var(--color-primary-400) 12%, transparent),
+				transparent 30%
+			),
 			linear-gradient(
 				160deg,
 				color-mix(in srgb, var(--color-background-primary) 97%, white 3%),
-				color-mix(in srgb, var(--color-background-primary) 84%, var(--color-background-secondary) 16%)
+				color-mix(
+					in srgb,
+					var(--color-background-primary) 84%,
+					var(--color-background-secondary) 16%
+				)
 			);
 	}
 
@@ -243,12 +269,11 @@
 		padding: clamp(1.5rem, 2.3vw, 2.6rem);
 		border: 1px solid color-mix(in srgb, var(--color-border-primary) 82%, transparent);
 		border-radius: 32px;
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in srgb, var(--color-background-primary) 95%, white 5%),
-				color-mix(in srgb, var(--color-background-primary) 88%, var(--color-background-secondary) 12%)
-			);
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 95%, white 5%),
+			color-mix(in srgb, var(--color-background-primary) 88%, var(--color-background-secondary) 12%)
+		);
 		box-shadow:
 			0 28px 80px rgba(15, 23, 42, 0.12),
 			inset 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -350,12 +375,11 @@
 	}
 
 	.hero-panel--primary {
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in srgb, var(--color-primary-500) 10%, var(--color-background-primary)) 0%,
-				color-mix(in srgb, var(--color-background-primary) 92%, white 8%) 100%
-			);
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-primary-500) 10%, var(--color-background-primary)) 0%,
+			color-mix(in srgb, var(--color-background-primary) 92%, white 8%) 100%
+		);
 	}
 
 	.hero-panel-label {
@@ -405,6 +429,32 @@
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 1rem;
+	}
+
+	.landing-diagnostics {
+		display: grid;
+		gap: 1rem;
+		padding: 1rem;
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 78%, transparent);
+		border-radius: 24px;
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 94%, white 6%),
+			color-mix(in srgb, var(--color-background-primary) 86%, var(--color-background-secondary) 14%)
+		);
+		box-shadow: 0 18px 46px rgba(15, 23, 42, 0.08);
+	}
+
+	.landing-diagnostics-copy {
+		display: grid;
+		gap: 0.45rem;
+	}
+
+	.landing-diagnostics-copy p {
+		margin: 0;
+		max-width: 52rem;
+		color: var(--color-text-secondary);
+		line-height: 1.6;
 	}
 
 	.feature-card {

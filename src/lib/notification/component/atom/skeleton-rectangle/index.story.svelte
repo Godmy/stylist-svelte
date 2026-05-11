@@ -23,9 +23,27 @@
 		{@const tallHeightValue = `${Math.round(height * 2)}px`}
 		<div class="space-y-6 p-6">
 			<div class="flex flex-col gap-3">
-				<SkeletonRectangle {...({ width: widthValue, height: heightValue, class: animate ? '' : '!animate-none' } as any)} />
-				<SkeletonRectangle {...({ width: compactWidthValue, height: heightValue, class: 'opacity-[var(--opacity-80)]' } as any)} />
-				<SkeletonRectangle {...({ width: tallWidthValue, height: tallHeightValue, class: 'opacity-[var(--opacity-90)]' } as any)} />
+				<SkeletonRectangle
+					{...{
+						width: widthValue,
+						height: heightValue,
+						class: animate ? '' : '!animate-none'
+					} as any}
+				/>
+				<SkeletonRectangle
+					{...{
+						width: compactWidthValue,
+						height: heightValue,
+						class: 'opacity-[var(--opacity-80)]'
+					} as any}
+				/>
+				<SkeletonRectangle
+					{...{
+						width: tallWidthValue,
+						height: tallHeightValue,
+						class: 'opacity-[var(--opacity-90)]'
+					} as any}
+				/>
 			</div>
 
 			<div class="grid gap-4 sm:grid-cols-2">
@@ -45,9 +63,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-
-

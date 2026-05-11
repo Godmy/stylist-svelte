@@ -1,7 +1,5 @@
 <script lang="ts">
-	import {
-		createAudioPlayerState
-	} from '$stylist/media/function/state/audio-player';
+	import { createAudioPlayerState } from '$stylist/media/function/state/audio-player';
 	import type { AudioPlayerProps } from '$stylist/media/interface/recipe/audio-player-audio-player-props';
 	import { Icon as BaseIcon } from '$stylist/media';
 	import { Button } from '$lib';
@@ -21,7 +19,7 @@
 	></audio>
 
 	{#if state.title}
-		<div class="font-medium text-[var(--color-text-primary)] mb-2 truncate">
+		<div class="mb-2 truncate font-medium text-[var(--color-text-primary)]">
 			{state.title}
 		</div>
 	{/if}
@@ -56,8 +54,8 @@
 				</Button>
 			</div>
 
-			<div class="flex items-center space-x-2 flex-1 mx-4">
-				<span class="text-xs text-[var(--color-text-secondary)] w-10"
+			<div class="mx-4 flex flex-1 items-center space-x-2">
+				<span class="w-10 text-xs text-[var(--color-text-secondary)]"
 					>{state.formatTime(state.currentTime)}</span
 				>
 				<input
@@ -68,7 +66,7 @@
 					oninput={(e) => state.handleProgressChange(e)}
 					class="flex-1 accent-blue-500"
 				/>
-				<span class="text-xs text-[var(--color-text-secondary)] w-10"
+				<span class="w-10 text-xs text-[var(--color-text-secondary)]"
 					>{state.formatTime(state.duration)}</span
 				>
 			</div>

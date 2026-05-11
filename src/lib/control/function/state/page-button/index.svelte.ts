@@ -4,19 +4,16 @@ import { InteractionStyleManager } from '$stylist/interaction/class/style-manage
 import { createBasePreset } from '$stylist/interaction/preset/base';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 
-type PageButtonStateProps = PageButtonProps & HTMLButtonAttributes & {
-	isActive?: boolean;
-};
+type PageButtonStateProps = PageButtonProps &
+	HTMLButtonAttributes & {
+		isActive?: boolean;
+	};
 
 export function createPageButtonState(props: PageButtonStateProps) {
-	const preset = createBasePreset(
-		InteractionStyleManager.getInteractiveVariants(),
-		TOKEN_SIZE,
-		{
-			variant: 'outline',
-			size: 'md'
-		}
-	);
+	const preset = createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
+		variant: 'outline',
+		size: 'md'
+	});
 
 	const isActive = $derived(props.isActive ?? false);
 	const actualVariant = $derived(isActive ? 'primary' : (props.variant ?? preset.defaults.variant));

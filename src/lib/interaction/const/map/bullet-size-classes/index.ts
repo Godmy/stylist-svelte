@@ -6,4 +6,3 @@ export const BULLET_SIZE_CLASSES = {
 	xl: 'h-3 w-3',
 	'2xl': 'h-3.5 w-3.5'
 } as const;
-

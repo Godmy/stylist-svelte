@@ -46,7 +46,11 @@
 		class={`${state.inputClasses} resize-y`}
 		style={`max-height: ${props.maxHeight ?? '300px'};`}
 		oninput={() => state.handleInput(textareaElement)}
-		aria-describedby={state.hasError && (props.showErrors ?? true) ? state.errorId : props.helperText ? undefined : undefined}
+		aria-describedby={state.hasError && (props.showErrors ?? true)
+			? state.errorId
+			: props.helperText
+				? undefined
+				: undefined}
 		aria-invalid={state.hasError ? 'true' : 'false'}
 		aria-required={props.required ? 'true' : 'false'}
 	></textarea>

@@ -22,8 +22,3 @@ export function createColorSwatchState(props: ThemeColorSwatchRecipe) {
 }
 
 export default createColorSwatchState;
-
-
-
-
-

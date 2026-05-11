@@ -3,11 +3,4 @@ import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/
 import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
 import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavior/spaced';
 
-export interface SkeletonTextRecipe
-	extends StructIntersectAll<[
-		ISized,
-		IShapeable,
-		ISpaced
-	]>
-{}
-
+export interface SkeletonTextRecipe extends StructIntersectAll<[ISized, IShapeable, ISpaced]> {}

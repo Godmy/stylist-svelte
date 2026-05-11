@@ -77,8 +77,10 @@ export class AtomicPrinciplesShowcaseStyleManager {
 			'group bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl p-10 transition-all hover:scale-105 hover:-translate-y-2';
 		const colorClasses: Record<string, string> = {
 			blue: 'border-2 border-blue-300 dark:border-blue-700 hover:border-blue-500 dark:hover:border-blue-400',
-			purple: 'border-2 border-purple-300 dark:border-purple-700 hover:border-purple-500 dark:hover:border-purple-400',
-			green: 'border-2 border-green-300 dark:border-green-700 hover:border-green-500 dark:hover:border-green-400'
+			purple:
+				'border-2 border-purple-300 dark:border-purple-700 hover:border-purple-500 dark:hover:border-purple-400',
+			green:
+				'border-2 border-green-300 dark:border-green-700 hover:border-green-500 dark:hover:border-green-400'
 		};
 		return `${baseClasses} ${colorClasses[colorTheme] ?? colorClasses.blue}`;
 	}

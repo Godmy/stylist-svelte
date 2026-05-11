@@ -9,7 +9,9 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { RecipeCompetitorPrice } from '$stylist/commerce/interface/recipe/competitor-price';
 import type { BehaviorPriceMatchEvents } from '$stylist/commerce/interface/behavior/price-match-events';
 
-export interface RecipePriceMatch extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorPriceMatchEvents {
+export interface RecipePriceMatch
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorPriceMatchEvents {
 	/** Target price */
 	targetPrice?: number;
 	/** List of competitor prices */

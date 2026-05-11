@@ -3,8 +3,7 @@ import type { ChildrenProp } from '$stylist/information/type/struct/children-pro
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface GraphCanvasRecipe
-	extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLDivElement>]>
-{
+	extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLDivElement>]> {
 	width?: number;
 	height?: number;
 	zoom?: number;

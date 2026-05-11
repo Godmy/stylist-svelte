@@ -1,5 +1,4 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-﻿/**
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all'; /**
  * StatusIndicator — индикатор статуса..
  *
  * LEGO-состав:
@@ -11,7 +10,8 @@ import type { TokenAvailability } from '$stylist/interaction/type/record/availab
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface StatusIndicatorRecipe extends StructIntersectAll<[ThemeAttributes<HTMLSpanElement>]> {
+export interface StatusIndicatorRecipe
+	extends StructIntersectAll<[ThemeAttributes<HTMLSpanElement>]> {
 	status?: TokenAvailability;
 	appearance?: TokenAppearance;
 	label?: string;

@@ -9,12 +9,7 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface Idef0DiagramRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+	extends StructIntersectAll<[ILabelSlot, ThemeAttributes<HTMLDivElement>]> {
 	width?: number;
 	height?: number;
 }
-

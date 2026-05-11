@@ -3,9 +3,7 @@ import { InputStyleManager } from '$stylist/input/class/style-manager/input';
 import { TEXTAREA_PRESET } from '$stylist/input/preset/input';
 import type { TextAreaStateOptions } from '$stylist/input/type/struct/text-area-state-options';
 
-export const createTextareaState = (
-	props: TextAreaStateOptions
-) => {
+export const createTextareaState = (props: TextAreaStateOptions) => {
 	const textareaState = createBaseInputState(TEXTAREA_PRESET, props);
 	const hasError = $derived(!!props.error);
 	const errorId = $derived(props.id ? `${String(props.id)}-error` : undefined);
@@ -70,8 +68,3 @@ export const createTextareaState = (
 };
 
 export default createTextareaState;
-
-
-
-
-

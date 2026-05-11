@@ -7,6 +7,3 @@ export function createCharacterCountState(
 }
 
 export default createCharacterCountState;
-
-
-

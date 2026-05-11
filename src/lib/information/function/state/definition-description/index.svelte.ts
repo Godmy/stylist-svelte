@@ -9,7 +9,9 @@ import { DefinitionDescriptionStyleManager } from '$stylist/typography/class/sty
  * @returns Reactive state object with classes and computed values
  */
 export function createDefinitionDescriptionState(props: ThemeDefinitionDescriptionRecipe) {
-	const classes = $derived(DefinitionDescriptionStyleManager.getDefinitionDescriptionClasses(props.class ?? ''));
+	const classes = $derived(
+		DefinitionDescriptionStyleManager.getDefinitionDescriptionClasses(props.class ?? '')
+	);
 
 	return {
 		get classes() {
@@ -19,10 +21,3 @@ export function createDefinitionDescriptionState(props: ThemeDefinitionDescripti
 }
 
 export default createDefinitionDescriptionState;
-
-
-
-
-
-
-

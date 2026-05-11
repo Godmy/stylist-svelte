@@ -35,8 +35,12 @@ export function createRatingState(props: SlotRating & { rating?: number }) {
 	}
 
 	return {
-		get rootClasses() { return rootClasses; },
-		get ratingTextClasses() { return ratingTextClasses; },
+		get rootClasses() {
+			return rootClasses;
+		},
+		get ratingTextClasses() {
+			return ratingTextClasses;
+		},
 		handleMouseLeave,
 		handleStarClick,
 		handleStarHover,

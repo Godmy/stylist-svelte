@@ -12,14 +12,8 @@ import type { Snippet } from 'svelte';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface TableCellRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		ThemeAttributes<HTMLTableCellElement>
-	]>
-{
+	extends StructIntersectAll<[ILabelSlot, ICaptionSlot, ThemeAttributes<HTMLTableCellElement>]> {
 	content?: Snippet;
 	variant?: 'data' | 'header';
 	align?: 'left' | 'center' | 'right';
 }
-

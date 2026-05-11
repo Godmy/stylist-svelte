@@ -15,7 +15,9 @@ export function createPresenterSceneState(contract: PresenterSceneContract) {
 	const cameraState = useCamera(contract.camera ?? {});
 	const camera = $derived.by<SceneCamera>(() => cameraState.camera);
 	const title = $derived(contract.title ?? 'Presenter Scene');
-	const sectionClass = $derived(PresenterSceneStyleManager.getSectionClass(String(contract.class ?? '')));
+	const sectionClass = $derived(
+		PresenterSceneStyleManager.getSectionClass(String(contract.class ?? ''))
+	);
 	const viewportClass = $derived(PresenterSceneStyleManager.getViewportClass(isDragging));
 	const selectedNode = $derived(
 		contract.nodes?.find((node) => node.id === selectedNodeId) ?? contract.nodes?.[0] ?? null

@@ -49,9 +49,3 @@ export function createSliderState(props: SliderStateProps) {
 }
 
 export default createSliderState;
-
-
-
-
-
-

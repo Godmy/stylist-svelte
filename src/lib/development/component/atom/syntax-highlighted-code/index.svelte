@@ -6,7 +6,6 @@
 	let props: ThemeSyntaxHighlightedCodeRecipe = $props();
 
 	const state = createSyntaxHighlightedCodeState(props);
-
 </script>
 
 <div {...props}>
@@ -17,6 +16,3 @@
 		class={state.containerClasses}
 	/>
 </div>
-
-
-

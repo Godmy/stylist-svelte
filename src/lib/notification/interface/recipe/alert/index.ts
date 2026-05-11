@@ -12,18 +12,18 @@ import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior
 import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavior/spaced';
 
 export interface AlertRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IIconSlot,
-		IStatusSlot,
-		IClickable,
-		IMotionPreset,
-		ISized,
-		IShapeable,
-		ISpaced,
-		SlotTheme,
-		HTMLAttributes<HTMLDivElement>
-	]>
-{}
-
+	extends StructIntersectAll<
+		[
+			ILabelSlot,
+			ICaptionSlot,
+			IIconSlot,
+			IStatusSlot,
+			IClickable,
+			IMotionPreset,
+			ISized,
+			IShapeable,
+			ISpaced,
+			SlotTheme,
+			HTMLAttributes<HTMLDivElement>
+		]
+	> {}

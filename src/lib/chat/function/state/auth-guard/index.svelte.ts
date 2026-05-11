@@ -12,8 +12,12 @@ export const createAuthGuardState = (props: AuthGuardProps) => {
 	const showLoadingState = $derived(props.showLoadingState ?? false);
 
 	const loading = $derived(showLoadingState);
-	const rootClasses = $derived(AuthGuardStyleManager.getRootClasses(mergeClassNames(props.class ?? '')));
-	const sectionClasses = $derived(AuthGuardStyleManager.getSectionClasses(props.fallbackClass ?? ''));
+	const rootClasses = $derived(
+		AuthGuardStyleManager.getRootClasses(mergeClassNames(props.class ?? ''))
+	);
+	const sectionClasses = $derived(
+		AuthGuardStyleManager.getSectionClasses(props.fallbackClass ?? '')
+	);
 	const titleClasses = $derived(AuthGuardStyleManager.getTitleClasses(props.contentClass ?? ''));
 	const textClasses = $derived(AuthGuardStyleManager.getTextClasses(props.contentClass ?? ''));
 	const actionLinkClasses = $derived(AuthGuardStyleManager.getActionLinkClasses());

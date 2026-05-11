@@ -13,16 +13,21 @@
 		<div class={state.headerButtonsClass}>
 			<button type="button" class={state.copyButtonClass} onclick={state.copyToClipboard}>
 				{#if state.copied}
-					<BaseIcon name="check" class="h-4 w-4 mr-1" />Copied
+					<BaseIcon name="check" class="mr-1 h-4 w-4" />Copied
 				{:else}
-					<BaseIcon name="copy" class="h-4 w-4 mr-1" />Copy
+					<BaseIcon name="copy" class="mr-1 h-4 w-4" />Copy
 				{/if}
 			</button>
-			<button type="button" class={state.runButtonClass} onclick={state.handleRun} disabled={state.running}>
+			<button
+				type="button"
+				class={state.runButtonClass}
+				onclick={state.handleRun}
+				disabled={state.running}
+			>
 				{#if state.running}
 					<BaseIcon name="loader-2" class={state.loadingSpinnerClass} />Running...
 				{:else}
-					<BaseIcon name="play" class="h-4 w-4 mr-1" />Run
+					<BaseIcon name="play" class="mr-1 h-4 w-4" />Run
 				{/if}
 			</button>
 		</div>
@@ -39,7 +44,11 @@
 				</div>
 				<div class={state.templatesListClass}>
 					{#each state.templates as template}
-						<button type="button" class={state.getTemplateItemClass(state.selectedTemplate === template.id)} onclick={() => state.selectTemplate(template.id)}>
+						<button
+							type="button"
+							class={state.getTemplateItemClass(state.selectedTemplate === template.id)}
+							onclick={() => state.selectTemplate(template.id)}
+						>
 							<div class={state.templateNameClass}>{template.name}</div>
 							<div class={state.templateDescriptionClass}>{template.description}</div>
 						</button>
@@ -51,7 +60,12 @@
 		<div class={state.mainContentClass}>
 			<div class={state.promptEditorSectionClass}>
 				<label for="prompt-editor" class={state.promptEditorLabelClass}>Prompt</label>
-				<textarea id="prompt-editor" class={state.promptEditorClass} bind:value={state.prompt} placeholder="Enter your prompt here..."></textarea>
+				<textarea
+					id="prompt-editor"
+					class={state.promptEditorClass}
+					bind:value={state.prompt}
+					placeholder="Enter your prompt here..."
+				></textarea>
 			</div>
 
 			{#if state.showVariables}
@@ -59,7 +73,7 @@
 					<div class={state.variablesHeaderClass}>
 						<h4 class={state.variablesTitleClass}>Variables</h4>
 						<button type="button" class={state.addVariableButtonClass} onclick={state.addVariable}>
-							<BaseIcon name="plus" class="h-3 w-3 mr-1" />Add Variable
+							<BaseIcon name="plus" class="mr-1 h-3 w-3" />Add Variable
 						</button>
 					</div>
 
@@ -75,10 +89,20 @@
 										{/if}
 									</div>
 									<div class={state.variableActionsClass}>
-										<button type="button" class={state.variableActionButtonClass} onclick={() => state.insertVariableAtCursor(variable.id)} title="Insert variable">
+										<button
+											type="button"
+											class={state.variableActionButtonClass}
+											onclick={() => state.insertVariableAtCursor(variable.id)}
+											title="Insert variable"
+										>
 											<BaseIcon name="edit-3" class="h-4 w-4" />
 										</button>
-										<button type="button" class={state.variableActionButtonClass} onclick={() => state.removeVariable(variable.id)} title="Remove variable">
+										<button
+											type="button"
+											class={state.variableActionButtonClass}
+											onclick={() => state.removeVariable(variable.id)}
+											title="Remove variable"
+										>
 											<BaseIcon name="trash-2" class="h-4 w-4" />
 										</button>
 									</div>
@@ -94,6 +118,8 @@
 
 	<div class={state.footerClass}>
 		<button type="button" class={state.cancelButtonClass}>Cancel</button>
-		<button type="button" class={state.saveButtonClass} onclick={state.handleSave}>Save Prompt</button>
+		<button type="button" class={state.saveButtonClass} onclick={state.handleSave}
+			>Save Prompt</button
+		>
 	</div>
 </div>

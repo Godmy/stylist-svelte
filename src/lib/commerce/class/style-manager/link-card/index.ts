@@ -40,4 +40,3 @@ export class LinkCardStyleManager {
 		return 'ml-2 flex-shrink-0 text-[var(--color-text-tertiary)] transition-colors duration-[var(--duration-200)] group-hover:text-[var(--color-primary-600)]';
 	}
 }
-

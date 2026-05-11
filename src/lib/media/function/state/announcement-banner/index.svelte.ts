@@ -2,13 +2,17 @@ import type { ContractAnnouncementBanner as AnnouncementBannerContract } from '$
 import { MediaStyleManager } from '$stylist/media/class/style-manager/media';
 
 export function createAnnouncementBannerState(props: AnnouncementBannerContract) {
-	const containerClasses = $derived(MediaStyleManager.getAnnouncementBannerContainerClasses(props.class));
+	const containerClasses = $derived(
+		MediaStyleManager.getAnnouncementBannerContainerClasses(props.class)
+	);
 	const flexClasses = $derived(MediaStyleManager.getAnnouncementBannerFlexContainerClasses());
 	const iconClasses = $derived(MediaStyleManager.getAnnouncementBannerIconClasses());
 	const contentClasses = $derived(MediaStyleManager.getAnnouncementBannerContentClasses());
 	const titleClasses = $derived(MediaStyleManager.getAnnouncementBannerTitleClasses());
 	const descriptionClasses = $derived(MediaStyleManager.getAnnouncementBannerDescriptionClasses());
-	const childrenClasses = $derived(MediaStyleManager.getAnnouncementBannerChildrenContainerClasses());
+	const childrenClasses = $derived(
+		MediaStyleManager.getAnnouncementBannerChildrenContainerClasses()
+	);
 
 	return {
 		get containerClasses() {

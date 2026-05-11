@@ -32,10 +32,9 @@
 >
 	{#snippet children(values: any)}
 		<TokenRange
-			definition={definition}
+			{definition}
 			value={Number(values.value) || 400}
 			onChange={(v) => console.log('Value:', v)}
 		/>
 	{/snippet}
 </Story>
-

@@ -47,10 +47,6 @@ export class FocusableStyleManager {
 			return mergeClassNames(this.BASE, this.FOCUSED, className);
 		}
 
-		return mergeClassNames(
-			this.BASE,
-			focusEffect ? this.FOCUS_EFFECT : '',
-			className
-		);
+		return mergeClassNames(this.BASE, focusEffect ? this.FOCUS_EFFECT : '', className);
 	}
 }

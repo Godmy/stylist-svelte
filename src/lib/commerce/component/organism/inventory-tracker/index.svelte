@@ -23,8 +23,8 @@
 					{#if props.onAlertAcknowledge}
 						<button
 							onclick={() => props.onAlertAcknowledge?.(alert.id)}
-							class="text-sm text-[--color-primary-600]"
-						>Acknowledge</button>
+							class="text-sm text-[--color-primary-600]">Acknowledge</button
+						>
 					{/if}
 				</div>
 			{/each}
@@ -38,7 +38,9 @@
 					type="text"
 					placeholder="Search inventory..."
 					value={state.searchQuery}
-					oninput={(e) => { state.searchQuery = (e.target as HTMLInputElement).value; }}
+					oninput={(e) => {
+						state.searchQuery = (e.target as HTMLInputElement).value;
+					}}
 					class={state.searchInputClasses}
 				/>
 			{/if}
@@ -61,7 +63,7 @@
 					{#if item.maxStock}
 						<div class={state.progressBarClasses}>
 							<div
-								class="h-full bg-[--color-primary-500] rounded"
+								class="h-full rounded bg-[--color-primary-500]"
 								style="width: {state.getStockProgress(item)}%"
 							></div>
 						</div>
@@ -69,10 +71,14 @@
 				</div>
 				<div class={state.actionsContainerClasses}>
 					{#if props.onItemRestock}
-						<button onclick={() => props.onItemRestock?.(item)} class={state.actionButtonClasses}>Restock</button>
+						<button onclick={() => props.onItemRestock?.(item)} class={state.actionButtonClasses}
+							>Restock</button
+						>
 					{/if}
 					{#if props.onItemEdit}
-						<button onclick={() => props.onItemEdit?.(item)} class={state.actionButtonClasses}>Edit</button>
+						<button onclick={() => props.onItemEdit?.(item)} class={state.actionButtonClasses}
+							>Edit</button
+						>
 					{/if}
 				</div>
 			</div>
@@ -80,8 +86,11 @@
 	</div>
 
 	{#if props.onInventoryExport}
-		<div class="px-6 py-4 border-t border-[--color-border-secondary]">
-			<button onclick={props.onInventoryExport} class="text-sm text-[--color-primary-600] font-medium">
+		<div class="border-t border-[--color-border-secondary] px-6 py-4">
+			<button
+				onclick={props.onInventoryExport}
+				class="text-sm font-medium text-[--color-primary-600]"
+			>
 				Export Report
 			</button>
 		</div>

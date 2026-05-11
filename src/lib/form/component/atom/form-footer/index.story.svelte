@@ -12,9 +12,16 @@
 	];
 </script>
 
-<Story component={FormFooter} title="FormFooter" description="Action row with primary and optional secondary button." {controls}>
+<Story
+	component={FormFooter}
+	title="FormFooter"
+	description="Action row with primary and optional secondary button."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<div class="rounded-xl border border-[--color-border-primary] bg-[var(--color-background-primary)] p-5">
+		<div
+			class="rounded-xl border border-[--color-border-primary] bg-[var(--color-background-primary)] p-5"
+		>
 			<FormFooter
 				primaryButtonLabel={values.primaryButtonLabel}
 				secondaryButtonLabel={values.secondaryButtonLabel}
@@ -25,7 +32,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-

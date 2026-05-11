@@ -4,4 +4,3 @@ export const MESSAGE_STATUS_COLORS = {
 	read: 'text-[--color-success-500]',
 	error: 'text-[--color-danger-500]'
 } as const;
-

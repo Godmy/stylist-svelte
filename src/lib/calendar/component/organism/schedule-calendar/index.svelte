@@ -27,7 +27,9 @@
 				<Button variant="ghost" size="sm" onclick={() => state.navigateWeek(1)}>
 					<BaseIcon name={ChevronRight} class="h-5 w-5" />
 				</Button>
-				<h2 class="ml-4 text-[--text-size-lg] font-[--font-weight-semibold] text-[--color-text-primary]">
+				<h2
+					class="ml-4 font-[--font-weight-semibold] text-[--color-text-primary] text-[--text-size-lg]"
+				>
 					{state.viewStartDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
 				</h2>
 			</div>
@@ -50,10 +52,7 @@
 				<div class={state.getTimeGutterClasses()}>
 					<div class="h-[--spacing-xl]"></div>
 					{#each state.generateTimeSlots() as slot}
-						<div
-							class={state.getTimeSlotClasses()}
-							style={`height: ${state.timeSlotHeight}px;`}
-						>
+						<div class={state.getTimeSlotClasses()} style={`height: ${state.timeSlotHeight}px;`}>
 							{slot.time}
 						</div>
 					{/each}
@@ -81,7 +80,7 @@
 						{#each slot.events as event}
 							<div
 								class={state.getEventClasses(event.color)}
-								style={`position: absolute; top: ${(slot.events.indexOf(event) * 20) + 2}px;`}
+								style={`position: absolute; top: ${slot.events.indexOf(event) * 20 + 2}px;`}
 								role="button"
 								tabindex="0"
 								onclick={(e) => {
@@ -96,14 +95,14 @@
 									}
 								}}
 							>
-								<div class="font-[--font-weight-medium] truncate">{event.title}</div>
-								<div class="text-[--color-text-secondary] flex items-center">
-									<BaseIcon name={Clock} class="h-3 w-3 mr-1" />
+								<div class="truncate font-[--font-weight-medium]">{event.title}</div>
+								<div class="flex items-center text-[--color-text-secondary]">
+									<BaseIcon name={Clock} class="mr-1 h-3 w-3" />
 									{event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
 								</div>
 								{#if event.location}
-									<div class="text-[--color-text-secondary] flex items-center">
-										<BaseIcon name={MapPin} class="h-3 w-3 mr-1" />
+									<div class="flex items-center text-[--color-text-secondary]">
+										<BaseIcon name={MapPin} class="mr-1 h-3 w-3" />
 										<span class="truncate">{event.location}</span>
 									</div>
 								{/if}

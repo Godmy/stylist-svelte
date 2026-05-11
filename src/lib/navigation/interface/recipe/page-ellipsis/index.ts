@@ -8,8 +8,4 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface PageEllipsisRecipe
-	extends StructIntersectAll<[
-		ThemeAttributes<HTMLSpanElement>
-	]>
-{}
-
+	extends StructIntersectAll<[ThemeAttributes<HTMLSpanElement>]> {}

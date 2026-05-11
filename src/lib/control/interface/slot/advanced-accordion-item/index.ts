@@ -7,6 +7,6 @@ import type { Snippet } from 'svelte';
 
 /** Элемент аккордеона */
 export interface SlotAdvancedAccordionItem {
-  title: string;
-  content: Snippet;
+	title: string;
+	content: Snippet;
 }

@@ -71,8 +71,14 @@ export function createEventCalendarState(props: EventCalendarContract) {
 			const date = new Date(d);
 			const isCurrentMonth = date.getMonth() === currentMonth;
 			const isTodayDate = date.getTime() === today.getTime();
-			const dayEvents = eventsArr.filter(event => isEventInDay(event, date));
-			calendarDays.push({ date, isCurrentMonth, isToday: isTodayDate, isSelected: false, events: dayEvents });
+			const dayEvents = eventsArr.filter((event) => isEventInDay(event, date));
+			calendarDays.push({
+				date,
+				isCurrentMonth,
+				isToday: isTodayDate,
+				isSelected: false,
+				events: dayEvents
+			});
 		}
 
 		return calendarDays;
@@ -111,11 +117,19 @@ export function createEventCalendarState(props: EventCalendarContract) {
 	}
 
 	function navigateWeek(direction: number): void {
-		currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + direction * 7);
+		currentDate = new Date(
+			currentDate.getFullYear(),
+			currentDate.getMonth(),
+			currentDate.getDate() + direction * 7
+		);
 	}
 
 	function navigateDay(direction: number): void {
-		currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + direction);
+		currentDate = new Date(
+			currentDate.getFullYear(),
+			currentDate.getMonth(),
+			currentDate.getDate() + direction
+		);
 	}
 
 	function navigateToToday(): void {
@@ -165,12 +179,21 @@ export function createEventCalendarState(props: EventCalendarContract) {
 	function getDisplayTitle(date: Date, mode: TokenTimeMeasure): string {
 		switch (mode) {
 			case 'day':
-				return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+				return date.toLocaleDateString('en-US', {
+					weekday: 'long',
+					month: 'long',
+					day: 'numeric',
+					year: 'numeric'
+				});
 			case 'week': {
 				const endOfWeek = new Date(date);
 				endOfWeek.setDate(date.getDate() + 6);
 				const startFormat = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-				const endFormat = endOfWeek.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+				const endFormat = endOfWeek.toLocaleDateString('en-US', {
+					month: 'short',
+					day: 'numeric',
+					year: 'numeric'
+				});
 				return `${startFormat} - ${endFormat}`;
 			}
 			case 'month':
@@ -228,23 +251,57 @@ export function createEventCalendarState(props: EventCalendarContract) {
 	}
 
 	return {
-		get currentDate() { return currentDate; },
-		get currentViewMode() { return currentViewMode; },
-		get selectedEvent() { return selectedEvent; },
-		get showEventActions() { return showEventActions; },
-		get days() { return days; },
-		get weekdays() { return weekdays; },
-		get displayTitle() { return displayTitle; },
-		get events() { return events; },
-		get className() { return className; },
-		get dayClass() { return dayClass; },
-		get eventClass() { return eventClass; },
-		get headerClassProp() { return headerClassProp; },
-		get showAllDayEvents() { return showAllDayEvents; },
-		get showEventDuration() { return showEventDuration; },
-		get wrapperClasses() { return wrapperClasses; },
-		get headerClasses() { return headerClasses; },
-		get restProps() { return restProps; },
+		get currentDate() {
+			return currentDate;
+		},
+		get currentViewMode() {
+			return currentViewMode;
+		},
+		get selectedEvent() {
+			return selectedEvent;
+		},
+		get showEventActions() {
+			return showEventActions;
+		},
+		get days() {
+			return days;
+		},
+		get weekdays() {
+			return weekdays;
+		},
+		get displayTitle() {
+			return displayTitle;
+		},
+		get events() {
+			return events;
+		},
+		get className() {
+			return className;
+		},
+		get dayClass() {
+			return dayClass;
+		},
+		get eventClass() {
+			return eventClass;
+		},
+		get headerClassProp() {
+			return headerClassProp;
+		},
+		get showAllDayEvents() {
+			return showAllDayEvents;
+		},
+		get showEventDuration() {
+			return showEventDuration;
+		},
+		get wrapperClasses() {
+			return wrapperClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get restProps() {
+			return restProps;
+		},
 		navigateCurrent,
 		navigateToToday,
 		changeViewMode,

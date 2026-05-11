@@ -5,7 +5,12 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'label', type: 'text', defaultValue: 'Deploy changes' },
-		{ name: 'variant', type: 'select', defaultValue: 'primary', options: ['default', 'primary', 'secondary', 'success', 'warning', 'danger'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['default', 'primary', 'secondary', 'success', 'warning', 'danger']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'loading', type: 'boolean', defaultValue: false },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },

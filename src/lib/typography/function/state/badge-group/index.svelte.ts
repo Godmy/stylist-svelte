@@ -4,12 +4,8 @@ import type { BadgeGroupRecipe } from '$stylist/typography/interface/recipe/badg
 
 export function createBadgeGroupState(props: BadgeGroupRecipe) {
 	const baseState = createBaseBadgeGroupState(props);
-	const containerClasses = $derived(
-		StyleManagerBadgeGroup.container(baseState.containerClasses)
-	);
-	const overflowClasses = $derived(
-		StyleManagerBadgeGroup.overflow(baseState.overflowClasses)
-	);
+	const containerClasses = $derived(StyleManagerBadgeGroup.container(baseState.containerClasses));
+	const overflowClasses = $derived(StyleManagerBadgeGroup.overflow(baseState.overflowClasses));
 	return {
 		get containerClasses() {
 			return containerClasses;

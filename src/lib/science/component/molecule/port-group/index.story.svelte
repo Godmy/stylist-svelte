@@ -25,9 +25,18 @@
 	];
 </script>
 
-<Story component={PortGroup} title="PortGroup" description="Group of connection ports for node inputs/outputs with labels and dividers." {controls}>
+<Story
+	component={PortGroup}
+	title="PortGroup"
+	description="Group of connection ports for node inputs/outputs with labels and dividers."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<div style="display: flex; justify-content: {values.direction === 'input' ? 'flex-start' : 'flex-end'}; padding: var(--spacing-4); background: var(--color-background-secondary); border-radius: var(--border-radius-md);">
+		<div
+			style="display: flex; justify-content: {values.direction === 'input'
+				? 'flex-start'
+				: 'flex-end'}; padding: var(--spacing-4); background: var(--color-background-secondary); border-radius: var(--border-radius-md);"
+		>
 			<PortGroup
 				id="port-group-1"
 				direction={values.direction}
@@ -41,4 +50,3 @@
 		</div>
 	{/snippet}
 </Story>
-

@@ -95,10 +95,16 @@ export function createLitegraphCanvasState(props: LitegraphCanvasContract) {
 		const minX = Math.min(...nodes.map((node) => node.x ?? 0));
 		const minY = Math.min(...nodes.map((node) => node.y ?? 0));
 		const maxX = Math.max(...nodes.map((node) => (node.x ?? 0) + (node.width ?? 220)));
-		const maxY = Math.max(...nodes.map((node) => (node.y ?? 0) + (typeof node.height === 'number' ? node.height : 140)));
+		const maxY = Math.max(
+			...nodes.map((node) => (node.y ?? 0) + (typeof node.height === 'number' ? node.height : 140))
+		);
 		const contentWidth = Math.max(1, maxX - minX + padding * 2);
 		const contentHeight = Math.max(1, maxY - minY + padding * 2);
-		const nextZoom = Math.min(canvasSize.width / contentWidth, canvasSize.height / contentHeight, 1.5);
+		const nextZoom = Math.min(
+			canvasSize.width / contentWidth,
+			canvasSize.height / contentHeight,
+			1.5
+		);
 
 		updateZoom(nextZoom);
 		updateOffset({
@@ -153,7 +159,12 @@ export function createLitegraphCanvasState(props: LitegraphCanvasContract) {
 	}
 
 	function handlePortConnectionEnd(port: LitegraphPortRecipe) {
-		if (isConnecting && connectionStartPort && props.onConnectionEnd && connectionStartPort.id !== port.id) {
+		if (
+			isConnecting &&
+			connectionStartPort &&
+			props.onConnectionEnd &&
+			connectionStartPort.id !== port.id
+		) {
 			props.onConnectionEnd(connectionStartPort as LitegraphPort, port as LitegraphPort);
 		}
 
@@ -201,32 +212,114 @@ export function createLitegraphCanvasState(props: LitegraphCanvasContract) {
 	}
 
 	const defaultToolbarItems = $derived<GraphToolbarItem[]>([
-		{ id: 'tool-select', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.select, label: 'Select', tooltip: 'Select tool', active: activeTool === 'select' },
-		{ id: 'tool-pan', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.pan, label: 'Pan', tooltip: 'Pan tool', active: activeTool === 'pan' },
-		{ id: 'tool-add', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.add, label: 'Add', tooltip: 'Add node on canvas click', active: activeTool === 'add', disabled: !props.allowAddNodes },
+		{
+			id: 'tool-select',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.select,
+			label: 'Select',
+			tooltip: 'Select tool',
+			active: activeTool === 'select'
+		},
+		{
+			id: 'tool-pan',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.pan,
+			label: 'Pan',
+			tooltip: 'Pan tool',
+			active: activeTool === 'pan'
+		},
+		{
+			id: 'tool-add',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.add,
+			label: 'Add',
+			tooltip: 'Add node on canvas click',
+			active: activeTool === 'add',
+			disabled: !props.allowAddNodes
+		},
 		{ id: 'separator-1', type: 'separator' },
-		{ id: 'zoom-in', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.zoomIn, label: 'Zoom In', onclick: handleZoomIn },
-		{ id: 'zoom-out', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.zoomOut, label: 'Zoom Out', onclick: handleZoomOut },
-		{ id: 'zoom-fit', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.zoomFit, label: 'Fit', onclick: handleZoomToFit },
+		{
+			id: 'zoom-in',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.zoomIn,
+			label: 'Zoom In',
+			onclick: handleZoomIn
+		},
+		{
+			id: 'zoom-out',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.zoomOut,
+			label: 'Zoom Out',
+			onclick: handleZoomOut
+		},
+		{
+			id: 'zoom-fit',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.zoomFit,
+			label: 'Fit',
+			onclick: handleZoomToFit
+		},
 		{ id: 'separator-2', type: 'separator' },
-		{ id: 'toggle-grid', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.grid, label: 'Grid', active: isGridVisible, onclick: handleToggleGrid },
+		{
+			id: 'toggle-grid',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.grid,
+			label: 'Grid',
+			active: isGridVisible,
+			onclick: handleToggleGrid
+		},
 		{ id: 'separator-3', type: 'separator' },
-		{ id: 'save', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.save, label: 'Save', onclick: props.onSave },
-		{ id: 'export', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.export, label: 'Export', onclick: props.onExport },
-		{ id: 'import', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.import, label: 'Import', onclick: () => props.onImport?.(null) },
+		{
+			id: 'save',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.save,
+			label: 'Save',
+			onclick: props.onSave
+		},
+		{
+			id: 'export',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.export,
+			label: 'Export',
+			onclick: props.onExport
+		},
+		{
+			id: 'import',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.import,
+			label: 'Import',
+			onclick: () => props.onImport?.(null)
+		},
 		{ id: 'separator-4', type: 'separator' },
-		{ id: 'duplicate', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.duplicate, label: 'Duplicate', disabled: (props.selectedNodeIds ?? []).length === 0 || !props.allowDuplicateNodes, onclick: handleDuplicateSelected },
-		{ id: 'delete', type: 'button', icon: LITEGRAPH_CANVAS_ICONS.delete, label: 'Delete', disabled: (props.selectedNodeIds ?? []).length === 0 || !props.allowDeleteNodes, onclick: handleDeleteSelected }
+		{
+			id: 'duplicate',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.duplicate,
+			label: 'Duplicate',
+			disabled: (props.selectedNodeIds ?? []).length === 0 || !props.allowDuplicateNodes,
+			onclick: handleDuplicateSelected
+		},
+		{
+			id: 'delete',
+			type: 'button',
+			icon: LITEGRAPH_CANVAS_ICONS.delete,
+			label: 'Delete',
+			disabled: (props.selectedNodeIds ?? []).length === 0 || !props.allowDeleteNodes,
+			onclick: handleDeleteSelected
+		}
 	]);
 
 	const allToolbarItems = $derived(
-		(props.toolbarItems ?? []).length > 0 ? props.toolbarItems ?? [] : defaultToolbarItems
+		(props.toolbarItems ?? []).length > 0 ? (props.toolbarItems ?? []) : defaultToolbarItems
 	);
 	const effectivePanMode = $derived<'drag' | 'space'>(
 		activeTool === 'pan' ? 'drag' : (props.panMode ?? 'drag')
 	);
 	const effectiveGridMode = $derived<GraphCanvasRecipe['gridMode']>(
-		props.gridMode === 'none' || props.gridMode === 'dots' || props.gridMode === 'lines' || props.gridMode === 'cross'
+		props.gridMode === 'none' ||
+			props.gridMode === 'dots' ||
+			props.gridMode === 'lines' ||
+			props.gridMode === 'cross'
 			? 'dot'
 			: (props.gridMode ?? 'dot')
 	);

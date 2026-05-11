@@ -24,5 +24,3 @@ export function createContainerState(props: ContainerProps) {
 }
 
 export default createContainerState;
-
-

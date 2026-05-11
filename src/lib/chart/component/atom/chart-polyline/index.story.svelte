@@ -25,11 +25,18 @@
 	tags={['chart', 'polyline', 'function']}
 >
 	{#snippet children(values: any)}
-		<svg width="420" height="240" class="rounded border border-[--color-border-primary] bg-[--color-background-primary]">
-			<ChartPolyline points={points} width={420} height={240} color={values.color} strokeWidth={values.strokeWidth} />
+		<svg
+			width="420"
+			height="240"
+			class="rounded border border-[--color-border-primary] bg-[--color-background-primary]"
+		>
+			<ChartPolyline
+				{points}
+				width={420}
+				height={240}
+				color={values.color}
+				strokeWidth={values.strokeWidth}
+			/>
 		</svg>
 	{/snippet}
 </Story>
-
-
-

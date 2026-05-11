@@ -13,14 +13,9 @@ import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface AtomicPrinciplesRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IBadgeSlot,
-		ThemeAttributes<HTMLDivElement>
-	]>
-{
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IBadgeSlot, ThemeAttributes<HTMLDivElement>]
+	> {
 	stats?: { atoms: number; molecules: number; organisms: number };
 	badgeText?: string;
 }
-

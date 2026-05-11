@@ -44,7 +44,8 @@ export const createMessageItemState = (props: {
 
 	const actionButtonClasses = MessageStyleManager.getActionButtonClasses();
 
-	const reactionsPickerClasses = 'reactions-picker absolute bottom-full left-0 flex gap-1 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-2 shadow-custom38 z-[var(--z-index-docked)]';
+	const reactionsPickerClasses =
+		'reactions-picker absolute bottom-full left-0 flex gap-1 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-2 shadow-custom38 z-[var(--z-index-docked)]';
 
 	const reactionOptionClasses = MessageStyleManager.getReactionButtonClasses();
 

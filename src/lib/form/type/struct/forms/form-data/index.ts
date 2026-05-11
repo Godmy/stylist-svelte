@@ -3,4 +3,4 @@ export type FormData = {
 	password?: string;
 	phone?: string;
 	[key: string]: any;
-}
+};

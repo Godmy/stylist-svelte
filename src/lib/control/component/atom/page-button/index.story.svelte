@@ -7,7 +7,12 @@
 		{ name: 'page', type: 'number', defaultValue: 1, min: 1 },
 		{ name: 'isActive', type: 'boolean', defaultValue: false },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
-		{ name: 'variant', type: 'select', defaultValue: 'outline', options: ['primary','secondary','success','warning','danger','outline','ghost','link'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'outline',
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'outline', 'ghost', 'link']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
 	];
 </script>
@@ -29,6 +34,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

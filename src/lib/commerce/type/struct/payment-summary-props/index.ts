@@ -17,4 +17,4 @@ export type PaymentSummaryProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	date?: Date;
 	status?: TokenPaymentStatus;
 	class?: string;
-}
+};

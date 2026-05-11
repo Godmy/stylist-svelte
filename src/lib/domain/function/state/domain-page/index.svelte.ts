@@ -54,16 +54,20 @@ export function createDomainPageState(input: DomainPageInput) {
 	let backlogError = $state('');
 
 	const activeDomainNode = $derived(tree.find((d) => d.name === activeDomain));
-	const activeClusterNode = $derived(activeDomainNode?.clusters.find((c) => c.name === activeCluster));
+	const activeClusterNode = $derived(
+		activeDomainNode?.clusters.find((c) => c.name === activeCluster)
+	);
 	const activeJointNode = $derived(activeClusterNode?.joints.find((j) => j.name === activeJoint));
 	const availableJointNames = $derived(activeClusterNode?.joints.map((j) => j.name) ?? []);
 	const entities = $derived(activeJointNode?.entities ?? []);
 	const activeEntity = $derived(entities.find((e) => e.path === activeEntityPath));
 	const markdownFile = $derived(activeEntity?.files.find((f) => f.name === 'index.md') ?? null);
-	const storyFile = $derived(activeEntity?.files.find((f) => f.name === 'index.story.svelte') ?? null);
+	const storyFile = $derived(
+		activeEntity?.files.find((f) => f.name === 'index.story.svelte') ?? null
+	);
 	const activeFamily = $derived(activeEntity?.name.split('/').at(-1) ?? '');
 	const activeFamilyName = $derived(activeEntity?.name ?? '');
-	const breadcrumbFile = $derived(activeFilePath ? activeFilePath.split('/').pop() ?? '' : '');
+	const breadcrumbFile = $derived(activeFilePath ? (activeFilePath.split('/').pop() ?? '') : '');
 	const backlogPath = $derived(
 		activeFamily ? `${activeDomain}/data/md/backlog/${activeFamily}/index.md` : ''
 	);
@@ -125,8 +129,13 @@ export function createDomainPageState(input: DomainPageInput) {
 				if (!r.ok) throw new Error(p.error ?? 'Preview failed');
 				fileContent = p.content ?? '';
 			})
-			.catch((e: Error) => { fileContent = ''; fileError = e.message; })
-			.finally(() => { if (activeFilePath === path) fileLoading = false; });
+			.catch((e: Error) => {
+				fileContent = '';
+				fileError = e.message;
+			})
+			.finally(() => {
+				if (activeFilePath === path) fileLoading = false;
+			});
 	});
 
 	$effect(() => {
@@ -146,7 +155,10 @@ export function createDomainPageState(input: DomainPageInput) {
 				if (!r.ok) throw new Error(p.error ?? 'Preview failed');
 				fileContent = p.content ?? '';
 			})
-			.catch((e: Error) => { fileContent = ''; fileError = e.message; })
+			.catch((e: Error) => {
+				fileContent = '';
+				fileError = e.message;
+			})
 			.finally(() => {
 				if (previewMode === 'markdown' && markdownFile?.path === path) fileLoading = false;
 			});
@@ -168,7 +180,8 @@ export function createDomainPageState(input: DomainPageInput) {
 			.then((m) => {
 				if (storyModulePath !== modulePath || previewMode !== 'story') return;
 				storyPreviewComponent = m.default ?? null;
-				if (!storyPreviewComponent) storyPreviewError = 'Story module does not expose a default export.';
+				if (!storyPreviewComponent)
+					storyPreviewError = 'Story module does not expose a default export.';
 			})
 			.catch((e: Error) => {
 				if (storyModulePath !== modulePath || previewMode !== 'story') return;
@@ -206,11 +219,17 @@ export function createDomainPageState(input: DomainPageInput) {
 
 		if (previewMode === 'markdown') {
 			const md = next?.files.find((f) => f.name === 'index.md');
-			if (md) { activeFilePath = md.path; return; }
+			if (md) {
+				activeFilePath = md.path;
+				return;
+			}
 		}
 		if (previewMode === 'story') {
 			const story = next?.files.find((f) => f.name === 'index.story.svelte');
-			if (story) { activeFilePath = story.path; return; }
+			if (story) {
+				activeFilePath = story.path;
+				return;
+			}
 		}
 
 		const currentName = activeFilePath.split('/').pop();
@@ -289,34 +308,90 @@ export function createDomainPageState(input: DomainPageInput) {
 	}
 
 	return {
-		get activeDomain() { return activeDomain; },
-		get activeCluster() { return activeCluster; },
-		get activeJoint() { return activeJoint; },
-		get activeEntityPath() { return activeEntityPath; },
-		get activeFilePath() { return activeFilePath; },
-		get fileContent() { return fileContent; },
-		get fileError() { return fileError; },
-		get fileLoading() { return fileLoading; },
-		get previewMode() { return previewMode; },
-		get storyPreviewComponent() { return storyPreviewComponent; },
-		get storyPreviewLoading() { return storyPreviewLoading; },
-		get storyPreviewError() { return storyPreviewError; },
-		get backlogDialogOpen() { return backlogDialogOpen; },
-		get backlogDraft() { return backlogDraft; },
-		set backlogDraft(v: string) { backlogDraft = v; },
-		get backlogLoading() { return backlogLoading; },
-		get backlogSaving() { return backlogSaving; },
-		get backlogError() { return backlogError; },
-		get availableJointNames() { return availableJointNames; },
-		get entities() { return entities; },
-		get activeEntity() { return activeEntity; },
-		get markdownFile() { return markdownFile; },
-		get storyFile() { return storyFile; },
-		get activeFamily() { return activeFamily; },
-		get activeFamilyName() { return activeFamilyName; },
-		get breadcrumbFile() { return breadcrumbFile; },
-		get backlogPath() { return backlogPath; },
-		get previewKind() { return previewKind; },
+		get activeDomain() {
+			return activeDomain;
+		},
+		get activeCluster() {
+			return activeCluster;
+		},
+		get activeJoint() {
+			return activeJoint;
+		},
+		get activeEntityPath() {
+			return activeEntityPath;
+		},
+		get activeFilePath() {
+			return activeFilePath;
+		},
+		get fileContent() {
+			return fileContent;
+		},
+		get fileError() {
+			return fileError;
+		},
+		get fileLoading() {
+			return fileLoading;
+		},
+		get previewMode() {
+			return previewMode;
+		},
+		get storyPreviewComponent() {
+			return storyPreviewComponent;
+		},
+		get storyPreviewLoading() {
+			return storyPreviewLoading;
+		},
+		get storyPreviewError() {
+			return storyPreviewError;
+		},
+		get backlogDialogOpen() {
+			return backlogDialogOpen;
+		},
+		get backlogDraft() {
+			return backlogDraft;
+		},
+		set backlogDraft(v: string) {
+			backlogDraft = v;
+		},
+		get backlogLoading() {
+			return backlogLoading;
+		},
+		get backlogSaving() {
+			return backlogSaving;
+		},
+		get backlogError() {
+			return backlogError;
+		},
+		get availableJointNames() {
+			return availableJointNames;
+		},
+		get entities() {
+			return entities;
+		},
+		get activeEntity() {
+			return activeEntity;
+		},
+		get markdownFile() {
+			return markdownFile;
+		},
+		get storyFile() {
+			return storyFile;
+		},
+		get activeFamily() {
+			return activeFamily;
+		},
+		get activeFamilyName() {
+			return activeFamilyName;
+		},
+		get breadcrumbFile() {
+			return breadcrumbFile;
+		},
+		get backlogPath() {
+			return backlogPath;
+		},
+		get previewKind() {
+			return previewKind;
+		},
 		handleDomainSelect,
 		handleClusterSelect,
 		handleJointSelect,
@@ -327,6 +402,6 @@ export function createDomainPageState(input: DomainPageInput) {
 		handleJsonTreeSelect,
 		openBacklogDialog,
 		closeBacklogDialog,
-		saveBacklog,
+		saveBacklog
 	};
 }

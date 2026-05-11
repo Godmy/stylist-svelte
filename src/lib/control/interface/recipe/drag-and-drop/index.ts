@@ -11,11 +11,4 @@ import type { BehaviorDraggable as IDraggable } from '$stylist/interaction/inter
 import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
 import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
 
-export interface DragAndDropRecipe
-	extends StructIntersectAll<[
-		IDraggable,
-		IFocusable,
-		ISizable
-	]>
-{}
-
+export interface DragAndDropRecipe extends StructIntersectAll<[IDraggable, IFocusable, ISizable]> {}

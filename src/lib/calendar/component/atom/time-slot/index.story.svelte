@@ -27,10 +27,12 @@
 			available={values.available as boolean}
 			selected={values.selected as boolean}
 			active={values.active as boolean}
-			events={Array.from({ length: Math.max(0, Number(values.eventCount) || 0) }, (_, i) => ({ id: i + 1, title: `Event ${i + 1}`, start: new Date(2026, 1, 21, 9, 0), end: new Date(2026, 1, 21, 10, 0) })) as any}
+			events={Array.from({ length: Math.max(0, Number(values.eventCount) || 0) }, (_, i) => ({
+				id: i + 1,
+				title: `Event ${i + 1}`,
+				start: new Date(2026, 1, 21, 9, 0),
+				end: new Date(2026, 1, 21, 10, 0)
+			})) as any}
 		/>
 	{/snippet}
 </Story>
-
-
-

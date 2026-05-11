@@ -4,9 +4,7 @@ import { clampSceneVerticalAngle } from '$stylist/architecture/function/script/c
 import { createSceneProgram } from '$stylist/architecture/function/script/create-scene-program';
 import { destroySceneBuffers } from '$stylist/architecture/function/script/destroy-scene-buffers';
 import { drawSceneBuffers } from '$stylist/architecture/function/script/draw-scene-buffers';
-import {
-	createSceneAtomBuffers,
-} from '$stylist/architecture/function/script/scene/atom/index';
+import { createSceneAtomBuffers } from '$stylist/architecture/function/script/scene/atom/index';
 import { createDemoSceneGraph } from '$stylist/architecture/function/script/scene/graph/index';
 import { resolveSceneAtomTint } from '$stylist/architecture/function/script/resolve-scene-atom-tint';
 import { pickSceneAtom } from '$stylist/architecture/function/script/scene/picking/index';
@@ -22,7 +20,10 @@ import fragmentBasic from '$stylist/architecture/data/shader/fragment/base.frag?
 
 export class SceneObjectManager {
 	private static readonly CAMERA_FOV = Math.PI / 4;
-	private static readonly PRESET_ANGLES: Record<SceneCameraPreset, { horizontal: number; vertical: number }> = {
+	private static readonly PRESET_ANGLES: Record<
+		SceneCameraPreset,
+		{ horizontal: number; vertical: number }
+	> = {
 		iso: { horizontal: 0.72, vertical: 0.42 },
 		top: { horizontal: 0.0001, vertical: 1.22 },
 		front: { horizontal: 0, vertical: 0.08 }
@@ -473,13 +474,17 @@ export class SceneObjectManager {
 	}
 
 	getDebugInfo(): SceneDebugInfo {
-		const viewport = this.gl ? (this.gl.getParameter(this.gl.VIEWPORT) as Int32Array | number[]) : null;
+		const viewport = this.gl
+			? (this.gl.getParameter(this.gl.VIEWPORT) as Int32Array | number[])
+			: null;
 
 		return {
 			mounted: true,
 			context: this.gl ? 'webgl2' : 'none',
 			glVersion: this.gl ? String(this.gl.getParameter(this.gl.VERSION)) : 'none',
-			glslVersion: this.gl ? String(this.gl.getParameter(this.gl.SHADING_LANGUAGE_VERSION)) : 'none',
+			glslVersion: this.gl
+				? String(this.gl.getParameter(this.gl.SHADING_LANGUAGE_VERSION))
+				: 'none',
 			programLinked: this.program !== null,
 			uniformsReady:
 				this.modelLocation !== null &&
@@ -492,12 +497,14 @@ export class SceneObjectManager {
 			canvasClient: this.canvas ? `${this.canvas.clientWidth}x${this.canvas.clientHeight}` : 'none',
 			canvasBuffer: this.canvas ? `${this.canvas.width}x${this.canvas.height}` : 'none',
 			viewport: viewport ? Array.from(viewport).join(', ') : 'none',
-			devicePixelRatio:
-				typeof window !== 'undefined' ? window.devicePixelRatio.toFixed(2) : '1.00',
+			devicePixelRatio: typeof window !== 'undefined' ? window.devicePixelRatio.toFixed(2) : '1.00',
 			drawCount: this.drawCount,
 			lastError: this.lastError,
 			cameraPosition: this.camera
-				? this.camera.getPosition().map((value) => value.toFixed(2)).join(', ')
+				? this.camera
+						.getPosition()
+						.map((value) => value.toFixed(2))
+						.join(', ')
 				: 'none',
 			radius: this.radius.toFixed(2),
 			angles: `${this.horizontalAngle.toFixed(2)}, ${this.verticalAngle.toFixed(2)}`,

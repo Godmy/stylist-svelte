@@ -4,7 +4,12 @@
 	import MessageTimestamp from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'formatStyle', type: 'select', defaultValue: 'datetime', options: ['datetime', 'time', 'date'] },
+		{
+			name: 'formatStyle',
+			type: 'select',
+			defaultValue: 'datetime',
+			options: ['datetime', 'time', 'date']
+		},
 		{ name: 'showRelative', type: 'boolean', defaultValue: false },
 		{ name: 'minutesAgo', type: 'number', defaultValue: 5, min: 0, max: 180 }
 	];
@@ -25,6 +30,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

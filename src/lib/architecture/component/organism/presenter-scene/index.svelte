@@ -44,15 +44,29 @@
 			<div>
 				<h2 class={PresenterSceneStyleManager.getTitleClass()}>{state.title}</h2>
 				<p class={PresenterSceneStyleManager.getSubtitleClass()}>
-					{contract.nodes?.length ?? 0} nodes, camera depth {state.camera.depth}, zoom {state.camera.zoom.toFixed(2)}
+					{contract.nodes?.length ?? 0} nodes, camera depth {state.camera.depth}, zoom {state.camera.zoom.toFixed(
+						2
+					)}
 				</p>
 			</div>
 
 			{#if state.showDepthControls}
 				<div class={PresenterSceneStyleManager.getControlsClass()}>
-					<button type="button" class={PresenterSceneStyleManager.getControlClass()} onclick={() => state.stepDepth(80)}>Zoom out</button>
-					<button type="button" class={PresenterSceneStyleManager.getControlClass()} onclick={() => state.stepDepth(-80)}>Zoom in</button>
-					<button type="button" class={PresenterSceneStyleManager.getControlClass()} onclick={state.resetCamera}>Reset</button>
+					<button
+						type="button"
+						class={PresenterSceneStyleManager.getControlClass()}
+						onclick={() => state.stepDepth(80)}>Zoom out</button
+					>
+					<button
+						type="button"
+						class={PresenterSceneStyleManager.getControlClass()}
+						onclick={() => state.stepDepth(-80)}>Zoom in</button
+					>
+					<button
+						type="button"
+						class={PresenterSceneStyleManager.getControlClass()}
+						onclick={state.resetCamera}>Reset</button
+					>
 				</div>
 			{/if}
 		</header>
@@ -117,12 +131,17 @@
 			data-node-layer={state.selectedNode.layer}
 		>
 			<div class={PresenterSceneStyleManager.getBadgeClass()}>{state.selectedNode.title}</div>
-			<div class={PresenterSceneStyleManager.getInspectorLineClass()}>Depth: {state.selectedNode.depth}</div>
-			<div class={PresenterSceneStyleManager.getInspectorLineClass()}>Accent: {state.selectedNode.accent}</div>
+			<div class={PresenterSceneStyleManager.getInspectorLineClass()}>
+				Depth: {state.selectedNode.depth}
+			</div>
+			<div class={PresenterSceneStyleManager.getInspectorLineClass()}>
+				Accent: {state.selectedNode.accent}
+			</div>
 			{#if state.selectedNode.description}
-				<p class={PresenterSceneStyleManager.getDescriptionClass()}>{state.selectedNode.description}</p>
+				<p class={PresenterSceneStyleManager.getDescriptionClass()}>
+					{state.selectedNode.description}
+				</p>
 			{/if}
 		</aside>
 	{/if}
 </section>
-

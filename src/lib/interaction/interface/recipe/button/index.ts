@@ -7,13 +7,6 @@ import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/beha
 import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
 
 export interface ButtonRecipe
-	extends StructIntersectAll<[
-		ThemeCaptionRecipe,
-		IIconSlot,
-		IClickable,
-		IFocusable,
-		ISizable,
-		IBadgeSlot
-	]>
-{}
-
+	extends StructIntersectAll<
+		[ThemeCaptionRecipe, IIconSlot, IClickable, IFocusable, ISizable, IBadgeSlot]
+	> {}

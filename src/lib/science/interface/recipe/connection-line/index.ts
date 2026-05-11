@@ -3,7 +3,8 @@ import type { TokenTrajectory } from '$stylist/architecture/type/enum/trajectory
 import type { TokenBorderStyle } from '$stylist/layout/type/enum/border-style';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface ConnectionLineRecipe extends StructIntersectAll<[ThemeAttributes<SVGPathElement>]> {
+export interface ConnectionLineRecipe
+	extends StructIntersectAll<[ThemeAttributes<SVGPathElement>]> {
 	startX: number;
 	startY: number;
 	endX: number;

@@ -10,24 +10,65 @@
 	// Create a new object with only the safe properties by picking them explicitly
 	const htmlProps = $derived.by(() => {
 		const result = {} as Record<string, any>;
-		
+
 		// Manually copy only the properties that are safe to use on a div element
 		for (const [key, value] of Object.entries(props)) {
 			// Skip properties that are specific to input elements or that cause type conflicts
-			if (![
-				'options', 'value', 'name', 'disabled', 'required', 'orientation', 
-				'class', 'optionClass', 'labelClass', 'radioClass', 'onValueInput', 'onValueChange',
-				'accept', 'alt', 'autocomplete', 'autofocus', 'capture', 'checked', 
-				'crossOrigin', 'files', 'form', 'formAction', 'formEncType', 'formMethod', 
-				'formNoValidate', 'formTarget', 'height', 'inputMode', 'list', 'max', 
-				'maxLength', 'min', 'minLength', 'multiple', 'pattern', 'placeholder', 
-				'readOnly', 'selectionDirection', 'selectionEnd', 'selectionStart', 'size', 
-				'src', 'step', 'type', 'useMap', 'width', 'wrap'
-			].includes(key)) {
+			if (
+				![
+					'options',
+					'value',
+					'name',
+					'disabled',
+					'required',
+					'orientation',
+					'class',
+					'optionClass',
+					'labelClass',
+					'radioClass',
+					'onValueInput',
+					'onValueChange',
+					'accept',
+					'alt',
+					'autocomplete',
+					'autofocus',
+					'capture',
+					'checked',
+					'crossOrigin',
+					'files',
+					'form',
+					'formAction',
+					'formEncType',
+					'formMethod',
+					'formNoValidate',
+					'formTarget',
+					'height',
+					'inputMode',
+					'list',
+					'max',
+					'maxLength',
+					'min',
+					'minLength',
+					'multiple',
+					'pattern',
+					'placeholder',
+					'readOnly',
+					'selectionDirection',
+					'selectionEnd',
+					'selectionStart',
+					'size',
+					'src',
+					'step',
+					'type',
+					'useMap',
+					'width',
+					'wrap'
+				].includes(key)
+			) {
 				result[key] = value;
 			}
 		}
-		
+
 		return result;
 	});
 </script>
@@ -50,5 +91,3 @@
 		</label>
 	{/each}
 </div>
-
-

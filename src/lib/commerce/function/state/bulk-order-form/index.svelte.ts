@@ -64,9 +64,7 @@ export function BulkOrderFormModel(props: BulkOrderFormProps) {
 	) {
 		if (newQuantity < 1) return;
 
-		items = items.map((item) =>
-			item.id === itemId ? { ...item, quantity: newQuantity } : item
-		);
+		items = items.map((item) => (item.id === itemId ? { ...item, quantity: newQuantity } : item));
 
 		onItemsChange?.(items);
 	}
@@ -141,4 +139,3 @@ export function BulkOrderFormModel(props: BulkOrderFormProps) {
 }
 
 export default BulkOrderFormModel;
-

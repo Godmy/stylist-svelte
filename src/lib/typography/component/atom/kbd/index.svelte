@@ -20,6 +20,3 @@
 		{#if children}{#if children}{@render children()}{/if}{/if}
 	{/if}
 </kbd>
-
-
-

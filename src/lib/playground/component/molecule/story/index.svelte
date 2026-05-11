@@ -31,7 +31,7 @@
 
 		if (control.type === 'number' || control.type === 'range') {
 			const parsed = Number(raw);
-			return Number.isNaN(parsed) ? control.defaultValue ?? 0 : parsed;
+			return Number.isNaN(parsed) ? (control.defaultValue ?? 0) : parsed;
 		}
 
 		if (control.type === 'select' && Array.isArray(control.options) && control.options.length > 0) {
@@ -154,5 +154,3 @@
 		{/each}
 	</div>
 </div>
-
-

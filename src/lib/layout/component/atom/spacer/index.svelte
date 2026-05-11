@@ -1,4 +1,4 @@
-	<script lang="ts">
+<script lang="ts">
 	import type { SpacerProps } from '$stylist/layout/type/struct/spacer';
 	import { createSpacerState } from '$stylist/layout/function/state/spacer';
 
@@ -12,8 +12,3 @@
 	aria-hidden="true"
 	{...state.restProps}
 ></div>
-
-
-
-
-

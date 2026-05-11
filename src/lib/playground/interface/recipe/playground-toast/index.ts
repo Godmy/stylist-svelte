@@ -1,7 +1,8 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
-export interface RecipePlaygroundToast extends StructIntersectAll<[Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>]> {
+export interface RecipePlaygroundToast
+	extends StructIntersectAll<[Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>]> {
 	/** Toast message */
 	message?: string;
 	/** Toast type */

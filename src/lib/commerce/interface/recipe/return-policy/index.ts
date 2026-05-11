@@ -11,7 +11,9 @@ import type { SlotReturnStep } from '$stylist/commerce/interface/slot/return-ste
 import type { SlotFaq } from '$stylist/commerce/interface/slot/faq';
 import type { BehaviorReturnPolicyEvents } from '$stylist/commerce/interface/behavior/return-policy-events';
 
-export interface RecipeReturnPolicy extends StructIntersectAll<[ ThemeAttributes<HTMLDivElement> ]>, BehaviorReturnPolicyEvents {
+export interface RecipeReturnPolicy
+	extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]>,
+		BehaviorReturnPolicyEvents {
 	/** Policy period in days */
 	policyPeriod: number;
 	/** Policy description */

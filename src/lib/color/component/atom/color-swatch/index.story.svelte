@@ -26,12 +26,6 @@
 >
 	{#snippet children(values: any)}
 		{@const parsedSize = Number(values.size)}
-		<ColorSwatch
-			color={values.color as string}
-			size={Number.isNaN(parsedSize) ? 32 : parsedSize}
-		/>
+		<ColorSwatch color={values.color as string} size={Number.isNaN(parsedSize) ? 32 : parsedSize} />
 	{/snippet}
 </Story>
-
-
-

@@ -11,9 +11,15 @@ export function createChartLegendState(props: ChartLegendProps) {
 	const dotClasses = $derived(ChartStyleManager.getChartLegendDotClasses());
 
 	return {
-		get classes() { return classes; },
-		get itemClasses() { return itemClasses; },
-		get dotClasses() { return dotClasses; }
+		get classes() {
+			return classes;
+		},
+		get itemClasses() {
+			return itemClasses;
+		},
+		get dotClasses() {
+			return dotClasses;
+		}
 	};
 }
 

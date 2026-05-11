@@ -75,9 +75,27 @@
 	];
 
 	let nodes = $state<DemoNode[]>([
-		{ id: 'node-1', label: 'Primary', type: 'source', color: '#3b82f6', position: { x: 80, y: 130 } },
-		{ id: 'node-2', label: 'Gateway', type: 'gateway', color: '#f59e0b', position: { x: 290, y: 70 } },
-		{ id: 'node-3', label: 'Target', type: 'target', color: '#14b8a6', position: { x: 490, y: 180 } }
+		{
+			id: 'node-1',
+			label: 'Primary',
+			type: 'source',
+			color: '#3b82f6',
+			position: { x: 80, y: 130 }
+		},
+		{
+			id: 'node-2',
+			label: 'Gateway',
+			type: 'gateway',
+			color: '#f59e0b',
+			position: { x: 290, y: 70 }
+		},
+		{
+			id: 'node-3',
+			label: 'Target',
+			type: 'target',
+			color: '#14b8a6',
+			position: { x: 490, y: 180 }
+		}
 	]);
 
 	let selectedNodeId = $state('node-1');
@@ -192,7 +210,6 @@
 	function stopDrag(): void {
 		draggingNodeId = null;
 	}
-
 </script>
 
 <Story
@@ -203,9 +220,13 @@
 >
 	{#snippet children(values: any)}
 		{@const nodeSize = (values.size as GraphNodeSize) ?? 'md'}
-		<div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
+		<div
+			class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm"
+		>
 			<div class="mb-3 flex flex-wrap gap-2 text-xs text-[var(--color-text-secondary)]">
-				<span class="rounded-full border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] px-2 py-1">
+				<span
+					class="rounded-full border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] px-2 py-1"
+				>
 					click to select, drag to move
 				</span>
 			</div>
@@ -252,43 +273,96 @@
 			</div>
 
 			<div class="mt-3 text-xs text-[var(--color-text-secondary)]">
-				selected: <span class="font-semibold text-[var(--color-text-primary)]">{selectedNodeId}</span>
+				selected: <span class="font-semibold text-[var(--color-text-primary)]"
+					>{selectedNodeId}</span
+				>
 				{#if values.snapToGrid}
-					<span class="ml-2 rounded bg-[var(--color-background-secondary)] px-2 py-0.5">snap: {GRID_SIZE}px</span>
+					<span class="ml-2 rounded bg-[var(--color-background-secondary)] px-2 py-0.5"
+						>snap: {GRID_SIZE}px</span
+					>
 				{/if}
 			</div>
 		</div>
 	{/snippet}
 
 	{#snippet variants()}
-		<div class="grid gap-4 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
+		<div
+			class="grid gap-4 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm"
+		>
 			<div>
 				<h3 class="mb-3 text-sm font-semibold text-[var(--color-text-primary)]">Size Ladder</h3>
-				<div class="grid grid-cols-6 gap-4 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4">
-					<div class="relative h-20"><SlotGraphNode id="size-xs" x={12} y={18} label="XS" size="xs" color="#0f766e" /></div>
-					<div class="relative h-20"><SlotGraphNode id="size-sm" x={10} y={16} label="SM" size="sm" color="#0f766e" /></div>
-					<div class="relative h-20"><SlotGraphNode id="size-md" x={6} y={12} label="MD" size="md" color="#0f766e" /></div>
-					<div class="relative h-20"><SlotGraphNode id="size-lg" x={2} y={8} label="LG" size="lg" color="#0f766e" /></div>
-					<div class="relative h-20"><SlotGraphNode id="size-xl" x={0} y={4} label="XL" size="xl" color="#0f766e" /></div>
-					<div class="relative h-20"><SlotGraphNode id="size-2xl" x={0} y={0} label="2XL" size="2xl" color="#0f766e" /></div>
+				<div
+					class="grid grid-cols-6 gap-4 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4"
+				>
+					<div class="relative h-20">
+						<SlotGraphNode id="size-xs" x={12} y={18} label="XS" size="xs" color="#0f766e" />
+					</div>
+					<div class="relative h-20">
+						<SlotGraphNode id="size-sm" x={10} y={16} label="SM" size="sm" color="#0f766e" />
+					</div>
+					<div class="relative h-20">
+						<SlotGraphNode id="size-md" x={6} y={12} label="MD" size="md" color="#0f766e" />
+					</div>
+					<div class="relative h-20">
+						<SlotGraphNode id="size-lg" x={2} y={8} label="LG" size="lg" color="#0f766e" />
+					</div>
+					<div class="relative h-20">
+						<SlotGraphNode id="size-xl" x={0} y={4} label="XL" size="xl" color="#0f766e" />
+					</div>
+					<div class="relative h-20">
+						<SlotGraphNode id="size-2xl" x={0} y={0} label="2XL" size="2xl" color="#0f766e" />
+					</div>
 				</div>
 			</div>
 
 			<div>
 				<h3 class="mb-3 text-sm font-semibold text-[var(--color-text-primary)]">Type Gallery</h3>
-				<div class="grid grid-cols-3 gap-4 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4">
+				<div
+					class="grid grid-cols-3 gap-4 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4"
+				>
 					<div class="grid gap-2 rounded-lg bg-white p-4 text-center">
-						<div class="relative mx-auto h-16 w-16"><SlotGraphNode id="type-source" x={0} y={0} label="IN" type="source" size="xl" color="#0f766e" /></div>
+						<div class="relative mx-auto h-16 w-16">
+							<SlotGraphNode
+								id="type-source"
+								x={0}
+								y={0}
+								label="IN"
+								type="source"
+								size="xl"
+								color="#0f766e"
+							/>
+						</div>
 						<strong class="text-sm">Source</strong>
 						<span class="text-xs text-[var(--color-text-secondary)]">solid border</span>
 					</div>
 					<div class="grid gap-2 rounded-lg bg-white p-4 text-center">
-						<div class="relative mx-auto h-16 w-16"><SlotGraphNode id="type-gateway" x={0} y={0} label="GW" type="gateway" size="xl" color="#b45309" selected={true} /></div>
+						<div class="relative mx-auto h-16 w-16">
+							<SlotGraphNode
+								id="type-gateway"
+								x={0}
+								y={0}
+								label="GW"
+								type="gateway"
+								size="xl"
+								color="#b45309"
+								selected={true}
+							/>
+						</div>
 						<strong class="text-sm">Gateway</strong>
 						<span class="text-xs text-[var(--color-text-secondary)]">dashed border</span>
 					</div>
 					<div class="grid gap-2 rounded-lg bg-white p-4 text-center">
-						<div class="relative mx-auto h-16 w-16"><SlotGraphNode id="type-target" x={0} y={0} label="OUT" type="target" size="xl" color="#1d4ed8" /></div>
+						<div class="relative mx-auto h-16 w-16">
+							<SlotGraphNode
+								id="type-target"
+								x={0}
+								y={0}
+								label="OUT"
+								type="target"
+								size="xl"
+								color="#1d4ed8"
+							/>
+						</div>
 						<strong class="text-sm">Target</strong>
 						<span class="text-xs text-[var(--color-text-secondary)]">output marker</span>
 					</div>
@@ -297,8 +371,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-
-

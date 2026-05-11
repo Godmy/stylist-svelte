@@ -6,4 +6,4 @@ export type LoadingBoundaryProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	error?: string;
 	children?: Snippet;
 	class?: string;
-}
+};

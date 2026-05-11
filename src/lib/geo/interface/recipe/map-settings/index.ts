@@ -5,12 +5,12 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { BehaviorCoordinatesProto as ICoordinatesProto } from '$stylist/geo/interface/behavior/coordinates';
 
 export interface IMapSettingsRecipe extends StructIntersectAll<[]> {
-  center: ICoordinatesProto;
-  zoom: number;
-  minZoom?: number;
-  maxZoom?: number;
-  showSearch?: boolean;
-  showControls?: boolean;
-  height?: string;
-  width?: string;
+	center: ICoordinatesProto;
+	zoom: number;
+	minZoom?: number;
+	maxZoom?: number;
+	showSearch?: boolean;
+	showControls?: boolean;
+	height?: string;
+	width?: string;
 }

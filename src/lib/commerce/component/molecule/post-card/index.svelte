@@ -37,10 +37,7 @@
 		</div>
 		<div class={state.actionsClasses}>
 			{#each props.actions ?? [] as action}
-				<button
-					onclick={action.onClick}
-					class={state.actionButtonClasses}
-				>
+				<button onclick={action.onClick} class={state.actionButtonClasses}>
 					{action.label}
 				</button>
 			{/each}

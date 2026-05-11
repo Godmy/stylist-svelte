@@ -11,11 +11,4 @@ import type { BehaviorClickable as IClickable } from '$stylist/interaction/inter
 import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
 import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
 
-export interface FormFooterRecipe
-	extends StructIntersectAll<[
-		IClickable,
-		IFocusable,
-		ISizable
-	]>
-{}
-
+export interface FormFooterRecipe extends StructIntersectAll<[IClickable, IFocusable, ISizable]> {}

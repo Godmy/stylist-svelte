@@ -7,11 +7,7 @@ import type { StatsCardTrend } from '$stylist/information/type/struct/stats-card
 
 /** StatsCard = label + caption + icon + compact stats trend. */
 export interface StatsCardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		ThemeAttributes<HTMLDivElement>
-	]> {
+	extends StructIntersectAll<[ILabelSlot, ICaptionSlot, ThemeAttributes<HTMLDivElement>]> {
 	value: string;
 	trend?: StatsCardTrend;
 	trendValue?: string;

@@ -8,21 +8,18 @@
 </script>
 
 <div class={state.baseClasses}>
-  <div class="flex items-center justify-center w-full">
-    <Icon name={state.style.icon} class="h-4 w-4 mr-1 text-current" />
-    {#if props.showLabel}
-      <span class="truncate max-w-[80px]" title={state.label}>{state.label}</span>
-    {/if}
-  </div>
+	<div class="flex w-full items-center justify-center">
+		<Icon name={state.style.icon} class="mr-1 h-4 w-4 text-current" />
+		{#if props.showLabel}
+			<span class="max-w-[80px] truncate" title={state.label}>{state.label}</span>
+		{/if}
+	</div>
 
-  {#if props.node.attributes && props.node.attributes.length > 0}
-    <div class="mt-1 text-[0.6rem] opacity-[var(--opacity-75)] flex flex-wrap justify-center gap-1">
-      {#each props.node.attributes as attr}
-        <span class="bg-current bg-opacity-[var(--opacity-10)] px-1 rounded">{attr}</span>
-      {/each}
-    </div>
-  {/if}
+	{#if props.node.attributes && props.node.attributes.length > 0}
+		<div class="mt-1 flex flex-wrap justify-center gap-1 text-[0.6rem] opacity-[var(--opacity-75)]">
+			{#each props.node.attributes as attr}
+				<span class="bg-opacity-[var(--opacity-10)] rounded bg-current px-1">{attr}</span>
+			{/each}
+		</div>
+	{/if}
 </div>
-
-
-

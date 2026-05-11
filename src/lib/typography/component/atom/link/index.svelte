@@ -33,5 +33,3 @@
 		{state.text}
 	{/if}
 </a>
-
-

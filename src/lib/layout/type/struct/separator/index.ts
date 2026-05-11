@@ -4,4 +4,4 @@ export type SeparatorProps = HTMLAttributes<HTMLHRElement> & {
 	class?: string;
 	orientation?: 'horizontal' | 'vertical';
 	decorative?: boolean;
-}
+};

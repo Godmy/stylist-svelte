@@ -3,7 +3,6 @@ import { IndicatorsStyleManager } from '$stylist/interaction/class/style-manager
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { TokenAvailability } from '$stylist/interaction/type/record/availability';
 
-
 /**
  * Unified StatusIndicator state creator
  * Provides reactive state management for status indicator components using Svelte 5 runes
@@ -17,26 +16,26 @@ export function createStatusIndicatorState(props: StatusIndicatorRecipe) {
 	const appearance = $derived((props.appearance ?? 'neutral') as TokenAppearance);
 	const label = $derived(props.label ?? '');
 	const className = $derived(typeof props.class === 'string' ? props.class : undefined);
-	
+
 	// Enhanced mode props (legacy status-indicator-with-label)
 	const customColor = $derived(props.customColor);
 	const size = $derived(props.size ?? 'md');
 	const showLabel = $derived(props.showLabel ?? true);
 	const indicatorClass = $derived(props.indicatorClass ?? '');
 	const labelClass = $derived(props.labelClass ?? '');
-	
+
 	const isSimpleMode = $derived(props.appearance === undefined && !props.customColor);
-	
+
 	// Simple mode classes
 	const classes = $derived(IndicatorsStyleManager.getStatusIndicatorContainerClasses(className));
 	const dotClasses = $derived(
 		isSimpleMode
 			? IndicatorsStyleManager.getStatusIndicatorDotClasses(
 					status as Parameters<typeof IndicatorsStyleManager.getStatusIndicatorDotClasses>[0]
-			  )
+				)
 			: ''
 	);
-	
+
 	// Enhanced mode classes
 	const containerClasses = $derived(
 		isSimpleMode
@@ -48,14 +47,14 @@ export function createStatusIndicatorState(props: StatusIndicatorRecipe) {
 			? dotClasses
 			: IndicatorsStyleManager.getStatusIndicatorWithLabelIndicatorClasses(
 					appearance,
-					size as Parameters<typeof IndicatorsStyleManager.getStatusIndicatorWithLabelIndicatorClasses>[1],
+					size as Parameters<
+						typeof IndicatorsStyleManager.getStatusIndicatorWithLabelIndicatorClasses
+					>[1],
 					customColor,
 					indicatorClass
-			  )
+				)
 	);
-	const indicatorStyle = $derived(
-		customColor ? `background-color: ${customColor};` : ''
-	);
+	const indicatorStyle = $derived(customColor ? `background-color: ${customColor};` : '');
 	const labelClasses = $derived(
 		IndicatorsStyleManager.getStatusIndicatorWithLabelLabelClasses(labelClass)
 	);
@@ -110,9 +109,3 @@ export function createStatusIndicatorState(props: StatusIndicatorRecipe) {
 }
 
 export default createStatusIndicatorState;
-
-
-
-
-
-

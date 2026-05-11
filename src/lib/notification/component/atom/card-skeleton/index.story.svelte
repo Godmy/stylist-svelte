@@ -9,11 +9,13 @@
 	];
 </script>
 
-<Story component={CardSkeleton} title="CardSkeleton" description="Card grid loading state with optional avatar placeholder." {controls}>
+<Story
+	component={CardSkeleton}
+	title="CardSkeleton"
+	description="Card grid loading state with optional avatar placeholder."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<CardSkeleton count={values.count} showAvatar={values.showAvatar} />
 	{/snippet}
 </Story>
-
-
-

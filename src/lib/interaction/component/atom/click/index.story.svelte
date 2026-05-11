@@ -45,12 +45,17 @@
 	}
 </script>
 
-<Story {controls} component={Click} title="Click Component" description="Атом для обработки кликов и мышиных событий">
+<Story
+	{controls}
+	component={Click}
+	title="Click Component"
+	description="Атом для обработки кликов и мышиных событий"
+>
 	{#snippet children(values: any)}
 		<div class="w-full rounded-lg py-4">
 			<Click
 				{...values}
-				class="p-6 bg-[var(--color-background-secondary)] rounded-lg"
+				class="rounded-lg bg-[var(--color-background-secondary)] p-6"
 				onClick={() => handleEvent('click')}
 				onDblClick={() => handleEvent('dblclick')}
 				onContextMenu={(e) => {
@@ -63,12 +68,11 @@
 				{#snippet children()}
 					<div class="text-center">
 						<p class="font-medium">Click counter: <strong>{clickCount}</strong></p>
-						<p class="text-sm text-muted mt-1">Last event: {lastEvent}</p>
-						<p class="text-xs text-muted mt-2">Try: click, dblclick, right-click, hover</p>
+						<p class="text-muted mt-1 text-sm">Last event: {lastEvent}</p>
+						<p class="text-muted mt-2 text-xs">Try: click, dblclick, right-click, hover</p>
 					</div>
 				{/snippet}
 			</Click>
 		</div>
 	{/snippet}
 </Story>
-

@@ -5,7 +5,9 @@ export function createActionSegmentedControlState(props: RecipeActionSegmentedCo
 	const items = $derived(props.items);
 	const selectedIndex = $derived(props.selectedIndex ?? 0);
 	const containerClasses = $derived(
-		InteractionStyleManager.getInteractiveBaseClasses(`flex rounded-lg border ${props.class ?? ''}`.trim())
+		InteractionStyleManager.getInteractiveBaseClasses(
+			`flex rounded-lg border ${props.class ?? ''}`.trim()
+		)
 	);
 	let localSelectedIndex = $state(props.selectedIndex ?? 0);
 

@@ -2,7 +2,10 @@
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
-	import { resolveSemanticZoomNode, resolveSemanticZoomPresentation } from '$stylist/architecture/function/script';
+	import {
+		resolveSemanticZoomNode,
+		resolveSemanticZoomPresentation
+	} from '$stylist/architecture/function/script';
 	import PreziScene from './index.svelte';
 
 	const VIEWPORT_WIDTH = 1320;
@@ -135,11 +138,10 @@
 		{@const worldCards = sceneNodes.map((node) =>
 			resolveSemanticZoomNode(node, Number(values.cameraDepth))
 		)}
-		{@const activeWorldCard =
-			worldCards.reduce(
-				(best, current) => (current.distance < best.distance ? current : best),
-				worldCards[0]
-			)}
+		{@const activeWorldCard = worldCards.reduce(
+			(best, current) => (current.distance < best.distance ? current : best),
+			worldCards[0]
+		)}
 		{@const localCards = (activeWorldCard?.node.children ?? []).map((child) => ({
 			node: child,
 			...resolveSemanticZoomPresentation(child.depth, Number(values.localDepth))
@@ -152,8 +154,8 @@
 					<h1>Prezi-like depth with a live component and a raw resolver audit.</h1>
 					<p class="lede">
 						This story replaces the route-level prototype: the top section tests the actual
-						<code>PreziScene</code> component, and the lower sections expose the semantic zoom math
-						in plain HTML so debugging stays local.
+						<code>PreziScene</code> component, and the lower sections expose the semantic zoom math in
+						plain HTML so debugging stays local.
 					</p>
 				</div>
 
@@ -193,7 +195,7 @@
 						panMode={values.panMode as 'drag' | 'space' | 'always'}
 						initialCamera={{ x: 0, y: 0, zoom: 1 }}
 						initialDepth={0}
-						selectedNodeId={selectedNodeId}
+						{selectedNodeId}
 						onNodeSelect={(node) => {
 							selectedNodeId = node?.id ?? null;
 						}}
@@ -284,7 +286,9 @@
 								<span>{card.stage}</span>
 							</div>
 							<p>
-								{card.architecture} | {card.shape} | {card.size} | distance {Math.round(card.distance)}
+								{card.architecture} | {card.shape} | {card.size} | distance {Math.round(
+									card.distance
+								)}
 							</p>
 						</article>
 					{/each}

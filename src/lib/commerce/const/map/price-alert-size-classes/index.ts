@@ -3,4 +3,3 @@ export const PRICE_ALERT_SIZE_CLASSES = {
 	md: 'p-4 text-base',
 	lg: 'p-6 text-lg'
 } as const;
-

@@ -43,11 +43,4 @@ export const createRadioState = (props: RadioProps) => {
 	};
 };
 
-
-
 export default createRadioState;
-
-
-
-
-

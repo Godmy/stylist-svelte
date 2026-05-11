@@ -10,4 +10,4 @@ export type ClickContract = GestureContract & {
 	onDblClick?: (event: MouseEvent) => void;
 	/** Обработчик контекстного меню */
 	onContextMenu?: (event: MouseEvent) => void;
-}
+};

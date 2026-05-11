@@ -73,8 +73,7 @@
 					placeholder="Search nodes..."
 					value={searchQuery}
 					size="sm"
-					oninput={(event: Event) =>
-						state.handleSearch((event.target as HTMLInputElement).value)}
+					oninput={(event: Event) => state.handleSearch((event.target as HTMLInputElement).value)}
 				/>
 			</div>
 
@@ -141,7 +140,9 @@
 									<div class={NodePaletteStyleManager.itemInfo()}>
 										<span class={NodePaletteStyleManager.itemTitle()}>{item.title}</span>
 										{#if item.description}
-											<span class={NodePaletteStyleManager.itemDescription()}>{item.description}</span>
+											<span class={NodePaletteStyleManager.itemDescription()}
+												>{item.description}</span
+											>
 										{/if}
 									</div>
 								</button>

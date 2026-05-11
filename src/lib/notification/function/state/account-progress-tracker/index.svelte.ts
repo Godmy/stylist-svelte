@@ -9,7 +9,9 @@ export function createAccountProgressTrackerState(props: AccountProgressTrackerP
 	});
 
 	const steps = $derived(props.steps ?? []);
-	const containerClasses = $derived(joinClassNames('account-progress-tracker-container', props.class ?? ''));
+	const containerClasses = $derived(
+		joinClassNames('account-progress-tracker-container', props.class ?? '')
+	);
 
 	function getStepClasses(i: number): string {
 		return i <= localCurrentStep

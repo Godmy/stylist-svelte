@@ -7,9 +7,9 @@ import type { Snippet } from 'svelte';
 
 /** Пропсы компонента AiResultCard */
 export interface SlotAiResultCard {
-  children: Snippet;
-  title?: string;
-  description?: string;
-  icon?: string;
-  class?: string;
+	children: Snippet;
+	title?: string;
+	description?: string;
+	icon?: string;
+	class?: string;
 }

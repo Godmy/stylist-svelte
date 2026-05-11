@@ -10,7 +10,11 @@ export function createProductSortState(props: ProductSortProps) {
 	const containerClasses = $derived(`flex items-center ${props.class ?? ''}`.trim());
 	const labelClasses = $derived(InputStyleManager.getInputLabelClasses('sm', false, 'mr-2'));
 	const selectClasses = $derived(
-		joinClassNames(InputStyleManager.getInputBaseClass(), 'w-auto rounded-lg p-2 text-sm', 'focus:ring-[var(--color-primary-500)]')
+		joinClassNames(
+			InputStyleManager.getInputBaseClass(),
+			'w-auto rounded-lg p-2 text-sm',
+			'focus:ring-[var(--color-primary-500)]'
+		)
 	);
 
 	return {
@@ -37,9 +41,3 @@ export function createProductSortState(props: ProductSortProps) {
 }
 
 export default createProductSortState;
-
-
-
-
-
-

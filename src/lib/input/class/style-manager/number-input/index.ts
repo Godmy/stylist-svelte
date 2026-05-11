@@ -18,10 +18,7 @@ export class NumberInputStyleManager {
 	}
 
 	static getNumberInputContainerClasses(className?: string): string {
-		return this.join([
-			'inline-flex items-center gap-0',
-			className
-		]);
+		return this.join(['inline-flex items-center gap-0', className]);
 	}
 
 	static getNumberInputButtonClasses(
@@ -34,22 +31,18 @@ export class NumberInputStyleManager {
 			'transition-colors hover:bg-[var(--color-background-tertiary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-500)]',
 			position === 'left' ? 'rounded-l-md rounded-r-none' : '',
 			position === 'right' ? 'rounded-r-md rounded-l-none' : '',
-			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : 'cursor-pointer',
+			disabled
+				? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none'
+				: 'cursor-pointer',
 			className
 		]);
 	}
 
 	static getNumberInputButtonIconClasses(className?: string): string {
-		return this.join([
-			'w-4 h-4',
-			className
-		]);
+		return this.join(['w-4 h-4', className]);
 	}
 
 	static getNumberInputWrapperClasses(className?: string): string {
-		return this.join([
-			'relative flex items-center',
-			className
-		]);
+		return this.join(['relative flex items-center', className]);
 	}
 }

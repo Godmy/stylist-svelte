@@ -1,6 +1,4 @@
-﻿import type {
-	ScatterPlotRecipe
-} from '$stylist/chart/interface/recipe/scatter-plot';
+﻿import type { ScatterPlotRecipe } from '$stylist/chart/interface/recipe/scatter-plot';
 import type { ScatterPlotDataPoint } from '$stylist/chart/type/struct/scatter-plot-point';
 import { ScatterPlotStyleManager } from '$stylist/chart/class/style-manager/scatter-plot';
 
@@ -37,4 +35,3 @@ export function createScatterPlotState(props: ScatterPlotRecipe) {
 }
 
 export default createScatterPlotState;
-

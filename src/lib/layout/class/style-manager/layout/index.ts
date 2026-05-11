@@ -130,12 +130,11 @@ export class LayoutStyleManager {
 	}
 
 	static getSpacerClasses(axis: TokenOrientation | 'both', className = ''): string {
-		const axisClass =
-			{
-				horizontal: 'w-[var(--spacer-size)]',
-				vertical: 'h-[var(--spacer-size)]',
-				both: 'w-[var(--spacer-size)] h-[var(--spacer-size)]'
-			}[axis];
+		const axisClass = {
+			horizontal: 'w-[var(--spacer-size)]',
+			vertical: 'h-[var(--spacer-size)]',
+			both: 'w-[var(--spacer-size)] h-[var(--spacer-size)]'
+		}[axis];
 		return `inline-block flex-shrink-0 ${axisClass} ${className}`.trim();
 	}
 
@@ -228,7 +227,13 @@ export class LayoutStyleManager {
 			alignItems,
 			justifyContent,
 			wrap,
-			classes: LayoutStyleManager.getHorizontalLayoutClasses(gap, alignItems, justifyContent, wrap, props.class ?? '')
+			classes: LayoutStyleManager.getHorizontalLayoutClasses(
+				gap,
+				alignItems,
+				justifyContent,
+				wrap,
+				props.class ?? ''
+			)
 		};
 	}
 
@@ -241,4 +246,3 @@ export class LayoutStyleManager {
 		};
 	}
 }
-

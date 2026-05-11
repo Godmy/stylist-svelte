@@ -9,10 +9,6 @@ import type { Snippet } from 'svelte';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface TableSectionRecipe
-	extends StructIntersectAll<[
-		ThemeAttributes<HTMLTableSectionElement>
-	]>
-{
+	extends StructIntersectAll<[ThemeAttributes<HTMLTableSectionElement>]> {
 	content?: Snippet;
 }
-

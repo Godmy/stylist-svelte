@@ -4,7 +4,9 @@
 	import OrbitTokenNode from './index.svelte';
 	import { L6_TOKEN_DEFINITIONS } from '../../molecule/orbit-control-definitions/index';
 
-	const controls: InterfaceControllerSettings[] = [{ name: 'opened', type: 'boolean', defaultValue: true }];
+	const controls: InterfaceControllerSettings[] = [
+		{ name: 'opened', type: 'boolean', defaultValue: true }
+	];
 </script>
 
 <Story
@@ -14,8 +16,12 @@
 	description="Token control node that opens a contextual editor inside the orbit shell."
 >
 	{#snippet children(values: any)}
-		<div class="relative h-72 overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_center,#dbeafe,#eff6ff_60%,#e2e8f0)]">
-			<div class="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-sky-200/80"></div>
+		<div
+			class="relative h-72 overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_center,#dbeafe,#eff6ff_60%,#e2e8f0)]"
+		>
+			<div
+				class="absolute top-1/2 left-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-sky-200/80"
+			></div>
 			<OrbitTokenNode
 				id="controls"
 				icon="controls"

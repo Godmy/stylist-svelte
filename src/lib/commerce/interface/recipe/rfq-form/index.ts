@@ -15,7 +15,9 @@ import type { BehaviorRfqFormEvents } from '$stylist/commerce/interface/behavior
 import type { SlotCaption } from '$stylist/typography/interface/slot/caption';
 import type { SlotLabel } from '$stylist/typography/interface/slot/label';
 
-export interface RecipeRfqForm extends StructIntersectAll<[ SlotLabel, SlotCaption, ThemeAttributes<HTMLDivElement> ]>, BehaviorRfqFormEvents {
+export interface RecipeRfqForm
+	extends StructIntersectAll<[SlotLabel, SlotCaption, ThemeAttributes<HTMLDivElement>]>,
+		BehaviorRfqFormEvents {
 	/** Form data */
 	formData?: SlotRfqFormData;
 	/** SlotCurrency code */

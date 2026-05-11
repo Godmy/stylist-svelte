@@ -3,9 +3,7 @@ import { INPUT_FIELD_PRESET } from '$stylist/input/preset/input';
 import { InputStyleManager } from '$stylist/input/class/style-manager/input';
 import type { InputTextStateOptions } from '$stylist/input/type/struct/input-text-state-options';
 
-export function createInputTextState(
-	props: InputTextStateOptions
-) {
+export function createInputTextState(props: InputTextStateOptions) {
 	const inputState = createBaseInputState(INPUT_FIELD_PRESET, props);
 	const hasError = $derived(!!props.error);
 	const errorId = $derived(props.id ? `${String(props.id)}-error` : undefined);
@@ -45,6 +43,3 @@ export function createInputTextState(
 }
 
 export default createInputTextState;
-
-
-

@@ -15,13 +15,28 @@
 <div class={state.wrapperClasses} {...state.restProps}>
 	<div class={state.headerClasses}>
 		<div class="flex items-center">
-			<Button variant="ghost" size="sm" class={state.navigationButtonClasses} onclick={() => state.navigateMonth(-1)}>
+			<Button
+				variant="ghost"
+				size="sm"
+				class={state.navigationButtonClasses}
+				onclick={() => state.navigateMonth(-1)}
+			>
 				<Icon name={ChevronLeft} class="h-5 w-5" />
 			</Button>
-			<Button variant="ghost" size="sm" class={state.todayButtonClasses} onclick={state.navigateToToday}>
+			<Button
+				variant="ghost"
+				size="sm"
+				class={state.todayButtonClasses}
+				onclick={state.navigateToToday}
+			>
 				Today
 			</Button>
-			<Button variant="ghost" size="sm" class={state.navigationButtonClasses} onclick={() => state.navigateMonth(1)}>
+			<Button
+				variant="ghost"
+				size="sm"
+				class={state.navigationButtonClasses}
+				onclick={() => state.navigateMonth(1)}
+			>
 				<Icon name={ChevronRight} class="h-5 w-5" />
 			</Button>
 			<h2 class="ml-4 text-xl font-bold text-[--color-text-primary]">{state.monthYear}</h2>
@@ -99,7 +114,7 @@
 						</button>
 					</div>
 
-					<div class="mt-1 space-y-1 max-h-20 overflow-y-auto">
+					<div class="mt-1 max-h-20 space-y-1 overflow-y-auto">
 						{#each day.events as event}
 							<div
 								class={`${state.getEventItemClasses(event.color)} ${state.eventClass}`}

@@ -75,8 +75,10 @@ export class CodeStyleManager {
 
 	static getDiffLineVariantClass(type: 'added' | 'removed' | 'unchanged'): string {
 		return {
-			added: 'border-l-4 border-[var(--color-success-500)] bg-[var(--color-success-50)] text-[var(--color-success-800)]',
-			removed: 'border-l-4 border-[var(--color-danger-500)] bg-[var(--color-danger-50)] text-[var(--color-danger-800)]',
+			added:
+				'border-l-4 border-[var(--color-success-500)] bg-[var(--color-success-50)] text-[var(--color-success-800)]',
+			removed:
+				'border-l-4 border-[var(--color-danger-500)] bg-[var(--color-danger-50)] text-[var(--color-danger-800)]',
 			unchanged: 'bg-[var(--color-background-primary)] text-[var(--color-text-secondary)]'
 		}[type];
 	}

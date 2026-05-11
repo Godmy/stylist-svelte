@@ -7,6 +7,3 @@ export function createFormHelperTextState(
 }
 
 export default createFormHelperTextState;
-
-
-

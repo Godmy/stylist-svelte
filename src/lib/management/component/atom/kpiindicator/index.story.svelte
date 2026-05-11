@@ -63,10 +63,10 @@
 >
 	{#snippet children(values: any)}
 		<div class="p-4">
-			<h1 class="text-lg font-semibold mb-4">KPIIndicator Component</h1>
+			<h1 class="mb-4 text-lg font-semibold">KPIIndicator Component</h1>
 
-			<div class="mb-6 p-4 border rounded">
-				<h2 class="text-md font-semibold mb-2">Default KPI Indicator</h2>
+			<div class="mb-6 rounded border p-4">
+				<h2 class="text-md mb-2 font-semibold">Default KPI Indicator</h2>
 				<KPIIndicator
 					label={values.label}
 					currentValue={parseInt(values.currentValue as string) || 750}
@@ -79,11 +79,11 @@
 				/>
 			</div>
 
-			<div class="mb-6 p-4 border rounded">
-				<h2 class="text-md font-semibold mb-2">Different Statuses</h2>
+			<div class="mb-6 rounded border p-4">
+				<h2 class="text-md mb-2 font-semibold">Different Statuses</h2>
 				<div class="flex flex-wrap gap-4">
 					<div>
-						<h3 class="text-sm font-medium mb-1">On Track</h3>
+						<h3 class="mb-1 text-sm font-medium">On Track</h3>
 						<KPIIndicator
 							label="Revenue"
 							currentValue={850}
@@ -96,7 +96,7 @@
 						/>
 					</div>
 					<div>
-						<h3 class="text-sm font-medium mb-1">At Risk</h3>
+						<h3 class="mb-1 text-sm font-medium">At Risk</h3>
 						<KPIIndicator
 							label="Users"
 							currentValue={250}
@@ -109,7 +109,7 @@
 						/>
 					</div>
 					<div>
-						<h3 class="text-sm font-medium mb-1">Exceeded</h3>
+						<h3 class="mb-1 text-sm font-medium">Exceeded</h3>
 						<KPIIndicator
 							label="Goals"
 							currentValue={1200}
@@ -124,20 +124,47 @@
 				</div>
 			</div>
 
-			<div class="mb-6 p-4 border rounded">
-				<h2 class="text-md font-semibold mb-2">Different Sizes</h2>
+			<div class="mb-6 rounded border p-4">
+				<h2 class="text-md mb-2 font-semibold">Different Sizes</h2>
 				<div class="flex items-end gap-6">
 					<div>
-						<h3 class="text-sm font-medium mb-1">Small</h3>
-						<KPIIndicator label="Small" currentValue={50} targetValue={100} unit="%" status="on-track" trend="up" trendValue={3} size="sm" />
+						<h3 class="mb-1 text-sm font-medium">Small</h3>
+						<KPIIndicator
+							label="Small"
+							currentValue={50}
+							targetValue={100}
+							unit="%"
+							status="on-track"
+							trend="up"
+							trendValue={3}
+							size="sm"
+						/>
 					</div>
 					<div>
-						<h3 class="text-sm font-medium mb-1">Medium</h3>
-						<KPIIndicator label="Medium" currentValue={50} targetValue={100} unit="%" status="on-track" trend="up" trendValue={3} size="md" />
+						<h3 class="mb-1 text-sm font-medium">Medium</h3>
+						<KPIIndicator
+							label="Medium"
+							currentValue={50}
+							targetValue={100}
+							unit="%"
+							status="on-track"
+							trend="up"
+							trendValue={3}
+							size="md"
+						/>
 					</div>
 					<div>
-						<h3 class="text-sm font-medium mb-1">Large</h3>
-						<KPIIndicator label="Large" currentValue={50} targetValue={100} unit="%" status="on-track" trend="up" trendValue={3} size="lg" />
+						<h3 class="mb-1 text-sm font-medium">Large</h3>
+						<KPIIndicator
+							label="Large"
+							currentValue={50}
+							targetValue={100}
+							unit="%"
+							status="on-track"
+							trend="up"
+							trendValue={3}
+							size="lg"
+						/>
 					</div>
 				</div>
 			</div>

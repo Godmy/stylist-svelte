@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist/media';
-const X = 'x';
+	const X = 'x';
 	import { createTagState } from '$stylist/control/function/state/tag';
 	import type { TagProps } from '$stylist/control/type/struct/tag-props';
 
@@ -54,8 +54,3 @@ const X = 'x';
 		</button>
 	{/if}
 </span>
-
-
-
-
-

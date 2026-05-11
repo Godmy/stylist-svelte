@@ -3,7 +3,9 @@ import { OntologyNodeComponentStyleManager } from '$stylist/science/class/style-
 
 export function createOntologyNodeComponentState(props: OntologyNodeComponentProps) {
 	const style = $derived(OntologyNodeComponentStyleManager.getNodeStyle(props.node.type));
-	const baseClasses = $derived(OntologyNodeComponentStyleManager.getBaseClasses(props.node.type, props.class ?? ''));
+	const baseClasses = $derived(
+		OntologyNodeComponentStyleManager.getBaseClasses(props.node.type, props.class ?? '')
+	);
 	const label = $derived(props.node.label || props.node.id);
 
 	return {

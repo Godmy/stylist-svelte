@@ -25,7 +25,12 @@
 	};
 </script>
 
-<Story {controls} component={Idef0Diagram} title="IDEF0Diagram" description="IDEF0 black-box diagram for inputs and outputs.">
+<Story
+	{controls}
+	component={Idef0Diagram}
+	title="IDEF0Diagram"
+	description="IDEF0 black-box diagram for inputs and outputs."
+>
 	{#snippet children(values: any)}
 		<Idef0Diagram
 			title={values.diagramTitle}
@@ -36,6 +41,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

@@ -1,44 +1,45 @@
 export class LegendItemStyleManager {
-  static getBaseClasses(): string {
-    return 'c-legend-item flex items-center p-2 rounded gap-2 transition-all duration-[var(--duration-200)] cursor-default';
-  }
+	static getBaseClasses(): string {
+		return 'c-legend-item flex items-center p-2 rounded gap-2 transition-all duration-[var(--duration-200)] cursor-default';
+	}
 
-  static getVariantClasses(variant: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' = 'default', active = false, clickable = false): string {
-    const variantClasses = {
-      'default': '',
-      'primary': '',
-      'secondary': '',
-      'success': '',
-      'warning': '',
-      'danger': ''
-    };
+	static getVariantClasses(
+		variant: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' = 'default',
+		active = false,
+		clickable = false
+	): string {
+		const variantClasses = {
+			default: '',
+			primary: '',
+			secondary: '',
+			success: '',
+			warning: '',
+			danger: ''
+		};
 
-    // Base classes for different states
-    let classes = variantClasses[variant];
+		// Base classes for different states
+		let classes = variantClasses[variant];
 
-    if (active) {
-      classes += ' bg-[--color-primary-50] border-l-4 border-[--color-primary-500]';
-    }
+		if (active) {
+			classes += ' bg-[--color-primary-50] border-l-4 border-[--color-primary-500]';
+		}
 
-    if (clickable) {
-      classes += ' cursor-pointer hover:bg-[--color-background-hover]';
-    }
+		if (clickable) {
+			classes += ' cursor-pointer hover:bg-[--color-background-hover]';
+		}
 
-    return classes.trim();
-  }
+		return classes.trim();
+	}
 
-  static getIconClasses(): string {
-    return 'legend-icon flex items-center justify-center';
-  }
+	static getIconClasses(): string {
+		return 'legend-icon flex items-center justify-center';
+	}
 
-  static getLabelClasses(): string {
-    return 'legend-label flex-grow text-sm text-[--color-text-primary]';
-  }
+	static getLabelClasses(): string {
+		return 'legend-label flex-grow text-sm text-[--color-text-primary]';
+	}
 
-  static getCountClasses(): string {
-    return 'legend-count text-xs text-[--color-text-secondary] bg-[--color-background-secondary] rounded-full px-2 py-0.5';
-  }
+	static getCountClasses(): string {
+		return 'legend-count text-xs text-[--color-text-secondary] bg-[--color-background-secondary] rounded-full px-2 py-0.5';
+	}
 }
-
-
-

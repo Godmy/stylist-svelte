@@ -56,7 +56,9 @@ export function createPlaygroundAiPanelState(props: PlaygroundAiPanelProps) {
 	const headerClass = $derived(PlaygroundAiPanelStyleManager.getHeaderClasses());
 	const providerHeaderClass = $derived(PlaygroundAiPanelStyleManager.getProviderHeaderClasses());
 	const optionItemClass = $derived(PlaygroundAiPanelStyleManager.getOptionItemClasses());
-	const selectedOptionItemClass = $derived(PlaygroundAiPanelStyleManager.getSelectedOptionItemClasses());
+	const selectedOptionItemClass = $derived(
+		PlaygroundAiPanelStyleManager.getSelectedOptionItemClasses()
+	);
 
 	function toggleProvider(providerId: string) {
 		const newExpanded = new Set(expandedProviders);
@@ -86,18 +88,42 @@ export function createPlaygroundAiPanelState(props: PlaygroundAiPanelProps) {
 	}
 
 	return {
-		get ChevronRight() { return ChevronRight; },
-		get ChevronDown() { return ChevronDown; },
-		get aiProviders() { return aiProviders; },
-		get expandedProviders() { return expandedProviders; },
-		get selectedProviderId() { return selectedProviderId; },
-		get onOptionSelect() { return onOptionSelect; },
-		get onStartChat() { return onStartChat; },
-		get containerClass() { return containerClass; },
-		get headerClass() { return headerClass; },
-		get providerHeaderClass() { return providerHeaderClass; },
-		get optionItemClass() { return optionItemClass; },
-		get selectedOptionItemClass() { return selectedOptionItemClass; },
+		get ChevronRight() {
+			return ChevronRight;
+		},
+		get ChevronDown() {
+			return ChevronDown;
+		},
+		get aiProviders() {
+			return aiProviders;
+		},
+		get expandedProviders() {
+			return expandedProviders;
+		},
+		get selectedProviderId() {
+			return selectedProviderId;
+		},
+		get onOptionSelect() {
+			return onOptionSelect;
+		},
+		get onStartChat() {
+			return onStartChat;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get headerClass() {
+			return headerClass;
+		},
+		get providerHeaderClass() {
+			return providerHeaderClass;
+		},
+		get optionItemClass() {
+			return optionItemClass;
+		},
+		get selectedOptionItemClass() {
+			return selectedOptionItemClass;
+		},
 		toggleProvider,
 		handleOptionClick,
 		isExpanded,

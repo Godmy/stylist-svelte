@@ -2,7 +2,9 @@ import { PricingTableStyleManager } from '$stylist/commerce/class/style-manager/
 import type { PricingTableProps } from '$stylist/commerce/interface/recipe/pricing-table-props';
 
 export function createPricingTableState(props: PricingTableProps) {
-	const containerClass = $derived(PricingTableStyleManager.getContainerClass(props.className ?? ''));
+	const containerClass = $derived(
+		PricingTableStyleManager.getContainerClass(props.className ?? '')
+	);
 	const popularBadgeClass = $derived(PricingTableStyleManager.getPopularBadgeClass());
 	const planTitleClass = $derived(PricingTableStyleManager.getPlanTitleClass());
 	const priceContainerClass = $derived(PricingTableStyleManager.getPriceContainerClass());
@@ -29,15 +31,33 @@ export function createPricingTableState(props: PricingTableProps) {
 	}
 
 	return {
-		get containerClass() { return containerClass; },
-		get popularBadgeClass() { return popularBadgeClass; },
-		get planTitleClass() { return planTitleClass; },
-		get priceContainerClass() { return priceContainerClass; },
-		get priceClass() { return priceClass; },
-		get periodClass() { return periodClass; },
-		get featuresListClass() { return featuresListClass; },
-		get featureItemClass() { return featureItemClass; },
-		get checkIconClass() { return checkIconClass; },
+		get containerClass() {
+			return containerClass;
+		},
+		get popularBadgeClass() {
+			return popularBadgeClass;
+		},
+		get planTitleClass() {
+			return planTitleClass;
+		},
+		get priceContainerClass() {
+			return priceContainerClass;
+		},
+		get priceClass() {
+			return priceClass;
+		},
+		get periodClass() {
+			return periodClass;
+		},
+		get featuresListClass() {
+			return featuresListClass;
+		},
+		get featureItemClass() {
+			return featureItemClass;
+		},
+		get checkIconClass() {
+			return checkIconClass;
+		},
 		getPlanCardClass,
 		getCtaButtonClass
 	};

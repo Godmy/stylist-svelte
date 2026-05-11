@@ -20,5 +20,3 @@
 	role={state.decorative ? 'presentation' : 'separator'}
 	{...restProps}
 />
-
-

@@ -7,7 +7,9 @@ export function createIdef0PortLabelState(props: Idef0PortLabelProps) {
 	);
 
 	return {
-		get classes() { return classes; }
+		get classes() {
+			return classes;
+		}
 	};
 }
 

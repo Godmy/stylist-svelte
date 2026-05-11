@@ -15,11 +15,13 @@
 	];
 </script>
 
-<Story component={GeneralToolbar} title="GeneralToolbar" description="Compact action strip for canvas and editors." {controls}>
+<Story
+	component={GeneralToolbar}
+	title="GeneralToolbar"
+	description="Compact action strip for canvas and editors."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<GeneralToolbar toolbarItems={toolbarItems} compact={values.compact} disabled={values.disabled} />
+		<GeneralToolbar {toolbarItems} compact={values.compact} disabled={values.disabled} />
 	{/snippet}
 </Story>
-
-
-

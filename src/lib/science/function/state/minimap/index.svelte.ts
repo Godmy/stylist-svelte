@@ -51,9 +51,7 @@ export function createMinimapState(props: MinimapProps) {
 		return rest;
 	});
 	const bounds = $derived(resolveMinimapBounds(nodes));
-	const viewport = $derived(
-		resolveMinimapViewport(offset, zoom, width, height, miniMapZoom)
-	);
+	const viewport = $derived(resolveMinimapViewport(offset, zoom, width, height, miniMapZoom));
 
 	function handleMapClick(event: MouseEvent): void {
 		if (!props.onOffsetChange) return;

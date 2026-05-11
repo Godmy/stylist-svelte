@@ -1,5 +1,9 @@
 import { untrack } from 'svelte';
-import type { RoutePlannerLocation, RouteOption, RoutePlannerProps } from '$stylist/geo/type/struct/route-planner';
+import type {
+	RoutePlannerLocation,
+	RouteOption,
+	RoutePlannerProps
+} from '$stylist/geo/type/struct/route-planner';
 import type { RoutePlannerStateProps } from '$stylist/geo/interface/recipe/route-planner';
 
 export function createRoutePlannerState(props: RoutePlannerStateProps) {
@@ -17,7 +21,9 @@ export function createRoutePlannerState(props: RoutePlannerStateProps) {
 	const height = $derived(props.height ?? '500px');
 	const width = $derived(props.width ?? '100%');
 
-	let selectedStartLocation: RoutePlannerLocation | null = $state(untrack(() => startLocation || null));
+	let selectedStartLocation: RoutePlannerLocation | null = $state(
+		untrack(() => startLocation || null)
+	);
 	let selectedEndLocation: RoutePlannerLocation | null = $state(untrack(() => endLocation || null));
 	let selectedWaypoints = $state<RoutePlannerLocation[]>(untrack(() => waypoints));
 	let selectedTravelMode = $state<'driving' | 'walking' | 'cycling' | 'transit'>('driving');
@@ -91,7 +97,7 @@ export function createRoutePlannerState(props: RoutePlannerStateProps) {
 	function handleRouteSelect(routeId: string): void {
 		selectedRouteId = routeId;
 		props.onRouteSelect?.(routeId);
-		const route = routeOptions.find(r => r.id === routeId);
+		const route = routeOptions.find((r) => r.id === routeId);
 		if (route) {
 			props.onRouteCalculated?.(route);
 		}
@@ -144,27 +150,69 @@ export function createRoutePlannerState(props: RoutePlannerStateProps) {
 	});
 
 	return {
-		get startLocation() { return startLocation; },
-		get endLocation() { return endLocation; },
-		get waypoints() { return waypoints; },
-		get routeOptions() { return routeOptions; },
-		get selectedRoute() { return selectedRoute; },
-		get showSearch() { return showSearch; },
-		get showRouteOptions() { return showRouteOptions; },
-		get showDirections() { return showDirections; },
-		get showMap() { return showMap; },
-		get showTravelMode() { return showTravelMode; },
-		get travelModes() { return travelModes; },
-		get height() { return height; },
-		get width() { return width; },
-		get selectedStartLocation() { return selectedStartLocation; },
-		get selectedEndLocation() { return selectedEndLocation; },
-		get selectedWaypoints() { return selectedWaypoints; },
-		get selectedTravelMode() { return selectedTravelMode; },
-		get searchQuery() { return searchQuery; },
-		get localShowMap() { return localShowMap; },
-		get selectedRouteId() { return selectedRouteId; },
-		get restProps() { return restProps; },
+		get startLocation() {
+			return startLocation;
+		},
+		get endLocation() {
+			return endLocation;
+		},
+		get waypoints() {
+			return waypoints;
+		},
+		get routeOptions() {
+			return routeOptions;
+		},
+		get selectedRoute() {
+			return selectedRoute;
+		},
+		get showSearch() {
+			return showSearch;
+		},
+		get showRouteOptions() {
+			return showRouteOptions;
+		},
+		get showDirections() {
+			return showDirections;
+		},
+		get showMap() {
+			return showMap;
+		},
+		get showTravelMode() {
+			return showTravelMode;
+		},
+		get travelModes() {
+			return travelModes;
+		},
+		get height() {
+			return height;
+		},
+		get width() {
+			return width;
+		},
+		get selectedStartLocation() {
+			return selectedStartLocation;
+		},
+		get selectedEndLocation() {
+			return selectedEndLocation;
+		},
+		get selectedWaypoints() {
+			return selectedWaypoints;
+		},
+		get selectedTravelMode() {
+			return selectedTravelMode;
+		},
+		get searchQuery() {
+			return searchQuery;
+		},
+		get localShowMap() {
+			return localShowMap;
+		},
+		get selectedRouteId() {
+			return selectedRouteId;
+		},
+		get restProps() {
+			return restProps;
+		},
 		handleZoomIn,
 		handleZoomOut,
 		handleResetView,
@@ -176,13 +224,27 @@ export function createRoutePlannerState(props: RoutePlannerStateProps) {
 		handleRouteSelect,
 		handleModeChange,
 		calculateRoute,
-		set selectedStartLocation(value: RoutePlannerLocation | null) { selectedStartLocation = value; },
-		set selectedEndLocation(value: RoutePlannerLocation | null) { selectedEndLocation = value; },
-		set selectedWaypoints(value: RoutePlannerLocation[]) { selectedWaypoints = value; },
-		set selectedTravelMode(value: 'driving' | 'walking' | 'cycling' | 'transit') { selectedTravelMode = value; },
-		set searchQuery(value: string) { searchQuery = value; },
-		set localShowMap(value: boolean) { localShowMap = value; },
-		set selectedRouteId(value: string) { selectedRouteId = value; }
+		set selectedStartLocation(value: RoutePlannerLocation | null) {
+			selectedStartLocation = value;
+		},
+		set selectedEndLocation(value: RoutePlannerLocation | null) {
+			selectedEndLocation = value;
+		},
+		set selectedWaypoints(value: RoutePlannerLocation[]) {
+			selectedWaypoints = value;
+		},
+		set selectedTravelMode(value: 'driving' | 'walking' | 'cycling' | 'transit') {
+			selectedTravelMode = value;
+		},
+		set searchQuery(value: string) {
+			searchQuery = value;
+		},
+		set localShowMap(value: boolean) {
+			localShowMap = value;
+		},
+		set selectedRouteId(value: string) {
+			selectedRouteId = value;
+		}
 	};
 }
 

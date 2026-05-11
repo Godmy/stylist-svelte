@@ -4,29 +4,27 @@
  * Uses CSS variables from the theme system
  */
 export class ReactionPickerStyleManager {
-  static getBaseClasses(className: string): string {
-    const baseClasses = 'reaction-picker-base flex space-x-2 p-2 border rounded-lg';
+	static getBaseClasses(className: string): string {
+		const baseClasses = 'reaction-picker-base flex space-x-2 p-2 border rounded-lg';
 
-    return `${baseClasses} ${className}`;
-  }
+		return `${baseClasses} ${className}`;
+	}
 
-  static getReactionClasses(): string {
-    return 'reaction-item text-xl cursor-pointer hover:bg-[--color-background-hover] rounded-full p-2 transition-colors';
-  }
+	static getReactionClasses(): string {
+		return 'reaction-item text-xl cursor-pointer hover:bg-[--color-background-hover] rounded-full p-2 transition-colors';
+	}
 
-  static getSelectedClass(isSelected: boolean): string {
-    return isSelected ? 'reaction-selected bg-[--color-info-100] border border-[--color-info-300]' : '';
-  }
+	static getSelectedClass(isSelected: boolean): string {
+		return isSelected
+			? 'reaction-selected bg-[--color-info-100] border border-[--color-info-300]'
+			: '';
+	}
 
-  static getAllClasses(className: string, isSelected: boolean): string {
-    const baseClasses = this.getBaseClasses(className);
-    const reactionClasses = this.getReactionClasses();
-    const selectedClass = this.getSelectedClass(isSelected);
+	static getAllClasses(className: string, isSelected: boolean): string {
+		const baseClasses = this.getBaseClasses(className);
+		const reactionClasses = this.getReactionClasses();
+		const selectedClass = this.getSelectedClass(isSelected);
 
-    return `${baseClasses} ${reactionClasses} ${selectedClass}`;
-  }
+		return `${baseClasses} ${reactionClasses} ${selectedClass}`;
+	}
 }
-
-
-
-

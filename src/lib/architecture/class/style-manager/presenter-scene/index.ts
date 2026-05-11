@@ -53,4 +53,3 @@ export class PresenterSceneStyleManager {
 		return 'presenter-scene__description';
 	}
 }
-

@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media'; const Copy = 'copy'; const Check = 'check';
-import type { SlotCopyButton as CopyButtonProps } from '$stylist/control/interface/slot/copy-button';
-import { createCopyButtonState } from '$stylist/control/function/state/copy-button';
+	import { Icon as BaseIcon } from '$stylist/media';
+	const Copy = 'copy';
+	const Check = 'check';
+	import type { SlotCopyButton as CopyButtonProps } from '$stylist/control/interface/slot/copy-button';
+	import { createCopyButtonState } from '$stylist/control/function/state/copy-button';
 
 	let props: CopyButtonProps = $props();
 	const state = createCopyButtonState(props);
@@ -27,7 +29,6 @@ import { createCopyButtonState } from '$stylist/control/function/state/copy-butt
 		} = props;
 		return restProps;
 	});
-
 </script>
 
 <button
@@ -49,19 +50,3 @@ import { createCopyButtonState } from '$stylist/control/function/state/copy-butt
 	{/if}
 	<span class="ml-2">{state.copied ? 'Copied!' : (props.label ?? 'Copy')}</span>
 </button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

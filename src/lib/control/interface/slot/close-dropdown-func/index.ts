@@ -7,5 +7,5 @@ import type { Snippet } from 'svelte';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 
 export interface SlotCloseDropdownFunc {
-  closeDropdown: () => void;
+	closeDropdown: () => void;
 }

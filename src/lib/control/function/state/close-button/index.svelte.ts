@@ -8,14 +8,10 @@ import { resolveAriaLabel } from '$stylist/information/function/script/resolve-a
 type CloseButtonProps = ButtonElementProps & HTMLButtonAttributes;
 
 export function createCloseButtonState(props: CloseButtonProps) {
-	const preset = createBasePreset(
-		InteractionStyleManager.getInteractiveVariants(),
-		TOKEN_SIZE,
-		{
-			variant: 'ghost',
-			size: 'sm'
-		}
-	);
+	const preset = createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
+		variant: 'ghost',
+		size: 'sm'
+	});
 
 	const variant = $derived((props.variant ?? preset.defaults.variant) as string);
 	const size = $derived((props.size ?? preset.defaults.size) as string);
@@ -36,11 +32,13 @@ export function createCloseButtonState(props: CloseButtonProps) {
 
 	const loaderClasses = $derived('animate-spin w-4 h-4');
 
-	const ariaLabel = $derived(resolveAriaLabel(
-		typeof props.ariaLabel === 'string' ? props.ariaLabel : undefined,
-		props as Record<string, unknown>,
-		'Close'
-	));
+	const ariaLabel = $derived(
+		resolveAriaLabel(
+			typeof props.ariaLabel === 'string' ? props.ariaLabel : undefined,
+			props as Record<string, unknown>,
+			'Close'
+		)
+	);
 
 	const attrs = $derived({
 		'aria-busy': typeof loading === 'boolean' ? loading : undefined,

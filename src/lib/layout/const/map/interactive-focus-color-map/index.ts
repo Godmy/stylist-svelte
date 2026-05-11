@@ -4,4 +4,3 @@ export const INTERACTIVE_FOCUS_COLOR_MAP = {
 	error: 'focus-visible:ring-[--color-error-500]',
 	success: 'focus-visible:ring-[--color-success-500]'
 } as const;
-

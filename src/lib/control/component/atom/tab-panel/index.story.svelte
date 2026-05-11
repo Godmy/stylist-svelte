@@ -9,12 +9,22 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'selectedId', type: 'select', defaultValue: 'docs', options: ['docs', 'api', 'faq'] },
-		{ name: 'panelsClass', type: 'text', defaultValue: 'rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-4' },
+		{
+			name: 'panelsClass',
+			type: 'text',
+			defaultValue:
+				'rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-4'
+		},
 		{ name: 'disabledApi', type: 'boolean', defaultValue: false }
 	];
 </script>
 
-<Story component={TabPanel} title="TabPanel" description="Panel shown only for the active tab id." {controls}>
+<Story
+	component={TabPanel}
+	title="TabPanel"
+	description="Panel shown only for the active tab id."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<Tabs selectedId={values.selectedId}>
 			<TabList class="mb-3">
@@ -30,6 +40,3 @@
 		</Tabs>
 	{/snippet}
 </Story>
-
-
-

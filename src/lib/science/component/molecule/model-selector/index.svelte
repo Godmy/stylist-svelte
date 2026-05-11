@@ -8,15 +8,13 @@
 </script>
 
 <div class={state.containerClass} {...state.restProps}>
-	<button
-		type="button"
-		class={state.dropdownButtonClass}
-		onclick={state.toggleOpen}
-	>
+	<button type="button" class={state.dropdownButtonClass} onclick={state.toggleOpen}>
 		<div class={state.modelInfoContainerClass}>
 			{#if state.selectedModelValue}
 				<span class={state.selectedModelNameClass}>{state.selectedModelValue.name}</span>
-				<span class={state.selectedModelDescriptionClass}>{state.selectedModelValue.description}</span>
+				<span class={state.selectedModelDescriptionClass}
+					>{state.selectedModelValue.description}</span
+				>
 			{:else}
 				<span class={state.placeholderClass}>{state.placeholder}</span>
 			{/if}
@@ -30,7 +28,8 @@
 				<div
 					class={state.getModelItemClass(state.selectedModelValue?.id === model.id)}
 					onclick={() => state.selectModel(model)}
-					onkeydown={(event) => event.key === 'Enter' || event.key === ' ' ? state.selectModel(model) : null}
+					onkeydown={(event) =>
+						event.key === 'Enter' || event.key === ' ' ? state.selectModel(model) : null}
 					role="button"
 					tabindex="0"
 				>
@@ -47,7 +46,9 @@
 									<span class={state.capabilityTagClass}>{capability}</span>
 								{/each}
 								{#if model.capabilities.length > 3}
-									<span class={state.moreCapabilitiesTagClass}>+{model.capabilities.length - 3} more</span>
+									<span class={state.moreCapabilitiesTagClass}
+										>+{model.capabilities.length - 3} more</span
+									>
 								{/if}
 							</div>
 						{/if}

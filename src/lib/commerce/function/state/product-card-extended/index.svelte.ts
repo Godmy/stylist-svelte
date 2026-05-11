@@ -12,12 +12,16 @@ export function createProductCardExtendedState(props: Props) {
 		`bg-[var(--color-background-primary)] rounded-lg shadow-md overflow-hidden ${props.class ?? ''}`
 	);
 	const badgeClass = $derived(
-		badgeStyles[(props.badge as keyof typeof badgeStyles)] ?? badgeStyles.default
+		badgeStyles[props.badge as keyof typeof badgeStyles] ?? badgeStyles.default
 	);
 
 	return {
-		get containerClass() { return containerClass; },
-		get badgeClass() { return badgeClass; }
+		get containerClass() {
+			return containerClass;
+		},
+		get badgeClass() {
+			return badgeClass;
+		}
 	};
 }
 

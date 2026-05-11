@@ -6,7 +6,12 @@
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'variant', type: 'select', defaultValue: 'icon', options: ['icon', 'svg', 'css'] },
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['xs', 'sm', 'md', 'lg', 'xl'] },
-		{ name: 'color', type: 'select', defaultValue: 'blue', options: ['blue', 'gray', 'green', 'red', 'yellow', 'white'] },
+		{
+			name: 'color',
+			type: 'select',
+			defaultValue: 'blue',
+			options: ['blue', 'gray', 'green', 'red', 'yellow', 'white']
+		},
 		{ name: 'showLabel', type: 'boolean', defaultValue: true },
 		{ name: 'label', type: 'text', defaultValue: 'Loading...' }
 	];
@@ -31,6 +36,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

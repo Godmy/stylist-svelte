@@ -18,7 +18,9 @@
 	description="Seed button that toggles the orbit panel between closed and opened states."
 >
 	{#snippet children(values: any)}
-		<div class="relative h-48 overflow-hidden rounded-3xl bg-[linear-gradient(135deg,#0f172a,#1e3a8a)] p-8">
+		<div
+			class="relative h-48 overflow-hidden rounded-3xl bg-[linear-gradient(135deg,#0f172a,#1e3a8a)] p-8"
+		>
 			<OpenIcon
 				orbitOpen={Boolean(values.orbitOpen)}
 				dragging={Boolean(values.dragging)}

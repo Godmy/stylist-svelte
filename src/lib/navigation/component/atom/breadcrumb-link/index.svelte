@@ -6,10 +6,10 @@
 
 	type BreadcrumbLinkProps = BreadcrumbLinkRecipe &
 		InteractionHTMLAttributes<HTMLAnchorElement> & {
-		current?: boolean;
-		href?: string;
-		children?: Snippet;
-		class?: string;
+			current?: boolean;
+			href?: string;
+			children?: Snippet;
+			class?: string;
 		};
 
 	let linkProps: BreadcrumbLinkProps = $props();

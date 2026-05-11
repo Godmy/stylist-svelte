@@ -5,12 +5,21 @@ import { PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES } from '$stylist/m
 
 export class PerformanceDashboardStyleManager {
 	static getContainerClass(variant: string, size: string, className?: string): string {
-		const sizeClasses = PERFORMANCE_DASHBOARD_SIZE_CLASSES[size as keyof typeof PERFORMANCE_DASHBOARD_SIZE_CLASSES] || PERFORMANCE_DASHBOARD_SIZE_CLASSES[DEFAULT_PERFORMANCE_DASHBOARD_SIZE];
-		return mergeClassNames('bg-[--color-background-primary] rounded-lg shadow border border-[--color-border-primary] overflow-hidden', sizeClasses, className);
+		const sizeClasses =
+			PERFORMANCE_DASHBOARD_SIZE_CLASSES[size as keyof typeof PERFORMANCE_DASHBOARD_SIZE_CLASSES] ||
+			PERFORMANCE_DASHBOARD_SIZE_CLASSES[DEFAULT_PERFORMANCE_DASHBOARD_SIZE];
+		return mergeClassNames(
+			'bg-[--color-background-primary] rounded-lg shadow border border-[--color-border-primary] overflow-hidden',
+			sizeClasses,
+			className
+		);
 	}
 
 	static getHeaderClass(className?: string): string {
-		return mergeClassNames('flex justify-between items-center p-4 border-b border-[--color-border-primary]', className);
+		return mergeClassNames(
+			'flex justify-between items-center p-4 border-b border-[--color-border-primary]',
+			className
+		);
 	}
 
 	static getTimeRangeButtonClass(): string {
@@ -18,7 +27,10 @@ export class PerformanceDashboardStyleManager {
 	}
 
 	static getActiveTimeRangeButtonClass(): string {
-		return mergeClassNames(PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES, 'bg-[--color-primary-500] text-[--color-text-inverse] border-[--color-primary-500]');
+		return mergeClassNames(
+			PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES,
+			'bg-[--color-primary-500] text-[--color-text-inverse] border-[--color-primary-500]'
+		);
 	}
 
 	static getMetricsGridClass(className?: string): string {
@@ -26,7 +38,10 @@ export class PerformanceDashboardStyleManager {
 	}
 
 	static getMetricCardClass(className?: string): string {
-		return mergeClassNames('bg-[--color-background-primary] rounded-lg border border-[--color-border-primary] p-4', className);
+		return mergeClassNames(
+			'bg-[--color-background-primary] rounded-lg border border-[--color-border-primary] p-4',
+			className
+		);
 	}
 
 	static getMetricHeaderClass(): string {
@@ -110,7 +125,3 @@ export class PerformanceDashboardStyleManager {
 		return PerformanceDashboardStyleManager.getChartBarClass();
 	}
 }
-
-
-
-

@@ -5,7 +5,7 @@
 import type { HTMLSelectAttributes } from 'svelte/elements';
 
 export interface SlotSelectStyleClasses {
-  select: string;
-  label: string;
-  error: string;
+	select: string;
+	label: string;
+	error: string;
 }

@@ -19,14 +19,22 @@
 	];
 </script>
 
-<Story component={SearchSuggestion} title="SearchSuggestion" description="Suggestion list for typeahead and search UX." {controls}>
+<Story
+	component={SearchSuggestion}
+	title="SearchSuggestion"
+	description="Suggestion list for typeahead and search UX."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<div class="max-w-md space-y-2">
-			<SearchSuggestion suggestions={suggestions} query={values.query} loading={values.loading} maxSuggestions={values.maxSuggestions} onValueChange={(item) => (picked = item.text)} />
+			<SearchSuggestion
+				{suggestions}
+				query={values.query}
+				loading={values.loading}
+				maxSuggestions={values.maxSuggestions}
+				onValueChange={(item) => (picked = item.text)}
+			/>
 			<p class="text-sm text-[--color-text-secondary]">Picked: {picked || 'none'}</p>
 		</div>
 	{/snippet}
 </Story>
-
-
-

@@ -54,8 +54,12 @@ export function createSceneState(props: SceneProps) {
 	const title = $derived(props.title ?? DEFAULT_SCENE_TITLE);
 	const rotateHint = $derived(props.rotateHint ?? DEFAULT_SCENE_ROTATE_HINT);
 	const zoomHint = $derived(props.zoomHint ?? DEFAULT_SCENE_ZOOM_HINT);
-	const containerClass = $derived(SceneStyleManager.getContainerClass(props.class?.toString() ?? ''));
-	const canvasClass = $derived(SceneStyleManager.getCanvasClass(props.canvasClass?.toString() ?? ''));
+	const containerClass = $derived(
+		SceneStyleManager.getContainerClass(props.class?.toString() ?? '')
+	);
+	const canvasClass = $derived(
+		SceneStyleManager.getCanvasClass(props.canvasClass?.toString() ?? '')
+	);
 	const overlayClass = $derived(
 		SceneStyleManager.getOverlayClass(props.overlayClass?.toString() ?? '')
 	);

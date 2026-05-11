@@ -2,10 +2,6 @@ import type { TokenMessageStatus } from '$stylist/chat/type/enum/message-status'
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
-
-
-
-
 export class ChatStyleManager {
 	static getListContainerClasses(className = ''): string {
 		return mergeClassNames(
@@ -124,8 +120,7 @@ export class ChatStyleManager {
 	}
 
 	static getPresenceIndicatorClasses(size: 'sm' | 'md' | 'lg', status: string): string {
-		const sizeClass =
-			size === 'lg' ? 'h-3 w-3' : size === 'md' ? 'h-2.5 w-2.5' : 'h-2 w-2';
+		const sizeClass = size === 'lg' ? 'h-3 w-3' : size === 'md' ? 'h-2.5 w-2.5' : 'h-2 w-2';
 		const statusClass =
 			status === 'online'
 				? 'bg-emerald-500'
@@ -160,36 +155,50 @@ export class ChatStyleManager {
 			isOwn
 				? 'rounded-br-none bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]'
 				: ({
-					default: 'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-bl-none',
-					primary: 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)] rounded-bl-none',
-					secondary: 'bg-[var(--color-neutral-200)] text-[var(--color-text-primary)] rounded-bl-none',
-					success: 'bg-[var(--color-success-100)] text-[var(--color-success-800)] rounded-bl-none',
-					warning: 'bg-[var(--color-warning-100)] text-[var(--color-warning-800)] rounded-bl-none',
-					danger: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)] rounded-bl-none',
-					info: 'bg-[var(--color-info-100)] text-[var(--color-info-800)] rounded-bl-none',
-					neutral: 'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-bl-none',
-					solid: 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded-bl-none',
-					outline: 'bg-transparent border border-[var(--color-border-primary)] rounded-bl-none',
-					ghost: 'bg-transparent rounded-bl-none',
-					link: 'bg-transparent underline rounded-bl-none',
-					subtle: 'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)] rounded-bl-none',
-					gray: 'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-bl-none',
-					error: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)] rounded-bl-none',
-					dark: 'bg-[var(--color-neutral-900)] text-[var(--color-text-inverse)] rounded-bl-none',
-					light: 'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)] rounded-bl-none',
-					elevated: 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] rounded-bl-none shadow-sm',
-					flat: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] rounded-bl-none'
-				}[variant] ?? 'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-bl-none'),
+						default:
+							'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-bl-none',
+						primary:
+							'bg-[var(--color-primary-100)] text-[var(--color-primary-800)] rounded-bl-none',
+						secondary:
+							'bg-[var(--color-neutral-200)] text-[var(--color-text-primary)] rounded-bl-none',
+						success:
+							'bg-[var(--color-success-100)] text-[var(--color-success-800)] rounded-bl-none',
+						warning:
+							'bg-[var(--color-warning-100)] text-[var(--color-warning-800)] rounded-bl-none',
+						danger: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)] rounded-bl-none',
+						info: 'bg-[var(--color-info-100)] text-[var(--color-info-800)] rounded-bl-none',
+						neutral:
+							'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-bl-none',
+						solid: 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded-bl-none',
+						outline: 'bg-transparent border border-[var(--color-border-primary)] rounded-bl-none',
+						ghost: 'bg-transparent rounded-bl-none',
+						link: 'bg-transparent underline rounded-bl-none',
+						subtle: 'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)] rounded-bl-none',
+						gray: 'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-bl-none',
+						error: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)] rounded-bl-none',
+						dark: 'bg-[var(--color-neutral-900)] text-[var(--color-text-inverse)] rounded-bl-none',
+						light: 'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)] rounded-bl-none',
+						elevated:
+							'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] rounded-bl-none shadow-sm',
+						flat: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] rounded-bl-none'
+					}[variant] ??
+						'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-bl-none'),
 			className
 		);
 	}
 
 	static getChatMessageHeaderClasses(className = ''): string {
-		return mergeClassNames('mb-1 flex items-center text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-secondary)]', className);
+		return mergeClassNames(
+			'mb-1 flex items-center text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-secondary)]',
+			className
+		);
 	}
 
 	static getChatMessageFooterClasses(className = ''): string {
-		return mergeClassNames('mt-1 flex items-center justify-end text-[11px] text-[var(--color-text-tertiary)]', className);
+		return mergeClassNames(
+			'mt-1 flex items-center justify-end text-[11px] text-[var(--color-text-tertiary)]',
+			className
+		);
 	}
 
 	static getMessageStatusTypeIconClasses(status: TokenMessageStatus): string {
@@ -201,11 +210,3 @@ export class ChatStyleManager {
 		}[status];
 	}
 }
-
-
-
-
-
-
-
-

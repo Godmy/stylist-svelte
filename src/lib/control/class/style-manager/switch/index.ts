@@ -16,7 +16,9 @@ export class SwitchStyleManager {
 		return this.join([
 			'pointer-events-none block rounded-full bg-[var(--color-background-primary)] shadow-lg ring-0 transition-transform',
 			this.getSwitchThumbSizeClass(size),
-			checked ? SWITCH_THUMB_TRANSLATE_CLASSES[size] ?? SWITCH_THUMB_TRANSLATE_CLASSES.md : 'translate-x-0.5'
+			checked
+				? (SWITCH_THUMB_TRANSLATE_CLASSES[size] ?? SWITCH_THUMB_TRANSLATE_CLASSES.md)
+				: 'translate-x-0.5'
 		]);
 	}
 
@@ -44,10 +46,7 @@ export class SwitchStyleManager {
 	}
 
 	static getSwitchContainerClasses(className?: string): string {
-		return this.join([
-			'inline-flex items-center',
-			className
-		]);
+		return this.join(['inline-flex items-center', className]);
 	}
 
 	static getSwitchLabelClasses(disabled = false, className?: string): string {

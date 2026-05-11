@@ -28,17 +28,17 @@
 						<button
 							class={state.quantityButtonClasses}
 							onclick={() => props.onQuantityChange?.(item.id, Math.max(1, item.quantity - 1))}
-						>-</button>
+							>-</button
+						>
 						<span class={state.quantityInputClasses}>{item.quantity}</span>
 						<button
 							class={state.quantityButtonClasses}
-							onclick={() => props.onQuantityChange?.(item.id, item.quantity + 1)}
-						>+</button>
+							onclick={() => props.onQuantityChange?.(item.id, item.quantity + 1)}>+</button
+						>
 					</div>
-					<button
-						class={state.removeButtonClasses}
-						onclick={() => props.onItemRemove?.(item.id)}
-					>&times;</button>
+					<button class={state.removeButtonClasses} onclick={() => props.onItemRemove?.(item.id)}
+						>&times;</button
+					>
 				</li>
 			{/each}
 		</ul>
@@ -55,7 +55,9 @@
 		{#if props.showDiscounts !== false && (props.discountAmount ?? 0) > 0}
 			<div class={state.summaryRowClasses}>
 				<span class={state.summaryLabelClasses}>Discount</span>
-				<span class={state.discountBadgeClasses}>-{state.formatPrice(props.discountAmount ?? 0)}</span>
+				<span class={state.discountBadgeClasses}
+					>-{state.formatPrice(props.discountAmount ?? 0)}</span
+				>
 			</div>
 		{/if}
 
@@ -79,26 +81,26 @@
 		</div>
 
 		{#if props.showPromoCode}
-			<div class="flex gap-2 mt-4">
+			<div class="mt-4 flex gap-2">
 				<input
 					type="text"
 					placeholder="Promo code"
 					value={state.promoCode}
-					oninput={(e) => { state.promoCode = (e.target as HTMLInputElement).value; }}
+					oninput={(e) => {
+						state.promoCode = (e.target as HTMLInputElement).value;
+					}}
 					class={state.promoCodeInputClasses}
 				/>
-				<button
-					onclick={state.handleApplyPromo}
-					class={state.promoCodeButtonClasses}
-				>Apply</button>
+				<button onclick={state.handleApplyPromo} class={state.promoCodeButtonClasses}>Apply</button>
 			</div>
 		{/if}
 
 		{#if props.onCheckout}
 			<button
 				onclick={props.onCheckout}
-				class="w-full mt-4 px-4 py-2 bg-[--color-primary-600] text-white rounded font-medium"
-			>Proceed to Checkout</button>
+				class="mt-4 w-full rounded bg-[--color-primary-600] px-4 py-2 font-medium text-white"
+				>Proceed to Checkout</button
+			>
 		{/if}
 	</div>
 </div>

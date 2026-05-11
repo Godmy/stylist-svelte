@@ -5,4 +5,3 @@ export class AbbrStyleManager {
 		return mergeClassNames('abbr', className);
 	}
 }
-

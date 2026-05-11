@@ -4,4 +4,3 @@ export const GRID_MOLECULE_ALIGN_MAP = {
 	end: 'items-end',
 	stretch: 'items-stretch'
 } as const;
-

@@ -3,7 +3,11 @@ import { CodeStyleManager } from '$stylist/development/class/style-manager/code-
 
 export class CodeWithLineNumbersStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return mergeClassNames('c-code-block-with-line-numbers', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
+		return mergeClassNames(
+			'c-code-block-with-line-numbers',
+			CodeStyleManager.getSurfaceBaseClasses(),
+			extraClasses
+		);
 	}
 
 	static getMainContentClass(): string {
@@ -19,7 +23,10 @@ export class CodeWithLineNumbersStyleManager {
 	}
 
 	static getLineNumberItemClass(isHighlighted: boolean): string {
-		return mergeClassNames('pl-2 pr-3', isHighlighted ? CodeStyleManager.getLineNumberHighlightClass() : '');
+		return mergeClassNames(
+			'pl-2 pr-3',
+			isHighlighted ? CodeStyleManager.getLineNumberHighlightClass() : ''
+		);
 	}
 
 	static getContentContainerClass(extraClasses = ''): string {
@@ -27,7 +34,11 @@ export class CodeWithLineNumbersStyleManager {
 	}
 
 	static getPreClass(extraClasses = ''): string {
-		return mergeClassNames(CodeStyleManager.getPreBaseClasses(), 'max-w-full overflow-x-auto', extraClasses);
+		return mergeClassNames(
+			CodeStyleManager.getPreBaseClasses(),
+			'max-w-full overflow-x-auto',
+			extraClasses
+		);
 	}
 
 	static getCopyButtonContainerClass(): string {
@@ -38,6 +49,3 @@ export class CodeWithLineNumbersStyleManager {
 		return CodeStyleManager.getIconBaseClasses();
 	}
 }
-
-
-

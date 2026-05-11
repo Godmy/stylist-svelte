@@ -5,8 +5,8 @@
 import type { Snippet } from 'svelte';
 
 export interface SlotMessageMetaStyleClasses {
-  base: string;
-  timestamp: string;
-  sender: string;
-  status: string;
+	base: string;
+	timestamp: string;
+	sender: string;
+	status: string;
 }

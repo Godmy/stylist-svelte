@@ -8,14 +8,22 @@ export class DocumentPreviewStyleManager {
 	 * Get base classes for document preview
 	 */
 	static root(base: string, className?: string): string {
-		return mergeClassNames(base, 'overflow-hidden rounded-lg border border-[var(--color-border-primary)]', className);
+		return mergeClassNames(
+			base,
+			'overflow-hidden rounded-lg border border-[var(--color-border-primary)]',
+			className
+		);
 	}
 
 	/**
 	 * Get classes for preview content
 	 */
 	static content(base: string, className?: string): string {
-		return mergeClassNames(base, 'overflow-auto p-4 font-mono text-sm text-[var(--color-text-primary)]', className);
+		return mergeClassNames(
+			base,
+			'overflow-auto p-4 font-mono text-sm text-[var(--color-text-primary)]',
+			className
+		);
 	}
 
 	/**

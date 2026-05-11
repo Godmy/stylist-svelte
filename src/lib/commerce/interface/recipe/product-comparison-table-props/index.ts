@@ -1,5 +1,6 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-export interface ProductComparisonTableProps extends StructIntersectAll<[]> {	products: Array<{
+export interface ProductComparisonTableProps extends StructIntersectAll<[]> {
+	products: Array<{
 		id: string;
 		name: string;
 		price: number;

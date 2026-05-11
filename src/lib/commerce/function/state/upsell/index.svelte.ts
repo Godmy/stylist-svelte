@@ -3,11 +3,11 @@ import type { SlotUpsellProduct as UpsellProductContract } from '$stylist/commer
 import { UpsellStyleManager } from '$stylist/commerce/class/style-manager/upsell';
 
 export function createUpsellState(props: UpsellContract) {
-	const visibleProducts = $derived(
-		(props.upsellProducts ?? []).slice(0, props.maxProducts ?? 3)
-	);
+	const visibleProducts = $derived((props.upsellProducts ?? []).slice(0, props.maxProducts ?? 3));
 
-	const containerClasses = $derived(UpsellStyleManager.getContainerClasses(String(props.class ?? '')));
+	const containerClasses = $derived(
+		UpsellStyleManager.getContainerClasses(String(props.class ?? ''))
+	);
 	const headerClasses = $derived(UpsellStyleManager.getHeaderClasses(props.headerClass ?? ''));
 	const titleClasses = $derived(UpsellStyleManager.getTitleClasses());
 	const descriptionClasses = $derived(UpsellStyleManager.getDescriptionClasses());
@@ -46,24 +46,60 @@ export function createUpsellState(props: UpsellContract) {
 	}
 
 	return {
-		get visibleProducts() { return visibleProducts; },
-		get containerClasses() { return containerClasses; },
-		get headerClasses() { return headerClasses; },
-		get titleClasses() { return titleClasses; },
-		get descriptionClasses() { return descriptionClasses; },
-		get productsContainerClasses() { return productsContainerClasses; },
-		get productCardClasses() { return productCardClasses; },
-		get productImageClasses() { return productImageClasses; },
-		get productTitleClasses() { return productTitleClasses; },
-		get productPriceClasses() { return productPriceClasses; },
-		get productOriginalPriceClasses() { return productOriginalPriceClasses; },
-		get discountBadgeClasses() { return discountBadgeClasses; },
-		get ratingClasses() { return ratingClasses; },
-		get actionsContainerClasses() { return actionsContainerClasses; },
-		get recommendedBadgeClasses() { return recommendedBadgeClasses; },
-		get savingsContainerClasses() { return savingsContainerClasses; },
-		get savingsTextClasses() { return savingsTextClasses; },
-		get iconClasses() { return iconClasses; },
+		get visibleProducts() {
+			return visibleProducts;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get descriptionClasses() {
+			return descriptionClasses;
+		},
+		get productsContainerClasses() {
+			return productsContainerClasses;
+		},
+		get productCardClasses() {
+			return productCardClasses;
+		},
+		get productImageClasses() {
+			return productImageClasses;
+		},
+		get productTitleClasses() {
+			return productTitleClasses;
+		},
+		get productPriceClasses() {
+			return productPriceClasses;
+		},
+		get productOriginalPriceClasses() {
+			return productOriginalPriceClasses;
+		},
+		get discountBadgeClasses() {
+			return discountBadgeClasses;
+		},
+		get ratingClasses() {
+			return ratingClasses;
+		},
+		get actionsContainerClasses() {
+			return actionsContainerClasses;
+		},
+		get recommendedBadgeClasses() {
+			return recommendedBadgeClasses;
+		},
+		get savingsContainerClasses() {
+			return savingsContainerClasses;
+		},
+		get savingsTextClasses() {
+			return savingsTextClasses;
+		},
+		get iconClasses() {
+			return iconClasses;
+		},
 		getStarClasses,
 		getActionButtonClasses,
 		formatPrice,

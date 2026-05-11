@@ -9,14 +9,17 @@ export function createOrderHistoryState(props: OrderHistoryContract) {
 
 	const filteredOrders = $derived(
 		searchQuery
-			? orders.filter(o =>
-				o.orderNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				o.status.toLowerCase().includes(searchQuery.toLowerCase())
-			)
+			? orders.filter(
+					(o) =>
+						o.orderNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
+						o.status.toLowerCase().includes(searchQuery.toLowerCase())
+				)
 			: orders
 	);
 
-	const containerClasses = $derived(OrderHistoryStyleManager.getContainerClasses(String(props.class ?? '')));
+	const containerClasses = $derived(
+		OrderHistoryStyleManager.getContainerClasses(String(props.class ?? ''))
+	);
 	const headerClasses = $derived(OrderHistoryStyleManager.getHeaderClasses());
 	const titleClasses = $derived(OrderHistoryStyleManager.getTitleClasses());
 	const filtersContainerClasses = $derived(OrderHistoryStyleManager.getFiltersContainerClasses());
@@ -46,23 +49,57 @@ export function createOrderHistoryState(props: OrderHistoryContract) {
 	}
 
 	return {
-		get searchQuery() { return searchQuery; },
-		set searchQuery(v: string) { searchQuery = v; },
-		get orders() { return orders; },
-		get filteredOrders() { return filteredOrders; },
-		get containerClasses() { return containerClasses; },
-		get headerClasses() { return headerClasses; },
-		get titleClasses() { return titleClasses; },
-		get filtersContainerClasses() { return filtersContainerClasses; },
-		get searchInputClasses() { return searchInputClasses; },
-		get ordersContainerClasses() { return ordersContainerClasses; },
-		get orderItemClasses() { return orderItemClasses; },
-		get orderNumberClasses() { return orderNumberClasses; },
-		get orderDateClasses() { return orderDateClasses; },
-		get orderTotalClasses() { return orderTotalClasses; },
-		get actionsContainerClasses() { return actionsContainerClasses; },
-		get actionButtonClasses() { return actionButtonClasses; },
-		get itemThumbnailClasses() { return itemThumbnailClasses; },
+		get searchQuery() {
+			return searchQuery;
+		},
+		set searchQuery(v: string) {
+			searchQuery = v;
+		},
+		get orders() {
+			return orders;
+		},
+		get filteredOrders() {
+			return filteredOrders;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get filtersContainerClasses() {
+			return filtersContainerClasses;
+		},
+		get searchInputClasses() {
+			return searchInputClasses;
+		},
+		get ordersContainerClasses() {
+			return ordersContainerClasses;
+		},
+		get orderItemClasses() {
+			return orderItemClasses;
+		},
+		get orderNumberClasses() {
+			return orderNumberClasses;
+		},
+		get orderDateClasses() {
+			return orderDateClasses;
+		},
+		get orderTotalClasses() {
+			return orderTotalClasses;
+		},
+		get actionsContainerClasses() {
+			return actionsContainerClasses;
+		},
+		get actionButtonClasses() {
+			return actionButtonClasses;
+		},
+		get itemThumbnailClasses() {
+			return itemThumbnailClasses;
+		},
 		getStatusBadgeClasses,
 		formatDate,
 		formatPrice

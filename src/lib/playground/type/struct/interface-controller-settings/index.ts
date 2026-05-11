@@ -1,15 +1,6 @@
 export type InterfaceControllerSettings = {
 	name: string;
-	type:
-		| 'text'
-		| 'number'
-		| 'boolean'
-		| 'select'
-		| 'range'
-		| 'color'
-		| 'object'
-		| 'array'
-		| string;
+	type: 'text' | 'number' | 'boolean' | 'select' | 'range' | 'color' | 'object' | 'array' | string;
 	label?: string;
 	description?: string;
 	defaultValue?: unknown;
@@ -17,4 +8,4 @@ export type InterfaceControllerSettings = {
 	min?: number;
 	max?: number;
 	step?: number;
-}
+};

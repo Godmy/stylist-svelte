@@ -27,11 +27,21 @@ export function createNotificationPreferencesState(props: NotificationPreference
 	});
 
 	return {
-		get email() { return email; },
-		get push() { return push; },
-		get sms() { return sms; },
-		get containerClasses() { return containerClasses; },
-		get restProps() { return restProps; }
+		get email() {
+			return email;
+		},
+		get push() {
+			return push;
+		},
+		get sms() {
+			return sms;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }
 

@@ -19,15 +19,9 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { PostCardAction } from '$stylist/commerce/interface/slot/post-card-action';
 
 export interface PostCardRecipe
-	extends StructIntersectAll<[
-		ILabelSlot,
-		ICaptionSlot,
-		IMediaSlot,
-		IBadgeSlot,
-		IIconSlot,
-		ThemeAttributes<HTMLElement>
-	]>
-{
+	extends StructIntersectAll<
+		[ILabelSlot, ICaptionSlot, IMediaSlot, IBadgeSlot, IIconSlot, ThemeAttributes<HTMLElement>]
+	> {
 	title?: string;
 	subtitle?: string;
 	image?: string;
@@ -38,4 +32,3 @@ export interface PostCardRecipe
 	actions?: PostCardAction[];
 	children?: Snippet;
 }
-

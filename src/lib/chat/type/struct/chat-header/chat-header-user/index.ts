@@ -4,4 +4,4 @@ export type ChatHeaderUser = {
 	avatar?: string;
 	status?: 'online' | 'away' | 'offline' | 'typing';
 	lastSeen?: Date;
-}
+};

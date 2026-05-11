@@ -10,7 +10,8 @@ import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { LiteGraphNodeProperty } from '$stylist/science/type/struct/litegraph-node-property';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface NodePropertiesPanelRecipe extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLElement>]> {
+export interface NodePropertiesPanelRecipe
+	extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLElement>]> {
 	nodeId?: string;
 	title?: string;
 	visible?: boolean;

@@ -17,16 +17,15 @@ export class AccordionHeaderStyleManager {
 			'text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]',
 			ACCORDION_HEADER_PADDING_CLASSES[padding] ?? ACCORDION_HEADER_PADDING_CLASSES.md,
 			open ? 'bg-[var(--color-background-secondary)]' : '',
-			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : 'cursor-pointer',
+			disabled
+				? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none'
+				: 'cursor-pointer',
 			className
 		]);
 	}
 
 	static getAccordionHeaderTitleClasses(className?: string): string {
-		return this.join([
-			'text-sm',
-			className
-		]);
+		return this.join(['text-sm', className]);
 	}
 
 	static getAccordionHeaderIconClasses(open = false, className?: string): string {
@@ -38,9 +37,6 @@ export class AccordionHeaderStyleManager {
 	}
 
 	static getAccordionHeaderTriggerClasses(className?: string): string {
-		return this.join([
-			'flex items-center gap-2',
-			className
-		]);
+		return this.join(['flex items-center gap-2', className]);
 	}
 }

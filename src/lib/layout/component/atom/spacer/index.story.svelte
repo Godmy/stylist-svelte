@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import Spacer from './index.svelte';
-	
+
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	
+
 	const controls: InterfaceControllerSettings[] = [
 		{
 			name: 'size',
@@ -20,10 +20,17 @@
 	];
 </script>
 
-<Story {controls} component={Spacer} title="Spacer Component" description="A flexible space component for layout purposes">
+<Story
+	{controls}
+	component={Spacer}
+	title="Spacer Component"
+	description="A flexible space component for layout purposes"
+>
 	{#snippet children(values: any)}
 		{#if values.axis === 'vertical'}
-			<div class="inline-flex flex-col items-center rounded bg-[var(--color-background-secondary)] p-2">
+			<div
+				class="inline-flex flex-col items-center rounded bg-[var(--color-background-secondary)] p-2"
+			>
 				<span class="text-xs text-[var(--color-text-secondary)]">Top</span>
 				<Spacer {...values} />
 				<span class="text-xs text-[var(--color-text-secondary)]">Bottom</span>
@@ -37,7 +44,3 @@
 		{/if}
 	{/snippet}
 </Story>
-
-
-
-

@@ -5,11 +5,4 @@ import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior
 import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavior/spaced';
 
 export interface SkeletonTableRecipe
-	extends StructIntersectAll<[
-		ISized,
-		IShapeable,
-		ISpaced,
-		IScrollable
-	]>
-{}
-
+	extends StructIntersectAll<[ISized, IShapeable, ISpaced, IScrollable]> {}

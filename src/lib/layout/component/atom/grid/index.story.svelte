@@ -34,9 +34,16 @@
 	];
 </script>
 
-<Story {controls} component={Grid} title="Grid Component" description="SVG grid overlay with configurable size, opacity, and color.">
+<Story
+	{controls}
+	component={Grid}
+	title="Grid Component"
+	description="SVG grid overlay with configurable size, opacity, and color."
+>
 	{#snippet children(values: any)}
-		<div class="relative h-[360px] w-full overflow-hidden rounded border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)]">
+		<div
+			class="relative h-[360px] w-full overflow-hidden rounded border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)]"
+		>
 			<Grid
 				zoom={Number(values.zoom) || 1}
 				gridSize={Number(values.gridSize) || 50}
@@ -44,7 +51,9 @@
 				color={values.color || 'var(--color-border-subtle, #e0e0e0)'}
 				class="absolute inset-0 h-full w-full"
 			/>
-			<div class="absolute inset-0 flex items-center justify-center text-sm text-[var(--color-text-secondary)]">
+			<div
+				class="absolute inset-0 flex items-center justify-center text-sm text-[var(--color-text-secondary)]"
+			>
 				zoom: {values.zoom}, gridSize: {values.gridSize}
 			</div>
 		</div>

@@ -9,11 +9,7 @@ export class NodeTitleStyleManager {
 	/**
 	 * Получает классы заголовка
 	 */
-	static getTitleClasses(
-		variant: NodeTitleVariant,
-		size: TokenSize,
-		selected: boolean
-	): string {
+	static getTitleClasses(variant: NodeTitleVariant, size: TokenSize, selected: boolean): string {
 		return mergeClassNames(
 			'node-title',
 			`node-title--${variant}`,
@@ -47,11 +43,3 @@ export class NodeTitleStyleManager {
 		return 'node-title__input';
 	}
 }
-
-
-
-
-
-
-
-

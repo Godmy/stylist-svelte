@@ -56,16 +56,10 @@ export class SplitButtonStyleManager {
 	}
 
 	static getSplitButtonIconClasses(className?: string): string {
-		return this.join([
-			'w-4 h-4',
-			className
-		]);
+		return this.join(['w-4 h-4', className]);
 	}
 
 	static getSplitButtonContainerClasses(className?: string): string {
-		return this.join([
-			'inline-flex',
-			className
-		]);
+		return this.join(['inline-flex', className]);
 	}
 }

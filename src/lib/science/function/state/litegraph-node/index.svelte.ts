@@ -20,7 +20,9 @@ export function createLiteGraphNodeState(props: LitegraphNodeProps) {
 			props.cameraDepth ?? props.worldDepth ?? 500
 		);
 
-		return props.presentation ? { ...fallback, ...props.presentation } as SemanticZoomPresentation : fallback;
+		return props.presentation
+			? ({ ...fallback, ...props.presentation } as SemanticZoomPresentation)
+			: fallback;
 	});
 	const type = $derived((props.type ?? 'default') as TokenNodeType);
 	const mode = $derived((props.mode ?? 'default') as TokenSeverity);
@@ -36,13 +38,16 @@ export function createLiteGraphNodeState(props: LitegraphNodeProps) {
 	const deletable = $derived(props.deletable ?? false);
 	const duplicable = $derived(props.duplicable ?? false);
 	const showActions = $derived(props.showActions ?? false);
-	const renderHeader = $derived(!props.hideHeader && (resolvedPresentation.stage === 'detailed' || resolvedPresentation.stage === 'screen'));
-	const renderPorts = $derived(
-		!props.hidePorts &&
-			resolvedPresentation.showChildren &&
-			resolvedPresentation.stage !== 'screen'
+	const renderHeader = $derived(
+		!props.hideHeader &&
+			(resolvedPresentation.stage === 'detailed' || resolvedPresentation.stage === 'screen')
 	);
-	const renderProperties = $derived(!props.hideProperties && resolvedPresentation.stage === 'screen');
+	const renderPorts = $derived(
+		!props.hidePorts && resolvedPresentation.showChildren && resolvedPresentation.stage !== 'screen'
+	);
+	const renderProperties = $derived(
+		!props.hideProperties && resolvedPresentation.stage === 'screen'
+	);
 	const useSemanticShell = $derived(
 		resolvedPresentation.stage === 'dot' ||
 			resolvedPresentation.stage === 'icon' ||
@@ -52,7 +57,14 @@ export function createLiteGraphNodeState(props: LitegraphNodeProps) {
 	);
 
 	const classes = $derived(
-		LiteGraphNodeStyleManager.getNodeClasses(type as any, mode, status, size, selected, resolvedPresentation)
+		LiteGraphNodeStyleManager.getNodeClasses(
+			type as any,
+			mode,
+			status,
+			size,
+			selected,
+			resolvedPresentation
+		)
 	);
 	const styles = $derived.by(() =>
 		Object.entries(
@@ -77,7 +89,9 @@ export function createLiteGraphNodeState(props: LitegraphNodeProps) {
 	const semanticShellClasses = $derived(LiteGraphNodeStyleManager.getSemanticShellClasses());
 	const semanticIconClasses = $derived(LiteGraphNodeStyleManager.getSemanticIconClasses());
 	const semanticTitleClasses = $derived(LiteGraphNodeStyleManager.getSemanticTitleClasses());
-	const semanticDescriptionClasses = $derived(LiteGraphNodeStyleManager.getSemanticDescriptionClasses());
+	const semanticDescriptionClasses = $derived(
+		LiteGraphNodeStyleManager.getSemanticDescriptionClasses()
+	);
 	const inputs = $derived(props.inputs ?? []);
 	const outputs = $derived(props.outputs ?? []);
 	const properties = $derived(props.properties ?? []);
@@ -292,9 +306,3 @@ export function createLiteGraphNodeState(props: LitegraphNodeProps) {
 }
 
 export default createLiteGraphNodeState;
-
-
-
-
-
-

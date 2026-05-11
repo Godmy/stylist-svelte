@@ -3,7 +3,9 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import CloseIcon from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [{ name: 'expanded', type: 'boolean', defaultValue: true }];
+	const controls: InterfaceControllerSettings[] = [
+		{ name: 'expanded', type: 'boolean', defaultValue: true }
+	];
 
 	let clicks = $state(0);
 </script>
@@ -16,8 +18,10 @@
 >
 	{#snippet children(values: any)}
 		<div class="relative h-40 overflow-hidden rounded-3xl bg-slate-100 p-8">
-			<div class="absolute left-8 top-8 h-24 w-64 rounded-[28px] border border-slate-200 bg-white"></div>
-			<div class="absolute left-[232px] top-[32px]">
+			<div
+				class="absolute top-8 left-8 h-24 w-64 rounded-[28px] border border-slate-200 bg-white"
+			></div>
+			<div class="absolute top-[32px] left-[232px]">
 				<CloseIcon
 					expanded={Boolean(values.expanded)}
 					onClick={() => {

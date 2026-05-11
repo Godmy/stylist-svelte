@@ -30,4 +30,4 @@ export type OrderConfirmationProps = Omit<HTMLAttributes<HTMLDivElement>, 'class
 	onTrackOrder?: () => void;
 	currency?: string;
 	locale?: string;
-}
+};

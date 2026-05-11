@@ -21,11 +21,13 @@
 	{#snippet children(values: any)}
 		<svg width={values.width + 10} height={values.height + 10}>
 			<g transform="translate(5 5)">
-				<ChartBackground width={values.width} height={values.height} fill={values.fill} stroke={values.stroke} />
+				<ChartBackground
+					width={values.width}
+					height={values.height}
+					fill={values.fill}
+					stroke={values.stroke}
+				/>
 			</g>
 		</svg>
 	{/snippet}
 </Story>
-
-
-

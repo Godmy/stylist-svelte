@@ -36,7 +36,3 @@ export function createBadgeState(props: BadgeRecipe) {
 }
 
 export default createBadgeState;
-
-
-
-

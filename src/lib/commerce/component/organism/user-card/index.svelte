@@ -64,19 +64,10 @@
 			{#if props.user?.actions}
 				{@render props.user.actions()}
 			{:else}
-				<button
-					type="button"
-					class={state.moreButtonClass}
-					aria-label="More options"
-				>
+				<button type="button" class={state.moreButtonClass} aria-label="More options">
 					<BaseIcon name={MoreVertical} class="h-5 w-5" />
 				</button>
 			{/if}
 		</div>
 	{/if}
 </div>
-
-
-
-
-

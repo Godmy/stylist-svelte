@@ -9,7 +9,8 @@
 	const EyeOff = 'eye-off';
 
 	let props: IInputPasswordProps &
-		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> = $props();
+		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> =
+		$props();
 	const state = createInputPasswordState(props);
 
 	let inputElement: HTMLInputElement | null = null;
@@ -44,7 +45,11 @@
 			minlength={props.minlength ?? 8}
 			maxlength={props.maxlength}
 			class={state.inputClasses}
-			aria-describedby={state.hasError && (props.showErrors ?? true) ? state.errorId : props.helperText ? undefined : undefined}
+			aria-describedby={state.hasError && (props.showErrors ?? true)
+				? state.errorId
+				: props.helperText
+					? undefined
+					: undefined}
 			aria-invalid={state.hasError ? 'true' : 'false'}
 			aria-required={props.required ? 'true' : 'false'}
 		/>
@@ -80,9 +85,14 @@
 		<div class="mt-2">
 			<div class="flex items-center gap-2">
 				<div class="h-2 flex-1 overflow-hidden rounded-full bg-[var(--color-background-tertiary)]">
-					<div class={`h-full transition-all duration-[var(--duration-300)] ${state.passwordStrength.color}`} style={`width: ${state.passwordStrength.percentage}%`}></div>
+					<div
+						class={`h-full transition-all duration-[var(--duration-300)] ${state.passwordStrength.color}`}
+						style={`width: ${state.passwordStrength.percentage}%`}
+					></div>
 				</div>
-				<span class="text-xs text-[var(--color-text-secondary)]">{state.passwordStrength.label}</span>
+				<span class="text-xs text-[var(--color-text-secondary)]"
+					>{state.passwordStrength.label}</span
+				>
 			</div>
 		</div>
 	{/if}

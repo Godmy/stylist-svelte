@@ -18,8 +18,12 @@ export function createProductSortingState(props: Props) {
 	}
 
 	return {
-		get baseClasses() { return baseClasses; },
-		get selectClasses() { return selectClasses; },
+		get baseClasses() {
+			return baseClasses;
+		},
+		get selectClasses() {
+			return selectClasses;
+		},
 		getOptionClasses,
 		handleChange,
 		handleInput

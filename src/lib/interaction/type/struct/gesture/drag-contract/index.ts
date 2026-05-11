@@ -24,4 +24,4 @@ export type DragContract = GestureContract & {
 	onDragOver?: (event: DragEvent) => void;
 	/** Обработчик сброса */
 	onDrop?: (event: DragEvent) => void;
-}
+};
