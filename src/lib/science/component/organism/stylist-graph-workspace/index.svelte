@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	const browser = typeof window !== 'undefined';
 	import { onDestroy } from 'svelte';
 	import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
 	import { ConnectionLine, NodeIcon, Viewport } from '$stylist';

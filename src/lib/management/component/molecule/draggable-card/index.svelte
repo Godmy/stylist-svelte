@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Icon as BaseIcon } from '$stylist/media';
 	const GripVertical = 'grip-vertical';

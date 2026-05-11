@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Button } from '$stylist/control';
 	import { Icon as BaseIcon } from '$stylist/media';
 	import { createKanbanBoardState } from '$stylist/management/function/state/kanban-board';

@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { BurnDownChart } from './burn-down-chart/index';
-export { KanbanBoard } from './kanban-board/index';
+export { DraggableCard } from './draggable-card/index';
+export { KanbanCard } from './kanban-card/index';
 export { KanbanColumn } from './kanban-column/index';
 export { LegendItem } from './legend-item/index';
 export { NotificationSettings } from './notification-settings/index';

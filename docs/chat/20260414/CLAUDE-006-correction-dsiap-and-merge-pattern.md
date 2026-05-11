@@ -15,15 +15,16 @@
 
 ```typescript
 export interface ButtonRecipe
-    extends StructIntersectAll<[
-        LabelRecipe,      // recipe из typography
-        IIconSlot,        // proto из media
-        IClickable,       // proto из interaction
-        IFocusable,       // proto из interaction
-        ISizable,         // proto из layout
-        IBadgeSlot        // proto из typography
-    ]>
-{}
+	extends StructIntersectAll<
+		[
+			LabelRecipe, // recipe из typography
+			IIconSlot, // proto из media
+			IClickable, // proto из interaction
+			IFocusable, // proto из interaction
+			ISizable, // proto из layout
+			IBadgeSlot // proto из typography
+		]
+	> {}
 ```
 
 `ButtonRecipe` — и есть то, что Svelte-компонент принимает как props. Никакого отдельного `ButtonContract` или `ButtonComponent` поверх него не существует и не нужно.
@@ -38,6 +39,7 @@ recipe  ← финальный интерфейс компонента, слия
 **Двух уровней достаточно.**
 
 При этом:
+
 - в `recipe` может участвовать другой `recipe` — это нормально (`LabelRecipe` внутри `ButtonRecipe`)
 - depth может быть любым, это не третий уровень DSIAP — это просто композиция
 
@@ -61,22 +63,23 @@ theme/interface/contract/theme-settings-view-model → ThemeSettingsViewModel (V
 ```
 
 Эти интерфейсы — **не рецепты компонентов**. Это контракты систем/сервисов:
+
 - `ThemeContext` — что кладётся в Svelte Context и что оттуда достаётся
 - `ThemeSettingsViewModel` — View Model паттерн, агрегирует данные для UI из нескольких источников
 
 `contract` как joint = интерфейс для нетривиальных архитектурных соглашений, которые не являются props-рецептом компонента.
 
-### Итоговая таблица interface/*:
+### Итоговая таблица interface/\*:
 
-| Joint | Семантика | Пример | Уровень DSIAP |
-|-------|----------|--------|---------------|
-| `proto` | Атомарная поведенческая способность | `IClickable`, `ISizable` | Уровень 1 |
-| `recipe` | Финальный интерфейс компонента (мерж proto) | `ButtonRecipe`, `AccordionRecipe` | Уровень 2 |
-| `contract` | Архитектурный контракт не-компонентной системы | `ThemeContext`, `ThemeSettingsViewModel` | Вне DSIAP |
-| `record` | Интерфейс-агрегат данных (DTO-подобный) | — | Вне DSIAP |
-| `provider` | Svelte Context provider interface | — | Вне DSIAP |
-| `factory` | DTO для фабричных функций | `ButtonFactoryInput` | Вне DSIAP |
-| `api` | Внешний API контракт | — | Вне DSIAP |
+| Joint      | Семантика                                      | Пример                                   | Уровень DSIAP |
+| ---------- | ---------------------------------------------- | ---------------------------------------- | ------------- |
+| `proto`    | Атомарная поведенческая способность            | `IClickable`, `ISizable`                 | Уровень 1     |
+| `recipe`   | Финальный интерфейс компонента (мерж proto)    | `ButtonRecipe`, `AccordionRecipe`        | Уровень 2     |
+| `contract` | Архитектурный контракт не-компонентной системы | `ThemeContext`, `ThemeSettingsViewModel` | Вне DSIAP     |
+| `record`   | Интерфейс-агрегат данных (DTO-подобный)        | —                                        | Вне DSIAP     |
+| `provider` | Svelte Context provider interface              | —                                        | Вне DSIAP     |
+| `factory`  | DTO для фабричных функций                      | `ButtonFactoryInput`                     | Вне DSIAP     |
+| `api`      | Внешний API контракт                           | —                                        | Вне DSIAP     |
 
 ---
 
@@ -91,9 +94,9 @@ theme/interface/contract/theme-settings-view-model → ThemeSettingsViewModel (V
 
 ```typescript
 export type StructIntersectAll<TContracts extends readonly unknown[]> =
-    TContracts extends readonly [infer THead, ...infer TTail]
-        ? THead & StructIntersectAll<TTail>
-        : {};
+	TContracts extends readonly [infer THead, ...infer TTail]
+		? THead & StructIntersectAll<TTail>
+		: {};
 ```
 
 ### Что это делает:
@@ -112,14 +115,14 @@ StructIntersectAll<[A, B, C]>
 
 Это **не** Builder, **не** Factory, **не** Factory Method.
 
-| Контекст | Название |
-|----------|---------|
-| TypeScript | Recursive Conditional Type + Intersection (`&`) |
+| Контекст                        | Название                                                     |
+| ------------------------------- | ------------------------------------------------------------ |
+| TypeScript                      | Recursive Conditional Type + Intersection (`&`)              |
 | Функциональное программирование | **Fold / Reduce** — свёртка кортежа с бинарной операцией `&` |
-| ООП (аналог) | **Mixin** — но только на уровне типов, без поведения |
-| GoF паттерны | Ближе всего к **Composite** — но для типов, не для объектов |
-| SAMO-документация | **Type-Level Assembler** |
-| Патентные материалы | **Recursive Intersection Fold** |
+| ООП (аналог)                    | **Mixin** — но только на уровне типов, без поведения         |
+| GoF паттерны                    | Ближе всего к **Composite** — но для типов, не для объектов  |
+| SAMO-документация               | **Type-Level Assembler**                                     |
+| Патентные материалы             | **Recursive Intersection Fold**                              |
 
 ### Использование в recipe:
 
@@ -127,22 +130,16 @@ StructIntersectAll<[A, B, C]>
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 
 export interface ButtonRecipe
-    extends StructIntersectAll<[
-        LabelRecipe,
-        IClickable,
-        IFocusable,
-        ISizable,
-    ]>
-{}
+	extends StructIntersectAll<[LabelRecipe, IClickable, IFocusable, ISizable]> {}
 ```
 
 ---
 
 ## III. Исправления для ADR-005
 
-| Было (версия CLAUDE-005-strategy) | Стало |
-|----------------------------------|-------|
-| DSIAP: `proto → recipe → contract` | DSIAP: `proto → recipe` (два уровня) |
-| `interface/contract` — третий уровень DSIAP | `interface/contract` — отдельный joint, вне DSIAP |
-| `interface/component` — легализовать | `interface/component` — легаси, план миграции в `recipe` |
-| `RecordArchitectureMerge` в `type/record` | `StructIntersectAll` в `type/struct/intersect-all` |
+| Было (версия CLAUDE-005-strategy)           | Стало                                                    |
+| ------------------------------------------- | -------------------------------------------------------- |
+| DSIAP: `proto → recipe → contract`          | DSIAP: `proto → recipe` (два уровня)                     |
+| `interface/contract` — третий уровень DSIAP | `interface/contract` — отдельный joint, вне DSIAP        |
+| `interface/component` — легализовать        | `interface/component` — легаси, план миграции в `recipe` |
+| `RecordArchitectureMerge` в `type/record`   | `StructIntersectAll` в `type/struct/intersect-all`       |

@@ -1,9 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AccountSettingsForm } from './account-settings-form/index';
 export { DashboardLayout } from './dashboard-layout/index';
-export { DraggableCard } from './draggable-card/index';
 export { FeatureToggle } from './feature-toggle/index';
-export { KanbanCard } from './kanban-card/index';
+export { KanbanBoard } from './kanban-board/index';
 export { NotificationCenter } from './notification-center/index';
 export { NotificationList } from './notification-list/index';
 export { NotificationPreferences } from './notification-preferences/index';

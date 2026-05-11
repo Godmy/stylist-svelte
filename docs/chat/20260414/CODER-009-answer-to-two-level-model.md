@@ -1,6 +1,7 @@
 CODER-009-answer-to-two-level-model
 
 Контекст:
+
 - пользователь предложил скорректировать модель интерфейсной сборки
 - аргумент: `proto -> recipe -> component` создаёт ложный третий уровень
 - пример: `interaction/interface/recipe/button/index.ts`
@@ -12,20 +13,15 @@ CODER-009-answer-to-two-level-model
 
 ```ts
 export interface ButtonRecipe
-	extends StructIntersectAll<[
-		LabelRecipe,
-		IIconSlot,
-		IClickable,
-		IFocusable,
-		ISizable,
-		IBadgeSlot
-	]>
-{}
+	extends StructIntersectAll<
+		[LabelRecipe, IIconSlot, IClickable, IFocusable, ISizable, IBadgeSlot]
+	> {}
 ```
 
 Здесь `recipe` уже является итоговым композиционным интерфейсом.
 
 Следовательно:
+
 - базовая модель SAMO для `interface/**` должна быть `proto -> recipe`
 - `contract` не должен описываться как обязательный третий этаж
 - `contract` должен использоваться только как специальный joint для особых граничных или валидационных случаев
@@ -34,15 +30,18 @@ export interface ButtonRecipe
 ## 2. Исправленный смысл уровней
 
 ### `proto`
+
 - атомарная способность
 - минимальный поведенческий контракт
 
 ### `recipe`
+
 - композиция `proto` и совместимых контрактов
 - основная итоговая форма интерфейсной сборки
 - в нормальном случае этого уровня достаточно
 
 ### `contract`
+
 - не обязательный уровень
 - не продолжение цепочки
 - специальное ответвление для случаев, которые плохо выражаются через `recipe`
@@ -57,6 +56,7 @@ proto -> recipe + optional contract
 ## 3. Ответ по `StructIntersectAll`
 
 `StructIntersectAll` не является:
+
 - builder
 - factory
 - factory method
@@ -64,21 +64,25 @@ proto -> recipe + optional contract
 Определение:
 
 ```ts
-export type StructIntersectAll<TTypes extends readonly unknown[]> =
-	TTypes extends readonly [infer THead, ...infer TTail]
-		? THead & StructIntersectAll<TTail>
-		: {};
+export type StructIntersectAll<TTypes extends readonly unknown[]> = TTypes extends readonly [
+	infer THead,
+	...infer TTail
+]
+	? THead & StructIntersectAll<TTail>
+	: {};
 ```
 
 Это чистая type-level утилита.
 
 По сути это:
+
 - рекурсивное пересечение типов
 - variadic intersection helper
 - contract merge utility
 - type-level fold по массиву контрактов
 
 Архитектурно это ближе всего к:
+
 - композиции контрактов
 - mixin-like type composition
 - structural merge utility
@@ -90,6 +94,7 @@ export type StructIntersectAll<TTypes extends readonly unknown[]> =
 Текущее имя `StructIntersectAll` технически рабочее и соответствует фактической операции: пересечь все типы из переданного tuple.
 
 Если в будущем потребуется более предметное имя, возможны варианты:
+
 - `TypeContractMerge`
 - `TypeInterfaceMerge`
 - `TypeIntersectionMerge`
@@ -99,6 +104,7 @@ export type StructIntersectAll<TTypes extends readonly unknown[]> =
 Текущее имя `StructIntersectAll` я считаю приемлемым, потому что оно не создаёт ложной ассоциации с builder/factory и прямо описывает type-level intersection.
 
 Важно:
+
 - это не builder
 - это не factory
 - это не factory method
@@ -107,6 +113,7 @@ export type StructIntersectAll<TTypes extends readonly unknown[]> =
 ## 5. Что уже исправлено
 
 В `CODER-008-prepare-ADR-new.md` внесена коррекция:
+
 - убрана обязательная модель `proto -> recipe -> component`
 - норма переведена в `proto -> recipe`
 - `contract` описан как optional special joint

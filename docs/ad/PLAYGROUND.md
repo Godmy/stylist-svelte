@@ -31,25 +31,25 @@ Create a playground in your SvelteKit app:
 ```svelte
 <!-- src/routes/+page.svelte -->
 <script lang="ts">
-  import { StoryRoot } from 'stylist-svelte/playground';
+	import { StoryRoot } from 'stylist-svelte/playground';
 
-  const modules = import.meta.glob('$lib/components/**/*.story.svelte', {
-    eager: true
-  });
+	const modules = import.meta.glob('$lib/components/**/*.story.svelte', {
+		eager: true
+	});
 
-  const stories = Object.entries(modules)
-    .map(([path, module]) => ({
-      path,
-      component: module?.default
-    }))
-    .filter((entry) => entry.component)
-    .sort((a, b) => a.path.localeCompare(b.path));
+	const stories = Object.entries(modules)
+		.map(([path, module]) => ({
+			path,
+			component: module?.default
+		}))
+		.filter((entry) => entry.component)
+		.sort((a, b) => a.path.localeCompare(b.path));
 </script>
 
 <StoryRoot title="My Component Library">
-  {#each stories as story (story.path)}
-    <svelte:component this={story.component} />
-  {/each}
+	{#each stories as story (story.path)}
+		<svelte:component this={story.component} />
+	{/each}
 </StoryRoot>
 ```
 
@@ -60,52 +60,54 @@ Create individual story pages:
 ```svelte
 <!-- src/lib/components/atoms/Button.story.svelte -->
 <script lang="ts">
-  import { Story } from 'stylist-svelte/playground';
-  import Button from './Button.svelte';
+	import { Story } from 'stylist-svelte/playground';
+	import Button from './Button.svelte';
 
-  const controls = [
-    {
-      name: 'label',
-      type: 'text',
-      defaultValue: 'Click me'
-    },
-    {
-      name: 'variant',
-      type: 'select',
-      defaultValue: 'primary',
-      options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link']
-    },
-    {
-      name: 'loading',
-      type: 'boolean',
-      defaultValue: false
-    },
-    {
-      name: 'disabled',
-      type: 'boolean',
-      defaultValue: false
-    }
-  ];
+	const controls = [
+		{
+			name: 'label',
+			type: 'text',
+			defaultValue: 'Click me'
+		},
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link']
+		},
+		{
+			name: 'loading',
+			type: 'boolean',
+			defaultValue: false
+		},
+		{
+			name: 'disabled',
+			type: 'boolean',
+			defaultValue: false
+		}
+	];
 </script>
 
 <Story
-  id="atoms-button"
-  title="Button"
-  component={Button}
-  category="Atoms"
-  description="A versatile button component"
-  tags={['action', 'form']}
-  controls={controls}
+	id="atoms-button"
+	title="Button"
+	component={Button}
+	category="Atoms"
+	description="A versatile button component"
+	tags={['action', 'form']}
+	{controls}
 >
-  {#snippet children(props)}
-    {#snippet label()} {props.label} {/snippet}
-    <Button
-      variant={props.variant}
-      loading={props.loading}
-      disabled={props.disabled}
-      content={label}
-    />
-  {/snippet}
+	{#snippet children(props)}
+		{#snippet label()}
+			{props.label}
+		{/snippet}
+		<Button
+			variant={props.variant}
+			loading={props.loading}
+			disabled={props.disabled}
+			content={label}
+		/>
+	{/snippet}
 </Story>
 ```
 
@@ -116,6 +118,7 @@ Create individual story pages:
 Main container for the playground.
 
 **Props:**
+
 - `title?: string` - Playground title (default: "Stylist Playground")
 - `children?: Snippet` - Child stories
 
@@ -124,6 +127,7 @@ Main container for the playground.
 Container for a component story.
 
 **Props:**
+
 - `id: string` - Unique story identifier
 - `title: string` - Story display title
 - `component: any` - Component reference used for code generation
@@ -135,15 +139,15 @@ Container for a component story.
 
 ### Control Types
 
-| Type | Description | Options |
-|------|-------------|---------|
-| `text` | Text input | - |
-| `number` | Number input | `min`, `max`, `step` |
-| `boolean` | Checkbox | - |
-| `select` | Dropdown | `options: any[]` |
-| `color` | Color picker | - |
-| `range` | Slider | `min`, `max`, `step` |
-| `date` | Date picker | - |
+| Type      | Description  | Options              |
+| --------- | ------------ | -------------------- |
+| `text`    | Text input   | -                    |
+| `number`  | Number input | `min`, `max`, `step` |
+| `boolean` | Checkbox     | -                    |
+| `select`  | Dropdown     | `options: any[]`     |
+| `color`   | Color picker | -                    |
+| `range`   | Slider       | `min`, `max`, `step` |
+| `date`    | Date picker  | -                    |
 
 ## 🎨 Example Stories
 
@@ -151,41 +155,41 @@ Container for a component story.
 
 ```svelte
 <Story
-  id="input"
-  title="Input"
-  category="Atoms"
-  controls={[
-    {
-      name: 'label',
-      type: 'text',
-      defaultValue: 'Email'
-    },
-    {
-      name: 'placeholder',
-      type: 'text',
-      defaultValue: 'Enter your email'
-    },
-    {
-      name: 'type',
-      type: 'select',
-      defaultValue: 'text',
-      options: ['text', 'email', 'password', 'number']
-    },
-    {
-      name: 'disabled',
-      type: 'boolean',
-      defaultValue: false
-    },
-    {
-      name: 'required',
-      type: 'boolean',
-      defaultValue: false
-    }
-  ]}
+	id="input"
+	title="Input"
+	category="Atoms"
+	controls={[
+		{
+			name: 'label',
+			type: 'text',
+			defaultValue: 'Email'
+		},
+		{
+			name: 'placeholder',
+			type: 'text',
+			defaultValue: 'Enter your email'
+		},
+		{
+			name: 'type',
+			type: 'select',
+			defaultValue: 'text',
+			options: ['text', 'email', 'password', 'number']
+		},
+		{
+			name: 'disabled',
+			type: 'boolean',
+			defaultValue: false
+		},
+		{
+			name: 'required',
+			type: 'boolean',
+			defaultValue: false
+		}
+	]}
 >
-  {#snippet children(props)}
-    <Input id="demo-input" {...props} />
-  {/snippet}
+	{#snippet children(props)}
+		<Input id="demo-input" {...props} />
+	{/snippet}
 </Story>
 ```
 
@@ -193,49 +197,42 @@ Container for a component story.
 
 ```svelte
 <script>
-  import { Story } from 'stylist-svelte/playground';
-  import { Modal, Button } from 'stylist-svelte';
+	import { Story } from 'stylist-svelte/playground';
+	import { Modal, Button } from 'stylist-svelte';
 
-  let isOpen = $state(false);
+	let isOpen = $state(false);
 </script>
 
 <Story
-  id="modal"
-  title="Modal"
-  category="Organisms"
-  controls={[
-    {
-      name: 'size',
-      type: 'select',
-      defaultValue: 'md',
-      options: ['sm', 'md', 'lg', 'xl']
-    },
-    {
-      name: 'closeOnEscape',
-      type: 'boolean',
-      defaultValue: true
-    },
-    {
-      name: 'closeOnClickOutside',
-      type: 'boolean',
-      defaultValue: true
-    }
-  ]}
+	id="modal"
+	title="Modal"
+	category="Organisms"
+	controls={[
+		{
+			name: 'size',
+			type: 'select',
+			defaultValue: 'md',
+			options: ['sm', 'md', 'lg', 'xl']
+		},
+		{
+			name: 'closeOnEscape',
+			type: 'boolean',
+			defaultValue: true
+		},
+		{
+			name: 'closeOnClickOutside',
+			type: 'boolean',
+			defaultValue: true
+		}
+	]}
 >
-  {#snippet children(props)}
-    <Button onclick={() => isOpen = true}>
-      Open Modal
-    </Button>
+	{#snippet children(props)}
+		<Button onclick={() => (isOpen = true)}>Open Modal</Button>
 
-    <Modal
-      bind:isOpen
-      onClose={() => isOpen = false}
-      title="Example Modal"
-      {...props}
-    >
-      <p>Modal content goes here</p>
-    </Modal>
-  {/snippet}
+		<Modal bind:isOpen onClose={() => (isOpen = false)} title="Example Modal" {...props}>
+			<p>Modal content goes here</p>
+		</Modal>
+	{/snippet}
 </Story>
 ```
 
@@ -255,15 +252,15 @@ You can customize the playground theme via Tailwind configuration:
 ```js
 // tailwind.config.js
 export default {
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          // Your custom colors
-        }
-      }
-    }
-  }
+	theme: {
+		extend: {
+			colors: {
+				primary: {
+					// Your custom colors
+				}
+			}
+		}
+	}
 };
 ```
 

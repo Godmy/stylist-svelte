@@ -672,4 +672,3 @@ Missing declarations: `0`.
 - `science/interface/record/science/index.ts#MapScienceContract` -> `science/interface/contract/science/index.ts#ContractScience`
 
 ## Missing Declarations
-

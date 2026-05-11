@@ -86,4 +86,3 @@ Missing declarations: `0`.
 - `calendar/interface/record/calendar/index.ts#TimeSlotContractBase` -> `calendar/interface/contract/time-slot/index.ts#ContractTimeSlot`
 
 ## Missing
-

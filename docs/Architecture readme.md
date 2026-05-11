@@ -63,13 +63,21 @@ dot → icon → pill → minimal → compact → detailed → screen
 
 ```typescript
 // proto/ — атомарные кирпичи
-interface ISizable { size: TokenSize; density: TokenDensity; shape: TokenShape }
-interface IPositionable { x: number; y: number }
+interface ISizable {
+	size: TokenSize;
+	density: TokenDensity;
+	shape: TokenShape;
+}
+interface IPositionable {
+	x: number;
+	y: number;
+}
 
 // recipe/ — составные контракты
-interface ButtonRecipe extends StructIntersectAll<[
-  LabelRecipe, IIconSlot, IClickable, IFocusable, ISizable, IBadgeSlot
-]> {}
+interface ButtonRecipe
+	extends StructIntersectAll<
+		[LabelRecipe, IIconSlot, IClickable, IFocusable, ISizable, IBadgeSlot]
+	> {}
 ```
 
 - `interface/proto/` — `ISizable`, `IPositionable`, `IScrollable`, `IElevatable`, `IDimensionable`, `IBorderToken`
@@ -109,10 +117,9 @@ interface ButtonRecipe extends StructIntersectAll<[
 
 `architecture` — только поставщик. Он не импортирует бизнес-логику из других доменов.
 
-| Домен | Использует из architecture |
-|---|---|
-| `layout` | `ISizable`, `StructIntersectAll`, токены размеров |
-| `information` | `StructIntersectAll`, proto-интерфейсы |
-| `interaction` | `StructIntersectAll`, `ISizable`, `IScrollable` |
-| `commerce` | рецепты компонентов как базу контрактов |
-
+| Домен         | Использует из architecture                        |
+| ------------- | ------------------------------------------------- |
+| `layout`      | `ISizable`, `StructIntersectAll`, токены размеров |
+| `information` | `StructIntersectAll`, proto-интерфейсы            |
+| `interaction` | `StructIntersectAll`, `ISizable`, `IScrollable`   |
+| `commerce`    | рецепты компонентов как базу контрактов           |

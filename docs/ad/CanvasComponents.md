@@ -84,13 +84,13 @@ type DrawingTool = 'pen' | 'eraser' | 'line' | 'rectangle' | 'circle' | 'text';
 
 ```ts
 interface DrawingOptions {
-  lineWidth: number;
-  strokeColor: string;
-  fillColor?: string;
-  tool: DrawingTool;
-  mode: DrawingMode;
-  fontSize?: number;
-  fontFamily?: string;
+	lineWidth: number;
+	strokeColor: string;
+	fillColor?: string;
+	tool: DrawingTool;
+	mode: DrawingMode;
+	fontSize?: number;
+	fontFamily?: string;
 }
 ```
 
@@ -106,18 +106,18 @@ type DrawingMode = 'draw' | 'select' | 'erase';
 
 ```svelte
 <script>
-  import { CanvasBoard } from 'stylist-svelte';
-  
-  let canvasRef;
+	import { CanvasBoard } from 'stylist-svelte';
+
+	let canvasRef;
 </script>
 
-<CanvasBoard 
-  bind:this={canvasRef}
-  width={800}
-  height={600}
-  lineWidth={3}
-  strokeColor={'#ff0000'}
-  on:draw={handleDraw}
+<CanvasBoard
+	bind:this={canvasRef}
+	width={800}
+	height={600}
+	lineWidth={3}
+	strokeColor={'#ff0000'}
+	on:draw={handleDraw}
 />
 ```
 
@@ -125,37 +125,27 @@ type DrawingMode = 'draw' | 'select' | 'erase';
 
 ```svelte
 <script>
-  import { CanvasBoard, CanvasToolbar } from 'stylist-svelte';
-  import type { DrawingTool, DrawingOptions } from 'stylist-svelte';
-  
-  let selectedTool: DrawingTool = 'pen';
-  let drawingOptions: DrawingOptions = {
-    lineWidth: 2,
-    strokeColor: '#000000',
-    tool: 'pen',
-    mode: 'draw'
-  };
-  
-  function handleToolChange(e: CustomEvent<{ tool: DrawingTool, options: DrawingOptions }>) {
-    selectedTool = e.detail.tool;
-    drawingOptions = e.detail.options;
-  }
+	import { CanvasBoard, CanvasToolbar } from 'stylist-svelte';
+	import type { DrawingTool, DrawingOptions } from 'stylist-svelte';
+
+	let selectedTool: DrawingTool = 'pen';
+	let drawingOptions: DrawingOptions = {
+		lineWidth: 2,
+		strokeColor: '#000000',
+		tool: 'pen',
+		mode: 'draw'
+	};
+
+	function handleToolChange(e: CustomEvent<{ tool: DrawingTool; options: DrawingOptions }>) {
+		selectedTool = e.detail.tool;
+		drawingOptions = e.detail.options;
+	}
 </script>
 
 <div style="display: flex; gap: 20px;">
-  <CanvasToolbar 
-    {selectedTool}
-    {drawingOptions}
-    on:tool-change={handleToolChange}
-  />
-  
-  <CanvasBoard 
-    {width}
-    {height}
-    {lineWidth}
-    {strokeColor}
-    {drawingTool}
-  />
+	<CanvasToolbar {selectedTool} {drawingOptions} on:tool-change={handleToolChange} />
+
+	<CanvasBoard {width} {height} {lineWidth} {strokeColor} {drawingTool} />
 </div>
 ```
 
@@ -170,6 +160,7 @@ type DrawingMode = 'draw' | 'select' | 'erase';
 ## Roadmap
 
 Future enhancements might include:
+
 - Additional drawing tools (rectangle, circle, line, text)
 - Shape drawing capabilities
 - Drawing history with undo/redo functionality

@@ -46,10 +46,10 @@
 </script>
 
 <Story
-	id="molecules-kanban-board"
-	title="Molecules / Information / Management / Kanban / KanbanBoard"
+	id="organisms-kanban-board"
+	title="Organisms / Information / Management / Kanban / KanbanBoard"
 	component={KanbanBoard}
-	category="Molecules/Information/Management/Kanban"
+	category="Organisms/Information/Management/Kanban"
 	description="Task board with columns and card movement callbacks."
 	{controls}
 >

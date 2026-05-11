@@ -193,19 +193,6 @@
 						</div>
 					</article>
 				</div>
-
-				<section class="landing-diagnostics">
-					<div class="landing-diagnostics-copy">
-						<span class="eyebrow">Embedded diagnostics</span>
-						<h2>Run story checks without leaving the landing page.</h2>
-						<p>
-							The diagnostics runner remains available as a dedicated screen, and this compact
-							panel keeps it visible directly on the route entry page.
-						</p>
-					</div>
-
-					<DomainDiagnostics compact={true} />
-				</section>
 			</div>
 		</section>
 	{/if}
@@ -431,32 +418,6 @@
 		gap: 1rem;
 	}
 
-	.landing-diagnostics {
-		display: grid;
-		gap: 1rem;
-		padding: 1rem;
-		border: 1px solid color-mix(in srgb, var(--color-border-primary) 78%, transparent);
-		border-radius: 24px;
-		background: linear-gradient(
-			180deg,
-			color-mix(in srgb, var(--color-background-primary) 94%, white 6%),
-			color-mix(in srgb, var(--color-background-primary) 86%, var(--color-background-secondary) 14%)
-		);
-		box-shadow: 0 18px 46px rgba(15, 23, 42, 0.08);
-	}
-
-	.landing-diagnostics-copy {
-		display: grid;
-		gap: 0.45rem;
-	}
-
-	.landing-diagnostics-copy p {
-		margin: 0;
-		max-width: 52rem;
-		color: var(--color-text-secondary);
-		line-height: 1.6;
-	}
-
 	.feature-card {
 		display: grid;
 		grid-template-columns: auto minmax(0, 1fr);
@@ -529,7 +490,17 @@
 	}
 
 	@media (max-width: 840px) {
+		.c-domain-landing-shell {
+			padding-top: calc(env(safe-area-inset-top, 0px) + 6rem);
+		}
+
+		.c-domain-landing {
+			min-height: auto;
+			padding-top: 1rem;
+		}
+
 		.menu-shell {
+			top: calc(env(safe-area-inset-top, 0px) + 0.75rem);
 			left: 0.75rem;
 			right: 0.75rem;
 		}

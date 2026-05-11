@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	const browser = typeof window !== 'undefined';
 	import { PreziScene } from '$stylist/architecture/component/organism';
 	import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
 

@@ -29,6 +29,7 @@ interface/proto -> interface/recipe -> function/state -> svelte/(atom|molecule|o
 `proto` — атомарная способность или минимальный поведенческий контракт.
 
 Примеры:
+
 - `IClickable`
 - `IFocusable`
 - `ISizable`
@@ -38,6 +39,7 @@ interface/proto -> interface/recipe -> function/state -> svelte/(atom|molecule|o
 `proto` должен описывать один узкий аспект поведения или совместимости.
 
 Хороший `proto`:
+
 - малый
 - переиспользуемый
 - не знает о конкретном компоненте
@@ -53,18 +55,13 @@ interface/proto -> interface/recipe -> function/state -> svelte/(atom|molecule|o
 
 ```ts
 export interface ButtonRecipe
-	extends StructIntersectAll<[
-		LabelRecipe,
-		IIconSlot,
-		IClickable,
-		IFocusable,
-		ISizable,
-		IBadgeSlot
-	]>
-{}
+	extends StructIntersectAll<
+		[LabelRecipe, IIconSlot, IClickable, IFocusable, ISizable, IBadgeSlot]
+	> {}
 ```
 
 В этом примере `ButtonRecipe` уже является готовой интерфейсной сборкой кнопки:
+
 - текстовая часть приходит из `LabelRecipe`
 - иконки приходят из `IIconSlot`
 - клик приходит из `IClickable`
@@ -81,13 +78,16 @@ export interface ButtonRecipe
 Определение:
 
 ```ts
-export type StructIntersectAll<TTypes extends readonly unknown[]> =
-	TTypes extends readonly [infer THead, ...infer TTail]
-		? THead & StructIntersectAll<TTail>
-		: {};
+export type StructIntersectAll<TTypes extends readonly unknown[]> = TTypes extends readonly [
+	infer THead,
+	...infer TTail
+]
+	? THead & StructIntersectAll<TTail>
+	: {};
 ```
 
 Смысл:
+
 - взять tuple типов
 - рекурсивно пересечь их через `&`
 - получить единый структурный контракт
@@ -95,12 +95,14 @@ export type StructIntersectAll<TTypes extends readonly unknown[]> =
 Это не runtime-паттерн.
 
 `StructIntersectAll` не является:
+
 - builder
 - factory
 - factory method
 - director
 
 Точное архитектурное описание:
+
 - type-level intersection helper
 - structural composition utility
 - contract composition helper
@@ -110,6 +112,7 @@ export type StructIntersectAll<TTypes extends readonly unknown[]> =
 `function/state` — слой сборки реализации.
 
 Если `recipe` складывает интерфейсы, то `state` складывает поведение:
+
 - обработчики событий
 - вычисленные классы
 - inline styles
@@ -143,6 +146,7 @@ svelte-компонент потребляет уже собранный state
 `contract` — специальный joint для случаев, которые не должны смешиваться с обычным `recipe`.
 
 `contract` уместен, если:
+
 - описывается внешняя интеграционная граница
 - описывается валидационный контракт
 - описывается контракт темы, контекста или среды
@@ -162,11 +166,13 @@ svelte-компонент потребляет уже собранный state
 `interface/component/**` в текущем проекте считается legacy/transitional structure.
 
 Причина:
+
 - готовый компонент уже выражается через `recipe`
 - дополнительный слой `component` создаёт ложное ощущение третьего обязательного этапа
 - часть `component/**/contract` фактически дублирует или смешивает роли `recipe` и `contract`
 
 Дальнейшая стратегия:
+
 - новые сущности не создавать в `interface/component`
 - существующие пути инвентаризировать
 - каждый случай мигрировать отдельно:
@@ -179,6 +185,7 @@ svelte-компонент потребляет уже собранный state
 ### Шаг 1. Найти домены способностей
 
 Определить, какие домены дают части поведения:
+
 - `typography` — текст, label, caption
 - `media` — icon, image, avatar
 - `interaction` — click, focus, selection
@@ -190,6 +197,7 @@ svelte-компонент потребляет уже собранный state
 Если способность уже существует, использовать её.
 
 Пример:
+
 - `IClickable`
 - `IFocusable`
 - `IIconSlot`
@@ -201,6 +209,7 @@ svelte-компонент потребляет уже собранный state
 Если компонент наследует готовую композицию, использовать другой `recipe` как часть сборки.
 
 Пример:
+
 - `ButtonRecipe` может включать `LabelRecipe`
 - `IconButtonRecipe` может включать части `ButtonRecipe` или близкие `proto`
 
@@ -216,12 +225,7 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 
 ```ts
 export interface NewComponentRecipe
-	extends StructIntersectAll<[
-		SomeRecipe,
-		SomeProto,
-		AnotherProto
-	]>
-{}
+	extends StructIntersectAll<[SomeRecipe, SomeProto, AnotherProto]> {}
 ```
 
 ### Шаг 5. Собрать runtime state
@@ -229,6 +233,7 @@ export interface NewComponentRecipe
 Для каждого значимого `proto` или доменной способности должен быть найден или создан соответствующий `function/state`.
 
 Пример:
+
 - `IClickable` -> `createClickableState`
 - `IFocusable` -> `createFocusableState`
 - `ThemeBackgroundRecipe` -> `createBackgroundState`
@@ -257,12 +262,14 @@ export function createNewComponentState(props: NewComponentRecipe) {
 Если компонент имеет уникальные свойства, допустимо добавить отдельный специфичный `recipe` или `struct`, но не смешивать несколько экспортов в одном файле.
 
 При необходимости:
+
 - вынести специфичную часть в отдельный `interface/recipe/<family-specific>`
 - подключить её в основной `recipe`
 
 ## 8. Что запрещено
 
 Запрещено:
+
 - создавать третий обязательный уровень `component` после `recipe`
 - использовать `contract` как синоним `recipe`
 - создавать `builder` или `factory` для type-level сборки
@@ -278,13 +285,7 @@ import type { IClickable } from '$stylist/interaction/interface/proto/clickable'
 import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
 import type { LabelRecipe } from '$stylist/typography/interface/recipe/label';
 
-export interface ExampleRecipe
-	extends StructIntersectAll<[
-		LabelRecipe,
-		IClickable,
-		IFocusable
-	]>
-{}
+export interface ExampleRecipe extends StructIntersectAll<[LabelRecipe, IClickable, IFocusable]> {}
 ```
 
 Этот интерфейс уже является готовой сборкой component-level props.
@@ -298,6 +299,7 @@ interface/proto -> interface/recipe -> function/state composition -> svelte impl
 ```
 
 Где:
+
 - атомарные способности лежат в `interface/proto`
 - композиционный интерфейс лежит в `interface/recipe`
 - атомарные реализации поведения лежат в `function/state`

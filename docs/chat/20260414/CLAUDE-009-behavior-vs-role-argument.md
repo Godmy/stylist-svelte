@@ -63,12 +63,12 @@ ISelectable  — компонент выбирается
 
 Целевая модель `interface`:
 
-| Joint | Вопрос | Пример |
-|-------|--------|--------|
-| `behavior` | Что объект умеет делать? | `BehaviorClickable`, `BehaviorFocusable` |
-| `slot` | Что объект принимает как содержимое? | `SlotLabel`, `SlotIcon`, `SlotBadge` |
-| `recipe` | Из чего объект собран на уровне интерфейса? | `ButtonRecipe`, `AccordionRecipe` |
-| `contract` | Что объект обещает внешней системе? | `ContractThemeContext`, `ContractThemeSettingsViewModel` |
+| Joint      | Вопрос                                      | Пример                                                   |
+| ---------- | ------------------------------------------- | -------------------------------------------------------- |
+| `behavior` | Что объект умеет делать?                    | `BehaviorClickable`, `BehaviorFocusable`                 |
+| `slot`     | Что объект принимает как содержимое?        | `SlotLabel`, `SlotIcon`, `SlotBadge`                     |
+| `recipe`   | Из чего объект собран на уровне интерфейса? | `ButtonRecipe`, `AccordionRecipe`                        |
+| `contract` | Что объект обещает внешней системе?         | `ContractThemeContext`, `ContractThemeSettingsViewModel` |
 
 Четыре вопроса. Четыре разных ответа. Четыре разных joint.
 
@@ -109,6 +109,7 @@ interaction/interface/behavior/draggable/index.ts  → BehaviorDraggable
 Если САМО будет описываться в академических или патентных документах, терминология должна быть максимально точной и общеизвестной.
 
 `behavior` — стандартный термин в:
+
 - UML (Behavioral Diagrams: Activity, Sequence, State Machine)
 - Design Patterns (Behavioral Patterns: Observer, Strategy, Command)
 - Domain-Driven Design (behavioral specification)

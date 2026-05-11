@@ -3,7 +3,7 @@
 	import { Icon as BaseIcon } from '$stylist/media';
 	import { Badge } from '$stylist/typography';
 	import { createKanbanColumnState } from '$stylist/management/function/state/kanban-column';
-	import KanbanCard from '$stylist/management/component/organism/kanban-card/index.svelte';
+	import KanbanCard from '$stylist/management/component/molecule/kanban-card/index.svelte';
 	import type { KanbanColumnType } from '$stylist/management/type/struct/kanban-column';
 	import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card';
 	import type { Snippet } from 'svelte';

@@ -20,14 +20,14 @@ export type TokenThemeMode = (typeof TOKEN_THEME_MODE)[number];
 
 Это **пара** — тип прямо выводится из константы. Пользователь это почувствовал правильно. Но картина неоднородная:
 
-| Паттерн | Пример | Пара? |
-|---------|--------|-------|
-| `const/enum/*` + `type/enum/*` | `TOKEN_THEME_MODE` + `TokenThemeMode` | ✅ Всегда |
-| `const/value/*` | одиночный скаляр | 〰️ Иногда |
-| `const/struct/*` | `THEME_MODE_LIGHT: Theme` — 130 строк данных | ❌ Нет |
-| `const/record/*`, `const/map/*` | lookup-таблицы | ❌ Редко |
-| `type/struct/*` | `Theme`, `ThemeSchemeDefinition` | ❌ Нет |
-| `type/contract/*` | `ThemeSchemeDefinition`, `ThemeStorage` | ❌ Нет |
+| Паттерн                         | Пример                                       | Пара?     |
+| ------------------------------- | -------------------------------------------- | --------- |
+| `const/enum/*` + `type/enum/*`  | `TOKEN_THEME_MODE` + `TokenThemeMode`        | ✅ Всегда |
+| `const/value/*`                 | одиночный скаляр                             | 〰️ Иногда |
+| `const/struct/*`                | `THEME_MODE_LIGHT: Theme` — 130 строк данных | ❌ Нет    |
+| `const/record/*`, `const/map/*` | lookup-таблицы                               | ❌ Редко  |
+| `type/struct/*`                 | `Theme`, `ThemeSchemeDefinition`             | ❌ Нет    |
+| `type/contract/*`               | `ThemeSchemeDefinition`, `ThemeStorage`      | ❌ Нет    |
 
 Вывод: **пары существуют только для `enum` (и иногда `value`)**. Остальные `const` и `type` — самостоятельные сущности без партнёра.
 
@@ -103,11 +103,11 @@ type/struct/theme/index.ts  ← чистые структурные типы
 
 Посмотреть на сущности иначе:
 
-| Природа | Текущий кластер | Примеры |
-|---------|----------------|---------|
-| Design token (пара value + type) | `const/enum` + `type/enum` | `TOKEN_THEME_MODE` / `TokenThemeMode` |
-| Данные (чистые данные, большие объекты) | `const/struct`, `const/record`, `const/map` | `THEME_MODE_LIGHT`, `COLORS_SCALES_BLUE` |
-| Структурный тип (чистая типизация) | `type/struct`, `type/contract`, `type/alias` | `Theme`, `ThemeSchemeDefinition` |
+| Природа                                 | Текущий кластер                              | Примеры                                  |
+| --------------------------------------- | -------------------------------------------- | ---------------------------------------- |
+| Design token (пара value + type)        | `const/enum` + `type/enum`                   | `TOKEN_THEME_MODE` / `TokenThemeMode`    |
+| Данные (чистые данные, большие объекты) | `const/struct`, `const/record`, `const/map`  | `THEME_MODE_LIGHT`, `COLORS_SCALES_BLUE` |
+| Структурный тип (чистая типизация)      | `type/struct`, `type/contract`, `type/alias` | `Theme`, `ThemeSchemeDefinition`         |
 
 Это три реально разные вещи. Текущие кластеры `const` и `type` объединяют их не по природе, а по языковой форме.
 
