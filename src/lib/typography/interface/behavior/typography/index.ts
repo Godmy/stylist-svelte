@@ -1,9 +1,9 @@
-import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenLineHeight } from '$stylist/architecture/type/enum/line-height';
 import type { TokenLetterSpacing } from '$stylist/architecture/type/enum/letter-spacing';
+import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 /** Typography token settings: font, size, weight, spacing, and alignment. */
-export interface BehaviorTypographyToken {
+export interface BehaviorTypography {
 	/** Font size token. */
 	fontSize?: TokenSize;
 	/** Font weight token. */

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorTypographyToken } from './typography-token';
+export type { BehaviorTypography } from './typography';

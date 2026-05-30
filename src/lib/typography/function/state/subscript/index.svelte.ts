@@ -19,6 +19,16 @@ export function createSubscriptState(props: ThemeSubscriptRecipe) {
 			size: _size,
 			disabled: _disabled,
 			block: _block,
+			text: _text,
+			ariaLabel: _ariaLabel,
+			fontSize: _fontSize,
+			fontWeight: _fontWeight,
+			fontFamily: _fontFamily,
+			lineHeight: _lineHeight,
+			letterSpacing: _letterSpacing,
+			textTransform: _textTransform,
+			textAlign: _textAlign,
+			lineClamp: _lineClamp,
 			children: _children,
 			...rest
 		} = props;

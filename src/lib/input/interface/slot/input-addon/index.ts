@@ -13,7 +13,7 @@ import type {
 	InputValidationProps,
 	InputValueProps
 } from '$stylist/input/type/struct';
-import type { TextInputBaseProps } from '$stylist/typography/type/struct/text-input-base-props';
+import type { TextInputBaseProps } from '$stylist/input/type/struct/text-input-base-props';
 import type { SlotInputHelperChildren } from '$stylist/input/interface/slot/input-helper-children';
 
 export interface SlotInputAddon extends SlotInputHelperChildren<HTMLDivElement> {
