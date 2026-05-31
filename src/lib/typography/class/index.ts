@@ -1,2 +1,26 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AbbrStyleManager, BadgeStyleManager, BlockquoteStyleManager, DataDisplayStyleManager, DefinitionDescriptionStyleManager, DefinitionTermStyleManager, EmStyleManager, HighlightStyleManager, InlineCodeStyleManager, KbdStyleManager, StyleManagerBadgeGroup, StyleManagerCaption, StyleManagerCountBadge, StyleManagerHeading, StyleManagerLink, StyleManagerParagraph, StyleManagerSmall, StyleManagerStatusIndicator, StyleManagerStrikeThrough, StyleManagerStrong, StyleManagerSubscript, StyleManagerSuperscript, StyleManagerText } from './style-manager';
+export {
+	AbbrStyleManager,
+	BadgeStyleManager,
+	BlockquoteStyleManager,
+	DataDisplayStyleManager,
+	DefinitionDescriptionStyleManager,
+	DefinitionTermStyleManager,
+	EmStyleManager,
+	HighlightStyleManager,
+	InlineCodeStyleManager,
+	KbdStyleManager,
+	StyleManagerBadgeGroup,
+	StyleManagerCaption,
+	StyleManagerCountBadge,
+	StyleManagerHeading,
+	StyleManagerLink,
+	StyleManagerParagraph,
+	StyleManagerSmall,
+	StyleManagerStatusIndicator,
+	StyleManagerStrikeThrough,
+	StyleManagerStrong,
+	StyleManagerSubscript,
+	StyleManagerSuperscript,
+	StyleManagerText
+} from './style-manager';

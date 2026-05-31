@@ -1,3 +1,18 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { addABTestVariant, calculateABTestTotalWeight, removeABTestVariant, toggleABTestVariantStatus, updateABTestVariantWeight, validateABTest } from './script';
-export { createABTestConfiguratorState, createConversionFunnelState, createCtaBannerState, createHeroState, createTestResultsViewerState, createTrafficAnalyticsState, createUserBehaviorMetricsState } from './state';
+export {
+	addABTestVariant,
+	calculateABTestTotalWeight,
+	removeABTestVariant,
+	toggleABTestVariantStatus,
+	updateABTestVariantWeight,
+	validateABTest
+} from './script';
+export {
+	createABTestConfiguratorState,
+	createConversionFunnelState,
+	createCtaBannerState,
+	createHeroState,
+	createTestResultsViewerState,
+	createTrafficAnalyticsState,
+	createUserBehaviorMetricsState
+} from './state';

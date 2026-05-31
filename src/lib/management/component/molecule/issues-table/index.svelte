@@ -24,20 +24,14 @@
 <section class="{state.containerClass} {className}" aria-label="Issues table">
 	<div class={state.toolbarClass}>
 		<div class="flex flex-wrap items-center gap-3">
-			<Switch
-				id="issues-state-filter"
-				label="Only new"
-				bind:checked={state.showNewOnly}
-			/>
+			<Switch id="issues-state-filter" label="Only new" bind:checked={state.showNewOnly} />
 			<p class={state.toolbarMetaClass}>
 				{state.filteredItems.length} visible / {items.length} total
 			</p>
 		</div>
 		<div class={state.actionsClass}>
 			<Badge variant="default" size="sm">{state.selectedItems.length} selected</Badge>
-			<Button variant="secondary" size="sm" onclick={state.clearSelection}>
-				Clear selection
-			</Button>
+			<Button variant="secondary" size="sm" onclick={state.clearSelection}>Clear selection</Button>
 			<Button
 				variant="primary"
 				size="sm"
@@ -57,7 +51,10 @@
 						<input
 							class={state.checkboxClass}
 							type="checkbox"
-							checked={state.filteredItems.length > 0 && state.filteredItems.every((item) => state.selectedIds.includes(state.getIssueKey(item)))}
+							checked={state.filteredItems.length > 0 &&
+								state.filteredItems.every((item) =>
+									state.selectedIds.includes(state.getIssueKey(item))
+								)}
 							onchange={state.toggleAllVisible}
 							aria-label="Select all visible issues"
 						/>

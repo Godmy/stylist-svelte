@@ -35,7 +35,8 @@ export function createIssuesTableState(input: {
 
 	function toggleAllVisible(): void {
 		const visibleIds = filteredItems.map((item) => getIssueKey(item));
-		const everyVisibleSelected = visibleIds.length > 0 && visibleIds.every((id) => selectedIds.includes(id));
+		const everyVisibleSelected =
+			visibleIds.length > 0 && visibleIds.every((id) => selectedIds.includes(id));
 
 		selectedIds = everyVisibleSelected
 			? selectedIds.filter((id) => !visibleIds.includes(id))

@@ -22,7 +22,8 @@
 	const sampleCard: KanbanCardType = {
 		id: 'card-1',
 		title: 'Design new backlog workflow',
-		description: 'Split backlog write paths from generic content routes and prepare disk-based persistence.',
+		description:
+			'Split backlog write paths from generic content routes and prepare disk-based persistence.',
 		priority: 'high',
 		tags: ['backlog', 'server', 'ui'],
 		assignee: { name: 'Dmitrii' },
@@ -52,13 +53,19 @@
 <Story {id} {title} {description} component={KanbanCard} category="Molecules" {controls}>
 	{#snippet children()}
 		<div class="grid gap-4 rounded-xl bg-[var(--color-background-secondary)] p-4 md:grid-cols-3">
-			<div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-3">
+			<div
+				class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-3"
+			>
 				<KanbanCard card={sampleCard} />
 			</div>
-			<div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-3">
+			<div
+				class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-3"
+			>
 				<KanbanCard card={lowPriorityCard} />
 			</div>
-			<div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-3">
+			<div
+				class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-3"
+			>
 				<KanbanCard card={mediumPriorityCard} />
 			</div>
 		</div>

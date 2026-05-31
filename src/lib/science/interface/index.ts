@@ -1,4 +1,61 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ContractLitegraphNode, ContractLitegraphNodeProperty, ContractLitegraphPort, ContractPrediction, ContractPromptTemplate, ContractPromptVariable } from './contract';
-export type { ConnectionLineRecipe, GraphCanvasRecipe, GraphEdgeRecipe, GraphNodeCardRecipe, GraphNodeRecipe, GraphPortRecipe, GraphRecipe, GraphToolbarRecipe, GraphvizDirectedEdgeRecipe, Idef0BlackBoxRecipe, Idef0ConnectorRecipe, Idef0DiagramRecipe, Idef0FunctionBoxRecipe, Idef0InputsRecipe, Idef0OutputsRecipe, Idef0PortLabelRecipe, LitegraphNodeRecipe, NodeHeaderRecipe, NodePropertiesPanelRecipe, NodePropertyRecipe, NodeTitleRecipe, RecipeAiResultCard, RecipeLitegraphCanvas, RecipeMapScience, RecipeModelSelector, RecipePredictionResult, RecipePromptBuilder, RecipeScience, RecipeSentimentAnalysis } from './recipe';
-export type { ChildrenHtmlAttributes, LiteGraphNodeProperty, LiteGraphPort, SlotAiResultCard, SlotGraphPortState, SlotGraphToolbarItem, SlotLitegraphConnection, SlotModelOption, SlotNodePalette, SlotNodePaletteItem, SlotNodePropertyState, SlotPrediction, SlotPredictionResult, SlotPromptBuilder, SlotPromptTemplate, SlotPromptVariable, SlotSentimentAnalysis, SlotSentimentAnalysisResult, SlotSentimentResult } from './slot';
+export type {
+	ContractLitegraphNode,
+	ContractLitegraphNodeProperty,
+	ContractLitegraphPort,
+	ContractPrediction,
+	ContractPromptTemplate,
+	ContractPromptVariable
+} from './contract';
+export type {
+	ConnectionLineRecipe,
+	GraphCanvasRecipe,
+	GraphEdgeRecipe,
+	GraphNodeCardRecipe,
+	GraphNodeRecipe,
+	GraphPortRecipe,
+	GraphRecipe,
+	GraphToolbarRecipe,
+	GraphvizDirectedEdgeRecipe,
+	Idef0BlackBoxRecipe,
+	Idef0ConnectorRecipe,
+	Idef0DiagramRecipe,
+	Idef0FunctionBoxRecipe,
+	Idef0InputsRecipe,
+	Idef0OutputsRecipe,
+	Idef0PortLabelRecipe,
+	LitegraphNodeRecipe,
+	NodeHeaderRecipe,
+	NodePropertiesPanelRecipe,
+	NodePropertyRecipe,
+	NodeTitleRecipe,
+	RecipeAiResultCard,
+	RecipeLitegraphCanvas,
+	RecipeMapScience,
+	RecipeModelSelector,
+	RecipePredictionResult,
+	RecipePromptBuilder,
+	RecipeScience,
+	RecipeSentimentAnalysis
+} from './recipe';
+export type {
+	ChildrenHtmlAttributes,
+	LiteGraphNodeProperty,
+	LiteGraphPort,
+	SlotAiResultCard,
+	SlotGraphPortState,
+	SlotGraphToolbarItem,
+	SlotLitegraphConnection,
+	SlotModelOption,
+	SlotNodePalette,
+	SlotNodePaletteItem,
+	SlotNodePropertyState,
+	SlotPrediction,
+	SlotPredictionResult,
+	SlotPromptBuilder,
+	SlotPromptTemplate,
+	SlotPromptVariable,
+	SlotSentimentAnalysis,
+	SlotSentimentAnalysisResult,
+	SlotSentimentResult
+} from './slot';

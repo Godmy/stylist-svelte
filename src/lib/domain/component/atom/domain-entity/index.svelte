@@ -27,7 +27,7 @@
 	class="c-domain-entity"
 	class:is-active={active}
 	title={path}
-	draggable={draggable}
+	{draggable}
 	ondragstart={onDragStart}
 	onclick={() => onSelect?.(path)}
 	ondblclick={() => onAdd?.(path)}

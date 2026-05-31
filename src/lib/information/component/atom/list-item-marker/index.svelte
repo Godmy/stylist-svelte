@@ -28,7 +28,14 @@
 		)[state.size]
 	);
 	const restProps = $derived.by(() => {
-		const { class: _class, type: _type, value: _value, color: _color, size: _size, ...rest } = props;
+		const {
+			class: _class,
+			type: _type,
+			value: _value,
+			color: _color,
+			size: _size,
+			...rest
+		} = props;
 		return rest;
 	});
 </script>

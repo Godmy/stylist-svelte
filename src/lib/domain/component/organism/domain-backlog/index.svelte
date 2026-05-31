@@ -66,7 +66,9 @@
 		class: className = ''
 	}: DomainBacklogProps = $props();
 
-	let activeView = $state<'issues' | 'backlog' | 'kanban' | 'sprint' | 'burn-down' | 'archive'>('issues');
+	let activeView = $state<'issues' | 'backlog' | 'kanban' | 'sprint' | 'burn-down' | 'archive'>(
+		'issues'
+	);
 
 	const issuesCount = $derived(issues.length);
 	const todoCount = $derived(backlogData.items.filter((item) => item.status === 'todo').length);
@@ -98,7 +100,12 @@
 							<Icon name="backlog-status-todo" size={16} class="metric-icon" />
 							<strong>{todoCount}</strong>
 						</div>
-						<div class="metric" data-label="In progress" title="In progress" aria-label="In progress">
+						<div
+							class="metric"
+							data-label="In progress"
+							title="In progress"
+							aria-label="In progress"
+						>
 							<Icon name="backlog-status-progress" size={16} class="metric-icon" />
 							<strong>{inProgressCount}</strong>
 						</div>
@@ -115,10 +122,7 @@
 					class:workspace-card--content-backlog={activeView === 'backlog'}
 				>
 					{#if activeView === 'issues'}
-						<IssuesTable
-							items={issues}
-							onMoveToBacklog={onIssuesMoveToBacklog}
-						/>
+						<IssuesTable items={issues} onMoveToBacklog={onIssuesMoveToBacklog} />
 					{:else if activeView === 'kanban'}
 						<KanbanBoard
 							board={kanbanBoard}
@@ -127,7 +131,7 @@
 							allowCardAdd={false}
 							allowInlineEdit={false}
 							allowCardArchive={false}
-							onBoardChange={onBoardChange}
+							{onBoardChange}
 						/>
 					{:else if activeView === 'burn-down'}
 						<BurnDownChart data={burnDownData} width={1180} height={520} title="" />
@@ -135,24 +139,20 @@
 						<div class="placeholder-card">
 							<h2>Sprint</h2>
 							<p>
-								TDD placeholder: sprint items will be selected from backlog and tracked as a separate
-								execution surface.
+								TDD placeholder: sprint items will be selected from backlog and tracked as a
+								separate execution surface.
 							</p>
 						</div>
 					{:else if activeView === 'archive'}
 						<div class="placeholder-card">
 							<h2>Archive</h2>
 							<p>
-								TDD placeholder: archived backlog items and resolution records will be stored and shown here.
+								TDD placeholder: archived backlog items and resolution records will be stored and
+								shown here.
 							</p>
 						</div>
 					{:else}
-						<ScrumBacklog
-							data={backlogData}
-							onItemAdd={onItemAdd}
-							onItemUpdate={onItemUpdate}
-							onItemDelete={onItemDelete}
-						/>
+						<ScrumBacklog data={backlogData} {onItemAdd} {onItemUpdate} {onItemDelete} />
 					{/if}
 				</section>
 			</div>
@@ -181,7 +181,11 @@
 			linear-gradient(
 				180deg,
 				color-mix(in srgb, var(--color-background-primary) 96%, white 4%) 0%,
-				color-mix(in srgb, var(--color-background-primary) 90%, var(--color-background-secondary) 10%)
+				color-mix(
+						in srgb,
+						var(--color-background-primary) 90%,
+						var(--color-background-secondary) 10%
+					)
 					100%
 			);
 		color: var(--color-text-primary);
@@ -415,6 +419,5 @@
 			justify-content: flex-start;
 			flex-wrap: wrap;
 		}
-
 	}
 </style>

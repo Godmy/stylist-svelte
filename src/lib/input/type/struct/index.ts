@@ -9,6 +9,15 @@ export type { InputTextStateOptions } from './input-text-state-options';
 export type { TextInputBaseProps } from './text-input-base-props';
 export type { InputValidationProps } from './input-validation-props';
 export type { InputValueProps } from './input-value-props';
-export type { AutoCompleteOption, DateRangeValue, DateTimeRangePickerProps, DateTimeRangeValue, ProductForQuote, QuoteRequestValue, TranslatableText, TranslationLocale } from './interaction-input';
+export type {
+	AutoCompleteOption,
+	DateRangeValue,
+	DateTimeRangePickerProps,
+	DateTimeRangeValue,
+	ProductForQuote,
+	QuoteRequestValue,
+	TranslatableText,
+	TranslationLocale
+} from './interaction-input';
 export type { IReactionPickerStyleClasses } from './reaction-picker-style-classes';
 export type { TextAreaStateOptions } from './text-area-state-options';

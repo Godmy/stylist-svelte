@@ -277,7 +277,9 @@
 					<div class="summary-item">
 						<p class="summary-item__label">State JSON preview</p>
 						{#if projection.interaction.stateJson.length > 0}
-							<pre class="summary-item__value">{slicePreview(projection.interaction.stateJson[0])}</pre>
+							<pre class="summary-item__value">{slicePreview(
+									projection.interaction.stateJson[0]
+								)}</pre>
 						{:else}
 							<p class="summary-item__empty">No state JSON.</p>
 						{/if}
@@ -311,7 +313,9 @@
 						{#each contractFiles as file}
 							<div class="summary-item">
 								<p class="summary-item__label">{file.path}</p>
-								<pre class="summary-item__value">{file.content ? slicePreview(file.content) : 'unreadable'}</pre>
+								<pre class="summary-item__value">{file.content
+										? slicePreview(file.content)
+										: 'unreadable'}</pre>
 							</div>
 						{/each}
 					{:else}

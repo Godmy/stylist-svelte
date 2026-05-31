@@ -4,11 +4,7 @@
 	import StylistHero from '$stylist/marketing/component/molecule/stylist-hero/index.svelte';
 	import StylistMission from '$stylist/marketing/component/molecule/stylist-mission/index.svelte';
 
-	let {
-		rootDomainCount = 0,
-		storyModuleCount = 0,
-		class: className = ''
-	} = $props();
+	let { rootDomainCount = 0, storyModuleCount = 0, class: className = '' } = $props();
 </script>
 
 <section class={`c-stylist-landing ${className}`} aria-label="Stylist landing">
@@ -53,7 +49,11 @@
 			linear-gradient(
 				180deg,
 				color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
-				color-mix(in srgb, var(--color-background-primary) 88%, var(--color-background-secondary) 12%)
+				color-mix(
+					in srgb,
+					var(--color-background-primary) 88%,
+					var(--color-background-secondary) 12%
+				)
 			);
 	}
 

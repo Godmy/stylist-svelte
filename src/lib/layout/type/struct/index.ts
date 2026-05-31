@@ -19,7 +19,22 @@ export type { LayoutLevel } from './item-layout-level';
 export type { LayoutShape } from './item-layout-shape';
 export type { GridLayoutItem, GridLayoutProps } from './layout';
 export type { LayoutElevationSemantic } from './layout-elevation-semantic';
-export type { BaseLayoutProps, CardProps, CenteredLayoutProps, ContainerQueryProps, GridLayoutExtendedProps, GridMoleculeProps, HorizontalLayoutProps, LayoutSection, OverlayLayerProps, OverlayLayoutProps, SidebarLayoutProps, SplitLayoutProps, StickyLayoutProps, VerticalLayoutProps } from './layout-extended';
+export type {
+	BaseLayoutProps,
+	CardProps,
+	CenteredLayoutProps,
+	ContainerQueryProps,
+	GridLayoutExtendedProps,
+	GridMoleculeProps,
+	HorizontalLayoutProps,
+	LayoutSection,
+	OverlayLayerProps,
+	OverlayLayoutProps,
+	SidebarLayoutProps,
+	SplitLayoutProps,
+	StickyLayoutProps,
+	VerticalLayoutProps
+} from './layout-extended';
 export type { LayoutGradients } from './layout-gradients';
 export type { LayoutTheme } from './layout-theme';
 export type { SeparatorProps } from './separator';

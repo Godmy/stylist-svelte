@@ -1,5 +1,61 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorAttachmentPreviewEvents, BehaviorDragDropFileUploadEvents, BehaviorDropZoneEvents, BehaviorFileBrowserEvents, BehaviorFileExplorerEvents, BehaviorFileListItemEvents, BehaviorFileUploadEvents, BehaviorUploadProgressEvents, BehaviorZipViewerEvents } from './behavior';
-export type { ContractAttachment, ContractDragDropFile, ContractFile, ContractFileItem, ContractFileMetadata, ContractUploadFile, ContractUploadProgress } from './contract';
-export type { RecipeAttachmentPreview, RecipeDownloadCard, RecipeDragDropFileUpload, RecipeDropZone, RecipeFileBrowser, RecipeFileExplorer, RecipeFileInput, RecipeFileListItem, RecipeFileUpload, RecipeZipViewer, UploadProgressStateProps } from './recipe';
-export type { SlotAttachment, SlotDownloadCard, SlotDragDropFile, SlotDragDropFileUpload, SlotDropItem, SlotDropZone, SlotDropZoneStyleClasses, SlotFileBrowser, SlotFileExplorer, SlotFileInput, SlotFileItem, SlotFileListItem, SlotFileMetadata, SlotFileSystemItem, SlotFileUpload, SlotFolderItem, SlotUploadFile, SlotUploadProgress, SlotUploadProgressBehaviorOptions, SlotUploadProgressClasses, SlotUploadProgressDisplayOptions, SlotUploadProgressEventHandlers, SlotZipEntry, SlotZipViewer, SlotZipViewerStyleClasses } from './slot';
+export type {
+	BehaviorAttachmentPreviewEvents,
+	BehaviorDragDropFileUploadEvents,
+	BehaviorDropZoneEvents,
+	BehaviorFileBrowserEvents,
+	BehaviorFileExplorerEvents,
+	BehaviorFileListItemEvents,
+	BehaviorFileUploadEvents,
+	BehaviorUploadProgressEvents,
+	BehaviorZipViewerEvents
+} from './behavior';
+export type {
+	ContractAttachment,
+	ContractDragDropFile,
+	ContractFile,
+	ContractFileItem,
+	ContractFileMetadata,
+	ContractUploadFile,
+	ContractUploadProgress
+} from './contract';
+export type {
+	RecipeAttachmentPreview,
+	RecipeDownloadCard,
+	RecipeDragDropFileUpload,
+	RecipeDropZone,
+	RecipeFileBrowser,
+	RecipeFileExplorer,
+	RecipeFileInput,
+	RecipeFileListItem,
+	RecipeFileUpload,
+	RecipeZipViewer,
+	UploadProgressStateProps
+} from './recipe';
+export type {
+	SlotAttachment,
+	SlotDownloadCard,
+	SlotDragDropFile,
+	SlotDragDropFileUpload,
+	SlotDropItem,
+	SlotDropZone,
+	SlotDropZoneStyleClasses,
+	SlotFileBrowser,
+	SlotFileExplorer,
+	SlotFileInput,
+	SlotFileItem,
+	SlotFileListItem,
+	SlotFileMetadata,
+	SlotFileSystemItem,
+	SlotFileUpload,
+	SlotFolderItem,
+	SlotUploadFile,
+	SlotUploadProgress,
+	SlotUploadProgressBehaviorOptions,
+	SlotUploadProgressClasses,
+	SlotUploadProgressDisplayOptions,
+	SlotUploadProgressEventHandlers,
+	SlotZipEntry,
+	SlotZipViewer,
+	SlotZipViewerStyleClasses
+} from './slot';

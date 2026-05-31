@@ -1,3 +1,19 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerContentEditor, ObjectManagerGesture, ObjectManagerSearchBar } from './object-manager';
-export { AccountSettingsStyleManager, ClickableStyleManager, DraggableStyleManager, FocusableStyleManager, HoverableStyleManager, IndicatorsStyleManager, InteractionStyleManager, SecuritySettingsStyleManager, SettingsStyleManager, TabStyleManager, ToggleStyleManager } from './style-manager';
+export {
+	ObjectManagerContentEditor,
+	ObjectManagerGesture,
+	ObjectManagerSearchBar
+} from './object-manager';
+export {
+	AccountSettingsStyleManager,
+	ClickableStyleManager,
+	DraggableStyleManager,
+	FocusableStyleManager,
+	HoverableStyleManager,
+	IndicatorsStyleManager,
+	InteractionStyleManager,
+	SecuritySettingsStyleManager,
+	SettingsStyleManager,
+	TabStyleManager,
+	ToggleStyleManager
+} from './style-manager';

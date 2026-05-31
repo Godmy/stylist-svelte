@@ -43,7 +43,11 @@ export type { PageBuilderButtonAttributes } from './page-builder-button-attribut
 export type { PageBuilderContainerAttributes } from './page-builder-container-attributes';
 export type { PageBuilderDividerAttributes } from './page-builder-divider-attributes';
 export type { PageBuilderElement } from './page-builder-element';
-export type { PageBuilderHeadingAttributes, PageBuilderImageAttributes, PageBuilderTextAttributes } from './page-builder-element-attributes';
+export type {
+	PageBuilderHeadingAttributes,
+	PageBuilderImageAttributes,
+	PageBuilderTextAttributes
+} from './page-builder-element-attributes';
 export type { PageBuilderProps } from './page-builder-props';
 export type { PageBuilderToolbarItem } from './page-builder-toolbar-item';
 export type { TokenRadioControlDefinition } from './radio-control-definition';
@@ -78,7 +82,11 @@ export type { TokenControlData } from './token-control';
 export type { TokenControlBaseProps } from './token-control-base-props';
 export type { TokenControlComposerProps } from './token-control-composer-props';
 export type { TokenControlDefinition } from './token-control-definition';
-export type { TokenControlDefinitionData, TokenControlDomain, TokenControlKind } from './token-control-domain';
+export type {
+	TokenControlDefinitionData,
+	TokenControlDomain,
+	TokenControlKind
+} from './token-control-domain';
 export type { TokenControlOption } from './token-control-option';
 export type { TokenDomain } from './token-domain';
 export type { TokenIconKind } from './token-icon-kind';

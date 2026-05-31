@@ -86,11 +86,12 @@ export function createDomainPageState(input: DomainPageInput) {
 	const activeFamily = $derived(activeEntity?.name.split('/').at(-1) ?? '');
 	const activeFamilyName = $derived(activeEntity?.name ?? '');
 	const breadcrumbFile = $derived(activeFilePath ? (activeFilePath.split('/').pop() ?? '') : '');
-	const issueLogPath = $derived(
-		'management/data/jsonl/component/issues/index.jsonl'
-	);
+	const issueLogPath = $derived('management/data/jsonl/component/issues/index.jsonl');
 	const issueId = $derived(
-		activeFilePath || [activeDomain, activeCluster, activeJoint, activeFamily, breadcrumbFile].filter(Boolean).join('/')
+		activeFilePath ||
+			[activeDomain, activeCluster, activeJoint, activeFamily, breadcrumbFile]
+				.filter(Boolean)
+				.join('/')
 	);
 	const storyModulePath = $derived(storyFile ? `../lib/${storyFile.path}` : null);
 	const previewKind = $derived.by(() => {

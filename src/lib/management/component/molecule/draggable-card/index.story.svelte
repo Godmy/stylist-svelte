@@ -33,7 +33,7 @@
 	{#snippet children(args: any)}
 		<div class="max-w-md rounded-xl bg-[var(--color-background-secondary)] p-4">
 			<DraggableCard
-				data={data}
+				{data}
 				draggable={args.draggable as boolean}
 				disabled={args.disabled as boolean}
 				showHandle={args.showHandle as boolean}

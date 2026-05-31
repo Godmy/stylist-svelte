@@ -46,7 +46,7 @@
 	{#if screenState.currentScreen === DOMAIN_SCREEN_DOMAIN}
 		<DomainExplorer state={pageState} />
 	{:else if screenState.currentScreen === DOMAIN_SCREEN_BUILDER}
-		<DomainBuilder tree={tree} {descriptors} />
+		<DomainBuilder {tree} {descriptors} />
 	{:else if screenState.currentScreen === DOMAIN_SCREEN_BACKLOG}
 		<DomainBacklog
 			title={backlogState.title}

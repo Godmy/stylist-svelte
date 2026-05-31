@@ -2,7 +2,10 @@ import type { SlotBacklogData as BacklogData } from '$stylist/management/interfa
 import type { SlotBacklogItem as BacklogItem } from '$stylist/management/interface/slot/backlog-item';
 import type { SlotBurnDownData as BurnDownData } from '$stylist/management/interface/slot/burn-down-data';
 import type { SlotIssueMessage as IssueMessage } from '$stylist/management/interface/slot/issue-message';
-import type { KanbanBoardAction, KanbanBoardType } from '$stylist/management/type/struct/kanban-board';
+import type {
+	KanbanBoardAction,
+	KanbanBoardType
+} from '$stylist/management/type/struct/kanban-board';
 
 export function createDomainBacklogState(input: {
 	getDomain: () => string;
@@ -391,8 +394,7 @@ export function createDomainBacklogState(input: {
 		const existingIds = new Set(items.map((item) => item.id));
 		const nextItems = selectedIssues
 			.filter(
-				(issue) =>
-					!existingIds.has(`issue:${issue.message_key ?? `${issue.id}::${issue.text}`}`)
+				(issue) => !existingIds.has(`issue:${issue.message_key ?? `${issue.id}::${issue.text}`}`)
 			)
 			.map((issue) => {
 				const timestamp = new Date(issue.created_at);

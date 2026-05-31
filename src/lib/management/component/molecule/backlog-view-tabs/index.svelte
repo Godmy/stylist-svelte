@@ -7,11 +7,7 @@
 		class?: string;
 	}
 
-	let {
-		value = 'issues',
-		onValueChange,
-		class: className = ''
-	}: BacklogViewTabsProps = $props();
+	let { value = 'issues', onValueChange, class: className = '' }: BacklogViewTabsProps = $props();
 
 	const descriptions: Record<BacklogView, string> = {
 		issues: 'Review incoming issue messages, select rows and move them into the backlog.',

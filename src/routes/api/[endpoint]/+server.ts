@@ -14,10 +14,21 @@ import type { TypeApiEndpoint } from '$stylist/server/type/struct/api-endpoint';
 import { json, type RequestEvent } from '@sveltejs/kit';
 
 function isApiEndpoint(value: string): value is TypeApiEndpoint {
-	return value === 'backlog' || value === 'backlog-issue' || value === 'builder' || value === 'content' || value === 'descriptor' || value === 'issues';
+	return (
+		value === 'backlog' ||
+		value === 'backlog-issue' ||
+		value === 'builder' ||
+		value === 'content' ||
+		value === 'descriptor' ||
+		value === 'issues'
+	);
 }
 
-function buildErrorResponse(event: RequestEvent, fallbackMessage: string, error: unknown): Response {
+function buildErrorResponse(
+	event: RequestEvent,
+	fallbackMessage: string,
+	error: unknown
+): Response {
 	const serializedError = serializeUnknownError(error);
 
 	appendErrorLog({

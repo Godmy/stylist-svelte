@@ -1,2 +1,15 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { CardSkeletonStyleManager, ErrorBoundaryStyleManager, InteractionFeedbackStyleManager, LoadingOverlayStyleManager, ProgressBarStyleManager, SkeletonCircleStyleManager, SkeletonRectangleStyleManager, SkeletonStyleManager, SkeletonTableStyleManager, SkeletonTextStyleManager, SpinnerStyleManager, ToastStyleManager } from './style-manager';
+export {
+	CardSkeletonStyleManager,
+	ErrorBoundaryStyleManager,
+	InteractionFeedbackStyleManager,
+	LoadingOverlayStyleManager,
+	ProgressBarStyleManager,
+	SkeletonCircleStyleManager,
+	SkeletonRectangleStyleManager,
+	SkeletonStyleManager,
+	SkeletonTableStyleManager,
+	SkeletonTextStyleManager,
+	SpinnerStyleManager,
+	ToastStyleManager
+} from './style-manager';

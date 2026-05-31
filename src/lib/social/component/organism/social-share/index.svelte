@@ -51,7 +51,10 @@
 									<platform.icon class="mr-3 h-5 w-5" />
 									<span>{platform.label}</span>
 									{#if platform.platform === 'copy' && state.copied}
-										<BaseIcon name="check" class="ml-auto h-5 w-5 text-[var(--color-success-500)]" />
+										<BaseIcon
+											name="check"
+											class="ml-auto h-5 w-5 text-[var(--color-success-500)]"
+										/>
 									{/if}
 								</button>
 							{/if}

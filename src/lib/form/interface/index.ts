@@ -1,3 +1,31 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AccountFormsRecipe, FormFooterRecipe, FormHeaderRecipe, InteractionFormsRecipe } from './recipe';
-export type { SlotAccountSettingsForm, SlotAddressForm, SlotAddressFormState, SlotDocumentPreview, SlotFilterPanelState, SlotFormFooter, SlotFormHeader, SlotFormSelectionState, SlotFormWithValidation, SlotFormWithValidationState, SlotLoginForm, SlotLoginFormState, SlotRadioGroupState, SlotScreenReader, SlotScreenReaderState, SlotSearchForm, SlotSearchFormState, SlotSecureForm, SlotSecuritySettings, SlotSessionManager, SlotUserProfileCard, SlotValidationState } from './slot';
+export type {
+	AccountFormsRecipe,
+	FormFooterRecipe,
+	FormHeaderRecipe,
+	InteractionFormsRecipe
+} from './recipe';
+export type {
+	SlotAccountSettingsForm,
+	SlotAddressForm,
+	SlotAddressFormState,
+	SlotDocumentPreview,
+	SlotFilterPanelState,
+	SlotFormFooter,
+	SlotFormHeader,
+	SlotFormSelectionState,
+	SlotFormWithValidation,
+	SlotFormWithValidationState,
+	SlotLoginForm,
+	SlotLoginFormState,
+	SlotRadioGroupState,
+	SlotScreenReader,
+	SlotScreenReaderState,
+	SlotSearchForm,
+	SlotSearchFormState,
+	SlotSecureForm,
+	SlotSecuritySettings,
+	SlotSessionManager,
+	SlotUserProfileCard,
+	SlotValidationState
+} from './slot';

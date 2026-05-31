@@ -1,4 +1,44 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorCoordinatesProto, BehaviorLocationProto, BehaviorMarkerProto } from './behavior';
-export type { GeoJSONViewerStateProps, IMapSettingsRecipe, IRouteRecipe, LocationPickerStateProps, LocationSelectorStateProps, MapMarkerStateProps, MapSelectorStateProps, MapWithMarkersStateProps, RoutePlannerStateProps, StoreLocatorStateProps } from './recipe';
-export type { SlotContactInfo, SlotCoordinates, SlotGeoJSONViewer, SlotGeoJsonFeature, SlotGeoJsonFeatureCollection, SlotGeoJsonGeometry, SlotGeoJsonLayer, SlotLocation, SlotLocationPicker, SlotLocationPickerMarker, SlotLocationSelector, SlotMapMarker, SlotMapMarkerItem, SlotMapSelector, SlotMapSelectorLocation, SlotMapSelectorStyleClasses, SlotMapView, SlotMapWithMarkers, SlotMapWithMarkersView, SlotRouteOption, SlotRoutePlanner, SlotRoutePlannerLocation, SlotStore, SlotStoreLocator } from './slot';
+export type {
+	BehaviorCoordinatesProto,
+	BehaviorLocationProto,
+	BehaviorMarkerProto
+} from './behavior';
+export type {
+	GeoJSONViewerStateProps,
+	IMapSettingsRecipe,
+	IRouteRecipe,
+	LocationPickerStateProps,
+	LocationSelectorStateProps,
+	MapMarkerStateProps,
+	MapSelectorStateProps,
+	MapWithMarkersStateProps,
+	RoutePlannerStateProps,
+	StoreLocatorStateProps
+} from './recipe';
+export type {
+	SlotContactInfo,
+	SlotCoordinates,
+	SlotGeoJSONViewer,
+	SlotGeoJsonFeature,
+	SlotGeoJsonFeatureCollection,
+	SlotGeoJsonGeometry,
+	SlotGeoJsonLayer,
+	SlotLocation,
+	SlotLocationPicker,
+	SlotLocationPickerMarker,
+	SlotLocationSelector,
+	SlotMapMarker,
+	SlotMapMarkerItem,
+	SlotMapSelector,
+	SlotMapSelectorLocation,
+	SlotMapSelectorStyleClasses,
+	SlotMapView,
+	SlotMapWithMarkers,
+	SlotMapWithMarkersView,
+	SlotRouteOption,
+	SlotRoutePlanner,
+	SlotRoutePlannerLocation,
+	SlotStore,
+	SlotStoreLocator
+} from './slot';

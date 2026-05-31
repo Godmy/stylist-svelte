@@ -104,7 +104,11 @@
 
 					<div>
 						<label for="new-item-status" class={state.formLabelClass}>Status</label>
-						<select id="new-item-status" class={state.formSelectClass} bind:value={state.newItemStatus}>
+						<select
+							id="new-item-status"
+							class={state.formSelectClass}
+							bind:value={state.newItemStatus}
+						>
 							<option value="todo">To do</option>
 							<option value="in-progress">In progress</option>
 							<option value="done">Done</option>
@@ -146,9 +150,7 @@
 				</div>
 
 				<div class={state.formButtonsContainerClass}>
-					<Button variant="secondary" size="sm" onclick={state.cancelForm}
-						>Cancel</Button
-					>
+					<Button variant="secondary" size="sm" onclick={state.cancelForm}>Cancel</Button>
 					<Button variant="primary" size="sm" onclick={state.handleSubmitItem}
 						>{state.editingItemId ? 'Save' : 'Add'}</Button
 					>

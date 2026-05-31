@@ -11,7 +11,9 @@ type DomainScreenStateValue =
 	| typeof DOMAIN_SCREEN_BACKLOG
 	| typeof DOMAIN_SCREEN_DIAGNOSTICS;
 
-export function createDomainLandingScreenState(initialScreen: DomainScreenStateValue = DOMAIN_SCREEN_LANDING) {
+export function createDomainLandingScreenState(
+	initialScreen: DomainScreenStateValue = DOMAIN_SCREEN_LANDING
+) {
 	let currentScreen = $state<DomainScreenStateValue>(initialScreen);
 	let isSettingsOpen = $state(false);
 

@@ -1,3 +1,45 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AlertRecipe, CardSkeletonRecipe, ErrorBoundaryRecipe, ErrorMessageRecipe, LoadingRecipe, RecipeProgressBarProps, RecipeSkeletonProps, RecipeSpinnerProps, RecipeToastProps, SkeletonCircleRecipe, SkeletonRecipe, SkeletonRectangleRecipe, SkeletonSpecificProps, SkeletonTableRecipe, SkeletonTextRecipe, ToastRecipe } from './recipe';
-export type { SlotAccountProgressTracker, SlotAlert, SlotBaseFeedback, SlotCardSkeleton, SlotErrorBoundary, SlotErrorBoundaryDetails, SlotErrorMessage, SlotLazyLoader, SlotLoader, SlotLoadingBoundary, SlotLoadingOverlay, SlotNotificationBadge, SlotProgressBar, SlotProgressCircle, SlotResponseViewer, SlotSimpleModal, SlotSimpleTooltip, SlotSkeleton, SlotSpinner, SlotStepConnector, SlotStepIcon, SlotTableSkeleton, Toast, ToastAction } from './slot';
+export type {
+	AlertRecipe,
+	CardSkeletonRecipe,
+	ErrorBoundaryRecipe,
+	ErrorMessageRecipe,
+	LoadingRecipe,
+	RecipeProgressBarProps,
+	RecipeSkeletonProps,
+	RecipeSpinnerProps,
+	RecipeToastProps,
+	SkeletonCircleRecipe,
+	SkeletonRecipe,
+	SkeletonRectangleRecipe,
+	SkeletonSpecificProps,
+	SkeletonTableRecipe,
+	SkeletonTextRecipe,
+	ToastRecipe
+} from './recipe';
+export type {
+	SlotAccountProgressTracker,
+	SlotAlert,
+	SlotBaseFeedback,
+	SlotCardSkeleton,
+	SlotErrorBoundary,
+	SlotErrorBoundaryDetails,
+	SlotErrorMessage,
+	SlotLazyLoader,
+	SlotLoader,
+	SlotLoadingBoundary,
+	SlotLoadingOverlay,
+	SlotNotificationBadge,
+	SlotProgressBar,
+	SlotProgressCircle,
+	SlotResponseViewer,
+	SlotSimpleModal,
+	SlotSimpleTooltip,
+	SlotSkeleton,
+	SlotSpinner,
+	SlotStepConnector,
+	SlotStepIcon,
+	SlotTableSkeleton,
+	Toast,
+	ToastAction
+} from './slot';

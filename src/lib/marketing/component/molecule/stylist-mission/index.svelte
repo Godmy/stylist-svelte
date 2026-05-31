@@ -15,9 +15,13 @@
 	} = $props();
 </script>
 
-<section class={`c-stylist-mission rounded-[36px] bg-gradient-to-br from-orange-600 via-red-600 to-amber-500 px-6 py-12 text-white shadow-2xl ${className}`}>
+<section
+	class={`c-stylist-mission rounded-[36px] bg-gradient-to-br from-orange-600 via-red-600 to-amber-500 px-6 py-12 text-white shadow-2xl ${className}`}
+>
 	<div class="mx-auto max-w-5xl text-center">
-		<div class="mb-8 inline-flex items-center gap-2 rounded-full bg-white/18 px-4 py-2 backdrop-blur">
+		<div
+			class="mb-8 inline-flex items-center gap-2 rounded-full bg-white/18 px-4 py-2 backdrop-blur"
+		>
 			<BaseIcon name={Sparkles} class="h-5 w-5" />
 			<span class="text-sm font-bold">{badgeText}</span>
 		</div>

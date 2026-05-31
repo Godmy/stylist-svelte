@@ -1,5 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { FRIEND_LIST_FRIEND, FRIEND_LIST_PROPS, FRIEND_LIST_REST_PROPS, FRIEND_LIST_STATUS } from './friend-list';
+export type {
+	FRIEND_LIST_FRIEND,
+	FRIEND_LIST_PROPS,
+	FRIEND_LIST_REST_PROPS,
+	FRIEND_LIST_STATUS
+} from './friend-list';
 export type { FriendListContract } from './friend-list-contract';
 export type { Activity, ActivityType, Props, RestProps, User } from './social-activity-feed';
 export type { SocialActivityFeedContract } from './social-activity-feed-contract';

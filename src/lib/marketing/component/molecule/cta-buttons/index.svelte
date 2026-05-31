@@ -26,7 +26,9 @@
 		href={componentsHref}
 		class="group relative overflow-hidden rounded-[28px] bg-gradient-to-r from-orange-600 via-orange-500 to-red-600 p-8 text-white shadow-xl transition-all duration-[var(--duration-300)] hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/40"
 	>
-		<div class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
+		<div
+			class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 transition-opacity group-hover:opacity-100"
+		></div>
 		<div class="relative mb-4 flex items-center justify-between">
 			<BaseIcon name={Package} class="h-12 w-12 drop-shadow-lg" />
 			<BaseIcon
@@ -36,7 +38,8 @@
 		</div>
 		<h3 class="relative mb-3 text-3xl font-black">{componentsTitle}</h3>
 		<p class="relative text-orange-50">
-			{componentsDescriptionPrefix} {totalComponents} library entries with stories, docs and implementation context.
+			{componentsDescriptionPrefix}
+			{totalComponents} library entries with stories, docs and implementation context.
 		</p>
 	</a>
 
@@ -44,7 +47,9 @@
 		href={playgroundHref}
 		class="group relative overflow-hidden rounded-[28px] bg-gradient-to-br from-sky-600 via-cyan-500 to-blue-700 p-8 text-white shadow-xl transition-all duration-[var(--duration-300)] hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/35"
 	>
-		<div class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
+		<div
+			class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 transition-opacity group-hover:opacity-100"
+		></div>
 		<div class="relative mb-4 flex items-center justify-between">
 			<BaseIcon name={Layers} class="h-12 w-12 drop-shadow-lg" />
 			<BaseIcon

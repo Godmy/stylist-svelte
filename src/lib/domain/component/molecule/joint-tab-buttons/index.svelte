@@ -78,11 +78,7 @@
 			return [normalized, parts[0], parts[1]];
 		}
 
-		return [
-			normalized,
-			parts.slice(0, -1).join('-'),
-			parts[0]
-		];
+		return [normalized, parts.slice(0, -1).join('-'), parts[0]];
 	}
 
 	const resolvedIconName = $derived.by(() => {

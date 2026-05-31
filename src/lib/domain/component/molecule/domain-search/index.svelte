@@ -116,7 +116,7 @@
 		</div>
 	{/if}
 
-	<DomainSearchToggle open={open} onToggle={handleToggle} />
+	<DomainSearchToggle {open} onToggle={handleToggle} />
 </div>
 
 <style>

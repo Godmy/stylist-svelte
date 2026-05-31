@@ -1,5 +1,61 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { BehaviorOperationsHistoryEvents, BehaviorTrendable } from './behavior';
 export type { ContractManagement } from './contract';
-export type { AccountSettingsFormElementProps, AccountSettingsFormStateProps, AuthGuardRecipe, BurnDownChartStateProps, DashboardLayoutProps, FeatureToggleStateProps, KPIIndicatorRecipe, KanbanBoardStateProps, KanbanColumnStateProps, LegendItemStateProps, NotificationBadgeStateProps, NotificationCenterStateProps, NotificationListStateProps, NotificationPreferencesStateProps, NotificationStateProps, PageHeaderStateProps, PerformanceDashboardRecipe, PerformanceDashboardStateProps, PerformanceMonitorRecipe, PermissionGateProps, ProcessStepStateProps, PushNotificationProps, ScheduledNotificationStateProps, ScrumBacklogStateProps, SecureFormStateProps, SecuritySettingsStateProps, SessionManagerStateProps, StatCardRecipe, StatusDashboardRecipe, StatusDashboardStateProps, TeamMemberCardStateProps, UserProfileCardStateProps } from './recipe';
-export type { BreadcrumbItem, BurnDownChartMargins, BurnDownLabel, BurnDownMinMaxResult, BurnDownTimestamps, CardData, DraggableCardProps, KanbanCardType, Operation, SlotAchievement, SlotBacklogData, SlotBacklogItem, SlotBurnDownData, SlotBurnDownPoint, SlotDraggableCard, SlotFeatureToggle, SlotIssueMessage, SlotKanbanCard, SlotOperationsHistory, SlotPageHeader, SlotProcessStep, SlotTeamMemberCard } from './slot';
+export type {
+	AccountSettingsFormElementProps,
+	AccountSettingsFormStateProps,
+	AuthGuardRecipe,
+	BurnDownChartStateProps,
+	DashboardLayoutProps,
+	FeatureToggleStateProps,
+	KPIIndicatorRecipe,
+	KanbanBoardStateProps,
+	KanbanColumnStateProps,
+	LegendItemStateProps,
+	NotificationBadgeStateProps,
+	NotificationCenterStateProps,
+	NotificationListStateProps,
+	NotificationPreferencesStateProps,
+	NotificationStateProps,
+	PageHeaderStateProps,
+	PerformanceDashboardRecipe,
+	PerformanceDashboardStateProps,
+	PerformanceMonitorRecipe,
+	PermissionGateProps,
+	ProcessStepStateProps,
+	PushNotificationProps,
+	ScheduledNotificationStateProps,
+	ScrumBacklogStateProps,
+	SecureFormStateProps,
+	SecuritySettingsStateProps,
+	SessionManagerStateProps,
+	StatCardRecipe,
+	StatusDashboardRecipe,
+	StatusDashboardStateProps,
+	TeamMemberCardStateProps,
+	UserProfileCardStateProps
+} from './recipe';
+export type {
+	BreadcrumbItem,
+	BurnDownChartMargins,
+	BurnDownLabel,
+	BurnDownMinMaxResult,
+	BurnDownTimestamps,
+	CardData,
+	DraggableCardProps,
+	KanbanCardType,
+	Operation,
+	SlotAchievement,
+	SlotBacklogData,
+	SlotBacklogItem,
+	SlotBurnDownData,
+	SlotBurnDownPoint,
+	SlotDraggableCard,
+	SlotFeatureToggle,
+	SlotIssueMessage,
+	SlotKanbanCard,
+	SlotOperationsHistory,
+	SlotPageHeader,
+	SlotProcessStep,
+	SlotTeamMemberCard
+} from './slot';

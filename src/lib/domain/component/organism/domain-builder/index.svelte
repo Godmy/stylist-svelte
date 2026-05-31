@@ -103,7 +103,9 @@
 	let activeDropTarget = $state<BuilderDropTarget | null>(null);
 	let hasLoadedLayout = $state(false);
 
-	const activeDomainNode = $derived(componentDomains.find((domain) => domain.name === activeDomain));
+	const activeDomainNode = $derived(
+		componentDomains.find((domain) => domain.name === activeDomain)
+	);
 	const activeClusterNode = $derived(
 		activeDomainNode?.clusters.find((cluster) => cluster.name === activeCluster) ?? null
 	);
@@ -128,9 +130,10 @@
 	);
 	const selectedDescriptor = $derived(
 		selectedInstance
-			? descriptors.find((descriptor) => descriptor.entityPath === selectedInstance.entity.path) ?? null
+			? (descriptors.find((descriptor) => descriptor.entityPath === selectedInstance.entity.path) ??
+					null)
 			: activeEntity
-				? descriptors.find((descriptor) => descriptor.entityPath === activeEntity.path) ?? null
+				? (descriptors.find((descriptor) => descriptor.entityPath === activeEntity.path) ?? null)
 				: null
 	);
 	const entityDirectory = $derived.by(() => {
@@ -265,9 +268,7 @@
 					columns: section.columns,
 					items: section.items
 						.slice(0, section.columns)
-						.map((columnItems) =>
-							columnItems.filter((instanceId) => instanceIds.has(instanceId))
-						)
+						.map((columnItems) => columnItems.filter((instanceId) => instanceIds.has(instanceId)))
 				}))
 				.filter((section) => section.items.length > 0);
 
@@ -372,7 +373,10 @@
 		);
 	}
 
-	function updateSection(sectionId: string, recipe: (section: BuilderSection) => BuilderSection): void {
+	function updateSection(
+		sectionId: string,
+		recipe: (section: BuilderSection) => BuilderSection
+	): void {
 		sections = sections.map((section) => (section.id === sectionId ? recipe(section) : section));
 	}
 
@@ -628,9 +632,9 @@
 <div class="c-domain-builder {className}">
 	<aside class="builder-sidebar">
 		<DomainSidebar
-			activeDomain={activeDomain}
-			activeCluster={activeCluster}
-			activeJoint={activeJoint}
+			{activeDomain}
+			{activeCluster}
+			{activeJoint}
 			availableJoints={availableJointNames}
 			{entities}
 			{activeEntityPath}
@@ -661,7 +665,9 @@
 			{#if sections.length === 0}
 				<div class="empty-canvas">
 					<h2>Start with a section</h2>
-					<p>Build the page top-to-bottom. Pick a section layout, then add components into columns.</p>
+					<p>
+						Build the page top-to-bottom. Pick a section layout, then add components into columns.
+					</p>
 					<div class="empty-actions">
 						<button type="button" class="section-create" onclick={() => createSectionAndSelect(1)}>
 							1 column
@@ -678,13 +684,28 @@
 
 			{#each sections as section, sectionIndex (section.id)}
 				<div class="section-insert-rail">
-					<button type="button" class="section-insert" onclick={() => insertSectionAfter(sectionIndex === 0 ? null : sections[sectionIndex - 1].id, 1)}>
+					<button
+						type="button"
+						class="section-insert"
+						onclick={() =>
+							insertSectionAfter(sectionIndex === 0 ? null : sections[sectionIndex - 1].id, 1)}
+					>
 						+ 1
 					</button>
-					<button type="button" class="section-insert" onclick={() => insertSectionAfter(sectionIndex === 0 ? null : sections[sectionIndex - 1].id, 2)}>
+					<button
+						type="button"
+						class="section-insert"
+						onclick={() =>
+							insertSectionAfter(sectionIndex === 0 ? null : sections[sectionIndex - 1].id, 2)}
+					>
 						+ 2
 					</button>
-					<button type="button" class="section-insert" onclick={() => insertSectionAfter(sectionIndex === 0 ? null : sections[sectionIndex - 1].id, 3)}>
+					<button
+						type="button"
+						class="section-insert"
+						onclick={() =>
+							insertSectionAfter(sectionIndex === 0 ? null : sections[sectionIndex - 1].id, 3)}
+					>
 						+ 3
 					</button>
 				</div>
@@ -704,16 +725,32 @@
 					}}
 				>
 					<div class="section-toolbar" onpointerdown={(event) => event.stopPropagation()}>
-						<button type="button" class="section-action" onclick={() => setSectionColumns(section.id, 1)}>
+						<button
+							type="button"
+							class="section-action"
+							onclick={() => setSectionColumns(section.id, 1)}
+						>
 							1 col
 						</button>
-						<button type="button" class="section-action" onclick={() => setSectionColumns(section.id, 2)}>
+						<button
+							type="button"
+							class="section-action"
+							onclick={() => setSectionColumns(section.id, 2)}
+						>
 							2 col
 						</button>
-						<button type="button" class="section-action" onclick={() => setSectionColumns(section.id, 3)}>
+						<button
+							type="button"
+							class="section-action"
+							onclick={() => setSectionColumns(section.id, 3)}
+						>
 							3 col
 						</button>
-						<button type="button" class="section-action danger" onclick={() => removeSection(section.id)}>
+						<button
+							type="button"
+							class="section-action danger"
+							onclick={() => removeSection(section.id)}
+						>
 							Remove section
 						</button>
 					</div>
@@ -721,8 +758,10 @@
 					<div class="section-grid">
 						{#each section.items as columnItems, columnIndex}
 							<div
-								class:selected={selectedSectionId === section.id && selectedColumnIndex === columnIndex}
-								class:drop-target={activeDropTarget?.sectionId === section.id && activeDropTarget?.columnIndex === columnIndex}
+								class:selected={selectedSectionId === section.id &&
+									selectedColumnIndex === columnIndex}
+								class:drop-target={activeDropTarget?.sectionId === section.id &&
+									activeDropTarget?.columnIndex === columnIndex}
 								class="section-column"
 								role="button"
 								tabindex="0"
@@ -782,17 +821,36 @@
 											}}
 										>
 											{#if selectedInstanceId === instance.id}
-												<div class="component-toolbar" onpointerdown={(event) => event.stopPropagation()}>
-													<button type="button" class="component-action" onclick={() => moveSelectedInstance(-1)}>
+												<div
+													class="component-toolbar"
+													onpointerdown={(event) => event.stopPropagation()}
+												>
+													<button
+														type="button"
+														class="component-action"
+														onclick={() => moveSelectedInstance(-1)}
+													>
 														Up
 													</button>
-													<button type="button" class="component-action" onclick={() => moveSelectedInstance(1)}>
+													<button
+														type="button"
+														class="component-action"
+														onclick={() => moveSelectedInstance(1)}
+													>
 														Down
 													</button>
-													<button type="button" class="component-action" onclick={duplicateSelectedInstance}>
+													<button
+														type="button"
+														class="component-action"
+														onclick={duplicateSelectedInstance}
+													>
 														Duplicate
 													</button>
-													<button type="button" class="component-action danger" onclick={removeSelectedInstance}>
+													<button
+														type="button"
+														class="component-action danger"
+														onclick={removeSelectedInstance}
+													>
 														Remove
 													</button>
 												</div>
@@ -825,13 +883,25 @@
 
 			{#if sections.length > 0}
 				<div class="section-insert-rail section-insert-rail--tail">
-					<button type="button" class="section-insert" onclick={() => insertSectionAfter(sections.at(-1)?.id ?? null, 1)}>
+					<button
+						type="button"
+						class="section-insert"
+						onclick={() => insertSectionAfter(sections.at(-1)?.id ?? null, 1)}
+					>
 						+ 1
 					</button>
-					<button type="button" class="section-insert" onclick={() => insertSectionAfter(sections.at(-1)?.id ?? null, 2)}>
+					<button
+						type="button"
+						class="section-insert"
+						onclick={() => insertSectionAfter(sections.at(-1)?.id ?? null, 2)}
+					>
 						+ 2
 					</button>
-					<button type="button" class="section-insert" onclick={() => insertSectionAfter(sections.at(-1)?.id ?? null, 3)}>
+					<button
+						type="button"
+						class="section-insert"
+						onclick={() => insertSectionAfter(sections.at(-1)?.id ?? null, 3)}
+					>
 						+ 3
 					</button>
 				</div>
@@ -850,8 +920,16 @@
 		grid-template-columns: 249px minmax(0, 1fr);
 		min-height: 100vh;
 		background:
-			radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary-500) 16%, transparent), transparent 26%),
-			linear-gradient(180deg, color-mix(in srgb, var(--color-background-secondary) 88%, white 12%), var(--color-background-primary));
+			radial-gradient(
+				circle at top left,
+				color-mix(in srgb, var(--color-primary-500) 16%, transparent),
+				transparent 26%
+			),
+			linear-gradient(
+				180deg,
+				color-mix(in srgb, var(--color-background-secondary) 88%, white 12%),
+				var(--color-background-primary)
+			);
 		color: var(--color-text-primary);
 	}
 
@@ -868,8 +946,14 @@
 			linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
 			linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
 			color-mix(in srgb, var(--color-background-secondary) 94%, white 6%);
-		background-size: 24px 24px, 24px 24px, auto;
-		background-position: -1px -1px, -1px -1px, 0 0;
+		background-size:
+			24px 24px,
+			24px 24px,
+			auto;
+		background-position:
+			-1px -1px,
+			-1px -1px,
+			0 0;
 	}
 
 	.builder-canvas.hovered {
@@ -1029,7 +1113,6 @@
 	.component-action.danger {
 		color: color-mix(in srgb, var(--color-danger-500) 72%, var(--color-text-primary));
 	}
-
 
 	@media (max-width: 960px) {
 		.columns-2 .section-grid,

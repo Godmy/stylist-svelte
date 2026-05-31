@@ -173,7 +173,7 @@
 					activeFilePath={s.activeFilePath}
 					previewMode={s.previewMode}
 					previewKind={s.previewKind}
-					debugMenuItems={debugMenuItems}
+					{debugMenuItems}
 					onFileSelect={s.handleFileSelect}
 					onMarkdownSelect={s.handleMarkdownSelect}
 					onStorySelect={s.handleStorySelect}

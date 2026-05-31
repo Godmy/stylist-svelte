@@ -1,2 +1,20 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AtomicPrinciplesShowcaseStyleManager, CodeDiffStyleManager, CodeEditorStyleManager, CodeSectionStyleManager, CodeStyleManager, CodeWithCopyStyleManager, CodeWithLineNumbersStyleManager, ComponentLibraryStatsStyleManager, ComponentPreviewStyleManager, CopyableCodeStyleManager, DebugConsoleStyleManager, DesignTokensStyleManager, DevelopmentErrorBoundaryStyleManager, DocumentationBlockStyleManager, MockDataSelectorStyleManager, PrivacySettingsStyleManager, StyleManagerSyntaxHighlightedCode } from './style-manager';
+export {
+	AtomicPrinciplesShowcaseStyleManager,
+	CodeDiffStyleManager,
+	CodeEditorStyleManager,
+	CodeSectionStyleManager,
+	CodeStyleManager,
+	CodeWithCopyStyleManager,
+	CodeWithLineNumbersStyleManager,
+	ComponentLibraryStatsStyleManager,
+	ComponentPreviewStyleManager,
+	CopyableCodeStyleManager,
+	DebugConsoleStyleManager,
+	DesignTokensStyleManager,
+	DevelopmentErrorBoundaryStyleManager,
+	DocumentationBlockStyleManager,
+	MockDataSelectorStyleManager,
+	PrivacySettingsStyleManager,
+	StyleManagerSyntaxHighlightedCode
+} from './style-manager';

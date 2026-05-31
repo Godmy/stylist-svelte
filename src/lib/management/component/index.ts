@@ -1,4 +1,41 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Kpiindicator, Notification, NotificationBadge, PermissionGate, ProcessStep, PushNotification } from './atom';
-export { BacklogViewTabs, BurnDownChart, DraggableCard, IssuesTable, KanbanCard, KanbanColumn, LegendItem, NotificationSettings, OperationsHistory, PageHeader, PerformanceMonitor, ScrumBacklog } from './molecule';
-export { AccountSettingsForm, DashboardLayout, FeatureToggle, KanbanBoard, NotificationCenter, NotificationList, NotificationPreferences, PerformanceDashboard, ScheduledNotification, SecureForm, SecuritySettings, SessionManager, StatCard, StatusDashboard, TeamMemberCard, UserProfileCard } from './organism';
+export {
+	Kpiindicator,
+	Notification,
+	NotificationBadge,
+	PermissionGate,
+	ProcessStep,
+	PushNotification
+} from './atom';
+export {
+	BacklogViewTabs,
+	BurnDownChart,
+	DraggableCard,
+	IssuesTable,
+	KanbanCard,
+	KanbanColumn,
+	LegendItem,
+	NotificationSettings,
+	OperationsHistory,
+	PageHeader,
+	PerformanceMonitor,
+	ScrumBacklog
+} from './molecule';
+export {
+	AccountSettingsForm,
+	DashboardLayout,
+	FeatureToggle,
+	KanbanBoard,
+	NotificationCenter,
+	NotificationList,
+	NotificationPreferences,
+	PerformanceDashboard,
+	ScheduledNotification,
+	SecureForm,
+	SecuritySettings,
+	SessionManager,
+	StatCard,
+	StatusDashboard,
+	TeamMemberCard,
+	UserProfileCard
+} from './organism';

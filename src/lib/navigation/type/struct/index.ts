@@ -5,6 +5,10 @@ export type { ChartLegendItem } from './chart-legend-item';
 export type { DialogConfirmProps, DialogConfirmVariant } from './dialog-confirm-props';
 export type { DrawerPosition, DrawerProps } from './drawer-props';
 export type { GeneralToolbarRecipe, ToolbarItem } from './general-toolbar-props';
-export type { SideBySideLayoutProps, SideBySideLayoutRestProps, SideBySideSection } from './side-by-side-layout-props';
+export type {
+	SideBySideLayoutProps,
+	SideBySideLayoutRestProps,
+	SideBySideSection
+} from './side-by-side-layout-props';
 export type { NavItem } from './sidebar';
 export type { Step, StepperProps } from './stepper-props';
