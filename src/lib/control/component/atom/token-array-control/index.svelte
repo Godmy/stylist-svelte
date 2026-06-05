@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TokenArrayControlProps } from '$stylist/control/type/struct/token-array-control-props';
-	import { createTokenArrayControlState } from '$stylist/control/function/state/token-array-control';
+	import createTokenArrayControlState from '$stylist/control/function/state/token-array-control/index.svelte';
 
 	let props: TokenArrayControlProps = $props();
 	const state = createTokenArrayControlState(props);

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { GraphNodeCardData } from '$stylist/science';
+	import type { GraphNodeCardData } from '$stylist/science/type/struct/graph-node-card-data';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 

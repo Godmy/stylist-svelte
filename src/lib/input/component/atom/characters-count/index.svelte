@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotCharacterCount as ICharacterCountProps } from '$stylist/input/interface/slot/character-count';
-	import { createCharactersCountState } from '$stylist/input/function/state/characters-count';
+	import createCharactersCountState from '$stylist/input/function/state/characters-count/index.svelte';
 
 	let props: ICharacterCountProps = $props();
 	const state = createCharactersCountState(props);

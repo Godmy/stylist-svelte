@@ -1,11 +1,11 @@
 export const TOKEN_TYPOGRAPHY_ICON = [
-	'analytics',
-	'block',
-	'elements',
-	'inline',
-	'node-title',
-	'npm-badge',
-	'text',
-	'text-alignments',
-	'typography'
+	'abbr',
+	'blockquote',
+	'heading',
+	'inline-code',
+	'kbd',
+	'link',
+	'paragraph',
+	'rich-text',
+	'text'
 ] as const;

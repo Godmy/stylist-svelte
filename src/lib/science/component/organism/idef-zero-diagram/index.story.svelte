@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Idef0Model } from '$stylist/science';
+	import type { Idef0Model } from '$stylist/science/type/struct/idef-zero/idef0model';
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import Idef0Diagram from './index.svelte';

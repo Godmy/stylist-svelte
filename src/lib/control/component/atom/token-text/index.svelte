@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createTokenTextState } from '$stylist/control/function/state/token-text';
+	import createTokenTextState from '$stylist/control/function/state/token-text/index.svelte';
 	import TokenControlBase from '../token-control-base/index.svelte';
 	import type { TokenTextControlProps } from '$stylist/control/type/struct/token-text-control-props';
 

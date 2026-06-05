@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createResponseViewerState } from '../../../function/state/response-viewer';
+	import createResponseViewerState from '$stylist/notification/function/state/response-viewer/index.svelte';
 
 	const props = $props();
 	const state = createResponseViewerState(props);

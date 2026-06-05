@@ -3,7 +3,8 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 import type { TypographyTextProps } from '$stylist/typography/type/struct/typography-text-props';
 import type { Snippet } from 'svelte';
 
-export interface ThemeHeadingRecipe
-	extends StructIntersectAll<[ThemeAttributes<HTMLElement>, TypographyTextProps]> {
+export interface HeadingRecipe
+	extends StructIntersectAll<[ThemeAttributes<HTMLHeadingElement>, TypographyTextProps]> {
 	children?: Snippet;
+	level?: 1 | 2 | 3 | 4 | 5 | 6;
 }

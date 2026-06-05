@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { createImageGalleryState } from '$stylist/media/function/state/image-gallery';
+	import createImageGalleryState from '$stylist/media/function/state/image-gallery/index.svelte';
 	import type { ImageGalleryStateProps } from '$stylist/media/interface/recipe/image-gallery-image-gallery-state-props';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import { ImageGalleryStyleManager } from '$stylist/media/class/style-manager/image-gallery';
 
 	let props: ImageGalleryStateProps = $props();

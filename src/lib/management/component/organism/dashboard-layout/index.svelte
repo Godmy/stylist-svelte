@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { DashboardLayoutProps } from '$stylist/management/interface/recipe/dashboard-layout';
 	import Icon from '$stylist/media/component/atom/icon/index.svelte';
-	import { Button } from '$stylist/control';
-	import { createDashboardLayoutState } from '$stylist/management/function/state/dashboard-layout';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import createDashboardLayoutState from '$stylist/management/function/state/dashboard-layout/index.svelte';
 
 	let props: DashboardLayoutProps = $props();
 	const state = createDashboardLayoutState(props);

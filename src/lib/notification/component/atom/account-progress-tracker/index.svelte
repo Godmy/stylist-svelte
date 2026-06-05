@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createAccountProgressTrackerState } from '$stylist/notification/function/state/account-progress-tracker';
+	import createAccountProgressTrackerState from '$stylist/notification/function/state/account-progress-tracker/index.svelte';
 
 	const props = $props();
 	const state = createAccountProgressTrackerState(props);

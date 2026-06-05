@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createSortableGridState } from '$stylist/control/function/state/sortable-grid';
+	import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createSortableGridState from '$stylist/control/function/state/sortable-grid/index.svelte';
 	import type { SortableGridProps } from '$stylist/control/type/alias/sortable-grid-props';
 
 	const GripVertical = 'grip-vertical';

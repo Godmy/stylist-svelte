@@ -1,12 +1,12 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { SlotPriceAlertElement as IPriceAlertElementProps } from '$stylist/commerce/interface/slot/price-alert-element';
-	import { createPriceAlertState } from '$stylist/commerce/function/state/price-alert';
+	import createPriceAlertState from '$stylist/commerce/function/state/price-alert/index.svelte';
 	import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 	import { createBasePreset } from '$stylist/interaction/preset/base';
 	import { TOKEN_MONITORING_TYPE } from '$stylist/management/const/enum/monitoring-type';
-	
-let props: IPriceAlertElementProps & HTMLAttributes<HTMLDivElement> = $props();
+
+	let props: IPriceAlertElementProps & HTMLAttributes<HTMLDivElement> = $props();
 
 	const state = createPriceAlertState(
 		createBasePreset(TOKEN_MONITORING_TYPE, TOKEN_SIZE, {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeReturnPolicy as ReturnPolicyContract } from '$stylist/commerce/interface/recipe/return-policy';
-	import { createReturnPolicyState as stateFn } from '$stylist/commerce/function/state/return-policy';
+	import stateFn from '$stylist/commerce/function/state/return-policy/index.svelte';
 
 	let props: ReturnPolicyContract = $props();
 	const state = stateFn(props);

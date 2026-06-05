@@ -1,4 +1,5 @@
-import type { Post, Props } from '$stylist/social/type/struct/social-feed';
+import type { Post } from '$stylist/social/type/struct/social-feed/post';
+import type { Props } from '$stylist/social/type/struct/social-feed/-props';
 
 export function createSocialFeedState(props: Props) {
 	let searchQuery = $state('');

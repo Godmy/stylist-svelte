@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { SlotDateTimePicker as IDateTimePickerProps } from '$stylist/input/interface/slot/date-time-picker';
-	import { createDateTimePickerState } from '$stylist/input/function/state/date-time-picker';
+	import createDateTimePickerState from '$stylist/input/function/state/date-time-picker/index.svelte';
 	import FormDatePicker from '../form-date-picker/index.svelte';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const Calendar = 'calendar';
 
 	let props: IDateTimePickerProps = $props();

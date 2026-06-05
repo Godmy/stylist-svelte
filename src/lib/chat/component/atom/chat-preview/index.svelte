@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { Avatar, Icon as BaseIcon } from '$stylist/media';
-	import { createChatPreviewState } from '$stylist/chat/function/state/chat-preview';
+	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createChatPreviewState from '$stylist/chat/function/state/chat-preview/index.svelte';
 	import type { ChatPreviewContract } from '$stylist/chat/type/struct/chat-preview-contract';
 	import type { ChatPreviewMessage } from '$stylist/chat/type/struct/chat-preview-message';
 	import { CHAT_PREVIEW_ICON_CHECK } from '$stylist/chat/const/value/chat-preview-icon-check';

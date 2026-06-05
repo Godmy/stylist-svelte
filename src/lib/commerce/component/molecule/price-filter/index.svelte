@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PriceFilterProps } from '$stylist/commerce/interface/recipe/price-filter-props';
-	import { createPriceFilterState } from '$stylist/commerce/function/state/price-filter';
+	import createPriceFilterState from '$stylist/commerce/function/state/price-filter/createpricefilterstate/index.svelte';
 
 	let props: PriceFilterProps = $props();
 	const state = createPriceFilterState(props);

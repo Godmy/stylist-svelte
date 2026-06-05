@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { SlotMultiSelect as MultiSelectProps } from '$stylist/control/interface/slot/multi-select';
-	import { createMultiSelectState } from '$stylist/control/function/state/multi-select';
+	import createMultiSelectState from '$stylist/control/function/state/multi-select/index.svelte';
 
 	let props: MultiSelectProps = $props();
 	const state = createMultiSelectState(props);

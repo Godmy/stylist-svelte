@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createProgressCircleState } from '$stylist/notification/function/state/progress-circle';
+	import createProgressCircleState from '$stylist/notification/function/state/progress-circle/index.svelte';
 
 	const props = $props();
 	const state = createProgressCircleState(props);

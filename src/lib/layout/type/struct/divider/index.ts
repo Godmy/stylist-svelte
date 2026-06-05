@@ -1,4 +1,4 @@
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
 import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
 
 export type DividerProps = ArchitectureHTMLAttributes<HTMLDivElement> & {

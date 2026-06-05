@@ -1,15 +1,13 @@
 <script lang="ts">
 	import RecipePlaygroundDeviceFrame from '../playground-device-frame/index.svelte';
 	import RecipePlaygroundErrorBoundary from '../playground-error-boundary/index.svelte';
-	import { createPlaygroundCanvasShellState } from '$stylist/playground/function/state/playground-canvas-shell';
+	import createPlaygroundCanvasShellState from '$stylist/playground/function/state/playground-canvas-shell/index.svelte';
 	import type { PlaygroundCanvasShellProps } from '$stylist/playground/type/struct/playground-canvas-shell-props';
 	let props: PlaygroundCanvasShellProps = $props();
 	const state = createPlaygroundCanvasShellState(props);
 </script>
 
-<div
-	class="canvas-container flex flex-1 flex-col overflow-hidden bg-gradient-to-br from-[var(--playground-gradient-light-from,var(--color-background-primary))] via-[var(--playground-gradient-light-via,var(--color-background-secondary))] to-[var(--playground-gradient-light-to,var(--color-background-secondary))] dark:from-[var(--playground-gradient-dark-from,var(--color-text-primary))] dark:via-[var(--playground-gradient-dark-via,var(--color-text-primary))] dark:to-[var(--playground-gradient-dark-to,var(--color-text-primary))]"
->
+<div class="canvas-container flex flex-1 flex-col overflow-hidden">
 	<div
 		bind:this={state.canvasContainer}
 		class="relative flex flex-1 overflow-auto p-8"
@@ -19,6 +17,14 @@
 		onpointerup={state.handlePointerUp}
 		onwheel={state.handleWheel}
 	>
+		<div class="canvas-meta">
+			<span class="canvas-chip">zoom {Math.round(state.zoom * 100)}%</span>
+			<span class="canvas-chip">{state.viewport}</span>
+			{#if state.showGrid}
+				<span class="canvas-chip canvas-chip--accent">grid</span>
+			{/if}
+		</div>
+
 		<div class="flex min-h-full w-full items-center justify-center">
 			<div
 				class="canvas-zoom"
@@ -92,15 +98,40 @@
 	}
 
 	.canvas-container {
-		background: var(--gradient-custom182);
+		background:
+			radial-gradient(
+				circle at top right,
+				color-mix(in srgb, var(--playground-accent, var(--color-warning-500)) 10%, transparent),
+				transparent 35%
+			),
+			linear-gradient(
+				180deg,
+				color-mix(in srgb, var(--color-background-secondary) 92%, white 8%),
+				var(--color-background-primary)
+			);
 	}
 
 	:global(.dark) .canvas-container {
-		background: var(--gradient-custom172);
+		background:
+			radial-gradient(
+				circle at top right,
+				color-mix(in srgb, var(--playground-accent, var(--color-warning-500)) 12%, transparent),
+				transparent 35%
+			),
+			linear-gradient(
+				180deg,
+				color-mix(in srgb, var(--color-background-primary) 88%, black 12%),
+				var(--color-background-primary)
+			);
 	}
 
 	.canvas-frame {
 		transition: all var(--duration-300) var(--easing-ease-standard);
+		background-image: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
+			var(--color-background-primary)
+		);
 	}
 
 	.canvas-frame:hover {
@@ -118,5 +149,35 @@
 
 	.panning:active {
 		cursor: grabbing;
+	}
+
+	.canvas-meta {
+		position: absolute;
+		top: 1rem;
+		left: 1rem;
+		z-index: var(--z-index-docked);
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.canvas-chip {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.42rem 0.75rem;
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 84%, transparent);
+		border-radius: 999px;
+		background: color-mix(in srgb, var(--color-background-primary) 84%, transparent);
+		backdrop-filter: blur(12px);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--color-text-secondary);
+		box-shadow: 0 8px 18px rgb(15 23 42 / 0.08);
+	}
+
+	.canvas-chip--accent {
+		color: var(--playground-accent, var(--color-warning-600));
 	}
 </style>

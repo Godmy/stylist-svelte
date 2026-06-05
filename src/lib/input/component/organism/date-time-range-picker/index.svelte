@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { SlotDateTimeRangePickerComponent as DateTimeRangePickerComponentProps } from '$stylist/input/interface/slot/date-time-range-picker-component';
-	import { createDateTimeRangePickerState } from '$stylist/input/function/state/date-time-range-picker';
+	import createDateTimeRangePickerState from '$stylist/input/function/state/date-time-range-picker/index.svelte';
 	import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 	const Calendar = 'calendar';
 	const Clock = 'clock';

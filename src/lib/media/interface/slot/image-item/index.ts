@@ -1,4 +1,3 @@
-
 export interface SlotImageItem {
 	id: string;
 	src: string;

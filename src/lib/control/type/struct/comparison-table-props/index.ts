@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { ComparisonTableFeature } from '../comparison-table-feature';
 import type { ComparisonTableProduct } from '../comparison-table-product';
 

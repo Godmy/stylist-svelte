@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { ThemeConsumer } from '$stylist/theme/component/atom/theme-consumer';
+	import ThemeConsumer from '$stylist/theme/component/atom/theme-consumer/index.svelte';
 	import { StyleManagerThemeSurface } from '$stylist/layout/class/style-manager/theme-surface';
 	import type { ThemeSurfaceRecipe } from '$stylist/layout/interface/recipe/theme-surface';
-	import { createThemeSurfaceState } from '$stylist/layout/function/state/theme-surface';
+	import createThemeSurfaceState from '$stylist/layout/function/state/theme-surface/index.svelte';
 
 	let props: ThemeSurfaceRecipe = $props();
 	const state = createThemeSurfaceState(props);

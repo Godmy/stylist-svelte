@@ -11,7 +11,13 @@ export type {
 	LegendItemType,
 	LegendItemVariant
 } from './alias';
-export type { TokenManagementIcon, TokenMonitoringType, TokenTimeRange, TokenTrend } from './enum';
+export type {
+	TokenKPI,
+	TokenManagementIcon,
+	TokenMonitoringType,
+	TokenTimeRange,
+	TokenTrend
+} from './enum';
 export type {
 	AccountSettings,
 	DragPayload,

@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { SlotLocationPickerMarker } from '$stylist/geo/interface/slot/location-picker-marker';
 import type { SlotCoordinates } from '$stylist/geo/interface/slot/coordinates';
 

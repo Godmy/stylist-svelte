@@ -1,6 +1,6 @@
-import type { DashboardLayoutPreset } from '$stylist/management/interface/contract-dashboard-layout';
+import type { ContractDashboardLayout } from '$stylist/management/interface/contract/dashboard';
 
-export const PRESET_LAYOUT_DASHBOARD: DashboardLayoutPreset = {
+export const PRESET_LAYOUT_DASHBOARD: ContractDashboardLayout = {
 	sidebarOpen: true,
 	collapsibleSidebar: true,
 	showSidebarToggle: true,

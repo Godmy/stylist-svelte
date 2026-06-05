@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const ChevronDown = 'chevron-down';
 
-	import { createAccordionHeaderDoubleState } from '$stylist/control/function/state/accordion-header-double';
+	import createAccordionHeaderDoubleState from '$stylist/control/function/state/accordion-header-double/index.svelte';
 	import type { AccordionHeaderDoubleProps } from '$stylist/control/type/struct/accordion-header-double-props';
 
 	let props: AccordionHeaderDoubleProps = $props();

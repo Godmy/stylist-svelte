@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createIconPickerState } from '$stylist/input/function/state/icon-picker';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createIconPickerState from '$stylist/input/function/state/icon-picker/index.svelte';
 	import { IconPickerStyleManager } from '$stylist/media/class/style-manager/icon-picker';
 	import type { ThemeIconPickerRecipe } from '$stylist/media/interface/recipe/icon-picker';
 	import type { Snippet } from 'svelte';

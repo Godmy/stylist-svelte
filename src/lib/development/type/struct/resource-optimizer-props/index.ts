@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { ResourceOptimizerResource } from '$stylist/development/type/struct/resource-optimizer-resource';
 import type { ResourceOptimizerOptimizationSuggestion } from '$stylist/development/type/struct/resource-optimizer-optimization-suggestion';
 

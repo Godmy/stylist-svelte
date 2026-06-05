@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor-props';
-	import { createCodeEditorState } from '$stylist/development/function/state/code-editor';
+	import createCodeEditorState from '$stylist/development/function/state/code-editor/index.svelte';
 
 	const Copy = 'copy';
 	const Download = 'download';

@@ -1,5 +1,5 @@
 import { InputStyleManager } from '$stylist/input/class/style-manager/input';
-import { createInputTextState } from '$stylist/input/function/state/input-text';
+import createInputTextState from '$stylist/input/function/state/input-text/index.svelte';
 import type { SlotInputGroup as IInputGroupProps } from '$stylist/input/interface/slot/input-group';
 
 export const createInputGroupState = (props: IInputGroupProps) => {

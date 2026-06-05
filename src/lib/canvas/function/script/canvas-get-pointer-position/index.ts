@@ -1,4 +1,4 @@
-import type { SharedCanvasPoint } from '$stylist/canvas/type/struct/shared-canvas';
+import type { SharedCanvasPoint } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-point';
 
 export function getCanvasPointerPosition(
 	event: MouseEvent,

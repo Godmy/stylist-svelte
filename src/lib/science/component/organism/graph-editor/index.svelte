@@ -1,10 +1,12 @@
 <script lang="ts">
-	import { IconButton } from '$stylist/control';
-	import { Icon } from '$stylist/media';
-	import { LitegraphCanvas, NodePalette, NodePropertiesPanel } from '$stylist/science';
-	import { Separator } from '$stylist/layout';
+	import IconButton from '$stylist/control/component/atom/icon-button/index.svelte';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import LitegraphCanvas from '$stylist/science/component/organism/litegraph-canvas/index.svelte';
+	import NodePalette from '$stylist/science/component/organism/node-palette/index.svelte';
+	import NodePropertiesPanel from '$stylist/science/component/molecule/node-properties-panel/index.svelte';
+	import Separator from '$stylist/layout/component/atom/separator/index.svelte';
 	import type { GraphEditorProps } from '$stylist/science/type/struct/graph-editor-props';
-	import { createGraphEditorState } from '$stylist/science/function/state/graph-editor';
+	import createGraphEditorState from '$stylist/science/function/state/graph-editor/index.svelte';
 
 	let props: GraphEditorProps = $props();
 	const state = createGraphEditorState(props);

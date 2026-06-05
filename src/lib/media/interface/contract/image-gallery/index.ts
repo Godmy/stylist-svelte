@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { SlotImageItem } from '$stylist/media/interface/slot/image-item';
 
 export interface ContractImageGallery

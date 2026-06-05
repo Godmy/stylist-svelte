@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { NotificationStateProps } from '$stylist/management/interface/recipe/notification';
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createNotificationState } from '$stylist/management/function/state/notification';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createNotificationState from '$stylist/management/function/state/notification/index.svelte';
 
 	let props: NotificationStateProps = $props();
 	const state = createNotificationState(props);

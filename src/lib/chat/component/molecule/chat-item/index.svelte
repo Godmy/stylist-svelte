@@ -1,11 +1,11 @@
 ﻿<script lang="ts">
 	import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
-	import { Avatar } from '$stylist/media';
-	import { Badge } from '$stylist/typography';
-	import { MessageTimestamp } from '$stylist/chat/component/atom/message-timestamp';
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	import { createChatItemState } from '$stylist/chat/function/state/chat-item';
+	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
+	import Badge from '$stylist/information/component/atom/badge/index.svelte';
+	import MessageTimestamp from '$stylist/chat/component/atom/message-timestamp/index.svelte';
+	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
+	import createChatItemState from '$stylist/chat/function/state/chat-item/index.svelte';
 
 	export type ChatItemProps = {
 		chat: Chat;

@@ -1,4 +1,3 @@
-
 export interface ContractFileMetadata {
 	/** Имя файла */
 	name: string;

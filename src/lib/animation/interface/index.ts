@@ -8,9 +8,7 @@ export type {
 export type { AnimatedNumberRecipe, NumberFlowRecipe } from './recipe';
 export type {
 	AnimateValueOptions,
-	AnimatedStyleManagerOptions,
 	SlotAnimate,
 	SlotTransformable,
-	SlotTransformation,
-	TransformableStyleManagerOptions
+	SlotTransformation
 } from './slot';

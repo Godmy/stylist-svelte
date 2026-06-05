@@ -1,4 +1,3 @@
-
 export interface SlotTabStyleClasses {
 	variant: string;
 	active: string;

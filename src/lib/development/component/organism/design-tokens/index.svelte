@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { DesignTokensProps } from '$stylist/development/type/struct/design-tokens-props';
-	import { createDesignTokensState } from '$stylist/development/function/state/design-tokens';
+	import createDesignTokensState from '$stylist/development/function/state/design-tokens/index.svelte';
 
 	let { ...props }: DesignTokensProps = $props();
 	const state = createDesignTokensState(props);

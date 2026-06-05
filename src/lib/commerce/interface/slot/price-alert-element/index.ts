@@ -1,5 +1,6 @@
 import type { Snippet } from 'svelte';
-import type { InformationHTMLAttributes, Props } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
+import type { Props } from '$stylist/information/type/struct/props';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenMonitoringType } from '$stylist/management/type/enum/monitoring-type';
 

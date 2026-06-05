@@ -2,7 +2,7 @@
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
-	import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
+	import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
 
 	import PresenterNodeShell from './index.svelte';
 

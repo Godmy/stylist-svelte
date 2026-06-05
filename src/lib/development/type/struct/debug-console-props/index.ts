@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { DebugConsoleLogLevel } from '$stylist/development/type/struct/debug-console-log-level';
 import type { DebugConsoleLogEntry } from '$stylist/development/type/struct/debug-console-log-entry';
 

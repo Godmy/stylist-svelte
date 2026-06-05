@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createFormFooterState } from '$stylist/form/function/state/form-footer';
+	import createFormFooterState from '$stylist/form/function/state/form-footer/index.svelte';
 	import type { SlotFormFooter as FormFooterProps } from '$stylist/form/interface/slot/form-footer';
 
 	let {
@@ -33,7 +33,7 @@
 </script>
 
 <div class={state.rootClass} {...restProps}>
-	<div class="flex justify-end space-x-3">
+	<div class="form-footer-actions">
 		{#if showSecondaryButton}
 			<button
 				type="button"
@@ -55,3 +55,11 @@
 		</button>
 	</div>
 </div>
+
+<style>
+	.form-footer-actions {
+		display: flex;
+		justify-content: flex-end;
+		gap: 0.75rem;
+	}
+</style>

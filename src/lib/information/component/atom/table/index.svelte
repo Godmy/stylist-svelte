@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TableRecipe as TableRecipe } from '$stylist/information/interface/recipe/table';
-	import { createTableState } from '$stylist/information/function/state/table';
+	import createTableState from '$stylist/information/function/state/table/index.svelte';
 
 	let props: TableRecipe = $props();
 	const state = createTableState(props);

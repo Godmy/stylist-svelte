@@ -1,4 +1,3 @@
-
 export interface SlotCalendarViewEvent {
 	id: string;
 	title: string;

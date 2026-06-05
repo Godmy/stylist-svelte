@@ -1,4 +1,3 @@
-
 // ==================== LitegraphCanvas ====================
 export interface ContractLitegraphNodeProperty {
 	name: string;

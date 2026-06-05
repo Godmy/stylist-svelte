@@ -1,5 +1,5 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-import type { AvatarGroupProps } from '$stylist/media/type/struct/avatar-group';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
+import type { AvatarGroupProps } from '$stylist/media/type/struct/avatar-group/avatargroup-props';
 
 export function createAvatarGroupState(
 	props: AvatarGroupProps & InformationHTMLAttributes<HTMLDivElement>

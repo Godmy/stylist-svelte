@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { SlotDateRangePickerComponent as DateRangePickerComponentProps } from '$stylist/input/interface/slot/date-range-picker-component';
-	import { createDateRangePickerState } from '$stylist/input/function/state/date-range-picker';
+	import createDateRangePickerState from '$stylist/input/function/state/date-range-picker/index.svelte';
 	import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 	const Calendar = 'calendar';
 	const ChevronLeft = 'chevron-left';

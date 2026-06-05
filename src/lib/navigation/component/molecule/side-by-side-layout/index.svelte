@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { SideBySideLayoutProps } from '$stylist/navigation/type/struct/side-by-side-layout-props';
-	import { createSideBySideLayoutState } from '$stylist/navigation/function/state/side-by-side-layout';
+	import type { SideBySideLayoutProps } from '$stylist/navigation/type/struct/side-by-side-layout-props/sidebysidelayout-props';
+	import createSideBySideLayoutState from '$stylist/navigation/function/state/side-by-side-layout/index.svelte';
 
 	let props: SideBySideLayoutProps = $props();
 	const state = createSideBySideLayoutState(props);

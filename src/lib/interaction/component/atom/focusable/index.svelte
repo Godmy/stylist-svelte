@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotFocusable as FocusProps } from '$stylist/interaction/interface/slot/focusable';
-	import { createFocusableState } from '$stylist/interaction/function/state/focusable';
+	import createFocusableState from '$stylist/interaction/function/state/focusable/index.svelte';
 
 	let props: FocusProps = $props();
 	const state = createFocusableState(props);
@@ -16,3 +16,26 @@
 		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 	{/if}
 </div>
+
+<style>
+	.c-focusable {
+		transition: all var(--duration-100, 100ms) var(--easing-smooth, ease-in-out);
+	}
+
+	.c-focusable--focus-ring:focus {
+		outline: 2px solid transparent;
+		outline-offset: 2px;
+		box-shadow: 0 0 0 2px var(--color-primary-500);
+	}
+
+	.c-focusable--focused {
+		outline: 2px solid transparent;
+		outline-offset: 2px;
+		box-shadow: 0 0 0 2px var(--color-primary-500);
+	}
+
+	.c-focusable--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+</style>

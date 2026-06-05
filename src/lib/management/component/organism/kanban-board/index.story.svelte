@@ -1,9 +1,7 @@
 <script lang="ts">
-	import type {
-		KanbanBoardAction,
-		KanbanBoardType
-	} from '$stylist/management/type/struct/kanban-board';
-	import { Story } from '$stylist/playground/component';
+	import type { KanbanBoardAction } from '$stylist/management/type/struct/kanban-board/kanbanboardaction';
+	import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board/kanbanboardtype';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import KanbanBoard from './index.svelte';

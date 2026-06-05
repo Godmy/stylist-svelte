@@ -2,9 +2,9 @@
 	import type { MinimapContract } from '$stylist/science/type/struct/minimap/minimap-contract';
 	import type { MinimapProps } from '$stylist/science/type/struct/minimap/minimap-props';
 	import { MinimapStyleManager } from '$stylist/science/class/style-manager/minimap';
-	import { IconButton } from '$stylist/control';
-	import { Icon } from '$stylist/media';
-	import { createMinimapState } from '$stylist/science/function/state/minimap';
+	import IconButton from '$stylist/control/component/atom/icon-button/index.svelte';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import createMinimapState from '$stylist/science/function/state/minimap/index.svelte';
 
 	const contract: MinimapContract & MinimapProps = $props();
 	const state = createMinimapState(contract);

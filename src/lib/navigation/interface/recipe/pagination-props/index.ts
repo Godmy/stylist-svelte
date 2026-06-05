@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { SlotPagination as BasePaginationProps } from '$stylist/navigation/interface/slot/pagination';
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 

@@ -1,4 +1,4 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotLink } from '$stylist/typography/interface/slot/link';
+import type { SlotInlineCode } from '$stylist/typography/interface/slot/inline-code';
 
-export interface ThemeInlineCodeRecipe extends StructIntersectAll<[SlotLink]> {}
+export interface ThemeInlineCodeRecipe extends StructIntersectAll<[SlotInlineCode]> {}

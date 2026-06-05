@@ -1,4 +1,4 @@
-import { NotificationBadgeStyleManager } from '$stylist/management';
+import { NotificationBadgeStyleManager } from '$stylist/management/class/style-manager/notification-badge';
 import type { NotificationBadgeStateProps } from '$stylist/management/interface/recipe/notification-badge';
 
 export function createNotificationBadgeState(props: NotificationBadgeStateProps) {

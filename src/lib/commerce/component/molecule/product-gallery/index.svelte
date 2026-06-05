@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createProductGalleryState } from '$stylist/commerce/function/state/product-gallery';
+	import createProductGalleryState from '$stylist/commerce/function/state/product-gallery/createproductgallerystate/index.svelte';
 	import type { ProductGalleryProps } from '$stylist/commerce/interface/recipe/product-gallery-props';
 
 	let props: ProductGalleryProps = $props();

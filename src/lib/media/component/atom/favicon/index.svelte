@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { FaviconProps } from '$stylist/media/type/struct/favicon';
-	import { createFaviconState } from '$stylist/media/function/state/favicon';
+	import createFaviconState from '$stylist/media/function/state/favicon/index.svelte';
 
 	let props: FaviconProps = $props();
 	const state = createFaviconState(props);

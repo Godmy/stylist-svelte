@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { TreeNode } from '../tree-node';
 
 export type FlatTreeProps = InteractionHTMLAttributes<HTMLDivElement> & {

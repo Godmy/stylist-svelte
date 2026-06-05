@@ -2,7 +2,7 @@
 	import SlotCheckbox from '$stylist/control/component/atom/checkbox/index.svelte';
 	import { CheckboxGroupStyleManager } from '$stylist/control/class/style-manager/checkbox-group';
 	import type { CheckboxGroupProps } from '$stylist/control/type/struct/checkbox-group-props';
-	import { createCheckboxGroupState } from '$stylist/control/function/state/checkbox-group';
+	import createCheckboxGroupState from '$stylist/control/function/state/checkbox-group/index.svelte';
 
 	let {
 		options,

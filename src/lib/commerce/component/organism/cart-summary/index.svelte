@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CartSummaryProps } from '$stylist/commerce/interface/recipe/cart-summary-props';
-	import { createCartSummaryState } from '$stylist/commerce/function/state/cart-summary';
+	import createCartSummaryState from '$stylist/commerce/function/state/cart-summary/createcartsummarystate/index.svelte';
 
 	let props: CartSummaryProps = $props();
 	const state = createCartSummaryState(props);

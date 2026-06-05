@@ -1,10 +1,10 @@
 import { PresenterSceneStyleManager } from '$stylist/architecture/class/style-manager/presenter-scene';
 import { projectSceneCoordinate } from '$stylist/architecture/function/script/project-scene-coordinate';
 import { resolvePresenterSceneLinks } from '$stylist/architecture/function/script/scene/presenter';
-import { useCamera } from '$stylist/architecture/function/state/camera';
+import useCamera from '$stylist/architecture/function/state/camera/index.svelte';
 import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
-import type { PresenterSceneContract } from '$stylist/architecture/type/struct/presenter-scene';
-import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
+import type { PresenterSceneContract } from '$stylist/architecture/type/struct/presenter-scene/presenter-scene-contract';
+import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
 
 export function createPresenterSceneState(contract: PresenterSceneContract) {
 	let selectedNodeId = $state(contract.nodes?.[0]?.id ?? '');

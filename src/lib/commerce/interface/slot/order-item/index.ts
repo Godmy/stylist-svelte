@@ -1,4 +1,3 @@
-
 export interface SlotOrderItem {
 	id: string;
 	name: string;

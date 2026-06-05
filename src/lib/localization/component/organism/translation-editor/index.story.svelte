@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import TranslationEditor from './index.svelte';
 	import type { TranslatableText } from '$stylist/input/type/struct/interaction-input/translatable-text';

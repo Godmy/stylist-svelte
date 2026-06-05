@@ -1,4 +1,4 @@
-import type { HtmlAttributesBase } from '$stylist/information/interface/slot';
+import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
 import type { RecipeScience } from '$stylist/science/interface/recipe/science';
 
 export interface SlotPromptBuilder extends HtmlAttributesBase<HTMLDivElement> {

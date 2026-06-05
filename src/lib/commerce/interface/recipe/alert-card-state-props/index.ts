@@ -1,5 +1,5 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { Props } from '$stylist/information/type/struct';
+import type { Props } from '$stylist/information/type/struct/props';
 
 export interface AlertCardStateProps extends StructIntersectAll<[Omit<Props, 'variant' | 'size'>]> {
 	variant?: string;

@@ -1,10 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	AnimatedStyleManager,
-	AnimationStyleManager,
-	ObjectManagerMotion,
-	TransformableStyleManager
-} from './class';
+export { ObjectManagerMotion } from './class';
 export {
 	Animated,
 	AnimatedBackground,
@@ -28,6 +23,8 @@ export {
 	createNumberFlowState,
 	createTransformableState,
 	createTransformationState,
+	formatAnimatedValue,
+	formatNumberFlowValue,
 	getEasingFunction
 } from './function';
 export type {
@@ -45,7 +42,6 @@ export type {
 export type {
 	AnimateValueOptions,
 	AnimatedNumberRecipe,
-	AnimatedStyleManagerOptions,
 	BehaviorAnimate,
 	BehaviorMotionPreset,
 	BehaviorMotionToken,
@@ -53,6 +49,5 @@ export type {
 	NumberFlowRecipe,
 	SlotAnimate,
 	SlotTransformable,
-	SlotTransformation,
-	TransformableStyleManagerOptions
+	SlotTransformation
 } from './interface';

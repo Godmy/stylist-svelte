@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createTableWithFiltersState } from '$stylist/control/function/state/table-with-filters';
+	import createTableWithFiltersState from '$stylist/control/function/state/table-with-filters/index.svelte';
 	import type { SlotTableWithFilters as TableWithFiltersProps } from '$stylist/control/interface/slot/table-with-filters';
 
 	let {

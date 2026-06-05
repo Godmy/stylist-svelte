@@ -7,14 +7,10 @@ export function createProductSortState(props: ProductSortProps) {
 	const options = $derived(props.options);
 	const selectedOption = $derived(props.selectedOption ?? '');
 	const onValueChange = $derived.by(() => props.onValueChange || ((option: string) => {}));
-	const containerClasses = $derived(`flex items-center ${props.class ?? ''}`.trim());
-	const labelClasses = $derived(InputStyleManager.getInputLabelClasses('sm', false, 'mr-2'));
+	const containerClasses = $derived(joinClassNames('c-product-sort', props.class ?? ''));
+	const labelClasses = $derived('c-product-sort__label');
 	const selectClasses = $derived(
-		joinClassNames(
-			InputStyleManager.getInputBaseClass(),
-			'w-auto rounded-lg p-2 text-sm',
-			'focus:ring-[var(--color-primary-500)]'
-		)
+		joinClassNames(InputStyleManager.getInputBaseClass(), 'c-product-sort__select')
 	);
 
 	return {

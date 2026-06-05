@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createUserProfileCardState } from '$stylist/management/function/state/user-profile-card';
+	import createUserProfileCardState from '$stylist/management/function/state/user-profile-card/index.svelte';
 	import type { SlotUserProfileCard as UserProfileCardProps } from '$stylist/form/interface/slot/user-profile-card';
 
 	let props: UserProfileCardProps = $props();

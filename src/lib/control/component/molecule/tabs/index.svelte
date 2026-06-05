@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import type { SlotTabs as TabsProps } from '$stylist/control/interface/slot/tabs';
-	import { createTabsState } from '$stylist/control/function/state/tabs';
+	import createTabsState from '$stylist/control/function/state/tabs/index.svelte';
 
 	let props: TabsProps = $props();
 

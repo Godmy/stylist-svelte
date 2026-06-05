@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import type { AuthGuardRecipe } from '$stylist/management/interface/recipe/auth-guard';
-	import { createAuthGuardState } from '$stylist/chat/function/state/auth-guard';
+	import createAuthGuardState from '$stylist/chat/function/state/auth-guard/index.svelte';
 
 	export type AuthGuardProps = AuthGuardRecipe & {
 		class?: string;

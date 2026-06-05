@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotInputAddon as IInputAddonProps } from '$stylist/input/interface/slot/input-addon';
-	import { createInputAddonState } from '$stylist/input/function/state/input-addon';
+	import createInputAddonState from '$stylist/input/function/state/input-addon/index.svelte';
 
 	let props: IInputAddonProps & { position?: 'left' | 'right' } = $props();
 	const state = createInputAddonState({

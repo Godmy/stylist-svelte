@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ProductTourProps } from '$stylist/commerce/type/struct/product-tour-props';
-	import { createProductTourState } from '$stylist/commerce/function/state/product-tour';
+	import createProductTourState from '$stylist/commerce/function/state/product-tour/index.svelte';
 
 	let {
 		steps = [],

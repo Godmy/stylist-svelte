@@ -1,4 +1,5 @@
-import type { FilterPanelProps, FilterPanelLayout } from '$stylist/form/type/struct/filter-panel';
+import type { FilterPanelProps } from '$stylist/form/type/struct/filter-panel/filterpanel-props';
+import type { FilterPanelLayout } from '$stylist/form/type/struct/filter-panel/filterpanellayout';
 import type { SlotFilterPanelState } from '$stylist/form/interface/slot/filter-panel-state';
 
 export function createFilterPanelState(props: FilterPanelProps): SlotFilterPanelState {

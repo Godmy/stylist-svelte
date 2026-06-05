@@ -1,50 +1,34 @@
-import { resolveAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
-import { StyleManagerHeading } from '$stylist/typography/class/style-manager/heading';
-import type { ThemeHeadingRecipe } from '$stylist/typography/interface/recipe/heading';
+import createTextPresenterState from '$stylist/typography/function/state/text-presenter/index.svelte';
+import type { HeadingRecipe } from '$stylist/typography/interface/recipe/heading';
+import type { TextRecipe } from '$stylist/typography/interface/recipe/text';
 
-export function createHeadingState(props: ThemeHeadingRecipe) {
-	const children = $derived(props.children);
-	const classes = $derived(
-		StyleManagerHeading.root(typeof props.class === 'string' ? props.class : undefined)
-	);
-	const ariaLabel = $derived(
-		resolveAriaLabel(props.ariaLabel, props as Record<string, unknown>, '')
-	);
-	const attrs = $derived({ 'aria-label': ariaLabel || undefined });
-	const restProps = $derived.by(() => {
-		const {
-			class: _class,
-			variant: _variant,
-			size: _size,
-			disabled: _disabled,
-			block: _block,
-			text: _text,
-			fontSize: _fontSize,
-			fontWeight: _fontWeight,
-			fontFamily: _fontFamily,
-			lineHeight: _lineHeight,
-			letterSpacing: _letterSpacing,
-			textTransform: _textTransform,
-			textAlign: _textAlign,
-			lineClamp: _lineClamp,
-			children: _children,
-			ariaLabel: _ariaLabel,
-			...rest
-		} = props;
-		return rest;
-	});
+export function createHeadingState(props: HeadingRecipe) {
+	const presenterState = createTextPresenterState(props as TextRecipe, 'c-typography-heading', [
+		'level'
+	]);
+	const level = $derived(props.level ?? 2);
+	const tag = $derived(`h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6');
 	return {
 		get children() {
-			return children;
+			return presenterState.children;
+		},
+		get text() {
+			return presenterState.text;
+		},
+		get tag() {
+			return tag;
 		},
 		get classes() {
-			return classes;
+			return presenterState.classes;
 		},
 		get attrs() {
-			return attrs;
+			return presenterState.attrs;
+		},
+		get style() {
+			return presenterState.style;
 		},
 		get restProps() {
-			return restProps;
+			return presenterState.restProps;
 		}
 	};
 }

@@ -1,6 +1,6 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { ContainerProps } from '$stylist/layout/type/struct/container';
+import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
 import type { ThemeBackgroundRecipe } from '$stylist/layout/interface/recipe/background';
 import type { BorderRecipe } from '$stylist/layout/interface/recipe/border';
 import type { SlotClick as ClickProps } from '$stylist/control/interface/slot/click';

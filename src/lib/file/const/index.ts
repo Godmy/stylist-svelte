@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TOKEN_FILE_ICON } from './enum';
+export { TOKEN_DOCUMENT_FORMAT, TOKEN_FILE_ICON } from './enum';

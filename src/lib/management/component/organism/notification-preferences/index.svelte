@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createNotificationPreferencesState } from '$stylist/management/function/state/notification-preferences';
+	import createNotificationPreferencesState from '$stylist/management/function/state/notification-preferences/index.svelte';
 	import type { NotificationPreferencesProps } from '$stylist/chat/type/struct/notification-preferences-props';
 
 	let props: NotificationPreferencesProps & { email?: boolean; push?: boolean; sms?: boolean } =

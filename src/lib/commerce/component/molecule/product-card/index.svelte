@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ProductCardStateProps } from '$stylist/commerce/interface/recipe/product-card-state-props';
-	import { createProductCardState } from '$stylist/commerce/function/state/product-card';
+	import createProductCardState from '$stylist/commerce/function/state/product-card/createproductcardstate/index.svelte';
 	import { ProductCardStyleManager } from '$stylist/commerce/class/style-manager/product-card';
 
 	let props: ProductCardStateProps = $props();

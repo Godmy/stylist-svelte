@@ -1,4 +1,3 @@
-
 export interface SlotLocaleSwitcherLocale {
 	code: string;
 	name: string;

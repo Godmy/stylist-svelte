@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { createAudioPlayerState } from '$stylist/media/function/state/audio-player';
+	import createAudioPlayerState from '$stylist/media/function/state/audio-player/index.svelte';
 	import type { AudioPlayerProps } from '$stylist/media/interface/recipe/audio-player-audio-player-props';
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { Button } from '$lib';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
 
 	let props: AudioPlayerProps = $props();
 	const state = createAudioPlayerState(props);

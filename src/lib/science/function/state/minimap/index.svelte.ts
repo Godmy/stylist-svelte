@@ -1,13 +1,11 @@
 import { MinimapStyleManager } from '$stylist/science/class/style-manager/minimap';
-import {
-	resolveMinimapBounds,
-	resolveMinimapCanvasPoint,
-	resolveMinimapFitOffset,
-	resolveMinimapFitZoom,
-	resolveMinimapNodeRect,
-	resolveMinimapOffsetForPoint,
-	resolveMinimapViewport
-} from '$stylist/science/function/script';
+import { resolveMinimapBounds } from '$stylist/science/function/script/minimap';
+import { resolveMinimapCanvasPoint } from '$stylist/science/function/script/resolve-minimap-canvas-point';
+import { resolveMinimapFitOffset } from '$stylist/science/function/script/resolve-minimap-fit-offset';
+import { resolveMinimapFitZoom } from '$stylist/science/function/script/resolve-minimap-fit-zoom';
+import { resolveMinimapNodeRect } from '$stylist/science/function/script/resolve-minimap-node-rect';
+import { resolveMinimapOffsetForPoint } from '$stylist/science/function/script/resolve-minimap-offset-for-point';
+import { resolveMinimapViewport } from '$stylist/science/function/script/resolve-minimap-viewport';
 import type { MinimapProps } from '$stylist/science/type/struct/minimap/minimap-props';
 
 export function createMinimapState(props: MinimapProps) {

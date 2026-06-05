@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { CubeControlProps } from '$stylist/control/type/struct/cube-control-props';
-	import { createCubeControlState } from '$stylist/control/function/state/cube-control';
+	import createCubeControlState from '$stylist/control/function/state/cube-control/index.svelte';
 
 	const Atom = 'atom';
 	const Biohazard = 'biohazard';

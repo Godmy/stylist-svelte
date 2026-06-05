@@ -1,4 +1,4 @@
-import type { Zoom } from '$stylist/architecture/type/struct/zoom';
+import type { Zoom } from '$stylist/architecture/type/struct/zoom/zoom';
 import type { ZoomStep } from '$stylist/architecture/type/struct/zoom-step';
 
 export function getZoomStep<TValue>(

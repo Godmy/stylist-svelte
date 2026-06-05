@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { SlotStore } from '$stylist/geo/interface/slot/store';
 
 export interface SlotStoreLocator extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {

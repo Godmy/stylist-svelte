@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { createRadioGroupState } from '$stylist/form/function/state/radio-group';
-	import type { RadioGroupProps } from '$stylist/form/type/struct/radio-group';
+	import createRadioGroupState from '$stylist/form/function/state/radio-group/index.svelte';
+	import type { RadioGroupProps } from '$stylist/form/type/struct/radio-group/radiogroup-props';
 
 	const props: RadioGroupProps = $props();
 	const state = createRadioGroupState(props);
@@ -23,13 +23,9 @@
 	<div class={state.optionsContainerClass}>
 		{#each props.options as option (option.value)}
 			{@const isChecked = props.value === option.value}
-			<label
-				class="{state.optionLabelClass} {isChecked
-					? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]'
-					: ''}"
-			>
-				<span class="mt-1">
-					<span class="relative inline-flex h-4 w-4 items-center justify-center">
+			<label class="{state.optionLabelClass} {isChecked ? 'radio-option--checked' : ''}">
+				<span class="radio-option-indicator-wrapper">
+					<span class="radio-indicator-container">
 						<input
 							type="radio"
 							class={state.inputClass}
@@ -43,7 +39,7 @@
 					</span>
 				</span>
 
-				<span class="flex flex-col">
+				<span class="radio-option-content">
 					<span class={state.optionTextClass}>
 						{option.label}
 					</span>
@@ -59,3 +55,28 @@
 		<p class={state.errorClass}>{props.error}</p>
 	{/if}
 </fieldset>
+
+<style>
+	.radio-option--checked {
+		border-color: var(--color-primary-500);
+		background-color: var(--color-primary-50);
+	}
+
+	.radio-option-indicator-wrapper {
+		margin-top: 0.25rem;
+	}
+
+	.radio-indicator-container {
+		position: relative;
+		display: inline-flex;
+		width: 1rem;
+		height: 1rem;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.radio-option-content {
+		display: flex;
+		flex-direction: column;
+	}
+</style>

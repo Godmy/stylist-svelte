@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const BarChart3 = 'bar-chart-3';
 	const TrendingUp = 'trending-up';
 	const TrendingDown = 'trending-down';
@@ -9,8 +9,8 @@
 	const Users = 'users';
 	const Activity = 'activity';
 
-	import type { TestResultsViewerProps } from '$stylist/marketing/type/struct/test-results-viewer';
-	import { createTestResultsViewerState } from '$stylist/marketing/function/state/test-results-viewer';
+	import type { TestResultsViewerProps } from '$stylist/marketing/type/struct/test-results-viewer/testresultsviewer-props';
+	import createTestResultsViewerState from '$stylist/marketing/function/state/test-results-viewer/index.svelte';
 
 	let props: TestResultsViewerProps = $props();
 	const state = createTestResultsViewerState(props);
@@ -18,30 +18,36 @@
 
 <div class={state.containerClasses} {...state.restProps}>
 	<div class={state.headerClasses}>
-		<div class="flex items-center">
-			<BaseIcon name={BarChart3} class="mr-2 h-6 w-6 text-[var(--color-text-secondary)]" />
-			<h3 class="text-lg font-medium text-[var(--color-text-primary)]">{state.title}</h3>
+		<div class="trv-row">
+			<BaseIcon
+				name={BarChart3}
+				style="margin-right:0.5rem;width:1.5rem;height:1.5rem;color:var(--color-text-secondary)"
+			/>
+			<h3 class="trv-title">{state.title}</h3>
 		</div>
-		<p class="mt-1 text-sm text-[var(--color-text-secondary)]">{state.description}</p>
+		<p class="trv-subtitle">{state.description}</p>
 	</div>
 
-	<div class={`p-6 ${state.resultsClassName}`}>
+	<div class={`trv-body ${state.resultsClassName}`}>
 		<!-- Test Overview -->
-		<div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-4">
-			<div class="rounded-lg border p-4">
-				<div class="flex items-center">
-					<div class="rounded-md bg-[var(--color-primary-100)] p-2">
-						<BaseIcon name={Activity} class="h-5 w-5 text-[var(--color-primary-600)]" />
+		<div class="trv-overview-grid">
+			<div class="trv-stat-card">
+				<div class="trv-row">
+					<div class="trv-icon-box trv-icon-box--primary">
+						<BaseIcon
+							name={Activity}
+							style="width:1.25rem;height:1.25rem;color:var(--color-primary-600)"
+						/>
 					</div>
-					<div class="ml-4">
-						<p class="text-sm font-medium text-[var(--color-text-secondary)]">Test Status</p>
+					<div class="trv-stat-content">
+						<p class="trv-stat-label">Test Status</p>
 						<p
-							class={`text-xl font-semibold ${
+							class={`trv-stat-value ${
 								state.testOverview.status === 'completed'
-									? 'text-[var(--color-success-600)]'
+									? 'trv-text--success'
 									: state.testOverview.status === 'running'
-										? 'text-[var(--color-primary-600)]'
-										: 'text-yellow-600'
+										? 'trv-text--primary'
+										: 'trv-text--warning'
 							}`}
 						>
 							{state.testOverview.status.charAt(0).toUpperCase() +
@@ -51,42 +57,51 @@
 				</div>
 			</div>
 
-			<div class="rounded-lg border p-4">
-				<div class="flex items-center">
-					<div class="rounded-md bg-[var(--color-primary-100)] p-2">
-						<BaseIcon name={Users} class="h-5 w-5 text-[var(--color-primary-600)]" />
+			<div class="trv-stat-card">
+				<div class="trv-row">
+					<div class="trv-icon-box trv-icon-box--primary">
+						<BaseIcon
+							name={Users}
+							style="width:1.25rem;height:1.25rem;color:var(--color-primary-600)"
+						/>
 					</div>
-					<div class="ml-4">
-						<p class="text-sm font-medium text-[var(--color-text-secondary)]">Total Visitors</p>
-						<p class="text-xl font-semibold text-[var(--color-text-primary)]">
+					<div class="trv-stat-content">
+						<p class="trv-stat-label">Total Visitors</p>
+						<p class="trv-stat-value trv-text--primary-value">
 							{state.totalVisitors.toLocaleString()}
 						</p>
 					</div>
 				</div>
 			</div>
 
-			<div class="rounded-lg border p-4">
-				<div class="flex items-center">
-					<div class="rounded-md bg-[var(--color-success-100)] p-2">
-						<BaseIcon name={CheckCircle} class="h-5 w-5 text-[var(--color-success-600)]" />
+			<div class="trv-stat-card">
+				<div class="trv-row">
+					<div class="trv-icon-box trv-icon-box--success">
+						<BaseIcon
+							name={CheckCircle}
+							style="width:1.25rem;height:1.25rem;color:var(--color-success-600)"
+						/>
 					</div>
-					<div class="ml-4">
-						<p class="text-sm font-medium text-[var(--color-text-secondary)]">Total Conversions</p>
-						<p class="text-xl font-semibold text-[var(--color-text-primary)]">
+					<div class="trv-stat-content">
+						<p class="trv-stat-label">Total Conversions</p>
+						<p class="trv-stat-value trv-text--primary-value">
 							{state.totalConversions.toLocaleString()}
 						</p>
 					</div>
 				</div>
 			</div>
 
-			<div class="rounded-lg border p-4">
-				<div class="flex items-center">
-					<div class="rounded-md bg-[var(--color-secondary-100)] p-2">
-						<BaseIcon name={TrendingUp} class="h-5 w-5 text-[var(--color-secondary-600)]" />
+			<div class="trv-stat-card">
+				<div class="trv-row">
+					<div class="trv-icon-box trv-icon-box--secondary">
+						<BaseIcon
+							name={TrendingUp}
+							style="width:1.25rem;height:1.25rem;color:var(--color-secondary-600)"
+						/>
 					</div>
-					<div class="ml-4">
-						<p class="text-sm font-medium text-[var(--color-text-secondary)]">Overall CR</p>
-						<p class="text-xl font-semibold text-[var(--color-text-primary)]">
+					<div class="trv-stat-content">
+						<p class="trv-stat-label">Overall CR</p>
+						<p class="trv-stat-value trv-text--primary-value">
 							{state.overallConversionRate.toFixed(2)}%
 						</p>
 					</div>
@@ -95,72 +110,64 @@
 		</div>
 
 		<!-- Variants Detail -->
-		<div class="mb-8">
-			<h4 class="text-md mb-4 font-medium text-[var(--color-text-primary)]">Variant Performance</h4>
-			<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+		<div class="trv-section">
+			<h4 class="trv-section-title">Variant Performance</h4>
+			<div class="trv-variants-grid">
 				{#each state.testResults as result}
 					<div
-						class={`rounded-lg border p-5 ${
+						class={`trv-variant-card ${
 							result.status === 'winning'
-								? 'border-[var(--color-success-500)] ring-2 ring-green-200'
+								? 'trv-variant-card--winning'
 								: result.status === 'losing'
-									? 'border-[var(--color-danger-500)]'
-									: 'border-[var(--color-border-primary)]'
+									? 'trv-variant-card--losing'
+									: 'trv-variant-card--neutral'
 						}`}
 					>
 						<div
-							class={`flex items-start justify-between ${
+							class={`trv-variant-header ${
 								result.status === 'winning'
-									? 'text-[var(--color-success-700)]'
+									? 'trv-text--success'
 									: result.status === 'losing'
-										? 'text-[var(--color-danger-700)]'
-										: 'text-[var(--color-text-primary)]'
+										? 'trv-text--danger'
+										: 'trv-text--primary-value'
 							}`}
 						>
-							<h5 class="text-lg font-medium">{result.variantName}</h5>
+							<h5 class="trv-variant-name">{result.variantName}</h5>
 							<span
-								class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
+								class={`trv-badge ${
 									result.status === 'winning'
-										? 'bg-[var(--color-success-100)] text-[var(--color-success-800)]'
+										? 'trv-badge--winning'
 										: result.status === 'losing'
-											? 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]'
-											: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]'
+											? 'trv-badge--losing'
+											: 'trv-badge--neutral'
 								}`}
 							>
 								{result.status.charAt(0).toUpperCase() + result.status.slice(1)}
 							</span>
 						</div>
 
-						<div class="mt-4 space-y-3">
-							<div class="flex justify-between">
-								<span class="text-sm text-[var(--color-text-secondary)]">Visitors</span>
-								<span class="text-sm font-medium text-[var(--color-text-primary)]"
-									>{result.visitors.toLocaleString()}</span
-								>
+						<div class="trv-metric-list">
+							<div class="trv-metric-row">
+								<span class="trv-metric-label">Visitors</span>
+								<span class="trv-metric-value">{result.visitors.toLocaleString()}</span>
 							</div>
 
-							<div class="flex justify-between">
-								<span class="text-sm text-[var(--color-text-secondary)]">Conversions</span>
-								<span class="text-sm font-medium text-[var(--color-text-primary)]"
-									>{result.conversions.toLocaleString()}</span
-								>
+							<div class="trv-metric-row">
+								<span class="trv-metric-label">Conversions</span>
+								<span class="trv-metric-value">{result.conversions.toLocaleString()}</span>
 							</div>
 
-							<div class="flex justify-between">
-								<span class="text-sm text-[var(--color-text-secondary)]">Conversion Rate</span>
-								<span class="text-sm font-medium text-[var(--color-text-primary)]"
-									>{result.conversionRate.toFixed(2)}%</span
-								>
+							<div class="trv-metric-row">
+								<span class="trv-metric-label">Conversion Rate</span>
+								<span class="trv-metric-value">{result.conversionRate.toFixed(2)}%</span>
 							</div>
 
 							{#if result.improvement !== 0}
-								<div class="flex justify-between">
-									<span class="text-sm text-[var(--color-text-secondary)]">Improvement</span>
+								<div class="trv-metric-row">
+									<span class="trv-metric-label">Improvement</span>
 									<span
-										class={`text-sm font-medium ${
-											result.improvement > 0
-												? 'text-[var(--color-success-600)]'
-												: 'text-[var(--color-danger-600)]'
+										class={`trv-metric-value trv-metric-value--colored ${
+											result.improvement > 0 ? 'trv-text--success' : 'trv-text--danger'
 										}`}
 									>
 										{result.improvement > 0 ? '+' : ''}{result.improvement.toFixed(2)}%
@@ -169,15 +176,15 @@
 							{/if}
 
 							{#if state.showStatisticalSignificance}
-								<div class="flex justify-between">
-									<span class="text-sm text-[var(--color-text-secondary)]">Significance</span>
+								<div class="trv-metric-row">
+									<span class="trv-metric-label">Significance</span>
 									<span
-										class={`text-sm font-medium ${
+										class={`trv-metric-value trv-metric-value--colored ${
 											result.statisticalSignificance >= 95
-												? 'text-[var(--color-success-600)]'
+												? 'trv-text--success'
 												: result.statisticalSignificance >= 90
-													? 'text-yellow-600'
-													: 'text-[var(--color-danger-600)]'
+													? 'trv-text--warning'
+													: 'trv-text--danger'
 										}`}
 									>
 										{result.statisticalSignificance.toFixed(1)}%
@@ -192,30 +199,22 @@
 
 		<!-- Charts -->
 		{#if state.showCharts}
-			<div class={`mb-8 rounded-lg border p-4 ${state.chartClassName}`}>
-				<h4 class="text-md mb-4 font-medium text-[var(--color-text-primary)]">
-					Performance Visualization
-				</h4>
+			<div class={`trv-chart-box ${state.chartClassName}`}>
+				<h4 class="trv-section-title">Performance Visualization</h4>
 
 				<!-- Conversion Rate Chart -->
-				<div class="mb-6">
-					<h5 class="mb-2 text-sm font-medium text-[var(--color-text-primary)]">
-						Conversion Rates by Variant
-					</h5>
-					<div class="flex h-32 items-end space-x-2">
+				<div class="trv-chart-cr">
+					<h5 class="trv-chart-subtitle">Conversion Rates by Variant</h5>
+					<div class="trv-bar-chart">
 						{#each state.testResults as result}
-							<div class="flex flex-1 flex-col items-center">
+							<div class="trv-bar-col">
 								<div
-									class="w-full rounded-t bg-[var(--color-primary-500)] transition-colors hover:bg-[var(--color-primary-600)]"
+									class="trv-bar"
 									style={`height: ${result.conversionRate * 2}px; min-height: var(--spacing-1);`}
 									title={`${result.variantName}: ${result.conversionRate.toFixed(2)}%`}
 								></div>
-								<span class="mt-2 text-xs text-[var(--color-text-secondary)]"
-									>{result.variantName}</span
-								>
-								<span class="text-xs text-[var(--color-text-primary)]"
-									>{result.conversionRate.toFixed(2)}%</span
-								>
+								<span class="trv-bar-name">{result.variantName}</span>
+								<span class="trv-bar-pct">{result.conversionRate.toFixed(2)}%</span>
 							</div>
 						{/each}
 					</div>
@@ -224,24 +223,22 @@
 				<!-- Statistical Significance Chart -->
 				{#if state.showStatisticalSignificance}
 					<div>
-						<h5 class="mb-2 text-sm font-medium text-[var(--color-text-primary)]">
-							Statistical Significance
-						</h5>
-						<div class="space-y-4">
+						<h5 class="trv-chart-subtitle">Statistical Significance</h5>
+						<div class="trv-sig-list">
 							{#each state.testResults as result}
 								<div>
-									<div class="mb-1 flex justify-between text-sm">
+									<div class="trv-sig-row">
 										<span>{result.variantName}</span>
 										<span>{result.statisticalSignificance.toFixed(1)}%</span>
 									</div>
-									<div class="h-2.5 w-full rounded-full bg-[var(--color-background-tertiary)]">
+									<div class="trv-sig-track">
 										<div
-											class={`h-2.5 rounded-full ${
+											class={`trv-sig-fill ${
 												result.statisticalSignificance >= 95
-													? 'bg-[var(--color-success-500)]'
+													? 'trv-sig-fill--high'
 													: result.statisticalSignificance >= 90
-														? 'bg-yellow-500'
-														: 'bg-[var(--color-danger-500)]'
+														? 'trv-sig-fill--mid'
+														: 'trv-sig-fill--low'
 											}`}
 											style={`width: ${result.statisticalSignificance}%`}
 										></div>
@@ -256,14 +253,17 @@
 
 		<!-- Recommendation -->
 		{#if state.bestVariant}
-			<div class="rounded-lg border bg-[var(--color-primary-50)] p-4">
-				<div class="flex items-start">
-					<div class="flex-shrink-0">
-						<BaseIcon name={CheckCircle} class="h-5 w-5 text-[var(--color-primary-400)]" />
+			<div class="trv-recommendation">
+				<div class="trv-rec-row">
+					<div class="trv-rec-icon">
+						<BaseIcon
+							name={CheckCircle}
+							style="width:1.25rem;height:1.25rem;color:var(--color-primary-400)"
+						/>
 					</div>
-					<div class="ml-3">
-						<h4 class="text-sm font-medium text-[var(--color-primary-800)]">Recommendation</h4>
-						<div class="mt-2 text-sm text-[var(--color-primary-700)]">
+					<div class="trv-rec-content">
+						<h4 class="trv-rec-title">Recommendation</h4>
+						<div class="trv-rec-body">
 							<p>
 								{state.bestVariant.variantName} is the winning variant with a conversion rate of
 								{state.bestVariant.conversionRate.toFixed(2)}%. {state.bestVariant.improvement > 0
@@ -279,19 +279,19 @@
 		{/if}
 	</div>
 
-	<div class={`border-t px-6 py-4 ${state.footerClassName}`}>
-		<div class="flex items-center justify-between text-xs text-[var(--color-text-secondary)]">
+	<div class={`trv-footer ${state.footerClassName}`}>
+		<div class="trv-footer-row">
 			<div>Test Results Analysis</div>
 			<div>
 				{#if state.testOverview.confidence >= 95}
-					<span class="inline-flex items-center text-[var(--color-success-600)]">
-						<BaseIcon name={CheckCircle} class="mr-1 h-4 w-4" />
+					<span class="trv-confidence trv-text--success">
+						<BaseIcon name={CheckCircle} style="margin-right:0.25rem;width:1rem;height:1rem" />
 						Results are statistically significant ({state.testOverview.confidence.toFixed(1)}%
 						confidence)
 					</span>
 				{:else}
-					<span class="inline-flex items-center text-yellow-600">
-						<BaseIcon name={AlertTriangle} class="mr-1 h-4 w-4" />
+					<span class="trv-confidence trv-text--warning">
+						<BaseIcon name={AlertTriangle} style="margin-right:0.25rem;width:1rem;height:1rem" />
 						Low confidence ({state.testOverview.confidence.toFixed(1)}% confidence)
 					</span>
 				{/if}
@@ -299,3 +299,306 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.trv-row {
+		display: flex;
+		align-items: center;
+	}
+
+	.trv-title {
+		font-size: 1.125rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+	.trv-subtitle {
+		margin-top: 0.25rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+	.trv-body {
+		padding: 1.5rem;
+	}
+
+	.trv-overview-grid {
+		margin-bottom: 2rem;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5rem;
+	}
+
+	.trv-stat-card {
+		border-radius: 0.5rem;
+		border: 1px solid;
+		padding: 1rem;
+	}
+
+	.trv-icon-box {
+		border-radius: 0.375rem;
+		padding: 0.5rem;
+	}
+
+	.trv-icon-box--primary {
+		background-color: var(--color-primary-100);
+	}
+	.trv-icon-box--success {
+		background-color: var(--color-success-100);
+	}
+	.trv-icon-box--secondary {
+		background-color: var(--color-secondary-100);
+	}
+
+	.trv-stat-content {
+		margin-left: 1rem;
+	}
+	.trv-stat-label {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-secondary);
+	}
+	.trv-stat-value {
+		font-size: 1.25rem;
+		font-weight: 600;
+	}
+
+	.trv-text--primary-value {
+		color: var(--color-text-primary);
+	}
+	.trv-text--success {
+		color: var(--color-success-600);
+	}
+	.trv-text--danger {
+		color: var(--color-danger-600);
+	}
+	.trv-text--warning {
+		color: #ca8a04;
+	}
+	.trv-text--primary {
+		color: var(--color-primary-600);
+	}
+
+	.trv-section {
+		margin-bottom: 2rem;
+	}
+	.trv-section-title {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+		margin-bottom: 1rem;
+	}
+
+	.trv-variants-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	.trv-variant-card {
+		border-radius: 0.5rem;
+		border: 1px solid;
+		padding: 1.25rem;
+	}
+
+	.trv-variant-card--winning {
+		border-color: var(--color-success-500);
+		box-shadow: 0 0 0 2px #bbf7d0;
+	}
+
+	.trv-variant-card--losing {
+		border-color: var(--color-danger-500);
+	}
+	.trv-variant-card--neutral {
+		border-color: var(--color-border-primary);
+	}
+
+	.trv-variant-header {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	.trv-variant-name {
+		font-size: 1.125rem;
+		font-weight: 500;
+	}
+
+	.trv-badge {
+		display: inline-flex;
+		align-items: center;
+		border-radius: 9999px;
+		padding: 0.125rem 0.625rem;
+		font-size: 0.75rem;
+		font-weight: 500;
+	}
+
+	.trv-badge--winning {
+		background-color: var(--color-success-100);
+		color: var(--color-success-800);
+	}
+	.trv-badge--losing {
+		background-color: var(--color-danger-100);
+		color: var(--color-danger-800);
+	}
+	.trv-badge--neutral {
+		background-color: var(--color-background-secondary);
+		color: var(--color-text-primary);
+	}
+
+	.trv-metric-list {
+		margin-top: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.trv-metric-row {
+		display: flex;
+		justify-content: space-between;
+	}
+	.trv-metric-label {
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+	.trv-metric-value {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+	.trv-metric-value--colored {
+		color: inherit;
+	}
+
+	.trv-chart-box {
+		margin-bottom: 2rem;
+		border-radius: 0.5rem;
+		border: 1px solid;
+		padding: 1rem;
+	}
+
+	.trv-chart-cr {
+		margin-bottom: 1.5rem;
+	}
+	.trv-chart-subtitle {
+		margin-bottom: 0.5rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.trv-bar-chart {
+		display: flex;
+		height: 8rem;
+		align-items: flex-end;
+		gap: 0.5rem;
+	}
+
+	.trv-bar-col {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.trv-bar {
+		width: 100%;
+		border-radius: 0.25rem 0.25rem 0 0;
+		background-color: var(--color-primary-500);
+		transition: background-color 0.15s;
+	}
+
+	.trv-bar:hover {
+		background-color: var(--color-primary-600);
+	}
+
+	.trv-bar-name {
+		margin-top: 0.5rem;
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+	}
+
+	.trv-bar-pct {
+		font-size: 0.75rem;
+		color: var(--color-text-primary);
+	}
+
+	.trv-sig-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.trv-sig-row {
+		margin-bottom: 0.25rem;
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.875rem;
+	}
+
+	.trv-sig-track {
+		height: 0.625rem;
+		width: 100%;
+		border-radius: 9999px;
+		background-color: var(--color-background-tertiary);
+	}
+
+	.trv-sig-fill {
+		height: 0.625rem;
+		border-radius: 9999px;
+	}
+
+	.trv-sig-fill--high {
+		background-color: var(--color-success-500);
+	}
+	.trv-sig-fill--mid {
+		background-color: #eab308;
+	}
+	.trv-sig-fill--low {
+		background-color: var(--color-danger-500);
+	}
+
+	.trv-recommendation {
+		border-radius: 0.5rem;
+		border: 1px solid;
+		background-color: var(--color-primary-50);
+		padding: 1rem;
+	}
+
+	.trv-rec-row {
+		display: flex;
+		align-items: flex-start;
+	}
+	.trv-rec-icon {
+		flex-shrink: 0;
+	}
+	.trv-rec-content {
+		margin-left: 0.75rem;
+	}
+	.trv-rec-title {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-primary-800);
+	}
+	.trv-rec-body {
+		margin-top: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--color-primary-700);
+	}
+
+	.trv-footer {
+		border-top: 1px solid;
+		padding: 1rem 1.5rem;
+	}
+
+	.trv-footer-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+	}
+
+	.trv-confidence {
+		display: inline-flex;
+		align-items: center;
+	}
+</style>

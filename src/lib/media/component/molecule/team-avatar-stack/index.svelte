@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-	import { createTeamAvatarStackState } from '$stylist/media/function/state/team-avatar-stack';
-	import type { TeamAvatarStackProps } from '$stylist/media/type/struct/team-avatar-stack';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
+	import createTeamAvatarStackState from '$stylist/media/function/state/team-avatar-stack/index.svelte';
+	import type { TeamAvatarStackProps } from '$stylist/media/type/struct/team-avatar-stack/teamavatarstack-props';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const Users = 'users';
 	const User = 'user';
 
@@ -14,10 +14,10 @@
 	<!-- Render visible avatars in a stack -->
 	{#each state.visibleMembers as member, index}
 		<div
-			class={`relative ${state.stackDirection === 'vertical' ? '-mt-2' : '-ml-2'} first:mt-0 first:ml-0 ${state.avatarClass}`}
+			class={`tas-item ${state.stackDirection === 'vertical' ? 'tas-item--v' : 'tas-item--h'} ${state.avatarClass}`}
 			style={`z-index: ${state.visibleMembers.length - index}`}
 		>
-			<div class="relative inline-block">
+			<div class="tas-avatar-wrap">
 				{#if member.avatar}
 					<img
 						src={member.avatar}
@@ -40,15 +40,13 @@
 			</div>
 
 			{#if state.showTooltip}
-				<div
-					class="bg-opacity-[var(--opacity-75)] absolute bottom-full left-1/2 z-[var(--z-index-docked)] mb-2 hidden -translate-x-1/2 transform rounded bg-[var(--color-neutral-900)] px-2 py-1 text-xs text-[var(--color-text-inverse)] group-hover:block"
-				>
+				<div class="tas-tooltip">
 					{member.name}
 					{#if member.role && member.role !== ''}
-						<div class="text-xs">{member.role}</div>
+						<div class="tas-tooltip-line">{member.role}</div>
 					{/if}
 					{#if member.status}
-						<div class="text-xs">{member.status}</div>
+						<div class="tas-tooltip-line">{member.status}</div>
 					{/if}
 				</div>
 			{/if}
@@ -58,12 +56,12 @@
 	<!-- Overflow indicator -->
 	{#if state.overflowCount > 0}
 		<div
-			class={`relative ${state.stackDirection === 'horizontal' ? '-ml-2' : '-mt-2'} flex items-center justify-center rounded-full border-2 border-[var(--color-background-primary)] bg-[var(--color-primary-100)] font-medium text-[var(--color-primary-800)] ${state.sizeClasses} ${state.size === 'sm' ? 'text-xs' : state.size === 'md' ? 'text-sm' : 'text-base'}`}
+			class={`tas-overflow ${state.stackDirection === 'horizontal' ? 'tas-item--h' : 'tas-item--v'} ${state.sizeClasses}`}
 		>
 			+{state.overflowCount}
 			<BaseIcon
 				name={Users}
-				class="ml-1"
+				class="tas-overflow-icon"
 				style={`width: ${state.size === 'sm' ? '0.75rem' : state.size === 'md' ? '1rem' : '1.25rem'}; height: ${state.size === 'sm' ? '0.75rem' : state.size === 'md' ? '1rem' : '1.25rem'}`}
 			/>
 		</div>

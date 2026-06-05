@@ -1,4 +1,3 @@
-
 export interface SlotNodePaletteItem {
 	id: string;
 	type: string;

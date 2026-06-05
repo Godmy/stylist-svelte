@@ -1,10 +1,10 @@
 ﻿<script lang="ts">
 	import type { PreziSceneContract } from '$stylist/architecture/type/struct/prezi-scene';
-	import { usePreziState } from '$stylist/architecture/function/state/prezi-scene';
+	import usePreziState from '$stylist/architecture/function/state/prezi-scene/index.svelte';
 	import PresenterNodeShell from '$stylist/architecture/component/molecule/presenter-node-shell/index.svelte';
 	import Minimap from '$stylist/science/component/organism/minimap/index.svelte';
-	import { Icon } from '$stylist/media';
-	import { Grid } from '$stylist/layout';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Grid from '$stylist/layout/component/atom/grid/index.svelte';
 
 	const props: PreziSceneContract = $props();
 	const state = usePreziState(props);

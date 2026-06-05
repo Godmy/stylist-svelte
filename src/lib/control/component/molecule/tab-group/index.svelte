@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SlotTabGroup as ITabGroupProps } from '$stylist/control/interface/slot/tab-group';
 	import { TabGroupStyleManager } from '$stylist/control/class/style-manager/tab-group';
-	import { createTabGroupState } from '$stylist/control/function/state/tab-group';
+	import createTabGroupState from '$stylist/control/function/state/tab-group/index.svelte';
 
 	/**
 	 * TabGroup component - A flexible tab component with various visual styles and states

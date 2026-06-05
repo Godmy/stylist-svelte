@@ -1,10 +1,10 @@
 ﻿<script lang="ts">
-	import { Button } from '$stylist/control';
-	import { InputField } from '$stylist/input';
-	import { Icon } from '$stylist/media';
-	import { Badge } from '$stylist/typography';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import InputField from '$stylist/input/component/atom/input-field/index.svelte';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 	import TextArea from '$stylist/input/component/atom/text-area/index.svelte';
-	import { createScrumBacklogState } from '$stylist/management/function/state/scrum-backlog';
+	import createScrumBacklogState from '$stylist/management/function/state/scrum-backlog/index.svelte';
 	import type { SlotBacklogItem as BacklogItem } from '$stylist/management/interface/slot/backlog-item';
 	import type { SlotBacklogData as BacklogData } from '$stylist/management/interface/slot/backlog-data';
 	import { ScrumBacklogStyleManager } from '$stylist/management/class/style-manager/scrum-backlog';

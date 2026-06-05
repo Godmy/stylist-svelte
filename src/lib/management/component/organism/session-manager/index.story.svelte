@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
-	import type { Session } from '$stylist/management';
-	import { SettingsStyleManager } from '$stylist/interaction';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import type { Session } from '$stylist/management/type/struct/settings-session';
+	import { SettingsStyleManager } from '$stylist/interaction/class/style-manager/settings';
 	import SessionManager from './index.svelte';
 
 	const activeSessions: Session[] = [

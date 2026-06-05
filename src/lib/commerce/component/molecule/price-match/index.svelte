@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PriceMatchProps } from '$stylist/commerce/interface/recipe/price-match-props';
-	import { createPriceMatchState } from '$stylist/commerce/function/state/price-match';
+	import createPriceMatchState from '$stylist/commerce/function/state/price-match/createpricematchstate/index.svelte';
 
 	let props: PriceMatchProps = $props();
 	const state = createPriceMatchState(props);

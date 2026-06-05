@@ -1,5 +1,5 @@
 import { InputStyleManager } from '$stylist/input/class/style-manager/input';
-import { createInputTextState } from '$stylist/input/function/state/input-text';
+import createInputTextState from '$stylist/input/function/state/input-text/index.svelte';
 import type { SlotInputDouble as IInputDoubleProps } from '$stylist/input/interface/slot/input-double';
 
 export const createInputDoubleState = (props: IInputDoubleProps) => {

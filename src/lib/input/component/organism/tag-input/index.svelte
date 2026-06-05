@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { SlotTagInput as TagInputProps } from '$stylist/input/interface/slot/tag-input';
-	import { createTagInputState } from '$stylist/input/function/state/tag-input';
+	import createTagInputState from '$stylist/input/function/state/tag-input/index.svelte';
 	import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 	const X = 'x';
 

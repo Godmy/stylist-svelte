@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { Switch, Tag } from '$stylist/control';
+	import Switch from '$stylist/control/component/atom/switch/index.svelte';
+	import Tag from '$stylist/control/component/atom/tag/index.svelte';
 	import type { FilterBarProps } from '$stylist/control/type/struct/filter-bar-props';
-	import { createFilterBarState } from '$stylist/control/function/state/filter-bar';
+	import createFilterBarState from '$stylist/control/function/state/filter-bar/index.svelte';
 
 	let props: FilterBarProps = $props();
 	const state = createFilterBarState(props);

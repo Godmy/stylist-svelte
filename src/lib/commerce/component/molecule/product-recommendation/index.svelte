@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createProductRecommendationState } from '$stylist/commerce/function/state/product-recommendation';
+	import createProductRecommendationState from '$stylist/commerce/function/state/product-recommendation/createproductrecommendationstate/index.svelte';
 	import type { ProductRecommendationProps } from '$stylist/commerce/interface/recipe/product-recommendation-props';
 
 	let props: ProductRecommendationProps = $props();

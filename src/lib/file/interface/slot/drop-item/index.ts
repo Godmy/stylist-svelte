@@ -1,4 +1,3 @@
-
 export interface SlotDropItem {
 	id: string;
 	name: string;

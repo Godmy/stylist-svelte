@@ -1,6 +1,6 @@
-﻿import type { PieChartProps } from '$stylist/chart/interface/recipe/pie-chart-props';
 import { ObjectManagerChart } from '$stylist/chart/class/object-manager/chart';
-import { DataDisplayStyleManager } from '$stylist/typography/class/style-manager/data-display';
+import type { PieChartProps } from '$stylist/chart/interface/recipe/pie-chart-props';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createPieChartState(props: PieChartProps & { width?: number; height?: number }) {
 	const width = $derived(props.width ?? 200);
@@ -10,11 +10,12 @@ export function createPieChartState(props: PieChartProps & { width?: number; hei
 		ObjectManagerChart.getPieChartSegments(props.data ?? [], width, height)
 	);
 	const containerClasses = $derived(
-		DataDisplayStyleManager.getPieChartContainerClasses(
+		mergeClassNames(
+			'relative inline-flex items-center justify-center',
 			typeof props.class === 'string' ? props.class : undefined
 		)
 	);
-	const svgClasses = $derived(DataDisplayStyleManager.getPieChartSvgClasses());
+	const svgClasses = $derived('block');
 
 	return {
 		get width() {

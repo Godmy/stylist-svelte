@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeTaxCalculator as TaxCalculatorContract } from '$stylist/commerce/interface/recipe/tax-calculator';
-	import { createTaxCalculatorState as stateFn } from '$stylist/commerce/function/state/tax-calculator';
+	import stateFn from '$stylist/commerce/function/state/tax-calculator/index.svelte';
 
 	let props: TaxCalculatorContract = $props();
 	const state = stateFn(props);

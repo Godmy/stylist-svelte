@@ -2,7 +2,7 @@
 	import SearchBar from '$stylist/input/component/molecule/search-bar/index.svelte';
 	import FilterPanel from '$stylist/form/component/molecule/filter-panel/index.svelte';
 	import Toolbar from '$stylist/control/component/molecule/toolbar/index.svelte';
-	import { createControlPanelState } from '$stylist/control/function/state/control-panel';
+	import createControlPanelState from '$stylist/control/function/state/control-panel/index.svelte';
 
 	// Props
 	let {

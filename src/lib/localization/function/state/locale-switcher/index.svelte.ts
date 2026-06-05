@@ -1,4 +1,4 @@
-import { LocaleSwitcherStyleManager } from '$stylist/localization/class/style-manager/locale-switcher';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import {
 	formatDate,
 	formatTime,
@@ -8,7 +8,6 @@ import type { SlotLocaleSwitcherLocale as LocaleSwitcherLocale } from '$stylist/
 import type { LocaleSwitcherStateProps } from '$stylist/localization/interface/recipe/locale-switcher';
 
 export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
-	// Props with defaults - extracted from props object
 	const locales = props.locales ?? [];
 	const currentLocale = props.currentLocale;
 	const timezoneOptions = props.timezoneOptions ?? [];
@@ -16,27 +15,17 @@ export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
 	const showRegional = props.showRegional ?? true;
 	const showDatePreview = props.showDatePreview ?? true;
 	const showTimePreview = props.showTimePreview ?? true;
-	const propClassName = props.class ?? '';
-	const propHeaderClass = props.headerClass ?? '';
-	const propContentClass = props.contentClass ?? '';
-	const propLocaleClass = props.localeClass ?? '';
-	const propFooterClass = props.footerClass ?? '';
 
-	// Computed
 	const now = new Date();
 	const currentLocaleObj =
 		locales.find((loc: LocaleSwitcherLocale) => loc.code === currentLocale) ?? locales[0];
 
-	// Classes
-	const rootClass = $derived(LocaleSwitcherStyleManager.getRootClass(propClassName));
-	const headerClass = $derived(LocaleSwitcherStyleManager.getHeaderClass(propHeaderClass));
-	const contentClass = $derived(LocaleSwitcherStyleManager.getContentClass(propContentClass));
-	const getLocaleButtonClass = (isActive: boolean) =>
-		LocaleSwitcherStyleManager.getLocaleButtonClass(isActive, propLocaleClass);
-	const timezoneSelectClass = $derived(LocaleSwitcherStyleManager.getTimezoneSelectClass());
-	const footerClass = $derived(LocaleSwitcherStyleManager.getFooterClass(propFooterClass));
+	const rootClass = $derived(mergeClassNames('c-locale-switcher', props.class));
+	const headerClass = $derived(mergeClassNames('c-locale-switcher__header', props.headerClass));
+	const contentClass = $derived(mergeClassNames('c-locale-switcher__content', props.contentClass));
+	const timezoneSelectClass = $derived('c-locale-switcher__timezone-select');
+	const footerClass = $derived(mergeClassNames('c-locale-switcher__footer', props.footerClass));
 
-	// Rest props
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,
@@ -56,8 +45,15 @@ export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
 		return rest;
 	});
 
+	function getLocaleButtonClass(isActive: boolean): string {
+		return mergeClassNames(
+			'c-locale-switcher__locale-btn',
+			isActive && 'c-locale-switcher__locale-btn--active',
+			props.localeClass
+		);
+	}
+
 	return {
-		// Icons
 		get iconClock() {
 			return 'clock';
 		},

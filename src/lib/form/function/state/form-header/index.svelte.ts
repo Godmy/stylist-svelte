@@ -6,7 +6,9 @@ export function createFormHeaderState(props: FormHeaderProps) {
 	const backButtonClass = $derived(FormHeaderStyleManager.backButton(props.backButtonClass ?? ''));
 	const titleClass = $derived(FormHeaderStyleManager.title(props.titleClass ?? ''));
 	const subtitleClass = $derived(FormHeaderStyleManager.subtitle(props.subtitleClass ?? ''));
-	const descriptionClass = $derived(FormHeaderStyleManager.description(props.descriptionClass ?? ''));
+	const descriptionClass = $derived(
+		FormHeaderStyleManager.description(props.descriptionClass ?? '')
+	);
 	const actionsClass = $derived(FormHeaderStyleManager.actions(props.actionsClass ?? ''));
 
 	return {

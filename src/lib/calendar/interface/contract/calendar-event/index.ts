@@ -1,4 +1,3 @@
-
 export interface RecipeCalendarEvent {
 	id: string;
 	title: string;

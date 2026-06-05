@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component/molecule/story';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import ChatWindow from './index.svelte';
 	import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';

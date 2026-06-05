@@ -1,4 +1,4 @@
-import type { ToastNotificationType } from '$stylist/notification/type/struct/toast';
+import type { ToastNotificationType } from '$stylist/notification/type/struct/toast/toast-notification-type';
 
 /**
  * TokenBorderStyle utility class following Single Responsibility Principle

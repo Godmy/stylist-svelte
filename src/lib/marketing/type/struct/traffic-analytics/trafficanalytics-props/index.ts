@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { TimeRange } from '../timerange';
 import type { TrafficDataPoint } from '../trafficdatapoint';
 import type { TrafficSource } from '../trafficsource';

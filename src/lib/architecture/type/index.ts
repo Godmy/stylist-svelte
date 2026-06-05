@@ -11,8 +11,6 @@ export type {
 	TokenConnector,
 	TokenEasing,
 	TokenFunctionalTaxonomy,
-	TokenLetterSpacing,
-	TokenLineHeight,
 	TokenLineType,
 	TokenMarker,
 	TokenNodeType,

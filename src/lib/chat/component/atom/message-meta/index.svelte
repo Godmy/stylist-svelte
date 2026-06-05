@@ -1,8 +1,8 @@
 ﻿<script lang="ts">
 	import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import MessageTimestamp from '$stylist/chat/component/atom/message-timestamp/index.svelte';
-	import { createMessageMetaState } from '$stylist/chat/function/state/message-meta';
+	import createMessageMetaState from '$stylist/chat/function/state/message-meta/index.svelte';
 
 	let props: {
 		message?: Message;

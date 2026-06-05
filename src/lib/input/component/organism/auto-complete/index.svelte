@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { SlotAutoComplete as AutoCompleteProps } from '$stylist/input/interface/slot/auto-complete';
-	import { createAutoCompleteState } from '$stylist/input/function/state/auto-complete';
+	import createAutoCompleteState from '$stylist/input/function/state/auto-complete/index.svelte';
 	import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 	const Search = 'search';
 

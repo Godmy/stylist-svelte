@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createSessionManagerState } from '$stylist/management/function/state/session-manager';
+	import createSessionManagerState from '$stylist/management/function/state/session-manager/index.svelte';
 	import type { SlotSessionManager as SessionManagerProps } from '$stylist/form/interface/slot/session-manager';
 
 	let props: SessionManagerProps = $props();

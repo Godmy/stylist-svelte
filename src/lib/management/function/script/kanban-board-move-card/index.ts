@@ -1,5 +1,5 @@
-import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board';
-import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card';
+import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board/kanbanboardtype';
+import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card/kanbancardtype';
 
 export function moveKanbanCard(
 	boardState: KanbanBoardType,

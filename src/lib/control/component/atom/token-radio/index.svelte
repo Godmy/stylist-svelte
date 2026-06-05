@@ -1,7 +1,7 @@
 <script lang="ts">
 	import TokenControlBase from '../token-control-base/index.svelte';
 	import type { TokenRadioControlProps } from '$stylist/control/type/struct/token-radio-control-props';
-	import { createTokenRadioState } from '$stylist/control/function/state/token-radio';
+	import createTokenRadioState from '$stylist/control/function/state/token-radio/index.svelte';
 
 	let props: TokenRadioControlProps = $props();
 	const state = createTokenRadioState(props);

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-	import type { AnimatedNumberRecipe as AnimatedNumberProps } from '$stylist/animation/interface/recipe/animated-number';
-	import { createAnimatedNumberState } from '$stylist/animation/function/state/animated-number';
+	import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
+	import type { AnimatedNumberRecipe } from '$stylist/animation/interface/recipe/animated-number';
+	import createAnimatedNumberState from '$stylist/animation/function/state/animated-number/index.svelte';
 
-	let props: AnimatedNumberProps & InformationHTMLAttributes<HTMLSpanElement> = $props();
+	let props: AnimatedNumberRecipe & InformationHTMLAttributes<HTMLSpanElement> = $props();
 	const state = createAnimatedNumberState(props);
 	const restProps = $derived(
 		(() => {

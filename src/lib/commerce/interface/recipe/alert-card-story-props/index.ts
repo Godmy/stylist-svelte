@@ -1,5 +1,5 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { InterfaceControllerSettings } from '$stylist/playground';
+import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 export interface AlertCardStoryProps extends StructIntersectAll<[]> {
 	id?: string;

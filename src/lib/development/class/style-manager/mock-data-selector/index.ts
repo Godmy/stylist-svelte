@@ -1,4 +1,3 @@
-
 /**
  * Style utility class following Single Responsibility Principle
  * Responsible only for managing MockDataSelector styling logic

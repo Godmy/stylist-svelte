@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { StylistProps } from '$stylist/development/type/struct/stylist-props';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import Tooltip from '$stylist/control/component/atom/tooltip/index.svelte';
 	import { categories } from '$stylist/development/const/record/stylist-categories';
-	import { createStylistState } from '$stylist/development/function/state/stylist';
+	import createStylistState from '$stylist/development/function/state/stylist/index.svelte';
 	import { panelId } from '$stylist/development/const/stylist/panel-id';
 
 	const Sparkles = 'sparkles';

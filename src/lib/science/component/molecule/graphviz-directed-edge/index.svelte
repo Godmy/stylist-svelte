@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { GraphvizDirectedEdgeRecipe } from '$stylist/science/interface/recipe/graphviz-directed-edge';
-	import { createGraphvizDirectedEdgeState } from '$stylist/science/function/state/graphviz-directed-edge';
+	import createGraphvizDirectedEdgeState from '$stylist/science/function/state/graphviz-directed-edge/index.svelte';
 
 	let props: GraphvizDirectedEdgeRecipe = $props();
 	const state = createGraphvizDirectedEdgeState(props);

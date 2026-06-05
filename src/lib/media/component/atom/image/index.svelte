@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ImageProps } from '$stylist/media/type/struct/image';
-	import { createImageState } from '$stylist/media/function/state/image';
+	import createImageState from '$stylist/media/function/state/image/index.svelte';
 
 	let props: ImageProps = $props();
 	const state = createImageState(props);

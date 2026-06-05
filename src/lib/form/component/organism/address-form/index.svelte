@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createAddressFormState } from '$stylist/form/function/state/address-form';
+	import createAddressFormState from '$stylist/form/function/state/address-form/index.svelte';
 
 	const props = $props();
 	const state = createAddressFormState(props);

@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { AvatarSize } from '$stylist/media/type/alias/avatar-size';
 import type { AvatarUserStatus } from '$stylist/media/type/alias/avatar-user-status';
 import type { AvatarProps } from '$stylist/media/interface/recipe/avatar-avatar-props';

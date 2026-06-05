@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createToggleWithDescriptionState } from '$stylist/control/function/state/toggle-with-description';
+	import createToggleWithDescriptionState from '$stylist/control/function/state/toggle-with-description/index.svelte';
 	import type { ToggleWithDescriptionProps } from '$stylist/control/type/struct/toggle-with-description-props';
 
 	let {

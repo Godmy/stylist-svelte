@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ProductSortProps } from '$stylist/commerce/type/struct/product-sort-props';
-	import { createProductSortState } from '$stylist/commerce/function/state/product-sort';
+	import createProductSortState from '$stylist/commerce/function/state/product-sort/index.svelte';
 
 	let props: ProductSortProps = $props();
 	const state = createProductSortState(props);
@@ -24,3 +24,29 @@
 		{/each}
 	</select>
 </div>
+
+<style>
+	.c-product-sort {
+		display: flex;
+		align-items: center;
+	}
+
+	.c-product-sort__label {
+		margin-inline-end: 0.5rem;
+		font-size: var(--text-size-sm, 0.875rem);
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.c-product-sort__select {
+		width: auto;
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		font-size: var(--text-size-sm, 0.875rem);
+	}
+
+	.c-product-sort__select:focus-visible {
+		outline: none;
+		box-shadow: 0 0 0 2px var(--color-primary-500);
+	}
+</style>

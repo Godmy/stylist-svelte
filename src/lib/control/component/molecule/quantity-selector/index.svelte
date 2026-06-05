@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { createQuantitySelectorState } from '$stylist/control/function/state/quantity-selector';
+	import createQuantitySelectorState from '$stylist/control/function/state/quantity-selector/index.svelte';
 	import type { SlotQuantitySelector as IQuantitySelectorProps } from '$stylist/control/interface/slot/quantity-selector';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 
 	const Plus = 'plus';
 	const Minus = 'minus';

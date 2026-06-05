@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ComponentLibraryStatsProps } from '$stylist/development/type/struct/component-library-stats-props';
-	import { createComponentLibraryStatsState } from '$stylist/development/function/state/component-library-stats';
+	import createComponentLibraryStatsState from '$stylist/development/function/state/component-library-stats/index.svelte';
 
 	let { ...props }: ComponentLibraryStatsProps = $props();
 	const state = createComponentLibraryStatsState(props);

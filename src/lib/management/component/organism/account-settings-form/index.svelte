@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createAccountSettingsFormState } from '$stylist/management/function/state/account-settings-form';
+	import createAccountSettingsFormState from '$stylist/management/function/state/account-settings-form/index.svelte';
 	import type { SlotAccountSettingsForm as AccountSettingsFormProps } from '$stylist/form/interface/slot/account-settings-form';
 
 	let props: AccountSettingsFormProps = $props();

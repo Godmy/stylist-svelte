@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { SlotNodePaletteItem } from '$stylist/science/interface/slot/node-palette-item';
 
 export interface SlotNodePalette extends InteractionHTMLAttributes<HTMLDivElement> {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createProgressBarWithLabelState } from '$stylist/notification/function/state/progress-bar-with-label';
+	import createProgressBarWithLabelState from '$stylist/notification/function/state/progress-bar-with-label/index.svelte';
 
 	const props = $props();
 	const state = createProgressBarWithLabelState(props);

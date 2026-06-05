@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { BreadcrumbDropdownRecipe } from '$stylist/navigation/interface/recipe/breadcrumb-dropdown';
-	import { createBreadcrumbDropdownState } from '$stylist/navigation/function/state/breadcrumb-dropdown';
+	import createBreadcrumbDropdownState from '$stylist/navigation/function/state/breadcrumb-dropdown/index.svelte';
 	import type { BreadcrumbDropdownItem } from '$stylist/navigation/type/struct/breadcrumbs-props/breadcrumb-dropdown-item';
 
 	let props: BreadcrumbDropdownRecipe & {

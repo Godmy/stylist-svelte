@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PaginationStateProps } from '$stylist/navigation/interface/recipe/pagination-pagination-state-props';
 	import Icon from '$stylist/media/component/atom/icon/index.svelte';
-	import { createPaginationState } from '$stylist/navigation/function/state/pagination';
+	import createPaginationState from '$stylist/navigation/function/state/pagination/index.svelte';
 
 	let props: PaginationStateProps = $props();
 	const state = createPaginationState(props);

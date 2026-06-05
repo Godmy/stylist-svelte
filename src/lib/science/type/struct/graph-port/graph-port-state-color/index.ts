@@ -1,4 +1,3 @@
-
 export type GraphPortStateColor = {
 	default: string;
 	connected: string;

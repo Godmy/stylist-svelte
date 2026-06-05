@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeOrderHistory as OrderHistoryContract } from '$stylist/commerce/interface/recipe/order-history';
-	import { createOrderHistoryState } from '$stylist/commerce/function/state/order-history';
+	import createOrderHistoryState from '$stylist/commerce/function/state/order-history/index.svelte';
 
 	let props: OrderHistoryContract = $props();
 	const state = createOrderHistoryState(props);

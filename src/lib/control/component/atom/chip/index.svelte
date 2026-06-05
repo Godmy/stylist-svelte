@@ -2,7 +2,7 @@
 	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const X = 'x';
 
-	import { createChipState } from '$stylist/control/function/state/chip';
+	import createChipState from '$stylist/control/function/state/chip/index.svelte';
 	import type { ChipProps } from '$stylist/control/type/struct/chip-props';
 
 	let props: ChipProps = $props();

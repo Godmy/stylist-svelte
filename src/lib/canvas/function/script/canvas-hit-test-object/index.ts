@@ -1,5 +1,5 @@
 import { getCanvasObjectBounds } from '$stylist/canvas/function/script/canvas-get-object-bounds';
-import type { SharedCanvasPoint } from '$stylist/canvas/type/struct/shared-canvas';
+import type { SharedCanvasPoint } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-point';
 import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
 
 export function hitTestCanvasObject(

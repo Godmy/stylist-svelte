@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { Button } from '$stylist/control';
-	import { createZoomToolbarState } from '$stylist/control/function/state/zoom-toolbar';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import createZoomToolbarState from '$stylist/control/function/state/zoom-toolbar/index.svelte';
 	import type { SlotZoomToolbar as ZoomToolbarProps } from '$stylist/control/interface/slot/zoom-toolbar';
 
 	const ZoomIn = 'zoom-in';

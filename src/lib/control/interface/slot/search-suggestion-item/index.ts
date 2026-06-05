@@ -1,4 +1,3 @@
-
 export interface SlotSearchSuggestionItem {
 	id: string;
 	text: string;

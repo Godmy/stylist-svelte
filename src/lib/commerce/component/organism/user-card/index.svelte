@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { UserCardProps } from '$stylist/commerce/interface/recipe/user-card-props';
-	import { createUserCardState } from '$stylist/commerce/function/state/user-card';
+	import createUserCardState from '$stylist/commerce/function/state/user-card/createusercardstate/index.svelte';
 
 	const MoreVertical = 'more-vertical';
 

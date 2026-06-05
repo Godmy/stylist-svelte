@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createPushNotificationState } from '$stylist/management/function/state/push-notification';
+	import createPushNotificationState from '$stylist/management/function/state/push-notification/index.svelte';
 
 	let props: Parameters<typeof createPushNotificationState>[0] = $props();
 	const state = createPushNotificationState(props);

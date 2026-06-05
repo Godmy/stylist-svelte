@@ -12,6 +12,8 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 export interface BlockquoteRecipe
 	extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLQuoteElement>]> {
 	cite?: string;
+	citeUrl?: string;
+	sourceLabel?: string;
 	footerPrefix?: string;
 	withBorder?: boolean;
 	withBackground?: boolean;

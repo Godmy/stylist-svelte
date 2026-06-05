@@ -7,8 +7,6 @@ export type { TokenConnector } from './connector';
 export type { TokenEasing } from './easing';
 export type { TokenFunctionalTaxonomy } from './functional-taxonomy';
 export type { TokenArchitectureIcon } from './icon';
-export type { TokenLetterSpacing } from './letter-spacing';
-export type { TokenLineHeight } from './line-height';
 export type { TokenLineType } from './line-type';
 export type { TokenMarker } from './marker';
 export type { TokenNodeType } from './node-type';

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { createCardSkeletonState } from '$stylist/notification/function/state/card-skeleton';
+	import createCardSkeletonState from '$stylist/notification/function/state/card-skeleton/index.svelte';
 	import type { SlotCardSkeleton as CardSkeletonProps } from '$stylist/notification/interface/slot/card-skeleton';
-	import { Skeleton } from '../skeleton';
+	import Skeleton from '$stylist/notification/component/atom/skeleton/index.svelte';
 
 	let {
 		count = 3,

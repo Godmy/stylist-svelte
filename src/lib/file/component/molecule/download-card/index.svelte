@@ -1,10 +1,10 @@
 ﻿<script lang="ts">
 	import type { SlotDownloadCard as IDownloadCardProps } from '$stylist/file/interface/slot/download-card';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import { DownloadCardStyleManager } from '$stylist/file/class/style-manager/download-card';
 	import { formatFileSize } from '$stylist/file/function/script/format-file-size';
 	import { handleFileDownload } from '$stylist/file/function/script/handle-file-download';
-	import { createDownloadCardState } from '$stylist/file/function/state/download-card';
+	import createDownloadCardState from '$stylist/file/function/state/download-card/index.svelte';
 
 	let props: IDownloadCardProps = $props();
 	const state = createDownloadCardState(props as IDownloadCardProps & Record<string, unknown>);
@@ -73,6 +73,6 @@
 		onclick={handleDownload}
 		type="button"
 	>
-		<BaseIcon name="download" class="h-5 w-5" aria-hidden="true" />
+		<BaseIcon name="download" style="width:1.25rem;height:1.25rem" aria-hidden="true" />
 	</button>
 </div>

@@ -1,4 +1,4 @@
-import type { Props } from '$stylist/file/type/struct/drop-zone/props';
+import type { Props } from '$stylist/file/type/struct/drop-zone/props/-props';
 import type { SlotDropItem } from '$stylist/file/type/struct/drop-zone/item';
 import { clearAll } from '$stylist/file/function/script/drop-zone-clear-all';
 import { handleDragLeave as handleDragLeaveFn } from '$stylist/file/function/script/drop-zone-handle-drag-leave';

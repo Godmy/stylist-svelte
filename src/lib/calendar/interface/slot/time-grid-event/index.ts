@@ -1,4 +1,3 @@
-
 // ==================== TimeGrid ====================
 export interface SlotTimeGridEvent {
 	id: string;

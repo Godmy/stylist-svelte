@@ -1,13 +1,17 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { AccessibilityCheckboxRecipe } from './accessibility-checkbox';
 export type { AtomicPrinciplesRecipe } from './atomic-principles';
+export type { BadgeRecipe } from './badge';
+export type { BadgeGroupRecipe } from './badge-group';
 export type { BaseCardRecipe } from './base-card';
+export type { CountBadgeRecipe } from './count-badge';
 export type { CounterRecipe } from './counter';
 export type { DotRecipe } from './dot';
 export type { ListItemMarkerRecipe } from './list-item-marker';
 export type { MetricBarRecipe } from './metric-bar';
 export type { MetricBarsCardRecipe } from './metric-bars-card';
 export type { MetricCardRecipe } from './metric-card';
+export type { NpmBadgeRecipe } from './npm-badge';
 export type { SearchResultsRecipe } from './search-results';
 export type { SortRecipe } from './sort';
 export type { SortableGridRecipe } from './sortable-grid';

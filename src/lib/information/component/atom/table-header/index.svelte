@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TableSectionRecipe as TableSectionRecipe } from '$stylist/information/interface/recipe/table-section';
-	import { createTableHeaderState } from '$stylist/information/function/state/table-header';
+	import createTableHeaderState from '$stylist/information/function/state/table-header/index.svelte';
 
 	let props: TableSectionRecipe = $props();
 	const state = createTableHeaderState(props);

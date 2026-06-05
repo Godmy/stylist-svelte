@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ListWithAvatarsProps } from '$stylist/control/type/struct/list-with-avatars-props';
-	import { createListWithAvatarsState } from '$stylist/control/function/state/list-with-avatars';
+	import createListWithAvatarsState from '$stylist/control/function/state/list-with-avatars/index.svelte';
 
 	let {
 		items = [],

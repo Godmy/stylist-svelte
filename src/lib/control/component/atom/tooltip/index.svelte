@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createTooltipState as stateFn } from '$stylist/control/function/state/tooltip';
+	import stateFn from '$stylist/control/function/state/tooltip/index.svelte';
 	import type { TooltipProps } from '$stylist/control/type/struct/tooltip-props';
 
 	let props: TooltipProps = $props();

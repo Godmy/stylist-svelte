@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { TranslatableText } from '$stylist/input/type/struct/interaction-input/translatable-text';
 
 export interface SlotExtendedTranslationEditor extends InteractionHTMLAttributes<HTMLDivElement> {

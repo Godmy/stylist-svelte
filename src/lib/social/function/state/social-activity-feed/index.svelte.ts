@@ -1,8 +1,6 @@
-import type {
-	Activity,
-	ActivityType,
-	Props
-} from '$stylist/social/type/struct/social-activity-feed';
+import type { Activity } from '$stylist/social/type/struct/social-activity-feed/activity';
+import type { ActivityType } from '$stylist/social/type/struct/social-activity-feed/activitytype';
+import type { Props } from '$stylist/social/type/struct/social-activity-feed/-props';
 
 export function createSocialActivityFeedState(props: Props) {
 	let activeFilter = $state<ActivityType | 'all'>('all');

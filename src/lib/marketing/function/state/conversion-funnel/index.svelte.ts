@@ -1,7 +1,5 @@
-import type {
-	ConversionFunnelProps,
-	FunnelStep
-} from '$stylist/marketing/type/struct/conversion-funnel';
+import type { ConversionFunnelProps } from '$stylist/marketing/type/struct/conversion-funnel/conversionfunnel-props';
+import type { FunnelStep } from '$stylist/marketing/type/struct/conversion-funnel/funnelstep';
 import { ConversionFunnelStyleManager } from '$stylist/marketing/class/style-manager/conversion-funnel';
 
 function getConversionRate(steps: FunnelStep[], stepIndex: number): number {

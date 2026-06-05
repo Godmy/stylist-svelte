@@ -1,4 +1,4 @@
-import type { ValidationProps } from '$stylist/form/type/struct/validation-form-field';
+import type { ValidationProps } from '$stylist/form/type/struct/validation-form-field/validation-props';
 import type { SlotValidationState } from '$stylist/form/interface/slot/validation-state';
 
 export function createValidationState(props: ValidationProps): SlotValidationState {

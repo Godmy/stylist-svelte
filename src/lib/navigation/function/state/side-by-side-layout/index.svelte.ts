@@ -1,4 +1,4 @@
-import type { SideBySideLayoutProps } from '$stylist/navigation/type/struct/side-by-side-layout-props';
+import type { SideBySideLayoutProps } from '$stylist/navigation/type/struct/side-by-side-layout-props/sidebysidelayout-props';
 import { getSideBySideLayoutClasses } from '$stylist/navigation/function/script/get-side-by-side-layout-classes';
 import { getSideBySideSectionWidthClass } from '$stylist/navigation/function/script/get-side-by-side-section-width-class';
 

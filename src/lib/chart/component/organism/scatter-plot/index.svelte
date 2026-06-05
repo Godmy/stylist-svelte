@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ScatterPlotRecipe } from '$stylist/chart/interface/recipe/scatter-plot';
 	import type { ScatterPlotDataPoint } from '$stylist/chart/type/struct/scatter-plot-point';
-	import { createScatterPlotState } from '$stylist/chart/function/state/scatter-plot';
+	import createScatterPlotState from '$stylist/chart/function/state/scatter-plot/index.svelte';
 	type ScatterPlotProps = ScatterPlotRecipe & {
 		width?: number;
 		height?: number;
@@ -39,8 +39,8 @@
 </script>
 
 <div class={state.rootClass} style={`width:${width}px`} {...restProps}>
-	<h3 class="mb-3 text-lg font-semibold">{title}</h3>
-	<div class="overflow-x-auto rounded-lg border p-3">
+	<h3 class="sp-title">{title}</h3>
+	<div class="sp-chart-wrap">
 		<svg {width} {height}>
 			{#if showGrid}
 				{#each Array(5).fill(0) as _, i}
@@ -94,8 +94,27 @@
 		</svg>
 	</div>
 	{#if showLegend}
-		<div class="mt-2 text-xs text-[var(--color-text-secondary)]">
+		<div class="sp-legend">
 			X max: {Math.round(state.maxX)}, Y max: {Math.round(state.maxY)}
 		</div>
 	{/if}
 </div>
+
+<style>
+	.sp-title {
+		margin-bottom: 0.75rem;
+		font-size: 1.125rem;
+		font-weight: 600;
+	}
+	.sp-chart-wrap {
+		overflow-x: auto;
+		border-radius: 0.5rem;
+		border: 1px solid;
+		padding: 0.75rem;
+	}
+	.sp-legend {
+		margin-top: 0.5rem;
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+	}
+</style>

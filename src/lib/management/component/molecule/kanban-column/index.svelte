@@ -1,8 +1,8 @@
 ﻿<script lang="ts">
-	import { Button } from '$stylist/control';
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { Badge } from '$stylist/typography';
-	import { createKanbanColumnState } from '$stylist/management/function/state/kanban-column';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import Badge from '$stylist/information/component/atom/badge/index.svelte';
+	import createKanbanColumnState from '$stylist/management/function/state/kanban-column/index.svelte';
 	import KanbanCard from '$stylist/management/component/molecule/kanban-card/index.svelte';
 	import type { KanbanColumnType } from '$stylist/management/type/struct/kanban-column';
 	import type { Snippet } from 'svelte';

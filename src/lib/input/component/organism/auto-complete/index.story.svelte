@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import AutoComplete from './index.svelte';
 	import type { AutoCompleteOption } from '$stylist/input/type/struct/interaction-input/auto-complete-option';

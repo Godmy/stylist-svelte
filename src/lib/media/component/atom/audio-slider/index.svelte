@@ -1,18 +1,15 @@
 <script lang="ts">
-	import { createAudioSliderState } from '$stylist/media/function/state/audio-slider';
+	import createAudioSliderState from '$stylist/media/function/state/audio-slider/index.svelte';
 	import type { AudioSliderProps } from '$stylist/media/type/struct/audio-slider';
 
 	let props: AudioSliderProps = $props();
 	const state = createAudioSliderState(props);
 </script>
 
-<div class={`w-full ${state.className}`} {...state.restProps}>
-	<div class="flex items-center">
+<div class={`as-wrap ${state.className}`} {...state.restProps}>
+	<div class="as-row">
 		{#if state.label}
-			<label
-				for="audio-slider"
-				class="mb-1 block text-sm font-medium text-[var(--color-text-primary)]">{state.label}</label
-			>
+			<label for="audio-slider" class="as-label">{state.label}</label>
 		{/if}
 		<input
 			id="audio-slider"
@@ -21,10 +18,42 @@
 			max={state.max}
 			step={state.step}
 			bind:value={state.value}
-			class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-[var(--color-background-tertiary)] accent-blue-500"
+			class="as-range"
 		/>
 		{#if state.showValue}
-			<span class="ml-4 w-12 text-center font-medium">{state.value}</span>
+			<span class="as-value">{state.value}</span>
 		{/if}
 	</div>
 </div>
+
+<style>
+	.as-wrap {
+		width: 100%;
+	}
+	.as-row {
+		display: flex;
+		align-items: center;
+	}
+	.as-label {
+		margin-bottom: 0.25rem;
+		display: block;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+	.as-range {
+		height: 0.5rem;
+		width: 100%;
+		cursor: pointer;
+		appearance: none;
+		border-radius: 0.5rem;
+		background-color: var(--color-background-tertiary);
+		accent-color: #3b82f6;
+	}
+	.as-value {
+		margin-left: 1rem;
+		width: 3rem;
+		text-align: center;
+		font-weight: 500;
+	}
+</style>

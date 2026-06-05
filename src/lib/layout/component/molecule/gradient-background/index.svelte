@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ThemeGradientBackgroundRecipe } from '$stylist/layout/interface/recipe/gradient-background';
 	import { GradientBackgroundStyleManager } from '$stylist/layout/class/style-manager/gradient-background';
-	import { createGradientBackgroundState } from '$stylist/layout/function/state/gradient-background';
+	import createGradientBackgroundState from '$stylist/layout/function/state/gradient-background/index.svelte';
 
 	let props: ThemeGradientBackgroundRecipe = $props();
 	const state = createGradientBackgroundState(props);

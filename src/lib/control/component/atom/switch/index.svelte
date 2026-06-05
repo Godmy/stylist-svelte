@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createSwitchState } from '$stylist/control/function/state/switch';
+	import createSwitchState from '$stylist/control/function/state/switch/index.svelte';
 	import type { SwitchProps } from '$stylist/control/type/struct/switch-props';
 
 	let {

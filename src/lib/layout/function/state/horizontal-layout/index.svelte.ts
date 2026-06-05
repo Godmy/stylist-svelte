@@ -1,5 +1,5 @@
 import { LayoutStyleManager } from '$stylist/layout/class/style-manager/layout';
-import type { HorizontalLayoutProps } from '$stylist/layout/type/struct/layout-extended';
+import type { HorizontalLayoutProps } from '$stylist/layout/type/struct/layout-extended/horizontal-layout-props';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenJustification } from '$stylist/layout/type/enum/justification';
 

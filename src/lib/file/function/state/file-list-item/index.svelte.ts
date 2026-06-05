@@ -1,4 +1,4 @@
-import type { Props } from '$stylist/file/type/struct/file-list-item/props';
+import type { Props } from '$stylist/file/type/struct/file-list-item/props/-props';
 import { getFileIcon } from '$stylist/file/function/script/file-list-item-get-file-icon';
 import { handleAction as handleActionFn } from '$stylist/file/function/script/file-list-item-handle-action';
 import { handleDoubleClick as handleDoubleClickFn } from '$stylist/file/function/script/file-list-item-handle-double-click';

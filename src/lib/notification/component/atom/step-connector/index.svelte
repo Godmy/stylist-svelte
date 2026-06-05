@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createStepConnectorState } from '$stylist/notification/function/state/step-connector';
+	import createStepConnectorState from '$stylist/notification/function/state/step-connector/index.svelte';
 
 	const props = $props();
 	const state = createStepConnectorState(props);

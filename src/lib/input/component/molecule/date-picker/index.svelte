@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotDatePicker as IDatePickerProps } from '$stylist/input/interface/slot/date-picker';
-	import { createDatePickerState } from '$stylist/input/function/state/date-picker';
+	import createDatePickerState from '$stylist/input/function/state/date-picker/index.svelte';
 
 	let props: IDatePickerProps = $props();
 	const state = createDatePickerState(props);

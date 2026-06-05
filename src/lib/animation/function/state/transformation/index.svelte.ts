@@ -1,5 +1,5 @@
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { SlotTransformation as TransformationProps } from '$stylist/animation/interface/slot/transformation';
-import { clsx } from 'clsx';
 
 export function createTransformationState(props: TransformationProps) {
 	const scale = $derived(props.scale ?? 1);
@@ -17,95 +17,54 @@ export function createTransformationState(props: TransformationProps) {
 	const animateInfinite = $derived(props.animateInfinite ?? false);
 	const disabled = $derived(props.disabled ?? false);
 
-	const state = $state({
-		isHovered: false,
-		isActive: false
-	});
+	const state = $state({ isHovered: false, isActive: false });
 
-	const classes = $derived.by(() => {
-		const baseClasses: string[] = ['relative', 'inline-block'];
-
-		if (disabled) {
-			baseClasses.push('disabled', 'pointer-events-none');
-		}
-
-		if (animateOnHover && !disabled) {
-			baseClasses.push('transform-hover');
-		}
-
-		if (animateOnClick && !disabled) {
-			baseClasses.push('transform-click');
-		}
-
-		if (animateInfinite && !disabled) {
-			baseClasses.push('transform-infinite');
-		}
-
-		return clsx(...baseClasses, props.class ?? '');
-	});
+	const classes = $derived(
+		mergeClassNames(
+			'c-layout-transformation',
+			animateOnHover && !disabled && 'c-layout-transformation--hover',
+			animateOnClick && !disabled && 'c-layout-transformation--click',
+			animateInfinite && !disabled && 'c-layout-transformation--infinite',
+			disabled && 'c-layout-transformation--disabled',
+			props.class
+		)
+	);
 
 	const styles = $derived.by(() => {
-		const styles: Record<string, string | number> = {};
-
-		// Transform
+		const result: Record<string, string | number> = {};
 		const transforms: string[] = [];
 
 		if (translateX !== 0) {
-			const xValue = typeof translateX === 'number' ? `${translateX}px` : translateX;
-			transforms.push(`translateX(${xValue})`);
+			transforms.push(
+				`translateX(${typeof translateX === 'number' ? `${translateX}px` : translateX})`
+			);
 		}
-
 		if (translateY !== 0) {
-			const yValue = typeof translateY === 'number' ? `${translateY}px` : translateY;
-			transforms.push(`translateY(${yValue})`);
+			transforms.push(
+				`translateY(${typeof translateY === 'number' ? `${translateY}px` : translateY})`
+			);
+		}
+		if (scale !== 1) transforms.push(`scale(${scale})`);
+		if (rotate !== 0) transforms.push(`rotate(${rotate}deg)`);
+		if (skewX !== 0) transforms.push(`skewX(${skewX}deg)`);
+		if (skewY !== 0) transforms.push(`skewY(${skewY}deg)`);
+
+		if (transforms.length > 0) result.transform = transforms.join(' ');
+		if (transformOrigin) result['transform-origin'] = transformOrigin;
+
+		if (!disabled && (duration > 0 || animateOnHover || animateOnClick)) {
+			result.transition = `transform ${typeof duration === 'number' ? duration : 300}ms ${easing} ${delay}ms`;
 		}
 
-		if (scale !== 1) {
-			transforms.push(`scale(${scale})`);
-		}
-
-		if (rotate !== 0) {
-			transforms.push(`rotate(${rotate}deg)`);
-		}
-
-		if (skewX !== 0) {
-			transforms.push(`skewX(${skewX}deg)`);
-		}
-
-		if (skewY !== 0) {
-			transforms.push(`skewY(${skewY}deg)`);
-		}
-
-		if (transforms.length > 0) {
-			styles.transform = transforms.join(' ');
-		}
-
-		// Transform origin
-		if (transformOrigin) {
-			styles['transform-origin'] = transformOrigin;
-		}
-
-		// Transition
-		if (
-			!disabled &&
-			((typeof duration === 'number' && duration > 0) || animateOnHover || animateOnClick)
-		) {
-			styles.transition = `transform ${typeof duration === 'number' ? duration : 300}ms ${easing} ${delay}ms`;
-		}
-
-		return styles;
+		return result;
 	});
 
 	function setHovered(value: boolean) {
-		if (!disabled && animateOnHover) {
-			state.isHovered = value;
-		}
+		if (!disabled && animateOnHover) state.isHovered = value;
 	}
 
 	function setActive(value: boolean) {
-		if (!disabled && animateOnClick) {
-			state.isActive = value;
-		}
+		if (!disabled && animateOnClick) state.isActive = value;
 	}
 
 	return {

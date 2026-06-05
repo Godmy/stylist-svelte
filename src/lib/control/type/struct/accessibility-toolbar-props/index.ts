@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
 
 export type AccessibilityToolbarProps = {
 	showFontSizeControls?: boolean;

@@ -1,11 +1,9 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import type {
-		PaymentSummaryItem,
-		PaymentSummaryDiscount,
-		PaymentSummaryTax
-	} from '$stylist/commerce';
+	import type { PaymentSummaryItem } from '$stylist/commerce/type/struct/payment-summary-item';
+	import type { PaymentSummaryDiscount } from '$stylist/commerce/type/struct/payment-summary-discount';
+	import type { PaymentSummaryTax } from '$stylist/commerce/type/struct/payment-summary-tax';
 	import PaymentSummary from './index.svelte';
 
 	type Props = {

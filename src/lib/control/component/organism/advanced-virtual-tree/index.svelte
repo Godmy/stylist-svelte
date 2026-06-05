@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { TreeControlsStyleManager } from '$stylist/control/class/style-manager/tree-controls';
 	import type { AdvancedVirtualTreeProps } from '$stylist/control/type/struct/advanced-virtual-tree-props';
-	import { createTreeExpansionState } from '$stylist/control/function/state/tree-expansion';
+	import createTreeExpansionState from '$stylist/control/function/state/tree-expansion/index.svelte';
 	let { nodes = [], class: className = '', ...restProps }: AdvancedVirtualTreeProps = $props();
 	const state = createTreeExpansionState();
 </script>

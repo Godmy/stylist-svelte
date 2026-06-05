@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { CodeWithCopyProps } from '$stylist/development/type/struct/code-with-copy-props';
 	import { createEventDispatcher } from 'svelte';
-	import { createCodeWithCopyState } from '$stylist/development/function/state/code-with-copy';
+	import createCodeWithCopyState from '$stylist/development/function/state/code-with-copy/index.svelte';
 
 	let props: CodeWithCopyProps = $props();
 	const dispatch = createEventDispatcher();

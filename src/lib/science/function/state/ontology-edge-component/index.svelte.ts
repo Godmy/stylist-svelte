@@ -1,4 +1,4 @@
-import type { OntologyEdgeComponentProps } from '$stylist/science/type/struct/ontology-edge-component';
+import type { OntologyEdgeComponentProps } from '$stylist/science/type/struct/ontology-edge-component/ontologyedgecomponent-props';
 import { OntologyEdgeComponentStyleManager } from '$stylist/science/class/style-manager/ontology-edge-component';
 
 export function createOntologyEdgeComponentState(props: OntologyEdgeComponentProps) {

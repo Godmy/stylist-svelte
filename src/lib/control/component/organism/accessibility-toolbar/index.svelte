@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const Accessibility = 'accessibility';
 	const Volume2 = 'volume-2';
 	const Eye = 'eye';
@@ -8,7 +8,7 @@
 	const Type = 'type';
 	const Grid = 'grid';
 
-	import { createAccessibilityToolbarState } from '$stylist/control/function/state/accessibility-toolbar';
+	import createAccessibilityToolbarState from '$stylist/control/function/state/accessibility-toolbar/index.svelte';
 	import type { AccessibilityToolbarProps } from '$stylist/control/type/struct/accessibility-toolbar-props';
 
 	let {

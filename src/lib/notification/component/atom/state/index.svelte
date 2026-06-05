@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createStateState } from '$stylist/notification/function/state/state';
+	import createStateState from '$stylist/notification/function/state/state/index.svelte';
 	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 
 	const props = $props();

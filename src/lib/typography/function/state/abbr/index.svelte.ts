@@ -1,9 +1,11 @@
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { SlotAbbr as AbbrProps } from '$stylist/typography/interface/slot/abbr';
-import { AbbrStyleManager } from '$stylist/typography/class/style-manager/abbr';
 
 export function createAbbrState(props: AbbrProps) {
 	const title = $derived(props.title ?? '');
-	const classes = $derived(AbbrStyleManager.getAbbrClasses(props.class ?? ''));
+	const classes = $derived(
+		mergeClassNames('c-typography-abbr', typeof props.class === 'string' ? props.class : undefined)
+	);
 
 	return {
 		get title() {

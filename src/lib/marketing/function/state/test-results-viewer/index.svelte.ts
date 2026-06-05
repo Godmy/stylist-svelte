@@ -1,7 +1,5 @@
-import type {
-	TestResultsViewerProps,
-	TestResult
-} from '$stylist/marketing/type/struct/test-results-viewer';
+import type { TestResultsViewerProps } from '$stylist/marketing/type/struct/test-results-viewer/testresultsviewer-props';
+import type { TestResult } from '$stylist/marketing/type/struct/test-results-viewer/testresult';
 
 function getBestVariant(results: TestResult[]): TestResult | undefined {
 	if (results.length === 0) return undefined;

@@ -1,4 +1,3 @@
-
 export interface SlotCommentThreadUser {
 	id: string;
 	name: string;

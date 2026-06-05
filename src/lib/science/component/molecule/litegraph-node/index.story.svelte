@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import type { LiteGraphNodeProperty } from '$stylist/science/type/struct/litegraph-node-property';
 	import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port';

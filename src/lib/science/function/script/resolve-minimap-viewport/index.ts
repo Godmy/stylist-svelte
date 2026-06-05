@@ -1,4 +1,3 @@
-
 export function resolveMinimapViewport(
 	offset: { x: number; y: number },
 	zoom: number,

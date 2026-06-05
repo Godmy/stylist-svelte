@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createSecuritySettingsState } from '$stylist/management/function/state/security-settings';
+	import createSecuritySettingsState from '$stylist/management/function/state/security-settings/index.svelte';
 	import type { SlotSecuritySettings as SecuritySettingsProps } from '$stylist/form/interface/slot/security-settings';
 
 	let props: SecuritySettingsProps = $props();

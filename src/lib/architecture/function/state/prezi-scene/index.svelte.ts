@@ -1,7 +1,7 @@
 import { resolveSemanticZoomNode } from '$stylist/architecture/function/script/resolve-semantic-zoom-node';
 import { RECORD_FRAME } from '$stylist/architecture/const/record/frame/index';
 import { FOCUS_DURATION_MS } from '$stylist/architecture/const/value/prezi-scene/index';
-import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/index';
+import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
 import type { PreziSceneContract } from '$stylist/architecture/type/struct/prezi-scene/index';
 import type { PreziCamera } from '$stylist/architecture/interface/slot/prezi-camera/index';
 import type { PreziSceneState } from '$stylist/architecture/interface/recipe/prezi-scene-state/index';

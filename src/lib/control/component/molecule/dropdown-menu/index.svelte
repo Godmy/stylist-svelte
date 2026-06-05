@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { SlotDropdownMenu as IDropdownMenuProps } from '$stylist/control/interface/slot/dropdown-menu';
-	import { createDropdownMenuState } from '$stylist/control/function/state/dropdown-menu';
-	import { Button } from '$stylist/control';
-	import { Icon } from '$stylist/media';
+	import createDropdownMenuState from '$stylist/control/function/state/dropdown-menu/index.svelte';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 
 	/**
 	 * DropdownMenu component - A flexible dropdown menu component with various positions and states

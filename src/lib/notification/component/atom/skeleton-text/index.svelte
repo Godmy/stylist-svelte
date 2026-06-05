@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createSkeletonTextState } from '$stylist/notification/function/state/skeleton-text';
+	import createSkeletonTextState from '$stylist/notification/function/state/skeleton-text/index.svelte';
 	import type { SkeletonTextProps } from '$stylist/notification/type/struct/skeleton-text-props';
 
 	let props: SkeletonTextProps = $props();

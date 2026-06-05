@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { createMiniCalendarState } from '$stylist/calendar/function/state/mini-calendar';
+	import createMiniCalendarState from '$stylist/calendar/function/state/mini-calendar/index.svelte';
 	import type { RecipeMiniCalendar as MiniCalendarStateProps } from '$stylist/calendar/interface/recipe/mini-calendar';
-	import { Button } from '$stylist/control';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 
 	const ChevronLeft = 'chevron-left';
 	const ChevronRight = 'chevron-right';
@@ -16,15 +16,11 @@
 		<Button variant="ghost" size="sm" onclick={() => state.navigateMonth(-1)}>
 			<BaseIcon name={ChevronLeft} class="h-4 w-4" />
 		</Button>
-
-		<div class="font-[--font-weight-medium] text-[--color-text-primary]">
-			{state.monthYear}
-		</div>
-
-		<div class="flex items-center space-x-[--spacing-xs]">
+		<div class="c-mini-calendar__month-year">{state.monthYear}</div>
+		<div class="c-mini-calendar__header-right">
 			{#if state.showToday}
 				<Button variant="ghost" size="sm" onclick={state.navigateToToday} title="Today">
-					<span class="text-[--text-size-xs]">Today</span>
+					<span class="c-mini-calendar__today-label">Today</span>
 				</Button>
 			{/if}
 			<Button variant="ghost" size="sm" onclick={() => state.navigateMonth(1)}>
@@ -35,15 +31,11 @@
 
 	<div class={state.gridClasses}>
 		{#if state.showWeekNumbers}
-			<div class="p-[--spacing-xs] text-center text-[--color-text-secondary]"></div>
+			<div class="c-mini-calendar__week-num-header"></div>
 		{/if}
-
 		{#each state.weekdays as day}
-			<div class={state.weekdayHeaderClasses}>
-				{day}
-			</div>
+			<div class={state.weekdayHeaderClasses}>{day}</div>
 		{/each}
-
 		{#each state.days as day}
 			<button
 				type="button"
@@ -54,10 +46,11 @@
 				<div class={state.getDateNumberClasses()}>
 					<span>{day.date.getDate()}</span>
 					{#if day.hasEvent && !state.compact}
-						<div class="mt-[var(--spacing-1)] flex flex-wrap justify-center gap-[var(--spacing-1)]">
+						<div class="c-mini-calendar__event-dots">
 							{#each day.events.slice(0, 2) as event}
 								<div
 									class={state.getEventIndicatorClasses(event.color)}
+									style={event.color ? `background-color: ${event.color}` : undefined}
 									role="button"
 									tabindex="0"
 									onclick={(e) => state.handleEventClick(event, e)}
@@ -71,9 +64,7 @@
 								></div>
 							{/each}
 							{#if day.events.length > 2}
-								<div class="text-[--color-text-secondary] text-[--text-size-2xs]">
-									+{day.events.length - 2}
-								</div>
+								<div class="c-mini-calendar__event-more">+{day.events.length - 2}</div>
 							{/if}
 						</div>
 					{/if}
@@ -82,3 +73,110 @@
 		{/each}
 	</div>
 </div>
+
+<style>
+	.c-mini-calendar {
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--radius-lg, 0.5rem);
+		overflow: hidden;
+		font-size: var(--text-size-sm, 0.875rem);
+	}
+
+	.c-mini-calendar--compact {
+		font-size: var(--text-size-xs, 0.75rem);
+	}
+
+	.c-mini-calendar__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--spacing-xs, 0.25rem);
+		border-bottom: 1px solid var(--color-border-primary);
+	}
+
+	.c-mini-calendar__month-year {
+		font-weight: var(--font-weight-medium, 500);
+		color: var(--color-text-primary);
+	}
+
+	.c-mini-calendar__header-right {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs, 0.25rem);
+	}
+
+	.c-mini-calendar__today-label {
+		font-size: var(--text-size-xs, 0.75rem);
+	}
+
+	.c-mini-calendar__grid {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+	}
+
+	.c-mini-calendar__weekday {
+		padding: var(--spacing-xs, 0.25rem);
+		text-align: center;
+		font-weight: var(--font-weight-medium, 500);
+		color: var(--color-text-secondary);
+	}
+
+	.c-mini-calendar__day {
+		min-height: var(--spacing-xl, 2rem);
+		padding: var(--spacing-xs, 0.25rem);
+		text-align: center;
+		border-top: 1px solid var(--color-border-secondary, var(--color-border-primary));
+		border-right: 1px solid var(--color-border-secondary, var(--color-border-primary));
+		cursor: pointer;
+		background: none;
+		font: inherit;
+	}
+
+	.c-mini-calendar__day:hover {
+		background: var(--color-background-secondary);
+	}
+
+	.c-mini-calendar__day--today {
+		background: color-mix(in srgb, var(--color-primary-500) 10%, transparent);
+		font-weight: var(--font-weight-bold, 700);
+	}
+
+	.c-mini-calendar__day--other {
+		color: var(--color-text-tertiary, var(--color-text-secondary));
+	}
+
+	.c-mini-calendar__day--has-event {
+		color: var(--color-primary-600);
+	}
+
+	.c-mini-calendar__date-num {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+
+	.c-mini-calendar__event-dots {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--spacing-1, 0.25rem);
+		margin-top: var(--spacing-1, 0.25rem);
+	}
+
+	.c-mini-calendar__event-dot {
+		width: var(--spacing-xs, 0.25rem);
+		height: var(--spacing-xs, 0.25rem);
+		border-radius: 9999px;
+		background: var(--color-primary-500);
+	}
+
+	.c-mini-calendar__event-more {
+		font-size: var(--text-size-2xs, 0.625rem);
+		color: var(--color-text-secondary);
+	}
+
+	.c-mini-calendar__week-num-header {
+	}
+</style>

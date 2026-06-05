@@ -2,7 +2,7 @@
 	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { HeatmapRecipe } from '$stylist/chart/interface/recipe/heatmap';
 	import Tooltip from '$stylist/control/component/atom/tooltip/index.svelte';
-	import { createHeatmapState } from '$stylist/chart/function/state/heatmap';
+	import createHeatmapState from '$stylist/chart/function/state/heatmap/index.svelte';
 	import { ObjectManagerHeatmap } from '$stylist/chart/class/object-manager/heatmap';
 
 	let props: HeatmapRecipe = $props();
@@ -15,7 +15,7 @@
 	{...props}
 >
 	{#if props.title}
-		<div class="mb-2 flex items-center justify-between">
+		<div class="hm-title-row">
 			<h3 class={state.titleClasses}>{props.title}</h3>
 			{#if props.showTooltip}
 				<Tooltip
@@ -119,7 +119,7 @@
 							fill={cell.intensity > 0.5
 								? 'var(--color-text-inverse)'
 								: 'var(--color-text-primary)'}
-							class="pointer-events-none text-xs"
+							class="hm-cell-label"
 						>
 							{Math.round(cell.value)}
 						</text>
@@ -151,3 +151,16 @@
 		</div>
 	{/if}
 </div>
+
+<style>
+	.hm-title-row {
+		margin-bottom: 0.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.hm-cell-label {
+		pointer-events: none;
+		font-size: 0.75rem;
+	}
+</style>

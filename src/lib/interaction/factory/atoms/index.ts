@@ -20,15 +20,15 @@
  * ```
  */
 
-import type { ContainerProps } from '$stylist/layout/type/struct/container';
+import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
 import type { ThemeBackgroundRecipe } from '$stylist/layout/interface/recipe/background';
 import type { BorderRecipe } from '$stylist/layout/interface/recipe/border';
 import type { SlotClick as ClickProps } from '$stylist/control/interface/slot/click';
 
-import { createContainerState } from '$stylist/layout/function/state/container';
-import { createBackgroundState } from '$stylist/layout/function/state/background';
-import { createBorderState } from '$stylist/layout/function/state/border';
-import { createClickState } from '$stylist/control/function/state/click';
+import createContainerState from '$stylist/layout/function/state/container/index.svelte';
+import createBackgroundState from '$stylist/layout/function/state/background/index.svelte';
+import createBorderState from '$stylist/layout/function/state/border/index.svelte';
+import createClickState from '$stylist/control/function/state/click/index.svelte';
 
 type ContainerContract = ContainerProps;
 

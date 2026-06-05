@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { DotRecipe } from '$stylist/information/interface/recipe/dot';
-	import { createDotState } from '$stylist/information/function/state/dot';
+	import createDotState from '$stylist/information/function/state/dot/index.svelte';
 
 	let props: DotRecipe = $props();
 

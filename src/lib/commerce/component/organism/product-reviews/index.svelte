@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ProductReviewsProps } from '$stylist/commerce/type/struct/product-reviews-props';
-	import { createProductReviewsState } from '$stylist/commerce/function/state/product-reviews';
+	import createProductReviewsState from '$stylist/commerce/function/state/product-reviews/index.svelte';
 
 	let {
 		reviews = [],

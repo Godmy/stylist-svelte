@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { createOverlayLayoutState } from '$stylist/layout/function/state/overlay-layout';
-	import type { OverlayLayoutProps } from '$stylist/layout/type/struct/layout-extended';
+	import createOverlayLayoutState from '$stylist/layout/function/state/overlay-layout/index.svelte';
+	import type { OverlayLayoutProps } from '$stylist/layout/type/struct/layout-extended/overlay-layout-props/overlaylayout-props';
 	import { OverlayLayoutStyleManager } from '$stylist/layout/class/style-manager/overlay-layout';
 
 	let props: OverlayLayoutProps = $props();

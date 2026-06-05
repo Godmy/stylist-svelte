@@ -1,4 +1,4 @@
-import type { MapSelectorLocation } from '$stylist/geo/type/struct/map-selector';
+import type { MapSelectorLocation } from '$stylist/geo/type/struct/map-selector/mapselectorlocation';
 import type { MapSelectorStateProps } from '$stylist/geo/interface/recipe/map-selector';
 import { untrack } from 'svelte';
 

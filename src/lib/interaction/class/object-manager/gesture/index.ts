@@ -1,5 +1,5 @@
-import type { ClickContract } from '$stylist/interaction/type/struct/gesture-click-contract';
-import type { DragContract } from '$stylist/interaction/type/struct/gesture-drag-contract';
+import type { ClickContract } from '$stylist/interaction/type/struct/gesture/click-contract';
+import type { DragContract } from '$stylist/interaction/type/struct/gesture/drag-contract';
 import type { GestureContract } from '$stylist/interaction/type/struct/gesture/gesture-contract';
 
 /**

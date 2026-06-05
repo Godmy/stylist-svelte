@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import Tooltip from '$stylist/control/component/atom/tooltip/index.svelte';
-	import { createBarChartState } from '$stylist/chart/function/state/bar-chart';
+	import createBarChartState from '$stylist/chart/function/state/bar-chart/index.svelte';
 	import type { BarChartRecipe } from '$stylist/chart/interface/recipe/bar-chart';
 
 	let props: BarChartRecipe = $props();
@@ -88,7 +88,7 @@
 			<!-- Bars -->
 			{#each state.barPositions as position, i}
 				<g
-					class="cursor-pointer"
+					class="bc-bar-group"
 					onclick={() => props.onBarClick?.(props.data[i])}
 					onkeydown={(e) => {
 						if (e.key === 'Enter' || e.key === ' ') {
@@ -123,7 +123,7 @@
 			{#each props.data ?? [] as item, i}
 				<div class={state.legendItemClasses}>
 					<div
-						class="mr-2 h-4 w-4 rounded"
+						class="bc-legend-dot"
 						style={`background-color: ${item.color ?? state.resolvedColorScheme}`}
 					></div>
 					<span class={state.legendTextClasses}>{item.name}</span>
@@ -133,3 +133,15 @@
 		</div>
 	{/if}
 </div>
+
+<style>
+	.bc-bar-group {
+		cursor: pointer;
+	}
+	.bc-legend-dot {
+		margin-right: 0.5rem;
+		width: 1rem;
+		height: 1rem;
+		border-radius: 0.25rem;
+	}
+</style>

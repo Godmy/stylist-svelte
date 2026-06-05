@@ -1,54 +1,44 @@
 <script lang="ts">
-	import type {
-		Props
-	} from '$stylist/social/type/struct/social-login';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import type { Props } from '$stylist/social/type/struct/social-login/-props';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/enum/icon';
-	import { createSocialLoginState } from '$stylist/social/function/state/social-login';
+	import createSocialLoginState from '$stylist/social/function/state/social-login/index.svelte';
 
 	let props: Props = $props();
 	const state = createSocialLoginState(props);
 </script>
 
-<div class={`social-login ${state.hostClass}`} {...props}>
-	<div class="mx-auto max-w-md rounded-lg bg-[var(--color-background-primary)] p-8 shadow-md">
-		<div class="text-center">
-			<div
-				class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary-100)]"
-			>
+<div class="c-social-login {state.hostClass}" {...props}>
+	<div class="c-social-login__card">
+		<div class="c-social-login__hero">
+			<div class="c-social-login__hero-icon-wrap">
 				<BaseIcon
 					name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'user-round-plus') ?? 'user-round-plus'}
-					class="h-6 w-6 text-[var(--color-primary-600)]"
+					class="c-social-login__hero-icon"
 				/>
 			</div>
-			<h2 class="mt-4 text-2xl font-bold text-[var(--color-text-primary)]">
-				{props.title ?? 'Sign in to your account'}
-			</h2>
+			<h2 class="c-social-login__title">{props.title ?? 'Sign in to your account'}</h2>
 			{#if props.description}
-				<p class="mt-2 text-[var(--color-text-secondary)]">{props.description}</p>
+				<p class="c-social-login__description">{props.description}</p>
 			{/if}
 		</div>
 
 		{#if (props.providers ?? []).length > 0}
-			<div class="mt-8">
-				<p class="mb-4 text-center text-sm font-medium text-[var(--color-text-primary)]">
-					{props.socialLoginText ?? 'Or continue with'}
-				</p>
-
-				<div class="grid grid-cols-1 gap-3">
+			<div class="c-social-login__providers">
+				<p class="c-social-login__providers-label">{props.socialLoginText ?? 'Or continue with'}</p>
+				<div class="c-social-login__provider-list">
 					{#each props.providers ?? [] as provider}
 						{@const config = state.providerConfigs[provider]}
 						<button
 							type="button"
-							class={`inline-flex w-full justify-center border px-4 py-2 ${config.borderColor} ${config.color} rounded-md text-sm font-medium shadow-sm hover:opacity-[var(--opacity-90)] focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none ${state.buttonClass}`}
+							class="c-social-login__provider-btn {state.buttonClass}"
+							style={`border-color: ${config.borderColor ? 'var(' + config.borderColor.replace(/^border-\[(.+)\]$/, '$1') + ')' : 'var(--color-border-primary)'}`}
 							onclick={() => state.handleSocialLogin(provider)}
 							disabled={state.isLoading}
 							aria-label={`Sign in with ${config.name}`}
 						>
 							{#if config.icon}
-								<config.icon
-									class={`mr-2 h-5 w-5 ${config.textColor === 'text-[var(--color-text-inverse)]' ? 'text-[var(--color-text-inverse)]' : 'text-[var(--color-text-primary)]'}`}
-								/>
+								<config.icon class="c-social-login__provider-icon" />
 							{/if}
 							Continue with {config.name}
 						</button>
@@ -58,35 +48,30 @@
 		{/if}
 
 		{#if props.showEmailForm || props.showPasswordForm}
-			<div class="mt-6">
-				<div class="relative">
-					<div class="absolute inset-0 flex items-center">
-						<div class="w-full border-t border-[var(--color-border-primary)]"></div>
-					</div>
-					<div class="relative flex justify-center text-sm">
-						<span
-							class="bg-[var(--color-background-primary)] px-2 text-[var(--color-text-secondary)]"
+			<div class="c-social-login__divider-section">
+				<div class="c-social-login__divider">
+					<div class="c-social-login__divider-line"></div>
+					<div class="c-social-login__divider-label">
+						<span class="c-social-login__divider-text"
 							>{props.emailLoginText ?? 'Or sign in with email'}</span
 						>
 					</div>
 				</div>
 
 				<form
-					class={`mt-6 space-y-6 ${state.formClass}`}
+					class="c-social-login__form {state.formClass}"
 					onsubmit={(event) => {
 						event.preventDefault();
 						state.handleEmailLogin();
 					}}
 				>
-					<div>
-						<label for="email" class="block text-sm font-medium text-[var(--color-text-primary)]"
-							>Email address</label
-						>
-						<div class="relative mt-1 rounded-md shadow-sm">
-							<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+					<div class="c-social-login__field">
+						<label for="email" class="c-social-login__label">Email address</label>
+						<div class="c-social-login__input-wrap">
+							<div class="c-social-login__input-icon-wrap">
 								<BaseIcon
 									name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'mail') ?? 'mail'}
-									class="h-5 w-5 text-[var(--color-text-tertiary)]"
+									class="c-social-login__input-icon"
 								/>
 							</div>
 							<input
@@ -95,7 +80,7 @@
 								type="email"
 								autocomplete="email"
 								required
-								class={`block w-full rounded-md border border-[var(--color-border-primary)] py-2 pr-3 pl-10 focus:border-[var(--color-primary-500)] focus:ring-blue-500 ${state.inputClass}`}
+								class="c-social-login__input {state.inputClass}"
 								placeholder="name@company.com"
 								value={state.email}
 								oninput={(e) => (state.email = (e.target as HTMLInputElement).value)}
@@ -104,16 +89,13 @@
 					</div>
 
 					{#if props.showPasswordForm}
-						<div>
-							<label
-								for="password"
-								class="block text-sm font-medium text-[var(--color-text-primary)]">Password</label
-							>
-							<div class="relative mt-1 rounded-md shadow-sm">
-								<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+						<div class="c-social-login__field">
+							<label for="password" class="c-social-login__label">Password</label>
+							<div class="c-social-login__input-wrap">
+								<div class="c-social-login__input-icon-wrap">
 									<BaseIcon
 										name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'lock') ?? 'lock'}
-										class="h-5 w-5 text-[var(--color-text-tertiary)]"
+										class="c-social-login__input-icon"
 									/>
 								</div>
 								<input
@@ -122,7 +104,7 @@
 									type="password"
 									autocomplete="current-password"
 									required
-									class={`block w-full rounded-md border border-[var(--color-border-primary)] py-2 pr-3 pl-10 focus:border-[var(--color-primary-500)] focus:ring-blue-500 ${state.inputClass}`}
+									class="c-social-login__input {state.inputClass}"
 									placeholder="••••••••"
 									value={state.password}
 									oninput={(e) => (state.password = (e.target as HTMLInputElement).value)}
@@ -131,10 +113,10 @@
 						</div>
 
 						{#if props.showForgotPassword}
-							<div class="flex items-center justify-end">
+							<div class="c-social-login__forgot-wrap">
 								<button
 									type="button"
-									class="text-sm font-medium text-[var(--color-primary-600)] hover:text-[var(--color-primary-500)]"
+									class="c-social-login__forgot-link"
 									onclick={state.handleForgotPassword}
 								>
 									Forgot your password?
@@ -143,55 +125,331 @@
 						{/if}
 					{/if}
 
-					<div class="flex items-center">
+					<div class="c-social-login__remember-row">
 						<input
 							id="remember-me"
 							name="remember-me"
 							type="checkbox"
-							class="h-4 w-4 rounded border-[var(--color-border-primary)] text-[var(--color-primary-600)] focus:ring-blue-500"
+							class="c-social-login__checkbox"
 							bind:checked={state.rememberMe}
 						/>
-						<label for="remember-me" class="ml-2 block text-sm text-[var(--color-text-primary)]">
-							Remember me
-						</label>
+						<label for="remember-me" class="c-social-login__remember-label">Remember me</label>
 					</div>
 
-					<div>
-						<button
-							type="submit"
-							class={`flex w-full justify-center rounded-md border border-transparent bg-[var(--color-primary-600)] px-4 py-2 text-sm font-medium text-[var(--color-text-inverse)] shadow-sm hover:bg-[var(--color-primary-700)] focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none ${
-								state.isLoading ? 'cursor-not-allowed opacity-[var(--opacity-75)]' : ''
-							}`}
-							disabled={state.isLoading}
-						>
-							{#if state.isLoading}
-								<BaseIcon
-									name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'loader-2') ?? 'loader-2'}
-									class="mr-2 h-4 w-4 animate-spin"
-								/>
-								Signing in...
-							{:else}
-								Sign in
-							{/if}
-						</button>
-					</div>
+					<button
+						type="submit"
+						class="c-social-login__submit {state.isLoading
+							? 'c-social-login__submit--loading'
+							: ''}"
+						disabled={state.isLoading}
+					>
+						{#if state.isLoading}
+							<BaseIcon
+								name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'loader-2') ?? 'loader-2'}
+								class="c-social-login__loader-icon"
+							/>
+							Signing in...
+						{:else}
+							Sign in
+						{/if}
+					</button>
 				</form>
 			</div>
 		{/if}
 
 		{#if props.showSignUp}
-			<div class="mt-6 text-center">
-				<p class="text-sm text-[var(--color-text-secondary)]">
-					Don't have an account?{' '}
-					<button
-						type="button"
-						class="font-medium text-[var(--color-primary-600)] hover:text-[var(--color-primary-500)]"
-						onclick={state.handleSignUp}
+			<div class="c-social-login__signup">
+				<p class="c-social-login__signup-text">
+					Don't have an account?
+					<button type="button" class="c-social-login__signup-link" onclick={state.handleSignUp}
+						>Sign up</button
 					>
-						Sign up
-					</button>
 				</p>
 			</div>
 		{/if}
 	</div>
 </div>
+
+<style>
+	.c-social-login {
+	}
+
+	.c-social-login__card {
+		max-width: 28rem;
+		margin: 0 auto;
+		border-radius: 0.5rem;
+		background: var(--color-background-primary);
+		padding: 2rem;
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+	}
+
+	.c-social-login__hero {
+		text-align: center;
+	}
+
+	.c-social-login__hero-icon-wrap {
+		display: flex;
+		width: 3rem;
+		height: 3rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		background: color-mix(in srgb, var(--color-primary-500) 12%, transparent);
+		margin: 0 auto;
+	}
+
+	.c-social-login__hero-icon {
+		width: 1.5rem;
+		height: 1.5rem;
+		color: var(--color-primary-600);
+	}
+
+	.c-social-login__title {
+		margin: 1rem 0 0;
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--color-text-primary);
+	}
+
+	.c-social-login__description {
+		margin: 0.5rem 0 0;
+		color: var(--color-text-secondary);
+	}
+
+	.c-social-login__providers {
+		margin-top: 2rem;
+	}
+
+	.c-social-login__providers-label {
+		margin-bottom: 1rem;
+		text-align: center;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.c-social-login__provider-list {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 0.75rem;
+	}
+
+	.c-social-login__provider-btn {
+		display: inline-flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.375rem;
+		padding: 0.5rem 1rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+		background: var(--color-background-primary);
+		cursor: pointer;
+		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	}
+
+	.c-social-login__provider-btn:hover {
+		opacity: 0.9;
+	}
+	.c-social-login__provider-btn:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	.c-social-login__provider-icon {
+		width: 1.25rem;
+		height: 1.25rem;
+		margin-right: 0.5rem;
+	}
+
+	.c-social-login__divider-section {
+		margin-top: 1.5rem;
+	}
+
+	.c-social-login__divider {
+		position: relative;
+	}
+
+	.c-social-login__divider-line {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+	}
+	.c-social-login__divider-line::after {
+		content: '';
+		display: block;
+		width: 100%;
+		border-top: 1px solid var(--color-border-primary);
+	}
+
+	.c-social-login__divider-label {
+		position: relative;
+		display: flex;
+		justify-content: center;
+	}
+
+	.c-social-login__divider-text {
+		background: var(--color-background-primary);
+		padding-inline: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.c-social-login__form {
+		margin-top: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.c-social-login__field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.c-social-login__label {
+		display: block;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.c-social-login__input-wrap {
+		position: relative;
+		margin-top: 0.25rem;
+		border-radius: 0.375rem;
+		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	}
+
+	.c-social-login__input-icon-wrap {
+		pointer-events: none;
+		position: absolute;
+		inset-block: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		padding-left: 0.75rem;
+	}
+	.c-social-login__input-icon {
+		width: 1.25rem;
+		height: 1.25rem;
+		color: var(--color-text-tertiary, var(--color-text-secondary));
+	}
+
+	.c-social-login__input {
+		display: block;
+		width: 100%;
+		border-radius: 0.375rem;
+		border: 1px solid var(--color-border-primary);
+		padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+		font-size: 0.875rem;
+		font-family: inherit;
+	}
+
+	.c-social-login__input:focus {
+		outline: none;
+		border-color: var(--color-primary-500);
+		box-shadow: 0 0 0 1px var(--color-primary-500);
+	}
+
+	.c-social-login__forgot-wrap {
+		display: flex;
+		justify-content: flex-end;
+	}
+	.c-social-login__forgot-link {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-primary-600);
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+	.c-social-login__forgot-link:hover {
+		color: var(--color-primary-500);
+	}
+
+	.c-social-login__remember-row {
+		display: flex;
+		align-items: center;
+	}
+	.c-social-login__checkbox {
+		width: 1rem;
+		height: 1rem;
+		border-radius: 0.25rem;
+		border: 1px solid var(--color-border-primary);
+		accent-color: var(--color-primary-600);
+	}
+	.c-social-login__remember-label {
+		margin-left: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--color-text-primary);
+	}
+
+	.c-social-login__submit {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		border-radius: 0.375rem;
+		border: none;
+		background: var(--color-primary-600);
+		padding: 0.5rem 1rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-inverse);
+		cursor: pointer;
+		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	}
+
+	.c-social-login__submit:hover {
+		background: var(--color-primary-700);
+	}
+	.c-social-login__submit:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+	.c-social-login__submit--loading {
+		cursor: not-allowed;
+		opacity: 0.75;
+	}
+
+	.c-social-login__loader-icon {
+		width: 1rem;
+		height: 1rem;
+		margin-right: 0.5rem;
+		animation: spin 1s linear infinite;
+	}
+
+	@keyframes spin {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	.c-social-login__signup {
+		margin-top: 1.5rem;
+		text-align: center;
+	}
+	.c-social-login__signup-text {
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+		margin: 0;
+	}
+	.c-social-login__signup-link {
+		font-weight: 500;
+		color: var(--color-primary-600);
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+	.c-social-login__signup-link:hover {
+		color: var(--color-primary-500);
+	}
+</style>

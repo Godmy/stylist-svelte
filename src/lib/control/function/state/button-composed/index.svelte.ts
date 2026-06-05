@@ -1,9 +1,9 @@
 import type { ButtonComposedRecipe } from '$stylist/control/interface/recipe/button-composed';
-import { createClickableState } from '$stylist/interaction/function/state/clickable';
-import { createFocusableState } from '$stylist/interaction/function/state/focusable';
-import { createBackgroundState } from '$stylist/layout/function/state/background';
-import { createBorderState } from '$stylist/layout/function/state/border';
-import { createContainerState } from '$stylist/layout/function/state/container';
+import createClickableState from '$stylist/interaction/function/state/clickable/index.svelte';
+import createFocusableState from '$stylist/interaction/function/state/focusable/index.svelte';
+import createBackgroundState from '$stylist/layout/function/state/background/index.svelte';
+import createBorderState from '$stylist/layout/function/state/border/index.svelte';
+import createContainerState from '$stylist/layout/function/state/container/index.svelte';
 
 export function createButtonComposedState(props: ButtonComposedRecipe) {
 	const clickable = createClickableState(props as Parameters<typeof createClickableState>[0]);

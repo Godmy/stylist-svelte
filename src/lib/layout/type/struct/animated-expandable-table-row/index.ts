@@ -1,4 +1,4 @@
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
 import type { Snippet } from 'svelte';
 
 export type AnimatedExpandableTableRowProps = {

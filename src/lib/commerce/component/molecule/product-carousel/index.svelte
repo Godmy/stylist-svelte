@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createProductCarouselState } from '$stylist/commerce/function/state/product-carousel';
+	import createProductCarouselState from '$stylist/commerce/function/state/product-carousel/createproductcarouselstate/index.svelte';
 	import type { ProductCarouselProps } from '$stylist/commerce/interface/recipe/product-carousel-props';
 
 	let props: ProductCarouselProps = $props();

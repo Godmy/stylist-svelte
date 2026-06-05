@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { Button } from '$stylist/control';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import { FileExplorerStyleManager } from '$stylist/file/class/style-manager/file-explorer';
-	import { createFileExplorerState } from '$stylist/file/function/state/file-explorer';
+	import createFileExplorerState from '$stylist/file/function/state/file-explorer/index.svelte';
 	import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
-	import type { Props } from '$stylist/file/type/struct/file-explorer/props';
+	import type { Props } from '$stylist/file/type/struct/file-explorer/props/-props';
 	import { getFileIcon } from '$stylist/file/function/script/file-explorer-get-file-icon';
 	import { formatFileSize } from '$stylist/file/function/script/file-explorer-format-file-size';
 
@@ -19,18 +19,21 @@
 				{#each state.pathParts as part, index}
 					<span>{part}</span>
 					{#if index < state.pathParts.length - 1}
-						<BaseIcon name="chevron-right" class="mx-1 h-4 w-4" />
+						<BaseIcon name="chevron-right" style="margin:0 0.25rem;width:1rem;height:1rem" />
 					{/if}
 				{/each}
 			</div>
 		{/if}
 
 		<div class={FileExplorerStyleManager.getToolbarClasses(props.toolbarClass ?? '')}>
-			<div class="flex items-center space-x-2">
+			<div class="fe-toolbar-left">
 				{#if state.searchable}
-					<div class="relative min-w-[200px] flex-1">
-						<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-							<BaseIcon name="search" class="h-5 w-5 text-[var(--color-text-tertiary)]" />
+					<div class="fe-search-wrap">
+						<div class="fe-search-icon">
+							<BaseIcon
+								name="search"
+								style="width:1.25rem;height:1.25rem;color:var(--color-text-tertiary)"
+							/>
 						</div>
 						<input
 							type="text"
@@ -44,47 +47,45 @@
 
 				<Button variant="outline" size="sm" onclick={state.toggleViewMode}>
 					{#if state.currentViewMode === 'grid'}
-						<BaseIcon name="list" class="mr-1 h-4 w-4" />
+						<BaseIcon name="list" style="margin-right:0.25rem;width:1rem;height:1rem" />
 					{:else}
-						<BaseIcon name="grid" class="mr-1 h-4 w-4" />
+						<BaseIcon name="grid" style="margin-right:0.25rem;width:1rem;height:1rem" />
 					{/if}
 					{state.currentViewMode === 'grid' ? 'List' : 'Grid'}
 				</Button>
 
 				<Button variant="outline" size="sm" onclick={state.openUploadDialog}>
-					<BaseIcon name="upload" class="mr-1 h-4 w-4" />
+					<BaseIcon name="upload" style="margin-right:0.25rem;width:1rem;height:1rem" />
 					Upload
 				</Button>
 				<input
 					bind:this={state.fileInputElement}
 					type="file"
-					class="hidden"
+					class="fe-hidden"
 					onchange={state.handleUpload}
 					multiple
 				/>
 			</div>
 
-			<div class="flex items-center">
-				<span class="mr-2 text-sm text-[var(--color-text-secondary)]"
-					>{state.filteredItems.length} items</span
-				>
+			<div class="fe-toolbar-right">
+				<span class="fe-item-count">{state.filteredItems.length} items</span>
 				<Button variant="ghost" size="sm">
-					<BaseIcon name="more-horizontal" class="h-5 w-5" />
+					<BaseIcon name="more-horizontal" style="width:1.25rem;height:1.25rem" />
 				</Button>
 			</div>
 		</div>
 	</div>
 
-	<div class="p-2">
+	<div class="fe-body">
 		{#if state.currentViewMode === 'grid'}
-			<div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+			<div class="fe-grid">
 				{#each state.filteredItems as item}
 					{@const itemIcon = getFileIcon(item)}
 					<div
-						class={`flex cursor-pointer flex-col items-center rounded-lg border p-3 text-center ${
-							state.selectedItems.some((candidate: SlotFileSystemItem) => candidate.id === item.id)
-								? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]'
-								: 'border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]'
+						class={`fe-grid-item ${
+							state.selectedItems.some((c: SlotFileSystemItem) => c.id === item.id)
+								? 'fe-grid-item--selected'
+								: ''
 						} ${props.itemClass ?? ''}`}
 						role="button"
 						tabindex="0"
@@ -94,26 +95,24 @@
 					>
 						<BaseIcon
 							name={itemIcon}
-							class={`mb-2 h-8 w-8 ${item.type === 'folder' ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-secondary)]'}`}
+							style={`margin-bottom:0.5rem;width:2rem;height:2rem;color:${item.type === 'folder' ? 'var(--color-primary-500)' : 'var(--color-text-secondary)'}`}
 						/>
-						<div class="w-full truncate text-sm font-medium">{item.name}</div>
+						<div class="fe-grid-name">{item.name}</div>
 						{#if item.type === 'file' && item.size}
-							<div class="mt-1 text-xs text-[var(--color-text-secondary)]">
-								{formatFileSize(item.size)}
-							</div>
+							<div class="fe-grid-size">{formatFileSize(item.size)}</div>
 						{/if}
 					</div>
 				{/each}
 			</div>
 		{:else}
-			<div class="overflow-hidden rounded-lg border">
+			<div class="fe-list">
 				{#each state.filteredItems as item}
 					{@const itemIcon = getFileIcon(item)}
 					<div
-						class={`flex cursor-pointer items-center border-b p-3 last:border-b-0 ${
-							state.selectedItems.some((candidate: SlotFileSystemItem) => candidate.id === item.id)
-								? 'bg-[var(--color-primary-50)]'
-								: 'hover:bg-[var(--color-background-secondary)]'
+						class={`fe-list-item ${
+							state.selectedItems.some((c: SlotFileSystemItem) => c.id === item.id)
+								? 'fe-list-item--selected'
+								: ''
 						} ${props.itemClass ?? ''}`}
 						role="button"
 						tabindex="0"
@@ -123,11 +122,11 @@
 					>
 						<BaseIcon
 							name={itemIcon}
-							class={`mr-3 h-5 w-5 ${item.type === 'folder' ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-secondary)]'}`}
+							style={`margin-right:0.75rem;width:1.25rem;height:1.25rem;flex-shrink:0;color:${item.type === 'folder' ? 'var(--color-primary-500)' : 'var(--color-text-secondary)'}`}
 						/>
-						<div class="min-w-0 flex-1">
-							<div class="truncate text-sm font-medium">{item.name}</div>
-							<div class="truncate text-xs text-[var(--color-text-secondary)]">
+						<div class="fe-list-info">
+							<div class="fe-list-name">{item.name}</div>
+							<div class="fe-list-meta">
 								{#if item.type === 'folder'}
 									Folder
 								{:else}
@@ -144,7 +143,7 @@
 								state.handleDownload(item);
 							}}
 						>
-							<BaseIcon name="download" class="h-4 w-4" />
+							<BaseIcon name="download" style="width:1rem;height:1rem" />
 						</Button>
 					</div>
 				{/each}
@@ -152,3 +151,155 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+	.fe-toolbar-left {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.fe-search-wrap {
+		position: relative;
+		min-width: 200px;
+		flex: 1;
+	}
+
+	.fe-search-icon {
+		pointer-events: none;
+		position: absolute;
+		inset-y: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		padding-left: 0.75rem;
+	}
+
+	.fe-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+
+	.fe-toolbar-right {
+		display: flex;
+		align-items: center;
+	}
+
+	.fe-item-count {
+		margin-right: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.fe-body {
+		padding: 0.5rem;
+	}
+
+	.fe-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+	}
+
+	@media (min-width: 640px) {
+		.fe-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	@media (min-width: 768px) {
+		.fe-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+	@media (min-width: 1024px) {
+		.fe-grid {
+			grid-template-columns: repeat(5, 1fr);
+		}
+	}
+
+	.fe-grid-item {
+		display: flex;
+		cursor: pointer;
+		flex-direction: column;
+		align-items: center;
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-border-primary);
+		padding: 0.75rem;
+		text-align: center;
+	}
+
+	.fe-grid-item:hover {
+		background-color: var(--color-background-secondary);
+	}
+	.fe-grid-item--selected {
+		border-color: var(--color-primary-500);
+		background-color: var(--color-primary-50);
+	}
+
+	.fe-grid-name {
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-size: 0.875rem;
+		font-weight: 500;
+	}
+
+	.fe-grid-size {
+		margin-top: 0.25rem;
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+	}
+
+	.fe-list {
+		overflow: hidden;
+		border-radius: 0.5rem;
+		border: 1px solid;
+	}
+
+	.fe-list-item {
+		display: flex;
+		cursor: pointer;
+		align-items: center;
+		border-bottom: 1px solid;
+		padding: 0.75rem;
+	}
+
+	.fe-list-item:last-child {
+		border-bottom: none;
+	}
+	.fe-list-item:hover {
+		background-color: var(--color-background-secondary);
+	}
+	.fe-list-item--selected {
+		background-color: var(--color-primary-50);
+	}
+
+	.fe-list-info {
+		min-width: 0;
+		flex: 1;
+	}
+
+	.fe-list-name {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-size: 0.875rem;
+		font-weight: 500;
+	}
+
+	.fe-list-meta {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+	}
+</style>

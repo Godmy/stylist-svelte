@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { Snippet } from 'svelte';
 import type { ChatMessageStatus } from '$stylist/chat/type/struct/chat-message-status';
 

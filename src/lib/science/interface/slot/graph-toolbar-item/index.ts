@@ -1,4 +1,3 @@
-
 export interface SlotGraphToolbarItem {
 	id: string;
 	type: 'button' | 'select' | 'input' | 'separator';

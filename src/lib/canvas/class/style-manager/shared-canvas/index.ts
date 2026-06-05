@@ -4,101 +4,88 @@ import type { TokenSize } from '$stylist/layout/type/enum/size';
 export class StyleManagerSharedCanvas {
 	static getContainerClass(
 		variant: string,
-		size: TokenSize | undefined,
+		_size: TokenSize | undefined,
 		className?: string
 	): string {
-		const sizeClasses =
-			{
-				sm: 'text-sm',
-				md: 'text-base',
-				lg: 'text-lg'
-			}[size as 'sm' | 'md' | 'lg'] || 'text-base';
-
 		return mergeClassNames(
-			'c-shared-canvas border border-[--color-border-primary] rounded-lg overflow-hidden bg-[--color-background-primary]',
-			variant === 'minimal' ? 'shadow-none' : 'shadow-sm',
-			sizeClasses,
+			'c-shared-canvas',
+			variant === 'minimal' && 'c-shared-canvas--minimal',
 			className
 		);
 	}
 
 	static getToolbarClass(className?: string): string {
-		return mergeClassNames(
-			'flex items-center gap-2 p-3 border-b border-[--color-border-primary] bg-[--color-background-primary]',
-			className
-		);
+		return mergeClassNames('c-shared-canvas__toolbar', className);
 	}
 
 	static getToolbarGroupClass(): string {
-		return 'flex items-center gap-1';
+		return 'c-shared-canvas__toolbar-group';
 	}
 
 	static getToolbarDividerClass(): string {
-		return 'h-5 border-l border-[--color-border-primary] mx-2';
+		return 'c-shared-canvas__toolbar-divider';
 	}
 
 	static getColorLabelClass(): string {
-		return 'flex items-center text-sm';
+		return 'c-shared-canvas__color-label';
 	}
 
 	static getColorInputClass(): string {
-		return 'ml-1 w-8 h-8 p-1 border border-[--color-border-primary] rounded cursor-pointer';
+		return 'c-shared-canvas__color-input';
 	}
 
 	static getCanvasClass(className?: string): string {
-		return mergeClassNames('relative w-full h-[500px] bg-[--color-background-primary]', className);
+		return mergeClassNames('c-shared-canvas__canvas', className);
 	}
 
 	static getWorkspaceClass(): string {
-		return 'flex';
+		return 'c-shared-canvas__workspace';
 	}
 
 	static getCanvasPaneClass(): string {
-		return 'flex-1 relative';
+		return 'c-shared-canvas__pane';
 	}
 
 	static getRemoteCursorClass(): string {
-		return 'absolute w-2 h-2 rounded-full';
+		return 'c-shared-canvas__cursor';
 	}
 
 	static getUserPanelClass(): string {
-		return 'w-56 shrink-0 border-l border-[--color-border-primary] p-3';
+		return 'c-shared-canvas__user-panel';
 	}
 
 	static getUserPanelTitleClass(): string {
-		return 'text-sm font-medium text-[--color-text-secondary] mb-2';
+		return 'c-shared-canvas__user-panel-title';
 	}
 
 	static getUserListClass(): string {
-		return 'space-y-2';
+		return 'c-shared-canvas__user-list';
 	}
 
 	static getUserItemClass(): string {
-		return 'flex items-center gap-1 px-2 py-1 rounded hover:bg-[--color-background-hover]';
+		return 'c-shared-canvas__user-item';
 	}
 
 	static getUserSwatchClass(): string {
-		return 'w-4 h-4 rounded-full mr-2';
+		return 'c-shared-canvas__user-swatch';
 	}
 
 	static getUserNameClass(): string {
-		return 'text-sm text-[--color-text-primary]';
+		return 'c-shared-canvas__user-name';
 	}
 
 	static getCurrentUserClass(): string {
-		return 'ml-1 text-xs text-[--color-text-tertiary]';
+		return 'c-shared-canvas__current-user';
 	}
 
 	static getToolButtonClass(isActive: boolean): string {
 		return mergeClassNames(
-			'p-2 rounded transition-colors',
-			isActive
-				? 'bg-[--color-primary-500] text-[--color-text-inverse]'
-				: 'hover:bg-[--color-background-hover]'
+			'c-shared-canvas__tool-btn',
+			isActive && 'c-shared-canvas__tool-btn--active'
 		);
 	}
 
 	static getActionButtonClass(): string {
-		return 'px-3 py-1.5 text-sm rounded-md bg-[--color-primary-500] text-[--color-text-inverse] hover:bg-[--color-primary-600] transition-colors disabled:opacity-50 disabled:cursor-not-allowed';
+		return 'c-shared-canvas__action-btn';
 	}
 }

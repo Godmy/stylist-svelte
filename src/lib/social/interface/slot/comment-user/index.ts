@@ -1,4 +1,3 @@
-
 export interface SlotCommentUser {
 	id: string;
 	name: string;

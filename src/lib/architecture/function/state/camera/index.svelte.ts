@@ -1,6 +1,6 @@
 import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
 import type { SceneCameraInput } from '$stylist/architecture/type/struct/camera-input';
-import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
+import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
 
 const DEFAULT_CAMERA: SceneCamera = {
 	x: 0,

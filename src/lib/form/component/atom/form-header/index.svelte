@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createFormHeaderState } from '$stylist/form/function/state/form-header';
+	import createFormHeaderState from '$stylist/form/function/state/form-header/index.svelte';
 	import type { SlotFormHeader as FormHeaderProps } from '$stylist/form/interface/slot/form-header';
 
 	let {
@@ -35,9 +35,9 @@
 </script>
 
 <div class={state.rootClass} {...restProps}>
-	<div class="flex items-center justify-between">
+	<div class="form-header-top">
 		<div>
-			<div class="flex items-center">
+			<div class="form-header-title-row">
 				{#if backAction}
 					<button
 						type="button"
@@ -46,7 +46,7 @@
 						aria-label={backButtonLabel}
 					>
 						<svg
-							class="h-5 w-5"
+							class="form-header-back-icon"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"
@@ -78,3 +78,21 @@
 		<p class={state.descriptionClass}>{description}</p>
 	{/if}
 </div>
+
+<style>
+	.form-header-top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.form-header-title-row {
+		display: flex;
+		align-items: center;
+	}
+
+	.form-header-back-icon {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+</style>

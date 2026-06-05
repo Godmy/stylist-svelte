@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { SlotAdvancedColumnDefinition } from '$stylist/control/interface/slot/advanced-column-definition';
 
 export interface SlotDataTableAdvanced<T extends Record<string, unknown>>

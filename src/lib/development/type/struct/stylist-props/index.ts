@@ -2,7 +2,7 @@ import type { StylistCategoryId } from '$stylist/development/type/struct/stylist
 import type { StylistSelection } from '$stylist/development/type/struct/stylist-selection';
 
 export type StylistProps = Omit<
-	import('$stylist/interaction/type/struct/interaction').InteractionHTMLAttributes<HTMLDivElement>,
+	import('$stylist/interaction/type/struct/interaction/interaction-html-attributes').InteractionHTMLAttributes<HTMLDivElement>,
 	'class'
 > & {
 	initialCategory?: StylistCategoryId;

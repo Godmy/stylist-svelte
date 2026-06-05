@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
 	import { ObjectManagerAnalyticsChart } from '$stylist/chart/class/object-manager/analytics-chart';
 	import type { AnalyticsChartRecipe } from '$stylist/chart/interface/recipe/analytics-chart';
-	import { createAnalyticsChartState } from '$stylist/chart/function/state/analytics-chart';
+	import createAnalyticsChartState from '$stylist/chart/function/state/analytics-chart/index.svelte';
 	import BarChart from '$stylist/chart/component/molecule/bar-chart/index.svelte';
 	import LineChart from '$stylist/chart/component/organism/line-chart/index.svelte';
 	import PieChart from '$stylist/chart/component/atom/chart-pie/index.svelte';
@@ -29,9 +29,9 @@
 				{/if}
 			</div>
 			{#if props.showTrend && props.trendValue !== 0}
-				<div class="flex items-center">
+				<div class="ac-trend-row">
 					<span class={state.trendContainerClasses}>
-						<span class="ml-1">{Math.abs(props.trendValue ?? 0)}%</span>
+						<span class="ac-trend-value">{Math.abs(props.trendValue ?? 0)}%</span>
 					</span>
 				</div>
 			{/if}
@@ -40,7 +40,7 @@
 
 	<div class={state.chartContainerClasses}>
 		<div
-			class="relative"
+			class="ac-chart-wrap"
 			style={`height: ${props.height ?? 300}px; width: ${props.width ?? 600}px;`}
 		>
 			{#if props.type === 'bar'}
@@ -78,3 +78,16 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+	.ac-trend-row {
+		display: flex;
+		align-items: center;
+	}
+	.ac-trend-value {
+		margin-left: 0.25rem;
+	}
+	.ac-chart-wrap {
+		position: relative;
+	}
+</style>

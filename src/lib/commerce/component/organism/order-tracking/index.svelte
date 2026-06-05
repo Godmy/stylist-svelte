@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeOrderTracking as OrderTrackingContract } from '$stylist/commerce/interface/recipe/order-tracking';
-	import { createOrderTrackingState } from '$stylist/commerce/function/state/order-tracking';
+	import createOrderTrackingState from '$stylist/commerce/function/state/order-tracking/index.svelte';
 
 	let props: OrderTrackingContract = $props();
 	const state = createOrderTrackingState(props);

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createScheduledNotificationState } from '$stylist/management/function/state/scheduled-notification';
+	import createScheduledNotificationState from '$stylist/management/function/state/scheduled-notification/index.svelte';
 	import type { ScheduledNotificationProps } from '$stylist/chat/type/struct/scheduled-notification-props';
 
 	let props: ScheduledNotificationProps = $props();

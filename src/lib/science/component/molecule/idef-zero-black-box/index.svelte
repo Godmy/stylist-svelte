@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
-	import type { Idef0BlackBoxProps } from '$stylist/science/type/struct/idef-zero';
-	import { createIdef0BlackBoxState } from '$stylist/science/function/state/idef0-black-box';
+	import type { Idef0BlackBoxProps } from '$stylist/science/type/struct/idef-zero/idef0blackbox-props';
+	import createIdef0BlackBoxState from '$stylist/science/function/state/idef0-black-box/index.svelte';
 	import Idef0FunctionBox from '$stylist/science/component/atom/idef-zero-function-box/index.svelte';
 	import Idef0Inputs from '$stylist/science/component/molecule/idef-zero-inputs/index.svelte';
 	import Idef0Outputs from '$stylist/science/component/molecule/idef-zero-outputs/index.svelte';

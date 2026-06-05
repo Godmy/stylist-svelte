@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import { SearchFormStyleManager } from '$stylist/form';
+	import { SearchFormStyleManager } from '$stylist/form/class/style-manager/search-form-style-manager';
 	import SearchForm from './index.svelte';
 
 	type Props = {

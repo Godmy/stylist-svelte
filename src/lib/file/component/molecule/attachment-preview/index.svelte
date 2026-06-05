@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
-	import { Button } from '$stylist/control';
-	import { Icon } from '$stylist/media';
-	import { createAttachmentPreviewState } from '$stylist/file/function/state/attachment-preview';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import createAttachmentPreviewState from '$stylist/file/function/state/attachment-preview/index.svelte';
 	import { getIconName } from '$stylist/file/function/script/attachment-preview-get-icon-name';
 	import { formatFileSize } from '$stylist/file/function/script/attachment-preview-format-file-size';
 	import type { Props } from '$stylist/file/type/struct/attachment-preview/props';

@@ -1,4 +1,4 @@
-import type { HtmlAttributesBase } from '$stylist/information/interface/slot';
+import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
 import type { TokenBillingSummary } from '$stylist/commerce/type/enum/billing-summary';
 import type { SlotBillingItem } from '$stylist/commerce/interface/slot/billing-item';
 

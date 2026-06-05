@@ -1,9 +1,9 @@
-import type { DashboardLayoutPreset } from '$stylist/management/interface/contract-dashboard-layout';
+import type { ContractDashboardLayout } from '$stylist/management/interface/contract/dashboard';
 import { PRESET_LAYOUT_DASHBOARD } from '$stylist/management/const/preset/dashboard-layout';
 
 export function resolveDashboardLayoutPreset(
 	name: 'default' | 'compact' | 'spacious' | 'fixed-sidebar'
-): DashboardLayoutPreset {
+): ContractDashboardLayout {
 	switch (name) {
 		case 'compact':
 			return {

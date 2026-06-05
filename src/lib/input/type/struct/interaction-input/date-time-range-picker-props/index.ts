@@ -1,5 +1,5 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import type { DateTimeRangeValue } from '$stylist/input/type/struct/interaction-input-date-time-range-value';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
+import type { DateTimeRangeValue } from '$stylist/input/type/struct/interaction-input/date-time-range-value';
 
 export type DateTimeRangePickerProps = Omit<
 	InteractionHTMLAttributes<HTMLDivElement>,

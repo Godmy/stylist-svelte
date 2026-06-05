@@ -6,7 +6,7 @@
 	 */
 	import Code from '../code-block/index.svelte';
 	import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor-props';
-	import { createCodeEditorLegacyState } from '$stylist/development/function/state/code-editor-legacy';
+	import createCodeEditorLegacyState from '$stylist/development/function/state/code-editor-legacy/index.svelte';
 
 	let {
 		code = '',

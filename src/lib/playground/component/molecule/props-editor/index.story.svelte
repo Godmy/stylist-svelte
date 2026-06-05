@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { PropDefinition } from '$stylist/playground/type/struct/prop-definition';
 	import PropsEditor from './index.svelte';
 

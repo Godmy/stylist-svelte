@@ -1,4 +1,4 @@
-import type { OntologyNodeComponentProps } from '$stylist/science/type/struct/ontology-node-component';
+import type { OntologyNodeComponentProps } from '$stylist/science/type/struct/ontology-node-component/ontologynodecomponent-props';
 import { OntologyNodeComponentStyleManager } from '$stylist/science/class/style-manager/ontology-node-component';
 
 export function createOntologyNodeComponentState(props: OntologyNodeComponentProps) {

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { StepperProps } from '$stylist/navigation/type/struct/stepper-props';
-	import { createStepperState } from '$stylist/navigation/function/state/stepper';
+	import type { StepperProps } from '$stylist/navigation/type/struct/stepper-props/stepper-props';
+	import createStepperState from '$stylist/navigation/function/state/stepper/index.svelte';
 
 	let props: StepperProps = $props();
 	const state = createStepperState(props);
@@ -21,7 +21,7 @@
 				>
 					{#if step.status === 'completed'}
 						<svg
-							class="h-5 w-5"
+							style="width:1.25rem;height:1.25rem"
 							fill="none"
 							stroke="currentColor"
 							viewBox="0 0 24 24"

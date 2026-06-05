@@ -1,14 +1,12 @@
 <script lang="ts">
-	import { Icon } from '$stylist/media';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 	import BacklogViewTabs from '$stylist/management/component/molecule/backlog-view-tabs/index.svelte';
 	import IssuesTable from '$stylist/management/component/molecule/issues-table/index.svelte';
 	import KanbanBoard from '$stylist/management/component/organism/kanban-board/index.svelte';
 	import ScrumBacklog from '$stylist/management/component/molecule/scrum-backlog/index.svelte';
 	import BurnDownChart from '$stylist/management/component/molecule/burn-down-chart/index.svelte';
-	import type {
-		KanbanBoardAction,
-		KanbanBoardType
-	} from '$stylist/management/type/struct/kanban-board';
+	import type { KanbanBoardAction } from '$stylist/management/type/struct/kanban-board/kanbanboardaction';
+	import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board/kanbanboardtype';
 	import type { SlotBacklogData as BacklogData } from '$stylist/management/interface/slot/backlog-data';
 	import type { SlotBacklogItem as BacklogItem } from '$stylist/management/interface/slot/backlog-item';
 	import type { SlotBurnDownData as BurnDownData } from '$stylist/management/interface/slot/burn-down-data';

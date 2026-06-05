@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ComboboxProps } from '$stylist/control/type/struct/combobox-props';
-	import { createComboboxState } from '$stylist/control/function/state/combobox';
+	import createComboboxState from '$stylist/control/function/state/combobox/index.svelte';
 
 	let props: ComboboxProps = $props();
 	const state = createComboboxState(props);

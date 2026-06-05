@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { OntologyEdgeComponentProps } from '$stylist/science/type/struct/ontology-edge-component';
-	import { createOntologyEdgeComponentState } from '$stylist/science/function/state/ontology-edge-component';
+	import type { OntologyEdgeComponentProps } from '$stylist/science/type/struct/ontology-edge-component/ontologyedgecomponent-props';
+	import createOntologyEdgeComponentState from '$stylist/science/function/state/ontology-edge-component/index.svelte';
 
 	let props: OntologyEdgeComponentProps = $props();
 	const state = createOntologyEdgeComponentState(props);

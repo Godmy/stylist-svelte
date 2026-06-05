@@ -1,4 +1,4 @@
-import type { DialogConfirmProps } from '$stylist/navigation/type/struct/dialog-confirm-props';
+import type { DialogConfirmProps } from '$stylist/navigation/type/struct/dialog-confirm-props/dialogconfirm-props';
 import { DIALOG_CONFIRM_VARIANT_CLASSES } from '$stylist/navigation/const/record/dialog-confirm-variant-classes';
 import { handleConfirmCallback } from '$stylist/navigation/function/script/dialog-confirm';
 

@@ -1,24 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BadgeRecipe } from './badge';
-export type { BadgeGroupRecipe } from './badge-group';
 export type { BlockquoteRecipe } from './blockquote';
-export type { ThemeCaptionRecipe } from './caption';
-export type { CountBadgeRecipe } from './count-badge';
-export type { ThemeDefinitionDescriptionRecipe } from './definition-description';
-export type { ThemeDefinitionTermRecipe } from './definition-term';
-export type { ThemeEmRecipe } from './em';
-export type { ThemeHeadingRecipe } from './heading';
-export type { ThemeHighlightRecipe } from './highlight';
+export type { HeadingRecipe } from './heading';
 export type { ThemeInlineCodeRecipe } from './inline-code';
 export type { ThemeKbdRecipe } from './kbd';
 export type { ThemeLinkRecipe } from './link';
-export type { NpmBadgeRecipe } from './npm-badge';
-export type { ThemeParagraphRecipe } from './paragraph';
-export type { ThemeSmallRecipe } from './small';
-export type { ThemeStatusIndicatorRecipe } from './status-indicator';
-export type { ThemeStrikeThroughtRecipe } from './strike-throught';
-export type { ThemeStrongRecipe } from './strong';
-export type { ThemeSubscriptRecipe } from './subscript';
-export type { ThemeSuperscriptRecipe } from './superscript';
-export type { ThemeTextRecipe } from './text';
+export type { RichTextRecipe } from './rich-text';
+export type { TextRecipe } from './text';
 export type { TextAreaControlRecipe } from './text-area-control';

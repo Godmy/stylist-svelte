@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ProductSortingProps as Props } from '$stylist/commerce/type/struct/product-sorting-props';
-	import { createProductSortingState } from '$stylist/commerce/function/state/product-sorting';
+	import createProductSortingState from '$stylist/commerce/function/state/product-sorting/index.svelte';
 
 	let props: Props = $props();
 	const state = createProductSortingState(props);

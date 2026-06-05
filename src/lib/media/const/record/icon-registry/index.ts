@@ -4032,58 +4032,60 @@ export const TOKEN_ICON_REGISTRY = {
   <circle cx="12" cy="12" r="3"/>
   <path d="M4 12h2M18 12h2M12 4v2M12 18v2M6.5 6.5l1.4 1.4M16.1 16.1l1.4 1.4M17.5 6.5l-1.4 1.4M7.9 16.1l-1.4 1.4"/>
 </svg>`, // theme,
-	analytics: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>analytics</title>
-  <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z"/>
-  <path d="M4 6l8 3 8-3"/>
-  <path d="M12 9v12"/>
+	abbr: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>abbr</title>
+  <rect x="3" y="4" width="18" height="16" rx="3"/>
+  <path d="M7 15l2.2-6h1.6l2.2 6M7.7 13.2h4.6"/>
+  <path d="M15 9h2.2a1.8 1.8 0 0 1 0 3.6H15z"/>
 </svg>`, // typography,
-	block: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>block</title>
-  <path d="M4 12h4l2-6 4 12 2-6h4"/>
-  <circle cx="6" cy="12" r="2"/>
-  <circle cx="18" cy="12" r="2"/>
+	blockquote: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>blockquote</title>
+  <path d="M7 9H4v4h3l-2 4"/>
+  <path d="M15 9h-3v4h3l-2 4"/>
+  <path d="M18 5H9"/>
+  <path d="M20 19H9"/>
 </svg>`, // typography,
-	elements: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>elements</title>
-  <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
-  <path d="M8 10h8M8 14h8"/>
-  <path d="M12 7v10"/>
+	heading: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>heading</title>
+  <path d="M5 6v12M11 6v12M5 12h6"/>
+  <path d="M16 9v6"/>
+  <path d="M14 9h4"/>
+  <path d="M14 15h4"/>
 </svg>`, // typography,
-	inline: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>inline</title>
-  <circle cx="12" cy="12" r="7"/>
-  <path d="M12 5v14M5 12h14"/>
-  <path d="m8 8 8 8M16 8l-8 8"/>
+	'inline-code': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>inline-code</title>
+  <rect x="3" y="6" width="18" height="12" rx="3"/>
+  <path d="M9 9l-3 3 3 3"/>
+  <path d="M15 9l3 3-3 3"/>
+  <path d="M13 8l-2 8"/>
 </svg>`, // typography,
-	'node-title': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>node-title</title>
-  <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
-  <path d="M8 10h8M8 14h8"/>
-  <path d="M12 7v10"/>
+	kbd: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>kbd</title>
+  <rect x="3" y="6" width="18" height="12" rx="3"/>
+  <path d="M7 10h2v2H7z"/>
+  <path d="M11 10h2v2h-2z"/>
+  <path d="M15 10h2v2h-2z"/>
+  <path d="M7 14h10"/>
 </svg>`, // typography,
-	'npm-badge': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>navigation</title>
-  <rect x="4" y="4" width="16" height="16" rx="2"/>
-  <path d="M8 8h8M8 12h8M8 16h5"/>
+	paragraph: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>paragraph</title>
+  <path d="M5 7h10a4 4 0 0 1 0 8H9"/>
+  <path d="M9 7v13"/>
+  <path d="M13 7v13"/>
 </svg>`, // typography,
-	'text-alignments': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>text-alignments</title>
-  <rect x="3" y="3" width="18" height="18" rx="2.0"/>
-  <path d="M3 14.0h18"/>
-  <path d="M4 6h16M8 6v12M16 6v12M6 17h12"/>
+	'rich-text': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>rich-text</title>
+  <rect x="3" y="4" width="18" height="16" rx="3"/>
+  <path d="M7 8h10"/>
+  <path d="M7 12h6"/>
+  <path d="M7 16h10"/>
+  <path d="M15 10.5h4"/>
+  <path d="M16 9v3"/>
 </svg>`, // typography,
 	text: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <title>text</title>
   <path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/>
   <path d="M8 10h8M8 14h8"/>
   <path d="M12 7v10"/>
-</svg>`, // typography,
-	typography: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M4 5h16"/>
-  <path d="M8 5v3"/>
-  <path d="M16 5v3"/>
-  <path d="M12 5v14"/>
-  <path d="M8 19h8"/>
 </svg>` // typography
 } as const;

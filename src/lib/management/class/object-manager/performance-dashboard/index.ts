@@ -1,5 +1,5 @@
-﻿import type { PerformanceDashboardRecipe } from '$stylist/management/interface/recipe/performance-dashboard';
-import type { TokenTimeRange } from '$stylist/management/type/enum/time-range';
+import type { PerformanceDashboardRecipe } from '$stylist/management/interface/recipe/performance-dashboard';
+import type { TokenTimeRange } from '$stylist/management/type/enum/time-range/token-time-range';
 import { TOKEN_PERFORMANCE_RANGE } from '$stylist/management/const/enum/performance-range';
 import { TOKEN_PERFORMANCE_BARS } from '$stylist/management/const/enum/performance-bars';
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createPlaygroundDeviceFrameState } from '$stylist/playground/function/state/playground-device-frame';
+	import createPlaygroundDeviceFrameState from '$stylist/playground/function/state/playground-device-frame/index.svelte';
 	import type { PlaygroundDeviceFrameProps } from '$stylist/playground/type/struct/playground-device-frame-props';
 	let props: PlaygroundDeviceFrameProps = $props();
 	const state = createPlaygroundDeviceFrameState(props);

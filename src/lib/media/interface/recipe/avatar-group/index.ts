@@ -14,7 +14,7 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/slot/status';
-import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
+import type { SlotBadge as IBadgeSlot } from '$stylist/information/interface/slot/badge';
 import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
 import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';

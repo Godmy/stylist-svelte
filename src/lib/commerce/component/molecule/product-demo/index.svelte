@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createProductDemoState } from '$stylist/commerce/function/state/product-demo';
+	import createProductDemoState from '$stylist/commerce/function/state/product-demo/createproductdemostate/index.svelte';
 	import type { ProductDemoProps } from '$stylist/commerce/interface/recipe/product-demo-props';
 
 	let props: ProductDemoProps = $props();

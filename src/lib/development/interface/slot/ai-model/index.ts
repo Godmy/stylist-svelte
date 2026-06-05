@@ -1,4 +1,3 @@
-
 export interface SlotAiModel {
 	name: string;
 	url: string;

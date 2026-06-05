@@ -9,9 +9,12 @@ export {
 	resolveAriaLabel
 } from './script';
 export {
+	createBadgeGroupState,
+	createBadgeState,
 	createBaseCardState,
 	createBlockquoteState,
 	createCharacterCountState,
+	createCountBadgeState,
 	createCounterState,
 	createDotState,
 	createIconPickerState,
@@ -19,7 +22,9 @@ export {
 	createListItemMarkerState,
 	createMetricBarState,
 	createMetricBarsCardState,
+	createNpmBadgeState,
 	createStatsCardState,
+	createStatusIndicatorState,
 	createTableBodyState,
 	createTableCellState,
 	createTableHeaderState,

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SelectorProps } from '$stylist/control/type/struct/selector-props';
-	import { createSelectorState } from '$stylist/control/function/state/selector';
+	import createSelectorState from '$stylist/control/function/state/selector/index.svelte';
 
 	let props: SelectorProps = $props();
 	const state = createSelectorState(props);

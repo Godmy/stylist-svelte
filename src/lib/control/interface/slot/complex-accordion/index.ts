@@ -1,4 +1,4 @@
-import type { HtmlAttributesWithContent } from '$stylist/information/interface/slot';
+import type { HtmlAttributesWithContent } from '$stylist/information/interface/slot/html-attributes-with-content';
 
 export interface SlotComplexAccordion extends HtmlAttributesWithContent<HTMLDivElement> {
 	multiple?: boolean;

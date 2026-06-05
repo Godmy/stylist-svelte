@@ -1,13 +1,13 @@
-﻿<script lang="ts">
-	import { createFileInputState } from '$stylist/file/function/state/file-input';
+<script lang="ts">
+	import createFileInputState from '$stylist/file/function/state/file-input/index.svelte';
 	import type { Props } from '$stylist/file/type/struct/file-input';
 
 	let props: Props = $props();
 	const state = createFileInputState(props);
 </script>
 
-<div class="relative">
-	<label class={`flex cursor-pointer items-center justify-center ${state.classes}`.trim()}>
+<div class="fi-wrapper">
+	<label class={`fi-label ${state.classes}`.trim()}>
 		<input
 			bind:this={state.inputElement}
 			type="file"
@@ -15,14 +15,14 @@
 			accept={state.accept}
 			disabled={state.disabled}
 			onchange={state.handleChange}
-			class="sr-only"
+			class="fi-hidden"
 		/>
-		<span class="flex items-center">
+		<span class="fi-content">
 			{#if state.fileName}
-				<span class="mr-2 truncate">{state.fileName}</span>
+				<span class="fi-filename">{state.fileName}</span>
 				<button
 					type="button"
-					class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+					class="fi-clear-btn"
 					onclick={(e) => {
 						e.stopPropagation();
 						state.clearSelection();
@@ -31,7 +31,7 @@
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
-						class="h-4 w-4"
+						class="fi-icon-sm"
 						viewBox="0 0 20 20"
 						fill="currentColor"
 					>
@@ -45,7 +45,7 @@
 			{:else}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="mr-2 h-5 w-5"
+					class="fi-icon-md"
 					viewBox="0 0 20 20"
 					fill="currentColor"
 				>
@@ -60,3 +60,58 @@
 		</span>
 	</label>
 </div>
+
+<style>
+	.fi-wrapper {
+		position: relative;
+	}
+
+	.fi-label {
+		display: flex;
+		cursor: pointer;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.fi-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+
+	.fi-content {
+		display: flex;
+		align-items: center;
+	}
+
+	.fi-filename {
+		margin-right: 0.5rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.fi-clear-btn {
+		color: var(--color-text-secondary);
+	}
+
+	.fi-clear-btn:hover {
+		color: var(--color-text-primary);
+	}
+
+	.fi-icon-sm {
+		width: 1rem;
+		height: 1rem;
+	}
+	.fi-icon-md {
+		margin-right: 0.5rem;
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+</style>

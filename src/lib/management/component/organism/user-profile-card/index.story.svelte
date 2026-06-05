@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
-	import { AccountSettingsStyleManager } from '$stylist/interaction';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import { AccountSettingsStyleManager } from '$stylist/interaction/class/style-manager/account-settings';
 	import UserProfileCard from './index.svelte';
 </script>
 

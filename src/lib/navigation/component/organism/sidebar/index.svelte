@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SidebarStateProps } from '$stylist/navigation/interface/recipe/sidebar-sidebar-state-props';
 	import Icon from '$stylist/media/component/atom/icon/index.svelte';
-	import { createSidebarState } from '$stylist/navigation/function/state/sidebar';
+	import createSidebarState from '$stylist/navigation/function/state/sidebar/index.svelte';
 
 	let props: SidebarStateProps = $props();
 	const state = createSidebarState(props);
@@ -73,7 +73,7 @@
 							>
 								{#if item.icon && state.isSidebarOpen}
 									<span class={state.navItemIconWrapperClass}>
-										<item.icon class="h-5 w-5" />
+										<item.icon style="width:1.25rem;height:1.25rem" />
 									</span>
 								{/if}
 								{#if state.isSidebarOpen}

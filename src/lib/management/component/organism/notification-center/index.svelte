@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createNotificationCenterState } from '$stylist/management/function/state/notification-center';
+	import createNotificationCenterState from '$stylist/management/function/state/notification-center/index.svelte';
 	import type { NotificationCenterProps } from '$stylist/chat/type/struct/notification-center-props';
 
 	let props: NotificationCenterProps = $props();

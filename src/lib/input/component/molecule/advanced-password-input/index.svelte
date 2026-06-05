@@ -20,9 +20,9 @@
  */
 -->
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createAdvancedPasswordInputState } from '$stylist/input/function/state/advanced-password-input';
+	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createAdvancedPasswordInputState from '$stylist/input/function/state/advanced-password-input/index.svelte';
 	import type { SlotAdvancedPasswordInput as IAdvancedPasswordInputProps } from '$stylist/input/interface/slot/advanced-password-input';
 
 	const Eye = 'eye';

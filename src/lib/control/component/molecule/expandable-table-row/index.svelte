@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const ChevronDown = 'chevron-down';
 	const ChevronRight = 'chevron-right';
 	import type { ExpandableTableRowProps } from '$stylist/control/type/struct/expandable-table-row-props';
-	import { createExpandableTableRowState } from '$stylist/control/function/state/expandable-table-row';
+	import createExpandableTableRowState from '$stylist/control/function/state/expandable-table-row/index.svelte';
 
 	let {
 		expandableContent,

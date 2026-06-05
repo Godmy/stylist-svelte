@@ -5,11 +5,11 @@ import type { BehaviorClickable as IClickable } from '$stylist/interaction/inter
 import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
 import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/behavior/shapeable';
 import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
-import type { ContainerProps } from '$stylist/layout/type/struct/container';
+import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
 import type { BorderRecipe } from '$stylist/layout/interface/recipe/border';
 import type { ThemeBackgroundRecipe } from '$stylist/layout/interface/recipe/background';
 import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
-import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
+import type { SlotBadge as IBadgeSlot } from '$stylist/information/interface/slot/badge';
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface ButtonComposedRecipe

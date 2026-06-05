@@ -1,4 +1,4 @@
-import type { GeneralToolbarRecipe } from '$stylist/navigation/type/struct/general-toolbar-props';
+import type { GeneralToolbarRecipe } from '$stylist/navigation/type/struct/general-toolbar-props/generaltoolbarrecipe';
 
 function getButtonSizeForToolbar(compact: boolean): 'sm' | 'md' {
 	return compact ? 'sm' : 'md';

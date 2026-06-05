@@ -1,4 +1,4 @@
-import type { Props } from '$stylist/file/type/struct/file-explorer/props';
+import type { Props } from '$stylist/file/type/struct/file-explorer/props/-props';
 import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
 import type { ViewMode } from '$stylist/file/type/struct/file-explorer/view-mode';
 import { handleDownload as handleDownloadFn } from '$stylist/file/function/script/file-explorer-handle-download';

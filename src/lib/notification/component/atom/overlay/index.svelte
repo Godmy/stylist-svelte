@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createOverlayState } from '$stylist/notification/function/state/overlay';
+	import createOverlayState from '$stylist/notification/function/state/overlay/index.svelte';
 
 	const props = $props();
 	const state = createOverlayState(props);

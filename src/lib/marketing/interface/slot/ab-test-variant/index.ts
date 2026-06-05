@@ -1,4 +1,3 @@
-
 export interface SlotABTestVariant {
 	id: string;
 	name: string;

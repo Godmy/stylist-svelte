@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { InteractionHTMLAttributes } from '$stylist/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { ValidationOrientation } from '../validationorientation';
 
 export type ValidationProps = InteractionHTMLAttributes<HTMLDivElement> & {

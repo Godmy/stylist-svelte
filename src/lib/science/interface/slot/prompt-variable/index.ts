@@ -1,4 +1,3 @@
-
 export interface SlotPromptVariable {
 	id: string;
 	name: string;

@@ -1,4 +1,3 @@
-
 export const TOOLTIP_POSITION_CLASSES: Record<string, string> = {
 	top: 'bottom-full left-1/2 -translate-x-1/2 mb-2',
 	'top-start': 'bottom-full left-0 mb-2',

@@ -1,10 +1,8 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type {
-	KanbanBoardType,
-	KanbanBoardAction
-} from '$stylist/management/type/struct/kanban-board';
+import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board/kanbanboardtype';
+import type { KanbanBoardAction } from '$stylist/management/type/struct/kanban-board/kanbanboardaction';
 import type { KanbanColumnType } from '$stylist/management/type/struct/kanban-column';
-import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card';
+import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card/kanbancardtype';
 import type { Snippet } from 'svelte';
 
 export interface KanbanBoardStateProps extends StructIntersectAll<[]> {

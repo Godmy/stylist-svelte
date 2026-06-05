@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { NodeTitleRecipe } from '$stylist/science/interface/recipe/node-title';
-	import { createNodeTitleState } from '$stylist/science/function/state/node-title';
+	import createNodeTitleState from '$stylist/science/function/state/node-title/index.svelte';
 
 	let props: NodeTitleRecipe = $props();
 

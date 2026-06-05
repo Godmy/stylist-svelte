@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ContentElement } from '$stylist/input/interface/slot/content-element';
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import ContentEditor from './index.svelte';

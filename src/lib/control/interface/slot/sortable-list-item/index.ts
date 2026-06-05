@@ -1,4 +1,3 @@
-
 export interface SlotSortableListItem {
 	id: string;
 	title: string;

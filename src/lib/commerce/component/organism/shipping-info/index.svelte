@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeShippingInfo as ShippingInfoContract } from '$stylist/commerce/interface/recipe/shipping-info';
-	import { createShippingInfoState as stateFn } from '$stylist/commerce/function/state/shipping-info';
+	import stateFn from '$stylist/commerce/function/state/shipping-info/index.svelte';
 
 	let props: ShippingInfoContract = $props();
 	const state = stateFn(props);

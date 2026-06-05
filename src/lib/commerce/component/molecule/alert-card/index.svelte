@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { AlertCardStoryProps } from '$stylist/commerce/interface/recipe/alert-card-story-props';
-	import { createAlertCardStoryState } from '$stylist/commerce/function/state/alert-card-story';
+	import createAlertCardStoryState from '$stylist/commerce/function/state/alert-card-story/createalertcardstorystate/index.svelte';
 
 	import AlertCardComponent from './index.svelte';
 

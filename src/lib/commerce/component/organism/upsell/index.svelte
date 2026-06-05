@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeUpsell as UpsellContract } from '$stylist/commerce/interface/recipe/upsell';
-	import { createUpsellState as stateFn } from '$stylist/commerce/function/state/upsell';
+	import stateFn from '$stylist/commerce/function/state/upsell/index.svelte';
 
 	let props: UpsellContract = $props();
 	const state = stateFn(props);

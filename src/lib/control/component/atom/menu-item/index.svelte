@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '$stylist/media/component/atom/icon/index.svelte';
-	import { createMenuItemState } from '$stylist/control/function/state/menu-item';
+	import createMenuItemState from '$stylist/control/function/state/menu-item/index.svelte';
 	import type { MenuItemProps } from '$stylist/control/type/struct/menu-item-props';
 
 	let props: MenuItemProps = $props();

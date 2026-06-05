@@ -3,7 +3,7 @@
 	import { CONTROL_BUTTON_ICON } from '$stylist/control/const/map/button';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { SlotButtonElement as ButtonElementProps } from '$stylist/control/interface/slot/button-element';
-	import { createButtonState } from '$stylist/control/function/state/button-atom';
+	import createButtonState from '$stylist/control/function/state/button-atom/index.svelte';
 
 	let props: ButtonElementProps & HTMLButtonAttributes = $props();
 	const state = createButtonState(props);

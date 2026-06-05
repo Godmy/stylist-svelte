@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
-	import type { PresenterSceneContract } from '$stylist/architecture/type/struct/presenter-scene';
+	import type { PresenterSceneContract } from '$stylist/architecture/type/struct/presenter-scene/presenter-scene-contract';
 	import { PresenterSceneStyleManager } from '$stylist/architecture/class/style-manager/presenter-scene';
-	import { createPresenterSceneState } from '$stylist/architecture/function/state/presenter-scene';
+	import createPresenterSceneState from '$stylist/architecture/function/state/presenter-scene/index.svelte';
 	import PresenterNodeShell from '$stylist/architecture/component/molecule/presenter-node-shell/index.svelte';
 
 	const contract: PresenterSceneContract = $props();
@@ -145,3 +145,123 @@
 		</aside>
 	{/if}
 </section>
+
+<style>
+	.presenter-scene {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		min-height: 480px;
+		background: var(--color-background-primary);
+		border-radius: var(--radius-xl, 1rem);
+		border: 1px solid var(--color-border-primary);
+		overflow: hidden;
+	}
+
+	.presenter-scene__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid var(--color-border-primary);
+		background: var(--color-background-secondary);
+		flex-shrink: 0;
+	}
+
+	.presenter-scene__title {
+		margin: 0;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
+	}
+
+	.presenter-scene__subtitle {
+		margin: 0.25rem 0 0;
+		font-size: 0.8rem;
+		color: var(--color-text-secondary);
+	}
+
+	.presenter-scene__controls {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+		flex-shrink: 0;
+	}
+
+	.presenter-scene__control {
+		padding: 0.35rem 0.7rem;
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--radius-md, 0.375rem);
+		background: var(--color-background-primary);
+		color: var(--color-text-primary);
+		font-size: 0.8rem;
+		cursor: pointer;
+	}
+
+	.presenter-scene__control:hover {
+		background: var(--color-background-secondary);
+	}
+
+	.presenter-scene__viewport {
+		flex: 1;
+		position: relative;
+		overflow: hidden;
+		cursor: grab;
+		outline: none;
+		user-select: none;
+	}
+
+	.presenter-scene__viewport.dragging {
+		cursor: grabbing;
+	}
+
+	.presenter-scene__grid {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+	}
+
+	.presenter-scene__links {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		overflow: visible;
+	}
+
+	.presenter-scene__inspector {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 10;
+		min-width: 11rem;
+		padding: 0.75rem;
+		background: var(--color-background-primary);
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--radius-lg, 0.5rem);
+		box-shadow: var(--shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1));
+		font-size: 0.8rem;
+		color: var(--color-text-primary);
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.presenter-scene__badge {
+		font-weight: 600;
+		font-size: 0.85rem;
+		padding-bottom: 0.4rem;
+		border-bottom: 1px solid var(--color-border-secondary);
+		margin-bottom: 0.2rem;
+	}
+
+	.presenter-scene__inspector-line {
+		color: var(--color-text-secondary);
+	}
+
+	.presenter-scene__description {
+		margin: 0.4rem 0 0;
+		line-height: 1.5;
+		color: var(--color-text-secondary);
+	}
+</style>

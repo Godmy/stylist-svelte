@@ -1,5 +1,6 @@
 <script lang="ts">
-	import type { CanvasObject, CanvasUser } from '$stylist/canvas';
+	import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
+	import type { CanvasUser } from '$stylist/canvas/type/struct/canvas-user';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 

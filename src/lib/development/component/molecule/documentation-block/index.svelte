@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { DocumentationBlockProps } from '$stylist/development/type/struct/documentation-block-props';
-	import { createDocumentationBlockState } from '$stylist/development/function/state/documentation-block';
+	import createDocumentationBlockState from '$stylist/development/function/state/documentation-block/index.svelte';
 	import CodeSection from '$stylist/development/component/molecule/code-section/index.svelte';
-	import { Badge } from '$stylist/typography';
-	import { Divider } from '$stylist/layout';
+	import Badge from '$stylist/information/component/atom/badge/index.svelte';
+	import Divider from '$stylist/layout/component/atom/divider/index.svelte';
 
 	let {
 		title = '',

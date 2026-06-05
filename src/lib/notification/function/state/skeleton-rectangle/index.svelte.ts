@@ -8,7 +8,9 @@ export function createSkeletonRectangleState(props: SkeletonRectangleProps) {
 		return rest;
 	});
 	const rootClass = $derived(SkeletonRectangleStyleManager.root(props.class));
-	const style = $derived(SkeletonRectangleStyleManager.style(props.width ?? 120, props.height ?? 80));
+	const style = $derived(
+		SkeletonRectangleStyleManager.style(props.width ?? 120, props.height ?? 80)
+	);
 
 	return {
 		get content() {

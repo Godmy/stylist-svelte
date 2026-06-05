@@ -3,7 +3,7 @@
 	import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
 	import MessageList from '$stylist/chat/component/molecule/message-list/index.svelte';
 	import MessageInput from '$stylist/chat/component/atom/message-input/index.svelte';
-	import { createChatWindowState } from '$stylist/chat/function/state/chat-window';
+	import createChatWindowState from '$stylist/chat/function/state/chat-window/index.svelte';
 
 	let props: {
 		chat: {

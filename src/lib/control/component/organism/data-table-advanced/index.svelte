@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotDataTableAdvanced as DataTableAdvancedProps } from '$stylist/control/interface/slot/data-table-advanced';
-	import { createDataTableAdvancedState } from '$stylist/control/function/state/data-table-advanced';
+	import createDataTableAdvancedState from '$stylist/control/function/state/data-table-advanced/index.svelte';
 
 	let {
 		data = [],

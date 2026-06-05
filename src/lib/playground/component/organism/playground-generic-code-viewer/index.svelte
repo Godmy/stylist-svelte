@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createPlaygroundGenericCodeViewerState } from '$stylist/playground/function/state/playground-generic-code-viewer';
+	import createPlaygroundGenericCodeViewerState from '$stylist/playground/function/state/playground-generic-code-viewer/index.svelte';
 	import type { PlaygroundGenericCodeViewerProps } from '$stylist/playground/type/struct/playground-generic-code-viewer-props';
 	let props: PlaygroundGenericCodeViewerProps = $props();
 	const state = createPlaygroundGenericCodeViewerState(props);

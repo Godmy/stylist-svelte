@@ -1,8 +1,10 @@
 <script lang="ts">
-	import { NodeHeader, NodeProperty, PortGroup } from '$stylist/science';
+	import NodeHeader from '$stylist/science/component/molecule/node-header/index.svelte';
+	import NodeProperty from '$stylist/science/component/atom/node-property/index.svelte';
+	import PortGroup from '$stylist/science/component/molecule/port-group/index.svelte';
 	import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port';
 	import type { LitegraphNodeProps } from '$stylist/science/type/struct/litegraph-node-props';
-	import { createLiteGraphNodeState } from '$stylist/science/function/state/litegraph-node';
+	import createLiteGraphNodeState from '$stylist/science/function/state/litegraph-node/index.svelte';
 
 	let props: LitegraphNodeProps = $props();
 	const state = createLiteGraphNodeState(props);

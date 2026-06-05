@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ConnectionLineRecipe } from '$stylist/canvas/interface/recipe/connection-line';
-	import { createConnectionLineState } from '$stylist/canvas/function/state/connection-line';
+	import createConnectionLineState from '$stylist/canvas/function/state/connection-line/index.svelte';
 
 	let props: ConnectionLineRecipe = $props();
 	const state = createConnectionLineState(props);

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const X = 'x';
-	import { createTagState } from '$stylist/control/function/state/tag';
+	import createTagState from '$stylist/control/function/state/tag/index.svelte';
 	import type { TagProps } from '$stylist/control/type/struct/tag-props';
 
 	let props: TagProps = $props();

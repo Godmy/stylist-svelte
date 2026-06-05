@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { StoreLocatorStore } from '$stylist/geo';
-	import { Story } from '$stylist/playground/component';
+	import type { StoreLocatorStore } from '$stylist/geo/type/struct/store-locator/storelocatorstore';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import StoreLocator from './index.svelte';

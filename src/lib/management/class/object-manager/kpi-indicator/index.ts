@@ -1,5 +1,5 @@
 import type { TokenTrend } from '$stylist/management/type/enum/trend';
-import type { TokenKPI } from '$stylist/typography/type/enum/kpi';
+import type { TokenKPI } from '$stylist/management/type/enum/kpi';
 
 export class ObjectManagerKPIIndicator {
 	static resolvePercentage(currentValue: number, targetValue: number): number {

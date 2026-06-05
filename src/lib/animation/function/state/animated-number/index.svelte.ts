@@ -1,5 +1,6 @@
 import type { AnimatedNumberRecipe as AnimatedNumberProps } from '$stylist/animation/interface/recipe/animated-number';
-import { AnimationStyleManager } from '$stylist/animation/class/style-manager/animation';
+import { formatAnimatedValue } from '$stylist/animation/function/script/format-animated-value';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createAnimatedNumberState(props: AnimatedNumberProps) {
 	const value = $derived(props.value ?? 0);
@@ -8,13 +9,14 @@ export function createAnimatedNumberState(props: AnimatedNumberProps) {
 	const separator = $derived(props.separator ?? ',');
 	const decimals = $derived(props.decimals ?? 0);
 	const classes = $derived(
-		AnimationStyleManager.getAnimatedNumberClasses(
+		mergeClassNames(
+			'c-animation-animated-number',
 			typeof props.class === 'string' ? props.class : undefined
 		)
 	);
 
 	const formattedValue = $derived(
-		AnimationStyleManager.formatAnimated(value, {
+		formatAnimatedValue(value, {
 			format: props.format ?? 'number',
 			separator,
 			decimals

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { createMediaLibraryState } from '$stylist/media/function/state/media-library';
-	import type { MediaLibraryProps } from '$stylist/media/type/struct/media-library';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import createMediaLibraryState from '$stylist/media/function/state/media-library/index.svelte';
+	import type { MediaLibraryProps } from '$stylist/media/type/struct/media-library/medialibrary-props';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 
 	let props: MediaLibraryProps = $props();
 	const state = createMediaLibraryState(props);

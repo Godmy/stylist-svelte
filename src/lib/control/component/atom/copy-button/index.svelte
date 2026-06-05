@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const Copy = 'copy';
 	const Check = 'check';
 	import type { SlotCopyButton as CopyButtonProps } from '$stylist/control/interface/slot/copy-button';
-	import { createCopyButtonState } from '$stylist/control/function/state/copy-button';
+	import createCopyButtonState from '$stylist/control/function/state/copy-button/index.svelte';
 
 	let props: CopyButtonProps = $props();
 	const state = createCopyButtonState(props);

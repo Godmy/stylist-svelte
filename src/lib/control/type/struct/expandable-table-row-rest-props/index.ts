@@ -1,4 +1,4 @@
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
 
 export type ExpandableTableRowRestProps = Omit<
 	ArchitectureHTMLAttributes<HTMLTableRowElement>,

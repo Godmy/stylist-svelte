@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createErrorMessageState } from '$stylist/notification/function/state/error-message';
+	import createErrorMessageState from '$stylist/notification/function/state/error-message/index.svelte';
 	import type { SlotErrorMessage as ErrorMessageProps } from '$stylist/notification/interface/slot/error-message-error-message';
 
 	let props: ErrorMessageProps = $props();

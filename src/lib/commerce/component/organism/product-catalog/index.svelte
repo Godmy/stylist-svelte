@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ProductCatalogProps as Props } from '$stylist/commerce/type/struct/product-catalog-props';
-	import { createProductCatalogState } from '$stylist/commerce/function/state/product-catalog';
+	import createProductCatalogState from '$stylist/commerce/function/state/product-catalog/index.svelte';
 
 	let props: Props = $props();
 	const state = createProductCatalogState(props);

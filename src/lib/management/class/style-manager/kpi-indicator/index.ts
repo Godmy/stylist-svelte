@@ -6,7 +6,7 @@
  * - Использует CSS-переменные из темы для стилизации
  */
 import type { TokenTrend } from '$stylist/management/type/enum/trend';
-import type { TokenKPI } from '$stylist/typography/type/enum/kpi';
+import type { TokenKPI } from '$stylist/management/type/enum/kpi';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 export class KPIIndicatorStyleManager {

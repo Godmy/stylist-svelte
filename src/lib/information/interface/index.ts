@@ -3,13 +3,17 @@ export type { BehaviorMetricValue } from './behavior';
 export type {
 	AccessibilityCheckboxRecipe,
 	AtomicPrinciplesRecipe,
+	BadgeGroupRecipe,
+	BadgeRecipe,
 	BaseCardRecipe,
+	CountBadgeRecipe,
 	CounterRecipe,
 	DotRecipe,
 	ListItemMarkerRecipe,
 	MetricBarRecipe,
 	MetricBarsCardRecipe,
 	MetricCardRecipe,
+	NpmBadgeRecipe,
 	SearchResultsRecipe,
 	SortRecipe,
 	SortableGridRecipe,
@@ -22,8 +26,10 @@ export type {
 	TableSectionRecipe
 } from './recipe';
 export type {
+	BadgeGroupItem,
 	HtmlAttributesBase,
 	HtmlAttributesWithChildren,
 	HtmlAttributesWithContent,
+	SlotBadge,
 	SlotStatus
 } from './slot';

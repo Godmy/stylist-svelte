@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotHoverable as HoverProps } from '$stylist/interaction/interface/slot/hoverable';
-	import { createHoverableState } from '$stylist/interaction/function/state/hoverable';
+	import createHoverableState from '$stylist/interaction/function/state/hoverable/index.svelte';
 
 	let props: HoverProps = $props();
 	const state = createHoverableState(props);
@@ -16,3 +16,24 @@
 		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 	{/if}
 </div>
+
+<style>
+	.c-hoverable {
+		transition: all var(--duration-150, 150ms) var(--easing-smooth, ease-in-out);
+	}
+
+	.c-hoverable--hover-effect:hover {
+		opacity: 0.8;
+		transform: scale(1.05);
+	}
+
+	.c-hoverable--hovered {
+		opacity: 0.8;
+		transform: scale(1.05);
+	}
+
+	.c-hoverable--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+</style>

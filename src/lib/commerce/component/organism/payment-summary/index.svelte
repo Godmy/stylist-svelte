@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PaymentSummaryProps } from '$stylist/commerce/type/struct/payment-summary-props';
-	import { createPaymentSummaryState } from '$stylist/commerce/function/state/payment-summary';
+	import createPaymentSummaryState from '$stylist/commerce/function/state/payment-summary/index.svelte';
 
 	let props: PaymentSummaryProps = $props();
 	const state = createPaymentSummaryState(props);

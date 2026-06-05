@@ -1,6 +1,4 @@
-import type {
-	HtmlAttributesBase
-} from '$stylist/information/interface/slot';
+import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
 
 export interface SlotStepConnector extends HtmlAttributesBase<HTMLDivElement> {
 	active?: boolean;

@@ -1,6 +1,6 @@
 import type { ArchitectureHTMLAttributes } from '$stylist/architecture/type/struct/item-architecture-html-attributes';
 import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
-import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
+import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
 
 export type PresenterSceneContract = ArchitectureHTMLAttributes<HTMLElement> & {
 	class?: string;

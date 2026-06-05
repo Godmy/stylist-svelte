@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createToolButtonState } from '$stylist/control/function/state/tool-button';
+	import createToolButtonState from '$stylist/control/function/state/tool-button/index.svelte';
 	import type { ToolButtonProps } from '$stylist/control/type/struct/tool-button-props';
 
 	let props: ToolButtonProps = $props();

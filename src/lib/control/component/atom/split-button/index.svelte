@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { SlotButtonElement as ButtonElementProps } from '$stylist/control/interface/slot/button-element';
-	import { createSplitButtonState } from '$stylist/control/function/state/split-button';
+	import createSplitButtonState from '$stylist/control/function/state/split-button/index.svelte';
 	import type { SplitButtonButtonAttributes } from '$stylist/control/type/struct/split-button-button-attributes';
 
 	const ChevronDown = 'chevron-down';

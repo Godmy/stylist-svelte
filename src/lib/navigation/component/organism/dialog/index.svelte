@@ -1,25 +1,62 @@
 <script lang="ts">
 	import type { SlotDialog as DialogProps } from '$stylist/navigation/interface/slot/dialog';
-	import { createDialogState } from '$stylist/navigation/function/state/dialog';
+	import createDialogState from '$stylist/navigation/function/state/dialog/index.svelte';
 
 	let props: DialogProps = $props();
 	const state = createDialogState(props);
 </script>
 
 {#if props.open}
-	<div
-		class="fixed inset-0 z-[var(--z-index-modal)] flex items-center justify-center bg-[var(--color-neutral-900)]/40 p-4"
-	>
+	<div class="nav-overlay">
 		<div class={state.dialogClasses} {...props}>
-			<div class="flex items-center justify-between">
-				<h3 class="font-semibold">{props.title}</h3>
+			<div class="nav-dialog-header">
+				<h3 class="nav-dialog-title">{props.title}</h3>
 				<button type="button" onclick={props.onClose}>x</button>
 			</div>
-			<p class="mt-2 text-sm text-[var(--color-text-secondary)]">{props.description}</p>
-			<div class="mt-4 flex justify-end">
-				<button type="button" class="rounded border px-3 py-1" onclick={props.onClose}>Close</button
-				>
+			<p class="nav-dialog-desc">{props.description}</p>
+			<div class="nav-dialog-footer">
+				<button type="button" class="nav-btn-close" onclick={props.onClose}>Close</button>
 			</div>
 		</div>
 	</div>
 {/if}
+
+<style>
+	.nav-overlay {
+		position: fixed;
+		inset: 0;
+		z-index: var(--z-index-modal);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: color-mix(in srgb, var(--color-neutral-900) 40%, transparent);
+		padding: 1rem;
+	}
+
+	.nav-dialog-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.nav-dialog-title {
+		font-weight: 600;
+	}
+	.nav-dialog-desc {
+		margin-top: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.nav-dialog-footer {
+		margin-top: 1rem;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.nav-btn-close {
+		border-radius: 0.25rem;
+		border: 1px solid;
+		padding: 0.25rem 0.75rem;
+	}
+</style>

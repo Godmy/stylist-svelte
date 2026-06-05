@@ -10,7 +10,7 @@
 	 */
 
 	import type { ButtonMoleculeProps } from '$stylist/control/type/alias/button-molecule-props';
-	import { createButtonMoleculeState } from '$stylist/control/function/state/button-molecule';
+	import createButtonMoleculeState from '$stylist/control/function/state/button-molecule/index.svelte';
 
 	let props: ButtonMoleculeProps = $props();
 	const state = createButtonMoleculeState(props);

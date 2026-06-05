@@ -2,7 +2,7 @@
 	import type { ExpandableCardRecipe } from '$stylist/commerce/interface/recipe/expandable-card';
 	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 	import { ObjectManagerExpandableCard } from '$stylist/commerce/class/object-manager/expandable-card';
-	import { createExpandableCardState } from '$stylist/commerce/function/state/expandable-card';
+	import createExpandableCardState from '$stylist/commerce/function/state/expandable-card/index.svelte';
 
 	let props: ExpandableCardRecipe = $props();
 	const state = createExpandableCardState(props);

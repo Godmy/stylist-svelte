@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { StatCardRecipe } from '$stylist/management/interface/recipe/stat-card';
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import StatCard from './index.svelte';

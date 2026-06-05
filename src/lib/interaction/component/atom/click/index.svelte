@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotClick as ClickProps } from '$stylist/control/interface/slot/click';
-	import { createClickState } from '$stylist/control/function/state/click';
+	import createClickState from '$stylist/control/function/state/click/index.svelte';
 
 	let props: ClickProps = $props();
 	const state = createClickState(props);
@@ -85,3 +85,25 @@
 		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 	{/if}
 </div>
+
+<style>
+	.c-click {
+		position: relative;
+		cursor: pointer;
+		transition: all var(--duration-120, 120ms) var(--easing-smooth, ease-in-out);
+	}
+
+	.c-click--press:active {
+		transform: scale(0.95);
+	}
+
+	.c-click--hover:hover {
+		opacity: 0.8;
+	}
+
+	.c-click--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+</style>

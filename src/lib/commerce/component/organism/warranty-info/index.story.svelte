@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotWarrantyClaim } from '$stylist/commerce/interface/slot/warranty-claim';
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import RecipeWarrantyInfo from './index.svelte';

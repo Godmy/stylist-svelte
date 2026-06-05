@@ -1,30 +1,76 @@
 <script lang="ts">
 	import type { SlotModal as ModalProps } from '$stylist/navigation/interface/slot/modal';
-	import { createModalState } from '$stylist/navigation/function/state/modal';
+	import createModalState from '$stylist/navigation/function/state/modal/index.svelte';
 
 	let props: ModalProps = $props();
 	const state = createModalState(props);
 </script>
 
 {#if props.open}
-	<div
-		class="fixed inset-0 z-[var(--z-index-modal)] flex items-center justify-center bg-[var(--color-neutral-900)]/50 p-4"
-	>
+	<div class="nav-overlay nav-overlay--50">
 		<div class={state.dialogClasses} {...props}>
-			<div class="flex items-center justify-between">
-				<h2 class="text-lg font-semibold">{props.title}</h2>
+			<div class="nav-dialog-header">
+				<h2 class="nav-modal-title">{props.title}</h2>
 				<button type="button" onclick={props.onClose}>x</button>
 			</div>
-			<div class="mt-4 text-sm text-[var(--color-text-primary)]">Modal body content</div>
-			<div class="mt-6 flex justify-end gap-2">
-				<button class="rounded border px-3 py-1" type="button" onclick={props.onClose}
-					>Cancel</button
-				><button
-					class="rounded bg-[var(--color-primary-600)] px-3 py-1 text-[var(--color-text-inverse)]"
-					type="button"
-					onclick={props.onClose}>Confirm</button
-				>
+			<div class="nav-modal-body">Modal body content</div>
+			<div class="nav-modal-footer">
+				<button class="nav-btn-close" type="button" onclick={props.onClose}>Cancel</button>
+				<button class="nav-btn-confirm" type="button" onclick={props.onClose}>Confirm</button>
 			</div>
 		</div>
 	</div>
 {/if}
+
+<style>
+	.nav-overlay {
+		position: fixed;
+		inset: 0;
+		z-index: var(--z-index-modal);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: color-mix(in srgb, var(--color-neutral-900) 40%, transparent);
+		padding: 1rem;
+	}
+
+	.nav-overlay--50 {
+		background-color: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
+	}
+
+	.nav-dialog-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.nav-modal-title {
+		font-size: 1.125rem;
+		font-weight: 600;
+	}
+	.nav-modal-body {
+		margin-top: 1rem;
+		font-size: 0.875rem;
+		color: var(--color-text-primary);
+	}
+
+	.nav-modal-footer {
+		margin-top: 1.5rem;
+		display: flex;
+		justify-content: flex-end;
+		gap: 0.5rem;
+	}
+
+	.nav-btn-close {
+		border-radius: 0.25rem;
+		border: 1px solid;
+		padding: 0.25rem 0.75rem;
+	}
+
+	.nav-btn-confirm {
+		border-radius: 0.25rem;
+		background-color: var(--color-primary-600);
+		padding: 0.25rem 0.75rem;
+		color: var(--color-text-inverse);
+	}
+</style>

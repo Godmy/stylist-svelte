@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotDragAndDrop as DragAndDropProps } from '$stylist/control/interface/slot/drag-and-drop';
-	import { createDragAndDropState } from '$stylist/control/function/state/drag-and-drop';
+	import createDragAndDropState from '$stylist/control/function/state/drag-and-drop/index.svelte';
 
 	let props: DragAndDropProps = $props();
 	const state = createDragAndDropState(props);
@@ -31,16 +31,13 @@
 
 	function handleDragStart(event: DragEvent) {
 		if (state.disabled || !state.draggable) return;
-
 		state.startDragging();
-
 		if (props.dragData) {
 			event.dataTransfer?.setData('application/json', JSON.stringify(props.dragData));
 		}
 		if (event.dataTransfer) {
 			event.dataTransfer.effectAllowed = 'move';
 		}
-
 		props.onDragStart?.(event);
 	}
 
@@ -80,12 +77,10 @@
 		if (state.disabled || !state.dropzone) return;
 		event.preventDefault();
 		state.leaveDropZone();
-
 		const data = event.dataTransfer?.getData('application/json');
 		if (data) {
 			(event as any).dragData = JSON.parse(data);
 		}
-
 		props.onDrop?.(event);
 	}
 
@@ -108,7 +103,7 @@
 	ondrop={handleDrop}
 >
 	{#if state.showDragHandle && state.draggable && !state.disabled}
-		<div class="drag-handle-icon absolute top-2 right-2 opacity-50">
+		<div class="drag-handle-icon">
 			<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
 				<circle cx="4" cy="4" r="1.5" />
 				<circle cx="4" cy="8" r="1.5" />
@@ -123,3 +118,41 @@
 		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
 	{/if}
 </div>
+
+<style>
+	.c-drag-and-drop {
+		position: relative;
+		transition: all var(--duration-200, 200ms) var(--easing-smooth, ease-in-out);
+	}
+
+	.c-drag-and-drop--draggable {
+		cursor: grab;
+	}
+
+	.c-drag-and-drop--draggable:active {
+		cursor: grabbing;
+	}
+
+	.c-drag-and-drop--dragging {
+		opacity: 0.5;
+	}
+
+	.c-drag-and-drop--dropzone.c-drag-and-drop--drop-active {
+		box-shadow: 0 0 0 2px var(--color-primary-500);
+		background: color-mix(in srgb, var(--color-primary-500) 5%, transparent);
+	}
+
+	.c-drag-and-drop--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
+	.drag-handle-icon {
+		position: absolute;
+		top: 0.5rem;
+		right: 0.5rem;
+		opacity: 0.5;
+		pointer-events: none;
+	}
+</style>

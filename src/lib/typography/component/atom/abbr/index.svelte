@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotAbbr as AbbrProps } from '$stylist/typography/interface/slot/abbr';
-	import { createAbbrState } from '$stylist/typography/function/state/abbr';
+	import createAbbrState from '$stylist/typography/function/state/abbr/index.svelte';
 
 	let props: AbbrProps = $props();
 
@@ -20,3 +20,11 @@
 		{@render children()}
 	{/if}
 </abbr>
+
+<style>
+	.c-typography-abbr {
+		text-decoration: underline dotted;
+		text-underline-offset: 0.12em;
+		cursor: help;
+	}
+</style>

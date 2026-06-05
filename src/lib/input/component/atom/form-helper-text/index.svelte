@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotFormHelperText as IFormHelperTextProps } from '$stylist/input/interface/slot/form-helper-text';
-	import { createFormHelperTextState } from '$stylist/input/function/state/form-helper-text';
+	import createFormHelperTextState from '$stylist/input/function/state/form-helper-text/index.svelte';
 
 	let props: IFormHelperTextProps = $props();
 	const state = createFormHelperTextState(props);

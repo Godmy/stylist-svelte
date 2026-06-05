@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createPlaygroundShortcutsPanelState } from '$stylist/playground/function/state/playground-shortcuts-panel';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createPlaygroundShortcutsPanelState from '$stylist/playground/function/state/playground-shortcuts-panel/index.svelte';
 	import type { PlaygroundShortcutsPanelProps } from '$stylist/playground/type/struct/playground-shortcuts-panel-props';
 	const Keyboard = 'keyboard';
 	const Command = 'command';

@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 	import ChatStatusIndicator from '$stylist/chat/component/atom/chat-status-indicator/index.svelte';
-	import { createUserStatusState } from '$stylist/chat/function/state/user-status';
+	import createUserStatusState from '$stylist/chat/function/state/user-status/index.svelte';
 
 	export type UserStatusProps = {
 		user: User;

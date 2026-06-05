@@ -1,10 +1,17 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	TokenDocumentFormat,
-	TokenKPI,
-	TokenSoftwareBadge,
-	TokenTypographyIcon
+	TokenFontSize,
+	TokenFontWeight,
+	TokenLetterSpacing,
+	TokenLineHeight,
+	TokenTypographyIcon,
+	TokenTypographyTone
 } from './enum';
 export type { TokenFontFamily } from './map';
-export type { RecordFontSize } from './record';
-export type { FontIntent, StructThemeTypography, TypographyTextProps } from './struct';
+export type {
+	FontIntent,
+	StructRichTextMark,
+	StructRichTextSegment,
+	StructThemeTypography,
+	TypographyTextProps
+} from './struct';

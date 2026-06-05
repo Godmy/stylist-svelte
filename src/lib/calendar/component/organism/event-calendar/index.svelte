@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { createEventCalendarState } from '$stylist/calendar/function/state/event-calendar';
+	import createEventCalendarState from '$stylist/calendar/function/state/event-calendar/index.svelte';
 	import type { RecipeEventCalendar as EventCalendarStateProps } from '$stylist/calendar/interface/recipe/event-calendar';
-	import { Button } from '$stylist/control/component/atom/button';
-	import { Icon } from '$stylist/media/component/atom/icon';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 
 	const ChevronLeft = 'chevron-left';
 	const ChevronRight = 'chevron-right';
@@ -11,70 +11,64 @@
 	const state = createEventCalendarState(props);
 </script>
 
-<div class={`${state.wrapperClasses} c-event-calendar ${state.className}`} {...state.restProps}>
-	<div class={`${state.headerClasses} ${state.headerClassProp}`}>
-		<div class="flex items-center">
+<div class="{state.wrapperClasses} {state.className}" {...state.restProps}>
+	<div class="{state.headerClasses} {state.headerClassProp}">
+		<div class="c-event-calendar__header-left">
 			<Button variant="ghost" size="sm" onclick={() => state.navigateCurrent(-1)}>
 				<Icon name={ChevronLeft} class="h-5 w-5" />
 			</Button>
-			<Button variant="ghost" size="sm" onclick={state.navigateToToday} class="mx-2">Today</Button>
+			<Button
+				variant="ghost"
+				size="sm"
+				onclick={state.navigateToToday}
+				class="c-event-calendar__today-btn">Today</Button
+			>
 			<Button variant="ghost" size="sm" onclick={() => state.navigateCurrent(1)}>
 				<Icon name={ChevronRight} class="h-5 w-5" />
 			</Button>
-			<h2 class="ml-4 font-[--font-weight-bold] text-[--color-text-primary] text-[--text-size-xl]">
-				{state.displayTitle}
-			</h2>
+			<h2 class="c-event-calendar__title">{state.displayTitle}</h2>
 		</div>
-
-		<div class="flex space-x-[--spacing-sm]">
+		<div class="c-event-calendar__view-tabs">
 			<Button
 				variant={state.currentViewMode === 'day' ? 'primary' : 'ghost'}
 				size="sm"
-				onclick={() => state.changeViewMode('day')}
+				onclick={() => state.changeViewMode('day')}>Day</Button
 			>
-				Day
-			</Button>
 			<Button
 				variant={state.currentViewMode === 'week' ? 'primary' : 'ghost'}
 				size="sm"
-				onclick={() => state.changeViewMode('week')}
+				onclick={() => state.changeViewMode('week')}>Week</Button
 			>
-				Week
-			</Button>
 			<Button
 				variant={state.currentViewMode === 'month' ? 'primary' : 'ghost'}
 				size="sm"
-				onclick={() => state.changeViewMode('month')}
+				onclick={() => state.changeViewMode('month')}>Month</Button
 			>
-				Month
-			</Button>
 		</div>
 	</div>
 
 	{#if props.children}
-		<div class="calendar-content">
+		<div class="c-event-calendar__content">
 			{#if props.children}{@render props.children()}{/if}
 		</div>
 	{:else if state.currentViewMode === 'day' || state.currentViewMode === 'week'}
-		<div class="grid grid-cols-1 md:grid-cols-7">
+		<div class="c-event-calendar__day-week-grid">
 			{#if state.currentViewMode === 'week'}
 				{#each state.weekdays as day}
-					<div class={`${state.getWeekdayHeaderClasses()} ${state.headerClassProp}`}>
-						{day}
-					</div>
+					<div class="{state.getWeekdayHeaderClasses()} {state.headerClassProp}">{day}</div>
 				{/each}
 			{/if}
 			{#each state.days as day}
-				<div class="border-r border-[--color-border-primary]">
+				<div class="c-event-calendar__day-col">
 					<div class={state.getDateHeaderClasses(day.isToday)}>
 						{day.date.toLocaleDateString('en-US', { weekday: 'short' })}, {day.date.getDate()}
 					</div>
-
-					<div class="max-h-[400px] overflow-y-auto p-[--spacing-sm]">
+					<div class="c-event-calendar__day-events">
 						{#if state.showAllDayEvents}
 							{#each day.events as event}
 								<div
-									class={`${state.getEventClasses(!!event.color, event.color)} ${state.eventClass}`}
+									class="{state.getEventClasses(!!event.color, event.color)} {state.eventClass}"
+									style={event.color ? `background-color: ${event.color}` : undefined}
 									role="button"
 									tabindex="0"
 									onclick={(e) => state.handleEventClick(event, e)}
@@ -87,14 +81,12 @@
 								>
 									{event.title}
 									{#if state.showEventDuration && !event.allDay}
-										<span class="ml-1 text-[--color-text-secondary] text-[--text-size-xs]">
-											({state.formatTimeRange(event.start, event.end)})
-										</span>
+										<span class="c-event-calendar__event-time"
+											>({state.formatTimeRange(event.start, event.end)})</span
+										>
 									{/if}
 									{#if state.showEventDuration && event.allDay}
-										<span class="ml-1 text-[--color-text-secondary] text-[--text-size-xs]">
-											(all day)</span
-										>
+										<span class="c-event-calendar__event-time">(all day)</span>
 									{/if}
 								</div>
 							{/each}
@@ -106,14 +98,11 @@
 	{:else}
 		<div class={state.getGridClasses()}>
 			{#each state.weekdays as day}
-				<div class={`${state.getWeekdayHeaderClasses()} ${state.headerClassProp}`}>
-					{day}
-				</div>
+				<div class="{state.getWeekdayHeaderClasses()} {state.headerClassProp}">{day}</div>
 			{/each}
-
 			{#each state.days as day}
 				<div
-					class={`${state.getDayCellClasses(day.isToday, day.isCurrentMonth)} ${state.dayClass}`}
+					class="{state.getDayCellClasses(day.isToday, day.isCurrentMonth)} {state.dayClass}"
 					role="button"
 					tabindex="0"
 					onclick={() => state.handleDayClick(day.date)}
@@ -124,15 +113,13 @@
 						}
 					}}
 				>
-					<div class={state.getDateNumberClasses(day.isToday)}>
-						{day.date.getDate()}
-					</div>
-
-					<div class="mt-[--spacing-xs] max-h-[6rem] space-y-[--spacing-xs] overflow-y-auto">
+					<div class={state.getDateNumberClasses(day.isToday)}>{day.date.getDate()}</div>
+					<div class="c-event-calendar__day-events">
 						{#if state.showAllDayEvents}
 							{#each day.events as event}
 								<div
-									class={`${state.getEventClasses(!!event.color, event.color)} ${state.eventClass}`}
+									class="{state.getEventClasses(!!event.color, event.color)} {state.eventClass}"
+									style={event.color ? `background-color: ${event.color}` : undefined}
 									role="button"
 									tabindex="0"
 									onclick={(e) => state.handleEventClick(event, e)}
@@ -145,9 +132,7 @@
 								>
 									{event.title}
 									{#if state.showEventDuration && event.allDay}
-										<span class="ml-1 text-[--color-text-secondary] text-[--text-size-xs]">
-											(all day)</span
-										>
+										<span class="c-event-calendar__event-time">(all day)</span>
 									{/if}
 								</div>
 							{/each}
@@ -162,34 +147,21 @@
 		<div class={state.getModalOverlayClasses()}>
 			<div class={state.getModalContentClasses()}>
 				<div class={state.getModalHeaderClasses()}>
-					<h3
-						class="font-[--font-weight-semibold] text-[--color-text-primary] text-[--text-size-lg]"
-					>
-						{state.selectedEvent.title}
-					</h3>
-					<button
-						onclick={state.closeEventActions}
-						class="text-[--color-text-secondary] hover:text-[--color-text-primary]"
-					>
-						✕
-					</button>
+					<h3 class="c-event-calendar__modal-title">{state.selectedEvent.title}</h3>
+					<button onclick={state.closeEventActions} class="c-event-calendar__modal-close">✕</button>
 				</div>
-
-				<div class="py-[--spacing-sm]">
-					<p class="text-[--color-text-secondary] text-[--text-size-sm]">
-						{state.selectedEvent.description}
-					</p>
-					<div class="mt-[--spacing-sm] text-[--color-text-secondary] text-[--text-size-xs]">
+				<div class="c-event-calendar__modal-body">
+					<p class="c-event-calendar__modal-desc">{state.selectedEvent.description}</p>
+					<div class="c-event-calendar__modal-meta">
 						<p>Start: {state.selectedEvent.start.toLocaleString()}</p>
 						<p>End: {state.selectedEvent.end.toLocaleString()}</p>
 						{#if state.selectedEvent.location}
-							<p>SlotLocation: {state.selectedEvent.location}</p>
+							<p>Location: {state.selectedEvent.location}</p>
 						{/if}
 					</div>
 				</div>
-
 				<div class={state.getModalFooterClasses()}>
-					<div class="flex space-x-[--spacing-sm]">
+					<div class="c-event-calendar__modal-actions">
 						<Button variant="secondary" size="sm" onclick={state.handleEventEdit}>Edit</Button>
 						<Button variant="danger" size="sm" onclick={state.handleEventDelete}>Delete</Button>
 					</div>
@@ -198,3 +170,210 @@
 		</div>
 	{/if}
 </div>
+
+<style>
+	.c-event-calendar {
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--radius-lg, 0.5rem);
+		overflow: hidden;
+		background: var(--color-background-primary);
+		box-shadow: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
+	}
+
+	.c-event-calendar__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--spacing-lg, 1.5rem);
+		border-bottom: 1px solid var(--color-border-primary);
+		background: var(--color-background-secondary);
+	}
+
+	.c-event-calendar__header-left {
+		display: flex;
+		align-items: center;
+	}
+	.c-event-calendar__today-btn {
+		margin-inline: 0.5rem;
+	}
+	.c-event-calendar__title {
+		margin-left: 1rem;
+		font-weight: 700;
+		color: var(--color-text-primary);
+		font-size: var(--text-size-xl, 1.25rem);
+	}
+	.c-event-calendar__view-tabs {
+		display: flex;
+		gap: 0.5rem;
+	}
+	.c-event-calendar__content {
+		padding: 1rem;
+	}
+
+	.c-event-calendar__weekday {
+		padding: var(--spacing-sm, 0.75rem);
+		text-align: center;
+		font-size: var(--text-size-xs, 0.75rem);
+		font-weight: var(--font-weight-medium, 500);
+		color: var(--color-text-secondary);
+	}
+
+	.c-event-calendar__day-week-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	@media (min-width: 768px) {
+		.c-event-calendar__day-week-grid {
+			grid-template-columns: repeat(7, 1fr);
+		}
+	}
+
+	.c-event-calendar__day-col {
+		border-right: 1px solid var(--color-border-primary);
+	}
+
+	.c-event-calendar__date-header {
+		padding: var(--spacing-sm, 0.75rem);
+		font-weight: var(--font-weight-semibold, 600);
+		color: var(--color-text-secondary);
+	}
+
+	.c-event-calendar__date-header--today {
+		background: color-mix(in srgb, var(--color-primary-500) 5%, transparent);
+		color: var(--color-primary-700, var(--color-primary-600));
+	}
+
+	.c-event-calendar__day-events {
+		max-height: 25rem;
+		overflow-y: auto;
+		padding: var(--spacing-sm, 0.75rem);
+	}
+
+	.c-event-calendar__grid {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+	}
+
+	.c-event-calendar__day {
+		min-height: 6rem;
+		padding: var(--spacing-xs, 0.25rem);
+		border-top: 1px solid var(--color-border-secondary);
+		border-right: 1px solid var(--color-border-secondary);
+		position: relative;
+		cursor: pointer;
+	}
+
+	.c-event-calendar__day:hover {
+		background: var(--color-background-secondary);
+	}
+	.c-event-calendar__day--today {
+		background: color-mix(in srgb, var(--color-primary-500) 5%, transparent);
+	}
+	.c-event-calendar__day--other {
+		background: var(--color-background-tertiary, var(--color-background-secondary));
+		color: var(--color-text-tertiary, var(--color-text-secondary));
+	}
+
+	.c-event-calendar__date-num {
+		text-align: right;
+		padding: var(--spacing-xs, 0.25rem);
+	}
+	.c-event-calendar__date-num--today {
+		display: flex;
+		width: 1.5rem;
+		height: 1.5rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		background: var(--color-primary-600);
+		color: var(--color-text-inverse);
+		margin: 0 auto;
+	}
+
+	.c-event-calendar__event {
+		font-size: var(--text-size-xs, 0.75rem);
+		padding: var(--spacing-xs, 0.25rem);
+		border-radius: var(--radius-sm, 0.25rem);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		cursor: pointer;
+		background: color-mix(in srgb, var(--color-primary-500) 12%, transparent);
+		color: var(--color-text-primary);
+		margin-bottom: 0.125rem;
+		transition: opacity var(--duration-150, 150ms) ease;
+	}
+
+	.c-event-calendar__event:hover {
+		opacity: 0.9;
+	}
+	.c-event-calendar__event-time {
+		margin-left: 0.25rem;
+		color: var(--color-text-secondary);
+		font-size: var(--text-size-xs, 0.75rem);
+	}
+
+	.c-event-calendar__modal-overlay {
+		position: fixed;
+		inset: 0;
+		background: rgb(0 0 0 / 0.5);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 100;
+		padding: var(--spacing-lg, 1.5rem);
+	}
+
+	.c-event-calendar__modal {
+		background: var(--color-background-primary);
+		border-radius: var(--radius-lg, 0.5rem);
+		box-shadow: var(--shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 0.1));
+		padding: var(--spacing-xl, 2rem);
+		max-width: 28rem;
+		width: 100%;
+		margin-inline: var(--spacing-md, 1rem);
+	}
+
+	.c-event-calendar__modal-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: var(--spacing-md, 1rem);
+	}
+	.c-event-calendar__modal-title {
+		font-weight: var(--font-weight-semibold, 600);
+		color: var(--color-text-primary);
+		margin: 0;
+		font-size: var(--text-size-lg, 1.125rem);
+	}
+	.c-event-calendar__modal-close {
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: var(--color-text-secondary);
+		font-size: 1.25rem;
+	}
+	.c-event-calendar__modal-close:hover {
+		color: var(--color-text-primary);
+	}
+	.c-event-calendar__modal-body {
+		padding-block: var(--spacing-sm, 0.75rem);
+	}
+	.c-event-calendar__modal-desc {
+		color: var(--color-text-secondary);
+		font-size: var(--text-size-sm, 0.875rem);
+	}
+	.c-event-calendar__modal-meta {
+		margin-top: var(--spacing-sm, 0.75rem);
+		color: var(--color-text-secondary);
+		font-size: var(--text-size-xs, 0.75rem);
+	}
+	.c-event-calendar__modal-footer {
+		margin-top: var(--spacing-lg, 1.5rem);
+	}
+	.c-event-calendar__modal-actions {
+		display: flex;
+		gap: 0.5rem;
+	}
+</style>

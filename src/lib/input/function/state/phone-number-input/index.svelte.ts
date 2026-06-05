@@ -1,5 +1,5 @@
-import { formatPhoneNumber } from '../format-phone-number';
-import { normalizePhoneInputValue } from '../normalize-phone-input-value';
+import formatPhoneNumber from '$stylist/input/function/state/format-phone-number/index.svelte';
+import normalizePhoneInputValue from '$stylist/input/function/state/normalize-phone-input-value/index.svelte';
 import type { SlotPhoneNumberInput as IPhoneNumberInputProps } from '$stylist/input/interface/slot/phone-number-input';
 
 export const createPhoneNumberInputState = (props: IPhoneNumberInputProps) => {

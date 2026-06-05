@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { createPlaygroundErrorBoundaryState } from '$stylist/playground/function/state/playground-error-boundary';
+	import createPlaygroundErrorBoundaryState from '$stylist/playground/function/state/playground-error-boundary/index.svelte';
 	import type { PlaygroundErrorBoundaryProps } from '$stylist/playground/type/struct/playground-error-boundary-props';
 	let props: PlaygroundErrorBoundaryProps = $props();
 	const state = createPlaygroundErrorBoundaryState(props);

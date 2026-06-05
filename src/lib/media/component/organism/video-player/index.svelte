@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { createVideoPlayerState } from '$stylist/media/function/state/video-player';
+	import createVideoPlayerState from '$stylist/media/function/state/video-player/index.svelte';
 	import type { VideoPlayerProps } from '$stylist/media/interface/recipe/video-player-video-player-props';
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { Button } from '$lib';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
 
 	let props: VideoPlayerProps = $props();
 	const state = createVideoPlayerState(props);

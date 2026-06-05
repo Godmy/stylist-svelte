@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createAnimatedProgressState } from '$stylist/notification/function/state/animated-progress';
+	import createAnimatedProgressState from '$stylist/notification/function/state/animated-progress/index.svelte';
 
 	const props = $props();
 	const state = createAnimatedProgressState(props);

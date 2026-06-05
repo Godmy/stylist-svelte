@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { DataDisplayCardRecipe as DataDisplayCardProps } from '$stylist/commerce/interface/recipe/data-display-card';
-	import { createDataDisplayCardState } from '$stylist/commerce/function/state/data-display-card';
+	import createDataDisplayCardState from '$stylist/commerce/function/state/data-display-card/index.svelte';
 
 	let props: DataDisplayCardProps = $props();
 	const state = createDataDisplayCardState(props);

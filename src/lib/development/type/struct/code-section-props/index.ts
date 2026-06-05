@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { CodeSectionVariant } from '$stylist/development/type/struct/code-section-variant';
 
 export type CodeSectionProps = {

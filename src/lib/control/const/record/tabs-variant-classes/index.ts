@@ -1,4 +1,3 @@
-
 export const TABS_VARIANT_CLASSES: Record<string, string> = {
 	default: 'border-b border-[var(--color-border-primary)]',
 	underline: 'border-b border-[var(--color-border-primary)]',

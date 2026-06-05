@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { OrderConfirmationProps as Props } from '$stylist/commerce/type/struct/order-confirmation-props';
-	import { createOrderConfirmationState } from '$stylist/commerce/function/state/order-confirmation';
-	import { Button } from '$stylist/control';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import createOrderConfirmationState from '$stylist/commerce/function/state/order-confirmation/index.svelte';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import { OrderConfirmationStyleManager } from '$stylist/commerce/class/style-manager/order-confirmation';
 
 	const CheckCircle = 'check-circle';

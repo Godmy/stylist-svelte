@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { NotificationItem } from '$stylist/chat/type/struct/notification-item';
-	import { NotificationStyleManager } from '$stylist/chat';
-	import { Story } from '$stylist/playground/component';
+	import { NotificationStyleManager } from '$stylist/chat/class/style-manager/notifications';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import NotificationCenter from './index.svelte';

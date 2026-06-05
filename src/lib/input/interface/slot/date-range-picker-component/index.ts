@@ -1,5 +1,5 @@
 import type { DateRangeValue } from '$stylist/input/type/struct/interaction-input/date-range-value';
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 
 export interface SlotDateRangePickerComponent extends InteractionHTMLAttributes<HTMLInputElement> {
 	value?: DateRangeValue;

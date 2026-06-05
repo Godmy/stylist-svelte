@@ -1,4 +1,3 @@
-
 export interface SlotOrderConfirmationEvents {
 	onDownloadInvoice?: () => void;
 	onShareOrder?: () => void;

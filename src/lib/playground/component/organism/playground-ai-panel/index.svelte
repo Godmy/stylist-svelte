@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PlaygroundAiPanelProps } from '$stylist/playground/type/struct/playground-ai-panel-props';
-	import { createPlaygroundAiPanelState } from '$stylist/playground/function/state/playground-ai-panel';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import createPlaygroundAiPanelState from '$stylist/playground/function/state/playground-ai-panel/index.svelte';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 
 	let { ...props }: PlaygroundAiPanelProps = $props();
 	const state = createPlaygroundAiPanelState(props);

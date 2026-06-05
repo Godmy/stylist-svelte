@@ -6,7 +6,7 @@
  *   SlotBadge        badge content
  */
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
+import type { SlotBadge as IBadgeSlot } from '$stylist/information/interface/slot/badge';
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 

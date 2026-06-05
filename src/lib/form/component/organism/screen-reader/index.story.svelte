@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import { ScreenReaderStyleManager } from '$stylist/form';
+	import { ScreenReaderStyleManager } from '$stylist/form/class/style-manager/screen-reader-style-manager';
 	import ScreenReader from './index.svelte';
 
 	type Props = {

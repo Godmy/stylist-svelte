@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CodeDiffProps } from '$stylist/development/type/struct/code-diff-props';
-	import { createCodeDiffState } from '$stylist/development/function/state/code-diff';
+	import createCodeDiffState from '$stylist/development/function/state/code-diff/index.svelte';
 
 	let {
 		original = '',

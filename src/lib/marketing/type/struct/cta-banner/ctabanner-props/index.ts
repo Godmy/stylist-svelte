@@ -1,5 +1,5 @@
-import type { InformationHTMLAttributes } from '$stylist/information';
-import type { TokenBackground } from '$stylist/layout';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
+import type { TokenBackground } from '$stylist/layout/type/enum/background';
 import type { CtaBannerButton } from '../ctabannerbutton';
 
 export type CtaBannerProps = {

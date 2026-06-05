@@ -5,7 +5,7 @@
 	import { STYLIST_MENU_FUNCTIONAL_TAB_ITEMS } from '$stylist/control/const/record/stylist-menu-functional-tab-items';
 	import { STYLIST_MENU_ATOMIC_TAB_ITEMS } from '$stylist/control/const/record/stylist-menu-atomic-tab-items';
 	import type { StylistMenuProps } from '$stylist/control/type/struct/stylist-menu-props';
-	import { createStylistMenuState } from '$stylist/control/function/state/stylist-menu';
+	import createStylistMenuState from '$stylist/control/function/state/stylist-menu/index.svelte';
 
 	let props: StylistMenuProps = $props();
 	const state = createStylistMenuState(props);

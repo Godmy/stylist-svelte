@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { RecipeModelSelector as ModelSelectorContract } from '$stylist/science/interface/recipe/model-selector';
-	import { createModelSelectorState } from '$stylist/science/function/state/model-selector';
+	import createModelSelectorState from '$stylist/science/function/state/model-selector/index.svelte';
 
 	let props: ModelSelectorContract = $props();
 	const state = createModelSelectorState(props);

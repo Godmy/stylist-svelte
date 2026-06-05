@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import { SecuritySettingsStyleManager } from '$stylist/interaction';
+	import { SecuritySettingsStyleManager } from '$stylist/interaction/class/style-manager/security-settings';
 	import SecuritySettingsComponent from './index.svelte';
 
 	type Props = {

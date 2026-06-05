@@ -1,4 +1,4 @@
-import type { BreadcrumbsProps } from '$stylist/navigation/type/struct/breadcrumbs-props';
+import type { BreadcrumbsProps } from '$stylist/navigation/type/struct/breadcrumbs-props/breadcrumbs-props';
 import { getBreadcrumbDropdownItems } from '$stylist/navigation/function/script/get-breadcrumb-dropdown-items';
 import { getBreadcrumbItems } from '$stylist/navigation/function/script/get-breadcrumb-items';
 

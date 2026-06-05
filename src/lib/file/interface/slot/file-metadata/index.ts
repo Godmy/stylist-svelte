@@ -11,7 +11,6 @@
  * Dependency Inversion: Зависит от абстракций, а не от конкретных реализаций
  */
 
-
 export interface SlotFileMetadata {
 	/** Имя файла */
 	name: string;

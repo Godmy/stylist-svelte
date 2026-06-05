@@ -8,15 +8,11 @@ import { StyleManagerBase } from '$stylist/architecture/class/style-manager/base
 import { INPUT_DOUBLE_CONTAINER_CLASS } from '$stylist/input/const/value/input-double-container-class';
 import { INPUT_ERROR_CLASS } from '$stylist/input/const/value/input-error-class';
 import { INPUT_FIELD_CONTAINER_CLASS } from '$stylist/input/const/value/input-field-container-class';
-import { INPUT_FIELD_ERROR_TEXT_CLASS } from '$stylist/input/const/value/input-field-error-text-class';
-import { INPUT_FIELD_HELPER_TEXT_CLASS } from '$stylist/input/const/value/input-field-helper-text-class';
-import { INPUT_FIELD_LABEL_CLASS } from '$stylist/input/const/value/input-field-label-class';
 import { INPUT_GROUP_BUTTON_CLASS } from '$stylist/input/const/value/input-group-button-class';
 import { INPUT_GROUP_CONTAINER_CLASS } from '$stylist/input/const/value/input-group-container-class';
 import { INPUT_GROUP_INPUT_CLASS } from '$stylist/input/const/value/input-group-input-class';
 import { INPUT_LONG_RESIZE_HANDLE_CLASS } from '$stylist/input/const/value/input-long-resize-handle-class';
 import { INPUT_PASSWORD_TOGGLE_CLASS } from '$stylist/input/const/value/input-password-toggle-class';
-import { LABEL_SIZE_CLASSES } from '$stylist/typography/const/map/label-size-classes';
 
 export class InputStyleManager {
 	static getInputClasses(
@@ -95,28 +91,24 @@ export class InputStyleManager {
 		return mergeClassNames(INPUT_FIELD_CONTAINER_CLASS, className);
 	}
 	static getLabelClass(className = ''): string {
-		return mergeClassNames(INPUT_FIELD_LABEL_CLASS, className);
+		return mergeClassNames('input-field-label', className);
 	}
-	static getInputLabelClasses(
-		size: keyof typeof LABEL_SIZE_CLASSES = 'md',
-		disabled = false,
-		className = ''
-	): string {
+	static getInputLabelClasses(size: TokenSize = 'md', disabled = false, className = ''): string {
 		return mergeClassNames(
-			'font-medium',
-			LABEL_SIZE_CLASSES[size],
-			disabled ? 'text-[--color-text-tertiary] cursor-not-allowed' : 'text-[--color-text-primary]',
+			'input-field-label',
+			`input-field-label--${size}`,
+			disabled && 'input-field-label--disabled',
 			className
 		);
 	}
 	static getHelperTextClass(className = ''): string {
-		return mergeClassNames(INPUT_FIELD_HELPER_TEXT_CLASS, className);
+		return mergeClassNames('input-field-helper-text', className);
 	}
 	static getErrorTextClass(className = ''): string {
-		return mergeClassNames(INPUT_FIELD_ERROR_TEXT_CLASS, className);
+		return mergeClassNames('input-field-error-text', className);
 	}
 	static getRequiredIndicatorClass(className = ''): string {
-		return mergeClassNames('input-field-required text-[var(--color-danger-500)]', className);
+		return mergeClassNames('input-field-required', className);
 	}
 	static getInputGroupContainerClass(className = ''): string {
 		return mergeClassNames(INPUT_GROUP_CONTAINER_CLASS, className);

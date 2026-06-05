@@ -1,29 +1,24 @@
 <script lang="ts">
-	import { createAudioVisualizerState } from '$stylist/media/function/state/audio-visualizer';
+	import createAudioVisualizerState from '$stylist/media/function/state/audio-visualizer/index.svelte';
 	import type { AudioVisualizerProps } from '$stylist/media/type/struct/audio-visualizer';
 
 	let props: AudioVisualizerProps = $props();
 	const state = createAudioVisualizerState(props);
 </script>
 
-<div
-	class={`flex items-center rounded-lg bg-[var(--color-background-primary)] p-4 shadow ${state.className}`}
->
+<div class={`av-wrap ${state.className}`}>
 	{#if state.src}
-		<img src={state.src} alt={state.alt} class="mr-4 h-16 w-16 rounded-md" />
+		<img src={state.src} alt={state.alt} class="av-artwork" />
 	{/if}
-	<div class="min-w-0 flex-1">
-		<h4 class="truncate font-semibold">{state.title}</h4>
-		<p class="truncate text-sm text-[var(--color-text-secondary)]">{state.author}</p>
+	<div class="av-info">
+		<h4 class="av-title">{state.title}</h4>
+		<p class="av-author">{state.author}</p>
 	</div>
-	<div class="mr-4 text-sm text-[var(--color-text-secondary)]">{state.duration}</div>
-	<button
-		onclick={() => state.togglePlay()}
-		class="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-600)]"
-	>
+	<div class="av-duration">{state.duration}</div>
+	<button onclick={() => state.togglePlay()} class="av-play-btn">
 		{#if state.isPlaying}
 			<svg
-				class="h-5 w-5"
+				style="width:1.25rem;height:1.25rem"
 				fill="currentColor"
 				viewBox="0 0 20 20"
 				xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +31,7 @@
 			</svg>
 		{:else}
 			<svg
-				class="h-5 w-5"
+				style="width:1.25rem;height:1.25rem"
 				fill="currentColor"
 				viewBox="0 0 20 20"
 				xmlns="http://www.w3.org/2000/svg"
@@ -50,3 +45,59 @@
 		{/if}
 	</button>
 </div>
+
+<style>
+	.av-wrap {
+		display: flex;
+		align-items: center;
+		border-radius: 0.5rem;
+		background-color: var(--color-background-primary);
+		padding: 1rem;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	}
+
+	.av-artwork {
+		margin-right: 1rem;
+		width: 4rem;
+		height: 4rem;
+		border-radius: 0.375rem;
+		object-fit: cover;
+	}
+	.av-info {
+		min-width: 0;
+		flex: 1;
+	}
+	.av-title {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-weight: 600;
+	}
+	.av-author {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+	.av-duration {
+		margin-right: 1rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.av-play-btn {
+		display: flex;
+		width: 2.5rem;
+		height: 2.5rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		background-color: var(--color-primary-500);
+		color: var(--color-text-inverse);
+	}
+
+	.av-play-btn:hover {
+		background-color: var(--color-primary-600);
+	}
+</style>

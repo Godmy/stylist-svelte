@@ -1,4 +1,4 @@
-import type { FilterPanelLayout } from '$stylist/form/type/struct/filter-panel';
+import type { FilterPanelLayout } from '$stylist/form/type/struct/filter-panel/filterpanellayout';
 
 export interface SlotFilterPanelState {
 	objectsVisible: boolean;

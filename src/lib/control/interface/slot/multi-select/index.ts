@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { SlotMultiSelectOption } from '$stylist/control/interface/slot/multi-select-option';
 
 export interface SlotMultiSelect extends InteractionHTMLAttributes<HTMLDivElement> {

@@ -1,14 +1,14 @@
-﻿/**
- * ExpandableCard вЂ” СЂР°СЃРєСЂС‹РІР°РµРјР°СЏ РєР°СЂС‚РѕС‡РєР°..
+/**
+ * ExpandableCard — раскрываемая карточка..
  *
- * LEGO-СЃРѕСЃС‚Р°РІ:
- *   ILabelSlot        (information) вЂ” label (Label)
- *   ICaptionSlot        (information) вЂ” caption (Caption)
- *   IMediaSlot        (information) вЂ” media (Media)
- *   IBadgeSlot        (information) вЂ” badge (Badge)
+ * LEGO-состав:
+ *   ILabelSlot        (information) — label (Label)
+ *   ICaptionSlot        (information) — caption (Caption)
+ *   IMediaSlot        (information) — media (Media)
+ *   IBadgeSlot        (information) — badge (Badge)
  */
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
+import type { SlotBadge as IBadgeSlot } from '$stylist/information/interface/slot/badge';
 import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';

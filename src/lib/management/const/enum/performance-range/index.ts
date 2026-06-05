@@ -1,4 +1,4 @@
-import type { TokenTimeRange } from '$stylist/management/type/enum/time-range';
+import type { TokenTimeRange } from '$stylist/management/type/enum/time-range/token-time-range';
 
 export const TOKEN_PERFORMANCE_RANGE = [
 	'1d',

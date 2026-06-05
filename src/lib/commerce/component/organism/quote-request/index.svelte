@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const Plus = 'plus';
 	const Trash2 = 'trash-2';
 
 	import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 	import type { ExtendedQuoteRequestProps } from '$stylist/commerce/type/struct/extended-quote-request-props';
-	import { createQuoteRequestState } from '$stylist/commerce/function/state/quote-request';
+	import createQuoteRequestState from '$stylist/commerce/function/state/quote-request/index.svelte';
 
 	let {
 		title = 'Request a Quote',

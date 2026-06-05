@@ -1,5 +1,3 @@
-
-
 import type { SlotUser } from '$stylist/chat/interface/slot/user';
 import type { SlotMessage } from '$stylist/chat/interface/slot/message';
 

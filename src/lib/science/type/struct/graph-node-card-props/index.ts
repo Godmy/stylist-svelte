@@ -1,4 +1,4 @@
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
 import type { GraphNodeCardData } from '$stylist/science/type/struct/graph-node-card-data';
 
 export type GraphNodeCardProps = {

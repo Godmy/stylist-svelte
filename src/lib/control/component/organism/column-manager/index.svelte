@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const ChevronDown = 'chevron-down';
 	const ChevronUp = 'chevron-up';
 	const ChevronsUpDown = 'chevrons-up-down';
 
-	import { ColumnManagerStyleManager } from '$stylist/control/class';
+	import { ColumnManagerStyleManager } from '$stylist/control/class/style-manager/table-controls';
 	import type { SlotColumnManager as ColumnManagerProps } from '$stylist/control/interface/slot/column-manager';
-	import { createColumnManagerState } from '$stylist/control/function/state/column-manager';
+	import createColumnManagerState from '$stylist/control/function/state/column-manager/index.svelte';
 
 	let {
 		columns = [],

@@ -1,8 +1,6 @@
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type {
-	InputLabelProps,
-	InputValueProps
-} from '$stylist/input/type/struct';
+import type { InputLabelProps } from '$stylist/input/type/struct/input-label-props';
+import type { InputValueProps } from '$stylist/input/type/struct/input-value-props';
 import type { SlotInputBase } from '$stylist/input/interface/slot/input-base';
 
 export interface SlotInputGroup

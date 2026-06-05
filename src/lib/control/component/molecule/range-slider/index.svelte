@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RangeSliderProps } from '$stylist/control/type/struct/range-slider-props';
-	import { createRangeSliderState } from '$stylist/control/function/state/range-slider';
+	import createRangeSliderState from '$stylist/control/function/state/range-slider/index.svelte';
 
 	let props: RangeSliderProps = $props();
 	const state = createRangeSliderState(props);

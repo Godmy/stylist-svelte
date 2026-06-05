@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createPictureToolbarState } from '$stylist/media/function/state/picture-toolbar';
+	import createPictureToolbarState from '$stylist/media/function/state/picture-toolbar/index.svelte';
 	import type { PictureToolbarProps } from '$stylist/media/type/alias/picture-toolbar-props';
 
 	let props: PictureToolbarProps = $props();

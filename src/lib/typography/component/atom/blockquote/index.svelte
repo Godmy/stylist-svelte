@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { BlockquoteRecipe } from '$stylist/typography/interface/recipe/blockquote';
-	import { createBlockquoteState } from '$stylist/typography/function/state/blockquote';
+	import createBlockquoteState from '$stylist/typography/function/state/blockquote/index.svelte';
 
 	let props: BlockquoteRecipe = $props();
 
@@ -15,13 +15,13 @@
 	);
 </script>
 
-<blockquote class={state.classes} cite={state.cite} {...restProps}>
+<blockquote class={state.classes} cite={state.citeUrl} {...restProps}>
 	{#if children}
 		{@render children()}
 	{/if}
-	{#if state.cite}
+	{#if state.sourceLabel}
 		<footer class={state.footerClasses}>
-			{state.footerPrefix}{state.cite}
+			{state.footerPrefix}{state.sourceLabel}
 		</footer>
 	{/if}
 </blockquote>

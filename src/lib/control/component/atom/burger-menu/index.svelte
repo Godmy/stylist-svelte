@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createBurgerMenuState } from '$stylist/control/function/state/burger-menu';
+	import createBurgerMenuState from '$stylist/control/function/state/burger-menu/index.svelte';
 	import type { BurgerMenuProps } from '$stylist/control/type/struct/burger-menu-props';
 
 	let props: BurgerMenuProps = $props();

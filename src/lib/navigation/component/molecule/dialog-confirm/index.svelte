@@ -1,23 +1,19 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import type { DialogConfirmProps } from '$stylist/navigation/type/struct/dialog-confirm-props';
-	import { createDialogConfirmState } from '$stylist/navigation/function/state/dialog-confirm';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import type { DialogConfirmProps } from '$stylist/navigation/type/struct/dialog-confirm-props/dialogconfirm-props';
+	import createDialogConfirmState from '$stylist/navigation/function/state/dialog-confirm/index.svelte';
 
 	let props: DialogConfirmProps = $props();
 	const state = createDialogConfirmState(props);
 </script>
 
 {#snippet dialogContent()}
-	<div class="sm:flex sm:items-start">
-		<div
-			class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[var(--color-neutral-100)] sm:mx-0 sm:h-10 sm:w-10"
-		>
-			<BaseIcon name={state.iconName} class={`h-6 w-6 ${state.iconColor}`} />
+	<div class="dc-body">
+		<div class="dc-icon-wrap">
+			<BaseIcon name={state.iconName} class={`dc-icon ${state.iconColor}`} />
 		</div>
-		<div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-			<p class="text-sm text-[var(--color-text-secondary)]">
-				{props.message}
-			</p>
+		<div class="dc-message-wrap">
+			<p class="dc-message">{props.message}</p>
 		</div>
 	</div>
 {/snippet}
@@ -26,37 +22,146 @@
 	<button
 		type="button"
 		disabled={state.isLoading}
-		class={`inline-flex w-full justify-center rounded-md border border-transparent px-4 py-2 shadow-sm ${state.confirmButtonClasses} text-base font-medium text-[var(--color-text-inverse)] focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-[var(--opacity-50)] sm:ml-3 sm:w-auto sm:text-sm`}
+		class={`dc-btn-confirm ${state.confirmButtonClasses}`}
 		onclick={state.handleConfirm}
 	>
 		{#if state.isLoading}
-			<BaseIcon
-				name="loader-2"
-				class="mr-2 -ml-1 h-4 w-4 animate-spin text-[var(--color-text-inverse)]"
-			/>
+			<BaseIcon name="loader-2" class="dc-spinner" />
 		{/if}
 		{props.confirmText ?? 'Confirm'}
 	</button>
-	<button
-		type="button"
-		disabled={state.isLoading}
-		class="mt-3 inline-flex w-full justify-center rounded-md border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] px-4 py-2 text-base font-medium text-[var(--color-text-primary)] shadow-sm hover:bg-[var(--color-background-secondary)] focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-[var(--opacity-50)] sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-		onclick={props.onClose}
-	>
+	<button type="button" disabled={state.isLoading} class="dc-btn-cancel" onclick={props.onClose}>
 		{props.cancelText ?? 'Cancel'}
 	</button>
 {/snippet}
 
 {#if props.isOpen}
-	<div
-		class="fixed inset-0 z-[var(--z-index-overlay)] flex items-center justify-center bg-[var(--color-neutral-900)]/40 p-4"
-	>
-		<div class="w-full max-w-md rounded-lg bg-[var(--color-background-primary)] p-6 shadow-lg">
-			<h3 class="mb-4 text-lg font-semibold text-[var(--color-text-primary)]">{props.title}</h3>
+	<div class="dc-overlay">
+		<div class="dc-card">
+			<h3 class="dc-title">{props.title}</h3>
 			{@render dialogContent()}
-			<div class="mt-6 flex justify-end gap-3">
+			<div class="dc-footer">
 				{@render dialogFooter()}
 			</div>
 		</div>
 	</div>
 {/if}
+
+<style>
+	.dc-overlay {
+		position: fixed;
+		inset: 0;
+		z-index: var(--z-index-overlay);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: color-mix(in srgb, var(--color-neutral-900) 40%, transparent);
+		padding: 1rem;
+	}
+
+	.dc-card {
+		width: 100%;
+		max-width: 28rem;
+		border-radius: 0.5rem;
+		background-color: var(--color-background-primary);
+		padding: 1.5rem;
+		box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+	}
+
+	.dc-title {
+		margin-bottom: 1rem;
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
+	}
+
+	.dc-body {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.dc-icon-wrap {
+		display: flex;
+		width: 3rem;
+		height: 3rem;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		background-color: var(--color-neutral-100);
+	}
+
+	:global(.dc-icon) {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	.dc-message-wrap {
+		flex: 1;
+	}
+	.dc-message {
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.dc-footer {
+		margin-top: 1.5rem;
+		display: flex;
+		justify-content: flex-end;
+		gap: 0.75rem;
+	}
+
+	.dc-btn-confirm {
+		display: inline-flex;
+		width: auto;
+		justify-content: center;
+		border-radius: 0.375rem;
+		border: 1px solid transparent;
+		padding: 0.5rem 1rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-inverse);
+	}
+
+	.dc-btn-confirm:disabled {
+		cursor: not-allowed;
+		opacity: var(--opacity-50, 0.5);
+	}
+
+	.dc-btn-cancel {
+		display: inline-flex;
+		width: auto;
+		justify-content: center;
+		border-radius: 0.375rem;
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+		padding: 0.5rem 1rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.dc-btn-cancel:hover {
+		background-color: var(--color-background-secondary);
+	}
+	.dc-btn-cancel:disabled {
+		cursor: not-allowed;
+		opacity: var(--opacity-50, 0.5);
+	}
+
+	:global(.dc-spinner) {
+		margin-right: 0.5rem;
+		margin-left: -0.25rem;
+		width: 1rem;
+		height: 1rem;
+		color: var(--color-text-inverse);
+		animation: spin 1s linear infinite;
+	}
+
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+</style>

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import type { ConversionFunnelProps } from '$stylist/marketing/type/struct/conversion-funnel';
-	import { createConversionFunnelState } from '$stylist/marketing/function/state/conversion-funnel';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import type { ConversionFunnelProps } from '$stylist/marketing/type/struct/conversion-funnel/conversionfunnel-props';
+	import createConversionFunnelState from '$stylist/marketing/function/state/conversion-funnel/index.svelte';
 	import { ConversionFunnelStyleManager } from '$stylist/marketing/class/style-manager/conversion-funnel';
 
 	const BarChart3 = 'bar-chart-3';
@@ -13,43 +13,46 @@
 
 <div class={state.containerClasses} {...state.restProps}>
 	<div class={state.headerClasses}>
-		<div class="flex items-center">
-			<BaseIcon name={BarChart3} class="mr-2 h-5 w-5 text-[var(--color-text-secondary)]" />
-			<h3 class="text-lg font-medium text-[var(--color-text-primary)]">{state.title}</h3>
+		<div class="cf-row">
+			<BaseIcon
+				name={BarChart3}
+				style="margin-right:0.5rem;width:1.25rem;height:1.25rem;color:var(--color-text-secondary)"
+			/>
+			<h3 class="cf-title">{state.title}</h3>
 		</div>
 		{#if state.subtitle}
-			<p class="mt-1 text-sm text-[var(--color-text-secondary)]">{state.subtitle}</p>
+			<p class="cf-subtitle">{state.subtitle}</p>
 		{/if}
 	</div>
 
-	<div class="p-6">
-		<div class="space-y-8">
+	<div class="cf-body">
+		<div class="cf-steps">
 			{#each state.steps as step, index}
 				<div>
-					<div class="mb-2 flex items-center justify-between">
-						<div class="flex items-center">
-							<span class="text-sm font-medium text-[var(--color-text-primary)]">{step.name}</span>
+					<div class="cf-step-header">
+						<div class="cf-row">
+							<span class="cf-step-name">{step.name}</span>
 							{#if state.showValues}
-								<span class="ml-2 text-sm text-[var(--color-text-secondary)]">({step.value})</span>
+								<span class="cf-step-extra">({step.value})</span>
 							{/if}
 							{#if state.showPercentage}
-								<span class="ml-2 text-sm text-[var(--color-text-secondary)]"
+								<span class="cf-step-extra"
 									>({Math.round((step.value / state.steps[0].value) * 100)}% of initial)</span
 								>
 							{/if}
 						</div>
 
 						{#if state.showConversionRate && index > 0}
-							<div class="text-sm text-[var(--color-text-secondary)]">
+							<div class="cf-conversion">
 								Conversion: {state.getConversionRate(index)}%
 								{#if state.showTrend}
-									<span class="ml-2 text-xs">(Dropoff: {state.getDropoff(index)}%)</span>
+									<span class="cf-dropoff">(Dropoff: {state.getDropoff(index)}%)</span>
 								{/if}
 							</div>
 						{/if}
 					</div>
 
-					<div class="relative">
+					<div class="cf-bar-wrapper">
 						<div
 							class={ConversionFunnelStyleManager.getFunnelStepVisualizationClass()}
 							style={ConversionFunnelStyleManager.getFunnelStepVisualizationStyle(
@@ -58,7 +61,7 @@
 								step.color
 							)}
 						>
-							<span class="ml-3 text-xs font-medium text-[var(--color-text-inverse)]"
+							<span class="cf-bar-label"
 								>{step.value} ({Math.round((step.value / state.steps[0].value) * 100)}%)</span
 							>
 						</div>
@@ -74,8 +77,11 @@
 					</div>
 
 					{#if index < state.steps.length - 1}
-						<div class="mt-4 flex justify-center">
-							<BaseIcon name={ArrowRight} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
+						<div class="cf-arrow">
+							<BaseIcon
+								name={ArrowRight}
+								style="width:1.25rem;height:1.25rem;color:var(--color-text-tertiary)"
+							/>
 						</div>
 					{/if}
 				</div>
@@ -83,3 +89,78 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.cf-row {
+		display: flex;
+		align-items: center;
+	}
+
+	.cf-title {
+		font-size: 1.125rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.cf-subtitle {
+		margin-top: 0.25rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.cf-body {
+		padding: 1.5rem;
+	}
+
+	.cf-steps {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.cf-step-header {
+		margin-bottom: 0.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.cf-step-name {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.cf-step-extra {
+		margin-left: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.cf-conversion {
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.cf-dropoff {
+		margin-left: 0.5rem;
+		font-size: 0.75rem;
+	}
+
+	.cf-bar-wrapper {
+		position: relative;
+	}
+
+	.cf-bar-label {
+		margin-left: 0.75rem;
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--color-text-inverse);
+	}
+
+	.cf-arrow {
+		margin-top: 1rem;
+		display: flex;
+		justify-content: center;
+	}
+</style>

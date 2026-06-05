@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const GripVertical = 'grip-vertical';
 	const MoreHorizontal = 'more-horizontal';
 
-	import { SortableListStyleManager } from '$stylist/control';
+	import { SortableListStyleManager } from '$stylist/control/class/style-manager/sortable-list-style-manager';
 	import type { SlotSortableList as SortableListProps } from '$stylist/control/interface/slot/sortable-list';
-	import { createSortableListState } from '$stylist/control/function/state/sortable-list';
+	import createSortableListState from '$stylist/control/function/state/sortable-list/index.svelte';
 
 	let {
 		items = [],

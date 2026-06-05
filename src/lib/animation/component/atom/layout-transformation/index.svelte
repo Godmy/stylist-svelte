@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotTransformation as TransformationProps } from '$stylist/animation/interface/slot/transformation';
-	import { createTransformationState } from '$stylist/animation/function/state/transformation';
+	import createTransformationState from '$stylist/animation/function/state/transformation/index.svelte';
 
 	let props: TransformationProps = $props();
 	const state = createTransformationState(props);
@@ -65,3 +65,15 @@
 		{#if props.children}{@render props.children()}{/if}
 	{/if}
 </div>
+
+<style>
+	.c-layout-transformation {
+		position: relative;
+		display: inline-block;
+	}
+
+	.c-layout-transformation--disabled {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+</style>

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Button } from '$stylist/control';
-	import { createToolbarState } from '$stylist/control/function/state/toolbar';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import createToolbarState from '$stylist/control/function/state/toolbar/index.svelte';
 	import { toolbarHandleExport } from '$stylist/control/function/script/toolbar-handle-export';
 	import { toolbarHandleFitView } from '$stylist/control/function/script/toolbar-handle-fit-view';
 	import { toolbarHandleLegendToggle } from '$stylist/control/function/script/toolbar-handle-legend-toggle';

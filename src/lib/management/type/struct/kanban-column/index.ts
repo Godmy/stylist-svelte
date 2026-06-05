@@ -1,4 +1,4 @@
-import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card';
+import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card/kanbancardtype';
 
 export type KanbanColumnType = {
 	id: string;

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Button } from '$stylist/control';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import type { ExportFormat } from '$stylist/control/type/alias/export-format';
-	import { createExportPanelState } from '$stylist/control/function/state/export-panel';
+	import createExportPanelState from '$stylist/control/function/state/export-panel/index.svelte';
 
 	let props = $props<{
 		onExport?: (detail: {

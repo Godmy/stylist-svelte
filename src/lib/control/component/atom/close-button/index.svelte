@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const X = 'x';
 	const Loader2 = 'loader-2';
 	import type { SlotButtonElement as ButtonElementProps } from '$stylist/control/interface/slot/button-element';
-	import { createCloseButtonState } from '$stylist/control/function/state/close-button';
+	import createCloseButtonState from '$stylist/control/function/state/close-button/index.svelte';
 
 	/**
 	 * CloseButton component - A standardized close button (X icon)

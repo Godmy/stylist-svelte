@@ -1,5 +1,5 @@
 import { getPathBounds } from '$stylist/canvas/function/script/canvas-get-path-bounds';
-import type { SharedCanvasObjectBounds } from '$stylist/canvas/type/struct/shared-canvas';
+import type { SharedCanvasObjectBounds } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-object-bounds';
 import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
 
 export function getCanvasObjectBounds(object: CanvasObject): SharedCanvasObjectBounds | null {

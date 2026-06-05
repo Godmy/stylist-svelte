@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { createPlaygroundCodeViewerState } from '$stylist/playground/function/state/playground-code-viewer';
+	import createPlaygroundCodeViewerState from '$stylist/playground/function/state/playground-code-viewer/index.svelte';
 	import type { PlaygroundCodeViewerProps } from '$stylist/playground/type/struct/playground-code-viewer-props';
 	let props: PlaygroundCodeViewerProps = $props();
 	const state = createPlaygroundCodeViewerState(props);

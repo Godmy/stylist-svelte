@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const UserPlus = 'user-plus';
 	const UserCheck = 'user-check';
 	const Check = 'check';
 	const Loader2 = 'loader-2';
 
-	import { createFollowButtonState } from '$stylist/control/function/state/follow-button';
+	import createFollowButtonState from '$stylist/control/function/state/follow-button/index.svelte';
 	import type { FollowButtonProps } from '$stylist/control/type/struct/follow-button-props';
 
 	let props: FollowButtonProps = $props();

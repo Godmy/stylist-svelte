@@ -1,7 +1,7 @@
 import { untrack } from 'svelte';
 import type { SlotMultiSelect as MultiSelectProps } from '$stylist/control/interface/slot/multi-select';
 import type { SlotMultiSelectOption as MultiSelectOption } from '$stylist/control/interface/slot/multi-select-option';
-import { MultiSelectStyleManager } from '$stylist/control';
+import { MultiSelectStyleManager } from '$stylist/control/class/style-manager/multi-select';
 
 const ChevronDown = 'chevron-down';
 const X = 'x';

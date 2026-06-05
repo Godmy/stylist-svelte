@@ -72,7 +72,6 @@ export {
 	TOKEN_VISIBILITY,
 	VARIANT_CLASSES
 } from './const';
-export { INTERACTION_DATA_CATALOG } from './data';
 export {
 	buildPresetClassNames,
 	copyTextToClipboard,

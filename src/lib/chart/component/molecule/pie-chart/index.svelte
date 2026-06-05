@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PieChartRecipe } from '$stylist/chart/interface/recipe/pie-chart';
-	import { createPieChartState } from '$stylist/chart/function/state/pie-chart';
+	import createPieChartState from '$stylist/chart/function/state/pie-chart/index.svelte';
 
 	let props: PieChartRecipe = $props();
 	const state = createPieChartState(props);

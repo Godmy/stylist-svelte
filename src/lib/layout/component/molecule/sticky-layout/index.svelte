@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { createStickyLayoutState } from '$stylist/layout/function/state/sticky-layout';
-	import type { StickyLayoutProps } from '$stylist/layout/type/struct/layout-extended';
+	import createStickyLayoutState from '$stylist/layout/function/state/sticky-layout/index.svelte';
+	import type { StickyLayoutProps } from '$stylist/layout/type/struct/layout-extended/sticky-layout-props';
 
 	let props: StickyLayoutProps = $props();
 	const state = createStickyLayoutState(props);

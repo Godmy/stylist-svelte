@@ -1,5 +1,5 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { Props } from '$stylist/information/type/struct';
+import type { Props } from '$stylist/information/type/struct/props';
 import type { ButtonFactoryInput } from '$stylist/interaction/factory/button';
 import { createBasePreset } from '$stylist/interaction/preset/base';
 import { RECORD_ICON_SIZE } from '$stylist/media/const/record/icon-size';

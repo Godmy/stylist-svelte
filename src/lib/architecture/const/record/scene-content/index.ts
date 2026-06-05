@@ -1,4 +1,4 @@
-import type { ArchitectureScene } from '$stylist/architecture/type/struct/scene';
+import type { ArchitectureScene } from '$stylist/architecture/type/struct/scene/architecture-scene';
 
 export const SCENE_CONTENT: ArchitectureScene = {
 	node: {

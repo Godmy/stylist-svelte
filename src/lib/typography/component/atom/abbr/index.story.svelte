@@ -4,9 +4,27 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'label', type: 'text', defaultValue: 'API' },
-		{ name: 'title', type: 'text', defaultValue: 'Application Programming Interface' },
-		{ name: 'emphasize', type: 'boolean', defaultValue: false }
+		{
+			name: 'label',
+			label: 'Abbreviation',
+			description: 'Visible short form.',
+			type: 'text',
+			defaultValue: 'API'
+		},
+		{
+			name: 'title',
+			label: 'Expansion',
+			description: 'Full term exposed via the title attribute.',
+			type: 'text',
+			defaultValue: 'Application Programming Interface'
+		},
+		{
+			name: 'emphasize',
+			label: 'Emphasize',
+			description: 'Applies accent emphasis in the live preview.',
+			type: 'boolean',
+			defaultValue: false
+		}
 	];
 
 	const glossary = [
@@ -20,50 +38,72 @@
 	{controls}
 	component={Abbr}
 	title="Abbr"
-	category="Atoms/Information/Typography/Inline"
+	category="Atoms/Typography"
 	description="Accessible abbreviation with dotted underline hinting at hover/click tooltips."
 	tags={['abbreviation', 'typography', 'accessibility']}
 >
 	{#snippet children(values: any)}
-		<div class="space-y-6">
+		<section class="grid w-full gap-8 xl:grid-cols-[minmax(0,1.05fr)_minmax(20rem,0.95fr)]">
 			<div
-				class="rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/80 p-5 shadow-sm dark:border-[var(--color-border-primary)] dark:bg-[var(--color-neutral-900)]/40"
+				class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-7 shadow-sm"
 			>
-				<p
-					class="text-base leading-relaxed text-[var(--color-text-primary)] dark:text-[var(--color-neutral-200)]"
-				>
-					Build brilliant experiences by connecting your
-					<Abbr
-						title={values.title}
-						class={values.emphasize ? 'font-semibold text-[var(--color-primary-600)]' : ''}
-					>
-						{values.label}
-					</Abbr>
-					with product storytelling. Hover or focus the abbreviation to reveal the expansion.
+				<p class="text-xs font-semibold tracking-[0.24em] text-[--color-text-tertiary] uppercase">
+					Editorial Preview
 				</p>
-			</div>
-
-			<div
-				class="rounded-2xl border border-dashed border-[var(--color-border-primary)]/80 p-4 dark:border-[var(--color-border-primary)]"
-			>
-				<p
-					class="mb-3 text-sm font-semibold text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]"
-				>
-					Glossary
-				</p>
+				<h3 class="mt-2 text-xl font-semibold text-[--color-text-primary]">Abbreviation in copy</h3>
 				<div
-					class="flex flex-wrap gap-4 text-sm text-[var(--color-text-primary)] dark:text-[var(--color-neutral-200)]"
+					class="mt-6 rounded-[1.5rem] border border-dashed border-[--color-border-primary] bg-[--color-background-secondary] p-5"
 				>
-					{#each glossary as term}
+					<p class="text-base leading-8 text-[--color-text-primary]">
+						Build brilliant experiences by connecting your
 						<Abbr
-							title={term.title}
-							class="rounded-full bg-[var(--color-background-secondary)] px-2 py-1 dark:bg-[var(--color-neutral-800)]"
+							title={values.title}
+							class={values.emphasize ? 'font-semibold text-[var(--color-primary-600)]' : ''}
 						>
-							{term.label}
+							{values.label}
 						</Abbr>
-					{/each}
+						with product storytelling. Hover or focus the abbreviation to reveal the expansion.
+					</p>
+				</div>
+
+				<div
+					class="mt-6 rounded-[1.5rem] bg-[--color-background-secondary] p-4 text-sm text-[--color-text-secondary]"
+				>
+					Visible token: <strong class="text-[--color-text-primary]">{values.label}</strong>
+					<br />
+					Expansion: {values.title}
 				</div>
 			</div>
-		</div>
+
+			<div class="grid gap-6">
+				<div
+					class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm"
+				>
+					<h3 class="text-base font-semibold text-[--color-text-primary]">Glossary Shelf</h3>
+					<div
+						class="mt-4 flex flex-wrap gap-3 rounded-[1.5rem] bg-[--color-background-primary] p-5"
+					>
+						{#each glossary as term}
+							<Abbr
+								title={term.title}
+								class="rounded-full bg-[var(--color-background-secondary)] px-3 py-2 text-sm font-medium"
+							>
+								{term.label}
+							</Abbr>
+						{/each}
+					</div>
+				</div>
+
+				<div
+					class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm"
+				>
+					<h3 class="text-base font-semibold text-[--color-text-primary]">Usage Note</h3>
+					<p class="mt-3 text-[--color-text-secondary]">
+						Keep `Abbr` for real abbreviations and acronyms with a meaningful full form. It works
+						best as a micro-semantic token inside otherwise plain copy.
+					</p>
+				</div>
+			</div>
+		</section>
 	{/snippet}
 </Story>

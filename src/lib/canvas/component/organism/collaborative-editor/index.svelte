@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createCollaborativeEditorState } from '$stylist/canvas/function/state/collaborative-editor';
+	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createCollaborativeEditorState from '$stylist/canvas/function/state/collaborative-editor/index.svelte';
 
 	export type CollaborativeEditorUser = {
 		id: string;
@@ -115,8 +115,8 @@
 		</div>
 	{/if}
 
-	<div class="flex flex-1">
-		<div class="flex flex-1 flex-col">
+	<div class="c-collaborative-editor__body">
+		<div class="c-collaborative-editor__editor-col">
 			<div
 				bind:this={editorRef}
 				contenteditable="true"
@@ -134,7 +134,7 @@
 					<BaseIcon name={state.Users} class="mr-1 h-4 w-4" />
 					Collaborators ({state.users.length})
 				</div>
-				<div class="space-y-2">
+				<div class="c-collaborative-editor__user-entries">
 					{#each state.users as user}
 						<div class={state.userListEntryClasses}>
 							{#if user.avatar}
@@ -160,3 +160,143 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+	.c-collaborative-editor {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		border-radius: 1.5rem;
+		border: 1px solid var(--color-border-primary);
+		background: var(--color-background-primary);
+		box-shadow: var(--shadow-custom40, 0 8px 32px rgb(0 0 0 / 0.1));
+	}
+
+	.c-collaborative-editor__toolbar {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+		border-bottom: 1px solid var(--color-border-primary);
+		background: var(--color-background-secondary);
+		padding: 0.5rem 0.75rem;
+	}
+
+	.c-collaborative-editor__toolbar-btn {
+		display: inline-flex;
+		width: 2.25rem;
+		height: 2.25rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		border: 1px solid transparent;
+		color: var(--color-text-secondary);
+		cursor: pointer;
+		background: none;
+		transition:
+			background var(--duration-120, 120ms) ease,
+			border-color var(--duration-120, 120ms) ease;
+	}
+
+	.c-collaborative-editor__toolbar-btn:hover {
+		border-color: var(--color-border-primary);
+		background: var(--color-background-primary);
+		color: var(--color-text-primary);
+	}
+
+	.c-collaborative-editor__toolbar-sep {
+		width: 1px;
+		height: 1.5rem;
+		background: var(--color-border-primary);
+		margin-inline: 0.25rem;
+	}
+
+	.c-collaborative-editor__body {
+		display: flex;
+		flex: 1;
+	}
+
+	.c-collaborative-editor__editor-col {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+	}
+
+	.c-collaborative-editor__editor {
+		flex: 1;
+		min-height: 20rem;
+		overflow: auto;
+		background: var(--color-background-primary);
+		padding: 1rem 1.25rem;
+		color: var(--color-text-primary);
+		line-height: 1.75;
+	}
+
+	.c-collaborative-editor__editor:focus {
+		outline: none;
+	}
+
+	.c-collaborative-editor__user-list {
+		width: 14rem;
+		border-left: 1px solid var(--color-border-primary);
+		background: var(--color-background-secondary);
+		padding: 1rem;
+	}
+
+	.c-collaborative-editor__user-list-header {
+		display: flex;
+		align-items: center;
+		margin-bottom: 0.75rem;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--color-text-secondary);
+	}
+
+	.c-collaborative-editor__user-entries {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.c-collaborative-editor__user-entry {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		border-radius: 0.9rem;
+		padding: 0.5rem;
+		color: var(--color-text-primary);
+	}
+
+	.c-collaborative-editor__user-avatar {
+		width: 1.75rem;
+		height: 1.75rem;
+		border-radius: 9999px;
+		box-shadow: 0 0 0 2px var(--color-background-primary);
+	}
+
+	.c-collaborative-editor__user-initials {
+		display: flex;
+		width: 1.75rem;
+		height: 1.75rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		font-size: 0.75rem;
+		font-weight: 600;
+		color: var(--color-text-inverse);
+		box-shadow: 0 0 0 2px var(--color-background-primary);
+	}
+
+	.c-collaborative-editor__user-name {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.c-collaborative-editor__user-indicator {
+		margin-left: 0.25rem;
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+	}
+</style>

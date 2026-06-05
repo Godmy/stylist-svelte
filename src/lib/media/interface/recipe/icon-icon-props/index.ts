@@ -1,5 +1,5 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { IconColor } from '$stylist/media/type/alias/icon-color';
 import type { IconDirection } from '$stylist/media/type/alias/icon-direction';
 import type { IconShape } from '$stylist/media/type/alias/icon-shape';

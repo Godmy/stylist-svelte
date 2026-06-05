@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageEllipsisRecipe } from '$stylist/navigation/interface/recipe/page-ellipsis';
-	import { createPageEllipsisState } from '$stylist/navigation/function/state/page-ellipsis';
+	import createPageEllipsisState from '$stylist/navigation/function/state/page-ellipsis/index.svelte';
 
 	let props: PageEllipsisRecipe = $props();
 	const state = createPageEllipsisState(props);

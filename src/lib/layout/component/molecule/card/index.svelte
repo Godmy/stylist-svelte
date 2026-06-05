@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { createCardState } from '$stylist/layout/function/state/card';
-	import type { CardProps } from '$stylist/layout/type/struct/layout-extended';
+	import createCardState from '$stylist/layout/function/state/card/index.svelte';
+	import type { CardProps } from '$stylist/layout/type/struct/layout-extended/card-props';
 
 	let props: CardProps = $props();
 	const state = createCardState(props);

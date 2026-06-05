@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createLoadingBoundaryState } from '../../../function/state/loading-boundary';
+	import createLoadingBoundaryState from '$stylist/notification/function/state/loading-boundary/index.svelte';
 
 	const props = $props();
 	const state = createLoadingBoundaryState(props);

@@ -1,6 +1,7 @@
 <script lang="ts">
-	import type { Coordinates, MapMarker } from '$stylist/geo/type/struct/location-picker';
-	import { Story } from '$stylist/playground/component';
+	import type { Coordinates } from '$stylist/geo/type/struct/location-picker/coordinates';
+	import type { MapMarker } from '$stylist/geo/type/struct/location-picker/mapmarker';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import LocationPicker from './index.svelte';

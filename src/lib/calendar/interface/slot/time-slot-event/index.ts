@@ -1,4 +1,3 @@
-
 // ==================== TimeSlot ====================
 export interface SlotTimeSlotEvent {
 	id: string;

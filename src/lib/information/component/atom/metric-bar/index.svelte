@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createMetricBarState } from '$stylist/information/function/state/metric-bar';
+	import createMetricBarState from '$stylist/information/function/state/metric-bar/index.svelte';
 	import type { MetricBarRecipe } from '$stylist/information/interface/recipe/metric-bar';
 
 	let props: MetricBarRecipe = $props();

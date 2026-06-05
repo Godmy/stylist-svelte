@@ -6,7 +6,7 @@
 	 */
 	import Code from '../code-block/index.svelte';
 	import type { CopyableCodeBlockProps } from '$stylist/development/type/struct/copyable-code-block-props';
-	import { createCopyableCodeBlockState } from '$stylist/development/function/state/copyable-code-block';
+	import createCopyableCodeBlockState from '$stylist/development/function/state/copyable-code-block/index.svelte';
 
 	let props: CopyableCodeBlockProps = $props();
 	const state = createCopyableCodeBlockState(props);

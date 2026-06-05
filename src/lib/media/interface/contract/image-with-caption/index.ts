@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 
 export interface ContractImageWithCaption
 	extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {

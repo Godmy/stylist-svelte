@@ -2,7 +2,7 @@
  * ���� � ���������� ��� ���������� Rating
  */
 
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 /**

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CounterRecipe } from '$stylist/information/interface/recipe/counter';
-	import { createCounterState } from '$stylist/information/function/state/counter';
+	import createCounterState from '$stylist/information/function/state/counter/index.svelte';
 
 	let props: CounterRecipe = $props();
 

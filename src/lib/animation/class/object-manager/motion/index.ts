@@ -1,6 +1,6 @@
-import type { MotionContract } from '$stylist/animation/type/struct/motion';
-import type { TransformContract } from '$stylist/animation/type/struct/motion-transform-contract';
-import type { AnimateContract } from '$stylist/animation/type/struct/motion-animate-contract';
+import type { MotionContract } from '$stylist/animation/type/struct/motion/motion-contract';
+import type { TransformContract } from '$stylist/animation/type/struct/motion/transform-contract';
+import type { AnimateContract } from '$stylist/animation/type/struct/motion/animate-contract';
 import { TOKEN_EASING } from '$stylist/animation/const/map/easing';
 import type { TokenAnimation } from '$stylist/animation/type/enum/animation';
 

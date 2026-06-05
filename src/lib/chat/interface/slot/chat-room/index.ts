@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { SlotUser } from '$stylist/chat/interface/slot/user';
 import type { SlotMessage } from '$stylist/chat/interface/slot/message';
 

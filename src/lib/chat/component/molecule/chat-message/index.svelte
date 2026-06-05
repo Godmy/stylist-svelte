@@ -1,8 +1,9 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 	import type { Snippet } from 'svelte';
-	import { Icon as BaseIcon, Avatar } from '$stylist/media';
-	import { createChatMessageState } from '$stylist/chat/function/state/chat-message';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
+	import createChatMessageState from '$stylist/chat/function/state/chat-message/index.svelte';
 
 	export type ChatMessageStatus = 'sent' | 'delivered' | 'read';
 

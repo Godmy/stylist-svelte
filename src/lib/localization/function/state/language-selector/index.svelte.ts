@@ -1,6 +1,6 @@
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { SlotLanguageSelector as ILanguageSelectorProps } from '$stylist/localization/interface/slot/language-selector';
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import { LanguageSelectorStyleManager } from '$stylist/localization/class/style-manager/language-selector';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 
 function createLanguageSelectorState(
 	props: ILanguageSelectorProps & InteractionHTMLAttributes<HTMLDivElement>
@@ -24,18 +24,27 @@ function createLanguageSelectorState(
 
 	const selectedLanguage = $derived(languages.find((lang) => lang.code === currentLanguage));
 
-	const baseClasses = $derived(
-		`${LanguageSelectorStyleManager.getBaseClasses()} ${props.class ?? ''}`
-	);
+	const baseClasses = $derived(mergeClassNames('c-language-selector', props.class));
 	const buttonBaseClasses = $derived(
-		`${LanguageSelectorStyleManager.getButtonBaseClasses()} ${LanguageSelectorStyleManager.getButtonVariantClasses(props.variant ?? 'default')} ${LanguageSelectorStyleManager.getButtonSizeClasses(props.size ?? 'md')} ${props.buttonClass ?? ''}`
+		mergeClassNames(
+			'c-language-selector__trigger',
+			props.variant &&
+				props.variant !== 'default' &&
+				`c-language-selector__trigger--${props.variant}`,
+			props.size && props.size !== 'md' && `c-language-selector__trigger--${props.size}`,
+			props.buttonClass
+		)
 	);
 	const dropdownBaseClasses = $derived(
-		`${LanguageSelectorStyleManager.getDropdownBaseClasses()} ${props.dropdownClass ?? ''} ${LanguageSelectorStyleManager.getDropdownPositionClasses(props.dropdownPlacement ?? 'bottom')}`
+		mergeClassNames(
+			'c-language-selector__dropdown',
+			props.dropdownPlacement === 'top' && 'c-language-selector__dropdown--top',
+			props.dropdownClass
+		)
 	);
-	const searchInputClasses = $derived(LanguageSelectorStyleManager.getSearchInputClasses());
-	const flagClasses = $derived(LanguageSelectorStyleManager.getFlagClasses());
-	const checkIconClasses = $derived(LanguageSelectorStyleManager.getCheckIconClasses());
+	const searchInputClasses = $derived('c-language-selector__search');
+	const flagClasses = $derived('c-language-selector__flag');
+	const checkIconClasses = $derived('ml-auto h-4 w-4 text-[--color-icon-accent]');
 
 	const restProps = $derived.by(() => {
 		const {
@@ -65,6 +74,14 @@ function createLanguageSelectorState(
 		props.onLanguageChange?.(code);
 		isOpen = false;
 		searchQuery = '';
+	}
+
+	function getLanguageItemClasses(isActive: boolean): string {
+		return mergeClassNames(
+			'c-language-selector__item',
+			isActive && 'c-language-selector__item--active',
+			props.languageClass
+		);
 	}
 
 	return {
@@ -119,11 +136,9 @@ function createLanguageSelectorState(
 		get currentLanguage() {
 			return currentLanguage;
 		},
-		get languageClass() {
-			return props.languageClass ?? '';
-		},
 		toggleDropdown,
-		selectLanguage
+		selectLanguage,
+		getLanguageItemClasses
 	};
 }
 

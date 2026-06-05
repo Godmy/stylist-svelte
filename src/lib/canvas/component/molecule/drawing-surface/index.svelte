@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import { DrawingSurfaceStyleManager } from '$stylist/canvas/class/style-manager/drawing-surface';
-	import { createDrawingSurfaceState } from '$stylist/canvas/function/state/drawing-surface';
+	import createDrawingSurfaceState from '$stylist/canvas/function/state/drawing-surface/index.svelte';
 	import type { DrawingSurfaceContract } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-contract';
 	import type { DrawingSurfaceCanvasClearedEvent } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-canvas-cleared-event';
 	import type { DrawingSurfaceExposeMethodsEvent } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-expose-methods-event';
@@ -35,3 +35,11 @@
 	onmouseleave={() => state.stopDrawing(canvasRef)}
 	{...state.restProps}
 ></canvas>
+
+<style>
+	.drawing-surface__canvas {
+		display: block;
+		cursor: crosshair;
+		touch-action: none;
+	}
+</style>

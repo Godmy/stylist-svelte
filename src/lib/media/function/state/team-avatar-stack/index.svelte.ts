@@ -1,5 +1,5 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-import type { TeamAvatarStackProps } from '$stylist/media/type/struct/team-avatar-stack';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
+import type { TeamAvatarStackProps } from '$stylist/media/type/struct/team-avatar-stack/teamavatarstack-props';
 
 function getStatusColor(status?: string): string {
 	switch (status) {

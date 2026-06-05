@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Button } from '$stylist/control';
-	import { createConfirmationDialogState } from '$stylist/navigation/function/state/confirmation-dialog';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import createConfirmationDialogState from '$stylist/navigation/function/state/confirmation-dialog/index.svelte';
 	import type { SlotConfirmationDialog as ConfirmationDialogProps } from '$stylist/navigation/interface/slot/confirmation-dialog';
 
 	let {

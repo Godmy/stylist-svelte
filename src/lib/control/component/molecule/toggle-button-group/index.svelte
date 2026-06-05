@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ToggleButtonGroupProps } from '$stylist/control/type/struct/toggle-button-group-props';
-	import { createToggleButtonGroupState } from '$stylist/control/function/state/toggle-button-group';
+	import createToggleButtonGroupState from '$stylist/control/function/state/toggle-button-group/index.svelte';
 
 	let {
 		options = [],

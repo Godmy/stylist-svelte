@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { ACCORDION_PANEL_CONTEXT } from '$stylist/control/const/record/accordion-panel-context';
-	import { createAccordionPanelState } from '$stylist/control/function/state/accordion-panel';
+	import createAccordionPanelState from '$stylist/control/function/state/accordion-panel/index.svelte';
 	import type { AccordionPanelProps } from '$stylist/control/type/struct/accordion-panel-props';
 
 	let props: AccordionPanelProps = $props();

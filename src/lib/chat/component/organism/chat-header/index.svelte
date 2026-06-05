@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { Button } from '$stylist/control';
-	import { Avatar, Icon } from '$stylist/media';
-	import { UserStatus } from '$stylist/chat';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import UserStatus from '$stylist/chat/component/molecule/user-status/index.svelte';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
-	import { createChatHeaderState } from '$stylist/chat/function/state/chat-header';
+	import createChatHeaderState from '$stylist/chat/function/state/chat-header/index.svelte';
 
 	export type ChatHeaderChat = {
 		id: string;

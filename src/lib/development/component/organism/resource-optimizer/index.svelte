@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ResourceOptimizerProps } from '$stylist/development/type/struct/resource-optimizer-props';
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createResourceOptimizerState } from '$stylist/development/function/state/resource-optimizer';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createResourceOptimizerState from '$stylist/development/function/state/resource-optimizer/index.svelte';
 
 	const HardDrive = 'hard-drive';
 	const Zap = 'zap';

@@ -1,6 +1,6 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { DRAWER_POSITION_CLASSES } from '$stylist/navigation/const/record/drawer-position-classes';
-import type { DrawerPosition } from '$stylist/navigation/type/struct/drawer-props';
+import type { DrawerPosition } from '$stylist/navigation/type/struct/drawer-props/drawerposition';
 import { DRAWER_BACKDROP_BASE_CLASS } from '$stylist/navigation/const/record/drawer-backdrop-base-class';
 import { DRAWER_BACKDROP_VISIBLE_CLASS } from '$stylist/navigation/const/record/drawer-backdrop-visible-class';
 import { DRAWER_BASE_CLASS } from '$stylist/navigation/const/record/drawer-base-class';

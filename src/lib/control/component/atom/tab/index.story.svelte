@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import { Tabs } from '$stylist/control/component/molecule/tabs';
+	import Tabs from '$stylist/control/component/molecule/tabs/index.svelte';
 	import Tab from './index.svelte';
 	import TabList from '../tab-list/index.svelte';
 	import TabPanels from '../tab-panels/index.svelte';

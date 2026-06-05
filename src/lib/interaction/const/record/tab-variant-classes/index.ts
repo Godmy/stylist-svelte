@@ -1,4 +1,3 @@
-
 export const TAB_VARIANT_CLASSES: Record<string, string> = {
 	default:
 		'border-b-2 border-transparent data-[state=active]:border-[var(--color-primary-600)] data-[state=active]:text-[var(--color-primary-600)]',

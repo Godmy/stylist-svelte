@@ -1,4 +1,3 @@
-
 export interface SlotSentimentResult {
 	score: number;
 	label: 'very negative' | 'negative' | 'neutral' | 'positive' | 'very positive';

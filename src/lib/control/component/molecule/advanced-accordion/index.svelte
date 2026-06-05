@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeAdvancedAccordionProps as IAdvancedAccordionProps } from '$stylist/control/interface/recipe/advanced-accordion-props';
 	import { AdvancedAccordionStyleManager } from '$stylist/control/class/style-manager/advanced-accordion';
-	import { createAdvancedAccordionState } from '$stylist/control/function/state/advanced-accordion';
+	import createAdvancedAccordionState from '$stylist/control/function/state/advanced-accordion/index.svelte';
 
 	let { items = [], class: className = '' }: IAdvancedAccordionProps = $props();
 	const state = createAdvancedAccordionState({ items, class: className });

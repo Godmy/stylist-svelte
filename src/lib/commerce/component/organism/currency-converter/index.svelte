@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCurrencyConverter as CurrencyConverterContract } from '$stylist/commerce/interface/recipe/currency-converter';
-	import { createCurrencyConverterState } from '$stylist/commerce/function/state/currency-converter';
+	import createCurrencyConverterState from '$stylist/commerce/function/state/currency-converter/index.svelte';
 
 	let props: CurrencyConverterContract = $props();
 	const state = createCurrencyConverterState(props);

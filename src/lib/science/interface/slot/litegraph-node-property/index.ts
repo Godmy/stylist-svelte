@@ -1,4 +1,3 @@
-
 export interface LiteGraphNodeProperty {
 	id: string;
 	name: string;

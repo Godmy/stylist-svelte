@@ -1,6 +1,6 @@
-import { AnimatedStyleManager } from '$stylist/animation/class/style-manager/animated';
 import { ObjectManagerMotion } from '$stylist/animation/class/object-manager/motion';
 import type { SlotAnimate as AnimateProps } from '$stylist/animation/interface/slot/animate';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createAnimatedState = (props: AnimateProps) => {
 	// SlotState
@@ -12,26 +12,18 @@ export const createAnimatedState = (props: AnimateProps) => {
 
 	// Вычисляемые классы
 	const classes = $derived.by(() =>
-		AnimatedStyleManager.getClasses({
-			animation: normalizedProps.animation,
-			duration: normalizedProps.duration,
-			easing: normalizedProps.easing,
-			delay: normalizedProps.delay,
-			infinite: normalizedProps.infinite,
-			isAnimating,
-			class: props.class
-		})
+		mergeClassNames(
+			'c-animated',
+			isAnimating && 'c-animated--animating',
+			normalizedProps.infinite && 'c-animated--infinite',
+			typeof props.class === 'string' ? props.class : undefined
+		)
 	);
 
 	// Вычисляемые inline стили
-	const inlineStyle = $derived.by(() =>
-		AnimatedStyleManager.getAnimationStyle({
-			animation: normalizedProps.animation,
-			duration: normalizedProps.duration,
-			easing: normalizedProps.easing,
-			delay: normalizedProps.delay,
-			infinite: normalizedProps.infinite
-		})
+	const inlineStyle = $derived.by(
+		() =>
+			`animation: ${normalizedProps.animation} ${normalizedProps.duration} ${normalizedProps.easing} ${normalizedProps.delay}ms${normalizedProps.infinite ? ' infinite' : ''};`
 	);
 
 	// Извлечение rest props

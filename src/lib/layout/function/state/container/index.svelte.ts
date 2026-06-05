@@ -1,5 +1,5 @@
 import { LayoutStyleManager } from '$stylist/layout/class/style-manager/layout';
-import type { ContainerProps } from '$stylist/layout/type/struct/container';
+import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 export function createContainerState(props: ContainerProps) {

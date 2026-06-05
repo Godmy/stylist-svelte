@@ -1,4 +1,4 @@
-import { createButtonState as createButtonStateImpl } from '$stylist/control/function/state/button';
+import createButtonStateImpl from '$stylist/control/function/state/button/index.svelte';
 
 export function createIconButtonState(
 	...args: Parameters<typeof createButtonStateImpl>

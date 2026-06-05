@@ -1,4 +1,4 @@
-import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board';
+import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board/kanbanboardtype';
 import type { KanbanColumnType } from '$stylist/management/type/struct/kanban-column';
 
 export function addKanbanColumn(boardState: KanbanBoardType): {

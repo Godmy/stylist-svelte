@@ -3,10 +3,8 @@ import { friendListHandleFriendClick } from '$stylist/social/function/script/fri
 import { friendListHandleSearchInput } from '$stylist/social/function/script/friend-list';
 import { friendListHandleSendMessage } from '$stylist/social/function/script/friend-list-handle-send-message';
 import { friendListHandleVideoCall } from '$stylist/social/function/script/friend-list-handle-video-call';
-import type {
-	FRIEND_LIST_FRIEND,
-	FRIEND_LIST_PROPS
-} from '$stylist/social/type/struct/friend-list';
+import type { FRIEND_LIST_FRIEND } from '$stylist/social/type/struct/friend-list/friend_list_friend';
+import type { FRIEND_LIST_PROPS } from '$stylist/social/type/struct/friend-list/friend_list_-props';
 
 export function createFriendListState(props: FRIEND_LIST_PROPS) {
 	let searchQuery = $state('');

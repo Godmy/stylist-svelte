@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { GridLayoutProps } from '$stylist/layout/type/struct/layout';
-	import { createGridLayoutState } from '$stylist/layout/function/state/grid-layout';
+	import type { GridLayoutProps } from '$stylist/layout/type/struct/layout/grid-layout-props';
+	import createGridLayoutState from '$stylist/layout/function/state/grid-layout/index.svelte';
 	import { LayoutStyleManager } from '$stylist/layout/class/style-manager/layout';
 
 	let props: GridLayoutProps = $props();

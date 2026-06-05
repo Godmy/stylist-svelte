@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createLoginFormState } from '$stylist/form/function/state/login-form';
+	import createLoginFormState from '$stylist/form/function/state/login-form/index.svelte';
 
 	const props = $props();
 	const state = createLoginFormState(props);

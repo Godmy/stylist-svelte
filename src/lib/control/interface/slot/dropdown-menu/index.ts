@@ -2,7 +2,7 @@
  * DropdownMenu types and interfaces following SOLID principles
  */
 
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { Snippet } from 'svelte';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { SlotCloseDropdownFunc } from '$stylist/control/interface/slot/close-dropdown-func';

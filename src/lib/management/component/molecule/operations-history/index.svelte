@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Button } from '$stylist/control';
-	import { Icon } from '$stylist/media';
-	import { Badge } from '$stylist/typography';
-	import { createOperationsHistoryState } from '$stylist/management/function/state/operations-history';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Badge from '$stylist/information/component/atom/badge/index.svelte';
+	import createOperationsHistoryState from '$stylist/management/function/state/operations-history/index.svelte';
 	import type { BehaviorOperationsHistoryEvents } from '$stylist/management/interface/behavior/operations-history-events';
 	import type { SlotOperationsHistory as OperationsHistoryProps } from '$stylist/management/interface/slot/operations-history';
 

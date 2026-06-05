@@ -1,6 +1,6 @@
 import { ObjectManagerMotion } from '$stylist/animation/class/object-manager/motion';
-import { TransformableStyleManager } from '$stylist/animation/class/style-manager/transformable';
 import type { SlotTransformable as TransformProps } from '$stylist/animation/interface/slot/transformable';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createTransformableState = (props: TransformProps) => {
 	// SlotState
@@ -12,25 +12,35 @@ export const createTransformableState = (props: TransformProps) => {
 
 	// Вычисляемые классы
 	const classes = $derived.by(() =>
-		TransformableStyleManager.getClasses({
-			animateOnHover: props.animateOnHover,
-			isHovered,
-			class: props.class
-		})
+		mergeClassNames(
+			'c-transformable',
+			props.animateOnHover && 'c-transformable--hover',
+			typeof props.class === 'string' ? props.class : undefined
+		)
 	);
 
 	// Вычисляемые inline стили
-	const inlineStyle = $derived.by(() =>
-		TransformableStyleManager.getTransformStyle({
-			scale: isHovered && props.animateOnHover ? (props.scale ?? 1) * 1.05 : props.scale,
-			rotate: isHovered && props.animateOnHover ? (props.rotate ?? 0) + 3 : props.rotate,
-			translateX: props.translateX,
-			translateY: props.translateY,
-			skewX: props.skewX,
-			skewY: props.skewY,
-			transformOrigin: props.transformOrigin
-		})
-	);
+	const inlineStyle = $derived.by(() => {
+		const scale =
+			isHovered && props.animateOnHover ? (props.scale ?? 1) * 1.05 : (props.scale ?? 1);
+		const rotate =
+			isHovered && props.animateOnHover ? (props.rotate ?? 0) + 3 : (props.rotate ?? 0);
+		const translateX = props.translateX ?? 0;
+		const translateY = props.translateY ?? 0;
+		const skewX = props.skewX ?? 0;
+		const skewY = props.skewY ?? 0;
+		const transforms: string[] = [];
+
+		if (translateX !== 0 || translateY !== 0) {
+			transforms.push(`translate(${translateX}px, ${translateY}px)`);
+		}
+		if (scale !== 1) transforms.push(`scale(${scale})`);
+		if (rotate !== 0) transforms.push(`rotate(${rotate}deg)`);
+		if (skewX !== 0) transforms.push(`skewX(${skewX}deg)`);
+		if (skewY !== 0) transforms.push(`skewY(${skewY}deg)`);
+
+		return transforms.length > 0 ? transforms.join(' ') : 'none';
+	});
 
 	// Извлечение rest props
 	const restProps = $derived.by(() => {

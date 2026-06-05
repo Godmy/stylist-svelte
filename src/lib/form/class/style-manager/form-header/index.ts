@@ -1,25 +1,27 @@
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+
 export class FormHeaderStyleManager {
 	static root(className = ''): string {
-		return `border-b border-[var(--color-border-primary)] pb-5 ${className}`.trim();
+		return mergeClassNames('c-form-header', className);
 	}
 
 	static backButton(className = ''): string {
-		return `mr-4 -ml-4 p-2 rounded-md text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)] ${className}`.trim();
+		return mergeClassNames('c-form-header__back-btn', className);
 	}
 
 	static title(className = ''): string {
-		return `text-2xl font-bold text-[var(--color-text-primary)] ${className}`.trim();
+		return mergeClassNames('c-form-header__title', className);
 	}
 
 	static subtitle(className = ''): string {
-		return `mt-1 text-sm text-[var(--color-text-secondary)] ${className}`.trim();
+		return mergeClassNames('c-form-header__subtitle', className);
 	}
 
 	static description(className = ''): string {
-		return `mt-2 text-sm text-[var(--color-text-secondary)] ${className}`.trim();
+		return mergeClassNames('c-form-header__description', className);
 	}
 
 	static actions(className = ''): string {
-		return `${className}`.trim();
+		return mergeClassNames('c-form-header__actions', className);
 	}
 }

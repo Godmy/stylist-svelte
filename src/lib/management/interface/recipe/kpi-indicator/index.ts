@@ -2,7 +2,7 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-import type { TokenKPI } from '$stylist/typography/type/enum/kpi';
+import type { TokenKPI } from '$stylist/management/type/enum/kpi';
 import type { BehaviorMetricValue as IMetricValue } from '$stylist/information/interface/behavior/metric-value';
 import type { BehaviorTrendable as ITrendable } from '$stylist/management/interface/behavior/trendable';
 

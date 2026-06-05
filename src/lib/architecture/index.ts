@@ -16,8 +16,7 @@ export {
 	PresenterScene,
 	PreziScene,
 	Scene,
-	SceneCameraControl,
-	StoryDemo
+	SceneCameraControl
 } from './component';
 export {
 	DEFAULT_FOUNDATION_CAMERA,
@@ -171,8 +170,6 @@ export type {
 	TokenConnector,
 	TokenEasing,
 	TokenFunctionalTaxonomy,
-	TokenLetterSpacing,
-	TokenLineHeight,
 	TokenLineType,
 	TokenMarker,
 	TokenNodeType,

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createPaymentInfoState } from '$stylist/commerce/function/state/payment-info';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createPaymentInfoState from '$stylist/commerce/function/state/payment-info/createpaymentinfostate/index.svelte';
 	import type { PaymentInfoProps } from '$stylist/commerce/interface/recipe/payment-info-props';
 
 	let props: PaymentInfoProps = $props();

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createTimelineState } from '$stylist/calendar/function/state/timeline';
+	import createTimelineState from '$stylist/calendar/function/state/timeline/index.svelte';
 	import type { TimelineProps } from '$stylist/calendar/type/struct/timeline';
 
 	let props: TimelineProps = $props();
@@ -7,46 +7,58 @@
 </script>
 
 <div
-	class={`w-full ${state.className} ${state.orientation === 'vertical' ? 'flex flex-col' : 'flex'}`}
+	class="c-timeline {state.className} {state.orientation === 'vertical'
+		? 'c-timeline--vertical'
+		: 'c-timeline--horizontal'}"
 	{...state.restProps}
 >
 	{#each state.items as item, index}
-		<div class={`flex ${state.orientation === 'vertical' ? 'flex-col' : 'flex-row items-center'}`}>
+		<div
+			class="c-timeline__item {state.orientation === 'vertical'
+				? 'c-timeline__item--vertical'
+				: 'c-timeline__item--horizontal'}"
+		>
 			<div
-				class={`flex ${state.orientation === 'vertical' ? 'flex-row' : 'flex-col items-center'}`}
+				class="c-timeline__connector-row {state.orientation === 'vertical'
+					? 'c-timeline__connector-row--v'
+					: 'c-timeline__connector-row--h'}"
 			>
 				<div
-					class={`z-[var(--z-index-docked)] flex items-center justify-center ${
-						state.orientation === 'vertical' ? 'mr-4' : 'mb-4'
-					}`}
+					class="c-timeline__step-wrap {state.orientation === 'vertical'
+						? 'c-timeline__step-wrap--v'
+						: 'c-timeline__step-wrap--h'}"
 				>
 					{#if item.icon}
 						<div
-							class={`flex h-8 w-8 items-center justify-center rounded-full ${state.getStatusClasses(item.status || 'upcoming')} ${state.iconClass}`}
+							class="c-timeline__step c-timeline__step--{item.status ||
+								'upcoming'} {state.iconClass}"
 						>
 							{@render item.icon()}
 						</div>
 					{:else}
 						<div
-							class={`flex h-8 w-8 items-center justify-center rounded-full ${state.getStatusClasses(item.status || 'upcoming')} ${state.iconClass}`}
+							class="c-timeline__step c-timeline__step--{item.status ||
+								'upcoming'} {state.iconClass}"
 						>
 							{index + 1}
 						</div>
 					{/if}
 				</div>
 
-				<div class={`mb-6 ${state.itemClass} ${state.orientation === 'vertical' ? 'flex-1' : ''}`}>
-					<div
-						class={`rounded-lg p-4 ${state.getItemBackgroundClasses(item.status || 'upcoming')}`}
-					>
-						<div class="flex items-start justify-between">
-							<h3 class="text-lg font-semibold text-[var(--color-text-primary)]">{item.title}</h3>
+				<div
+					class="c-timeline__content {state.itemClass} {state.orientation === 'vertical'
+						? 'c-timeline__content--v'
+						: ''}"
+				>
+					<div class="c-timeline__card c-timeline__card--{item.status || 'upcoming'}">
+						<div class="c-timeline__card-head">
+							<h3 class="c-timeline__card-title">{item.title}</h3>
 							{#if item.date}
-								<span class="text-sm text-[var(--color-text-secondary)]">{item.date}</span>
+								<span class="c-timeline__card-date">{item.date}</span>
 							{/if}
 						</div>
 						{#if item.content}
-							<div class="mt-2 text-[var(--color-text-secondary)]">
+							<div class="c-timeline__card-body">
 								{@render item.content()}
 							</div>
 						{/if}
@@ -56,13 +68,156 @@
 
 			{#if index < state.items.length - 1}
 				<div
-					class={`${
-						state.orientation === 'vertical'
-							? 'absolute left-4 ml-4 h-full w-0.5 bg-[var(--color-background-tertiary)]'
-							: 'mt-4 h-0.5 w-full bg-[var(--color-background-tertiary)]'
-					} ${state.connectorClass}`}
+					class="c-timeline__line {state.orientation === 'vertical'
+						? 'c-timeline__line--v'
+						: 'c-timeline__line--h'} {state.connectorClass}"
 				></div>
 			{/if}
 		</div>
 	{/each}
 </div>
+
+<style>
+	.c-timeline {
+		width: 100%;
+	}
+	.c-timeline--vertical {
+		display: flex;
+		flex-direction: column;
+	}
+	.c-timeline--horizontal {
+		display: flex;
+	}
+
+	.c-timeline__item {
+		position: relative;
+	}
+	.c-timeline__item--vertical {
+		display: flex;
+		flex-direction: column;
+	}
+	.c-timeline__item--horizontal {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.c-timeline__connector-row {
+		display: flex;
+	}
+	.c-timeline__connector-row--v {
+		flex-direction: row;
+	}
+	.c-timeline__connector-row--h {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.c-timeline__step-wrap {
+		z-index: var(--z-index-docked, 10);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.c-timeline__step-wrap--v {
+		margin-right: 1rem;
+	}
+	.c-timeline__step-wrap--h {
+		margin-bottom: 1rem;
+	}
+
+	.c-timeline__step {
+		display: flex;
+		width: 2rem;
+		height: 2rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		font-size: 0.875rem;
+		font-weight: 600;
+	}
+
+	.c-timeline__step--completed {
+		background: var(--color-success-500);
+		color: var(--color-text-inverse);
+	}
+	.c-timeline__step--active {
+		background: var(--color-primary-500);
+		color: var(--color-text-inverse);
+	}
+	.c-timeline__step--upcoming {
+		background: var(--color-background-secondary);
+		color: var(--color-text-secondary);
+		border: 2px solid var(--color-border-primary);
+	}
+	.c-timeline__step--skipped {
+		background: var(--color-neutral-300, var(--color-border-primary));
+		color: var(--color-text-secondary);
+	}
+
+	.c-timeline__content {
+		margin-bottom: 1.5rem;
+	}
+	.c-timeline__content--v {
+		flex: 1;
+	}
+
+	.c-timeline__card {
+		border-radius: 0.5rem;
+		padding: 1rem;
+	}
+
+	.c-timeline__card--completed {
+		background: color-mix(in srgb, var(--color-success-500) 8%, var(--color-background-primary));
+	}
+	.c-timeline__card--active {
+		background: color-mix(in srgb, var(--color-primary-500) 8%, var(--color-background-primary));
+		border: 1px solid var(--color-primary-200, var(--color-primary-500));
+	}
+	.c-timeline__card--upcoming {
+		background: var(--color-background-secondary);
+	}
+	.c-timeline__card--skipped {
+		background: var(--color-background-secondary);
+		opacity: 0.7;
+	}
+
+	.c-timeline__card-head {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	.c-timeline__card-title {
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
+		margin: 0;
+	}
+
+	.c-timeline__card-date {
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.c-timeline__card-body {
+		margin-top: 0.5rem;
+		color: var(--color-text-secondary);
+	}
+
+	.c-timeline__line {
+		background: var(--color-background-tertiary, var(--color-border-primary));
+	}
+	.c-timeline__line--v {
+		position: absolute;
+		left: 1rem;
+		margin-left: 1rem;
+		width: 2px;
+		height: 100%;
+	}
+	.c-timeline__line--h {
+		margin-top: 1rem;
+		height: 2px;
+		width: 100%;
+	}
+</style>

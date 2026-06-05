@@ -1,33 +1,31 @@
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { FormSelectionProps } from '$stylist/form/type/struct/form-selection';
 import type { SlotFormSelectionState } from '$stylist/form/interface/slot/form-selection-state';
 
 export function createFormSelectionState(props: FormSelectionProps): SlotFormSelectionState {
 	let isCollapsed = $state(props.initiallyCollapsed ?? false);
 
-	const sectionClasses = $derived(`
-    form-section
-    ${props.border ? 'border border-[var(--color-border-primary)] rounded-lg' : ''}
-    ${props.padding ? 'p-6' : 'p-0'}
-    ${props.class ?? ''}
-  `);
+	const sectionClasses = $derived(
+		mergeClassNames(
+			'c-form-selection',
+			props.border && 'c-form-selection--bordered',
+			props.padding && 'c-form-selection--padded',
+			props.class
+		)
+	);
 
 	const showHeader = $derived(!!props.title || (props.collapsible ?? false));
-
-	const rootClass = $derived('form-section');
-	const sectionHeaderClass = $derived('section-header');
-	const headerContentClass = $derived('header-content');
-	const titleClass = $derived(
-		'text-lg font-medium text-[var(--color-text-primary)] flex items-center'
-	);
-	const requiredMarkClass = $derived('text-[var(--color-danger-500)] ml-1');
-	const collapseButtonClass = $derived(
-		'mt-1 flex items-center justify-center w-6 h-6 rounded-full hover:bg-[var(--color-background-secondary)] focus:outline-none'
-	);
+	const rootClass = $derived('c-form-selection');
+	const sectionHeaderClass = $derived('c-form-selection__header');
+	const headerContentClass = $derived('c-form-selection__header-content');
+	const titleClass = $derived('c-form-selection__title');
+	const requiredMarkClass = $derived('c-form-selection__required');
+	const collapseButtonClass = $derived('c-form-selection__collapse-btn');
 	const iconClass = $derived(
-		`w-4 h-4 transform transition-transform text-[var(--color-text-secondary)] ${isCollapsed ? 'rotate-180' : ''}`
+		mergeClassNames('c-form-selection__icon', isCollapsed && 'c-form-selection__icon--rotated')
 	);
-	const sectionDescriptionClass = $derived('section-description');
-	const sectionContentClass = $derived('section-content');
+	const sectionDescriptionClass = $derived('c-form-selection__description');
+	const sectionContentClass = $derived('c-form-selection__content');
 
 	return {
 		get isCollapsed() {

@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import { createMetricCardState } from '$stylist/commerce/function/state/metric-card';
+	import createMetricCardState from '$stylist/commerce/function/state/metric-card/index.svelte';
 	import type { MetricCardRecipe } from '$stylist/information/interface/recipe/metric-card';
 
 	let { ...stateProps }: MetricCardRecipe = $props();

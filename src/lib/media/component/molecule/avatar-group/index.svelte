@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-	import { createAvatarGroupState } from '$stylist/media/function/state/avatar-group';
-	import type { AvatarGroupProps } from '$stylist/media/type/struct/avatar-group';
+	import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
+	import createAvatarGroupState from '$stylist/media/function/state/avatar-group/index.svelte';
+	import type { AvatarGroupProps } from '$stylist/media/type/struct/avatar-group/avatargroup-props';
 
 	let props: AvatarGroupProps & InformationHTMLAttributes<HTMLDivElement> = $props();
 	const state = createAvatarGroupState(props);
@@ -10,7 +10,7 @@
 <div class={state.hostClasses} {...state.restProps}>
 	{#each state.visibleAvatars as avatar, index}
 		<div
-			class={`relative -ml-2 first:ml-0 ${state.avatarClass}`}
+			class={`ag-item ${state.avatarClass}`}
 			style={`z-index: ${state.visibleAvatars.length - index}`}
 			onclick={() => avatar.onClick && avatar.onClick()}
 			role="button"
@@ -48,12 +48,37 @@
 	{/each}
 
 	{#if state.overflowCount > 0}
-		<div class={`relative -ml-2 ${state.overflowClass}`}>
-			<div
-				class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--color-background-primary)] bg-[var(--color-background-tertiary)] text-xs font-medium text-[var(--color-text-primary)]"
-			>
+		<div class={`ag-overflow ${state.overflowClass}`}>
+			<div class="ag-overflow-count">
 				+{state.overflowCount}
 			</div>
 		</div>
 	{/if}
 </div>
+
+<style>
+	.ag-item {
+		position: relative;
+		margin-left: -0.5rem;
+	}
+	.ag-item:first-child {
+		margin-left: 0;
+	}
+	.ag-overflow {
+		position: relative;
+		margin-left: -0.5rem;
+	}
+	.ag-overflow-count {
+		display: flex;
+		width: 2rem;
+		height: 2rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		border: 2px solid var(--color-background-primary);
+		background-color: var(--color-background-tertiary);
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+</style>

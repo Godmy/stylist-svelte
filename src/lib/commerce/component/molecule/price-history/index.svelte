@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PriceHistoryProps } from '$stylist/commerce/interface/recipe/price-history-props';
-	import { createPriceHistoryState } from '$stylist/commerce/function/state/price-history';
+	import createPriceHistoryState from '$stylist/commerce/function/state/price-history/createpricehistorystate/index.svelte';
 	import { PriceHistoryStyleManager } from '$stylist/commerce/class/style-manager/price-history';
 
 	let props: PriceHistoryProps = $props();

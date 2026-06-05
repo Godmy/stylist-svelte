@@ -1,4 +1,3 @@
-
 // ListItem type
 export type ListItem = {
 	id: string;

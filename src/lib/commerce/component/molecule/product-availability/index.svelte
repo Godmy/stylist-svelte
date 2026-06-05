@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createProductAvailabilityState } from '$stylist/commerce/function/state/product-availability';
+	import createProductAvailabilityState from '$stylist/commerce/function/state/product-availability/createproductavailabilitystate/index.svelte';
 	import type { ProductAvailabilityProps } from '$stylist/commerce/interface/recipe/product-availability-props';
 
 	let props: ProductAvailabilityProps = $props();

@@ -1,9 +1,4 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
+import type { HtmlAttributesWithChildren } from '$stylist/information/interface/slot/html-attributes-with-children';
 import type { TypographyTextProps } from '$stylist/typography/type/struct/typography-text-props';
-import type { Snippet } from 'svelte';
 
-export interface ThemeTextRecipe
-	extends StructIntersectAll<[ThemeAttributes<HTMLElement>, TypographyTextProps]> {
-	children?: Snippet;
-}
+export interface TextRecipe extends HtmlAttributesWithChildren<HTMLElement>, TypographyTextProps {}

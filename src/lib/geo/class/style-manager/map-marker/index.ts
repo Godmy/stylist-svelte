@@ -1,155 +1,94 @@
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { TokenPin } from '$stylist/geo/type/enum/pin';
 import type { TokenShape } from '$stylist/layout/type/enum/shape';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 export class MapMarkerStyleManager {
 	static getBaseClasses(selected: boolean, hostClass: string): string {
-		return `map-marker relative ${selected ? 'z-[var(--z-index-docked)]' : 'z-[var(--z-index-base)]'} ${hostClass}`;
+		return mergeClassNames('c-map-marker', selected && 'c-map-marker--selected', hostClass);
 	}
 
 	static getMarkerContainerClasses(iconClass: string): string {
-		return `flex flex-col items-center cursor-pointer ${iconClass}`;
+		return mergeClassNames('c-map-marker__container', iconClass);
 	}
+
 	static getPinStyleClasses(
 		size: TokenSize,
-		colorClass: string,
+		_colorClass: string,
 		selected: boolean,
 		pinStyle: TokenShape
 	): string {
-		const sizeClasses =
-			{
-				xs: 'h-3 w-3',
-				sm: 'h-4 w-4',
-				md: 'h-6 w-6',
-				lg: 'h-8 w-8',
-				xl: 'h-10 w-10',
-				'2xl': 'h-12 w-12',
-				'1/4': 'h-3 w-3',
-				'1/3': 'h-4 w-4',
-				'2/5': 'h-4 w-4',
-				'1/2': 'h-6 w-6',
-				'3/5': 'h-6 w-6',
-				'2/3': 'h-8 w-8',
-				'3/4': 'h-10 w-10',
-				full: 'h-12 w-12'
-			}[size] ?? 'h-6 w-6';
-
-		const basePinClass = `${sizeClasses} ${colorClass} ${selected ? 'scale-125' : ''} transition-transform duration-[var(--duration-200)]`;
-
-		switch (pinStyle) {
-			case 'vector':
-				return basePinClass;
-			case 'flag':
-				return `relative ${sizeClasses}`;
-			case 'circle':
-				return `${sizeClasses} ${colorClass} rounded-full border-2 border-[--color-border-primary] shadow-md`;
-			case 'diamond':
-				return `${sizeClasses} ${colorClass} rotate-45 rounded-br-full`;
-			default:
-				return basePinClass;
-		}
+		return mergeClassNames(
+			'c-map-marker__pin',
+			`c-map-marker__pin--${size}`,
+			`c-map-marker__pin--${pinStyle}`,
+			selected && 'c-map-marker__pin--selected'
+		);
 	}
+
 	static getDistanceLabelClasses(): string {
-		return 'text-xs bg-[--color-background-surface] px-1 rounded mt-1 shadow-sm text-[--color-text-primary]';
+		return 'c-map-marker__distance';
 	}
 
 	static getPopupClasses(popupClass: string): string {
-		return `absolute z-[var(--z-index-popover)] mt-2 w-64 bg-[--color-background-surface] rounded-lg shadow-lg border border-[--color-border-primary] p-4 ${popupClass}`;
+		return mergeClassNames('c-map-marker__popup', popupClass);
 	}
 
 	static getTitleClasses(titleClass: string): string {
-		return `font-semibold text-[--color-text-primary] ${titleClass}`;
+		return mergeClassNames('c-map-marker__popup-title', titleClass);
 	}
 
 	static getDescriptionClasses(): string {
-		return 'text-sm text-[--color-text-secondary] mt-1';
+		return 'c-map-marker__popup-description';
 	}
 
 	static getRatingContainerClasses(): string {
-		return 'flex items-center mt-2';
+		return 'c-map-marker__rating';
 	}
 
-	static getStarClasses(isFilled: boolean, isHalf: boolean = false): string {
-		return `w-4 h-4 ${isFilled ? 'text-[--color-warning-500] fill-current' : isHalf ? 'text-[--color-warning-300] fill-current' : 'text-[--color-text-tertiary]'}`;
+	static getStarClasses(isFilled: boolean, _isHalf: boolean = false): string {
+		return mergeClassNames('c-map-marker__star', isFilled && 'c-map-marker__star--filled');
 	}
 
 	static getCloseButtonClasses(): string {
-		return 'text-[--color-text-secondary] hover:text-[--color-text-primary]';
+		return 'c-map-marker__close';
 	}
 
 	static getContactInfoContainerClasses(): string {
-		return 'mt-3 pt-3 border-t border-[--color-border-secondary]';
+		return 'c-map-marker__contact';
 	}
 
 	static getContactItemClasses(): string {
-		return 'flex items-center text-sm text-[--color-text-secondary] mt-2';
+		return 'c-map-marker__contact-item';
 	}
 
 	static getContactLinkClasses(): string {
-		return 'hover:text-[--color-primary-600]';
+		return 'c-map-marker__contact-link';
 	}
 
 	static getCustomContentClasses(contentClass: string): string {
-		return `mt-3 ${contentClass}`;
+		return mergeClassNames('c-map-marker__custom', contentClass);
 	}
 
 	static getActionButtonsContainerClasses(): string {
-		return 'flex space-x-2 mt-4';
+		return 'c-map-marker__actions';
 	}
 
 	static getColorClass(color: string, type: TokenPin): string {
 		if (color) return color;
-
 		const typeColors: Record<TokenPin, string> = {
-			business: 'text-[--color-success-500]',
-			person: 'text-[--color-purple-500]',
-			place: 'text-[--color-warning-500]'
+			business: 'var(--color-success-500)',
+			person: 'var(--color-purple-500, var(--color-primary-500))',
+			place: 'var(--color-warning-500)'
 		};
-
-		return typeColors[type];
+		return typeColors[type] ?? 'var(--color-primary-500)';
 	}
 
-	static getFlagClasses(colorClass: string, size: TokenSize): string {
-		const sizeClasses =
-			{
-				xs: 'w-0.5 h-2/3',
-				sm: 'w-0.5 h-3/4',
-				md: 'w-0.5 h-3/4',
-				lg: 'w-0.5 h-3/4',
-				xl: 'w-0.5 h-4/5',
-				'2xl': 'w-0.5 h-5/6',
-				'1/4': 'w-0.5 h-2/3',
-				'1/3': 'w-0.5 h-3/4',
-				'2/5': 'w-0.5 h-3/4',
-				'1/2': 'w-0.5 h-3/4',
-				'3/5': 'w-0.5 h-3/4',
-				'2/3': 'w-0.5 h-3/4',
-				'3/4': 'w-0.5 h-4/5',
-				full: 'w-0.5 h-5/6'
-			}[size] ?? 'w-0.5 h-3/4';
-
-		return `absolute ${sizeClasses} ${colorClass} bottom-0 left-1/2 transform -translate-x-1/2`;
+	static getFlagClasses(_colorClass: string, size: TokenSize): string {
+		return mergeClassNames('c-map-marker__flag-pole', `c-map-marker__flag-pole--${size}`);
 	}
 
-	static getFlagTopClasses(colorClass: string, size: TokenSize): string {
-		const sizeClasses =
-			{
-				xs: 'w-3 h-3',
-				sm: 'w-4 h-4',
-				md: 'w-4 h-4',
-				lg: 'w-4 h-4',
-				xl: 'w-5 h-5',
-				'2xl': 'w-6 h-6',
-				'1/4': 'w-3 h-3',
-				'1/3': 'w-4 h-4',
-				'2/5': 'w-4 h-4',
-				'1/2': 'w-4 h-4',
-				'3/5': 'w-4 h-4',
-				'2/3': 'w-4 h-4',
-				'3/4': 'w-5 h-5',
-				full: 'w-6 h-6'
-			}[size] ?? 'w-4 h-4';
-
-		return `absolute top-0 left-1/2 transform -translate-x-full ${colorClass} ${sizeClasses} rounded-full`;
+	static getFlagTopClasses(_colorClass: string, size: TokenSize): string {
+		return mergeClassNames('c-map-marker__flag-top', `c-map-marker__flag-top--${size}`);
 	}
 }

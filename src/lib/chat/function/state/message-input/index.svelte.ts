@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { SlotMessageInput as MessageInputContract } from '$stylist/chat/interface/slot/message-input';
 import { handleAttachFn } from '$stylist/chat/function/script/handle-attach-fn';
 import { handleEmojiFn } from '$stylist/chat/function/script/handle-emoji-fn';

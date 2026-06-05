@@ -22,7 +22,9 @@ export function createDataTableState(props: DataTableRecipe<Row>) {
 		ObjectManagerTableControls.sortData(props.data, sortKey, sortDirection)
 	);
 	const rootClass = $derived(DataTableStyleManager.root(props.class ?? ''));
-	const containerStyle = $derived(props.maxHeight !== 'none' ? `max-height:${props.maxHeight}` : '');
+	const containerStyle = $derived(
+		props.maxHeight !== 'none' ? `max-height:${props.maxHeight}` : ''
+	);
 
 	return {
 		get sortKey() {

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { ExportFormat } from '$stylist/control';
-	import { Story } from '$stylist/playground/component';
+	import type { ExportFormat } from '$stylist/control/type/alias/export-format';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import ExportPanel from './index.svelte';

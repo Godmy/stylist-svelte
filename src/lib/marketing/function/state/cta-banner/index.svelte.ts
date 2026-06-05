@@ -1,4 +1,4 @@
-import type { CtaBannerProps } from '$stylist/marketing/type/struct/cta-banner';
+import type { CtaBannerProps } from '$stylist/marketing/type/struct/cta-banner/ctabanner-props';
 import { CtaBannerStyleManager } from '$stylist/marketing/class/style-manager/cta-banner';
 
 export function createCtaBannerState(props: CtaBannerProps) {

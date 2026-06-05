@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ProductCardExtendedProps as Props } from '$stylist/commerce/type/struct/product-card-extended-props';
-	import { createProductCardExtendedState } from '$stylist/commerce/function/state/product-card-extended';
+	import createProductCardExtendedState from '$stylist/commerce/function/state/product-card-extended/index.svelte';
 
 	let props: Props = $props();
 	const state = createProductCardExtendedState(props);

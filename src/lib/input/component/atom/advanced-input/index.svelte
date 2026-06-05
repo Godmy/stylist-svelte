@@ -3,7 +3,7 @@
 	import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 	import type { TokenSize } from '$stylist/layout/type/enum/size';
 	import type { SlotInputBase as IInputBaseProps } from '$stylist/input/interface/slot/input-base';
-	import { createAdvancedInputState } from '$stylist/input/function/state/advanced-input';
+	import createAdvancedInputState from '$stylist/input/function/state/advanced-input/index.svelte';
 
 	let props: IInputBaseProps<TokenAppearance, TokenSize> &
 		Omit<HTMLInputAttributes, 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> = $props();

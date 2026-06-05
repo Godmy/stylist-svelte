@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createAdvancedToggleState } from '$stylist/control/function/state/advanced-toggle';
+	import createAdvancedToggleState from '$stylist/control/function/state/advanced-toggle/index.svelte';
 	import type { RecipeAdvancedToggleProps } from '$stylist/control/type/struct/advanced-toggle-props';
 
 	let props: RecipeAdvancedToggleProps = $props();

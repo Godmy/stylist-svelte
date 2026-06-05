@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
-	import { FormStyleManager } from '$stylist/form';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import { FormStyleManager } from '$stylist/form/class/style-manager/forms';
 	import LoginForm from './index.svelte';
 </script>
 

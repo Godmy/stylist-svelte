@@ -5,7 +5,7 @@
 	 */
 
 	import type { Snippet } from 'svelte';
-	import { createComponentPreviewState } from '$stylist/development/function/state/component-preview';
+	import createComponentPreviewState from '$stylist/development/function/state/component-preview/index.svelte';
 	import CodeBlock from '../code-block/index.svelte';
 
 	let {

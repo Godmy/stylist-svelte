@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createTableWithGroupingState } from '$stylist/control/function/state/table-with-grouping';
+	import createTableWithGroupingState from '$stylist/control/function/state/table-with-grouping/index.svelte';
 	import type { SlotTableWithGrouping as TableWithGroupingProps } from '$stylist/control/interface/slot/table-with-grouping';
 
 	let props: TableWithGroupingProps = $props();

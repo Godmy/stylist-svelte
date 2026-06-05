@@ -1,6 +1,6 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { PreziCamera } from '$stylist/architecture/interface/slot/prezi-camera/index';
-import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/index';
+import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
 
 export interface PreziSceneState extends StructIntersectAll<[]> {
 	camera: PreziCamera;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ProductSearchRecipe } from '$stylist/commerce/interface/recipe/product-search';
-	import { createProductSearchState } from '$stylist/commerce/function/state/product-search';
+	import createProductSearchState from '$stylist/commerce/function/state/product-search/index.svelte';
 
 	let props: ProductSearchRecipe = $props();
 	const state = createProductSearchState(props);

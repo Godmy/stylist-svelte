@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createFormWithValidationState } from '$stylist/form/function/state/form-with-validation';
+	import createFormWithValidationState from '$stylist/form/function/state/form-with-validation/index.svelte';
 
 	const props = $props();
 	const state = createFormWithValidationState(props);

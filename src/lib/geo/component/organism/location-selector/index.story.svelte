@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { LocationSelectorLocation } from '$stylist/geo/type/struct/location-selector';
-	import { Story } from '$stylist/playground/component';
+	import type { LocationSelectorLocation } from '$stylist/geo/type/struct/location-selector/locationselectorlocation';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import LocationSelector from './index.svelte';

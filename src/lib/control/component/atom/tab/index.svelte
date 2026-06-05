@@ -2,7 +2,7 @@
 	import { getContext, onDestroy, onMount } from 'svelte';
 	import { TAB_CONTEXT } from '$stylist/control/const/record/tab-context';
 	import type { SlotTab as TabProps } from '$stylist/control/interface/slot/tab-tabs';
-	import { createTabState } from '$stylist/control/function/state/tab';
+	import createTabState from '$stylist/control/function/state/tab/index.svelte';
 
 	let props: TabProps = $props();
 

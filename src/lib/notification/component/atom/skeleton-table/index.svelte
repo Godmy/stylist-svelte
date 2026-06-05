@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createSkeletonTableState } from '$stylist/notification/function/state/skeleton-table';
+	import createSkeletonTableState from '$stylist/notification/function/state/skeleton-table/index.svelte';
 	import type { SkeletonTableProps } from '$stylist/notification/type/struct/skeleton-table-props';
 
 	let props: SkeletonTableProps = $props();

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { GraphPortRecipe as GraphPortProps } from '$stylist/science/interface/recipe/graph-port';
 	import type { GraphPortDataTypeColor } from '$stylist/science/type/struct/graph-port/graph-port-data-type-color';
 	import type { TokenPropertyType } from '$stylist/development/type/enum/property-type';
 	import { GraphPortStyleManager } from '$stylist/science/class/style-manager/graph-port';
-	import { createGraphPortState } from '$stylist/science/function/state/graph-port';
+	import createGraphPortState from '$stylist/science/function/state/graph-port/index.svelte';
 
 	let props: GraphPortProps = $props();
 

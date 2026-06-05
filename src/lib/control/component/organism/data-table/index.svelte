@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const ChevronDown = 'chevron-down';
 	const ChevronUp = 'chevron-up';
 
-	import { createDataTableState } from '$stylist/control/function/state/data-table';
+	import createDataTableState from '$stylist/control/function/state/data-table/index.svelte';
 	import type { SlotDataTableRecipe as DataTableRecipe } from '$stylist/control/interface/slot/data-table-recipe';
 
 	let {

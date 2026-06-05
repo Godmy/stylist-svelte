@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { Props } from '$stylist/information/type/struct';
+import type { Props } from '$stylist/information/type/struct/props';
 import type { SlotButtonDom } from '$stylist/control/interface/slot/button-dom';
 
 export interface SlotCopyButton

@@ -1,4 +1,4 @@
-import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board';
+import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board/kanbanboardtype';
 
 export function deleteKanbanCard(
 	boardState: KanbanBoardType,

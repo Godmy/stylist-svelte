@@ -1,4 +1,3 @@
-
 // ==================== MiniCalendar ====================
 export interface SlotMiniCalendarEvent {
 	id?: string;

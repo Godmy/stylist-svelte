@@ -1,13 +1,13 @@
-﻿/**
- * WishlistButton вЂ” РєРЅРѕРїРєР° РёР·Р±СЂР°РЅРЅРѕРіРѕ..
+/**
+ * WishlistButton — кнопка избранного..
  *
- * LEGO-СЃРѕСЃС‚Р°РІ:
- *   ILabelSlot        (information) вЂ” label (Label)
- *   IIconSlot        (information) вЂ” icon (Icon)
- *   IBadgeSlot        (information) вЂ” badge (Badge)
+ * LEGO-состав:
+ *   ILabelSlot        (information) — label (Label)
+ *   IIconSlot        (information) — icon (Icon)
+ *   IBadgeSlot        (information) — badge (Badge)
  */
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
+import type { SlotBadge as IBadgeSlot } from '$stylist/information/interface/slot/badge';
 import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
 import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';

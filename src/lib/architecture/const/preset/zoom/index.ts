@@ -1,4 +1,4 @@
-import type { Zoom } from '$stylist/architecture/type/struct/zoom';
+import type { Zoom } from '$stylist/architecture/type/struct/zoom/zoom';
 
 export const TOKEN_ZOOM = {
 	text: {

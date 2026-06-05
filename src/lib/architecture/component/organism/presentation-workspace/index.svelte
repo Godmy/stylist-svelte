@@ -1,7 +1,7 @@
 <script lang="ts">
 	const browser = typeof window !== 'undefined';
-	import { PreziScene } from '$stylist/architecture/component/organism';
-	import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
+	import PreziScene from '$stylist/architecture/component/organism/prezi-scene/index.svelte';
+	import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
 
 	type DemoStep = {
 		id: string;

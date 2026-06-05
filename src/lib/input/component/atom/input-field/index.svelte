@@ -1,7 +1,7 @@
 <script lang="ts">
 	import InputText from '../input-text/index.svelte';
 	import type { SlotInputField as IInputFieldProps } from '$stylist/input/interface/slot/input-field';
-	import { createInputFieldState } from '$stylist/input/function/state/input-field';
+	import createInputFieldState from '$stylist/input/function/state/input-field/index.svelte';
 
 	let props: IInputFieldProps = $props();
 	const state = createInputFieldState(props);
@@ -40,3 +40,11 @@
 		<p class={state.helperTextClasses}>{props.helperText}</p>
 	{/if}
 </div>
+
+<style>
+	.input-field-helper-text {
+		margin-block-start: 0.25rem;
+		font-size: var(--text-size-xs, 0.75rem);
+		color: var(--color-text-secondary);
+	}
+</style>

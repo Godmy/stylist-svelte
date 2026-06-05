@@ -1,4 +1,3 @@
-
 export interface SlotShippingAddress {
 	firstName: string;
 	lastName: string;

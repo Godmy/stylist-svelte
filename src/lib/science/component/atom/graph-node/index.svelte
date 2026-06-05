@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { GraphNodeRecipe } from '$stylist/science/interface/recipe/graph-node';
-	import { createGraphNodeState } from '$stylist/science/function/state/graph-node';
+	import createGraphNodeState from '$stylist/science/function/state/graph-node/index.svelte';
 
 	let props: GraphNodeRecipe = $props();
 

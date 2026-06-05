@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotTableWithStripes as TableWithStripesProps } from '$stylist/control/interface/slot/table-with-stripes';
-	import { createTableWithStripesState } from '$stylist/control/function/state/table-with-stripes';
+	import createTableWithStripesState from '$stylist/control/function/state/table-with-stripes/index.svelte';
 
 	let props: TableWithStripesProps = $props();
 	const state = createTableWithStripesState(props);

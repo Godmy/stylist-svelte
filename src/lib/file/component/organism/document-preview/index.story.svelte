@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import { DocumentPreviewStyleManager } from '$stylist/chat';
+	import { DocumentPreviewStyleManager } from '$stylist/chat/class/style-manager/document-preview-style-manager';
 	import DocumentPreview from './index.svelte';
 
 	type Props = {

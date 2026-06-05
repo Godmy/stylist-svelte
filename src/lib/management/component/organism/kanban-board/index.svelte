@@ -1,14 +1,12 @@
 <script lang="ts">
-	import { Button } from '$stylist/control';
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createKanbanBoardState } from '$stylist/management/function/state/kanban-board';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createKanbanBoardState from '$stylist/management/function/state/kanban-board/index.svelte';
 	import KanbanColumn from '$stylist/management/component/molecule/kanban-column/index.svelte';
-	import type {
-		KanbanBoardType,
-		KanbanBoardAction
-	} from '$stylist/management/type/struct/kanban-board';
+	import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board/kanbanboardtype';
+	import type { KanbanBoardAction } from '$stylist/management/type/struct/kanban-board/kanbanboardaction';
 	import type { KanbanColumnType } from '$stylist/management/type/struct/kanban-column';
-	import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card';
+	import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card/kanbancardtype';
 	import type { Snippet } from 'svelte';
 
 	let {

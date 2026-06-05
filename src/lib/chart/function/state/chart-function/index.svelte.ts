@@ -1,4 +1,4 @@
-import type { ChartSeries } from '$stylist/chart/type/struct';
+import type { ChartSeries } from '$stylist/chart/type/struct/chart-series';
 import type { ChartProps } from '$stylist/chart/interface/recipe/chart-props';
 import { ChartStyleManager } from '$stylist/chart/class/style-manager/chart';
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeSubscriptionManager as SubscriptionManagerContract } from '$stylist/commerce/interface/recipe/subscription-manager';
-	import { createSubscriptionManagerState as stateFn } from '$stylist/commerce/function/state/subscription-manager';
+	import stateFn from '$stylist/commerce/function/state/subscription-manager/index.svelte';
 
 	let props: SubscriptionManagerContract = $props();
 	const state = stateFn(props);

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import type { AddressData } from '$stylist/form/type/struct/forms-address-data';
-	import { FormStyleManager } from '$stylist/form';
+	import type { AddressData } from '$stylist/form/type/struct/forms/address-data';
+	import { FormStyleManager } from '$stylist/form/class/style-manager/forms';
 	import AddressForm from './index.svelte';
 
 	type Props = {

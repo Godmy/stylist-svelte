@@ -1,4 +1,5 @@
-﻿import type { ChartFunctionPoint, ChartSeries } from '$stylist/chart/type/struct';
+import type { ChartFunctionPoint } from '$stylist/chart/type/struct/chart-point';
+import type { ChartSeries } from '$stylist/chart/type/struct/chart-series';
 import type { ChartAxisYProps } from '$stylist/chart/interface/recipe/chart-axis-y-props';
 import type { ChartPolylineRecipe as ChartPolylineProps } from '$stylist/chart/interface/recipe/chart-polyline';
 import type { PieChartProps } from '$stylist/chart/interface/recipe/pie-chart-props';

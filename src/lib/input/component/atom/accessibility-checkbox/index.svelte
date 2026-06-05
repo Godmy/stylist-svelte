@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createInputAccessibilityCheckboxState } from '$stylist/input/function/state/accessibility-checkbox';
+	import createInputAccessibilityCheckboxState from '$stylist/input/function/state/accessibility-checkbox/index.svelte';
 
 	let props = $props<{
 		label?: string;

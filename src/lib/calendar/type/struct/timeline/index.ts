@@ -1,4 +1,4 @@
 import type { RecipeTimeline as TimelineContract } from '$stylist/calendar/interface/recipe/timeline';
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 
 export type TimelineProps = TimelineContract & InteractionHTMLAttributes<HTMLDivElement>;

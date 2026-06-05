@@ -1,4 +1,4 @@
-import type { GestureContract } from '..';
+import type { GestureContract } from '$stylist/interaction/type/struct/gesture/gesture-contract';
 
 /**
  * Контракт для кликабельных элементов

@@ -1,112 +1,58 @@
-/**
- * ScheduleCalendar Style Manager
- *
- * This class manages all styling for the ScheduleCalendar component following the
- * theming system and SOLID principles by separating styling concerns from component logic.
- */
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class ScheduleCalendarStyleManager {
-	/**
-	 * Gets the main wrapper classes for the schedule calendar
-	 */
 	static getWrapperClasses(hostClass: string): string {
-		return `schedule-calendar border border-[--color-border-primary] rounded-[--radius-lg] overflow-auto ${hostClass}`;
+		return mergeClassNames('c-schedule-calendar', hostClass);
 	}
 
-	/**
-	 * Gets the header classes for the schedule calendar
-	 */
 	static getHeaderClasses(headerClass: string): string {
-		return `flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-primary] ${headerClass}`;
+		return mergeClassNames('c-schedule-calendar__header', headerClass);
 	}
 
-	/**
-	 * Gets the schedule grid classes
-	 */
 	static getGridClasses(): string {
-		return 'grid grid-cols-8 min-w-max';
+		return 'c-schedule-calendar__grid';
 	}
-
-	/**
-	 * Gets the time gutter classes
-	 */
 	static getTimeGutterClasses(): string {
-		return 'border-r border-[--color-border-primary]';
+		return 'c-schedule-calendar__gutter';
 	}
-
-	/**
-	 * Gets the time slot classes
-	 */
 	static getTimeSlotClasses(): string {
-		return 'p-[--spacing-sm] border-b border-[--color-border-tertiary] text-right text-[--text-size-xs] text-[--color-text-secondary]';
+		return 'c-schedule-calendar__gutter-slot';
 	}
 
-	/**
-	 * Gets the day column classes
-	 */
 	static getDayColumnClasses(isWeekend: boolean): string {
-		const baseClasses = 'border-r border-[--color-border-primary]';
-		const weekendClass = isWeekend ? 'bg-[--color-background-tertiary]' : '';
-
-		return `${baseClasses} ${weekendClass}`;
+		return mergeClassNames(
+			'c-schedule-calendar__day-col',
+			isWeekend && 'c-schedule-calendar__day-col--weekend'
+		);
 	}
 
-	/**
-	 * Gets the day header classes
-	 */
 	static getDayHeaderClasses(isToday: boolean, headerClass: string): string {
-		const baseClasses =
-			'p-[--spacing-sm] text-center text-[--text-size-sm] font-[--font-weight-medium]';
-		const todayClass = isToday ? 'bg-[--color-primary-100]' : '';
-
-		return `${baseClasses} ${todayClass} ${headerClass}`;
+		return mergeClassNames(
+			'c-schedule-calendar__day-header',
+			isToday && 'c-schedule-calendar__day-header--today',
+			headerClass
+		);
 	}
 
-	/**
-	 * Gets the time slot cell classes
-	 */
 	static getTimeSlotCellClasses(slotClass: string): string {
-		return `p-[--spacing-xs] border-b border-[--color-border-tertiary] relative ${slotClass}`;
+		return mergeClassNames('c-schedule-calendar__slot', slotClass);
 	}
 
-	/**
-	 * Gets the event classes
-	 */
-	static getEventClasses(color?: string, eventClass: string = ''): string {
-		const baseClasses =
-			'text-[--text-size-xs] p-[--spacing-xs] rounded-[--radius-sm] mb-[--spacing-xs] cursor-pointer truncate';
-		const colorClass = color || 'bg-[--color-primary-100] text-[--color-text-primary]';
-
-		return `${baseClasses} ${colorClass} ${eventClass}`;
+	static getEventClasses(_color?: string, _eventClass: string = ''): string {
+		return 'c-schedule-calendar__event';
 	}
 
-	/**
-	 * Gets the priority badge classes
-	 */
 	static getPriorityBadgeClasses(priority: string): string {
-		switch (priority) {
-			case 'high':
-				return 'inline-flex items-center px-[--spacing-2xs] py-[--spacing-3xs] rounded-full text-[--text-size-2xs] font-[--font-weight-medium] bg-[--color-danger-100] text-[--color-danger-800]';
-			case 'medium':
-				return 'inline-flex items-center px-[--spacing-2xs] py-[--spacing-3xs] rounded-full text-[--text-size-2xs] font-[--font-weight-medium] bg-[--color-warning-100] text-[--color-warning-800]';
-			case 'low':
-				return 'inline-flex items-center px-[--spacing-2xs] py-[--spacing-3xs] rounded-full text-[--text-size-2xs] font-[--font-weight-medium] bg-[--color-success-100] text-[--color-success-800]';
-			default:
-				return 'inline-flex items-center px-[--spacing-2xs] py-[--spacing-3xs] rounded-full text-[--text-size-2xs] font-[--font-weight-medium] bg-[--color-background-tertiary] text-[--color-text-secondary]';
-		}
+		return mergeClassNames(
+			'c-schedule-calendar__priority',
+			`c-schedule-calendar__priority--${priority}`
+		);
 	}
 
-	/**
-	 * Gets the today button classes
-	 */
 	static getTodayButtonClasses(): string {
-		return 'ml-[--spacing-md]';
+		return 'c-schedule-calendar__today-btn';
 	}
-
-	/**
-	 * Gets the navigation button classes
-	 */
 	static getNavigationButtonClasses(): string {
-		return 'h-[--spacing-xl] w-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
+		return 'c-schedule-calendar__nav-btn';
 	}
 }

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import TimeGrid from './index.svelte';
-	import type { CalendarEventTimeGrid as RecipeCalendarEvent } from '$stylist/calendar/type/struct';
+	import type { CalendarEventTimeGrid as RecipeCalendarEvent } from '$stylist/calendar/type/struct/calendar-event-time-grid';
 	import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';
 
 	// Sample events data

@@ -2,7 +2,7 @@
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import Tabs from './index.svelte';
 	import TabList from '$stylist/control/component/atom/tab-list/index.svelte';
-	import { Tab } from '$stylist/control/component/atom/tab';
+	import Tab from '$stylist/control/component/atom/tab/index.svelte';
 	import TabPanel from '$stylist/control/component/atom/tab-panel/index.svelte';
 	import TabPanels from '$stylist/control/component/atom/tab-panels/index.svelte';
 	import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';

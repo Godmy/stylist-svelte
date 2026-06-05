@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PostCardRecipe } from '$stylist/commerce/interface/recipe/post-card';
-	import { createPostCardState } from '$stylist/commerce/function/state/post-card';
+	import createPostCardState from '$stylist/commerce/function/state/post-card/index.svelte';
 
 	let props: PostCardRecipe = $props();
 	const state = createPostCardState(props);

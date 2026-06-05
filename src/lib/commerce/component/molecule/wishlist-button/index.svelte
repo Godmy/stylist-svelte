@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { WishlistButtonRecipe } from '$stylist/commerce/interface/recipe/wishlist-button';
-	import { createWishlistButtonState } from '$stylist/commerce/function/state/wishlist-button';
+	import createWishlistButtonState from '$stylist/commerce/function/state/wishlist-button/index.svelte';
 
 	let props: WishlistButtonRecipe = $props();
 	const state = createWishlistButtonState(props);

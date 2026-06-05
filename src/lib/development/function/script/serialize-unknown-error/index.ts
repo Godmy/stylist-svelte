@@ -1,4 +1,4 @@
-import { normalizeText } from '$stylist/typography/function/script/text-normatize';
+import { normalizeText } from '$stylist/typography/function/script/text-normalize';
 
 export function serializeUnknownError(error: unknown): {
 	message: string;

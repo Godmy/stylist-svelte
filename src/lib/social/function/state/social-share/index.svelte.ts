@@ -1,4 +1,6 @@
-import type { ShareOption, SocialPlatform, Props } from '$stylist/social/type/struct/social-share';
+import type { ShareOption } from '$stylist/social/type/struct/social-share/shareoption';
+import type { SocialPlatform } from '$stylist/social/type/struct/social-share/socialplatform';
+import type { Props } from '$stylist/social/type/struct/social-share/-props';
 
 export function createSocialShareState(props: Props) {
 	let showDropdown = $state(false);

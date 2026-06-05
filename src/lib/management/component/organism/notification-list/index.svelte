@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import { createNotificationListState } from '$stylist/management/function/state/notification-list';
+	import createNotificationListState from '$stylist/management/function/state/notification-list/index.svelte';
 	import type { NotificationListProps } from '$stylist/chat/type/struct/notification-list-props';
 
 	let props: NotificationListProps = $props();

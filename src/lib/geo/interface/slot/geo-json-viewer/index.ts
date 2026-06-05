@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { SlotGeoJsonFeature } from '$stylist/geo/interface/slot/geo-json-feature';
 import type { SlotGeoJsonFeatureCollection } from '$stylist/geo/interface/slot/geo-json-feature-collection';
 import type { SlotGeoJsonLayer } from '$stylist/geo/interface/slot/geo-json-layer';

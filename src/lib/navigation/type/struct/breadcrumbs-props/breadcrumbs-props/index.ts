@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { BreadcrumbsRecipe } from '$stylist/navigation/interface/recipe/breadcrumbs';
 import type { BreadcrumbItem } from '../breadcrumb-item';
 

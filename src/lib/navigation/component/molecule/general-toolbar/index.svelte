@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
 	import Button from '$stylist/control/component/atom/button/index.svelte';
-	import type { GeneralToolbarRecipe } from '$stylist/navigation/type/struct/general-toolbar-props';
-	import { createGeneralToolbarState } from '$stylist/navigation/function/state/general-toolbar';
+	import type { GeneralToolbarRecipe } from '$stylist/navigation/type/struct/general-toolbar-props/generaltoolbarrecipe';
+	import createGeneralToolbarState from '$stylist/navigation/function/state/general-toolbar/index.svelte';
 	import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 	let props: GeneralToolbarRecipe = $props();

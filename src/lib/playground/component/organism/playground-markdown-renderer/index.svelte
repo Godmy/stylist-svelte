@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { marked } from 'marked';
-	import { createPlaygroundMarkdownRendererState } from '$stylist/playground/function/state/playground-markdown-renderer';
+	import createPlaygroundMarkdownRendererState from '$stylist/playground/function/state/playground-markdown-renderer/index.svelte';
 	import type { PlaygroundMarkdownRendererProps } from '$stylist/playground/type/struct/playground-markdown-renderer-props';
 	let props: PlaygroundMarkdownRendererProps = $props();
 	const state = createPlaygroundMarkdownRendererState(props);

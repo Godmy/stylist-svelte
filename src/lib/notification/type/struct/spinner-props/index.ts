@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { SpinnerVariant } from '$stylist/notification/type/enum/spinner-variant';
 
 export type SpinnerProps = InteractionHTMLAttributes<HTMLDivElement> & {

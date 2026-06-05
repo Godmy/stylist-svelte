@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PropsEditorProps } from '$stylist/playground/type/struct/props-editor-props';
-	import { createPropsEditorState } from '$stylist/playground/function/state/props-editor';
+	import createPropsEditorState from '$stylist/playground/function/state/props-editor/index.svelte';
 
 	let {
 		propDefinitions = [],

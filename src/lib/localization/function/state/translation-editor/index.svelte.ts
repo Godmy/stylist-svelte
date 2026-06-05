@@ -1,9 +1,8 @@
-import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { TranslatableText } from '$stylist/input/type/struct/interaction-input/translatable-text';
 import type { TranslationEditorStateProps } from '$stylist/localization/interface/recipe/translation-editor';
 
 export function createTranslationEditorState(props: TranslationEditorStateProps) {
-	// Props with defaults - extracted from props object
 	const texts = props.texts ?? [];
 	const locales = props.locales ?? [];
 	const defaultLocale = props.defaultLocale ?? 'en';
@@ -12,11 +11,9 @@ export function createTranslationEditorState(props: TranslationEditorStateProps)
 	const showContextColumn = props.showContextColumn ?? true;
 	const showStatusColumn = props.showStatusColumn ?? true;
 
-	// SlotState
 	let editingId = $state<string | null>(null);
 	let editedValue = $state('');
 
-	// Actions
 	function beginEdit(text: TranslatableText) {
 		editingId = text.id;
 		editedValue = text.translations[currentLocale] || '';
@@ -35,17 +32,13 @@ export function createTranslationEditorState(props: TranslationEditorStateProps)
 		editingId = null;
 	}
 
-	// Classes
-	const rootClass = $derived(
-		InteractionInputStyleManager.root('c-translation-editor', props.class ?? '')
-	);
-	const panelClass = $derived(InteractionInputStyleManager.panel('overflow-hidden'));
-	const headerClass = $derived(props.headerClass ?? '');
-	const tableClass = $derived(props.tableClass ?? '');
-	const rowClass = $derived(props.rowClass ?? '');
-	const editorClass = $derived(props.editorClass ?? '');
+	const rootClass = $derived(mergeClassNames('c-translation-editor', props.class));
+	const panelClass = $derived('c-translation-editor__panel');
+	const headerClass = $derived(mergeClassNames('c-translation-editor__header', props.headerClass));
+	const tableClass = $derived(mergeClassNames('c-translation-editor__table', props.tableClass));
+	const rowClass = $derived(mergeClassNames('c-translation-editor__row', props.rowClass));
+	const editorClass = $derived(mergeClassNames('c-translation-editor__editor', props.editorClass));
 
-	// Rest props
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,
@@ -70,7 +63,6 @@ export function createTranslationEditorState(props: TranslationEditorStateProps)
 	});
 
 	return {
-		// Icons
 		get iconDownload() {
 			return 'download';
 		},
@@ -115,6 +107,9 @@ export function createTranslationEditorState(props: TranslationEditorStateProps)
 		},
 		get editedValue() {
 			return editedValue;
+		},
+		set editedValue(value: string) {
+			editedValue = value;
 		},
 		get rootClass() {
 			return rootClass;

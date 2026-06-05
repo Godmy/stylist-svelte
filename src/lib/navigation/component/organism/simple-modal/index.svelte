@@ -1,21 +1,46 @@
 <script lang="ts">
 	import type { SlotSimpleModal as SimpleModalProps } from '$stylist/notification/interface/slot/simple-modal';
-	import { createSimpleModalState } from '$stylist/navigation/function/state/simple-modal';
+	import createSimpleModalState from '$stylist/navigation/function/state/simple-modal/index.svelte';
 
 	let props: SimpleModalProps = $props();
 	const state = createSimpleModalState(props);
 </script>
 
 {#if props.open}
-	<div
-		class="fixed inset-0 z-[var(--z-index-modal)] flex items-center justify-center bg-[var(--color-neutral-900)]/40 p-4"
-	>
+	<div class="sm-overlay">
 		<div class={state.dialogClasses} {...props}>
-			<div class="flex items-center justify-between">
-				<h3 class="font-semibold">{props.title}</h3>
+			<div class="sm-header">
+				<h3 class="sm-title">{props.title}</h3>
 				<button type="button" onclick={props.onClose}>x</button>
 			</div>
-			<p class="mt-2 text-sm text-[var(--color-text-secondary)]">Simple modal content</p>
+			<p class="sm-body">Simple modal content</p>
 		</div>
 	</div>
 {/if}
+
+<style>
+	.sm-overlay {
+		position: fixed;
+		inset: 0;
+		z-index: var(--z-index-modal);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: color-mix(in srgb, var(--color-neutral-900) 40%, transparent);
+		padding: 1rem;
+	}
+
+	.sm-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.sm-title {
+		font-weight: 600;
+	}
+	.sm-body {
+		margin-top: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+</style>

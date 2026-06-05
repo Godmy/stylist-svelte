@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ContractImageWithCaption as ImageWithCaptionContract } from '$stylist/media/interface/contract/image-with-caption';
-	import { createImageWithCaptionState } from '$stylist/information/function/state/image-with-caption';
+	import createImageWithCaptionState from '$stylist/information/function/state/image-with-caption/index.svelte';
 
 	let props: ImageWithCaptionContract = $props();
 	const state = createImageWithCaptionState(props);

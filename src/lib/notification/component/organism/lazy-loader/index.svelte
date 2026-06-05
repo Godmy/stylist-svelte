@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createLazyLoaderState } from '../../../function/state/lazy-loader';
+	import createLazyLoaderState from '$stylist/notification/function/state/lazy-loader/index.svelte';
 
 	const props = $props();
 	const state = createLazyLoaderState(props);

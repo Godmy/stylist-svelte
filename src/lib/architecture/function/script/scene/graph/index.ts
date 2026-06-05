@@ -1,5 +1,5 @@
 import { flattenMolecules } from '$stylist/architecture/function/script/flatten-molecules';
-import type { SceneGraph } from '$stylist/architecture/type/struct/scene-graph';
+import type { SceneGraph } from '$stylist/architecture/type/struct/scene-graph/scene-graph';
 import { createGridMolecule } from '$stylist/architecture/function/script/scene/molecule/index';
 import { createCoreSceneMolecule } from '$stylist/architecture/function/script/create-core-scene-molecule';
 import { createPrimaryLayoutMolecule } from '$stylist/architecture/function/script/create-primary-layout-molecule';

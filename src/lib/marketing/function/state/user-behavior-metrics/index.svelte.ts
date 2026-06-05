@@ -1,7 +1,5 @@
-import type {
-	UserBehaviorMetricsProps,
-	TimeRange
-} from '$stylist/marketing/type/struct/user-behavior-metrics';
+import type { UserBehaviorMetricsProps } from '$stylist/marketing/type/struct/user-behavior-metrics/userbehaviormetrics-props';
+import type { TimeRange } from '$stylist/marketing/type/struct/user-behavior-metrics/timerange';
 import { untrack } from 'svelte';
 
 export function createUserBehaviorMetricsState(props: UserBehaviorMetricsProps) {

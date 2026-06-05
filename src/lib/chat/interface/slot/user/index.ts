@@ -1,6 +1,3 @@
-
-
-
 export interface SlotUser {
 	id: string;
 	name: string;

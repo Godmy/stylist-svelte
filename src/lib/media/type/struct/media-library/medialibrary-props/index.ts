@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { MediaItem } from '../media-item';
 
 export type MediaLibraryProps = {

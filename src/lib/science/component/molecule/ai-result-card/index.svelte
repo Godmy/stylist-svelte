@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeAiResultCard as AiResultCardContract } from '$stylist/science/interface/recipe/ai-result-card';
-	import { createAiResultCardState } from '$stylist/science/function/state/ai-result-card';
+	import createAiResultCardState from '$stylist/science/function/state/ai-result-card/index.svelte';
 
 	let props: AiResultCardContract = $props();
 	const state = createAiResultCardState(props);

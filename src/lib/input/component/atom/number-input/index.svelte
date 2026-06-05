@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 	import type { SlotNumberInput as INumberInputProps } from '$stylist/input/interface/slot/number-input';
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createNumberInputState } from '$stylist/input/function/state/number-input';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createNumberInputState from '$stylist/input/function/state/number-input/index.svelte';
 
 	const Minus = 'minus';
 	const Plus = 'plus';

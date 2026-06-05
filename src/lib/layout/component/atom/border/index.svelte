@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { BorderRecipe as BorderRecipe } from '$stylist/layout/interface/recipe/border';
-	import { createBorderState } from '$stylist/layout/function/state/border';
+	import createBorderState from '$stylist/layout/function/state/border/index.svelte';
 
 	let props: BorderRecipe = $props();
 	const state = createBorderState(props);

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeWarrantyInfo as WarrantyInfoContract } from '$stylist/commerce/interface/recipe/warranty-info';
-	import { createWarrantyInfoState as stateFn } from '$stylist/commerce/function/state/warranty-info';
+	import stateFn from '$stylist/commerce/function/state/warranty-info/index.svelte';
 
 	let props: WarrantyInfoContract = $props();
 	const state = stateFn(props);

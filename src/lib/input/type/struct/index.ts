@@ -6,7 +6,6 @@ export type { InputFieldRequiredProps } from './input-field-required-props';
 export type { InputLabelProps } from './input-label-props';
 export type { InputSpecificProps } from './input-specific-props';
 export type { InputTextStateOptions } from './input-text-state-options';
-export type { TextInputBaseProps } from './text-input-base-props';
 export type { InputValidationProps } from './input-validation-props';
 export type { InputValueProps } from './input-value-props';
 export type {
@@ -21,3 +20,4 @@ export type {
 } from './interaction-input';
 export type { IReactionPickerStyleClasses } from './reaction-picker-style-classes';
 export type { TextAreaStateOptions } from './text-area-state-options';
+export type { TextInputBaseProps } from './text-input-base-props';

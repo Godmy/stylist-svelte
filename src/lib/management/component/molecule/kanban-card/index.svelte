@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const Archive = 'archive';
 	const Check = 'check';
 	const GripVertical = 'grip-vertical';
@@ -7,10 +7,10 @@
 	const Trash2 = 'trash-2';
 	const X = 'x';
 
-	import { Divider } from '$stylist/layout';
-	import { Avatar } from '$stylist/media';
-	import { Badge } from '$stylist/typography';
-	import { createKanbanCardState } from '$stylist/management/function/state/kanban-card';
+	import Divider from '$stylist/layout/component/atom/divider/index.svelte';
+	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
+	import Badge from '$stylist/information/component/atom/badge/index.svelte';
+	import createKanbanCardState from '$stylist/management/function/state/kanban-card/index.svelte';
 	import type { SlotKanbanCard as KanbanCardProps } from '$stylist/management/interface/slot/kanban-card';
 
 	let props: KanbanCardProps = $props();

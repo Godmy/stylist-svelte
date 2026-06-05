@@ -1,5 +1,6 @@
 import type { NumberFlowRecipe as NumberFlowProps } from '$stylist/animation/interface/recipe/number-flow';
-import { AnimationStyleManager } from '$stylist/animation/class/style-manager/animation';
+import { formatNumberFlowValue } from '$stylist/animation/function/script/format-number-flow-value';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createNumberFlowState(props: NumberFlowProps) {
 	const value = $derived(props.value ?? 0);
@@ -8,13 +9,19 @@ export function createNumberFlowState(props: NumberFlowProps) {
 	const prefix = $derived(props.prefix ?? '');
 	const suffix = $derived(props.suffix ?? '');
 	const containerClass = $derived(
-		AnimationStyleManager.getNumberFlowContainerClasses(
+		mergeClassNames(
+			'c-animation-number-flow',
 			typeof props.class === 'string' ? props.class : undefined
 		)
 	);
-	const classes = $derived(AnimationStyleManager.getNumberFlowClasses(containerClass));
+	const classes = $derived({
+		container: containerClass,
+		prefix: 'c-animation-number-flow__prefix',
+		suffix: 'c-animation-number-flow__suffix',
+		srOnly: 'c-animation-number-flow__sr-only'
+	});
 	const formattedValue = $derived(
-		AnimationStyleManager.formatNumberFlow(
+		formatNumberFlowValue(
 			value,
 			Array.isArray(locales)
 				? locales.filter((locale): locale is string => typeof locale === 'string')

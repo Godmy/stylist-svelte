@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { CodeWithCopyVariant } from '$stylist/development/type/struct/code-with-copy-variant';
 
 export type CodeWithCopyProps = {

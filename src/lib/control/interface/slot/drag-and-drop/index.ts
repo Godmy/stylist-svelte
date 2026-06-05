@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { BehaviorDraggable } from '$stylist/interaction/interface/behavior/draggable';
 

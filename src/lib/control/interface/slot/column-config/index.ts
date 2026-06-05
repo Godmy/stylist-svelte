@@ -1,4 +1,3 @@
-
 export interface SlotColumnConfig {
 	key: string;
 	header: string;

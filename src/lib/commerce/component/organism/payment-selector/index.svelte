@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { PaymentSelectorProps } from '$stylist/commerce';
-	import { createPaymentSelectorState } from '$stylist/commerce/function/state/payment-selector';
+	import type { PaymentSelectorProps } from '$stylist/commerce/type/struct/payment-selector-props';
+	import createPaymentSelectorState from '$stylist/commerce/function/state/payment-selector/index.svelte';
 
 	let props: PaymentSelectorProps = $props();
 	const state = createPaymentSelectorState(props);

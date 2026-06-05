@@ -1,9 +1,9 @@
 ﻿<script lang="ts">
-	import { Button } from '$stylist/control';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import SlotCheckbox from '$stylist/control/component/atom/checkbox/index.svelte';
 	import Select from '$stylist/control/component/molecule/selector/index.svelte';
-	import type { FilterPanelProps } from '$stylist/form/type/struct/filter-panel';
-	import { createFilterPanelState } from '$stylist/form/function/state/filter-panel';
+	import type { FilterPanelProps } from '$stylist/form/type/struct/filter-panel/filterpanel-props';
+	import createFilterPanelState from '$stylist/form/function/state/filter-panel/index.svelte';
 	import { handleFilterChange } from '$stylist/form/function/script/filter-panel/handle-filter-change';
 	import { handleLayoutChange } from '$stylist/form/function/script/filter-panel/handle-layout-change';
 	import { handleReset } from '$stylist/form/function/script/filter-panel/handle-reset';

@@ -1,4 +1,3 @@
-
 export interface SlotDataTableColumn<T extends Record<string, unknown>> {
 	key: keyof T;
 	title: string;

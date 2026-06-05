@@ -1,4 +1,4 @@
-import type { MotionContract } from '$stylist/animation/type/struct/motion';
+import type { MotionContract } from '$stylist/animation/type/struct/motion/motion-contract';
 
 /**
  * Прото-интерфейс для анимированных элементов

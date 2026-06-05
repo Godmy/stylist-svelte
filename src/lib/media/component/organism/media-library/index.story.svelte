@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { MediaItem } from '$stylist/media';
-	import { Story } from '$stylist/playground/component';
+	import type { MediaItem } from '$stylist/media/type/struct/media-library/media-item';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import MediaLibrary from './index.svelte';

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ComparisonTableProps } from '$stylist/control/type/struct/comparison-table-props';
-	import { createComparisonTableState } from '$stylist/control/function/state/comparison-table';
+	import createComparisonTableState from '$stylist/control/function/state/comparison-table/index.svelte';
 
 	let props: ComparisonTableProps = $props();
 	const state = createComparisonTableState(props);

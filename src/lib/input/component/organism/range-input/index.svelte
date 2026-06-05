@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 	import type { SlotRangeInput as RangeInputProps } from '$stylist/input/interface/slot/range-input';
-	import { createRangeInputState } from '$stylist/input/function/state/range-input';
+	import createRangeInputState from '$stylist/input/function/state/range-input/index.svelte';
 
 	let props: RangeInputProps = $props();
 	const state = createRangeInputState(props);

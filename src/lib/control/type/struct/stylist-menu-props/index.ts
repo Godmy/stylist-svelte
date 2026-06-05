@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { PrimaryMenuItem } from '../stylist-menu-primary-menu-item';
 import type { FunctionalTabId } from '../stylist-menu-functional-tab-id';
 import type { AtomicTabId } from '../stylist-menu-atomic-tab-id';

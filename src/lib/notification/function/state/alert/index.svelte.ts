@@ -1,4 +1,4 @@
-import type { AlertProps } from '$stylist/notification/type/struct/alert-props';
+import type { AlertProps } from '$stylist/notification/type/struct/alert-props/alert-props';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createAlertState(props: AlertProps) {

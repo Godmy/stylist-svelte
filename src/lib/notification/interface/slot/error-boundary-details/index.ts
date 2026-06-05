@@ -1,4 +1,3 @@
-
 /**
  * @interface SlotErrorBoundaryDetails
  * @description Interface for error details passed to the component

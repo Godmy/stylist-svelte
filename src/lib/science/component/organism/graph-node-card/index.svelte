@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Button } from '$stylist/control';
-	import { Icon } from '$stylist/media';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { GraphNodeCardProps } from '$stylist/science/type/struct/graph-node-card-props';
-	import { createGraphNodeCardState } from '$stylist/science/function/state/graph-node-card';
+	import createGraphNodeCardState from '$stylist/science/function/state/graph-node-card/index.svelte';
 
 	let props: GraphNodeCardProps = $props();
 	const state = createGraphNodeCardState(props);

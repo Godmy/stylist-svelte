@@ -1,5 +1,5 @@
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { SlotDragAndDrop as DragAndDropProps } from '$stylist/control/interface/slot/drag-and-drop';
-import { clsx } from 'clsx';
 
 export function createDragAndDropState(props: DragAndDropProps) {
 	const draggable = $derived(props.draggable ?? false);
@@ -7,62 +7,28 @@ export function createDragAndDropState(props: DragAndDropProps) {
 	const disabled = $derived(props.disabled ?? false);
 	const variant = $derived(props.variant ?? 'default');
 	const showDragHandle = $derived(props.showDragHandle ?? false);
-	const dragCursor = $derived(props.dragCursor ?? 'grab');
 
 	const state = $state({
 		isDragging: false,
 		isOverDropZone: false
 	});
 
-	const classes = $derived.by(() => {
-		const baseClasses: string[] = ['relative'];
-
-		// Drag cursor
-		if (draggable && !disabled) {
-			if (dragCursor === 'grab') {
-				baseClasses.push('cursor-grab');
-			} else if (dragCursor === 'grabbing') {
-				baseClasses.push('cursor-grabbing');
-			} else if (dragCursor === 'move') {
-				baseClasses.push('cursor-move');
-			}
-		}
-
-		// Drag handle
-		if (showDragHandle && draggable && !disabled) {
-			baseClasses.push('drag-handle');
-		}
-
-		// Drop zone
-		if (dropzone && !disabled) {
-			baseClasses.push('dropzone');
-			if (state.isOverDropZone) {
-				baseClasses.push('dropzone-over');
-			}
-		}
-
-		// Dragging state
-		if (state.isDragging) {
-			baseClasses.push('dragging', 'opacity-50');
-		}
-
-		// Disabled
-		if (disabled) {
-			baseClasses.push('disabled', 'pointer-events-none', 'opacity-50');
-		}
-
-		// Variant
-		if (variant !== 'default') {
-			baseClasses.push(`drag-${variant}`);
-		}
-
-		return clsx(...baseClasses, props.class ?? '');
-	});
+	const classes = $derived(
+		mergeClassNames(
+			'c-drag-and-drop',
+			draggable && !disabled && 'c-drag-and-drop--draggable',
+			showDragHandle && draggable && !disabled && 'c-drag-and-drop--handle',
+			dropzone && !disabled && 'c-drag-and-drop--dropzone',
+			state.isOverDropZone && 'c-drag-and-drop--drop-active',
+			state.isDragging && 'c-drag-and-drop--dragging',
+			disabled && 'c-drag-and-drop--disabled',
+			variant !== 'default' && `c-drag-and-drop--${variant}`,
+			props.class
+		)
+	);
 
 	function startDragging() {
-		if (!disabled && draggable) {
-			state.isDragging = true;
-		}
+		if (!disabled && draggable) state.isDragging = true;
 	}
 
 	function stopDragging() {
@@ -70,9 +36,7 @@ export function createDragAndDropState(props: DragAndDropProps) {
 	}
 
 	function enterDropZone() {
-		if (!disabled && dropzone) {
-			state.isOverDropZone = true;
-		}
+		if (!disabled && dropzone) state.isOverDropZone = true;
 	}
 
 	function leaveDropZone() {

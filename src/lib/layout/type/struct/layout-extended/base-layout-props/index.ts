@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
 
 export type BaseLayoutProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
 	class?: string;

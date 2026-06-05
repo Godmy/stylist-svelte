@@ -1,34 +1,29 @@
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { SlotGeoJSONViewer as IGeoJSONViewerProps } from '$stylist/geo/interface/slot/geo-json-viewer';
 
 export class GeoJSONViewerStyleManager {
 	static getHostClasses(props: IGeoJSONViewerProps): string {
-		const baseClasses = 'geojson-viewer flex flex-col h-full';
-		const customClass = props.class || '';
-
-		return `${baseClasses} ${customClass}`.trim();
+		return mergeClassNames('c-geo-jsonviewer', props.class);
 	}
 
 	static getMapContainerClasses(props: IGeoJSONViewerProps): string {
-		const baseClasses = 'flex-1 relative rounded-lg overflow-hidden border shadow-sm';
-		const customClass = props.mapClass || '';
-
-		return `${baseClasses} ${customClass}`.trim();
+		return mergeClassNames('c-geo-jsonviewer__map', props.mapClass);
 	}
 
 	static getMapContainerStyles(): string {
-		return 'border-color: var(--color-border-primary); background-color: var(--color-background-default);';
+		return '';
 	}
 
 	static getLayerControlItemClasses(): string {
-		return 'flex items-center justify-between p-2 rounded border';
+		return 'c-geo-jsonviewer__layer-item';
 	}
 
 	static getLayerControlItemStyles(): string {
-		return 'background-color: var(--color-background-default); border-color: var(--color-border-primary);';
+		return '';
 	}
 
 	static getLayerVisibilityCheckboxClasses(): string {
-		return 'h-4 w-4 rounded';
+		return 'c-geo-jsonviewer__layer-checkbox';
 	}
 
 	static getLayerVisibilityCheckboxStyles(): string {
@@ -36,47 +31,47 @@ export class GeoJSONViewerStyleManager {
 	}
 
 	static getLayerOpacitySliderClasses(): string {
-		return 'w-16';
+		return 'c-geo-jsonviewer__layer-slider';
 	}
 
 	static getFileUploadButtonClasses(): string {
-		return 'relative cursor-pointer rounded-md text-sm font-medium';
+		return 'c-geo-jsonviewer__upload-btn';
 	}
 
 	static getFileUploadButtonStyles(): string {
-		return 'background-color: var(--color-background-default); color: var(--color-text-default);';
-	}
-
-	static getFileUploadButtonHoverStyles(): string {
-		return 'background-color: var(--color-background-hover);';
-	}
-
-	static getLayersPanelClasses(): string {
-		return 'mb-4 p-4 rounded-lg';
-	}
-
-	static getLayersPanelStyles(): string {
-		return 'background-color: var(--color-background-subtle);';
-	}
-
-	static getFeatureInfoPanelClasses(): string {
-		return 'mt-4 p-4 rounded-lg shadow';
-	}
-
-	static getFeatureInfoPanelStyles(): string {
-		return 'background-color: var(--color-background-default); border: 1px solid var(--color-border-primary);';
-	}
-
-	static getMapControlButtonClasses(): string {
 		return '';
 	}
 
+	static getFileUploadButtonHoverStyles(): string {
+		return '';
+	}
+
+	static getLayersPanelClasses(): string {
+		return 'c-geo-jsonviewer__layers-panel';
+	}
+
+	static getLayersPanelStyles(): string {
+		return '';
+	}
+
+	static getFeatureInfoPanelClasses(): string {
+		return 'c-geo-jsonviewer__feature-panel';
+	}
+
+	static getFeatureInfoPanelStyles(): string {
+		return '';
+	}
+
+	static getMapControlButtonClasses(): string {
+		return 'c-geo-jsonviewer__control-btn';
+	}
+
 	static getSvgClasses(): string {
-		return 'overflow-visible';
+		return 'c-geo-jsonviewer__svg';
 	}
 
 	static getGeometryElementClasses(): string {
-		return 'cursor-pointer transition-opacity';
+		return 'c-geo-jsonviewer__geometry';
 	}
 
 	static getGeometryElementHoverStyles(): string {

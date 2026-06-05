@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { SlotTimePicker as ITimePickerProps } from '$stylist/input/interface/slot/time-picker';
-	import { createTimePickerState } from '$stylist/input/function/state/time-picker';
+	import createTimePickerState from '$stylist/input/function/state/time-picker/index.svelte';
 
 	const Clock = 'clock';
 

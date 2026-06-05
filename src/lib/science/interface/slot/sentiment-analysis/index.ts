@@ -1,4 +1,4 @@
-import type { HtmlAttributesBase } from '$stylist/information/interface/slot';
+import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
 import type { SlotSentimentResult } from '$stylist/science/interface/slot/sentiment-result';
 
 export interface SlotSentimentAnalysis extends HtmlAttributesBase<HTMLDivElement> {

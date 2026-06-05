@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { Snippet } from 'svelte';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenPin } from '$stylist/geo/type/enum/pin';

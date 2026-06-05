@@ -14,7 +14,7 @@ import type { SceneBufferSet } from '$stylist/architecture/type/struct/scene-buf
 import type { SceneDebugInfo } from '$stylist/architecture/type/struct/scene-debug-info';
 import type { SceneAtom } from '$stylist/architecture/type/struct/scene-atom/scene-atom';
 import type { SceneCameraPreset } from '$stylist/architecture/type/struct/scene-camera-preset';
-import type { SceneGraph } from '$stylist/architecture/type/struct/scene-graph';
+import type { SceneGraph } from '$stylist/architecture/type/struct/scene-graph/scene-graph';
 import vertexBasic from '$stylist/architecture/data/shader/vertex/base.vert?raw';
 import fragmentBasic from '$stylist/architecture/data/shader/fragment/base.frag?raw';
 

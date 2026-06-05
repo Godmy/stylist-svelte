@@ -2,7 +2,6 @@ import type { HTMLTextareaAttributes } from 'svelte/elements';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 
-
 import type { SlotInputCore } from '$stylist/input/interface/slot/input-core';
 import type { SlotInputWithLabel } from '$stylist/input/interface/slot/input-with-label';
 import type { SlotInputWithValidation } from '$stylist/input/interface/slot/input-with-validation';

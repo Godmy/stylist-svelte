@@ -1,8 +1,10 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import CubeControl from './index.svelte';
-	import type { CubeDebugLogEntry, CubeRotation, CubeSelectionState } from '$stylist/control';
+	import type { CubeDebugLogEntry } from '$stylist/control/type/struct/cube-debug-log-entry';
+	import type { CubeRotation } from '$stylist/control/type/struct/cube-rotation';
+	import type { CubeSelectionState } from '$stylist/control/type/struct/cube-selection-state';
 
 	let currentRotation = $state<CubeRotation>({ x: -22, y: 32 });
 	let selectionState = $state<CubeSelectionState>({

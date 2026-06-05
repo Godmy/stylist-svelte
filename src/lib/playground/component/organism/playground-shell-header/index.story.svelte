@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import RecipePlaygroundShellHeader from './index.svelte';
 
 	const colorSchemes = [

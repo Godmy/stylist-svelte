@@ -1,66 +1,54 @@
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+
 export class TimeGridStyleManager {
 	static getWrapperClasses(): string {
-		return 'c-time-grid border border-[--color-border-primary] rounded-[--radius-lg] overflow-auto';
+		return 'c-time-grid';
 	}
-
 	static getHeaderClasses(): string {
-		return 'flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-primary]';
+		return 'c-time-grid__header';
 	}
-
 	static getTimeGridClasses(): string {
-		return 'grid grid-cols-8 min-w-max h-[calc(100vh-200px)]';
+		return 'c-time-grid__grid';
 	}
-
 	static getTimeSlotClasses(): string {
-		return 'border-b border-[--color-border-tertiary] relative';
+		return 'c-time-grid__slot';
 	}
 
 	static getDayColumnClasses(isWeekend: boolean): string {
-		const baseClasses = 'border-r border-[--color-border-primary]';
-		const weekendClass = isWeekend ? 'bg-[--color-background-tertiary]' : '';
-
-		return `${baseClasses} ${weekendClass}`;
+		return mergeClassNames('c-time-grid__day-col', isWeekend && 'c-time-grid__day-col--weekend');
 	}
 
 	static getDayHeaderClasses(isToday: boolean, headerClass: string = ''): string {
-		const baseClasses =
-			'p-[--spacing-sm] text-center text-[--text-size-sm] font-[--font-weight-medium]';
-		const todayClass = isToday ? 'bg-[--color-primary-100]' : '';
-
-		return `${baseClasses} ${todayClass} ${headerClass}`;
+		return mergeClassNames(
+			'c-time-grid__day-header',
+			isToday && 'c-time-grid__day-header--today',
+			headerClass
+		);
 	}
 
 	static getTimeIndicatorClasses(): string {
-		return 'absolute w-full h-[--spacing-0.5] bg-[--color-danger-500] z-[10]';
+		return 'c-time-grid__now-indicator';
 	}
 
-	static getEventClasses(color?: string, eventClass: string = ''): string {
-		const baseClasses =
-			'absolute left-[--spacing-xs] right-[--spacing-xs] p-[--spacing-xs] text-[--text-size-xs] rounded-[--radius-sm] m-[--spacing-0.5] truncate';
-		const colorClass = color || 'bg-[--color-primary-100] text-[--color-text-primary]';
-
-		return `${baseClasses} ${colorClass} ${eventClass}`;
+	static getEventClasses(_color?: string, _eventClass: string = ''): string {
+		return 'c-time-grid__event';
 	}
 
 	static getAllDayEventClasses(): string {
-		return 'h-[--spacing-lg]';
+		return 'c-time-grid__allday-event';
 	}
 
 	static getTimeLabelClasses(isFirstSlot: boolean): string {
-		const baseClasses =
-			'absolute top-0 right-0 w-full text-right pr-[--spacing-sm] pt-[--spacing-xs] text-[--text-size-xs]';
-		const colorClass = isFirstSlot
-			? 'text-[--color-text-primary]'
-			: 'text-[--color-text-secondary]';
-
-		return `${baseClasses} ${colorClass}`;
+		return mergeClassNames(
+			'c-time-grid__time-label',
+			isFirstSlot && 'c-time-grid__time-label--first'
+		);
 	}
 
 	static getNavigationButtonClasses(): string {
-		return 'h-[--spacing-xl] w-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
+		return 'c-time-grid__nav-btn';
 	}
-
 	static getViewToggleButtonClasses(): string {
-		return 'h-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
+		return 'c-time-grid__view-btn';
 	}
 }

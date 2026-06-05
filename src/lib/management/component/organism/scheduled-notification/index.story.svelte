@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import type { ScheduledNotificationItem } from '$stylist/chat/type/struct/scheduled-notification-item';
-	import { NotificationStyleManager } from '$stylist/chat';
+	import { NotificationStyleManager } from '$stylist/chat/class/style-manager/notifications';
 	import ScheduledNotification from './index.svelte';
 
 	type Props = {

@@ -1,34 +1,31 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { Button } from '$lib';
-	import { createMapWithMarkersState } from '$stylist/geo/function/state/map-with-markers';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import createMapWithMarkersState from '$stylist/geo/function/state/map-with-markers/index.svelte';
 
 	let props = $props();
 	const state = createMapWithMarkersState(props);
 </script>
 
-<div class={`map-with-markers ${props.class ?? ''}`} {...state.restProps}>
-	<div class="flex h-full flex-col">
+<div class="c-map-with-markers {props.class ?? ''}" {...state.restProps}>
+	<div class="c-map-with-markers__body">
 		{#if state.showSearch}
-			<div class="mb-4">
-				<div class="relative">
-					<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-						<BaseIcon name="search" class="h-5 w-5 text-[var(--color-text-tertiary)]" />
-					</div>
-					<input
-						type="text"
-						class="block w-full rounded-md border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] py-2 pr-3 pl-10 leading-5 placeholder-gray-500 focus:border-[var(--color-primary-500)] focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:outline-none sm:text-sm"
-						placeholder="Search for places..."
-						value={state.searchQuery}
-						oninput={(e) => (state.searchQuery = (e.target as HTMLInputElement).value)}
-					/>
+			<div class="c-map-with-markers__search">
+				<div class="c-map-with-markers__search-icon-wrap">
+					<BaseIcon name="search" class="c-map-with-markers__icon" />
 				</div>
+				<input
+					type="text"
+					class="c-map-with-markers__search-input"
+					placeholder="Search for places..."
+					value={state.searchQuery}
+					oninput={(e) => (state.searchQuery = (e.target as HTMLInputElement).value)}
+				/>
 			</div>
 		{/if}
 
 		<div
-			class={`relative overflow-hidden rounded-lg border border-[var(--color-border-primary)] ${props.mapClass ?? ''}`}
-			style="height: 500px;"
+			class="c-map-with-markers__map {props.mapClass ?? ''}"
 			onclick={state.handleMapClick}
 			onmousedown={state.handleMouseDown}
 			onmousemove={state.handleMouseMove}
@@ -39,44 +36,22 @@
 			onkeydown={(e: KeyboardEvent) =>
 				state.handleKeyDown(e, () => state.handleMapClick(e as unknown as MouseEvent))}
 		>
-			<div class="absolute inset-0 bg-[var(--color-primary-50)]">
-				{#each Array(20) as _, i}
-					<div
-						class="absolute h-px w-full bg-[var(--color-background-tertiary)] opacity-[var(--opacity-20)]"
-						style={`top: ${i * 5}%`}
-					></div>
-					<div
-						class="absolute h-full w-px bg-[var(--color-background-tertiary)] opacity-[var(--opacity-20)]"
-						style={`left: ${i * 5}%`}
-					></div>
-				{/each}
-
-				<div
-					class="absolute h-1/4 w-1/3 rounded-lg bg-[var(--color-primary-200)] opacity-[var(--opacity-50)]"
-					style="top: 20%; left: 30%;"
-				></div>
-				<div
-					class="absolute h-1/5 w-1/5 rounded-full bg-[var(--color-primary-200)] opacity-[var(--opacity-50)]"
-					style="top: 60%; left: 20%;"
-				></div>
-				<div
-					class="absolute h-1 w-full bg-[var(--color-neutral-400)] opacity-[var(--opacity-40)]"
-					style="top: 30%;"
-				></div>
-				<div
-					class="absolute h-full w-1 bg-[var(--color-neutral-400)] opacity-[var(--opacity-40)]"
-					style="left: 40%;"
-				></div>
-				<div
-					class="absolute h-1/6 w-1/4 rounded bg-[var(--color-success-200)] opacity-[var(--opacity-60)]"
-					style="top: 50%; left: 60%;"
-				></div>
-			</div>
+			<div class="c-map-with-markers__map-bg"></div>
 
 			{#each state.markers as marker}
+				{@const xOffset =
+					(marker.lng - state.currentView.center.lng) *
+						10000 *
+						Math.pow(2, state.currentView.zoom - 10) +
+					state.mapOffset.x}
+				{@const yOffset =
+					(state.currentView.center.lat - marker.lat) *
+						10000 *
+						Math.pow(2, state.currentView.zoom - 10) +
+					state.mapOffset.y}
 				<div
-					class={`absolute z-[var(--z-index-docked)] -translate-x-1/2 -translate-y-1/2 transform cursor-pointer ${props.markerClass ?? ''}`}
-					style={`left: calc(50% + ${(marker.lng - state.currentView.center.lng) * 10000 * Math.pow(2, state.currentView.zoom - 10) + state.mapOffset.x}px); top: calc(50% + ${(state.currentView.center.lat - marker.lat) * 10000 * Math.pow(2, state.currentView.zoom - 10) + state.mapOffset.y}px);`}
+					class="c-map-with-markers__marker {props.markerClass ?? ''}"
+					style={`left: calc(50% + ${xOffset}px); top: calc(50% + ${yOffset}px); z-index: var(--z-index-docked, 10);`}
 					onclick={(e) => state.handleMarkerClick(marker, e)}
 					onmouseover={() => (state.hoveredMarker = marker.id)}
 					onmouseout={() => (state.hoveredMarker = null)}
@@ -87,30 +62,27 @@
 					onkeydown={(e: KeyboardEvent) => state.handleMarkerKeyDown(marker, e)}
 				>
 					<div
-						class={`flex flex-col items-center ${state.hoveredMarker === marker.id ? 'scale-110' : ''} transition-transform`}
+						class="c-map-with-markers__marker-inner {state.hoveredMarker === marker.id
+							? 'c-map-with-markers__marker-inner--hovered'
+							: ''}"
 					>
 						<div
-							class={`flex items-center justify-center rounded-full ${
-								marker.size === 'sm' ? 'h-6 w-6' : marker.size === 'lg' ? 'h-10 w-10' : 'h-8 w-8'
-							} ${
-								marker.color || 'bg-[var(--color-primary-500)]'
-							} border-2 border-[var(--color-background-primary)] shadow-lg`}
+							class="c-map-with-markers__marker-pin c-map-with-markers__marker-pin--{marker.size ??
+								'md'}"
+							style={marker.color ? `background-color: ${marker.color}` : undefined}
 						>
 							<BaseIcon
 								name="map-pin"
-								class={`${
-									marker.size === 'sm' ? 'h-4 w-4' : marker.size === 'lg' ? 'h-6 w-6' : 'h-5 w-5'
-								} text-[var(--color-text-inverse)]`}
+								class="c-map-with-markers__marker-icon c-map-with-markers__marker-icon--{marker.size ??
+									'md'}"
 							/>
 						</div>
 
 						{#if state.hoveredMarker === marker.id && marker.title}
-							<div
-								class="absolute top-full z-[var(--z-index-popover)] mt-2 rounded bg-[var(--color-background-primary)] px-3 py-2 text-sm whitespace-nowrap shadow-lg"
-							>
-								<div class="font-medium">{marker.title}</div>
+							<div class="c-map-with-markers__tooltip">
+								<div class="c-map-with-markers__tooltip-title">{marker.title}</div>
 								{#if marker.description}
-									<div class="text-[var(--color-text-secondary)]">{marker.description}</div>
+									<div class="c-map-with-markers__tooltip-desc">{marker.description}</div>
 								{/if}
 							</div>
 						{/if}
@@ -118,7 +90,7 @@
 				</div>
 			{/each}
 
-			<div class="absolute top-4 right-4 flex flex-col space-y-2">
+			<div class="c-map-with-markers__controls">
 				{#if state.showZoomControls}
 					<Button variant="secondary" size="sm" onclick={state.handleZoomIn} aria-label="Zoom in">
 						<BaseIcon name="plus" class="h-4 w-4" />
@@ -127,7 +99,6 @@
 						<BaseIcon name="minus" class="h-4 w-4" />
 					</Button>
 				{/if}
-
 				{#if state.showCurrentLocation}
 					<Button
 						variant="secondary"
@@ -138,7 +109,6 @@
 						<BaseIcon name="locate" class="h-4 w-4" />
 					</Button>
 				{/if}
-
 				{#if state.showResetView}
 					<Button
 						variant="secondary"
@@ -151,9 +121,7 @@
 				{/if}
 			</div>
 
-			<div
-				class="absolute bottom-4 left-4 rounded-md bg-[var(--color-background-primary)]/80 px-3 py-2 text-sm backdrop-blur-sm"
-			>
+			<div class="c-map-with-markers__readout">
 				{#if state.showScale}
 					<div>Scale: 1:{Math.round(Math.pow(2, 20 - state.currentView.zoom) * 100)}m</div>
 				{/if}
@@ -162,3 +130,169 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.c-map-with-markers {
+	}
+
+	.c-map-with-markers__body {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.c-map-with-markers__search {
+		position: relative;
+		margin-bottom: 1rem;
+	}
+
+	.c-map-with-markers__search-icon-wrap {
+		pointer-events: none;
+		position: absolute;
+		inset-block: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		padding-left: 0.75rem;
+	}
+
+	.c-map-with-markers__icon {
+		width: 1.25rem;
+		height: 1.25rem;
+		color: var(--color-text-tertiary, var(--color-text-secondary));
+	}
+
+	.c-map-with-markers__search-input {
+		display: block;
+		width: 100%;
+		border-radius: 0.375rem;
+		border: 1px solid var(--color-border-primary);
+		background: var(--color-background-primary);
+		padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+		font-size: 0.875rem;
+	}
+
+	.c-map-with-markers__search-input:focus {
+		outline: none;
+		border-color: var(--color-primary-500);
+		box-shadow: 0 0 0 1px var(--color-primary-500);
+	}
+
+	.c-map-with-markers__map {
+		position: relative;
+		flex: 1;
+		overflow: hidden;
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-border-primary);
+		height: 31.25rem;
+		cursor: grab;
+	}
+
+	.c-map-with-markers__map:active {
+		cursor: grabbing;
+	}
+
+	.c-map-with-markers__map-bg {
+		position: absolute;
+		inset: 0;
+		background-color: var(--color-primary-50, var(--color-background-secondary));
+		background-image:
+			linear-gradient(rgb(0 0 0 / 0.04) 1px, transparent 1px),
+			linear-gradient(90deg, rgb(0 0 0 / 0.04) 1px, transparent 1px);
+		background-size: 5% 5%;
+	}
+
+	.c-map-with-markers__marker {
+		position: absolute;
+		transform: translate(-50%, -50%);
+		cursor: pointer;
+	}
+
+	.c-map-with-markers__marker-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		transition: transform var(--duration-150, 150ms) ease;
+	}
+
+	.c-map-with-markers__marker-inner--hovered {
+		transform: scale(1.1);
+	}
+
+	.c-map-with-markers__marker-pin {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		border: 2px solid var(--color-background-primary);
+		background: var(--color-primary-500);
+		color: var(--color-text-inverse);
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+	}
+
+	.c-map-with-markers__marker-pin--sm {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+	.c-map-with-markers__marker-pin--md {
+		width: 2rem;
+		height: 2rem;
+	}
+	.c-map-with-markers__marker-pin--lg {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+
+	.c-map-with-markers__marker-icon--sm {
+		width: 1rem;
+		height: 1rem;
+	}
+	.c-map-with-markers__marker-icon--md {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+	.c-map-with-markers__marker-icon--lg {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	.c-map-with-markers__tooltip {
+		position: absolute;
+		top: 100%;
+		z-index: var(--z-index-popover, 1500);
+		margin-top: 0.5rem;
+		border-radius: 0.25rem;
+		background: var(--color-background-primary);
+		padding: 0.5rem 0.75rem;
+		font-size: 0.875rem;
+		white-space: nowrap;
+		box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+	}
+
+	.c-map-with-markers__tooltip-title {
+		font-weight: 500;
+	}
+	.c-map-with-markers__tooltip-desc {
+		color: var(--color-text-secondary);
+	}
+
+	.c-map-with-markers__controls {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.c-map-with-markers__readout {
+		position: absolute;
+		bottom: 1rem;
+		left: 1rem;
+		border-radius: 0.375rem;
+		background: rgb(255 255 255 / 0.8);
+		padding: 0.5rem 0.75rem;
+		font-size: 0.875rem;
+		backdrop-filter: blur(4px);
+	}
+</style>

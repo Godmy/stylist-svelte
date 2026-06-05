@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { Button } from '$stylist/control';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import { UploadProgressStyleManager } from '$stylist/file/class/style-manager/upload-progress';
 	import type { SlotUploadProgress as IUploadProgressProps } from '$stylist/file/interface/slot/upload-progress-upload-progress-2';
-	import { createUploadProgressState } from '$stylist/file/function/state/upload-progress';
+	import createUploadProgressState from '$stylist/file/function/state/upload-progress/index.svelte';
 	import { formatFileSize } from '$stylist/file/function/script/upload-progress-format-file-size';
 
 	let props: IUploadProgressProps = $props();
@@ -31,7 +31,7 @@
 						state.itemClass
 					)}
 				>
-					<div class="flex-shrink-0">
+					<div class="up-icon">
 						{#if file.status === 'success'}
 							<BaseIcon
 								name="check-circle"
@@ -52,7 +52,7 @@
 						{/if}
 					</div>
 
-					<div class="ml-3 min-w-0 flex-1">
+					<div class="up-info">
 						{#if state.showFileName}
 							<p class={UploadProgressStyleManager.getFileNameClasses()}>{file.name}</p>
 						{/if}
@@ -64,7 +64,7 @@
 						{/if}
 
 						{#if state.showProgress && file.status === 'uploading'}
-							<div class="mt-2">
+							<div class="up-progress-wrap">
 								<div
 									class={UploadProgressStyleManager.getProgressClasses(
 										file.progress,
@@ -96,7 +96,10 @@
 									onclick={() => state.handleRetry(file)}
 									title="Retry upload"
 								>
-									<BaseIcon name="rotate-ccw" class="h-4 w-4 text-[--color-text-secondary]" />
+									<BaseIcon
+										name="rotate-ccw"
+										style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+									/>
 								</Button>
 							{/if}
 
@@ -107,7 +110,10 @@
 									onclick={() => state.handleCancel(file)}
 									title="Cancel upload"
 								>
-									<BaseIcon name="x" class="h-4 w-4 text-[--color-text-secondary]" />
+									<BaseIcon
+										name="x"
+										style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+									/>
 								</Button>
 							{/if}
 
@@ -117,7 +123,10 @@
 								onclick={() => state.handleRemove(file)}
 								title="Remove"
 							>
-								<BaseIcon name="x" class="h-4 w-4 text-[--color-text-secondary]" />
+								<BaseIcon
+									name="x"
+									style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+								/>
 							</Button>
 						</div>
 					{/if}
@@ -132,3 +141,17 @@
 		</div>
 	{/if}
 </div>
+
+<style>
+	.up-icon {
+		flex-shrink: 0;
+	}
+	.up-info {
+		margin-left: 0.75rem;
+		min-width: 0;
+		flex: 1;
+	}
+	.up-progress-wrap {
+		margin-top: 0.5rem;
+	}
+</style>

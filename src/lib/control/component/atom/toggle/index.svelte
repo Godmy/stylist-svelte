@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { ToggleProps } from '$stylist/control/type/struct/toggle-props';
-	import { createToggleState } from '$stylist/control/function/state/toggle';
+	import createToggleState from '$stylist/control/function/state/toggle/index.svelte';
 
 	let props: ToggleProps & HTMLInputAttributes = $props();
 	const state = createToggleState(props);

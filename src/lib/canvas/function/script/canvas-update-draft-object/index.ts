@@ -1,7 +1,5 @@
-import type {
-	SharedCanvasPoint,
-	SharedCanvasTool
-} from '$stylist/canvas/type/struct/shared-canvas';
+import type { SharedCanvasPoint } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-point';
+import type { SharedCanvasTool } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-tool';
 import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
 
 export function updateDraftCanvasObject(

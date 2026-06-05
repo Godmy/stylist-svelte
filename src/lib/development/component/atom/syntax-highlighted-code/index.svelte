@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ThemeSyntaxHighlightedCodeRecipe } from '$stylist/development/interface/recipe/syntax-highlighted-code';
-	import { createSyntaxHighlightedCodeState } from '$stylist/development/function/state/syntax-highlighted-code';
+	import createSyntaxHighlightedCodeState from '$stylist/development/function/state/syntax-highlighted-code/index.svelte';
 	import Code from '$stylist/development/component/molecule/code-block/index.svelte';
 
 	let props: ThemeSyntaxHighlightedCodeRecipe = $props();

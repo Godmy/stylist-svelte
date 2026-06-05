@@ -11,7 +11,7 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 import type { SlotMedia } from '$stylist/media/interface/slot/media';
-import type { SlotBadge } from '$stylist/typography/interface/slot/badge';
+import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { SlotCaption } from '$stylist/typography/interface/slot/caption';
 import type { SlotLabel } from '$stylist/typography/interface/slot/label';
 

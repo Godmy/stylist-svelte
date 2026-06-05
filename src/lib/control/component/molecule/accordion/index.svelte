@@ -20,13 +20,13 @@
  */
 -->
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const ChevronDown = 'chevron-down';
 
 	import { AccordionStyleManager } from '$stylist/control/class/style-manager/accordion';
 	import type { SlotAccordion as IAccordionProps } from '$stylist/control/interface/slot/accordion';
-	import { createAccordionState } from '$stylist/control/function/state/accordion';
+	import createAccordionState from '$stylist/control/function/state/accordion/index.svelte';
 
 	let {
 		items,

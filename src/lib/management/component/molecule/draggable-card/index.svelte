@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const GripVertical = 'grip-vertical';
 	const MoreHorizontal = 'more-horizontal';
 
-	import { Button } from '$stylist/control';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import BaseCard from '$stylist/information/component/molecule/base-card/index.svelte';
-	import { createDraggableCardState } from '$stylist/management/function/state/draggable-card';
+	import createDraggableCardState from '$stylist/management/function/state/draggable-card/index.svelte';
 	import type { SlotDraggableCard as DraggableCardProps } from '$stylist/management/interface/slot/draggable-card';
 
 	let props: DraggableCardProps = $props();

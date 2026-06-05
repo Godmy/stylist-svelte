@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { SlotFileSystemItem } from '$stylist/file';
+	import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 
 	import FileExplorer from './index.svelte';
 

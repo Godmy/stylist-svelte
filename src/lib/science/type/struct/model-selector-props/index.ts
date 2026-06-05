@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { Model } from '../model';
 
 export type ModelSelectorProps = InteractionHTMLAttributes<HTMLDivElement> & {

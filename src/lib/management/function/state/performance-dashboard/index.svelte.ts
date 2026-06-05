@@ -1,6 +1,6 @@
 import { untrack } from 'svelte';
-import { PerformanceDashboardStyleManager } from '$stylist/management';
-import type { TokenTimeRange } from '$stylist/management/type/enum/time-range';
+import { PerformanceDashboardStyleManager } from '$stylist/management/class/style-manager/performance-dashboard';
+import type { TokenTimeRange } from '$stylist/management/type/enum/time-range/token-time-range';
 import { ObjectManagerPerformanceDashboard } from '$stylist/management/class/object-manager/performance-dashboard';
 import type { PerformanceDashboardStateProps } from '$stylist/management/interface/recipe/performance-dashboard-performance-dashboard-state-props';
 

@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const Paperclip = 'paperclip';
 	const Mic = 'mic';
 	const Send = 'send';
 
-	import { Button } from '$stylist/control';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
 
 	import type { SlotMessageComposer as IMessageComposerProps } from '$stylist/chat/interface/slot/message-composer';
-	import { createMessageComposerState } from '$stylist/chat/function/state/message-composer';
+	import createMessageComposerState from '$stylist/chat/function/state/message-composer/index.svelte';
 
 	/**
 	 * MessageComposer component - A message input component with attachment and voice options

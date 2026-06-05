@@ -1,4 +1,3 @@
-
 // ==================== SentimentAnalysis ====================
 export interface SlotSentimentAnalysisResult {
 	score: number;

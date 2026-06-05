@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createPlaygroundShellHeaderState } from '$stylist/playground/function/state/playground-shell-header';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createPlaygroundShellHeaderState from '$stylist/playground/function/state/playground-shell-header/index.svelte';
 	import type { PlaygroundShellHeaderProps } from '$stylist/playground/type/struct/playground-shell-header-props';
 	const ZoomIn = 'zoom-in';
 	const ZoomOut = 'zoom-out';
@@ -25,7 +25,7 @@
 />
 
 <div
-	class="relative z-[var(--z-index-modal)] flex h-14 items-center justify-between border-b border-gray-200 bg-white/80 px-4 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/80 {state.className}"
+	class="playground-shell-header relative z-[var(--z-index-modal)] flex min-h-16 items-center justify-between px-4 {state.className}"
 >
 	<div class="flex items-center gap-2">
 		<a href="/" class="group flex items-center">
@@ -406,3 +406,36 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.playground-shell-header {
+		border-bottom: 1px solid color-mix(in srgb, var(--color-border-primary) 84%, transparent);
+		background:
+			radial-gradient(
+				circle at top right,
+				color-mix(in srgb, var(--playground-accent, var(--color-warning-500)) 10%, transparent),
+				transparent 28%
+			),
+			linear-gradient(
+				180deg,
+				color-mix(in srgb, var(--color-background-primary) 82%, white 18%),
+				color-mix(in srgb, var(--color-background-primary) 88%, transparent)
+			);
+		backdrop-filter: blur(18px);
+		box-shadow: 0 10px 24px rgb(15 23 42 / 0.05);
+	}
+
+	:global(.dark) .playground-shell-header {
+		background:
+			radial-gradient(
+				circle at top right,
+				color-mix(in srgb, var(--playground-accent, var(--color-warning-500)) 12%, transparent),
+				transparent 28%
+			),
+			linear-gradient(
+				180deg,
+				color-mix(in srgb, var(--color-background-primary) 92%, black 8%),
+				color-mix(in srgb, var(--color-background-primary) 88%, transparent)
+			);
+	}
+</style>

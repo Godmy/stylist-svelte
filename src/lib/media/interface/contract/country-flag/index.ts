@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 
 export interface ContractCountryFlag
 	extends Omit<InformationHTMLAttributes<HTMLSpanElement>, 'class'> {

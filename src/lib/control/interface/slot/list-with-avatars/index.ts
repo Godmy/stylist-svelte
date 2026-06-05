@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { ListItem } from '$stylist/control/type/struct/list-with-avatars/item';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 

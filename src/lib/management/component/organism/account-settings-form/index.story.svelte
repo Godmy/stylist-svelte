@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import type { AccountSettings } from '$stylist/management';
-	import { AccountSettingsStyleManager } from '$stylist/interaction';
+	import type { AccountSettings } from '$stylist/management/type/struct/settings/account-settings';
+	import { AccountSettingsStyleManager } from '$stylist/interaction/class/style-manager/account-settings';
 	import AccountSettingsForm from './index.svelte';
 
 	type Props = {

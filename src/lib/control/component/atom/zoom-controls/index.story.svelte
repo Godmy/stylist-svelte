@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component/molecule/story';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import ZoomControls from './index.svelte';
 
 	const controls = [

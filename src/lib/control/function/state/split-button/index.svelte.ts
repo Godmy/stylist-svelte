@@ -1,4 +1,4 @@
-import { createButtonState as createButtonStateImpl } from '$stylist/control/function/state/button';
+import createButtonStateImpl from '$stylist/control/function/state/button/index.svelte';
 
 export function createSplitButtonState(...args: Parameters<typeof createButtonStateImpl>) {
 	const [props] = args as [Record<string, any>];

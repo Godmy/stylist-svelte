@@ -1,9 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	BadgeStyleManager,
 	BaseCardStyleManager,
 	CardStyleManager,
 	MetricBarStyleManager,
 	MetricBarsCardStyleManager,
+	NpmBadgeStyleManager,
 	ObjectManagerMetricBar,
 	ObjectManagerStatsCard,
 	ObjectManagerTable,
@@ -11,13 +13,18 @@ export {
 	TableStyleManager
 } from './class';
 export {
+	Badge,
+	BadgeGroup,
 	BaseCard,
+	CountBadge,
 	Counter,
 	Dot,
 	ListItemMarker,
 	MetricBar,
 	MetricBarsCard,
+	NpmBadge,
 	StatsCard,
+	StatusIndicator,
 	Table,
 	TableBody,
 	TableCell,
@@ -26,6 +33,8 @@ export {
 } from './component';
 export {
 	CARD_SIZE_CLASSES,
+	DEFAULT_BADGE,
+	DEFAULT_BADGE_LABEL,
 	PROGRESS_VARIANT_CLASSES,
 	STATS_CARD_TREND_CLASS,
 	STATS_CARD_TREND_ICON,
@@ -34,15 +43,19 @@ export {
 	TABLE_ALIGNMENT_CLASSES,
 	TABLE_CLASSES,
 	TOKEN_INFORMATION_ICON,
+	TOKEN_SOFTWARE_BADGE,
 	TOKEN_STATUS,
 	TOKEN_TABLE_CELL
 } from './const';
 export {
 	buildConditionalClassNames,
 	createAriaAttributes,
+	createBadgeGroupState,
+	createBadgeState,
 	createBaseCardState,
 	createBlockquoteState,
 	createCharacterCountState,
+	createCountBadgeState,
 	createCounterState,
 	createDotState,
 	createIconPickerState,
@@ -50,7 +63,9 @@ export {
 	createListItemMarkerState,
 	createMetricBarState,
 	createMetricBarsCardState,
+	createNpmBadgeState,
 	createStatsCardState,
+	createStatusIndicatorState,
 	createTableBodyState,
 	createTableCellState,
 	createTableHeaderState,
@@ -77,14 +92,19 @@ export type {
 	StatusSeverity,
 	StatusState,
 	TokenInformationIcon,
+	TokenSoftwareBadge,
 	TokenStatus,
 	TokenTableCell
 } from './type';
 export type {
 	AccessibilityCheckboxRecipe,
 	AtomicPrinciplesRecipe,
+	BadgeGroupItem,
+	BadgeGroupRecipe,
+	BadgeRecipe,
 	BaseCardRecipe,
 	BehaviorMetricValue,
+	CountBadgeRecipe,
 	CounterRecipe,
 	DotRecipe,
 	HtmlAttributesBase,
@@ -94,7 +114,9 @@ export type {
 	MetricBarRecipe,
 	MetricBarsCardRecipe,
 	MetricCardRecipe,
+	NpmBadgeRecipe,
 	SearchResultsRecipe,
+	SlotBadge,
 	SlotStatus,
 	SortRecipe,
 	SortableGridRecipe,

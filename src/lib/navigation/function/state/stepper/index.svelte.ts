@@ -1,4 +1,4 @@
-import type { StepperProps } from '$stylist/navigation/type/struct/stepper-props';
+import type { StepperProps } from '$stylist/navigation/type/struct/stepper-props/stepper-props';
 
 export function createStepperState(props: StepperProps) {
 	const orientationClass = $derived(props.orientation === 'vertical' ? 'flex flex-col' : 'flex');

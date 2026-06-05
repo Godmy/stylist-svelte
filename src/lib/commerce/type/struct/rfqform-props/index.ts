@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { RFQFormData } from '$stylist/commerce/type/struct/rfq-form-data';
 
 export type RFQFormProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> & {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createActionSegmentedControlState } from '$stylist/control/function/state/action-segmented-control';
+	import createActionSegmentedControlState from '$stylist/control/function/state/action-segmented-control/index.svelte';
 	import type { RecipeActionSegmentedControlProps } from '$stylist/control/type/struct/action-segmented-control-props';
 
 	let props: RecipeActionSegmentedControlProps = $props();

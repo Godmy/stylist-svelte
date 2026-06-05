@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { ContractAvatar } from '$stylist/media/interface/contract/avatar';
 
 export interface ContractAvatarGroup

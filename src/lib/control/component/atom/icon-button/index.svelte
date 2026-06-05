@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { createButtonFactoryInput } from '$stylist/interaction/factory/button';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const Loader2 = 'loader-2';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { SlotIconButton as IconButtonProps } from '$stylist/control/interface/slot/icon-button';
-	import { createIconButtonState } from '$stylist/control/function/state/icon-button';
+	import createIconButtonState from '$stylist/control/function/state/icon-button/index.svelte';
 
 	/**
 	 * IconButton component - A button that primarily displays an icon

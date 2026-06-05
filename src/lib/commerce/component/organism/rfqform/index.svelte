@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const FileText = 'file-text';
 	const User = 'user';
 	const Mail = 'mail';
@@ -16,10 +16,10 @@
 	const Paperclip = 'paperclip';
 	const X = 'x';
 
-	import { Button } from '$stylist/control';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import TextArea from '$stylist/input/component/atom/text-area/index.svelte';
 	import type { RFQFormProps } from '$stylist/commerce/type/struct/rfqform-props';
-	import { createRFQFormState } from '$stylist/commerce/function/state/rfqform';
+	import createRFQFormState from '$stylist/commerce/function/state/rfqform/index.svelte';
 
 	let {
 		title = 'Request for Quotation',

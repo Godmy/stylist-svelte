@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeShippingCalculator as ShippingCalculatorContract } from '$stylist/commerce/interface/recipe/shipping-calculator';
-	import { createShippingCalculatorState as stateFn } from '$stylist/commerce/function/state/shipping-calculator';
+	import stateFn from '$stylist/commerce/function/state/shipping-calculator/index.svelte';
 
 	let props: ShippingCalculatorContract = $props();
 	const state = stateFn(props);

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const Lock = 'lock';
 
-	import { createSecureFormState } from '$stylist/management/function/state/secure-form';
+	import createSecureFormState from '$stylist/management/function/state/secure-form/index.svelte';
 	import type { SlotSecureForm as SecureFormProps } from '$stylist/form/interface/slot/secure-form';
 
 	let props: SecureFormProps = $props();

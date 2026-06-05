@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createSkeletonRectangleState } from '$stylist/notification/function/state/skeleton-rectangle';
+	import createSkeletonRectangleState from '$stylist/notification/function/state/skeleton-rectangle/index.svelte';
 	import type { SkeletonRectangleProps } from '$stylist/notification/type/struct/skeleton-rectangle-props';
 
 	let props: SkeletonRectangleProps = $props();

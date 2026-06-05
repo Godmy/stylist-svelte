@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { AspectRatioProps } from '$stylist/layout/type/struct/aspect-ratio';
-	import { createAspectRatioState } from '$stylist/layout/function/state/aspect-ratio';
+	import type { AspectRatioProps } from '$stylist/layout/type/struct/aspect-ratio/aspect-ratio-props';
+	import createAspectRatioState from '$stylist/layout/function/state/aspect-ratio/index.svelte';
 
 	let props: AspectRatioProps = $props();
 	const state = createAspectRatioState(props);

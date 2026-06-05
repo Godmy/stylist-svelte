@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PricingTableProps } from '$stylist/commerce/interface/recipe/pricing-table-props';
-	import { createPricingTableState } from '$stylist/commerce/function/state/pricing-table';
+	import createPricingTableState from '$stylist/commerce/function/state/pricing-table/createpricingtablestate/index.svelte';
 
 	let props: PricingTableProps = $props();
 	const state = createPricingTableState(props);

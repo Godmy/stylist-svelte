@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { RecipeSentimentAnalysis as SentimentAnalysisContract } from '$stylist/science/interface/recipe/sentiment-analysis';
-	import { createSentimentAnalysisState } from '$stylist/science/function/state/sentiment-analysis';
+	import createSentimentAnalysisState from '$stylist/science/function/state/sentiment-analysis/index.svelte';
 
 	let props: SentimentAnalysisContract = $props();
 	const state = createSentimentAnalysisState(props);

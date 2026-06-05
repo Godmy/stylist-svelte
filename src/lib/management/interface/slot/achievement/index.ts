@@ -1,4 +1,3 @@
-
 /**
  * @file TeamMemberCard Types
  * @description Type definitions for TeamMemberCard component following Atomic Design principles

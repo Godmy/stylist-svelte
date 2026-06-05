@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotAnimate as AnimateProps } from '$stylist/animation/interface/slot/animate';
-	import { createAnimatedState } from '$stylist/animation/function/state/animated';
+	import createAnimatedState from '$stylist/animation/function/state/animated/index.svelte';
 
 	let props: AnimateProps = $props();
 	const state = createAnimatedState(props);
@@ -13,3 +13,13 @@
 		{state.formattedValue}
 	{/if}
 </div>
+
+<style>
+	.c-animated {
+		will-change: transform;
+	}
+
+	.c-animated--infinite {
+		animation-iteration-count: infinite;
+	}
+</style>

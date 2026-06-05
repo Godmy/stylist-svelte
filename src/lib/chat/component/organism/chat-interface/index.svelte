@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { ChatInterfaceProps } from '$stylist/chat/type/struct/chat-interface-props';
-	import { createChatInterfaceState } from '$stylist/chat/function/state/chat-interface';
+	import createChatInterfaceState from '$stylist/chat/function/state/chat-interface/index.svelte';
 
 	let props: ChatInterfaceProps = $props();
 

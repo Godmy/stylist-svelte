@@ -1,8 +1,6 @@
 import type { TokenDensity } from '$stylist/layout/type/enum/density';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type {
-	HtmlAttributesBase
-} from '$stylist/information/interface/slot';
+import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
 import type { SlotMessageThreadMessage } from '$stylist/chat/interface/slot/message-thread-message';
 
 export interface SlotMessageThread extends HtmlAttributesBase<HTMLDivElement> {

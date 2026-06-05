@@ -1,4 +1,3 @@
-
 export interface ContractAttachment {
 	id: string;
 	name: string;

@@ -6,7 +6,7 @@
 	import GraphToolbar from '$stylist/science/component/molecule/graph-toolbar/index.svelte';
 	import Minimap from '$stylist/science/component/organism/minimap/index.svelte';
 	import LitegraphNodeComponent from '$stylist/science/component/molecule/litegraph-node/index.svelte';
-	import { createLitegraphCanvasState } from '$stylist/science/function/state/litegraph-canvas';
+	import createLitegraphCanvasState from '$stylist/science/function/state/litegraph-canvas/index.svelte';
 
 	let props: LitegraphCanvasContract = $props();
 	const state = createLitegraphCanvasState(props);

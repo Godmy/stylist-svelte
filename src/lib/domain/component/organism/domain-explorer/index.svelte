@@ -2,13 +2,14 @@
 	import DomainFilePreview from '$stylist/domain/component/organism/domain-file-preview/index.svelte';
 	import DomainSearch from '$stylist/domain/component/molecule/domain-search/index.svelte';
 	import { DOMAIN_COMPONENT_DEBUG_ERROR } from '$stylist/domain/const/object/error';
-	import { DomainSidebar } from '$stylist/domain/component/organism/domain-sidebar';
+	import DomainSidebar from '$stylist/domain/component/organism/domain-sidebar/index.svelte';
 	import JointTabButtons from '$stylist/domain/component/molecule/joint-tab-buttons/index.svelte';
 	import TaxonomyBreadcrumbs from '$stylist/domain/component/molecule/taxonomy-breadcrumbs/index.svelte';
-	import { createDomainPageState } from '$stylist/domain/function/state/domain-page/index.svelte';
+	import createDomainPageState from '$stylist/domain/function/state/domain-page/index.svelte';
 	import TextInputDialog from '$stylist/input/component/organism/text-input-dialog/index.svelte';
 
-	type DomainPageState = ReturnType<typeof createDomainPageState>;
+	type StoryModule = { default: unknown };
+	type DomainTree = Parameters<typeof createDomainPageState>[0]['tree'];
 
 	type DebugMenuItem = {
 		id: string;
@@ -18,11 +19,23 @@
 	};
 
 	interface DomainExplorerProps {
-		state: DomainPageState;
+		tree: DomainTree;
+		onSelectionChange?: (selection: { domain: string; family: string }) => void;
 		class?: string;
 	}
 
-	let { state: s, class: className = '' }: DomainExplorerProps = $props();
+	const storyModules = import.meta.glob('/src/lib/**/index.story.svelte') as Record<
+		string,
+		() => Promise<StoryModule>
+	>;
+
+	let { tree, onSelectionChange, class: className = '' }: DomainExplorerProps = $props();
+
+	const s = createDomainPageState({ tree, storyModules });
+
+	$effect(() => {
+		onSelectionChange?.({ domain: s.activeDomain, family: s.activeFamily });
+	});
 
 	const isComponentJoint = $derived.by(
 		() =>

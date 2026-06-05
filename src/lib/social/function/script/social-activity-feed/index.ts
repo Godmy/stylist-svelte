@@ -1,4 +1,4 @@
-import type { ActivityType } from '$stylist/social/type/struct/social-activity-feed';
+import type { ActivityType } from '$stylist/social/type/struct/social-activity-feed/activitytype';
 
 export function socialActivityFeedGetIcon(
 	type: ActivityType,

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { FileItem } from '$stylist/file/type/struct/file-list-item/file-item';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 
 	import FileListItem from './index.svelte';
 

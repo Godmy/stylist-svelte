@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createNodeIconState } from '$stylist/media/function/state/node-icon';
+	import createNodeIconState from '$stylist/media/function/state/node-icon/index.svelte';
 	import type { NodeIconProps } from '$stylist/media/interface/recipe/node-icon-node-icon-props';
 
 	let props: NodeIconProps = $props();

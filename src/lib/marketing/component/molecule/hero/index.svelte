@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
 	import type { SlotHero as IHeroProps } from '$stylist/marketing/interface/slot/hero';
-	import { createHeroState } from '$stylist/marketing/function/state/hero';
+	import createHeroState from '$stylist/marketing/function/state/hero/index.svelte';
 	import AnimatedNumber from '$stylist/animation/component/atom/animated-number/index.svelte';
 
 	let props: IHeroProps = $props();
@@ -77,9 +77,15 @@
 		{/if}
 
 		{#if state.children}
-			<div class="mt-8">
+			<div class="hero-children">
 				{#if state.children}{@render state.children()}{/if}
 			</div>
 		{/if}
 	</div>
 </div>
+
+<style>
+	.hero-children {
+		margin-top: 2rem;
+	}
+</style>

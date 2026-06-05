@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DraggableCard from './index.svelte';
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	const controls: InterfaceControllerSettings[] = [

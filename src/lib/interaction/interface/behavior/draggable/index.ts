@@ -1,4 +1,4 @@
-import type { DragContract } from '$stylist/interaction/type/struct/gesture-drag-contract';
+import type { DragContract } from '$stylist/interaction/type/struct/gesture/drag-contract';
 
 /**
  * Прото-интерфейс для draggable элементов

@@ -2,10 +2,8 @@ import type { SlotBacklogData as BacklogData } from '$stylist/management/interfa
 import type { SlotBacklogItem as BacklogItem } from '$stylist/management/interface/slot/backlog-item';
 import type { SlotBurnDownData as BurnDownData } from '$stylist/management/interface/slot/burn-down-data';
 import type { SlotIssueMessage as IssueMessage } from '$stylist/management/interface/slot/issue-message';
-import type {
-	KanbanBoardAction,
-	KanbanBoardType
-} from '$stylist/management/type/struct/kanban-board';
+import type { KanbanBoardAction } from '$stylist/management/type/struct/kanban-board/kanbanboardaction';
+import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board/kanbanboardtype';
 
 export function createDomainBacklogState(input: {
 	getDomain: () => string;

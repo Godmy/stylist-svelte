@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+	import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 	import type { NumberFlowRecipe as NumberFlowProps } from '$stylist/animation/interface/recipe/number-flow';
-	import { createNumberFlowState } from '$stylist/animation/function/state/number-flow';
+	import createNumberFlowState from '$stylist/animation/function/state/number-flow/index.svelte';
 
 	let {
 		class: className,

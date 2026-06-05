@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
 	import type { AnalyticsChartProps } from '$stylist/chart/type/struct/analytics-chart-props';
 	import type { ChartProps as InformationChartProps } from '$stylist/chart/interface/recipe/chart-props';
-	import { createChartState } from '$stylist/chart/function/state/chart-function';
+	import createChartState from '$stylist/chart/function/state/chart-function/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import ChartCanvas from '$stylist/chart/component/molecule/chart-canvas/index.svelte';
 	import ChartLegend from '$stylist/chart/component/molecule/chart-legend/index.svelte';

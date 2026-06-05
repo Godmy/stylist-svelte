@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { GraphCanvasProps } from '$stylist/science/type/struct/graph-canvas/graph-canvas-props';
 	import { GraphCanvasStyleManager } from '$stylist/science/class/style-manager/graph-canvas';
-	import { createGraphCanvasState } from '$stylist/science/function/state/graph-canvas';
+	import createGraphCanvasState from '$stylist/science/function/state/graph-canvas/index.svelte';
 	let props: GraphCanvasProps = $props();
 	const state = createGraphCanvasState(props);
 

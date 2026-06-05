@@ -4,7 +4,7 @@
 	const ChevronDown = 'chevron-down';
 	const ChevronsUpDown = 'chevrons-up-down';
 
-	import { createSortableTableHeaderState } from '$stylist/control/function/state/sortable-table-header';
+	import createSortableTableHeaderState from '$stylist/control/function/state/sortable-table-header/index.svelte';
 	import type { SortableTableHeaderProps } from '$stylist/control/type/struct/sortable-table-header-props';
 
 	let props: SortableTableHeaderProps = $props();

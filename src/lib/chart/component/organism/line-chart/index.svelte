@@ -2,7 +2,7 @@
 	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 	import Tooltip from '$stylist/control/component/atom/tooltip/index.svelte';
 	import type { LineChartRecipe } from '$stylist/chart/interface/recipe/line-chart';
-	import { createLineChartState } from '$stylist/chart/function/state/line-chart';
+	import createLineChartState from '$stylist/chart/function/state/line-chart/index.svelte';
 	import { ObjectManagerLineChart } from '$stylist/chart/class/object-manager/line-chart';
 
 	let props: LineChartRecipe = $props();
@@ -29,7 +29,7 @@
 	{/if}
 
 	<div class={state.chartContainerClasses}>
-		<svg width={props.width ?? 600} height={props.height ?? 400} class="overflow-visible">
+		<svg width={props.width ?? 600} height={props.height ?? 400} class="lc-svg">
 			{#if props.showAxis}
 				<!-- X axis -->
 				<line
@@ -96,7 +96,7 @@
 					stroke={series.color ??
 						ObjectManagerLineChart.resolveDefaultColor(seriesIndex, state.resolvedColorScheme)}
 					stroke-width={props.strokeWidth ?? 2}
-					class="transition-all duration-[var(--duration-300)] ease-in-out"
+					class="lc-line"
 				/>
 
 				<!-- Points -->
@@ -116,7 +116,7 @@
 						r={state.isPointHovered(seriesIndex, pointIndex) ? 6 : 4}
 						fill={series.color ??
 							ObjectManagerLineChart.resolveDefaultColor(seriesIndex, state.resolvedColorScheme)}
-						class="cursor-pointer transition-all duration-[var(--duration-200)] ease-in-out"
+						class="lc-point"
 						onclick={() => props.onPointClick?.(point, series)}
 						onkeydown={(e) => {
 							if (e.key === 'Enter' || e.key === ' ') {
@@ -140,7 +140,7 @@
 			{#each props.data ?? [] as series, i}
 				<div class={state.legendItemClasses}>
 					<div
-						class="mr-2 h-1 w-4 rounded"
+						class="lc-legend-line"
 						style={`background-color: ${series.color ?? ObjectManagerLineChart.resolveDefaultColor(i, state.resolvedColorScheme)}`}
 					></div>
 					<span class={state.legendLabelClasses}>{series.label}</span>
@@ -149,3 +149,22 @@
 		</div>
 	{/if}
 </div>
+
+<style>
+	.lc-svg {
+		overflow: visible;
+	}
+	.lc-line {
+		transition: all var(--duration-300, 300ms) ease-in-out;
+	}
+	.lc-point {
+		cursor: pointer;
+		transition: all var(--duration-200, 200ms) ease-in-out;
+	}
+	.lc-legend-line {
+		margin-right: 0.5rem;
+		height: 0.25rem;
+		width: 1rem;
+		border-radius: 9999px;
+	}
+</style>

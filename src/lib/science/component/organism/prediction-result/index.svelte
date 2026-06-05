@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { RecipePredictionResult as PredictionResultContract } from '$stylist/science/interface/recipe/prediction-result';
-	import { createPredictionResultState } from '$stylist/science/function/state/prediction-result';
+	import createPredictionResultState from '$stylist/science/function/state/prediction-result/index.svelte';
 
 	let props: PredictionResultContract = $props();
 	const state = createPredictionResultState(props);

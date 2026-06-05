@@ -1,4 +1,4 @@
-import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
+import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
 import type { ArchitectureHTMLAttributes } from '$stylist/architecture/type/struct/item-architecture-html-attributes';
 
 /**

@@ -1,4 +1,4 @@
-import type { Activity } from '$stylist/social/type/struct/social-activity-feed';
+import type { Activity } from '$stylist/social/type/struct/social-activity-feed/activity';
 
 export function socialActivityFeedGetDescription(activity: Activity): string {
 	switch (activity.type) {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import type { SlotShippingOptionInfo } from '$stylist/commerce/interface/slot/shipping-option-info';
 	import type { RecipeShippingRegion } from '$stylist/commerce/interface/recipe/shipping-region';

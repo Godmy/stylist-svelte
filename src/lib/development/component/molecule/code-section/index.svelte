@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { CodeSectionProps } from '$stylist/development/type/struct/code-section-props';
 	import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor-props';
-	import { createCodeSectionState } from '$stylist/development/function/state/code-section';
+	import createCodeSectionState from '$stylist/development/function/state/code-section/index.svelte';
 	import CodeEditor from '$stylist/development/component/molecule/code-editor-legacy/index.svelte';
-	import { Badge } from '$stylist/typography';
+	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 
 	let props: CodeSectionProps = $props();
 	const state = createCodeSectionState(props);

@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { ContentProp } from '$stylist/information/type/struct';
+import type { ContentProp } from '$stylist/information/type/struct/content-prop';
 import type { SlotAccordionBase } from '$stylist/control/interface/slot/accordion-base';
 
 export interface SlotAccordionPanel

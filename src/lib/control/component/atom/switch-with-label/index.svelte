@@ -8,8 +8,8 @@
 	 * Interface Segregation: Provides clear interface through well-defined props
 	 * Dependency Inversion: Depends on abstractions (types and style manager) not concretions
 	 */
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	import { createSwitchWithLabelState } from '$stylist/control/function/state/switch-with-label';
+	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
+	import createSwitchWithLabelState from '$stylist/control/function/state/switch-with-label/index.svelte';
 	import type { SlotSwitchWithLabel as ISwitchWithLabelProps } from '$stylist/control/interface/slot/switch-with-label';
 
 	let props: ISwitchWithLabelProps & InteractionHTMLAttributes<HTMLDivElement> = $props();

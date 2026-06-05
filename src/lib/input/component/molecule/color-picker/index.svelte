@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotColorPicker as IColorPickerProps } from '$stylist/input/interface/slot/color-picker';
-	import { createColorPickerState } from '$stylist/input/function/state/color-picker';
+	import createColorPickerState from '$stylist/input/function/state/color-picker/index.svelte';
 
 	let props: IColorPickerProps = $props();
 	const state = createColorPickerState(props);

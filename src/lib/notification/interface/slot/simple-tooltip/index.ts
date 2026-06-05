@@ -1,5 +1,3 @@
-
-
 import type { SlotBaseFeedback } from '$stylist/notification/interface/slot/base-feedback';
 
 export interface SlotSimpleTooltip extends SlotBaseFeedback {

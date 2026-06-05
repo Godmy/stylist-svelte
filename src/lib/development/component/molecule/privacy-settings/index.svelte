@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PrivacySettingsProps } from '$stylist/development/type/struct/privacy-settings-props';
-	import { createPrivacySettingsState } from '$stylist/development/function/state/privacy-settings';
+	import createPrivacySettingsState from '$stylist/development/function/state/privacy-settings/index.svelte';
 
 	let { settings = [], onSave = () => {}, class: className = '' }: PrivacySettingsProps = $props();
 

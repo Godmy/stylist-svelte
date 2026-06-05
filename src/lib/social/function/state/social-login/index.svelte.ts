@@ -1,4 +1,6 @@
-import type { Provider, ProviderConfig, Props } from '$stylist/social/type/struct/social-login';
+import type { Provider } from '$stylist/social/type/struct/social-login/provider';
+import type { ProviderConfig } from '$stylist/social/type/struct/social-login/providerconfig';
+import type { Props } from '$stylist/social/type/struct/social-login/-props';
 
 export function createSocialLoginState(props: Props) {
 	const isLoading = $state(false);

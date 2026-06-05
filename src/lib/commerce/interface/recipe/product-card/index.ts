@@ -12,7 +12,7 @@ import type { StructIntersectAll } from '$stylist/architecture/type/struct/inter
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 import type { Snippet } from 'svelte';
 import type { SlotMedia } from '$stylist/media/interface/slot/media';
-import type { SlotBadge } from '$stylist/typography/interface/slot/badge';
+import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { SlotCaption } from '$stylist/typography/interface/slot/caption';
 import type { SlotLabel } from '$stylist/typography/interface/slot/label';
 

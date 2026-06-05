@@ -21,7 +21,7 @@ export {
 	UploadProgress,
 	ZipViewer
 } from './component';
-export { TOKEN_FILE_ICON } from './const';
+export { TOKEN_DOCUMENT_FORMAT, TOKEN_FILE_ICON } from './const';
 export {
 	clearAll,
 	clearFile,
@@ -99,6 +99,7 @@ export type {
 	SlotFileSystemItem,
 	SlotFolderItem,
 	SlotZipEntry,
+	TokenDocumentFormat,
 	TokenFileIcon,
 	UploadFileStatus,
 	UploadProgressVariant,

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createSearchResultsState } from '$stylist/control/function/state/search-results';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createSearchResultsState from '$stylist/control/function/state/search-results/index.svelte';
 	import type { SearchResultsProps } from '$stylist/control/type/struct/search-results-props';
 
 	let props: SearchResultsProps = $props();

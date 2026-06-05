@@ -1,10 +1,8 @@
 <script lang="ts">
-	import type {
-		FeedUser,
-		FilterOption,
-		Post
-	} from '$stylist/social/type/struct/social-feed';
-	import { Story } from '$stylist/playground/component';
+	import type { FeedUser } from '$stylist/social/type/struct/social-feed/feeduser';
+	import type { FilterOption } from '$stylist/social/type/struct/social-feed/filteroption';
+	import type { Post } from '$stylist/social/type/struct/social-feed/post';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import SocialFeed from './index.svelte';

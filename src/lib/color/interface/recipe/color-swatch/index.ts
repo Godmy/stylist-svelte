@@ -1,5 +1,5 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { ContentProp } from '$stylist/information/type/struct';
+import type { ContentProp } from '$stylist/information/type/struct/content-prop';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface ThemeColorSwatchRecipe

@@ -1,4 +1,4 @@
-import { createAccessibilityCheckboxState as createNotificationAccessibilityCheckboxState } from '$stylist/notification/function/state/accessibility-checkbox';
+import createNotificationAccessibilityCheckboxState from '$stylist/notification/function/state/accessibility-checkbox/index.svelte';
 
 export const createInputAccessibilityCheckboxState = (
 	props: {

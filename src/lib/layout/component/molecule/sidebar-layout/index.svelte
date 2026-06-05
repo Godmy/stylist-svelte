@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { createSidebarLayoutState } from '$stylist/layout/function/state/sidebar-layout';
-	import type { SidebarLayoutProps } from '$stylist/layout/type/struct/layout-extended';
+	import createSidebarLayoutState from '$stylist/layout/function/state/sidebar-layout/index.svelte';
+	import type { SidebarLayoutProps } from '$stylist/layout/type/struct/layout-extended/sidebar-layout-props';
 
 	let props: SidebarLayoutProps = $props();
 	const state = createSidebarLayoutState(props);

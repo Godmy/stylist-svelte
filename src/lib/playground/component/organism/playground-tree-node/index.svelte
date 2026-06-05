@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createPlaygroundTreeNodeState } from '$stylist/playground/function/state/playground-tree-node';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createPlaygroundTreeNodeState from '$stylist/playground/function/state/playground-tree-node/index.svelte';
 
 	import Self from './index.svelte';
 	import type { PlaygroundTreeNodeProps } from '$stylist/playground/type/struct/playground-tree-node-props';
@@ -18,7 +18,7 @@
 	<div class="space-y-0.5">
 		<button
 			onclick={state.handleToggle}
-			class="group flex w-full items-center gap-2 rounded-lg py-2 pr-2 transition-all duration-[var(--duration-200)] hover:bg-gray-100 dark:hover:bg-gray-800"
+			class="group flex w-full items-center gap-2 rounded-xl py-2 pr-2 transition-all duration-[var(--duration-200)] hover:bg-[color-mix(in_srgb,var(--color-background-secondary)_78%,transparent)]"
 			class:focused={state.isFocused}
 			style="padding-left: 0px"
 		>
@@ -28,7 +28,7 @@
 					? 'rotate-90'
 					: ''}"
 			>
-				<BaseIcon name={ChevronRight} class="h-3.5 w-3.5 text-gray-400 dark:text-gray-500" />
+				<BaseIcon name={ChevronRight} class="h-3.5 w-3.5 text-[var(--color-text-tertiary)]" />
 			</div>
 
 			<!-- Icon -->
@@ -39,13 +39,13 @@
 			{/if}
 
 			<!-- Name -->
-			<span class="min-w-0 flex-1 text-left text-xs font-semibold text-gray-900 dark:text-gray-100">
+			<span class="min-w-0 flex-1 text-left text-xs font-semibold text-[var(--color-text-primary)]">
 				{state.node.name}
 			</span>
 
 			<!-- Count -->
 			<span
-				class="w-8 flex-shrink-0 text-right text-xs font-bold text-gray-500 tabular-nums dark:text-gray-400"
+				class="w-8 flex-shrink-0 text-right text-xs font-bold text-[var(--color-text-tertiary)] tabular-nums"
 			>
 				{state.node.count || 0}
 			</span>
@@ -83,7 +83,7 @@
 		<button
 			onclick={state.handleClick}
 			style={state.leftPadding}
-			class="folder-node group flex w-full items-center gap-2 rounded-md py-1.5 pr-2 transition-all duration-[var(--duration-200)] hover:bg-gray-50 dark:hover:bg-gray-800/50"
+			class="folder-node group flex w-full items-center gap-2 rounded-xl py-1.5 pr-2 transition-all duration-[var(--duration-200)] hover:bg-[color-mix(in_srgb,var(--color-background-secondary)_72%,transparent)]"
 			class:auto-selectable={state.isAutoSelectable}
 			class:auto-selected={state.isAutoSelectable &&
 				state.node.autoStory?.id === state.selectedStoryId}
@@ -99,7 +99,7 @@
 						? 'rotate-90'
 						: ''}"
 				>
-					<BaseIcon name={ChevronRight} class="h-3.5 w-3.5 text-gray-400 dark:text-gray-500" />
+					<BaseIcon name={ChevronRight} class="h-3.5 w-3.5 text-[var(--color-text-tertiary)]" />
 				</div>
 			{:else}
 				<div class="w-3.5 flex-shrink-0">
@@ -122,18 +122,18 @@
 						class="h-3.5 w-3.5 {state.config.color} opacity-[var(--opacity-70)]"
 					/>
 				{:else}
-					<BaseIcon name={Folder} class="h-3.5 w-3.5 text-gray-500 dark:text-gray-400" />
+					<BaseIcon name={Folder} class="h-3.5 w-3.5 text-[var(--color-text-secondary)]" />
 				{/if}
 			</div>
 
 			<!-- Name -->
-			<span class="min-w-0 flex-1 text-left text-xs font-medium text-gray-700 dark:text-gray-300">
+			<span class="min-w-0 flex-1 text-left text-xs font-medium text-[var(--color-text-secondary)]">
 				{state.node.name}
 			</span>
 
 			<!-- Count -->
 			<span
-				class="w-8 flex-shrink-0 text-right text-xs font-medium text-gray-400 tabular-nums dark:text-gray-500"
+				class="w-8 flex-shrink-0 text-right text-xs font-medium text-[var(--color-text-tertiary)] tabular-nums"
 			>
 				{state.node.count || 0}
 			</span>
@@ -144,7 +144,7 @@
 			<div class="relative mt-0.5">
 				<!-- Vertical border line -->
 				<div
-					class="absolute top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-700"
+					class="absolute top-0 bottom-0 w-px bg-[color-mix(in_srgb,var(--color-border-primary)_82%,transparent)]"
 					style="left: {state.level * 12 + 14}px"
 				></div>
 
@@ -171,7 +171,7 @@
 	<button
 		onclick={state.handleComponentClick}
 		style={state.leftPadding}
-		class="component-node group flex w-full items-center gap-2 rounded-md border border-transparent py-1.5 pr-2 pl-1 text-xs text-gray-600 transition-all duration-[var(--duration-150)] dark:text-gray-400"
+		class="component-node group flex w-full items-center gap-2 rounded-xl border border-transparent py-2 pr-2 pl-1.5 text-xs text-[var(--color-text-secondary)] transition-all duration-[var(--duration-150)]"
 		class:selected={state.isSelected}
 		class:focused={state.isFocused}
 		aria-current={state.isSelected ? 'true' : undefined}
@@ -196,6 +196,11 @@
 		position: relative;
 	}
 
+	.component-node:hover {
+		background: color-mix(in srgb, var(--color-background-secondary) 76%, transparent);
+		transform: translateX(2px);
+	}
+
 	.component-node.selected {
 		color: var(--playground-accent, var(--color-warning-500));
 		background-color: var(
@@ -207,7 +212,8 @@
 			var(--playground-accent, var(--color-warning-500)) 45%,
 			transparent
 		);
-		box-shadow: var(--shadow-custom06);
+		box-shadow: 0 10px 24px
+			color-mix(in srgb, var(--playground-accent, var(--color-warning-500)) 18%, transparent);
 	}
 
 	.component-indicator {
@@ -238,7 +244,8 @@
 			transparent
 		);
 		color: var(--playground-accent, var(--color-warning-500));
-		box-shadow: var(--shadow-custom05);
+		box-shadow: 0 10px 20px
+			color-mix(in srgb, var(--playground-accent, var(--color-warning-500)) 14%, transparent);
 	}
 
 	.folder-node.auto-selectable:hover {

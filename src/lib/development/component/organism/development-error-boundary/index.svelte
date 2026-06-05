@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { DevelopmentErrorBoundaryProps } from '$stylist/development/type/struct/development-error-boundary-props';
-	import { createDevelopmentErrorBoundaryState } from '$stylist/development/function/state/development-error-boundary';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import createDevelopmentErrorBoundaryState from '$stylist/development/function/state/development-error-boundary/index.svelte';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 
 	let { ...props }: DevelopmentErrorBoundaryProps = $props();
 	const state = createDevelopmentErrorBoundaryState(props);

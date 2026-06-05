@@ -1,5 +1,3 @@
-
-
 import type { TokenMessageStatus } from '$stylist/chat/type/enum/message-status';
 
 export interface SlotMessageThreadMessage {

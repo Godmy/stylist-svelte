@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { KanbanColumnType } from '$stylist/management/type/struct/kanban-column';
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import KanbanColumn from './index.svelte';

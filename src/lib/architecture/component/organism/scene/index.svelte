@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { createSceneState } from '$stylist/architecture/function/state/scene';
+	import createSceneState from '$stylist/architecture/function/state/scene/index.svelte';
 	import type { SceneProps } from '$stylist/architecture/type/struct/scene-props';
 	import SceneCameraControl from '$stylist/architecture/component/molecule/scene-camera-control/index.svelte';
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { TreeControlsStyleManager } from '$stylist/control/class/style-manager/tree-controls';
 	import type { FolderTreeProps } from '$stylist/control/type/struct/folder-tree-props';
-	import { createTreeExpansionState } from '$stylist/control/function/state/tree-expansion';
+	import createTreeExpansionState from '$stylist/control/function/state/tree-expansion/index.svelte';
 	let { nodes = [], class: className = '', ...restProps }: FolderTreeProps = $props();
 	const state = createTreeExpansionState();
 </script>

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-contract';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import { ObjectManagerSharedCanvas } from '$stylist/canvas/class/object-manager/shared-canvas/index';
-	import { createSharedCanvasState } from '$stylist/canvas/function/state/shared-canvas';
+	import createSharedCanvasState from '$stylist/canvas/function/state/shared-canvas/index.svelte';
 	import { exportCanvasImage } from '$stylist/canvas/function/script/canvas/export-image';
 	import { getCanvasPointerPosition } from '$stylist/canvas/function/script/canvas-get-pointer-position';
 
@@ -174,3 +174,173 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+	.c-shared-canvas {
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		overflow: hidden;
+		background: var(--color-background-primary);
+		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	}
+
+	.c-shared-canvas--minimal {
+		box-shadow: none;
+	}
+
+	.c-shared-canvas__toolbar {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem;
+		border-bottom: 1px solid var(--color-border-primary);
+		background: var(--color-background-primary);
+	}
+
+	.c-shared-canvas__toolbar-group {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.c-shared-canvas__toolbar-divider {
+		height: 1.25rem;
+		width: 1px;
+		border-left: 1px solid var(--color-border-primary);
+		margin-inline: 0.5rem;
+	}
+
+	.c-shared-canvas__color-label {
+		display: flex;
+		align-items: center;
+		font-size: 0.875rem;
+	}
+
+	.c-shared-canvas__color-input {
+		margin-left: 0.25rem;
+		width: 2rem;
+		height: 2rem;
+		padding: 0.25rem;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.25rem;
+		cursor: pointer;
+	}
+
+	.c-shared-canvas__tool-btn {
+		padding: 0.5rem;
+		border-radius: 0.25rem;
+		background: none;
+		border: none;
+		cursor: pointer;
+		transition: background var(--duration-150, 150ms) ease;
+	}
+
+	.c-shared-canvas__tool-btn:hover {
+		background: var(--color-background-secondary);
+	}
+
+	.c-shared-canvas__tool-btn--active {
+		background: var(--color-primary-500);
+		color: var(--color-text-inverse);
+	}
+
+	.c-shared-canvas__tool-btn--active:hover {
+		background: var(--color-primary-600);
+	}
+
+	.c-shared-canvas__action-btn {
+		padding: 0.375rem 0.75rem;
+		font-size: 0.875rem;
+		border-radius: 0.375rem;
+		background: var(--color-primary-500);
+		color: var(--color-text-inverse);
+		border: none;
+		cursor: pointer;
+		transition: background var(--duration-150, 150ms) ease;
+	}
+
+	.c-shared-canvas__action-btn:hover {
+		background: var(--color-primary-600);
+	}
+
+	.c-shared-canvas__action-btn:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	.c-shared-canvas__workspace {
+		display: flex;
+	}
+
+	.c-shared-canvas__pane {
+		flex: 1;
+		position: relative;
+	}
+
+	.c-shared-canvas__canvas {
+		position: relative;
+		width: 100%;
+		height: 31.25rem;
+		background: var(--color-background-primary);
+		display: block;
+	}
+
+	.c-shared-canvas__cursor {
+		position: absolute;
+		width: 0.5rem;
+		height: 0.5rem;
+		border-radius: 9999px;
+		pointer-events: none;
+	}
+
+	.c-shared-canvas__user-panel {
+		width: 14rem;
+		flex-shrink: 0;
+		border-left: 1px solid var(--color-border-primary);
+		padding: 0.75rem;
+	}
+
+	.c-shared-canvas__user-panel-title {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-secondary);
+		margin-bottom: 0.5rem;
+	}
+
+	.c-shared-canvas__user-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.c-shared-canvas__user-item {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+		padding: 0.25rem 0.5rem;
+		border-radius: 0.25rem;
+	}
+
+	.c-shared-canvas__user-item:hover {
+		background: var(--color-background-secondary);
+	}
+
+	.c-shared-canvas__user-swatch {
+		width: 1rem;
+		height: 1rem;
+		border-radius: 9999px;
+		margin-right: 0.5rem;
+		flex-shrink: 0;
+	}
+
+	.c-shared-canvas__user-name {
+		font-size: 0.875rem;
+		color: var(--color-text-primary);
+	}
+
+	.c-shared-canvas__current-user {
+		margin-left: 0.25rem;
+		font-size: 0.75rem;
+		color: var(--color-text-tertiary, var(--color-text-secondary));
+	}
+</style>

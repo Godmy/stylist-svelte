@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { ContentEditorStateProps } from '$stylist/input/interface/recipe/content-editor-state-props';
-	import { createContentEditorState } from '$stylist/input/function/state/content-editor';
+	import createContentEditorState from '$stylist/input/function/state/content-editor/index.svelte';
 	import { ContentEditorStyleManager } from '$stylist/input/class/style-manager/content-editor';
 
 	const Bold = 'bold';

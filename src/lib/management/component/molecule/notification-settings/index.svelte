@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createNotificationSettingsState } from '$stylist/management/function/state/notification-settings';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createNotificationSettingsState from '$stylist/management/function/state/notification-settings/index.svelte';
 	import type { INotificationSettingsProps } from '$stylist/chat/type/struct/notification-settings-props';
 
 	let props: INotificationSettingsProps = $props();

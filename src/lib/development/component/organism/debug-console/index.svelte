@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { DebugConsoleProps } from '$stylist/development/type/struct/debug-console-props';
 	import type { DebugConsoleLogLevel } from '$stylist/development/type/struct/debug-console-log-level';
-	import { createDebugConsoleState } from '$stylist/development/function/state/debug-console';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import createDebugConsoleState from '$stylist/development/function/state/debug-console/index.svelte';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 
 	let { ...props }: DebugConsoleProps = $props();
 	const state = createDebugConsoleState(props);

@@ -8,11 +8,11 @@
 	 * Interface Segregation: Provides clear interface through well-defined props
 	 * Dependency Inversion: Depends on abstractions (types and style manager) not concretions
 	 */
-	import { Button } from '$stylist/control';
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createSearchBarState } from '$stylist/input/function/state/search-bar';
+	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createSearchBarState from '$stylist/input/function/state/search-bar/index.svelte';
 	import type { SlotSearchBar as ISearchBarProps } from '$stylist/control/interface/slot/search-bar';
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 
 	const Search = 'search';
 	const X = 'x';

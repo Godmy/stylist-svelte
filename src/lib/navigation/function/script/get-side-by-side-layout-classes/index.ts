@@ -1,4 +1,4 @@
-import type { SideBySideLayoutProps } from '$stylist/navigation/type/struct/side-by-side-layout-props';
+import type { SideBySideLayoutProps } from '$stylist/navigation/type/struct/side-by-side-layout-props/sidebysidelayout-props';
 import { SIDE_BY_SIDE_ALIGN_CLASSES } from '$stylist/navigation/const/record/side-by-side-align-classes';
 import { SIDE_BY_SIDE_GAP_CLASSES } from '$stylist/navigation/const/record/side-by-side-gap-classes';
 import { SIDE_BY_SIDE_JUSTIFY_CLASSES } from '$stylist/navigation/const/record/side-by-side-justify-classes';

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon } from '$stylist';
-	import { TokenControlComposer } from '$stylist';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import TokenControlComposer from '$stylist/control/component/atom/token-control-composer/index.svelte';
 	import type { TokenControlDefinition } from '$stylist/control/type/struct/token-control-definition';
 	import type { TokenValue } from '$stylist/control/type/struct/token-value';
 

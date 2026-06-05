@@ -1,4 +1,3 @@
-
 /** Элемент чата для превью */
 export type ChatPreviewItem = {
 	id: string;

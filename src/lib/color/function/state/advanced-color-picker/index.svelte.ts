@@ -1,5 +1,5 @@
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { ObjectManagerAdvancedColorPicker } from '$stylist/color/class/object-manager/advanced-color-picker';
-import { StyleManagerAdvancedColorPicker } from '$stylist/color/class/style-manager/advanced-color-picker';
 import type { ThemeAdvancedColorPickerRecipe } from '$stylist/color/interface/recipe/advanced-color-picker';
 
 export function createAdvancedColorPickerState(props: ThemeAdvancedColorPickerRecipe) {
@@ -11,14 +11,15 @@ export function createAdvancedColorPickerState(props: ThemeAdvancedColorPickerRe
 	});
 
 	const palette = $derived(ObjectManagerAdvancedColorPicker.resolvePalette());
-	const rootClass = $derived(StyleManagerAdvancedColorPicker.root(props.class));
-	const triggerClass = $derived(StyleManagerAdvancedColorPicker.trigger());
-	const panelClass = $derived(StyleManagerAdvancedColorPicker.panel());
-	const previewClass = $derived(StyleManagerAdvancedColorPicker.preview());
-	const textInputClass = $derived(StyleManagerAdvancedColorPicker.textInput());
-	const paletteClass = $derived(StyleManagerAdvancedColorPicker.palette());
-	const paletteButtonClass = $derived(StyleManagerAdvancedColorPicker.paletteButton());
-	const acceptButtonClass = $derived(StyleManagerAdvancedColorPicker.acceptButton());
+	const rootClass = $derived(mergeClassNames('c-color-picker', props.class));
+	const triggerClass = $derived('c-color-picker__trigger');
+	const panelClass = $derived('c-color-picker__panel');
+	const previewClass = $derived('c-color-picker__preview');
+	const textInputClass = $derived('c-color-picker__text-input');
+	const paletteClass = $derived('c-color-picker__palette');
+	const paletteButtonClass = $derived('c-color-picker__palette-btn');
+	const acceptButtonClass = $derived('c-color-picker__accept-btn');
+
 	const restProps = $derived.by(() => {
 		const {
 			value: _value,

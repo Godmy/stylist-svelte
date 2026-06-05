@@ -1,24 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { createAbbrState } from './abbr';
-export { createBadgeState } from './badge';
-export { createBadgeGroupState } from './badge-group';
 export { createBlockquoteState } from './blockquote';
-export { createCaptionState } from './caption';
-export { createCountBadgeState } from './count-badge';
-export { createDefinitionDescriptionState } from './definition-description';
-export { createDefinitionTermState } from './definition-term';
-export { createEmState } from './em';
 export { createHeadingState } from './heading';
-export { createHighlightState } from './highlight';
 export { createInlineCodeState } from './inline-code';
 export { createKbdState } from './kbd';
 export { createLinkState } from './link';
-export { createNpmBadgeState } from './npm-badge';
 export { createParagraphState } from './paragraph';
-export { createSmallState } from './small';
-export { createStatusIndicatorState } from './status-indicator';
-export { createStrikeThroughState } from './strike-throught';
-export { createStrongState } from './strong';
-export { createSubscriptState } from './subscript';
-export { createSuperscriptState } from './superscript';
+export { createRichTextState } from './rich-text';
 export { createTextState } from './text';
+export { createTextPresenterState } from './text-presenter';

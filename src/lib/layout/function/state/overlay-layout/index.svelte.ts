@@ -1,6 +1,6 @@
 import { OverlayLayoutStyleManager } from '$stylist/layout/class/style-manager/overlay-layout';
 import type { OverlayLayoutAlign } from '$stylist/layout/type/enum/overlay-layout-align';
-import type { OverlayLayoutProps } from '$stylist/layout/type/struct/layout-extended/overlay-layout-props';
+import type { OverlayLayoutProps } from '$stylist/layout/type/struct/layout-extended/overlay-layout-props/overlaylayout-props';
 
 export function createOverlayLayoutState(props: OverlayLayoutProps) {
 	const overlayAlign = $derived<OverlayLayoutAlign>(props.overlayAlign ?? 'fill');

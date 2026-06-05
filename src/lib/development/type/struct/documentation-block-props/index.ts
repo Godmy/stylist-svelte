@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
 import type { DocumentationBlockVariant } from '$stylist/development/type/struct/documentation-block-variant';
 
 export type DocumentationBlockProps = {

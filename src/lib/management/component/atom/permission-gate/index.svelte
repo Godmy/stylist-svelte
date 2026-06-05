@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createPermissionGateState } from '$stylist/management/function/state/permission-gate';
+	import createPermissionGateState from '$stylist/management/function/state/permission-gate/index.svelte';
 
 	let props: Parameters<typeof createPermissionGateState>[0] = $props();
 	const state = createPermissionGateState(props);

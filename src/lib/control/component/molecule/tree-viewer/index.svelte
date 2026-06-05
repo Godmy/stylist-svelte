@@ -1,8 +1,8 @@
 ﻿<script lang="ts">
 	import type { TreeNodeItemNode } from '$stylist/control/type/struct/tree-node-item-node';
-	import { AdvancedVirtualTree } from '$stylist/control/component/organism/advanced-virtual-tree';
+	import AdvancedVirtualTree from '$stylist/control/component/organism/advanced-virtual-tree/index.svelte';
 	import { normalizeTreeViewerNode } from '$stylist/control/function/script/normalize-tree-viewer-node';
-	import { createTreeViewerState } from '$stylist/control/function/state/tree-viewer';
+	import createTreeViewerState from '$stylist/control/function/state/tree-viewer/index.svelte';
 
 	let props = $props<{
 		tree?: TreeNodeItemNode[];

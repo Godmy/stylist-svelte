@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Icon } from '$stylist';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 
 	let {
 		expanded = false,

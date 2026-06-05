@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { NodeHeaderProps } from '$stylist/science/type/struct/node-header-props';
-	import { createNodeHeaderState } from '$stylist/science/function/state/node-header';
-	import { Icon as BaseIcon } from '$stylist/media';
+	import createNodeHeaderState from '$stylist/science/function/state/node-header/index.svelte';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 
 	let props: NodeHeaderProps = $props();
 	const state = createNodeHeaderState(props);

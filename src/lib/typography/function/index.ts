@@ -1,34 +1,21 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	formatAnimatedValue,
-	formatNumberFlowValue,
+	createRichTextSegments,
 	normalizeText,
+	resolveTypographyInlineStyle,
 	toNullableNumber,
 	toNullableString,
 	truncateText
 } from './script';
 export {
 	createAbbrState,
-	createBadgeGroupState,
-	createBadgeState,
 	createBlockquoteState,
-	createCaptionState,
-	createCountBadgeState,
-	createDefinitionDescriptionState,
-	createDefinitionTermState,
-	createEmState,
 	createHeadingState,
-	createHighlightState,
 	createInlineCodeState,
 	createKbdState,
 	createLinkState,
-	createNpmBadgeState,
 	createParagraphState,
-	createSmallState,
-	createStatusIndicatorState,
-	createStrikeThroughState,
-	createStrongState,
-	createSubscriptState,
-	createSuperscriptState,
+	createRichTextState,
+	createTextPresenterState,
 	createTextState
 } from './state';

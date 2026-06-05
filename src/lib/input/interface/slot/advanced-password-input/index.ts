@@ -3,7 +3,6 @@
  * Следует принципам SOLID и архитектуре SAMO
  */
 
-
 /** Пропсы компонента AdvancedPasswordInput */
 export interface SlotAdvancedPasswordInput {
 	value?: string;

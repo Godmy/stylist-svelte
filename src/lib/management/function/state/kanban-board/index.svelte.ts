@@ -1,9 +1,7 @@
 import { KanbanBoardStyleManager } from '$stylist/management/class/style-manager/kanban-board';
 import { untrack } from 'svelte';
-import type {
-	KanbanBoardType,
-	KanbanBoardAction
-} from '$stylist/management/type/struct/kanban-board';
+import type { KanbanBoardType } from '$stylist/management/type/struct/kanban-board/kanbanboardtype';
+import type { KanbanBoardAction } from '$stylist/management/type/struct/kanban-board/kanbanboardaction';
 import type { KanbanBoardStateProps } from '$stylist/management/interface/recipe/kanban-board';
 import { addKanbanCard } from '$stylist/management/function/script/kanban-board-add-card';
 import { addKanbanColumn } from '$stylist/management/function/script/kanban-board-add-column';

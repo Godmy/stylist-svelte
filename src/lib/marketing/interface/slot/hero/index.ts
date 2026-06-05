@@ -1,4 +1,4 @@
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
 import type { ChildrenHtmlAttributes } from '$stylist/layout/type/struct/children';
 import type { TokenBackground } from '$stylist/layout/type/enum/background';
 import type { TokenSize } from '$stylist/layout/type/enum/size';

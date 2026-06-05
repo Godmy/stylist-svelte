@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ComparisonCardProps as Props } from '$stylist/commerce/type/struct/comparison-card-props';
-	import { createComparisonCardState } from '$stylist/commerce/function/state/comparison-card';
+	import createComparisonCardState from '$stylist/commerce/function/state/comparison-card/index.svelte';
 
 	let props: Props = $props();
 	const state = createComparisonCardState(props);

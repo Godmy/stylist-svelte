@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createToastStackState } from '$stylist/notification/function/state/toast-stack';
+	import createToastStackState from '$stylist/notification/function/state/toast-stack/index.svelte';
 	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 
 	const props = $props();

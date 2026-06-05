@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createFormSelectionState } from '$stylist/form/function/state/form-selection';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createFormSelectionState from '$stylist/form/function/state/form-selection/index.svelte';
 	import { toggleCollapsed } from '$stylist/form/function/script/form-selection/toggle-collapsed';
 	import type { FormSelectionProps } from '$stylist/form/type/struct/form-selection';
 
@@ -12,15 +12,13 @@
 <section class={state.sectionClasses} {...props}>
 	{#if state.showHeader}
 		<header
-			class="section-header flex items-start justify-between pb-4 {props.collapsible
-				? 'cursor-pointer'
-				: ''}"
+			class="section-header {props.collapsible ? 'section-header--collapsible' : ''}"
 			onclick={() => toggleCollapsed(state, props.collapsible ?? false)}
 			role={props.collapsible ? 'button' : undefined}
 			aria-expanded={props.collapsible ? !state.isCollapsed : undefined}
 		>
-			<div class="header-content flex items-start gap-3">
-				<h2 class="{state.titleClass} flex items-center">
+			<div class="header-content">
+				<h2 class="{state.titleClass} form-selection-title">
 					{props.title}
 					{#if props.required}
 						<span class={state.requiredMarkClass} aria-label="required section">*</span>
@@ -46,7 +44,7 @@
 	{/if}
 
 	{#if props.description}
-		<p class="section-description mb-4 text-sm text-[var(--color-text-secondary)]">
+		<p class="section-description">
 			{props.description}
 		</p>
 	{/if}
@@ -65,7 +63,26 @@
 	}
 
 	.section-header {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		padding-bottom: 1rem;
 		width: 100%;
+	}
+
+	.section-header--collapsible {
+		cursor: pointer;
+	}
+
+	.header-content {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+
+	.form-selection-title {
+		display: flex;
+		align-items: center;
 	}
 
 	.section-content {
@@ -73,6 +90,9 @@
 	}
 
 	.section-description {
+		margin-bottom: 1rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
 		width: 100%;
 	}
 </style>

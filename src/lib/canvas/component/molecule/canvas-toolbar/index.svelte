@@ -3,7 +3,7 @@
 	import type { CanvasToolbarDrawingOptions } from '$stylist/canvas/interface/slot/canvas-toolbar-drawing-options';
 	import type { CanvasToolbarDrawingTool } from '$stylist/canvas/type/enum/canvas-toolbar-drawing-tool';
 	import type { CanvasToolbarProps } from '$stylist/canvas/type/struct/canvas-toolbar/canvas-toolbar-props';
-	import { createCanvasToolbarState } from '$stylist/canvas/function/state/canvas-toolbar';
+	import createCanvasToolbarState from '$stylist/canvas/function/state/canvas-toolbar/index.svelte';
 
 	let dispatch = createEventDispatcher<{
 		'tool-change': { tool: CanvasToolbarDrawingTool; options: CanvasToolbarDrawingOptions };

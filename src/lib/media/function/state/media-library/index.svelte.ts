@@ -1,8 +1,6 @@
-import type {
-	MediaLibraryProps,
-	MediaType,
-	MediaItem
-} from '$stylist/media/type/struct/media-library';
+import type { MediaLibraryProps } from '$stylist/media/type/struct/media-library/medialibrary-props';
+import type { MediaType } from '$stylist/media/type/struct/media-library/mediatype';
+import type { MediaItem } from '$stylist/media/type/struct/media-library/media-item';
 import { formatMediaDate } from '$stylist/media/function/script/format-media-date';
 import { formatMediaFileSize } from '$stylist/media/function/script/media-library';
 import { TOKEN_MEDIA_ICON } from '$stylist/media/const/record/media-icon';

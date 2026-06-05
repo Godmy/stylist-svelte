@@ -1,4 +1,4 @@
-import type { Position2D } from '$stylist/science/type/struct/ontology-edge-component';
+import type { Position2D } from '$stylist/science/type/struct/ontology-edge-component/position2d';
 
 export type OntologyNode = {
 	id: string;

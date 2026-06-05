@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import { PageBuilderStyleManager } from '$stylist/control/class/style-manager/page-builder';
 	import type { PageBuilderTextAttributes } from '$stylist/control/type/struct/page-builder-text-attributes';
 	import type { PageBuilderHeadingAttributes } from '$stylist/control/type/struct/page-builder-heading-attributes';
@@ -7,7 +7,7 @@
 	import type { PageBuilderImageAttributes } from '$stylist/control/type/struct/page-builder-image-attributes';
 	import { PAGE_BUILDER_TOOLBAR_ITEMS } from '$stylist/control/const/record/page-builder-toolbar-items';
 	import { PAGE_BUILDER_ICON } from '$stylist/control/const/map/page-builder-icons';
-	import { createPageBuilderState } from '$stylist/control/function/state/page-builder';
+	import createPageBuilderState from '$stylist/control/function/state/page-builder/index.svelte';
 	import { pageBuilderRenderElement } from '$stylist/control/function/script/page-builder-render-element';
 	import type { PageBuilderProps } from '$stylist/control/type/struct/page-builder-props';
 

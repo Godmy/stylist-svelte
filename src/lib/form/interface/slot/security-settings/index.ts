@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 
 export interface SlotSecuritySettings extends InteractionHTMLAttributes<HTMLFormElement> {
 	twoFactor?: boolean;

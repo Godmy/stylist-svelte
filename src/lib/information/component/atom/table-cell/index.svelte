@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TableCellRecipe as TableCellRecipe } from '$stylist/information/interface/recipe/table-cell';
-	import { createTableCellState } from '$stylist/information/function/state/table-cell';
+	import createTableCellState from '$stylist/information/function/state/table-cell/index.svelte';
 
 	let props: TableCellRecipe = $props();
 	const state = createTableCellState(props);

@@ -2,7 +2,9 @@
 	const browser = typeof window !== 'undefined';
 	import { onDestroy } from 'svelte';
 	import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
-	import { ConnectionLine, NodeIcon, Viewport } from '$stylist';
+	import ConnectionLine from '$stylist/canvas/component/molecule/connection-line/index.svelte';
+	import NodeIcon from '$stylist/media/component/atom/node-icon/index.svelte';
+	import Viewport from '$stylist/canvas/component/atom/viewport/index.svelte';
 
 	type ThemeId = 'default' | 'light' | 'dark';
 	type ToolMode = 'select' | 'pan' | 'frame' | 'inspect';

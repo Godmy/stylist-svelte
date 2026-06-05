@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeDiscountApplier as DiscountApplierContract } from '$stylist/commerce/interface/recipe/discount-applier';
-	import { createDiscountApplierState } from '$stylist/commerce/function/state/discount-applier';
+	import createDiscountApplierState from '$stylist/commerce/function/state/discount-applier/index.svelte';
 
 	let props: DiscountApplierContract = $props();
 	const state = createDiscountApplierState(props);

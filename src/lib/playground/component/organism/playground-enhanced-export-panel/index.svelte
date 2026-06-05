@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createPlaygroundEnhancedExportPanelState } from '$stylist/playground/function/state/playground-enhanced-export-panel';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createPlaygroundEnhancedExportPanelState from '$stylist/playground/function/state/playground-enhanced-export-panel/index.svelte';
 	import type { PlaygroundEnhancedExportPanelProps } from '$stylist/playground/type/struct/playground-enhanced-export-panel-props';
 	const FileCode = 'file-code';
 	const Download = 'download';

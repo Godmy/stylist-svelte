@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media';
-	import { createLocaleSwitcherState } from '$stylist/localization/function/state/locale-switcher';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import createLocaleSwitcherState from '$stylist/localization/function/state/locale-switcher/index.svelte';
 	import type { SlotLocaleSwitcher as LocaleSwitcherProps } from '$stylist/localization/interface/slot/locale-switcher';
 
 	let { onLocaleChange, onTimezoneChange, ...stateProps }: LocaleSwitcherProps = $props();
@@ -10,50 +10,44 @@
 
 <div class={state.rootClass} {...state.restProps}>
 	<div class={state.headerClass}>
-		<div class="flex items-center">
+		<div class="c-locale-switcher__header-inner">
 			<BaseIcon name={state.iconGlobe} class="mr-2 h-6 w-6 text-[var(--color-text-secondary)]" />
-			<h3 class="text-lg font-medium text-[var(--color-text-primary)]">Locale Switcher</h3>
+			<h3 class="c-locale-switcher__title">Locale Switcher</h3>
 		</div>
-		<p class="mt-1 text-sm text-[var(--color-text-secondary)]">
-			Change language, region, and formatting preferences
-		</p>
+		<p class="c-locale-switcher__subtitle">Change language, region, and formatting preferences</p>
 	</div>
 
 	<div class={state.contentClass}>
-		<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+		<div class="c-locale-switcher__grid">
 			<div>
-				<h4 class="mb-3 text-sm font-medium text-[var(--color-text-primary)]">
-					Language and Region
-				</h4>
-				<div class="space-y-3">
+				<h4 class="c-locale-switcher__section-title">Language and Region</h4>
+				<div class="c-locale-switcher__locale-list">
 					{#each state.locales as locale}
 						<button
 							type="button"
 							class={state.getLocaleButtonClass(locale.code === state.currentLocale)}
 							onclick={() => onLocaleChange?.(locale.code)}
 						>
-							<div class="flex items-center">
+							<div class="c-locale-switcher__locale-inner">
 								{#if locale.flag}
-									<div class="mr-3 text-2xl">{locale.flag}</div>
+									<div class="c-locale-switcher__flag">{locale.flag}</div>
 								{:else}
-									<div
-										class="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-background-tertiary)]"
-									>
-										<span class="font-medium text-[var(--color-text-primary)]"
-											>{locale.code.split('-')[0]}</span
-										>
+									<div class="c-locale-switcher__flag-fallback">
+										<span class="c-locale-switcher__flag-code">
+											{locale.code.split('-')[0]}
+										</span>
 									</div>
 								{/if}
 								<div>
-									<div class="font-medium text-[var(--color-text-primary)]">{locale.name}</div>
+									<div class="c-locale-switcher__locale-name">{locale.name}</div>
 									{#if state.showRegional && locale.region}
-										<div class="text-sm text-[var(--color-text-secondary)]">{locale.region}</div>
+										<div class="c-locale-switcher__locale-region">{locale.region}</div>
 									{/if}
 								</div>
 							</div>
 							{#if locale.code === state.currentLocale}
-								<div class="ml-auto text-[var(--color-primary-600)]">
-									<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+								<div class="c-locale-switcher__check">
+									<svg fill="currentColor" viewBox="0 0 20 20">
 										<path
 											fill-rule="evenodd"
 											d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -68,17 +62,15 @@
 			</div>
 
 			<div>
-				<h4 class="mb-3 text-sm font-medium text-[var(--color-text-primary)]">
-					Date and Time Preview
-				</h4>
-				<div class="rounded-lg border bg-[var(--color-background-secondary)] p-4">
+				<h4 class="c-locale-switcher__section-title">Date and Time Preview</h4>
+				<div class="c-locale-switcher__preview-card">
 					{#if state.currentLocaleObj}
-						<div class="mb-4 flex items-center">
+						<div class="c-locale-switcher__preview-header">
 							<BaseIcon
 								name={state.iconGlobe}
 								class="mr-2 h-5 w-5 text-[var(--color-text-secondary)]"
 							/>
-							<span class="text-sm font-medium">
+							<span class="c-locale-switcher__preview-locale">
 								{state.currentLocaleObj.name}
 								{state.showRegional && state.currentLocaleObj.region
 									? `(${state.currentLocaleObj.region})`
@@ -87,31 +79,31 @@
 						</div>
 
 						{#if state.showDatePreview}
-							<div class="mb-3">
-								<div class="mb-1 text-xs text-[var(--color-text-secondary)]">Date</div>
-								<div class="font-medium">
+							<div class="c-locale-switcher__preview-section">
+								<div class="c-locale-switcher__preview-label">Date</div>
+								<div class="c-locale-switcher__preview-value">
 									{state.formatDate(state.now, state.currentLocale, state.currentTimezone)}
 								</div>
 							</div>
 						{/if}
 
 						{#if state.showTimePreview}
-							<div class="mb-3">
-								<div class="mb-1 text-xs text-[var(--color-text-secondary)]">Time</div>
-								<div class="font-medium">
+							<div class="c-locale-switcher__preview-section">
+								<div class="c-locale-switcher__preview-label">Time</div>
+								<div class="c-locale-switcher__preview-value">
 									{state.formatTime(state.now, state.currentLocale, state.currentTimezone)}
 								</div>
 							</div>
 						{/if}
 
-						<div class="mb-3">
-							<div class="mb-1 text-xs text-[var(--color-text-secondary)]">Date and Time</div>
-							<div class="font-medium">
+						<div class="c-locale-switcher__preview-section">
+							<div class="c-locale-switcher__preview-label">Date and Time</div>
+							<div class="c-locale-switcher__preview-value">
 								{state.formatDateTime(state.now, state.currentLocale, state.currentTimezone)}
 							</div>
 						</div>
 
-						<div class="flex items-center text-xs text-[var(--color-text-secondary)]">
+						<div class="c-locale-switcher__timezone-row">
 							<BaseIcon name={state.iconClock} class="mr-1 h-4 w-4" />
 							<span>Timezone: {state.currentTimezone}</span>
 						</div>
@@ -119,12 +111,8 @@
 				</div>
 
 				{#if state.timezoneOptions.length > 0}
-					<div class="mt-4">
-						<label
-							for="timezone"
-							class="mb-1 block text-sm font-medium text-[var(--color-text-primary)]"
-							>Timezone</label
-						>
+					<div class="c-locale-switcher__timezone-section">
+						<label for="timezone" class="c-locale-switcher__timezone-label">Timezone</label>
 						<select
 							id="timezone"
 							class={state.timezoneSelectClass}
@@ -142,14 +130,241 @@
 	</div>
 
 	<div class={state.footerClass}>
-		<div class="flex items-center justify-between">
-			<div class="flex items-center text-sm text-[var(--color-text-secondary)]">
+		<div class="c-locale-switcher__footer-inner">
+			<div class="c-locale-switcher__locale-info">
 				<BaseIcon name={state.iconUser} class="mr-1 h-4 w-4" />
 				<span>Locale: {state.currentLocale}</span>
 			</div>
-			<div class="text-sm text-[var(--color-text-secondary)]">
+			<div class="c-locale-switcher__locale-count">
 				{state.locales.length} locale{state.locales.length === 1 ? '' : 's'} available
 			</div>
 		</div>
 	</div>
 </div>
+
+<style>
+	.c-locale-switcher {
+		background: var(--color-background-primary);
+		border-radius: 0.5rem;
+		box-shadow:
+			0 4px 6px -1px rgb(0 0 0 / 0.1),
+			0 2px 4px -2px rgb(0 0 0 / 0.1);
+		border: 1px solid var(--color-border-secondary);
+		overflow: hidden;
+	}
+
+	.c-locale-switcher__header {
+		border-bottom: 1px solid var(--color-border-secondary);
+		padding: 1.25rem 1.5rem;
+	}
+
+	.c-locale-switcher__header-inner {
+		display: flex;
+		align-items: center;
+	}
+
+	.c-locale-switcher__title {
+		font-size: 1.125rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+		margin: 0;
+	}
+
+	.c-locale-switcher__subtitle {
+		margin-top: 0.25rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.c-locale-switcher__content {
+		padding: 1.5rem;
+	}
+
+	.c-locale-switcher__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+
+	@media (min-width: 768px) {
+		.c-locale-switcher__grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.c-locale-switcher__section-title {
+		margin-bottom: 0.75rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.c-locale-switcher__locale-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.c-locale-switcher__locale-btn {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		border-radius: 0.5rem;
+		padding: 1rem;
+		border: 1px solid var(--color-border-secondary);
+		background: none;
+		cursor: pointer;
+		text-align: left;
+		transition: border-color var(--duration-150, 150ms) ease;
+	}
+
+	.c-locale-switcher__locale-btn:hover {
+		border-color: var(--color-border-primary);
+	}
+
+	.c-locale-switcher__locale-btn--active {
+		border-color: var(--color-primary-500);
+		box-shadow: 0 0 0 2px
+			var(--color-primary-200, color-mix(in srgb, var(--color-primary-500) 20%, transparent));
+	}
+
+	.c-locale-switcher__locale-inner {
+		display: flex;
+		align-items: center;
+		flex: 1;
+	}
+
+	.c-locale-switcher__flag {
+		margin-right: 0.75rem;
+		font-size: 1.5rem;
+		line-height: 1;
+	}
+
+	.c-locale-switcher__flag-fallback {
+		margin-right: 0.75rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 9999px;
+		background: var(--color-background-tertiary);
+		flex-shrink: 0;
+	}
+
+	.c-locale-switcher__flag-code {
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.c-locale-switcher__locale-name {
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.c-locale-switcher__locale-region {
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.c-locale-switcher__check {
+		margin-left: auto;
+		color: var(--color-primary-600);
+		flex-shrink: 0;
+	}
+
+	.c-locale-switcher__check svg {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+
+	.c-locale-switcher__preview-card {
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-border-secondary);
+		background: var(--color-background-secondary);
+		padding: 1rem;
+	}
+
+	.c-locale-switcher__preview-header {
+		display: flex;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+
+	.c-locale-switcher__preview-locale {
+		font-size: 0.875rem;
+		font-weight: 500;
+	}
+
+	.c-locale-switcher__preview-section {
+		margin-bottom: 0.75rem;
+	}
+
+	.c-locale-switcher__preview-label {
+		margin-bottom: 0.25rem;
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+	}
+
+	.c-locale-switcher__preview-value {
+		font-weight: 500;
+	}
+
+	.c-locale-switcher__timezone-section {
+		margin-top: 1rem;
+	}
+
+	.c-locale-switcher__timezone-label {
+		display: block;
+		margin-bottom: 0.25rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.c-locale-switcher__timezone-select {
+		display: block;
+		width: 100%;
+		padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+		font-size: 0.875rem;
+		border: 1px solid var(--color-border-secondary);
+		border-radius: 0.375rem;
+		background: var(--color-background-primary);
+	}
+
+	.c-locale-switcher__timezone-select:focus {
+		outline: none;
+		box-shadow: 0 0 0 2px var(--color-primary-500);
+		border-color: var(--color-primary-500);
+	}
+
+	.c-locale-switcher__timezone-row {
+		display: flex;
+		align-items: center;
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+	}
+
+	.c-locale-switcher__footer {
+		border-top: 1px solid var(--color-border-secondary);
+		padding: 1rem 1.5rem;
+	}
+
+	.c-locale-switcher__footer-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.c-locale-switcher__locale-info {
+		display: flex;
+		align-items: center;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.c-locale-switcher__locale-count {
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+</style>

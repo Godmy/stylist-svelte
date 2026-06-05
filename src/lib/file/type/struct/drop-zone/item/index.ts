@@ -1,4 +1,3 @@
-
 // SlotDropItem type
 export type SlotDropItem = {
 	id: string;

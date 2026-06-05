@@ -1,4 +1,4 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { SlotDataTableColumn } from '$stylist/control/interface/slot/data-table-column';
 
 export interface SlotDataTableRecipe<T extends Record<string, unknown>>
