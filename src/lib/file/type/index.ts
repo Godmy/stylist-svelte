@@ -1,6 +1,13 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { FileStateOptions, FileStateResult } from './alias';
-export type { ExportFormat, TokenDocumentFormat, TokenFileIcon } from './enum';
+export type {
+	FileStateOptions,
+	FileStateResult
+} from './alias';
+export type {
+	ExportFormat,
+	TokenDocumentFormat,
+	TokenFileIcon
+} from './enum';
 export type {
 	Attachment,
 	DataItem,

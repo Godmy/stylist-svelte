@@ -21,16 +21,16 @@ export function createComponentLibraryStatsState(props: RecipeComponentLibrarySt
 
 	const containerClass = $derived(
 		mergeClassNames(
-			'bg-[--color-background-primary] rounded-lg border border-[--color-border-primary] p-6',
+			'c-component-library-stats',
 			className
 		)
 	);
-	const statsGridClass = $derived('grid grid-cols-2 md:grid-cols-4 gap-4');
-	const getStatCardClass = (_colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
-		'text-center p-4 rounded-lg bg-[--color-background-secondary]';
-	const getStatValueClass = (_colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
-		'text-3xl font-bold text-[--color-primary-600]';
-	const getStatLabelClass = $derived('mt-2 text-sm text-[--color-text-secondary]');
+	const statsGridClass = $derived('c-component-library-stats__grid');
+	const getStatCardClass = (colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
+		mergeClassNames('c-component-library-stats__card', `c-component-library-stats__card--${colorTheme}`);
+	const getStatValueClass = (colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
+		mergeClassNames('c-component-library-stats__value', `c-component-library-stats__value--${colorTheme}`);
+	const getStatLabelClass = $derived('c-component-library-stats__label');
 
 	function animateStats() {
 		const safeSteps = Math.max(1, steps);
@@ -114,7 +114,7 @@ export function createComponentLibraryStatsState(props: RecipeComponentLibrarySt
 		},
 		getStatCardClass,
 		getStatValueClass,
-		getStatLabelClass() {
+		get getStatLabelClass() {
 			return getStatLabelClass;
 		},
 		get restProps() {

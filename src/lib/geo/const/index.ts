@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TOKEN_GEO_ICON, TOKEN_MAP_TYPE, TOKEN_PIN } from './enum';
+export {
+	TOKEN_GEO_ICON,
+	TOKEN_MAP_TYPE,
+	TOKEN_PIN
+} from './enum';
 export {
 	ICON_ALERT_TRIANGLE,
 	ICON_BUILDING,

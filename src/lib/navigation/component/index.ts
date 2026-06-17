@@ -13,4 +13,11 @@ export {
 	SideBySideLayout,
 	Stepper
 } from './molecule';
-export { Dialog, Drawer, Modal, Pagination, Sidebar, SimpleModal } from './organism';
+export {
+	Dialog,
+	Drawer,
+	Modal,
+	Pagination,
+	Sidebar,
+	SimpleModal
+} from './organism';

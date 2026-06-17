@@ -1,11 +1,19 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { SlotAiModel } from './ai-model';
+export type { SlotAtomicPrinciplesShowcase } from './atomic-principles-showcase';
 export type { SlotCodeBlock } from './code-block';
 export type { SlotCodeDiff } from './code-diff';
+export type { SlotComponentLibraryStats } from './component-library-stats';
 export type { SlotComponentPreview } from './component-preview';
 export type { ComponentPreviewCodeOptions } from './component-preview-code-options';
+export type { SlotDebugConsole } from './debug-console';
+export type { SlotDesignTokens } from './design-tokens';
+export type { SlotDevelopmentErrorBoundary } from './development-error-boundary';
 export type { SlotDocumentationBlock } from './documentation-block';
 export type { DomainForEachContext } from './domain-for-each-context';
 export type { DomainForEachOptions } from './domain-for-each-options';
 export type { SlotMockDataSelector } from './mock-data-selector';
 export type { SlotMockDataSelectorStyleClasses } from './mock-data-selector-style-classes';
+export type { SlotPrivacySettings } from './privacy-settings';
+export type { SlotResourceOptimizer } from './resource-optimizer';
+export type { SlotStylist } from './stylist';

@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TOKEN_COLOR_ICON, TOKEN_COLOR_TONE } from './enum';
+export {
+	TOKEN_COLOR_ICON,
+	TOKEN_COLOR_TONE
+} from './enum';
 export { TOKEN_COLOR } from './map';
 export {
 	COLORS_SCALES_AMBER,

@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ContentType, TokenCursor, TokenInteractionIcon } from './enum';
+export type {
+	ContentType,
+	TokenCursor,
+	TokenInteractionIcon
+} from './enum';
 export type {
 	TokenActivity,
 	TokenAppearance,

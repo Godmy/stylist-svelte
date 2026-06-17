@@ -1,6 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { AccountProgressTrackerProps } from './account-progress-tracker-props';
-export type { AlertProps, AlertVariant } from './alert-props';
+export type {
+	AlertProps,
+	AlertVariant
+} from './alert-props';
 export type { AnimatedProgressProps } from './animated-progress-props';
 export type { ErrorBoundaryProps } from './error-boundary-props';
 export type { LazyLoaderProps } from './lazy-loader-props';
@@ -18,6 +21,10 @@ export type { SpinnerProps } from './spinner-props';
 export type { StateProps } from './state-props';
 export type { StepConnectorProps } from './step-connector-props';
 export type { StepIconProps } from './step-icon-props';
-export type { IToastProps, IToastStyleClasses, ToastNotificationType } from './toast';
+export type {
+	IToastProps,
+	IToastStyleClasses,
+	ToastNotificationType
+} from './toast';
 export type { ToastProps } from './toast-props';
 export type { ToastStackProps } from './toast-stack-props';

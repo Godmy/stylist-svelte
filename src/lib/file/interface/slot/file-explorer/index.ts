@@ -9,6 +9,7 @@ export interface SlotFileExplorer {
 	showPath?: boolean;
 	enableSelection?: boolean;
 	multiselect?: boolean;
+	disabled?: boolean;
 	onItemSelect?: (item: SlotFileSystemItem) => void;
 	onItemDoubleClick?: (item: SlotFileSystemItem) => void;
 	onItemAction?: (item: SlotFileSystemItem, action: string) => void;

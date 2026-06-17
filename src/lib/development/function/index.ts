@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { buildComponentPreviewCode, copyToClipboard, serializeUnknownError } from './script';
+export {
+	buildComponentPreviewCode,
+	copyToClipboard,
+	serializeUnknownError
+} from './script';
 export {
 	createAtomicPrinciplesShowcaseState,
 	createCodeBlockState,

@@ -51,4 +51,7 @@ export type {
 	StylistProps,
 	StylistSelection
 } from './struct';
-export type { ExtractConstEnumDomainPayload, ExtractConstEnumTokenPayload } from './script';
+export type {
+	ExtractConstEnumDomainPayload,
+	ExtractConstEnumTokenPayload
+} from './script';

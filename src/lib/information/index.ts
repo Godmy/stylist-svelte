@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerMetricBar, ObjectManagerStatsCard, ObjectManagerTable } from './class';
+export {
+	ObjectManagerMetricBar,
+	ObjectManagerStatsCard,
+	ObjectManagerTable
+} from './class';
 export {
 	Badge,
 	BadgeGroup,

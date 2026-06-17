@@ -1,5 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { isToday, isWeekend, molecularTimeSlotToAtomic, scheduleTimeSlotToAtomic } from './script';
+export {
+	isToday,
+	isWeekend,
+	molecularTimeSlotToAtomic,
+	scheduleTimeSlotToAtomic
+} from './script';
 export {
 	createCalendarViewState,
 	createEventCalendarState,

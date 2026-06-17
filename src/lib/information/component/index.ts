@@ -14,4 +14,9 @@ export {
 	TableHeader,
 	TableRow
 } from './atom';
-export { BadgeGroup, BaseCard, MetricBarsCard, StatsCard } from './molecule';
+export {
+	BadgeGroup,
+	BaseCard,
+	MetricBarsCard,
+	StatsCard
+} from './molecule';

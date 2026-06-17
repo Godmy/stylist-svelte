@@ -1,5 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { handleFilterChange, handleLayoutChange, handleReset, toggleCollapsed } from './script';
+export {
+	handleFilterChange,
+	handleLayoutChange,
+	handleReset,
+	toggleCollapsed
+} from './script';
 export {
 	createAddressFormState,
 	createFilterPanelState,

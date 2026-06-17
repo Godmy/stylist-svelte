@@ -1,6 +1,12 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { SpinnerVariant, StepIconContent } from './alias';
-export type { ToastType, TokenNotificationIcon } from './enum';
+export type {
+	SpinnerVariant,
+	StepIconContent
+} from './alias';
+export type {
+	ToastType,
+	TokenNotificationIcon
+} from './enum';
 export type {
 	AccountProgressTrackerProps,
 	AlertProps,

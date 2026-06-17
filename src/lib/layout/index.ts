@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerBackground, ObjectManagerGradientBackground } from './class';
+export {
+	ObjectManagerBackground,
+	ObjectManagerGradientBackground
+} from './class';
 export {
 	AnimatedExpandableTableRow,
 	AspectRatio,

@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Stack, SyntaxHighlightedCode } from './atom';
+export {
+	Stack,
+	SyntaxHighlightedCode
+} from './atom';
 export {
 	CodeBlock,
 	CodeBlockWithLineNumbers,

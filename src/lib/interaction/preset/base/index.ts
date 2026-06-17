@@ -1,38 +1,8 @@
 import type { Preset } from '$stylist/interaction/type/struct/preset/preset';
+import { VARIANT_CLASSES } from '$stylist/interaction/const/record/variant-classes';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 import { RECORD_CLASS_SIZE } from '$stylist/layout/const/record/class-size';
-import { RECORD_ICON_SIZE } from '$stylist/media/const/record/icon-size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-
-const DEFAULT_STATE_FLAGS = {
-	disabled: false,
-	loading: false,
-	readonly: false,
-	required: false,
-	closeable: false
-} as const;
-
-export const INTERACTION_TOKENS = {
-	INTERACTIVE_VARIANTS: InteractionStyleManager.getInteractiveVariants(),
-	TOKEN_SIZE,
-	DEFAULT_STATE_FLAGS,
-	STATE_CLASSES: StyleManagerState.classes,
-	INTERACTIVE_BASE_CLASS: InteractionStyleManager.getInteractiveBaseClass(),
-	ACCESSIBILITY_CLASSES: {
-		container: AccessibilityToolbarStyleManager.getContainerClass(),
-		toolbar: AccessibilityToolbarStyleManager.getToolbarClass(),
-		button: AccessibilityToolbarStyleManager.getButtonClass(),
-		activeButton: AccessibilityToolbarStyleManager.getActiveButtonClass()
-	},
-	VARIANT_CLASSES: Object.fromEntries(
-		InteractionStyleManager.getInteractiveVariants().map((variant: TokenAppearance) => [
-			variant,
-			InteractionStyleManager.getVariantClasses(variant)
-		])
-	),
-	SIZE_CLASSES: RECORD_CLASS_SIZE,
-	ICON_SIZES: RECORD_ICON_SIZE
-} as const;
 
 export const createBasePreset = <V extends string, S extends string>(
 	variants: readonly V[],
@@ -59,11 +29,9 @@ export const createBasePreset = <V extends string, S extends string>(
 		variant: Object.fromEntries(
 			variants.map((v) => [
 				v,
-				InteractionStyleManager.getVariantClasses(
-					v as Parameters<typeof InteractionStyleManager.getVariantClasses>[0]
-				) ??
+				VARIANT_CLASSES[v as TokenAppearance] ??
 					(v === 'outline'
-						? 'border bg-transparent'
+						? 'bg-transparent text-[var(--color-text-primary)] border border-[var(--color-neutral-400)] hover:bg-[var(--color-background-secondary)]'
 						: 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] border border-transparent hover:bg-[var(--color-primary-700)]')
 			])
 		) as Record<V, string>,

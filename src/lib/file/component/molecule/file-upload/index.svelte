@@ -1,9 +1,9 @@
 ﻿<script lang="ts">
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import { createFileUploadState } from '$stylist/file/function/state/file-upload/index.svelte';
-	import type { Props } from '$stylist/file/type/struct/file-upload/props';
+	import type { RecipeFileUpload } from '$stylist/file/interface/recipe/file-upload';
 
-	let props: Props = $props();
+	let props: RecipeFileUpload = $props();
 	const state = createFileUploadState(props);
 </script>
 

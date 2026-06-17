@@ -1,6 +1,12 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorOperationsHistoryEvents, BehaviorTrendable } from './behavior';
-export type { ContractDashboardLayout, ContractManagement } from './contract';
+export type {
+	BehaviorOperationsHistoryEvents,
+	BehaviorTrendable
+} from './behavior';
+export type {
+	ContractDashboardLayout,
+	ContractManagement
+} from './contract';
 export type {
 	AccountSettingsFormElementProps,
 	DashboardLayoutProps,

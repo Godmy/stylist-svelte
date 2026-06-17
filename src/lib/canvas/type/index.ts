@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { CanvasToolbarDrawingTool, TokenCanvasIcon } from './enum';
+export type {
+	CanvasToolbarDrawingTool,
+	TokenCanvasIcon
+} from './enum';
 export type {
 	CanvasObject,
 	CanvasToolbarProps,

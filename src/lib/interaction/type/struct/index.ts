@@ -14,4 +14,9 @@ export type {
 	InteractionIntent
 } from './interaction';
 export type { InteractionMotion } from './interaction-motion';
-export type { ComponentClasses, ExtendedPreset, InputPreset, Preset } from './preset';
+export type {
+	ComponentClasses,
+	ExtendedPreset,
+	InputPreset,
+	Preset
+} from './preset';

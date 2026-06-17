@@ -3,8 +3,9 @@
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import { createLocationPickerState } from '$stylist/geo/function/state/location-picker/index.svelte';
 	import { geoHandleKeyDown } from '$stylist/geo/function/script/handle-key-down';
+	import type { RecipeLocationPicker } from '$stylist/geo/interface/recipe/location-picker';
 
-	let props = $props();
+	let props: RecipeLocationPicker = $props();
 	const state = createLocationPickerState(props);
 </script>
 

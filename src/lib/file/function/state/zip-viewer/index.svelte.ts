@@ -1,4 +1,4 @@
-﻿import type { Props } from '$stylist/file/type/struct/zip-viewer/props/-props';
+import type { RecipeZipViewer } from '$stylist/file/interface/recipe/zip-viewer';
 import type { SlotZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
 import { handleDownload as handleDownloadFn } from '$stylist/file/function/script/zip-viewer-handle-download';
 import { handleEntryClick as handleEntryClickFn } from '$stylist/file/function/script/zip-viewer-handle-entry-click';
@@ -7,7 +7,7 @@ import { handlePreview as handlePreviewFn } from '$stylist/file/function/script/
 import { handleSearchInput as handleSearchInputFn } from '$stylist/file/function/script/zip-viewer';
 import { toggleFolder as toggleFolderFn } from '$stylist/file/function/script/zip-viewer-toggle-folder';
 
-export function createZipViewerState(props: Props) {
+export function createZipViewerState(props: RecipeZipViewer) {
 	let searchQuery = $state('');
 	let expandedFolders = $state<Set<string>>(new Set());
 	const entries = $derived(props.entries ?? []);

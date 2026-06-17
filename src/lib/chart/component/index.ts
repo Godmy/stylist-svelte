@@ -8,5 +8,17 @@ export {
 	ChartPie,
 	ChartPolyline
 } from './atom';
-export { AnalyticsChart, BarChart, ChartCanvas, ChartLegend, PieChart } from './molecule';
-export { CanvasChart, Chart, Heatmap, LineChart, ScatterPlot } from './organism';
+export {
+	AnalyticsChart,
+	BarChart,
+	ChartCanvas,
+	ChartLegend,
+	PieChart
+} from './molecule';
+export {
+	CanvasChart,
+	Chart,
+	Heatmap,
+	LineChart,
+	ScatterPlot
+} from './organism';

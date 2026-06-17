@@ -57,4 +57,11 @@ export type {
 	TeamAvatarStackProps,
 	VideoPlayerProps
 } from './recipe';
-export type { Avatar, SlotIcon, SlotImageItem, SlotMedia, TeamMember, ThemeIconItem } from './slot';
+export type {
+	Avatar,
+	SlotIcon,
+	SlotImageItem,
+	SlotMedia,
+	TeamMember,
+	ThemeIconItem
+} from './slot';

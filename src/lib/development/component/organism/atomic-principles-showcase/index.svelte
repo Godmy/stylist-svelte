@@ -1,4 +1,5 @@
 ﻿<script lang="ts">
+	import { PresetAtomicPrinciplesShowcase } from '$stylist/development/const/preset/atomic-principles-showcase';
 	import type { RecipeAtomicPrinciplesShowcase } from '$stylist/development/interface/recipe/atomic-principles-showcase';
 	import { createAtomicPrinciplesShowcaseState } from '$stylist/development/function/state/atomic-principles-showcase/index.svelte';
 	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
@@ -11,7 +12,7 @@
 	<div class={state.innerContainerClass}>
 		<div class={state.textCenterClass}>
 			<div class={state.badgeClass}>
-				<BaseIcon name={state.GitBranch} class={state.badgeIconClass} />
+				<BaseIcon name={PresetAtomicPrinciplesShowcase.GitBranch} class={state.badgeIconClass} />
 				<span class={state.badgeTextClass}>{state.badgeText}</span>
 			</div>
 			<h2 class={state.titleClass}>
@@ -25,7 +26,7 @@
 		<div class={state.gridClass}>
 			<div class="aps-card aps-card--blue">
 				<div class="aps-icon-box aps-icon-box--blue float-animation">
-					<BaseIcon name={state.Code} style="width:3rem;height:3rem;color:white" />
+					<BaseIcon name={PresetAtomicPrinciplesShowcase.Code} class={state.iconClass} />
 				</div>
 				<h3 class="aps-card-title">Atoms</h3>
 				<p class="aps-card-desc">Basic building blocks - buttons, inputs, labels, icons</p>
@@ -37,7 +38,7 @@
 
 			<div class="aps-card aps-card--purple" style="animation-delay: 0.1s">
 				<div class="aps-icon-box aps-icon-box--purple float-animation" style="animation-delay: 1s">
-					<BaseIcon name={state.Layers} style="width:3rem;height:3rem;color:white" />
+					<BaseIcon name={PresetAtomicPrinciplesShowcase.Layers} class={state.iconClass} />
 				</div>
 				<h3 class="aps-card-title">Molecules</h3>
 				<p class="aps-card-desc">Combined atoms - search bars, cards, form fields</p>
@@ -49,7 +50,7 @@
 
 			<div class="aps-card aps-card--green" style="animation-delay: 0.2s">
 				<div class="aps-icon-box aps-icon-box--green float-animation" style="animation-delay: 2s">
-					<BaseIcon name={state.Package} style="width:3rem;height:3rem;color:white" />
+					<BaseIcon name={PresetAtomicPrinciplesShowcase.Package} class={state.iconClass} />
 				</div>
 				<h3 class="aps-card-title">Organisms</h3>
 				<p class="aps-card-desc">Complex components - headers, forms, modals</p>
@@ -74,6 +75,73 @@
 	}
 	.float-animation {
 		animation: float var(--duration-s6) var(--animation-ease-in-out) infinite;
+	}
+	.c-atomic-principles-showcase__inner {
+		max-width: 80rem;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+	.c-atomic-principles-showcase__intro {
+		text-align: center;
+	}
+	.c-atomic-principles-showcase__badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		border-radius: 999px;
+		background: var(--color-primary-100);
+		padding: 0.5rem 1rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-primary-700);
+	}
+	.c-atomic-principles-showcase__badge-icon {
+		width: 1rem;
+		height: 1rem;
+	}
+	.c-atomic-principles-showcase__badge-text {
+		font-weight: 500;
+	}
+	.c-atomic-principles-showcase__title {
+		margin: 1.5rem 0 0;
+		font-size: 2.25rem;
+		font-weight: 700;
+		color: var(--color-text-primary);
+	}
+	.c-atomic-principles-showcase__description {
+		margin: 1rem 0 0;
+		font-size: 1.125rem;
+		line-height: 2rem;
+		color: var(--color-text-secondary);
+	}
+	.c-atomic-principles-showcase__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		margin-top: 4rem;
+	}
+	.aps-icon {
+		width: 3rem;
+		height: 3rem;
+		color: white;
+	}
+	@media (min-width: 640px) {
+		.c-atomic-principles-showcase__inner {
+			padding: 0 1.5rem;
+		}
+	}
+	@media (min-width: 768px) {
+		.c-atomic-principles-showcase__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (min-width: 1024px) {
+		.c-atomic-principles-showcase__inner {
+			padding: 0 2rem;
+		}
+		.c-atomic-principles-showcase__grid {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
 	}
 	.aps-card {
 		border-radius: 1.5rem;

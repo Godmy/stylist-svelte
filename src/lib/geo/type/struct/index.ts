@@ -28,4 +28,8 @@ export type {
 	RoutePlannerProps,
 	RoutePlannerRestProps
 } from './route-planner';
-export type { StoreLocatorProps, StoreLocatorRestProps, StoreLocatorStore } from './store-locator';
+export type {
+	StoreLocatorProps,
+	StoreLocatorRestProps,
+	StoreLocatorStore
+} from './store-locator';

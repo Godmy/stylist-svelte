@@ -1,11 +1,13 @@
-﻿import type { Props } from '$stylist/file/type/struct/file-list-item/props/-props';
+import type { RecipeFileListItem } from '$stylist/file/interface/recipe/file-list-item';
+import type { FileItem } from '$stylist/file/type/struct/file-list-item/file-item';
 import { getFileIcon } from '$stylist/file/function/script/file-list-item-get-file-icon';
 import { handleAction as handleActionFn } from '$stylist/file/function/script/file-list-item-handle-action';
 import { handleDoubleClick as handleDoubleClickFn } from '$stylist/file/function/script/file-list-item-handle-double-click';
 import { handleSelect as handleSelectFn } from '$stylist/file/function/script/file-list-item';
 
-export function createFileListItemState(props: Props) {
+export function createFileListItemState(props: RecipeFileListItem) {
 	const item = $derived(props.item);
+	const fileItem = $derived(item as FileItem);
 	const showThumbnail = $derived(props.showThumbnail ?? false);
 	const showSize = $derived(props.showSize ?? true);
 	const showModified = $derived(props.showModified ?? true);
@@ -43,23 +45,36 @@ export function createFileListItemState(props: Props) {
 
 	function handleSelect(): void {
 		handleSelectFn(
-			item,
+			fileItem,
 			disabled,
 			enableSelection,
 			isSelected,
 			(value) => {
 				isSelected = value;
 			},
-			props.onItemSelect
+			(selectedItem) => {
+				props.onItemSelect?.(
+					selectedItem as Parameters<NonNullable<typeof props.onItemSelect>>[0]
+				);
+			}
 		);
 	}
 
 	function handleDoubleClick(): void {
-		handleDoubleClickFn(item, disabled, props.onItemDoubleClick);
+		handleDoubleClickFn(fileItem, disabled, (selectedItem) => {
+			props.onItemDoubleClick?.(
+				selectedItem as Parameters<NonNullable<typeof props.onItemDoubleClick>>[0]
+			);
+		});
 	}
 
 	function handleAction(action: string): void {
-		handleActionFn(item, action, disabled, props.onItemAction);
+		handleActionFn(fileItem, action, disabled, (selectedItem, actionName) => {
+			props.onItemAction?.(
+				selectedItem as Parameters<NonNullable<typeof props.onItemAction>>[0],
+				actionName
+			);
+		});
 	}
 
 	return {
@@ -100,7 +115,7 @@ export function createFileListItemState(props: Props) {
 			return restProps;
 		},
 		get iconName() {
-			return getFileIcon(item);
+			return getFileIcon(fileItem);
 		},
 		handleSelect,
 		handleDoubleClick,

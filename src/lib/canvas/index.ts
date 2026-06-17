@@ -3,7 +3,6 @@ export { ObjectManagerSharedCanvas } from './class';
 export {
 	CanvasToolbar,
 	CollaborativeEditor,
-	ConnectionLine,
 	DrawingSurface,
 	SharedCanvas,
 	Stage,
@@ -19,7 +18,6 @@ export {
 	createCanvasObjectId,
 	createCanvasToolbarState,
 	createCollaborativeEditorState,
-	createConnectionLineState,
 	createDraftCanvasObject,
 	createDrawingSurfaceState,
 	createSharedCanvasState,
@@ -67,9 +65,7 @@ export type {
 } from './type';
 export type {
 	CanvasToolbarDrawingOptions,
-	ConnectionPathResult,
 	RecipeCanvasImageEditor,
-	RecipeConnectionLine,
 	SlotSharedCanvas,
 	SlotViewportInput,
 	SlotViewportState,

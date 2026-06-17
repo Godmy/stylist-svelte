@@ -24,7 +24,11 @@ export type { DragAndDropListProps } from './drag-and-drop-list-props';
 export type { DragAndDropListRestProps } from './drag-and-drop-list-rest-props';
 export type { ExpandableTableRowProps } from './expandable-table-row-props';
 export type { ExpandableTableRowRestProps } from './expandable-table-row-rest-props';
-export type { RangeFilter, TagFilter, ToggleFilter } from './filter-bar';
+export type {
+	RangeFilter,
+	TagFilter,
+	ToggleFilter
+} from './filter-bar';
 export type { FlatTreeProps } from './flat-tree-props';
 export type { FolderTreeProps } from './folder-tree-props';
 export type { Language } from './language';

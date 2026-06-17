@@ -1,6 +1,17 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerContentEditor, ObjectManagerGesture, ObjectManagerSearchBar } from './class';
-export { Click, Clickable, DragAndDrop, Draggable, Focusable, Hoverable } from './component';
+export {
+	ObjectManagerContentEditor,
+	ObjectManagerGesture,
+	ObjectManagerSearchBar
+} from './class';
+export {
+	Click,
+	Clickable,
+	DragAndDrop,
+	Draggable,
+	Focusable,
+	Hoverable
+} from './component';
 export {
 	BULLET_SIZE_CLASSES,
 	COUNTER_SIZE_CLASSES,

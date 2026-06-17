@@ -1,23 +1,39 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { AnimatedExpandableTableRowProps } from './animated-expandable-table-row';
-export type { AspectRatioProps, AttributeAspectRatio } from './aspect-ratio';
+export type {
+	AspectRatioProps,
+	AttributeAspectRatio
+} from './aspect-ratio';
 export type { BorderAura } from './border-aura';
 export type { BorderStyle } from './border-style';
 export type { ChildrenHtmlAttributes } from './children';
 export type { ComponentStateOptions } from './component-state';
 export type { InputStateOptions } from './component-state-input-state-options';
-export type { AttributeContainer, ContainerProps } from './container';
+export type {
+	AttributeContainer,
+	ContainerProps
+} from './container';
 export type { ContentHtmlAttributes } from './content';
 export type { DividerProps } from './divider';
 export type { GradientBackgroundStyle } from './gradient-background-style';
-export type { GridProps, GridRestProps, GridSvgProps } from './grid';
-export type { GridItem, GridItemContent } from './grid-item';
+export type {
+	GridProps,
+	GridRestProps,
+	GridSvgProps
+} from './grid';
+export type {
+	GridItem,
+	GridItemContent
+} from './grid-item';
 export type { LayoutHTMLAttributes } from './item';
 export type { ArchitectureHTMLAttributes } from './item-architecture-html-attributes';
 export type { LayoutGravity } from './item-layout-gravity';
 export type { LayoutLevel } from './item-layout-level';
 export type { LayoutShape } from './item-layout-shape';
-export type { GridLayoutItem, GridLayoutProps } from './layout';
+export type {
+	GridLayoutItem,
+	GridLayoutProps
+} from './layout';
 export type { LayoutElevationSemantic } from './layout-elevation-semantic';
 export type {
 	BaseLayoutProps,

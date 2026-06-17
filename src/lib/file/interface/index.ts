@@ -34,6 +34,7 @@ export type {
 } from './recipe';
 export type {
 	SlotAttachment,
+	SlotAttachmentPreview,
 	SlotDownloadCard,
 	SlotDragDropFile,
 	SlotDragDropFileUpload,

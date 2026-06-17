@@ -1,6 +1,6 @@
-﻿import type { Props } from '$stylist/file/type/struct/file-upload/props';
+import type { RecipeFileUpload } from '$stylist/file/interface/recipe/file-upload';
 
-export function createFileUploadState(props: Props) {
+export function createFileUploadState(props: RecipeFileUpload) {
 	const accept = $derived(props.accept ?? '.pdf,.doc,.docx,.xls,.xlsx,.txt');
 	const maxSize = $derived(props.maxSize ?? 10 * 1024 * 1024);
 	const multiple = $derived(props.multiple ?? false);

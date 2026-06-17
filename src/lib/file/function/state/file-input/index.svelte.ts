@@ -1,22 +1,10 @@
 ﻿import { untrack } from 'svelte';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import { clearFile } from '$stylist/file/function/script/clear-file';
 import { resolveFileSelectionLabel } from '$stylist/file/function/script/resolve-file-selection-label';
 import { handleFileChange } from '$stylist/file/function/script/file-input';
+import type { RecipeFileInput } from '$stylist/file/interface/recipe/file-input';
 
-export function createFileInputState(
-	props: {
-		variant?: TokenAppearance;
-		size?: string;
-		disabled?: boolean;
-		class?: string;
-		value?: File | File[];
-		multiple?: boolean;
-		accept?: string;
-		placeholder?: string;
-		onFileChange?: (files: File | File[] | null) => void;
-	} & Record<string, unknown>
-) {
+export function createFileInputState(props: RecipeFileInput) {
 	const variant = $derived(props.variant ?? 'default');
 	const size = $derived(props.size ?? 'md');
 	const disabled = $derived(props.disabled ?? false);

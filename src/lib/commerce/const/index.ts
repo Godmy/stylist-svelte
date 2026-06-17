@@ -43,10 +43,19 @@ export {
 	shippingCalculatorOptions,
 	shippingCalculatorStates
 } from './shipping-calculator';
-export { shippingInfoOptions, shippingInfoRegions } from './shipping-info';
+export {
+	shippingInfoOptions,
+	shippingInfoRegions
+} from './shipping-info';
 export { subscriptionManagerData } from './subscription-manager';
-export { taxCalculatorLocations, taxCalculatorRates } from './tax-calculator';
-export { upsellCurrentProduct, upsellProducts } from './upsell';
+export {
+	taxCalculatorLocations,
+	taxCalculatorRates
+} from './tax-calculator';
+export {
+	upsellCurrentProduct,
+	upsellProducts
+} from './upsell';
 export { PRICE_ALERT_BASE_CLASSES } from './value';
 export {
 	warrantyInfoClaims,

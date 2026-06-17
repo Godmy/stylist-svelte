@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { cloneCanvasObjects, exportCanvasImage } from './canvas';
+export {
+	cloneCanvasObjects,
+	exportCanvasImage
+} from './canvas';
 export { createDraftCanvasObject } from './canvas-create-draft-object';
 export { createCanvasObjectId } from './canvas-create-object-id';
 export { drawCanvasObject } from './canvas-draw-object';

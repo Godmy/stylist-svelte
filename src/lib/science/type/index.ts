@@ -1,65 +1,17 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { TokenScienceIcon } from './enum';
 export type {
-	NodeTitleVariant,
-	ScienceGraphNodeCategory,
-	ScienceGraphThemeId,
-	ScienceGraphToolMode,
-	TokenScienceIcon
-} from './enum';
-export type {
-	ConnectionLinePoint,
-	ConnectionPathResult,
-	GraphCanvasPosition,
-	GraphCanvasProps,
-	GraphCanvasViewport,
-	GraphEditorConnectionData,
-	GraphEditorNodeData,
-	GraphEditorPaletteNode,
-	GraphEditorProps,
-	GraphGridMode,
-	GraphNodeCardData,
-	GraphNodeCardProps,
-	GraphPanMode,
-	GraphPortDataTypeColor,
-	GraphPortDimensions,
-	GraphPortStateColor,
-	GraphToolbarItem,
 	Idef0BlackBoxProps,
 	Idef0DiagramProps,
 	Idef0InputsProps,
 	Idef0Model,
 	Idef0OutputsProps,
 	Idef0Port,
-	LiteGraphNodeProperty,
-	LiteGraphNodeProps,
-	LiteGraphPort,
-	LitegraphCanvasNodeAddPayload,
-	LitegraphNodePresentation,
-	MinimapBounds,
-	MinimapContract,
-	MinimapNodeRect,
-	MinimapOffset,
-	MinimapPoint,
-	MinimapProps,
-	MinimapViewport,
 	Model,
 	ModelSelectorProps,
-	OntologyEdge,
-	OntologyEdgeComponentProps,
-	OntologyNode,
-	OntologyNodeComponentProps,
-	PortGroupProps,
-	Position2D,
 	PredictionResultStatus,
 	PromptVariableType,
 	ScienceHTMLAttributes,
 	SentimentAnalysisStatus,
 	ThemeSceneColors
-} from './struct';
-export type { ScienceGraphWorkspaceConnectionInput } from './type';
-export type {
-	ScienceGraphNodeDraft,
-	ScienceGraphWorkspaceBounds,
-	ScienceGraphWorkspaceConnection,
-	ScienceGraphWorkspaceNode
 } from './struct';

@@ -3,9 +3,9 @@
 	import { createFileBrowserState } from '$stylist/file/function/state/file-browser/index.svelte';
 	import { getItemCount } from '$stylist/file/function/script/file-browser-get-item-count';
 	import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
-	import type { Props } from '$stylist/file/type/struct/file-browser/props/-props';
+	import type { RecipeFileBrowser } from '$stylist/file/interface/recipe/file-browser';
 
-	let props: Props = $props();
+	let props: RecipeFileBrowser = $props();
 	const state = createFileBrowserState(props);
 </script>
 

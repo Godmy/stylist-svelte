@@ -37,3 +37,43 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.c-component-library-stats {
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		background: var(--color-background-primary);
+		padding: 1.5rem;
+	}
+
+	.c-component-library-stats__grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.c-component-library-stats__card {
+		border-radius: 0.5rem;
+		background: var(--color-background-secondary);
+		padding: 1rem;
+		text-align: center;
+	}
+
+	.c-component-library-stats__value {
+		font-size: 1.875rem;
+		font-weight: 700;
+		color: var(--color-primary-600);
+	}
+
+	.c-component-library-stats__label {
+		margin-top: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	@media (min-width: 768px) {
+		.c-component-library-stats__grid {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+	}
+</style>

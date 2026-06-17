@@ -11,7 +11,10 @@ export type {
 	TreeNodeItemProps
 } from './alias';
 export type { TokenControlIcon } from './enum';
-export type { TokenSelectionType, TokenSelectorKind } from './record';
+export type {
+	TokenSelectionType,
+	TokenSelectorKind
+} from './record';
 export type { ToolbarExportFormat } from './script';
 export type {
 	AccordionHeaderDoubleProps,

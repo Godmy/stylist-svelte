@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { formatMediaDate, formatMediaFileSize, formatTime } from './script';
+export {
+	formatMediaDate,
+	formatMediaFileSize,
+	formatTime
+} from './script';
 export {
 	createAnnouncementBannerState,
 	createAudioPlayerState,
@@ -13,6 +17,7 @@ export {
 	createIconState,
 	createImageGalleryState,
 	createImageState,
+	createImageWithCaptionState,
 	createMediaLibraryState,
 	createNodeIconState,
 	createPictureToolbarState,

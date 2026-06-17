@@ -21,8 +21,15 @@ export type {
 	SharedCanvasTool,
 	SharedCanvasToolDefinition
 } from './shared-canvas';
-export type { StageCamera, StageContract, StageProps } from './stage';
+export type {
+	StageCamera,
+	StageContract,
+	StageProps
+} from './stage';
 export type { ThemeGraphColors } from './theme-graph-colors';
 export type { ThemeGraphPortDataTypeColors } from './theme-graph-port-data-type-colors';
 export type { ThemeGraphPortStateColors } from './theme-graph-port-state-colors';
-export type { ViewportContract, ViewportProps } from './viewport';
+export type {
+	ViewportContract,
+	ViewportProps
+} from './viewport';

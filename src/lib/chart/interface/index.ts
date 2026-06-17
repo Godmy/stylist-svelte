@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorChartAxis, BehaviorChartColorable, BehaviorLegendable } from './behavior';
+export type {
+	BehaviorChartAxis,
+	BehaviorChartColorable,
+	BehaviorLegendable
+} from './behavior';
 export type {
 	PieChartProps,
 	RecipeAnalyticsChart,

@@ -20,4 +20,9 @@ export {
 	MessageThread,
 	UserStatus
 } from './molecule';
-export { AuthGuard, ChatHeader, ChatInterface, ChatWorkbench } from './organism';
+export {
+	AuthGuard,
+	ChatHeader,
+	ChatInterface,
+	ChatWorkbench
+} from './organism';

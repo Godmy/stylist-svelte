@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { joinClassNames, mergeClassNames } from './script';
+export {
+	joinClassNames,
+	mergeClassNames
+} from './script';
 export {
 	createAnimatedExpandableTableRowState,
 	createAspectRatioState,

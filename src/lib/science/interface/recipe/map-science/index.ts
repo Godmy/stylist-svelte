@@ -4,7 +4,6 @@ import type { RecipePromptBuilder as PromptBuilderContract } from '$stylist/scie
 import type { RecipePredictionResult as PredictionResultContract } from '$stylist/science/interface/recipe/prediction-result';
 import type { RecipeAiResultCard as AiResultCardContract } from '$stylist/science/interface/recipe/ai-result-card';
 import type { RecipeModelSelector as ModelSelectorContract } from '$stylist/science/interface/recipe/model-selector';
-import type { RecipeLitegraphCanvas as LitegraphCanvasContract } from '$stylist/science/interface/recipe/litegraph-canvas';
 
 // ==================== Map Science Contract ====================
 export interface RecipeMapScience extends StructIntersectAll<[]> {
@@ -13,5 +12,4 @@ export interface RecipeMapScience extends StructIntersectAll<[]> {
 	PredictionResult: PredictionResultContract;
 	AiResultCard: AiResultCardContract;
 	ModelSelector: ModelSelectorContract;
-	LitegraphCanvas: LitegraphCanvasContract;
 }

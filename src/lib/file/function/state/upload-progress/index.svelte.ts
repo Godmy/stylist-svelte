@@ -1,11 +1,11 @@
-﻿import type { SlotUploadFile as IUploadFile } from '$stylist/file/interface/slot/upload-file-upload-progress-2';
-import type { SlotUploadProgress as IUploadProgressProps } from '$stylist/file/interface/slot/upload-progress-upload-progress-2';
+import type { SlotUploadFile as IUploadFile } from '$stylist/file/interface/slot/upload-file';
+import type { RecipeUploadProgress } from '$stylist/file/interface/recipe/upload-progress';
 
 import { handleCancel as handleCancelFn } from '$stylist/file/function/script/upload-progress-handle-cancel';
 import { handleRemove as handleRemoveFn } from '$stylist/file/function/script/upload-progress-handle-remove';
 import { handleRetry as handleRetryFn } from '$stylist/file/function/script/upload-progress';
 
-export function createUploadProgressState(props: IUploadProgressProps) {
+export function createUploadProgressState(props: RecipeUploadProgress) {
 	const files = $derived(props.files ?? []);
 	const hostClass = $derived(props.hostClass ?? '');
 	const itemClass = $derived(props.itemClass ?? '');

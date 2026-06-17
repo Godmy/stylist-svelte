@@ -1,11 +1,11 @@
-﻿import type { Props } from '$stylist/file/type/struct/file-browser/props/-props';
+import type { RecipeFileBrowser } from '$stylist/file/interface/recipe/file-browser';
 import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
 import { handleAction as handleActionFn } from '$stylist/file/function/script/file-browser-handle-action';
 import { handleSelect as handleSelectFn } from '$stylist/file/function/script/file-browser-handle-select';
 import { isExpanded as isExpandedFn } from '$stylist/file/function/script/file-browser-is-expanded';
 import { toggleItem as toggleItemFn } from '$stylist/file/function/script/file-browser';
 
-export function createFileBrowserState(props: Props) {
+export function createFileBrowserState(props: RecipeFileBrowser) {
 	const items = $derived(props.items ?? []);
 	const showItemCount = $derived(props.showItemCount ?? true);
 	const enableSelection = $derived(props.enableSelection ?? true);

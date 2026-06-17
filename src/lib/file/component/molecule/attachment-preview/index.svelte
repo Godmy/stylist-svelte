@@ -4,13 +4,13 @@
 	import { createAttachmentPreviewState } from '$stylist/file/function/state/attachment-preview/index.svelte';
 	import { getIconName } from '$stylist/file/function/script/attachment-preview-get-icon-name';
 	import { formatFileSize } from '$stylist/file/function/script/attachment-preview-format-file-size';
-	import type { Props } from '$stylist/file/type/struct/attachment-preview/props';
+	import type { RecipeAttachmentPreview } from '$stylist/file/interface/recipe/attachment-preview';
 
-	let props: Props = $props();
+	let props: RecipeAttachmentPreview = $props();
 	const state = createAttachmentPreviewState(props);
 </script>
 
-<div class="attachment-preview">
+<div class={`attachment-preview ${state.classes}`.trim()}>
 	<div class="attachment-icon">
 		<Icon name={getIconName(props.attachment.type)} size="lg" />
 	</div>

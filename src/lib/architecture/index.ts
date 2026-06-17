@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Camera, Matrix4, SceneObjectManager } from './class';
+export {
+	Camera,
+	Matrix4,
+	SceneObjectManager
+} from './class';
 export {
 	Css3dCube,
 	PresentationWorkspace,

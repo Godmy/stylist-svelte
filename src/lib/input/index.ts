@@ -39,7 +39,11 @@ export {
 	TextInputDialog,
 	TimePicker
 } from './component';
-export { INPUT_VARIANT_CLASSES, TIME_SLOT_DEFAULT_CONFIG, TOKEN_INPUT_ICON } from './const';
+export {
+	INPUT_VARIANT_CLASSES,
+	TIME_SLOT_DEFAULT_CONFIG,
+	TOKEN_INPUT_ICON
+} from './const';
 export {
 	createAdvancedInputState,
 	createAdvancedPasswordInputState,

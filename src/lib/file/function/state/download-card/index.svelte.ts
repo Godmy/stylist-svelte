@@ -1,12 +1,6 @@
-﻿import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { RecipeDownloadCard } from '$stylist/file/interface/recipe/download-card';
 
-export function createDownloadCardState(
-	props: {
-		variant?: TokenAppearance;
-		class?: string;
-		downloadUrl?: string;
-	} & Record<string, unknown>
-) {
+export function createDownloadCardState(props: RecipeDownloadCard & Record<string, unknown>) {
 	const variant = $derived(props.variant ?? 'primary');
 	const cls = $derived([props.class || ''].filter(Boolean).join(' '));
 	const downloadUrl = $derived(props.downloadUrl);

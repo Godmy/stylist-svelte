@@ -1,11 +1,4 @@
-﻿import type { PrivacySettingsProps as LegacyPrivacySettingsProps1 } from '$stylist/development/type/struct/privacy-settings-props';
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/information-html-attributes';
+import type { SlotPrivacySettings } from '$stylist/development/interface/slot/privacy-settings';
 
-export interface RecipePrivacySettings
-	extends StructIntersectAll<
-		[LegacyPrivacySettingsProps1, Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>]
-	> {
-	/** Additional CSS class */
-	class?: string;
-}
+export interface RecipePrivacySettings extends StructIntersectAll<[SlotPrivacySettings]> {}

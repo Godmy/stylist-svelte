@@ -3,7 +3,10 @@ export type { AudioPlayerProps } from './audio-player';
 export type { AudioSliderProps } from './audio-slider';
 export type { AudioVisualizerProps } from './audio-visualizer';
 export type { AvatarProps } from './avatar';
-export type { AvatarGroupAvatar, AvatarGroupProps } from './avatar-group';
+export type {
+	AvatarGroupAvatar,
+	AvatarGroupProps
+} from './avatar-group';
 export type { AvatarSize } from './avatar-size';
 export type { AvatarUserStatus } from './avatar-user-status';
 export type { CanvasImageEditorProps } from './canvas-image-editor';
@@ -18,9 +21,19 @@ export type { IconVariant } from './icon-variant';
 export type { ImageProps } from './image';
 export type { ImageGalleryProps } from './image-gallery';
 export type { ImageSize } from './image-size';
-export type { MediaItem, MediaLibraryProps, MediaType } from './media-library';
+export type {
+	MediaItem,
+	MediaLibraryProps,
+	MediaType
+} from './media-library';
 export type { NodeIconProps } from './node-icon';
-export type { PromoBannerProps, PromoBannerVariant } from './promo-banner';
+export type {
+	PromoBannerProps,
+	PromoBannerVariant
+} from './promo-banner';
 export type { SvgProps } from './svg';
-export type { TeamAvatarStackProps, TeamMember } from './team-avatar-stack';
+export type {
+	TeamAvatarStackProps,
+	TeamMember
+} from './team-avatar-stack';
 export type { VideoPlayerProps } from './video-player';

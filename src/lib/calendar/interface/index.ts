@@ -1,6 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { BehaviorTimeRangeFilter } from './behavior';
-export type { ContractScheduleEvent, ContractTimeSlot, RecipeCalendarEvent } from './contract';
+export type {
+	ContractScheduleEvent,
+	ContractTimeSlot,
+	RecipeCalendarEvent
+} from './contract';
 export type {
 	RecipeCalendar,
 	RecipeCalendarDay,

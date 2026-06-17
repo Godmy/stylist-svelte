@@ -3,11 +3,11 @@
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { createZipViewerState } from '$stylist/file/function/state/zip-viewer/index.svelte';
-	import type { Props } from '$stylist/file/type/struct/zip-viewer/props/-props';
+	import type { RecipeZipViewer } from '$stylist/file/interface/recipe/zip-viewer';
 	import { getEntryIcon } from '$stylist/file/function/script/zip-viewer-get-entry-icon';
 	import { formatFileSize } from '$stylist/file/function/script/zip-viewer-format-file-size';
 
-	let props: Props = $props();
+	let props: RecipeZipViewer = $props();
 	const state = createZipViewerState(props);
 </script>
 

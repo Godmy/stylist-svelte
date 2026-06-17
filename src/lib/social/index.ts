@@ -9,7 +9,10 @@ export {
 	SocialLogin,
 	SocialShare
 } from './component';
-export { TOKEN_SOCIAL_ICON, TOKEN_STAR } from './const';
+export {
+	TOKEN_SOCIAL_ICON,
+	TOKEN_STAR
+} from './const';
 export {
 	commentSystemFormatDate,
 	commentSystemSubmitComment,

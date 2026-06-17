@@ -11,6 +11,7 @@ export { createFaviconState } from './favicon';
 export { createIconState } from './icon';
 export { createImageState } from './image';
 export { createImageGalleryState } from './image-gallery';
+export { createImageWithCaptionState } from './image-with-caption';
 export { createMediaLibraryState } from './media-library';
 export { createNodeIconState } from './node-icon';
 export { createPictureToolbarState } from './picture-toolbar';

@@ -13,7 +13,11 @@ export {
 	PromoBanner,
 	Svg
 } from './atom';
-export { AvatarGroup, PictureToolbar, TeamAvatarStack } from './molecule';
+export {
+	AvatarGroup,
+	PictureToolbar,
+	TeamAvatarStack
+} from './molecule';
 export {
 	AudioPlayer,
 	CanvasImageEditor,

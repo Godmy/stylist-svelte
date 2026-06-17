@@ -16,7 +16,6 @@ export {
 export {
 	createCanvasToolbarState,
 	createCollaborativeEditorState,
-	createConnectionLineState,
 	createDrawingSurfaceState,
 	createSharedCanvasState,
 	createStageState,

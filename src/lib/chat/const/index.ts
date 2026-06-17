@@ -20,6 +20,12 @@ export {
 	RESPONSE_VIEWER_STATUS_CLASSES,
 	USER_STATUS_TEXT
 } from './map';
-export { PRESET_CHAT_HEADER, PRESET_MESSAGE_TIMESTAMP } from './preset';
+export {
+	PRESET_CHAT_HEADER,
+	PRESET_MESSAGE_TIMESTAMP
+} from './preset';
 export { MESSAGE_AVATAR_SIZE_CLASSES } from './record';
-export { CHAT_PREVIEW_ICON_CHECK, CHAT_PREVIEW_ICON_CHECK_CHECK } from './value';
+export {
+	CHAT_PREVIEW_ICON_CHECK,
+	CHAT_PREVIEW_ICON_CHECK_CHECK
+} from './value';

@@ -4,7 +4,11 @@ export {
 	ObjectManagerColorPalette,
 	ObjectManagerColorSwatch
 } from './class';
-export { ColorPalette, ColorPicker, ColorSwatch } from './component';
+export {
+	ColorPalette,
+	ColorPicker,
+	ColorSwatch
+} from './component';
 export {
 	COLORS_SCALES_AMBER,
 	COLORS_SCALES_BLUE,
@@ -23,7 +27,11 @@ export {
 	createColorPaletteState,
 	createColorSwatchState
 } from './function';
-export type { TokenColor, TokenColorIcon, TokenColorTone } from './type';
+export type {
+	TokenColor,
+	TokenColorIcon,
+	TokenColorTone
+} from './type';
 export type {
 	BehaviorColorToken,
 	RecipeThemeAdvancedColorPicker,

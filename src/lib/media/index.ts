@@ -42,6 +42,7 @@ export {
 	createIconState,
 	createImageGalleryState,
 	createImageState,
+	createImageWithCaptionState,
 	createMediaLibraryState,
 	createNodeIconState,
 	createPictureToolbarState,

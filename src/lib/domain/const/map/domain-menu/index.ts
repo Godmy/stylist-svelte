@@ -53,6 +53,10 @@ export const DOMAIN_MENU_ICONS = [
 		svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 21s7-5.3 7-12a7 7 0 1 0-14 0c0 6.7 7 12 7 12z"/> <circle cx="12" cy="9" r="2.5"/></svg>'
 	},
 	{
+		name: 'graph',
+		svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><title>graph</title><rect x="2" y="8" width="8" height="8" rx="1.5"/><rect x="14" y="3" width="8" height="5" rx="1.5"/><rect x="14" y="16" width="8" height="5" rx="1.5"/><path d="M10 11 C12 11 12 5.5 14 5.5"/><path d="M10 13 C12 13 12 18.5 14 18.5"/></svg>'
+	},
+	{
 		name: 'information',
 		svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M10 10h4"/><path d="M12 10v9"/><path d="M10 19h4"/></svg>'
 	},

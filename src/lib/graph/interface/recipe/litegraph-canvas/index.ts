@@ -1,0 +1,40 @@
+import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { Snippet } from 'svelte';
+import type { SlotGraphToolbarItem } from '$stylist/graph/interface/slot/graph-toolbar-item';
+import type { ContractLitegraphPort } from '$stylist/graph/interface/contract/litegraph-port';
+import type { ContractLitegraphNode } from '$stylist/graph/interface/contract/litegraph-node';
+import type { SlotLitegraphConnection } from '$stylist/graph/interface/slot/litegraph-connection';
+import type { GraphGridMode } from '$stylist/graph/type/struct/graph-grid-mode';
+import type { GraphPanMode } from '$stylist/graph/type/struct/graph-pan-mode';
+
+export interface RecipeLitegraphCanvas extends StructIntersectAll<[SlotChildren]> {
+	nodes?: ContractLitegraphNode[];
+	connections?: SlotLitegraphConnection[];
+	selectedNodeIds?: string[];
+	zoom?: number;
+	offset?: { x: number; y: number };
+	showGrid?: boolean;
+	gridMode?: GraphGridMode;
+	panMode?: GraphPanMode;
+	showToolbar?: boolean;
+	showMiniMap?: boolean;
+	toolbarItems?: SlotGraphToolbarItem[];
+	allowAddNodes?: boolean;
+	allowDeleteNodes?: boolean;
+	allowDuplicateNodes?: boolean;
+	onNodeSelect?: (nodeId: string) => void;
+	onNodeDrag?: (nodeId: string, position: { x: number; y: number }) => void;
+	onNodeDelete?: (nodeId: string) => void;
+	onNodeDuplicate?: (nodeId: string) => void;
+	onNodeAdd?: (node: ContractLitegraphNode) => void;
+	onConnectionStart?: (port: ContractLitegraphPort, event: MouseEvent) => void;
+	onConnectionEnd?: (fromPort: ContractLitegraphPort, toPort: ContractLitegraphPort) => void;
+	onZoomChange?: (zoom: number) => void;
+	onOffsetChange?: (offset: { x: number; y: number }) => void;
+	onSave?: () => void;
+	onExport?: () => void;
+	onImport?: (data: unknown) => void;
+	class?: string;
+	toolbarContent?: Snippet;
+}

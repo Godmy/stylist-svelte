@@ -4,9 +4,9 @@
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { createDropZoneState } from '$stylist/file/function/state/drop-zone/index.svelte';
 	import { formatFileSize } from '$stylist/file/function/script/drop-zone-format-file-size';
-	import type { Props } from '$stylist/file/type/struct/drop-zone/props/-props';
+	import type { RecipeDropZone } from '$stylist/file/interface/recipe/drop-zone';
 
-	let props: Props = $props();
+	let props: RecipeDropZone = $props();
 	const state = createDropZoneState(props);
 	const rootClasses = $derived(
 		mergeClassNames(

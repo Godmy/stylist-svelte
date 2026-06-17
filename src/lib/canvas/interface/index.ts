@@ -1,8 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { RecipeCanvasImageEditor, RecipeConnectionLine } from './recipe';
+export type { RecipeCanvasImageEditor } from './recipe';
 export type {
 	CanvasToolbarDrawingOptions,
-	ConnectionPathResult,
 	SlotSharedCanvas,
 	SlotViewportInput,
 	SlotViewportState,

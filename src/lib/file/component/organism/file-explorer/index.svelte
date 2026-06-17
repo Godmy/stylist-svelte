@@ -4,11 +4,11 @@
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { createFileExplorerState } from '$stylist/file/function/state/file-explorer/index.svelte';
 	import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
-	import type { Props } from '$stylist/file/type/struct/file-explorer/props/-props';
+	import type { RecipeFileExplorer } from '$stylist/file/interface/recipe/file-explorer';
 	import { getFileIcon } from '$stylist/file/function/script/file-explorer-get-file-icon';
 	import { formatFileSize } from '$stylist/file/function/script/file-explorer-format-file-size';
 
-	let props: Props = $props();
+	let props: RecipeFileExplorer = $props();
 	const state = createFileExplorerState(props);
 </script>
 

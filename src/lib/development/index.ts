@@ -25,8 +25,10 @@ export {
 export {
 	CODE_WITH_COPY_DISPATCH,
 	PARTICLE_COUNT,
+	PresetAtomicPrinciplesShowcase,
 	PresetCodeBlock,
 	PresetCodeEditor,
+	PresetStylist,
 	TOKEN_CODE_LANGUAGE,
 	TOKEN_CODE_VIEW,
 	TOKEN_DEVELOPMENT_ICON,
@@ -132,11 +134,22 @@ export type {
 	RecipeStylist,
 	RecipeThemeSyntaxHighlightedCode,
 	SlotAiModel,
+	SlotAtomicPrinciplesShowcase,
 	SlotCodeBlock,
 	SlotCodeDiff,
+	SlotComponentLibraryStats,
 	SlotComponentPreview,
+	SlotDebugConsole,
+	SlotDesignTokens,
+	SlotDevelopmentErrorBoundary,
 	SlotDocumentationBlock,
 	SlotMockDataSelector,
-	SlotMockDataSelectorStyleClasses
+	SlotMockDataSelectorStyleClasses,
+	SlotPrivacySettings,
+	SlotResourceOptimizer,
+	SlotStylist
 } from './interface';
-export type { ExtractConstEnumDomainPayload, ExtractConstEnumTokenPayload } from './type';
+export type {
+	ExtractConstEnumDomainPayload,
+	ExtractConstEnumTokenPayload
+} from './type';

@@ -7,7 +7,10 @@ export type { GridLayoutExtendedProps } from './grid-layout-extended-props';
 export type { GridMoleculeProps } from './grid-molecule-props';
 export type { HorizontalLayoutProps } from './horizontal-layout-props';
 export type { LayoutSection } from './layout-section';
-export type { OverlayLayerProps, OverlayLayoutProps } from './overlay-layout-props';
+export type {
+	OverlayLayerProps,
+	OverlayLayoutProps
+} from './overlay-layout-props';
 export type { SidebarLayoutProps } from './sidebar-layout-props';
 export type { SplitLayoutProps } from './split-layout-props';
 export type { StickyLayoutProps } from './sticky-layout-props';

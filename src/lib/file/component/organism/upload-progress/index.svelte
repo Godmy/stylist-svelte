@@ -2,11 +2,11 @@
 	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import type { SlotUploadProgress as IUploadProgressProps } from '$stylist/file/interface/slot/upload-progress-upload-progress-2';
+	import type { RecipeUploadProgress } from '$stylist/file/interface/recipe/upload-progress';
 	import { createUploadProgressState } from '$stylist/file/function/state/upload-progress/index.svelte';
 	import { formatFileSize } from '$stylist/file/function/script/upload-progress-format-file-size';
 
-	let props: IUploadProgressProps = $props();
+	let props: RecipeUploadProgress = $props();
 	const state = createUploadProgressState(props);
 	const hostClasses = $derived(
 		mergeClassNames(

@@ -1,13 +1,9 @@
-﻿import { createAttachmentDispatch } from '$stylist/file/function/script/attachment-preview';
+import { createAttachmentDispatch } from '$stylist/file/function/script/attachment-preview';
 import { handleDownload } from '$stylist/file/function/script/attachment-preview-handle-download';
 import { handleRemove } from '$stylist/file/function/script/attachment-preview-handle-remove';
-import type { Attachment } from '$stylist/file/type/struct/attachment-preview/attachment';
+import type { RecipeAttachmentPreview } from '$stylist/file/interface/recipe/attachment-preview';
 
-export function createAttachmentPreviewState(props: {
-	attachment: Attachment;
-	showActions?: boolean;
-	class?: string;
-}) {
+export function createAttachmentPreviewState(props: RecipeAttachmentPreview) {
 	const dispatch = createAttachmentDispatch();
 
 	function download(): void {

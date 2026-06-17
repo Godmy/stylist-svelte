@@ -1,20 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ConnectionLinePoint } from './connection-line-point';
-export type { ConnectionPathResult } from './connection-path-result';
-export type { GraphToolbarItem } from './graph';
-export type { GraphCanvasProps } from './graph-canvas';
-export type { GraphCanvasPosition } from './graph-canvas-position';
-export type { GraphCanvasViewport } from './graph-canvas-viewport';
-export type { GraphEditorConnectionData } from './graph-editor-connection-data';
-export type { GraphEditorNodeData } from './graph-editor-node-data';
-export type { GraphEditorPaletteNode } from './graph-editor-palette-node';
-export type { GraphEditorProps } from './graph-editor-props';
-export type { GraphGridMode } from './graph-grid-mode';
-export type { GraphNodeCardData } from './graph-node-card-data';
-export type { GraphNodeCardProps } from './graph-node-card-props';
-export type { GraphPanMode } from './graph-pan-mode';
-export type { GraphPortDataTypeColor, GraphPortStateColor } from './graph-port';
-export type { GraphPortDimensions } from './graph-port-dimensions';
 export type {
 	Idef0BlackBoxProps,
 	Idef0DiagramProps,
@@ -23,36 +7,10 @@ export type {
 	Idef0OutputsProps,
 	Idef0Port
 } from './idef-zero';
-export type { LiteGraphNodeProps } from './lite-graph-node-props';
-export type { LitegraphCanvasNodeAddPayload } from './litegraph-canvas-node-add-payload';
-export type { LitegraphNodePresentation } from './litegraph-node-presentation';
-export type { LiteGraphNodeProperty } from './litegraph-node-property';
-export type { LiteGraphPort } from './litegraph-port';
-export type {
-	MinimapBounds,
-	MinimapContract,
-	MinimapNodeRect,
-	MinimapOffset,
-	MinimapPoint,
-	MinimapProps,
-	MinimapViewport
-} from './minimap';
 export type { Model } from './model';
 export type { ModelSelectorProps } from './model-selector-props';
-export type {
-	OntologyEdge,
-	OntologyEdgeComponentProps,
-	OntologyNode,
-	Position2D
-} from './ontology-edge-component';
-export type { OntologyNodeComponentProps } from './ontology-node-component';
-export type { PortGroupProps } from './port-group-props';
 export type { PredictionResultStatus } from './prediction-result-status';
 export type { PromptVariableType } from './prompt-variable-type';
 export type { ScienceHTMLAttributes } from './science-html-attributes';
 export type { SentimentAnalysisStatus } from './sentiment-analysis-status';
 export type { ThemeSceneColors } from './theme-scene-colors';
-export type { ScienceGraphNodeDraft } from './graph-node-draft';
-export type { ScienceGraphWorkspaceBounds } from './graph-workspace-bounds';
-export type { ScienceGraphWorkspaceConnection } from './graph-workspace-connection';
-export type { ScienceGraphWorkspaceNode } from './graph-workspace-node';

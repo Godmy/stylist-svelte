@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { GradientDirection, WidgetContainerProps } from './alias';
+export type {
+	GradientDirection,
+	WidgetContainerProps
+} from './alias';
 export type {
 	CenteredLayoutAxis,
 	ContainerQueryType,

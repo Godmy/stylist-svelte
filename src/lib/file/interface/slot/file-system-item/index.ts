@@ -1,9 +1,9 @@
-import type { FileSystemItemType } from '$stylist/file/type/struct/file-system-item-type';
+import type { FileType } from '$stylist/file/type/struct/file-explorer/file-type';
 
 export interface SlotFileSystemItem {
 	id: string;
 	name: string;
-	type: FileSystemItemType;
+	type: FileType;
 	size?: number;
 	modified?: Date;
 	created?: Date;

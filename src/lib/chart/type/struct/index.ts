@@ -16,7 +16,10 @@ export type { ChartFunctionPoint } from './chart-point';
 export type { ChartScale } from './chart-scale';
 export type { ChartSeries } from './chart-series';
 export type { IExtendedHeatmapCell } from './extended-heatmap-cell';
-export type { HeatmapData, IHeatmapCell } from './heatmap';
+export type {
+	HeatmapData,
+	IHeatmapCell
+} from './heatmap';
 export type { HeatmapCellGrid } from './heatmap-cell-grid';
 export type { InformationPieChartSegment } from './information-pie-chart-segment';
 export type { LineChartPoint } from './line-chart';

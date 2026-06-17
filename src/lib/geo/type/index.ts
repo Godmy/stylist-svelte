@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { TokenGeoIcon, TokenMapType, TokenPin } from './enum';
+export type {
+	TokenGeoIcon,
+	TokenMapType,
+	TokenPin
+} from './enum';
 export type {
 	Coordinates,
 	LocationPickerProps,

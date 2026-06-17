@@ -1,4 +1,4 @@
-﻿import type { Props } from '$stylist/file/type/struct/drop-zone/props/-props';
+import type { RecipeDropZone } from '$stylist/file/interface/recipe/drop-zone';
 import type { SlotDropItem } from '$stylist/file/type/struct/drop-zone/item';
 import { clearAll } from '$stylist/file/function/script/drop-zone-clear-all';
 import { handleDragLeave as handleDragLeaveFn } from '$stylist/file/function/script/drop-zone-handle-drag-leave';
@@ -8,7 +8,7 @@ import { handleFileInput as handleFileInputFn } from '$stylist/file/function/scr
 import { processFiles } from '$stylist/file/function/script/drop-zone-process-files';
 import { removeItem } from '$stylist/file/function/script/drop-zone-remove-item';
 
-export function createDropZoneState(props: Props) {
+export function createDropZoneState(props: RecipeDropZone) {
 	let isDragOver = $state(false);
 	let items = $state<SlotDropItem[]>([]);
 	let isProcessing = $state(false);

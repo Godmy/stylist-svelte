@@ -7,7 +7,12 @@ export {
 	TOKEN_DIFF_TYPE,
 	TOKEN_PROPERTY_TYPE
 } from './enum';
-export { PresetCodeBlock, PresetCodeEditor } from './preset';
+export {
+	PresetAtomicPrinciplesShowcase,
+	PresetCodeBlock,
+	PresetCodeEditor,
+	PresetStylist
+} from './preset';
 export { categories } from './record';
 export { panelId } from './stylist';
 export { PARTICLE_COUNT } from './value';

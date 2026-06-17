@@ -1,23 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	ContractLitegraphNode,
-	ContractLitegraphNodeProperty,
-	ContractLitegraphPort,
 	ContractPrediction,
 	ContractPromptTemplate,
 	ContractPromptVariable
 } from './contract';
 export type {
 	RecipeAiResultCard,
-	RecipeConnectionLine,
-	RecipeGraph,
-	RecipeGraphCanvas,
-	RecipeGraphEdge,
-	RecipeGraphNode,
-	RecipeGraphNodeCard,
-	RecipeGraphPort,
-	RecipeGraphToolbar,
-	RecipeGraphvizDirectedEdge,
 	RecipeIdef0BlackBox,
 	RecipeIdef0Connector,
 	RecipeIdef0Diagram,
@@ -25,32 +13,17 @@ export type {
 	RecipeIdef0Inputs,
 	RecipeIdef0Outputs,
 	RecipeIdef0PortLabel,
-	RecipeLitegraphCanvas,
-	RecipeLitegraphNode,
 	RecipeMapScience,
 	RecipeModelSelector,
-	RecipeNodeHeader,
-	RecipeNodePropertiesPanel,
-	RecipeNodeProperty,
-	RecipeNodeTitle,
 	RecipePredictionResult,
 	RecipePromptBuilder,
 	RecipeScience,
-	RecipeSentimentAnalysis,
-	RecipeStylistGraphWorkspace
+	RecipeSentimentAnalysis
 } from './recipe';
 export type {
 	ChildrenHtmlAttributes,
-	LiteGraphNodeProperty,
-	LiteGraphPort,
 	SlotAiResultCard,
-	SlotGraphPortState,
-	SlotGraphToolbarItem,
-	SlotLitegraphConnection,
 	SlotModelOption,
-	SlotNodePalette,
-	SlotNodePaletteItem,
-	SlotNodePropertyState,
 	SlotPrediction,
 	SlotPredictionResult,
 	SlotPromptBuilder,

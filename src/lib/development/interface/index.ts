@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ContractCodeBlock, ContractDevelopment } from './contract';
+export type {
+	ContractCodeBlock,
+	ContractDevelopment
+} from './contract';
 export type {
 	RecipeAtomicPrinciplesShowcase,
 	RecipeCodeBlock,
@@ -22,10 +25,18 @@ export type {
 	DomainForEachContext,
 	DomainForEachOptions,
 	SlotAiModel,
+	SlotAtomicPrinciplesShowcase,
 	SlotCodeBlock,
 	SlotCodeDiff,
+	SlotComponentLibraryStats,
 	SlotComponentPreview,
+	SlotDebugConsole,
+	SlotDesignTokens,
+	SlotDevelopmentErrorBoundary,
 	SlotDocumentationBlock,
 	SlotMockDataSelector,
-	SlotMockDataSelectorStyleClasses
+	SlotMockDataSelectorStyleClasses,
+	SlotPrivacySettings,
+	SlotResourceOptimizer,
+	SlotStylist
 } from './slot';

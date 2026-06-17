@@ -1,4 +1,4 @@
-import type { Props } from '$stylist/file/type/struct/file-explorer/props/-props';
+import type { RecipeFileExplorer } from '$stylist/file/interface/recipe/file-explorer';
 import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
 import type { ViewMode } from '$stylist/file/type/struct/file-explorer/view-mode';
 import { handleDownload as handleDownloadFn } from '$stylist/file/function/script/file-explorer-handle-download';
@@ -9,7 +9,7 @@ import { handleSearchInput as handleSearchInputFn } from '$stylist/file/function
 import { handleUpload as handleUploadFn } from '$stylist/file/function/script/file-explorer-handle-upload';
 import { toggleViewMode as toggleViewModeFn } from '$stylist/file/function/script/file-explorer-toggle-view-mode';
 
-export function createFileExplorerState(props: Props) {
+export function createFileExplorerState(props: RecipeFileExplorer) {
 	let selectedItems = $state<SlotFileSystemItem[]>([]);
 	let searchQuery = $state('');
 	let currentViewMode = $state<ViewMode>(props.viewMode ?? 'grid');
@@ -31,7 +31,7 @@ export function createFileExplorerState(props: Props) {
 			return items;
 		}
 
-		return items.filter((item: SlotFileSystemItem) => {
+		return items.filter((item) => {
 			const path = typeof item.path === 'string' ? item.path.toLowerCase() : '';
 			return item.name.toLowerCase().includes(query) || path.includes(query);
 		});

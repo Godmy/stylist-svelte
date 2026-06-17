@@ -7,7 +7,11 @@ export {
 	TOKEN_SELECTION_TYPE,
 	TOKEN_SELECTOR_KIND
 } from './enum';
-export { CONTROL_BUTTON_ICON, PAGE_BUILDER_ICON, TOKEN_ICON_PATHS } from './map';
+export {
+	CONTROL_BUTTON_ICON,
+	PAGE_BUILDER_ICON,
+	TOKEN_ICON_PATHS
+} from './map';
 export {
 	PresetAccessibilityToolbar,
 	PresetAccordion,
