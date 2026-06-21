@@ -1,13 +1,29 @@
-import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-import type { HTMLAttributes } from 'svelte/elements';
-import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { TokenMonitoringType } from '$stylist/management/type/enum/monitoring-type';
+import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
+import type { SlotPriceAlertElement } from '$stylist/commerce/interface/slot/price-alert-element';
+import type { Props } from '$stylist/information/type/struct/props';
 import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
+import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenMonitoringType } from '$stylist/management/type/enum/monitoring-type';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+import type { HTMLAttributes } from 'svelte/elements';
 
 export interface RecipePriceAlert
 	extends ComputeIntersectAll<
-		[SlotTheme, BehaviorSizable, BehaviorClickable, HTMLAttributes<HTMLDivElement>]
+		[
+			SlotPriceAlertElement,
+			Omit<Props, 'variant' | 'size' | 'onclick' | 'class'>,
+			Omit<HTMLAttributes<HTMLDivElement>, 'variant' | 'size' | 'onclick'>,
+			SlotTheme,
+			BehaviorSizable,
+			BehaviorClickable,
+			BehaviorBorderToken,
+			BehaviorTypography,
+			SlotChildren
+		]
 	> {
 	currentPrice?: number;
 	targetPrice?: number;
@@ -15,7 +31,7 @@ export interface RecipePriceAlert
 	status?: TokenMonitoringType;
 	productName?: string;
 	variant?: TokenMonitoringType;
-	size?: string;
+	size?: TokenSize;
 	disabled?: boolean;
 	onStatusChange?: (status: TokenMonitoringType) => void;
 }

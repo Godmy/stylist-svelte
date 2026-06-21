@@ -1,9 +1,7 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
 import type { ComboboxItem } from '$stylist/control/type/struct/combobox/item';
 
 // Combobox props interface
-export interface SlotCombobox extends StructIntersectAll<[SlotChildren]> {
+export interface SlotCombobox {
 	id: string;
 	items: ComboboxItem[];
 	value?: string | null;

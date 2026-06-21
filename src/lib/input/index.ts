@@ -131,6 +131,7 @@ export type {
 	RecipeInputControl,
 	RecipeInputField,
 	RecipeInputFieldProps,
+	RecipeInputGraphNode,
 	RecipeNumberInput,
 	RecipeNumberInputProps,
 	RecipePhoneNumberInput,

@@ -3,7 +3,7 @@
 	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const Loader2 = 'loader-2';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { SlotIconButton as IconButtonProps } from '$stylist/control/interface/slot/icon-button';
+	import type { RecipeIconButtonProps as IconButtonProps } from '$stylist/control/interface/recipe/icon-button-props';
 	import createIconButtonState from '$stylist/control/function/state/icon-button/index.svelte';
 
 	/**

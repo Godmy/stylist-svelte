@@ -22,3 +22,4 @@ export type { RecipeTimeGridDayTimeGrid } from './time-grid-day-time-grid';
 export type { RecipeTimeGridExtendedTimeSlot } from './time-grid-extended-time-slot';
 export type { TimeSlotProps } from './time-slot';
 export type { RecipeTimeline } from './timeline';
+export type { RecipeTimelineItem } from './timeline-item';

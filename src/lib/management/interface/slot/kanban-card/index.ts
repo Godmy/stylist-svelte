@@ -1,6 +1,4 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
-export interface SlotKanbanCard extends StructIntersectAll<[SlotChildren]> {
+export interface SlotKanbanCard {
 	card: Record<string, unknown>;
 	draggable?: boolean;
 	selected?: boolean;

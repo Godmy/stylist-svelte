@@ -1,7 +1,9 @@
-﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
+import type { SlotRealTimePresence } from '$stylist/calendar/interface/slot/real-time-presence';
 import type { SlotRealTimePresenceUser } from '$stylist/calendar/interface/slot/real-time-presence-user';
 
-export interface RecipeRealTimePresence extends ComputeIntersectAll<[]> {
+export interface RecipeRealTimePresence extends ComputeIntersectAll<[SlotRealTimePresence, SlotChildren]> {
 	users: SlotRealTimePresenceUser[];
 	showAvatars?: boolean;
 	showStatus?: boolean;

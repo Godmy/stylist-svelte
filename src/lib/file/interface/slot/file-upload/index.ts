@@ -1,10 +1,6 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { UploadStatus } from '$stylist/file/type/struct/upload-status';
 
-export interface SlotFileUpload
-	extends StructIntersectAll<[SlotChildren, InteractionHTMLAttributes<HTMLDivElement>]> {
+export interface SlotFileUpload {
 	accept?: string;
 	maxSize?: number;
 	multiple?: boolean;

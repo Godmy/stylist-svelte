@@ -11,7 +11,7 @@
 	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 	import createKanbanCardState from '$stylist/management/function/state/kanban-card/index.svelte';
-	import type { SlotKanbanCard as KanbanCardProps } from '$stylist/management/interface/slot/kanban-card';
+	import type { RecipeKanbanCard as KanbanCardProps } from '$stylist/management/interface/recipe/kanban-card';
 
 	let props: KanbanCardProps = $props();
 	const state = createKanbanCardState(props);

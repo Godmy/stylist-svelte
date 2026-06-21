@@ -1,6 +1,3 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { ListItem } from '$stylist/control/type/struct/list-with-avatars/item';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
@@ -15,8 +12,7 @@ import type { TokenSize } from '$stylist/layout/type/enum/size';
  *   BehaviorSizable              (architecture) — size
  */
 // ListWithAvatars props interface
-export interface SlotListWithAvatars
-	extends StructIntersectAll<[InteractionHTMLAttributes<HTMLDivElement>, SlotChildren]> {
+export interface SlotListWithAvatars {
 	items: ListItem[];
 	showAvatar?: boolean;
 	showStatus?: boolean;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotDraggable as DragProps } from '$stylist/interaction/interface/slot/draggable';
+	import type { RecipeDraggable as DragProps } from '$stylist/interaction/interface/recipe/draggable';
 	import createDraggableState from '$stylist/interaction/function/state/draggable/index.svelte';
 
 	let props: DragProps = $props();

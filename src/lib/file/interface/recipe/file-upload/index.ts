@@ -1,12 +1,14 @@
-import type { SlotFileUpload as Slot } from '$stylist/file/interface/slot/file-upload';
-import type { SlotFileUpload as SlotFileUpload } from '$stylist/file/interface/slot/file-upload';
 import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
-import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorFileUploadEvents } from '$stylist/file/interface/behavior/file-upload-events';
+import type { SlotFileUpload } from '$stylist/file/interface/slot/file-upload';
 import type { UploadStatus } from '$stylist/file/type/struct/upload-status';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeFileUpload
-	extends ComputeIntersectAll<[Slot, SlotFileUpload, BehaviorFileUploadEvents, SlotChildren]> {
+	extends ComputeIntersectAll<
+		[SlotFileUpload, BehaviorFileUploadEvents, SlotChildren, InteractionHTMLAttributes<HTMLDivElement>]
+	> {
 	accept?: string;
 	maxSize?: number;
 	multiple?: boolean;

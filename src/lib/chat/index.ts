@@ -121,6 +121,9 @@ export type {
 export type {
 	ChatWindowChat,
 	ContractCommunication,
+	RecipeChatHeader,
+	RecipeChatMessage,
+	RecipeMessageMeta,
 	RecipeMessageStatusProps,
 	SlotChat,
 	SlotChatHeader,

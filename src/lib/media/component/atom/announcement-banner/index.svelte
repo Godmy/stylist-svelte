@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import type { ContractAnnouncementBanner as AnnouncementBannerContract } from '$stylist/media/interface/contract/announcement-banner';
+<script lang="ts">
+	import type { RecipeAnnouncementBanner as AnnouncementBannerContract } from '$stylist/media/interface/recipe/announcement-banner';
 	import { createAnnouncementBannerState } from '$stylist/media/function/state/announcement-banner/index.svelte';
 
 	let props: AnnouncementBannerContract = $props();

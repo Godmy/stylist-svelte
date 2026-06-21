@@ -1,25 +1,7 @@
-import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotContent } from '$stylist/architecture/interface/slot/content';
+import type { ContractSvg } from '$stylist/media/interface/contract/svg';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
-import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
-import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
-import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
-import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
-import type { BehaviorElevatable as IElevatable } from '$stylist/layout/interface/behavior/elevatable';
-import type { BehaviorMotionPreset as IMotionToken } from '$stylist/animation/interface/behavior/motion-preset';
+import type { SVGAttributes } from 'svelte/elements';
 
-export interface RecipeMediaItem
-	extends ComputeIntersectAll<
-		[
-			SlotTheme,
-			IMediaSlot,
-			ILabelSlot,
-			ICaptionSlot,
-			IClickable,
-			ISizable,
-			IElevatable,
-			IMotionToken,
-			HTMLAttributes<HTMLDivElement>
-		]
-	> {}
+export interface RecipeSvg
+	extends ComputeIntersectAll<[ContractSvg, Omit<SVGAttributes<SVGSVGElement>, 'class'>, SlotContent]> {}

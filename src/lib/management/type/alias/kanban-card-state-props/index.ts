@@ -1,3 +1,3 @@
-import type { SlotKanbanCard as KanbanCardProps } from '$stylist/management/interface/slot/kanban-card';
+import type { RecipeKanbanCard as KanbanCardProps } from '$stylist/management/interface/recipe/kanban-card';
 
 export type KanbanCardStateProps = KanbanCardProps;

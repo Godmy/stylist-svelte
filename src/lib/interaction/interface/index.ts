@@ -10,7 +10,12 @@ export type {
 	BehaviorSelectable,
 	BehaviorTooltipable
 } from './behavior';
-export type { InteractionRecipe } from './recipe';
+export type {
+	RecipeClickable,
+	RecipeDraggable,
+	RecipeFocusable,
+	RecipeHoverable
+} from './recipe';
 export type {
 	ClickableStyleManagerOptions,
 	DraggableStyleManagerOptions,

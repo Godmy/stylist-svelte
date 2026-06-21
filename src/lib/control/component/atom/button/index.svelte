@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotButtonElement } from '$stylist/control/interface/slot/button-element';
+	import type { RecipeButtonElement as SlotButtonElement } from '$stylist/control/interface/recipe/button-element';
 	import createButtonState from '$stylist/control/function/state/button-atom/index.svelte';
 	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import { CONTROL_BUTTON_ICON } from '$stylist/control/const/map/button';

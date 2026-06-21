@@ -21,6 +21,7 @@ export type {
 	RecipeFeatureToggle,
 	RecipeKPIIndicator,
 	RecipeKanbanBoard,
+	RecipeKanbanCard,
 	RecipeKanbanColumn,
 	RecipeLegendItem,
 	RecipeNotificationBadge,

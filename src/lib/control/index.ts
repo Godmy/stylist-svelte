@@ -344,6 +344,7 @@ export type {
 	RecipeBurgerMenu,
 	RecipeButton,
 	RecipeButtonComposed,
+	RecipeButtonElement,
 	RecipeCheckbox,
 	RecipeCheckboxProps,
 	RecipeChip,

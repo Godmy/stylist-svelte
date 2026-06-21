@@ -1,10 +1,6 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 import type { SlotNodePaletteItem } from '$stylist/graph/interface/slot/node-palette-item';
 
-export interface SlotNodePalette
-	extends StructIntersectAll<[InteractionHTMLAttributes<HTMLDivElement>, SlotChildren]> {
+export interface SlotNodePalette {
 	items?: readonly SlotNodePaletteItem[];
 	isOpen?: boolean;
 	x?: number;

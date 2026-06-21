@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	LocaleSwitcherStateProps,
+	RecipeLanguageSelector,
 	RecipeTranslationEditor
 } from './recipe';
 export type {

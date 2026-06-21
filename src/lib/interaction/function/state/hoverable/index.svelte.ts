@@ -1,4 +1,4 @@
-import type { SlotHoverable as HoverProps } from '$stylist/interaction/interface/slot/hoverable';
+import type { RecipeHoverable as HoverProps } from '$stylist/interaction/interface/recipe/hoverable';
 
 export const createHoverableState = (props: HoverProps) => {
 	let isHovered = $state(false);

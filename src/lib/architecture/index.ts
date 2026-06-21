@@ -156,7 +156,6 @@ export type {
 	SelectionMode,
 	SemanticZoomParams,
 	SemanticZoomPresentation,
-	StructIntersectAll,
 	TierContent,
 	TokenArchitectureIcon,
 	TokenArchitectureShaderFragment,

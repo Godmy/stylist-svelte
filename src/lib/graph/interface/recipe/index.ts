@@ -11,6 +11,7 @@ export type { RecipeGraphvizDirectedEdge } from './graphviz-directed-edge';
 export type { RecipeLitegraphCanvas } from './litegraph-canvas';
 export type { RecipeLitegraphNode } from './litegraph-node';
 export type { RecipeNodeHeader } from './node-header';
+export type { RecipeNodePalette } from './node-palette';
 export type { RecipeNodePropertiesPanel } from './node-properties-panel';
 export type { RecipeNodeProperty } from './node-property';
 export type { RecipeNodeTitle } from './node-title';

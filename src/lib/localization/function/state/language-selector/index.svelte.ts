@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { SlotLanguageSelector as ILanguageSelectorProps } from '$stylist/localization/interface/slot/language-selector';
+import type { RecipeLanguageSelector as ILanguageSelectorProps } from '$stylist/localization/interface/recipe/language-selector';
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
 
 function createLanguageSelectorState(

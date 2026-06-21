@@ -1,6 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { ContractCommunication } from './contract';
-export type { RecipeMessageStatusProps } from './recipe';
+export type {
+	RecipeChatHeader,
+	RecipeChatMessage,
+	RecipeMessageMeta,
+	RecipeMessageStatusProps
+} from './recipe';
 export type {
 	ChatWindowChat,
 	SlotChat,

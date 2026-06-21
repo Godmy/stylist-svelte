@@ -24,6 +24,7 @@ export type {
 } from './type';
 export type {
 	LocaleSwitcherStateProps,
+	RecipeLanguageSelector,
 	RecipeTranslationEditor,
 	SlotExtendedTranslationEditor,
 	SlotLanguageSelector,

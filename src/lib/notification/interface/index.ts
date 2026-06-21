@@ -4,6 +4,8 @@ export type {
 	RecipeCardSkeleton,
 	RecipeErrorBoundary,
 	RecipeErrorMessage,
+	RecipeLazyLoader,
+	RecipeLoadingBoundary,
 	RecipeProgressBarProps,
 	RecipeSkeleton,
 	RecipeSkeletonCircle,

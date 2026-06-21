@@ -59,7 +59,6 @@ export type {
 	SelectionMode,
 	SemanticZoomParams,
 	SemanticZoomPresentation,
-	StructIntersectAll,
 	Zoom,
 	ZoomStep
 } from './struct';

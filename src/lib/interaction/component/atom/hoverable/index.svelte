@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotHoverable as HoverProps } from '$stylist/interaction/interface/slot/hoverable';
+	import type { RecipeHoverable as HoverProps } from '$stylist/interaction/interface/recipe/hoverable';
 	import createHoverableState from '$stylist/interaction/function/state/hoverable/index.svelte';
 
 	let props: HoverProps = $props();

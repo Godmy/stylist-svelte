@@ -114,6 +114,7 @@ export type {
 	RecipeLitegraphCanvas,
 	RecipeLitegraphNode,
 	RecipeNodeHeader,
+	RecipeNodePalette,
 	RecipeNodePropertiesPanel,
 	RecipeNodeProperty,
 	RecipeNodeTitle,

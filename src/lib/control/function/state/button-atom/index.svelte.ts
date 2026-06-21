@@ -1,5 +1,5 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { SlotButtonElement as ButtonElementProps } from '$stylist/control/interface/slot/button-element';
+import type { RecipeButtonElement as ButtonElementProps } from '$stylist/control/interface/recipe/button-element';
 import { createButtonFactoryInput } from '$stylist/interaction/factory/button';
 import { createButtonState as createOriginalButtonState } from '$stylist/control/function/state/button/index.svelte';
 

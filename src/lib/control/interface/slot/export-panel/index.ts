@@ -1,7 +1,5 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
 // ExportPanel props interface
-export interface SlotExportPanel extends StructIntersectAll<[SlotChildren]> {
+export interface SlotExportPanel {
 	class?: string;
 	onexport?: (
 		event: CustomEvent<{

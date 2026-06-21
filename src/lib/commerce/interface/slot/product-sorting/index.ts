@@ -1,7 +1,5 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
 
-export interface SlotProductSorting extends StructIntersectAll<[SlotChildren]> {
+export interface SlotProductSorting {
 	class?: string;
 	options?: Array<{ value: string; label: string }>;
 	value?: string;

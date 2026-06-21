@@ -1,8 +1,6 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
 import type { SlotZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
 
-export interface SlotZipViewer extends StructIntersectAll<[SlotChildren]> {
+export interface SlotZipViewer {
 	entries: SlotZipEntry[];
 	archiveName?: string;
 	class?: string;

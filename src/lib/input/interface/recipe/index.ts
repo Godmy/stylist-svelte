@@ -3,6 +3,7 @@ export type { RecipeAdvancedPasswordInput } from './advanced-password-input';
 export type { RecipeAutoComplete } from './auto-complete';
 export type { ContentEditorStateProps } from './content-editor-state-props';
 export type { DateRangePickerProps } from './date-range-picker-props';
+export type { RecipeInputGraphNode } from './graph-node';
 export type { RecipeInput } from './input';
 export type { RecipeInputControl } from './input-control';
 export type { RecipeInputField } from './input-field';

@@ -4,7 +4,7 @@
 	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 	import Separator from '$stylist/layout/component/atom/separator/index.svelte';
 	import createNodePaletteState from '$stylist/graph/function/state/node-palette/index.svelte';
-	import type { SlotNodePalette as NodePaletteProps } from '$stylist/graph/interface/slot/node-palette';
+	import type { RecipeNodePalette as NodePaletteProps } from '$stylist/graph/interface/recipe/node-palette';
 
 	let {
 		items = [],

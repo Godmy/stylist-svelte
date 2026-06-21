@@ -1,4 +1,4 @@
-import type { ContractAnnouncementBanner as AnnouncementBannerContract } from '$stylist/media/interface/contract/announcement-banner';
+import type { RecipeAnnouncementBanner as AnnouncementBannerContract } from '$stylist/media/interface/recipe/announcement-banner';
 
 export function createAnnouncementBannerState(props: AnnouncementBannerContract) {
 	const containerClasses = $derived(

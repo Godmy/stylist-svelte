@@ -1,6 +1,4 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
-export interface SlotGraphNode extends StructIntersectAll<[SlotChildren]> {
+export interface SlotGraphNode {
 	id: string;
 	x: number;
 	y: number;

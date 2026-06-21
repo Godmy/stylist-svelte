@@ -1,6 +1,3 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
-import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenConnector } from '$stylist/architecture/type/enum/connector';
@@ -9,8 +6,7 @@ import type { TokenTrigger } from '$stylist/interaction/type/record/trigger';
 /**
  * Unified Tooltip props following SOLID principles
  */
-export interface SlotTooltip
-	extends StructIntersectAll<[HTMLAttributes<HTMLElement>, SlotChildren]> {
+export interface SlotTooltip {
 	/**
 	 * Content to display in the tooltip
 	 */

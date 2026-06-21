@@ -105,8 +105,10 @@ export type {
 	RecipeChartBackground,
 	RecipeChartCanvas,
 	RecipeChartName,
+	RecipeChartPolyline,
 	RecipeHeatmap,
 	RecipeLineChart,
+	RecipePieChart,
 	RecipeScatterPlot,
 	SlotChartAxis
 } from './interface';

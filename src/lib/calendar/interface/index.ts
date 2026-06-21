@@ -27,6 +27,7 @@ export type {
 	RecipeTimeGridDayTimeGrid,
 	RecipeTimeGridExtendedTimeSlot,
 	RecipeTimeline,
+	RecipeTimelineItem,
 	TimeSlotProps
 } from './recipe';
 export type {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotFocusable as FocusProps } from '$stylist/interaction/interface/slot/focusable';
+	import type { RecipeFocusable as FocusProps } from '$stylist/interaction/interface/recipe/focusable';
 	import createFocusableState from '$stylist/interaction/function/state/focusable/index.svelte';
 
 	let props: FocusProps = $props();

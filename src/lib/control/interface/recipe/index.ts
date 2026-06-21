@@ -8,6 +8,7 @@ export type { AvatarSelectorProps } from './avatar-selector';
 export type { RecipeBurgerMenu } from './burger-menu';
 export type { RecipeButton } from './button';
 export type { RecipeButtonComposed } from './button-composed';
+export type { RecipeButtonElement } from './button-element';
 export type { RecipeCheckbox } from './checkbox-checkbox';
 export type { RecipeCheckboxProps } from './checkbox-props';
 export type { RecipeChip } from './chip';

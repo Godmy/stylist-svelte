@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotClickable as ClickProps } from '$stylist/interaction/interface/slot/clickable';
+	import type { RecipeClickable as ClickProps } from '$stylist/interaction/interface/recipe/clickable';
 	import createClickableState from '$stylist/interaction/function/state/clickable/index.svelte';
 
 	let props: ClickProps = $props();

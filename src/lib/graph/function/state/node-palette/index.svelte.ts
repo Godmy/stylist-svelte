@@ -1,6 +1,6 @@
 import { ObjectManagerNodePalette } from '$stylist/graph/class/object-manager/node-palette';
 import type { SlotNodePaletteItem as NodePaletteItem } from '$stylist/graph/interface/slot/node-palette-item';
-import type { SlotNodePalette as NodePaletteProps } from '$stylist/graph/interface/slot/node-palette';
+import type { RecipeNodePalette as NodePaletteProps } from '$stylist/graph/interface/recipe/node-palette';
 
 export function createNodePaletteState(props: NodePaletteProps) {
 	const filteredItems = $derived(

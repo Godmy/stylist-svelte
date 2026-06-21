@@ -1,10 +1,6 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
-import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 
-export interface SlotMenuItem
-	extends StructIntersectAll<[HTMLAttributes<HTMLElement>, SlotChildren]> {
+export interface SlotMenuItem {
 	/**
 	 * Whether the menu item is active
 	 * @default false

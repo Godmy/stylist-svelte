@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction/interaction-html-attributes';
-	import type { SlotLanguageSelector as ILanguageSelectorProps } from '$stylist/localization/interface/slot/language-selector';
+	import type { RecipeLanguageSelector as ILanguageSelectorProps } from '$stylist/localization/interface/recipe/language-selector';
 	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import createLanguageSelectorState from '$stylist/localization/function/state/language-selector/index.svelte';
 

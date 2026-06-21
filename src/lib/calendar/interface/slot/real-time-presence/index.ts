@@ -1,11 +1,11 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
+import type { SlotRealTimePresenceUser } from '$stylist/calendar/interface/slot/real-time-presence-user';
+
 /**
  * RealTimePresence types and interfaces following SOLID principles
  */
 
-export interface SlotRealTimePresence extends StructIntersectAll<[SlotChildren]> {
+export interface SlotRealTimePresence {
 	class?: string;
-	users?: Array<{ id: string; name: string; status: 'online' | 'away' | 'offline' }>;
+	users?: SlotRealTimePresenceUser[];
 	onpresencechange?: (event: CustomEvent) => void;
 }

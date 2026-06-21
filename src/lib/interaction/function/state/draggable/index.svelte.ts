@@ -1,5 +1,5 @@
 import { ObjectManagerGesture } from '$stylist/interaction/class/object-manager/gesture';
-import type { SlotDraggable as DragProps } from '$stylist/interaction/interface/slot/draggable';
+import type { RecipeDraggable as DragProps } from '$stylist/interaction/interface/recipe/draggable';
 
 export const createDraggableState = (props: DragProps) => {
 	let isDragging = $state(false);

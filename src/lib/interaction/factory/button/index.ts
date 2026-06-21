@@ -1,5 +1,5 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { SlotButtonElement } from '$stylist/control/interface/slot/button-element';
+import type { RecipeButtonElement as SlotButtonElement } from '$stylist/control/interface/recipe/button-element';
 
 export interface ButtonFactoryContractInput {
 	variant?: SlotButtonElement['variant'];

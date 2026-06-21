@@ -1,9 +1,7 @@
-import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-import type { SlotChildren } from '$stylist/architecture/interface/slot/children';
 import type { MockDataSelectorDataSelection } from '$stylist/development/type/struct/mock-data-selector-data-selection';
 import type { MockDataSelectorMockDataSchema } from '$stylist/development/type/struct/mock-data-selector-mock-data-schema';
 
-export interface SlotMockDataSelector extends StructIntersectAll<[SlotChildren]> {
+export interface SlotMockDataSelector {
 	class?: string;
 	options?: Array<{ value: string; label: string }>;
 	value?: string;

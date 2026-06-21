@@ -16,8 +16,10 @@ export type {
 	RecipeChartBackground,
 	RecipeChartCanvas,
 	RecipeChartName,
+	RecipeChartPolyline,
 	RecipeHeatmap,
 	RecipeLineChart,
+	RecipePieChart,
 	RecipeScatterPlot
 } from './recipe';
 export type { SlotChartAxis } from './slot';

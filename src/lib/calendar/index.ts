@@ -76,6 +76,7 @@ export type {
 	RecipeTimeGridDayTimeGrid,
 	RecipeTimeGridExtendedTimeSlot,
 	RecipeTimeline,
+	RecipeTimelineItem,
 	SlotCalendarDay,
 	SlotCalendarEvent,
 	SlotCalendarViewEvent,

@@ -6,6 +6,7 @@ export type { RecipeBurnDownChart } from './burn-down-chart';
 export type { DashboardLayoutProps } from './dashboard-layout';
 export type { RecipeFeatureToggle } from './feature-toggle';
 export type { RecipeKanbanBoard } from './kanban-board';
+export type { RecipeKanbanCard } from './kanban-card';
 export type { RecipeKanbanColumn } from './kanban-column';
 export type { RecipeKPIIndicator } from './kpi-indicator';
 export type { RecipeLegendItem } from './legend-item';

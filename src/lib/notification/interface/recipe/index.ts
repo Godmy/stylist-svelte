@@ -3,6 +3,8 @@ export type { RecipeAlert } from './alert';
 export type { RecipeCardSkeleton } from './card-skeleton';
 export type { RecipeErrorBoundary } from './error-boundary';
 export type { RecipeErrorMessage } from './error-message';
+export type { RecipeLazyLoader } from './lazy-loader';
+export type { RecipeLoadingBoundary } from './loading-boundary';
 export type { RecipeProgressBarProps } from './progress-bar-props';
 export type { RecipeSkeleton } from './skeleton';
 export type { RecipeSkeletonCircle } from './skeleton-circle';

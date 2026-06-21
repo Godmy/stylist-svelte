@@ -1,4 +1,4 @@
-import type { SlotFocusable as FocusProps } from '$stylist/interaction/interface/slot/focusable';
+import type { RecipeFocusable as FocusProps } from '$stylist/interaction/interface/recipe/focusable';
 
 export const createFocusableState = (props: FocusProps) => {
 	let isFocused = $state(false);
