@@ -28,7 +28,7 @@
 				showAttachment={values.showAttachment}
 				showEmoji={values.showEmoji}
 				showSend={values.showSend}
-				onSendMessage={(message) => (sent = message)}
+				onSendMessage={(message: string) => (sent = message)}
 			/>
 			<p class="_c2">Last sent: {sent || 'none'}</p>
 		</div>

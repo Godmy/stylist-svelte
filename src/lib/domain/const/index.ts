@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { DOMAIN_MENU_ICONS } from './map';
 export { DOMAIN_COMPONENT_DEBUG_ERROR } from './object';
 export { DOMAIN_SCREEN_VALUES } from './record';
 export {

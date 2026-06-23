@@ -60,7 +60,52 @@ export function createPerformanceDashboardState(props: PerformanceDashboardState
 		return rest;
 	});
 
+	const containerClass = $derived(['performance-dashboard', classNameStr].filter(Boolean).join(' '));
+	const activeTimeRangeButtonClass = 'performance-dashboard__active-time-range-button';
+	const timeRangeButtonClass = 'performance-dashboard__time-range-button';
+	const metricsGridClass = $derived(['performance-dashboard__metrics-grid', metricsClassStr].filter(Boolean).join(' '));
+	const metricHeaderClass = 'performance-dashboard__metric-header';
+	const trendPositiveClass = 'performance-dashboard__trend-positive';
+	const trendNegativeClass = 'performance-dashboard__trend-negative';
+	const metricTitleClass = 'performance-dashboard__metric-title';
+	const metricValueClass = 'performance-dashboard__metric-value';
+	const chartContainerClass = 'performance-dashboard__chart-container';
+	const chartBarClass = 'performance-dashboard__chart-bar';
+
 	return {
+		get containerClass() {
+			return containerClass;
+		},
+		get activeTimeRangeButtonClass() {
+			return activeTimeRangeButtonClass;
+		},
+		get timeRangeButtonClass() {
+			return timeRangeButtonClass;
+		},
+		get metricsGridClass() {
+			return metricsGridClass;
+		},
+		get metricHeaderClass() {
+			return metricHeaderClass;
+		},
+		get trendPositiveClass() {
+			return trendPositiveClass;
+		},
+		get trendNegativeClass() {
+			return trendNegativeClass;
+		},
+		get metricTitleClass() {
+			return metricTitleClass;
+		},
+		get metricValueClass() {
+			return metricValueClass;
+		},
+		get chartContainerClass() {
+			return chartContainerClass;
+		},
+		get chartBarClass() {
+			return chartBarClass;
+		},
 		get label() {
 			return label;
 		},

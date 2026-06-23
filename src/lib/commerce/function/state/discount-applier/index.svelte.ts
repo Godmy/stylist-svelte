@@ -42,9 +42,18 @@ export function createDiscountApplierState(props: DiscountApplierContract) {
 		props.onRemoveRule?.(ruleId);
 	}
 
+	const successMessageClasses = 'discount-applier__message discount-applier__message--success';
+	const errorMessageClasses = 'discount-applier__message discount-applier__message--error';
+
 	return {
 		get codeInput() {
 			return codeInput;
+		},
+		get successMessageClasses() {
+			return successMessageClasses;
+		},
+		get errorMessageClasses() {
+			return errorMessageClasses;
 		},
 		set codeInput(v: string) {
 			codeInput = v;

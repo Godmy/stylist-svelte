@@ -19,9 +19,10 @@ export interface RecipeNodeIcon
 			ILabelSlot,
 			ICaptionSlot,
 			IClickable,
-			ISizable,
 			IElevatable,
 			IMotionToken,
 			HTMLAttributes<HTMLDivElement>
 		]
-	> {}
+	> {
+	size?: number;
+}

@@ -14,13 +14,12 @@
 
 <Code
 	code={props.code}
-	language={props.language}
+	language={props.language as any}
 	title={props.title}
 	copyable={true}
 	class={props.class}
 	contentClass={props.contentClass}
 	headerClass={props.headerClass}
-	{...props}
 />
 
 <style>

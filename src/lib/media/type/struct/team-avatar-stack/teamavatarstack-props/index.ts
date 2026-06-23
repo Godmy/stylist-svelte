@@ -4,7 +4,7 @@ import type { BehaviorTypography } from '$stylist/typography/interface/behavior/
 import type { TeamMember } from '../teammember';
 
 export type TeamAvatarStackProps = {
-	members: TeamMember[];
+	members?: TeamMember[];
 	maxVisible?: number;
 	showStatus?: boolean;
 	showTooltip?: boolean;

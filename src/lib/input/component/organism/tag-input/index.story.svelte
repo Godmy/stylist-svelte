@@ -59,7 +59,7 @@
 				disabled={values.disabled}
 				maxTags={values.maxTags}
 				delimiter={values.delimiter}
-				onChange={handleInputChange}
+				onChange={handleInputChange as any}
 			/>
 		</div>
 	{/snippet}

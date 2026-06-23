@@ -1,7 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
-import type { HTMLAttributes } from 'svelte/elements';
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
+	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 	import type { Snippet } from 'svelte';
 	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';

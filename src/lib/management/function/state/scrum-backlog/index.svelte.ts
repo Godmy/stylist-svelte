@@ -108,8 +108,120 @@ export function createScrumBacklogState(props: RecipeScrumBacklog) {
 	}
 
 	// CSS classes
+	const containerClass = 'scrum-backlog';
+	const headerClass = 'scrum-backlog__header';
+	const headerTitleClass = 'scrum-backlog__header-title';
+	const addButtonClass = 'scrum-backlog__add-button';
+	const iconClass = 'scrum-backlog__icon';
+	const addFormContainerClass = 'scrum-backlog__add-form-container';
+	const formGridClass = 'scrum-backlog__form-grid';
+	const formColSpanClass = 'scrum-backlog__form-col-span';
+	const formInputClass = 'scrum-backlog__form-input';
+	const formTextareaClass = 'scrum-backlog__form-textarea';
+	const formLabelClass = 'scrum-backlog__form-label';
+	const formSelectClass = 'scrum-backlog__form-select';
+	const formButtonsContainerClass = 'scrum-backlog__form-buttons-container';
+	const filtersContainerClass = 'scrum-backlog__filters-container';
+	const filtersGridClass = 'scrum-backlog__filters-grid';
+	const filterLabelClass = 'scrum-backlog__filter-label';
+	const itemsContainerClass = 'scrum-backlog__items-container';
+	const emptyStateContainerClass = 'scrum-backlog__empty-state-container';
+	const emptyStateTextClass = 'scrum-backlog__empty-state-text';
+	const itemsGridClass = 'scrum-backlog__items-grid';
+	const itemCardClass = 'scrum-backlog__item-card';
+	const itemHeaderClass = 'scrum-backlog__item-header';
+	const itemTitleClass = 'scrum-backlog__item-title';
+	const itemBadgeClass = 'scrum-backlog__item-badge';
+	const itemDescriptionClass = 'scrum-backlog__item-description';
+	const itemBadgesContainerClass = 'scrum-backlog__item-badges-container';
+	const itemActionsContainerClass = 'scrum-backlog__item-actions-container';
+	const itemActionButtonClass = 'scrum-backlog__item-action-button';
 
 	return {
+		get containerClass() {
+			return containerClass;
+		},
+		get headerClass() {
+			return headerClass;
+		},
+		get headerTitleClass() {
+			return headerTitleClass;
+		},
+		get addButtonClass() {
+			return addButtonClass;
+		},
+		get iconClass() {
+			return iconClass;
+		},
+		get addFormContainerClass() {
+			return addFormContainerClass;
+		},
+		get formGridClass() {
+			return formGridClass;
+		},
+		get formColSpanClass() {
+			return formColSpanClass;
+		},
+		get formInputClass() {
+			return formInputClass;
+		},
+		get formTextareaClass() {
+			return formTextareaClass;
+		},
+		get formLabelClass() {
+			return formLabelClass;
+		},
+		get formSelectClass() {
+			return formSelectClass;
+		},
+		get formButtonsContainerClass() {
+			return formButtonsContainerClass;
+		},
+		get filtersContainerClass() {
+			return filtersContainerClass;
+		},
+		get filtersGridClass() {
+			return filtersGridClass;
+		},
+		get filterLabelClass() {
+			return filterLabelClass;
+		},
+		get itemsContainerClass() {
+			return itemsContainerClass;
+		},
+		get emptyStateContainerClass() {
+			return emptyStateContainerClass;
+		},
+		get emptyStateTextClass() {
+			return emptyStateTextClass;
+		},
+		get itemsGridClass() {
+			return itemsGridClass;
+		},
+		get itemCardClass() {
+			return itemCardClass;
+		},
+		get itemHeaderClass() {
+			return itemHeaderClass;
+		},
+		get itemTitleClass() {
+			return itemTitleClass;
+		},
+		get itemBadgeClass() {
+			return itemBadgeClass;
+		},
+		get itemDescriptionClass() {
+			return itemDescriptionClass;
+		},
+		get itemBadgesContainerClass() {
+			return itemBadgesContainerClass;
+		},
+		get itemActionsContainerClass() {
+			return itemActionsContainerClass;
+		},
+		get itemActionButtonClass() {
+			return itemActionButtonClass;
+		},
 		get data() {
 			return data;
 		},

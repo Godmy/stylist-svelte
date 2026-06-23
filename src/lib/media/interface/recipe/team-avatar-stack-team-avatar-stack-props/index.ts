@@ -1,7 +1,7 @@
 ﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface TeamAvatarStackProps extends ComputeIntersectAll<[]> {
-	members: Record<string, unknown>[];
+	members?: Record<string, unknown>[];
 	maxVisible?: number;
 	showStatus?: boolean;
 	showTooltip?: boolean;

@@ -1,12 +1,11 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
-import type { HTMLAttributes } from 'svelte/elements';
-<script lang="ts">
+﻿<script lang="ts">
 	import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 	import MessageTimestamp from '$stylist/chat/component/atom/message-timestamp/index.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
+	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 	import createChatItemState from '$stylist/chat/function/state/chat-item/index.svelte';
 
 	export type ChatItemProps = {

@@ -1,4 +1,3 @@
-import type { HTMLAttributes } from 'svelte/elements';
 <script lang="ts">
 	import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
 	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';

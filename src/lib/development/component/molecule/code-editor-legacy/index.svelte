@@ -27,7 +27,7 @@
 
 <Code
 	code={state.props.code}
-	language={state.props.language}
+	language={state.props.language as any}
 	showLineNumbers={state.props.showLineNumbers}
 	copyable={state.props.showCopyButton}
 	class={state.props.class}

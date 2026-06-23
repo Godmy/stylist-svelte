@@ -27,7 +27,7 @@
 		showLineNumbers,
 		FONT_SIZE,
 		showCopyButton,
-		class: className,
+		class: className as any,
 		onCodeChange,
 		...restProps
 	});

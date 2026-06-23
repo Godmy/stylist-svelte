@@ -1,7 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
-import type { HTMLAttributes } from 'svelte/elements';
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
+	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	const Package = 'package';
 	const Plus = 'plus';
@@ -178,7 +177,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 			{:else}
 				<div class="_c13">
 					{#each state.items as item}
-						{@const product = products.find((p) => p.id === item.productId)}
+						{@const product = products.find((p: any) => p.id === item.productId)}
 						{#if product}
 							<div class={'bulk-order-form__item-container' + (itemClass ? ' ' + itemClass : '')}>
 								<div class="bulk-order-form__item-image-area">

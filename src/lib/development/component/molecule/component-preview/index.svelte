@@ -59,7 +59,7 @@
 		</div>
 	{:else}
 		<div class={state.codeContainerClasses}>
-			<CodeBlock {language} {code} />
+			<CodeBlock language={language as any} {code} />
 		</div>
 	{/if}
 </div>

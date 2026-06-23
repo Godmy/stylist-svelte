@@ -4,7 +4,7 @@ import type { BehaviorTypography } from '$stylist/typography/interface/behavior/
 import type { AvatarGroupAvatar } from '../avatargroupavatar';
 
 export type AvatarGroupProps = {
-	avatars: AvatarGroupAvatar[];
+	avatars?: AvatarGroupAvatar[];
 	maxVisible?: number;
 	size?: 'sm' | 'md' | 'lg';
 	showTooltip?: boolean;

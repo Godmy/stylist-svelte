@@ -55,7 +55,56 @@ export function createIssuesTableState(input: {
 		selectedIds = [];
 	}
 
+	const containerClass = 'issues-table';
+	const toolbarClass = 'issues-table__toolbar';
+	const toolbarMetaClass = 'issues-table__toolbar-meta';
+	const actionsClass = 'issues-table__actions';
+	const tableWrapClass = 'issues-table__table-wrap';
+	const tableClass = 'issues-table__table';
+	const headRowClass = 'issues-table__head-row';
+	const headCellClass = 'issues-table__head-cell';
+	const checkboxClass = 'issues-table__checkbox';
+	const bodyCellClass = 'issues-table__body-cell';
+	const mutedTextClass = 'issues-table__muted-text';
+	const messageTextClass = 'issues-table__message-text';
+
 	return {
+		get containerClass() {
+			return containerClass;
+		},
+		get toolbarClass() {
+			return toolbarClass;
+		},
+		get toolbarMetaClass() {
+			return toolbarMetaClass;
+		},
+		get actionsClass() {
+			return actionsClass;
+		},
+		get tableWrapClass() {
+			return tableWrapClass;
+		},
+		get tableClass() {
+			return tableClass;
+		},
+		get headRowClass() {
+			return headRowClass;
+		},
+		get headCellClass() {
+			return headCellClass;
+		},
+		get checkboxClass() {
+			return checkboxClass;
+		},
+		get bodyCellClass() {
+			return bodyCellClass;
+		},
+		get mutedTextClass() {
+			return mutedTextClass;
+		},
+		get messageTextClass() {
+			return messageTextClass;
+		},
 		get showNewOnly() {
 			return showNewOnly;
 		},

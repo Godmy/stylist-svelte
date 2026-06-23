@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import type { ExportFormat } from '$stylist/control/type/alias/export-format';
 
 	import Toolbar from './index.svelte';
 </script>
@@ -15,7 +16,7 @@
 			onZoomOut={() => console.log('Zoom out')}
 			onFitView={() => console.log('Fit to view')}
 			onResetView={() => console.log('Reset view')}
-			onExportImage={(format: 'png' | 'jpeg' | 'svg') => console.log('Export image:', format)}
+			onExportImage={(format: ExportFormat) => console.log('Export image:', format)}
 			onToggleLegend={() => console.log('Toggle legend')}
 			onToggleSearch={() => console.log('Toggle search')}
 		/>

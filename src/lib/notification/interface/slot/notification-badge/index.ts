@@ -11,4 +11,5 @@ export interface SlotNotificationBadge extends SlotChildren {
 	position?: TokenAlignment;
 	showZero?: boolean;
 	badgeClass?: string;
+	class?: string;
 }

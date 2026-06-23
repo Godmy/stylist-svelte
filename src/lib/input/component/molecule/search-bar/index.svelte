@@ -1,6 +1,4 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
-import type { HTMLAttributes } from 'svelte/elements';
-<script lang="ts">
+﻿<script lang="ts">
 	/**
 	 * SearchBar component following SOLID principles
 	 *
@@ -15,6 +13,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 	import createSearchBarState from '$stylist/input/function/state/search-bar/index.svelte';
 	import type { SlotSearchBar as ISearchBarProps } from '$stylist/control/interface/slot/search-bar';
 	import type { HTMLAttributes } from 'svelte/elements';
+	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 
 	const Search = 'search';
 	const X = 'x';

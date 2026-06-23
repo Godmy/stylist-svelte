@@ -62,9 +62,54 @@ export function createDraggableCardState(props: DraggableCardStateProps) {
 		return rest;
 	});
 
+	const rootClass = $derived(
+		['draggable-card__root', isDragging ? 'draggable-card__root--dragging' : '', hostClass]
+			.filter(Boolean)
+			.join(' ')
+	);
+	const handleClass = 'draggable-card__handle';
+	const gripIconClass = 'draggable-card__grip-icon';
+	const titleClass = 'draggable-card__title';
+	const descriptionClass = 'draggable-card__description';
+	const tagsContainerClass = 'draggable-card__tags-container';
+	const tagClass = 'draggable-card__tag';
+	const metadataClass = 'draggable-card__metadata';
+	const dateClass = 'draggable-card__date';
+	const assigneeClass = 'draggable-card__assignee';
+
 	return {
 		get data() {
 			return data;
+		},
+		get rootClass() {
+			return rootClass;
+		},
+		get handleClass() {
+			return handleClass;
+		},
+		get gripIconClass() {
+			return gripIconClass;
+		},
+		get titleClass() {
+			return titleClass;
+		},
+		get descriptionClass() {
+			return descriptionClass;
+		},
+		get tagsContainerClass() {
+			return tagsContainerClass;
+		},
+		get tagClass() {
+			return tagClass;
+		},
+		get metadataClass() {
+			return metadataClass;
+		},
+		get dateClass() {
+			return dateClass;
+		},
+		get assigneeClass() {
+			return assigneeClass;
 		},
 		get hostClass() {
 			return hostClass;

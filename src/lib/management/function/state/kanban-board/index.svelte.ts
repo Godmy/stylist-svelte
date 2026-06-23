@@ -138,8 +138,32 @@ export function createKanbanBoardState(props: RecipeKanbanBoard) {
 	}
 
 	// CSS classes
+	const containerClass = 'kanban-board';
+	const columnContainerClass = 'kanban-board__column-container';
+	const buttonContainerClass = 'kanban-board__button-container';
+	const addButtonClass = 'kanban-board__add-button';
+	const iconClass = 'kanban-board__icon';
+	const contentContainerClass = 'kanban-board__content-container';
 
 	return {
+		get containerClass() {
+			return containerClass;
+		},
+		get columnContainerClass() {
+			return columnContainerClass;
+		},
+		get buttonContainerClass() {
+			return buttonContainerClass;
+		},
+		get addButtonClass() {
+			return addButtonClass;
+		},
+		get iconClass() {
+			return iconClass;
+		},
+		get contentContainerClass() {
+			return contentContainerClass;
+		},
 		get boardState() {
 			return boardState;
 		},

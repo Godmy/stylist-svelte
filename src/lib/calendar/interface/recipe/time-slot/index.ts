@@ -3,7 +3,7 @@ import type { SlotTimeSlotEvent as SlotTimeSlotEvent } from '$stylist/calendar/i
 import type { HTMLAttributes } from 'svelte/elements';
 
 export interface TimeSlotProps
-	extends ComputeIntersectAll<[SlotTimeSlotEvent, Omit<HTMLAttributes<HTMLDivElement>, 'class'>]> {
+	extends ComputeIntersectAll<[Omit<HTMLAttributes<HTMLDivElement>, 'class'>]> {
 	start: Date;
 	end: Date;
 	timeLabel?: string;

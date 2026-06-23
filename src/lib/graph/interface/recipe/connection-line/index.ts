@@ -11,8 +11,10 @@ export interface RecipeConnectionLine
 	endX: number;
 	endY: number;
 	type?: TokenTrajectory;
+	style?: string;
 	lineStyle?: TokenBorderStyle;
 	strokeWidth?: number;
+	width?: number;
 	color?: string;
 	activeColor?: string;
 	hoverColor?: string;

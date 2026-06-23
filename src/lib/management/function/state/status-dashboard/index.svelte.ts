@@ -18,11 +18,16 @@ export function createStatusDashboardState(props: StatusDashboardStateProps) {
 	const itemClassStr = $derived(itemClass == null ? undefined : String(itemClass));
 	const headerClassComputed = $derived(headerClassStr);
 
+	const containerClass = $derived(['status-dashboard', classNameStr].filter(Boolean).join(' '));
 	const titleClass = 'status-dashboard__title';
 	const subtitleClass = 'status-dashboard__subtitle';
+	const itemsGridClass = 'status-dashboard__items-grid';
+	const itemCardClass = 'status-dashboard__item-card';
 	const itemContentClass = 'status-dashboard__item-content';
 	const itemHeaderClass = 'status-dashboard__item-header';
+	const itemTitleClass = 'status-dashboard__item-title';
 	const itemValueClass = 'status-dashboard__item-value';
+	const itemDescriptionClass = 'status-dashboard__item-description';
 	const itemFooterClass = 'status-dashboard__item-footer';
 	const itemActionsClass = 'status-dashboard__item-actions';
 	const statusIconWrapperClass = 'status-dashboard__status-icon-wrapper';
@@ -45,6 +50,48 @@ export function createStatusDashboardState(props: StatusDashboardStateProps) {
 	});
 
 	return {
+		get containerClass() {
+			return containerClass;
+		},
+		get titleClass() {
+			return titleClass;
+		},
+		get subtitleClass() {
+			return subtitleClass;
+		},
+		get itemsGridClass() {
+			return itemsGridClass;
+		},
+		get itemCardClass() {
+			return itemCardClass;
+		},
+		get itemContentClass() {
+			return itemContentClass;
+		},
+		get itemHeaderClass() {
+			return itemHeaderClass;
+		},
+		get itemTitleClass() {
+			return itemTitleClass;
+		},
+		get itemValueClass() {
+			return itemValueClass;
+		},
+		get itemDescriptionClass() {
+			return itemDescriptionClass;
+		},
+		get itemFooterClass() {
+			return itemFooterClass;
+		},
+		get itemActionsClass() {
+			return itemActionsClass;
+		},
+		get statusIconWrapperClass() {
+			return statusIconWrapperClass;
+		},
+		get statusIconClass() {
+			return statusIconClass;
+		},
 		get title() {
 			return title;
 		},

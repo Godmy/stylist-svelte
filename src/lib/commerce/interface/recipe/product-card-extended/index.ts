@@ -9,6 +9,7 @@ export interface RecipeProductCardExtended
 	extends ComputeIntersectAll<
 		[SlotTheme, SlotText, SlotText, SlotBadge, SlotMedia, HTMLAttributes<HTMLDivElement>]
 	> {
+	image?: string;
 	price?: number;
 	currency?: string;
 	rating?: number;

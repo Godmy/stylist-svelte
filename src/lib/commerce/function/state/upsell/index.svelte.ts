@@ -15,12 +15,17 @@ export function createUpsellState(props: UpsellContract) {
 		return product.originalPrice - product.price;
 	}
 
+	function getStarClasses(filled: boolean): string {
+		return filled ? 'upsell__star upsell__star--filled' : 'upsell__star upsell__star--empty';
+	}
+
 	return {
 		get visibleProducts() {
 			return visibleProducts;
 		},
 		formatPrice,
-		getSavings
+		getSavings,
+		getStarClasses
 	};
 }
 

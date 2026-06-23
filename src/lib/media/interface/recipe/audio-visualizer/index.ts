@@ -8,7 +8,7 @@ export interface RecipeAudioVisualizer
 	type?: 'bars' | 'wave' | 'circular';
 	alt?: string;
 	author?: string;
-	duration?: number;
+	duration?: number | string;
 	isPlaying?: boolean;
 	onPlayToggle?: (isPlaying: boolean) => void;
 	class?: string;

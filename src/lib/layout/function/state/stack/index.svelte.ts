@@ -45,6 +45,10 @@ export function createStackState(props: StackProps) {
 		return rest;
 	});
 
+	const classes = $derived(
+		['stack', props.class].filter(Boolean).join(' ')
+	);
+
 	return {
 		get direction() {
 			return direction;
@@ -60,6 +64,9 @@ export function createStackState(props: StackProps) {
 		},
 		get gap() {
 			return gap;
+		},
+		get classes() {
+			return classes;
 		},
 		get restProps() {
 			return restProps;

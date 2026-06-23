@@ -29,7 +29,7 @@
 				step={values.step}
 				disabled={values.disabled}
 				readonly={values.readonly}
-				onValueChange={(next) => (value = next)}
+				onValueChange={(next: number) => (value = next)}
 			/>
 			<p class="_c2">Current value: {value}</p>
 		</div>

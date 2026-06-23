@@ -1,7 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
-import type { HTMLAttributes } from 'svelte/elements';
-<script lang="ts">
+﻿<script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeBreadcrumbLink } from '$stylist/navigation/interface/recipe/breadcrumb-link';
 	import createBreadcrumbLinkState from '$stylist/navigation/function/state/breadcrumb-link/index.svelte';

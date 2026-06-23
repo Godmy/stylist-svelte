@@ -107,8 +107,12 @@ export function createKanbanColumnState(props: RecipeKanbanColumn) {
 	}
 
 	// CSS classes
+	const containerClass = 'kanban-column';
 
 	return {
+		get containerClass() {
+			return containerClass;
+		},
 		get column() {
 			return column;
 		},

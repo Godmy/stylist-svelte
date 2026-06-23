@@ -1,7 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
-import type { HTMLAttributes } from 'svelte/elements';
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
+	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { SlotMessageInput as MessageInputContract } from '$stylist/chat/interface/slot/message-input';
 	import createMessageInputState from '$stylist/chat/function/state/message-input/index.svelte';

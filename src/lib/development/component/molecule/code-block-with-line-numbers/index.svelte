@@ -14,7 +14,7 @@
 
 <Code
 	code={props.code}
-	language={props.language}
+	language={props.language as any}
 	showLineNumbers={true}
 	highlightLines={props.highlightLines}
 	title={props.title}
@@ -24,7 +24,6 @@
 	lineNumberClass={props.lineNumberClass}
 	codeClass={props.codeClass}
 	headerClass={props.headerClass}
-	{...props}
 />
 
 <style>

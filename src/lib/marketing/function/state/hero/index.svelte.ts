@@ -12,6 +12,7 @@ export function createHeroState(props: IHeroProps) {
 	const backgroundImage = $derived(props.backgroundImage);
 	const height = $derived(props.height ?? 'full');
 	const children = $derived(props.children);
+	const backgroundClasses = $derived('hero__background');
 	const ctaContainerClasses = $derived('hero__cta-container');
 	const primaryCTAButtonClasses = $derived('hero__cta-button hero__cta-button--primary');
 	const secondaryCTAButtonClasses = $derived('hero__cta-button hero__cta-button--secondary');
@@ -60,6 +61,9 @@ export function createHeroState(props: IHeroProps) {
 		},
 		get children() {
 			return children;
+		},
+		get backgroundClasses() {
+			return backgroundClasses;
 		},
 		get ctaContainerClasses() {
 			return ctaContainerClasses;

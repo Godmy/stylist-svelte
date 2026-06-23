@@ -30,10 +30,58 @@ export function createBurnDownChartState(props: RecipeBurnDownChart) {
 	const yLabels = $derived(generateBurnDownYLabels(data.points, margins, innerHeight, margins.top));
 
 	// CSS classes
+	const containerClass = 'burn-down-chart';
+	const titleClass = 'burn-down-chart__title';
+	const svgClass = 'burn-down-chart__svg';
+	const gridLineClass = 'burn-down-chart__grid-line';
+	const axisClass = 'burn-down-chart__axis';
+	const idealLineClass = 'burn-down-chart__ideal-line';
+	const actualLineClass = 'burn-down-chart__actual-line';
+	const dataPointClass = 'burn-down-chart__data-point';
+	const xAxisLabelClass = 'burn-down-chart__x-axis-label';
+	const yAxisLabelClass = 'burn-down-chart__y-axis-label';
+	const legendLineClass = 'burn-down-chart__legend-line';
+	const legendTextClass = 'burn-down-chart__legend-text';
 
 	return {
 		get data() {
 			return data;
+		},
+		get containerClass() {
+			return containerClass;
+		},
+		get titleClass() {
+			return titleClass;
+		},
+		get svgClass() {
+			return svgClass;
+		},
+		get gridLineClass() {
+			return gridLineClass;
+		},
+		get axisClass() {
+			return axisClass;
+		},
+		get idealLineClass() {
+			return idealLineClass;
+		},
+		get actualLineClass() {
+			return actualLineClass;
+		},
+		get dataPointClass() {
+			return dataPointClass;
+		},
+		get xAxisLabelClass() {
+			return xAxisLabelClass;
+		},
+		get yAxisLabelClass() {
+			return yAxisLabelClass;
+		},
+		get legendLineClass() {
+			return legendLineClass;
+		},
+		get legendTextClass() {
+			return legendTextClass;
 		},
 		get width() {
 			return width;

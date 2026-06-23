@@ -1,5 +1,5 @@
-import type { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 <script lang="ts">
+	import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import Avatar from './index.svelte';

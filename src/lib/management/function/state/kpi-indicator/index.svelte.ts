@@ -33,9 +33,40 @@ export function createKPIIndicatorState(props: RecipeKPIIndicator) {
 		return rest;
 	});
 
+	const containerClasses = 'kpi-indicator';
+	const titleClasses = 'kpi-indicator__title';
+	const valueClasses = 'kpi-indicator__value';
+	const trendColorClasses = $derived(
+		trend === 'up' ? 'kpi-indicator__trend--positive' :
+		trend === 'down' ? 'kpi-indicator__trend--negative' :
+		'kpi-indicator__trend--neutral'
+	);
+	const progressTrackClasses = 'kpi-indicator__progress-track';
+	const progressFillClasses = $derived(
+		`kpi-indicator__progress-fill kpi-indicator__progress-fill--${status}`
+	);
+
 	return {
 		get label() {
 			return label;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get titleClasses() {
+			return titleClasses;
+		},
+		get valueClasses() {
+			return valueClasses;
+		},
+		get trendColorClasses() {
+			return trendColorClasses;
+		},
+		get progressTrackClasses() {
+			return progressTrackClasses;
+		},
+		get progressFillClasses() {
+			return progressFillClasses;
 		},
 		get currentValue() {
 			return currentValue;
