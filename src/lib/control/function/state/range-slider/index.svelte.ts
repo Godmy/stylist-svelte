@@ -1,4 +1,4 @@
-import type { RangeSliderProps } from '$stylist/control/type/struct/range-slider-props';
+import type { SlotRangeSlider as RangeSliderProps } from '$stylist/input/interface/slot/range-slider';
 
 export function createRangeSliderState(props: RangeSliderProps) {
 	const isRange = $derived(props.range ?? false);

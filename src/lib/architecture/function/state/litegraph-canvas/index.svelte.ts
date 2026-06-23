@@ -4,7 +4,7 @@ import type { SlotGraphToolbarItem as GraphToolbarItem } from '$stylist/graph/in
 import type { ContractLitegraphPort as LitegraphPort } from '$stylist/graph/interface/contract/litegraph-port';
 import type { RecipeGraphCanvas } from '$stylist/graph/interface/recipe/graph-canvas';
 import type { LiteGraphPort as LitegraphPortRecipe } from '$stylist/graph/type/struct/lite-graph-port';
-import type { LitegraphCanvasNodeAddPayload } from '$stylist/graph/type/struct/litegraph-canvas-node-add-payload';
+import type { ContractLitegraphNode as LitegraphCanvasNodeAddPayload } from '$stylist/graph/interface/contract/litegraph-node';
 
 export function createLitegraphCanvasState(props: LitegraphCanvasContract) {
 	let canvasHostRef = $state<HTMLDivElement | null>(null);

@@ -1,12 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	CardData,
-	DraggableCardRestProps,
-	DraggableCardStateProps
+	DraggableCardRestProps
 } from './alias';
 export type {
 	TokenKPI,
-	TokenMonitoringType,
 	TokenNotifictionChannel,
 	TokenTimeRange,
 	TokenTrend

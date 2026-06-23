@@ -6,8 +6,6 @@ export type {
 	AnalyticsChartBarPoint,
 	AnalyticsChartCanvasProps,
 	AnalyticsChartDataPoint,
-	AnalyticsChartLineSeries,
-	AnalyticsChartPiePoint,
 	AnalyticsPieChartSegment,
 	CanvasChartDataPoint,
 	CanvasChartPadding,

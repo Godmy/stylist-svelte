@@ -1,5 +1,5 @@
 import type { TokenRadioControlProps } from '$stylist/control/type/struct/token-radio-control-props';
-import type { TokenValue } from '$stylist/control/type/struct/token-value';
+import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/enum/token-value';
 
 export function createTokenRadioState(props: TokenRadioControlProps) {
 	let internalValue = $state<TokenValue>(

@@ -2,8 +2,6 @@
 export type { AnalyticsChartBarPoint } from './analytics-chart-bar-point';
 export type { AnalyticsChartCanvasProps } from './analytics-chart-canvas-props';
 export type { AnalyticsChartDataPoint } from './analytics-chart-data-point';
-export type { AnalyticsChartLineSeries } from './analytics-chart-line-series';
-export type { AnalyticsChartPiePoint } from './analytics-chart-pie-point';
 export type { IChartDataPoint } from './bar-chart';
 export type { IBarPosition } from './bar-chart-bar-position';
 export type { CanvasChartDataPoint } from './canvas-chart';

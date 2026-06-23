@@ -11,7 +11,6 @@ export type { CanvasImageEditorProps } from './canvas-image-editor';
 export type { CountryFlagProps } from './country-flag';
 export type { FaviconProps } from './favicon';
 export type { IconProps } from './icon';
-export type { IconColor } from './icon-color';
 export type { IconDirection } from './icon-direction';
 export type { IconShape } from './icon-shape';
 export type { IconSize } from './icon-size';

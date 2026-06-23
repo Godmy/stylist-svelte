@@ -36,7 +36,6 @@ export type {
 	SlotProgressBar,
 	SlotProgressCircle,
 	SlotResponseViewer,
-	SlotSimpleModal,
 	SlotSimpleTooltip,
 	SlotSkeleton,
 	SlotSpinner,

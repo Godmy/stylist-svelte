@@ -1,7 +1,3 @@
-/**
- * RangeSlider types and interfaces following SOLID principles
- */
-
 import type { HTMLInputAttributes } from 'svelte/elements';
 
 export interface SlotRangeSlider

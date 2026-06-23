@@ -9,11 +9,10 @@ import { RECORD_SHAPE } from '$stylist/architecture/const/record/shape/index';
 import { RECORD_SIZE } from '$stylist/architecture/const/record/size/index';
 import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom/index';
 import type { FoundationSemanticZoomStage } from '$stylist/architecture/type/script/foundation-semantic-zoom-stages';
-import type { FoundationDepth } from '$stylist/architecture/type/script/foundation-depth-range';
 
 export function resolveSemanticZoomPresentation(
-	worldDepth: FoundationDepth,
-	cameraDepth: FoundationDepth
+	worldDepth: number,
+	cameraDepth: number
 ): SemanticZoomPresentation {
 	const distance = getFoundationDepthDistance(worldDepth, cameraDepth);
 	const proximity = normalizeFoundationDepthDistance(distance);

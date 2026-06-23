@@ -5,7 +5,6 @@ import type { IconSize } from '$stylist/media/type/struct/icon-size';
 import type { IconDirection } from '$stylist/media/type/struct/icon-direction';
 import type { IconVariant } from '$stylist/media/type/struct/icon-variant';
 import type { IconShape } from '$stylist/media/type/struct/icon-shape';
-import type { IconColor } from '$stylist/media/type/struct/icon-color';
 
 export interface ContractIcon extends Omit<HTMLAttributes<HTMLSpanElement>, 'class'>, BehaviorBorderToken, BehaviorTypography {
 	/** Icon name */
@@ -31,7 +30,7 @@ export interface ContractIcon extends Omit<HTMLAttributes<HTMLSpanElement>, 'cla
 	/** Container shape */
 	shape?: IconShape;
 	/** Icon color */
-	color?: IconColor;
+	color?: string;
 	/** Filled */
 	filled?: boolean;
 	/** Additional CSS class */

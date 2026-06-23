@@ -63,7 +63,6 @@ export {
 export type {
 	ConnectionLinePoint,
 	ConnectionPathResult,
-	GraphEditorConnectionData,
 	GraphEditorNodeData,
 	GraphEditorPaletteNode,
 	GraphGridMode,
@@ -79,7 +78,6 @@ export type {
 	LiteGraphNodePresentation,
 	LiteGraphNodeProperty,
 	LiteGraphPort,
-	LitegraphCanvasNodeAddPayload,
 	MinimapBounds,
 	MinimapNodeRect,
 	MinimapOffset,
@@ -119,6 +117,7 @@ export type {
 	RecipeNodePropertiesPanel,
 	RecipeNodeProperty,
 	RecipeNodeTitle,
+	RecipePortGroup,
 	RecipeStylistGraphWorkspace,
 	SlotGraphToolbarItem,
 	SlotLitegraphConnection,

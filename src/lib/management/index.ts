@@ -49,7 +49,6 @@ export {
 	STAT_CARD_VARIANT_CLASSES,
 	TEAM_MEMBER_CARD_VARIANT_CLASSES,
 	TOKEN_KPI,
-	TOKEN_MONITORING_TYPE,
 	TOKEN_NOTIFICATION_CHANNEL,
 	TOKEN_PERFORMANCE_BARS,
 	TOKEN_PERFORMANCE_RANGE,
@@ -84,7 +83,6 @@ export {
 export type {
 	CardData,
 	DraggableCardRestProps,
-	DraggableCardStateProps,
 	INotificationSettingsPreference,
 	Metric,
 	NotificationData,
@@ -96,7 +94,6 @@ export type {
 	StatsCardData,
 	StatusItem,
 	TokenKPI,
-	TokenMonitoringType,
 	TokenNotifictionChannel,
 	TokenTimeRange,
 	TokenTrend

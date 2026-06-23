@@ -20,11 +20,7 @@ export type {
 	TokenTrajectory,
 	TokenZoom
 } from './enum';
-export type {
-	FoundationCameraState,
-	FoundationDepth,
-	FoundationSemanticZoomStage
-} from './script';
+export type { FoundationSemanticZoomStage } from './script';
 export type {
 	ArchitectureScene,
 	GraphEditorProps,

@@ -1,4 +1,4 @@
-import type { DraggableCardStateProps } from '$stylist/management/type/alias/draggable-card-state-props';
+import type { SlotDraggableCard as DraggableCardStateProps } from '$stylist/management/interface/slot/draggable-card';
 
 export function createDraggableCardState(props: DraggableCardStateProps) {
 	const data = $derived(props.data);

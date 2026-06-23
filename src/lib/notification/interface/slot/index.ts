@@ -14,7 +14,6 @@ export type { SlotNotificationBadge } from './notification-badge';
 export type { SlotProgressBar } from './progress-bar';
 export type { SlotProgressCircle } from './progress-circle';
 export type { SlotResponseViewer } from './response-viewer';
-export type { SlotSimpleModal } from './simple-modal';
 export type { SlotSimpleTooltip } from './simple-tooltip';
 export type { SlotSkeleton } from './skeleton';
 export type { SlotSpinner } from './spinner';

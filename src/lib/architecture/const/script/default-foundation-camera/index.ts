@@ -1,4 +1,4 @@
-import type { FoundationCameraState } from '$stylist/architecture/type/script/foundation-camera-state';
+import type { SceneCamera as FoundationCameraState } from '$stylist/architecture/type/struct/scene-camera';
 
 export const DEFAULT_FOUNDATION_CAMERA: FoundationCameraState = {
 	x: 0,

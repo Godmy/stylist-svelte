@@ -6,7 +6,6 @@ export type {
 	AlertProps,
 	AnimatedProgressProps,
 	ErrorBoundaryProps,
-	IToastProps,
 	IToastStyleClasses,
 	LazyLoaderProps,
 	LoadingBoundaryProps,

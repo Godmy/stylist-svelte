@@ -16,6 +16,7 @@ export type {
 	RecipePagination,
 	RecipePaginationProps,
 	RecipeSidebar,
+	RecipeSimpleModal,
 	RecipeToolbar,
 	RecipeToolbarField,
 	RecipeToolbarGroup,

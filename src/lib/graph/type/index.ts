@@ -9,7 +9,6 @@ export type {
 export type {
 	ConnectionLinePoint,
 	ConnectionPathResult,
-	GraphEditorConnectionData,
 	GraphEditorNodeData,
 	GraphEditorPaletteNode,
 	GraphGridMode,
@@ -22,7 +21,6 @@ export type {
 	LiteGraphNodePresentation,
 	LiteGraphNodeProperty,
 	LiteGraphPort,
-	LitegraphCanvasNodeAddPayload,
 	MinimapBounds,
 	MinimapNodeRect,
 	MinimapOffset,

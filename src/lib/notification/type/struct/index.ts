@@ -19,7 +19,6 @@ export type { StateProps } from './state-props';
 export type { StepConnectorProps } from './step-connector-props';
 export type { StepIconProps } from './step-icon-props';
 export type {
-	IToastProps,
 	IToastStyleClasses,
 	ToastNotificationType
 } from './toast';

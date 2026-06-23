@@ -1,4 +1,4 @@
-import type { SlotSimpleModal as SimpleModalProps } from '$stylist/notification/interface/slot/simple-modal';
+import type { RecipeSimpleModal as SimpleModalProps } from '$stylist/navigation/interface/recipe/simple-modal';
 
 export function createSimpleModalState(props: SimpleModalProps) {
 	const dialogClasses = $derived(

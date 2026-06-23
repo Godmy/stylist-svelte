@@ -16,6 +16,7 @@ export type { PaginationStateProps } from './pagination-pagination-state-props';
 export type { RecipePaginationProps } from './pagination-props';
 export type { RecipeSidebar } from './sidebar';
 export type { SidebarStateProps } from './sidebar-sidebar-state-props';
+export type { RecipeSimpleModal } from './simple-modal';
 export type { RecipeToolbar } from './toolbar';
 export type { RecipeToolbarField } from './toolbar-field';
 export type { RecipeToolbarGroup } from './toolbar-group';

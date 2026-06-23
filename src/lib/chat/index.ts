@@ -94,7 +94,6 @@ export type {
 } from './type';
 export type {
 	ChatWindowChat,
-	ContractCommunication,
 	RecipeChatHeader,
 	RecipeChatMessage,
 	RecipeMessageMeta,

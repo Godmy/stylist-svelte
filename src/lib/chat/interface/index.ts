@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ContractCommunication } from './contract';
 export type {
 	RecipeChatHeader,
 	RecipeChatMessage,

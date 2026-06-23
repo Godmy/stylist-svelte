@@ -1,6 +1,6 @@
-import type { TokenControlOption } from '$stylist/control/type/struct/token-control-option';
-import type { TokenValue } from '$stylist/control/type/struct/token-value';
-import type { TokenControlDomain } from '../tokencontroldomain';
+﻿import type { TokenControlOption } from '$stylist/control/type/struct/token-control-option';
+import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/enum/token-value';
+import type { TokenFunctionalTaxonomy as TokenControlDomain } from '$stylist/architecture/type/enum/functional-taxonomy';
 
 export type TokenControlDefinitionData = {
 	id: string;

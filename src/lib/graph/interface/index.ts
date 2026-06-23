@@ -20,6 +20,7 @@ export type {
 	RecipeNodePropertiesPanel,
 	RecipeNodeProperty,
 	RecipeNodeTitle,
+	RecipePortGroup,
 	RecipeStylistGraphWorkspace
 } from './recipe';
 export type {

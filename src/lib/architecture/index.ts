@@ -125,8 +125,6 @@ export type {
 	FoundationAxis,
 	FoundationAxisDirection,
 	FoundationAxisOrientation,
-	FoundationCameraState,
-	FoundationDepth,
 	FoundationSemanticZoomStage,
 	GraphEditorProps,
 	Position2D,

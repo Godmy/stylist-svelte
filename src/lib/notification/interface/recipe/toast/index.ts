@@ -1,6 +1,6 @@
 import type { ToastStackProps as LegacyToastProps4 } from '$stylist/notification/type/struct/toast-stack-props';
 import type { ToastProps as LegacyToastProps3 } from '$stylist/notification/type/struct/toast-props';
-import type { IToastProps as LegacyToastProps2 } from '$stylist/notification/type/struct/toast/toast-props-legacy';
+import type { ToastProps as LegacyToastProps2 } from '$stylist/notification/type/struct/toast-props';
 import type { RecipeToastProps as LegacyToastProps1 } from '$stylist/notification/interface/recipe/toast-props';
 import type { Toast as Slot } from '$stylist/notification/interface/slot/toast';
 import type { Toast as SlotToast } from '$stylist/notification/interface/slot/toast';

@@ -48,7 +48,6 @@ export type {
 	RecipeMediaLibrary,
 	RecipeNodeIcon,
 	RecipePictureToolbar,
-	RecipePortGroup,
 	RecipePromoBanner,
 	RecipeSvg,
 	RecipeTeamAvatarStack,

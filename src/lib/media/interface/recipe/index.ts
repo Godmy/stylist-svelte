@@ -25,7 +25,6 @@ export type { RecipeMediaLibrary } from './media-library';
 export type { RecipeNodeIcon } from './node-icon';
 export type { NodeIconProps } from './node-icon-node-icon-props';
 export type { RecipePictureToolbar } from './picture-toolbar';
-export type { RecipePortGroup } from '$stylist/graph/interface/recipe/port-group';
 export type { RecipePromoBanner } from './promo-banner';
 export type { PromoBannerProps } from './promo-banner-promo-banner-props';
 export type { RecipeSvg } from './svg';
