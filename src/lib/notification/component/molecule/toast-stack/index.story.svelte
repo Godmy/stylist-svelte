@@ -13,13 +13,13 @@
 		}
 	];
 
-	type ToastType = 'info' | 'success' | 'warning' | 'error';
+	type StatusSeverity = 'info' | 'success' | 'warning' | 'error';
 
 	type Toast = {
 		id: string;
 		title?: string;
 		message: string;
-		type: ToastType;
+		type: StatusSeverity;
 		duration?: number;
 		actions?: Array<{
 			label: string;

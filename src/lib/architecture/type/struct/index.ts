@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { CameraState } from './camera';
 export type { SceneCameraInput } from './camera-input';
 export type { Position2D } from './position2d';
 export type { PresentationMode } from './presentation-mode';

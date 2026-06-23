@@ -26,7 +26,6 @@ export type { PlaygroundComponentTreeProps } from './playground-component-tree-p
 export type { PlaygroundComponentTreeStory } from './playground-component-tree-story';
 export type { PlaygroundComponentTreeTreeNodeData } from './playground-component-tree-tree-node-data';
 export type { PlaygroundDeviceFrameProps } from './playground-device-frame-props';
-export type { PlaygroundDeviceFrameViewportSize } from './playground-device-frame-viewport-size';
 export type { PlaygroundDrawingOverlayProps } from './playground-drawing-overlay-props';
 export type { PlaygroundEnhancedExportPanelProps } from './playground-enhanced-export-panel-props';
 export type { PlaygroundErrorBoundaryProps } from './playground-error-boundary-props';
@@ -36,7 +35,6 @@ export type { PlaygroundMarkdownRendererProps } from './playground-markdown-rend
 export type { PlaygroundScreenshotSelectorProps } from './playground-screenshot-selector-props';
 export type { PlaygroundShellHeaderColorScheme } from './playground-shell-header-color-scheme';
 export type { PlaygroundShellHeaderProps } from './playground-shell-header-props';
-export type { PlaygroundShellHeaderViewportSize } from './playground-shell-header-viewport-size';
 export type { PlaygroundShortcutsPanelProps } from './playground-shortcuts-panel-props';
 export type { PlaygroundShortcutsPanelShortcut } from './playground-shortcuts-panel-shortcut';
 export type { PlaygroundTreeNodeProps } from './playground-tree-node-props';

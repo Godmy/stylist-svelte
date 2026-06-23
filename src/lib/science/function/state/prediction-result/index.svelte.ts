@@ -1,5 +1,5 @@
 import type { RecipePredictionResult as PredictionResultContract } from '$stylist/science/interface/recipe/prediction-result';
-import type { PredictionResultStatus } from '$stylist/science/type/struct/prediction-result-status';
+import type { StatusState } from '$stylist/information/type/struct/status-state';
 
 export function createPredictionResultState(props: PredictionResultContract) {
 	const predictions = $derived(props.predictions ?? []);
@@ -53,7 +53,7 @@ export function createPredictionResultState(props: PredictionResultContract) {
 	);
 	const statusIconStyle = $derived((): string => {
 		const base = 'width: 1.25rem; height: 1.25rem; margin-right: var(--spacing-sm);';
-		const statusStyles: Record<PredictionResultStatus, string> = {
+		const statusStyles: Partial<Record<StatusState, string>> = {
 			loading: `${base} color: var(--color-primary-500); animation: spin 1s linear infinite;`,
 			error: `${base} color: var(--color-danger-500);`,
 			warning: `${base} color: var(--color-warning-500);`,

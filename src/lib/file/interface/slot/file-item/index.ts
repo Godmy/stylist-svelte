@@ -1,4 +1,4 @@
-import type { FileType } from '$stylist/file/type/struct/file-list-item/file-type';
+import type { FileType } from '$stylist/file/type/struct/common/file-type';
 
 export interface SlotFileItem {
 	id: string;

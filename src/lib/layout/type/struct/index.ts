@@ -4,21 +4,16 @@ export type {
 	AspectRatioProps,
 	AttributeAspectRatio
 } from './aspect-ratio';
-export type { BorderAura } from './border-aura';
-export type { BorderStyle } from './border-style';
-export type { ChildrenHtmlAttributes } from './children';
 export type { ComponentStateOptions } from './component-state';
 export type { InputStateOptions } from './component-state-input-state-options';
 export type {
 	AttributeContainer,
 	ContainerProps
 } from './container';
-export type { ContentHtmlAttributes } from './content';
 export type { DividerProps } from './divider';
 export type { GradientBackgroundStyle } from './gradient-background-style';
 export type {
 	GridProps,
-	GridRestProps,
 	GridSvgProps
 } from './grid';
 export type {
@@ -47,8 +42,7 @@ export type {
 	OverlayLayoutProps,
 	SidebarLayoutProps,
 	SplitLayoutProps,
-	StickyLayoutProps,
-	VerticalLayoutProps
+	StickyLayoutProps
 } from './layout-extended';
 export type { LayoutGradients } from './layout-gradients';
 export type { LayoutTheme } from './layout-theme';

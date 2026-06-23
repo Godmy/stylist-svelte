@@ -1,13 +1,13 @@
-import type { SidebarLayoutGap } from '$stylist/layout/type/enum/sidebar-layout-gap';
-import type { SidebarLayoutSide } from '$stylist/layout/type/enum/sidebar-layout-side';
+import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
+import type { PopoverPosition } from '$stylist/layout/type/enum/popover-position';
 import type { SidebarLayoutWidth } from '$stylist/layout/type/enum/sidebar-layout-width';
 import type { SidebarLayoutProps } from '$stylist/layout/type/struct/layout-extended/sidebar-layout-props';
 
 export function createSidebarLayoutState(props: SidebarLayoutProps) {
-	const side = $derived<SidebarLayoutSide>(props.side ?? 'left');
+	const side = $derived<PopoverPosition>(props.side ?? 'left');
 	const sidebarLabel = $derived(props.sidebarLabel ?? 'Sidebar');
 	const sidebarWidth = $derived<SidebarLayoutWidth>(props.sidebarWidth ?? 'md');
-	const gap = $derived<SidebarLayoutGap>(props.gap ?? 'md');
+	const gap = $derived<SplitLayoutGap>(props.gap ?? 'md');
 	const collapsed = $derived(props.collapsed ?? false);
 	const fillHeight = $derived(props.fillHeight ?? false);
 	const responsive = $derived(props.responsive ?? true);

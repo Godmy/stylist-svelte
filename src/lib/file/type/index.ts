@@ -14,7 +14,6 @@ export type {
 	ExportFormatDetails,
 	FileItem,
 	FileItemType,
-	FileSystemItemType,
 	FileType,
 	Props,
 	RestProps,
@@ -22,9 +21,7 @@ export type {
 	SlotFileSystemItem,
 	SlotFolderItem,
 	SlotZipEntry,
-	UploadFileStatus,
 	UploadProgressVariant,
 	UploadStatus,
-	ViewMode,
-	ZipEntryType
+	ViewMode
 } from './struct';

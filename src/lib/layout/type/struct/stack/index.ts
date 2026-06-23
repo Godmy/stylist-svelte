@@ -1,4 +1,3 @@
-import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
 import type { TokenStackDirection } from '$stylist/layout/type/enum/stack-direction';

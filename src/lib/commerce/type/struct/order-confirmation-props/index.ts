@@ -2,7 +2,6 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { OrderItem } from '../order-item';
 import type { ShippingAddress } from '../shipping-address';
 import type { PaymentInfo } from '../payment-info';
-import type { OrderStatus } from '../order-status';
 
 export type OrderConfirmationProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
 	orderId: string;
@@ -13,7 +12,7 @@ export type OrderConfirmationProps = Omit<HTMLAttributes<HTMLDivElement>, 'class
 	paymentInfo: PaymentInfo;
 	estimatedDelivery?: Date;
 	trackingNumber?: string;
-	orderStatus?: OrderStatus;
+	orderStatus?: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
 	shippingCost?: number;
 	taxAmount?: number;
 	class?: string;

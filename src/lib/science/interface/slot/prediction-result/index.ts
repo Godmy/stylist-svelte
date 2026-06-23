@@ -1,6 +1,6 @@
 import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
 import type { RecipeScience } from '$stylist/science/interface/recipe/science';
-import type { PredictionResultStatus } from '$stylist/science/type/struct/prediction-result-status';
+import type { StatusState } from '$stylist/information/type/struct/status-state';
 
 export interface SlotPredictionResult extends HtmlAttributesBase<HTMLDivElement> {
 	title?: string;
@@ -10,7 +10,7 @@ export interface SlotPredictionResult extends HtmlAttributesBase<HTMLDivElement>
 	predictedValue?: number;
 	modelUsed?: string;
 	confidence?: number;
-	status?: PredictionResultStatus;
+	status?: StatusState;
 	onRetry?: () => void;
 	showChart?: boolean;
 	class?: string;

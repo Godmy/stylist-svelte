@@ -1,4 +1,4 @@
-import type { ContentType } from '$stylist/input/type/alias/content-type';
+import type { ContentType } from '$stylist/interaction/type/enum/content-editor-content-type';
 
 export interface ContentElement {
 	id: string;

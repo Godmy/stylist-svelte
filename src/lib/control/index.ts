@@ -239,8 +239,6 @@ export {
 export type { AccordionContext } from './const';
 export type {
 	AdvancedVirtualTreeProps,
-	AtomicTabId,
-	AvatarSelectorSize,
 	ButtonMouseEvent,
 	ButtonPropsRecord,
 	CheckboxGroupOption,
@@ -263,7 +261,6 @@ export type {
 	ExportFormat,
 	FlatTreeProps,
 	FolderTreeProps,
-	FunctionalTabId,
 	FunctionalTabItem,
 	ITreeNodeItemStyleClasses,
 	Language,
@@ -308,7 +305,6 @@ export type {
 	TokenControlDefinition,
 	TokenControlDefinitionData,
 	TokenControlDomain,
-	TokenControlKind,
 	TokenControlOption,
 	TokenDomain,
 	TokenIconKind,
@@ -325,7 +321,6 @@ export type {
 	TokenTextStateProps,
 	TokenValue,
 	ToolButtonProps,
-	ToolbarExportFormat,
 	TreeControlsData,
 	TreeNode,
 	TreeNodeItemData,
@@ -471,4 +466,3 @@ export type {
 	TreeViewerProps,
 	ZoomSpecificProps
 } from './interface';
-export type { ToolbarHandlersProps } from './type';

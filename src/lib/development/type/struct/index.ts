@@ -12,7 +12,6 @@ export type { CodeEditorProps } from './code-editor-props';
 export type { CodeSectionProps } from './code-section-props';
 export type { CodeSectionVariant } from './code-section-variant';
 export type { CodeWithCopyProps } from './code-with-copy-props';
-export type { CodeWithCopyVariant } from './code-with-copy-variant';
 export type { ComponentLibraryStatsComponentStats } from './component-library-stats-component-stats';
 export type { ComponentLibraryStatsProps } from './component-library-stats-props';
 export type { CopyableCodeBlockProps } from './copyable-code-block-props';

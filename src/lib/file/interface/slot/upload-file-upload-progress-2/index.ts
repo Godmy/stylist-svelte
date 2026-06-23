@@ -1,4 +1,4 @@
-import type { UploadFileStatus } from '$stylist/file/type/struct/upload-progress/file-status';
+import type { UploadStatus } from '$stylist/file/type/struct/upload-status';
 
 /** Тип для файла в процессе загрузки */
 export interface SlotUploadFile {
@@ -9,7 +9,7 @@ export interface SlotUploadFile {
 	/** Размер файла в байтах */
 	size: number;
 	/** Статус загрузки */
-	status: UploadFileStatus;
+	status: UploadStatus;
 	/** Прогресс загрузки от 0 до 100 */
 	progress: number;
 	/** Ошибка, если произошла */

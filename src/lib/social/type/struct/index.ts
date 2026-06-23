@@ -2,8 +2,7 @@
 export type {
 	FRIEND_LIST_FRIEND,
 	FRIEND_LIST_PROPS,
-	FRIEND_LIST_REST_PROPS,
-	FRIEND_LIST_STATUS
+	FRIEND_LIST_REST_PROPS
 } from './friend-list';
 export type { FriendListContract } from './friend-list-contract';
 export type {

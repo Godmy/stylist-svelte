@@ -1,10 +1,10 @@
-import type { StackedLayoutDirection } from '$stylist/layout/type/enum/stacked-layout-direction';
-import type { StackedLayoutGap } from '$stylist/layout/type/enum/stacked-layout-gap';
+import type { SplitLayoutDirection } from '$stylist/layout/type/enum/split-layout-direction';
+import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
 import type { StackedLayoutProps } from '$stylist/layout/interface/recipe/stacked-layout';
 
 export function createStackedLayoutState(props: StackedLayoutProps) {
-	const direction = $derived<StackedLayoutDirection>(props.direction ?? 'vertical');
-	const gap = $derived<StackedLayoutGap>(props.gap ?? 'md');
+	const direction = $derived<SplitLayoutDirection>(props.direction ?? 'vertical');
+	const gap = $derived<SplitLayoutGap>(props.gap ?? 'md');
 	const alignItems = $derived<'start' | 'center' | 'end' | 'stretch'>(
 		props.alignItems ?? 'stretch'
 	);

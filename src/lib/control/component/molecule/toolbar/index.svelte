@@ -8,14 +8,14 @@
 	import { toolbarHandleSearchToggle } from '$stylist/control/function/script/toolbar-handle-search-toggle';
 	import { toolbarHandleZoomOut } from '$stylist/control/function/script/toolbar-handle-zoom-out';
 	import { toolbarHandleZoomIn } from '$stylist/control/function/script/toolbar';
-	import type { ToolbarExportFormat } from '$stylist/control/type/script/toolbar';
+	import type { ExportFormat } from '$stylist/control/type/alias/export-format';
 
 	let props = $props<{
 		onZoomIn?: () => void;
 		onZoomOut?: () => void;
 		onFitView?: () => void;
 		onResetView?: () => void;
-		onExportImage?: (format: ToolbarExportFormat) => void;
+		onExportImage?: (format: ExportFormat) => void;
 		onToggleLegend?: () => void;
 		onToggleSearch?: () => void;
 	}>();

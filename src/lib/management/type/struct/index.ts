@@ -4,10 +4,7 @@ export type {
 	KanbanBoardAction,
 	KanbanBoardType
 } from './kanban-board';
-export type {
-	KanbanCardStatus,
-	KanbanCardType
-} from './kanban-card';
+export type { KanbanCardType } from './kanban-card';
 export type { KanbanColumnType } from './kanban-column';
 export type { Metric } from './performance-dashboard';
 export type { PerformanceMonitorStatus } from './performance-monitor';

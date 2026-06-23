@@ -10,8 +10,7 @@ export type {
 	DrawingSurfaceCanvasClearedEvent,
 	DrawingSurfaceContract,
 	DrawingSurfaceExposeMethodsEvent,
-	DrawingSurfaceProps,
-	DrawingSurfaceTool
+	DrawingSurfaceProps
 } from './drawing-surface';
 export type {
 	SharedCanvasContract,

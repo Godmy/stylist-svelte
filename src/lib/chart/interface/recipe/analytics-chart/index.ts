@@ -5,7 +5,7 @@ import type { BehaviorDimensionable as IDimensionable } from '$stylist/layout/in
 import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slot/text';
 import type { BehaviorLegendable as ILegendable } from '$stylist/chart/interface/behavior/legendable';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
-import type { TokenAnalyticsChartType } from '$stylist/chart/type/struct/analytics-chart';
+import type { TokenCanvasChartType } from '$stylist/chart/type/struct/canvas-chart-type';
 import type { AnalyticsChartDataPoint } from '$stylist/chart/type/struct/analytics-chart-data-point';
 
 export interface RecipeAnalyticsChart
@@ -20,7 +20,7 @@ export interface RecipeAnalyticsChart
 		]
 	> {
 	data: AnalyticsChartDataPoint[];
-	type?: TokenAnalyticsChartType;
+	type?: TokenCanvasChartType;
 	title?: string;
 	showTrend?: boolean;
 	trendValue?: number;

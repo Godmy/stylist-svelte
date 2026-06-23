@@ -1,7 +1,6 @@
 import { tick } from 'svelte';
 import type { PrimaryMenuItem } from '../../../type/struct/stylist-menu-primary-menu-item';
-import type { FunctionalTabId } from '../../../type/struct/stylist-menu-functional-tab-id';
-import type { AtomicTabId } from '../../../type/struct/stylist-menu-atomic-tab-id';
+import type { StylistCategoryId } from '$stylist/development/type/struct/stylist-category-id';
 import type { StylistMenuProps } from '../../../type/struct/stylist-menu-props';
 import { STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS } from '../../../const/record/stylist-menu-functional-primary-sections';
 
@@ -62,13 +61,13 @@ export function createStylistMenuState(props: StylistMenuProps) {
 
 	function handleFunctionalTabSelect(tab: { id: string }) {
 		if (tab.id === 'architecture' || tab.id === 'information' || tab.id === 'interaction') {
-			props.onFunctionalTabClick?.(tab.id as FunctionalTabId);
+			props.onFunctionalTabClick?.(tab.id as StylistCategoryId);
 		}
 	}
 
 	function handleAtomicTabSelect(tab: { id: string }) {
 		if (tab.id === 'atoms' || tab.id === 'molecules' || tab.id === 'organisms') {
-			props.onAtomicTabClick?.(tab.id as AtomicTabId);
+			props.onAtomicTabClick?.(tab.id as 'atoms' | 'molecules' | 'organisms');
 		}
 	}
 

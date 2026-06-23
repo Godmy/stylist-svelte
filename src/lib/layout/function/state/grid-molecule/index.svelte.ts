@@ -1,13 +1,13 @@
-import type { GridMoleculeAlign } from '$stylist/layout/type/enum/grid-molecule-align';
-import type { GridMoleculeGap } from '$stylist/layout/type/enum/grid-molecule-gap';
+import type { LayoutGravity } from '$stylist/layout/type/struct/item-layout-gravity';
+import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
 import type { GridMoleculeJustify } from '$stylist/layout/type/enum/grid-molecule-justify';
 import type { GridMoleculeProps } from '$stylist/layout/type/struct/layout-extended/grid-molecule-props';
 
 export function createGridMoleculeState(props: GridMoleculeProps) {
 	const cols = $derived(props.cols ?? 2);
-	const gap = $derived<GridMoleculeGap>(props.gap ?? 'md');
+	const gap = $derived<SplitLayoutGap>(props.gap ?? 'md');
 	const responsive = $derived(props.responsive ?? true);
-	const alignItems = $derived<GridMoleculeAlign>(props.alignItems ?? 'stretch');
+	const alignItems = $derived<LayoutGravity>(props.alignItems ?? 'stretch');
 	const justifyContent = $derived<GridMoleculeJustify>(props.justifyContent ?? 'start');
 
 	const restProps = $derived.by(() => {

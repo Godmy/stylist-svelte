@@ -1,11 +1,11 @@
 import type { RecipePlaygroundDeviceFrame } from '$stylist/playground/interface/recipe/playground-device-frame';
-import type { PlaygroundDeviceFrameViewportSize } from '$stylist/playground/type/struct/playground-device-frame-viewport-size';
+import type { PlaygroundCanvasShellViewportSize } from '$stylist/playground/type/struct/playground-canvas-shell-viewport-size';
 export function createPlaygroundDeviceFrameState(props: RecipePlaygroundDeviceFrame) {
 	const device = props.device ?? 'desktop';
 	const children = $derived(props.children);
 
 	const deviceSpecs: Record<
-		PlaygroundDeviceFrameViewportSize,
+		PlaygroundCanvasShellViewportSize,
 		{ width: number; height: number; name: string; color: string }
 	> = {
 		mobile: { width: 375, height: 667, name: 'iPhone SE', color: 'from-gray-800 to-gray-900' },

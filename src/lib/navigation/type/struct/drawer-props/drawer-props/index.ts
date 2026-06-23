@@ -1,10 +1,10 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { DrawerPosition } from '../drawerposition';
+import type { PopoverPosition } from '$stylist/layout/type/enum/popover-position';
 
 export type DrawerProps = HTMLAttributes<HTMLDivElement> & {
 	open?: boolean;
-	position?: DrawerPosition;
+	position?: PopoverPosition;
 	size?: string;
 	closable?: boolean;
 	showBackdrop?: boolean;

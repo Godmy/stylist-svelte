@@ -78,8 +78,6 @@ export type {
 	BreadcrumbsProps,
 	ChartLegendItem,
 	DialogConfirmProps,
-	DialogConfirmVariant,
-	DrawerPosition,
 	DrawerProps,
 	GeneralToolbarRecipe,
 	NavItem,

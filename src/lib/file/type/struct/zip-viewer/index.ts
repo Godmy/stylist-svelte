@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { SlotZipEntry } from './entry';
-export type { ZipEntryType } from './entry-type';
 export type {
 	Props,
 	RestProps

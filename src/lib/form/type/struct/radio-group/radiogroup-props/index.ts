@@ -1,6 +1,6 @@
 import type { HTMLInputAttributes } from 'svelte/elements';
 import type { RadioOption } from '../radiooption';
-import type { RadioOrientation } from '../radioorientation';
+import type { SplitLayoutDirection } from '$stylist/layout/type/enum/split-layout-direction';
 
 export type RadioGroupProps = Omit<HTMLInputAttributes, 'type' | 'value' | 'name' | 'checked'> & {
 	name: string;
@@ -8,7 +8,7 @@ export type RadioGroupProps = Omit<HTMLInputAttributes, 'type' | 'value' | 'name
 	options: RadioOption[];
 	label?: string;
 	description?: string;
-	orientation?: RadioOrientation;
+	orientation?: SplitLayoutDirection;
 	disabled?: boolean;
 	required?: boolean;
 	error?: string;

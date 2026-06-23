@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
-import type { GridRestProps } from '../grid-rest-props';
+import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
 
-export type GridProps = GridRestProps & {
+export type GridProps = Omit<LayoutHTMLAttributes<HTMLDivElement>, 'class'> & {
 	children: Snippet;
 	class?: string;
 	cols?: number;

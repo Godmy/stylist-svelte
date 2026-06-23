@@ -1,5 +1,3 @@
-import type { KanbanCardStatus } from '../kanbancardstatus';
-
 export type KanbanCardType = {
 	id: string;
 	title: string;
@@ -8,7 +6,7 @@ export type KanbanCardType = {
 	assignees?: string[];
 	dueDate?: Date;
 	priority?: 'low' | 'medium' | 'high';
-	status?: KanbanCardStatus;
+	status?: 'todo' | 'in-progress' | 'review' | 'done' | 'archived';
 	tags?: string[];
 	createdAt?: Date;
 	updatedAt?: Date;

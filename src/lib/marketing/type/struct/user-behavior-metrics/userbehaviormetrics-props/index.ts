@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
-import type { TimeRange } from '../timerange';
+import type { TimeRange } from '$stylist/marketing/type/struct/traffic-analytics/timerange';
 import type { UserBehaviorMetric } from '../userbehaviormetric';
 
 export type UserBehaviorMetricsProps = {

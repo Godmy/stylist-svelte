@@ -1,8 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
-import type { SidebarLayoutGap } from '$stylist/layout/type/enum/sidebar-layout-gap';
-import type { SidebarLayoutSide } from '$stylist/layout/type/enum/sidebar-layout-side';
+import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
+import type { PopoverPosition } from '$stylist/layout/type/enum/popover-position';
 import type { SidebarLayoutWidth } from '$stylist/layout/type/enum/sidebar-layout-width';
 
 export type SidebarLayoutProps = LayoutHTMLAttributes<HTMLDivElement> & {
@@ -10,11 +10,11 @@ export type SidebarLayoutProps = LayoutHTMLAttributes<HTMLDivElement> & {
 	sidebar: Snippet;
 	children: Snippet;
 	/** На какой стороне размещается сайдбар */
-	side?: SidebarLayoutSide;
+	side?: PopoverPosition;
 	/** Ширина сайдбара */
 	sidebarWidth?: SidebarLayoutWidth;
 	/** Промежуток между сайдбаром и основным контентом */
-	gap?: SidebarLayoutGap;
+	gap?: SplitLayoutGap;
 	/** Схлопнуть сайдбар */
 	collapsed?: boolean;
 	/** Растягивает layout на всю высоту родителя */

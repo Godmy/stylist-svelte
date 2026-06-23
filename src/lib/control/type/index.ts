@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	AvatarSelectorSize,
 	ControlPanelStateProps,
 	ExportFormat,
 	Row,
@@ -14,10 +13,8 @@ export type {
 	TokenSelectionType,
 	TokenSelectorKind
 } from './record';
-export type { ToolbarExportFormat } from './script';
 export type {
 	AdvancedVirtualTreeProps,
-	AtomicTabId,
 	ButtonMouseEvent,
 	ButtonPropsRecord,
 	CheckboxGroupOption,
@@ -38,7 +35,6 @@ export type {
 	ExpandableTableRowRestProps,
 	FlatTreeProps,
 	FolderTreeProps,
-	FunctionalTabId,
 	FunctionalTabItem,
 	ITreeNodeItemStyleClasses,
 	Language,
@@ -79,7 +75,6 @@ export type {
 	TokenControlDefinition,
 	TokenControlDefinitionData,
 	TokenControlDomain,
-	TokenControlKind,
 	TokenControlOption,
 	TokenDomain,
 	TokenIconKind,
@@ -98,4 +93,3 @@ export type {
 	TreeNodeItemData,
 	TreeNodeItemNode
 } from './struct';
-export type { ToolbarHandlersProps } from './script';

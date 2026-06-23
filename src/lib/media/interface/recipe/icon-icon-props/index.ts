@@ -2,7 +2,7 @@
 import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { IconColor } from '$stylist/media/type/alias/icon-color';
-import type { IconDirection } from '$stylist/media/type/alias/icon-direction';
+import type { IconDirection } from '$stylist/media/type/struct/icon-direction';
 import type { IconShape } from '$stylist/media/type/alias/icon-shape';
 import type { IconSize } from '$stylist/media/type/alias/icon-size';
 import type { IconVariant } from '$stylist/media/type/alias/icon-variant';

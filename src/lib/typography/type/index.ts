@@ -8,7 +8,6 @@ export type {
 	TokenTypographyTone
 } from './enum';
 export type {
-	FontIntent,
 	StructRichTextMark,
 	StructRichTextSegment,
 	StructThemeTypography

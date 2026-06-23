@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AvatarSelectorSize } from './avatar-selector-size';
 export type { ControlPanelStateProps } from './control-panel-state-props';
 export type { ExportFormat } from './export-format';
 export type { Row } from './row';

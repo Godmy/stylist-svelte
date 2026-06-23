@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { UserBehaviorMetricsProps } from '$stylist/marketing/type/struct/user-behavior-metrics/userbehaviormetrics-props';
-	import type { TimeRange } from '$stylist/marketing/type/struct/user-behavior-metrics/timerange';
+	import type { TimeRange } from '$stylist/marketing/type/struct/traffic-analytics/timerange';
 	import createUserBehaviorMetricsState from '$stylist/marketing/function/state/user-behavior-metrics/index.svelte';
 
 	let props: UserBehaviorMetricsProps = $props();

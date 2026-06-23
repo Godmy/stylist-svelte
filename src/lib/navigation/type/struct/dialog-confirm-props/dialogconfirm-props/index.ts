@@ -1,5 +1,3 @@
-import type { DialogConfirmVariant } from '../dialogconfirmvariant';
-
 export type DialogConfirmProps = {
 	isOpen: boolean;
 	onClose: () => void;
@@ -8,6 +6,6 @@ export type DialogConfirmProps = {
 	message: string;
 	confirmText?: string;
 	cancelText?: string;
-	variant?: DialogConfirmVariant;
+	variant?: 'danger' | 'warning' | 'info';
 	isLoading?: boolean;
 };

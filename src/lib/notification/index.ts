@@ -89,8 +89,7 @@ export type {
 	StepIconProps,
 	ToastNotificationType,
 	ToastProps,
-	ToastStackProps,
-	ToastType
+	ToastStackProps
 } from './type';
 export type {
 	RecipeAlert,

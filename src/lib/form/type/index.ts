@@ -9,8 +9,6 @@ export type {
 	LoginCredentials,
 	RadioGroupProps,
 	RadioOption,
-	RadioOrientation,
 	ValidationErrors,
-	ValidationOrientation,
 	ValidationProps
 } from './struct';

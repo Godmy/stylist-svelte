@@ -1,11 +1,11 @@
-import type { FRIEND_LIST_STATUS } from '../friend_list_status';
+import type { AvatarUserStatus } from '$stylist/media/type/struct/avatar-user-status';
 
 export type FRIEND_LIST_FRIEND = {
 	id: string;
 	name: string;
 	username?: string;
 	avatar?: string;
-	status: FRIEND_LIST_STATUS;
+	status: AvatarUserStatus;
 	lastSeen?: Date;
 	isOnline?: boolean;
 	isFavorite?: boolean;

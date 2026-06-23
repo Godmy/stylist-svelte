@@ -84,7 +84,6 @@ export type {
 	FileItemType,
 	FileStateOptions,
 	FileStateResult,
-	FileSystemItemType,
 	FileType,
 	Props,
 	RestProps,
@@ -93,11 +92,9 @@ export type {
 	SlotFolderItem,
 	SlotZipEntry,
 	TokenDocumentFormat,
-	UploadFileStatus,
 	UploadProgressVariant,
 	UploadStatus,
-	ViewMode,
-	ZipEntryType
+	ViewMode
 } from './type';
 export type {
 	BehaviorAttachmentPreviewEvents,

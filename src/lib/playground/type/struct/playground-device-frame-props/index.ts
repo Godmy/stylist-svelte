@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
-import type { PlaygroundDeviceFrameViewportSize } from '$stylist/playground/type/struct/playground-device-frame-viewport-size';
+import type { PlaygroundCanvasShellViewportSize } from '$stylist/playground/type/struct/playground-canvas-shell-viewport-size';
 
 export type PlaygroundDeviceFrameProps = {
-	device: PlaygroundDeviceFrameViewportSize;
+	device: PlaygroundCanvasShellViewportSize;
 	children?: Snippet;
 };

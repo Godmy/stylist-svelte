@@ -1,9 +1,9 @@
-import type { VerticalLayoutProps } from '$stylist/layout/type/struct/layout-extended/vertical-layout-props';
+import type { BaseLayoutProps } from '$stylist/layout/type/struct/layout-extended/base-layout-props';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenJustification } from '$stylist/layout/type/enum/justification';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
-export function createVerticalLayoutState(props: VerticalLayoutProps) {
+export function createVerticalLayoutState(props: BaseLayoutProps) {
 	const gap = $derived<TokenSize>((props.gap as TokenSize | undefined) ?? 'md');
 	const alignItems = $derived<TokenAlignment | 'stretch' | 'baseline'>(
 		(props.alignItems as TokenAlignment | 'stretch' | 'baseline' | undefined) ?? 'stretch'

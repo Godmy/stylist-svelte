@@ -97,7 +97,6 @@ export type {
 	AutoCompleteOption,
 	ColorItem,
 	ColorPaletteProps,
-	ContentType,
 	DateRangeValue,
 	DateTimeRangePickerProps,
 	DateTimeRangeValue,

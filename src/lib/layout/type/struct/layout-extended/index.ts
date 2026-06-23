@@ -14,4 +14,3 @@ export type {
 export type { SidebarLayoutProps } from './sidebar-layout-props';
 export type { SplitLayoutProps } from './split-layout-props';
 export type { StickyLayoutProps } from './sticky-layout-props';
-export type { VerticalLayoutProps } from './vertical-layout-props';

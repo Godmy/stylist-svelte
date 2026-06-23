@@ -1,8 +1,8 @@
-import type { AvatarSelectorSize } from '$stylist/control/type/alias/avatar-selector-size';
+import type { AvatarSize } from '$stylist/media/type/struct/avatar-size';
 import type { AvatarSelectorProps } from '$stylist/control/interface/recipe/avatar-selector';
 
 export function createAvatarSelectorState(props: AvatarSelectorProps) {
-	const size = $derived((props.size ?? 'md') as AvatarSelectorSize);
+	const size = $derived((props.size ?? 'md') as AvatarSize);
 	const className = $derived(props.class ?? '');
 	const src = $derived(props.src ?? '');
 	const alt = $derived(props.alt ?? 'Avatar');

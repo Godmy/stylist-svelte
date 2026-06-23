@@ -13,10 +13,6 @@ export type {
 } from './forms';
 export type {
 	RadioGroupProps,
-	RadioOption,
-	RadioOrientation
+	RadioOption
 } from './radio-group';
-export type {
-	ValidationOrientation,
-	ValidationProps
-} from './validation-form-field';
+export type { ValidationProps } from './validation-form-field';

@@ -26,6 +26,5 @@ export type {
 	LineChartPoint,
 	PieChartDataPoint,
 	ScatterPlotDataPoint,
-	TokenAnalyticsChartType,
 	TokenCanvasChartType
 } from './struct';

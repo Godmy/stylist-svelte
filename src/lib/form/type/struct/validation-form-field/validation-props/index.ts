@@ -1,7 +1,7 @@
 import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { ValidationOrientation } from '../validationorientation';
+import type { SplitLayoutDirection } from '$stylist/layout/type/enum/split-layout-direction';
 
 export type ValidationProps = HTMLAttributes<HTMLDivElement> & SlotInteraction & {
 	label?: string;
@@ -10,7 +10,7 @@ export type ValidationProps = HTMLAttributes<HTMLDivElement> & SlotInteraction &
 	error?: string;
 	hint?: string;
 	disabled?: boolean;
-	orientation?: ValidationOrientation;
+	orientation?: SplitLayoutDirection;
 	class?: string;
 	id?: string;
 	children: Snippet;

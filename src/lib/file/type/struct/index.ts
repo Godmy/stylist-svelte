@@ -18,13 +18,6 @@ export type {
 } from './file-explorer';
 export type { FileItemType } from './file-item-type';
 export type { FileItem } from './file-list-item';
-export type { FileSystemItemType } from './file-system-item-type';
-export type {
-	UploadFileStatus,
-	UploadProgressVariant
-} from './upload-progress';
+export type { UploadProgressVariant } from './upload-progress';
 export type { UploadStatus } from './upload-status';
-export type {
-	SlotZipEntry,
-	ZipEntryType
-} from './zip-viewer';
+export type { SlotZipEntry } from './zip-viewer';

@@ -1,9 +1,9 @@
-import type { ZipEntryType } from '$stylist/file/type/struct/zip-viewer/entry-type';
+import type { FileItemType } from '$stylist/file/type/struct/file-item-type';
 
 export interface SlotZipEntry {
 	id: string;
 	name: string;
-	type: ZipEntryType;
+	type: FileItemType;
 	size?: number;
 	compressedSize?: number;
 	modified?: Date;

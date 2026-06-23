@@ -1,5 +1,5 @@
-﻿import type { RecipePlaygroundShellHeader } from '$stylist/playground/interface/recipe/playground-shell-header';
-import type { PlaygroundShellHeaderViewportSize } from '$stylist/playground/type/struct/playground-shell-header-viewport-size';
+import type { RecipePlaygroundShellHeader } from '$stylist/playground/interface/recipe/playground-shell-header';
+import type { PlaygroundCanvasShellViewportSize } from '$stylist/playground/type/struct/playground-canvas-shell-viewport-size';
 const ZoomIn = 'zoom-in';
 const ZoomOut = 'zoom-out';
 const Smartphone = 'smartphone';
@@ -38,7 +38,7 @@ export function createPlaygroundShellHeaderState(props: RecipePlaygroundShellHea
 	const className = $derived(props.class ?? '');
 
 	const deviceOptions: Array<{
-		id: PlaygroundShellHeaderViewportSize;
+		id: PlaygroundCanvasShellViewportSize;
 		label: string;
 		description: string;
 		icon: string;
@@ -74,7 +74,7 @@ export function createPlaygroundShellHeaderState(props: RecipePlaygroundShellHea
 	);
 	const selectedColorScheme = $derived(activeColorScheme ?? colorSchemes[0]);
 
-	function selectDevice(id: PlaygroundShellHeaderViewportSize) {
+	function selectDevice(id: PlaygroundCanvasShellViewportSize) {
 		onSetViewport?.(id);
 		deviceMenuOpen = false;
 	}

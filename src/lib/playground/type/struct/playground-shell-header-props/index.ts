@@ -1,4 +1,4 @@
-import type { PlaygroundShellHeaderViewportSize } from '$stylist/playground/type/struct/playground-shell-header-viewport-size';
+import type { PlaygroundCanvasShellViewportSize } from '$stylist/playground/type/struct/playground-canvas-shell-viewport-size';
 import type { PlaygroundShellHeaderColorScheme } from '$stylist/playground/type/struct/playground-shell-header-color-scheme';
 
 export type PlaygroundShellHeaderProps = {
@@ -6,7 +6,7 @@ export type PlaygroundShellHeaderProps = {
 	showAIPanel?: boolean;
 	drawingMode?: boolean;
 	drawColor?: string;
-	currentViewport?: PlaygroundShellHeaderViewportSize;
+	currentViewport?: PlaygroundCanvasShellViewportSize;
 	showDeviceFrame?: boolean;
 	showGrid?: boolean;
 	zoom?: number;
@@ -18,7 +18,7 @@ export type PlaygroundShellHeaderProps = {
 	onToggleDrawingMode?: () => void;
 	onTakeScreenshot?: () => void;
 	onChangeDrawColor?: (color: string) => void;
-	onSetViewport?: (id: PlaygroundShellHeaderViewportSize) => void;
+	onSetViewport?: (id: PlaygroundCanvasShellViewportSize) => void;
 	onToggleDeviceFrame?: () => void;
 	onZoomOut?: () => void;
 	onZoomIn?: () => void;

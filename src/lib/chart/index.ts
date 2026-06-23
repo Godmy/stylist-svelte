@@ -84,7 +84,6 @@ export type {
 	LineChartPoint,
 	PieChartDataPoint,
 	ScatterPlotDataPoint,
-	TokenAnalyticsChartType,
 	TokenCanvasChartType,
 	TokenChart
 } from './type';

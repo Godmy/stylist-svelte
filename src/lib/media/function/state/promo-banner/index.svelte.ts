@@ -1,4 +1,4 @@
-﻿import type { PromoBannerVariant } from '$stylist/media/type/alias/promo-banner-variant';
+﻿import type { PromoBannerVariant } from '$stylist/media/type/struct/promo-banner/promobannervariant';
 import type { RecipePromoBanner } from '$stylist/media/interface/recipe/promo-banner';
 
 const VARIANT_CLASSES: Record<PromoBannerVariant, string> = {

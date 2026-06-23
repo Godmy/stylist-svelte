@@ -1,5 +1,5 @@
 import type { GridProps } from '$stylist/layout/type/struct/grid/grid-props';
-import type { GridRestProps } from '$stylist/layout/type/struct/grid/grid-rest-props';
+import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
 
 export function stateFn(props: GridProps) {
 	const restProps = $derived.by(() => {
@@ -13,7 +13,7 @@ export function stateFn(props: GridProps) {
 			children: _children,
 			...rest
 		} = props;
-		return rest as GridRestProps;
+		return rest as Omit<LayoutHTMLAttributes<HTMLDivElement>, 'class'>;
 	});
 
 	return {

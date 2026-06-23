@@ -10,7 +10,6 @@ export type {
 	TokenControlKind,
 	TokenControllerType,
 	TokenFlow,
-	TokenInteractionContract,
 	TokenInteration,
 	TokenLoading,
 	TokenProcess,

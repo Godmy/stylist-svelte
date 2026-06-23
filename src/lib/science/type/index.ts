@@ -8,7 +8,6 @@ export type {
 	Idef0Port,
 	Model,
 	ModelSelectorProps,
-	PredictionResultStatus,
 	PromptVariableType,
 	ScienceHTMLAttributes,
 	SentimentAnalysisStatus,

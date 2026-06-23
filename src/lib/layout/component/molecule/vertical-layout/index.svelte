@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { VerticalLayoutProps } from '$stylist/layout/type/struct/layout-extended/vertical-layout-props';
+	import type { BaseLayoutProps } from '$stylist/layout/type/struct/layout-extended/base-layout-props';
 	import createVerticalLayoutState from '$stylist/layout/function/state/vertical-layout/index.svelte';
 
-	let props: VerticalLayoutProps = $props();
+	let props: BaseLayoutProps = $props();
 	const state = createVerticalLayoutState(props);
 
 	const GAP: Record<string, string> = {

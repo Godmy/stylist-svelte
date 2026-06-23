@@ -40,7 +40,6 @@ export {
 	truncateText
 } from './function';
 export type {
-	FontIntent,
 	StructRichTextMark,
 	StructRichTextSegment,
 	StructThemeTypography,

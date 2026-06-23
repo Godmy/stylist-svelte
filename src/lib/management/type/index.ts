@@ -6,9 +6,7 @@ export type {
 	DraggableCardStateProps,
 	KanbanCardPriority,
 	KanbanCardStateProps,
-	KanbanCardStatus,
 	KanbanCardUser,
-	LegendItemType,
 	LegendItemVariant
 } from './alias';
 export type {

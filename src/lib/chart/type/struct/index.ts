@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { TokenAnalyticsChartType } from './analytics-chart';
 export type { AnalyticsChartBarPoint } from './analytics-chart-bar-point';
 export type { AnalyticsChartCanvasProps } from './analytics-chart-canvas-props';
 export type { AnalyticsChartDataPoint } from './analytics-chart-data-point';

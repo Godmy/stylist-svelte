@@ -40,7 +40,6 @@ export type {
 	CalendarViewMode,
 	DayTimeGrid,
 	PresenceStatus,
-	RealTimePresenceStatus,
 	RecipeExtendedTimeSlot,
 	TimelineStatus,
 	TokenPriority,

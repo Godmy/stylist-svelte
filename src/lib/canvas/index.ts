@@ -45,7 +45,6 @@ export type {
 	DrawingSurfaceContract,
 	DrawingSurfaceExposeMethodsEvent,
 	DrawingSurfaceProps,
-	DrawingSurfaceTool,
 	SharedCanvasContract,
 	SharedCanvasDraftObject,
 	SharedCanvasObjectBounds,

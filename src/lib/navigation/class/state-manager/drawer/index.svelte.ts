@@ -1,5 +1,5 @@
 import type { DrawerProps } from '$stylist/navigation/type/struct/drawer-props/drawer-props';
-import type { DrawerPosition } from '$stylist/navigation/type/struct/drawer-props/drawerposition';
+import type { PopoverPosition } from '$stylist/layout/type/enum/popover-position';
 import { close } from '$stylist/navigation/function/script/close';
 import { handleBackdropClick } from '$stylist/navigation/function/script/handle-backdrop-click';
 import { handleBackdropKeyDown } from '$stylist/navigation/function/script/handle-backdrop-key-down';
@@ -15,8 +15,8 @@ export class DrawerManager {
 		return this.props.open ?? false;
 	}
 
-	get position(): DrawerPosition {
-		return (this.props.position ?? 'right') as DrawerPosition;
+	get position(): PopoverPosition {
+		return (this.props.position ?? 'right') as PopoverPosition;
 	}
 
 	get size(): string {

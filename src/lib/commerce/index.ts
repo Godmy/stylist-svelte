@@ -184,10 +184,8 @@ export type {
 	ComparisonItem,
 	DiscountType,
 	InventoryItemStatus,
-	Layout,
 	OrderConfirmationProps,
 	OrderItem,
-	OrderStatus,
 	OrderStatusType,
 	PaymentData,
 	PaymentMethod,
@@ -213,7 +211,6 @@ export type {
 	SlotProductTourStep,
 	SlotShippingOption,
 	SortOption,
-	StepStatus,
 	SubscriptionManagerStoryProps,
 	SubscriptionStatus,
 	TaxCalculatorStoryProps,
@@ -226,8 +223,6 @@ export type {
 	TrackingStatusType,
 	UpsellStoryProps,
 	User,
-	UserCardSize,
-	UserStatus,
 	WarrantyInfoStoryProps,
 	WarrantyPeriodType
 } from './type';

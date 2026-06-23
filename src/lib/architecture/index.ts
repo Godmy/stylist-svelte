@@ -118,7 +118,6 @@ export {
 } from './function';
 export type {
 	ArchitectureScene,
-	CameraState,
 	FoundationAxis,
 	FoundationAxisDirection,
 	FoundationAxisOrientation,

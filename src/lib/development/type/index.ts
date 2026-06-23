@@ -1,7 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { Props } from './alias';
 export type {
-	ErrorLogSource,
 	TokenCodeLanguage,
 	TokenCodeView,
 	TokenDiffType,
@@ -21,7 +20,6 @@ export type {
 	CodeSectionProps,
 	CodeSectionVariant,
 	CodeWithCopyProps,
-	CodeWithCopyVariant,
 	ComponentLibraryStatsComponentStats,
 	ComponentLibraryStatsProps,
 	CopyableCodeBlockProps,

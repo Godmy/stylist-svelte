@@ -1,6 +1,6 @@
 import type { FRIEND_LIST_FRIEND } from '../friend_list_friend';
 import type { FRIEND_LIST_REST_PROPS } from '../friend_list_rest_-props';
-import type { FRIEND_LIST_STATUS } from '../friend_list_status';
+import type { AvatarUserStatus } from '$stylist/media/type/struct/avatar-user-status';
 
 export type FRIEND_LIST_PROPS = FRIEND_LIST_REST_PROPS & {
 	friends: FRIEND_LIST_FRIEND[];
@@ -18,7 +18,7 @@ export type FRIEND_LIST_PROPS = FRIEND_LIST_REST_PROPS & {
 	onCall?: (friend: FRIEND_LIST_FRIEND) => void;
 	onVideoCall?: (friend: FRIEND_LIST_FRIEND) => void;
 	onAddFriend?: () => void;
-	onStatusChange?: (friendId: string, status: FRIEND_LIST_STATUS) => void;
+	onStatusChange?: (friendId: string, status: AvatarUserStatus) => void;
 	class?: string;
 	itemClass?: string;
 	headerClass?: string;

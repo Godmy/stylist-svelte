@@ -5,9 +5,7 @@ export type {
 	TokenOrderStatus,
 	TokenPaymentMethod,
 	TokenPaymentStatus,
-	TokenUserCardSize,
-	UserCardSize,
-	UserStatus
+	TokenUserCardSize
 } from './enum';
 export type {
 	Address,
@@ -24,10 +22,8 @@ export type {
 	ComparisonItem,
 	DiscountType,
 	InventoryItemStatus,
-	Layout,
 	OrderConfirmationProps,
 	OrderItem,
-	OrderStatus,
 	OrderStatusType,
 	PaymentData,
 	PaymentInfo,
@@ -54,7 +50,6 @@ export type {
 	SlotProductTourStep,
 	SlotShippingOption,
 	SortOption,
-	StepStatus,
 	SubscriptionManagerStoryProps,
 	SubscriptionStatus,
 	TaxCalculatorStoryProps,

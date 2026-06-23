@@ -1,7 +1,7 @@
-import type { FunctionalTabId } from '../stylist-menu-functional-tab-id';
+import type { StylistCategoryId } from '$stylist/development/type/struct/stylist-category-id';
 
 export type FunctionalTabItem = {
-	id: FunctionalTabId;
+	id: StylistCategoryId;
 	label: string;
 	icon: string;
 };

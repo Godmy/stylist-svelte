@@ -48,7 +48,6 @@ export type {
 	FRIEND_LIST_FRIEND,
 	FRIEND_LIST_PROPS,
 	FRIEND_LIST_REST_PROPS,
-	FRIEND_LIST_STATUS,
 	FeedUser,
 	FilterOption,
 	FriendListContract,

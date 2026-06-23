@@ -1,8 +1,6 @@
-import type { ErrorLogSource } from '../../enum/error-log-source';
-
 export type ErrorLogEntry = {
 	timestamp: string;
-	source: ErrorLogSource;
+	source: 'server' | 'client';
 	routeId: string | null;
 	url: string | null;
 	method: string | null;

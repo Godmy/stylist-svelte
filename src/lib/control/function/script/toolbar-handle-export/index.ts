@@ -1,8 +1,8 @@
-import type { ToolbarExportFormat } from '$stylist/control/type/script/toolbar';
+import type { ExportFormat } from '$stylist/control/type/alias/export-format';
 
 export function toolbarHandleExport(
-	format: ToolbarExportFormat,
-	onExportImage?: (format: ToolbarExportFormat) => void
+	format: ExportFormat,
+	onExportImage?: (format: ExportFormat) => void
 ): void {
 	onExportImage?.(format);
 }

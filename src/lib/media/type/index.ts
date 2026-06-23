@@ -1,14 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	AvatarSize,
 	AvatarUserStatus,
 	IconColor,
-	IconDirection,
 	IconShape,
 	IconSize,
 	IconVariant,
-	PictureToolbarTool,
-	PromoBannerVariant
+	PictureToolbarTool
 } from './alias';
 export type {
 	AudioPlayerProps,
@@ -17,9 +14,11 @@ export type {
 	AvatarGroupAvatar,
 	AvatarGroupProps,
 	AvatarProps,
+	AvatarSize,
 	CanvasImageEditorProps,
 	CountryFlagProps,
 	FaviconProps,
+	IconDirection,
 	IconProps,
 	ImageGalleryProps,
 	ImageProps,
@@ -29,6 +28,7 @@ export type {
 	MediaType,
 	NodeIconProps,
 	PromoBannerProps,
+	PromoBannerVariant,
 	SvgProps,
 	TeamAvatarStackProps,
 	TeamMember,

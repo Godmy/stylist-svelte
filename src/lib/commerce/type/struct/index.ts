@@ -18,9 +18,7 @@ export type { ComparisonColumn } from './comparison-column';
 export type { ComparisonItem } from './comparison-item';
 export type { DiscountType } from './discount-type';
 export type { InventoryItemStatus } from './inventory-item-status';
-export type { Layout } from './layout';
 export type { OrderConfirmationProps } from './order-confirmation-props';
-export type { OrderStatus } from './order-status';
 export type { OrderStatusType } from './order-status-type';
 export type { PaymentData } from './payment-controls';
 export type { PaymentInfo } from './payment-info';
@@ -45,7 +43,6 @@ export type { ShippingCalculatorStoryProps } from './shipping-calculator-story-p
 export type { ShippingInfoStoryProps } from './shipping-info-story-props';
 export type { SlotShippingOption } from './shipping-option';
 export type { SortOption } from './sort-option';
-export type { StepStatus } from './step-status';
 export type { SubscriptionManagerStoryProps } from './subscription-manager-story-props';
 export type { SubscriptionStatus } from './subscription-status';
 export type { TaxCalculatorStoryProps } from './tax-calculator-story-props';

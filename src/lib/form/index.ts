@@ -45,9 +45,7 @@ export type {
 	LoginCredentials,
 	RadioGroupProps,
 	RadioOption,
-	RadioOrientation,
 	ValidationErrors,
-	ValidationOrientation,
 	ValidationProps
 } from './type';
 export type {

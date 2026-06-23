@@ -1,7 +1,7 @@
 ﻿import type { HTMLAttributes } from 'svelte/elements';
 import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
-import type { AvatarSize } from '$stylist/media/type/alias/avatar-size';
+import type { AvatarSize } from '$stylist/media/type/struct/avatar-size';
 import type { AvatarUserStatus } from '$stylist/media/type/alias/avatar-user-status';
 import type { RecipeAvatar } from '$stylist/media/interface/recipe/avatar';
 

@@ -49,8 +49,6 @@ export type { TokenSelectControlDefinition } from './select-control-definition';
 export type { SliderTickComponentProps } from './slider-tick-component-props';
 export type { SliderTickProps } from './slider-tick-props';
 export type { SplitButtonButtonAttributes } from './split-button-button-attributes';
-export type { AtomicTabId } from './stylist-menu-atomic-tab-id';
-export type { FunctionalTabId } from './stylist-menu-functional-tab-id';
 export type { FunctionalTabItem } from './stylist-menu-functional-tab-item';
 export type { PrimaryMenuItem } from './stylist-menu-primary-menu-item';
 export type { StylistMenuProps } from './stylist-menu-props';
@@ -69,8 +67,7 @@ export type { TokenControlComposerProps } from './token-control-composer-props';
 export type { TokenControlDefinition } from './token-control-definition';
 export type {
 	TokenControlDefinitionData,
-	TokenControlDomain,
-	TokenControlKind
+	TokenControlDomain
 } from './token-control-domain';
 export type { TokenControlOption } from './token-control-option';
 export type { TokenDomain } from './token-domain';

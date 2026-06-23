@@ -1,4 +1,4 @@
-import type { RealTimePresenceStatus } from '$stylist/calendar/type/struct/real-time-presence-status';
+import type { AvatarUserStatus } from '$stylist/media/type/struct/avatar-user-status';
 import type { RecipeRealTimePresence as RealTimePresenceContract } from '$stylist/calendar/interface/recipe/real-time-presence';
 
 export function createRealTimePresenceState(props: RealTimePresenceContract) {
@@ -30,7 +30,7 @@ export function createRealTimePresenceState(props: RealTimePresenceContract) {
 		return rest;
 	});
 
-	function getStatusColor(status: RealTimePresenceStatus): string {
+	function getStatusColor(status: AvatarUserStatus): string {
 		switch (status) {
 			case 'online':
 				return 'bg-[var(--color-success-500)]';
@@ -43,7 +43,7 @@ export function createRealTimePresenceState(props: RealTimePresenceContract) {
 		}
 	}
 
-	function getStatusText(status: RealTimePresenceStatus): string {
+	function getStatusText(status: AvatarUserStatus): string {
 		switch (status) {
 			case 'online':
 				return 'Online';
@@ -56,7 +56,7 @@ export function createRealTimePresenceState(props: RealTimePresenceContract) {
 		}
 	}
 
-	function getStatusIconClass(status: RealTimePresenceStatus): string {
+	function getStatusIconClass(status: AvatarUserStatus): string {
 		switch (status) {
 			case 'online':
 				return 'text-[var(--color-success-500)]';
