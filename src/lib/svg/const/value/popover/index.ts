@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_POPOVER = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>popover</title>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M14.0 3v18"/>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M3 15h18M12 3v18"/>
+</svg>
+` as const;

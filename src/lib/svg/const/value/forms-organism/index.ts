@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_FORMS_ORGANISM = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>forms-organism</title>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M14.0 3v18"/>
+  <rect x="4" y="4" width="16" height="16" rx="3"/>
+  <path d="M8 8h8M8 12h6M8 16h4"/>
+</svg>
+` as const;

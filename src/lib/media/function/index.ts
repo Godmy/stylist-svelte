@@ -14,7 +14,6 @@ export {
 	createCanvasImageEditorState,
 	createCountryFlagState,
 	createFaviconState,
-	createIconState,
 	createImageGalleryState,
 	createImageState,
 	createImageWithCaptionState,
@@ -22,7 +21,6 @@ export {
 	createNodeIconState,
 	createPictureToolbarState,
 	createPromoBannerState,
-	createSvgState,
 	createTeamAvatarStackState,
 	createVideoPlayerState
 } from './state';

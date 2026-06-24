@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_ARROW_DOWN = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>arrow-down</title>
+  <circle cx="12" cy="12" r="8.0"/>
+  <path d="M12 12 13.0 16.0"/>
+  <path d="M12 5v13"/>
+  <path d="m7 13 5 5 5-5"/>
+</svg>
+` as const;

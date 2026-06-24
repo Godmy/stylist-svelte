@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipePlaygroundAiPanel } from '$stylist/playground/interface/recipe/playground-ai-panel';
 	import { createPlaygroundAiPanelState } from '$stylist/playground/function/state/playground-ai-panel/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let { ...props }: RecipePlaygroundAiPanel = $props();
 	const state = createPlaygroundAiPanelState(props);
@@ -10,7 +10,7 @@
 <div class={state.containerClass}>
 	<div class={state.headerClass}>
 		<h2 class="pap-title">AI Assistants</h2>
-		<p class="pap-subtitle">Р’С‹Р±РµСЂРёС‚Рµ AI-РјРѕРґРµР»СЊ РґР»СЏ СЂР°Р±РѕС‚С‹</p>
+		<p class="pap-subtitle">Выберите AI-модель для работы</p>
 	</div>
 
 	<div class="pap-body">

@@ -10,6 +10,7 @@ export type {
 	RecipeBadge,
 	RecipeBadgeGroup,
 	RecipeBaseCard,
+	RecipeCanvasImageEditor,
 	RecipeCountBadge,
 	RecipeCounter,
 	RecipeDot,
@@ -25,7 +26,8 @@ export type {
 	RecipeTable,
 	RecipeTableCell,
 	RecipeTableRow,
-	RecipeTableSection
+	RecipeTableSection,
+	RecipeThemeIconPicker
 } from './recipe';
 export type {
 	BadgeGroupItem,
@@ -33,5 +35,6 @@ export type {
 	SlotAttachment,
 	SlotAttachmentPreview,
 	SlotBadge,
-	SlotStatus
+	SlotStatus,
+	ThemeIconItem
 } from './slot';

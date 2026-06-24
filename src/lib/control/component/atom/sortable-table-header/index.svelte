@@ -2,7 +2,7 @@
 	import { PresetSortableTableHeader } from '$stylist/control/const/preset/sortable-table-header';
 	import type { RecipeSortableTableHeader } from '$stylist/control/interface/recipe/sortable-table-header';
 	import { createSortableTableHeaderState } from '$stylist/control/function/state/sortable-table-header/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeSortableTableHeader = $props();
 	const state = createSortableTableHeaderState(props);

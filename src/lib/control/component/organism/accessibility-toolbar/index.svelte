@@ -2,7 +2,7 @@
 	import { PresetAccessibilityToolbar } from '$stylist/control/const/preset/accessibility-toolbar';
 	import { createAccessibilityToolbarState } from '$stylist/control/function/state/accessibility-toolbar/index.svelte';
 	import type { RecipeAccessibilityToolbar } from '$stylist/control/interface/recipe/accessibility-toolbar';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeAccessibilityToolbar = $props();
 	const state = createAccessibilityToolbarState(props);

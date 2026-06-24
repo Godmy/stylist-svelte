@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_STAT_CARD = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>stat-card</title>
+  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
+  <path d="M6 6.0h12"/>
+  <path d="M4 19h16"/>
+  <path d="M7 16v-5M12 16v-6M17 16v-7"/>
+</svg>
+` as const;

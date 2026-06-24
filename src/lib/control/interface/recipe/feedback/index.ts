@@ -2,7 +2,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { FeedbackSpecificProps } from '$stylist/control/interface/recipe/feedback-specific-props';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-import type { SlotIcon } from '$stylist/media/interface/slot/icon';
+import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotStatus } from '$stylist/information/interface/slot/status';
 import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
 import type { BehaviorFocusable } from '$stylist/interaction/interface/behavior/focusable';

@@ -1,2 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { DOMAIN_MENU_ICONS } from './domain-menu';
+export {
+	DOMAIN_COUNT,
+	DOMAIN_MENU_ICONS
+} from './domain-menu';

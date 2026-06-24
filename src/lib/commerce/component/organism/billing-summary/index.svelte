@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeBillingSummary } from '$stylist/commerce/interface/recipe/billing-summary';
 	import { PresetBillingSummary } from '$stylist/commerce/const/preset/billing-summary';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createBillingSummaryState } from '$stylist/commerce/function/state/billing-summary/index.svelte';
 
 	let props: RecipeBillingSummary = $props();

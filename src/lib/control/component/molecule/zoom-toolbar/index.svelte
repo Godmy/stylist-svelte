@@ -3,7 +3,7 @@
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import { createZoomToolbarState } from '$stylist/control/function/state/zoom-toolbar/index.svelte';
 	import type { RecipeZoomToolbar } from '$stylist/control/interface/recipe/zoom-toolbar';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeZoomToolbar = $props();
 	const state = createZoomToolbarState(props);

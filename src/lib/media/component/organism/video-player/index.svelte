@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeVideoPlayer } from '$stylist/media/interface/recipe/video-player';
 	import { createVideoPlayerState } from '$stylist/media/function/state/video-player/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 
 	let props: RecipeVideoPlayer = $props();

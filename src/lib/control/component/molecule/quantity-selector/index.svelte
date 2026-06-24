@@ -2,7 +2,7 @@
 	import { PresetQuantitySelector } from '$stylist/control/const/preset/quantity-selector';
 	import { createQuantitySelectorState } from '$stylist/control/function/state/quantity-selector/index.svelte';
 	import type { RecipeQuantitySelector } from '$stylist/control/interface/recipe/quantity-selector';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeQuantitySelector = $props();
 	const state = createQuantitySelectorState(props);

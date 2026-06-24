@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { PresetCombobox } from '$stylist/control/const/preset/combobox';
 	import type { RecipeCombobox } from '$stylist/control/interface/recipe/combobox';
 	import { createComboboxState } from '$stylist/control/function/state/combobox/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeCombobox = $props();
 	const state = createComboboxState(props);
@@ -62,7 +62,7 @@
 					type="button"
 					class="c-combobox__clear-btn"
 					onclick={state.clearSelection}
-					aria-label="РћС‡РёСЃС‚РёС‚СЊ РІС‹Р±РѕСЂ"
+					aria-label="Очистить выбор"
 				>
 					<BaseIcon name={PresetCombobox.X} class="c-combobox__icon" aria-hidden="true" />
 				</button>
@@ -71,7 +71,7 @@
 			<button
 				type="button"
 				class="c-combobox__toggle-btn"
-				aria-label="РџРµСЂРµРєР»СЋС‡РёС‚СЊ СЃРїРёСЃРѕРє РІР°СЂРёР°РЅС‚РѕРІ"
+				aria-label="Переключить список вариантов"
 				onclick={() => (state.isOpen ? state.closeList() : state.openList())}
 				disabled={state.disabled}
 			>
@@ -105,7 +105,7 @@
 						</button>
 					{/each}
 				{:else if state.loading}
-					<div class="c-combobox__loading">Р—Р°РіСЂСѓР·РєР°...</div>
+					<div class="c-combobox__loading">Загрузка...</div>
 				{:else}
 					<div class="c-combobox__empty">{state.emptyText}</div>
 				{/if}

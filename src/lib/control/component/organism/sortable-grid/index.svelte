@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createSortableGridState from '$stylist/control/function/state/sortable-grid/index.svelte';
 	import type { SortableGridProps } from '$stylist/control/type/alias/sortable-grid-props';
 

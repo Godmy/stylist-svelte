@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+<script lang="ts">
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import StylistTab from '$stylist/control/component/molecule/stylist-tab/index.svelte';
 	import { STYLIST_MENU_MENU_ITEMS } from '$stylist/control/const/record/stylist-menu-menu-items';
 	import { STYLIST_MENU_FUNCTIONAL_TAB_ITEMS } from '$stylist/control/const/record/stylist-menu-functional-tab-items';

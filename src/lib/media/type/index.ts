@@ -1,9 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	AvatarUserStatus,
-	IconColor,
-	IconShape,
-	IconSize,
 	PictureToolbarTool
 } from './alias';
 export type {
@@ -16,9 +13,6 @@ export type {
 	CanvasImageEditorProps,
 	CountryFlagProps,
 	FaviconProps,
-	IconDirection,
-	IconProps,
-	IconVariant,
 	ImageGalleryProps,
 	ImageProps,
 	MediaItem,
@@ -26,7 +20,6 @@ export type {
 	MediaType,
 	NodeIconProps,
 	PromoBannerProps,
-	SvgProps,
 	TeamAvatarStackProps,
 	TeamMember,
 	VideoPlayerProps

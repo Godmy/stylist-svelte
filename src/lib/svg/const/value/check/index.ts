@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_CHECK = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>check</title>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M16.0 3v18"/>
+  <circle cx="12" cy="12" r="9"/>
+  <path d="m8 12.5 2.6 2.6L16 9.7"/>
+</svg>
+` as const;

@@ -2,7 +2,6 @@
 export {
 	DataExporter,
 	DocumentPreview,
-	DownloadCard,
 	DragDropFileUpload,
 	DropZone,
 	FileBrowser,

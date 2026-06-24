@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeSecureForm } from '$stylist/user/interface/recipe/secure-form';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const Lock = 'lock';
 
 	import { createSecureFormState } from '$stylist/user/function/state/secure-form/index.svelte';

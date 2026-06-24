@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeGraphPort } from '$stylist/graph/interface/recipe/graph-port';
 	import type { TokenPropertyType } from '$stylist/graph/type/enum/property-type';
 	import createGraphPortState from '$stylist/graph/function/state/graph-port/index.svelte';

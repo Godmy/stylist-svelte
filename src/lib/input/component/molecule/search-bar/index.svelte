@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	/**
 	 * SearchBar component following SOLID principles
 	 *
@@ -9,7 +9,7 @@
 	 * Dependency Inversion: Depends on abstractions (types and style manager) not concretions
 	 */
 	import Button from '$stylist/control/component/atom/button/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createSearchBarState from '$stylist/input/function/state/search-bar/index.svelte';
 	import type { SlotSearchBar as ISearchBarProps } from '$stylist/control/interface/slot/search-bar';
 	import type { HTMLAttributes } from 'svelte/elements';

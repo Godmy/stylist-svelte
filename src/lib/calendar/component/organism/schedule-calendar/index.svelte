@@ -2,7 +2,7 @@
 	import createScheduleCalendarState from '$stylist/calendar/function/state/schedule-calendar/index.svelte';
 	import type { RecipeScheduleCalendar as ScheduleCalendarStateProps } from '$stylist/calendar/interface/recipe/schedule-calendar';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import TimeSlot from '$stylist/calendar/component/atom/time-slot/index.svelte';
 
 	const ChevronLeft = 'chevron-left';

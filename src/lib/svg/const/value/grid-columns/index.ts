@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_GRID_COLUMNS = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>grid-columns</title>
+  <path d="M6 4h12l4 4v12l-4 4H6l-4-4V8Z"/>
+  <path d="M4 12.0h16"/>
+  <rect x="3" y="4" width="18" height="16" rx="2"/>
+  <path d="M3 9h18M3 14h18M9 4v16M16 4v16"/>
+</svg>
+` as const;

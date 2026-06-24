@@ -2,7 +2,6 @@
 export { FileInput } from './atom';
 export {
 	DataExporter,
-	DownloadCard,
 	FileUpload
 } from './molecule';
 export {

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeImageGallery } from '$stylist/media/interface/recipe/image-gallery';
 	import { createImageGalleryState } from '$stylist/media/function/state/image-gallery/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeImageGallery = $props();
 	const state = createImageGalleryState(props);

@@ -2,7 +2,7 @@
 	import { PresetFollowButton } from '$stylist/control/const/preset/follow-button';
 	import type { RecipeFollowButton } from '$stylist/control/interface/recipe/follow-button';
 	import { createFollowButtonState } from '$stylist/control/function/state/follow-button/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeFollowButton = $props();
 	const state = createFollowButtonState(props);

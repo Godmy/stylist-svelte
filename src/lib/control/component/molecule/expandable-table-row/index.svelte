@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const ChevronDown = 'chevron-down';
 	const ChevronRight = 'chevron-right';
 	import type { ExpandableTableRowProps } from '$stylist/control/type/struct/expandable-table-row-props';

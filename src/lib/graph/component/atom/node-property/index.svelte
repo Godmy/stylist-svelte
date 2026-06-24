@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeNodeProperty as NodePropertyProps } from '$stylist/graph/interface/recipe/node-property';
 	import createNodePropertyState from '$stylist/graph/function/state/node-property/index.svelte';
 

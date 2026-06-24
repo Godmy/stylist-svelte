@@ -2,7 +2,7 @@
 	import type { GraphMinimapContract } from '$stylist/graph/type/struct/graph-minimap-contract';
 	import type { MinimapProps } from '$stylist/graph/type/struct/minimap-props';
 	import IconButton from '$stylist/control/component/atom/icon-button/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createMinimapState from '$stylist/graph/function/state/minimap/index.svelte';
 
 	const contract: GraphMinimapContract & MinimapProps = $props();

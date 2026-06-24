@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { CubeControlProps } from '$stylist/control/type/struct/cube-control-props';
 	import createCubeControlState from '$stylist/control/function/state/cube-control/index.svelte';
 

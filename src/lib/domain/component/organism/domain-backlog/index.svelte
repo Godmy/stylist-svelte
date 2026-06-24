@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import createDomainBacklogState from '$stylist/domain/function/state/domain-backlog/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import BacklogViewTabs from '$stylist/portfolio/component/molecule/backlog-view-tabs/index.svelte';
 	import IssuesTable from '$stylist/portfolio/component/molecule/issues-table/index.svelte';
 	import KanbanBoard from '$stylist/portfolio/component/organism/kanban-board/index.svelte';

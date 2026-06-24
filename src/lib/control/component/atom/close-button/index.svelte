@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { PresetCloseButton } from '$stylist/control/const/preset/close-button';
 	import type { RecipeCloseButton } from '$stylist/control/interface/recipe/close-button';
 	import { createCloseButtonState } from '$stylist/control/function/state/close-button/index.svelte';

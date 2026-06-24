@@ -1,0 +1,9 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_DOCUMENTATION_BLOCK = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>documentation-block</title>
+  <path d="M4 6h16v12H4Z"/>
+  <path d="M9.0 6v12"/>
+  <path d="M4 6h16M8 6v12M16 6v12M6 17h12"/>
+</svg>
+` as const;

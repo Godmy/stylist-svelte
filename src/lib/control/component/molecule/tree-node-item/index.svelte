@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { TreeNodeItemProps } from '$stylist/control/type/alias/tree-node-item-props';
 	import createTreeNodeItemState from '$stylist/control/function/state/tree-node-item/index.svelte';
 	import Self from './index.svelte';

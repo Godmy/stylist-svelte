@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+<script lang="ts">
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { createDropZoneState } from '$stylist/file/function/state/drop-zone/index.svelte';
@@ -82,7 +82,7 @@
 							</div>
 							<div class="dz-item-meta">
 								<p class="dz-item-name">{item.name}</p>
-								<p class="dz-item-desc">{item.type} вЂў {formatFileSize(item.size || 0)}</p>
+								<p class="dz-item-desc">{item.type} • {formatFileSize(item.size || 0)}</p>
 							</div>
 						</div>
 

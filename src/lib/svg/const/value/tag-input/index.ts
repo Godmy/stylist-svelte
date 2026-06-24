@@ -1,0 +1,11 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_TAG_INPUT = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>tag-input</title>
+  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
+  <path d="M6 15.0h12"/>
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <path d="M10 9h7M10 14h6"/>
+  <path d="M6 9h2M6 14h2"/>
+</svg>
+` as const;

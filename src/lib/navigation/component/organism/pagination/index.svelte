@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipePagination } from '$stylist/navigation/interface/recipe/pagination';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createPaginationState } from '$stylist/navigation/function/state/pagination/index.svelte';
 
 	let props: RecipePagination = $props();

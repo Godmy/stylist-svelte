@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_VERDICTS = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>verdicts</title>
+  <path d="M4 6h16v12H4Z"/>
+  <path d="M11.0 6v12"/>
+  <path d="M4 19h16"/>
+  <path d="M7 16v-8M12 16v-8M17 16v-5"/>
+</svg>
+` as const;

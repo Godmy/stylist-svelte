@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeChip } from '$stylist/control/interface/recipe/chip';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const X = 'x';
 
 	import createChipState from '$stylist/control/function/state/chip/index.svelte';

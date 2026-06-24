@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '$stylist/control/component/atom/button/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createAttachmentPreviewState } from '$stylist/information/function/state/attachment-preview/index.svelte';
 	import { getIconName } from '$stylist/information/function/script/attachment-preview-get-icon-name';
 	import { formatFileSize } from '$stylist/information/function/script/attachment-preview-format-file-size';

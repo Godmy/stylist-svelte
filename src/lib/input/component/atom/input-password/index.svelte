@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { SlotInputPassword as IInputPasswordProps } from '$stylist/input/interface/slot/input-password';
 	import createInputPasswordState from '$stylist/input/function/state/input-password/index.svelte';
 

@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+<script lang="ts">
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { createZipViewerState } from '$stylist/file/function/state/zip-viewer/index.svelte';
@@ -103,7 +103,7 @@
 									<span>{formatFileSize(entry.size)}</span>
 								{/if}
 								{#if entry.modified}
-									<span class="zv-sep">вЂў</span>
+									<span class="zv-sep">•</span>
 									<span>{entry.modified.toLocaleDateString()}</span>
 								{/if}
 							</div>

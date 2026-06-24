@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+<script lang="ts">
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createFileBrowserState } from '$stylist/file/function/state/file-browser/index.svelte';
 	import { getItemCount } from '$stylist/file/function/script/file-browser-get-item-count';
 	import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';

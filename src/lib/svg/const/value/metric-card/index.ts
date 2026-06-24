@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_METRIC_CARD = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>metric-card</title>
+  <rect x="3" y="3" width="18" height="18" rx="2.6"/>
+  <path d="M3 12.0h18"/>
+  <path d="M4 19h16"/>
+  <path d="M7 16v-7M12 16v-4M17 16v-5"/>
+</svg>
+` as const;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import IconButton from '$stylist/control/component/atom/icon-button/index.svelte';
 	import InputText from '$stylist/input/component/atom/input-text/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Separator from '$stylist/layout/component/atom/separator/index.svelte';
 	import createNodePaletteState from '$stylist/graph/function/state/node-palette/index.svelte';
 	import type { RecipeNodePalette as NodePaletteProps } from '$stylist/graph/interface/recipe/node-palette';

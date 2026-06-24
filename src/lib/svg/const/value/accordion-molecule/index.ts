@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_ACCORDION_MOLECULE = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>accordion-molecule</title>
+  <circle cx="12" cy="12" r="8.2"/>
+  <path d="M12 12 7.0 10.0"/>
+  <path d="M5 6h14M5 12h14M5 18h14"/>
+  <path d="M8 8l4 4 4-4 M8 14l4 4 4-4"/>
+</svg>
+` as const;

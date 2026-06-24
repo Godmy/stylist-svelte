@@ -2,7 +2,7 @@
 	import createCalendarViewState from '$stylist/calendar/function/state/calendar-view/index.svelte';
 	import type { RecipeCalendarView as CalendarViewStateProps } from '$stylist/calendar/interface/recipe/calendar-view';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	const ChevronLeft = 'chevron-left';
 	const ChevronRight = 'chevron-right';

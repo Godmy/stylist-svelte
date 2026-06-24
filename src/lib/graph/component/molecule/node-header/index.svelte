@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeNodeHeader } from '$stylist/graph/interface/recipe/node-header';
 	import { createNodeHeaderState } from '$stylist/graph/function/state/node-header/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeNodeHeader = $props();
 	const state = createNodeHeaderState(props);

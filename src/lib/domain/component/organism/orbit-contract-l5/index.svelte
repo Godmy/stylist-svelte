@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let {
 		opened: openedExternal = null,

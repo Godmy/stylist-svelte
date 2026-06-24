@@ -2,7 +2,7 @@ import type { BehaviorWishlistButtonEvents } from '$stylist/commerce/interface/b
 import type { ContractWishlistButton } from '$stylist/commerce/interface/contract/wishlist-button';
 import type { SlotBadge as IBadgeSlot } from '$stylist/information/interface/slot/badge';
 import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
-import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';

@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { PresetCopyButton } from '$stylist/control/const/preset/copy-button';
 	import type { RecipeCopyButton } from '$stylist/control/interface/recipe/copy-button';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createCopyButtonState } from '$stylist/control/function/state/copy-button/index.svelte';
 
 	let props: RecipeCopyButton = $props();

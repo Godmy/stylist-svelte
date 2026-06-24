@@ -8,7 +8,7 @@ import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior
 import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
 import type { RecipeBorder } from '$stylist/layout/interface/recipe/border';
 import type { RecipeThemeBackground } from '$stylist/layout/interface/recipe/background';
-import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotBadge as IBadgeSlot } from '$stylist/information/interface/slot/badge';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 

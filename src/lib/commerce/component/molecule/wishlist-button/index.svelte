@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeWishlistButton } from '$stylist/commerce/interface/recipe/wishlist-button';
 	import createWishlistButtonState from '$stylist/commerce/function/state/wishlist-button/index.svelte';
 

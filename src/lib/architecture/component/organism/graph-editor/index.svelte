@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import IconButton from '$stylist/control/component/atom/icon-button/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import LitegraphCanvas from '$stylist/architecture/component/organism/litegraph-canvas/index.svelte';
 	import NodePalette from '$stylist/graph/component/organism/node-palette/index.svelte';
 	import NodePropertiesPanel from '$stylist/graph/component/molecule/node-properties-panel/index.svelte';

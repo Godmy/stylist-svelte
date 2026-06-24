@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipePlaygroundAiAssistant } from '$stylist/playground/interface/recipe/playground-ai-assistant';
 	import { createPlaygroundAiAssistantState } from '$stylist/playground/function/state/playground-ai-assistant/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let { ...props }: RecipePlaygroundAiAssistant = $props();
 	const state = createPlaygroundAiAssistantState(props);
@@ -59,7 +59,7 @@
 			<textarea
 				bind:value={state.inputMessage}
 				onkeypress={state.handleKeyPress}
-				placeholder="Р’РІРµРґРёС‚Рµ СЃРѕРѕР±С‰РµРЅРёРµ..."
+				placeholder="Введите сообщение..."
 				rows="2"
 				disabled={state.isLoading}
 				class="paa-textarea"

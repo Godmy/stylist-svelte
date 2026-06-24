@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipePlaygroundTreeNode } from '$stylist/playground/interface/recipe/playground-tree-node';
 
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	import { createPlaygroundTreeNodeState } from '$stylist/playground/function/state/playground-tree-node/index.svelte';
 

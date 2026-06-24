@@ -1,7 +1,7 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createIconPickerState from '$stylist/input/function/state/icon-picker/index.svelte';
-	import type { RecipeThemeIconPicker } from '$stylist/media/interface/recipe/icon-picker';
+	import type { RecipeThemeIconPicker } from '$stylist/information/interface/recipe/icon-picker';
 	import type { Snippet } from 'svelte';
 
 	const SearchIconName = 'search';

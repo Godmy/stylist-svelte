@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+<script lang="ts">
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createLegendItemState } from '$stylist/management/function/state/legend-item/index.svelte';
 
 	let props: Parameters<typeof createLegendItemState>[0] = $props();

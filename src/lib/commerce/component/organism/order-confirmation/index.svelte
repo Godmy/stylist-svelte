@@ -3,7 +3,7 @@
 	import { PresetOrderConfirmation } from '$stylist/commerce/const/preset/order-confirmation';
 	import { createOrderConfirmationState } from '$stylist/commerce/function/state/order-confirmation/index.svelte';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeOrderConfirmation = $props();
 	const state = createOrderConfirmationState(props);

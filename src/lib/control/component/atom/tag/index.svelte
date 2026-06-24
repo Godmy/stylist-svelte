@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeTag } from '$stylist/control/interface/recipe/tag';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const X = 'x';
 	import createTagState from '$stylist/control/function/state/tag/index.svelte';
 

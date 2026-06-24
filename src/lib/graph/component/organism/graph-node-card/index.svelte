@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeGraphNodeCard } from '$stylist/graph/interface/recipe/graph-node-card';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createGraphNodeCardState } from '$stylist/graph/function/state/graph-node-card/index.svelte';
 
 	let props: RecipeGraphNodeCard = $props();

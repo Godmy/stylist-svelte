@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeNodeTitle } from '$stylist/graph/interface/recipe/node-title';
 	import createNodeTitleState from '$stylist/graph/function/state/node-title/index.svelte';
 

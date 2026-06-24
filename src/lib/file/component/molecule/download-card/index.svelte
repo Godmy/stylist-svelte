@@ -1,6 +1,6 @@
-ï»¿<script lang="ts">
+<script lang="ts">
 	import type { RecipeDownloadCard } from '$stylist/file/interface/recipe/download-card';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { formatFileSize } from '$stylist/file/function/script/format-file-size';
 	import { handleFileDownload } from '$stylist/file/function/script/handle-file-download';
@@ -52,7 +52,7 @@
 </script>
 
 <div class={containerClasses} role="article" aria-label={`Download card: ${props.file.name}`}>
-	<!-- Ð˜ÐºÐ¾Ð½ÐºÐ° Ñ„Ð°Ð¹Ð»Ð° -->
+	<!-- Èêîíêà ôàéëà -->
 	<div class={iconContainerClasses} aria-hidden="true">
 		{#if props.icon}
 			<span class={iconClasses} aria-label={props.iconAlt ?? 'File'}>{props.icon}</span>
@@ -61,7 +61,7 @@
 		{/if}
 	</div>
 
-	<!-- Ð˜Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð¾ Ñ„Ð°Ð¹Ð»Ðµ -->
+	<!-- Èíôîðìàöèÿ î ôàéëå -->
 	<div class={infoContainerClasses}>
 		<div class={fileNameClasses} aria-label={`File name: ${props.file.name}`}>
 			{props.file.name}
@@ -91,7 +91,7 @@
 		{/if}
 	</div>
 
-	<!-- ÐšÐ½Ð¾Ð¿ÐºÐ° ÑÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ñ -->
+	<!-- Êíîïêà ñêà÷èâàíèÿ -->
 	<button
 		class={downloadButtonClasses}
 		aria-label={`Download ${props.file.name}`}

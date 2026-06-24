@@ -1,10 +1,10 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
 	import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 	import type { RecipeTeamAvatarStack } from '$stylist/media/interface/recipe/team-avatar-stack';
 	import { createTeamAvatarStackState } from '$stylist/media/function/state/team-avatar-stack/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const Users = 'users';
 	const User = 'user';
 

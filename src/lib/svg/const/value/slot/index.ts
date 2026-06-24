@@ -1,0 +1,4 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_SLOT = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2" stroke-dasharray="3 2"/><path d="M12 9v6"/><path d="M9 13l3 3 3-3"/></svg>
+` as const;

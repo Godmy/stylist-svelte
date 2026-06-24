@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { SlotTimePicker as ITimePickerProps } from '$stylist/input/interface/slot/time-picker';
 	import createTimePickerState from '$stylist/input/function/state/time-picker/index.svelte';
 

@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeMockDataSelector } from '$stylist/development/interface/recipe/mock-data-selector';
 	import { createMockDataSelectorState } from '$stylist/development/function/state/mock-data-selector/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let { ...props }: RecipeMockDataSelector = $props();
 	const state = createMockDataSelectorState(props);
@@ -97,7 +97,7 @@
 
 						<div class="mds-card-meta">
 							<span>{schema.fields.length} fields</span>
-							<span style="margin:0 0.5rem">вЂў</span>
+							<span style="margin:0 0.5rem">•</span>
 							<span>{schema.sampleData.length} samples</span>
 						</div>
 					</div>

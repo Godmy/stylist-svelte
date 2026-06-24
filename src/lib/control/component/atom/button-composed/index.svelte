@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { CONTROL_BUTTON_ICON } from '$stylist/control/const/map/button';
 	import type { RecipeButtonComposed } from '$stylist/control/interface/recipe/button-composed';
 	import createButtonComposedState from '$stylist/control/function/state/button-composed/index.svelte';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotSvgName } from '$stylist/media/interface/slot/svg-name';
+	import type { SlotSvgName } from '$stylist/svg/interface/slot/svg-name';
 
 	interface IconToolbarProps {
 		items: readonly SlotSvgName[];

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createPerformanceDashboardState from '$stylist/management/function/state/performance-dashboard/index.svelte';
 	import type { RecipePerformanceDashboard } from '$stylist/management/interface/recipe/performance-dashboard';
 	import type { TokenTimeRange } from '$stylist/management/type/enum/time-range/token-time-range';

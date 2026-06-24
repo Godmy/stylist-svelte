@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { STYLIST_TAB_DEFAULT_ITEMS } from '$stylist/control/const/record/stylist-tab-default-items';
 	import createStylistTabState from '$stylist/control/function/state/stylist-tab/index.svelte';
 	import type { StylistTabProps } from '$stylist/control/type/struct/stylist-tab-props';

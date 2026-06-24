@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeMultiSelect } from '$stylist/control/interface/recipe/multi-select';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createMultiSelectState } from '$stylist/control/function/state/multi-select/index.svelte';
 
 	let props: RecipeMultiSelect = $props();

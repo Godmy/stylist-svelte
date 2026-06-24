@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_ASPECT_RATIO_ATOM = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>aspect-ratio-atom</title>
+  <circle cx="12" cy="12" r="8.2"/>
+  <path d="M12 12 18.0 15.0"/>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M3 16h18M13 3v18"/>
+</svg>
+` as const;

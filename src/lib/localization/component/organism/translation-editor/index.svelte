@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+<script lang="ts">
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createTranslationEditorState } from '$stylist/localization/function/state/translation-editor/index.svelte';
 	import type { SlotExtendedTranslationEditor as ExtendedTranslationEditorProps } from '$stylist/localization/interface/slot/extended-translation-editor';
 

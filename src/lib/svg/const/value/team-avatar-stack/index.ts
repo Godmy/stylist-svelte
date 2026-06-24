@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_TEAM_AVATAR_STACK = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>team-avatar-stack</title>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M7.0 3v18"/>
+  <circle cx="12" cy="8" r="3.2"/>
+  <path d="M6 19a6 6 0 0 1 13 0"/>
+</svg>
+` as const;

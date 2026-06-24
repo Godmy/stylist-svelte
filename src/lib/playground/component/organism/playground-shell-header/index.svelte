@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipePlaygroundShellHeader } from '$stylist/playground/interface/recipe/playground-shell-header';
 
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	import { createPlaygroundShellHeaderState } from '$stylist/playground/function/state/playground-shell-header/index.svelte';
 

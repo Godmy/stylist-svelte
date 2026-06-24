@@ -10,11 +10,6 @@ export type {
 export type { CanvasImageEditorProps } from './canvas-image-editor';
 export type { CountryFlagProps } from './country-flag';
 export type { FaviconProps } from './favicon';
-export type { IconProps } from './icon';
-export type { IconDirection } from './icon-direction';
-export type { IconShape } from './icon-shape';
-export type { IconSize } from './icon-size';
-export type { IconVariant } from './icon-variant';
 export type { ImageProps } from './image';
 export type { ImageGalleryProps } from './image-gallery';
 export type {
@@ -24,7 +19,6 @@ export type {
 } from './media-library';
 export type { NodeIconProps } from './node-icon';
 export type { PromoBannerProps } from './promo-banner';
-export type { SvgProps } from './svg';
 export type {
 	TeamAvatarStackProps,
 	TeamMember

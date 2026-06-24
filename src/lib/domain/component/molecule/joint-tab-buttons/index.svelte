@@ -1,7 +1,6 @@
 <script lang="ts">
-	import debugIcon from '$stylist/domain/data/svg/debug.svg?raw';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
-	import { TOKEN_ICON_REGISTRY } from '$stylist/media/const/record/icon-registry';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
+	import { TOKEN_ICON_REGISTRY } from '$stylist/svg/const/record/icon-registry';
 
 	interface TabFile {
 		name: string;
@@ -122,7 +121,7 @@
 			aria-expanded={dropdownOpen}
 			onclick={() => (dropdownOpen = !dropdownOpen)}
 		>
-			<span class="tab-icon" aria-hidden="true">{@html debugIcon}</span>
+			<span class="tab-icon" aria-hidden="true">{@html TOKEN_ICON_REGISTRY['debug']}</span>
 			<span class="action-label">debug</span>
 			<span class:chevron-open={dropdownOpen} class="chevron" aria-hidden="true">v</span>
 		</button>

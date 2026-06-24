@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <title>user-behavior-metrics</title>
-  <path d="M4 6h16v12H4Z"/>
-  <path d="M15.0 6v12"/>
-  <circle cx="12" cy="8" r="3.2"/>
-  <path d="M5 19a7 7 0 0 1 14 0"/>
-  <path d="M16 8V5M18 8V4"/>
-</svg>

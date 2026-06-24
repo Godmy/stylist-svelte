@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_PLAYGROUND_ERROR_BOUNDARY = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>playground-error-boundary</title>
+  <rect x="3" y="3" width="18" height="18" rx="2.0"/>
+  <path d="M3 12.0h18"/>
+  <circle cx="12" cy="12" r="9"/>
+  <path d="m9 9 6 6m0-6-6 6"/>
+</svg>
+` as const;

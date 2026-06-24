@@ -9,15 +9,12 @@ export type {
 	ContractCanvasImageEditor,
 	ContractCountryFlag,
 	ContractFavicon,
-	ContractIcon,
 	ContractImage,
 	ContractImageGallery,
 	ContractImageWithCaption,
-	ContractMedia,
 	ContractMediaLibrary,
 	ContractNodeIcon,
 	ContractPromoBanner,
-	ContractSvg,
 	ContractTeamAvatarStack,
 	ContractVideoPlayer
 } from './contract';
@@ -25,7 +22,6 @@ export type {
 	AudioPlayerProps,
 	AvatarGroupProps,
 	AvatarProps,
-	IconProps,
 	ImageGalleryStateProps,
 	NodeIconProps,
 	PromoBannerProps,
@@ -38,9 +34,6 @@ export type {
 	RecipeCanvasImageEditor,
 	RecipeCountryFlag,
 	RecipeFavicon,
-	RecipeIconChevron,
-	RecipeIconCircle,
-	RecipeIconWrapper,
 	RecipeImage,
 	RecipeImageGallery,
 	RecipeImageWithCaption,
@@ -49,20 +42,14 @@ export type {
 	RecipeNodeIcon,
 	RecipePictureToolbar,
 	RecipePromoBanner,
-	RecipeSvg,
 	RecipeTeamAvatarStack,
-	RecipeThemeIconPicker,
 	RecipeVideoPlayer,
-	SvgProps,
 	TeamAvatarStackProps,
 	VideoPlayerProps
 } from './recipe';
 export type {
 	Avatar,
-	SlotIcon,
 	SlotImageItem,
 	SlotMedia,
-	SlotSvgName,
-	TeamMember,
-	ThemeIconItem
+	TeamMember
 } from './slot';

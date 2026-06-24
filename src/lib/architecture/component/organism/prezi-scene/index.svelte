@@ -3,7 +3,7 @@
 	import usePreziState from '$stylist/architecture/function/state/prezi-scene/index.svelte';
 	import PresenterNodeShell from '$stylist/architecture/component/molecule/presenter-node-shell/index.svelte';
 	import Minimap from '$stylist/graph/component/organism/minimap/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Grid from '$stylist/layout/component/atom/grid/index.svelte';
 
 	let props: RecipePreziScene = $props();

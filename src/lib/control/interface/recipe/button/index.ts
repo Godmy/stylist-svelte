@@ -10,7 +10,7 @@ import type { RecipeThemeBackground } from '$stylist/layout/interface/recipe/bac
 import type { BehaviorShapeable } from '$stylist/layout/interface/behavior/shapeable';
 import type { BehaviorSized } from '$stylist/layout/interface/behavior/sized';
 import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
-import type { SlotIcon } from '$stylist/media/interface/slot/icon';
+import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 

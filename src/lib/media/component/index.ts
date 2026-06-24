@@ -6,12 +6,10 @@ export {
 	Avatar,
 	CountryFlag,
 	Favicon,
-	Icon,
 	Image,
 	ImageWithCaption,
 	NodeIcon,
-	PromoBanner,
-	Svg
+	PromoBanner
 } from './atom';
 export {
 	AvatarGroup,

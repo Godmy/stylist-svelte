@@ -1,0 +1,11 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_RADIO_GROUP = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>radio-group</title>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M13.0 3v18"/>
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <path d="M10 9h7M10 14h6"/>
+  <circle cx="7" cy="9" r="1.4"/><circle cx="7" cy="14" r="1.4"/>
+</svg>
+` as const;

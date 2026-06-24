@@ -1,55 +1,30 @@
-import atomIcon from '$stylist/domain/data/svg/atom.svg?raw';
-import behaviorIcon from '$stylist/domain/data/svg/behavior.svg?raw';
-import builderIcon from '$stylist/domain/data/svg/builder.svg?raw';
-import configIcon from '$stylist/domain/data/svg/config.svg?raw';
-import contractIcon from '$stylist/domain/data/svg/contract.svg?raw';
-import directorIcon from '$stylist/domain/data/svg/director.svg?raw';
-import enumIcon from '$stylist/domain/data/svg/enum.svg?raw';
-import fragIcon from '$stylist/domain/data/svg/frag.svg?raw';
-import jsonIcon from '$stylist/domain/data/svg/json.svg?raw';
-import managerIcon from '$stylist/domain/data/svg/manager.svg?raw';
-import mapIcon from '$stylist/domain/data/svg/map.svg?raw';
-import mdIcon from '$stylist/domain/data/svg/md.svg?raw';
-import moleculeIcon from '$stylist/domain/data/svg/molecule.svg?raw';
-import objectManagerIcon from '$stylist/domain/data/svg/object-manager.svg?raw';
-import organismIcon from '$stylist/domain/data/svg/organism.svg?raw';
-import recipeIcon from '$stylist/domain/data/svg/recipe.svg?raw';
-import recordIcon from '$stylist/domain/data/svg/record.svg?raw';
-import scriptIcon from '$stylist/domain/data/svg/script.svg?raw';
-import slotIcon from '$stylist/domain/data/svg/slot.svg?raw';
-import stateIcon from '$stylist/domain/data/svg/state.svg?raw';
-import structIcon from '$stylist/domain/data/svg/struct.svg?raw';
-import styleManagerIcon from '$stylist/domain/data/svg/style-manager.svg?raw';
-import svgIcon from '$stylist/domain/data/svg/svg.svg?raw';
-import valueIcon from '$stylist/domain/data/svg/value.svg?raw';
-import vertIcon from '$stylist/domain/data/svg/vert.svg?raw';
-import yamlIcon from '$stylist/domain/data/svg/yaml.svg?raw';
+import { TOKEN_ICON_REGISTRY } from '$stylist/svg/const/record/icon-registry';
 
 export const JOINT_TOOLBAR_ITEMS = [
-	{ name: 'value', svg: valueIcon },
-	{ name: 'enum', svg: enumIcon },
-	{ name: 'map', svg: mapIcon },
-	{ name: 'record', svg: recordIcon },
-	{ name: 'struct', svg: structIcon },
-	{ name: 'config', svg: configIcon },
-	{ name: 'behavior', svg: behaviorIcon },
-	{ name: 'slot', svg: slotIcon },
-	{ name: 'recipe', svg: recipeIcon },
-	{ name: 'contract', svg: contractIcon },
-	{ name: 'director', svg: directorIcon },
-	{ name: 'builder', svg: builderIcon },
-	{ name: 'manager', svg: managerIcon },
-	{ name: 'object-manager', svg: objectManagerIcon },
-	{ name: 'style-manager', svg: styleManagerIcon },
-	{ name: 'script', svg: scriptIcon },
-	{ name: 'state', svg: stateIcon },
-	{ name: 'atom', svg: atomIcon },
-	{ name: 'molecule', svg: moleculeIcon },
-	{ name: 'organism', svg: organismIcon },
-	{ name: 'svg', svg: svgIcon },
-	{ name: 'json', svg: jsonIcon },
-	{ name: 'md', svg: mdIcon },
-	{ name: 'yaml', svg: yamlIcon },
-	{ name: 'vert', svg: vertIcon },
-	{ name: 'frag', svg: fragIcon }
+	{ name: 'value',        svg: TOKEN_ICON_REGISTRY['value'] },
+	{ name: 'enum',         svg: TOKEN_ICON_REGISTRY['enum'] },
+	{ name: 'map',          svg: TOKEN_ICON_REGISTRY['map'] },
+	{ name: 'record',       svg: TOKEN_ICON_REGISTRY['record'] },
+	{ name: 'struct',       svg: TOKEN_ICON_REGISTRY['struct'] },
+	{ name: 'config',       svg: TOKEN_ICON_REGISTRY['config'] },
+	{ name: 'behavior',     svg: TOKEN_ICON_REGISTRY['behavior'] },
+	{ name: 'slot',         svg: TOKEN_ICON_REGISTRY['slot'] },
+	{ name: 'recipe',       svg: TOKEN_ICON_REGISTRY['recipe'] },
+	{ name: 'contract',     svg: TOKEN_ICON_REGISTRY['contract'] },
+	{ name: 'director',     svg: TOKEN_ICON_REGISTRY['director'] },
+	{ name: 'builder',      svg: TOKEN_ICON_REGISTRY['builder'] },
+	{ name: 'manager',      svg: TOKEN_ICON_REGISTRY['manager'] },
+	{ name: 'object-manager', svg: TOKEN_ICON_REGISTRY['object-manager'] },
+	{ name: 'style-manager', svg: TOKEN_ICON_REGISTRY['style-manager'] },
+	{ name: 'script',       svg: TOKEN_ICON_REGISTRY['script'] },
+	{ name: 'state',        svg: TOKEN_ICON_REGISTRY['state'] },
+	{ name: 'atom',         svg: TOKEN_ICON_REGISTRY['atom'] },
+	{ name: 'molecule',     svg: TOKEN_ICON_REGISTRY['molecule'] },
+	{ name: 'organism',     svg: TOKEN_ICON_REGISTRY['organism'] },
+	{ name: 'svg',          svg: TOKEN_ICON_REGISTRY['svg'] },
+	{ name: 'json',         svg: TOKEN_ICON_REGISTRY['json'] },
+	{ name: 'md',           svg: TOKEN_ICON_REGISTRY['md'] },
+	{ name: 'yaml',         svg: TOKEN_ICON_REGISTRY['yaml'] },
+	{ name: 'vert',         svg: TOKEN_ICON_REGISTRY['vert'] },
+	{ name: 'frag',         svg: TOKEN_ICON_REGISTRY['frag'] }
 ] as const;

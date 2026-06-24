@@ -2,7 +2,7 @@
 	import createEventCalendarState from '$stylist/calendar/function/state/event-calendar/index.svelte';
 	import type { RecipeEventCalendar as EventCalendarStateProps } from '$stylist/calendar/interface/recipe/event-calendar';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	const ChevronLeft = 'chevron-left';
 	const ChevronRight = 'chevron-right';

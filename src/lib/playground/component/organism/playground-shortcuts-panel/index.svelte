@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipePlaygroundShortcutsPanel } from '$stylist/playground/interface/recipe/playground-shortcuts-panel';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createPlaygroundShortcutsPanelState } from '$stylist/playground/function/state/playground-shortcuts-panel/index.svelte';
 	const Keyboard = 'keyboard';
 	const Command = 'command';
@@ -82,17 +82,17 @@
 		</h4>
 		<ul class="sp-tips-list">
 			<li class="sp-tip-item">
-				<span class="sp-tip-bullet">вЂў</span>
+				<span class="sp-tip-bullet">•</span>
 				<span
 					>Hold <kbd class="sp-tip-kbd">Shift</kbd> while using zoom shortcuts for finer control</span
 				>
 			</li>
 			<li class="sp-tip-item">
-				<span class="sp-tip-bullet">вЂў</span>
+				<span class="sp-tip-bullet">•</span>
 				<span>Press <kbd class="sp-tip-kbd">?</kbd> anytime to open this shortcuts panel</span>
 			</li>
 			<li class="sp-tip-item">
-				<span class="sp-tip-bullet">вЂў</span>
+				<span class="sp-tip-bullet">•</span>
 				<span>Use <kbd class="sp-tip-kbd">Esc</kbd> to close any modal or panel</span>
 			</li>
 		</ul>
@@ -100,7 +100,7 @@
 
 	<div class="sp-platform-note">
 		<p class="sp-platform-text">
-			On macOS, replace <kbd class="sp-kbd">Ctrl</kbd> with <kbd class="sp-kbd">вЊ</kbd> (Command)
+			On macOS, replace <kbd class="sp-kbd">Ctrl</kbd> with <kbd class="sp-kbd">⌘</kbd> (Command)
 		</p>
 	</div>
 </div>

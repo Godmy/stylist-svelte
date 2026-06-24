@@ -1,0 +1,9 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_PRODUCTS = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>products</title>
+  <path d="M4 6h16v12H4Z"/>
+  <path d="M3 4h2l1.8 9.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L21 7H7.2"/>
+  <circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>
+</svg>
+` as const;

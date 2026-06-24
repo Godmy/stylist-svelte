@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { OntologyNodeComponentProps } from '$stylist/graph/type/struct/ontology-node-component/ontologynodecomponent-props';
 	import createOntologyNodeComponentState from '$stylist/graph/function/state/ontology-node-component/index.svelte';
 

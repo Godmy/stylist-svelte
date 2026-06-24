@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { PageBuilderTextAttributes } from '$stylist/control/type/struct/page-builder-text-attributes';
 	import type { PageBuilderHeadingAttributes } from '$stylist/control/type/struct/page-builder-heading-attributes';
 	import type { PageBuilderButtonAttributes } from '$stylist/control/type/struct/page-builder-button-attributes';

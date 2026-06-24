@@ -1,0 +1,22 @@
+export const TOKEN_VARIANT = [
+	'default',
+	'primary',
+	'secondary',
+	'success',
+	'warning',
+	'danger',
+	'error',
+	'info',
+	'solid',
+	'outline',
+	'ghost',
+	'link',
+	'subtle',
+	'neutral',
+	'gray',
+	'dark',
+	'light',
+	'elevated',
+	'flat',
+	'filled'
+] as const;

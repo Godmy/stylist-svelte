@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+<script lang="ts">
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { createFileExplorerState } from '$stylist/file/function/state/file-explorer/index.svelte';
@@ -130,7 +130,7 @@
 								{#if item.type === 'folder'}
 									Folder
 								{:else}
-									{item.size ? formatFileSize(item.size) : 'File'} вЂў
+									{item.size ? formatFileSize(item.size) : 'File'} •
 									{item.modified ? item.modified.toLocaleDateString() : ''}
 								{/if}
 							</div>

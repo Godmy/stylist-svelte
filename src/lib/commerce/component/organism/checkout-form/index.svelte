@@ -3,7 +3,7 @@
 
 	import createCheckoutFormState from '$stylist/commerce/function/state/checkout-form/index.svelte';
 
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 

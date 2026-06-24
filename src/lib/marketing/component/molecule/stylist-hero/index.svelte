@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AnimatedBackground from '$stylist/animation/component/atom/animated-background/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	const Sparkles = 'sparkles';
 	const ExternalLink = 'external-link';

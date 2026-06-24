@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_AUTO_SEARCH = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>auto-search</title>
+  <circle cx="12" cy="12" r="8.4"/>
+  <path d="M12 12 6.0 14.0"/>
+  <circle cx="10.5" cy="10.5" r="5.5"/>
+  <path d="M14.5 14.5 20 20MM17 17l3 3"/>
+</svg>
+` as const;

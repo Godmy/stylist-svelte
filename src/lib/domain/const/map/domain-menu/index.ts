@@ -1,9 +1,76 @@
-import type { SlotSvgName } from '$stylist/media/interface/slot/svg-name';
+import type { SlotSvgName } from '$stylist/svg/interface/slot/svg-name';
+import { ICON_ANIMATION }    from '$stylist/svg/const/value/animation';
+import { ICON_ARCHITECTURE } from '$stylist/svg/const/value/architecture';
+import { ICON_CALENDAR }     from '$stylist/svg/const/value/calendar';
+import { ICON_CANVAS }       from '$stylist/svg/const/value/canvas';
+import { ICON_CHART }        from '$stylist/svg/const/value/chart';
+import { ICON_CHAT }         from '$stylist/svg/const/value/chat';
+import { ICON_COLOR }        from '$stylist/svg/const/value/color';
+import { ICON_COMMERCE }     from '$stylist/svg/const/value/commerce';
+import { ICON_CONTROL }      from '$stylist/svg/const/value/control';
+import { ICON_DEVELOPMENT }  from '$stylist/svg/const/value/development';
+import { ICON_DOMAIN }       from '$stylist/svg/const/value/domain';
+import { ICON_FILE }         from '$stylist/svg/const/value/file';
+import { ICON_FORM }         from '$stylist/svg/const/value/form';
+import { ICON_GEO }          from '$stylist/svg/const/value/geo';
+import { ICON_GRAPH }        from '$stylist/svg/const/value/graph';
+import { ICON_INFORMATION }  from '$stylist/svg/const/value/information';
+import { ICON_INPUT }        from '$stylist/svg/const/value/input';
+import { ICON_INTERACTION }  from '$stylist/svg/const/value/interaction';
+import { ICON_LAYOUT }       from '$stylist/svg/const/value/layout';
+import { ICON_LOCALIZATION } from '$stylist/svg/const/value/localization';
+import { ICON_MANAGEMENT }   from '$stylist/svg/const/value/management';
+import { ICON_MARKETING }    from '$stylist/svg/const/value/marketing';
+import { ICON_MEDIA }        from '$stylist/svg/const/value/media';
+import { ICON_NAVIGATION }   from '$stylist/svg/const/value/navigation';
+import { ICON_NOTIFICATION } from '$stylist/svg/const/value/notification';
+import { ICON_PLAYGROUND }   from '$stylist/svg/const/value/playground';
+import { ICON_PORTFOLIO }    from '$stylist/svg/const/value/portfolio';
+import { ICON_SCIENCE }      from '$stylist/svg/const/value/science';
+import { ICON_SERVER }       from '$stylist/svg/const/value/server';
+import { ICON_SOCIAL }       from '$stylist/svg/const/value/social';
+import { ICON_SVG }          from '$stylist/svg/const/value/svg';
+import { ICON_THEME }        from '$stylist/svg/const/value/theme';
+import { ICON_TOKEN }        from '$stylist/svg/const/value/token';
+import { ICON_TYPOGRAPHY }   from '$stylist/svg/const/value/typography';
+import { ICON_USER }         from '$stylist/svg/const/value/user';
 
-export const DOMAIN_MENU_ICONS: readonly SlotSvgName[] = [
-	{ name: 'dashboard', svg: 'layout-dashboard' },
-	{ name: 'builder', svg: 'hammer' },
-	{ name: 'backlog', svg: 'list-checks' },
-	{ name: 'diagnostics', svg: 'activity' },
-	{ name: 'settings', svg: 'settings' }
-] as const;
+export const DOMAIN_MENU_ICONS = [
+	{ name: 'animation',    svg: ICON_ANIMATION },
+	{ name: 'architecture', svg: ICON_ARCHITECTURE },
+	{ name: 'calendar',     svg: ICON_CALENDAR },
+	{ name: 'canvas',       svg: ICON_CANVAS },
+	{ name: 'chart',        svg: ICON_CHART },
+	{ name: 'chat',         svg: ICON_CHAT },
+	{ name: 'color',        svg: ICON_COLOR },
+	{ name: 'commerce',     svg: ICON_COMMERCE },
+	{ name: 'control',      svg: ICON_CONTROL },
+	{ name: 'development',  svg: ICON_DEVELOPMENT },
+	{ name: 'domain',       svg: ICON_DOMAIN },
+	{ name: 'file',         svg: ICON_FILE },
+	{ name: 'form',         svg: ICON_FORM },
+	{ name: 'geo',          svg: ICON_GEO },
+	{ name: 'graph',        svg: ICON_GRAPH },
+	{ name: 'information',  svg: ICON_INFORMATION },
+	{ name: 'input',        svg: ICON_INPUT },
+	{ name: 'interaction',  svg: ICON_INTERACTION },
+	{ name: 'layout',       svg: ICON_LAYOUT },
+	{ name: 'localization', svg: ICON_LOCALIZATION },
+	{ name: 'management',   svg: ICON_MANAGEMENT },
+	{ name: 'marketing',    svg: ICON_MARKETING },
+	{ name: 'media',        svg: ICON_MEDIA },
+	{ name: 'navigation',   svg: ICON_NAVIGATION },
+	{ name: 'notification', svg: ICON_NOTIFICATION },
+	{ name: 'playground',   svg: ICON_PLAYGROUND },
+	{ name: 'portfolio',    svg: ICON_PORTFOLIO },
+	{ name: 'science',      svg: ICON_SCIENCE },
+	{ name: 'server',       svg: ICON_SERVER },
+	{ name: 'social',       svg: ICON_SOCIAL },
+	{ name: 'svg',          svg: ICON_SVG },
+	{ name: 'theme',        svg: ICON_THEME },
+	{ name: 'token',        svg: ICON_TOKEN },
+	{ name: 'typography',   svg: ICON_TYPOGRAPHY },
+	{ name: 'user',         svg: ICON_USER }
+] as const satisfies readonly SlotSvgName[];
+
+export const DOMAIN_COUNT = DOMAIN_MENU_ICONS.length;

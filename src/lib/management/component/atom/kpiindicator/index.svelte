@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeKPIIndicator } from '$stylist/management/interface/recipe/kpi-indicator';
 
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	import createKPIIndicatorState from '$stylist/management/function/state/kpi-indicator/index.svelte';
 

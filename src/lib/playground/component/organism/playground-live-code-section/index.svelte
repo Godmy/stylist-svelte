@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipePlaygroundLiveCodeSection } from '$stylist/playground/interface/recipe/playground-live-code-section';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createPlaygroundLiveCodeSectionState } from '$stylist/playground/function/state/playground-live-code-section/index.svelte';
 	const Play = 'play';
 	const ArrowRight = 'arrow-right';

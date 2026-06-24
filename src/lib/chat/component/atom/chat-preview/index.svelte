@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createChatPreviewState from '$stylist/chat/function/state/chat-preview/index.svelte';
 	import type { ChatPreviewContract } from '$stylist/chat/type/struct/chat-preview-contract';
 	import type { ChatPreviewMessage } from '$stylist/chat/type/struct/chat-preview-message';

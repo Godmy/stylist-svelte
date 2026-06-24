@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { PresetAtomicPrinciplesShowcase } from '$stylist/development/const/preset/atomic-principles-showcase';
 	import type { RecipeAtomicPrinciplesShowcase } from '$stylist/development/interface/recipe/atomic-principles-showcase';
 	import { createAtomicPrinciplesShowcaseState } from '$stylist/development/function/state/atomic-principles-showcase/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let { ...props }: RecipeAtomicPrinciplesShowcase = $props();
 	const state = createAtomicPrinciplesShowcaseState(props);

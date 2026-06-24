@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipePlaygroundComponentCatalog } from '$stylist/playground/interface/recipe/playground-component-catalog';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createPlaygroundComponentCatalogState } from '$stylist/playground/function/state/playground-component-catalog/index.svelte';
 	import type { PlaygroundComponentCatalogSortBy } from '$stylist/playground/type/struct/playground-component-catalog-sort-by';
 	const Search = 'search';

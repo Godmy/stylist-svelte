@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_CODE_EDITOR_DEV = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>code-editor-dev</title>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M17.0 3v18"/>
+  <path d="m8 8-4 4 4 4M16 8l4 4-4 4"/>
+  <path d="m14 5-3 14"/>
+</svg>
+` as const;

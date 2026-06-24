@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipePlaygroundAiChat } from '$stylist/playground/interface/recipe/playground-ai-chat';
 	import { createPlaygroundAiChatState } from '$stylist/playground/function/state/playground-ai-chat/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let { ...props }: RecipePlaygroundAiChat = $props();
 	const state = createPlaygroundAiChatState(props);
@@ -32,7 +32,7 @@
 				type="text"
 				bind:value={state.inputMessage}
 				onkeypress={state.handleKeyPress}
-				placeholder="Р’РІРµРґРёС‚Рµ СЃРѕРѕР±С‰РµРЅРёРµ..."
+				placeholder="Введите сообщение..."
 				class="pac-input"
 			/>
 			<button

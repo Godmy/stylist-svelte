@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { DialogConfirmProps } from '$stylist/navigation/type/struct/dialog-confirm-props/dialogconfirm-props';
 	import createDialogConfirmState from '$stylist/navigation/function/state/dialog-confirm/index.svelte';
 

@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_OPERATIONS_HISTORY = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>operations-history</title>
+  <rect x="3" y="3" width="18" height="18" rx="3.8"/>
+  <path d="M3 13.0h18"/>
+  <rect x="3" y="5" width="18" height="14" rx="2"/>
+  <path d="M7 9h10M7 13h7"/>
+</svg>
+` as const;

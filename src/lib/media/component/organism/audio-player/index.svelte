@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeAudioPlayer } from '$stylist/media/interface/recipe/audio-player';
 	import { createAudioPlayerState } from '$stylist/media/function/state/audio-player/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 
 	let props: RecipeAudioPlayer = $props();

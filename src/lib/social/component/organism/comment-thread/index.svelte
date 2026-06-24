@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { SlotCommentThread as CommentThreadProps } from '$stylist/social/interface/slot/comment-thread';
 	import { commentThreadFormatDate } from '$stylist/social/function/script/comment-thread-format-date';
 	import { commentThreadHandleKeyDown } from '$stylist/social/function/script/comment-thread-handle-key-down';

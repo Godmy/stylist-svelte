@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeStylist } from '$stylist/development/interface/recipe/stylist';
 	import { PresetStylist } from '$stylist/development/const/preset/stylist';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Tooltip from '$stylist/control/component/atom/tooltip/index.svelte';
 	import { categories } from '$stylist/development/const/record/stylist-categories';
 	import { createStylistState } from '$stylist/development/function/state/stylist/index.svelte';
@@ -35,7 +35,7 @@
 		type="button"
 		class:is-open={state.isOpen}
 		class="stylist-trigger"
-		aria-label="РћС‚РєСЂС‹С‚СЊ RecipeStylist"
+		aria-label="Открыть RecipeStylist"
 		aria-haspopup="dialog"
 		aria-expanded={state.isOpen}
 		aria-controls={panelId}
@@ -53,12 +53,12 @@
 			<div class="panel-header">
 				<div>
 					<p class="eyebrow">RecipeStylist</p>
-					<h3>Р“СЂСѓРїРїР° РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… РЅР°СЃС‚СЂРѕРµРє</h3>
+					<h3>Группа дополнительных настроек</h3>
 				</div>
 				<button
 					type="button"
 					class="close-button"
-					aria-label="Р—Р°РєСЂС‹С‚СЊ RecipeStylist"
+					aria-label="Закрыть RecipeStylist"
 					onclick={state.closePanel}
 				>
 					<BaseIcon name={PresetStylist.X} class="close-icon" />
@@ -66,12 +66,12 @@
 			</div>
 
 			<p class="panel-copy">
-				Р’С‹Р±РµСЂРёС‚Рµ РєР°С‚РµРіРѕСЂРёСЋ СЃРІРѕР№СЃС‚РІ, Р·Р°С‚РµРј СѓС‚РѕС‡РЅСЏСЋС‰СѓСЋ
-				РёРєРѕРЅРєСѓ. РљРѕРјРїРѕРЅРµРЅС‚ С…СЂР°РЅРёС‚ РІС‹Р±РѕСЂ РїРѕ РєР°Р¶РґРѕР№ РіСЂСѓРїРїРµ
-				РѕС‚РґРµР»СЊРЅРѕ.
+				Выберите категорию свойств, затем уточняющую
+				иконку. Компонент хранит выбор по каждой группе
+				отдельно.
 			</p>
 
-			<div class="category-list" role="tablist" aria-label="РљР°С‚РµРіРѕСЂРёРё RecipeStylist">
+			<div class="category-list" role="tablist" aria-label="Категории RecipeStylist">
 				{#each categories as category}
 					<button
 						type="button"
@@ -96,7 +96,7 @@
 			<section class="option-section" style={`--option-accent: ${state.activeCategory.accent};`}>
 				<div class="section-heading">
 					<div>
-						<p class="eyebrow">РђРєС‚РёРІРЅР°СЏ РіСЂСѓРїРїР°</p>
+						<p class="eyebrow">Активная группа</p>
 						<h4>{state.activeCategory.label}</h4>
 					</div>
 					<span class="section-pill">{state.activeOption.label}</span>
@@ -130,8 +130,8 @@
 			<section class="selection-summary">
 				<div class="section-heading compact">
 					<div>
-						<p class="eyebrow">РўРµРєСѓС‰РёРµ СЂРµС€РµРЅРёСЏ</p>
-						<h4>РЎРЅРёРјРѕРє РІС‹Р±РѕСЂР°</h4>
+						<p class="eyebrow">Текущие решения</p>
+						<h4>Снимок выбора</h4>
 					</div>
 				</div>
 

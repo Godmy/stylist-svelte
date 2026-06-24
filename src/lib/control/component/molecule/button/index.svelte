@@ -2,7 +2,7 @@
 	import { createButtonState } from '$stylist/control/function/state/button/index.svelte';
 	import type { RecipeButton } from '$stylist/control/interface/recipe/button';
 	import { CONTROL_BUTTON_ICON } from '$stylist/control/const/map/button';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeButton = $props();
 	const state = createButtonState(props);

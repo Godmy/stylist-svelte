@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeMediaLibrary } from '$stylist/media/interface/recipe/media-library';
 	import { createMediaLibraryState } from '$stylist/media/function/state/media-library/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeMediaLibrary = $props();
 	const state = createMediaLibraryState(props);
@@ -185,7 +185,7 @@
 					<div class="ml-list-info">
 						<p class="ml-list-name">{item.name}</p>
 						<p class="ml-list-meta">
-							{state.formatMediaFileSize(item.size)} вЂў {state.formatMediaDate(item.uploadDate)}
+							{state.formatMediaFileSize(item.size)} • {state.formatMediaDate(item.uploadDate)}
 						</p>
 					</div>
 					<div class="ml-list-actions">

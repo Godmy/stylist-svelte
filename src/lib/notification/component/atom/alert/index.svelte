@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { createAlertState } from '$stylist/notification/function/state/alert/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	const props = $props();
 	const state = createAlertState(props);
@@ -33,7 +33,7 @@
 					<button
 						type="button"
 						class={state.closeButtonClasses}
-						aria-label="Р—Р°РєСЂС‹С‚СЊ"
+						aria-label="Закрыть"
 						onclick={state.handleClose}
 					>
 						<Icon name={state.XIcon} class="alert-close-icon" aria-hidden="true" />

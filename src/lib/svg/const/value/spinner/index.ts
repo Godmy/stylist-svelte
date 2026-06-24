@@ -1,0 +1,11 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_SPINNER = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>spinner</title>
+  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
+  <path d="M6 8.0h12"/>
+  <circle cx="12" cy="12" r="8"/>
+  <path d="M12 12 18 12"/>
+  <path d="M12 12 6.01 11.69"/>
+</svg>
+` as const;

@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_PERMISSION_GATE = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>permission-gate</title>
+  <path d="M6 4h12l4 4v12l-4 4H6l-4-4V8Z"/>
+  <path d="M4 12.0h16"/>
+  <path d="M12 3 5 6v6c0 4.6 3.1 7.9 7 9 3.9-1.1 7-4.4 7-9V6l-7-3Z"/>
+  <path d="m9.5 12 2 2 3.5-3.5"/>
+</svg>
+` as const;

@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeTagInput } from '$stylist/input/interface/recipe/tag-input';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createTagInputState } from '$stylist/input/function/state/tag-input/index.svelte';
 	const X = 'x';
 

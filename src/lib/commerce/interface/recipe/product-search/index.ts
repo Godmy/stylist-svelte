@@ -1,6 +1,6 @@
 import type { BehaviorProductSearchEvents } from '$stylist/commerce/interface/behavior/product-search-events';
 import type { ContractProductSearch } from '$stylist/commerce/interface/contract/product-search';
-import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';

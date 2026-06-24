@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerIconPicker } from './class';
 export {
 	AnnouncementBanner,
 	AudioPlayer,
@@ -10,7 +9,6 @@ export {
 	CanvasImageEditor,
 	CountryFlag,
 	Favicon,
-	Icon,
 	Image,
 	ImageGallery,
 	ImageWithCaption,
@@ -18,15 +16,12 @@ export {
 	NodeIcon,
 	PictureToolbar,
 	PromoBanner,
-	Svg,
 	TeamAvatarStack,
 	VideoPlayer
 } from './component';
 export {
 	ANNOUNCEMENT_BANNER_CLASSES,
 	IMAGE_WITH_CAPTION_CLASSES,
-	RECORD_ICON_SIZE,
-	TOKEN_ICON_REGISTRY,
 	TOKEN_MEDIA_ICON
 } from './const';
 export {
@@ -39,7 +34,6 @@ export {
 	createCanvasImageEditorState,
 	createCountryFlagState,
 	createFaviconState,
-	createIconState,
 	createImageGalleryState,
 	createImageState,
 	createImageWithCaptionState,
@@ -47,7 +41,6 @@ export {
 	createNodeIconState,
 	createPictureToolbarState,
 	createPromoBannerState,
-	createSvgState,
 	createTeamAvatarStackState,
 	createVideoPlayerState,
 	formatMediaDate,
@@ -65,12 +58,6 @@ export type {
 	CanvasImageEditorProps,
 	CountryFlagProps,
 	FaviconProps,
-	IconColor,
-	IconDirection,
-	IconProps,
-	IconShape,
-	IconSize,
-	IconVariant,
 	ImageGalleryProps,
 	ImageProps,
 	MediaItem,
@@ -79,7 +66,6 @@ export type {
 	NodeIconProps,
 	PictureToolbarTool,
 	PromoBannerProps,
-	SvgProps,
 	TeamAvatarStackProps,
 	TeamMember,
 	VideoPlayerProps
@@ -94,15 +80,12 @@ export type {
 	ContractCanvasImageEditor,
 	ContractCountryFlag,
 	ContractFavicon,
-	ContractIcon,
 	ContractImage,
 	ContractImageGallery,
 	ContractImageWithCaption,
-	ContractMedia,
 	ContractMediaLibrary,
 	ContractNodeIcon,
 	ContractPromoBanner,
-	ContractSvg,
 	ContractTeamAvatarStack,
 	ContractVideoPlayer,
 	ImageGalleryStateProps,
@@ -115,9 +98,6 @@ export type {
 	RecipeCanvasImageEditor,
 	RecipeCountryFlag,
 	RecipeFavicon,
-	RecipeIconChevron,
-	RecipeIconCircle,
-	RecipeIconWrapper,
 	RecipeImage,
 	RecipeImageGallery,
 	RecipeImageWithCaption,
@@ -126,13 +106,8 @@ export type {
 	RecipeNodeIcon,
 	RecipePictureToolbar,
 	RecipePromoBanner,
-	RecipeSvg,
 	RecipeTeamAvatarStack,
-	RecipeThemeIconPicker,
 	RecipeVideoPlayer,
-	SlotIcon,
 	SlotImageItem,
-	SlotMedia,
-	SlotSvgName,
-	ThemeIconItem
+	SlotMedia
 } from './interface';

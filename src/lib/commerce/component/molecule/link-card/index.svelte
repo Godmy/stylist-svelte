@@ -15,7 +15,7 @@
 	 */
 
 	import type { RecipeLinkCard as RecipeLinkCard } from '$stylist/commerce/interface/recipe/link-card';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { ObjectManagerLinkCard } from '$stylist/commerce/class/object-manager/link-card';
 	import createLinkCardState from '$stylist/commerce/function/state/link-card/index.svelte';
 

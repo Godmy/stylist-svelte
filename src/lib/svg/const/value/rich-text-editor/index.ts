@@ -1,0 +1,9 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_RICH_TEXT_EDITOR = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>rich-text-editor</title>
+  <circle cx="12" cy="12" r="8.0"/>
+  <path d="M12 12 16.0 13.0"/>
+  <path d="M4 6h16M8 6v12M16 6v12M6 18h12"/>
+</svg>
+` as const;

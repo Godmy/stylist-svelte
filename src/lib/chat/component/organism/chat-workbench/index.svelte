@@ -7,7 +7,7 @@
 	import UserStatus from '$stylist/chat/component/molecule/user-status/index.svelte';
 	import ChatPreview from '$stylist/chat/component/atom/chat-preview/index.svelte';
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';

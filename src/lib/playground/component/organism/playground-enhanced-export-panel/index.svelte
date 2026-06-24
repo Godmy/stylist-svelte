@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipePlaygroundEnhancedExportPanel } from '$stylist/playground/interface/recipe/playground-enhanced-export-panel';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createPlaygroundEnhancedExportPanelState } from '$stylist/playground/function/state/playground-enhanced-export-panel/index.svelte';
 	const FileCode = 'file-code';
 	const Download = 'download';
@@ -62,7 +62,7 @@
 		<div class="pep-actions-grid">
 			<button onclick={state.openInCodeSandbox} class="pep-action-card pep-action-card--yellow">
 				<div class="pep-card-top">
-					<div class="pep-card-icon">в—†</div>
+					<div class="pep-card-icon">◆</div>
 					<BaseIcon
 						name={ExternalLink}
 						style="width:1rem;height:1rem;color:#ca8a04;opacity:0;transition:opacity 0.15s"
@@ -76,7 +76,7 @@
 
 			<button onclick={state.openInStackBlitz} class="pep-action-card pep-action-card--blue">
 				<div class="pep-card-top">
-					<div class="pep-card-icon">в—†</div>
+					<div class="pep-card-icon">◆</div>
 					<BaseIcon
 						name={ExternalLink}
 						style="width:1rem;height:1rem;color:#2563eb;opacity:0;transition:opacity 0.15s"

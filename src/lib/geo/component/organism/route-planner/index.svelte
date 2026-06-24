@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RoutePlannerStateProps } from '$stylist/geo/interface/recipe/route-planner';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import createRoutePlannerState from '$stylist/geo/function/state/route-planner/index.svelte';
 

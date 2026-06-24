@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createButtonFactoryInput } from '$stylist/interaction/factory/button';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const Loader2 = 'loader-2';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { RecipeIconButtonProps as IconButtonProps } from '$stylist/control/interface/recipe/icon-button-props';

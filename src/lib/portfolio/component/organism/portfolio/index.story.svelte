@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import type { PortfolioData } from '$stylist/portfolio/class/object-manager/portfolio';
@@ -7,8 +7,8 @@
 	const controls: InterfaceControllerSettings[] = [
 		{
 			name: 'showSummary',
-			label: 'РС‚РѕРіРѕРІР°СЏ СЃС‚СЂРѕРєР°',
-			description: 'РџРѕРєР°Р·Р°С‚СЊ СЃС‚СЂРѕРєСѓ РРўРћР“Рћ РІРЅРёР·Сѓ С‚Р°Р±Р»РёС†С‹.',
+			label: 'Итоговая строка',
+			description: 'Показать строку ИТОГО внизу таблицы.',
 			type: 'boolean',
 			defaultValue: true
 		}
@@ -18,7 +18,7 @@
 		entries: [
 			{
 				id: 1,
-				name: 'РђРЎРЈ РЎРЎРњРџ-103 (Android)',
+				name: 'АСУ ССМП-103 (Android)',
 				new: { current: 9 },
 				plan: { current: 14 },
 				estimate: { current: null },
@@ -32,7 +32,7 @@
 			},
 			{
 				id: 2,
-				name: 'РђРЎРЈ РЎРЎРњРџ-103 (PHP v.1)',
+				name: 'АСУ ССМП-103 (PHP v.1)',
 				new: { current: 9 },
 				plan: { current: 9 },
 				estimate: { current: 2 },
@@ -46,7 +46,7 @@
 			},
 			{
 				id: 3,
-				name: 'РђРЎРЈ РЎРЎРњРџ-103 (PHP v.2)',
+				name: 'АСУ ССМП-103 (PHP v.2)',
 				new: { current: 34 },
 				plan: { current: 20, removed: 1 },
 				estimate: { current: 20 },
@@ -60,7 +60,7 @@
 			},
 			{
 				id: 4,
-				name: 'РђРЎРЈ РЎРЎРњРџ-103 (РћС‚С‡С‘С‚РЅРѕСЃС‚СЊ)',
+				name: 'АСУ ССМП-103 (Отчётность)',
 				new: { current: 51, added: 3 },
 				plan: { current: 2, added: 2 },
 				estimate: { current: null },
@@ -74,7 +74,7 @@
 			},
 			{
 				id: 5,
-				name: 'РђРЎРЈ РЎРЎРњРџ-103 (РўРђРЎРЈ)',
+				name: 'АСУ ССМП-103 (ТАСУ)',
 				new: { current: null },
 				plan: { current: null },
 				estimate: { current: null },
@@ -88,7 +88,7 @@
 			},
 			{
 				id: 6,
-				name: 'Р’РРЎ РњРРќРўР РђРќРЎ РњРћ',
+				name: 'ВИС МИНТРАНС МО',
 				new: { current: 13 },
 				plan: { current: 12 },
 				estimate: { current: null },
@@ -102,7 +102,7 @@
 			},
 			{
 				id: 7,
-				name: 'Р’РѕР»С‹РЅСЃРєР°СЏ Р±РѕР»СЊРЅРёС†Р° (РљР‘ в„–1)',
+				name: 'Волынская больница (КБ №1)',
 				new: { current: 5 },
 				plan: { current: 7 },
 				estimate: { current: 3 },
@@ -116,7 +116,7 @@
 			},
 			{
 				id: 8,
-				name: 'Р’РѕР»С‹РЅСЃРєР°СЏ Р±РѕР»СЊРЅРёС†Р° (РЎР±РѕСЂ С‚СЂРµР±РѕРІР°РЅРёР№)',
+				name: 'Волынская больница (Сбор требований)',
 				new: { current: 1 },
 				plan: { current: null },
 				estimate: { current: null },
@@ -130,7 +130,7 @@
 			},
 			{
 				id: 9,
-				name: 'Р”РµС‚СЃРєРёР№ РјРµРґРёС†РёРЅСЃРєРёР№ С†РµРЅС‚СЂ РЈР”Рџ',
+				name: 'Детский медицинский центр УДП',
 				new: { current: null },
 				plan: { current: 4 },
 				estimate: { current: 4 },
@@ -144,7 +144,7 @@
 			},
 			{
 				id: 10,
-				name: 'РЎРџРћ РЎРњРўРЎ РњР§РЎ Р РѕСЃСЃРёРё (РЎР’РћР”)',
+				name: 'СПО СМТС МЧС России (СВОБ)',
 				new: { current: 48, removed: 1 },
 				plan: { current: 4 },
 				estimate: { current: 28, removed: 8 },
@@ -158,7 +158,7 @@
 			},
 			{
 				id: 11,
-				name: 'РЎРџРћ РЎРЈРњРќ Р“РЈ РњР’Р” Рі. РњРѕСЃРєРІР°',
+				name: 'СПО СУМН ГУ МВД г. Москва',
 				new: { current: null },
 				plan: { current: null },
 				estimate: { current: null },
@@ -172,7 +172,7 @@
 			},
 			{
 				id: 12,
-				name: 'РЎРџРћ РЎРЈРњРќ РњР’Р” Р РѕСЃСЃРёРё',
+				name: 'СПО СУМН МВД России',
 				new: { current: 31, added: 1 },
 				plan: { current: 8 },
 				estimate: { current: 28, added: 8 },
@@ -186,7 +186,7 @@
 			},
 			{
 				id: 13,
-				name: 'РЎРџРћ РЎРЈРЎРРЎ-Р§РћРћ',
+				name: 'СПО СУСИС-ЧОО',
 				new: { current: null },
 				plan: { current: null },
 				estimate: { current: null },
@@ -200,7 +200,7 @@
 			},
 			{
 				id: 14,
-				name: 'РЎРЈРњРџ РњРѕСЃСЌРЅРµСЂРіРѕСЃР±С‹С‚',
+				name: 'СУМП МосЭнергосбыт',
 				new: { current: 71, removed: 7 },
 				plan: { current: 8 },
 				estimate: { current: 19, removed: 5 },
@@ -214,7 +214,7 @@
 			},
 			{
 				id: 15,
-				name: 'РўРµР»РµРјР°С‚РёС‡РµСЃРєР°СЏ РџР»Р°С‚С„РѕСЂРјР° Delphi',
+				name: 'Телематическая Платформа Delphi',
 				new: { current: null },
 				plan: { current: null },
 				estimate: { current: null },
@@ -228,7 +228,7 @@
 			},
 			{
 				id: 16,
-				name: 'РўРµР»РµРјР°С‚РёС‡РµСЃРєР°СЏ РџР»Р°С‚С„РѕСЂРјР° РЎ++',
+				name: 'Телематическая Платформа С++',
 				new: { current: 19 },
 				plan: { current: null },
 				estimate: { current: null },
@@ -242,7 +242,7 @@
 			},
 			{
 				id: 17,
-				name: 'РЈСЃС‚Р°РЅРѕРІРєР° Р‘РќРЎРћ',
+				name: 'Установка ВНСО',
 				new: { current: 3 },
 				plan: { current: null },
 				estimate: { current: null },
@@ -274,41 +274,41 @@
 	title="Portfolio"
 	component={Portfolio}
 	category="Organisms/Management"
-	description="РўР°Р±Р»РёС†Р° РїРѕСЂС‚С„РµР»СЏ РїСЂРѕРµРєС‚РѕРІ СЃ СЂР°Р·Р±РёРІРєРѕР№ Р·Р°РґР°С‡ РїРѕ СЃС‚Р°С‚СѓСЃР°Рј Рё РґРµР»СЊС‚РѕР№ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РїСЂРµРґС‹РґСѓС‰РµРіРѕ РґРЅСЏ."
+	description="Таблица портфеля проектов с разбивкой задач по статусам и дельтой относительно предыдущего дня."
 	tags={['portfolio', 'projects', 'table', 'management']}
 	{controls}
 >
 	{#snippet children(values: any)}
-		<section class="_c1">
-			<div class="_c2">
-				<p class="_c3">РЈРїСЂР°РІР»РµРЅРёРµ РїСЂРѕРµРєС‚Р°РјРё</p>
-				<h3 class="_c4">РџРѕСЂС‚С„РµР»СЊ РїСЂРѕРµРєС‚РѕРІ</h3>
-				<p class="_c5">
-					Р Р°Р·Р±РёРІРєР° Р·Р°РґР°С‡ РїРѕ СЃС‚Р°С‚СѓСЃР°Рј. РџСЂР°РІР°СЏ С‡Р°СЃС‚СЊ РєР°Р¶РґРѕР№ СЏС‡РµР№РєРё РїРѕРєР°Р·С‹РІР°РµС‚ РёР·РјРµРЅРµРЅРёРµ
-					РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РїСЂРµРґС‹РґСѓС‰РµРіРѕ РґРЅСЏ: СЃРІРµСЂС…Сѓ вЂ” РґРѕР±Р°РІР»РµРЅРЅС‹Рµ, СЃРЅРёР·Сѓ вЂ” СѓР±С‹РІС€РёРµ.
+		<section class="story-wrap">
+			<div class="story-header">
+				<p class="story-eyebrow">Управление проектами</p>
+				<h3 class="story-title">Портфель проектов</h3>
+				<p class="story-description">
+					Разбивка задач по статусам. Правая часть каждой ячейки показывает изменение
+					относительно предыдущего дня: сверху — добавленные, снизу — убывшие.
 				</p>
 			</div>
 
-			<div class="_c6">
-				<Portfolio data={demoData} />
+			<div class="story-body">
+				<Portfolio data={demoData} showSummary={values.showSummary as boolean} />
 			</div>
 		</section>
 	{/snippet}
 </Story>
 
 <style>
-	._c1 {
+	.story-wrap {
 		display: grid;
 		gap: 1.5rem;
 		width: 100%;
 	}
 
-	._c2 {
+	.story-header {
 		display: grid;
 		gap: 0.375rem;
 	}
 
-	._c3 {
+	.story-eyebrow {
 		font-size: 0.75rem;
 		font-weight: 600;
 		letter-spacing: 0.06em;
@@ -316,19 +316,19 @@
 		color: var(--color-text-tertiary, var(--color-text-secondary));
 	}
 
-	._c4 {
+	.story-title {
 		font-size: 1.25rem;
 		font-weight: 600;
 		color: var(--color-text-primary);
 	}
 
-	._c5 {
+	.story-description {
 		font-size: 0.875rem;
 		color: var(--color-text-secondary);
 		max-width: 48rem;
 	}
 
-	._c6 {
+	.story-body {
 		width: 100%;
 	}
 </style>

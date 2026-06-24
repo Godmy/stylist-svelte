@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_COMPONENT_SIZE = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>component-size</title>
+  <path d="M6 4h12l4 4v12l-4 4H6l-4-4V8Z"/>
+  <path d="M4 15.0h16"/>
+  <rect x="3" y="3" width="18" height="18" rx="2"/>
+  <path d="M3 16h18M13 3v18"/>
+</svg>
+` as const;

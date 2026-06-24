@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Button from '$stylist/control/component/atom/button/index.svelte';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createKanbanBoardState } from '$stylist/portfolio/function/state/kanban-board/index.svelte';
 	import KanbanColumn from '$stylist/portfolio/component/molecule/kanban-column/index.svelte';
 	import type { KanbanBoardType } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardtype';

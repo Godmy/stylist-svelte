@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 
@@ -6,7 +6,7 @@
 
 	import { createReactionPickerState } from '$stylist/input/function/state/reaction-picker/index.svelte';
 
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	const Smile = 'smile';
 
@@ -16,7 +16,7 @@
 	const state = createReactionPickerState(props);
 </script>
 
-ГЇВ»Вї
+ï»¿
 <div
 	class={`reaction-picker ${state.hostClass}`}
 	{...props}

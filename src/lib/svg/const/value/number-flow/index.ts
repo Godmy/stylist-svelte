@@ -1,0 +1,11 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_NUMBER_FLOW = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>number-flow</title>
+  <path d="M4 6h16v12H4Z"/>
+  <path d="M18.0 6v12"/>
+  <rect x="4" y="4" width="16" height="16" rx="2"/>
+  <path d="M10 9h7M10 14h5"/>
+  <path d="M6 9h2M6 14h2"/>
+</svg>
+` as const;

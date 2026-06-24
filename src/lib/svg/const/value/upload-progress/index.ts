@@ -1,0 +1,11 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_UPLOAD_PROGRESS = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>upload-progress</title>
+  <circle cx="12" cy="12" r="8.4"/>
+  <path d="M12 12 10.0 6.0"/>
+  <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
+  <path d="M14 3v6h6"/>
+  <path d="M12 15V9m-2 2 2-2 2 2"/>
+</svg>
+` as const;

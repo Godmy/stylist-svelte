@@ -8,6 +8,8 @@ export type { RecipeBaseCard } from './base-card';
 export type { RecipeCountBadge } from './count-badge';
 export type { RecipeCounter } from './counter';
 export type { RecipeDot } from './dot';
+export type { RecipeCanvasImageEditor } from './icon-canvas-image-editor';
+export type { RecipeThemeIconPicker } from './icon-picker';
 export type { RecipeListItemMarker } from './list-item-marker';
 export type { RecipeMetricBar } from './metric-bar';
 export type { RecipeMetricBarsCard } from './metric-bars-card';

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCategoryCard as ICategoryCardProps } from '$stylist/commerce/interface/recipe/category-card';
-	import Icon from '$stylist/media/component/atom/icon/index.svelte';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createCategoryCardState from '$stylist/commerce/function/state/category-card/index.svelte';
 
 	let props: ICategoryCardProps = $props();

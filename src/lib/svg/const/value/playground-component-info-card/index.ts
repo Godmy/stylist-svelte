@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_PLAYGROUND_COMPONENT_INFO_CARD = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>playground-component-info-card</title>
+  <rect x="3" y="3" width="18" height="18" rx="2.6"/>
+  <path d="M3 14.0h18"/>
+  <circle cx="12" cy="12" r="9"/>
+  <path d="M12 10v6M12 7h.01"/>
+</svg>
+` as const;

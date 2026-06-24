@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+<script lang="ts">
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createLocationSelectorState } from '$stylist/geo/function/state/location-selector/index.svelte';
 	import type { LocationSelectorLocation } from '$stylist/geo/type/struct/location-selector/locationselectorlocation';
 

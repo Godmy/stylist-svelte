@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipePlaygroundComponentInfoCard } from '$stylist/playground/interface/recipe/playground-component-info-card';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createPlaygroundComponentInfoCardState } from '$stylist/playground/function/state/playground-component-info-card/index.svelte';
 
 	const X = 'x';

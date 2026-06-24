@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createNotificationSettingsState from '$stylist/management/function/state/notification-settings/index.svelte';
 	import type { NotificationItem } from '$stylist/management/type/struct/notification-item';
 

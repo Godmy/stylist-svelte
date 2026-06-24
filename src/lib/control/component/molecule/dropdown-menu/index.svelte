@@ -3,7 +3,7 @@
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import { createDropdownMenuState } from '$stylist/control/function/state/dropdown-menu/index.svelte';
 	import type { RecipeDropdownMenu } from '$stylist/control/interface/recipe/dropdown-menu';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeDropdownMenu = $props();
 	const state = createDropdownMenuState(props);

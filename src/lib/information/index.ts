@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	ObjectManagerIconPicker,
 	ObjectManagerMetricBar,
 	ObjectManagerTable
 } from './class';
@@ -88,6 +89,7 @@ export type {
 	RecipeBadge,
 	RecipeBadgeGroup,
 	RecipeBaseCard,
+	RecipeCanvasImageEditor,
 	RecipeCountBadge,
 	RecipeCounter,
 	RecipeDot,
@@ -104,8 +106,10 @@ export type {
 	RecipeTableCell,
 	RecipeTableRow,
 	RecipeTableSection,
+	RecipeThemeIconPicker,
 	SlotAttachment,
 	SlotAttachmentPreview,
 	SlotBadge,
-	SlotStatus
+	SlotStatus,
+	ThemeIconItem
 } from './interface';

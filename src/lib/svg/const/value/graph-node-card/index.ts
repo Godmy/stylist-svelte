@@ -1,0 +1,10 @@
+/** AUTO-GENERATED: svg icon value */
+export const ICON_GRAPH_NODE_CARD = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>graph-node-card</title>
+  <circle cx="12" cy="12" r="8.8"/>
+  <path d="M12 12 17.0 6.0"/>
+  <circle cx="6" cy="9" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="12" cy="18" r="2"/>
+  <path d="M7.7 7.2 16.3 6.8M7 7.5l4 8m6.3-5.9-4.1 7.4"/>
+</svg>
+` as const;

@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { PresetPageButton } from '$stylist/control/const/preset/page-button';
 	import type { RecipePageButton } from '$stylist/control/interface/recipe/page-button';
-	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createPageButtonState } from '$stylist/control/function/state/page-button/index.svelte';
 
 	/**
@@ -125,7 +125,7 @@
 		background: var(--color-neutral-200);
 	}
 
-	/* Size styles вЂ” square pagination buttons */
+	/* Size styles — square pagination buttons */
 	.c-page-button[data-size='xs'] {
 		width: 1.75rem;
 		height: 1.75rem;
