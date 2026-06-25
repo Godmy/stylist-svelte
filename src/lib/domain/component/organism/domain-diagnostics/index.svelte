@@ -385,7 +385,7 @@
 
 <div class="diagnostics-runner" aria-hidden="true">
 	{#if diagnosticsComponent}
-		<diagnosticsComponent></diagnosticsComponent>
+		<svelte:component this={diagnosticsComponent} />
 	{/if}
 </div>
 

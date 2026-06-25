@@ -1,5 +1,5 @@
-﻿import type { GraphEditorProps } from '$stylist/architecture/type/struct/graph-editor-props';
-import type { GraphEditorPaletteNode } from '$stylist/graph/type/struct/graph-editor-palette-node';
+import type { GraphEditorProps } from '$stylist/architecture/type/struct/graph-editor-props';
+import type { GraphEditorPaletteNode } from '$stylist/architecture/type/struct/graph-editor-palette-node';
 
 export function createGraphEditorState(props: GraphEditorProps) {
 	let editorRef = $state<HTMLDivElement | null>(null);

@@ -13,7 +13,6 @@
 
 <Story
 	{controls}
-	component={CardOpen}
 	title="CardOpen"
 	description="Seed button that toggles the orbit panel between closed and opened states."
 >

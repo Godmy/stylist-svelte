@@ -10,7 +10,6 @@
 
 <Story
 	{controls}
-	component={OrbitBackground}
 	title="OrbitBackground"
 	description="Concentric orbit stage used to host token control nodes."
 >

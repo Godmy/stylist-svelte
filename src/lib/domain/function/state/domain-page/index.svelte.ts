@@ -93,7 +93,16 @@ export function createDomainPageState(input: DomainPageInput) {
 				.filter(Boolean)
 				.join('/')
 	);
-	const storyModulePath = $derived(storyFile ? `/src/lib/${storyFile.path}` : null);
+	function toStoryModulePath(path: string): string {
+		const normalized = path.replace(/\\/g, '/').replace(/^\/+/, '');
+		const libPath = normalized.startsWith('src/lib/')
+			? normalized.slice('src/lib/'.length)
+			: normalized;
+
+		return `/src/lib/${libPath}`;
+	}
+
+	const storyModulePath = $derived(storyFile ? toStoryModulePath(storyFile.path) : null);
 	const previewKind = $derived.by(() => {
 		if (activeFilePath.endsWith('.svg')) return 'svg';
 		if (activeFilePath.endsWith('.json')) return 'json';

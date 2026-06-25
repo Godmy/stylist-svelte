@@ -62,7 +62,6 @@
 </script>
 
 <Story
-	component={TokenControlComposer}
 	title="Token Control Composer"
 	category="Molecules/Token"
 	description="Token control composer that selects the matching control type automatically."

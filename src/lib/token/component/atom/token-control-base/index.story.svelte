@@ -21,7 +21,6 @@
 </script>
 
 <Story
-	component={TokenControlBase}
 	title="Token Control Base"
 	category="Atoms/Interaction/Controls"
 	description="Base shell for rendering a token control with metadata."

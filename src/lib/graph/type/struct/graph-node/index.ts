@@ -1,17 +1,6 @@
-﻿import type { GraphNodeCategory } from '$stylist/token/type/alias/graph-node-category';
+import type { GraphPosition3D } from '$stylist/graph/type/struct/graph-position-3d';
 
 export interface GraphNode {
 	id: string;
-	title: string;
-	category: GraphNodeCategory;
-	x: number;
-	y: number;
-	width: number;
-	height: number;
-	color: string;
-	accent: string;
-	summary: string;
-	details: readonly string[];
-	shape: 'rounded' | 'pill' | 'circle';
+	position: GraphPosition3D;
 }
-

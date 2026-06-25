@@ -33,7 +33,6 @@
 
 <Story
 	{controls}
-	component={TokenSelect}
 	title="Token Select"
 	category="Atoms/Interaction/Controls"
 	description="Select control for choosing a token value from a dropdown list."

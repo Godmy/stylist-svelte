@@ -2,5 +2,7 @@
 export { Camera } from './manager';
 export {
 	Matrix4,
+	ObjectManagerNodePalette,
+	ObjectManagerNodePropertiesPanel,
 	SceneObjectManager
 } from './object-manager';

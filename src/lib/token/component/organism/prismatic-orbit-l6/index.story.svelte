@@ -4,7 +4,6 @@
 </script>
 
 <Story
-	component={PrismaticOrbitL6}
 	title="PrismaticOrbitL6"
 	description="Interactive L6 shell combining movable seed, orbit layers, and expandable control card."
 >

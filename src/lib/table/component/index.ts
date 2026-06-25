@@ -1,5 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	Cell,
+	CellHeader,
+	CellIcon,
+	CellPill,
+	CellText,
+	Row,
 	SortableTableHeader,
 	Table,
 	TableBody,
@@ -8,8 +14,13 @@ export {
 	TableRow
 } from './atom';
 export {
+	Column,
 	ComparisonTable,
-	ExpandableTableRow
+	ExpandableTableRow,
+	FilterBar,
+	FilterPills,
+	FilterText,
+	RowExpandable
 } from './molecule';
 export {
 	ColumnManager,

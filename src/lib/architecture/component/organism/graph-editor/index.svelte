@@ -2,8 +2,8 @@
 	import IconButton from '$stylist/control/component/atom/icon-button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import LitegraphCanvas from '$stylist/architecture/component/organism/litegraph-canvas/index.svelte';
-	import NodePalette from '$stylist/graph/component/organism/node-palette/index.svelte';
-	import NodePropertiesPanel from '$stylist/graph/component/molecule/node-properties-panel/index.svelte';
+	import NodePalette from '$stylist/architecture/component/organism/node-palette/index.svelte';
+	import NodePropertiesPanel from '$stylist/architecture/component/molecule/node-properties-panel/index.svelte';
 	import Separator from '$stylist/layout/component/atom/separator/index.svelte';
 	import type { GraphEditorProps } from '$stylist/architecture/type/struct/graph-editor-props';
 	import createGraphEditorState from '$stylist/architecture/function/state/graph-editor/index.svelte';

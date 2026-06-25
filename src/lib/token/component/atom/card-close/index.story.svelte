@@ -12,7 +12,6 @@
 
 <Story
 	{controls}
-	component={CardClose}
 	title="CardClose"
 	description="Floating close affordance for expanded orbit cards."
 >

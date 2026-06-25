@@ -19,7 +19,6 @@
 
 <Story
 	{controls}
-	component={TokenChipSet}
 	title="Token Chip Set"
 	category="Atoms/Interaction/Controls"
 	description="Compact chip-set control for choosing one value from a token list."

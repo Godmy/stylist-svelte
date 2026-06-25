@@ -1,123 +1,92 @@
 <script lang="ts">
-	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	const ChevronDown = 'chevron-down';
-	const ChevronUp = 'chevron-up';
+	import type { SlotDataTable } from '$stylist/table/interface/slot/data-table';
+	import createDataTableState from '$stylist/table/function/state/data-table';
+	import Table from '$stylist/table/component/atom/table/index.svelte';
+	import Row from '$stylist/table/component/atom/row/index.svelte';
+	import Column from '$stylist/table/component/molecule/column/index.svelte';
+	import CellText from '$stylist/table/component/atom/cell-text/index.svelte';
+	import CellIcon from '$stylist/table/component/atom/cell-icon/index.svelte';
+	import CellPill from '$stylist/table/component/atom/cell-pill/index.svelte';
+	import { ObjectManagerTableControls } from '$stylist/table/class/object-manager/table-controls';
 
-	import createDataTableState from '$stylist/table/function/state/data-table/index.svelte';
-	import type { SlotDataTableRecipe as DataTableRecipe } from '$stylist/table/interface/slot/data-table-recipe';
+	type RowData = Record<string, unknown>;
 
 	let {
 		data = [],
-		columns = [],
+		schema = [],
 		striped = true,
 		hoverable = true,
-		maxHeight = 'none',
-		class: className = '',
-		onRowClick,
-		...restProps
-	}: DataTableRecipe<Record<string, unknown>> = $props();
-
-	const state = createDataTableState({
-		data,
-		columns,
-		striped,
-		hoverable,
 		maxHeight,
-		class: className,
-		onRowClick
-	});
+		onRowClick,
+		class: className = '',
+		...restProps
+	}: SlotDataTable<RowData> = $props();
+
+	const state = createDataTableState({ data, schema, striped, hoverable, maxHeight, onRowClick, class: className });
 </script>
 
-<div class={state.rootClass} style={state.containerStyle} {...restProps}>
-	<div class="c-data-table__wrap">
-		<table class="c-data-table__table">
-			<thead class="c-data-table__head">
+<div
+	class="c-data-table {className}"
+	style={state.containerStyle || undefined}
+	{...restProps}
+>
+	<Table {striped} {hoverable}>
+		{#snippet content()}
+			<thead>
 				<tr>
-					{#each columns as column}
-						<th class="c-data-table__th">
-							<button
-								type="button"
-								class="c-data-table__sort-btn"
-								onclick={() => column.sortable && state.sort(String(column.key))}
-							>
-								{column.title}
-								{#if column.sortable && state.sortKey === String(column.key)}
-									{#if state.sortDirection === 'asc'}<BaseIcon
-											name={ChevronUp}
-											style="width:0.75rem;height:0.75rem;"
-										/>{:else}<BaseIcon
-											name={ChevronDown}
-											style="width:0.75rem;height:0.75rem;"
-										/>{/if}
-								{/if}
-							</button>
-						</th>
+					{#each state.visibleSchema as col}
+						<Column
+							schema={col}
+							currentSortKey={state.sortKey ?? undefined}
+							currentSortDirection={state.sortDirection}
+							onSort={state.sort}
+						/>
 					{/each}
 				</tr>
 			</thead>
-			<tbody class="c-data-table__body">
-				{#each state.sortedData as item, index}
-					<tr
-						class="c-data-table__row"
-						data-striped={(striped && index % 2 === 1) || undefined}
-						data-hoverable={hoverable || undefined}
-						onclick={() => onRowClick?.(item)}
-					>
-						{#each columns as column}
-							<td class="c-data-table__td">{state.getCellValue(item, column)}</td>
-						{/each}
+			<tbody>
+				{#if state.sortedData.length === 0}
+					<tr>
+						<td class="c-data-table__empty" colspan={state.visibleSchema.length}>
+							No data to display.
+						</td>
 					</tr>
-				{/each}
+				{:else}
+					{#each state.sortedData as row, i}
+						<Row striped={striped && i % 2 === 1} {hoverable} onclick={() => onRowClick?.(row)}>
+							{#snippet content()}
+								{#each state.visibleSchema as col}
+									{#if col.cell === 'icon'}
+										<CellIcon icon={String(ObjectManagerTableControls.getCellValue(row, col) ?? '')} />
+									{:else if col.cell === 'pill'}
+										<CellPill value={String(ObjectManagerTableControls.getCellValue(row, col) ?? '')} />
+									{:else}
+										<CellText
+											value={ObjectManagerTableControls.getCellValue(row, col) as string | number | null}
+											align={col.cell === 'number' ? 'right' : 'left'}
+										/>
+									{/if}
+								{/each}
+							{/snippet}
+						</Row>
+					{/each}
+				{/if}
 			</tbody>
-		</table>
-	</div>
+		{/snippet}
+	</Table>
 </div>
 
 <style>
 	.c-data-table {
 		overflow: auto;
-	}
-	.c-data-table__table {
-		min-width: 100%;
-		border-collapse: collapse;
 		border: 1px solid var(--color-border-primary);
 		border-radius: 0.375rem;
-		overflow: hidden;
 	}
-	.c-data-table__head {
-		background: var(--color-background-secondary);
-	}
-	.c-data-table__th {
-		padding: 0.5rem 0.75rem;
-		text-align: left;
-		font-size: 0.75rem;
-		text-transform: uppercase;
-		font-weight: 500;
+
+	.c-data-table__empty {
+		padding: 2rem;
+		text-align: center;
 		color: var(--color-text-secondary);
-		white-space: nowrap;
-	}
-	.c-data-table__sort-btn {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.25rem;
-		background: none;
-		border: none;
-		cursor: pointer;
-		font-size: inherit;
-		font-weight: inherit;
-		color: inherit;
-		text-transform: inherit;
-		padding: 0;
-	}
-	.c-data-table__row[data-striped] {
-		background: var(--color-background-secondary);
-	}
-	.c-data-table__row[data-hoverable]:hover {
-		background: var(--color-background-secondary);
-	}
-	.c-data-table__td {
-		border-top: 1px solid var(--color-border-primary);
-		padding: 0.5rem 0.75rem;
-		font-size: 0.875rem;
+		font-size: 13px;
 	}
 </style>

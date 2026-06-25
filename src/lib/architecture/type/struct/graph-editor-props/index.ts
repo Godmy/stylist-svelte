@@ -1,8 +1,8 @@
 import type { Snippet } from 'svelte';
-import type { RecipeGraphToolbar } from '$stylist/graph/interface/recipe/graph-toolbar';
-import type { GraphEditorNodeData } from '$stylist/graph/type/struct/graph-editor-node-data';
-import type { RecipeConnectionLine as GraphEditorConnectionData } from '$stylist/graph/interface/recipe/connection-line';
-import type { GraphEditorPaletteNode } from '$stylist/graph/type/struct/graph-editor-palette-node';
+import type { RecipeGraphToolbar } from '$stylist/architecture/interface/recipe/graph-toolbar';
+import type { GraphEditorNodeData } from '$stylist/architecture/type/struct/graph-editor-node-data';
+import type { RecipeConnectionLine as GraphEditorConnectionData } from '$stylist/architecture/interface/recipe/connection-line';
+import type { GraphEditorPaletteNode } from '$stylist/architecture/type/struct/graph-editor-palette-node';
 
 export type GraphEditorProps = {
 	nodes?: readonly GraphEditorNodeData[];

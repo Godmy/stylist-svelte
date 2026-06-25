@@ -17,7 +17,6 @@
 
 <Story
 	{controls}
-	component={TokenIcon}
 	title="Token Icon"
 	category="Atoms/Token/Controls"
 	description="Icon token selector for choosing a value from a visual icon set."

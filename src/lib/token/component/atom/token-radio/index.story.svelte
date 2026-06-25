@@ -32,7 +32,6 @@
 
 <Story
 	{controls}
-	component={TokenRadio}
 	title="Token Radio"
 	category="Atoms/Interaction/Controls"
 	description="Radio control for choosing one value from a token option set."

@@ -1,9 +1,9 @@
+import type { SlotDataTable } from '$stylist/table/interface/slot/data-table';
 import { ObjectManagerTableControls } from '$stylist/table/class/object-manager/table-controls';
-import type { SlotDataTableRecipe as DataTableRecipe } from '$stylist/table/interface/slot/data-table-recipe';
 
 type Row = Record<string, unknown>;
 
-export function createDataTableState(props: DataTableRecipe<Row>) {
+export function createDataTableState(props: SlotDataTable<Row>) {
 	let sortKey = $state<string | null>(null);
 	let sortDirection = $state<'asc' | 'desc'>('asc');
 
@@ -12,39 +12,25 @@ export function createDataTableState(props: DataTableRecipe<Row>) {
 			sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
 			return;
 		}
-
 		sortKey = columnKey;
 		sortDirection = 'asc';
 	};
 
-	const sortedData = $derived(
-		ObjectManagerTableControls.sortData(props.data, sortKey, sortDirection)
-	);
+	const visibleSchema = $derived(props.schema.filter(col => !col.hidden));
+	const sortedData = $derived(ObjectManagerTableControls.sortData(props.data, sortKey, sortDirection));
 	const rootClass = $derived(['c-data-table', props.class].filter(Boolean).join(' '));
 	const containerStyle = $derived(
-		props.maxHeight !== 'none' ? `max-height:${props.maxHeight}` : ''
+		props.maxHeight && props.maxHeight !== 'none' ? `max-height:${props.maxHeight}` : ''
 	);
 
 	return {
-		get sortKey() {
-			return sortKey;
-		},
-		get sortDirection() {
-			return sortDirection;
-		},
-		get sortedData() {
-			return sortedData;
-		},
-		get rootClass() {
-			return rootClass;
-		},
-		get containerStyle() {
-			return containerStyle;
-		},
-		sort,
-		getCellValue(row: Row, column: DataTableRecipe<Row>['columns'][number]) {
-			return ObjectManagerTableControls.getCellValue(row, column);
-		}
+		get sortKey() { return sortKey; },
+		get sortDirection() { return sortDirection; },
+		get sortedData() { return sortedData; },
+		get visibleSchema() { return visibleSchema; },
+		get rootClass() { return rootClass; },
+		get containerStyle() { return containerStyle; },
+		sort
 	};
 }
 

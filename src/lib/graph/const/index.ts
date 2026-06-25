@@ -1,6 +1,0 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TOKEN_PROPERTY_TYPE } from './enum';
-export {
-	DEFAULT_GRAPH_CANVAS,
-	LITEGRAPH_CANVAS_ICONS
-} from './record';

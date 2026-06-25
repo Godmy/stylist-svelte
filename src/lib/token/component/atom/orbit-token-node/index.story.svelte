@@ -11,7 +11,6 @@
 
 <Story
 	{controls}
-	component={OrbitTokenNode}
 	title="OrbitTokenNode"
 	description="Token control node that opens a contextual editor inside the orbit shell."
 >

@@ -39,7 +39,6 @@
 
 <Story
 	{controls}
-	component={Orbit}
 	title="Orbit"
 	category="Molecules/Token"
 	description="Composable orbit molecule that places token nodes around one ring."

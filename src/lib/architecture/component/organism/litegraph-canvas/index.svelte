@@ -1,11 +1,11 @@
-﻿<script lang="ts">
-	import type { LiteGraphPort } from '$stylist/graph/type/struct/lite-graph-port';
+<script lang="ts">
+	import type { LiteGraphPort } from '$stylist/architecture/type/struct/lite-graph-port';
 	import type { RecipeLitegraphCanvas } from '$stylist/architecture/interface/recipe/litegraph-canvas';
-	import ConnectionLine from '$stylist/graph/component/molecule/connection-line/index.svelte';
-	import GraphCanvas from '$stylist/graph/component/atom/graph-canvas/index.svelte';
-	import GraphToolbar from '$stylist/graph/component/molecule/graph-toolbar/index.svelte';
-	import Minimap from '$stylist/graph/component/organism/minimap/index.svelte';
-	import LitegraphNodeComponent from '$stylist/graph/component/molecule/litegraph-node/index.svelte';
+	import ConnectionLine from '$stylist/architecture/component/molecule/connection-line/index.svelte';
+	import GraphCanvas from '$stylist/architecture/component/atom/graph-canvas/index.svelte';
+	import GraphToolbar from '$stylist/architecture/component/molecule/graph-toolbar/index.svelte';
+	import Minimap from '$stylist/architecture/component/organism/minimap/index.svelte';
+	import LitegraphNodeComponent from '$stylist/architecture/component/molecule/litegraph-node/index.svelte';
 	import createLitegraphCanvasState from '$stylist/architecture/function/state/litegraph-canvas/index.svelte';
 
 	let props: RecipeLitegraphCanvas = $props();

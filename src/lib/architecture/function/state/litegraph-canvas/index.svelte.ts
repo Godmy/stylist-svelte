@@ -1,10 +1,10 @@
-﻿import { LITEGRAPH_CANVAS_ICONS } from '$stylist/graph/const/record/litegraph-canvas-icons';
+import { LITEGRAPH_CANVAS_ICONS } from '$stylist/architecture/const/record/litegraph-canvas-icons';
 import type { RecipeLitegraphCanvas as LitegraphCanvasContract } from '$stylist/architecture/interface/recipe/litegraph-canvas';
-import type { SlotGraphToolbarItem as GraphToolbarItem } from '$stylist/graph/interface/slot/graph-toolbar-item';
-import type { ContractLitegraphPort as LitegraphPort } from '$stylist/graph/interface/contract/litegraph-port';
-import type { RecipeGraphCanvas } from '$stylist/graph/interface/recipe/graph-canvas';
-import type { LiteGraphPort as LitegraphPortRecipe } from '$stylist/graph/type/struct/lite-graph-port';
-import type { ContractLitegraphNode as LitegraphCanvasNodeAddPayload } from '$stylist/graph/interface/contract/litegraph-node';
+import type { SlotGraphToolbarItem as GraphToolbarItem } from '$stylist/architecture/interface/slot/graph-toolbar-item';
+import type { ContractLitegraphPort as LitegraphPort } from '$stylist/architecture/interface/contract/litegraph-port';
+import type { RecipeGraphCanvas } from '$stylist/architecture/interface/recipe/graph-canvas';
+import type { LiteGraphPort as LitegraphPortRecipe } from '$stylist/architecture/type/struct/lite-graph-port';
+import type { ContractLitegraphNode as LitegraphCanvasNodeAddPayload } from '$stylist/architecture/interface/contract/litegraph-node';
 
 export function createLitegraphCanvasState(props: LitegraphCanvasContract) {
 	let canvasHostRef = $state<HTMLDivElement | null>(null);

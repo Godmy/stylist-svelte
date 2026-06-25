@@ -12,7 +12,6 @@
 
 <Story
 	{controls}
-	component={OrbitContractL5}
 	title="OrbitContractL5"
 	description="Orbit contract view for L5 graph-node controls across architecture, information, and interaction tiers."
 >

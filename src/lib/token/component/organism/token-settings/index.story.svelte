@@ -4,7 +4,6 @@
 </script>
 
 <Story
-	component={TokenSettings}
 	title="TokenSettings"
 	description="Registry browser for every token setting array, its control type, and the live control preview."
 >

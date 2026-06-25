@@ -24,7 +24,6 @@
 
 <Story
 	{controls}
-	component={TokenRange}
 	title="Token Range"
 	category="Atoms/Interaction/Controls"
 	description="Range control for choosing a numeric token value."

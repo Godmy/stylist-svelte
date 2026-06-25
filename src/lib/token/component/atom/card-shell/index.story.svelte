@@ -12,7 +12,6 @@
 
 <Story
 	{controls}
-	component={CardShell}
 	title="CardShell"
 	description="Expandable shell used by the orbit tooling panel."
 >

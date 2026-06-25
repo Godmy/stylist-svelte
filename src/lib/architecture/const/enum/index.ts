@@ -10,6 +10,7 @@ export { TOKEN_LINE_TYPE } from './line-type';
 export { TOKEN_MARKER } from './marker';
 export { TOKEN_NODE_TYPE } from './node-type';
 export { TOKEN_PAN_MODES } from './pan-mode';
+export { TOKEN_PROPERTY_TYPE } from './property-type';
 export { TOKEN_RELATIONSHIP } from './relationship';
 export { TOKEN_ARCHITECTURE_SHADER_FRAGMENT } from './shader-fragment';
 export { TOKEN_ARCHITECTURE_SHADER_VERTEX } from './shader-vertex';

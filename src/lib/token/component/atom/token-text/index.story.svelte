@@ -22,7 +22,6 @@
 
 <Story
 	{controls}
-	component={TokenText}
 	title="Token Text"
 	category="Atoms/Interaction/Controls"
 	description="Text control for entering a token value."

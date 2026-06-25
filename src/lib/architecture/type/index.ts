@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { GraphWorkspaceConnectionInput } from './alias';
 export type {
 	FoundationAxis,
 	TierContent,
@@ -9,6 +10,7 @@ export type {
 	TokenMarker,
 	TokenNodeType,
 	TokenOpacity,
+	TokenPropertyType,
 	TokenRelationship,
 	TokenSkeleton,
 	TokenTrajectory
@@ -16,7 +18,32 @@ export type {
 export type { FoundationSemanticZoomStage } from './script';
 export type {
 	ArchitectureScene,
+	ConnectionLinePoint,
+	ConnectionPathResult,
+	GraphEditorNodeData,
+	GraphEditorPaletteNode,
 	GraphEditorProps,
+	GraphMinimapContract,
+	GraphMinimapProps,
+	GraphNodeCardData,
+	GraphNodeCardProps,
+	GraphPortDimensions,
+	GraphToolbarItem,
+	LiteGraphNodePresentation,
+	LiteGraphNodeProperty,
+	LiteGraphPort,
+	MinimapBounds,
+	MinimapNodeRect,
+	MinimapOffset,
+	MinimapPoint,
+	MinimapProps,
+	MinimapViewport,
+	OntologyEdge,
+	OntologyEdgeComponentProps,
+	OntologyNode,
+	OntologyNodeComponentProps,
+	PortGroupProps,
+	Position2D,
 	PresenterNodeShellProps,
 	PresenterSceneContract,
 	PresenterSceneLink,
@@ -43,7 +70,21 @@ export type {
 	SceneProps,
 	SemanticZoomParams,
 	SemanticZoomPresentation,
+	StageCamera,
+	StageContract,
+	StageProps,
+	ViewportContract,
+	ViewportProps,
 	Zoom,
 	ZoomStep
 } from './struct';
 export type { FoundationDepthThreshold } from './script';
+export type {
+	GraphNode,
+	GraphNodeDraft,
+	GraphPosition2D,
+	GraphViewport,
+	GraphWorkspaceBounds,
+	GraphWorkspaceConnection,
+	GraphWorkspaceNode
+} from './struct';
