@@ -16,7 +16,6 @@ export type { ComponentLibraryStatsProps } from './component-library-stats-props
 export type { CopyableCodeBlockProps } from './copyable-code-block-props';
 export type { CopyableCodeBlockRestProps } from './copyable-code-block-rest-props';
 export type { DebugConsoleLogEntry } from './debug-console-log-entry';
-export type { DebugConsoleLogLevel } from './debug-console-log-level';
 export type { DebugConsoleProps } from './debug-console-props';
 export type { DesignTokensProps } from './design-tokens-props';
 export type { DesignTokensTheme } from './design-tokens-theme';

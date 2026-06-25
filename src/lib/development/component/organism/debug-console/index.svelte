@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { RecipeDebugConsole } from '$stylist/development/interface/recipe/debug-console';
-	import type { DebugConsoleLogLevel } from '$stylist/development/type/struct/debug-console-log-level';
+	import type { DebugConsoleLogLevel } from '$stylist/token/type/alias/debug-console-log-level';
 	import { createDebugConsoleState } from '$stylist/development/function/state/debug-console/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
@@ -291,3 +291,4 @@
 		align-items: center;
 	}
 </style>
+

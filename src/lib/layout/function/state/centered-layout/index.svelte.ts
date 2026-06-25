@@ -1,4 +1,4 @@
-import type { CenteredLayoutAxis } from '$stylist/layout/type/enum/centered-layout-axis';
+﻿import type { CenteredLayoutAxis } from '$stylist/token/type/alias/centered-layout-axis';
 import type { CenteredLayoutProps } from '$stylist/layout/type/struct/layout-extended/centered-layout-props';
 
 export function createCenteredLayoutState(props: CenteredLayoutProps) {
@@ -40,3 +40,4 @@ export function createCenteredLayoutState(props: CenteredLayoutProps) {
 }
 
 export default createCenteredLayoutState;
+

@@ -11,7 +11,6 @@ export type {
 	LocationSelectorRestProps
 } from './location-selector';
 export type {
-	MapProvider,
 	MapSelectorLocation,
 	MapSelectorProps,
 	MapSelectorRestProps

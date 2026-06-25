@@ -13,26 +13,15 @@ export const createAuthGuardState = (props: AuthGuardProps) => {
 	const loading = $derived(showLoadingState);
 	const rootClasses = $derived(mergeClassNames('c-auth-guard', props.class ?? ''));
 	const sectionClasses = $derived(
-		mergeClassNames(
-			'flex flex-col items-center justify-center gap-[--spacing-sm] rounded-[1.5rem] border border-[--color-border-primary] bg-[--color-background-primary] px-6 py-7 text-center shadow-custom28',
-			props.fallbackClass ?? ''
-		)
+		mergeClassNames('c-auth-guard__section', props.fallbackClass ?? '')
 	);
 	const titleClasses = $derived(
-		mergeClassNames(
-			'text-lg font-semibold tracking-[0.01em] text-[--color-text-primary]',
-			props.contentClass ?? ''
-		)
+		mergeClassNames('c-auth-guard__title', props.contentClass ?? '')
 	);
 	const textClasses = $derived(
-		mergeClassNames(
-			'max-w-[40ch] text-sm leading-6 text-[--color-text-secondary]',
-			props.contentClass ?? ''
-		)
+		mergeClassNames('c-auth-guard__text', props.contentClass ?? '')
 	);
-	const actionLinkClasses = $derived(
-		'inline-flex items-center rounded-full bg-[--color-primary-600] px-4 py-2 text-sm font-medium text-[--color-text-inverse] transition-colors hover:bg-[--color-primary-700]'
-	);
+	const actionLinkClasses = $derived('c-auth-guard__action');
 
 	const resolved = $derived(
 		resolveAuthGuardState({

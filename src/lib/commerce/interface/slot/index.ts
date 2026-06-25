@@ -31,7 +31,6 @@ export type { SlotProductCarouselItem } from './product-carousel-item';
 export type { SlotProductCatalogItem } from './product-catalog-item';
 export type { SlotProductComparisonItem } from './product-comparison-item';
 export type { SlotProductComparisonTableItem } from './product-comparison-table-item';
-export type { SlotProductImage } from './product-image';
 export type { SlotProductSorting } from './product-sorting';
 export type { SlotProductSortingOption } from './product-sorting-option';
 export type { SlotProductSortingStyleClasses } from './product-sorting-style-classes';

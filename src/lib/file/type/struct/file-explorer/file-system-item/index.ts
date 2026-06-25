@@ -1,4 +1,4 @@
-import type { FileItemType } from '$stylist/file/type/struct/file-item-type';
+﻿import type { FileItemType } from '$stylist/token/type/alias/file-item-type';
 
 // SlotFileSystemItem type
 export type SlotFileSystemItem = {
@@ -12,3 +12,4 @@ export type SlotFileSystemItem = {
 	path?: string;
 	icon?: string;
 };
+

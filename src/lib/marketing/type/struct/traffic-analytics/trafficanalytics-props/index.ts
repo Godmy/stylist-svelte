@@ -1,9 +1,9 @@
-import type { HTMLAttributes } from 'svelte/elements';
+﻿import type { HTMLAttributes } from 'svelte/elements';
 import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
-import type { TimeRange } from '../timerange';
-import type { TrafficDataPoint } from '../trafficdatapoint';
-import type { TrafficSource } from '../trafficsource';
+import type { TimeRange } from '$stylist/token/type/alias/traffic-analytics-time-range';
+import type { TrafficDataPoint } from '$stylist/marketing/type/struct/traffic-analytics/trafficdatapoint';
+import type { TrafficSource } from '$stylist/marketing/type/struct/traffic-analytics/trafficsource';
 
 export type TrafficAnalyticsProps = {
 	title?: string;
@@ -23,3 +23,4 @@ export type TrafficAnalyticsProps = {
 	chartClass?: string;
 	sourcesClass?: string;
 } & HTMLAttributes<HTMLDivElement> & BehaviorBorderToken & BehaviorTypography;
+

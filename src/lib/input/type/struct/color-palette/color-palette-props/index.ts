@@ -1,5 +1,5 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { ColorItem } from '../color-item';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { ColorItem } from '$stylist/input/type/struct/color-palette/color-item';
 
 export type ColorPaletteProps = HTMLAttributes<HTMLDivElement> & {
 	colors: ColorItem[];

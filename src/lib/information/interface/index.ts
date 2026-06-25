@@ -23,10 +23,6 @@ export type {
 	RecipeSort,
 	RecipeSortableGrid,
 	RecipeStatusIndicator,
-	RecipeTable,
-	RecipeTableCell,
-	RecipeTableRow,
-	RecipeTableSection,
 	RecipeThemeIconPicker
 } from './recipe';
 export type {

@@ -1,4 +1,4 @@
-import type { SocialPlatform } from '../socialplatform';
+﻿import type { SocialPlatform } from '$stylist/social/type/struct/social-share/socialplatform';
 
 export type ShareOption = {
 	platform: SocialPlatform;

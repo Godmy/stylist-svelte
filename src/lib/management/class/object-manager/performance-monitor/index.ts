@@ -1,4 +1,4 @@
-﻿import type { PerformanceMonitorStatus } from '$stylist/management/type/struct/performance-monitor';
+﻿import type { PerformanceMonitorStatus } from '$stylist/token/type/alias/performance-monitor-status';
 import { PERFORMANCE_MONITOR_STATUS_COLOR } from '$stylist/management/const/map/performance-monitor-status-color';
 
 export class ObjectManagerPerformanceMonitor {
@@ -18,3 +18,4 @@ export class ObjectManagerPerformanceMonitor {
 		return `${Math.min(100, Math.max(0, percentage))}%`;
 	}
 }
+

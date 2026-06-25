@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type {
-	CardData,
-	DraggableCardRestProps
-} from './alias';
+export type { CardData } from './alias';
 export type {
 	TokenKPI,
 	TokenNotifictionChannel,
@@ -16,7 +13,6 @@ export type {
 	NotificationItem,
 	NotificationSettingsData,
 	NotificationType,
-	PerformanceMonitorStatus,
 	ScheduledNotificationItem,
 	StatsCardData,
 	StatusItem

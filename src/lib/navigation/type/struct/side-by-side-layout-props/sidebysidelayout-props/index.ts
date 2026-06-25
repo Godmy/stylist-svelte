@@ -1,5 +1,5 @@
-import type { SideBySideLayoutRestProps } from '../sidebysidelayoutrest-props';
-import type { SideBySideSection } from '../sidebysidesection';
+﻿import type { SideBySideLayoutRestProps } from '$stylist/navigation/type/struct/side-by-side-layout-props/sidebysidelayoutrest-props';
+import type { SideBySideSection } from '$stylist/navigation/type/struct/side-by-side-layout-props/sidebysidesection';
 
 export type SideBySideLayoutProps = SideBySideLayoutRestProps & {
 	sections: SideBySideSection[];

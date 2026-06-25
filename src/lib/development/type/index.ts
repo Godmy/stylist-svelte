@@ -2,8 +2,7 @@
 export type { Props } from './alias';
 export type {
 	TokenCodeLanguage,
-	TokenCodeView,
-	TokenDiffType
+	TokenCodeView
 } from './enum';
 export type {
 	AtomicPrinciplesShowcaseAtomicPrinciplesStats,
@@ -23,7 +22,6 @@ export type {
 	CopyableCodeBlockProps,
 	CopyableCodeBlockRestProps,
 	DebugConsoleLogEntry,
-	DebugConsoleLogLevel,
 	DebugConsoleProps,
 	DesignTokensProps,
 	DesignTokensTheme,

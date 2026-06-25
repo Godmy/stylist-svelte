@@ -1,4 +1,4 @@
-import type { Position2D } from '../position2d';
+﻿import type { Position2D } from '$stylist/graph/type/struct/ontology-edge-component/position2d';
 
 export type OntologyNode = {
 	id: string;

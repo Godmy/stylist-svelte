@@ -13,7 +13,6 @@ export { friendListHandleSearchInput } from './friend-list';
 export { friendListFormatLastSeen } from './friend-list-format-last-seen';
 export { friendListGetStatusColor } from './friend-list-get-status-color';
 export { friendListGetStatusText } from './friend-list-get-status-text';
-export { friendListHandleAddFriend } from './friend-list-handle-add-friend';
 export { friendListHandleCall } from './friend-list-handle-call';
 export { friendListHandleFriendClick } from './friend-list-handle-friend-click';
 export { friendListHandleSendMessage } from './friend-list-handle-send-message';

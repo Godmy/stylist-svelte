@@ -1,5 +1,5 @@
-import type { SelectionState } from '$stylist/architecture/interface/recipe/selection-state/index';
-import type { SelectionMode } from '$stylist/architecture/type/struct/selection-mode/index';
+﻿import type { SelectionState } from '$stylist/architecture/interface/recipe/selection-state/index';
+import type { SelectionMode } from '$stylist/token/type/alias/selection-mode/index';
 
 export function createSelectionState(initial?: Partial<SelectionState>): SelectionState & {
 	setMode: (mode: SelectionMode) => void;
@@ -55,3 +55,4 @@ export function createSelectionState(initial?: Partial<SelectionState>): Selecti
 }
 
 export default createSelectionState;
+

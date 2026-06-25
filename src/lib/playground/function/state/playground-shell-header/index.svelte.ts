@@ -1,5 +1,5 @@
-import type { RecipePlaygroundShellHeader } from '$stylist/playground/interface/recipe/playground-shell-header';
-import type { PlaygroundCanvasShellViewportSize } from '$stylist/playground/type/struct/playground-canvas-shell-viewport-size';
+﻿import type { RecipePlaygroundShellHeader } from '$stylist/playground/interface/recipe/playground-shell-header';
+import type { PlaygroundCanvasShellViewportSize } from '$stylist/token/type/alias/playground-canvas-shell-viewport-size';
 const ZoomIn = 'zoom-in';
 const ZoomOut = 'zoom-out';
 const Smartphone = 'smartphone';
@@ -208,3 +208,4 @@ export function createPlaygroundShellHeaderState(props: RecipePlaygroundShellHea
 		}
 	};
 }
+

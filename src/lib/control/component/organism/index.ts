@@ -1,11 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AccessibilityToolbar } from './accessibility-toolbar/index';
 export { AdvancedVirtualTree } from './advanced-virtual-tree/index';
-export { ColumnManager } from './column-manager/index';
 export { Combobox } from './combobox/index';
 export { Controls } from './controls/index';
-export { DataTableAdvanced } from './data-table-advanced/index';
-export { DataTable } from './data-table/index';
 export { ExportPanel } from './export-panel/index';
 export { FilterBar } from './filter-bar/index';
 export { FlatTree } from './flat-tree/index';
@@ -17,7 +14,4 @@ export { SearchResults } from './search-results/index';
 export { SortableGrid } from './sortable-grid/index';
 export { SortableList } from './sortable-list/index';
 export { StylistMenu } from './stylist-menu/index';
-export { TableWithFilters } from './table-with-filters/index';
-export { TableWithGrouping } from './table-with-grouping/index';
-export { TableWithStripes } from './table-with-stripes/index';
 export { VirtualTree } from './virtual-tree/index';

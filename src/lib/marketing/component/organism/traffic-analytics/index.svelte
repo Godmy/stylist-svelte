@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const Globe = 'globe';
 	const Users = 'users';
@@ -9,7 +9,7 @@
 	const Filter = 'filter';
 
 	import type { TrafficAnalyticsProps } from '$stylist/marketing/type/struct/traffic-analytics/trafficanalytics-props';
-	import type { TimeRange } from '$stylist/marketing/type/struct/traffic-analytics/timerange';
+	import type { TimeRange } from '$stylist/token/type/alias/traffic-analytics-time-range';
 	import createTrafficAnalyticsState from '$stylist/marketing/function/state/traffic-analytics/index.svelte';
 
 	let props: TrafficAnalyticsProps = $props();
@@ -371,3 +371,4 @@
 		outline: none;
 	}
 </style>
+

@@ -1,5 +1,5 @@
-import type { StoreLocatorRestProps } from '../storelocatorrest-props';
-import type { StoreLocatorStore } from '../storelocatorstore';
+﻿import type { StoreLocatorRestProps } from '$stylist/geo/type/struct/store-locator/storelocatorrest-props';
+import type { StoreLocatorStore } from '$stylist/geo/type/struct/store-locator/storelocatorstore';
 
 export type StoreLocatorProps = StoreLocatorRestProps & {
 	stores: StoreLocatorStore[];

@@ -1,7 +1,7 @@
-import type { FeedUser } from '../feeduser';
-import type { FilterOption } from '../filteroption';
-import type { Post } from '../post';
-import type { RestProps } from '../rest-props';
+﻿import type { FeedUser } from '$stylist/social/type/struct/social-feed/feeduser';
+import type { FilterOption } from '$stylist/social/type/struct/social-feed/filteroption';
+import type { Post } from '$stylist/social/type/struct/social-feed/post';
+import type { RestProps } from '$stylist/social/type/struct/social-feed/rest-props';
 
 export type Props = RestProps & {
 	posts: Post[];

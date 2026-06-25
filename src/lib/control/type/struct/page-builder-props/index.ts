@@ -1,4 +1,4 @@
-import type { PageBuilderElement } from '../page-builder-element';
+﻿import type { PageBuilderElement } from '$stylist/control/type/struct/page-builder-element';
 
 export type PageBuilderProps = {
 	initialElements?: PageBuilderElement[];

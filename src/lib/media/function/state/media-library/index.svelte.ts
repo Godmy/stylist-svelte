@@ -1,5 +1,5 @@
 ﻿import type { RecipeMediaLibrary } from '$stylist/media/interface/recipe/media-library';
-import type { MediaType } from '$stylist/media/type/struct/media-library/mediatype';
+import type { MediaType } from '$stylist/token/type/alias/media-library-media-type';
 import type { MediaItem } from '$stylist/media/type/struct/media-library/media-item';
 import { formatMediaDate } from '$stylist/media/function/script/format-media-date';
 import { formatMediaFileSize } from '$stylist/media/function/script/media-library';
@@ -174,3 +174,4 @@ export function createMediaLibraryState(props: RecipeMediaLibrary) {
 		toggleItemSelection
 	};
 }
+

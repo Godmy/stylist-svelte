@@ -1,12 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { StepIconContent } from './alias';
-export type { SpinnerVariant } from './enum';
 export type {
 	AccountProgressTrackerProps,
 	AlertProps,
 	AnimatedProgressProps,
 	ErrorBoundaryProps,
-	IToastStyleClasses,
 	LazyLoaderProps,
 	LoadingBoundaryProps,
 	OverlayProps,

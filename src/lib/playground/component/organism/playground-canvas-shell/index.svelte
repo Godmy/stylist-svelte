@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
 	import type { RecipePlaygroundCanvasShell } from '$stylist/playground/interface/recipe/playground-canvas-shell';
-	import RecipePlaygroundDeviceFrame from '../playground-device-frame/index.svelte';
-	import RecipePlaygroundErrorBoundary from '../playground-error-boundary/index.svelte';
+	import RecipePlaygroundDeviceFrame from '$stylist/playground/component/organism/playground-device-frame/index.svelte';
+	import RecipePlaygroundErrorBoundary from '$stylist/playground/component/organism/playground-error-boundary/index.svelte';
 	import { createPlaygroundCanvasShellState } from '$stylist/playground/function/state/playground-canvas-shell/index.svelte';
 	let props: RecipePlaygroundCanvasShell = $props();
 	const state = createPlaygroundCanvasShellState(props);

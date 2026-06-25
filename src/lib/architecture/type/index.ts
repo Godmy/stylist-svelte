@@ -1,11 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	FoundationAxis,
-	FoundationAxisDirection,
-	FoundationAxisOrientation,
 	TierContent,
-	TokenArchitectureShaderFragment,
-	TokenArchitectureShaderVertex,
 	TokenComponentType,
 	TokenConnector,
 	TokenFunctionalTaxonomy,
@@ -13,19 +9,14 @@ export type {
 	TokenMarker,
 	TokenNodeType,
 	TokenOpacity,
-	TokenOwnership,
-	TokenPanMode,
 	TokenRelationship,
 	TokenSkeleton,
-	TokenTrajectory,
-	TokenZoom
+	TokenTrajectory
 } from './enum';
 export type { FoundationSemanticZoomStage } from './script';
 export type {
 	ArchitectureScene,
 	GraphEditorProps,
-	Position2D,
-	PresentationMode,
 	PresenterNodeShellProps,
 	PresenterSceneContract,
 	PresenterSceneLink,
@@ -40,7 +31,6 @@ export type {
 	SceneBufferSet,
 	SceneCamera,
 	SceneCameraInput,
-	SceneCameraPreset,
 	SceneDebugInfo,
 	SceneGeometry,
 	SceneGraph,
@@ -51,7 +41,6 @@ export type {
 	SceneNode,
 	SceneNodePoint,
 	SceneProps,
-	SelectionMode,
 	SemanticZoomParams,
 	SemanticZoomPresentation,
 	Zoom,

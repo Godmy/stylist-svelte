@@ -2,6 +2,10 @@
 export type { AuthGuardProps } from './alias';
 export type {
 	AccountSettings,
+	AuthFormState,
+	LoginCredentials,
+	PasswordResetRequest,
+	RegistrationData,
 	Session,
 	UserData
 } from './object';

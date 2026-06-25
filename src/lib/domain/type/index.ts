@@ -7,6 +7,5 @@ export type {
 	TypeDomainEntity,
 	TypeDomainFile,
 	TypeDomainJoint,
-	TypeDomainTreeNode,
-	TypeStoryModule
+	TypeDomainTreeNode
 } from './struct';

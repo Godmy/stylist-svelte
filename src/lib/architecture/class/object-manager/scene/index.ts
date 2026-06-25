@@ -1,4 +1,4 @@
-import { Camera } from '$stylist/architecture/class/manager/camera';
+﻿import { Camera } from '$stylist/architecture/class/manager/camera';
 import { clampSceneRadius } from '$stylist/architecture/function/script/clamp-scene-radius';
 import { clampSceneVerticalAngle } from '$stylist/architecture/function/script/clamp-scene-vertical-angle';
 import { createSceneProgram } from '$stylist/architecture/function/script/create-scene-program';
@@ -13,7 +13,7 @@ import { resolveSceneAtomModelMatrix } from '$stylist/architecture/function/scri
 import type { SceneBufferSet } from '$stylist/architecture/type/struct/scene-buffer-set';
 import type { SceneDebugInfo } from '$stylist/architecture/type/struct/scene-debug-info';
 import type { SceneAtom } from '$stylist/architecture/type/struct/scene-atom/scene-atom';
-import type { SceneCameraPreset } from '$stylist/architecture/type/struct/scene-camera-preset';
+import type { SceneCameraPreset } from '$stylist/token/type/alias/scene-camera-preset';
 import type { SceneGraph } from '$stylist/architecture/type/struct/scene-graph/scene-graph';
 import vertexBasic from '$stylist/architecture/data/shader/vertex/base.vert?raw';
 import fragmentBasic from '$stylist/architecture/data/shader/fragment/base.frag?raw';
@@ -520,3 +520,4 @@ export class SceneObjectManager {
 		};
 	}
 }
+

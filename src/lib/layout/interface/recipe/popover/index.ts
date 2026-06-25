@@ -2,6 +2,7 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { Snippet } from 'svelte';
 
 import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/enum/alignment';
+
 export interface PopoverProps extends ComputeIntersectAll<[]> {
 	title?: string;
 	content: Snippet;

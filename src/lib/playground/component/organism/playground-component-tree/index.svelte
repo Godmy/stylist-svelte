@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
 	import type { RecipePlaygroundComponentTree } from '$stylist/playground/interface/recipe/playground-component-tree';
-	import RecipePlaygroundTreeNode from '../playground-tree-node/index.svelte';
+	import RecipePlaygroundTreeNode from '$stylist/playground/component/organism/playground-tree-node/index.svelte';
 	import { createPlaygroundComponentTreeState } from '$stylist/playground/function/state/playground-component-tree/index.svelte';
 
 	let props: RecipePlaygroundComponentTree = $props();

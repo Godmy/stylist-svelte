@@ -1,5 +1,5 @@
-import type { RecipePlaygroundDeviceFrame } from '$stylist/playground/interface/recipe/playground-device-frame';
-import type { PlaygroundCanvasShellViewportSize } from '$stylist/playground/type/struct/playground-canvas-shell-viewport-size';
+﻿import type { RecipePlaygroundDeviceFrame } from '$stylist/playground/interface/recipe/playground-device-frame';
+import type { PlaygroundCanvasShellViewportSize } from '$stylist/token/type/alias/playground-canvas-shell-viewport-size';
 export function createPlaygroundDeviceFrameState(props: RecipePlaygroundDeviceFrame) {
 	const device = props.device ?? 'desktop';
 	const children = $derived(props.children);
@@ -32,3 +32,4 @@ export function createPlaygroundDeviceFrameState(props: RecipePlaygroundDeviceFr
 		}
 	};
 }
+

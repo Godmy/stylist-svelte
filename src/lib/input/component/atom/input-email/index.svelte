@@ -1,8 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { SlotInputEmail as IInputEmailProps } from '$stylist/input/interface/slot/input-email';
 	import createInputEmailState from '$stylist/input/function/state/input-email/index.svelte';
-	import InputText from '../input-text/index.svelte';
+	import InputText from '$stylist/input/component/atom/input-text/index.svelte';
 
 	let props: IInputEmailProps &
 		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> =

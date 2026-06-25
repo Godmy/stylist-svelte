@@ -1,6 +1,7 @@
-import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { TOKEN_ORIENTATION } from '$stylist/layout/const/enum/orientation';
-import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
+import type { SplitLayoutGap } from '$stylist/token/type/alias/split-layout-gap';
+
 export interface StackedLayoutProps extends ComputeIntersectAll<[]> {
 	direction?: (typeof TOKEN_ORIENTATION)[number];
 	gap?: SplitLayoutGap;
@@ -9,3 +10,4 @@ export interface StackedLayoutProps extends ComputeIntersectAll<[]> {
 	class?: string;
 	children?: any;
 }
+

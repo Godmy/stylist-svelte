@@ -1,4 +1,4 @@
-import type { ChatHeaderUser } from '../chat-header-user';
+﻿import type { ChatHeaderUser } from '$stylist/chat/type/struct/chat-header/chat-header-user';
 
 export type ChatHeaderChat = {
 	id: string;

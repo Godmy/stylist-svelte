@@ -1,130 +1,114 @@
 <script lang="ts">
-	import type { RecipeThemeAdvancedColorPicker } from '$stylist/color/interface/recipe/advanced-color-picker';
-	import createAdvancedColorPickerState from '$stylist/color/function/state/advanced-color-picker/index.svelte';
+	import type { SlotColorPicker as IColorPickerProps } from '$stylist/color/interface/slot/color-picker';
+	import createColorPickerState from '$stylist/color/function/state/color-picker/index.svelte';
 
-	let props: RecipeThemeAdvancedColorPicker = $props();
-	const state = createAdvancedColorPickerState(props);
+	let props: IColorPickerProps = $props();
+	const state = createColorPickerState(props);
 </script>
 
-<div class={state.rootClass} {...state.restProps}>
-	<button
-		type="button"
-		class={state.triggerClass}
-		onclick={state.toggleOpen}
-		disabled={props.disabled ?? false}
-	>
-		<div class={state.previewClass} style={`background-color: ${state.internalValue}`}></div>
-		{#if props.showInput ?? true}
+<div class={state.containerClass}>
+	<div class="color-picker__row">
+		<label for="color-picker-input" class="color-picker__label">
+			{state.label}
+		</label>
+		<div class="color-picker__controls">
+			<div
+				class={`color-picker__swatch ${state.pickerClass}`}
+				style={`background-color: ${state.selectedColor};`}
+				role="presentation"
+			>
+				<input
+					id="color-picker-input"
+					type="color"
+					class={`color-picker__native ${state.inputClass}`}
+					bind:value={state.selectedColor}
+					oninput={state.handleInput}
+					onchange={state.handleChange}
+					{...props}
+				/>
+			</div>
 			<input
 				type="text"
-				bind:value={state.internalValue}
-				class={state.textInputClass}
-				onblur={() => state.setColor(state.internalValue)}
-			/>
-		{/if}
-	</button>
-
-	{#if state.isOpen && !(props.disabled ?? false)}
-		<div class={state.panelClass}>
-			{#if props.showPalette ?? true}
-				<div class={state.paletteClass}>
-					{#each state.palette as color}
-						<button
-							type="button"
-							aria-label={`Select color ${color}`}
-							class={state.paletteButtonClass}
-							style={`background-color: ${color}`}
-							onclick={() => state.setColor(color)}
-						></button>
-					{/each}
-				</div>
-			{/if}
-			<input
-				type="color"
-				bind:value={state.internalValue}
+				class={`color-picker__text ${state.inputClass}`}
+				bind:value={state.selectedColor}
 				oninput={state.handleInput}
 				onchange={state.handleChange}
+				{...props}
 			/>
-			<button type="button" class={state.acceptButtonClass} onclick={() => state.setOpen(false)}>
-				OK
-			</button>
 		</div>
+	</div>
+
+	{#if state.helperText}
+		<p class="color-picker__helper">{state.helperText}</p>
+	{/if}
+
+	{#if state.error}
+		<p class="color-picker__error">{state.error}</p>
 	{/if}
 </div>
 
 <style>
-	.c-color-picker {
-		position: relative;
-		display: inline-block;
-	}
-
-	.c-color-picker__trigger {
+	.color-picker__row {
 		display: flex;
 		align-items: center;
-		min-width: 8.75rem;
-		padding: 0.5rem 0.75rem;
+		gap: 0.75rem;
+	}
+
+	.color-picker__label {
+		display: block;
+		font-size: var(--text-size-sm, 0.875rem);
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+
+	.color-picker__controls {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.color-picker__swatch {
+		width: 2rem;
+		height: 2rem;
+		border-radius: var(--border-radius-base, 0.375rem);
 		border: 1px solid var(--color-border-primary);
-		border-radius: 0.375rem;
-		background: var(--color-background-primary);
+		overflow: hidden;
+		position: relative;
+	}
+
+	.color-picker__native {
+		width: 2rem;
+		height: 2rem;
 		cursor: pointer;
-	}
-
-	.c-color-picker__trigger:disabled {
-		opacity: 0.5;
-		cursor: not-allowed;
-	}
-
-	.c-color-picker__panel {
+		opacity: 0;
 		position: absolute;
-		top: 100%;
-		left: 0;
-		margin-top: 0.5rem;
-		padding: 0.75rem;
-		background: var(--color-background-primary);
-		border: 1px solid var(--color-border-primary);
-		border-radius: 0.5rem;
-		box-shadow: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
-		z-index: var(--z-index-popover, 1500);
+		inset: 0;
 	}
 
-	.c-color-picker__preview {
-		width: 1.5rem;
-		height: 1.5rem;
-		border-radius: 0.25rem;
-		border: 1px solid var(--color-border-secondary);
-		margin-right: 0.5rem;
-		flex-shrink: 0;
-	}
-
-	.c-color-picker__text-input {
-		outline: none;
-		background: transparent;
+	.color-picker__text {
 		width: 6rem;
-		border: none;
-	}
-
-	.c-color-picker__palette {
-		display: grid;
-		grid-template-columns: repeat(5, minmax(0, 1fr));
-		gap: 0.25rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.c-color-picker__palette-btn {
-		width: 1.5rem;
-		height: 1.5rem;
-		border-radius: 0.25rem;
-		border: 1px solid var(--color-border-secondary);
-		cursor: pointer;
-		padding: 0;
-	}
-
-	.c-color-picker__accept-btn {
-		margin-left: 0.5rem;
-		padding: 0.25rem 0.5rem;
+		border-radius: var(--border-radius-base, 0.375rem);
 		border: 1px solid var(--color-border-primary);
-		border-radius: 0.25rem;
-		cursor: pointer;
-		background: var(--color-background-primary);
+		padding: 0.25rem 0.75rem;
+		font-size: var(--text-size-sm, 0.875rem);
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	}
+
+	.color-picker__text:focus {
+		border-color: var(--color-primary-500);
+		outline: none;
+		box-shadow: 0 0 0 2px var(--color-primary-100);
+	}
+
+	.color-picker__helper {
+		margin-block-start: 0.25rem;
+		font-size: var(--text-size-xs, 0.75rem);
+		color: var(--color-text-secondary);
+	}
+
+	.color-picker__error {
+		margin-block-start: 0.25rem;
+		font-size: var(--text-size-xs, 0.75rem);
+		color: var(--color-danger-600);
 	}
 </style>

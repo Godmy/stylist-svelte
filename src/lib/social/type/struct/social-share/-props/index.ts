@@ -1,6 +1,6 @@
-import type { RestProps } from '../rest-props';
-import type { ShareOption } from '../shareoption';
-import type { SocialPlatform } from '../socialplatform';
+﻿import type { RestProps } from '$stylist/social/type/struct/social-share/rest-props';
+import type { ShareOption } from '$stylist/social/type/struct/social-share/shareoption';
+import type { SocialPlatform } from '$stylist/social/type/struct/social-share/socialplatform';
 
 export type Props = RestProps & {
 	title?: string;

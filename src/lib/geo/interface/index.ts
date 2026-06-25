@@ -28,6 +28,5 @@ export type {
 	SlotLocationSelector,
 	SlotMapMarker,
 	SlotMapSelector,
-	SlotMapSelectorStyleClasses,
 	SlotMapView
 } from './slot';

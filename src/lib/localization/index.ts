@@ -5,7 +5,6 @@ export {
 	TranslationEditor
 } from './component';
 export {
-	TOKEN_LOCALE_SWITCHER_ICON,
 	TOKEN_TRANSLATION,
 	TOKEN_TRANSLATION_EDITOR_ICON
 } from './const';

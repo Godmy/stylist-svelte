@@ -30,11 +30,9 @@ export {
 } from './function';
 export type {
 	CanvasObject,
-	CanvasToolbarDrawingTool,
 	CanvasToolbarProps,
 	CanvasUser,
 	CollaborativeEditEvent,
-	CollaborativeEditorContract,
 	CollaborativeEditorProps,
 	CollaborativeUser,
 	DrawingSurfaceCanvasClearedEvent,
@@ -42,7 +40,6 @@ export type {
 	DrawingSurfaceExposeMethodsEvent,
 	DrawingSurfaceProps,
 	SharedCanvasContract,
-	SharedCanvasDraftObject,
 	SharedCanvasObjectBounds,
 	SharedCanvasPoint,
 	SharedCanvasTool,

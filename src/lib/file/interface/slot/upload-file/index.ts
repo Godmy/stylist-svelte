@@ -1,4 +1,4 @@
-import type { UploadStatus } from '$stylist/file/type/struct/upload-status';
+﻿import type { UploadStatus } from '$stylist/token/type/alias/upload-status';
 
 export interface SlotUploadFile {
 	id: string;
@@ -10,3 +10,4 @@ export interface SlotUploadFile {
 	uploadedAt?: Date;
 	data?: unknown;
 }
+

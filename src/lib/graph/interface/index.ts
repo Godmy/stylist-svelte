@@ -27,6 +27,5 @@ export type {
 	SlotGraphToolbarItem,
 	SlotLitegraphConnection,
 	SlotNodePalette,
-	SlotNodePaletteItem,
-	SlotNodePropertyState
+	SlotNodePaletteItem
 } from './slot';

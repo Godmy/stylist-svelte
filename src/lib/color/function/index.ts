@@ -2,5 +2,6 @@
 export {
 	createAdvancedColorPickerState,
 	createColorPaletteState,
+	createColorPickerState,
 	createColorSwatchState
 } from './state';

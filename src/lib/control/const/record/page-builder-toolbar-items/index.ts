@@ -1,5 +1,5 @@
-import type { PageBuilderToolbarItem } from '../../../type/struct/page-builder-toolbar-item';
-import { PAGE_BUILDER_ICON } from '../../../const/map/page-builder-icons';
+﻿import type { PageBuilderToolbarItem } from '$stylist/control/type/struct/page-builder-toolbar-item';
+import { PAGE_BUILDER_ICON } from '$stylist/control/const/map/page-builder-icons';
 
 export const PAGE_BUILDER_TOOLBAR_ITEMS: PageBuilderToolbarItem[] = [
 	{ type: 'text', label: 'Text', icon: PAGE_BUILDER_ICON.TYPE },

@@ -1,4 +1,4 @@
-import type { WarrantyPeriodType } from '$stylist/commerce/type/struct/warranty-period-type';
+﻿import type { WarrantyPeriodType } from '$stylist/token/type/alias/warranty-period-type';
 
 export interface SlotWarrantyPeriod {
 	type: WarrantyPeriodType;
@@ -7,3 +7,4 @@ export interface SlotWarrantyPeriod {
 	coverage?: string[];
 	exclusions?: string[];
 }
+

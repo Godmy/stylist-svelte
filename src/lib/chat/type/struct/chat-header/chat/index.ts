@@ -1,4 +1,4 @@
-import type { User } from '../user';
+﻿import type { User } from '$stylist/chat/type/struct/chat-header/user';
 
 // Chat type
 export type Chat = {

@@ -1,8 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { SceneCameraInput } from './camera-input';
 export type { GraphEditorProps } from './graph-editor-props';
-export type { Position2D } from './position2d';
-export type { PresentationMode } from './presentation-mode';
 export type { PresenterNodeShellProps } from './presenter-node-shell';
 export type { PresenterSceneContract } from './presenter-scene';
 export type { PresenterSceneLink } from './presenter-scene-link';
@@ -17,7 +15,6 @@ export type { SceneAtomMotion } from './scene-atom-motion';
 export type { SceneAtomTransform } from './scene-atom-transform';
 export type { SceneBufferSet } from './scene-buffer-set';
 export type { SceneCamera } from './scene-camera';
-export type { SceneCameraPreset } from './scene-camera-preset';
 export type { SceneDebugInfo } from './scene-debug-info';
 export type { SceneGeometry } from './scene-geometry';
 export type { SceneGraph } from './scene-graph';
@@ -28,7 +25,6 @@ export type { SceneMolecule } from './scene-molecule';
 export type { SceneNode } from './scene-node';
 export type { SceneNodePoint } from './scene-node-point';
 export type { SceneProps } from './scene-props';
-export type { SelectionMode } from './selection-mode';
 export type { SemanticZoomPresentation } from './semantic-zoom';
 export type { SemanticZoomParams } from './semantic-zoom-params';
 export type { Zoom } from './zoom';

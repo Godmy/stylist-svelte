@@ -2,7 +2,6 @@
 export type { RecipeAdvancedPasswordInput } from './advanced-password-input';
 export type { RecipeAutoComplete } from './auto-complete';
 export type { ContentEditorStateProps } from './content-editor-state-props';
-export type { DateRangePickerProps } from './date-range-picker-props';
 export type { RecipeInputGraphNode } from './graph-node';
 export type { RecipeInput } from './input';
 export type { RecipeInputControl } from './input-control';
@@ -11,7 +10,6 @@ export type { RecipeInputFieldProps } from './input-field-props';
 export type { RecipeNumberInput } from './number-input';
 export type { RecipeNumberInputProps } from './number-input-props';
 export type { RecipePhoneNumberInput } from './phone-number-input';
-export type { RecipeRangeInput } from './range-input';
 export type { RecipeRangeSlider } from './range-slider';
 export type { RecipeReactionPicker } from './reaction-picker';
 export type { RichTextEditorStateProps } from './rich-text-editor-state-props';

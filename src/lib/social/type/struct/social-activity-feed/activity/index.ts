@@ -1,5 +1,5 @@
-import type { ActivityType } from '../activitytype';
-import type { User } from '../user';
+﻿import type { ActivityType } from '$stylist/social/type/struct/social-activity-feed/activitytype';
+import type { User } from '$stylist/social/type/struct/social-activity-feed/user';
 
 export type Activity = {
 	id: string;

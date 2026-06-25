@@ -1,6 +1,6 @@
-import type { Snippet } from 'svelte';
-import type { SlotDropItem } from '../../item';
-import type { RestProps } from '../rest-props';
+﻿import type { Snippet } from 'svelte';
+import type { SlotDropItem } from '$stylist/file/type/struct/drop-zone/item';
+import type { RestProps } from '$stylist/file/type/struct/drop-zone/props/rest-props';
 
 export type Props = RestProps & {
 	children?: Snippet;

@@ -34,7 +34,6 @@ export {
 	friendListFormatLastSeen,
 	friendListGetStatusColor,
 	friendListGetStatusText,
-	friendListHandleAddFriend,
 	friendListHandleCall,
 	friendListHandleFriendClick,
 	friendListHandleSearchInput,

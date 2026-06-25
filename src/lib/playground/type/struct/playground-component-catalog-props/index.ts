@@ -1,5 +1,5 @@
-import type { PlaygroundComponentCatalogViewMode } from '$stylist/playground/type/struct/playground-component-catalog-view-mode';
-import type { PlaygroundComponentCatalogSortBy } from '$stylist/playground/type/struct/playground-component-catalog-sort-by';
+﻿import type { PlaygroundComponentCatalogViewMode } from '$stylist/token/type/alias/playground-component-catalog-view-mode';
+import type { PlaygroundComponentCatalogSortBy } from '$stylist/token/type/alias/playground-component-catalog-sort-by';
 import type { PlaygroundComponentCatalogComponentCatalogStory } from '$stylist/playground/type/struct/playground-component-catalog-component-catalog-story';
 import type { PlaygroundComponentCatalogComponentCatalogStats } from '$stylist/playground/type/struct/playground-component-catalog-component-catalog-stats';
 
@@ -24,3 +24,4 @@ export type PlaygroundComponentCatalogProps = {
 	onClearFilters: () => void;
 	onOpenStory: (storyId: string) => void;
 };
+

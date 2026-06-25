@@ -15,8 +15,3 @@ export { createMetricBarState } from './metric-bar';
 export { createMetricBarsCardState } from './metric-bars-card';
 export { createNpmBadgeState } from './npm-badge';
 export { createStatusIndicatorState } from './status-indicator';
-export { createTableState } from './table';
-export { createTableBodyState } from './table-body';
-export { createTableCellState } from './table-cell';
-export { createTableHeaderState } from './table-header';
-export { createTableRowState } from './table-row';

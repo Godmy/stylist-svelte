@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import InputText from '../input-text/index.svelte';
+	import InputText from '$stylist/input/component/atom/input-text/index.svelte';
 	import type { SlotInputField as IInputFieldProps } from '$stylist/input/interface/slot/input-field';
 	import { createInputFieldState } from '$stylist/input/function/state/input-field/index.svelte';
 

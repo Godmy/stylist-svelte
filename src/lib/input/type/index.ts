@@ -4,10 +4,6 @@ export type {
 	AutoCompleteOption,
 	ColorItem,
 	ColorPaletteProps,
-	DateRangeValue,
-	DateTimeRangePickerProps,
-	DateTimeRangeValue,
-	IReactionPickerStyleClasses,
 	InputAttributesBase,
 	InputFieldBaseProps,
 	InputFieldRequiredProps,
@@ -21,4 +17,3 @@ export type {
 	TextAreaStateOptions,
 	TextInputBaseProps
 } from './struct';
-export type { ITimeSlotStyleConfig } from './interface';

@@ -65,14 +65,11 @@ export type {
 	ConnectionPathResult,
 	GraphEditorNodeData,
 	GraphEditorPaletteNode,
-	GraphGridMode,
 	GraphMinimapContract,
 	GraphMinimapProps,
 	GraphNodeCardData,
 	GraphNodeCardProps,
-	GraphNodeCategory,
 	GraphPortDimensions,
-	GraphToolMode,
 	GraphToolbarItem,
 	GraphWorkspaceConnectionInput,
 	LiteGraphNodePresentation,
@@ -84,7 +81,6 @@ export type {
 	MinimapPoint,
 	MinimapProps,
 	MinimapViewport,
-	NodeTitleVariant,
 	OntologyEdge,
 	OntologyEdgeComponentProps,
 	OntologyNode,
@@ -122,11 +118,9 @@ export type {
 	SlotGraphToolbarItem,
 	SlotLitegraphConnection,
 	SlotNodePalette,
-	SlotNodePaletteItem,
-	SlotNodePropertyState
+	SlotNodePaletteItem
 } from './interface';
 export type {
-	GraphBounds,
 	GraphConnection,
 	GraphNodeDraft,
 	GraphPosition2D,

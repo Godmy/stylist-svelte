@@ -1,7 +1,7 @@
-import type { HTMLAttributes } from 'svelte/elements';
+﻿import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
-import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
+import type { SplitLayoutGap } from '$stylist/token/type/alias/split-layout-gap';
 
 import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/enum/alignment';
 import type { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
@@ -9,18 +9,19 @@ export type SidebarLayoutProps = LayoutHTMLAttributes<HTMLDivElement> & {
 	class?: string;
 	sidebar: Snippet;
 	children: Snippet;
-	/** На какой стороне размещается сайдбар */
+	/** РќР° РєР°РєРѕР№ СЃС‚РѕСЂРѕРЅРµ СЂР°Р·РјРµС‰Р°РµС‚СЃСЏ СЃР°Р№РґР±Р°СЂ */
 	side?: (typeof TOKEN_ALIGNMENT)[number];
-	/** Ширина сайдбара */
+	/** РЁРёСЂРёРЅР° СЃР°Р№РґР±Р°СЂР° */
 	sidebarWidth?: (typeof TOKEN_SIZE)[number];
-	/** Промежуток между сайдбаром и основным контентом */
+	/** РџСЂРѕРјРµР¶СѓС‚РѕРє РјРµР¶РґСѓ СЃР°Р№РґР±Р°СЂРѕРј Рё РѕСЃРЅРѕРІРЅС‹Рј РєРѕРЅС‚РµРЅС‚РѕРј */
 	gap?: SplitLayoutGap;
-	/** Схлопнуть сайдбар */
+	/** РЎС…Р»РѕРїРЅСѓС‚СЊ СЃР°Р№РґР±Р°СЂ */
 	collapsed?: boolean;
-	/** Растягивает layout на всю высоту родителя */
+	/** Р Р°СЃС‚СЏРіРёРІР°РµС‚ layout РЅР° РІСЃСЋ РІС‹СЃРѕС‚Сѓ СЂРѕРґРёС‚РµР»СЏ */
 	fillHeight?: boolean;
-	/** Адаптивный режим: на мобильных — вертикальный, на lg+ — горизонтальный */
+	/** РђРґР°РїС‚РёРІРЅС‹Р№ СЂРµР¶РёРј: РЅР° РјРѕР±РёР»СЊРЅС‹С… вЂ” РІРµСЂС‚РёРєР°Р»СЊРЅС‹Р№, РЅР° lg+ вЂ” РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹Р№ */
 	responsive?: boolean;
-	/** aria-label для <aside> элемента сайдбара (role="complementary") */
+	/** aria-label РґР»СЏ <aside> СЌР»РµРјРµРЅС‚Р° СЃР°Р№РґР±Р°СЂР° (role="complementary") */
 	sidebarLabel?: string;
 };
+

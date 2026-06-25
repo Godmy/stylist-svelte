@@ -1,6 +1,6 @@
-import type { RecipeLitegraphNode } from '$stylist/graph/interface/recipe/litegraph-node';
+﻿import type { RecipeLitegraphNode } from '$stylist/graph/interface/recipe/litegraph-node';
 import type { Snippet } from 'svelte';
-import type { GraphPosition2D } from '../graph-position-2d';
+import type { GraphPosition2D } from '$stylist/graph/type/struct/graph-position-2d';
 
 export type GraphMinimapProps = {
 	nodes?: readonly RecipeLitegraphNode[];

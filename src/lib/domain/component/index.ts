@@ -1,14 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	CardShell,
-	CloseIcon,
 	DomainEntity,
 	DomainListHeader,
 	DomainSearchField,
-	DomainSearchToggle,
-	OpenIcon,
-	OrbitBackground,
-	OrbitTokenNode
+	DomainSearchToggle
 } from './atom';
 export {
 	ClusterToolbar,
@@ -16,15 +11,12 @@ export {
 	DomainList,
 	DomainMenu,
 	DomainSearch,
+	DomainTable,
 	DomainToolbar,
 	FunctionalTaxonomy,
 	JointTabButtons,
 	JointToolbar,
 	JsonTreeViewer,
-	L6_TOKEN_DEFINITIONS,
-	OrbitArchitecture,
-	OrbitInformation,
-	OrbitInteraction,
 	TaxonomyBreadcrumbs,
 	TokenSettings
 } from './molecule';
@@ -38,7 +30,5 @@ export {
 	DomainSettings,
 	DomainSidebar,
 	DomainWorkspaceShell,
-	OrbitContractL5,
-	PrismaticOrbitL6,
 	StylistRibbonMenu
 } from './organism';

@@ -29,7 +29,6 @@ export type {
 	SlotErrorBoundaryDetails,
 	SlotErrorMessage,
 	SlotLazyLoader,
-	SlotLoader,
 	SlotLoadingBoundary,
 	SlotLoadingOverlay,
 	SlotNotificationBadge,

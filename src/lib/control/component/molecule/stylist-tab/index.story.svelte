@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import StylistTab from './index.svelte';
 	import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
@@ -13,9 +13,10 @@
 	const controls = [
 		{
 			name: 'selectedId',
-			type: 'text' as TokenControllerType,
+			type: 'select' as TokenControllerType,
 			defaultValue: 'architecture',
-			description: 'ID РІС‹Р±СЂР°РЅРЅРѕРіРѕ С‚Р°Р±Р°'
+			options: ['architecture', 'information', 'interaction'],
+			description: 'Selected taxonomy item id.'
 		}
 	];
 
@@ -26,35 +27,81 @@
 
 <Story
 	{controls}
-	title="RecipeStylist Tab"
-	description="РљРѕРјРїРѕРЅРµРЅС‚ РїРµСЂРµРєР»СЋС‡РµРЅРёСЏ С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅС‹С… С‚Р°РєСЃРѕРЅРѕРјРёР№ СЃ Р°РЅРёРјР°С†РёРµР№"
+	title="StylistTab"
+	description="Domain-specific taxonomy switcher used by StylistMenu."
 >
 	{#snippet children(controlValues: any)}
-		<div class="_c1">
-			<h3 class="_c2">Functional Taxonomy Tabs</h3>
-			<StylistTab selectedId={controlValues.selectedId} onSelect={handleSelect} />
+		<div class="_surface">
+			<div class="_panel">
+				<div class="_copy">
+					<span>Default taxonomy</span>
+					<h3>Stylist mode</h3>
+					<p>Compact icon tabs for switching between architecture, information, and interaction views.</p>
+				</div>
+				<StylistTab selectedId={controlValues.selectedId} onSelect={handleSelect} />
+			</div>
 
-			<h3 class="_c3">Custom Items</h3>
-			<StylistTab items={customItems as any} selectedId="dashboard" onSelect={handleSelect} />
+			<div class="_panel _panelSecondary">
+				<div class="_copy">
+					<span>Custom items</span>
+					<h3>Operational views</h3>
+				</div>
+				<StylistTab items={customItems as any} selectedId="dashboard" onSelect={handleSelect} />
+			</div>
 		</div>
 	{/snippet}
 </Story>
 
 <style>
-	._c1 {
+	._surface {
+		display: grid;
+		gap: 1rem;
+		max-width: 44rem;
+	}
+
+	._panel {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
 		padding: 1rem;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		background: var(--color-background-primary);
 	}
-	._c2 {
-		margin-bottom: 1rem;
-		font-size: 1.125rem;
-		line-height: 1.75rem;
-		font-weight: 600;
+
+	._panelSecondary {
+		background: var(--color-background-secondary);
 	}
-	._c3 {
-		margin-top: 2rem;
-		margin-bottom: 1rem;
-		font-size: 1.125rem;
-		line-height: 1.75rem;
-		font-weight: 600;
+
+	._copy {
+		display: grid;
+		gap: 0.25rem;
+		min-width: 0;
+	}
+
+	._copy span {
+		font-size: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: var(--color-text-tertiary);
+	}
+
+	._copy h3,
+	._copy p {
+		margin: 0;
+	}
+
+	._copy p {
+		max-width: 24rem;
+		color: var(--color-text-secondary);
+	}
+
+	@media (max-width: 720px) {
+		._panel {
+			align-items: flex-start;
+			flex-direction: column;
+		}
 	}
 </style>
+

@@ -1,6 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
+﻿import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SearchResultItem } from '../search-results-item';
+import type { SearchResultItem } from '$stylist/control/type/struct/search-results-item';
 
 export type SearchResultsProps = {
 	results?: SearchResultItem[];

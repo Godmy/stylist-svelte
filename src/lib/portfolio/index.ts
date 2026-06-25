@@ -50,7 +50,6 @@ export type {
 	KanbanBoardType,
 	KanbanCardStateProps,
 	KanbanCardType,
-	KanbanCardUser,
 	KanbanColumnType
 } from './type';
 export type {

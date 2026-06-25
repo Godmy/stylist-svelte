@@ -1,5 +1,5 @@
-import type { SlotUploadFile } from '$stylist/file/interface/slot/upload-file';
-import type { UploadProgressVariant } from '$stylist/file/type/struct/upload-progress/variant';
+﻿import type { SlotUploadFile } from '$stylist/file/interface/slot/upload-file';
+import type { UploadProgressVariant } from '$stylist/token/type/alias/upload-progress-variant';
 
 export interface SlotUploadProgress {
 	files: SlotUploadFile[];
@@ -18,3 +18,4 @@ export interface SlotUploadProgress {
 	maxVisible?: number;
 	[key: string]: unknown;
 }
+

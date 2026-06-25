@@ -25,7 +25,6 @@ export {
 	CHAT_PREVIEW_ICON_CHECK,
 	CHAT_PREVIEW_ICON_CHECK_CHECK,
 	CHAT_ROOM_VARIANT_CLASSES,
-	DEFAULT_CHAT_HEADER,
 	MESSAGE_ALIGNMENT_CLASSES,
 	MESSAGE_AVATAR_SIZE_CLASSES,
 	MESSAGE_BUBBLE_VARIANT_CLASSES,
@@ -34,12 +33,10 @@ export {
 	MESSAGE_STATUS_ICONS,
 	MESSAGE_VARIANT_BG_CLASSES,
 	MESSAGE_VARIANT_TEXT_CLASSES,
-	NOTIFICATION_BADGE_STATE_CLASSES,
 	NOTIFICATION_ITEM_TYPE_CLASSES,
 	PRESET_CHAT_HEADER,
 	PRESET_MESSAGE_TIMESTAMP,
 	RESPONSE_VIEWER_STATUS_CLASSES,
-	TOKEN_MESSAGE_STATE,
 	TOKEN_MESSAGE_STATUS,
 	USER_STATUS_TEXT
 } from './const';
@@ -78,9 +75,7 @@ export type {
 	ChatHeaderOrganismProps,
 	ChatHeaderProps,
 	ChatHeaderUser,
-	ChatInterfaceContract,
 	ChatInterfaceProps,
-	ChatMessageStatus,
 	ChatPreviewContract,
 	ChatPreviewItem,
 	ChatPreviewMessage,
@@ -88,7 +83,6 @@ export type {
 	ChatRoomMessage,
 	ChatRoomProps,
 	Message,
-	TokenMessageState,
 	TokenMessageStatus,
 	User
 } from './type';

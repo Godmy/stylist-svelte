@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	ObjectManagerIconPicker,
-	ObjectManagerMetricBar,
-	ObjectManagerTable
+	ObjectManagerMetricBar
 } from './object-manager';

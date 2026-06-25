@@ -1,7 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	ContentEditorStateProps,
-	DateRangePickerProps,
 	RecipeAdvancedPasswordInput,
 	RecipeAutoComplete,
 	RecipeInput,
@@ -12,7 +11,6 @@ export type {
 	RecipeNumberInput,
 	RecipeNumberInputProps,
 	RecipePhoneNumberInput,
-	RecipeRangeInput,
 	RecipeRangeSlider,
 	RecipeReactionPicker,
 	RecipeTagInput,
@@ -30,14 +28,8 @@ export type {
 	SlotAdvancedPasswordInput,
 	SlotAutoComplete,
 	SlotCharacterCount,
-	SlotColorPicker,
-	SlotDatePicker,
-	SlotDateRangePickerComponent,
-	SlotDateTimePicker,
-	SlotDateTimeRangePickerComponent,
 	SlotFieldHighlighter,
 	SlotFieldHighlighterSelectedField,
-	SlotFormDatePicker,
 	SlotFormErrorMessage,
 	SlotFormHelperText,
 	SlotGraphEdge,
@@ -60,14 +52,9 @@ export type {
 	SlotNumberInput,
 	SlotPhoneNumberInput,
 	SlotPinInputDigit,
-	SlotRangeInput,
 	SlotRangeSlider,
 	SlotReactionPicker,
 	SlotSliderWithInput,
 	SlotTagInput,
-	SlotTextarea,
-	SlotTimePicker,
-	SlotTimeSlot,
-	SlotTimeSlotProps,
-	VariablesEditorStyleManagerOptions
+	SlotTextarea
 } from './slot';

@@ -6,4 +6,3 @@ export type { TypeDomainEntity } from './domain-entity';
 export type { TypeDomainFile } from './domain-file';
 export type { TypeDomainJoint } from './domain-joint';
 export type { TypeDomainTreeNode } from './domain-tree-node';
-export type { TypeStoryModule } from './story-module';

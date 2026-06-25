@@ -1,4 +1,4 @@
-import type { ExportFormat } from '$stylist/file/type/enum/data-exporter';
+﻿import type { DataExporterFormat } from '$stylist/token/type/alias/data-exporter-format';
 import type { DataItem } from '$stylist/file/type/struct/data-exporter/data-item';
 import type { ExportFormatDetails } from '$stylist/file/type/struct/export-format-details';
 import { convertToCSV } from '$stylist/file/function/script/convert-to-csv';
@@ -8,10 +8,10 @@ import { convertToCSV } from '$stylist/file/function/script/convert-to-csv';
  */
 export function exportData(
 	data: DataItem[],
-	format: ExportFormat,
+	format: DataExporterFormat,
 	fileName: string,
-	formats: Record<ExportFormat, ExportFormatDetails>,
-	dispatch: (event: 'export', detail: { format: ExportFormat; fileName: string }) => void
+	formats: Record<DataExporterFormat, ExportFormatDetails>,
+	dispatch: (event: 'export', detail: { format: DataExporterFormat; fileName: string }) => void
 ): void {
 	const selectedFormat = formats[format as keyof typeof formats];
 	const dataStr =
@@ -30,3 +30,5 @@ export function exportData(
 
 	dispatch('export', { format, fileName });
 }
+
+

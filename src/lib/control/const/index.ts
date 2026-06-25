@@ -2,14 +2,11 @@
 export {
 	TOKEN_BUTTON_LOADER_CLASSES,
 	TOKEN_CUBE_FACE_NAME,
-	TOKEN_CUBE_FACE_TITLE,
-	TOKEN_SELECTION_TYPE,
-	TOKEN_SELECTOR_KIND
+	TOKEN_CUBE_FACE_TITLE
 } from './enum';
 export {
 	CONTROL_BUTTON_ICON,
-	PAGE_BUILDER_ICON,
-	TOKEN_ICON_PATHS
+	PAGE_BUILDER_ICON
 } from './map';
 export {
 	PresetAccessibilityToolbar,
@@ -22,7 +19,6 @@ export {
 	PresetPageButton,
 	PresetQuantitySelector,
 	PresetSelector,
-	PresetSortableTableHeader,
 	PresetZoomToolbar
 } from './preset';
 export {
@@ -55,8 +51,6 @@ export {
 	TAB_CONTEXT,
 	TAB_PANEL_CONTEXT,
 	TAG_SIZE_CLASSES,
-	TOKEN_TOGGLE_HANDLE_SIZE_CLASSES,
-	TOKEN_TOGGLE_SIZE_CLASSES,
 	TOOLTIP_POSITION_CLASSES,
 	TOOLTIP_SIZE_CLASSES
 } from './record';

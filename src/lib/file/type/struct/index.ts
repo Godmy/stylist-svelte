@@ -12,12 +12,6 @@ export type {
 } from './drop-zone';
 export type { ExportFormatDetails } from './export-format-details';
 export type { SlotFolderItem } from './file-browser';
-export type {
-	SlotFileSystemItem,
-	ViewMode
-} from './file-explorer';
-export type { FileItemType } from './file-item-type';
+export type { SlotFileSystemItem } from './file-explorer';
 export type { FileItem } from './file-list-item';
-export type { UploadProgressVariant } from './upload-progress';
-export type { UploadStatus } from './upload-status';
 export type { SlotZipEntry } from './zip-viewer';

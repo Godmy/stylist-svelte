@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TokenControlDefinition } from '$stylist/control/type/struct/token-control-definition';
+	import type { TokenControlDefinition } from '$stylist/token/type/struct/token-control-definition';
 	import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/enum/token-value';
 
 	type Props = {

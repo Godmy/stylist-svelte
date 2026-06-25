@@ -1,7 +1,7 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
+﻿import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { TokenSelectorKind } from '$stylist/control/type/record/selection-kind';
+import type { TokenSelectorKind } from '$stylist/token/type/alias/selection-kind';
 
 export interface SlotQuantitySelector extends HTMLAttributes<HTMLDivElement>, SlotInteraction {
 	value?: number;
@@ -21,3 +21,4 @@ export interface SlotQuantitySelector extends HTMLAttributes<HTMLDivElement>, Sl
 	showButtons?: boolean;
 	label?: string;
 }
+

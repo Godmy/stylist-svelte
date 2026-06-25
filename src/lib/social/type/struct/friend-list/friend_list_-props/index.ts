@@ -1,5 +1,5 @@
-import type { FRIEND_LIST_FRIEND } from '../friend_list_friend';
-import type { FRIEND_LIST_REST_PROPS } from '../friend_list_rest_-props';
+﻿import type { FRIEND_LIST_FRIEND } from '$stylist/social/type/struct/friend-list/friend_list_friend';
+import type { FRIEND_LIST_REST_PROPS } from '$stylist/social/type/struct/friend-list/friend_list_rest_-props';
 import type { TOKEN_AVAILABILITY } from '$stylist/interaction/const/enum/availability';
 
 export type FRIEND_LIST_PROPS = FRIEND_LIST_REST_PROPS & {

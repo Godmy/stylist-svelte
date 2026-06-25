@@ -1,4 +1,4 @@
-import type { SelectionMode } from '$stylist/architecture/type/struct/selection-mode/index';
+﻿import type { SelectionMode } from '$stylist/token/type/alias/selection-mode/index';
 
 const DEFAULT_MODE: SelectionMode = 'single';
 
@@ -16,3 +16,4 @@ export function createSelectionMode(initial?: SelectionMode) {
 }
 
 export default createSelectionMode;
+

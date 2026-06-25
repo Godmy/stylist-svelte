@@ -1,5 +1,5 @@
-import type { SlotZipEntry } from '../../entry';
-import type { RestProps } from '../rest-props';
+﻿import type { SlotZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
+import type { RestProps } from '$stylist/file/type/struct/zip-viewer/props/rest-props';
 
 export type Props = RestProps & {
 	entries: SlotZipEntry[];

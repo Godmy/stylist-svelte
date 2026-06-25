@@ -6,7 +6,6 @@ export {
 	createDrawerEscapeHandler,
 	getBreadcrumbDropdownItems,
 	getBreadcrumbItems,
-	getButtonSizeForToolbar,
 	getSideBySideLayoutClasses,
 	getSideBySideSectionWidthClass,
 	handleBackdropClick,

@@ -1,6 +1,6 @@
-import type { MapProvider } from '../mapprovider';
-import type { MapSelectorLocation } from '../mapselectorlocation';
-import type { MapSelectorRestProps } from '../mapselectorrest-props';
+﻿import type { MapProvider } from '$stylist/token/type/alias/map-provider';
+import type { MapSelectorLocation } from '$stylist/geo/type/struct/map-selector/mapselectorlocation';
+import type { MapSelectorRestProps } from '$stylist/geo/type/struct/map-selector/mapselectorrest-props';
 
 export type MapSelectorProps = MapSelectorRestProps & {
 	locations: MapSelectorLocation[];
@@ -25,3 +25,4 @@ export type MapSelectorProps = MapSelectorRestProps & {
 	height?: string;
 	width?: string;
 };
+

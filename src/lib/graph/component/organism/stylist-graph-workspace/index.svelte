@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	const browser = typeof window !== 'undefined';
 	import { onDestroy } from 'svelte';
 	import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
@@ -7,8 +7,8 @@
 	import Viewport from '$stylist/graph/component/atom/viewport/index.svelte';
 
 	import type { TOKEN_THEME_MODE } from '$stylist/theme/const/enum/theme-mode';
-	import type { GraphToolMode } from '$stylist/graph/type/enum/graph-tool-mode';
-	import type { GraphNodeCategory } from '$stylist/graph/type/enum/graph-node-category';
+	import type { GraphToolMode } from '$stylist/token/type/alias/graph-tool-mode';
+	import type { GraphNodeCategory } from '$stylist/token/type/alias/graph-node-category';
 	import type { GraphWorkspaceNode } from '$stylist/graph/type/struct/graph-workspace-node';
 	import type { GraphWorkspaceConnection } from '$stylist/graph/type/struct/graph-workspace-connection';
 	import type { GraphWorkspaceBounds } from '$stylist/graph/type/struct/graph-workspace-bounds';
@@ -115,7 +115,7 @@
 			: []
 	);
 	const cameraSummary = $derived(
-		`${camera.zoom.toFixed(2)}x · x${Math.round(camera.x)} · y${Math.round(camera.y)}`
+		`${camera.zoom.toFixed(2)}x В· x${Math.round(camera.x)} В· y${Math.round(camera.y)}`
 	);
 
 	$effect(() => {
@@ -877,7 +877,7 @@
 						<p class="graph-node__summary">{node.summary}</p>
 						<div class="graph-node__meta">
 							<span>{node.details.length} details</span>
-							<span>{node.width}×{node.height}</span>
+							<span>{node.width}Г—{node.height}</span>
 						</div>
 					</button>
 				{/each}
@@ -1631,3 +1631,4 @@
 		}
 	}
 </style>
+

@@ -6,18 +6,13 @@ export type { IChartDataPoint } from './bar-chart';
 export type { IBarPosition } from './bar-chart-bar-position';
 export type { CanvasChartDataPoint } from './canvas-chart';
 export type { CanvasChartPadding } from './canvas-chart-padding';
-export type { TokenCanvasChartType } from './canvas-chart-type';
 export type { ChartAxisYMetrics } from './chart-axis-y-metrics';
 export type { ChartBounds } from './chart-bounds';
 export type { ChartFunctionPoint } from './chart-point';
 export type { ChartScale } from './chart-scale';
 export type { ChartSeries } from './chart-series';
 export type { IExtendedHeatmapCell } from './extended-heatmap-cell';
-export type {
-	HeatmapData,
-	IHeatmapCell
-} from './heatmap';
-export type { HeatmapCellGrid } from './heatmap-cell-grid';
+export type { IHeatmapCell } from './heatmap';
 export type { InformationPieChartSegment } from './information-pie-chart-segment';
 export type { LineChartPoint } from './line-chart';
 export type { LineChartData } from './line-chart-data';

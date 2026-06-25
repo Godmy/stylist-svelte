@@ -1,5 +1,5 @@
-import type { OntologyEdge } from '../ontologyedge';
-import type { OntologyNode } from '../ontologynode';
+﻿import type { OntologyEdge } from '$stylist/graph/type/struct/ontology-edge-component/ontologyedge';
+import type { OntologyNode } from '$stylist/graph/type/struct/ontology-edge-component/ontologynode';
 
 export type OntologyEdgeComponentProps = {
 	edge: OntologyEdge;

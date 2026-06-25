@@ -1,4 +1,4 @@
-import type { FileType } from '../../common/file-type';
+﻿import type { FileType } from '$stylist/file/type/struct/common/file-type';
 
 export type FileItem = {
 	id: string;

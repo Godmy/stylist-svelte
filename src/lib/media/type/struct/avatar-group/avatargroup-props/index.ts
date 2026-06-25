@@ -1,7 +1,7 @@
-import type { HTMLAttributes } from 'svelte/elements';
+﻿import type { HTMLAttributes } from 'svelte/elements';
 import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
-import type { AvatarGroupAvatar } from '../avatargroupavatar';
+import type { AvatarGroupAvatar } from '$stylist/media/type/struct/avatar-group/avatargroupavatar';
 
 export type AvatarGroupProps = {
 	avatars?: AvatarGroupAvatar[];

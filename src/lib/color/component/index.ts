@@ -3,4 +3,7 @@ export {
 	ColorPalette,
 	ColorSwatch
 } from './atom';
-export { ColorPicker } from './molecule';
+export {
+	AdvancedColorPicker,
+	ColorPicker
+} from './molecule';

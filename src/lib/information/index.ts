@@ -1,8 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	ObjectManagerIconPicker,
-	ObjectManagerMetricBar,
-	ObjectManagerTable
+	ObjectManagerMetricBar
 } from './class';
 export {
 	AttachmentPreview,
@@ -16,12 +15,7 @@ export {
 	MetricBar,
 	MetricBarsCard,
 	NpmBadge,
-	StatusIndicator,
-	Table,
-	TableBody,
-	TableCell,
-	TableHeader,
-	TableRow
+	StatusIndicator
 } from './component';
 export {
 	CARD_SIZE_CLASSES,
@@ -29,12 +23,8 @@ export {
 	DEFAULT_BADGE_LABEL,
 	PROGRESS_VARIANT_CLASSES,
 	STATS_CARD_TREND_TEXT_CLASSES,
-	STATS_CARD_VARIANT_CLASSES,
-	TABLE_ALIGNMENT_CLASSES,
-	TABLE_CLASSES,
 	TOKEN_SOFTWARE_BADGE,
-	TOKEN_STATUS,
-	TOKEN_TABLE_CELL
+	TOKEN_STATUS
 } from './const';
 export {
 	createAttachmentDispatch,
@@ -54,11 +44,6 @@ export {
 	createMetricBarsCardState,
 	createNpmBadgeState,
 	createStatusIndicatorState,
-	createTableBodyState,
-	createTableCellState,
-	createTableHeaderState,
-	createTableRowState,
-	createTableState,
 	formatFileSize,
 	getIconName,
 	handleDownload,
@@ -70,13 +55,10 @@ export type {
 	ClassProp,
 	ClassValue,
 	ContentProp,
-	ListItemMarkerType,
 	MetricBarData,
 	Props,
-	StatusState,
 	TokenSoftwareBadge,
-	TokenStatus,
-	TokenTableCell
+	TokenStatus
 } from './type';
 export type {
 	BadgeGroupItem,
@@ -102,10 +84,6 @@ export type {
 	RecipeSort,
 	RecipeSortableGrid,
 	RecipeStatusIndicator,
-	RecipeTable,
-	RecipeTableCell,
-	RecipeTableRow,
-	RecipeTableSection,
 	RecipeThemeIconPicker,
 	SlotAttachment,
 	SlotAttachmentPreview,

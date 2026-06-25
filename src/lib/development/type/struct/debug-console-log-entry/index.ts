@@ -1,4 +1,4 @@
-import type { DebugConsoleLogLevel } from '$stylist/development/type/struct/debug-console-log-level';
+﻿import type { DebugConsoleLogLevel } from '$stylist/token/type/alias/debug-console-log-level';
 
 export type DebugConsoleLogEntry = {
 	id: string;
@@ -7,3 +7,4 @@ export type DebugConsoleLogEntry = {
 	message: string;
 	data?: any;
 };
+

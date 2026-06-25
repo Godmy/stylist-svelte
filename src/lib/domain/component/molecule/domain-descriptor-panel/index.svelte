@@ -1,9 +1,8 @@
 <script lang="ts">
-	import OrbitBackground from '$stylist/domain/component/atom/orbit-background/index.svelte';
-	import OrbitArchitecture from '$stylist/domain/component/molecule/orbit-architecture/index.svelte';
-	import OrbitInformation from '$stylist/domain/component/molecule/orbit-information/index.svelte';
-	import OrbitInteraction from '$stylist/domain/component/molecule/orbit-interaction/index.svelte';
-	import OrbitContractL5 from '$stylist/domain/component/organism/orbit-contract-l5/index.svelte';
+	import OrbitBackground from '$stylist/token/component/atom/orbit-background/index.svelte';
+	import Orbit from '$stylist/token/component/molecule/orbit/index.svelte';
+	import OrbitContractL5 from '$stylist/token/component/organism/orbit-contract-l5/index.svelte';
+	import { L6_TOKEN_DEFINITIONS } from '$stylist/token/const/object/orbit-control-definition';
 	import type { TypeDomainComponentDescriptor } from '$stylist/domain/type/struct/domain-component-descriptor';
 	import type { TypeDomainComponentProjection } from '$stylist/domain/type/struct/domain-component-projection';
 
@@ -16,6 +15,54 @@
 		controls: 'Controls',
 		contracts: 'Contracts'
 	};
+	const architectureNodes = [
+		{
+			id: 'component-size',
+			icon: 'component-size',
+			label: 'Component Size',
+			definition: L6_TOKEN_DEFINITIONS['component-size']
+		},
+		{
+			id: 'animations',
+			icon: 'animations',
+			label: 'Animations',
+			definition: L6_TOKEN_DEFINITIONS.animations
+		}
+	];
+	const informationNodes = [
+		{
+			id: 'style',
+			icon: 'style',
+			label: 'Style',
+			definition: L6_TOKEN_DEFINITIONS.style
+		},
+		{
+			id: 'variants',
+			icon: 'variants',
+			label: 'Variants',
+			definition: L6_TOKEN_DEFINITIONS.variants
+		},
+		{
+			id: 'text-element',
+			icon: 'text-element',
+			label: 'Text Element',
+			definition: L6_TOKEN_DEFINITIONS['text-element']
+		}
+	];
+	const interactionNodes = [
+		{
+			id: 'controls',
+			icon: 'controls',
+			label: 'Controls',
+			definition: L6_TOKEN_DEFINITIONS.controls
+		},
+		{
+			id: 'state',
+			icon: 'state',
+			label: 'State',
+			definition: L6_TOKEN_DEFINITIONS.state
+		}
+	];
 
 	let {
 		descriptor,
@@ -201,11 +248,11 @@
 					</div>
 
 					{#if activeMode === 'architecture'}
-						<OrbitArchitecture opened={true} />
+						<Orbit opened={true} radius={72} nodes={architectureNodes} />
 					{:else if activeMode === 'information'}
-						<OrbitInformation opened={true} />
+						<Orbit opened={true} radius={104} nodes={informationNodes} />
 					{:else}
-						<OrbitInteraction opened={true} />
+						<Orbit opened={true} radius={136} nodes={interactionNodes} />
 					{/if}
 				</OrbitBackground>
 			{/if}

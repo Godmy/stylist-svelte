@@ -1,5 +1,5 @@
-import type { Provider } from '../provider';
-import type { RestProps } from '../rest-props';
+﻿import type { Provider } from '$stylist/social/type/struct/social-login/provider';
+import type { RestProps } from '$stylist/social/type/struct/social-login/rest-props';
 
 export type Props = RestProps & {
 	providers?: Provider[];

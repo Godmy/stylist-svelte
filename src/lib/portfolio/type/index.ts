@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type {
-	KanbanCardStateProps,
-	KanbanCardUser
-} from './alias';
+export type { KanbanCardStateProps } from './alias';
 export type {
 	DragPayload,
 	KanbanBoardAction,

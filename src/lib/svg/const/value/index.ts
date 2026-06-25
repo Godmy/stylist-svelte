@@ -298,7 +298,6 @@ export { ICON_INTERFACE } from './interface';
 export { ICON_INVENTORY_TRACKER } from './inventory-tracker';
 export { ICON_ITALIC } from './italic';
 export { ICON_JOINT } from './joint';
-export { ICON_JSON } from './json';
 export { ICON_JUSTIFICATIONS } from './justifications';
 export { ICON_KANBAN } from './kanban';
 export { ICON_KANBAN_CARD } from './kanban-card';

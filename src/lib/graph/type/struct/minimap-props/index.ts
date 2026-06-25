@@ -1,7 +1,7 @@
-import type { RecipeLitegraphNode } from '$stylist/graph/interface/recipe/litegraph-node';
+﻿import type { RecipeLitegraphNode } from '$stylist/graph/interface/recipe/litegraph-node';
 import type { Snippet } from 'svelte';
-import type { MinimapOffset } from '../minimap-offset';
-import type { MinimapPoint } from '../minimap-point';
+import type { MinimapOffset } from '$stylist/graph/type/struct/minimap-offset';
+import type { MinimapPoint } from '$stylist/graph/type/struct/minimap-point';
 
 export type MinimapProps = {
 	nodes?: readonly RecipeLitegraphNode[];

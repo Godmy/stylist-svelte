@@ -7,7 +7,6 @@ export type { SlotErrorBoundary } from './error-boundary';
 export type { SlotErrorBoundaryDetails } from './error-boundary-details';
 export type { SlotErrorMessage } from './error-message';
 export type { SlotLazyLoader } from './lazy-loader';
-export type { SlotLoader } from './loader';
 export type { SlotLoadingBoundary } from './loading-boundary';
 export type { SlotLoadingOverlay } from './loading-overlay';
 export type { SlotNotificationBadge } from './notification-badge';

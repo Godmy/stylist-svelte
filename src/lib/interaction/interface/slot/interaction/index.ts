@@ -1,4 +1,4 @@
-import type { InteractionFeedback } from '$stylist/interaction/type/struct/interaction/interaction-feedback';
+﻿import type { InteractionFeedback } from '$stylist/token/type/alias/interaction-feedback';
 import type { InteractionIntent } from '$stylist/interaction/type/struct/interaction/interaction-intent';
 
 export interface SlotInteraction {
@@ -10,3 +10,4 @@ export interface SlotInteraction {
 	interactionSticky?: boolean;
 	interactionThreshold?: number;
 }
+

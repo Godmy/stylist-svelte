@@ -1,9 +1,9 @@
-import type { HTMLAttributes } from 'svelte/elements';
+﻿import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
-import type { LayoutGravity } from '$stylist/layout/type/struct/item-layout-gravity';
-import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
-import type { GridMoleculeJustify } from '$stylist/layout/type/enum/grid-molecule-justify';
+import type { LayoutGravity } from '$stylist/token/type/alias/item-layout-gravity';
+import type { SplitLayoutGap } from '$stylist/token/type/alias/split-layout-gap';
+import type { GridMoleculeJustify } from '$stylist/token/type/alias/grid-molecule-justify';
 
 export type GridMoleculeProps = LayoutHTMLAttributes<HTMLDivElement> & {
 	class?: string;
@@ -14,3 +14,4 @@ export type GridMoleculeProps = LayoutHTMLAttributes<HTMLDivElement> & {
 	alignItems?: LayoutGravity;
 	justifyContent?: GridMoleculeJustify;
 };
+

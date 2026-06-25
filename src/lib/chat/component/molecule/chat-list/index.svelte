@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
-	import ChatItem from '../chat-item/index.svelte';
+	import ChatItem from '$stylist/chat/component/molecule/chat-item/index.svelte';
 	import createChatListState from '$stylist/chat/function/state/chat-list/index.svelte';
 
 	let props: {

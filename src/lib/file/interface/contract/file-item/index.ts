@@ -1,4 +1,4 @@
-import type { FileItemType } from '$stylist/file/type/struct/file-item-type';
+﻿import type { FileItemType } from '$stylist/token/type/alias/file-item-type';
 
 export interface ContractFileItem {
 	id: string;
@@ -14,3 +14,4 @@ export interface ContractFileItem {
 	icon?: string;
 	selected?: boolean;
 }
+

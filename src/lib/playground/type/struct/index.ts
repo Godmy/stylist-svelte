@@ -1,7 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { InterfaceControllerSettings } from './interface-controller-settings';
 export type { PlaygroundAiAssistantAIClientLike } from './playground-ai-assistant-ai-client-like';
-export type { PlaygroundAiAssistantAIProviderId } from './playground-ai-assistant-ai-provider-id';
 export type { PlaygroundAiAssistantChatMessage } from './playground-ai-assistant-chat-message';
 export type { PlaygroundAiAssistantChatResponse } from './playground-ai-assistant-chat-response';
 export type { PlaygroundAiAssistantCreateAIClient } from './playground-ai-assistant-create-ai-client';
@@ -11,15 +10,11 @@ export type { PlaygroundAiChatProps } from './playground-ai-chat-props';
 export type { PlaygroundAiPanelAIOption } from './playground-ai-panel-ai-option';
 export type { PlaygroundAiPanelAIProvider } from './playground-ai-panel-ai-provider';
 export type { PlaygroundAiPanelProps } from './playground-ai-panel-props';
-export type { PlaygroundCanvasShellBackgroundType } from './playground-canvas-shell-background-type';
 export type { PlaygroundCanvasShellProps } from './playground-canvas-shell-props';
-export type { PlaygroundCanvasShellViewportSize } from './playground-canvas-shell-viewport-size';
 export type { PlaygroundCodeViewerProps } from './playground-code-viewer-props';
 export type { PlaygroundComponentCatalogComponentCatalogStats } from './playground-component-catalog-component-catalog-stats';
 export type { PlaygroundComponentCatalogComponentCatalogStory } from './playground-component-catalog-component-catalog-story';
 export type { PlaygroundComponentCatalogProps } from './playground-component-catalog-props';
-export type { PlaygroundComponentCatalogSortBy } from './playground-component-catalog-sort-by';
-export type { PlaygroundComponentCatalogViewMode } from './playground-component-catalog-view-mode';
 export type { PlaygroundComponentInfoCardProps } from './playground-component-info-card-props';
 export type { PlaygroundComponentTreeGroupedStories } from './playground-component-tree-grouped-stories';
 export type { PlaygroundComponentTreeProps } from './playground-component-tree-props';

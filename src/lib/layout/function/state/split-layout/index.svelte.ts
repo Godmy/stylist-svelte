@@ -1,5 +1,5 @@
-import type { TOKEN_ORIENTATION } from '$stylist/layout/const/enum/orientation';
-import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
+﻿import type { TOKEN_ORIENTATION } from '$stylist/layout/const/enum/orientation';
+import type { SplitLayoutGap } from '$stylist/token/type/alias/split-layout-gap';
 import type { SplitLayoutProps } from '$stylist/layout/type/struct/layout-extended/split-layout-props';
 
 import type { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
@@ -48,3 +48,4 @@ export function createSplitLayoutState(props: SplitLayoutProps) {
 }
 
 export default createSplitLayoutState;
+

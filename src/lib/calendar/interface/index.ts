@@ -3,9 +3,11 @@ export type { BehaviorTimeRangeFilter } from './behavior';
 export type {
 	ContractScheduleEvent,
 	ContractTimeSlot,
+	ITimeSlotStyleConfig,
 	RecipeCalendarEvent
 } from './contract';
 export type {
+	DateRangePickerProps,
 	RecipeCalendar,
 	RecipeCalendarDay,
 	RecipeCalendarView,
@@ -18,6 +20,7 @@ export type {
 	RecipeMapCalendar,
 	RecipeMiniCalendar,
 	RecipeMiniCalendarDay,
+	RecipeRangeInput,
 	RecipeRealTimePresence,
 	RecipeScheduleCalendar,
 	RecipeScheduleCalendarDaySchedule,
@@ -34,12 +37,18 @@ export type {
 	SlotCalendarDay,
 	SlotCalendarEvent,
 	SlotCalendarViewEvent,
+	SlotDatePicker,
+	SlotDateRangePickerComponent,
+	SlotDateTimePicker,
+	SlotDateTimeRangePickerComponent,
 	SlotDaySchedule,
 	SlotEventCalendar,
 	SlotEventCalendarEvent,
+	SlotFormDatePicker,
 	SlotMiniCalendar,
 	SlotMiniCalendarEvent,
 	SlotPresenceUser,
+	SlotRangeInput,
 	SlotRealTimePresence,
 	SlotRealTimePresenceStyleClasses,
 	SlotRealTimePresenceUser,
@@ -49,6 +58,9 @@ export type {
 	SlotScheduleTimeSlot,
 	SlotTimeGrid,
 	SlotTimeGridEvent,
+	SlotTimePicker,
+	SlotTimeSlot,
 	SlotTimeSlotEvent,
+	SlotTimeSlotProps,
 	SlotTimelineItem
 } from './slot';

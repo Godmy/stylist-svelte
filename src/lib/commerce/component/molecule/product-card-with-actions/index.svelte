@@ -1,5 +1,5 @@
-<script lang="ts">
-	import ProductCard from '../product-card/index.svelte';
+﻿<script lang="ts">
+	import ProductCard from '$stylist/commerce/component/molecule/product-card/index.svelte';
 	import createProductCardWithActionsState from '$stylist/commerce/function/state/product-card-with-actions/createproductcardwithactionsstate/index.svelte';
 	import type { ProductCardWithActionsProps } from '$stylist/commerce/interface/recipe/product-card-with-actions-props';
 
@@ -65,7 +65,7 @@
 		width: 1rem;
 	}
 	.product-card-with-actions__star {
-		/* TODO: migrate — some external refs inlined, verify */
+		/* TODO: migrate вЂ” some external refs inlined, verify */
 	}
 
 	.product-card-with-actions__review-count {

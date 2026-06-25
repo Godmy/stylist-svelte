@@ -1,4 +1,4 @@
-import type { MediaType } from '../mediatype';
+﻿import type { MediaType } from '$stylist/token/type/alias/media-library-media-type';
 
 export type MediaItem = {
 	id: string;
@@ -10,3 +10,4 @@ export type MediaItem = {
 	uploadDate: Date;
 	tags?: string[];
 };
+

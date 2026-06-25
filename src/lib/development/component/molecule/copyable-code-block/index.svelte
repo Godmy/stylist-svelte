@@ -1,10 +1,10 @@
-<script lang="ts">
+﻿<script lang="ts">
 	/**
 	 * CopyableCode - Legacy wrapper for unified Code
 	 *
 	 * @deprecated Use Code with copyable={true} instead
 	 */
-	import Code from '../code-block/index.svelte';
+	import Code from '$stylist/development/component/molecule/code-block/index.svelte';
 	import type { CopyableCodeBlockProps } from '$stylist/development/type/struct/copyable-code-block-props';
 	import createCopyableCodeBlockState from '$stylist/development/function/state/copyable-code-block/index.svelte';
 

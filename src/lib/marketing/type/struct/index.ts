@@ -17,7 +17,6 @@ export type {
 } from './test-results-viewer';
 export type { TestResultsViewerContract } from './test-results-viewer-contract';
 export type {
-	TimeRange,
 	TrafficAnalyticsProps,
 	TrafficDataPoint,
 	TrafficSource

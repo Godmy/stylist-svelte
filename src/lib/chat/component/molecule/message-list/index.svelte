@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
-	import MessageItem from '../message-item/index.svelte';
+	import MessageItem from '$stylist/chat/component/molecule/message-item/index.svelte';
 	import createMessageListState from '$stylist/chat/function/state/message-list/index.svelte';
 
 	export type MessageListProps = {

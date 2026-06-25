@@ -1,4 +1,4 @@
-import type { UploadStatus } from '$stylist/file/type/struct/upload-status';
+﻿import type { UploadStatus } from '$stylist/token/type/alias/upload-status';
 
 export interface SlotFileUpload {
 	accept?: string;
@@ -13,3 +13,4 @@ export interface SlotFileUpload {
 	class?: string;
 	[key: string]: unknown;
 }
+

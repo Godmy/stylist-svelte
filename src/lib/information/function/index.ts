@@ -23,10 +23,5 @@ export {
 	createMetricBarState,
 	createMetricBarsCardState,
 	createNpmBadgeState,
-	createStatusIndicatorState,
-	createTableBodyState,
-	createTableCellState,
-	createTableHeaderState,
-	createTableRowState,
-	createTableState
+	createStatusIndicatorState
 } from './state';

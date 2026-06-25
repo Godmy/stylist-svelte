@@ -1,7 +1,7 @@
-import type { HTMLAttributes } from 'svelte/elements';
+﻿import type { HTMLAttributes } from 'svelte/elements';
 import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
-import type { AvatarUserStatus } from '$stylist/media/type/alias/avatar-user-status';
+import type { AvatarUserStatus } from '$stylist/token/type/alias/avatar-user-status';
 import type { RecipeAvatar } from '$stylist/media/interface/recipe/avatar';
 
 import type { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
@@ -121,3 +121,4 @@ export function createAvatarState(props: RecipeAvatar & HTMLAttributes<HTMLDivEl
 		getStatusSizeClasses
 	};
 }
+

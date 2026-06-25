@@ -1,6 +1,6 @@
-import type { MapWithMarkersMarker } from '../mapwithmarkersmarker';
-import type { MapWithMarkersRestProps } from '../mapwithmarkersrest-props';
-import type { MapWithMarkersView } from '../mapwithmarkersview';
+﻿import type { MapWithMarkersMarker } from '$stylist/geo/type/struct/map-with-markers/mapwithmarkersmarker';
+import type { MapWithMarkersRestProps } from '$stylist/geo/type/struct/map-with-markers/mapwithmarkersrest-props';
+import type { MapWithMarkersView } from '$stylist/geo/type/struct/map-with-markers/mapwithmarkersview';
 
 export type MapWithMarkersProps = MapWithMarkersRestProps & {
 	markers?: MapWithMarkersMarker[];

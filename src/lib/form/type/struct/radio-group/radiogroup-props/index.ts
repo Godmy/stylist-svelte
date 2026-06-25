@@ -1,5 +1,5 @@
-import type { HTMLInputAttributes } from 'svelte/elements';
-import type { RadioOption } from '../radiooption';
+﻿import type { HTMLInputAttributes } from 'svelte/elements';
+import type { RadioOption } from '$stylist/form/type/struct/radio-group/radiooption';
 import type { TOKEN_ORIENTATION } from '$stylist/layout/const/enum/orientation';
 
 export type RadioGroupProps = Omit<HTMLInputAttributes, 'type' | 'value' | 'name' | 'checked'> & {

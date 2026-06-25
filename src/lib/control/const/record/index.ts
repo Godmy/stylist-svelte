@@ -28,8 +28,6 @@ export { TAB_PANEL_CONTEXT } from './tab-panel-context';
 export { TABS_SIZE_CLASSES } from './tabs-size-classes';
 export { TABS_VARIANT_CLASSES } from './tabs-variant-classes';
 export { TAG_SIZE_CLASSES } from './tag-size-classes';
-export { TOKEN_TOGGLE_HANDLE_SIZE_CLASSES } from './token-toggle-handle-size-classes';
-export { TOKEN_TOGGLE_SIZE_CLASSES } from './token-toggle-size-classes';
 export { TOOLTIP_POSITION_CLASSES } from './tooltip-position-classes';
 export { TOOLTIP_SIZE_CLASSES } from './tooltip-size-classes';
 export type { AccordionContext } from './accordion-context';

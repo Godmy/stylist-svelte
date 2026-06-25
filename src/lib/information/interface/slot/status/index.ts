@@ -1,4 +1,4 @@
-import type { StatusState } from '$stylist/information/type/struct/status-state';
+﻿import type { StatusState } from '$stylist/token/type/alias/status-state';
 
 import type { TOKEN_STATUS } from '$stylist/information/const/enum/status';
 export interface SlotStatus {
@@ -6,3 +6,4 @@ export interface SlotStatus {
 	severity?: (typeof TOKEN_STATUS)[number];
 	state?: StatusState;
 }
+

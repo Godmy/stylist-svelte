@@ -9,7 +9,4 @@ export type {
 } from './idef-zero';
 export type { Model } from './model';
 export type { ModelSelectorProps } from './model-selector-props';
-export type { PromptVariableType } from './prompt-variable-type';
-export type { ScienceHTMLAttributes } from './science-html-attributes';
-export type { SentimentAnalysisStatus } from './sentiment-analysis-status';
 export type { ThemeSceneColors } from './theme-scene-colors';

@@ -1,5 +1,5 @@
-import type { FilterPanelProps } from '$stylist/control/type/struct/filter-panel/filterpanel-props';
-import type { FilterPanelLayout } from '$stylist/control/type/struct/filter-panel/filterpanellayout';
+﻿import type { FilterPanelProps } from '$stylist/control/type/struct/filter-panel/filterpanel-props';
+import type { FilterPanelLayout } from '$stylist/token/type/alias/filter-panel-layout';
 import type { SlotFilterPanelState } from '$stylist/control/interface/slot/filter-panel-state';
 
 export function createFilterPanelState(props: FilterPanelProps): SlotFilterPanelState {
@@ -83,3 +83,4 @@ export function createFilterPanelState(props: FilterPanelProps): SlotFilterPanel
 }
 
 export default createFilterPanelState;
+

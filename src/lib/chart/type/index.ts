@@ -14,8 +14,6 @@ export type {
 	ChartFunctionPoint,
 	ChartScale,
 	ChartSeries,
-	HeatmapCellGrid,
-	HeatmapData,
 	IBarPosition,
 	IChartDataPoint,
 	IExtendedHeatmapCell,
@@ -24,6 +22,5 @@ export type {
 	LineChartData,
 	LineChartPoint,
 	PieChartDataPoint,
-	ScatterPlotDataPoint,
-	TokenCanvasChartType
+	ScatterPlotDataPoint
 } from './struct';

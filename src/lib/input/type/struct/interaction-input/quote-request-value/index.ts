@@ -1,4 +1,4 @@
-import type { ProductForQuote } from '../product-for-quote';
+﻿import type { ProductForQuote } from '$stylist/input/type/struct/interaction-input/product-for-quote';
 
 export type QuoteRequestValue = {
 	requesterName: string;

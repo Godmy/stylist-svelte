@@ -25,33 +25,67 @@
 	];
 </script>
 
-<Story component={Tab} title="Tab" description="Single tab item used inside Tabs." {controls}>
+<Story component={Tab} title="Tab" description="Button-level states for one item inside a Tabs context." {controls}>
 	{#snippet children(values: any)}
-		<Tabs selectedId={values.selectedId} size={values.size} variant={values.variant}>
-			<TabList class="_c1">
-				<Tab id="overview">Overview</Tab>
-				<Tab id="activity">Activity</Tab>
-				<Tab id="settings" disabled={values.disableSettings}>Settings</Tab>
-			</TabList>
-			<TabPanels class="_c2">
-				<TabPanel id="overview">Project summary and latest highlights.</TabPanel>
-				<TabPanel id="activity">Recent actions, updates, and timeline events.</TabPanel>
-				<TabPanel id="settings">Configuration options for this workspace.</TabPanel>
-			</TabPanels>
-		</Tabs>
+		<div class="_surface">
+			<div class="_copy">
+				<p class="_label">Focus</p>
+				<h3>Tab item states</h3>
+				<p>Use this story to inspect selected, inactive, and disabled button behavior.</p>
+			</div>
+			<Tabs selectedId={values.selectedId} size={values.size} variant={values.variant}>
+				<TabList class="_list">
+					<Tab id="overview">Selected</Tab>
+					<Tab id="activity">Inactive</Tab>
+					<Tab id="settings" disabled={values.disableSettings}>Disabled</Tab>
+				</TabList>
+				<TabPanels class="_panel">
+					<TabPanel id="overview">The selected tab should be visually dominant.</TabPanel>
+					<TabPanel id="activity">Inactive tabs remain available and readable.</TabPanel>
+					<TabPanel id="settings">Disabled tabs should not accept selection.</TabPanel>
+				</TabPanels>
+			</Tabs>
+		</div>
 	{/snippet}
 </Story>
 
 <style>
-	._c1 {
-		margin-bottom: 0.75rem;
+	._surface {
+		display: grid;
+		gap: 1rem;
+		max-width: 34rem;
 	}
-	._c2 {
-		border-radius: 0.75rem;
-		border-width: 1px;
-		border-style: solid;
-		border-color: var(--color-border-primary);
-		background-color: var(--color-background-primary);
-		padding: 1rem;
+
+	._copy {
+		display: grid;
+		gap: 0.25rem;
+	}
+
+	._copy h3,
+	._copy p {
+		margin: 0;
+	}
+
+	._label {
+		font-size: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: var(--color-text-tertiary);
+	}
+
+	._list {
+		width: fit-content;
+		padding: 0.35rem;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		background: var(--color-background-secondary);
+	}
+
+	._panel {
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		background: var(--color-background-primary);
+		padding: 0.85rem;
+		color: var(--color-text-secondary);
 	}
 </style>

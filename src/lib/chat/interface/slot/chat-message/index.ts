@@ -1,4 +1,4 @@
-import type { ChatMessageStatus } from '$stylist/chat/type/struct/chat-message-status';
+﻿import type { ChatMessageStatus } from '$stylist/token/type/alias/chat-message-status';
 
 export interface SlotChatMessage {
 	text?: string;
@@ -13,3 +13,4 @@ export interface SlotChatMessage {
 	footerClass?: string;
 	variant?: 'default' | 'primary' | 'secondary';
 }
+

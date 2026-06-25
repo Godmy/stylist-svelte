@@ -1,4 +1,4 @@
-import type { GridItemContent } from '../grid-itemcontent';
+﻿import type { GridItemContent } from '$stylist/layout/type/struct/grid-item/grid-itemcontent';
 
 export type GridItem = {
 	id: string;

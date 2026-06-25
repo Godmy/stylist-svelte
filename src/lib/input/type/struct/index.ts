@@ -13,12 +13,8 @@ export type { InputValidationProps } from './input-validation-props';
 export type { InputValueProps } from './input-value-props';
 export type {
 	AutoCompleteOption,
-	DateRangeValue,
-	DateTimeRangePickerProps,
-	DateTimeRangeValue,
 	ProductForQuote,
 	QuoteRequestValue
 } from './interaction-input';
-export type { IReactionPickerStyleClasses } from './reaction-picker-style-classes';
 export type { TextAreaStateOptions } from './text-area-state-options';
 export type { TextInputBaseProps } from './text-input-base-props';

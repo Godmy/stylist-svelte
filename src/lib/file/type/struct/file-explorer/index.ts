@@ -4,4 +4,3 @@ export type {
 	Props,
 	RestProps
 } from './props';
-export type { ViewMode } from './view-mode';

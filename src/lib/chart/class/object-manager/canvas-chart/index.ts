@@ -1,5 +1,5 @@
 ﻿import type { CanvasChartPadding } from '$stylist/chart/type/struct/canvas-chart-padding';
-import type { TokenCanvasChartType } from '$stylist/chart/type/struct/canvas-chart-type';
+import type { TokenCanvasChartType } from '$stylist/token/type/alias/canvas-chart-type';
 import type { CanvasChartDataPoint } from '$stylist/chart/type/struct/canvas-chart';
 import { TOKEN_CHART_COLORS } from '$stylist/chart/const/enum/chart-colors';
 import { DEFAULT_CANVAS_CHART_PADDING } from '$stylist/chart/const/map/default-canvas-chart-padding';
@@ -305,3 +305,4 @@ export class ObjectManagerCanvasChart {
 		});
 	}
 }
+

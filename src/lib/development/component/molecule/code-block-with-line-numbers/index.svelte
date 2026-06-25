@@ -1,10 +1,10 @@
-<script lang="ts">
+﻿<script lang="ts">
 	/**
 	 * CodeWithLineNumbers - Legacy wrapper for unified Code
 	 *
 	 * @deprecated Use Code with showLineNumbers={true} instead
 	 */
-	import Code from '../code-block/index.svelte';
+	import Code from '$stylist/development/component/molecule/code-block/index.svelte';
 	import type { CodeBlockWithLineNumbersProps } from '$stylist/development/type/struct/code-block-with-line-numbers-props';
 	import createCodeBlockWithLineNumbersState from '$stylist/development/function/state/code-block-with-line-numbers/index.svelte';
 

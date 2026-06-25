@@ -1,9 +1,9 @@
-import type { ContentType } from '$stylist/interaction/type/enum/content-editor-content-type';
+﻿import type { ContentType } from '$stylist/token/type/alias/content-editor-content-type';
 import type { ContentElement } from '$stylist/interaction/type/struct/content-editor-content-element';
 
 export class ObjectManagerContentEditor {
 	/**
-	 * Создаёт новый элемент контента
+	 * РЎРѕР·РґР°С‘С‚ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ РєРѕРЅС‚РµРЅС‚Р°
 	 */
 	static createElement(type: ContentType, content: string = ''): ContentElement {
 		return {
@@ -14,7 +14,7 @@ export class ObjectManagerContentEditor {
 	}
 
 	/**
-	 * Нормализует массив элементов контента
+	 * РќРѕСЂРјР°Р»РёР·СѓРµС‚ РјР°СЃСЃРёРІ СЌР»РµРјРµРЅС‚РѕРІ РєРѕРЅС‚РµРЅС‚Р°
 	 */
 	static normalizeElements(elements?: ContentElement[]): ContentElement[] {
 		if (!elements || elements.length === 0) {
@@ -29,7 +29,7 @@ export class ObjectManagerContentEditor {
 	}
 
 	/**
-	 * Обновляет контент элемента по ID
+	 * РћР±РЅРѕРІР»СЏРµС‚ РєРѕРЅС‚РµРЅС‚ СЌР»РµРјРµРЅС‚Р° РїРѕ ID
 	 */
 	static updateElementContent(
 		elements: ContentElement[],
@@ -40,7 +40,7 @@ export class ObjectManagerContentEditor {
 	}
 
 	/**
-	 * Добавляет новый элемент после указанного индекса
+	 * Р”РѕР±Р°РІР»СЏРµС‚ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ РїРѕСЃР»Рµ СѓРєР°Р·Р°РЅРЅРѕРіРѕ РёРЅРґРµРєСЃР°
 	 */
 	static addElementAfter(
 		elements: ContentElement[],
@@ -52,7 +52,7 @@ export class ObjectManagerContentEditor {
 	}
 
 	/**
-	 * Удаляет элемент по ID
+	 * РЈРґР°Р»СЏРµС‚ СЌР»РµРјРµРЅС‚ РїРѕ ID
 	 */
 	static deleteElement(elements: ContentElement[], id: string): ContentElement[] {
 		if (elements.length <= 1) {
@@ -62,7 +62,7 @@ export class ObjectManagerContentEditor {
 	}
 
 	/**
-	 * Перемещает элемент вверх или вниз
+	 * РџРµСЂРµРјРµС‰Р°РµС‚ СЌР»РµРјРµРЅС‚ РІРІРµСЂС… РёР»Рё РІРЅРёР·
 	 */
 	static moveElement(
 		elements: ContentElement[],
@@ -84,7 +84,7 @@ export class ObjectManagerContentEditor {
 	}
 
 	/**
-	 * Определяет следующий активный элемент после удаления
+	 * РћРїСЂРµРґРµР»СЏРµС‚ СЃР»РµРґСѓСЋС‰РёР№ Р°РєС‚РёРІРЅС‹Р№ СЌР»РµРјРµРЅС‚ РїРѕСЃР»Рµ СѓРґР°Р»РµРЅРёСЏ
 	 */
 	static getNextActiveElementId(elements: ContentElement[], deletedId: string): string | null {
 		if (elements.length <= 1) return null;
@@ -97,14 +97,14 @@ export class ObjectManagerContentEditor {
 	}
 
 	/**
-	 * Сериализует элементы для сохранения
+	 * РЎРµСЂРёР°Р»РёР·СѓРµС‚ СЌР»РµРјРµРЅС‚С‹ РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ
 	 */
 	static serializeElements(elements: ContentElement[]): string {
 		return JSON.stringify(elements, null, 2);
 	}
 
 	/**
-	 * Десериализует элементы из JSON
+	 * Р”РµСЃРµСЂРёР°Р»РёР·СѓРµС‚ СЌР»РµРјРµРЅС‚С‹ РёР· JSON
 	 */
 	static deserializeElements(json: string): ContentElement[] | null {
 		try {
@@ -115,16 +115,17 @@ export class ObjectManagerContentEditor {
 	}
 
 	/**
-	 * Фильтрует элементы по типу
+	 * Р¤РёР»СЊС‚СЂСѓРµС‚ СЌР»РµРјРµРЅС‚С‹ РїРѕ С‚РёРїСѓ
 	 */
 	static filterByType(elements: ContentElement[], type: ContentType): ContentElement[] {
 		return elements.filter((el) => el.type === type);
 	}
 
 	/**
-	 * Проверяет, содержит ли массив элементы определённого типа
+	 * РџСЂРѕРІРµСЂСЏРµС‚, СЃРѕРґРµСЂР¶РёС‚ Р»Рё РјР°СЃСЃРёРІ СЌР»РµРјРµРЅС‚С‹ РѕРїСЂРµРґРµР»С‘РЅРЅРѕРіРѕ С‚РёРїР°
 	 */
 	static containsType(elements: ContentElement[], type: ContentType): boolean {
 		return elements.some((el) => el.type === type);
 	}
 }
+

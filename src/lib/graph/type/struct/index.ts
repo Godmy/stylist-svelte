@@ -3,7 +3,6 @@ export type { ConnectionLinePoint } from './connection-line-point';
 export type { ConnectionPathResult } from './connection-path-result';
 export type { GraphEditorNodeData } from './graph-editor-node-data';
 export type { GraphEditorPaletteNode } from './graph-editor-palette-node';
-export type { GraphGridMode } from './graph-grid-mode';
 export type { GraphMinimapContract } from './graph-minimap-contract';
 export type { GraphMinimapProps } from './graph-minimap-props';
 export type { GraphNodeCardData } from './graph-node-card-data';
@@ -36,7 +35,6 @@ export type {
 	ViewportContract,
 	ViewportProps
 } from './viewport';
-export type { GraphBounds } from './graph-bounds';
 export type { GraphConnection } from './graph-connection';
 export type { GraphNode } from './graph-node';
 export type { GraphNodeDraft } from './graph-node-draft';

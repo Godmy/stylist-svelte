@@ -13,7 +13,6 @@ export type {
 	TestResult,
 	TestResultsViewerContract,
 	TestResultsViewerProps,
-	TimeRange,
 	TrafficAnalyticsContract,
 	TrafficAnalyticsProps,
 	TrafficDataPoint,

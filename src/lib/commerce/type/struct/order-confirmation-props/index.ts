@@ -1,7 +1,7 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { OrderItem } from '../order-item';
-import type { ShippingAddress } from '../shipping-address';
-import type { PaymentInfo } from '../payment-info';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { OrderItem } from '$stylist/commerce/type/struct/order-item';
+import type { ShippingAddress } from '$stylist/commerce/type/struct/shipping-address';
+import type { PaymentInfo } from '$stylist/commerce/type/struct/payment-info';
 
 export type OrderConfirmationProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
 	orderId: string;

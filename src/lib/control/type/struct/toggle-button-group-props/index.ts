@@ -1,6 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
+﻿import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { ToggleButtonGroupOption } from '../toggle-button-group-option';
+import type { ToggleButtonGroupOption } from '$stylist/control/type/struct/toggle-button-group-option';
 
 export type ToggleButtonGroupProps = {
 	options: ToggleButtonGroupOption[];

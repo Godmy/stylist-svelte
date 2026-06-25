@@ -1,5 +1,5 @@
-<script lang="ts">
-	import type { ExportFormat } from '$stylist/control/type/alias/export-format';
+﻿<script lang="ts">
+	import type { ExportFormat } from '$stylist/token/type/alias/export-format';
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
@@ -36,3 +36,4 @@
 		padding: 1rem;
 	}
 </style>
+

@@ -3,9 +3,7 @@ export {
 	createRichTextSegments,
 	normalizeText,
 	resolveTypographyInlineStyle,
-	toNullableNumber,
-	toNullableString,
-	truncateText
+	toNullableString
 } from './script';
 export {
 	createAbbrState,

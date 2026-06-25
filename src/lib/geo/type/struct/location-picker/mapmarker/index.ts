@@ -1,4 +1,4 @@
-import type { Coordinates } from '../coordinates';
+﻿import type { Coordinates } from '$stylist/geo/type/struct/location-picker/coordinates';
 
 export type MapMarker = {
 	id: string;

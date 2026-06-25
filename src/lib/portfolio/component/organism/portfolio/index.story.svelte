@@ -1,24 +1,16 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import type { PortfolioData } from '$stylist/portfolio/class/object-manager/portfolio';
 	import Portfolio from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
-		{
-			name: 'showSummary',
-			label: 'Итоговая строка',
-			description: 'Показать строку ИТОГО внизу таблицы.',
-			type: 'boolean',
-			defaultValue: true
-		}
-	];
+	const controls: InterfaceControllerSettings[] = [];
 
 	const demoData: PortfolioData = {
 		entries: [
 			{
 				id: 1,
-				name: 'АСУ ССМП-103 (Android)',
+				name: 'РђРЎРЈ РЎРЎРњРџ-103 (Android)',
 				new: { current: 9 },
 				plan: { current: 14 },
 				estimate: { current: null },
@@ -32,7 +24,7 @@
 			},
 			{
 				id: 2,
-				name: 'АСУ ССМП-103 (PHP v.1)',
+				name: 'РђРЎРЈ РЎРЎРњРџ-103 (PHP v.1)',
 				new: { current: 9 },
 				plan: { current: 9 },
 				estimate: { current: 2 },
@@ -46,7 +38,7 @@
 			},
 			{
 				id: 3,
-				name: 'АСУ ССМП-103 (PHP v.2)',
+				name: 'РђРЎРЈ РЎРЎРњРџ-103 (PHP v.2)',
 				new: { current: 34 },
 				plan: { current: 20, removed: 1 },
 				estimate: { current: 20 },
@@ -60,7 +52,7 @@
 			},
 			{
 				id: 4,
-				name: 'АСУ ССМП-103 (Отчётность)',
+				name: 'РђРЎРЈ РЎРЎРњРџ-103 (РћС‚С‡С‘С‚РЅРѕСЃС‚СЊ)',
 				new: { current: 51, added: 3 },
 				plan: { current: 2, added: 2 },
 				estimate: { current: null },
@@ -74,7 +66,7 @@
 			},
 			{
 				id: 5,
-				name: 'АСУ ССМП-103 (ТАСУ)',
+				name: 'РђРЎРЈ РЎРЎРњРџ-103 (РўРђРЎРЈ)',
 				new: { current: null },
 				plan: { current: null },
 				estimate: { current: null },
@@ -88,7 +80,7 @@
 			},
 			{
 				id: 6,
-				name: 'ВИС МИНТРАНС МО',
+				name: 'Р’РРЎ РњРРќРўР РђРќРЎ РњРћ',
 				new: { current: 13 },
 				plan: { current: 12 },
 				estimate: { current: null },
@@ -102,7 +94,7 @@
 			},
 			{
 				id: 7,
-				name: 'Волынская больница (КБ №1)',
+				name: 'Р’РѕР»С‹РЅСЃРєР°СЏ Р±РѕР»СЊРЅРёС†Р° (РљР‘ в„–1)',
 				new: { current: 5 },
 				plan: { current: 7 },
 				estimate: { current: 3 },
@@ -116,7 +108,7 @@
 			},
 			{
 				id: 8,
-				name: 'Волынская больница (Сбор требований)',
+				name: 'Р’РѕР»С‹РЅСЃРєР°СЏ Р±РѕР»СЊРЅРёС†Р° (РЎР±РѕСЂ С‚СЂРµР±РѕРІР°РЅРёР№)',
 				new: { current: 1 },
 				plan: { current: null },
 				estimate: { current: null },
@@ -130,7 +122,7 @@
 			},
 			{
 				id: 9,
-				name: 'Детский медицинский центр УДП',
+				name: 'Р”РµС‚СЃРєРёР№ РјРµРґРёС†РёРЅСЃРєРёР№ С†РµРЅС‚СЂ РЈР”Рџ',
 				new: { current: null },
 				plan: { current: 4 },
 				estimate: { current: 4 },
@@ -144,7 +136,7 @@
 			},
 			{
 				id: 10,
-				name: 'СПО СМТС МЧС России (СВОБ)',
+				name: 'РЎРџРћ РЎРњРўРЎ РњР§РЎ Р РѕСЃСЃРёРё (РЎР’РћР‘)',
 				new: { current: 48, removed: 1 },
 				plan: { current: 4 },
 				estimate: { current: 28, removed: 8 },
@@ -158,7 +150,7 @@
 			},
 			{
 				id: 11,
-				name: 'СПО СУМН ГУ МВД г. Москва',
+				name: 'РЎРџРћ РЎРЈРњРќ Р“РЈ РњР’Р” Рі. РњРѕСЃРєРІР°',
 				new: { current: null },
 				plan: { current: null },
 				estimate: { current: null },
@@ -172,7 +164,7 @@
 			},
 			{
 				id: 12,
-				name: 'СПО СУМН МВД России',
+				name: 'РЎРџРћ РЎРЈРњРќ РњР’Р” Р РѕСЃСЃРёРё',
 				new: { current: 31, added: 1 },
 				plan: { current: 8 },
 				estimate: { current: 28, added: 8 },
@@ -186,7 +178,7 @@
 			},
 			{
 				id: 13,
-				name: 'СПО СУСИС-ЧОО',
+				name: 'РЎРџРћ РЎРЈРЎРРЎ-Р§РћРћ',
 				new: { current: null },
 				plan: { current: null },
 				estimate: { current: null },
@@ -200,7 +192,7 @@
 			},
 			{
 				id: 14,
-				name: 'СУМП МосЭнергосбыт',
+				name: 'РЎРЈРњРџ РњРѕСЃР­РЅРµСЂРіРѕСЃР±С‹С‚',
 				new: { current: 71, removed: 7 },
 				plan: { current: 8 },
 				estimate: { current: 19, removed: 5 },
@@ -214,7 +206,7 @@
 			},
 			{
 				id: 15,
-				name: 'Телематическая Платформа Delphi',
+				name: 'РўРµР»РµРјР°С‚РёС‡РµСЃРєР°СЏ РџР»Р°С‚С„РѕСЂРјР° Delphi',
 				new: { current: null },
 				plan: { current: null },
 				estimate: { current: null },
@@ -228,7 +220,7 @@
 			},
 			{
 				id: 16,
-				name: 'Телематическая Платформа С++',
+				name: 'РўРµР»РµРјР°С‚РёС‡РµСЃРєР°СЏ РџР»Р°С‚С„РѕСЂРјР° РЎ++',
 				new: { current: 19 },
 				plan: { current: null },
 				estimate: { current: null },
@@ -242,7 +234,7 @@
 			},
 			{
 				id: 17,
-				name: 'Установка ВНСО',
+				name: 'РЈСЃС‚Р°РЅРѕРІРєР° Р’РќРЎРћ',
 				new: { current: 3 },
 				plan: { current: null },
 				estimate: { current: null },
@@ -274,23 +266,23 @@
 	title="Portfolio"
 	component={Portfolio}
 	category="Organisms/Management"
-	description="Таблица портфеля проектов с разбивкой задач по статусам и дельтой относительно предыдущего дня."
+	description="РўР°Р±Р»РёС†Р° РїРѕСЂС‚С„РµР»СЏ РїСЂРѕРµРєС‚РѕРІ СЃ СЂР°Р·Р±РёРІРєРѕР№ Р·Р°РґР°С‡ РїРѕ СЃС‚Р°С‚СѓСЃР°Рј Рё РґРµР»СЊС‚РѕР№ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РїСЂРµРґС‹РґСѓС‰РµРіРѕ РґРЅСЏ."
 	tags={['portfolio', 'projects', 'table', 'management']}
 	{controls}
 >
 	{#snippet children(values: any)}
 		<section class="story-wrap">
 			<div class="story-header">
-				<p class="story-eyebrow">Управление проектами</p>
-				<h3 class="story-title">Портфель проектов</h3>
+				<p class="story-eyebrow">РЈРїСЂР°РІР»РµРЅРёРµ РїСЂРѕРµРєС‚Р°РјРё</p>
+				<h3 class="story-title">РџРѕСЂС‚С„РµР»СЊ РїСЂРѕРµРєС‚РѕРІ</h3>
 				<p class="story-description">
-					Разбивка задач по статусам. Правая часть каждой ячейки показывает изменение
-					относительно предыдущего дня: сверху — добавленные, снизу — убывшие.
+					Р Р°Р·Р±РёРІРєР° Р·Р°РґР°С‡ РїРѕ СЃС‚Р°С‚СѓСЃР°Рј. РџСЂР°РІР°СЏ С‡Р°СЃС‚СЊ РєР°Р¶РґРѕР№ СЏС‡РµР№РєРё РїРѕРєР°Р·С‹РІР°РµС‚ РёР·РјРµРЅРµРЅРёРµ
+					РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РїСЂРµРґС‹РґСѓС‰РµРіРѕ РґРЅСЏ: СЃРІРµСЂС…Сѓ вЂ” РґРѕР±Р°РІР»РµРЅРЅС‹Рµ, СЃРЅРёР·Сѓ вЂ” СѓР±С‹РІС€РёРµ.
 				</p>
 			</div>
 
 			<div class="story-body">
-				<Portfolio data={demoData} showSummary={values.showSummary as boolean} />
+				<Portfolio data={demoData} />
 			</div>
 		</section>
 	{/snippet}

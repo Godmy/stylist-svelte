@@ -1,7 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	CardShell,
-	CloseIcon,
 	ClusterToolbar,
 	DomainBacklog,
 	DomainBuilder,
@@ -19,21 +17,13 @@ export {
 	DomainSearchToggle,
 	DomainSettings,
 	DomainSidebar,
+	DomainTable,
 	DomainToolbar,
 	DomainWorkspaceShell,
 	FunctionalTaxonomy,
 	JointTabButtons,
 	JointToolbar,
 	JsonTreeViewer,
-	L6_TOKEN_DEFINITIONS,
-	OpenIcon,
-	OrbitArchitecture,
-	OrbitBackground,
-	OrbitContractL5,
-	OrbitInformation,
-	OrbitInteraction,
-	OrbitTokenNode,
-	PrismaticOrbitL6,
 	StylistRibbonMenu,
 	TaxonomyBreadcrumbs,
 	TokenSettings
@@ -67,6 +57,5 @@ export type {
 	TypeDomainFile,
 	TypeDomainJoint,
 	TypeDomainScreen,
-	TypeDomainTreeNode,
-	TypeStoryModule
+	TypeDomainTreeNode
 } from './type';

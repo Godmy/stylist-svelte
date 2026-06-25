@@ -1,4 +1,4 @@
-import type { ContentType } from '$stylist/interaction/type/enum/content-editor-content-type';
+﻿import type { ContentType } from '$stylist/token/type/alias/content-editor-content-type';
 
 export type ContentElement = {
 	id: string;
@@ -6,3 +6,4 @@ export type ContentElement = {
 	content: string;
 	attributes?: Record<string, any>;
 };
+

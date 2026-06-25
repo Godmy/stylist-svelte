@@ -1,5 +1,5 @@
-import type { SlotFolderItem } from '../../folder-item';
-import type { RestProps } from '../rest-props';
+﻿import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
+import type { RestProps } from '$stylist/file/type/struct/file-browser/props/rest-props';
 
 export type Props = RestProps & {
 	items: SlotFolderItem[];

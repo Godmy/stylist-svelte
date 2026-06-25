@@ -1,4 +1,4 @@
-import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
+﻿import type { SplitLayoutGap } from '$stylist/token/type/alias/split-layout-gap';
 import type { SidebarLayoutProps } from '$stylist/layout/type/struct/layout-extended/sidebar-layout-props';
 
 import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/enum/alignment';
@@ -58,3 +58,4 @@ export function createSidebarLayoutState(props: SidebarLayoutProps) {
 }
 
 export default createSidebarLayoutState;
+

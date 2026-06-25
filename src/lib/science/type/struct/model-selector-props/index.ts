@@ -1,6 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
+﻿import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { Model } from '../model';
+import type { Model } from '$stylist/science/type/struct/model';
 
 export type ModelSelectorProps = HTMLAttributes<HTMLDivElement> & SlotInteraction & {
 	models?: Model[];

@@ -4,7 +4,6 @@ export type {
 	TokenBillingSummary,
 	TokenMonitoringType,
 	TokenOrderStatus,
-	TokenPaymentMethod,
 	TokenPaymentStatus
 } from './enum';
 export type {
@@ -20,12 +19,9 @@ export type {
 	CheckoutStep,
 	ComparisonColumn,
 	ComparisonItem,
-	DiscountType,
-	InventoryItemStatus,
 	OrderConfirmationProps,
 	OrderItem,
 	OrderStatusType,
-	PaymentData,
 	PaymentInfo,
 	PaymentMethod,
 	PaymentMethodSelectorProps,
@@ -49,13 +45,10 @@ export type {
 	SlotCartItem,
 	SlotProductTourStep,
 	SlotShippingOption,
-	SortOption,
 	SubscriptionManagerStoryProps,
-	SubscriptionStatus,
 	TaxCalculatorStoryProps,
 	TrackingStatusType,
 	UpsellStoryProps,
 	User,
-	WarrantyInfoStoryProps,
-	WarrantyPeriodType
+	WarrantyInfoStoryProps
 } from './struct';

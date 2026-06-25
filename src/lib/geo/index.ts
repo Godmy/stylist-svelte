@@ -33,7 +33,6 @@ export type {
 	LocationSelectorLocation,
 	LocationSelectorProps,
 	LocationSelectorRestProps,
-	MapProvider,
 	MapSelectorLocation,
 	MapSelectorProps,
 	MapSelectorRestProps,
@@ -76,6 +75,5 @@ export type {
 	SlotLocationSelector,
 	SlotMapMarker,
 	SlotMapSelector,
-	SlotMapSelectorStyleClasses,
 	SlotMapView
 } from './interface';

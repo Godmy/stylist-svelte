@@ -1,4 +1,4 @@
-import type { GraphNodeCategory } from '$stylist/graph/type/enum/graph-node-category';
+﻿import type { GraphNodeCategory } from '$stylist/token/type/alias/graph-node-category';
 
 export interface GraphNodeDraft {
 	title: string;
@@ -10,3 +10,4 @@ export interface GraphNodeDraft {
 	height: number;
 	details: string;
 }
+

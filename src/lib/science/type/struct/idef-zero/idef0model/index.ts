@@ -1,4 +1,4 @@
-import type { Idef0Port } from '../idef0port';
+﻿import type { Idef0Port } from '$stylist/science/type/struct/idef-zero/idef0port';
 
 export type Idef0Model = {
 	title: string;

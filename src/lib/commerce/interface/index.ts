@@ -122,7 +122,6 @@ export type {
 	SlotProductCatalogItem,
 	SlotProductComparisonItem,
 	SlotProductComparisonTableItem,
-	SlotProductImage,
 	SlotProductSorting,
 	SlotProductSortingOption,
 	SlotProductSortingStyleClasses,

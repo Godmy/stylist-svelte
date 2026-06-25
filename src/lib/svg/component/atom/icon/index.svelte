@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import createIconState from '$stylist/svg/function/state/icon/index.svelte';
 	import type { RecipeIcon } from '$stylist/svg/interface/recipe/icon';
-	import Svg from '../svg/index.svelte';
+	import Svg from '$stylist/svg/component/atom/svg/index.svelte';
 
 	let props: RecipeIcon = $props();
 	const state = createIconState(props);

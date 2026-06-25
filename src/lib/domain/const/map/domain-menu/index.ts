@@ -30,6 +30,7 @@ import { ICON_SCIENCE }      from '$stylist/svg/const/value/science';
 import { ICON_SERVER }       from '$stylist/svg/const/value/server';
 import { ICON_SOCIAL }       from '$stylist/svg/const/value/social';
 import { ICON_SVG }          from '$stylist/svg/const/value/svg';
+import { ICON_TABLE }        from '$stylist/svg/const/value/table';
 import { ICON_THEME }        from '$stylist/svg/const/value/theme';
 import { ICON_TOKEN }        from '$stylist/svg/const/value/token';
 import { ICON_TYPOGRAPHY }   from '$stylist/svg/const/value/typography';
@@ -67,6 +68,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'server',       svg: ICON_SERVER },
 	{ name: 'social',       svg: ICON_SOCIAL },
 	{ name: 'svg',          svg: ICON_SVG },
+	{ name: 'table',        svg: ICON_TABLE },
 	{ name: 'theme',        svg: ICON_THEME },
 	{ name: 'token',        svg: ICON_TOKEN },
 	{ name: 'typography',   svg: ICON_TYPOGRAPHY },

@@ -6,7 +6,6 @@ export { handleConfirmCallback } from './dialog-confirm';
 export { createDrawerCloseHandler } from './drawer';
 export { getBreadcrumbDropdownItems } from './get-breadcrumb-dropdown-items';
 export { getBreadcrumbItems } from './get-breadcrumb-items';
-export { getButtonSizeForToolbar } from './get-button-size-for-toolbar';
 export { getSideBySideLayoutClasses } from './get-side-by-side-layout-classes';
 export { getSideBySideSectionWidthClass } from './get-side-by-side-section-width-class';
 export { handleBackdropClick } from './handle-backdrop-click';

@@ -1,4 +1,4 @@
-import type { PlaygroundCanvasShellViewportSize } from '$stylist/playground/type/struct/playground-canvas-shell-viewport-size';
+﻿import type { PlaygroundCanvasShellViewportSize } from '$stylist/token/type/alias/playground-canvas-shell-viewport-size';
 import type { PlaygroundShellHeaderColorScheme } from '$stylist/playground/type/struct/playground-shell-header-color-scheme';
 
 export type PlaygroundShellHeaderProps = {
@@ -27,3 +27,4 @@ export type PlaygroundShellHeaderProps = {
 	onSetColorScheme?: (id: string) => void;
 	class?: string;
 };
+

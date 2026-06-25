@@ -9,5 +9,4 @@ export { PresetMultiSelect } from './multi-select';
 export { PresetPageButton } from './page-button';
 export { PresetQuantitySelector } from './quantity-selector';
 export { PresetSelector } from './selector';
-export { PresetSortableTableHeader } from './sortable-table-header';
 export { PresetZoomToolbar } from './zoom-toolbar';

@@ -35,9 +35,7 @@ export {
 	createTextState,
 	normalizeText,
 	resolveTypographyInlineStyle,
-	toNullableNumber,
-	toNullableString,
-	truncateText
+	toNullableString
 } from './function';
 export type {
 	StructRichTextMark,

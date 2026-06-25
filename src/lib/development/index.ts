@@ -31,7 +31,6 @@ export {
 	PresetStylist,
 	TOKEN_CODE_LANGUAGE,
 	TOKEN_CODE_VIEW,
-	TOKEN_DIFF_TYPE,
 	categories,
 	panelId
 } from './const';
@@ -77,7 +76,6 @@ export type {
 	CopyableCodeBlockProps,
 	CopyableCodeBlockRestProps,
 	DebugConsoleLogEntry,
-	DebugConsoleLogLevel,
 	DebugConsoleProps,
 	DesignTokensProps,
 	DesignTokensTheme,
@@ -96,8 +94,7 @@ export type {
 	StylistProps,
 	StylistSelection,
 	TokenCodeLanguage,
-	TokenCodeView,
-	TokenDiffType
+	TokenCodeView
 } from './type';
 export type {
 	ComponentPreviewCodeOptions,

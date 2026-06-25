@@ -71,8 +71,6 @@ export type {
 	ChartScale,
 	ChartSeries,
 	HeatmapAxisValue,
-	HeatmapCellGrid,
-	HeatmapData,
 	IBarPosition,
 	IChartDataPoint,
 	IExtendedHeatmapCell,
@@ -82,7 +80,6 @@ export type {
 	LineChartPoint,
 	PieChartDataPoint,
 	ScatterPlotDataPoint,
-	TokenCanvasChartType,
 	TokenChart
 } from './type';
 export type {

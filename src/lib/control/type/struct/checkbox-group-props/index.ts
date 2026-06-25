@@ -1,5 +1,5 @@
-import type { CheckboxGroupOption } from '../checkbox-group-option';
-import type { CheckboxGroupRestProps } from '../checkbox-group-rest-props';
+﻿import type { CheckboxGroupOption } from '$stylist/control/type/struct/checkbox-group-option';
+import type { CheckboxGroupRestProps } from '$stylist/control/type/struct/checkbox-group-rest-props';
 
 export type CheckboxGroupProps = CheckboxGroupRestProps & {
 	options: CheckboxGroupOption[];

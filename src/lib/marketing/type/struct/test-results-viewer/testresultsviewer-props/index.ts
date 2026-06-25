@@ -1,8 +1,8 @@
-import type { HTMLAttributes } from 'svelte/elements';
+﻿import type { HTMLAttributes } from 'svelte/elements';
 import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
-import type { TestOverview } from '../testoverview';
-import type { TestResult } from '../testresult';
+import type { TestOverview } from '$stylist/marketing/type/struct/test-results-viewer/testoverview';
+import type { TestResult } from '$stylist/marketing/type/struct/test-results-viewer/testresult';
 
 export type TestResultsViewerProps = {
 	testResults: TestResult[];

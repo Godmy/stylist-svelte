@@ -5,4 +5,7 @@ export type {
 	RecipeThemeColorPalette,
 	RecipeThemeColorSwatch
 } from './recipe';
-export type { ThemeColorPaletteItem } from './slot';
+export type {
+	SlotColorPicker,
+	ThemeColorPaletteItem
+} from './slot';

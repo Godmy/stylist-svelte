@@ -1,4 +1,4 @@
-import type { SceneMaterialKind } from '../scene-material-kind';
+﻿import type { SceneMaterialKind } from '$stylist/architecture/type/struct/scene-material-kind';
 
 export type SceneMaterial = {
 	kind: SceneMaterialKind;

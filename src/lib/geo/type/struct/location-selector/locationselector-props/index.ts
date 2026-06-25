@@ -1,5 +1,5 @@
-import type { LocationSelectorLocation } from '../locationselectorlocation';
-import type { LocationSelectorRestProps } from '../locationselectorrest-props';
+﻿import type { LocationSelectorLocation } from '$stylist/geo/type/struct/location-selector/locationselectorlocation';
+import type { LocationSelectorRestProps } from '$stylist/geo/type/struct/location-selector/locationselectorrest-props';
 
 export type LocationSelectorProps = LocationSelectorRestProps & {
 	locations: LocationSelectorLocation[];

@@ -1,26 +1,15 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { TokenCursor } from './enum';
 export type {
-	ContentType,
-	TokenCursor
-} from './enum';
-export type {
-	TokenActivity,
 	TokenAppearance,
 	TokenAvailability,
-	TokenControlKind,
 	TokenControllerType,
-	TokenFlow,
 	TokenInteration,
 	TokenLoading,
-	TokenProcess,
-	TokenProgressType,
-	TokenRadio,
 	TokenSeverity,
 	TokenSortDirection,
 	TokenTest,
-	TokenTrigger,
-	TokenValidation,
-	TokenVisibility
+	TokenTrigger
 } from './record';
 export type {
 	ClickContract,
@@ -31,10 +20,7 @@ export type {
 	FocusContract,
 	GestureContract,
 	HoverContract,
-	IDisableable,
 	InputPreset,
-	InteractionFeedback,
 	InteractionIntent,
-	InteractionMotion,
 	Preset
 } from './struct';

@@ -19,7 +19,3 @@ export type { RecipeSearchResults } from './search-results';
 export type { RecipeSort } from './sort';
 export type { RecipeSortableGrid } from './sortable-grid';
 export type { RecipeStatusIndicator } from './status-indicator';
-export type { RecipeTable } from './table';
-export type { RecipeTableCell } from './table-cell';
-export type { RecipeTableRow } from './table-row';
-export type { RecipeTableSection } from './table-section';

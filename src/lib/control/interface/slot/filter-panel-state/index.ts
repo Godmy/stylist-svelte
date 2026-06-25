@@ -1,4 +1,4 @@
-import type { FilterPanelLayout } from '$stylist/control/type/struct/filter-panel/filterpanellayout';
+﻿import type { FilterPanelLayout } from '$stylist/token/type/alias/filter-panel-layout';
 
 export interface SlotFilterPanelState {
 	objectsVisible: boolean;
@@ -15,3 +15,4 @@ export interface SlotFilterPanelState {
 	filterItemClass: string;
 	layoutControlsClass: string;
 }
+

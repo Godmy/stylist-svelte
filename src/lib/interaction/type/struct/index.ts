@@ -7,12 +7,7 @@ export type {
 	GestureContract,
 	HoverContract
 } from './gesture';
-export type { IDisableable } from './i-disableable';
-export type {
-	InteractionFeedback,
-	InteractionIntent
-} from './interaction';
-export type { InteractionMotion } from './interaction-motion';
+export type { InteractionIntent } from './interaction';
 export type {
 	ComponentClasses,
 	ExtendedPreset,

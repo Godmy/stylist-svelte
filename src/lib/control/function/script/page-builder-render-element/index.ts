@@ -1,8 +1,8 @@
-import type { PageBuilderButtonAttributes } from '../../../type/struct/page-builder-button-attributes';
-import type { PageBuilderElement } from '../../../type/struct/page-builder-element';
-import type { PageBuilderHeadingAttributes } from '../../../type/struct/page-builder-heading-attributes';
-import type { PageBuilderImageAttributes } from '../../../type/struct/page-builder-image-attributes';
-import type { PageBuilderTextAttributes } from '../../../type/struct/page-builder-text-attributes';
+﻿import type { PageBuilderButtonAttributes } from '$stylist/control/type/struct/page-builder-button-attributes';
+import type { PageBuilderElement } from '$stylist/control/type/struct/page-builder-element';
+import type { PageBuilderHeadingAttributes } from '$stylist/control/type/struct/page-builder-heading-attributes';
+import type { PageBuilderImageAttributes } from '$stylist/control/type/struct/page-builder-image-attributes';
+import type { PageBuilderTextAttributes } from '$stylist/control/type/struct/page-builder-text-attributes';
 
 export function pageBuilderRenderElement(element: PageBuilderElement): string {
 	switch (element.type) {

@@ -1,5 +1,5 @@
-<script lang="ts">
-	import ProductCard from '../product-card/index.svelte';
+﻿<script lang="ts">
+	import ProductCard from '$stylist/commerce/component/molecule/product-card/index.svelte';
 	import createProductCardCompactState from '$stylist/commerce/function/state/product-card-compact/createproductcardcompactstate/index.svelte';
 	import type { ProductCardCompactProps } from '$stylist/commerce/interface/recipe/product-card-compact-props';
 
@@ -67,23 +67,23 @@
 		color: 10px;
 	}
 	.product-card-compact__badge {
-		/* TODO: migrate — some external refs inlined, verify */
+		/* TODO: migrate вЂ” some external refs inlined, verify */
 	}
 
 	.product-card-compact__sale-badge {
-		/* TODO: migrate — external StyleManager ref */
+		/* TODO: migrate вЂ” external StyleManager ref */
 	}
 
 	.product-card-compact__new-badge {
-		/* TODO: migrate — external StyleManager ref */
+		/* TODO: migrate вЂ” external StyleManager ref */
 	}
 
 	.product-card-compact__popular-badge {
-		/* TODO: migrate — external StyleManager ref */
+		/* TODO: migrate вЂ” external StyleManager ref */
 	}
 
 	.product-card-compact__default-badge {
-		/* TODO: migrate — external StyleManager ref */
+		/* TODO: migrate вЂ” external StyleManager ref */
 	}
 
 	.product-card-compact__rating-container {
@@ -102,7 +102,7 @@
 		width: 0.75rem;
 	}
 	.product-card-compact__star {
-		/* TODO: migrate — some external refs inlined, verify */
+		/* TODO: migrate вЂ” some external refs inlined, verify */
 	}
 
 	.product-card-compact__price-container {

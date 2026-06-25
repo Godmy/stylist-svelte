@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { ExportFormat } from '$stylist/control/type/alias/export-format';
+	import type { ExportFormat } from '$stylist/token/type/alias/export-format';
 
 	import Toolbar from './index.svelte';
 </script>
@@ -22,3 +22,4 @@
 		/>
 	{/snippet}
 </Story>
+

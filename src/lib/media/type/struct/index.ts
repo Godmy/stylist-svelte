@@ -9,13 +9,10 @@ export type {
 } from './avatar-group';
 export type { CanvasImageEditorProps } from './canvas-image-editor';
 export type { CountryFlagProps } from './country-flag';
-export type { FaviconProps } from './favicon';
-export type { ImageProps } from './image';
 export type { ImageGalleryProps } from './image-gallery';
 export type {
 	MediaItem,
-	MediaLibraryProps,
-	MediaType
+	MediaLibraryProps
 } from './media-library';
 export type { NodeIconProps } from './node-icon';
 export type { PromoBannerProps } from './promo-banner';

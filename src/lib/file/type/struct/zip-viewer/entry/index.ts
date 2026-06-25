@@ -1,4 +1,4 @@
-import type { FileItemType } from '$stylist/file/type/struct/file-item-type';
+﻿import type { FileItemType } from '$stylist/token/type/alias/file-item-type';
 
 // SlotZipEntry type
 export type SlotZipEntry = {
@@ -12,3 +12,4 @@ export type SlotZipEntry = {
 	path: string;
 	parentPath?: string;
 };
+

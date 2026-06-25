@@ -1,5 +1,5 @@
-import type { SlotFileSystemItem } from '$stylist/file/interface/slot/file-system-item';
-import type { ViewMode } from '$stylist/file/type/struct/file-explorer/view-mode';
+﻿import type { SlotFileSystemItem } from '$stylist/file/interface/slot/file-system-item';
+import type { ViewMode } from '$stylist/token/type/alias/file-explorer-view-mode';
 
 export interface SlotFileExplorer {
 	items: SlotFileSystemItem[];
@@ -23,3 +23,4 @@ export interface SlotFileExplorer {
 	onDownload?: (item: SlotFileSystemItem) => void;
 	[key: string]: unknown;
 }
+

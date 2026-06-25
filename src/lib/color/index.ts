@@ -5,6 +5,7 @@ export {
 	ObjectManagerColorSwatch
 } from './class';
 export {
+	AdvancedColorPicker,
 	ColorPalette,
 	ColorPicker,
 	ColorSwatch
@@ -24,6 +25,7 @@ export {
 export {
 	createAdvancedColorPickerState,
 	createColorPaletteState,
+	createColorPickerState,
 	createColorSwatchState
 } from './function';
 export type {
@@ -35,5 +37,6 @@ export type {
 	RecipeThemeAdvancedColorPicker,
 	RecipeThemeColorPalette,
 	RecipeThemeColorSwatch,
+	SlotColorPicker,
 	ThemeColorPaletteItem
 } from './interface';

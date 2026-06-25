@@ -1,5 +1,5 @@
-<script lang="ts">
-	import ChatMessage from '../chat-message/index.svelte';
+﻿<script lang="ts">
+	import ChatMessage from '$stylist/chat/component/molecule/chat-message/index.svelte';
 	import MessageComposer from '$stylist/chat/component/molecule/message-composer/index.svelte';
 	import stateFn from '$stylist/chat/function/state/chat-room/index.svelte';
 	import type { ChatRoomProps } from '$stylist/chat/type/alias/chat-room-props';

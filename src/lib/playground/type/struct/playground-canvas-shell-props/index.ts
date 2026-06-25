@@ -1,6 +1,6 @@
-import type { ComponentType, Snippet } from 'svelte';
-import type { PlaygroundCanvasShellViewportSize } from '$stylist/playground/type/struct/playground-canvas-shell-viewport-size';
-import type { PlaygroundCanvasShellBackgroundType } from '$stylist/playground/type/struct/playground-canvas-shell-background-type';
+﻿import type { ComponentType, Snippet } from 'svelte';
+import type { PlaygroundCanvasShellViewportSize } from '$stylist/token/type/alias/playground-canvas-shell-viewport-size';
+import type { PlaygroundCanvasShellBackgroundType } from '$stylist/token/type/alias/playground-canvas-shell-background-type';
 
 export type PlaygroundCanvasShellProps = {
 	component?: ComponentType | null;
@@ -13,3 +13,4 @@ export type PlaygroundCanvasShellProps = {
 	showDeviceFrame?: boolean;
 	onZoomChange?: (zoom: number) => void;
 };
+

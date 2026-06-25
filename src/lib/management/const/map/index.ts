@@ -3,4 +3,3 @@ export { NOTIFICATION_BADGE_POSITION_CLASSES } from './notification-badge-positi
 export { PERFORMANCE_DASHBOARD_SIZE_CLASSES } from './performance-dashboard-size-classes';
 export { PERFORMANCE_MONITOR_STATUS_COLOR } from './performance-monitor-status-color';
 export { STAT_CARD_TREND_TEXT_CLASSES } from './stat-card-trend-text-classes';
-export { STAT_CARD_VARIANT_CLASSES } from './stat-card-variant-classes';

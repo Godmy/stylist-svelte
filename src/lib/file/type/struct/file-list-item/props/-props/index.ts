@@ -1,5 +1,5 @@
-import type { FileItem } from '../../file-item';
-import type { RestProps } from '../rest-props';
+﻿import type { FileItem } from '$stylist/file/type/struct/file-list-item/file-item';
+import type { RestProps } from '$stylist/file/type/struct/file-list-item/props/rest-props';
 
 export type Props = RestProps & {
 	item: FileItem;

@@ -1,17 +1,18 @@
-import type { HTMLAttributes } from 'svelte/elements';
+﻿import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
-import type { CenteredLayoutAxis } from '$stylist/layout/type/enum/centered-layout-axis';
+import type { CenteredLayoutAxis } from '$stylist/token/type/alias/centered-layout-axis';
 
 export type CenteredLayoutProps = LayoutHTMLAttributes<HTMLDivElement> & {
 	class?: string;
 	children: Snippet;
-	/** Ось центрирования */
+	/** РћСЃСЊ С†РµРЅС‚СЂРёСЂРѕРІР°РЅРёСЏ */
 	axis?: CenteredLayoutAxis;
-	/** Растягивает wrapper на всю высоту */
+	/** Р Р°СЃС‚СЏРіРёРІР°РµС‚ wrapper РЅР° РІСЃСЋ РІС‹СЃРѕС‚Сѓ */
 	fillHeight?: boolean;
-	/** Растягивает wrapper на всю ширину */
+	/** Р Р°СЃС‚СЏРіРёРІР°РµС‚ wrapper РЅР° РІСЃСЋ С€РёСЂРёРЅСѓ */
 	fillWidth?: boolean;
-	/** Ограничивает ширину внутреннего контента (CSS value, напр. '640px', '40rem') */
+	/** РћРіСЂР°РЅРёС‡РёРІР°РµС‚ С€РёСЂРёРЅСѓ РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ РєРѕРЅС‚РµРЅС‚Р° (CSS value, РЅР°РїСЂ. '640px', '40rem') */
 	maxWidth?: string;
 };
+

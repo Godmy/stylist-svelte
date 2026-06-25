@@ -1,4 +1,4 @@
-import type { ExportFormat } from '$stylist/control/type/alias/export-format';
+﻿import type { ExportFormat } from '$stylist/token/type/alias/export-format';
 import type { RecipeExportPanel } from '$stylist/control/interface/recipe/export-panel';
 
 export function createExportPanelState(props: RecipeExportPanel) {
@@ -49,3 +49,4 @@ export function createExportPanelState(props: RecipeExportPanel) {
 		handleExport
 	};
 }
+

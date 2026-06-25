@@ -5,3 +5,4 @@ export {
 	TOKEN_TIMESTAMP_FORMAT,
 	TOKEN_TIME_RANGE
 } from './enum';
+export { TIME_SLOT_DEFAULT_CONFIG } from './map';

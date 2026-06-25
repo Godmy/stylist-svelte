@@ -7,12 +7,7 @@ export {
 	ListItemMarker,
 	MetricBar,
 	NpmBadge,
-	StatusIndicator,
-	Table,
-	TableBody,
-	TableCell,
-	TableHeader,
-	TableRow
+	StatusIndicator
 } from './atom';
 export {
 	AttachmentPreview,

@@ -1,1 +1,0 @@
-export type HeatmapData = number[][];

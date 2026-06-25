@@ -46,7 +46,6 @@ export {
 	STATS_CARD_TREND_ICON,
 	STATUS_DASHBOARD_PRESENTATION,
 	STAT_CARD_TREND_TEXT_CLASSES,
-	STAT_CARD_VARIANT_CLASSES,
 	TEAM_MEMBER_CARD_VARIANT_CLASSES,
 	TOKEN_KPI,
 	TOKEN_NOTIFICATION_CHANNEL,
@@ -82,14 +81,12 @@ export {
 } from './function';
 export type {
 	CardData,
-	DraggableCardRestProps,
 	INotificationSettingsPreference,
 	Metric,
 	NotificationData,
 	NotificationItem,
 	NotificationSettingsData,
 	NotificationType,
-	PerformanceMonitorStatus,
 	ScheduledNotificationItem,
 	StatsCardData,
 	StatusItem,

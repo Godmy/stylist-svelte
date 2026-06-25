@@ -1,6 +1,6 @@
-import type { RouteOption } from '../routeoption';
-import type { RoutePlannerLocation } from '../routeplannerlocation';
-import type { RoutePlannerRestProps } from '../routeplannerrest-props';
+﻿import type { RouteOption } from '$stylist/geo/type/struct/route-planner/routeoption';
+import type { RoutePlannerLocation } from '$stylist/geo/type/struct/route-planner/routeplannerlocation';
+import type { RoutePlannerRestProps } from '$stylist/geo/type/struct/route-planner/routeplannerrest-props';
 
 export type RoutePlannerProps = RoutePlannerRestProps & {
 	startLocation?: RoutePlannerLocation;

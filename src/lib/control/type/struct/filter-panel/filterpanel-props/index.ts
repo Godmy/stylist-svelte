@@ -1,5 +1,5 @@
-import type { FilterChangePayload } from '../filterchangepayload';
-import type { FilterPanelLayout } from '../filterpanellayout';
+﻿import type { FilterChangePayload } from '$stylist/control/type/struct/filter-panel/filterchangepayload';
+import type { FilterPanelLayout } from '$stylist/token/type/alias/filter-panel-layout';
 
 export type FilterPanelProps = {
 	showObjects?: boolean;
@@ -12,3 +12,4 @@ export type FilterPanelProps = {
 	onFilterChange?: (payload: FilterChangePayload) => void;
 	onReset?: () => void;
 };
+

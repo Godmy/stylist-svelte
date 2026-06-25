@@ -1,5 +1,5 @@
-import type { SlotSubscriptionPlan } from '$stylist/commerce/interface/slot/subscription-plan';
-import type { SubscriptionStatus } from '$stylist/commerce/type/struct/subscription-status';
+﻿import type { SlotSubscriptionPlan } from '$stylist/commerce/interface/slot/subscription-plan';
+import type { SubscriptionStatus } from '$stylist/token/type/alias/subscription-status';
 
 export interface SlotSubscription {
 	id: string;
@@ -11,3 +11,4 @@ export interface SlotSubscription {
 	paymentMethod?: string;
 	autoRenew: boolean;
 }
+

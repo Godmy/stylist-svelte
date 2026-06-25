@@ -2,7 +2,7 @@
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import TokenSettings from './index.svelte';
-	import { L6_TOKEN_DEFINITIONS } from '../orbit-control-definitions/index';
+	import { L6_TOKEN_DEFINITIONS } from '$stylist/token/const/object/orbit-control-definition';
 
 	const controls: InterfaceControllerSettings[] = [
 		{
@@ -55,7 +55,7 @@
 <style>
 	._c1 {
 		border-radius: 1.5rem;
-		background-color: linear-gradient(180deg, #eff6ff, #f8fafc);
+		background: linear-gradient(180deg, #eff6ff, #f8fafc);
 		padding: 1.5rem;
 	}
 	._c2 {

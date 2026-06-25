@@ -1,6 +1,6 @@
-import type { Coordinates } from '../coordinates';
-import type { LocationPickerRestProps } from '../locationpickerrest-props';
-import type { MapMarker } from '../mapmarker';
+﻿import type { Coordinates } from '$stylist/geo/type/struct/location-picker/coordinates';
+import type { LocationPickerRestProps } from '$stylist/geo/type/struct/location-picker/locationpickerrest-props';
+import type { MapMarker } from '$stylist/geo/type/struct/location-picker/mapmarker';
 
 export type LocationPickerProps = LocationPickerRestProps & {
 	center?: Coordinates;

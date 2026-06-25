@@ -10,5 +10,4 @@ export type { SlotLocationPicker } from './location-picker';
 export type { SlotLocationSelector } from './location-selector';
 export type { SlotMapMarker } from './map-marker';
 export type { SlotMapSelector } from './map-selector';
-export type { SlotMapSelectorStyleClasses } from './map-selector-style-classes';
 export type { SlotMapView } from './map-view';

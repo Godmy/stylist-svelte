@@ -1,9 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	ListItemMarkerType,
 	TokenSoftwareBadge,
-	TokenStatus,
-	TokenTableCell
+	TokenStatus
 } from './enum';
 export type { ClassValue } from './script';
 export type {
@@ -11,6 +9,5 @@ export type {
 	ClassProp,
 	ContentProp,
 	MetricBarData,
-	Props,
-	StatusState
+	Props
 } from './struct';

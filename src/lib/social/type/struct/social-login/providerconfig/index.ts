@@ -1,4 +1,4 @@
-import type { Provider } from '../provider';
+﻿import type { Provider } from '$stylist/social/type/struct/social-login/provider';
 
 export type ProviderConfig = {
 	id: Provider;

@@ -1,10 +1,12 @@
-import type { ExportFormat } from '$stylist/file/type/enum/data-exporter';
+﻿import type { DataExporterFormat } from '$stylist/token/type/alias/data-exporter-format';
 import type { DataItem } from '$stylist/file/type/struct/data-exporter/data-item';
 
 export type Props = {
 	data?: DataItem[];
-	format?: ExportFormat;
+	format?: DataExporterFormat;
 	disabled?: boolean;
 	fileName?: string;
 	class?: string;
 };
+
+

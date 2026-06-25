@@ -1,11 +1,11 @@
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+﻿import type { SlotChildren } from '$stylist/layout/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { Snippet } from 'svelte';
 import type { SlotGraphToolbarItem } from '$stylist/graph/interface/slot/graph-toolbar-item';
 import type { ContractLitegraphPort } from '$stylist/graph/interface/contract/litegraph-port';
 import type { ContractLitegraphNode } from '$stylist/graph/interface/contract/litegraph-node';
 import type { SlotLitegraphConnection } from '$stylist/graph/interface/slot/litegraph-connection';
-import type { GraphGridMode } from '$stylist/graph/type/struct/graph-grid-mode';
+import type { GraphGridMode } from '$stylist/token/type/alias/graph-grid-mode';
 
 import type { TOKEN_PAN_MODES } from '$stylist/architecture/const/enum/pan-mode';
 export interface RecipeLitegraphCanvas extends ComputeIntersectAll<[SlotChildren]> {
@@ -38,3 +38,4 @@ export interface RecipeLitegraphCanvas extends ComputeIntersectAll<[SlotChildren
 	class?: string;
 	toolbarContent?: Snippet;
 }
+

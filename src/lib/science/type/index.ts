@@ -8,8 +8,5 @@ export type {
 	Idef0Port,
 	Model,
 	ModelSelectorProps,
-	PromptVariableType,
-	ScienceHTMLAttributes,
-	SentimentAnalysisStatus,
 	ThemeSceneColors
 } from './struct';

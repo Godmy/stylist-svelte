@@ -303,7 +303,6 @@ export {
 	ICON_INVENTORY_TRACKER,
 	ICON_ITALIC,
 	ICON_JOINT,
-	ICON_JSON,
 	ICON_JUSTIFICATIONS,
 	ICON_KANBAN,
 	ICON_KANBAN_CARD,
@@ -640,8 +639,13 @@ export {
 	TOKEN_ICON_REGISTRY
 } from './const';
 export {
+	buildSvgMarkup,
 	createIconState,
-	createSvgState
+	createSvgState,
+	escapeAttr,
+	joinClasses,
+	normalizeIconName,
+	resolveSize
 } from './function';
 export type {
 	RecipeIcon,

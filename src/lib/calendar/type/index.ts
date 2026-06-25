@@ -9,7 +9,9 @@ export type {
 	CalendarDay,
 	CalendarEventMini,
 	CalendarEventTimeGrid,
-	CalendarHTMLAttributes,
+	DateRangeValue,
+	DateTimeRangePickerProps,
+	DateTimeRangeValue,
 	DayTimeGrid,
 	RecipeExtendedTimeSlot
 } from './struct';

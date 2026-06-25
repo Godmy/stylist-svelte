@@ -1,17 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { GraphWorkspaceConnectionInput } from './alias';
-export type {
-	GraphNodeCategory,
-	GraphToolMode,
-	NodeTitleVariant,
-	TokenPropertyType
-} from './enum';
+export type { TokenPropertyType } from './enum';
 export type {
 	ConnectionLinePoint,
 	ConnectionPathResult,
 	GraphEditorNodeData,
 	GraphEditorPaletteNode,
-	GraphGridMode,
 	GraphMinimapContract,
 	GraphMinimapProps,
 	GraphNodeCardData,
@@ -40,7 +34,6 @@ export type {
 	ViewportProps
 } from './struct';
 export type {
-	GraphBounds,
 	GraphConnection,
 	GraphNode,
 	GraphNodeDraft,

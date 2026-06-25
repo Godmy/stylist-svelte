@@ -1,8 +1,8 @@
-import type { TokenAnimation } from '$stylist/animation/type/enum/animation';
+﻿import type { TokenAnimation } from '$stylist/animation/type/enum/animation';
 import type { TokenDuration } from '$stylist/animation/type/enum/duration';
 import type { TokenEasing } from '$stylist/animation/type/enum/easing';
 import type { InteractionIntent } from '$stylist/interaction/type/struct/interaction/interaction-intent';
-import type { InteractionFeedback } from '$stylist/interaction/type/struct/interaction/interaction-feedback';
+import type { InteractionFeedback } from '$stylist/token/type/alias/interaction-feedback';
 
 export interface SlotTransformation {
 	animation?: TokenAnimation;
@@ -32,3 +32,4 @@ export interface SlotTransformation {
 	disabled?: boolean;
 	class?: string;
 }
+

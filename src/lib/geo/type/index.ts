@@ -11,7 +11,6 @@ export type {
 	LocationSelectorProps,
 	LocationSelectorRestProps,
 	MapMarker,
-	MapProvider,
 	MapSelectorLocation,
 	MapSelectorProps,
 	MapSelectorRestProps,

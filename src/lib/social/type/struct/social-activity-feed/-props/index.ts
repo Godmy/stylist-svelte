@@ -1,5 +1,5 @@
-import type { Activity } from '../activity';
-import type { RestProps } from '../rest-props';
+﻿import type { Activity } from '$stylist/social/type/struct/social-activity-feed/activity';
+import type { RestProps } from '$stylist/social/type/struct/social-activity-feed/rest-props';
 
 export type Props = RestProps & {
 	activities: Activity[];

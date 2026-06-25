@@ -1,6 +1,6 @@
-import type { SlotFileSystemItem } from '../../file-system-item';
-import type { ViewMode } from '../../view-mode';
-import type { RestProps } from '../rest-props';
+﻿import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
+import type { ViewMode } from '$stylist/token/type/alias/file-explorer-view-mode';
+import type { RestProps } from '$stylist/file/type/struct/file-explorer/props/rest-props';
 
 export type Props = RestProps & {
 	items: SlotFileSystemItem[];
@@ -23,3 +23,4 @@ export type Props = RestProps & {
 	onUpload?: (files: FileList) => void;
 	onDownload?: (item: SlotFileSystemItem) => void;
 };
+

@@ -1,12 +1,12 @@
-import { createEventDispatcher } from 'svelte';
-import type { ExportFormat } from '$stylist/file/type/enum/data-exporter';
+﻿import { createEventDispatcher } from 'svelte';
+import type { DataExporterFormat } from '$stylist/token/type/alias/data-exporter-format';
 import type { DataItem } from '$stylist/file/type/struct/data-exporter/data-item';
 import { exportData as exportDataFn } from '$stylist/file/function/script/data-exporter';
 
 export function createDataExporterState(
 	props: {
 		data?: DataItem[];
-		format?: ExportFormat;
+		format?: DataExporterFormat;
 		disabled?: boolean;
 		fileName?: string;
 		class?: string;
@@ -16,10 +16,10 @@ export function createDataExporterState(
 	const format = $derived(props.format ?? 'csv');
 	const fileName = $derived(props.fileName ?? 'export');
 	const data = $derived(props.data ?? []);
-	let selectedFormat = $state<ExportFormat>(props.format ?? 'csv');
-	const dispatch = createEventDispatcher<{ export: { format: ExportFormat; fileName: string } }>();
+	let selectedFormat = $state<DataExporterFormat>(props.format ?? 'csv');
+	const dispatch = createEventDispatcher<{ export: { format: DataExporterFormat; fileName: string } }>();
 
-	const formats: Record<ExportFormat, { ext: string; mime: string }> = {
+	const formats: Record<DataExporterFormat, { ext: string; mime: string }> = {
 		csv: { ext: 'csv', mime: 'text/csv' },
 		json: { ext: 'json', mime: 'application/json' },
 		excel: {
@@ -55,7 +55,7 @@ export function createDataExporterState(
 		get selectedFormat() {
 			return selectedFormat;
 		},
-		set selectedFormat(value: ExportFormat) {
+		set selectedFormat(value: DataExporterFormat) {
 			selectedFormat = value;
 		},
 		exportData
@@ -63,3 +63,5 @@ export function createDataExporterState(
 }
 
 export default createDataExporterState;
+
+

@@ -1,4 +1,4 @@
-﻿import type { LayoutShape } from '$stylist/layout/type/struct/item-layout-shape';
+﻿import type { LayoutShape } from '$stylist/token/type/alias/item-layout-shape';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { RecipeCard } from '$stylist/layout/interface/recipe/card';
 
@@ -47,3 +47,4 @@ export function createCardState(props: RecipeCard) {
 		}
 	};
 }
+

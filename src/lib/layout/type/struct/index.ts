@@ -21,9 +21,6 @@ export type {
 	GridItemContent
 } from './grid-item';
 export type { LayoutHTMLAttributes } from './item';
-export type { LayoutGravity } from './item-layout-gravity';
-export type { LayoutLevel } from './item-layout-level';
-export type { LayoutShape } from './item-layout-shape';
 export type {
 	GridLayoutItem,
 	GridLayoutProps
@@ -44,7 +41,6 @@ export type {
 	SplitLayoutProps,
 	StickyLayoutProps
 } from './layout-extended';
-export type { LayoutGradients } from './layout-gradients';
 export type { LayoutTheme } from './layout-theme';
 export type { SeparatorProps } from './separator';
 export type { SpacerProps } from './spacer';

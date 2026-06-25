@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { BulkOrderFormItem } from '../bulk-order-form-item';
-import type { BulkOrderFormProduct } from '../bulk-order-form-product';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { BulkOrderFormItem } from '$stylist/commerce/type/struct/bulk-order-form/bulk-order-form-item';
+import type { BulkOrderFormProduct } from '$stylist/commerce/type/struct/bulk-order-form/bulk-order-form-product';
 
 export type BulkOrderFormProps = Omit<HTMLAttributes<HTMLElement>, 'class'> & {
 	products: BulkOrderFormProduct[];

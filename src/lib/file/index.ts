@@ -73,10 +73,8 @@ export type {
 	Attachment,
 	DataItem,
 	DragDropFileStatus,
-	ExportFormat,
 	ExportFormatDetails,
 	FileItem,
-	FileItemType,
 	FileStateOptions,
 	FileStateResult,
 	FileType,
@@ -85,11 +83,7 @@ export type {
 	SlotDropItem,
 	SlotFileSystemItem,
 	SlotFolderItem,
-	SlotZipEntry,
-	TokenDocumentFormat,
-	UploadProgressVariant,
-	UploadStatus,
-	ViewMode
+	SlotZipEntry
 } from './type';
 export type {
 	BehaviorDragDropFileUploadEvents,

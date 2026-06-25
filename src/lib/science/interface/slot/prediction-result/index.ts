@@ -1,6 +1,6 @@
-import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
+﻿import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
 import type { RecipeScience } from '$stylist/science/interface/recipe/science';
-import type { StatusState } from '$stylist/information/type/struct/status-state';
+import type { StatusState } from '$stylist/token/type/alias/status-state';
 
 export interface SlotPredictionResult extends HtmlAttributesBase<HTMLDivElement> {
 	title?: string;
@@ -18,3 +18,4 @@ export interface SlotPredictionResult extends HtmlAttributesBase<HTMLDivElement>
 	contentClass?: string;
 	footerClass?: string;
 }
+

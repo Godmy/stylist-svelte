@@ -1,10 +1,10 @@
-<script lang="ts">
+﻿<script lang="ts">
 	/**
 	 * CodeEditor - Legacy wrapper for unified Code
 	 *
 	 * @deprecated Use Code with basic props instead
 	 */
-	import Code from '../code-block/index.svelte';
+	import Code from '$stylist/development/component/molecule/code-block/index.svelte';
 	import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor-props';
 	import createCodeEditorLegacyState from '$stylist/development/function/state/code-editor-legacy/index.svelte';
 

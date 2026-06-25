@@ -2,7 +2,6 @@ import type { CardProps as LegacyCardProps1 } from '$stylist/layout/type/struct/
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slot/text';
-import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
 import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/slot/status';
 import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
@@ -16,7 +15,6 @@ export interface RecipeCard
 	extends ComputeIntersectAll<
 		[
 			LegacyCardProps1,
-			ILabelSlot,
 			ICaptionSlot,
 			IMediaSlot,
 			IStatusSlot,

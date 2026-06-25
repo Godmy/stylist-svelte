@@ -1,4 +1,4 @@
-import type { TokenAppearance } from '../../../../../interaction/type/record/appearance';
+﻿import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 
 export type ToastNotificationType =
 	| 'silent'

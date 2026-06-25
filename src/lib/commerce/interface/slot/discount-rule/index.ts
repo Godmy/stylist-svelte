@@ -1,4 +1,4 @@
-import type { DiscountType } from '$stylist/commerce/type/struct/discount-type';
+﻿import type { DiscountType } from '$stylist/token/type/alias/discount-type';
 
 export interface SlotDiscountRule {
 	id: string;
@@ -16,3 +16,4 @@ export interface SlotDiscountRule {
 	appliesTo?: 'all' | 'specific_products' | 'specific_categories';
 	applicableItems?: string[];
 }
+

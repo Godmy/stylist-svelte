@@ -1,6 +1,6 @@
-import type { LayoutGravity } from '$stylist/layout/type/struct/item-layout-gravity';
-import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
-import type { GridMoleculeJustify } from '$stylist/layout/type/enum/grid-molecule-justify';
+﻿import type { LayoutGravity } from '$stylist/token/type/alias/item-layout-gravity';
+import type { SplitLayoutGap } from '$stylist/token/type/alias/split-layout-gap';
+import type { GridMoleculeJustify } from '$stylist/token/type/alias/grid-molecule-justify';
 import type { GridMoleculeProps } from '$stylist/layout/type/struct/layout-extended/grid-molecule-props';
 
 export function createGridMoleculeState(props: GridMoleculeProps) {
@@ -47,3 +47,4 @@ export function createGridMoleculeState(props: GridMoleculeProps) {
 }
 
 export default createGridMoleculeState;
+

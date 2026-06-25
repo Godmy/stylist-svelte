@@ -1,6 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
+﻿import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { PrimaryMenuItem } from '../stylist-menu-primary-menu-item';
+import type { PrimaryMenuItem } from '$stylist/control/type/struct/stylist-menu-primary-menu-item';
 import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/architecture/const/enum/functional-taxonomy';
 
 export type StylistMenuProps = Omit<HTMLAttributes<HTMLElement>, 'class'> & SlotInteraction & {
