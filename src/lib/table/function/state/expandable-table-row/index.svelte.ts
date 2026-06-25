@@ -1,4 +1,4 @@
-import type { ExpandableTableRowProps } from '$stylist/table/type/struct/expandable-table-row-props';
+import type { RowExpandableProps as ExpandableTableRowProps } from '$stylist/table/type/struct/row-expandable-props';
 
 export function createExpandableTableRowState(props: ExpandableTableRowProps) {
 	let expanded = $state(props.isExpanded ?? false);

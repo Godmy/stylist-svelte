@@ -13,28 +13,17 @@ export {
 	ColumnManager,
 	ComparisonTable,
 	DataTable,
-	DataTableAdvanced,
-	ExpandableTableRow,
+	DataTableShell,
 	FilterBar,
 	FilterPills,
 	FilterText,
 	Row,
 	RowExpandable,
-	SortableTableHeader,
-	Table,
-	TableBody,
-	TableCell,
-	TableHeader,
-	TableRow,
-	TableWithFilters,
-	TableWithGrouping,
-	TableWithStripes
+	Table
 } from './component';
 export {
 	PresetCellHeader,
-	PresetSortableTableHeader,
-	TABLE_ALIGNMENT_CLASSES,
-	TABLE_CLASSES
+	TABLE_ALIGNMENT_CLASSES
 } from './const';
 export {
 	createCellHeaderState,
@@ -46,7 +35,6 @@ export {
 	createColumnManagerState,
 	createColumnState,
 	createComparisonTableState,
-	createDataTableAdvancedState,
 	createDataTableShellState,
 	createDataTableState,
 	createExpandableTableRowState,
@@ -54,16 +42,7 @@ export {
 	createFilterPillsState,
 	createFilterTextState,
 	createRowState,
-	createSortableTableHeaderState,
-	createTable,
-	createTableBodyState,
-	createTableCellState,
-	createTableHeaderState,
-	createTableRowState,
-	createTableState,
-	createTableWithFiltersState,
-	createTableWithGroupingState,
-	createTableWithStripesState
+	createTable
 } from './function';
 export type {
 	CellType,
@@ -71,8 +50,6 @@ export type {
 	ComparisonTableFeature,
 	ComparisonTableProduct,
 	ComparisonTableProps,
-	ExpandableTableRowProps,
-	ExpandableTableRowRestProps,
 	FilterSchema,
 	FilterType,
 	RowExpandableProps,
@@ -86,27 +63,12 @@ export type {
 	RecipeCellText,
 	RecipeColumn,
 	RecipeRow,
-	RecipeSortableTableHeader,
 	RecipeTable,
-	RecipeTableCell,
-	RecipeTableControls,
-	RecipeTableRow,
-	RecipeTableSection,
-	SlotAdvancedColumnDefinition,
 	SlotColumnConfig,
 	SlotColumnManager,
 	SlotDataTable,
-	SlotDataTableAdvanced,
-	SlotDataTableColumn,
-	SlotDataTableRecipe,
 	SlotDataTableShell,
 	SlotFilterBar,
 	SlotFilterPills,
-	SlotFilterText,
-	SlotSortableTableHeader,
-	SlotTableRecord,
-	SlotTableWithFilters,
-	SlotTableWithGrouping,
-	SlotTableWithStripes,
-	TableSpecificProps
+	SlotFilterText
 } from './interface';

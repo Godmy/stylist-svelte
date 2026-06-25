@@ -20,8 +20,7 @@ export {
 	OntologyEdgeComponent,
 	OntologyNodeComponent,
 	PortGroup,
-	PresenterNodeShell,
-	SceneCameraControl
+	PresenterNodeShell
 } from './molecule';
 export {
 	GraphEditor,
@@ -32,6 +31,5 @@ export {
 	PresentationWorkspace,
 	PresenterScene,
 	PreziScene,
-	Scene,
 	StylistGraphWorkspace
 } from './organism';

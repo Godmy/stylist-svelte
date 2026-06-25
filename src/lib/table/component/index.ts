@@ -6,27 +6,18 @@ export {
 	CellPill,
 	CellText,
 	Row,
-	SortableTableHeader,
-	Table,
-	TableBody,
-	TableCell,
-	TableHeader,
-	TableRow
+	Table
 } from './atom';
 export {
 	Column,
+	ColumnManager,
 	ComparisonTable,
-	ExpandableTableRow,
 	FilterBar,
 	FilterPills,
 	FilterText,
 	RowExpandable
 } from './molecule';
 export {
-	ColumnManager,
 	DataTable,
-	DataTableAdvanced,
-	TableWithFilters,
-	TableWithGrouping,
-	TableWithStripes
+	DataTableShell
 } from './organism';

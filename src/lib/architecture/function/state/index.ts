@@ -31,8 +31,6 @@ export { createPresentationState } from './presentation-state';
 export { createPresenterNodeShellState } from './presenter-node-shell';
 export { createPresenterSceneState } from './presenter-scene';
 export { usePreziState } from './prezi-scene';
-export { createSceneState } from './scene';
-export { createSceneCameraControlState } from './scene-camera-control';
 export { createSelectedItem } from './selected-item';
 export { useSelection } from './selection';
 export { createSelectionMode } from './selection-mode';

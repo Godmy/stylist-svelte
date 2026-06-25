@@ -29,7 +29,6 @@ export type {
 	RecipePortGroup,
 	RecipePresenterScene,
 	RecipePreziScene,
-	RecipeSceneCameraControl,
 	RecipeStylistGraphWorkspace,
 	SelectionState
 } from './recipe';

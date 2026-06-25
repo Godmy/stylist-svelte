@@ -1,38 +1,15 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { bindSceneAttributeBuffer } from './bind-scene-attribute-buffer';
 export { createFoundationCameraState } from './camera-state';
-export { clampSceneRadius } from './clamp-scene-radius';
-export { clampSceneVerticalAngle } from './clamp-scene-vertical-angle';
-export { compileSceneShader } from './compile-scene-shader';
-export { createCardStackMolecule } from './create-card-stack-molecule';
-export { createCoreSceneMolecule } from './create-core-scene-molecule';
-export { createDashboardMolecule } from './create-dashboard-molecule';
-export { createGridLines } from './create-grid-lines';
-export { createMobileSheetMolecule } from './create-mobile-sheet-molecule';
-export { createPrimaryLayoutMolecule } from './create-primary-layout-molecule';
-export { createSceneAtom } from './create-scene-atom';
-export { createSceneBoxGeometry } from './create-scene-box-geometry';
-export { createSceneBuffers } from './create-scene-buffers';
-export { createSceneProgram } from './create-scene-program';
-export { createSceneRoomGeometry } from './create-scene-room-geometry';
 export { clampFoundationDepth } from './depth';
-export { destroySceneBuffers } from './destroy-scene-buffers';
-export { drawSceneBuffers } from './draw-scene-buffers';
-export { flattenMolecules } from './flatten-molecules';
-export { getAtomBoundsRadius } from './get-atom-bounds-radius';
 export { getFoundationCameraDepth } from './get-foundation-camera-depth';
 export { getFoundationCameraDistance } from './get-foundation-camera-distance';
 export { getFoundationDepthDistance } from './get-foundation-depth-distance';
 export { getZoomStep } from './get-zoom-step';
 export { getZoomValue } from './get-zoom-value';
-export { isWebGL2Context } from './is-webgl2-context';
 export { resolveMinimapBounds } from './minimap';
-export { multiplyMatrixVector } from './multiply-matrix-vector';
 export { normalizeFoundationDepthDistance } from './normalize-foundation-depth-distance';
 export { normalizeFoundationValue } from './normalize-foundation-value';
-export { projectPointToScreen } from './project-point-to-screen';
 export { projectSceneCoordinate } from './project-scene-coordinate';
-export { projectWorldRadiusToPixels } from './project-world-radius-to-pixels';
 export { resolveFoundationSemanticZoomStage } from './resolve-foundation-semantic-zoom-stage';
 export { resolveMinimapCanvasPoint } from './resolve-minimap-canvas-point';
 export { resolveMinimapFitOffset } from './resolve-minimap-fit-offset';
@@ -40,17 +17,7 @@ export { resolveMinimapFitZoom } from './resolve-minimap-fit-zoom';
 export { resolveMinimapNodeRect } from './resolve-minimap-node-rect';
 export { resolveMinimapOffsetForPoint } from './resolve-minimap-offset-for-point';
 export { resolveMinimapViewport } from './resolve-minimap-viewport';
-export { resolveSceneAtomModelMatrix } from './resolve-scene-atom-model-matrix';
-export { resolveSceneAtomTint } from './resolve-scene-atom-tint';
 export { resolveSemanticZoomNode } from './resolve-semantic-zoom-node';
-export {
-	createDemoSceneGraph,
-	createGridMolecule,
-	createSceneAtomBuffers,
-	createSceneCubeGeometry,
-	pickSceneAtom,
-	resolvePresenterSceneLinks,
-	resolveSceneAtomBaseColor
-} from './scene';
+export { resolvePresenterSceneLinks } from './scene';
 export { resolveSemanticZoomPresentation } from './semantic-zoom';
 export { useSemanticZoom } from './use-semantic-zoom';

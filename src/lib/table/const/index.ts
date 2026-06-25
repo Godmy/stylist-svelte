@@ -1,9 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	PresetCellHeader,
-	PresetSortableTableHeader
-} from './preset';
-export {
-	TABLE_ALIGNMENT_CLASSES,
-	TABLE_CLASSES
-} from './record';
+export { PresetCellHeader } from './preset';
+export { TABLE_ALIGNMENT_CLASSES } from './record';

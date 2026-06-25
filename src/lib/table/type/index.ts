@@ -10,7 +10,5 @@ export type {
 	ComparisonTableFeature,
 	ComparisonTableProduct,
 	ComparisonTableProps,
-	ExpandableTableRowProps,
-	ExpandableTableRowRestProps,
 	RowExpandableProps
 } from './struct';

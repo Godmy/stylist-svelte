@@ -7,5 +7,4 @@ export { NodePalette } from './node-palette/index';
 export { PresentationWorkspace } from './presentation-workspace/index';
 export { PresenterScene } from './presenter-scene/index';
 export { PreziScene } from './prezi-scene/index';
-export { Scene } from './scene/index';
 export { StylistGraphWorkspace } from './stylist-graph-workspace/index';

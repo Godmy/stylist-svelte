@@ -9,4 +9,3 @@ export { OntologyEdgeComponent } from './ontology-edge-component/index';
 export { OntologyNodeComponent } from './ontology-node-component/index';
 export { PortGroup } from './port-group/index';
 export { PresenterNodeShell } from './presenter-node-shell/index';
-export { SceneCameraControl } from './scene-camera-control/index';

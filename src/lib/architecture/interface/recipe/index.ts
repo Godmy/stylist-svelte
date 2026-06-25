@@ -22,6 +22,5 @@ export type { PresentationState } from './presentation-state';
 export type { RecipePresenterScene } from './presenter-scene';
 export type { RecipePreziScene } from './prezi-scene';
 export type { PreziSceneState } from './prezi-scene-state';
-export type { RecipeSceneCameraControl } from './scene-camera-control';
 export type { SelectionState } from './selection-state';
 export type { RecipeStylistGraphWorkspace } from './stylist-graph-workspace';

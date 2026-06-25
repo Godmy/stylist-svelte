@@ -2,8 +2,6 @@
 import type { RecipeTable } from '$stylist/table/interface/recipe/table';
 import type { RecipeRow } from '$stylist/table/interface/recipe/row';
 import type { RecipeCell } from '$stylist/table/interface/recipe/cell';
-import type { RecipeTableSection } from '$stylist/table/interface/recipe/table-section';
-
 export class ObjectManagerTable {
 	static getTableRestProps(props: RecipeTable) {
 		const {
@@ -16,11 +14,6 @@ export class ObjectManagerTable {
 			stickyHeader: _stickyHeader,
 			...rest
 		} = props;
-		return rest;
-	}
-
-	static getSectionRestProps(props: RecipeTableSection) {
-		const { class: _class, content: _content, ...rest } = props;
 		return rest;
 	}
 

@@ -7,29 +7,14 @@ export type {
 	RecipeCellText,
 	RecipeColumn,
 	RecipeRow,
-	RecipeSortableTableHeader,
-	RecipeTable,
-	RecipeTableCell,
-	RecipeTableControls,
-	RecipeTableRow,
-	RecipeTableSection,
-	TableSpecificProps
+	RecipeTable
 } from './recipe';
 export type {
-	SlotAdvancedColumnDefinition,
 	SlotColumnConfig,
 	SlotColumnManager,
 	SlotDataTable,
-	SlotDataTableAdvanced,
-	SlotDataTableColumn,
-	SlotDataTableRecipe,
 	SlotDataTableShell,
 	SlotFilterBar,
 	SlotFilterPills,
-	SlotFilterText,
-	SlotSortableTableHeader,
-	SlotTableRecord,
-	SlotTableWithFilters,
-	SlotTableWithGrouping,
-	SlotTableWithStripes
+	SlotFilterText
 } from './slot';

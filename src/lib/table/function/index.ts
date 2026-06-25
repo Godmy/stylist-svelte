@@ -12,21 +12,11 @@ export {
 	createColumnManagerState,
 	createColumnState,
 	createComparisonTableState,
-	createDataTableAdvancedState,
 	createDataTableShellState,
 	createDataTableState,
 	createExpandableTableRowState,
 	createFilterBarState,
 	createFilterPillsState,
 	createFilterTextState,
-	createRowState,
-	createSortableTableHeaderState,
-	createTableBodyState,
-	createTableCellState,
-	createTableHeaderState,
-	createTableRowState,
-	createTableState,
-	createTableWithFiltersState,
-	createTableWithGroupingState,
-	createTableWithStripesState
+	createRowState
 } from './state';

@@ -1,6 +1,5 @@
 ﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { ColumnSchema } from '$stylist/table/type/schema/column';
-import type { SlotDataTableColumn } from '$stylist/table/interface/slot/data-table-column';
 
 type Row = Record<string, unknown>;
 
@@ -32,7 +31,7 @@ export class ObjectManagerTableControls {
 		);
 	}
 
-	static getCellValue<T extends Row>(row: T, schema: ColumnSchema<T> | SlotDataTableColumn<T>): unknown {
+	static getCellValue<T extends Row>(row: T, schema: ColumnSchema<T>): unknown {
 		if (schema.render) return schema.render(row[schema.key], row);
 		return row[schema.key as keyof T];
 	}
