@@ -1,8 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	bindSceneAttributeBuffer,
+	buildInstancedEdgeBuffers,
+	buildInstancedNodeBuffers,
 	clampSceneRadius,
 	clampSceneVerticalAngle,
+	clampZwickyRadius,
 	compileSceneShader,
 	createDemoSceneGraph,
 	createSceneAtom,
@@ -15,8 +18,11 @@ export {
 	drawSceneBuffers,
 	getAtomBoundsRadius,
 	isWebGL2Context,
+	layoutZwickyNodes,
 	multiplyMatrixVector,
+	parseZwickyGraph,
 	pickSceneAtom,
+	pickZwickyNodeFromScreen,
 	projectPointToScreen,
 	projectWorldRadiusToPixels,
 	resolveSceneAtomBaseColor,
@@ -25,5 +31,6 @@ export {
 } from './script';
 export {
 	createSceneCameraControlState,
-	createSceneState
+	createSceneState,
+	createZwickySceneState
 } from './state';

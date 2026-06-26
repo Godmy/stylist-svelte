@@ -2,12 +2,8 @@
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import DateTimeRangePicker from './index.svelte';
-	import type { DateTimeRangeValue } from '$stylist/calendar/type/struct/interaction-input-date-time-range-value';
 
-	type Props = {
-		placeholder: string;
-		disabled: boolean;
-	};
+	type DateTimeRangeValue = { start: Date | null; end: Date | null };
 
 	const controls: InterfaceControllerSettings[] = [
 		{

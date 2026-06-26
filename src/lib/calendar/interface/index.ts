@@ -1,34 +1,19 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { BehaviorTimeRangeFilter } from './behavior';
 export type {
-	ContractScheduleEvent,
 	ContractTimeSlot,
-	ITimeSlotStyleConfig,
-	RecipeCalendarEvent
+	ITimeSlotStyleConfig
 } from './contract';
 export type {
-	DateRangePickerProps,
-	RecipeCalendar,
 	RecipeCalendarDay,
 	RecipeCalendarView,
 	RecipeCalendarViewDay,
-	RecipeDaySchedule,
 	RecipeDayTimeGrid,
 	RecipeEventCalendar,
-	RecipeEventCalendarDay,
 	RecipeExtendedTimeSlot,
-	RecipeMapCalendar,
 	RecipeMiniCalendar,
-	RecipeMiniCalendarDay,
-	RecipeRangeInput,
-	RecipeRealTimePresence,
 	RecipeScheduleCalendar,
-	RecipeScheduleCalendarDaySchedule,
-	RecipeScheduleCalendarTimeSlot,
-	RecipeScheduleTimeSlot,
 	RecipeTimeGrid,
-	RecipeTimeGridDayTimeGrid,
-	RecipeTimeGridExtendedTimeSlot,
 	RecipeTimeline,
 	RecipeTimelineItem,
 	TimeSlotProps
@@ -36,31 +21,17 @@ export type {
 export type {
 	SlotCalendarDay,
 	SlotCalendarEvent,
-	SlotCalendarViewEvent,
 	SlotDatePicker,
 	SlotDateRangePickerComponent,
 	SlotDateTimePicker,
 	SlotDateTimeRangePickerComponent,
 	SlotDaySchedule,
 	SlotEventCalendar,
-	SlotEventCalendarEvent,
 	SlotFormDatePicker,
 	SlotMiniCalendar,
-	SlotMiniCalendarEvent,
-	SlotPresenceUser,
-	SlotRangeInput,
-	SlotRealTimePresence,
-	SlotRealTimePresenceStyleClasses,
-	SlotRealTimePresenceUser,
-	SlotScheduleCalendar,
-	SlotScheduleCalendarEvent,
-	SlotScheduleEvent,
+	SlotSchedule,
 	SlotScheduleTimeSlot,
-	SlotTimeGrid,
-	SlotTimeGridEvent,
 	SlotTimePicker,
 	SlotTimeSlot,
-	SlotTimeSlotEvent,
-	SlotTimeSlotProps,
 	SlotTimelineItem
 } from './slot';

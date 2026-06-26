@@ -1,2 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { MATERIAL_PALETTE } from './record';
+export {
+	MATERIAL_PALETTE,
+	ZWICKY_DOMAIN_COLOR
+} from './record';

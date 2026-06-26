@@ -1,12 +1,12 @@
 import type { RecipeEventCalendar as EventCalendarContract } from '$stylist/calendar/interface/recipe/event-calendar';
-import type { SlotEventCalendarEvent as SlotEventCalendarEvent } from '$stylist/calendar/interface/slot/event-calendar-event';
-import type { RecipeEventCalendarDay as RecipeEventCalendarDay } from '$stylist/calendar/interface/recipe/event-calendar-day';
+import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
+import type { RecipeCalendarDay } from '$stylist/calendar/interface/recipe/calendar-day';
 import type { TokenTimeMeasure } from '$stylist/calendar/type/enum/time-measure';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createEventCalendarState(props: EventCalendarContract) {
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
-	let selectedEvent: SlotEventCalendarEvent | null = $state(null);
+	let selectedEvent: SlotCalendarEvent | null = $state(null);
 	let showEventActions = $state(false);
 	let currentViewMode = $state<TokenTimeMeasure>(props.viewMode ?? 'month');
 
@@ -21,7 +21,7 @@ export function createEventCalendarState(props: EventCalendarContract) {
 	const wrapperClasses = $derived('c-event-calendar');
 	const headerClasses = $derived('c-event-calendar__header');
 
-	const days = $derived.by<RecipeEventCalendarDay[]>(() => {
+	const days = $derived.by<RecipeCalendarDay[]>(() => {
 		if (currentViewMode === 'month') return getDaysInMonth(currentDate);
 		if (currentViewMode === 'week') return getDaysInWeek(currentDate);
 		return getDayInDay(currentDate);
@@ -51,7 +51,7 @@ export function createEventCalendarState(props: EventCalendarContract) {
 		return rest;
 	});
 
-	function isEventInDay(event: SlotEventCalendarEvent, dayDate: Date): boolean {
+	function isEventInDay(event: SlotCalendarEvent, dayDate: Date): boolean {
 		const eventDate = new Date(event.start);
 		eventDate.setHours(0, 0, 0, 0);
 		return eventDate.getTime() === dayDate.getTime();
@@ -61,9 +61,9 @@ export function createEventCalendarState(props: EventCalendarContract) {
 		startDate: Date,
 		endDate: Date,
 		currentMonth: number,
-		eventsArr: SlotEventCalendarEvent[]
-	): RecipeEventCalendarDay[] {
-		const calendarDays: RecipeEventCalendarDay[] = [];
+		eventsArr: SlotCalendarEvent[]
+	): RecipeCalendarDay[] {
+		const calendarDays: RecipeCalendarDay[] = [];
 		const today = new Date();
 		today.setHours(0, 0, 0, 0);
 
@@ -84,7 +84,7 @@ export function createEventCalendarState(props: EventCalendarContract) {
 		return calendarDays;
 	}
 
-	function getDaysInMonth(date: Date): RecipeEventCalendarDay[] {
+	function getDaysInMonth(date: Date): RecipeCalendarDay[] {
 		const year = date.getFullYear();
 		const month = date.getMonth();
 		const firstDay = new Date(year, month, 1);
@@ -96,7 +96,7 @@ export function createEventCalendarState(props: EventCalendarContract) {
 		return generateCalendarDays(startDay, endDay, month, events);
 	}
 
-	function getDaysInWeek(date: Date): RecipeEventCalendarDay[] {
+	function getDaysInWeek(date: Date): RecipeCalendarDay[] {
 		const startOfWeek = new Date(date);
 		startOfWeek.setDate(date.getDate() - date.getDay());
 		const endOfWeek = new Date(startOfWeek);
@@ -104,7 +104,7 @@ export function createEventCalendarState(props: EventCalendarContract) {
 		return generateCalendarDays(startOfWeek, endOfWeek, date.getMonth(), events);
 	}
 
-	function getDayInDay(date: Date): RecipeEventCalendarDay[] {
+	function getDayInDay(date: Date): RecipeCalendarDay[] {
 		const startOfDay = new Date(date);
 		startOfDay.setHours(0, 0, 0, 0);
 		const endOfDay = new Date(date);
@@ -150,7 +150,7 @@ export function createEventCalendarState(props: EventCalendarContract) {
 		props.onEventCreate?.(date);
 	}
 
-	function handleEventClick(event: SlotEventCalendarEvent, e: Event): void {
+	function handleEventClick(event: SlotCalendarEvent, e: Event): void {
 		e.stopPropagation();
 		selectedEvent = event;
 		showEventActions = true;

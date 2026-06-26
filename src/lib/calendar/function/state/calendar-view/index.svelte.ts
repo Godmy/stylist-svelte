@@ -1,13 +1,14 @@
 import type { RecipeCalendarView as CalendarViewContract } from '$stylist/calendar/interface/recipe/calendar-view';
-import type { SlotCalendarViewEvent } from '$stylist/calendar/interface/slot/calendar-view-event';
+import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { RecipeCalendarViewDay as RecipeCalendarViewDay } from '$stylist/calendar/interface/recipe/calendar-view-day';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createCalendarViewState(props: CalendarViewContract) {
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
+	let currentViewMode = $state(props.viewMode ?? 'month');
 
 	const events = $derived(props.events ?? []);
-	const viewMode = $derived(props.viewMode ?? 'month');
+	const viewMode = $derived(currentViewMode);
 	const showWeekNumbers = $derived(props.showWeekNumbers ?? false);
 	const className = $derived(props.class ?? '');
 	const dayClass = $derived(props.dayClass ?? '');
@@ -67,7 +68,7 @@ export function createCalendarViewState(props: CalendarViewContract) {
 			const isCurrentMonth = dayDate.getMonth() === month;
 			const isTodayDate = dayDate.getTime() === today.getTime();
 
-			const dayEvents = events.filter((event: SlotCalendarViewEvent) => {
+			const dayEvents = events.filter((event: SlotCalendarEvent) => {
 				const eventStart = new Date(event.start);
 				eventStart.setHours(0, 0, 0, 0);
 				return eventStart.getTime() === dayDate.getTime();
@@ -80,7 +81,14 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	}
 
 	function navigateMonth(direction: number): void {
-		currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + direction, 1);
+		const step = currentViewMode === 'day' ? direction : currentViewMode === 'week' ? direction * 7 : 0;
+		if (currentViewMode === 'month') {
+			currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + direction, 1);
+			return;
+		}
+		const nextDate = new Date(currentDate);
+		nextDate.setDate(currentDate.getDate() + step);
+		currentDate = nextDate;
 	}
 
 	function navigateToToday(): void {
@@ -91,12 +99,16 @@ export function createCalendarViewState(props: CalendarViewContract) {
 		props.onDayClick?.(date);
 	}
 
-	function handleEventClick(event: SlotCalendarViewEvent): void {
+	function handleEventClick(event: SlotCalendarEvent): void {
 		props.onEventClick?.(event);
 	}
 
 	function handleAddEvent(date: Date): void {
 		props.onEventCreate?.(date);
+	}
+
+	function changeViewMode(mode: 'day' | 'week' | 'month'): void {
+		currentViewMode = mode;
 	}
 
 	function getViewToggleButtonClasses(isActive: boolean): string {
@@ -188,6 +200,7 @@ export function createCalendarViewState(props: CalendarViewContract) {
 		handleDayClick,
 		handleEventClick,
 		handleAddEvent,
+		changeViewMode,
 		getViewToggleButtonClasses,
 		getDayCellClasses,
 		getDateNumberClasses,

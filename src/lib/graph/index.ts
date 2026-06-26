@@ -1,18 +1,27 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	Camera,
+	InstancedGraphManager,
 	Matrix4,
 	SceneObjectManager
 } from './class';
 export {
+	GraphLegend,
 	Scene,
-	SceneCameraControl
+	SceneCameraControl,
+	ZwickyScene
 } from './component';
-export { MATERIAL_PALETTE } from './const';
+export {
+	MATERIAL_PALETTE,
+	ZWICKY_DOMAIN_COLOR
+} from './const';
 export {
 	bindSceneAttributeBuffer,
+	buildInstancedEdgeBuffers,
+	buildInstancedNodeBuffers,
 	clampSceneRadius,
 	clampSceneVerticalAngle,
+	clampZwickyRadius,
 	compileSceneShader,
 	createDemoSceneGraph,
 	createSceneAtom,
@@ -23,12 +32,16 @@ export {
 	createSceneCubeGeometry,
 	createSceneProgram,
 	createSceneState,
+	createZwickySceneState,
 	destroySceneBuffers,
 	drawSceneBuffers,
 	getAtomBoundsRadius,
 	isWebGL2Context,
+	layoutZwickyNodes,
 	multiplyMatrixVector,
+	parseZwickyGraph,
 	pickSceneAtom,
+	pickZwickyNodeFromScreen,
 	projectPointToScreen,
 	projectWorldRadiusToPixels,
 	resolveSceneAtomBaseColor,
@@ -36,6 +49,8 @@ export {
 	resolveSceneAtomTint
 } from './function';
 export type {
+	GraphJsonInput,
+	InstancedDrawData,
 	SceneAtom,
 	SceneAtomGeometry,
 	SceneAtomKind,
@@ -50,9 +65,15 @@ export type {
 	SceneMaterial,
 	SceneMaterialKind,
 	SceneMolecule,
-	SceneProps
+	SceneProps,
+	ZwickyFilterState,
+	ZwickyNode,
+	ZwickySceneProps
 } from './type';
-export type { RecipeSceneCameraControl } from './interface';
+export type {
+	RecipeSceneCameraControl,
+	RecipeZwickyScene
+} from './interface';
 export type {
 	GraphBounds3D,
 	GraphConnection,

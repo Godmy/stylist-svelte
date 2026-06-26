@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import DatePicker from './index.svelte';
 	import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
@@ -7,7 +7,7 @@
 		{
 			name: 'placeholder',
 			type: 'text' as TokenControllerType,
-			defaultValue: 'Р’С‹Р±РµСЂРёС‚Рµ РґР°С‚Сѓ',
+			defaultValue: 'Select a date',
 			description: 'Placeholder text for the date picker'
 		},
 		{
@@ -28,23 +28,27 @@
 	const milestones = [
 		{
 			id: 'launch',
-			label: 'Р РµР»РёР· РїСЂРѕРґСѓРєС‚Р°',
+			label: 'Product release',
 			date: new Date().toISOString().split('T')[0]
 		},
 		{
 			id: 'retro',
-			label: 'Р РµС‚СЂРѕ РєРѕРјР°РЅРґС‹',
+			label: 'Team retrospective',
 			date: new Date(new Date().setDate(new Date().getDate() + 5)).toISOString().split('T')[0]
 		},
 		{
 			id: 'marketing',
-			label: 'РљР°РјРїР°РЅРёСЏ РјР°СЂРєРµС‚РёРЅРіР°',
+			label: 'Marketing campaign',
 			date: new Date(new Date().setDate(new Date().getDate() + 12)).toISOString().split('T')[0]
 		}
 	];
 
 	function handleManualSelection(value: string) {
 		selectedDate = value ? new Date(`${value}T00:00:00`) : undefined;
+	}
+
+	function handleDatePickerChange(value: Date | undefined) {
+		selectedDate = value;
 	}
 </script>
 
@@ -57,18 +61,14 @@
 		<div class="_c1">
 			<div class="_c2">
 				<div class="_c3">
-					<div>
-						<label for="manual-date" class="_c4">
-							РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РІС‹Р±СЂР°РЅРЅСѓСЋ РґР°С‚Сѓ
-						</label>
-						<input
-							id="manual-date"
-							type="date"
-							class="_c5"
-							value={selectedDate ? selectedDate.toISOString().split('T')[0] : ''}
-							on:change={(event) => handleManualSelection((event.target as HTMLInputElement).value)}
-						/>
-					</div>
+					<label for="manual-date" class="_c4">Set selected date</label>
+					<input
+						id="manual-date"
+						type="date"
+						class="_c5"
+						value={selectedDate ? selectedDate.toISOString().split('T')[0] : ''}
+						onchange={(event) => handleManualSelection((event.target as HTMLInputElement).value)}
+					/>
 				</div>
 
 				<div class="_c6">
@@ -79,10 +79,29 @@
 							disabled={controlValues.disabled}
 							{minDate}
 							{maxDate}
+							onValueChange={handleDatePickerChange}
 						/>
 						<p class="_c8">
-							Р’С‹Р±СЂР°РЅРѕ: {selectedDate ? selectedDate.toLocaleDateString() : 'вЂ”'}
+							Selected: {selectedDate
+								? selectedDate.toLocaleDateString('en-US', {
+										month: 'short',
+										day: 'numeric',
+										year: 'numeric'
+									})
+								: 'None'}
 						</p>
+						<div class="_c9">
+							{#each milestones as milestone}
+								<button
+									type="button"
+									class="_c10"
+									onclick={() => handleManualSelection(milestone.date)}
+								>
+									<span>{milestone.label}</span>
+									<time datetime={milestone.date}>{milestone.date}</time>
+								</button>
+							{/each}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -100,11 +119,11 @@
 	}
 	@media (min-width: 1024px) {
 		._c2 {
-			grid-template-columns: 280px 1fr;
+			grid-template-columns: 280px minmax(0, 1fr);
 		}
 	}
-	._c3 > * + * {
-		margin-top: 1rem;
+	._c3 {
+		min-width: 0;
 	}
 	._c4 {
 		font-size: 0.875rem;
@@ -113,36 +132,56 @@
 		color: var(--color-text-secondary);
 	}
 	._c5 {
+		box-sizing: border-box;
 		margin-top: 0.25rem;
 		width: 100%;
 		border-radius: 0.5rem;
-		border-width: 1px;
-		border-style: solid;
-		border-color: var(--color-border-primary);
-		padding-left: 0.75rem;
-		padding-right: 0.75rem;
-		padding-top: 0.5rem;
-		padding-bottom: 0.5rem;
+		border: 1px solid var(--color-border-primary);
+		background: var(--color-background-primary);
+		color: var(--color-text-primary);
+		padding: 0.5rem 0.75rem;
 		font-size: 0.875rem;
 		line-height: 1.25rem;
 	}
 	._c6 {
-		border-radius: 1rem;
-		border-width: 1px;
-		border-style: dashed;
-		border-color: var(--color-border-primary);
+		border-radius: 0.5rem;
+		border: 1px dashed var(--color-border-primary);
 		background-color: var(--color-background-secondary);
 		padding: 1rem;
+		min-width: 0;
 	}
 	._c7 {
-		margin-top: 1rem;
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
+		max-width: 24rem;
 	}
 	._c8 {
+		margin: 0;
 		font-size: 0.875rem;
 		line-height: 1.25rem;
 		color: var(--color-text-secondary);
+	}
+	._c9 {
+		display: grid;
+		gap: 0.5rem;
+	}
+	._c10 {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.75rem;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		background: var(--color-background-primary);
+		color: var(--color-text-primary);
+		padding: 0.5rem 0.75rem;
+		text-align: left;
+		cursor: pointer;
+	}
+	._c10 time {
+		color: var(--color-text-secondary);
+		font-size: 0.75rem;
+		white-space: nowrap;
 	}
 </style>

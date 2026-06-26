@@ -1,4 +1,4 @@
-import type { SlotTimeSlotEvent } from '$stylist/calendar/interface/slot/time-slot-event';
+import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 
 export interface ContractTimeSlot {
 	start: Date;
@@ -7,7 +7,7 @@ export interface ContractTimeSlot {
 	available?: boolean;
 	selected?: boolean;
 	active?: boolean;
-	events?: SlotTimeSlotEvent[];
+	events?: SlotCalendarEvent[];
 	class?: string;
 	onValueInput?: (slot: ContractTimeSlot) => void;
 	onValueChange?: (slot: ContractTimeSlot) => void;

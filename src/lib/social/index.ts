@@ -6,6 +6,7 @@ export {
 	PostCard,
 	Rating,
 	ReactionPicker,
+	RealTimePresence,
 	SocialActivityFeed,
 	SocialFeed,
 	SocialLogin,
@@ -29,6 +30,7 @@ export {
 	createPostCardState,
 	createRatingState,
 	createReactionPickerState,
+	createRealTimePresenceState,
 	createSocialActivityFeedState,
 	createSocialFeedState,
 	createSocialLoginState,
@@ -73,6 +75,7 @@ export type {
 	RecipePostCard,
 	RecipeRating,
 	RecipeReactionPicker,
+	RecipeRealTimePresence,
 	SlotCommentItem,
 	SlotCommentSystem,
 	SlotCommentThread,
@@ -80,5 +83,8 @@ export type {
 	SlotCommentThreadUser,
 	SlotCommentUser,
 	SlotRating,
-	SlotReactionPicker
+	SlotReactionPicker,
+	SlotRealTimePresence,
+	SlotRealTimePresenceStyleClasses,
+	SlotRealTimePresenceUser
 } from './interface';

@@ -29,6 +29,7 @@ export {
 	createPostCardState,
 	createRatingState,
 	createReactionPickerState,
+	createRealTimePresenceState,
 	createSocialActivityFeedState,
 	createSocialFeedState,
 	createSocialLoginState,

@@ -53,6 +53,7 @@ export {
 	createQuantitySelectorState,
 	createRadioButtonGroupState,
 	createRadioState,
+	createRangeInputState,
 	createRangeSliderState,
 	createSearchResultsState,
 	createSearchSuggestionState,

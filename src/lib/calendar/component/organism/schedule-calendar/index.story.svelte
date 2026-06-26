@@ -4,7 +4,7 @@
 
 	import * as ScheduleCalendarModule from './index.svelte';
 	const ScheduleCalendar: any = ScheduleCalendarModule.default ?? ScheduleCalendarModule;
-	import type { SlotScheduleEvent as ScheduleEvent } from '$stylist/calendar/interface/slot/schedule-event';
+	import type { SlotCalendarEvent as ScheduleEvent } from '$stylist/calendar/interface/slot/calendar-event';
 
 	export let id: string;
 	export let title: string;
@@ -152,17 +152,13 @@
 
 <style>
 	._c1 {
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		width: 100%;
 		gap: 2rem;
 	}
-	@media (min-width: 1024px) {
-		._c1 {
-			grid-template-columns: 1fr 1fr;
-		}
-	}
 	._c10 {
-		border-radius: 1rem;
+		border-radius: 0.5rem;
 		border-width: 1px;
 		border-style: dashed;
 		border-color: var(--color-border-primary);
@@ -180,7 +176,7 @@
 		height: 20rem;
 	}
 	._c2 {
-		border-radius: 2rem;
+		border-radius: 0.5rem;
 		border-width: 1px;
 		border-style: solid;
 		border-color: var(--color-border-primary);
@@ -205,7 +201,7 @@
 		height: 500px;
 	}
 	._c6 {
-		border-radius: 2rem;
+		border-radius: 0.5rem;
 		border-width: 1px;
 		border-style: solid;
 		border-color: var(--color-border-primary);

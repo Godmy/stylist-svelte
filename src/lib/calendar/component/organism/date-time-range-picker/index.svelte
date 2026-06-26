@@ -99,6 +99,7 @@
 	}
 
 	.c-dtrp__input {
+		box-sizing: border-box;
 		width: 100%;
 		padding-block: 0.5rem;
 		padding-inline: 2.5rem 2.5rem;
@@ -123,7 +124,8 @@
 		position: absolute;
 		z-index: var(--z-index-docked);
 		margin-block-start: 0.5rem;
-		width: 24rem;
+		box-sizing: border-box;
+		width: min(100vw - 2rem, 24rem);
 		padding: 0.75rem;
 		background-color: var(--color-background-primary);
 		border: 1px solid var(--color-border-primary);
@@ -137,6 +139,12 @@
 		gap: 1rem;
 	}
 
+	@media (max-width: 520px) {
+		.c-dtrp__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
 	.c-dtrp__section-header {
 		display: flex;
 		align-items: center;
@@ -148,6 +156,7 @@
 
 	.c-dtrp__date-input,
 	.c-dtrp__time-input {
+		box-sizing: border-box;
 		width: 100%;
 		border-radius: var(--border-radius-sm, 0.25rem);
 		border: 1px solid var(--color-border-primary);

@@ -17,7 +17,7 @@
 		<input
 			id="date-picker-hidden"
 			type="date"
-			class="fdp__hidden"
+			class="fdp__native"
 			value={state.selectedDate}
 			min={state.minDate}
 			max={state.maxDate}
@@ -73,6 +73,7 @@
 <style>
 	.fdp {
 		position: relative;
+		width: 100%;
 	}
 
 	.fdp__label {
@@ -87,11 +88,8 @@
 		position: relative;
 	}
 
-	.fdp__hidden {
-		display: none;
-	}
-
 	.fdp__input {
+		box-sizing: border-box;
 		display: block;
 		width: 100%;
 		border-radius: var(--border-radius-base, 0.375rem);
@@ -114,12 +112,15 @@
 		inset-inline-end: 0;
 		display: flex;
 		align-items: center;
-		padding-inline-start: 0.75rem;
+		width: 2.5rem;
+		justify-content: center;
 	}
 
 	.fdp__calendar {
 		position: absolute;
 		z-index: var(--z-index-docked);
+		inset-inline: 0;
+		box-sizing: border-box;
 		margin-block-start: 0.25rem;
 		border-radius: var(--border-radius-base, 0.375rem);
 		border: 1px solid var(--color-border-primary);
@@ -129,6 +130,7 @@
 	}
 
 	.fdp__calendar-input {
+		box-sizing: border-box;
 		display: block;
 		width: 100%;
 		border-radius: var(--border-radius-base, 0.375rem);
@@ -159,5 +161,15 @@
 		right: 0;
 		top: 0;
 		width: auto;
+	}
+
+	.fdp__native {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		cursor: pointer;
 	}
 </style>

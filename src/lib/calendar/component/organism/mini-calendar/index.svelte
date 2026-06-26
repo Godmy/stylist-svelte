@@ -39,7 +39,7 @@
 		{#each state.days as day}
 			<button
 				type="button"
-				class={state.getDayCellClasses(day.isToday, day.isCurrentMonth, day.hasEvent)}
+				class={state.getDayCellClasses(day.isToday, day.isCurrentMonth, day.hasEvent ?? false)}
 				onclick={() => state.handleDateSelect(day.date)}
 				aria-label={day.date.toISOString()}
 			>
@@ -80,6 +80,7 @@
 		border-radius: var(--radius-lg, 0.5rem);
 		overflow: hidden;
 		font-size: var(--text-size-sm, 0.875rem);
+		background: var(--color-background-primary);
 	}
 
 	.c-mini-calendar--compact {
@@ -90,6 +91,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 0.5rem;
 		padding: var(--spacing-xs, 0.25rem);
 		border-bottom: 1px solid var(--color-border-primary);
 	}
@@ -97,6 +99,7 @@
 	.c-mini-calendar__month-year {
 		font-weight: var(--font-weight-medium, 500);
 		color: var(--color-text-primary);
+		text-align: center;
 	}
 
 	.c-mini-calendar__header-right {
@@ -112,6 +115,7 @@
 	.c-mini-calendar__grid {
 		display: grid;
 		grid-template-columns: repeat(7, 1fr);
+		min-width: 0;
 	}
 
 	.c-mini-calendar__weekday {
@@ -123,6 +127,7 @@
 
 	.c-mini-calendar__day {
 		min-height: var(--spacing-xl, 2rem);
+		aspect-ratio: 1 / 1;
 		padding: var(--spacing-xs, 0.25rem);
 		text-align: center;
 		border-top: 1px solid var(--color-border-secondary, var(--color-border-primary));

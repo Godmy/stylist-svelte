@@ -130,6 +130,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
 		padding: var(--spacing-lg, 1.5rem);
 		border-bottom: 1px solid var(--color-border-primary);
 	}
@@ -137,6 +139,7 @@
 	.c-schedule-calendar__header-left {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 	}
 	.c-schedule-calendar__today-btn {
 		margin-inline: 0.5rem;
@@ -150,15 +153,16 @@
 	.c-schedule-calendar__view-tabs {
 		display: flex;
 		gap: var(--spacing-sm, 0.75rem);
+		flex-wrap: wrap;
 	}
 	.c-schedule-calendar__content {
 		padding: 1rem;
 	}
 
 	.c-schedule-calendar__grid {
-		display: grid;
-		grid-template-columns: repeat(8, minmax(0, 1fr));
-		min-width: max-content;
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
 	}
 
 	.c-schedule-calendar__gutter {
@@ -177,6 +181,7 @@
 
 	.c-schedule-calendar__day-col {
 		border-right: 1px solid var(--color-border-primary);
+		border-bottom: 1px solid var(--color-border-primary);
 	}
 	.c-schedule-calendar__day-col--weekend {
 		background: var(--color-background-tertiary, var(--color-background-secondary));

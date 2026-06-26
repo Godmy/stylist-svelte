@@ -1,4 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { GraphJsonInput } from './graph-json-input';
+export type { InstancedDrawData } from './instanced-draw-data';
 export type { SceneAtom } from './scene-atom';
 export type { SceneAtomGeometry } from './scene-atom-geometry';
 export type { SceneAtomKind } from './scene-atom-kind';
@@ -14,6 +16,9 @@ export type { SceneMaterial } from './scene-material';
 export type { SceneMaterialKind } from './scene-material-kind';
 export type { SceneMolecule } from './scene-molecule';
 export type { SceneProps } from './scene-props';
+export type { ZwickyFilterState } from './zwicky-filter-state';
+export type { ZwickyNode } from './zwicky-node';
+export type { ZwickySceneProps } from './zwicky-scene-props';
 export type { GraphBounds3D } from './graph-bounds-3d';
 export type { GraphConnection } from './graph-connection';
 export type { GraphNode } from './graph-node';

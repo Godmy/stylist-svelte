@@ -30,9 +30,9 @@
 				</h2>
 			</div>
 			<div class="c-time-grid__view-tabs">
-				<Button variant="secondary" size="sm">Day</Button>
-				<Button variant="secondary" size="sm">Week</Button>
-				<Button variant="secondary" size="sm">Month</Button>
+				<Button variant={state.currentViewMode === 'day' ? 'primary' : 'secondary'} size="sm" onclick={() => state.changeViewMode('day')}>Day</Button>
+				<Button variant={state.currentViewMode === 'week' ? 'primary' : 'secondary'} size="sm" onclick={() => state.changeViewMode('week')}>Week</Button>
+				<Button variant={state.currentViewMode === 'month' ? 'primary' : 'secondary'} size="sm" onclick={() => state.changeViewMode('month')}>Month</Button>
 			</div>
 		</div>
 	{/if}
@@ -135,6 +135,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
 		padding: var(--spacing-lg, 1.5rem);
 		border-bottom: 1px solid var(--color-border-primary);
 	}
@@ -142,6 +144,7 @@
 	.c-time-grid__header-left {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 	}
 	.c-time-grid__today-btn {
 		margin-inline: 0.5rem;
@@ -155,6 +158,7 @@
 	.c-time-grid__view-tabs {
 		display: flex;
 		gap: var(--spacing-sm, 0.75rem);
+		flex-wrap: wrap;
 	}
 	.c-time-grid__content {
 		padding: 1rem;

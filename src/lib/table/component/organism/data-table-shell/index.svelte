@@ -24,8 +24,18 @@
 	}: SlotDataTableShell<RowData> = $props();
 
 	const state = createDataTableShellState({
-		data, schema, title, searchPlaceholder, showSearch, showColumnManager,
-		pageSizeOptions, defaultPageSize, loading, onExport, onRowClick, class: className
+		get data() { return data; },
+		get schema() { return schema; },
+		get title() { return title; },
+		get searchPlaceholder() { return searchPlaceholder; },
+		get showSearch() { return showSearch; },
+		get showColumnManager() { return showColumnManager; },
+		get pageSizeOptions() { return pageSizeOptions; },
+		get defaultPageSize() { return defaultPageSize; },
+		get loading() { return loading; },
+		get onExport() { return onExport; },
+		get onRowClick() { return onRowClick; },
+		get class() { return className; }
 	});
 
 	const columnManagerColumns = $derived(

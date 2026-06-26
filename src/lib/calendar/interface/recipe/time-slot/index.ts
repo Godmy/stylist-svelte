@@ -1,5 +1,5 @@
 ﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotTimeSlotEvent as SlotTimeSlotEvent } from '$stylist/calendar/interface/slot/time-slot-event';
+import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { HTMLAttributes } from 'svelte/elements';
 
 export interface TimeSlotProps
@@ -10,7 +10,7 @@ export interface TimeSlotProps
 	available?: boolean;
 	selected?: boolean;
 	active?: boolean;
-	events?: SlotTimeSlotEvent[];
+	events?: SlotCalendarEvent[];
 	class?: string;
 	onValueInput?: (slot: {
 		start: Date;
@@ -19,7 +19,7 @@ export interface TimeSlotProps
 		available?: boolean;
 		selected?: boolean;
 		active?: boolean;
-		events?: SlotTimeSlotEvent[];
+		events?: SlotCalendarEvent[];
 	}) => void;
 	onValueChange?: (slot: {
 		start: Date;
@@ -28,7 +28,7 @@ export interface TimeSlotProps
 		available?: boolean;
 		selected?: boolean;
 		active?: boolean;
-		events?: SlotTimeSlotEvent[];
+		events?: SlotCalendarEvent[];
 	}) => void;
 	onClick?: (slot: {
 		start: Date;
@@ -37,7 +37,7 @@ export interface TimeSlotProps
 		available?: boolean;
 		selected?: boolean;
 		active?: boolean;
-		events?: SlotTimeSlotEvent[];
+		events?: SlotCalendarEvent[];
 	}) => void;
 	onKeyDown?: (event: KeyboardEvent) => void;
 }

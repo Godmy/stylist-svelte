@@ -18,15 +18,21 @@ export const createDateTimePickerState = (props: IDateTimePickerProps) => {
 
 	function handleDateChange(event: CustomEvent<Date> | Event) {
 		if ('detail' in event) {
-			selectedDate = (event as CustomEvent<Date>).detail;
+			selectedDate = new Date((event as CustomEvent<Date>).detail);
 		} else {
 			const target = event.target as HTMLInputElement;
 			if (target.value) {
-				selectedDate = new Date(target.value);
+				selectedDate = new Date(`${target.value}T${selectedTime}:00`);
 			}
 		}
 
 		updateDateTime();
+	}
+
+	function handleDateValueChange(value: string, event?: Event) {
+		if (!value) return;
+		selectedDate = new Date(`${value}T${selectedTime}:00`);
+		updateDateTime(event);
 	}
 
 	function handleTimeChange(event: Event) {
@@ -38,17 +44,17 @@ export const createDateTimePickerState = (props: IDateTimePickerProps) => {
 		updateDateTime();
 	}
 
-	function updateDateTime() {
-		if (!dateInputRef) {
-			return;
-		}
+	function updateDateTime(sourceEvent?: Event) {
+		props.onValueInput?.(selectedDate, sourceEvent);
+		props.onValueChange?.(selectedDate, sourceEvent);
+		props.onChange?.(selectedDate, sourceEvent);
 
 		const changeEvent = new CustomEvent('change', {
 			detail: { date: new Date(selectedDate) },
 			bubbles: true
 		});
 
-		dateInputRef.dispatchEvent(changeEvent);
+		dateInputRef?.dispatchEvent(changeEvent);
 	}
 
 	function toggleDropdown() {
@@ -139,6 +145,7 @@ export const createDateTimePickerState = (props: IDateTimePickerProps) => {
 			};
 		},
 		handleDateChange,
+		handleDateValueChange,
 		handleTimeChange,
 		toggleDropdown
 	};

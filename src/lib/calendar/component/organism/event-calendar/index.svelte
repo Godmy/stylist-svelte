@@ -184,6 +184,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
 		padding: var(--spacing-lg, 1.5rem);
 		border-bottom: 1px solid var(--color-border-primary);
 		background: var(--color-background-secondary);
@@ -192,6 +194,7 @@
 	.c-event-calendar__header-left {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 	}
 	.c-event-calendar__today-btn {
 		margin-inline: 0.5rem;
@@ -205,6 +208,7 @@
 	.c-event-calendar__view-tabs {
 		display: flex;
 		gap: 0.5rem;
+		flex-wrap: wrap;
 	}
 	.c-event-calendar__content {
 		padding: 1rem;
@@ -219,18 +223,13 @@
 	}
 
 	.c-event-calendar__day-week-grid {
-		display: grid;
-		grid-template-columns: 1fr;
-	}
-
-	@media (min-width: 768px) {
-		.c-event-calendar__day-week-grid {
-			grid-template-columns: repeat(7, 1fr);
-		}
+		display: flex;
+		flex-direction: column;
 	}
 
 	.c-event-calendar__day-col {
 		border-right: 1px solid var(--color-border-primary);
+		border-bottom: 1px solid var(--color-border-primary);
 	}
 
 	.c-event-calendar__date-header {

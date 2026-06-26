@@ -1,9 +1,9 @@
 ﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotMiniCalendarEvent } from '$stylist/calendar/interface/slot/mini-calendar-event';
+import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 
 export interface RecipeMiniCalendar extends ComputeIntersectAll<[]> {
 	selectedDate?: Date;
-	events?: SlotMiniCalendarEvent[];
+	events?: SlotCalendarEvent[];
 	initialDate?: Date;
 	compact?: boolean;
 	showToday?: boolean;
@@ -13,5 +13,5 @@ export interface RecipeMiniCalendar extends ComputeIntersectAll<[]> {
 	eventClass?: string;
 	headerClass?: string;
 	onDateSelect?: (date: Date) => void;
-	onEventClick?: (event: SlotMiniCalendarEvent) => void;
+	onEventClick?: (event: SlotCalendarEvent) => void;
 }

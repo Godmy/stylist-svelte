@@ -8,6 +8,13 @@ export const createDateRangePickerState = (props: DateRangePickerComponentProps)
 	let isOpen = $state(false);
 	let currentDateView = $state(new Date());
 
+	$effect(() => {
+		selectedRange = {
+			start: props.value?.start ? new Date(props.value.start) : null,
+			end: props.value?.end ? new Date(props.value.end) : null
+		};
+	});
+
 	function fmt(date: Date | null) {
 		return date ? date.toLocaleDateString() : '';
 	}
@@ -39,6 +46,8 @@ export const createDateRangePickerState = (props: DateRangePickerComponentProps)
 
 	function clear() {
 		selectedRange = { start: null, end: null };
+		props.onInput?.(selectedRange);
+		props.onChange?.(selectedRange);
 	}
 
 	function previousMonth() {

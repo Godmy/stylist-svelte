@@ -16,7 +16,13 @@
 			type="text"
 			class={`date-time-picker__date-input ${state.dateClass} ${state.disabled ? 'date-time-picker__input--disabled' : ''}`.trim()}
 			readonly
-			value={state.selectedDate ? state.selectedDate.toLocaleDateString() : ''}
+			value={state.selectedDate
+				? state.selectedDate.toLocaleDateString('en-US', {
+						month: 'short',
+						day: 'numeric',
+						year: 'numeric'
+					})
+				: ''}
 			onclick={state.toggleDropdown}
 			disabled={state.disabled}
 			{...props}
@@ -59,7 +65,8 @@
 		>
 			<FormDatePicker
 				value={state.selectedDate ? state.selectedDate.toISOString().split('T')[0] : ''}
-				onchange={state.handleDateChange}
+				onValueChange={state.handleDateValueChange}
+				onChange={state.handleDateValueChange}
 				minDate={state.minDate ? state.minDate.toISOString().split('T')[0] : undefined}
 				maxDate={state.maxDate ? state.maxDate.toISOString().split('T')[0] : undefined}
 			/>
@@ -70,15 +77,18 @@
 <style>
 	.date-time-picker {
 		position: relative;
+		width: 100%;
 	}
 
 	.date-time-picker__row {
 		display: flex;
 		align-items: center;
 		position: relative;
+		width: 100%;
 	}
 
 	.date-time-picker__date-input {
+		box-sizing: border-box;
 		width: 100%;
 		cursor: pointer;
 		border-start-start-radius: var(--border-radius-base, 0.375rem);
@@ -86,7 +96,7 @@
 		border-start-end-radius: 0;
 		border-end-end-radius: 0;
 		border: 1px solid var(--color-border-primary);
-		padding: 0.5rem;
+		padding: 0.625rem 2.5rem 0.625rem 0.75rem;
 	}
 
 	.date-time-picker__date-input:focus {
@@ -95,13 +105,15 @@
 	}
 
 	.date-time-picker__time-select {
+		box-sizing: border-box;
+		min-width: 7.5rem;
 		border-start-start-radius: 0;
 		border-end-start-radius: 0;
 		border-start-end-radius: var(--border-radius-base, 0.375rem);
 		border-end-end-radius: var(--border-radius-base, 0.375rem);
 		border: 1px solid var(--color-border-primary);
 		border-inline-start: none;
-		padding: 0.5rem;
+		padding: 0.625rem 2rem 0.625rem 0.75rem;
 	}
 
 	.date-time-picker__time-select:focus {
@@ -134,6 +146,8 @@
 	.date-time-picker__panel {
 		position: absolute;
 		z-index: var(--z-index-docked);
+		inset-inline: 0;
+		box-sizing: border-box;
 		margin-block-start: 0.25rem;
 		border-radius: var(--border-radius-base, 0.375rem);
 		border: 1px solid var(--color-border-primary);

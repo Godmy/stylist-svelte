@@ -1,7 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { bindSceneAttributeBuffer } from './bind-scene-attribute-buffer';
+export { buildInstancedEdgeBuffers } from './build-instanced-edge-buffers';
+export { buildInstancedNodeBuffers } from './build-instanced-node-buffers';
 export { clampSceneRadius } from './clamp-scene-radius';
 export { clampSceneVerticalAngle } from './clamp-scene-vertical-angle';
+export { clampZwickyRadius } from './clamp-zwicky-radius';
 export { compileSceneShader } from './compile-scene-shader';
 export { createSceneAtom } from './create-scene-atom';
 export { createSceneBoxGeometry } from './create-scene-box-geometry';
@@ -11,7 +14,10 @@ export { destroySceneBuffers } from './destroy-scene-buffers';
 export { drawSceneBuffers } from './draw-scene-buffers';
 export { getAtomBoundsRadius } from './get-atom-bounds-radius';
 export { isWebGL2Context } from './is-webgl2-context';
+export { layoutZwickyNodes } from './layout-zwicky-nodes';
 export { multiplyMatrixVector } from './multiply-matrix-vector';
+export { parseZwickyGraph } from './parse-zwicky-graph';
+export { pickZwickyNodeFromScreen } from './pick-zwicky-node-from-screen';
 export { projectPointToScreen } from './project-point-to-screen';
 export { projectWorldRadiusToPixels } from './project-world-radius-to-pixels';
 export { resolveSceneAtomModelMatrix } from './resolve-scene-atom-model-matrix';

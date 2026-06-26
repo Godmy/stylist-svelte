@@ -1,6 +1,6 @@
 import type { RecipeMiniCalendar as MiniCalendarContract } from '$stylist/calendar/interface/recipe/mini-calendar';
-import type { SlotMiniCalendarEvent as SlotMiniCalendarEvent } from '$stylist/calendar/interface/slot/mini-calendar-event';
-import type { RecipeMiniCalendarDay as RecipeMiniCalendarDay } from '$stylist/calendar/interface/recipe/mini-calendar-day';
+import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
+import type { RecipeCalendarDay } from '$stylist/calendar/interface/recipe/calendar-day';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createMiniCalendarState(props: MiniCalendarContract) {
@@ -25,7 +25,7 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 	);
 	const gridClasses = $derived('c-mini-calendar__grid');
 
-	const days = $derived.by<RecipeMiniCalendarDay[]>(() => getDaysInMonth(currentDate));
+	const days = $derived.by<RecipeCalendarDay[]>(() => getDaysInMonth(currentDate));
 	const weekdays = $derived(['S', 'M', 'T', 'W', 'T', 'F', 'S']);
 	const monthYear = $derived(
 		currentDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
@@ -49,7 +49,7 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 		return rest;
 	});
 
-	function getDaysInMonth(date: Date): RecipeMiniCalendarDay[] {
+	function getDaysInMonth(date: Date): RecipeCalendarDay[] {
 		const year = date.getFullYear();
 		const month = date.getMonth();
 
@@ -60,7 +60,7 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 		const endDay = new Date(lastDay);
 		endDay.setDate(lastDay.getDate() + (6 - lastDay.getDay()));
 
-		const calendarDays: RecipeMiniCalendarDay[] = [];
+		const calendarDays: RecipeCalendarDay[] = [];
 		const today = new Date();
 		today.setHours(0, 0, 0, 0);
 
@@ -101,7 +101,7 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 		props.onDateSelect?.(date);
 	}
 
-	function handleEventClick(event: SlotMiniCalendarEvent, e: Event): void {
+	function handleEventClick(event: SlotCalendarEvent, e: Event): void {
 		e.stopPropagation();
 		props.onEventClick?.(event);
 	}

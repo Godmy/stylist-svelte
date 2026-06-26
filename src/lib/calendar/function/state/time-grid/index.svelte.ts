@@ -1,7 +1,7 @@
 import type { RecipeTimeGrid as TimeGridContract } from '$stylist/calendar/interface/recipe/time-grid';
-import type { SlotTimeGridEvent as SlotTimeGridEvent } from '$stylist/calendar/interface/slot/time-grid-event';
-import type { RecipeTimeGridExtendedTimeSlot as RecipeTimeGridExtendedTimeSlot } from '$stylist/calendar/interface/recipe/time-grid-extended-time-slot';
-import type { RecipeTimeGridDayTimeGrid as RecipeTimeGridDayTimeGrid } from '$stylist/calendar/interface/recipe/time-grid-day-time-grid';
+import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
+import type { RecipeExtendedTimeSlot } from '$stylist/calendar/interface/recipe/extended-time-slot';
+import type { RecipeDayTimeGrid } from '$stylist/calendar/interface/recipe/day-time-grid';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { isToday } from '$stylist/calendar/function/script/date-check';
 import { isWeekend } from '$stylist/calendar/function/script/is-weekend';
@@ -14,6 +14,7 @@ export function createTimeGridState(props: TimeGridContract) {
 				new Date(new Date(new Date().setHours(0, 0, 0, 0)).setDate(new Date().getDate() + 6))
 		)
 	);
+	let currentViewMode = $state<'day' | 'week' | 'month'>('week');
 
 	const events = $derived(props.events ?? []);
 	const startTime = $derived(props.startTime ?? 0);
@@ -31,7 +32,7 @@ export function createTimeGridState(props: TimeGridContract) {
 	const headerClasses = $derived(mergeClassNames('c-time-grid__header', headerClassProp));
 	const timeGridClasses = $derived('c-time-grid__grid');
 
-	const timeGrid = $derived.by<RecipeTimeGridDayTimeGrid[]>(() => generateTimeGrid());
+	const timeGrid = $derived.by<RecipeDayTimeGrid[]>(() => generateTimeGrid());
 
 	const restProps = $derived.by(() => {
 		const {
@@ -56,8 +57,8 @@ export function createTimeGridState(props: TimeGridContract) {
 		return rest;
 	});
 
-	function generateTimeSlots(): RecipeTimeGridExtendedTimeSlot[] {
-		const slots: RecipeTimeGridExtendedTimeSlot[] = [];
+	function generateTimeSlots(): RecipeExtendedTimeSlot[] {
+		const slots: RecipeExtendedTimeSlot[] = [];
 
 		for (let hour = startTime; hour < endTime; hour++) {
 			for (let minute = 0; minute < 60; minute += timeStep) {
@@ -90,20 +91,20 @@ export function createTimeGridState(props: TimeGridContract) {
 		return slots;
 	}
 
-	function generateTimeGrid(): RecipeTimeGridDayTimeGrid[] {
-		const grid: RecipeTimeGridDayTimeGrid[] = [];
-		const start = new Date(props.startDate ?? new Date());
+	function generateTimeGrid(): RecipeDayTimeGrid[] {
+		const grid: RecipeDayTimeGrid[] = [];
+		const start = new Date(viewStartDate);
 		start.setHours(0, 0, 0, 0);
-		const end = new Date(props.endDate ?? new Date());
+		const end = new Date(viewEndDate);
 		end.setHours(0, 0, 0, 0);
 		const daysCount = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
 
 		for (let i = 0; i <= daysCount; i++) {
 			const date = new Date(start);
 			date.setDate(start.getDate() + i);
-			if (date > (props.endDate ?? new Date())) break;
+			if (date > viewEndDate) break;
 
-			const slots: RecipeTimeGridExtendedTimeSlot[] = generateTimeSlots();
+			const slots: RecipeExtendedTimeSlot[] = generateTimeSlots();
 
 			for (const event of events) {
 				const eventStart = new Date(event.start);
@@ -126,7 +127,7 @@ export function createTimeGridState(props: TimeGridContract) {
 							eventStart.getTime() === slotStart.getTime()
 						) {
 							const slotEvents = slots[j].events || [];
-							if (!slotEvents.find((e: SlotTimeGridEvent) => e.id === event.id)) {
+							if (!slotEvents.find((e: SlotCalendarEvent) => e.id === event.id)) {
 								slotEvents.push(event);
 								slots[j].events = slotEvents;
 							}
@@ -146,7 +147,7 @@ export function createTimeGridState(props: TimeGridContract) {
 		return grid;
 	}
 
-	function handleEventClick(event: SlotTimeGridEvent): void {
+	function handleEventClick(event: SlotCalendarEvent): void {
 		props.onEventClick?.(event);
 	}
 
@@ -169,9 +170,26 @@ export function createTimeGridState(props: TimeGridContract) {
 		const today = new Date();
 		today.setHours(0, 0, 0, 0);
 		const start = new Date(today);
-		start.setDate(today.getDate() - today.getDay());
+		if (currentViewMode === 'week') start.setDate(today.getDate() - today.getDay());
+		if (currentViewMode === 'month') start.setDate(1);
 		const end = new Date(start);
-		end.setDate(start.getDate() + 6);
+		if (currentViewMode === 'day') end.setDate(start.getDate());
+		if (currentViewMode === 'week') end.setDate(start.getDate() + 6);
+		if (currentViewMode === 'month') end.setMonth(start.getMonth() + 1, 0);
+		viewStartDate = start;
+		viewEndDate = end;
+	}
+
+	function changeViewMode(mode: 'day' | 'week' | 'month'): void {
+		currentViewMode = mode;
+		const start = new Date(viewStartDate);
+		start.setHours(0, 0, 0, 0);
+		if (mode === 'week') start.setDate(start.getDate() - start.getDay());
+		if (mode === 'month') start.setDate(1);
+		const end = new Date(start);
+		if (mode === 'day') end.setDate(start.getDate());
+		if (mode === 'week') end.setDate(start.getDate() + 6);
+		if (mode === 'month') end.setMonth(start.getMonth() + 1, 0);
 		viewStartDate = start;
 		viewEndDate = end;
 	}
@@ -240,6 +258,9 @@ export function createTimeGridState(props: TimeGridContract) {
 		get showAllDayEvents() {
 			return showAllDayEvents;
 		},
+		get currentViewMode() {
+			return currentViewMode;
+		},
 		get slotClass() {
 			return slotClass;
 		},
@@ -263,6 +284,7 @@ export function createTimeGridState(props: TimeGridContract) {
 		handleSlotClick,
 		navigateWeek,
 		navigateToToday,
+		changeViewMode,
 		getCurrentTimePosition,
 		getDayColumnClasses,
 		getDayHeaderClasses,

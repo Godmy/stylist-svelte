@@ -26,7 +26,11 @@ export const createFormDatePickerState = (props: IFormDatePickerProps) => {
 
 	function formatDate(dateString: string) {
 		if (!dateString) return '';
-		return new Date(dateString).toLocaleDateString();
+		return new Date(`${dateString}T00:00:00`).toLocaleDateString('en-US', {
+			month: 'short',
+			day: 'numeric',
+			year: 'numeric'
+		});
 	}
 
 	function toggleCalendar() {

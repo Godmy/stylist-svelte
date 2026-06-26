@@ -11,4 +11,7 @@ export interface SlotDateTimePicker extends HTMLAttributes<HTMLInputElement>, Sl
 	timeClass?: string;
 	dropdownClass?: string;
 	placeholder?: string;
+	onValueInput?: (value: Date, event?: Event) => void;
+	onValueChange?: (value: Date, event?: Event) => void;
+	onChange?: (value: Date, event?: Event) => void;
 }

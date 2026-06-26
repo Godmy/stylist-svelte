@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Camera } from './manager';
+export {
+	Camera,
+	InstancedGraphManager
+} from './manager';
 export {
 	Matrix4,
 	SceneObjectManager

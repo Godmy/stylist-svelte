@@ -7,3 +7,6 @@ export type { SlotCommentThreadUser } from './comment-thread-user';
 export type { SlotCommentUser } from './comment-user';
 export type { SlotRating } from './rating';
 export type { SlotReactionPicker } from './reaction-picker';
+export type { SlotRealTimePresence } from './real-time-presence';
+export type { SlotRealTimePresenceStyleClasses } from './real-time-presence-style-classes';
+export type { SlotRealTimePresenceUser } from './real-time-presence-user';

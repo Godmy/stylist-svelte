@@ -43,6 +43,7 @@ export {
 	IconToolbar,
 	QuantitySelector,
 	RadioButtonGroup,
+	RangeInput,
 	RangeSlider,
 	Selector,
 	SliderWithInput,

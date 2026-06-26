@@ -1,3 +1,5 @@
+import type { TokenPriority } from '$stylist/calendar/type/enum/priority';
+
 export interface SlotCalendarEvent {
 	id: string;
 	title: string;
@@ -7,4 +9,5 @@ export interface SlotCalendarEvent {
 	allDay?: boolean;
 	location?: string;
 	description?: string;
+	priority?: TokenPriority;
 }

@@ -46,19 +46,19 @@
 				variant={state.viewMode === 'month' ? 'primary' : 'ghost'}
 				size="sm"
 				class={state.getViewToggleButtonClasses(state.viewMode === 'month')}
-				onclick={() => {}}>Month</Button
+				onclick={() => state.changeViewMode('month')}>Month</Button
 			>
 			<Button
 				variant={state.viewMode === 'week' ? 'primary' : 'ghost'}
 				size="sm"
 				class={state.getViewToggleButtonClasses(state.viewMode === 'week')}
-				onclick={() => {}}>Week</Button
+				onclick={() => state.changeViewMode('week')}>Week</Button
 			>
 			<Button
 				variant={state.viewMode === 'day' ? 'primary' : 'ghost'}
 				size="sm"
 				class={state.getViewToggleButtonClasses(state.viewMode === 'day')}
-				onclick={() => {}}>Day</Button
+				onclick={() => state.changeViewMode('day')}>Day</Button
 			>
 		</div>
 	</div>
@@ -145,6 +145,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
 		padding: var(--spacing-lg, 1.5rem);
 		border-bottom: 1px solid var(--color-border-primary);
 	}
@@ -152,10 +154,13 @@
 	.c-calendar-view__header-left {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.25rem;
 	}
 
 	.c-calendar-view__month-year {
 		margin-left: 1rem;
+		margin-block: 0;
 		font-size: 1.25rem;
 		font-weight: 700;
 		color: var(--color-text-primary);
@@ -164,6 +169,7 @@
 	.c-calendar-view__view-tabs {
 		display: flex;
 		gap: 0.5rem;
+		flex-wrap: wrap;
 	}
 
 	.c-calendar-view__nav-btn {

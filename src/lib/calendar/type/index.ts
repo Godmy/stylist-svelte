@@ -5,13 +5,3 @@ export type {
 	TokenTimeMeasure,
 	TokenTimeRange
 } from './enum';
-export type {
-	CalendarDay,
-	CalendarEventMini,
-	CalendarEventTimeGrid,
-	DateRangeValue,
-	DateTimeRangePickerProps,
-	DateTimeRangeValue,
-	DayTimeGrid,
-	RecipeExtendedTimeSlot
-} from './struct';

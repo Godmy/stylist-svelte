@@ -1,10 +1,11 @@
 import type { SlotChildren } from '$stylist/layout/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotCalendarViewEvent } from '$stylist/calendar/interface/slot/calendar-view-event';
+import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 
 import type { TOKEN_CALENDAR } from '$stylist/calendar/const/enum/time-measure/calendar-enum';
+
 export interface RecipeCalendarView extends ComputeIntersectAll<[SlotChildren]> {
-	events?: SlotCalendarViewEvent[];
+	events?: SlotCalendarEvent[];
 	initialDate?: Date;
 	viewMode?: (typeof TOKEN_CALENDAR)[number];
 	showWeekNumbers?: boolean;
@@ -13,7 +14,7 @@ export interface RecipeCalendarView extends ComputeIntersectAll<[SlotChildren]> 
 	dayClass?: string;
 	eventClass?: string;
 	headerClass?: string;
-	onEventClick?: (event: SlotCalendarViewEvent) => void;
+	onEventClick?: (event: SlotCalendarEvent) => void;
 	onDayClick?: (date: Date) => void;
 	onEventCreate?: (date: Date) => void;
 }

@@ -111,17 +111,13 @@
 
 <style>
 	._c1 {
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		width: 100%;
 		gap: 2rem;
 	}
-	@media (min-width: 1024px) {
-		._c1 {
-			grid-template-columns: 1fr 1fr;
-		}
-	}
 	._c10 {
-		border-radius: 1rem;
+		border-radius: 0.5rem;
 		border-width: 1px;
 		border-style: dashed;
 		border-color: var(--color-border-primary);
@@ -136,7 +132,7 @@
 		color: var(--color-text-primary);
 	}
 	._c2 {
-		border-radius: 2rem;
+		border-radius: 0.5rem;
 		border-width: 1px;
 		border-style: solid;
 		border-color: var(--color-border-primary);
@@ -160,7 +156,7 @@
 		margin-top: 1.5rem;
 	}
 	._c6 {
-		border-radius: 2rem;
+		border-radius: 0.5rem;
 		border-width: 1px;
 		border-style: solid;
 		border-color: var(--color-border-primary);

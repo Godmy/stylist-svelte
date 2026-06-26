@@ -7,4 +7,6 @@ export interface SlotDatePicker extends HTMLInputAttributes {
 	disabled?: boolean;
 	placeholder?: string;
 	dateFormat?: string;
+	onValueInput?: (value: Date | undefined, event?: Event) => void;
+	onValueChange?: (value: Date | undefined, event?: Event) => void;
 }

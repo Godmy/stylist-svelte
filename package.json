@@ -1,17 +1,20 @@
 {
 	"name": "stylist-svelte",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A comprehensive Svelte 5 UI component library",
 	"type": "module",
 	"author": "Godmy & AI-Team",
 	"license": "MIT",
 	"packageManager": "yarn@4.5.1",
 	"keywords": [
+		"stylist",
 		"svelte",
+		"ai",
 		"svelte5",
 		"ui",
 		"components",
-		"design-system"
+		"design-system",
+		"design-tokens"
 	],
 	"repository": {
 		"type": "git",
@@ -38,25 +41,7 @@
 		"format": "prettier --write .",
 		"clean": "node -e \"const fs=require('node:fs'); ['dist','.svelte-kit','node_modules/.vite'].forEach((path)=>fs.rmSync(path,{recursive:true,force:true}));\"",
 		"audit": "yarn audit",
-		"depcheck": "depcheck",
-		"data:svg": "tsx scripts/data/svg/index.ts",
-		"data:shader": "tsx scripts/data/shader/index.ts",
-		"const:enum": "tsx scripts/const/enum/index.ts",
-		"const:map": "tsx scripts/const/map/index.ts",
-		"const:record": "tsx scripts/const/record/index.ts",
-		"const:struct": "tsx scripts/const/struct/index.ts",
-		"type:enum": "tsx scripts/type/enum/index.ts",
-		"type:map": "tsx scripts/type/map/index.ts",
-		"type:record": "tsx scripts/type/record/index.ts",
-		"type:struct": "tsx scripts/type/struct/index.ts",
-		"interface:proto": "tsx scripts/interface/proto/index.ts",
-		"interface:recipe": "tsx scripts/interface/recipe/index.ts",
-		"class:manager": "tsx scripts/class/manager/index.ts",
-		"class:style-manager": "tsx scripts/class/style-manager/index.ts",
-		"class:object-manager": "tsx scripts/class/object-manager/index.ts",
-		"function:state": "tsx scripts/function/state/index.ts",
-		"function:script": "tsx scripts/function/script/index.ts",
-		"json:meta": "tsx scripts/json/meta/index.ts"
+		"depcheck": "depcheck"
 	},
 	"exports": {
 		".": {

@@ -72,6 +72,16 @@
 					{/if}
 				{/each}
 			</div>
+			<div class="c-drp__actions">
+				<button type="button" class="c-drp__action" onclick={state.clear}>Clear</button>
+				<button
+					type="button"
+					class="c-drp__action c-drp__action--primary"
+					onclick={() => (state.isOpen = false)}
+				>
+					Done
+				</button>
+			</div>
 		</div>
 	{/if}
 </div>
@@ -87,6 +97,7 @@
 	}
 
 	.c-drp__input {
+		box-sizing: border-box;
 		width: 100%;
 		padding-block: 0.5rem;
 		padding-inline: 2.5rem 4rem;
@@ -127,7 +138,8 @@
 		position: absolute;
 		z-index: var(--z-index-docked);
 		margin-block-start: 0.5rem;
-		width: 20rem;
+		box-sizing: border-box;
+		width: min(100vw - 2rem, 20rem);
 		padding: 0.75rem;
 		background-color: var(--color-background-primary);
 		border: 1px solid var(--color-border-primary);
@@ -194,5 +206,27 @@
 
 	.c-drp__day-empty {
 		height: 2rem;
+	}
+
+	.c-drp__actions {
+		display: flex;
+		justify-content: flex-end;
+		gap: 0.5rem;
+		margin-block-start: 0.75rem;
+	}
+
+	.c-drp__action {
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--border-radius-sm, 0.25rem);
+		background: var(--color-background-primary);
+		color: var(--color-text-primary);
+		padding: 0.375rem 0.75rem;
+		cursor: pointer;
+	}
+
+	.c-drp__action--primary {
+		border-color: var(--color-primary-500);
+		background: var(--color-primary-500);
+		color: var(--color-text-inverse);
 	}
 </style>

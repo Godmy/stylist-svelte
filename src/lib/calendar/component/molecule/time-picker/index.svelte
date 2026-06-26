@@ -73,17 +73,20 @@
 <style>
 	.time-picker {
 		position: relative;
+		width: 100%;
 	}
 
 	.time-picker__input-wrap {
 		position: relative;
+		width: 100%;
 	}
 
 	.time-picker__input {
+		box-sizing: border-box;
 		width: 100%;
 		border-radius: var(--border-radius-base, 0.375rem);
 		border: 1px solid var(--color-border-primary);
-		padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+		padding: 0.625rem 2.5rem 0.625rem 0.75rem;
 	}
 
 	.time-picker__input:focus {
@@ -120,8 +123,10 @@
 	.time-picker__dropdown {
 		position: absolute;
 		z-index: var(--z-index-docked);
+		inset-inline: 0;
+		box-sizing: border-box;
 		margin-block-start: 0.25rem;
-		max-height: 15rem;
+		max-height: 12rem;
 		width: 100%;
 		overflow-y: auto;
 		border-radius: var(--border-radius-base, 0.375rem);

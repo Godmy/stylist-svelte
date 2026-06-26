@@ -8,6 +8,7 @@ export {
 	CommentSystem,
 	CommentThread,
 	FriendList,
+	RealTimePresence,
 	SocialActivityFeed,
 	SocialFeed,
 	SocialLogin,

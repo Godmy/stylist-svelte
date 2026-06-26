@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import TimeGrid from './index.svelte';
-	import type { CalendarEventTimeGrid as RecipeCalendarEvent } from '$stylist/calendar/type/struct/calendar-event-time-grid';
+	import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 	import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';
 
 	// Sample events data
-	const sampleEvents: RecipeCalendarEvent[] = [
+	const sampleEvents: SlotCalendarEvent[] = [
 		{
 			id: '1',
 			title: 'Team Meeting',
@@ -83,7 +83,7 @@
 		}
 	];
 
-	function handleEventClick(event: RecipeCalendarEvent) {
+	function handleEventClick(event: SlotCalendarEvent) {
 		console.log('Event clicked:', event.title);
 	}
 

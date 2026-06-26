@@ -4,7 +4,8 @@ export type { ContractSocial } from './contract';
 export type {
 	RecipePostCard,
 	RecipeRating,
-	RecipeReactionPicker
+	RecipeReactionPicker,
+	RecipeRealTimePresence
 } from './recipe';
 export type {
 	SlotCommentItem,
@@ -14,5 +15,8 @@ export type {
 	SlotCommentThreadUser,
 	SlotCommentUser,
 	SlotRating,
-	SlotReactionPicker
+	SlotReactionPicker,
+	SlotRealTimePresence,
+	SlotRealTimePresenceStyleClasses,
+	SlotRealTimePresenceUser
 } from './slot';

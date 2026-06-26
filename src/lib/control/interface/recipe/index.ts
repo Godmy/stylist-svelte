@@ -34,6 +34,7 @@ export type { RecipeProgressBar } from './progress-bar';
 export type { RecipeQuantitySelector } from './quantity-selector';
 export type { RecipeRadio } from './radio';
 export type { RecipeRadioButtonGroupProps } from './radio-button-group-props';
+export type { RecipeRangeInput } from './range-input';
 export type { RecipeSearchBar } from './search-bar';
 export type { RecipeSearchBarProps } from './search-bar-props';
 export type { RecipeSearchSuggestion } from './search-suggestion';

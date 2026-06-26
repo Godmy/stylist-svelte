@@ -1,7 +1,7 @@
 import type { RecipeScheduleCalendar as ScheduleCalendarContract } from '$stylist/calendar/interface/recipe/schedule-calendar';
-import type { SlotScheduleCalendarEvent as SlotScheduleCalendarEvent } from '$stylist/calendar/interface/slot/schedule-calendar-event';
-import type { RecipeScheduleCalendarTimeSlot as RecipeScheduleCalendarTimeSlot } from '$stylist/calendar/interface/recipe/schedule-calendar-time-slot';
-import type { RecipeScheduleCalendarDaySchedule as RecipeScheduleCalendarDaySchedule } from '$stylist/calendar/interface/recipe/schedule-calendar-day-schedule';
+import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
+import type { SlotScheduleTimeSlot } from '$stylist/calendar/interface/slot/schedule-time-slot';
+import type { SlotDaySchedule } from '$stylist/calendar/interface/slot/day-schedule';
 import { isToday } from '$stylist/calendar/function/script/date-check';
 import { isWeekend } from '$stylist/calendar/function/script/is-weekend';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
@@ -27,7 +27,7 @@ export function createScheduleCalendarState(props: ScheduleCalendarContract) {
 	const headerClasses = $derived(mergeClassNames('c-schedule-calendar__header', headerClassProp));
 	const gridClasses = $derived('c-schedule-calendar__grid');
 
-	const schedule = $derived.by<RecipeScheduleCalendarDaySchedule[]>(() => generateSchedule());
+	const schedule = $derived.by<SlotDaySchedule[]>(() => generateSchedule());
 
 	const restProps = $derived.by(() => {
 		const {
@@ -51,8 +51,8 @@ export function createScheduleCalendarState(props: ScheduleCalendarContract) {
 		return rest;
 	});
 
-	function generateTimeSlots(): RecipeScheduleCalendarTimeSlot[] {
-		const slots: RecipeScheduleCalendarTimeSlot[] = [];
+	function generateTimeSlots(): SlotScheduleTimeSlot[] {
+		const slots: SlotScheduleTimeSlot[] = [];
 		for (let hour = startTime; hour < endTime; hour++) {
 			const period = hour >= 12 ? 'PM' : 'AM';
 			const displayHour = hour % 12 || 12;
@@ -61,8 +61,8 @@ export function createScheduleCalendarState(props: ScheduleCalendarContract) {
 		return slots;
 	}
 
-	function generateSchedule(): RecipeScheduleCalendarDaySchedule[] {
-		const result: RecipeScheduleCalendarDaySchedule[] = [];
+	function generateSchedule(): SlotDaySchedule[] {
+		const result: SlotDaySchedule[] = [];
 		const startDate = props.startDate ?? new Date();
 		const endDate = props.endDate ?? new Date(new Date().setDate(new Date().getDate() + 6));
 		const daysCount = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
@@ -100,7 +100,7 @@ export function createScheduleCalendarState(props: ScheduleCalendarContract) {
 		return result;
 	}
 
-	function handleEventClick(event: SlotScheduleCalendarEvent): void {
+	function handleEventClick(event: SlotCalendarEvent): void {
 		props.onEventClick?.(event);
 	}
 

@@ -36,6 +36,7 @@ export { createPageButtonState } from './page-button';
 export { createQuantitySelectorState } from './quantity-selector';
 export { createRadioState } from './radio';
 export { createRadioButtonGroupState } from './radio-button-group';
+export { createRangeInputState } from './range-input';
 export { createRangeSliderState } from './range-slider';
 export { createSearchResultsState } from './search-results';
 export { createSearchSuggestionState } from './search-suggestion';

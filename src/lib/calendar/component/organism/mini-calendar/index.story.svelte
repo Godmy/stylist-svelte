@@ -3,7 +3,7 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import MiniCalendar from './index.svelte';
-	import type { CalendarEventMini } from '$stylist/calendar/type/struct/calendar-event-mini';
+	import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 
 	export let id: string;
 	export let title: string;
@@ -14,7 +14,7 @@
 	];
 
 	// Sample events data
-	const sampleEvents: CalendarEventMini[] = [
+	const sampleEvents: SlotCalendarEvent[] = [
 		{
 			id: '1',
 			title: 'Meeting',
@@ -50,14 +50,9 @@
 		console.log('Date selected:', date);
 	}
 
-	function handleEventClick(event: CalendarEventMini) {
+	function handleEventClick(event: SlotCalendarEvent) {
 		console.log('Event clicked:', event.title);
 	}
-
-	type Props = {
-		compact?: boolean;
-		showToday?: boolean;
-	};
 </script>
 
 <Story

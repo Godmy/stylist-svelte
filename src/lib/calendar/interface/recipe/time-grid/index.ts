@@ -1,21 +1,14 @@
 import type { SlotChildren } from '$stylist/layout/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotTimeGridEvent } from '$stylist/calendar/interface/slot/time-grid-event';
+import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
+import type { SlotSchedule } from '$stylist/calendar/interface/slot/schedule';
 
-export interface RecipeTimeGrid extends ComputeIntersectAll<[SlotChildren]> {
-	events?: SlotTimeGridEvent[];
-	startDate?: Date;
-	endDate?: Date;
-	startTime?: number;
-	endTime?: number;
+export interface RecipeTimeGrid extends ComputeIntersectAll<[SlotChildren, SlotSchedule]> {
+	events?: SlotCalendarEvent[];
 	timeStep?: number;
-	showHeader?: boolean;
 	showCurrentTimeIndicator?: boolean;
 	showAllDayEvents?: boolean;
 	class?: string;
-	slotClass?: string;
-	eventClass?: string;
-	headerClass?: string;
-	onEventClick?: (event: SlotTimeGridEvent) => void;
+	onEventClick?: (event: SlotCalendarEvent) => void;
 	onSlotClick?: (slotDate: Date) => void;
 }

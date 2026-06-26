@@ -13,8 +13,6 @@ export {
 	DateTimeRangePicker,
 	EventCalendar,
 	MiniCalendar,
-	RangeInput,
-	RealTimePresence,
 	ScheduleCalendar,
 	TimeGrid
 } from './organism';

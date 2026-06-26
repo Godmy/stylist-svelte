@@ -15,7 +15,9 @@
 		class="date-picker__input"
 		onclick={state.openPicker}
 		disabled={state.disabled}
-		{...props}
+		aria-haspopup="dialog"
+		aria-expanded={state.isOpen}
+		{...state.restProps}
 	/>
 
 	{#if state.isOpen && !state.disabled}
@@ -26,7 +28,6 @@
 			min={state.minValue}
 			max={state.maxValue}
 			class="date-picker__calendar"
-			style="width: fit-content;"
 		/>
 	{/if}
 </div>
@@ -34,13 +35,26 @@
 <style>
 	.date-picker {
 		position: relative;
-		display: inline-block;
+		display: block;
+		width: 100%;
 	}
 
 	.date-picker__input {
+		box-sizing: border-box;
+		width: 100%;
+		min-height: 2.5rem;
 		border-radius: var(--border-radius-base, 0.375rem);
 		border: 1px solid var(--color-border-primary);
-		padding: 0.5rem 0.75rem;
+		padding: 0.625rem 0.75rem;
+		background: var(--color-background-primary);
+		color: var(--color-text-primary);
+		cursor: pointer;
+	}
+
+	.date-picker__input:disabled {
+		cursor: not-allowed;
+		background: var(--color-background-secondary);
+		color: var(--color-text-tertiary, var(--color-text-secondary));
 	}
 
 	.date-picker__input:focus {
@@ -53,11 +67,14 @@
 		inset-block-start: 100%;
 		inset-inline-start: 0;
 		z-index: var(--z-index-docked);
+		box-sizing: border-box;
 		margin-block-start: 0.25rem;
+		width: max(100%, 16rem);
+		max-width: min(20rem, calc(100vw - 2rem));
 		border-radius: var(--border-radius-base, 0.375rem);
 		border: 1px solid var(--color-border-primary);
 		background-color: var(--color-background-primary);
-		padding: 0.5rem;
+		padding: 0.625rem;
 		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 	}
 </style>

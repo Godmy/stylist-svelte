@@ -1,5 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	GraphJsonInput,
+	InstancedDrawData,
 	SceneAtom,
 	SceneAtomGeometry,
 	SceneAtomKind,
@@ -14,7 +16,10 @@ export type {
 	SceneMaterial,
 	SceneMaterialKind,
 	SceneMolecule,
-	SceneProps
+	SceneProps,
+	ZwickyFilterState,
+	ZwickyNode,
+	ZwickySceneProps
 } from './struct';
 export type {
 	GraphBounds3D,

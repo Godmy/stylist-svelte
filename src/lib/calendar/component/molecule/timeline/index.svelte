@@ -80,13 +80,20 @@
 <style>
 	.c-timeline {
 		width: 100%;
+		box-sizing: border-box;
 	}
 	.c-timeline--vertical {
 		display: flex;
 		flex-direction: column;
+		gap: 0.25rem;
 	}
 	.c-timeline--horizontal {
-		display: flex;
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(12rem, 1fr);
+		gap: 1rem;
+		overflow-x: auto;
+		padding-block-end: 0.25rem;
 	}
 
 	.c-timeline__item {
@@ -110,7 +117,7 @@
 	}
 	.c-timeline__connector-row--h {
 		flex-direction: column;
-		align-items: center;
+		align-items: stretch;
 	}
 
 	.c-timeline__step-wrap {
@@ -124,6 +131,7 @@
 	}
 	.c-timeline__step-wrap--h {
 		margin-bottom: 1rem;
+		justify-content: center;
 	}
 
 	.c-timeline__step {
@@ -156,15 +164,19 @@
 	}
 
 	.c-timeline__content {
-		margin-bottom: 1.5rem;
+		min-width: 0;
+		margin-bottom: 1rem;
 	}
 	.c-timeline__content--v {
 		flex: 1;
 	}
 
 	.c-timeline__card {
+		box-sizing: border-box;
+		min-height: 5rem;
 		border-radius: 0.5rem;
 		padding: 1rem;
+		border: 1px solid var(--color-border-primary);
 	}
 
 	.c-timeline__card--completed {
@@ -186,6 +198,7 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
+		gap: 0.75rem;
 	}
 
 	.c-timeline__card-title {
@@ -198,6 +211,7 @@
 	.c-timeline__card-date {
 		font-size: 0.875rem;
 		color: var(--color-text-secondary);
+		white-space: nowrap;
 	}
 
 	.c-timeline__card-body {
@@ -211,13 +225,15 @@
 	.c-timeline__line--v {
 		position: absolute;
 		left: 1rem;
-		margin-left: 1rem;
+		top: 2rem;
 		width: 2px;
-		height: 100%;
+		height: calc(100% - 1rem);
 	}
 	.c-timeline__line--h {
-		margin-top: 1rem;
+		position: absolute;
+		top: 1rem;
+		left: calc(50% + 1rem);
 		height: 2px;
-		width: 100%;
+		width: calc(100% + 1rem);
 	}
 </style>

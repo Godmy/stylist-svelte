@@ -16,6 +16,10 @@ export const createDatePickerState = (props: IDatePickerProps) => {
 	function handleDateChange(event: Event) {
 		const target = event.target as HTMLInputElement;
 		internalValue = target.value;
+		const value = internalValue ? new Date(`${internalValue}T00:00:00`) : undefined;
+		props.onValueInput?.(value, event);
+		props.onValueChange?.(value, event);
+		target.dispatchEvent(new CustomEvent('change', { detail: value, bubbles: true }));
 		isOpen = false;
 	}
 
@@ -25,9 +29,32 @@ export const createDatePickerState = (props: IDatePickerProps) => {
 		}
 	}
 
-	const displayValue = $derived(internalValue ? new Date(internalValue).toLocaleDateString() : '');
+	const displayValue = $derived(
+		internalValue
+			? new Date(`${internalValue}T00:00:00`).toLocaleDateString('en-US', {
+					month: 'short',
+					day: 'numeric',
+					year: 'numeric'
+				})
+			: ''
+	);
 	const minValue = $derived(props.minDate?.toISOString().split('T')[0]);
 	const maxValue = $derived(props.maxDate?.toISOString().split('T')[0]);
+	const restProps = $derived.by(() => {
+		const {
+			value: _value,
+			minDate: _minDate,
+			maxDate: _maxDate,
+			disabled: _disabled,
+			placeholder: _placeholder,
+			dateFormat: _dateFormat,
+			onValueInput: _onValueInput,
+			onValueChange: _onValueChange,
+			...rest
+		} = props;
+
+		return rest;
+	});
 
 	return {
 		get internalValue() {
@@ -53,6 +80,9 @@ export const createDatePickerState = (props: IDatePickerProps) => {
 		},
 		get maxValue() {
 			return maxValue;
+		},
+		get restProps() {
+			return restProps;
 		},
 		handleDateChange,
 		openPicker
