@@ -12,5 +12,3 @@ export function createCellState(props: RecipeCell) {
 		get alignClass() { return alignClass; }
 	};
 }
-
-export default createCellState;

@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { ContractAnnouncementBanner } from './announcement-banner';
-export type { ContractAudioPlayer } from './audio-player';
-export type { ContractAudioSlider } from './audio-slider';
-export type { ContractAudioVisualizer } from './audio-visualizer';
 export type { ContractAvatar } from './avatar';
 export type { ContractAvatarGroup } from './avatar-group';
 export type { ContractCanvasImageEditor } from './canvas-image-editor';

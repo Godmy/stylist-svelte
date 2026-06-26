@@ -19,5 +19,6 @@ export {
 	Modal,
 	Pagination,
 	Sidebar,
-	SimpleModal
+	SimpleModal,
+	TextInputDialog
 } from './organism';

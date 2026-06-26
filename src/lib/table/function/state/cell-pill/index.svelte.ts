@@ -9,5 +9,3 @@ export function createCellPillState(props: RecipeCellPill) {
 		get variant() { return variant; }
 	};
 }
-
-export default createCellPillState;

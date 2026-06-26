@@ -28,6 +28,7 @@ export {
 	createFriendListState,
 	createPostCardState,
 	createRatingState,
+	createReactionPickerState,
 	createSocialActivityFeedState,
 	createSocialFeedState,
 	createSocialLoginState,

@@ -75,14 +75,14 @@
 				source: 'customer',
 				target: 'order',
 				type: 'relation',
-				label: '1 в†’ n'
+				label: '1 -> n'
 			},
 			{
 				id: 'customer-engagement',
 				source: 'customer',
 				target: 'engagement',
 				type: 'relation',
-				label: '1 в†’ n'
+				label: '1 -> n'
 			}
 		]
 	};
@@ -124,7 +124,7 @@
 			<div class="_c2">
 				<div class="_c3">
 					<div>
-						<label for="node-select" class="_c4"> РђРєС‚РёРІРЅР°СЏ СЃСѓС‰РЅРѕСЃС‚СЊ </label>
+						<label for="node-select" class="_c4">Active entity</label>
 						<select id="node-select" class="_c5" bind:value={selectedNodeId}>
 							{#each graphData.nodes as node}
 								<option value={node.id}>{node.name}</option>
@@ -133,7 +133,7 @@
 					</div>
 
 					<div>
-						<label for="field-select" class="_c4"> Р’С‹РґРµР»РёС‚СЊ РїРѕР»Рµ </label>
+						<label for="field-select" class="_c4">Highlighted field</label>
 						<select
 							id="field-select"
 							class="_c5"
@@ -150,10 +150,10 @@
 
 					<div class="_c6">
 						<p class="_c7">{selectedNode?.name}</p>
-						<p>{selectedNode?.description ?? 'РќРµС‚ РѕРїРёСЃР°РЅРёСЏ'}</p>
+						<p>{selectedNode?.description ?? 'No description available'}</p>
 						{#if selectedField}
 							<p class="_c8">
-								Р’С‹Р±СЂР°РЅРЅРѕРµ РїРѕР»Рµ: <span class="_c7">{selectedField.name}</span>
+								Selected field: <span class="_c7">{selectedField.name}</span>
 							</p>
 						{/if}
 					</div>

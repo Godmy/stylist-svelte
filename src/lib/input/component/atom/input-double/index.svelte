@@ -8,14 +8,14 @@
 
 <div class={state.containerClasses}>
 	<div class="input-double__field">
-		{#if props.label1 ?? 'Поле 1'}
+		{#if props.label1 ?? 'Field 1'}
 			<label
 				for={props.id1}
 				class={state.labelClasses}
 				data-size={props.size ?? 'md'}
 				data-disabled={(props.disabled1 ?? false) ? 'true' : 'false'}
 			>
-				{props.label1 ?? 'Поле 1'}
+				{props.label1 ?? 'Field 1'}
 				{#if props.required1}
 					<span class={state.requiredIndicatorClasses} aria-hidden="true">*</span>
 				{/if}
@@ -42,14 +42,14 @@
 		{/if}
 	</div>
 	<div class="input-double__field">
-		{#if props.label2 ?? 'Поле 2'}
+		{#if props.label2 ?? 'Field 2'}
 			<label
 				for={props.id2}
 				class={state.labelClasses}
 				data-size={props.size ?? 'md'}
 				data-disabled={(props.disabled2 ?? false) ? 'true' : 'false'}
 			>
-				{props.label2 ?? 'Поле 2'}
+				{props.label2 ?? 'Field 2'}
 				{#if props.required2}
 					<span class={state.requiredIndicatorClasses} aria-hidden="true">*</span>
 				{/if}

@@ -4,8 +4,8 @@
 	import InputText from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Текстовое поле' },
-		{ name: 'placeholder', type: 'text', defaultValue: 'Введите текст...' },
+		{ name: 'label', type: 'text', defaultValue: 'Text field' },
+		{ name: 'placeholder', type: 'text', defaultValue: 'Enter text...' },
 		{ name: 'value', type: 'text', defaultValue: '' },
 		{
 			name: 'variant',
@@ -28,7 +28,7 @@
 		{ name: 'error', type: 'boolean', defaultValue: false },
 		{ name: 'block', type: 'boolean', defaultValue: true },
 		{ name: 'required', type: 'boolean', defaultValue: false },
-		{ name: 'helperText', type: 'text', defaultValue: 'Это вспомогательный текст' },
+		{ name: 'helperText', type: 'text', defaultValue: 'Helper text clarifies what belongs here.' },
 		{ name: 'errors', type: 'text', defaultValue: '' },
 		{ name: 'readonly', type: 'boolean', defaultValue: false }
 	];
@@ -39,7 +39,7 @@
 	component={InputText}
 	title="InputText"
 	category="Atoms/Interaction/Input/Field"
-	description="Базовый текстовый input с поддержкой variant, size, error states и валидации"
+	description="Base text input with variants, sizes, validation, and helper/error states."
 	tags={['input', 'text', 'field', 'form', 'control']}
 >
 	{#snippet children(values: any)}

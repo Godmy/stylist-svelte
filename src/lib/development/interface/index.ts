@@ -4,6 +4,7 @@ export type {
 	ContractDevelopment
 } from './contract';
 export type {
+	ContentEditorStateProps,
 	RecipeAtomicPrinciplesShowcase,
 	RecipeCodeBlock,
 	RecipeCodeDiff,

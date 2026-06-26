@@ -1,17 +1,16 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	AccessibilityCheckbox,
 	AdvancedInput,
 	AutoSearch,
 	AutocompleteDropdown,
 	CharactersCount,
-	FormErrorMessage,
-	FormHelperText,
 	InputAddon,
 	InputDouble,
 	InputEmail,
+	InputError,
 	InputField,
 	InputGroup,
+	InputHelper,
 	InputLong,
 	InputPassword,
 	InputPinDigit,
@@ -24,14 +23,9 @@ export {
 export {
 	AdvancedPasswordInput,
 	FieldHighlighter,
-	IconPicker,
-	ReactionPicker,
-	SearchBar,
-	SliderWithInput
+	SearchBar
 } from './molecule';
 export {
 	AutoComplete,
-	ContentEditor,
-	TagInput,
-	TextInputDialog
+	TagInput
 } from './organism';

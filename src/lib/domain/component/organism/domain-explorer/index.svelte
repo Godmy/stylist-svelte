@@ -6,7 +6,7 @@
 	import JointTabButtons from '$stylist/domain/component/molecule/joint-tab-buttons/index.svelte';
 	import TaxonomyBreadcrumbs from '$stylist/domain/component/molecule/taxonomy-breadcrumbs/index.svelte';
 	import createDomainPageState from '$stylist/domain/function/state/domain-page/index.svelte';
-	import TextInputDialog from '$stylist/input/component/organism/text-input-dialog/index.svelte';
+	import TextInputDialog from '$stylist/navigation/component/organism/text-input-dialog/index.svelte';
 
 	type StoryModule = { default: unknown };
 	type DomainTree = Parameters<typeof createDomainPageState>[0]['tree'];
@@ -24,7 +24,7 @@
 		class?: string;
 	}
 
-	const storyModules = import.meta.glob('/src/lib/**/index.story.svelte') as Record<
+	const storyModules = import.meta.glob('/src/lib/**/component/**/index.story.svelte') as Record<
 		string,
 		() => Promise<StoryModule>
 	>;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCellPill } from '$stylist/table/interface/recipe/cell-pill';
-	import createCellPillState from '$stylist/table/function/state/cell-pill';
+	import { createCellPillState } from '$stylist/table/function/state/cell-pill';
 
 	let props: RecipeCellPill = $props();
 	const state = createCellPillState(props);

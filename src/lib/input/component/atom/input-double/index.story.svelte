@@ -4,10 +4,10 @@
 	import InputDouble from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'label1', type: 'text', defaultValue: 'Имя' },
-		{ name: 'label2', type: 'text', defaultValue: 'Фамилия' },
-		{ name: 'placeholder1', type: 'text', defaultValue: 'Иван' },
-		{ name: 'placeholder2', type: 'text', defaultValue: 'Иванов' },
+		{ name: 'label1', type: 'text', defaultValue: 'First name' },
+		{ name: 'label2', type: 'text', defaultValue: 'Last name' },
+		{ name: 'placeholder1', type: 'text', defaultValue: 'Jane' },
+		{ name: 'placeholder2', type: 'text', defaultValue: 'Cooper' },
 		{ name: 'value1', type: 'text', defaultValue: '' },
 		{ name: 'value2', type: 'text', defaultValue: '' },
 		{
@@ -41,7 +41,7 @@
 	component={InputDouble}
 	title="InputDouble"
 	category="Atoms/Interaction/Input/Field"
-	description="Два input в одном ряду для полей типа Имя/Фамилия, Город/Улица и т.д."
+	description="Two related input fields in one row for paired data such as first and last name or city and street."
 	tags={['input', 'double', 'field', 'form', 'control', 'pair']}
 >
 	{#snippet children(values: any)}

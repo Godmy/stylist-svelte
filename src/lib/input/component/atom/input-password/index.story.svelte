@@ -4,7 +4,7 @@
 	import InputPassword from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Пароль' },
+		{ name: 'label', type: 'text', defaultValue: 'Password' },
 		{ name: 'placeholder', type: 'text', defaultValue: '••••••••' },
 		{ name: 'value', type: 'text', defaultValue: '' },
 		{
@@ -27,7 +27,7 @@
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'error', type: 'boolean', defaultValue: false },
 		{ name: 'required', type: 'boolean', defaultValue: false },
-		{ name: 'helperText', type: 'text', defaultValue: 'Минимум 8 символов' },
+		{ name: 'helperText', type: 'text', defaultValue: 'Use at least 8 characters.' },
 		{ name: 'errors', type: 'text', defaultValue: '' },
 		{ name: 'allowTogglePassword', type: 'boolean', defaultValue: true },
 		{ name: 'showPasswordStrength', type: 'boolean', defaultValue: true }
@@ -39,7 +39,7 @@
 	component={InputPassword}
 	title="InputPassword"
 	category="Atoms/Interaction/Input/Field"
-	description="Input для пароля с переключателем видимости и индикатором сложности"
+	description="Password input with visibility controls, validation states, and helper copy."
 	tags={['input', 'password', 'field', 'form', 'control', 'security']}
 >
 	{#snippet children(values: any)}

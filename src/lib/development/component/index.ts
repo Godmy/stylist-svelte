@@ -19,6 +19,7 @@ export {
 export {
 	AtomicPrinciplesShowcase,
 	ComponentLibraryStats,
+	ContentEditor,
 	DebugConsole,
 	DesignTokens,
 	DevelopmentErrorBoundary,

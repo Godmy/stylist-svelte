@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotColumnManager } from '$stylist/table/interface/slot/column-manager';
-	import createColumnManagerState from '$stylist/table/function/state/column-manager';
+	import { createColumnManagerState } from '$stylist/table/function/state/column-manager';
 
 	let props: SlotColumnManager = $props();
 	const state = createColumnManagerState(props);

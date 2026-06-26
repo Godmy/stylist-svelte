@@ -1,8 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	AnnouncementBanner,
-	AudioSlider,
-	AudioVisualizer,
 	Avatar,
 	CountryFlag,
 	Favicon,
@@ -13,11 +11,11 @@ export {
 } from './atom';
 export {
 	AvatarGroup,
+	IconPicker,
 	PictureToolbar,
 	TeamAvatarStack
 } from './molecule';
 export {
-	AudioPlayer,
 	CanvasImageEditor,
 	ImageGallery,
 	MediaLibrary,

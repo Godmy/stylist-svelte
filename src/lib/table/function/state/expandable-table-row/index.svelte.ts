@@ -19,5 +19,3 @@ export function createExpandableTableRowState(props: ExpandableTableRowProps) {
 		toggleExpanded
 	};
 }
-
-export default createExpandableTableRowState;

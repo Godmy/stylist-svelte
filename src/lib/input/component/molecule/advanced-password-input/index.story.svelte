@@ -15,8 +15,16 @@
 			type: 'boolean' as TokenControllerType,
 			defaultValue: true,
 			description: 'Whether to show the password strength indicator'
+		},
+		{
+			name: 'disabled',
+			type: 'boolean' as TokenControllerType,
+			defaultValue: false,
+			description: 'Disable the password field'
 		}
 	];
+
+	let password = $state('Starter123!');
 </script>
 
 <Story
@@ -26,34 +34,28 @@
 >
 	{#snippet children(controlValues: any)}
 		<div class="_c1">
-			<div class="_c2">
-				<h2 class="_c3">Password Input</h2>
-				<p class="_c4">Password field with strength indicator</p>
-			</div>
 			<AdvancedPasswordInput
+				value={password}
 				placeholder={controlValues.placeholder}
 				showStrengthMeter={controlValues.showStrength}
+				disabled={controlValues.disabled}
+				onValueChange={(next: string) => (password = next)}
 			/>
+			<p class="_c4">Length: {password.length} characters</p>
 		</div>
 	{/snippet}
 </Story>
 
 <style>
 	._c1 {
-		margin-left: auto;
-		margin-right: auto;
+		display: grid;
+		gap: 0.75rem;
 		max-width: 28rem;
 		padding: 1.5rem;
 	}
-	._c2 {
-		margin-bottom: 1.5rem;
-	}
-	._c3 {
-		font-size: 1.25rem;
-		line-height: 1.75rem;
-		font-weight: 600;
-	}
 	._c4 {
+		margin: 0;
+		font-size: 0.875rem;
 		color: var(--color-text-secondary);
 	}
 </style>

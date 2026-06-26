@@ -30,12 +30,16 @@
 		}
 	];
 
+	let submittedQuery = $state('');
+	let clearedCount = $state(0);
+
 	function handleSearch(query: string) {
-		console.log('Search event:', query);
+		submittedQuery = query;
 	}
 
 	function handleClear() {
-		console.log('Clear event');
+		clearedCount += 1;
+		submittedQuery = '';
 	}
 </script>
 
@@ -54,12 +58,26 @@
 				onSearch={handleSearch}
 				onClear={handleClear}
 			/>
+			<div class="_c2">
+				<span>Submitted: {submittedQuery || 'none'}</span>
+				<span>Clears: {clearedCount}</span>
+			</div>
 		</div>
 	{/snippet}
 </Story>
 
 <style>
 	._c1 {
+		display: grid;
+		gap: 0.75rem;
+		max-width: 36rem;
 		padding: 1rem;
+	}
+	._c2 {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
 	}
 </style>

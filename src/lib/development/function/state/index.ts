@@ -9,6 +9,7 @@ export { createCodeSectionState } from './code-section';
 export { createCodeWithCopyState } from './code-with-copy';
 export { createComponentLibraryStatsState } from './component-library-stats';
 export { createComponentPreviewState } from './component-preview';
+export { createContentEditorState } from './content-editor';
 export { createCopyableCodeBlockState } from './copyable-code-block';
 export { createDebugConsoleState } from './debug-console';
 export { createDesignTokensState } from './design-tokens';

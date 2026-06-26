@@ -74,9 +74,7 @@
 		<p class="text-area-counter">
 			{state.currentLength} / {props.maxlength}
 			{#if state.remainingChars !== null && state.remainingChars <= 10}
-				<span class="text-area-counter__warning"
-					>Осталось символов: {state.remainingChars}</span
-				>
+				<span class="text-area-counter__warning">Characters left: {state.remainingChars}</span>
 			{/if}
 		</p>
 	{/if}

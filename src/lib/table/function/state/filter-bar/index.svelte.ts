@@ -7,5 +7,3 @@ export function createFilterBarState(props: SlotFilterBar) {
 		get pillGroups() { return props.pillGroups ?? []; }
 	};
 }
-
-export default createFilterBarState;

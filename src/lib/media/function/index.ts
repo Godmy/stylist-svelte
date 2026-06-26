@@ -6,14 +6,12 @@ export {
 } from './script';
 export {
 	createAnnouncementBannerState,
-	createAudioPlayerState,
-	createAudioSliderState,
-	createAudioVisualizerState,
 	createAvatarGroupState,
 	createAvatarState,
 	createCanvasImageEditorState,
 	createCountryFlagState,
 	createFaviconState,
+	createIconPickerState,
 	createImageGalleryState,
 	createImageState,
 	createImageWithCaptionState,

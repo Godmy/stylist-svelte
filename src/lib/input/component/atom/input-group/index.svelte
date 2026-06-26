@@ -65,7 +65,7 @@
 			onclick={props.onButtonClick}
 			class={state.groupButtonClasses}
 		>
-			{props.buttonLabel ?? 'Действие'}
+			{props.buttonLabel ?? 'Action'}
 		</Button>
 	</div>
 

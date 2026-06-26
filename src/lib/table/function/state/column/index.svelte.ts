@@ -27,5 +27,3 @@ export function createColumnState(props: RecipeColumn) {
 		handleSort
 	};
 }
-
-export default createColumnState;

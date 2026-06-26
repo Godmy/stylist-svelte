@@ -1,13 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { createAnnouncementBannerState } from './announcement-banner';
-export { createAudioPlayerState } from './audio-player';
-export { createAudioSliderState } from './audio-slider';
-export { createAudioVisualizerState } from './audio-visualizer';
 export { createAvatarState } from './avatar';
 export { createAvatarGroupState } from './avatar-group';
 export { createCanvasImageEditorState } from './canvas-image-editor';
 export { createCountryFlagState } from './country-flag';
 export { createFaviconState } from './favicon';
+export { createIconPickerState } from './icon-picker';
 export { createImageState } from './image';
 export { createImageGalleryState } from './image-gallery';
 export { createImageWithCaptionState } from './image-with-caption';

@@ -1,9 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	ContractAnnouncementBanner,
-	ContractAudioPlayer,
-	ContractAudioSlider,
-	ContractAudioVisualizer,
 	ContractAvatar,
 	ContractAvatarGroup,
 	ContractCanvasImageEditor,
@@ -19,16 +16,12 @@ export type {
 	ContractVideoPlayer
 } from './contract';
 export type {
-	AudioPlayerProps,
 	AvatarGroupProps,
 	AvatarProps,
 	ImageGalleryStateProps,
 	NodeIconProps,
 	PromoBannerProps,
 	RecipeAnnouncementBanner,
-	RecipeAudioPlayer,
-	RecipeAudioSlider,
-	RecipeAudioVisualizer,
 	RecipeAvatar,
 	RecipeAvatarGroup,
 	RecipeCanvasImageEditor,

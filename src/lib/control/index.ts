@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	AccessibilityCheckbox,
 	AccessibilityToolbar,
 	Accordion,
 	AccordionGroup,
@@ -40,6 +41,7 @@ export {
 	RangeSlider,
 	SearchResults,
 	Selector,
+	SliderWithInput,
 	SortableGrid,
 	SortableList,
 	SplitButton,
@@ -146,6 +148,7 @@ export {
 	createFilterPanelState,
 	createFollowButtonState,
 	createIconButtonState,
+	createInputAccessibilityCheckboxState,
 	createListWithAvatarsState,
 	createMenuItemState,
 	createMultiSelectState,
@@ -160,6 +163,7 @@ export {
 	createSelectorState,
 	createSliderState,
 	createSliderTickState,
+	createSliderWithInputState,
 	createSortableGridState,
 	createSortableListState,
 	createSplitButtonState,
@@ -367,6 +371,7 @@ export type {
 	SlotSelectOption,
 	SlotSelectStyleClasses,
 	SlotSelector,
+	SlotSliderWithInput,
 	SlotSortableList,
 	SlotSortableListItem,
 	SlotSwitch,

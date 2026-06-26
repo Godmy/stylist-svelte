@@ -4,8 +4,8 @@
 	import InputGroup from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Поиск' },
-		{ name: 'placeholder', type: 'text', defaultValue: 'Поиск...' },
+		{ name: 'label', type: 'text', defaultValue: 'Search' },
+		{ name: 'placeholder', type: 'text', defaultValue: 'Search projects...' },
 		{ name: 'value', type: 'text', defaultValue: '' },
 		{
 			name: 'variant',
@@ -27,7 +27,7 @@
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'error', type: 'boolean', defaultValue: false },
 		{ name: 'required', type: 'boolean', defaultValue: false },
-		{ name: 'buttonLabel', type: 'text', defaultValue: 'Найти' },
+		{ name: 'buttonLabel', type: 'text', defaultValue: 'Find' },
 		{
 			name: 'buttonVariant',
 			type: 'select',
@@ -43,7 +43,7 @@
 	component={InputGroup}
 	title="InputGroup"
 	category="Atoms/Interaction/Input/Field"
-	description="Input с кнопкой справа для действий поиска, отправки и т.д."
+	description="Input with an attached action button for search, submit, or lookup flows."
 	tags={['input', 'group', 'button', 'field', 'form', 'control']}
 >
 	{#snippet children(values: any)}

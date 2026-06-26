@@ -3,7 +3,8 @@ export type { BehaviorPostCard } from './behavior';
 export type { ContractSocial } from './contract';
 export type {
 	RecipePostCard,
-	RecipeRating
+	RecipeRating,
+	RecipeReactionPicker
 } from './recipe';
 export type {
 	SlotCommentItem,
@@ -12,5 +13,6 @@ export type {
 	SlotCommentThreadItem,
 	SlotCommentThreadUser,
 	SlotCommentUser,
-	SlotRating
+	SlotRating,
+	SlotReactionPicker
 } from './slot';

@@ -1,16 +1,18 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import type { RecipeRow } from '$stylist/table/interface/recipe/row';
-	import createRowState from '$stylist/table/function/state/row';
+	import { createRowState } from '$stylist/table/function/state/row';
 
-	let props: RecipeRow = $props();
+	let props: RecipeRow & { children?: Snippet } = $props();
 	const state = createRowState(props);
+	const content = $derived(props.content ?? props.children);
 </script>
 
 <tr
 	class="c-row {state.striped ? 'c-row--striped' : ''} {state.active ? 'c-row--active' : ''} {state.hoverable ? 'c-row--hoverable' : ''} {props.class ?? ''}"
 	{...state.restProps}
 >
-	{#if props.content}{@render props.content()}{/if}
+	{#if content}{@render content()}{/if}
 </tr>
 
 <style>

@@ -1,7 +1,10 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import { createColumn } from '$stylist/table/function/factory/column';
 	import DataTable from './index.svelte';
+
+	type RowData = Record<string, unknown>;
 
 	type Props = {
 		striped: boolean;
@@ -19,7 +22,7 @@
 		{ name: 'sortable', type: 'boolean', defaultValue: true }
 	];
 
-	const data = [
+	const data: RowData[] = [
 		{ id: 1, name: 'Alice Johnson', role: 'Admin', email: 'alice@example.com', status: 'active' },
 		{ id: 2, name: 'Bob Smith', role: 'Manager', email: 'bob@example.com', status: 'active' },
 		{ id: 3, name: 'Chris Brown', role: 'User', email: 'chris@example.com', status: 'inactive' },
@@ -27,12 +30,12 @@
 		{ id: 5, name: 'Eve Wilson', role: 'Manager', email: 'eve@example.com', status: 'active' }
 	];
 
-	const columns = [
-		{ key: 'id', title: 'ID', sortable: true },
-		{ key: 'name', title: 'Name', sortable: true },
-		{ key: 'email', title: 'Email', sortable: true },
-		{ key: 'role', title: 'Role', sortable: true },
-		{ key: 'status', title: 'Status', sortable: true }
+	const schema = [
+		createColumn<RowData>('id', { cell: 'number', header: 'ID', sortable: true }),
+		createColumn<RowData>('name', { cell: 'text', header: 'Name', sortable: true }),
+		createColumn<RowData>('email', { cell: 'text', header: 'Email', sortable: true }),
+		createColumn<RowData>('role', { cell: 'text', header: 'Role', sortable: true }),
+		createColumn<RowData>('status', { cell: 'pill', header: 'Status', sortable: true })
 	];
 
 	function handleSort(column: string) {
@@ -60,7 +63,7 @@
 			<div class="_c3">
 				<h2 class="_c4">Interactive DataTable</h2>
 				<div class="_c5">
-					<DataTable {data} {columns} onRowClick={handleRowClick} />
+					<DataTable {data} {schema} onRowClick={handleRowClick} />
 				</div>
 
 				<div class="_c6">

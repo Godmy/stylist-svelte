@@ -14,6 +14,7 @@ export {
 	createCodeWithCopyState,
 	createComponentLibraryStatsState,
 	createComponentPreviewState,
+	createContentEditorState,
 	createCopyableCodeBlockState,
 	createDebugConsoleState,
 	createDesignTokensState,

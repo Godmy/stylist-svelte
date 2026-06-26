@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	AccessibilityCheckbox,
 	AccordionLayout,
 	ActionSegmentedControl,
 	BurgerMenu,
@@ -44,6 +45,7 @@ export {
 	RadioButtonGroup,
 	RangeSlider,
 	Selector,
+	SliderWithInput,
 	StylistTab,
 	TabGroup,
 	Tabs,

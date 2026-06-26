@@ -222,6 +222,7 @@
 	.playground-container {
 		display: grid;
 		gap: 1.5rem;
+		min-width: 0;
 	}
 
 	.story-header {
@@ -298,17 +299,19 @@
 	.component-preview,
 	.variants-preview,
 	.controls-panel {
+		box-sizing: border-box;
+		min-width: 0;
 		padding: 1.5rem;
 		border: 1px solid color-mix(in srgb, var(--color-border-primary) 84%, transparent);
-		border-radius: 1.75rem;
+		border-radius: 0.5rem;
 		background: var(--color-background-primary);
 		box-shadow: var(--shadow-sm, 0 10px 25px rgb(15 23 42 / 0.05));
 	}
 
 	.controls-panel {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+		gap: 0.75rem;
 		background: linear-gradient(
 			180deg,
 			color-mix(in srgb, var(--color-background-primary) 94%, white 6%),
@@ -317,11 +320,13 @@
 	}
 
 	.control-item {
+		box-sizing: border-box;
 		display: grid;
 		gap: 0.65rem;
+		min-width: 0;
 		padding: 1rem;
 		border: 1px solid color-mix(in srgb, var(--color-border-primary) 78%, transparent);
-		border-radius: 1.25rem;
+		border-radius: 0.5rem;
 		background: color-mix(in srgb, var(--color-background-secondary) 55%, transparent);
 	}
 
@@ -329,10 +334,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: 0.75rem;
+		min-width: 0;
 	}
 
 	.control-item__label {
+		min-width: 0;
+		overflow-wrap: anywhere;
 		font-size: 0.85rem;
 		font-weight: 700;
 		letter-spacing: 0.04em;
@@ -357,10 +365,12 @@
 	}
 
 	.control-input {
+		box-sizing: border-box;
+		min-width: 0;
 		width: 100%;
 		padding: 0.8rem 0.95rem;
 		border: 1px solid color-mix(in srgb, var(--color-border-primary) 86%, transparent);
-		border-radius: 0.95rem;
+		border-radius: 0.5rem;
 		background: var(--color-background-primary);
 		font: inherit;
 		color: var(--color-text-primary);
@@ -379,6 +389,7 @@
 	.control-toggle {
 		display: inline-flex;
 		align-items: center;
+		min-width: 0;
 		gap: 0.8rem;
 		cursor: pointer;
 		user-select: none;
@@ -424,6 +435,8 @@
 	}
 
 	.control-toggle__text {
+		min-width: 0;
+		overflow-wrap: anywhere;
 		font-size: 0.92rem;
 		font-weight: 600;
 		color: var(--color-text-secondary);
@@ -431,9 +444,10 @@
 
 	.control-color {
 		display: grid;
-		grid-template-columns: auto 1fr;
+		grid-template-columns: auto minmax(0, 1fr);
 		gap: 0.75rem;
 		align-items: center;
+		min-width: 0;
 	}
 
 	.control-color__picker {

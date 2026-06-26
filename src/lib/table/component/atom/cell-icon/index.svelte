@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCellIcon } from '$stylist/table/interface/recipe/cell-icon';
-	import createCellIconState from '$stylist/table/function/state/cell-icon';
+	import { createCellIconState } from '$stylist/table/function/state/cell-icon';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeCellIcon = $props();
@@ -8,7 +8,7 @@
 </script>
 
 <td class="c-cell-icon {props.class ?? ''}" title={state.label || undefined}>
-	<Icon name={state.icon} class="c-cell-icon__svg" />
+	<Icon name={state.icon} size={16} aria-label={state.label || undefined} class="c-cell-icon__svg" />
 </td>
 
 <style>

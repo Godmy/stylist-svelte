@@ -46,6 +46,7 @@ export const TOKEN_ICON_REGISTRY = {
 	'atomic-principles-showcase': (ICON_VALUE['ICON_ATOMIC_PRINCIPLES_SHOWCASE' as keyof typeof ICON_VALUE] ?? ICON_VALUE.ICON_FILE),
 	'attachment-preview': (ICON_VALUE['ICON_ATTACHMENT_PREVIEW' as keyof typeof ICON_VALUE] ?? ICON_VALUE.ICON_FILE),
 	'attachment': (ICON_VALUE['ICON_ATTACHMENT' as keyof typeof ICON_VALUE] ?? ICON_VALUE.ICON_FILE),
+	'audio': (ICON_VALUE['ICON_AUDIO' as keyof typeof ICON_VALUE] ?? ICON_VALUE.ICON_FILE),
 	'audio-player': (ICON_VALUE['ICON_AUDIO_PLAYER' as keyof typeof ICON_VALUE] ?? ICON_VALUE.ICON_FILE),
 	'audio-slider': (ICON_VALUE['ICON_AUDIO_SLIDER' as keyof typeof ICON_VALUE] ?? ICON_VALUE.ICON_FILE),
 	'audio-visualizer': (ICON_VALUE['ICON_AUDIO_VISUALIZER' as keyof typeof ICON_VALUE] ?? ICON_VALUE.ICON_FILE),

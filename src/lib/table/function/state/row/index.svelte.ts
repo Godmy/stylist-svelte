@@ -14,5 +14,3 @@ export function createRowState(props: RecipeRow) {
 		get restProps() { return restProps; }
 	};
 }
-
-export default createRowState;

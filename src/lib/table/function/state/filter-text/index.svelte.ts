@@ -15,5 +15,3 @@ export function createFilterTextState(props: SlotFilterText) {
 		handleInput
 	};
 }
-
-export default createFilterTextState;

@@ -9,5 +9,3 @@ export function createCellIconState(props: RecipeCellIcon) {
 		get label() { return label; }
 	};
 }
-
-export default createCellIconState;

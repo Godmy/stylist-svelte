@@ -1,7 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AnnouncementBanner } from './announcement-banner/index';
-export { AudioSlider } from './audio-slider/index';
-export { AudioVisualizer } from './audio-visualizer/index';
 export { Avatar } from './avatar/index';
 export { CountryFlag } from './country-flag/index';
 export { Favicon } from './favicon/index';

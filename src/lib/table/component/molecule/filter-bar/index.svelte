@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotFilterBar } from '$stylist/table/interface/slot/filter-bar';
-	import createFilterBarState from '$stylist/table/function/state/filter-bar';
+	import { createFilterBarState } from '$stylist/table/function/state/filter-bar';
 	import FilterText from '$stylist/table/component/molecule/filter-text/index.svelte';
 	import FilterPills from '$stylist/table/component/molecule/filter-pills/index.svelte';
 

@@ -36,6 +36,9 @@ export function createDataTableShellState(props: SlotDataTableShell<Row>) {
 	const toggleColumn = (key: string) => {
 		columnVisibility = { ...columnVisibility, [key]: !columnVisibility[key] };
 	};
+	const setColumnVisibility = (nextVisibility: Record<string, boolean>) => {
+		columnVisibility = { ...columnVisibility, ...nextVisibility };
+	};
 	const goPrev = () => { if (currentPage > 1) currentPage -= 1; };
 	const goNext = () => { if (currentPage < totalPages) currentPage += 1; };
 
@@ -81,8 +84,6 @@ export function createDataTableShellState(props: SlotDataTableShell<Row>) {
 		get sorted() { return sorted; },
 		get totalPages() { return totalPages; },
 		get pageData() { return pageData; },
-		sort, togglePill, setSearch, setPageSize, toggleColumn, goPrev, goNext
+		sort, togglePill, setSearch, setPageSize, toggleColumn, setColumnVisibility, goPrev, goNext
 	};
 }
-
-export default createDataTableShellState;

@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { AccessibilityCheckbox } from './accessibility-checkbox/index';
 export { AccordionLayout } from './accordion-layout/index';
 export { ActionSegmentedControl } from './action-segmented-control/index';
 export { BurgerMenu } from './burger-menu/index';

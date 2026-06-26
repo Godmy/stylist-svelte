@@ -1,14 +1,12 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	AnnouncementBanner,
-	AudioPlayer,
-	AudioSlider,
-	AudioVisualizer,
 	Avatar,
 	AvatarGroup,
 	CanvasImageEditor,
 	CountryFlag,
 	Favicon,
+	IconPicker,
 	Image,
 	ImageGallery,
 	ImageWithCaption,
@@ -26,14 +24,12 @@ export {
 } from './const';
 export {
 	createAnnouncementBannerState,
-	createAudioPlayerState,
-	createAudioSliderState,
-	createAudioVisualizerState,
 	createAvatarGroupState,
 	createAvatarState,
 	createCanvasImageEditorState,
 	createCountryFlagState,
 	createFaviconState,
+	createIconPickerState,
 	createImageGalleryState,
 	createImageState,
 	createImageWithCaptionState,
@@ -48,9 +44,6 @@ export {
 	formatTime
 } from './function';
 export type {
-	AudioPlayerProps,
-	AudioSliderProps,
-	AudioVisualizerProps,
 	AvatarGroupAvatar,
 	AvatarGroupProps,
 	AvatarProps,
@@ -68,9 +61,6 @@ export type {
 } from './type';
 export type {
 	ContractAnnouncementBanner,
-	ContractAudioPlayer,
-	ContractAudioSlider,
-	ContractAudioVisualizer,
 	ContractAvatar,
 	ContractAvatarGroup,
 	ContractCanvasImageEditor,
@@ -86,9 +76,6 @@ export type {
 	ContractVideoPlayer,
 	ImageGalleryStateProps,
 	RecipeAnnouncementBanner,
-	RecipeAudioPlayer,
-	RecipeAudioSlider,
-	RecipeAudioVisualizer,
 	RecipeAvatar,
 	RecipeAvatarGroup,
 	RecipeCanvasImageEditor,

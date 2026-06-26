@@ -112,6 +112,7 @@ export type {
 	SlotSelectOption,
 	SlotSelectStyleClasses,
 	SlotSelector,
+	SlotSliderWithInput,
 	SlotSortableList,
 	SlotSortableListItem,
 	SlotSwitch,

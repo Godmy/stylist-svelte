@@ -43,6 +43,7 @@ export type { SlotSelect } from './select';
 export type { SlotSelectOption } from './select-option';
 export type { SlotSelectStyleClasses } from './select-style-classes';
 export type { SlotSelector } from './selector';
+export type { SlotSliderWithInput } from './slider-with-input';
 export type { SlotSortableList } from './sortable-list';
 export type { SlotSortableListItem } from './sortable-list-item';
 export type { SlotSwitch } from './switch';

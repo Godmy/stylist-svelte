@@ -1,18 +1,20 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import type { RecipeCell } from '$stylist/table/interface/recipe/cell';
-	import createCellState from '$stylist/table/function/state/cell';
+	import { createCellState } from '$stylist/table/function/state/cell';
 
-	let props: RecipeCell = $props();
+	let props: RecipeCell & { children?: Snippet } = $props();
 	const state = createCellState(props);
+	const content = $derived(props.content ?? props.children);
 </script>
 
 {#if state.variant === 'header'}
 	<th class="c-cell c-cell--header {state.alignClass} {props.class ?? ''}">
-		{#if props.content}{@render props.content()}{/if}
+		{#if content}{@render content()}{/if}
 	</th>
 {:else}
 	<td class="c-cell {state.alignClass} {props.class ?? ''}">
-		{#if props.content}{@render props.content()}{/if}
+		{#if content}{@render content()}{/if}
 	</td>
 {/if}
 

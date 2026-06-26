@@ -44,6 +44,7 @@ export { ICON_ATOM } from './atom';
 export { ICON_ATOMIC_PRINCIPLES_SHOWCASE } from './atomic-principles-showcase';
 export { ICON_ATTACHMENT } from './attachment';
 export { ICON_ATTACHMENT_PREVIEW } from './attachment-preview';
+export { ICON_AUDIO } from './audio';
 export { ICON_AUDIO_PLAYER } from './audio-player';
 export { ICON_AUDIO_SLIDER } from './audio-slider';
 export { ICON_AUDIO_VISUALIZER } from './audio-visualizer';

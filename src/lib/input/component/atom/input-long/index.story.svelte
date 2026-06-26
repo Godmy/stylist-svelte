@@ -4,8 +4,8 @@
 	import InputLong from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Комментарий' },
-		{ name: 'placeholder', type: 'text', defaultValue: 'Введите ваш комментарий...' },
+		{ name: 'label', type: 'text', defaultValue: 'Comment' },
+		{ name: 'placeholder', type: 'text', defaultValue: 'Add a detailed note...' },
 		{ name: 'value', type: 'text', defaultValue: '' },
 		{
 			name: 'variant',
@@ -30,7 +30,7 @@
 		{ name: 'rows', type: 'number', defaultValue: 4, min: 2, max: 20 },
 		{ name: 'autoResize', type: 'boolean', defaultValue: false },
 		{ name: 'maxlength', type: 'number', defaultValue: 500, min: 0, max: 5000 },
-		{ name: 'helperText', type: 'text', defaultValue: 'Максимум 500 символов' }
+		{ name: 'helperText', type: 'text', defaultValue: 'Keep it under 500 characters.' }
 	];
 </script>
 
@@ -39,7 +39,7 @@
 	component={InputLong}
 	title="InputLong"
 	category="Atoms/Interaction/Input/Field"
-	description="Многострочный input для длинного текста с auto-resize и ограничением длины"
+	description="Long-form input for detailed text with resize behavior and character limits."
 	tags={['input', 'long', 'textarea', 'field', 'form', 'control']}
 >
 	{#snippet children(values: any)}

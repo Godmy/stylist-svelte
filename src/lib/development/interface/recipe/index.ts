@@ -5,6 +5,7 @@ export type { RecipeCodeDiff } from './code-diff';
 export type { RecipeCodeEditor } from './code-editor';
 export type { RecipeComponentLibraryStats } from './component-library-stats';
 export type { RecipeComponentPreview } from './component-preview';
+export type { ContentEditorStateProps } from './content-editor-state-props';
 export type { RecipeDebugConsole } from './debug-console';
 export type { RecipeDesignTokens } from './design-tokens';
 export type { RecipeDevelopmentErrorBoundary } from './development-error-boundary';

@@ -3,13 +3,6 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import TagInput from './index.svelte';
 
-	type Props = {
-		placeholder: string;
-		disabled: boolean;
-		maxTags: number;
-		delimiter: string;
-	};
-
 	const controls: InterfaceControllerSettings[] = [
 		{
 			name: 'placeholder',
@@ -37,7 +30,6 @@
 
 	function handleInputChange(tags: string[]) {
 		currentTags = tags;
-		console.log('Tags changed:', tags);
 	}
 </script>
 
@@ -52,7 +44,10 @@
 >
 	{#snippet children(values: any)}
 		<div class="_c1">
-			<h3 class="_c2">Current Tags: {currentTags.join(', ')}</h3>
+			<div class="_c2">
+				<span>Tags: {currentTags.length}</span>
+				<span>{currentTags.join(', ') || 'none'}</span>
+			</div>
 			<TagInput
 				tags={currentTags}
 				placeholder={values.placeholder}
@@ -67,12 +62,16 @@
 
 <style>
 	._c1 {
+		display: grid;
+		gap: 0.75rem;
+		max-width: 36rem;
 		padding: 1rem;
 	}
 	._c2 {
-		margin-bottom: 0.5rem;
-		font-size: 1.125rem;
-		line-height: 1.75rem;
-		font-weight: 600;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
 	}
 </style>

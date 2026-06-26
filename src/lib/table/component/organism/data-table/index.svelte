@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotDataTable } from '$stylist/table/interface/slot/data-table';
-	import createDataTableState from '$stylist/table/function/state/data-table';
+	import { createDataTableState } from '$stylist/table/function/state/data-table';
 	import Table from '$stylist/table/component/atom/table/index.svelte';
 	import Row from '$stylist/table/component/atom/row/index.svelte';
 	import Column from '$stylist/table/component/molecule/column/index.svelte';
@@ -11,18 +11,38 @@
 
 	type RowData = Record<string, unknown>;
 
-	let {
-		data = [],
-		schema = [],
-		striped = true,
-		hoverable = true,
-		maxHeight,
-		onRowClick,
-		class: className = '',
-		...restProps
-	}: SlotDataTable<RowData> = $props();
+	let props: SlotDataTable<RowData> = $props();
 
-	const state = createDataTableState({ data, schema, striped, hoverable, maxHeight, onRowClick, class: className });
+	const data = $derived(props.data ?? []);
+	const schema = $derived(props.schema ?? []);
+	const striped = $derived(props.striped ?? true);
+	const hoverable = $derived(props.hoverable ?? true);
+	const maxHeight = $derived(props.maxHeight);
+	const onRowClick = $derived(props.onRowClick);
+	const className = $derived(props.class ?? '');
+	const restProps = $derived.by(() => {
+		const {
+			data: _data,
+			schema: _schema,
+			striped: _striped,
+			hoverable: _hoverable,
+			maxHeight: _maxHeight,
+			onRowClick: _onRowClick,
+			class: _class,
+			...rest
+		} = props;
+		return rest;
+	});
+
+	const state = createDataTableState({
+		get data() { return data; },
+		get schema() { return schema; },
+		get striped() { return striped; },
+		get hoverable() { return hoverable; },
+		get maxHeight() { return maxHeight; },
+		get onRowClick() { return onRowClick; },
+		get class() { return className; }
+	});
 </script>
 
 <div
@@ -30,7 +50,7 @@
 	style={state.containerStyle || undefined}
 	{...restProps}
 >
-	<Table {striped} {hoverable}>
+	<Table striped={striped} hoverable={hoverable}>
 		{#snippet content()}
 			<thead>
 				<tr>
@@ -53,7 +73,7 @@
 					</tr>
 				{:else}
 					{#each state.sortedData as row, i}
-						<Row striped={striped && i % 2 === 1} {hoverable} onclick={() => onRowClick?.(row)}>
+						<Row striped={striped && i % 2 === 1} hoverable={hoverable} onclick={() => onRowClick?.(row)}>
 							{#snippet content()}
 								{#each state.visibleSchema as col}
 									{#if col.cell === 'icon'}

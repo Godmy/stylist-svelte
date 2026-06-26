@@ -27,7 +27,7 @@
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'error', type: 'boolean', defaultValue: false },
 		{ name: 'required', type: 'boolean', defaultValue: false },
-		{ name: 'helperText', type: 'text', defaultValue: 'Введите ваш email адрес' },
+		{ name: 'helperText', type: 'text', defaultValue: 'Use the address where we can reach you.' },
 		{ name: 'errors', type: 'text', defaultValue: '' }
 	];
 </script>
@@ -37,7 +37,7 @@
 	component={InputEmail}
 	title="InputEmail"
 	category="Atoms/Interaction/Input/Field"
-	description="Специализированный input для email с валидацией формата"
+	description="Email input with format validation, helper copy, and disabled/error states."
 	tags={['input', 'email', 'field', 'form', 'control']}
 >
 	{#snippet children(values: any)}

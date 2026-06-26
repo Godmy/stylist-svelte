@@ -6,3 +6,4 @@ export type { SlotCommentThreadItem } from './comment-thread-item';
 export type { SlotCommentThreadUser } from './comment-thread-user';
 export type { SlotCommentUser } from './comment-user';
 export type { SlotRating } from './rating';
+export type { SlotReactionPicker } from './reaction-picker';

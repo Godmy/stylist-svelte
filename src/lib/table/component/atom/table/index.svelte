@@ -1,16 +1,18 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import type { RecipeTable } from '$stylist/table/interface/recipe/table';
 	import { ObjectManagerTable } from '$stylist/table/class/object-manager/table';
 
-	let props: RecipeTable = $props();
+	let props: RecipeTable & { children?: Snippet } = $props();
 	const restProps = $derived(ObjectManagerTable.getTableRestProps(props));
+	const content = $derived(props.content ?? props.children);
 </script>
 
 <table
 	class="c-table {props.striped ? 'c-table--striped' : ''} {props.bordered ? 'c-table--bordered' : ''} {props.hoverable ? 'c-table--hoverable' : ''} {props.class ?? ''}"
 	{...restProps}
 >
-	{#if props.content}{@render props.content()}{/if}
+	{#if content}{@render content()}{/if}
 </table>
 
 <style>

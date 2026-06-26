@@ -1,4 +1,5 @@
 import type { SlotSvgName } from '$stylist/svg/interface/slot/svg-name';
+import { ICON_AUDIO }        from '$stylist/svg/const/value/audio';
 import { ICON_ANIMATION }    from '$stylist/svg/const/value/animation';
 import { ICON_ARCHITECTURE } from '$stylist/svg/const/value/architecture';
 import { ICON_CALENDAR }     from '$stylist/svg/const/value/calendar';
@@ -37,6 +38,7 @@ import { ICON_TYPOGRAPHY }   from '$stylist/svg/const/value/typography';
 import { ICON_USER }         from '$stylist/svg/const/value/user';
 
 export const DOMAIN_MENU_ICONS = [
+	{ name: 'audio',        svg: ICON_AUDIO },
 	{ name: 'animation',    svg: ICON_ANIMATION },
 	{ name: 'architecture', svg: ICON_ARCHITECTURE },
 	{ name: 'calendar',     svg: ICON_CALENDAR },

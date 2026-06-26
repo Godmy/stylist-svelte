@@ -41,5 +41,3 @@ export function createColumnManagerState(props: ColumnManagerProps) {
 		reset
 	};
 }
-
-export default createColumnManagerState;

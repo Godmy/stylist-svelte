@@ -11,5 +11,3 @@ export function createFilterPillsState(props: SlotFilterPills) {
 		toggle
 	};
 }
-
-export default createFilterPillsState;

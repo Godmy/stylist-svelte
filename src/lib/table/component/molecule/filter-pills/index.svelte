@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotFilterPills } from '$stylist/table/interface/slot/filter-pills';
-	import createFilterPillsState from '$stylist/table/function/state/filter-pills';
+	import { createFilterPillsState } from '$stylist/table/function/state/filter-pills';
 
 	let props: SlotFilterPills = $props();
 	const state = createFilterPillsState(props);

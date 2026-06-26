@@ -3,10 +3,8 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import Table from './index.svelte';
-	import TableHeader from '../table-header/index.svelte';
-	import TableBody from '../table-body/index.svelte';
-	import TableRow from '../table-row/index.svelte';
-	import TableCell from '../table-cell/index.svelte';
+	import Row from '../row/index.svelte';
+	import Cell from '../cell/index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'caption', type: 'text', defaultValue: 'Example table' },
@@ -37,32 +35,28 @@
 				<div class="_c6">
 					<Table {...values}>
 						{#snippet content()}
-							<TableHeader>
-								{#snippet content()}
-									<TableRow>
-										{#snippet content()}
-											<TableCell variant="header">Name</TableCell>
-											<TableCell variant="header">Value</TableCell>
-										{/snippet}
-									</TableRow>
-								{/snippet}
-							</TableHeader>
-							<TableBody>
-								{#snippet content()}
-									<TableRow striped={values.striped}>
-										{#snippet content()}
-											<TableCell>Alpha</TableCell>
-											<TableCell>123</TableCell>
-										{/snippet}
-									</TableRow>
-									<TableRow striped={values.striped}>
-										{#snippet content()}
-											<TableCell>Beta</TableCell>
-											<TableCell>456</TableCell>
-										{/snippet}
-									</TableRow>
-								{/snippet}
-							</TableBody>
+							<thead>
+								<Row>
+									{#snippet content()}
+										<Cell variant="header">Name</Cell>
+										<Cell variant="header">Value</Cell>
+									{/snippet}
+								</Row>
+							</thead>
+							<tbody>
+								<Row striped={values.striped}>
+									{#snippet content()}
+										<Cell>Alpha</Cell>
+										<Cell>123</Cell>
+									{/snippet}
+								</Row>
+								<Row striped={values.striped}>
+									{#snippet content()}
+										<Cell>Beta</Cell>
+										<Cell>456</Cell>
+									{/snippet}
+								</Row>
+							</tbody>
 						{/snippet}
 					</Table>
 				</div>
@@ -78,28 +72,28 @@
 						<div class="_c13">
 							<Table caption="Striped example" striped={true}>
 								{#snippet content()}
-									<TableHeader>
-										{#snippet content()}
-											<TableRow>
-												{#snippet content()}
-													<TableCell variant="header">Product</TableCell>
-													<TableCell variant="header">Price</TableCell>
-												{/snippet}
-											</TableRow>
-										{/snippet}
-									</TableHeader>
-									<TableBody>
-										{#snippet content()}
-											<TableRow striped>
-												<TableCell>Item 1</TableCell>
-												<TableCell>$10.00</TableCell>
-											</TableRow>
-											<TableRow striped>
-												<TableCell>Item 2</TableCell>
-												<TableCell>$20.00</TableCell>
-											</TableRow>
-										{/snippet}
-									</TableBody>
+									<thead>
+										<Row>
+											{#snippet content()}
+												<Cell variant="header">Product</Cell>
+												<Cell variant="header">Price</Cell>
+											{/snippet}
+										</Row>
+									</thead>
+									<tbody>
+										<Row striped>
+											{#snippet content()}
+												<Cell>Item 1</Cell>
+												<Cell>$10.00</Cell>
+											{/snippet}
+										</Row>
+										<Row striped>
+											{#snippet content()}
+												<Cell>Item 2</Cell>
+												<Cell>$20.00</Cell>
+											{/snippet}
+										</Row>
+									</tbody>
 								{/snippet}
 							</Table>
 						</div>
@@ -110,28 +104,28 @@
 						<div class="_c13">
 							<Table caption="Bordered example" bordered={true}>
 								{#snippet content()}
-									<TableHeader>
-										{#snippet content()}
-											<TableRow>
-												{#snippet content()}
-													<TableCell variant="header">ID</TableCell>
-													<TableCell variant="header">Status</TableCell>
-												{/snippet}
-											</TableRow>
-										{/snippet}
-									</TableHeader>
-									<TableBody>
-										{#snippet content()}
-											<TableRow>
-												<TableCell>#001</TableCell>
-												<TableCell>Active</TableCell>
-											</TableRow>
-											<TableRow>
-												<TableCell>#002</TableCell>
-												<TableCell>Inactive</TableCell>
-											</TableRow>
-										{/snippet}
-									</TableBody>
+									<thead>
+										<Row>
+											{#snippet content()}
+												<Cell variant="header">ID</Cell>
+												<Cell variant="header">Status</Cell>
+											{/snippet}
+										</Row>
+									</thead>
+									<tbody>
+										<Row>
+											{#snippet content()}
+												<Cell>#001</Cell>
+												<Cell>Active</Cell>
+											{/snippet}
+										</Row>
+										<Row>
+											{#snippet content()}
+												<Cell>#002</Cell>
+												<Cell>Inactive</Cell>
+											{/snippet}
+										</Row>
+									</tbody>
 								{/snippet}
 							</Table>
 						</div>

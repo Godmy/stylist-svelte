@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RowExpandableProps } from '$stylist/table/type/struct/row-expandable-props';
-	import createExpandableTableRowState from '$stylist/table/function/state/expandable-table-row/index.svelte';
+	import { createExpandableTableRowState } from '$stylist/table/function/state/expandable-table-row/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let {

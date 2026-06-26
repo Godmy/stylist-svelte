@@ -4,6 +4,7 @@ export { createCommentThreadState } from './comment-thread';
 export { createFriendListState } from './friend-list';
 export { createPostCardState } from './post-card';
 export { createRatingState } from './rating';
+export { createReactionPickerState } from './reaction-picker';
 export { createSocialActivityFeedState } from './social-activity-feed';
 export { createSocialFeedState } from './social-feed';
 export { createSocialLoginState } from './social-login';

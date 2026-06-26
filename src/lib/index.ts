@@ -149,6 +149,20 @@ export {
 	useSemanticZoom
 } from './architecture';
 export {
+	AudioPlayer,
+	AudioRecordButton,
+	AudioSlider,
+	AudioVisualizer,
+	TOKEN_AUDIO_ICON,
+	Transcriber,
+	createAudioPlayerState,
+	createAudioRecordButtonState,
+	createAudioSliderState,
+	createAudioVisualizerState,
+	createTranscriberState,
+	formatAudioTime
+} from './audio';
+export {
 	CalendarView,
 	DatePicker,
 	DateRangePicker,
@@ -514,6 +528,7 @@ export {
 } from './commerce';
 export {
 	ACCORDION_CONTEXT_DEFAULT,
+	AccessibilityCheckbox,
 	AccessibilityToolbar,
 	Accordion,
 	AccordionGroup,
@@ -591,6 +606,7 @@ export {
 	SWITCH_THUMB_TRANSLATE_CLASSES,
 	SearchResults,
 	Selector,
+	SliderWithInput,
 	SortableGrid,
 	SortableList,
 	SplitButton,
@@ -655,6 +671,7 @@ export {
 	createFilterPanelState,
 	createFollowButtonState,
 	createIconButtonState,
+	createInputAccessibilityCheckboxState,
 	createListWithAvatarsState,
 	createMenuItemState,
 	createMultiSelectState,
@@ -669,6 +686,7 @@ export {
 	createSelectorState,
 	createSliderState,
 	createSliderTickState,
+	createSliderWithInputState,
 	createSortableGridState,
 	createSortableListState,
 	createSplitButtonState,
@@ -721,6 +739,7 @@ export {
 	CodeWithCopy,
 	ComponentLibraryStats,
 	ComponentPreview,
+	ContentEditor,
 	CopyableCodeBlock,
 	DebugConsole,
 	DesignTokens,
@@ -752,6 +771,7 @@ export {
 	createCodeWithCopyState,
 	createComponentLibraryStatsState,
 	createComponentPreviewState,
+	createContentEditorState,
 	createCopyableCodeBlockState,
 	createDebugConsoleState,
 	createDesignTokensState,
@@ -1003,59 +1023,51 @@ export {
 	resolveAriaLabel
 } from './information';
 export {
-	AccessibilityCheckbox,
 	AdvancedInput,
 	AdvancedPasswordInput,
 	AutoComplete,
 	AutoSearch,
 	AutocompleteDropdown,
 	CharactersCount,
-	ContentEditor,
 	FieldHighlighter,
-	FormErrorMessage,
-	FormHelperText,
 	INPUT_VARIANT_CLASSES,
-	IconPicker,
 	InputAddon,
 	InputDouble,
 	InputEmail,
+	InputError,
 	InputField,
 	InputGroup,
+	InputHelper,
 	InputLong,
 	InputPassword,
 	InputPinDigit,
 	InputText,
 	NumberInput,
 	PhoneNumberInput,
-	ReactionPicker,
 	SearchBar,
 	SearchSuggestion,
-	SliderWithInput,
 	TagInput,
 	TextArea,
-	TextInputDialog,
 	createAdvancedInputState,
 	createAdvancedPasswordInputState,
 	createAutoCompleteState,
 	createCharactersCountState,
-	createContentEditorState,
 	createFieldHighlighterState,
-	createInputAccessibilityCheckboxState,
 	createInputAddonState,
 	createInputDoubleState,
 	createInputEmailState,
+	createInputErrorState,
 	createInputFieldState,
 	createInputGroupState,
+	createInputHelperState,
 	createInputLongState,
 	createInputPasswordState,
 	createInputTextState,
 	createNumberInputState,
 	createPhoneNumberInputState,
 	createPinInputDigitState,
-	createReactionPickerState,
 	createRichTextEditorState,
 	createSearchBarState,
-	createSliderWithInputState,
 	createTagInputState,
 	createTextareaState,
 	createVariablesEditorState,
@@ -1360,15 +1372,13 @@ export {
 export {
 	ANNOUNCEMENT_BANNER_CLASSES,
 	AnnouncementBanner,
-	AudioPlayer,
-	AudioSlider,
-	AudioVisualizer,
 	Avatar,
 	AvatarGroup,
 	CanvasImageEditor,
 	CountryFlag,
 	Favicon,
 	IMAGE_WITH_CAPTION_CLASSES,
+	IconPicker,
 	Image,
 	ImageGallery,
 	ImageWithCaption,
@@ -1380,9 +1390,6 @@ export {
 	TeamAvatarStack,
 	VideoPlayer,
 	createAnnouncementBannerState,
-	createAudioPlayerState,
-	createAudioSliderState,
-	createAudioVisualizerState,
 	createAvatarGroupState,
 	createAvatarState,
 	createCanvasImageEditorState,
@@ -1433,6 +1440,7 @@ export {
 	Sidebar,
 	SimpleModal,
 	Stepper,
+	TextInputDialog,
 	close,
 	createBreadcrumbDropdownState,
 	createBreadcrumbLinkState,
@@ -1642,6 +1650,7 @@ export {
 	FriendList,
 	PostCard,
 	Rating,
+	ReactionPicker,
 	SocialActivityFeed,
 	SocialFeed,
 	SocialLogin,
@@ -1662,6 +1671,7 @@ export {
 	createFriendListState,
 	createPostCardState,
 	createRatingState,
+	createReactionPickerState,
 	createSocialActivityFeedState,
 	createSocialFeedState,
 	createSocialLoginState,
@@ -1724,6 +1734,7 @@ export {
 	ICON_ATTACHMENT,
 	ICON_ATTACHMENT_PREVIEW,
 	ICON_AT_SIGN,
+	ICON_AUDIO,
 	ICON_AUDIO_PLAYER,
 	ICON_AUDIO_SLIDER,
 	ICON_AUDIO_VISUALIZER,
@@ -2626,6 +2637,14 @@ export type {
 	ZoomStep
 } from './architecture';
 export type {
+	AudioPlayerProps,
+	AudioSliderProps,
+	AudioVisualizerProps,
+	TypeAudioRecording,
+	TypeTranscriberStatus,
+	TypeTranscriptionResult
+} from './audio';
+export type {
 	CalendarDay,
 	CalendarEventMini,
 	CalendarEventTimeGrid,
@@ -3081,9 +3100,6 @@ export type {
 	UserBehaviorMetricsProps
 } from './marketing';
 export type {
-	AudioPlayerProps,
-	AudioSliderProps,
-	AudioVisualizerProps,
 	AvatarGroupAvatar,
 	AvatarGroupProps,
 	AvatarProps,
@@ -3399,6 +3415,18 @@ export type {
 	SlotNodePalette,
 	SlotNodePaletteItem
 } from './architecture';
+export type {
+	ContractAudioPlayer,
+	ContractAudioRecordButton,
+	ContractAudioSlider,
+	ContractAudioVisualizer,
+	ContractTranscriber,
+	RecipeAudioPlayer,
+	RecipeAudioRecordButton,
+	RecipeAudioSlider,
+	RecipeAudioVisualizer,
+	RecipeTranscriber
+} from './audio';
 export type {
 	BehaviorTimeRangeFilter,
 	ContractScheduleEvent,
@@ -3772,6 +3800,7 @@ export type {
 	SlotSelectOption,
 	SlotSelectStyleClasses,
 	SlotSelector,
+	SlotSliderWithInput,
 	SlotSortableList,
 	SlotSortableListItem,
 	SlotSwitch,
@@ -3792,6 +3821,7 @@ export type {
 } from './control';
 export type {
 	ComponentPreviewCodeOptions,
+	ContentEditorStateProps,
 	ContractCodeBlock,
 	ContractDevelopment,
 	DomainForEachContext,
@@ -3957,7 +3987,6 @@ export type {
 	ThemeIconItem
 } from './information';
 export type {
-	ContentEditorStateProps,
 	ContentEditorStyleManagerOptions,
 	RecipeAdvancedPasswordInput,
 	RecipeAutoComplete,
@@ -3970,7 +3999,6 @@ export type {
 	RecipeNumberInputProps,
 	RecipePhoneNumberInput,
 	RecipeRangeSlider,
-	RecipeReactionPicker,
 	RecipeTagInput,
 	RecipeTextArea,
 	RecipeTextAreaProps,
@@ -3983,8 +4011,6 @@ export type {
 	SlotCharacterCount,
 	SlotFieldHighlighter,
 	SlotFieldHighlighterSelectedField,
-	SlotFormErrorMessage,
-	SlotFormHelperText,
 	SlotGraphEdge,
 	SlotGraphNode,
 	SlotGraphVisualizationData,
@@ -3993,6 +4019,7 @@ export type {
 	SlotInputCore,
 	SlotInputDouble,
 	SlotInputEmail,
+	SlotInputError,
 	SlotInputField,
 	SlotInputGroup,
 	SlotInputHelper,
@@ -4006,8 +4033,6 @@ export type {
 	SlotPhoneNumberInput,
 	SlotPinInputDigit,
 	SlotRangeSlider,
-	SlotReactionPicker,
-	SlotSliderWithInput,
 	SlotTagInput,
 	SlotTextarea,
 	VariablesEditorStateProps
@@ -4113,9 +4138,6 @@ export type {
 } from './marketing';
 export type {
 	ContractAnnouncementBanner,
-	ContractAudioPlayer,
-	ContractAudioSlider,
-	ContractAudioVisualizer,
 	ContractAvatar,
 	ContractAvatarGroup,
 	ContractCanvasImageEditor,
@@ -4131,9 +4153,6 @@ export type {
 	ContractVideoPlayer,
 	ImageGalleryStateProps,
 	RecipeAnnouncementBanner,
-	RecipeAudioPlayer,
-	RecipeAudioSlider,
-	RecipeAudioVisualizer,
 	RecipeAvatar,
 	RecipeAvatarGroup,
 	RecipeCountryFlag,
@@ -4300,13 +4319,15 @@ export type {
 	ContractSocial,
 	RecipePostCard,
 	RecipeRating,
+	RecipeReactionPicker,
 	SlotCommentItem,
 	SlotCommentSystem,
 	SlotCommentThread,
 	SlotCommentThreadItem,
 	SlotCommentThreadUser,
 	SlotCommentUser,
-	SlotRating
+	SlotRating,
+	SlotReactionPicker
 } from './social';
 export type {
 	RecipeIcon,

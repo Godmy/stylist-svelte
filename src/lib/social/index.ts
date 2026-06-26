@@ -5,6 +5,7 @@ export {
 	FriendList,
 	PostCard,
 	Rating,
+	ReactionPicker,
 	SocialActivityFeed,
 	SocialFeed,
 	SocialLogin,
@@ -27,6 +28,7 @@ export {
 	createFriendListState,
 	createPostCardState,
 	createRatingState,
+	createReactionPickerState,
 	createSocialActivityFeedState,
 	createSocialFeedState,
 	createSocialLoginState,
@@ -70,11 +72,13 @@ export type {
 	ContractSocial,
 	RecipePostCard,
 	RecipeRating,
+	RecipeReactionPicker,
 	SlotCommentItem,
 	SlotCommentSystem,
 	SlotCommentThread,
 	SlotCommentThreadItem,
 	SlotCommentThreadUser,
 	SlotCommentUser,
-	SlotRating
+	SlotRating,
+	SlotReactionPicker
 } from './interface';

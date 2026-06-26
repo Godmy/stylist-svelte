@@ -16,7 +16,8 @@ export {
 	SideBySideLayout,
 	Sidebar,
 	SimpleModal,
-	Stepper
+	Stepper,
+	TextInputDialog
 } from './component';
 export {
 	BREADCRUMB_LINK_VARIANT_CLASSES,

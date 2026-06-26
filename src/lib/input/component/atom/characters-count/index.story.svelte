@@ -3,10 +3,12 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import CharacterCount from './index.svelte';
 
+	let draft = $state('The quick brief for a new onboarding screen.');
+
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'current', type: 'number', defaultValue: 40, min: 0, max: 300, step: 1 },
 		{ name: 'max', type: 'number', defaultValue: 120, min: 1, max: 500, step: 1 },
-		{ name: 'showPercentage', type: 'boolean', defaultValue: false }
+		{ name: 'showPercentage', type: 'boolean', defaultValue: true },
+		{ name: 'disabled', type: 'boolean', defaultValue: false }
 	];
 </script>
 
@@ -17,10 +19,33 @@
 	{controls}
 >
 	{#snippet children(values: any)}
-		<CharacterCount
-			current={values.current}
-			max={values.max}
-			showPercentage={values.showPercentage}
-		/>
+		<div class="_c1">
+			<textarea
+				class="_c2"
+				bind:value={draft}
+				maxlength={values.max}
+				disabled={values.disabled}
+				rows="4"
+			></textarea>
+			<CharacterCount current={draft.length} max={values.max} showPercentage={values.showPercentage} />
+		</div>
 	{/snippet}
 </Story>
+
+<style>
+	._c1 {
+		display: grid;
+		gap: 0.5rem;
+		max-width: 32rem;
+	}
+	._c2 {
+		width: 100%;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		background: var(--color-background-primary);
+		color: var(--color-text-primary);
+		padding: 0.75rem;
+		font: inherit;
+		resize: vertical;
+	}
+</style>

@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { createInputAccessibilityCheckboxState } from './accessibility-checkbox';
 export { createAccessibilityToolbarState } from './accessibility-toolbar';
 export { createAccordionState } from './accordion';
 export { createAccordionGroupState } from './accordion-group';
@@ -39,6 +40,7 @@ export { createRangeSliderState } from './range-slider';
 export { createSearchResultsState } from './search-results';
 export { createSearchSuggestionState } from './search-suggestion';
 export { createSelectorState } from './selector';
+export { createSliderWithInputState } from './slider-with-input';
 export { createSliderState } from './sliders';
 export { createSortableGridState } from './sortable-grid';
 export { createSortableListState } from './sortable-list';

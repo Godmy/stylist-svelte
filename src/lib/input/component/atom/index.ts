@@ -1,16 +1,15 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AccessibilityCheckbox } from './accessibility-checkbox/index';
 export { AdvancedInput } from './advanced-input/index';
 export { AutoSearch } from './auto-search/index';
 export { AutocompleteDropdown } from './autocomplete-dropdown/index';
 export { CharactersCount } from './characters-count/index';
-export { FormErrorMessage } from './form-error-message/index';
-export { FormHelperText } from './form-helper-text/index';
 export { InputAddon } from './input-addon/index';
 export { InputDouble } from './input-double/index';
 export { InputEmail } from './input-email/index';
+export { InputError } from './input-error/index';
 export { InputField } from './input-field/index';
 export { InputGroup } from './input-group/index';
+export { InputHelper } from './input-helper/index';
 export { InputLong } from './input-long/index';
 export { InputPassword } from './input-password/index';
 export { InputPinDigit } from './input-pin-digit/index';

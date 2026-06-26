@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCellText } from '$stylist/table/interface/recipe/cell-text';
-	import createCellTextState from '$stylist/table/function/state/cell-text';
+	import { createCellTextState } from '$stylist/table/function/state/cell-text';
 
 	let props: RecipeCellText = $props();
 	const state = createCellTextState(props);

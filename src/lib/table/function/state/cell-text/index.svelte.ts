@@ -10,5 +10,3 @@ export function createCellTextState(props: RecipeCellText) {
 		get alignClass() { return alignClass; }
 	};
 }
-
-export default createCellTextState;

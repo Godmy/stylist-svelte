@@ -1,9 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { RecipeAnnouncementBanner } from './announcement-banner';
-export type { RecipeAudioPlayer } from './audio-player';
-export type { AudioPlayerProps } from './audio-player-audio-player-props';
-export type { RecipeAudioSlider } from './audio-slider';
-export type { RecipeAudioVisualizer } from './audio-visualizer';
 export type { RecipeAvatar } from './avatar';
 export type { AvatarProps } from './avatar-avatar-props';
 export type { RecipeAvatarGroup } from './avatar-group';

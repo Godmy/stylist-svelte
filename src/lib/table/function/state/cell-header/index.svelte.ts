@@ -26,5 +26,3 @@ export function createCellHeaderState(props: RecipeCellHeader) {
 		handleClick
 	};
 }
-
-export default createCellHeaderState;

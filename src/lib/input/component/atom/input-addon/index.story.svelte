@@ -14,7 +14,7 @@
 		},
 		{ name: 'withIcon', type: 'boolean', defaultValue: true },
 		{ name: 'addonText', type: 'text', defaultValue: '$' },
-		{ name: 'placeholder', type: 'text', defaultValue: 'Search...' }
+		{ name: 'placeholder', type: 'text', defaultValue: 'Search projects...' }
 	];
 </script>
 
@@ -31,7 +31,7 @@
 					{#if values.withIcon}<BaseIcon name="search" class="_c2" />{:else}{values.addonText}{/if}
 				</InputAddon>
 			{/if}
-			<input type="text" placeholder={values.placeholder} class="_c3 _c1" />
+			<input type="text" placeholder={values.placeholder} class="_c3" />
 			{#if values.position === 'right'}
 				<InputAddon position="right" variant={values.variant}>
 					{#if values.withIcon}<BaseIcon name="search" class="_c2" />{:else}{values.addonText}{/if}
@@ -45,6 +45,7 @@
 	._c1 {
 		display: flex;
 		align-items: center;
+		max-width: 32rem;
 		border-radius: 0.375rem;
 		border-width: 1px;
 		border-style: solid;
@@ -64,7 +65,7 @@
 		padding-bottom: 0.5rem;
 	}
 
-	._c1:focus {
+	._c3:focus {
 		outline: 2px solid transparent;
 		outline-offset: 2px;
 	}

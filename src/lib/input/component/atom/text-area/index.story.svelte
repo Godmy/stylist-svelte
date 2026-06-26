@@ -4,8 +4,8 @@
 	import Textarea from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Сообщение' },
-		{ name: 'placeholder', type: 'text', defaultValue: 'Введите ваше сообщение...' },
+		{ name: 'label', type: 'text', defaultValue: 'Message' },
+		{ name: 'placeholder', type: 'text', defaultValue: 'Write a message...' },
 		{ name: 'value', type: 'text', defaultValue: '' },
 		{
 			name: 'variant',
@@ -30,7 +30,7 @@
 		{ name: 'rows', type: 'number', defaultValue: 4, min: 2, max: 20 },
 		{ name: 'autoResize', type: 'boolean', defaultValue: false },
 		{ name: 'maxlength', type: 'number', defaultValue: 1000, min: 0, max: 10000 },
-		{ name: 'helperText', type: 'text', defaultValue: 'Максимум 1000 символов' }
+		{ name: 'helperText', type: 'text', defaultValue: 'Maximum 1000 characters.' }
 	];
 </script>
 
@@ -39,7 +39,7 @@
 	component={Textarea}
 	title="Textarea"
 	category="Atoms/Interaction/Input/Field"
-	description="Многострочное текстовое поле с поддержкой maxlength и auto-resize"
+	description="Multiline text area with maxlength, helper text, and auto-resize behavior."
 	tags={['textarea', 'input', 'field', 'form', 'control', 'text']}
 >
 	{#snippet children(values: any)}

@@ -45,5 +45,3 @@ export function createComparisonTableState(props: ComparisonTableProps) {
 		showDescription: props.showDescription ?? false
 	};
 }
-
-export default createComparisonTableState;

@@ -1,7 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AudioPlayerProps } from './audio-player';
-export type { AudioSliderProps } from './audio-slider';
-export type { AudioVisualizerProps } from './audio-visualizer';
 export type { AvatarProps } from './avatar';
 export type {
 	AvatarGroupAvatar,

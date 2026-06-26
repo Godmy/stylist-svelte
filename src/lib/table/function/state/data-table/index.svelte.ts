@@ -33,5 +33,3 @@ export function createDataTableState(props: SlotDataTable<Row>) {
 		sort
 	};
 }
-
-export default createDataTableState;

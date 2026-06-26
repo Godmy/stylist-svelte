@@ -4,23 +4,11 @@
 	import AutoComplete from './index.svelte';
 	import type { AutoCompleteOption } from '$stylist/input/type/struct/interaction-input/auto-complete-option';
 
-	type Props = {
-		placeholder: string;
-		disabled: boolean;
-		showAllSuggestions: boolean;
-		debounce: number;
-	};
-
 	const controls: InterfaceControllerSettings[] = [
 		{
 			name: 'placeholder',
 			type: 'text',
 			defaultValue: 'Type to search...'
-		},
-		{
-			name: 'disabled',
-			type: 'boolean',
-			defaultValue: false
 		},
 		{
 			name: 'showAllSuggestions',
@@ -46,14 +34,14 @@
 	];
 
 	let currentValue = $state('');
+	let selectedLabel = $state('');
 
 	function handleInput(value: string) {
 		currentValue = value;
-		console.log('Input value:', value);
 	}
 
 	function handleSelect(option: AutoCompleteOption) {
-		console.log('Selected option:', option);
+		selectedLabel = option.label;
 	}
 </script>
 
@@ -69,7 +57,8 @@
 	{#snippet children(values: any)}
 		<div class="_c1">
 			<div class="_c2">
-				<p>Current value: {currentValue || 'None'}</p>
+				<span>Current value: {currentValue || 'none'}</span>
+				<span>Selected: {selectedLabel || 'none'}</span>
 			</div>
 			<AutoComplete
 				{options}
@@ -85,10 +74,16 @@
 
 <style>
 	._c1 {
+		display: grid;
+		gap: 0.75rem;
 		max-width: 28rem;
 		padding: 1rem;
 	}
 	._c2 {
-		margin-bottom: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
 	}
 </style>

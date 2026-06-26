@@ -10,6 +10,7 @@ export {
 	CodeWithCopy,
 	ComponentLibraryStats,
 	ComponentPreview,
+	ContentEditor,
 	CopyableCodeBlock,
 	DebugConsole,
 	DesignTokens,
@@ -47,6 +48,7 @@ export {
 	createCodeWithCopyState,
 	createComponentLibraryStatsState,
 	createComponentPreviewState,
+	createContentEditorState,
 	createCopyableCodeBlockState,
 	createDebugConsoleState,
 	createDesignTokensState,
@@ -98,6 +100,7 @@ export type {
 } from './type';
 export type {
 	ComponentPreviewCodeOptions,
+	ContentEditorStateProps,
 	ContractCodeBlock,
 	ContractDevelopment,
 	DomainForEachContext,
