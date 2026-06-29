@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	MAP_PROVIDER,
 	TOKEN_MAP_TYPE,
 	TOKEN_PIN
-} from './enum';
+} from './array';

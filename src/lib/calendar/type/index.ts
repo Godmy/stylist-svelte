@@ -4,4 +4,4 @@ export type {
 	TokenTimeFormat,
 	TokenTimeMeasure,
 	TokenTimeRange
-} from './enum';
+} from './alias';

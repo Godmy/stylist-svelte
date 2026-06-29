@@ -4,7 +4,7 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { Snippet } from 'svelte';
 import type { HTMLImgAttributes } from 'svelte/elements';
 
-import type { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
 export interface RecipeImage
 	extends ComputeIntersectAll<
 		[

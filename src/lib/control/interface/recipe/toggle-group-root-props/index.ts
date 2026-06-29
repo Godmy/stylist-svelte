@@ -1,7 +1,7 @@
-﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
-import type { TokenSelectionType } from '$stylist/token/type/alias/selection-type';
+import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
+import type { TokenSelectionType } from '$stylist/control/type/alias/selection-type';
 
 export interface RecipeToggleGroupRootProps
 	extends ComputeIntersectAll<[Omit<HTMLAttributes<HTMLDivElement>, 'class'>]> {

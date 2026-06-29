@@ -2,4 +2,4 @@
 export {
 	TOKEN_TRANSLATION,
 	TOKEN_TRANSLATION_EDITOR_ICON
-} from './enum';
+} from './array';

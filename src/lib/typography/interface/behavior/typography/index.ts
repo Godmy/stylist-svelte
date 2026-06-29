@@ -1,8 +1,8 @@
-import type { TokenLineHeight } from '$stylist/typography/type/enum/line-height';
-import type { TokenLetterSpacing } from '$stylist/typography/type/enum/letter-spacing';
-import type { TokenFontFamily } from '$stylist/typography/type/enum/font-family';
-import type { TokenFontSize } from '$stylist/typography/type/enum/font-size';
-import type { TokenFontWeight } from '$stylist/typography/type/enum/font-weight';
+import type { TokenLineHeight } from '$stylist/typography/type/alias/line-height';
+import type { TokenLetterSpacing } from '$stylist/typography/type/alias/letter-spacing';
+import type { TokenFontFamily } from '$stylist/typography/type/alias/font-family';
+import type { TokenFontSize } from '$stylist/typography/type/alias/font-size';
+import type { TokenFontWeight } from '$stylist/typography/type/alias/font-weight';
 
 /** Typography token settings: font, size, weight, spacing, and alignment. */
 export interface BehaviorTypography {

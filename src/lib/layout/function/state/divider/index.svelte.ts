@@ -1,6 +1,6 @@
 import type { DividerProps } from '$stylist/layout/type/struct/divider';
-import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
-import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
+import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
+import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 
 export function createDividerState(props: DividerProps) {
 	const orientation = $derived<TokenOrientation>(props.orientation ?? 'horizontal');

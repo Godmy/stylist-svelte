@@ -1,6 +1,6 @@
 import type { RecipeThemeLink } from '$stylist/typography/interface/recipe/link';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 
 export function createLinkState(props: RecipeThemeLink) {

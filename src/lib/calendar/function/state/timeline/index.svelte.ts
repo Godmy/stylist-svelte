@@ -1,6 +1,6 @@
 import type { RecipeTimeline } from '$stylist/calendar/interface/recipe/timeline';
 
-import type { TOKEN_FLOW } from '$stylist/interaction/const/enum/flow';
+import type { TOKEN_FLOW } from '$stylist/interaction/const/array/flow';
 export function createTimelineState(props: RecipeTimeline) {
 	const items = $derived(props.items ?? []);
 	const orientation = $derived(props.orientation ?? 'vertical');

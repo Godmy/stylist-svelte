@@ -1,6 +1,6 @@
 import type { ToastStackProps } from '$stylist/notification/type/struct/toast-stack-props';
 
-import type { TOKEN_STATUS } from '$stylist/information/const/enum/status';
+import type { TOKEN_STATUS } from '$stylist/information/const/array/status';
 const iconMap: Partial<Record<(typeof TOKEN_STATUS)[number], string>> = {
 	success: 'check-circle',
 	warning: 'alert-triangle',

@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { TokenTranslation } from './enum';
+export type { TokenTranslation } from './alias';
 export type {
 	TranslatableText,
 	TranslationLocale

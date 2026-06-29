@@ -22,6 +22,7 @@ export {
 	UserStatus
 } from './component';
 export {
+	CHAT_MESSAGE_STATUS,
 	CHAT_PREVIEW_ICON_CHECK,
 	CHAT_PREVIEW_ICON_CHECK_CHECK,
 	CHAT_ROOM_VARIANT_CLASSES,
@@ -75,8 +76,7 @@ export type {
 	ChatHeaderOrganismProps,
 	ChatHeaderProps,
 	ChatHeaderUser,
-	ChatInterfaceProps,
-	ChatPreviewContract,
+	ChatMessageStatus,
 	ChatPreviewItem,
 	ChatPreviewMessage,
 	ChatPreviewProps,

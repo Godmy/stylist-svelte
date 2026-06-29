@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { StepIconContent } from './alias';
+export type {
+	SpinnerVariant,
+	StepIconContent
+} from './alias';
 export type {
 	AccountProgressTrackerProps,
 	AlertProps,
@@ -12,10 +15,6 @@ export type {
 	ProgressBarWithLabelProps,
 	ProgressCircleProps,
 	ResponseViewerProps,
-	SkeletonCircleProps,
-	SkeletonRectangleProps,
-	SkeletonTableProps,
-	SkeletonTextProps,
 	SpinnerProps,
 	StateProps,
 	StepConnectorProps,

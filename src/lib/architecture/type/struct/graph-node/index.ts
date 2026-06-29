@@ -1,4 +1,4 @@
-﻿import type { GraphNodeCategory } from '$stylist/token/type/alias/graph-node-category';
+import type { GraphNodeCategory } from '$stylist/architecture/type/alias/graph-node-category';
 
 export interface GraphNode {
 	id: string;

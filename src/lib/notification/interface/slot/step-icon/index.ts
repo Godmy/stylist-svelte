@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
 
 export interface SlotStepIcon extends HtmlAttributesBase<HTMLSpanElement> {

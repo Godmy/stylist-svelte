@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 
 export const SPINNER_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'w-3 h-3',

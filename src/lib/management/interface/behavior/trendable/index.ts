@@ -1,4 +1,4 @@
-import type { TokenTrend } from '$stylist/management/type/enum/trend';
+import type { TokenTrend } from '$stylist/management/type/alias/trend';
 
 /** Динамика метрики: тренд и изменение */
 export interface BehaviorTrendable {

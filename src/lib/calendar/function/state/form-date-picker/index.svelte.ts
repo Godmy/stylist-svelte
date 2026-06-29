@@ -1,36 +1,41 @@
-import type { SlotFormDatePicker as IFormDatePickerProps } from '$stylist/calendar/interface/slot/form-date-picker';
+import type { SlotDatePicker as IFormDatePickerProps } from '$stylist/calendar/interface/slot/date-picker';
+import { toInputDateString, fromInputDateString } from '$stylist/calendar/function/script/calendar-utils';
+import { formatDisplayDate } from '$stylist/calendar/function/script/date-format';
 
 export const createFormDatePickerState = (props: IFormDatePickerProps) => {
-	let selectedDate = $state(props.value ?? '');
+	const toInputDate = (value: IFormDatePickerProps['value']): string => {
+		if (value instanceof Date) return toInputDateString(value);
+		if (typeof value === 'string') return value;
+		return '';
+	};
+
+	let selectedDate = $state(toInputDate(props.value));
 	let showCalendar = $state(false);
 
 	$effect(() => {
-		selectedDate = props.value ?? '';
+		selectedDate = toInputDate(props.value);
 	});
-
-	function handleInput(event: Event) {
-		const target = event.target as HTMLInputElement;
-		selectedDate = target.value;
-		props.onValueInput?.(selectedDate, event);
-		props.onValueChange?.(selectedDate, event);
-		props.onInput?.(selectedDate, event);
-	}
 
 	function handleChange(event: Event) {
 		const target = event.target as HTMLInputElement;
 		selectedDate = target.value;
-		props.onValueChange?.(selectedDate, event);
-		props.onChange?.(selectedDate, event);
+		const value = selectedDate ? fromInputDateString(selectedDate) : undefined;
+		props.onChange?.(value, event);
+		props.onValueChange?.(value, event);
 		showCalendar = false;
+	}
+
+	function handleInput(event: Event) {
+		const target = event.target as HTMLInputElement;
+		selectedDate = target.value;
+		const value = selectedDate ? fromInputDateString(selectedDate) : undefined;
+		props.onInput?.(value, event);
+		props.onValueInput?.(value, event);
 	}
 
 	function formatDate(dateString: string) {
 		if (!dateString) return '';
-		return new Date(`${dateString}T00:00:00`).toLocaleDateString('en-US', {
-			month: 'short',
-			day: 'numeric',
-			year: 'numeric'
-		});
+		return formatDisplayDate(fromInputDateString(dateString));
 	}
 
 	function toggleCalendar() {
@@ -40,6 +45,9 @@ export const createFormDatePickerState = (props: IFormDatePickerProps) => {
 	function closeCalendar() {
 		showCalendar = false;
 	}
+
+	const minDateStr = $derived(toInputDate(props.minDate));
+	const maxDateStr = $derived(toInputDate(props.maxDate));
 
 	return {
 		get selectedDate() {
@@ -67,10 +75,10 @@ export const createFormDatePickerState = (props: IFormDatePickerProps) => {
 			return props.error;
 		},
 		get minDate() {
-			return props.minDate;
+			return minDateStr;
 		},
 		get maxDate() {
-			return props.maxDate;
+			return maxDateStr;
 		},
 		get placeholder() {
 			return props.placeholder ?? 'Select date';

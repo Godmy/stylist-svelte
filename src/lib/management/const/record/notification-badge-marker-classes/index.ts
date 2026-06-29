@@ -1,4 +1,4 @@
-import type { TokenMarker } from '$stylist/architecture/type/enum/marker';
+import type { TokenMarker } from '$stylist/architecture/type/alias/marker';
 
 export const NOTIFICATION_BADGE_MARKER_CLASSES: Record<TokenMarker, string> = {
 	none: 'hidden',

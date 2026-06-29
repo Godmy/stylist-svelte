@@ -1,4 +1,4 @@
-﻿import type { MapProvider } from '$stylist/token/type/alias/map-provider';
+import type { MapProvider } from '$stylist/geo/type/alias/map-provider';
 import type { MapSelectorLocation } from '$stylist/geo/type/struct/map-selector/mapselectorlocation';
 import type { MapSelectorRestProps } from '$stylist/geo/type/struct/map-selector/mapselectorrest-props';
 

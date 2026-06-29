@@ -1,11 +1,17 @@
 import type { SlotDatePicker as IDatePickerProps } from '$stylist/calendar/interface/slot/date-picker';
 
 export const createDatePickerState = (props: IDatePickerProps) => {
+	const toInputDate = (value: Date | string | { start: Date | null; end: Date | null } | undefined) => {
+		if (value instanceof Date) return value.toISOString().split('T')[0];
+		if (typeof value === 'string') return value;
+		return undefined;
+	};
+
 	let internalValue = $state('');
 	let isOpen = $state(false);
 
 	$effect(() => {
-		if (props.value) {
+		if (props.value instanceof Date) {
 			internalValue = props.value.toISOString().split('T')[0];
 			return;
 		}
@@ -17,8 +23,7 @@ export const createDatePickerState = (props: IDatePickerProps) => {
 		const target = event.target as HTMLInputElement;
 		internalValue = target.value;
 		const value = internalValue ? new Date(`${internalValue}T00:00:00`) : undefined;
-		props.onValueInput?.(value, event);
-		props.onValueChange?.(value, event);
+		props.onChange?.(value, event);
 		target.dispatchEvent(new CustomEvent('change', { detail: value, bubbles: true }));
 		isOpen = false;
 	}
@@ -38,8 +43,8 @@ export const createDatePickerState = (props: IDatePickerProps) => {
 				})
 			: ''
 	);
-	const minValue = $derived(props.minDate?.toISOString().split('T')[0]);
-	const maxValue = $derived(props.maxDate?.toISOString().split('T')[0]);
+	const minValue = $derived(toInputDate(props.minDate));
+	const maxValue = $derived(toInputDate(props.maxDate));
 	const restProps = $derived.by(() => {
 		const {
 			value: _value,
@@ -48,8 +53,10 @@ export const createDatePickerState = (props: IDatePickerProps) => {
 			disabled: _disabled,
 			placeholder: _placeholder,
 			dateFormat: _dateFormat,
+			onInput: _onInput,
 			onValueInput: _onValueInput,
 			onValueChange: _onValueChange,
+			onChange: _onChange,
 			...rest
 		} = props;
 

@@ -4,7 +4,7 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slot/text';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 import type { Snippet } from 'svelte';
-import type { TOKEN_TREND } from '$stylist/management/const/enum/trend';
+import type { TOKEN_TREND } from '$stylist/management/const/array/trend';
 
 export interface RecipeStatsCard
 	extends ComputeIntersectAll<

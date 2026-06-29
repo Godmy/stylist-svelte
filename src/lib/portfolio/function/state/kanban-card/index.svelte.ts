@@ -1,7 +1,7 @@
-﻿import { untrack } from 'svelte';
+import { untrack } from 'svelte';
 import type { KanbanCardStateProps } from '$stylist/portfolio/type/alias/kanban-card-state-props';
 
-import type { TOKEN_PRIORITY } from '$stylist/calendar/const/enum/priority';
+import type { TOKEN_PRIORITY } from '$stylist/calendar/const/array/priority';
 export function createKanbanCardState(props: KanbanCardStateProps) {
 	const card = $derived(
 		props.card as {

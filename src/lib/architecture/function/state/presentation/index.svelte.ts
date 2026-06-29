@@ -1,4 +1,4 @@
-﻿import type { PresentationMode } from '$stylist/token/type/alias/presentation-mode';
+import type { PresentationMode } from '$stylist/architecture/type/alias/presentation-mode';
 import type { PresentationFrame } from '$stylist/architecture/interface/slot/presentation-frame';
 import type { PresentationState } from '$stylist/architecture/interface/recipe/presentation-state';
 

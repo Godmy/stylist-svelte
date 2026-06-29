@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 
 /**
  * Типы пропсов для компонента LoadingOverlay

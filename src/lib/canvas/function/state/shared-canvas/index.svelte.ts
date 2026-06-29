@@ -7,7 +7,7 @@ import { hitTestCanvasObject } from '$stylist/canvas/function/script/canvas-hit-
 import { updateDraftCanvasObject } from '$stylist/canvas/function/script/canvas-update-draft-object';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
-import type { SharedCanvasPoint } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-point';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 import type { SharedCanvasTool } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-tool';
 import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-contract';
 
@@ -18,8 +18,8 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 			'var(--color-primary-500)'
 	);
 	let isDrawing = $state(false);
-	let startPoint = $state<SharedCanvasPoint>({ x: 0, y: 0 });
-	let currentPoint = $state<SharedCanvasPoint>({ x: 0, y: 0 });
+	let startPoint = $state<Point2D>({ x: 0, y: 0 });
+	let currentPoint = $state<Point2D>({ x: 0, y: 0 });
 	let currentObject = $state<CanvasObject | null>(null);
 	let selectedObjectId = $state<string | null>(null);
 	let localObjects = $state<CanvasObject[]>(cloneCanvasObjects(contract.objects ?? []));
@@ -93,7 +93,7 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 		selectedColor = color;
 	}
 
-	function beginDrawing(point: SharedCanvasPoint): void {
+	function beginDrawing(point: Point2D): void {
 		startPoint = point;
 		currentPoint = point;
 
@@ -115,7 +115,7 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 		currentObject = draft;
 	}
 
-	function updateDrawing(point: SharedCanvasPoint): void {
+	function updateDrawing(point: Point2D): void {
 		if (!isDrawing || !currentObject) return;
 
 		currentPoint = point;

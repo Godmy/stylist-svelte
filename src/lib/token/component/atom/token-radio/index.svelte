@@ -27,6 +27,11 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.35rem;
+		--token-radio-bg: var(--surface, var(--color-background-primary, #ffffff));
+		--token-radio-bg-muted: var(--bg, var(--color-background-secondary, #f8fafc));
+		--token-radio-border: var(--line, var(--color-border-primary, #79747e));
+		--token-radio-text: var(--text, var(--color-text-primary, #1d1b20));
+		--token-radio-accent: var(--accent, var(--color-primary-600, #6750a4));
 	}
 
 	.token-radio__option {
@@ -34,13 +39,13 @@
 		align-items: center;
 		min-height: 2rem;
 		padding: 0.35rem 0.65rem;
-		border: 1px solid var(--md-sys-color-outline, #79747e);
+		border: 1px solid var(--token-radio-border);
 		border-radius: 999px;
 		cursor: pointer;
 		font-size: 0.875rem;
 		font-weight: 500;
-		background: var(--md-sys-color-surface-container-low, #f7f2fa);
-		color: var(--md-sys-color-on-surface, #1d1b20);
+		background: var(--token-radio-bg-muted);
+		color: var(--token-radio-text);
 		transition:
 			background 120ms ease,
 			border-color 120ms ease,
@@ -50,20 +55,20 @@
 	.token-radio__option:hover:not([data-disabled]) {
 		background: color-mix(
 			in srgb,
-			var(--md-sys-color-primary, #6750a4) 8%,
-			var(--md-sys-color-surface-container-low, #f7f2fa) 92%
+			var(--token-radio-accent) 12%,
+			var(--token-radio-bg) 88%
 		);
 	}
 
 	.token-radio__option:focus-visible {
-		outline: 2px solid var(--md-sys-color-primary, #6750a4);
+		outline: 2px solid var(--token-radio-accent);
 		outline-offset: 2px;
 	}
 
 	.token-radio__option[data-active] {
-		border-color: var(--md-sys-color-primary, #6750a4);
-		background: var(--md-sys-color-secondary-container, #e8def8);
-		color: var(--md-sys-color-on-secondary-container, #1d192b);
+		border-color: var(--token-radio-accent);
+		background: color-mix(in srgb, var(--token-radio-accent) 22%, var(--token-radio-bg) 78%);
+		color: var(--token-radio-text);
 	}
 
 	.token-radio__option[data-disabled] {

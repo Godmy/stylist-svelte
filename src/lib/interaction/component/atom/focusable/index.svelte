@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { RecipeFocusable as FocusProps } from '$stylist/interaction/interface/recipe/focusable';
+	import type { RecipeFocusable } from '$stylist/interaction/interface/recipe/focusable';
 	import createFocusableState from '$stylist/interaction/function/state/focusable/index.svelte';
 
-	let props: FocusProps = $props();
+	let props: RecipeFocusable = $props();
 	const state = createFocusableState(props);
 </script>
 

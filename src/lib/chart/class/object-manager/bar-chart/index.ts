@@ -1,6 +1,6 @@
-﻿import type { IBarPosition } from '$stylist/chart/type/struct/bar-chart-bar-position';
+import type { IBarPosition } from '$stylist/chart/type/struct/bar-chart-bar-position';
 import type { IChartDataPoint } from '$stylist/chart/type/struct/bar-chart';
-import type { TokenThemeScheme } from '$stylist/theme/type/enum/theme-scheme';
+import type { TokenThemeScheme } from '$stylist/theme/type/alias/theme-scheme';
 import { BAR_CHART_COLOR_SCHEME } from '$stylist/chart/const/preset/bar-chart-color-scheme';
 
 export class ObjectManagerBarChart {

@@ -1,10 +1,8 @@
-﻿import type { ContentType } from '$stylist/token/type/alias/content-editor-content-type';
+import type { ContentType } from '$stylist/interaction/type/alias/content-editor-content-type';
 import type { ContentElement } from '$stylist/interaction/type/struct/content-editor-content-element';
 
 export class ObjectManagerContentEditor {
-	/**
-	 * РЎРѕР·РґР°С‘С‚ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ РєРѕРЅС‚РµРЅС‚Р°
-	 */
+
 	static createElement(type: ContentType, content: string = ''): ContentElement {
 		return {
 			id: `element-${Date.now()}`,
@@ -13,9 +11,6 @@ export class ObjectManagerContentEditor {
 		};
 	}
 
-	/**
-	 * РќРѕСЂРјР°Р»РёР·СѓРµС‚ РјР°СЃСЃРёРІ СЌР»РµРјРµРЅС‚РѕРІ РєРѕРЅС‚РµРЅС‚Р°
-	 */
 	static normalizeElements(elements?: ContentElement[]): ContentElement[] {
 		if (!elements || elements.length === 0) {
 			return [{ id: '1', type: 'text', content: '' }];
@@ -28,9 +23,6 @@ export class ObjectManagerContentEditor {
 		}));
 	}
 
-	/**
-	 * РћР±РЅРѕРІР»СЏРµС‚ РєРѕРЅС‚РµРЅС‚ СЌР»РµРјРµРЅС‚Р° РїРѕ ID
-	 */
 	static updateElementContent(
 		elements: ContentElement[],
 		id: string,
@@ -39,9 +31,6 @@ export class ObjectManagerContentEditor {
 		return elements.map((el) => (el.id === id ? { ...el, content: newContent } : el));
 	}
 
-	/**
-	 * Р”РѕР±Р°РІР»СЏРµС‚ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ РїРѕСЃР»Рµ СѓРєР°Р·Р°РЅРЅРѕРіРѕ РёРЅРґРµРєСЃР°
-	 */
 	static addElementAfter(
 		elements: ContentElement[],
 		index: number,
@@ -51,9 +40,6 @@ export class ObjectManagerContentEditor {
 		return [...elements.slice(0, index + 1), newElement, ...elements.slice(index + 1)];
 	}
 
-	/**
-	 * РЈРґР°Р»СЏРµС‚ СЌР»РµРјРµРЅС‚ РїРѕ ID
-	 */
 	static deleteElement(elements: ContentElement[], id: string): ContentElement[] {
 		if (elements.length <= 1) {
 			return elements; // Keep at least one element
@@ -61,9 +47,6 @@ export class ObjectManagerContentEditor {
 		return elements.filter((el) => el.id !== id);
 	}
 
-	/**
-	 * РџРµСЂРµРјРµС‰Р°РµС‚ СЌР»РµРјРµРЅС‚ РІРІРµСЂС… РёР»Рё РІРЅРёР·
-	 */
 	static moveElement(
 		elements: ContentElement[],
 		id: string,
@@ -83,9 +66,6 @@ export class ObjectManagerContentEditor {
 		return newElements;
 	}
 
-	/**
-	 * РћРїСЂРµРґРµР»СЏРµС‚ СЃР»РµРґСѓСЋС‰РёР№ Р°РєС‚РёРІРЅС‹Р№ СЌР»РµРјРµРЅС‚ РїРѕСЃР»Рµ СѓРґР°Р»РµРЅРёСЏ
-	 */
 	static getNextActiveElementId(elements: ContentElement[], deletedId: string): string | null {
 		if (elements.length <= 1) return null;
 
@@ -96,16 +76,10 @@ export class ObjectManagerContentEditor {
 		return elements[0]?.id || null;
 	}
 
-	/**
-	 * РЎРµСЂРёР°Р»РёР·СѓРµС‚ СЌР»РµРјРµРЅС‚С‹ РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ
-	 */
 	static serializeElements(elements: ContentElement[]): string {
 		return JSON.stringify(elements, null, 2);
 	}
 
-	/**
-	 * Р”РµСЃРµСЂРёР°Р»РёР·СѓРµС‚ СЌР»РµРјРµРЅС‚С‹ РёР· JSON
-	 */
 	static deserializeElements(json: string): ContentElement[] | null {
 		try {
 			return JSON.parse(json);
@@ -114,16 +88,10 @@ export class ObjectManagerContentEditor {
 		}
 	}
 
-	/**
-	 * Р¤РёР»СЊС‚СЂСѓРµС‚ СЌР»РµРјРµРЅС‚С‹ РїРѕ С‚РёРїСѓ
-	 */
 	static filterByType(elements: ContentElement[], type: ContentType): ContentElement[] {
 		return elements.filter((el) => el.type === type);
 	}
 
-	/**
-	 * РџСЂРѕРІРµСЂСЏРµС‚, СЃРѕРґРµСЂР¶РёС‚ Р»Рё РјР°СЃСЃРёРІ СЌР»РµРјРµРЅС‚С‹ РѕРїСЂРµРґРµР»С‘РЅРЅРѕРіРѕ С‚РёРїР°
-	 */
 	static containsType(elements: ContentElement[], type: ContentType): boolean {
 		return elements.some((el) => el.type === type);
 	}

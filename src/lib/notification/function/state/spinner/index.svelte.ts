@@ -1,5 +1,5 @@
-﻿import type { RecipeSpinner } from '$stylist/notification/interface/recipe/spinner';
-import type { SpinnerVariant } from '$stylist/token/type/alias/spinner-variant';
+import type { RecipeSpinner } from '$stylist/notification/interface/recipe/spinner';
+import type { SpinnerVariant } from '$stylist/notification/type/alias/spinner-variant';
 
 export function createSpinnerState(props: RecipeSpinner) {
 	const variant = $derived((props.variant ?? 'icon') as SpinnerVariant);

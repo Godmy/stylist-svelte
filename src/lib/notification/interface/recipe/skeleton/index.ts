@@ -1,7 +1,4 @@
-﻿import type { SkeletonTextProps as LegacySkeletonProps6 } from '$stylist/notification/type/struct/skeleton-text-props';
-import type { SkeletonTableProps as LegacySkeletonProps5 } from '$stylist/notification/type/struct/skeleton-table-props';
-import type { SkeletonRectangleProps as LegacySkeletonProps4 } from '$stylist/notification/type/struct/skeleton-rectangle-props';
-import type { SkeletonCircleProps as LegacySkeletonProps3 } from '$stylist/notification/type/struct/skeleton-circle-props';
+import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 import type { SkeletonSpecificProps as LegacySkeletonProps2 } from '$stylist/notification/interface/recipe/skeleton-specific-props';
 import type { RecipeSkeletonProps as LegacySkeletonProps1 } from '$stylist/notification/interface/recipe/skeleton-props';
 import type { SlotSkeleton as Slot } from '$stylist/notification/interface/slot/skeleton';
@@ -18,10 +15,10 @@ import type { SkeletonSpecificProps } from '$stylist/notification/interface/reci
 export interface RecipeSkeleton
 	extends ComputeIntersectAll<
 			[
-				LegacySkeletonProps6,
-				LegacySkeletonProps5,
-				LegacySkeletonProps4,
-				LegacySkeletonProps3,
+				AnyProperty,
+				AnyProperty,
+				AnyProperty,
+				AnyProperty,
 				LegacySkeletonProps2,
 				LegacySkeletonProps1,
 				Slot,

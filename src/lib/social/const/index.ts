@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TOKEN_STAR } from './enum';
+export { TOKEN_STAR } from './array';

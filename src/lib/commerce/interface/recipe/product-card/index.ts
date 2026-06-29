@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { TierContent } from '$stylist/architecture/type/enum/tier';
+import type { TierContent } from '$stylist/architecture/type/alias/tier';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';

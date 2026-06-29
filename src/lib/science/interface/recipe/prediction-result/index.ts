@@ -1,7 +1,7 @@
-﻿import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/layout/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { ContractPrediction } from '$stylist/science/interface/contract/prediction';
-import type { StatusState } from '$stylist/token/type/alias/status-state';
+import type { StatusState } from '$stylist/information/type/alias/status-state';
 
 export interface RecipePredictionResult extends ComputeIntersectAll<[SlotChildren]> {
 	title?: string;

@@ -1,6 +1,6 @@
 import { categories } from '$stylist/development/const/record/stylist-categories';
 import type { RecipeStylist } from '$stylist/development/interface/recipe/stylist';
-import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/architecture/const/enum/functional-taxonomy';
+import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/architecture/const/array/functional-taxonomy';
 import { untrack } from 'svelte';
 export function createStylistState(props: RecipeStylist) {
 	const initialCategory = $derived(props.initialCategory ?? 'architecture');

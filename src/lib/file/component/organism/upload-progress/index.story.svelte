@@ -1,12 +1,12 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	import UploadProgress from './index.svelte';
 	import type { SlotUploadFile as IUploadFile } from '$stylist/file/interface/slot/upload-file-upload-progress-2';
-	import type { UploadProgressVariant } from '$stylist/token/type/alias/upload-progress-variant';
+	import type { UploadProgressVariant } from '$stylist/file/type/alias/upload-progress-variant';
 
-	// РњРѕРєРѕРІС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ С„Р°Р№Р»РѕРІ
+	// Моковые данные для файлов
 	const mockFiles: IUploadFile[] = [
 		{
 			id: '1',
@@ -40,7 +40,7 @@
 		}
 	];
 
-	// РћРїСЂРµРґРµР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅС‹С…
+	// Определение переменных
 	let files: IUploadFile[] = mockFiles;
 	let variant: UploadProgressVariant = 'default';
 	let showFileName: boolean = true;

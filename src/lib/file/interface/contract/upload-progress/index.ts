@@ -1,6 +1,6 @@
-﻿import type { ContractUploadFile } from '$stylist/file/interface/contract/upload-file';
+import type { ContractUploadFile } from '$stylist/file/interface/contract/upload-file';
 import type { BehaviorUploadProgressEvents } from '$stylist/file/interface/behavior/upload-progress-events';
-import type { UploadProgressVariant } from '$stylist/token/type/alias/upload-progress-variant';
+import type { UploadProgressVariant } from '$stylist/file/type/alias/upload-progress-variant';
 
 export interface ContractUploadProgress extends BehaviorUploadProgressEvents {
 	/** List of upload files */

@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import createZwickySceneState from '$stylist/graph/function/state/zwicky-scene/index.svelte';
+	import GraphClusterFilter from '$stylist/graph/component/molecule/graph-cluster-filter/index.svelte';
 	import GraphLegend from '$stylist/graph/component/molecule/graph-legend/index.svelte';
+	import GraphTooltip from '$stylist/graph/component/atom/graph-tooltip/index.svelte';
 	import type { ZwickySceneProps } from '$stylist/graph/type/struct/zwicky-scene-props';
 
 	let props: ZwickySceneProps = $props();
@@ -12,11 +14,23 @@
 		state.mount(canvasRef);
 		return () => state.destroy();
 	});
+
+	const hasFilter = $derived(state.domainFilter.size > 0 || state.clusterFilter.size > 0);
 </script>
 
 <div class={state.containerClass} {...state.restProps}>
 	<canvas bind:this={canvasRef} class={state.canvasClass}></canvas>
 
+	<!-- Hover tooltip -->
+	<GraphTooltip
+		node={state.hoveredNode}
+		x={state.hoverPos?.x ?? 0}
+		y={state.hoverPos?.y ?? 0}
+		containerWidth={state.containerWidth}
+		containerHeight={state.containerHeight}
+	/>
+
+	<!-- Main info overlay -->
 	<div class={state.overlayClass}>
 		<span class="zwicky-scene__badge">WebGL2 · Instanced</span>
 		<h2 class="zwicky-scene__title">{state.title}</h2>
@@ -41,21 +55,37 @@
 				<label>selected</label>
 				<code class="zwicky-scene__path">{state.selectedNode.path}</code>
 				<div class="zwicky-scene__tags">
-					<span>{state.selectedNode.domain}</span>
+					<span class="zwicky-scene__tag--domain">{state.selectedNode.domain}</span>
 					<span>{state.selectedNode.cluster}</span>
-					<span>{state.selectedNode.joint}</span>
+					{#if state.selectedNode.joint}<span>{state.selectedNode.joint}</span>{/if}
 				</div>
-				<div class="zwicky-scene__deps">
-					<label>{state.selectedNode.dependencyIds.length} deps</label>
-				</div>
+				<span class="zwicky-scene__deps-count">{state.selectedNode.dependencyIds.length} deps</span>
 			</div>
 		{/if}
 
-		<div class="zwicky-scene__legend-wrap">
-			<GraphLegend />
+		<!-- Cluster filter pills (primary) -->
+		<div class="zwicky-scene__panel">
+			<GraphClusterFilter
+				activeClusters={state.clusterFilter}
+				onClusterClick={state.toggleCluster}
+			/>
 		</div>
 
-		<p class="zwicky-scene__hint">Drag to orbit · Wheel to zoom · F to fit · Click to select</p>
+		<!-- Domain legend (secondary) -->
+		<div class="zwicky-scene__panel">
+			<GraphLegend
+				activeDomains={state.domainFilter}
+				onDomainClick={state.toggleDomain}
+			/>
+		</div>
+
+		{#if hasFilter}
+			<button class="zwicky-scene__clear-btn" onclick={state.clearFilter}>
+				✕ clear all filters
+			</button>
+		{/if}
+
+		<p class="zwicky-scene__hint">Drag · Wheel · F fit · Click select · Pills filter</p>
 	</div>
 </div>
 
@@ -85,7 +115,7 @@
 		top: 1rem;
 		left: 1rem;
 		width: min(20rem, calc(100vw - 2rem));
-		background: rgb(6 9 14 / 82%);
+		background: rgb(6 9 14 / 86%);
 		border: 1px solid rgb(255 255 255 / 9%);
 		color: rgb(225 235 248);
 		padding: 0.9rem 1rem;
@@ -95,11 +125,14 @@
 			0 2rem 5rem rgb(0 0 0 / 42%);
 		font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
 		font-size: 0.85rem;
-		pointer-events: none;
 		backdrop-filter: blur(20px);
 		display: flex;
 		flex-direction: column;
 		gap: 0.65rem;
+		max-height: calc(100% - 2rem);
+		overflow-y: auto;
+		scrollbar-width: thin;
+		scrollbar-color: rgb(255 255 255 / 12%) transparent;
 	}
 
 	.zwicky-scene__badge {
@@ -117,7 +150,7 @@
 
 	.zwicky-scene__title {
 		margin: 0;
-		font-size: 1.25rem;
+		font-size: 1.2rem;
 		font-weight: 660;
 		line-height: 1.15;
 		color: rgb(240 248 255);
@@ -130,7 +163,7 @@
 	}
 
 	.zwicky-scene__metric {
-		padding: 0.55rem 0.65rem;
+		padding: 0.5rem 0.6rem;
 		border: 1px solid rgb(255 255 255 / 8%);
 		border-radius: 0.4rem;
 		background: rgb(255 255 255 / 4%);
@@ -138,7 +171,7 @@
 
 	.zwicky-scene__metric span {
 		display: block;
-		font-size: 1rem;
+		font-size: 0.95rem;
 		font-weight: 700;
 		color: rgb(240 250 255);
 	}
@@ -146,30 +179,30 @@
 	.zwicky-scene__metric label {
 		display: block;
 		margin-top: 0.1rem;
-		font-size: 0.66rem;
+		font-size: 0.64rem;
 		text-transform: uppercase;
 		color: rgb(155 175 200);
 	}
 
 	.zwicky-scene__selection {
-		padding: 0.6rem 0.7rem;
+		padding: 0.55rem 0.65rem;
 		border: 1px solid rgb(255 255 255 / 8%);
 		border-radius: 0.4rem;
 		background: rgb(255 255 255 / 4%);
 		display: flex;
 		flex-direction: column;
-		gap: 0.3rem;
+		gap: 0.28rem;
 	}
 
 	.zwicky-scene__selection > label {
-		font-size: 0.66rem;
+		font-size: 0.64rem;
 		text-transform: uppercase;
 		color: rgb(155 175 200);
 	}
 
 	.zwicky-scene__path {
-		font-family: 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
-		font-size: 0.68rem;
+		font-family: 'Fira Code', ui-monospace, monospace;
+		font-size: 0.64rem;
 		color: rgb(140 220 200);
 		word-break: break-all;
 	}
@@ -177,42 +210,64 @@
 	.zwicky-scene__tags {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.25rem;
+		gap: 0.22rem;
 	}
 
 	.zwicky-scene__tags span {
-		padding: 0.1rem 0.4rem;
+		padding: 0.1rem 0.38rem;
 		border-radius: 999px;
 		background: rgb(255 255 255 / 8%);
-		font-size: 0.65rem;
+		font-size: 0.63rem;
 		color: rgb(190 210 230);
 	}
 
-	.zwicky-scene__deps label {
-		font-size: 0.68rem;
-		color: rgb(155 175 200);
+	.zwicky-scene__tag--domain {
+		border: 1px solid rgb(100 180 255 / 20%);
+		color: rgb(140 200 255) !important;
 	}
 
-	.zwicky-scene__legend-wrap {
+	.zwicky-scene__deps-count {
+		font-size: 0.65rem;
+		color: rgb(140 165 195);
+	}
+
+	/* Scrollable sub-panels */
+	.zwicky-scene__panel {
 		pointer-events: all;
+		border-top: 1px solid rgb(255 255 255 / 6%);
+		padding-top: 0.55rem;
+	}
+
+	.zwicky-scene__clear-btn {
+		all: unset;
+		cursor: pointer;
+		display: block;
+		text-align: center;
+		padding: 0.3rem 0.6rem;
+		border-radius: 0.35rem;
+		border: 1px solid rgb(220 80 80 / 28%);
+		background: rgb(220 80 80 / 8%);
+		color: rgb(230 130 130);
+		font-size: 0.7rem;
+		transition: background 0.1s;
+		pointer-events: all;
+	}
+
+	.zwicky-scene__clear-btn:hover {
+		background: rgb(220 80 80 / 16%);
 	}
 
 	.zwicky-scene__hint {
 		margin: 0;
-		font-size: 0.62rem;
-		color: rgb(100 120 145);
+		font-size: 0.6rem;
+		color: rgb(90 110 135);
 		line-height: 1.5;
+		border-top: 1px solid rgb(255 255 255 / 5%);
+		padding-top: 0.45rem;
 	}
 
 	@media (max-width: 640px) {
-		.zwicky-scene {
-			min-height: 520px;
-		}
-
-		.zwicky-scene__overlay {
-			right: 0.75rem;
-			left: 0.75rem;
-			width: auto;
-		}
+		.zwicky-scene { min-height: 520px; }
+		.zwicky-scene__overlay { right: 0.75rem; left: 0.75rem; width: auto; }
 	}
 </style>

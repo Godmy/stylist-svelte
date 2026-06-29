@@ -15,3 +15,7 @@ export {
 	BaseCard,
 	MetricBarsCard
 } from './molecule';
+export {
+	MarkdownRenderer,
+	ShortcutsPanel
+} from './organism';

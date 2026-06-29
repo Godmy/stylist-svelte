@@ -1,9 +1,9 @@
 <script lang="ts">
+	import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { ChatInterfaceProps } from '$stylist/chat/type/struct/chat-interface-props';
 	import createChatInterfaceState from '$stylist/chat/function/state/chat-interface/index.svelte';
 
-	let props: ChatInterfaceProps = $props();
+	let props: AnyProperty = $props();
 	const state = createChatInterfaceState(props);
 
 	$effect(() => {
@@ -59,13 +59,13 @@
 								{message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
 								{#if message.status}
 									{#if message.status === 'sending'}
-										• Sending...
+										вЂў Sending...
 									{:else if message.status === 'delivered'}
-										• Delivered
+										вЂў Delivered
 									{:else if message.status === 'read'}
-										• Read
+										вЂў Read
 									{:else if message.status === 'error'}
-										• Error
+										вЂў Error
 									{/if}
 								{/if}
 							</div>

@@ -3,8 +3,8 @@ import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/bor
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { SlotChildren } from '$stylist/layout/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { TokenGradient } from '$stylist/layout/type/enum/gradient-mode';
-import type { ThemeGradientBackgroundDirection } from '$stylist/layout/type/enum/gradient-background-direction';
+import type { TokenGradient } from '$stylist/layout/type/alias/gradient-mode';
+import type { ThemeGradientBackgroundDirection } from '$stylist/layout/type/alias/gradient-background-direction';
 
 export interface RecipeThemeGradientBackground
 	extends ComputeIntersectAll<[HTMLAttributes<HTMLDivElement>, BehaviorBorderToken, BehaviorTypography, SlotChildren]> {

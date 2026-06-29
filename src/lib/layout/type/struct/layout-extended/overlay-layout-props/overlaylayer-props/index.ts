@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { OverlayLayoutAlign } from '$stylist/layout/type/enum/overlay-layout-align';
+import type { OverlayLayoutAlign } from '$stylist/layout/type/alias/overlay-layout-align';
 
 export type OverlayLayerProps = {
 	content: Snippet;

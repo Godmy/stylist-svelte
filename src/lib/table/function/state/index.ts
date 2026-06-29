@@ -7,6 +7,7 @@ export { createCellTextState } from './cell-text';
 export { createColumnState } from './column';
 export { createColumnManagerState } from './column-manager';
 export { createComparisonTableState } from './comparison-table';
+export { createComponentState } from './component';
 export { createDataTableState } from './data-table';
 export { createDataTableShellState } from './data-table-shell';
 export { createExpandableTableRowState } from './expandable-table-row';

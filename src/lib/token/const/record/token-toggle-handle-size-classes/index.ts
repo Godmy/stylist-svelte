@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 
 export const TOKEN_TOGGLE_HANDLE_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'h-2.5 w-2.5',

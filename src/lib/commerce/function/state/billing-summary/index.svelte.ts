@@ -1,6 +1,6 @@
 import type { RecipeBillingSummary } from '$stylist/commerce/interface/recipe/billing-summary';
-import type { TokenBillingItem } from '$stylist/commerce/type/enum/billing-item';
-import type { TokenBillingSummary } from '$stylist/commerce/type/enum/billing-summary';
+import type { TokenBillingItem } from '$stylist/commerce/type/alias/billing-item';
+import type { TokenBillingSummary } from '$stylist/commerce/type/alias/billing-summary';
 
 export function createBillingSummaryState(props: RecipeBillingSummary) {
 	const total = $derived((props.items ?? []).reduce((sum, item) => sum + item.amount, 0));

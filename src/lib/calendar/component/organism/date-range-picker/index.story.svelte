@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import type { DatePickerValue } from '$stylist/calendar/interface/slot/date-picker';
 	import DateRangePicker from './index.svelte';
 
 	type DateRangeValue = { start: Date | null; end: Date | null };
@@ -20,8 +21,10 @@
 
 	let selectedRange: DateRangeValue = { start: null, end: null };
 
-	function handleInputChange(value: DateRangeValue) {
-		selectedRange = value;
+	function handleInputChange(value: DatePickerValue) {
+		if (value && typeof value === 'object' && !(value instanceof Date) && 'start' in value) {
+			selectedRange = value;
+		}
 		console.log('Date range changed:', value);
 	}
 </script>

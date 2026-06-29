@@ -6,7 +6,7 @@ export type {
 	TokenLetterSpacing,
 	TokenLineHeight,
 	TokenTypographyTone
-} from './enum';
+} from './alias';
 export type {
 	StructRichTextMark,
 	StructRichTextSegment,

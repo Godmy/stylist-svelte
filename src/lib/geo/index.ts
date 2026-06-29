@@ -10,6 +10,7 @@ export {
 	StoreLocator
 } from './component';
 export {
+	MAP_PROVIDER,
 	TOKEN_MAP_TYPE,
 	TOKEN_PIN
 } from './const';
@@ -33,6 +34,7 @@ export type {
 	LocationSelectorLocation,
 	LocationSelectorProps,
 	LocationSelectorRestProps,
+	MapProvider,
 	MapSelectorLocation,
 	MapSelectorProps,
 	MapSelectorRestProps,

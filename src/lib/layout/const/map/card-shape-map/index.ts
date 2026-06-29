@@ -1,4 +1,4 @@
-﻿import type { LayoutShape } from '$stylist/token/type/alias/item-layout-shape';
+import type { LayoutShape } from '$stylist/layout/type/alias/item-layout-shape';
 
 export const CARD_SHAPE_MAP: Record<LayoutShape, string> = {
 	rectangular: 'rounded-none',

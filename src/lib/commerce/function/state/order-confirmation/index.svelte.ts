@@ -1,6 +1,6 @@
 import type { RecipeOrderConfirmation } from '$stylist/commerce/interface/recipe/order-confirmation';
-import type { TokenOrderStatus } from '$stylist/commerce/type/enum/order-status';
-import type { TokenBillingItem } from '$stylist/commerce/type/enum/billing-item';
+import type { TokenOrderStatus } from '$stylist/commerce/type/alias/order-status';
+import type { TokenBillingItem } from '$stylist/commerce/type/alias/billing-item';
 
 const ORDER_STATUS_ICONS: Record<TokenOrderStatus, string> = {
 	pending: 'package',

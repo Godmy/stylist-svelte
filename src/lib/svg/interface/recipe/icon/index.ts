@@ -2,11 +2,11 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
 import type { SlotSvgName } from '$stylist/svg/interface/slot/svg-name';
-import type { TokenDirection } from '$stylist/token/type/alias/direction';
-import type { TokenVariant } from '$stylist/token/type/alias/variant';
-import type { TokenShape } from '$stylist/token/type/alias/shape';
+import type { TokenDirection } from '$stylist/svg/type/alias/direction';
+import type { TokenVariant } from '$stylist/svg/type/alias/variant';
+import type { TokenShape } from '$stylist/svg/type/alias/shape';
 
 export interface RecipeIcon
 	extends ComputeIntersectAll<

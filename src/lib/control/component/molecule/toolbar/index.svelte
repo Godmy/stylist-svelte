@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import createToolbarState from '$stylist/control/function/state/toolbar/index.svelte';
 	import { toolbarHandleExport } from '$stylist/control/function/script/toolbar-handle-export';
@@ -8,7 +8,7 @@
 	import { toolbarHandleSearchToggle } from '$stylist/control/function/script/toolbar-handle-search-toggle';
 	import { toolbarHandleZoomOut } from '$stylist/control/function/script/toolbar-handle-zoom-out';
 	import { toolbarHandleZoomIn } from '$stylist/control/function/script/toolbar';
-	import type { ExportFormat } from '$stylist/token/type/alias/export-format';
+	import type { ExportFormat } from '$stylist/control/type/alias/export-format';
 
 	let props = $props<{
 		onZoomIn?: () => void;

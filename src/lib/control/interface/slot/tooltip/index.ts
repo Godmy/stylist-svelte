@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
-import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
-import type { TokenConnector } from '$stylist/architecture/type/enum/connector';
+import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
+import type { TokenConnector } from '$stylist/architecture/type/alias/connector';
 import type { TokenTrigger } from '$stylist/interaction/type/record/trigger';
 
 /**

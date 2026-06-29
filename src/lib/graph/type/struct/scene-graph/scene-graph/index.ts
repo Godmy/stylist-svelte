@@ -2,7 +2,7 @@ import type { SceneAtom } from '$stylist/graph/type/struct/scene-atom/scene-atom
 import type { SceneMolecule } from '$stylist/graph/type/struct/scene-molecule';
 import type { GraphConnection } from '$stylist/graph/type/struct/graph-connection';
 import type { GraphNode } from '$stylist/graph/type/struct/graph-node';
-import type { SceneCameraPreset } from '$stylist/token/type/alias/scene-camera-preset';
+import type { SceneCameraPreset } from '$stylist/graph/type/alias/scene-camera-preset';
 
 export type SceneGraph = {
 	id: string;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotDateTimePicker as IDateTimePickerProps } from '$stylist/calendar/interface/slot/date-time-picker';
+	import type { SlotDatePicker as IDateTimePickerProps } from '$stylist/calendar/interface/slot/date-picker';
 	import createDateTimePickerState from '$stylist/calendar/function/state/date-time-picker/index.svelte';
 	import FormDatePicker from '$stylist/calendar/component/molecule/form-date-picker/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
@@ -65,7 +65,6 @@
 		>
 			<FormDatePicker
 				value={state.selectedDate ? state.selectedDate.toISOString().split('T')[0] : ''}
-				onValueChange={state.handleDateValueChange}
 				onChange={state.handleDateValueChange}
 				minDate={state.minDate ? state.minDate.toISOString().split('T')[0] : undefined}
 				maxDate={state.maxDate ? state.maxDate.toISOString().split('T')[0] : undefined}

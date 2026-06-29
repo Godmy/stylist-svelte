@@ -1,10 +1,6 @@
 import type { GestureContract } from '$stylist/interaction/type/struct/gesture/gesture-contract';
-import type { TokenCursor } from '$stylist/interaction/type/enum/cursor';
+import type { TokenCursor } from '$stylist/interaction/type/alias/cursor';
 
-/**
- * Прото-интерфейс для кликабельных элементов
- * Расширяет GestureContract дополнительными свойствами
- */
 export interface BehaviorClickable extends Partial<GestureContract> {
 	/** Обработчик клика */
 	onClick?: (event: MouseEvent) => void;

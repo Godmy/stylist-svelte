@@ -1,7 +1,7 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenDensity } from '$stylist/layout/type/enum/density';
+import type { TokenDensity } from '$stylist/layout/type/alias/density';
 
 export interface DashboardLayoutProps
 	extends ComputeIntersectAll<[Omit<HTMLAttributes<HTMLDivElement>, 'class'>]> {

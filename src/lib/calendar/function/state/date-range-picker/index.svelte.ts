@@ -1,27 +1,40 @@
-import type { SlotDateRangePickerComponent as DateRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-range-picker-component';
+import type { SlotDatePicker as DateRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-picker';
+import { generateCalendarGrid } from '$stylist/calendar/function/script/calendar-utils';
+import { formatDisplayDate } from '$stylist/calendar/function/script/date-format';
 
 export const createDateRangePickerState = (props: DateRangePickerComponentProps) => {
-	let selectedRange = $state({
-		start: props.value?.start ? new Date(props.value.start) : null,
-		end: props.value?.end ? new Date(props.value.end) : null
+	const isRangeValue = (
+		value: DateRangePickerComponentProps['value']
+	): value is { start: Date | null; end: Date | null } => {
+		return (
+			!!value &&
+			typeof value === 'object' &&
+			!(value instanceof Date) &&
+			'start' in value &&
+			'end' in value
+		);
+	};
+
+	const parseRange = (value: DateRangePickerComponentProps['value']) => ({
+		start: isRangeValue(value) && value.start ? new Date(value.start) : null,
+		end: isRangeValue(value) && value.end ? new Date(value.end) : null
 	});
+
+	let selectedRange = $state(parseRange(props.value));
 	let isOpen = $state(false);
 	let currentDateView = $state(new Date());
 
 	$effect(() => {
-		selectedRange = {
-			start: props.value?.start ? new Date(props.value.start) : null,
-			end: props.value?.end ? new Date(props.value.end) : null
-		};
+		selectedRange = parseRange(props.value);
 	});
 
 	function fmt(date: Date | null) {
-		return date ? date.toLocaleDateString() : '';
+		return date ? formatDisplayDate(date) : '';
 	}
 
 	function pick(date: Date) {
 		if (props.disabled) return;
-		if (!selectedRange.start || (selectedRange.start && selectedRange.end)) {
+		if (!selectedRange.start || selectedRange.end) {
 			selectedRange = { start: date, end: null };
 		} else if (date >= selectedRange.start) {
 			selectedRange = { ...selectedRange, end: date };
@@ -30,24 +43,34 @@ export const createDateRangePickerState = (props: DateRangePickerComponentProps)
 		} else {
 			selectedRange = { start: date, end: null };
 		}
-		props.onInput?.(selectedRange);
 	}
 
 	function inRange(date: Date) {
 		if (!selectedRange.start || !selectedRange.end) return false;
-		return date >= selectedRange.start && date <= selectedRange.end;
+		return date > selectedRange.start && date < selectedRange.end;
+	}
+
+	function isRangeEnd(date: Date) {
+		return (
+			(!!selectedRange.start && date.toDateString() === selectedRange.start.toDateString()) ||
+			(!!selectedRange.end && date.toDateString() === selectedRange.end.toDateString())
+		);
 	}
 
 	function toggleOpen() {
-		if (!props.disabled) {
-			isOpen = !isOpen;
-		}
+		if (!props.disabled) isOpen = !isOpen;
 	}
 
 	function clear() {
 		selectedRange = { start: null, end: null };
-		props.onInput?.(selectedRange);
 		props.onChange?.(selectedRange);
+	}
+
+	function applySelection() {
+		if (selectedRange.start && selectedRange.end) {
+			props.onChange?.(selectedRange);
+		}
+		isOpen = false;
 	}
 
 	function previousMonth() {
@@ -58,14 +81,14 @@ export const createDateRangePickerState = (props: DateRangePickerComponentProps)
 		currentDateView = new Date(currentDateView.getFullYear(), currentDateView.getMonth() + 1, 1);
 	}
 
-	const calendarDates = $derived.by(() =>
-		Array.from({ length: 42 }, (_, index) => {
-			const date = new Date(currentDateView.getFullYear(), currentDateView.getMonth(), 1);
-			date.setDate(
-				index - new Date(currentDateView.getFullYear(), currentDateView.getMonth(), 1).getDay() + 1
-			);
-			return date;
-		})
+	const calendarDates = $derived(generateCalendarGrid(currentDateView));
+
+	const displayValue = $derived(
+		selectedRange.start
+			? selectedRange.end
+				? `${fmt(selectedRange.start)} — ${fmt(selectedRange.end)}`
+				: fmt(selectedRange.start)
+			: props.placeholder ?? 'Select date range'
 	);
 
 	return {
@@ -87,9 +110,6 @@ export const createDateRangePickerState = (props: DateRangePickerComponentProps)
 		get disabled() {
 			return props.disabled ?? false;
 		},
-		get placeholder() {
-			return props.placeholder ?? 'Select date range';
-		},
 		get className() {
 			return props.class ?? '';
 		},
@@ -105,11 +125,16 @@ export const createDateRangePickerState = (props: DateRangePickerComponentProps)
 		get calendarDates() {
 			return calendarDates;
 		},
+		get displayValue() {
+			return displayValue;
+		},
 		fmt,
 		pick,
 		inRange,
+		isRangeEnd,
 		toggleOpen,
 		clear,
+		applySelection,
 		previousMonth,
 		nextMonth
 	};

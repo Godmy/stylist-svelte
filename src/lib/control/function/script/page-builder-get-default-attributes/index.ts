@@ -1,4 +1,4 @@
-﻿import type { TokenComponentType } from '$stylist/architecture/type/enum/component-type';
+import type { TokenComponentType } from '$stylist/architecture/type/alias/component-type';
 import type { PageBuilderButtonAttributes } from '$stylist/control/type/struct/page-builder-button-attributes';
 import type { PageBuilderElement } from '$stylist/control/type/struct/page-builder-element';
 import type { PageBuilderHeadingAttributes } from '$stylist/control/type/struct/page-builder-heading-attributes';

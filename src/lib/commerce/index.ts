@@ -66,6 +66,8 @@ export {
 } from './component';
 export {
 	DEFAULT_BULK_ORDER,
+	DISCOUNT_TYPE,
+	INVENTORY_ITEM_STATUS,
 	LINK_CARD_VARIANT_CLASSES,
 	ORDER_STATUS_CLASSES,
 	PAYMENT_STATUS_CLASSES,
@@ -83,12 +85,14 @@ export {
 	PresetOrderConfirmation,
 	PresetPriceAlert,
 	PresetQuoteRequest,
+	SUBSCRIPTION_STATUS,
 	TOKEN_BILLING_ITEM,
 	TOKEN_BILLING_SUMMARY,
 	TOKEN_MONITORING_TYPE,
 	TOKEN_ORDER_STATUS,
 	TOKEN_PAYMENT_METHOD,
 	TOKEN_PAYMENT_STATUS,
+	WARRANTY_PERIOD_TYPE,
 	returnPolicyPolicyData,
 	shippingCalculatorCountries,
 	shippingCalculatorOptions,
@@ -176,6 +180,8 @@ export type {
 	CheckoutStep,
 	ComparisonColumn,
 	ComparisonItem,
+	DiscountType,
+	InventoryItemStatus,
 	OrderConfirmationProps,
 	OrderItem,
 	OrderStatusType,
@@ -202,6 +208,7 @@ export type {
 	SlotProductTourStep,
 	SlotShippingOption,
 	SubscriptionManagerStoryProps,
+	SubscriptionStatus,
 	TaxCalculatorStoryProps,
 	TokenBillingItem,
 	TokenBillingSummary,
@@ -211,7 +218,8 @@ export type {
 	TrackingStatusType,
 	UpsellStoryProps,
 	User,
-	WarrantyInfoStoryProps
+	WarrantyInfoStoryProps,
+	WarrantyPeriodType
 } from './type';
 export type {
 	AlertCardAction,

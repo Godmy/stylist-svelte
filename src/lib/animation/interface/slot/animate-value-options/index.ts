@@ -1,5 +1,5 @@
-import type { TokenDuration } from '$stylist/animation/type/enum/duration';
-import type { TokenEasing } from '$stylist/animation/type/enum/easing';
+import type { TokenDuration } from '$stylist/animation/type/alias/duration';
+import type { TokenEasing } from '$stylist/animation/type/alias/easing';
 
 export interface AnimateValueOptions {
 	from: number;

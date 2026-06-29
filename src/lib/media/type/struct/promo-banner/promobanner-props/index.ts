@@ -1,5 +1,5 @@
 
-import type { TOKEN_COLOR_TONE } from '$stylist/color/const/enum/tone';
+import type { TOKEN_COLOR_TONE } from '$stylist/color/const/array/tone';
 export type PromoBannerProps = {
 	title?: string;
 	description?: string;

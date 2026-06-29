@@ -12,6 +12,7 @@ export {
 	createColumnManagerState,
 	createColumnState,
 	createComparisonTableState,
+	createComponentState,
 	createDataTableShellState,
 	createDataTableState,
 	createExpandableTableRowState,

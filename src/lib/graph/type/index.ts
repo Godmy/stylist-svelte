@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	SceneCameraPreset,
+	ZwickyLevel
+} from './alias';
+export type {
 	GraphJsonInput,
 	InstancedDrawData,
 	SceneAtom,

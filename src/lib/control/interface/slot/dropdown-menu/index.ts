@@ -5,7 +5,7 @@ import type { HTMLAttributes } from 'svelte/elements';
  */
 
 import type { Snippet } from 'svelte';
-import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
+import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { SlotCloseDropdownFunc } from '$stylist/control/interface/slot/close-dropdown-func';
 
 export interface SlotDropdownMenu extends Omit<HTMLAttributes<HTMLElement>, 'children'>, SlotInteraction {

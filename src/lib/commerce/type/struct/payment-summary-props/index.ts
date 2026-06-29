@@ -1,6 +1,6 @@
-﻿import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
+import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenPaymentStatus } from '$stylist/commerce/type/enum/payment-status';
+import type { TokenPaymentStatus } from '$stylist/commerce/type/alias/payment-status';
 import type { PaymentSummaryItem } from '$stylist/commerce/type/struct/payment-summary-item';
 import type { PaymentSummaryDiscount } from '$stylist/commerce/type/struct/payment-summary-discount';
 import type { PaymentSummaryTax } from '$stylist/commerce/type/struct/payment-summary-tax';

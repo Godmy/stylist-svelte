@@ -1,4 +1,4 @@
-import type { TOKEN_TREND } from '$stylist/management/const/enum/trend';
+import type { TOKEN_TREND } from '$stylist/management/const/array/trend';
 import { STATS_CARD_TREND_ICON } from '$stylist/management/const/record/stats-card-trend-icon';
 import { STATS_CARD_TREND_CLASS } from '$stylist/management/const/record/stats-card-trend-class';
 

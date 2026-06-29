@@ -1,4 +1,4 @@
-import type { TokenOpacity } from '$stylist/architecture/type/enum/opacity';
+import type { TokenOpacity } from '$stylist/architecture/type/alias/opacity';
 
 /** Управление высотой над поверхностью (тень, z-index) и прозрачностью */
 export interface BehaviorElevatable {

@@ -5,9 +5,8 @@ export interface SlotTimePicker extends HTMLAttributes<HTMLInputElement>, SlotIn
 	value?: string;
 	disabled?: boolean;
 	class?: string;
-	dropdownClass?: string;
 	showSeconds?: boolean;
-	onValueInput?: (time: string) => void;
-	onValueChange?: (time: string) => void;
+	step?: number;
 	onChange?: (time: string) => void;
+	onValueChange?: (time: string) => void;
 }

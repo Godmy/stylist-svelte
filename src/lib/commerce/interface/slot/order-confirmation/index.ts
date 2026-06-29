@@ -1,5 +1,5 @@
 import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
-import type { TokenOrderStatus } from '$stylist/commerce/type/enum/order-status';
+import type { TokenOrderStatus } from '$stylist/commerce/type/alias/order-status';
 import type { SlotOrderItem } from '$stylist/commerce/interface/slot/order-item';
 import type { SlotShippingAddress } from '$stylist/commerce/interface/slot/shipping-address';
 import type { SlotOrderConfirmationPaymentInfo } from '$stylist/commerce/interface/slot/order-confirmation-payment-info';

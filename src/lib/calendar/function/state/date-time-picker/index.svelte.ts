@@ -1,8 +1,17 @@
-import type { SlotDateTimePicker as IDateTimePickerProps } from '$stylist/calendar/interface/slot/date-time-picker';
+import type {
+	DatePickerValue,
+	SlotDatePicker as IDateTimePickerProps
+} from '$stylist/calendar/interface/slot/date-picker';
 
 export const createDateTimePickerState = (props: IDateTimePickerProps) => {
+	const toDate = (value: Date | string | { start: Date | null; end: Date | null } | undefined) => {
+		if (value instanceof Date) return value;
+		if (typeof value === 'string') return new Date(`${value}T00:00:00`);
+		return undefined;
+	};
+
 	let isOpen = $state(false);
-	let selectedDate = $state<Date>(props.value ?? new Date());
+	let selectedDate = $state<Date>(props.value instanceof Date ? props.value : new Date());
 	let selectedTime = $state('12:00');
 	let dateInputRef = $state<HTMLInputElement | undefined>(undefined);
 	let datePickerRef = $state<HTMLDivElement | undefined>(undefined);
@@ -12,7 +21,7 @@ export const createDateTimePickerState = (props: IDateTimePickerProps) => {
 	}
 
 	$effect(() => {
-		selectedDate = props.value ?? new Date();
+		selectedDate = props.value instanceof Date ? props.value : new Date();
 		selectedTime = formatTime(selectedDate);
 	});
 
@@ -29,8 +38,8 @@ export const createDateTimePickerState = (props: IDateTimePickerProps) => {
 		updateDateTime();
 	}
 
-	function handleDateValueChange(value: string, event?: Event) {
-		if (!value) return;
+	function handleDateValueChange(value: DatePickerValue, event?: Event) {
+		if (!value || typeof value !== 'string') return;
 		selectedDate = new Date(`${value}T${selectedTime}:00`);
 		updateDateTime(event);
 	}
@@ -45,16 +54,10 @@ export const createDateTimePickerState = (props: IDateTimePickerProps) => {
 	}
 
 	function updateDateTime(sourceEvent?: Event) {
-		props.onValueInput?.(selectedDate, sourceEvent);
-		props.onValueChange?.(selectedDate, sourceEvent);
 		props.onChange?.(selectedDate, sourceEvent);
-
-		const changeEvent = new CustomEvent('change', {
-			detail: { date: new Date(selectedDate) },
-			bubbles: true
-		});
-
-		dateInputRef?.dispatchEvent(changeEvent);
+		dateInputRef?.dispatchEvent(
+			new CustomEvent('change', { detail: { date: new Date(selectedDate) }, bubbles: true })
+		);
 	}
 
 	function toggleDropdown() {
@@ -116,10 +119,10 @@ export const createDateTimePickerState = (props: IDateTimePickerProps) => {
 			return props.dropdownClass ?? '';
 		},
 		get minDate() {
-			return props.minDate;
+			return toDate(props.minDate);
 		},
 		get maxDate() {
-			return props.maxDate;
+			return toDate(props.maxDate);
 		},
 		get timeOptions() {
 			return timeOptions;

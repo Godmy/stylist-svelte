@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 import { RECORD_PADDING } from '$stylist/layout/const/record/padding/index';
 
 const RECORD_TEXT_SIZE_LOCAL: Record<TokenSize, string> = {

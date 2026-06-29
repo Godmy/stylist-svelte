@@ -4,7 +4,7 @@ import { handleBackdropClick } from '$stylist/navigation/function/script/handle-
 import { handleBackdropKeyDown } from '$stylist/navigation/function/script/handle-backdrop-key-down';
 import { handleEscape } from '$stylist/navigation/function/script/handle-escape';
 
-import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/enum/alignment';
+import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/array/alignment';
 export class DrawerManager {
 	drawerEl = $state<HTMLElement | null>(null);
 	backdropEl = $state<HTMLElement | null>(null);

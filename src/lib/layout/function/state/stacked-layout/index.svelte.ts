@@ -1,5 +1,5 @@
-﻿import type { TOKEN_ORIENTATION } from '$stylist/layout/const/enum/orientation';
-import type { SplitLayoutGap } from '$stylist/token/type/alias/split-layout-gap';
+import type { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
+import type { SplitLayoutGap } from '$stylist/layout/type/alias/split-layout-gap';
 import type { StackedLayoutProps } from '$stylist/layout/interface/recipe/stacked-layout';
 
 export function createStackedLayoutState(props: StackedLayoutProps) {

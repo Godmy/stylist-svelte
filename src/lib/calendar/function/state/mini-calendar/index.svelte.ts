@@ -1,6 +1,8 @@
 import type { RecipeMiniCalendar as MiniCalendarContract } from '$stylist/calendar/interface/recipe/mini-calendar';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
-import type { RecipeCalendarDay } from '$stylist/calendar/interface/recipe/calendar-day';
+import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';
+import { generateCalendarGrid, isToday as isTodayFn, isSameDay } from '$stylist/calendar/function/script/calendar-utils';
+import { formatShortMonthYear } from '$stylist/calendar/function/script/date-format';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createMiniCalendarState(props: MiniCalendarContract) {
@@ -25,11 +27,23 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 	);
 	const gridClasses = $derived('c-mini-calendar__grid');
 
-	const days = $derived.by<RecipeCalendarDay[]>(() => getDaysInMonth(currentDate));
+	const days = $derived.by<SlotCalendarDay[]>(() => {
+		const month = currentDate.getMonth();
+		return generateCalendarGrid(currentDate).map((date) => {
+			const dayEvents = events.filter((e) => isSameDay(new Date(e.start), date));
+			return {
+				date,
+				isCurrentMonth: date.getMonth() === month,
+				isToday: isTodayFn(date),
+				isSelected: selectedDate ? isSameDay(date, selectedDate) : false,
+				hasEvent: dayEvents.length > 0,
+				events: dayEvents
+			};
+		});
+	});
+
 	const weekdays = $derived(['S', 'M', 'T', 'W', 'T', 'F', 'S']);
-	const monthYear = $derived(
-		currentDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-	);
+	const monthYear = $derived(formatShortMonthYear(currentDate));
 
 	const restProps = $derived.by(() => {
 		const {
@@ -48,45 +62,6 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 		} = props;
 		return rest;
 	});
-
-	function getDaysInMonth(date: Date): RecipeCalendarDay[] {
-		const year = date.getFullYear();
-		const month = date.getMonth();
-
-		const firstDay = new Date(year, month, 1);
-		const lastDay = new Date(year, month + 1, 0);
-		const startDay = new Date(firstDay);
-		startDay.setDate(firstDay.getDate() - firstDay.getDay());
-		const endDay = new Date(lastDay);
-		endDay.setDate(lastDay.getDate() + (6 - lastDay.getDay()));
-
-		const calendarDays: RecipeCalendarDay[] = [];
-		const today = new Date();
-		today.setHours(0, 0, 0, 0);
-
-		for (let d = new Date(startDay); d <= endDay; d.setDate(d.getDate() + 1)) {
-			const dayDate = new Date(d);
-			const isCurrentMonth = dayDate.getMonth() === month;
-			const isTodayDate = dayDate.getTime() === today.getTime();
-
-			const dayEvents = events.filter((event) => {
-				const eventDate = new Date(event.start);
-				eventDate.setHours(0, 0, 0, 0);
-				return eventDate.getTime() === dayDate.getTime();
-			});
-
-			calendarDays.push({
-				date: dayDate,
-				isCurrentMonth,
-				isToday: isTodayDate,
-				isSelected: selectedDate ? dayDate.getTime() === selectedDate.getTime() : false,
-				hasEvent: dayEvents.length > 0,
-				events: dayEvents
-			});
-		}
-
-		return calendarDays;
-	}
 
 	function navigateMonth(direction: number): void {
 		currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + direction, 1);

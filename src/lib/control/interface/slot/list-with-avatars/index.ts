@@ -1,5 +1,5 @@
 import type { ListItem } from '$stylist/control/type/struct/list-with-avatars/item';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 
 /**
  * SlotListWithAvatars — свойства списка с аватарами.

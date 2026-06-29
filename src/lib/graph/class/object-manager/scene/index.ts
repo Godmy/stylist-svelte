@@ -13,7 +13,7 @@ import { resolveSceneAtomModelMatrix } from '$stylist/graph/function/script/reso
 import type { SceneBufferSet } from '$stylist/graph/type/struct/scene-buffer-set';
 import type { SceneDebugInfo } from '$stylist/graph/type/struct/scene-debug-info';
 import type { SceneAtom } from '$stylist/graph/type/struct/scene-atom/scene-atom';
-import type { SceneCameraPreset } from '$stylist/token/type/alias/scene-camera-preset';
+import type { SceneCameraPreset } from '$stylist/graph/type/alias/scene-camera-preset';
 import type { SceneGraph } from '$stylist/graph/type/struct/scene-graph/scene-graph';
 import vertexBasic from '$stylist/graph/data/shader/vertex/base.vert?raw';
 import fragmentBasic from '$stylist/graph/data/shader/fragment/base.frag?raw';

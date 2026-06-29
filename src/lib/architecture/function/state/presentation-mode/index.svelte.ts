@@ -1,4 +1,4 @@
-﻿import type { PresentationMode } from '$stylist/token/type/alias/presentation-mode/index';
+import type { PresentationMode } from '$stylist/architecture/type/alias/presentation-mode/index';
 
 export function createPresentationMode(initial?: PresentationMode) {
 	let mode = $state<PresentationMode>(initial ?? 'overview');

@@ -34,6 +34,7 @@ export {
 	HEATMAP_GRADIENT_BY_SCHEME,
 	LINE_CHART_COLOR_SCHEME,
 	PRESET_CANVAS_CHART,
+	TOKEN_CANVAS_CHART_TYPE,
 	TOKEN_CHART,
 	TOKEN_CHART_COLORS,
 	TOKEN_COLOR_SCALE
@@ -80,6 +81,7 @@ export type {
 	LineChartPoint,
 	PieChartDataPoint,
 	ScatterPlotDataPoint,
+	TokenCanvasChartType,
 	TokenChart
 } from './type';
 export type {

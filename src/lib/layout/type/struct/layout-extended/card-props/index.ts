@@ -1,27 +1,27 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
-import type { LayoutShape } from '$stylist/token/type/alias/item-layout-shape';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { LayoutShape } from '$stylist/layout/type/alias/item-layout-shape';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 
 export type CardProps = LayoutHTMLAttributes<HTMLDivElement> & {
 	class?: string;
 	children?: Snippet;
-	/** РЎР»РѕС‚ РґР»СЏ РјРµРґРёР°-РєРѕРЅС‚РµРЅС‚Р° (РёР·РѕР±СЂР°Р¶РµРЅРёРµ, РІРёРґРµРѕ) */
+	/** Слот для медиа-контента (изображение, видео) */
 	media?: Snippet;
-	/** РЎР»РѕС‚ РґР»СЏ С€Р°РїРєРё РєР°СЂС‚РѕС‡РєРё */
+	/** Слот для шапки карточки */
 	header?: Snippet;
-	/** РЎР»РѕС‚ РґР»СЏ С„СѓС‚РµСЂР° РєР°СЂС‚РѕС‡РєРё */
+	/** Слот для футера карточки */
 	footer?: Snippet;
-	/** Р¤РѕСЂРјР° СѓРіР»РѕРІ */
+	/** Форма углов */
 	shape?: LayoutShape;
-	/** Р Р°Р·РјРµСЂ (СѓРїСЂР°РІР»СЏРµС‚ padding) */
+	/** Размер (управляет padding) */
 	size?: TokenSize;
-	/** РЈСЂРѕРІРµРЅСЊ С‚РµРЅРё (0вЂ“6) */
+	/** Уровень тени (0–6) */
 	elevation?: number;
-	/** РђРєС‚РёРІРёСЂСѓРµС‚ hover/focus СЃС‚РёР»Рё РёРЅС‚РµСЂР°РєС‚РёРІРЅРѕР№ РєР°СЂС‚РѕС‡РєРё */
+	/** Активирует hover/focus стили интерактивной карточки */
 	clickable?: boolean;
-	/** Р Р°СЃС‚СЏРіРёРІР°РµС‚ РЅР° РІСЃСЋ С€РёСЂРёРЅСѓ */
+	/** Растягивает на всю ширину */
 	fullWidth?: boolean;
 };
 

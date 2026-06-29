@@ -1,6 +1,6 @@
-﻿import type { ToastAction } from '$stylist/notification/interface/slot/toast-action';
+import type { ToastAction } from '$stylist/notification/interface/slot/toast-action';
 
-import type { TOKEN_STATUS } from '$stylist/information/const/enum/status';
+import type { TOKEN_STATUS } from '$stylist/information/const/array/status';
 export interface Toast {
 	id: string;
 	title?: string;

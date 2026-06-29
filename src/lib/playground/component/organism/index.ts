@@ -1,20 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { PlaygroundAiAssistant } from './playground-ai-assistant/index';
-export { PlaygroundAiChat } from './playground-ai-chat/index';
-export { PlaygroundAiPanel } from './playground-ai-panel/index';
-export { PlaygroundCanvasShell } from './playground-canvas-shell/index';
-export { PlaygroundCodeViewer } from './playground-code-viewer/index';
-export { PlaygroundComponentCatalog } from './playground-component-catalog/index';
-export { PlaygroundComponentInfoCard } from './playground-component-info-card/index';
-export { PlaygroundComponentTree } from './playground-component-tree/index';
-export { PlaygroundDeviceFrame } from './playground-device-frame/index';
-export { PlaygroundDrawingOverlay } from './playground-drawing-overlay/index';
-export { PlaygroundEnhancedExportPanel } from './playground-enhanced-export-panel/index';
-export { PlaygroundErrorBoundary } from './playground-error-boundary/index';
-export { PlaygroundGenericCodeViewer } from './playground-generic-code-viewer/index';
-export { PlaygroundLiveCodeSection } from './playground-live-code-section/index';
-export { PlaygroundMarkdownRenderer } from './playground-markdown-renderer/index';
-export { PlaygroundScreenshotSelector } from './playground-screenshot-selector/index';
-export { PlaygroundShellHeader } from './playground-shell-header/index';
-export { PlaygroundShortcutsPanel } from './playground-shortcuts-panel/index';
-export { PlaygroundTreeNode } from './playground-tree-node/index';
+export { DeviceFrame } from './device-frame/index';
+export { ShellCanvas } from './shell-canvas/index';
+export { ShellHeader } from './shell-header/index';

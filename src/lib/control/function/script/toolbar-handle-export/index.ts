@@ -1,4 +1,4 @@
-﻿import type { ExportFormat } from '$stylist/token/type/alias/export-format';
+import type { ExportFormat } from '$stylist/control/type/alias/export-format';
 
 export function toolbarHandleExport(
 	format: ExportFormat,

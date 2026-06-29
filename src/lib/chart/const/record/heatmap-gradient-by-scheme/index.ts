@@ -1,4 +1,4 @@
-﻿import type { TokenThemeScheme } from '$stylist/theme/type/enum/theme-scheme';
+import type { TokenThemeScheme } from '$stylist/theme/type/alias/theme-scheme';
 
 export const HEATMAP_GRADIENT_BY_SCHEME: Record<TokenThemeScheme, string> = {
 	sunset: 'var(--gradient-sunset)',

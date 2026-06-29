@@ -1,4 +1,4 @@
-﻿import type { PromptVariableType } from '$stylist/token/type/alias/prompt-variable-type';
+import type { PromptVariableType } from '$stylist/science/type/alias/prompt-variable-type';
 
 export interface ContractPromptVariable {
 	id: string;

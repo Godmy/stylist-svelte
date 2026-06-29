@@ -1,6 +1,6 @@
 import type { RecipePromoBanner } from '$stylist/media/interface/recipe/promo-banner';
 
-import type { TOKEN_COLOR_TONE } from '$stylist/color/const/enum/tone';
+import type { TOKEN_COLOR_TONE } from '$stylist/color/const/array/tone';
 const VARIANT_CLASSES: Partial<Record<(typeof TOKEN_COLOR_TONE)[number], string>> = {
 	primary:
 		'bg-[var(--color-primary-50)] border-[var(--color-primary-200)] text-[var(--color-primary-800)]',

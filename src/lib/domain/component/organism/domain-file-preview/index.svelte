@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PlaygroundMarkdownRenderer from '$stylist/playground/component/organism/playground-markdown-renderer/index.svelte';
+	import MarkdownRenderer from '$stylist/information/component/organism/markdown-renderer/index.svelte';
 	import JsonTreeViewer from '$stylist/domain/component/molecule/json-tree-viewer/index.svelte';
 
 	interface DomainFilePreviewProps {
@@ -52,7 +52,7 @@
 		<p class="empty-state">{fileError}</p>
 	{:else if previewMode === 'markdown' && fileContent}
 		<div class="markdown-preview">
-			<PlaygroundMarkdownRenderer content={fileContent} />
+			<MarkdownRenderer content={fileContent} />
 		</div>
 	{:else if previewMode === 'json-tree' && fileContent}
 		<JsonTreeViewer content={fileContent} />

@@ -1,5 +1,5 @@
 import type { FoundationSemanticZoomStage } from '$stylist/architecture/type/script/foundation-semantic-zoom-stages';
-import type { TokenDensity } from '$stylist/layout/type/enum/density';
+import type { TokenDensity } from '$stylist/layout/type/alias/density';
 
 export const RECORD_DENSITY: Record<FoundationSemanticZoomStage, TokenDensity> = {
 	dot: 'compact',

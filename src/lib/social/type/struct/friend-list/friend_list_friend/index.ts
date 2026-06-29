@@ -1,4 +1,4 @@
-import type { TOKEN_AVAILABILITY } from '$stylist/interaction/const/enum/availability';
+import type { TOKEN_AVAILABILITY } from '$stylist/interaction/const/array/availability';
 
 export type FRIEND_LIST_FRIEND = {
 	id: string;

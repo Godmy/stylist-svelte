@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenShape } from '$stylist/layout/type/enum/shape';
+import type { TokenShape } from '$stylist/layout/type/alias/shape';
 import type { SlotTab } from '$stylist/control/interface/slot/tab';
 
 export interface SlotTabGroup extends HTMLAttributes<HTMLDivElement> {

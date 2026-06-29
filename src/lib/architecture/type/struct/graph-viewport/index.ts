@@ -1,7 +1,7 @@
-import type { GraphPosition2D } from '$stylist/architecture/type/struct/graph-position-2d';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 
 export interface GraphViewport {
-	position: GraphPosition2D;
+	position: Point2D;
 	zoom: number;
 	width: number;
 	height: number;

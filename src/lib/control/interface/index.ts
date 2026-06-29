@@ -65,7 +65,6 @@ export type {
 	RecipeZoomControls,
 	RecipeZoomToolbar,
 	ToggleSpecificProps,
-	TreeViewerProps,
 	ZoomSpecificProps
 } from './recipe';
 export type {

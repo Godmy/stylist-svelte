@@ -52,25 +52,19 @@ export {
 	Tabs,
 	ToggleButtonGroup,
 	Toolbar,
-	TreeNodeItem,
-	TreeViewer,
 	ZoomToolbar
 } from './molecule';
 export {
 	AccessibilityToolbar,
-	AdvancedVirtualTree,
 	Combobox,
 	Controls,
 	ExportPanel,
 	FilterBar,
-	FlatTree,
-	FolderTree,
 	ListWithAvatars,
 	MultiSelect,
 	PageBuilder,
 	SearchResults,
 	SortableGrid,
 	SortableList,
-	StylistMenu,
-	VirtualTree
+	StylistMenu
 } from './organism';

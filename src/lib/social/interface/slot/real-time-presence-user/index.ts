@@ -1,5 +1,5 @@
 
-import type { TOKEN_AVAILABILITY } from '$stylist/interaction/const/enum/availability';
+import type { TOKEN_AVAILABILITY } from '$stylist/interaction/const/array/availability';
 export interface SlotRealTimePresenceUser {
 	id: string;
 	name: string;

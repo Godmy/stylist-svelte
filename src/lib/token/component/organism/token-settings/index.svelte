@@ -5,13 +5,23 @@
 
 	let {
 		settings = TOKEN_SETTING,
-		title = 'Token Settings'
+		title = 'Token Settings',
+		columns = 3,
+		showColumnControl = false
 	}: {
 		settings?: typeof TOKEN_SETTING;
 		title?: string;
+		columns?: number;
+		showColumnControl?: boolean;
 	} = $props();
 
-	const state = createTokenSettingsState({ settings });
+	const settingsState = createTokenSettingsState({ settings });
+	let gridColumns = $state(columns);
+	const columnOptions = [1, 2, 3, 4, 5, 6];
+
+	$effect(() => {
+		gridColumns = columns;
+	});
 
 	function taxonomyFor(domain: string) {
 		if (domain === 'interaction') return 'interaction';
@@ -22,21 +32,31 @@
 	}
 </script>
 
-<section class="token-settings">
+<section class="token-settings" style={`--token-settings-columns: ${gridColumns};`}>
 	<header class="token-settings__header">
 		<div>
 			<h2>{title}</h2>
-			<p>{state.filteredSettings.length} registered token groups</p>
+			<p>{settingsState.filteredSettings.length} registered token groups</p>
 		</div>
 		<div class="token-settings__tools">
+			{#if showColumnControl}
+				<label class="token-settings__column-control">
+					<span>Columns</span>
+					<select bind:value={gridColumns} aria-label="Token card columns">
+						{#each columnOptions as option}
+							<option value={option}>{option}</option>
+						{/each}
+					</select>
+				</label>
+			{/if}
 			<input
 				type="search"
 				placeholder="Search tokens"
-				bind:value={state.search}
+				bind:value={settingsState.search}
 				aria-label="Search token settings"
 			/>
-			<select bind:value={state.domain} aria-label="Filter by domain">
-				{#each state.domains as domain}
+			<select bind:value={settingsState.domain} aria-label="Filter by domain">
+				{#each settingsState.domains as domain}
 					<option value={domain}>{domain}</option>
 				{/each}
 			</select>
@@ -44,8 +64,8 @@
 	</header>
 
 	<div class="token-settings__grid">
-		{#each state.filteredSettings as setting}
-			{@const currentValue = state.getValue(setting.key, setting.values[0] ?? '')}
+		{#each settingsState.filteredSettings as setting}
+			{@const currentValue = settingsState.getValue(setting.key, setting.values[0] ?? '')}
 			<article class="token-settings__item">
 				<header>
 					<div>
@@ -61,11 +81,11 @@
 						functionalTaxonomy: taxonomyFor(setting.domain),
 						tokenFile: setting.domain,
 						tokenName: setting.key,
-						controlKind: 'select',
+						controlKind: setting.controlKind,
 						defaultValue: setting.values[0] ?? '',
-						options: setting.values.map((value) => ({ label: value, value }))
+						options: setting.values.map((value) => ({ label: String(value), value: String(value) }))
 					}}
-					onChange={(value) => state.setValue(setting.key, value)}
+					onChange={(value) => settingsState.setValue(setting.key, value)}
 				/>
 			</article>
 		{/each}
@@ -76,7 +96,14 @@
 	.token-settings {
 		display: grid;
 		gap: var(--spacing-3, 1rem);
-		color: var(--text, #0f172a);
+		--token-settings-bg: var(--surface, var(--color-background-primary, #ffffff));
+		--token-settings-bg-muted: var(--bg, var(--color-background-secondary, #f8fafc));
+		--token-settings-border: var(--line, var(--color-border-primary, #cbd5e1));
+		--token-settings-text: var(--text, var(--color-text-primary, #0f172a));
+		--token-settings-muted: var(--muted, var(--color-text-secondary, #64748b));
+		--token-settings-accent: var(--accent, var(--color-primary-600, #2563eb));
+		color: var(--token-settings-text);
+		min-width: 0;
 	}
 
 	.token-settings__header {
@@ -95,7 +122,7 @@
 
 	.token-settings__header p {
 		margin: 0.2rem 0 0;
-		color: var(--muted, #64748b);
+		color: var(--token-settings-muted);
 		font-size: 0.875rem;
 	}
 
@@ -103,14 +130,26 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--spacing-2, 0.5rem);
+		min-width: 0;
+	}
+
+	.token-settings__column-control {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		color: var(--token-settings-muted);
+		font-size: 0.82rem;
+		font-weight: 600;
 	}
 
 	.token-settings__tools input,
 	.token-settings__tools select {
+		box-sizing: border-box;
+		min-width: 0;
 		min-height: 2.25rem;
-		border: 1px solid var(--line, #cbd5e1);
+		border: 1px solid var(--token-settings-border);
 		border-radius: 0.375rem;
-		background: var(--surface, #fff);
+		background: var(--token-settings-bg);
 		color: inherit;
 		padding: 0.4rem 0.6rem;
 		font: inherit;
@@ -118,16 +157,19 @@
 
 	.token-settings__grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+		grid-template-columns: repeat(var(--token-settings-columns, 3), minmax(0, 1fr));
 		gap: var(--spacing-2, 0.75rem);
+		min-width: 0;
 	}
 
 	.token-settings__item {
+		box-sizing: border-box;
 		display: grid;
 		gap: var(--spacing-2, 0.75rem);
-		border: 1px solid var(--line, #cbd5e1);
+		min-width: 0;
+		border: 1px solid var(--token-settings-border);
 		border-radius: 0.5rem;
-		background: var(--surface, #fff);
+		background: color-mix(in srgb, var(--token-settings-bg) 94%, var(--token-settings-bg-muted) 6%);
 		padding: var(--spacing-3, 1rem);
 	}
 
@@ -135,6 +177,11 @@
 		display: flex;
 		justify-content: space-between;
 		gap: var(--spacing-2, 0.75rem);
+		min-width: 0;
+	}
+
+	.token-settings__item header > div {
+		min-width: 0;
 	}
 
 	.token-settings__item strong,
@@ -143,29 +190,38 @@
 	}
 
 	.token-settings__item strong {
+		overflow: hidden;
+		text-overflow: ellipsis;
 		font-size: 0.92rem;
+		white-space: nowrap;
 	}
 
 	.token-settings__item span {
 		margin-top: 0.15rem;
-		color: var(--muted, #64748b);
+		color: var(--token-settings-muted);
 		font-size: 0.78rem;
 	}
 
 	.token-settings__item code {
+		flex: 0 1 auto;
 		align-self: start;
 		max-width: 9rem;
+		min-width: 0;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		border-radius: 0.25rem;
-		background: color-mix(in srgb, var(--surface, #fff) 82%, #0f172a 18%);
-		color: var(--text, #0f172a);
+		background: color-mix(in srgb, var(--token-settings-bg-muted) 82%, var(--token-settings-accent) 18%);
+		color: var(--token-settings-text);
 		padding: 0.15rem 0.35rem;
 		font-size: 0.75rem;
 		white-space: nowrap;
 	}
 
 	@media (max-width: 640px) {
+		.token-settings__grid {
+			grid-template-columns: 1fr;
+		}
+
 		.token-settings__tools,
 		.token-settings__tools input,
 		.token-settings__tools select {

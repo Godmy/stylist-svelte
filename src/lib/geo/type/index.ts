@@ -1,8 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	MapProvider,
 	TokenMapType,
 	TokenPin
-} from './enum';
+} from './alias';
 export type {
 	Coordinates,
 	LocationPickerProps,

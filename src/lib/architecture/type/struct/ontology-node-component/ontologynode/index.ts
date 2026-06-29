@@ -1,11 +1,11 @@
-import type { Position2D } from '$stylist/architecture/type/struct/ontology-edge-component/position2d';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 
 export type OntologyNode = {
 	id: string;
 	name: string;
 	label?: string;
 	type: string;
-	position: Position2D;
+	position: Point2D;
 	width: number;
 	height: number;
 	attributes?: string[];

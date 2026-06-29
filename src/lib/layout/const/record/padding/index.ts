@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 
 export const RECORD_PADDING: Record<TokenSize, string> = {
 	xs: 'px-2 py-1',

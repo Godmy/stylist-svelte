@@ -1,4 +1,4 @@
-import type { TokenComponentType } from '$stylist/architecture/type/enum/component-type';
+import type { TokenComponentType } from '$stylist/architecture/type/alias/component-type';
 
 export type PageBuilderToolbarItem = {
 	type: TokenComponentType;

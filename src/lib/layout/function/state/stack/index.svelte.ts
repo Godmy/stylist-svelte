@@ -1,7 +1,7 @@
 import type { StackProps } from '$stylist/layout/type/struct/stack';
-import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
-import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
-import type { TokenJustification } from '$stylist/layout/type/enum/justification';
+import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
+import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
+import type { TokenJustification } from '$stylist/layout/type/alias/justification';
 
 function resolveGap(spacing: string | number): string {
 	if (typeof spacing === 'number') return `${spacing}px`;

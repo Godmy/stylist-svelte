@@ -1,7 +1,7 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { Snippet } from 'svelte';
 
-import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/enum/alignment';
+import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/array/alignment';
 
 export interface PopoverProps extends ComputeIntersectAll<[]> {
 	title?: string;

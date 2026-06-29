@@ -1,4 +1,4 @@
-﻿import type { SelectionMode } from '$stylist/token/type/alias/selection-mode';
+import type { SelectionMode } from '$stylist/architecture/type/alias/selection-mode';
 import type { SelectionState } from '$stylist/architecture/interface/recipe/selection-state';
 
 export function useSelection(initialMode?: SelectionMode) {

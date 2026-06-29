@@ -1,5 +1,5 @@
-﻿import type { CanvasToolbarDrawingOptions } from '$stylist/canvas/interface/slot/canvas-toolbar-drawing-options';
-import type { CanvasToolbarDrawingTool } from '$stylist/token/type/alias/canvas-toolbar-drawing-tool';
+import type { CanvasToolbarDrawingOptions } from '$stylist/canvas/interface/slot/canvas-toolbar-drawing-options';
+import type { CanvasToolbarDrawingTool } from '$stylist/canvas/type/alias/canvas-toolbar-drawing-tool';
 import type { CanvasToolbarProps } from '$stylist/canvas/type/struct/canvas-toolbar/canvas-toolbar-props';
 
 export function createCanvasToolbarState(

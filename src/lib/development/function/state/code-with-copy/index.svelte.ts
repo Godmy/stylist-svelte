@@ -1,4 +1,4 @@
-import type { Props } from '$stylist/development/type/alias/props';
+import type { CopyCode } from '$stylist/development/type/struct/copy-code';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 function copyToClipboard(
@@ -27,7 +27,7 @@ function copyToClipboard(
 }
 
 export function createCodeWithCopyState(
-	props: Props,
+	props: CopyCode,
 	dispatch: (event: string, detail?: unknown) => void
 ) {
 	const copied = $state(false);

@@ -3,6 +3,7 @@ export type { TokenRadioControlDefinition } from './radio-control-definition';
 export type { TokenRangeControlDefinition } from './range-control-definition';
 export type { TokenSelectControlDefinition } from './select-control-definition';
 export type { TokenTextControlDefinition } from './text-control-definition';
+export type { Token } from './token';
 export type { TokenChipSetProps } from './token-chip-set-props';
 export type { TokenControlBaseProps } from './token-control-base-props';
 export type { TokenControlComposerProps } from './token-control-composer-props';

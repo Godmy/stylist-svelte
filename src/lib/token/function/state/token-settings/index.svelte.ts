@@ -1,12 +1,6 @@
-export function createTokenSettingsState(props: {
-	settings: readonly {
-		key: string;
-		label: string;
-		domain: string;
-		controlKind: 'select';
-		values: readonly string[];
-	}[];
-}) {
+import type { Token } from '$stylist/token/type/struct/token';
+
+export function createTokenSettingsState(props: { settings: readonly Token[] }) {
 	let search = $state('');
 	let domain = $state('all');
 	let values = $state<Record<string, string>>({});
@@ -24,13 +18,13 @@ export function createTokenSettingsState(props: {
 				query.length === 0 ||
 				setting.key.toLowerCase().includes(query) ||
 				setting.label.toLowerCase().includes(query) ||
-				setting.values.some((value) => value.toLowerCase().includes(query));
+				setting.values.some((value) => String(value).toLowerCase().includes(query));
 			return matchesDomain && matchesQuery;
 		});
 	});
 
-	function getValue(key: string, fallback: string) {
-		return values[key] ?? fallback;
+	function getValue(key: string, fallback: string | number | boolean) {
+		return values[key] ?? String(fallback);
 	}
 
 	function setValue(key: string, value: string | number | boolean) {

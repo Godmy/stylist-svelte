@@ -1,6 +1,6 @@
 import type { Preset } from '$stylist/interaction/type/struct/preset/preset';
 import { VARIANT_CLASSES } from '$stylist/interaction/const/record/variant-classes';
-import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import { TOKEN_SIZE } from '$stylist/layout/const/array/size';
 import { RECORD_CLASS_SIZE } from '$stylist/layout/const/record/class-size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 

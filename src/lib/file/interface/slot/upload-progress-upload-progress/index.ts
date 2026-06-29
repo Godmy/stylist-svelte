@@ -1,5 +1,5 @@
-﻿import type { SlotUploadFile } from '$stylist/file/interface/slot/upload-file-upload-progress-2';
-import type { UploadProgressVariant } from '$stylist/token/type/alias/upload-progress-variant';
+import type { SlotUploadFile } from '$stylist/file/interface/slot/upload-file-upload-progress-2';
+import type { UploadProgressVariant } from '$stylist/file/type/alias/upload-progress-variant';
 
 export interface SlotUploadProgress {
 	files: SlotUploadFile[];

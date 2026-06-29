@@ -1,5 +1,5 @@
 import type { RecipeGraphEdge } from '$stylist/architecture/interface/recipe/graph-edge';
-import type { TokenTrajectory } from '$stylist/architecture/type/enum/trajectory';
+import type { TokenTrajectory } from '$stylist/architecture/type/alias/trajectory';
 
 export function createGraphEdgeState(props: RecipeGraphEdge) {
 	const directed = $derived(props.directed ?? false);

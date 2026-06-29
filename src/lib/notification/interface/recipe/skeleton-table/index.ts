@@ -1,4 +1,4 @@
-﻿import type { SkeletonTableProps as LegacySkeletonTableProps1 } from '$stylist/notification/type/struct/skeleton-table-props';
+import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorScrollable as IScrollable } from '$stylist/layout/interface/behavior/scrollable';
 import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/behavior/shapeable';
@@ -7,5 +7,5 @@ import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavi
 
 export interface RecipeSkeletonTable
 	extends ComputeIntersectAll<
-		[LegacySkeletonTableProps1, ISized, IShapeable, ISpaced, IScrollable]
+		[AnyProperty, ISized, IShapeable, ISpaced, IScrollable]
 	> {}

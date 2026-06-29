@@ -20,8 +20,10 @@ export {
 	createIconPickerState,
 	createImageWithCaptionState,
 	createListItemMarkerState,
+	createMarkdownRendererState,
 	createMetricBarState,
 	createMetricBarsCardState,
 	createNpmBadgeState,
+	createShortcutsPanelState,
 	createStatusIndicatorState
 } from './state';

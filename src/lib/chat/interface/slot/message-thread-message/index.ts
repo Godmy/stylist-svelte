@@ -1,4 +1,4 @@
-import type { TokenMessageStatus } from '$stylist/chat/type/enum/message-status';
+import type { TokenMessageStatus } from '$stylist/chat/type/alias/message-status';
 
 export interface SlotMessageThreadMessage {
 	id: string;

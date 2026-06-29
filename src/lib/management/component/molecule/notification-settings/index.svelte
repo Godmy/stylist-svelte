@@ -1,9 +1,9 @@
 <script lang="ts">
+	import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createNotificationSettingsState from '$stylist/management/function/state/notification-settings/index.svelte';
-	import type { NotificationItem } from '$stylist/management/type/struct/notification-item';
 
-	let props: NotificationItem = $props();
+	let props: AnyProperty = $props();
 	const state = createNotificationSettingsState(props);
 </script>
 

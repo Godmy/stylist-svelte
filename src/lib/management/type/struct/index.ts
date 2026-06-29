@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { NotificationData } from './notification';
-export type { NotificationItem } from './notification-item';
 export type { NotificationSettingsData } from './notification-settings';
 export type { INotificationSettingsPreference } from './notification-settings-preference';
 export type { NotificationType } from './notification-type';

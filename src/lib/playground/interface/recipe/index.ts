@@ -1,21 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { RecipePlaygroundAiAssistant } from './playground-ai-assistant';
-export type { RecipePlaygroundAiChat } from './playground-ai-chat';
-export type { RecipePlaygroundAiPanel } from './playground-ai-panel';
-export type { RecipePlaygroundCanvasShell } from './playground-canvas-shell';
-export type { RecipePlaygroundCodeViewer } from './playground-code-viewer';
-export type { RecipePlaygroundComponentCatalog } from './playground-component-catalog';
-export type { RecipePlaygroundComponentInfoCard } from './playground-component-info-card';
-export type { RecipePlaygroundComponentTree } from './playground-component-tree';
-export type { RecipePlaygroundDeviceFrame } from './playground-device-frame';
-export type { RecipePlaygroundDrawingOverlay } from './playground-drawing-overlay';
-export type { RecipePlaygroundEnhancedExportPanel } from './playground-enhanced-export-panel';
-export type { RecipePlaygroundErrorBoundary } from './playground-error-boundary';
-export type { RecipePlaygroundGenericCodeViewer } from './playground-generic-code-viewer';
-export type { RecipePlaygroundLiveCodeSection } from './playground-live-code-section';
-export type { RecipePlaygroundMarkdownRenderer } from './playground-markdown-renderer';
-export type { RecipePlaygroundScreenshotSelector } from './playground-screenshot-selector';
-export type { RecipePlaygroundShellHeader } from './playground-shell-header';
-export type { RecipePlaygroundShortcutsPanel } from './playground-shortcuts-panel';
-export type { RecipePlaygroundTreeNode } from './playground-tree-node';
+export type { RecipeDeviceFrame } from './device-frame';
 export type { RecipePropsEditor } from './props-editor';
+export type { RecipeShellCanvas } from './shell-canvas';
+export type { RecipeShellHeader } from './shell-header';

@@ -12,6 +12,7 @@ export {
 	Column,
 	ColumnManager,
 	ComparisonTable,
+	Component,
 	DataTable,
 	DataTableShell,
 	FilterBar,
@@ -22,6 +23,8 @@ export {
 	Table
 } from './component';
 export {
+	PLAYGROUND_COMPONENT_CATALOG_SORT_BY,
+	PLAYGROUND_COMPONENT_CATALOG_VIEW_MODE,
 	PresetCellHeader,
 	TABLE_ALIGNMENT_CLASSES
 } from './const';
@@ -35,6 +38,7 @@ export {
 	createColumnManagerState,
 	createColumnState,
 	createComparisonTableState,
+	createComponentState,
 	createDataTableShellState,
 	createDataTableState,
 	createExpandableTableRowState,
@@ -50,8 +54,13 @@ export type {
 	ComparisonTableFeature,
 	ComparisonTableProduct,
 	ComparisonTableProps,
+	ComponentProps,
+	ComponentStats,
+	ComponentStory,
 	FilterSchema,
 	FilterType,
+	PlaygroundComponentCatalogSortBy,
+	PlaygroundComponentCatalogViewMode,
 	RowExpandableProps,
 	TableSchema
 } from './type';
@@ -62,6 +71,7 @@ export type {
 	RecipeCellPill,
 	RecipeCellText,
 	RecipeColumn,
+	RecipeComponent,
 	RecipeRow,
 	RecipeTable,
 	SlotColumnConfig,

@@ -1,4 +1,4 @@
-﻿import type { UploadStatus } from '$stylist/token/type/alias/upload-status';
+import type { UploadStatus } from '$stylist/file/type/alias/upload-status';
 
 export interface ContractUploadFile {
 	id: string;

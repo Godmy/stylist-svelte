@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotChildren } from '$stylist/layout/interface/slot/children';
-import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
+import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeRadioButtonGroupProps

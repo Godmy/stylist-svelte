@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { SlotChildren } from '$stylist/layout/interface/slot/children';
 

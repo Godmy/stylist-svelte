@@ -1,6 +1,6 @@
-import type { TokenAnimation } from '$stylist/animation/type/enum/animation';
-import type { TokenDuration } from '$stylist/animation/type/enum/duration';
-import type { TokenEasing } from '$stylist/animation/type/enum/easing';
+import type { TokenAnimation } from '$stylist/animation/type/alias/animation';
+import type { TokenDuration } from '$stylist/animation/type/alias/duration';
+import type { TokenEasing } from '$stylist/animation/type/alias/easing';
 
 export interface BehaviorAnimate {
 	animation?: TokenAnimation;

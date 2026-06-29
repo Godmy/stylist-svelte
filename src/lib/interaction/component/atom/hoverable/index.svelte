@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { RecipeHoverable as HoverProps } from '$stylist/interaction/interface/recipe/hoverable';
+	import type { RecipeHoverable } from '$stylist/interaction/interface/recipe/hoverable';
 	import createHoverableState from '$stylist/interaction/function/state/hoverable/index.svelte';
 
-	let props: HoverProps = $props();
+	let props: RecipeHoverable = $props();
 	const state = createHoverableState(props);
 </script>
 

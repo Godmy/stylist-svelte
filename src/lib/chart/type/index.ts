@@ -1,6 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { HeatmapAxisValue } from './alias';
-export type { TokenChart } from './enum';
+export type {
+	HeatmapAxisValue,
+	TokenCanvasChartType,
+	TokenChart
+} from './alias';
 export type { ChartLegendItem } from './object';
 export type {
 	AnalyticsChartBarPoint,

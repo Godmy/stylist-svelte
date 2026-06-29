@@ -1,4 +1,4 @@
-import type { TierContent } from '$stylist/architecture/type/enum/tier';
+import type { TierContent } from '$stylist/architecture/type/alias/tier';
 import type { SlotAchievement } from '$stylist/management/interface/slot/achievement';
 
 export interface SlotTeamMemberCard {

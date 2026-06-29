@@ -2,7 +2,7 @@
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import SlotGraphEdge from './index.svelte';
 	import SlotGraphNode from '../graph-node/index.svelte';
-	import type { TokenSize as GraphNodeSize } from '$stylist/layout/type/enum/size';
+	import type { TokenSize as GraphNodeSize } from '$stylist/layout/type/alias/size';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
 	type Position = { x: number; y: number };

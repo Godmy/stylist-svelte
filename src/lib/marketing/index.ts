@@ -13,6 +13,7 @@ export {
 	TrafficAnalytics,
 	UserBehaviorMetrics
 } from './component';
+export { TRAFFIC_ANALYTICS_TIME_RANGE } from './const';
 export {
 	addABTestVariant,
 	calculateABTestTotalWeight,
@@ -30,24 +31,20 @@ export {
 } from './function';
 export type {
 	ABTestConfiguratorState,
-	ConversionFunnelContract,
 	ConversionFunnelProps,
 	CtaBannerButton,
-	CtaBannerContract,
 	CtaBannerProps,
 	FunnelStep,
 	IHeroCTA,
 	IHeroStat,
 	TestOverview,
 	TestResult,
-	TestResultsViewerContract,
 	TestResultsViewerProps,
-	TrafficAnalyticsContract,
+	TimeRange,
 	TrafficAnalyticsProps,
 	TrafficDataPoint,
 	TrafficSource,
 	UserBehaviorMetric,
-	UserBehaviorMetricsContract,
 	UserBehaviorMetricsProps
 } from './type';
 export type {

@@ -1,7 +1,20 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	formatDayLabel,
+	formatDisplayDate,
+	formatMonthYear,
+	formatShortDate,
+	formatShortMonthYear,
+	formatTime,
+	fromInputDateString,
+	generateCalendarGrid,
+	isSameDay,
 	isToday,
-	isWeekend
+	isWeekend,
+	navigateMonth,
+	startOfDay,
+	startOfWeek,
+	toInputDateString
 } from './script';
 export {
 	createCalendarViewState,
@@ -12,7 +25,6 @@ export {
 	createEventCalendarState,
 	createFormDatePickerState,
 	createMiniCalendarState,
-	createScheduleCalendarState,
 	createTimeGridState,
 	createTimePickerState,
 	createTimeSlotState,

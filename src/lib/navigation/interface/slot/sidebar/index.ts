@@ -1,6 +1,6 @@
 import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
-import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
-import type { TierContent } from '$stylist/architecture/type/enum/tier';
+import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
+import type { TierContent } from '$stylist/architecture/type/alias/tier';
 import type { NavItem } from '$stylist/navigation/type/struct/sidebar';
 import type { Snippet } from 'svelte';
 

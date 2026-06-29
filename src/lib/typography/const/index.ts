@@ -3,7 +3,7 @@ export {
 	TOKEN_FONT_SIZE,
 	TOKEN_FONT_WEIGHT,
 	TOKEN_TYPOGRAPHY_TONE
-} from './enum';
+} from './array';
 export {
 	RECORD_FONT_SIZE,
 	RECORD_FONT_WEIGHT,

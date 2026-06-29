@@ -4,8 +4,8 @@ import { RECORD_FONT_WEIGHT } from '$stylist/typography/const/object/font-weight
 import { TOKEN_LETTER_SPACING } from '$stylist/typography/const/object/letter-spacing';
 import { TOKEN_LINE_HEIGHT } from '$stylist/typography/const/object/line-height';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
-import type { TokenFontSize } from '$stylist/typography/type/enum/font-size';
-import type { TokenTypographyTone } from '$stylist/typography/type/enum/tone';
+import type { TokenFontSize } from '$stylist/typography/type/alias/font-size';
+import type { TokenTypographyTone } from '$stylist/typography/type/alias/tone';
 
 export function resolveTypographyInlineStyle(
 	styleValue: unknown,

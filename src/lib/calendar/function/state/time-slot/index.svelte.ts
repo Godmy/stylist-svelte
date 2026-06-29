@@ -51,8 +51,7 @@ export function createTimeSlotState(props: TimeSlotProps) {
 			active: _active,
 			events: _events,
 			class: _class,
-			onValueInput: _onValueInput,
-			onValueChange: _onValueChange,
+			onChange: _onChange,
 			onClick: _onClick,
 			onKeyDown: _onKeyDown,
 			...rest
@@ -71,8 +70,7 @@ export function createTimeSlotState(props: TimeSlotProps) {
 			active: props.active ?? false,
 			events: props.events ?? []
 		};
-		props.onValueInput?.(slot);
-		props.onValueChange?.(slot);
+		props.onChange?.(slot);
 		props.onClick?.(slot);
 	}
 

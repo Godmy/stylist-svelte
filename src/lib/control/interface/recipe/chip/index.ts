@@ -3,7 +3,7 @@ import type { Snippet } from 'svelte';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotChildren } from '$stylist/layout/interface/slot/children';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface RecipeChip

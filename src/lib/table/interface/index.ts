@@ -6,6 +6,7 @@ export type {
 	RecipeCellPill,
 	RecipeCellText,
 	RecipeColumn,
+	RecipeComponent,
 	RecipeRow,
 	RecipeTable
 } from './recipe';

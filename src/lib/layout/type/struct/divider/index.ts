@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
-import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
+import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
 
 export type DividerProps = LayoutHTMLAttributes<HTMLDivElement> & {
 	class?: string;

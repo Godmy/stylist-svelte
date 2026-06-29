@@ -33,6 +33,7 @@ export {
 	SKELETON_VARIANT_CLASSES,
 	SPINNER_COLOR_CLASSES,
 	SPINNER_SIZE_CLASSES,
+	SPINNER_VARIANT,
 	SPINNER_VARIANT_CLASSES
 } from './const';
 export {
@@ -74,11 +75,8 @@ export type {
 	ProgressBarWithLabelProps,
 	ProgressCircleProps,
 	ResponseViewerProps,
-	SkeletonCircleProps,
-	SkeletonRectangleProps,
-	SkeletonTableProps,
-	SkeletonTextProps,
 	SpinnerProps,
+	SpinnerVariant,
 	StateProps,
 	StepConnectorProps,
 	StepIconContent,

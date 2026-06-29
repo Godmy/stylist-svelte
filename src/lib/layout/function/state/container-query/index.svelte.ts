@@ -1,4 +1,4 @@
-﻿import type { ContainerQueryType } from '$stylist/token/type/alias/container-query-type';
+import type { ContainerQueryType } from '$stylist/layout/type/alias/container-query-type';
 import type { ContainerQueryProps } from '$stylist/layout/type/struct/layout-extended/container-query-props';
 
 export function createContainerQueryState(props: ContainerQueryProps) {

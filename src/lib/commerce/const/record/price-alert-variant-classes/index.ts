@@ -1,4 +1,4 @@
-﻿import type { TokenMonitoringType } from '$stylist/commerce/type/enum/monitoring-type';
+import type { TokenMonitoringType } from '$stylist/commerce/type/alias/monitoring-type';
 
 export const PRICE_ALERT_VARIANT_CLASSES: Record<TokenMonitoringType, string> = {
 	monitoring: 'border-[--color-info-200] bg-[--color-info-50]',

@@ -1,5 +1,5 @@
 import type { FoundationSemanticZoomStage } from '$stylist/architecture/type/script/foundation-semantic-zoom-stages';
-import type { TokenShape } from '$stylist/layout/type/enum/shape';
+import type { TokenShape } from '$stylist/layout/type/alias/shape';
 
 export const RECORD_SHAPE: Record<FoundationSemanticZoomStage, TokenShape> = {
 	dot: 'circle',

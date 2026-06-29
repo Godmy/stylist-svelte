@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { NotificationItem } from '$stylist/management/type/struct/notification-item';
+	import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
@@ -13,7 +13,7 @@
 		{ name: 'pollingInterval', type: 'number', defaultValue: 30000 }
 	];
 
-	const notifications: NotificationItem[] = [
+	const notifications: AnyProperty[] = [
 		{
 			id: '1',
 			title: 'Welcome',
@@ -58,7 +58,7 @@
 				showClearAll={values.showClearAll}
 				showTimestamp={values.showTimestamp}
 				pollingInterval={values.pollingInterval}
-				onNotificationClick={(notification: NotificationItem) => {
+				onNotificationClick={(notification: AnyProperty) => {
 					console.log('Notification clicked:', notification);
 				}}
 				onMarkAllRead={() => {

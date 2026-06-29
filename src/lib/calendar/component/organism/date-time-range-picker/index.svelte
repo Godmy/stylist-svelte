@@ -1,9 +1,8 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { SlotDateTimeRangePickerComponent as DateTimeRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-time-range-picker-component';
+	import type { SlotDatePicker as DateTimeRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-picker';
 	import createDateTimeRangePickerState from '$stylist/calendar/function/state/date-time-range-picker/index.svelte';
-	const Calendar = 'calendar';
-	const Clock = 'clock';
+
 	const X = 'x';
 
 	let props: DateTimeRangePickerComponentProps = $props();
@@ -17,16 +16,12 @@
 			disabled={state.disabled}
 			class={`c-dtrp__input ${state.inputClass}`}
 			value={state.selectedRange.start && state.selectedRange.end
-				? `${state.fmt(state.selectedRange.start)} - ${state.fmt(state.selectedRange.end)}`
+				? `${state.fmt(state.selectedRange.start)} — ${state.fmt(state.selectedRange.end)}`
 				: state.placeholder}
 			onclick={state.toggleOpen}
 		/>
-		<BaseIcon
-			name={Calendar}
-			style="position: absolute; top: 50%; left: 0.75rem; transform: translateY(-50%); width: 1.25rem; height: 1.25rem; color: var(--color-text-secondary); pointer-events: none;"
-		/>
 		{#if state.selectedRange.start || state.selectedRange.end}
-			<button type="button" class="c-dtrp__clear-btn" onclick={state.clear}>
+			<button type="button" class="c-dtrp__clear-btn" onclick={state.clear} aria-label="Clear">
 				<BaseIcon name={X} style="width: 1rem; height: 1rem;" />
 			</button>
 		{/if}
@@ -35,54 +30,58 @@
 	{#if state.isOpen}
 		<div class={`c-dtrp__panel ${state.calendarClass}`}>
 			<div class="c-dtrp__grid">
-				<div>
-					<div class="c-dtrp__section-header">
-						<BaseIcon name={Clock} style="width: 1rem; height: 1rem;" /> Start
-					</div>
+				<div class="c-dtrp__col">
+					<div class="c-dtrp__col-header">Start</div>
+					<label class="c-dtrp__field-label">Date</label>
 					<input
 						type="date"
-						class="c-dtrp__date-input"
-						onchange={(e) =>
-							state.changeTime(
-								'start',
-								state.selectedRange.start?.getHours() ?? 0,
-								state.selectedRange.start?.getMinutes() ?? 0,
-								(e.target as HTMLInputElement).value
-							)}
+						class="c-dtrp__field-input"
+						value={state.toDateInput(state.selectedRange.start)}
+						onchange={(e) => state.changeDate('start', (e.target as HTMLInputElement).value)}
 					/>
+					<label class="c-dtrp__field-label">Time</label>
 					<input
 						type="time"
-						class="c-dtrp__time-input"
+						class="c-dtrp__field-input"
+						value={state.toTimeInput(state.selectedRange.start)}
 						onchange={(e) => {
 							const [h, m] = (e.target as HTMLInputElement).value.split(':').map(Number);
-							state.changeTime('start', h || 0, m || 0);
+							state.changeTimePart('start', h || 0, m || 0);
 						}}
 					/>
 				</div>
-				<div>
-					<div class="c-dtrp__section-header">
-						<BaseIcon name={Clock} style="width: 1rem; height: 1rem;" /> End
-					</div>
+
+				<div class="c-dtrp__col">
+					<div class="c-dtrp__col-header">End</div>
+					<label class="c-dtrp__field-label">Date</label>
 					<input
 						type="date"
-						class="c-dtrp__date-input"
-						onchange={(e) =>
-							state.changeTime(
-								'end',
-								state.selectedRange.end?.getHours() ?? 0,
-								state.selectedRange.end?.getMinutes() ?? 0,
-								(e.target as HTMLInputElement).value
-							)}
+						class="c-dtrp__field-input"
+						value={state.toDateInput(state.selectedRange.end)}
+						onchange={(e) => state.changeDate('end', (e.target as HTMLInputElement).value)}
 					/>
+					<label class="c-dtrp__field-label">Time</label>
 					<input
 						type="time"
-						class="c-dtrp__time-input"
+						class="c-dtrp__field-input"
+						value={state.toTimeInput(state.selectedRange.end)}
 						onchange={(e) => {
 							const [h, m] = (e.target as HTMLInputElement).value.split(':').map(Number);
-							state.changeTime('end', h || 0, m || 0);
+							state.changeTimePart('end', h || 0, m || 0);
 						}}
 					/>
 				</div>
+			</div>
+
+			{#if state.validationError}
+				<p class="c-dtrp__error">{state.validationError}</p>
+			{/if}
+
+			<div class="c-dtrp__actions">
+				<button type="button" class="c-dtrp__action" onclick={state.cancel}>Cancel</button>
+				<button type="button" class="c-dtrp__action c-dtrp__action--primary" onclick={state.commit}>
+					Apply
+				</button>
 			</div>
 		</div>
 	{/if}
@@ -102,7 +101,7 @@
 		box-sizing: border-box;
 		width: 100%;
 		padding-block: 0.5rem;
-		padding-inline: 2.5rem 2.5rem;
+		padding-inline: 0.75rem 2.5rem;
 		border: 1px solid var(--color-border-primary);
 		border-radius: var(--border-radius-base, 0.375rem);
 		background-color: var(--color-background-primary);
@@ -118,6 +117,7 @@
 		border: none;
 		cursor: pointer;
 		padding: 0.25rem;
+		color: var(--color-text-secondary);
 	}
 
 	.c-dtrp__panel {
@@ -125,8 +125,8 @@
 		z-index: var(--z-index-docked);
 		margin-block-start: 0.5rem;
 		box-sizing: border-box;
-		width: min(100vw - 2rem, 24rem);
-		padding: 0.75rem;
+		width: min(100vw - 2rem, 26rem);
+		padding: 1rem;
 		background-color: var(--color-background-primary);
 		border: 1px solid var(--color-border-primary);
 		border-radius: var(--border-radius-large, 0.5rem);
@@ -145,22 +145,66 @@
 		}
 	}
 
-	.c-dtrp__section-header {
-		display: flex;
-		align-items: center;
-		gap: 0.25rem;
-		margin-block-end: 0.5rem;
+	.c-dtrp__col-header {
 		font-size: var(--text-size-sm, 0.875rem);
-		font-weight: 500;
+		font-weight: 600;
+		margin-block-end: 0.5rem;
+		color: var(--color-text-primary);
 	}
 
-	.c-dtrp__date-input,
-	.c-dtrp__time-input {
+	.c-dtrp__field-label {
+		display: block;
+		font-size: var(--text-size-xs, 0.75rem);
+		color: var(--color-text-secondary);
+		margin-block-end: 0.25rem;
+		margin-block-start: 0.5rem;
+	}
+
+	.c-dtrp__field-input {
 		box-sizing: border-box;
 		width: 100%;
 		border-radius: var(--border-radius-sm, 0.25rem);
 		border: 1px solid var(--color-border-primary);
-		padding: 0.25rem 0.5rem;
-		margin-block-end: 0.5rem;
+		padding: 0.375rem 0.5rem;
+		font-size: var(--text-size-sm, 0.875rem);
+	}
+
+	.c-dtrp__error {
+		margin-block: 0.5rem 0;
+		font-size: var(--text-size-xs, 0.75rem);
+		color: var(--color-danger-600);
+	}
+
+	.c-dtrp__actions {
+		display: flex;
+		justify-content: flex-end;
+		gap: 0.5rem;
+		margin-block-start: 0.75rem;
+		padding-block-start: 0.5rem;
+		border-top: 1px solid var(--color-border-primary);
+	}
+
+	.c-dtrp__action {
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--border-radius-sm, 0.25rem);
+		background: var(--color-background-primary);
+		color: var(--color-text-primary);
+		padding: 0.375rem 0.75rem;
+		cursor: pointer;
+		font-size: var(--text-size-sm, 0.875rem);
+	}
+
+	.c-dtrp__action:hover {
+		background-color: var(--color-background-secondary);
+	}
+
+	.c-dtrp__action--primary {
+		border-color: var(--color-primary-500);
+		background: var(--color-primary-500);
+		color: var(--color-text-inverse);
+	}
+
+	.c-dtrp__action--primary:hover {
+		background: var(--color-primary-600, var(--color-primary-500));
 	}
 </style>

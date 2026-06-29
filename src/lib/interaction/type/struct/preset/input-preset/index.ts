@@ -1,4 +1,4 @@
-﻿import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { Preset } from '$stylist/interaction/type/struct/preset/preset';
 

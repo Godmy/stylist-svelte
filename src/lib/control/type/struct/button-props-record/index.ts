@@ -5,7 +5,7 @@ import type { RecipeThemeBackground } from '$stylist/layout/interface/recipe/bac
 import type { RecipeBorder } from '$stylist/layout/interface/recipe/border';
 import type { SlotClick as ClickProps } from '$stylist/control/interface/slot/click';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 
 export type ButtonPropsRecord = HTMLButtonAttributes &
 	ContainerProps &

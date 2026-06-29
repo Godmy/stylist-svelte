@@ -1,6 +1,5 @@
-import type { TokenTimeRange } from '$stylist/calendar/type/enum/time-range';
+import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
 
-/** Управление временным диапазоном календарного или аналитического представления. */
 export interface BehaviorTimeRangeFilter {
 	timeRange?: TokenTimeRange;
 	showTimeRangeSelector?: boolean;

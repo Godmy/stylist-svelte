@@ -45,14 +45,21 @@ export class InstancedGraphManager {
 	private edges: readonly [string, string][] = [];
 	private hoveredId: string | null = null;
 	private selectedId: string | null = null;
+	private domainFilter = new Set<string>();
+	private clusterFilter = new Set<string>();
 	private needsNodeRebuild = false;
 	private needsEdgeRebuild = false;
+
+	// Hover tracking for tooltip
+	private hoverX = 0;
+	private hoverY = 0;
+	private hoverLastMs = 0;
 
 	// Camera
 	private camera: Camera | null = null;
 	private horizontalAngle = 0.72;
 	private verticalAngle = 0.42;
-	private radius = ZWICKY_LAYOUT_SCALE.cameraInitRadius;
+	private radius: number = ZWICKY_LAYOUT_SCALE.cameraInitRadius;
 	private isDragging = false;
 	private lastX = 0;
 	private lastY = 0;
@@ -196,6 +203,36 @@ export class InstancedGraphManager {
 		this.camera?.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
 	}
 
+	setDomainFilter(domains: Set<string>): void {
+		this.domainFilter = new Set(domains);
+		this.needsNodeRebuild = true;
+		this.needsEdgeRebuild = true;
+	}
+
+	getDomainFilter(): ReadonlySet<string> {
+		return this.domainFilter;
+	}
+
+	setClusterFilter(clusters: Set<string>): void {
+		this.clusterFilter = new Set(clusters);
+		this.needsNodeRebuild = true;
+		this.needsEdgeRebuild = true;
+	}
+
+	getClusterFilter(): ReadonlySet<string> {
+		return this.clusterFilter;
+	}
+
+	getHoveredNode(): ZwickyNode | null {
+		return this.nodes.find((n) => n.id === this.hoveredId) ?? null;
+	}
+
+	getHoverPos(): { x: number; y: number } | null {
+		if (!this.hoveredId || !this.canvas) return null;
+		const rect = this.canvas.getBoundingClientRect();
+		return { x: this.hoverX - rect.left, y: this.hoverY - rect.top };
+	}
+
 	private setupNodeVAO(): void {
 		const gl = this.gl!;
 
@@ -264,7 +301,7 @@ export class InstancedGraphManager {
 		const gl = this.gl;
 		if (!gl) return;
 
-		const draw = buildInstancedNodeBuffers(this.nodes, this.hoveredId, this.selectedId);
+		const draw = buildInstancedNodeBuffers(this.nodes, this.hoveredId, this.selectedId, this.domainFilter, this.clusterFilter);
 		this.instanceCount = draw.count;
 
 		const upload = (vbo: WebGLBuffer | null, data: Float32Array) => {
@@ -302,7 +339,7 @@ export class InstancedGraphManager {
 		const gl = this.gl;
 		if (!gl) return;
 
-		const data = buildInstancedEdgeBuffers(this.nodes, this.edges, this.selectedId);
+		const data = buildInstancedEdgeBuffers(this.nodes, this.edges, this.selectedId, this.domainFilter, this.clusterFilter);
 		this.edgeVertexCount = data.length / 6;
 
 		gl.bindVertexArray(this.edgeVAO);
@@ -407,17 +444,30 @@ export class InstancedGraphManager {
 	};
 
 	private readonly onMouseMove = (e: MouseEvent): void => {
-		if (!this.isDragging || !this.camera) return;
+		// Camera orbit when dragging
+		if (this.isDragging && this.camera) {
+			const dx = e.clientX - this.lastX;
+			const dy = e.clientY - this.lastY;
+			this.horizontalAngle += dx * 0.008;
+			this.verticalAngle = clampSceneVerticalAngle(this.verticalAngle + dy * 0.008);
+			this.camera.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
+			this.lastX = e.clientX;
+			this.lastY = e.clientY;
+		}
 
-		const dx = e.clientX - this.lastX;
-		const dy = e.clientY - this.lastY;
+		// Hover picking — throttled to 60ms to stay cheap on 4k+ nodes
+		const now = performance.now();
+		if (now - this.hoverLastMs < 60) return;
+		this.hoverLastMs = now;
+		this.hoverX = e.clientX;
+		this.hoverY = e.clientY;
 
-		this.horizontalAngle += dx * 0.008;
-		this.verticalAngle = clampSceneVerticalAngle(this.verticalAngle + dy * 0.008);
-		this.camera.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
-
-		this.lastX = e.clientX;
-		this.lastY = e.clientY;
+		const hit = pickZwickyNodeFromScreen(this.nodes, this.camera, this.canvas, e.clientX, e.clientY);
+		const newId = hit?.id ?? null;
+		if (newId !== this.hoveredId) {
+			this.hoveredId = newId;
+			this.needsNodeRebuild = true;
+		}
 	};
 
 	private readonly onMouseUp = (e: MouseEvent): void => {
@@ -434,6 +484,10 @@ export class InstancedGraphManager {
 
 	private readonly onMouseLeave = (): void => {
 		this.isDragging = false;
+		if (this.hoveredId !== null) {
+			this.hoveredId = null;
+			this.needsNodeRebuild = true;
+		}
 	};
 
 	private readonly onWheel = (e: WheelEvent): void => {

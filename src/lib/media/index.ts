@@ -19,7 +19,9 @@ export {
 } from './component';
 export {
 	ANNOUNCEMENT_BANNER_CLASSES,
+	AVATAR_USER_STATUS,
 	IMAGE_WITH_CAPTION_CLASSES,
+	MEDIA_LIBRARY_MEDIA_TYPE,
 	TOKEN_MEDIA_ICON
 } from './const';
 export {
@@ -47,11 +49,13 @@ export type {
 	AvatarGroupAvatar,
 	AvatarGroupProps,
 	AvatarProps,
+	AvatarUserStatus,
 	CanvasImageEditorProps,
 	CountryFlagProps,
 	ImageGalleryProps,
 	MediaItem,
 	MediaLibraryProps,
+	MediaType,
 	NodeIconProps,
 	PictureToolbarTool,
 	PromoBannerProps,

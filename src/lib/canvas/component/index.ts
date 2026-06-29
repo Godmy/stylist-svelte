@@ -1,7 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	CanvasToolbar,
-	DrawingSurface
+	DrawingOverlay,
+	DrawingSurface,
+	ScreenshotSelector
 } from './molecule';
 export {
 	CollaborativeEditor,

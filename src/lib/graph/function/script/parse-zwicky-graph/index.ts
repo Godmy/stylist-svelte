@@ -1,4 +1,4 @@
-import { ZWICKY_DOMAIN_COLOR } from '$stylist/graph/const/record/zwicky-domain-color';
+import { ZWICKY_CLUSTER_COLOR } from '$stylist/graph/const/record/zwicky-cluster-color';
 import type { GraphJsonInput } from '$stylist/graph/type/struct/graph-json-input';
 import type { ZwickyNode } from '$stylist/graph/type/struct/zwicky-node';
 
@@ -21,7 +21,8 @@ export function parseZwickyGraph(input: GraphJsonInput): {
 		const cluster = parts[1] ?? '';
 		const joint = parts[2] ?? '';
 		const family = parts[3] ?? '';
-		const color = ZWICKY_DOMAIN_COLOR[domain] ?? [0.5, 0.5, 0.5];
+		// Color encodes cluster (assembly layer), not domain
+		const color = ZWICKY_CLUSTER_COLOR[cluster] ?? [0.5, 0.5, 0.5];
 
 		return {
 			id: path,

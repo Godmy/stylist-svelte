@@ -1,4 +1,4 @@
-import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
+import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import { MESSAGE_ALIGNMENT_CLASSES } from '$stylist/chat/const/map/message-alignment-classes';
 
 export function getMessageAlignmentClass(align: TokenAlignment): string {

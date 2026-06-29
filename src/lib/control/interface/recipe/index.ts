@@ -62,7 +62,6 @@ export type { RecipeToggle } from './toggle-toggle';
 export type { RecipeToggles } from './toggles';
 export type { RecipeTooltip } from './tooltip';
 export type { RecipeTransformation } from './transformation';
-export type { TreeViewerProps } from './tree-viewer';
 export type { RecipeZoomControls } from './zoom-controls';
 export type { ZoomSpecificProps } from './zoom-specific-props';
 export type { RecipeZoomToolbar } from './zoom-toolbar';

@@ -1,7 +1,7 @@
 <script lang="ts">
+	import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import type { NotificationItem } from '$stylist/management/type/struct/notification-item';
 	import NotificationList from './index.svelte';
 
 	type Props = {
@@ -18,7 +18,7 @@
 		{ name: 'maxVisible', type: 'number', defaultValue: 5 }
 	];
 
-	const notifications: NotificationItem[] = [
+	const notifications: AnyProperty[] = [
 		{
 			id: '1',
 			title: 'Task assigned',
@@ -65,7 +65,7 @@
 		console.log('Notification dismissed:', id);
 	}
 
-	function handleNotificationClick(notification: NotificationItem) {
+	function handleNotificationClick(notification: AnyProperty) {
 		console.log('Notification clicked:', notification);
 	}
 </script>

@@ -1,10 +1,10 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { HTMLAttributes } from 'svelte/elements';
 import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
-import type { AvatarUserStatus } from '$stylist/token/type/alias/avatar-user-status';
+import type { AvatarUserStatus } from '$stylist/media/type/alias/avatar-user-status';
 import type { RecipeAvatar } from '$stylist/media/interface/recipe/avatar';
 
-import type { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
 const SIZE_CLASSES: Partial<Record<(typeof TOKEN_SIZE)[number], string>> = {
 	sm: 'w-6 h-6 text-sm',
 	md: 'w-8 h-8 text-base',

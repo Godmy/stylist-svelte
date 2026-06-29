@@ -3,10 +3,13 @@ export { ObjectManagerSharedCanvas } from './class';
 export {
 	CanvasToolbar,
 	CollaborativeEditor,
+	DrawingOverlay,
 	DrawingSurface,
+	ScreenshotSelector,
 	SharedCanvas
 } from './component';
 export {
+	CANVAS_TOOLBAR_DRAWING_TOOL,
 	SHARED_CANVAS_ACTION_ICONS,
 	SHARED_CANVAS_TOOL_DEFINITIONS
 } from './const';
@@ -16,7 +19,9 @@ export {
 	createCanvasToolbarState,
 	createCollaborativeEditorState,
 	createDraftCanvasObject,
+	createDrawingOverlayState,
 	createDrawingSurfaceState,
+	createScreenshotSelectorState,
 	createSharedCanvasState,
 	drawCanvasObject,
 	drawCanvasObjects,
@@ -30,18 +35,19 @@ export {
 } from './function';
 export type {
 	CanvasObject,
+	CanvasToolbarDrawingTool,
 	CanvasToolbarProps,
-	CanvasUser,
 	CollaborativeEditEvent,
 	CollaborativeEditorProps,
 	CollaborativeUser,
+	DrawingOverlayProps,
 	DrawingSurfaceCanvasClearedEvent,
 	DrawingSurfaceContract,
 	DrawingSurfaceExposeMethodsEvent,
 	DrawingSurfaceProps,
+	ScreenshotSelectorProps,
 	SharedCanvasContract,
 	SharedCanvasObjectBounds,
-	SharedCanvasPoint,
 	SharedCanvasTool,
 	SharedCanvasToolDefinition,
 	ThemeGraphColors,
@@ -51,5 +57,7 @@ export type {
 export type {
 	CanvasToolbarDrawingOptions,
 	RecipeCanvasImageEditor,
+	RecipeDrawingOverlay,
+	RecipeScreenshotSelector,
 	SlotSharedCanvas
 } from './interface';

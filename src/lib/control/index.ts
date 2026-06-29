@@ -6,7 +6,6 @@ export {
 	AccordionGroup,
 	AccordionLayout,
 	ActionSegmentedControl,
-	AdvancedVirtualTree,
 	AvatarSelector,
 	BurgerMenu,
 	Button,
@@ -25,8 +24,6 @@ export {
 	ExportPanel,
 	FilterBar,
 	FilterPanel,
-	FlatTree,
-	FolderTree,
 	FollowButton,
 	IconButton,
 	IconToolbar,
@@ -64,9 +61,6 @@ export {
 	ToolButton,
 	Toolbar,
 	Tooltip,
-	TreeNodeItem,
-	TreeViewer,
-	VirtualTree,
 	ZoomControls,
 	ZoomToolbar
 } from './component';
@@ -81,6 +75,8 @@ export {
 	CUBE_FACE_THEMES,
 	CUBE_HORIZONTAL_ICONS,
 	CUBE_VERTICAL_ICONS,
+	EXPORT_FORMAT,
+	FILTER_PANEL_LAYOUT,
 	FOLLOW_BUTTON_VARIANT_CLASSES,
 	ICON_BUTTON_ICON_SIZE_CLASSES,
 	ICON_BUTTON_SIZE_CLASSES,
@@ -117,6 +113,8 @@ export {
 	TOKEN_BUTTON_LOADER_CLASSES,
 	TOKEN_CUBE_FACE_NAME,
 	TOKEN_CUBE_FACE_TITLE,
+	TOKEN_SELECTION_TYPE,
+	TOKEN_SELECTOR_KIND,
 	TOOLTIP_POSITION_CLASSES,
 	TOOLTIP_SIZE_CLASSES
 } from './const';
@@ -186,15 +184,11 @@ export {
 	createToolButtonState,
 	createToolbarState,
 	createTooltipState,
-	createTreeExpansionState,
-	createTreeNodeItemState,
-	createTreeViewerState,
 	createZoomControlsState,
 	createZoomToolbarState,
 	handleFilterChange,
 	handleLayoutChange,
 	handleReset,
-	normalizeTreeViewerNode,
 	pageBuilderGetDefaultAttributes,
 	pageBuilderGetDefaultContent,
 	pageBuilderRenderElement,
@@ -208,7 +202,6 @@ export {
 } from './function';
 export type { AccordionContext } from './const';
 export type {
-	AdvancedVirtualTreeProps,
 	ButtonPropsRecord,
 	CheckboxGroupOption,
 	CheckboxGroupProps,
@@ -217,17 +210,15 @@ export type {
 	ControlPanelStateProps,
 	CubeControlProps,
 	CubeDebugLogEntry,
-	CubeRotation,
 	CubeSelectionState,
 	DragAndDropListItem,
 	DragAndDropListProps,
 	DragAndDropListRestProps,
+	ExportFormat,
 	FilterChangePayload,
+	FilterPanelLayout,
 	FilterPanelProps,
-	FlatTreeProps,
-	FolderTreeProps,
 	FunctionalTabItem,
-	ITreeNodeItemStyleClasses,
 	Language,
 	ListItem,
 	PageBuilderButtonAttributes,
@@ -261,10 +252,9 @@ export type {
 	ToggleGroupContext,
 	ToggleGroupItemStateProps,
 	ToggleProps,
-	ToolButtonProps,
-	TreeNode,
-	TreeNodeItemNode,
-	TreeNodeItemProps
+	TokenSelectionType,
+	TokenSelectorKind,
+	ToolButtonProps
 } from './type';
 export type {
 	AvatarSelectorProps,
@@ -391,6 +381,5 @@ export type {
 	SlotZoomControls,
 	SlotZoomToolbar,
 	ToggleSpecificProps,
-	TreeViewerProps,
 	ZoomSpecificProps
 } from './interface';

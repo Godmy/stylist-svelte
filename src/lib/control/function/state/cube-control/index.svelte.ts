@@ -1,9 +1,9 @@
 import type { CubeControlProps } from '$stylist/control/type/struct/cube-control-props';
-import type { CubeRotation } from '$stylist/control/type/struct/cube-rotation';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 import type { CubeSelectionState } from '$stylist/control/type/struct/cube-selection-state';
 import type { CubeDebugLogEntry } from '$stylist/control/type/struct/cube-debug-log-entry';
-import { TOKEN_CUBE_FACE_TITLE } from '$stylist/control/const/enum/cube-face-title';
-import { TOKEN_CUBE_FACE_NAME } from '$stylist/control/const/enum/cube-face-name';
+import { TOKEN_CUBE_FACE_TITLE } from '$stylist/control/const/array/cube-face-title';
+import { TOKEN_CUBE_FACE_NAME } from '$stylist/control/const/array/cube-face-name';
 import { CUBE_FACE_NUMBERS_SNAPSHOT } from '$stylist/control/const/record/cube-face-numbers-snapshot';
 import { CUBE_FACE_THEMES } from '$stylist/control/const/record/cube-face-theme';
 import { CUBE_HORIZONTAL_ICONS } from '$stylist/control/const/record/cube-horizontal-icon';
@@ -127,7 +127,7 @@ export function createCubeControlState(props: CubeControlProps) {
 		}
 	};
 
-	const rotationState: CubeRotation = {
+	const rotationState: Point2D = {
 		get x() {
 			return rotationX;
 		},

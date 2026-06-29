@@ -1,7 +1,7 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { TokenCodeView } from '$stylist/development/type/enum/code-view';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenCodeView } from '$stylist/development/type/alias/code-view';
 
 export interface RecipeThemeSyntaxHighlightedCode
 	extends ComputeIntersectAll<[HTMLAttributes<HTMLDivElement>]> {

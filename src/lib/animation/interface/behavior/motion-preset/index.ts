@@ -1,4 +1,4 @@
-import type { TokenEasing } from '$stylist/animation/type/enum/easing';
+import type { TokenEasing } from '$stylist/animation/type/alias/easing';
 
 export interface BehaviorMotionPreset {
 	duration?: number;

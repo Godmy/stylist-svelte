@@ -3,29 +3,7 @@
 	import ClusterToolbar from '$stylist/domain/component/molecule/cluster-toolbar/index.svelte';
 	import JointToolbar from '$stylist/domain/component/molecule/joint-toolbar/index.svelte';
 	import DomainList from '$stylist/domain/component/molecule/domain-list/index.svelte';
-
-	interface DomainSidebarEntity {
-		name: string;
-		path: string;
-		files: { path: string }[];
-	}
-
-	interface DomainSidebarProps {
-		activeDomain?: string;
-		activeCluster?: string;
-		activeJoint?: string;
-		availableJoints?: readonly string[];
-		entities?: DomainSidebarEntity[];
-		activeEntityPath?: string;
-		draggableEntities?: boolean;
-		onDomainSelect?: (name: string) => void;
-		onClusterSelect?: (name: string) => void;
-		onJointSelect?: (name: string) => void;
-		onEntitySelect?: (path: string) => void;
-		onEntityAdd?: (path: string) => void;
-		onEntityDragStart?: (entity: DomainSidebarEntity, event: DragEvent) => void;
-		class?: string;
-	}
+	import type { RecipeDomainSidebar } from '$stylist/domain/interface/recipe/domain-sidebar';
 
 	let {
 		activeDomain,
@@ -42,7 +20,7 @@
 		onEntityAdd,
 		onEntityDragStart,
 		class: className = ''
-	}: DomainSidebarProps = $props();
+	}: RecipeDomainSidebar = $props();
 </script>
 
 <aside class="c-domain-sidebar {className}" aria-label="Taxonomy">

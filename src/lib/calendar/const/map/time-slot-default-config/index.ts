@@ -1,6 +1,14 @@
-import type { ITimeSlotStyleConfig } from '$stylist/calendar/interface/contract/time-slot-style-config';
+export interface TimeSlotStyleConfig {
+	base: string;
+	available: string;
+	unavailable: string;
+	selected: string;
+	active: string;
+	timeLabelBase: string;
+	eventCountBase: string;
+}
 
-export const TIME_SLOT_DEFAULT_CONFIG: ITimeSlotStyleConfig = {
+export const TIME_SLOT_DEFAULT_CONFIG: TimeSlotStyleConfig = {
 	base: 'c-time-slot',
 	available: 'c-time-slot--available',
 	unavailable: 'c-time-slot--unavailable',

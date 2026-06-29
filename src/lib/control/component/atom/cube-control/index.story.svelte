@@ -3,10 +3,10 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import CubeControl from './index.svelte';
 	import type { CubeDebugLogEntry } from '$stylist/control/type/struct/cube-debug-log-entry';
-	import type { CubeRotation } from '$stylist/control/type/struct/cube-rotation';
+	import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 	import type { CubeSelectionState } from '$stylist/control/type/struct/cube-selection-state';
 
-	let currentRotation = $state<CubeRotation>({ x: -22, y: 32 });
+	let currentRotation = $state<Point2D>({ x: -22, y: 32 });
 	let selectionState = $state<CubeSelectionState>({
 		selectedIconId: null,
 		selectedTitleFace: null,

@@ -1,6 +1,6 @@
-﻿import { untrack } from 'svelte';
+import { untrack } from 'svelte';
 import type { TrafficAnalyticsProps } from '$stylist/marketing/type/struct/traffic-analytics/trafficanalytics-props';
-import type { TimeRange } from '$stylist/token/type/alias/traffic-analytics-time-range';
+import type { TimeRange } from '$stylist/marketing/type/alias/traffic-analytics-time-range';
 
 export function createTrafficAnalyticsState(props: TrafficAnalyticsProps) {
 	const title = $derived(props.title ?? 'Traffic Analytics');

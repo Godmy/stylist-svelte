@@ -20,6 +20,4 @@ export { TabGroup } from './tab-group/index';
 export { Tabs } from './tabs/index';
 export { ToggleButtonGroup } from './toggle-button-group/index';
 export { Toolbar } from './toolbar/index';
-export { TreeNodeItem } from './tree-node-item/index';
-export { TreeViewer } from './tree-viewer/index';
 export { ZoomToolbar } from './zoom-toolbar/index';

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { RecipeClickable as ClickProps } from '$stylist/interaction/interface/recipe/clickable';
+	import type { RecipeClickable } from '$stylist/interaction/interface/recipe/clickable';
 	import createClickableState from '$stylist/interaction/function/state/clickable/index.svelte';
 
-	let props: ClickProps = $props();
+	let props: RecipeClickable = $props();
 	const state = createClickableState(props);
 </script>
 

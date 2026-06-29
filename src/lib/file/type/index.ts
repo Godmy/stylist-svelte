@@ -1,13 +1,17 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	DataExporterFormat,
+	FileItemType,
 	FileStateOptions,
-	FileStateResult
+	FileStateResult,
+	UploadProgressVariant,
+	UploadStatus,
+	ViewMode
 } from './alias';
 export type {
 	Attachment,
 	DataItem,
 	DragDropFileStatus,
-	ExportFormatDetails,
 	FileItem,
 	FileType,
 	Props,

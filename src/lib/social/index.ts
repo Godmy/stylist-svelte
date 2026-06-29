@@ -55,18 +55,13 @@ export type {
 	FRIEND_LIST_REST_PROPS,
 	FeedUser,
 	FilterOption,
-	FriendListContract,
 	Post,
 	Props,
 	Provider,
 	ProviderConfig,
 	RestProps,
 	ShareOption,
-	SocialActivityFeedContract,
-	SocialFeedContract,
-	SocialLoginContract,
 	SocialPlatform,
-	SocialShareContract,
 	User
 } from './type';
 export type {

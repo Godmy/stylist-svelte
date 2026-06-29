@@ -1,14 +1,14 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 	import OntologyEdgeComponent from './index.svelte';
 
-	type Position2D = { x: number; y: number };
 	type OntologyNode = {
 		id: string;
 		name: string;
 		type: string;
-		position: Position2D;
+		position: Point2D;
 		width: number;
 		height: number;
 	};

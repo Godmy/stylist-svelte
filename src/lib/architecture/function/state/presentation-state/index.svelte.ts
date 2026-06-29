@@ -1,5 +1,5 @@
-﻿import type { PresentationState } from '$stylist/architecture/interface/recipe/presentation-state/index';
-import type { PresentationMode } from '$stylist/token/type/alias/presentation-mode/index';
+import type { PresentationState } from '$stylist/architecture/interface/recipe/presentation-state/index';
+import type { PresentationMode } from '$stylist/architecture/type/alias/presentation-mode/index';
 import type { PresentationFrame } from '$stylist/architecture/interface/slot/presentation-frame/index';
 
 export function createPresentationState(initial?: Partial<PresentationState>): PresentationState & {

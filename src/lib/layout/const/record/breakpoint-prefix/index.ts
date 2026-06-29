@@ -1,4 +1,4 @@
-import type { TokenBreakpoint } from '$stylist/layout/type/enum/breakpoint';
+import type { TokenBreakpoint } from '$stylist/layout/type/alias/breakpoint';
 
 /**
  * Tailwind responsive префикс для каждого breakpoint.

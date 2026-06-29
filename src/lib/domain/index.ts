@@ -59,3 +59,9 @@ export type {
 	TypeDomainScreen,
 	TypeDomainTreeNode
 } from './type';
+export type {
+	RecipeDomainList,
+	RecipeDomainSidebar,
+	RecipeDomainToolbar,
+	SlotDomainEntity
+} from './interface';

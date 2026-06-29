@@ -1,0 +1,2 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { DEFAULT_SCHEMA_TEXT } from './value';

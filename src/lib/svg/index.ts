@@ -216,6 +216,7 @@ export {
 	ICON_EDIT_3,
 	ICON_EMPTY,
 	ICON_ENUM,
+	ICON_ERD,
 	ICON_ERROR,
 	ICON_ERRORS,
 	ICON_EVENT_CALENDAR,
@@ -442,6 +443,7 @@ export {
 	ICON_PORTFOLIO,
 	ICON_POSITIONS,
 	ICON_POST_CARD,
+	ICON_PRESENTATION,
 	ICON_PREVIEW,
 	ICON_PREZI_SCENE,
 	ICON_PRICES,
@@ -627,6 +629,7 @@ export {
 	ICON_WARRANTY_INFO,
 	ICON_WIDGET_CONTAINER,
 	ICON_WIDTH,
+	ICON_WORKSPACE,
 	ICON_X,
 	ICON_X_CIRCLE,
 	ICON_YAML,
@@ -637,7 +640,10 @@ export {
 	ICON_ZOOM_OUT,
 	ICON_Z_INDEX,
 	RECORD_ICON_SIZE,
-	TOKEN_ICON_REGISTRY
+	TOKEN_DIRECTION,
+	TOKEN_ICON_REGISTRY,
+	TOKEN_SHAPE,
+	TOKEN_VARIANT
 } from './const';
 export {
 	buildSvgMarkup,
@@ -648,6 +654,11 @@ export {
 	normalizeIconName,
 	resolveSize
 } from './function';
+export type {
+	TokenDirection,
+	TokenShape,
+	TokenVariant
+} from './type';
 export type {
 	RecipeIcon,
 	RecipeSvg,

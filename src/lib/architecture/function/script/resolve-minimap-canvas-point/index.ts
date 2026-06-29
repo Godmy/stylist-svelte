@@ -1,12 +1,12 @@
-import type { GraphPosition2D } from '$stylist/architecture/type/struct/graph-position-2d';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 
 export function resolveMinimapCanvasPoint(
-	clientPoint: GraphPosition2D,
+	clientPoint: Point2D,
 	rect: DOMRect,
 	width: number,
 	height: number,
 	bounds: { minX: number; minY: number; maxX: number; maxY: number }
-): GraphPosition2D {
+): Point2D {
 	const x = clientPoint.x - rect.left;
 	const y = clientPoint.y - rect.top;
 

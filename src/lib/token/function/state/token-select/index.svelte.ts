@@ -1,5 +1,5 @@
 import type { TokenSelectControlProps } from '$stylist/token/type/struct/token-select-control-props';
-import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/enum/token-value';
+import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/alias/token-value';
 
 export function createTokenSelectState(props: TokenSelectControlProps) {
 	const valueToIndex = (candidate: TokenValue) =>

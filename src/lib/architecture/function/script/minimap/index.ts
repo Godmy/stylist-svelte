@@ -1,5 +1,5 @@
 import type { MinimapBounds } from '$stylist/architecture/type/struct/minimap-bounds';
-import type { RecipeLitegraphNode } from '$stylist/architecture/interface/recipe/litegraph-node';
+import type { RecipeLitegraphNode } from '$stylist/workspace/interface/recipe/litegraph-node';
 
 export function resolveMinimapBounds(nodes: readonly RecipeLitegraphNode[]): MinimapBounds {
 	return {

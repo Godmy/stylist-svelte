@@ -1,4 +1,4 @@
-import type { TokenNotifictionChannel } from '$stylist/management/type/enum/notification-channel';
+import type { TokenNotifictionChannel } from '$stylist/management/type/alias/notification-channel';
 import type { INotificationSettingsPreference } from '$stylist/management/type/struct/notification-settings-preference';
 
 export function updateNotificationPreference(

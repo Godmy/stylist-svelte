@@ -1,8 +1,8 @@
-﻿import type { HTMLButtonAttributes } from 'svelte/elements';
+import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { RecipePageButton } from '$stylist/control/interface/recipe/page-button';
 import { VARIANT_CLASSES } from '$stylist/interaction/const/record/variant-classes';
 import { createBasePreset } from '$stylist/interaction/preset/base';
-import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import { TOKEN_SIZE } from '$stylist/layout/const/array/size';
 
 export function createPageButtonState(
 	props: RecipePageButton &

@@ -1,4 +1,4 @@
-﻿import type { InventoryItemStatus } from '$stylist/token/type/alias/inventory-item-status';
+import type { InventoryItemStatus } from '$stylist/commerce/type/alias/inventory-item-status';
 
 export interface SlotInventoryItem {
 	id: string;

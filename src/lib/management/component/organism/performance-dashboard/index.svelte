@@ -2,7 +2,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createPerformanceDashboardState from '$stylist/management/function/state/performance-dashboard/index.svelte';
 	import type { RecipePerformanceDashboard } from '$stylist/management/interface/recipe/performance-dashboard';
-	import type { TokenTimeRange } from '$stylist/management/type/enum/time-range/token-time-range';
+	import type { TokenTimeRange } from '$stylist/management/type/alias/token-time-range';
 
 	let props: RecipePerformanceDashboard = $props();
 	const state = createPerformanceDashboardState(props);

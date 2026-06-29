@@ -1,18 +1,19 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { CanvasToolbarDrawingTool } from './alias';
 export type {
 	CanvasObject,
 	CanvasToolbarProps,
-	CanvasUser,
 	CollaborativeEditEvent,
 	CollaborativeEditorProps,
 	CollaborativeUser,
+	DrawingOverlayProps,
 	DrawingSurfaceCanvasClearedEvent,
 	DrawingSurfaceContract,
 	DrawingSurfaceExposeMethodsEvent,
 	DrawingSurfaceProps,
+	ScreenshotSelectorProps,
 	SharedCanvasContract,
 	SharedCanvasObjectBounds,
-	SharedCanvasPoint,
 	SharedCanvasTool,
 	SharedCanvasToolDefinition,
 	ThemeGraphColors,

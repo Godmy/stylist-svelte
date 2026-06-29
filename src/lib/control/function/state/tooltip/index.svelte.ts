@@ -1,6 +1,6 @@
 import type { RecipeTooltip } from '$stylist/control/interface/recipe/tooltip';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
+import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 
 export function createTooltipState(props: RecipeTooltip & HTMLAttributes<HTMLElement>) {
 	function normalizePlacement(

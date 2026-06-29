@@ -14,6 +14,10 @@ export {
 	SentimentAnalysis
 } from './component';
 export {
+	PROMPT_VARIABLE_TYPE,
+	SENTIMENT_ANALYSIS_STATUS
+} from './const';
+export {
 	createAiResultCardState,
 	createIdef0BlackBoxState,
 	createIdef0ConnectorState,
@@ -36,6 +40,8 @@ export type {
 	Idef0Port,
 	Model,
 	ModelSelectorProps,
+	PromptVariableType,
+	SentimentAnalysisStatus,
 	ThemeSceneColors
 } from './type';
 export type {

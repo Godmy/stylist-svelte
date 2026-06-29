@@ -4,7 +4,6 @@ export {
 	handleLayoutChange,
 	handleReset
 } from './filter-panel';
-export { normalizeTreeViewerNode } from './normalize-tree-viewer-node';
 export { pageBuilderGetDefaultContent } from './page-builder';
 export { pageBuilderGetDefaultAttributes } from './page-builder-get-default-attributes';
 export { pageBuilderRenderElement } from './page-builder-render-element';

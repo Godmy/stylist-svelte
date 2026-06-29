@@ -1,4 +1,4 @@
-import type { OverlayLayoutAlign } from '$stylist/layout/type/enum/overlay-layout-align';
+import type { OverlayLayoutAlign } from '$stylist/layout/type/alias/overlay-layout-align';
 import type { OverlayLayoutProps } from '$stylist/layout/type/struct/layout-extended/overlay-layout-props/overlaylayout-props';
 
 export function createOverlayLayoutState(props: OverlayLayoutProps) {

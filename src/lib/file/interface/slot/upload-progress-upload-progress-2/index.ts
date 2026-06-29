@@ -1,21 +1,21 @@
-﻿import type { UploadProgressVariant } from '$stylist/token/type/alias/upload-progress-variant';
+import type { UploadProgressVariant } from '$stylist/file/type/alias/upload-progress-variant';
 import type { SlotUploadProgressClasses as IUploadProgressClasses } from '$stylist/file/interface/slot/upload-progress-classes';
 import type { SlotUploadProgressDisplayOptions as IUploadProgressDisplayOptions } from '$stylist/file/interface/slot/upload-progress-display-options';
 import type { SlotUploadProgressEventHandlers as IUploadProgressEventHandlers } from '$stylist/file/interface/slot/upload-progress-event-handlers';
 import type { SlotUploadProgressBehaviorOptions as IUploadProgressBehaviorOptions } from '$stylist/file/interface/slot/upload-progress-behavior-options';
 import type { SlotUploadFile } from '$stylist/file/interface/slot/upload-file-upload-progress-2';
 
-/** РћСЃРЅРѕРІРЅРѕР№ РёРЅС‚РµСЂС„РµР№СЃ РїСЂРѕРїСЃРѕРІ РєРѕРјРїРѕРЅРµРЅС‚Р° */
+/** Основной интерфейс пропсов компонента */
 export interface SlotUploadProgress
 	extends IUploadProgressClasses,
 		IUploadProgressDisplayOptions,
 		IUploadProgressEventHandlers,
 		IUploadProgressBehaviorOptions {
-	/** РњР°СЃСЃРёРІ С„Р°Р№Р»РѕРІ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ */
+	/** Массив файлов для отображения */
 	files: SlotUploadFile[];
-	/** Р’Р°СЂРёР°РЅС‚ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РєРѕРјРїРѕРЅРµРЅС‚Р° */
+	/** Вариант отображения компонента */
 	variant?: UploadProgressVariant;
-	/** Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ Р°С‚СЂРёР±СѓС‚С‹ РґР»СЏ РєРѕСЂРЅРµРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° */
+	/** Дополнительные атрибуты для корневого элемента */
 	[key: string]: any;
 }
 

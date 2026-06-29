@@ -1,6 +1,8 @@
 import type { RecipeCalendarView as CalendarViewContract } from '$stylist/calendar/interface/recipe/calendar-view';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
-import type { RecipeCalendarViewDay as RecipeCalendarViewDay } from '$stylist/calendar/interface/recipe/calendar-view-day';
+import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';
+import { generateCalendarGrid, isToday as isTodayFn, isSameDay } from '$stylist/calendar/function/script/calendar-utils';
+import { formatMonthYear } from '$stylist/calendar/function/script/date-format';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createCalendarViewState(props: CalendarViewContract) {
@@ -22,11 +24,16 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	const todayButtonClasses = $derived('c-calendar-view__today-btn');
 	const navigationButtonClasses = $derived('c-calendar-view__nav-btn');
 
-	const days = $derived.by<RecipeCalendarViewDay[]>(() => getDaysInMonth(currentDate));
+	const days = $derived.by<SlotCalendarDay[]>(() => {
+		const month = currentDate.getMonth();
+		return generateCalendarGrid(currentDate).map((date) => {
+			const dayEvents = events.filter((event: SlotCalendarEvent) => isSameDay(new Date(event.start), date));
+			return { date, isCurrentMonth: date.getMonth() === month, isToday: isTodayFn(date), events: dayEvents };
+		});
+	});
+
 	const weekdays = $derived(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']);
-	const monthYear = $derived(
-		currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-	);
+	const monthYear = $derived(formatMonthYear(currentDate));
 
 	const restProps = $derived.by(() => {
 		const {
@@ -47,38 +54,6 @@ export function createCalendarViewState(props: CalendarViewContract) {
 		} = props;
 		return rest;
 	});
-
-	function getDaysInMonth(date: Date): RecipeCalendarViewDay[] {
-		const year = date.getFullYear();
-		const month = date.getMonth();
-
-		const firstDay = new Date(year, month, 1);
-		const lastDay = new Date(year, month + 1, 0);
-		const startDay = new Date(firstDay);
-		startDay.setDate(firstDay.getDate() - firstDay.getDay());
-		const endDay = new Date(lastDay);
-		endDay.setDate(lastDay.getDate() + (6 - lastDay.getDay()));
-
-		const calendarDays: RecipeCalendarViewDay[] = [];
-		const today = new Date();
-		today.setHours(0, 0, 0, 0);
-
-		for (let d = new Date(startDay); d <= endDay; d.setDate(d.getDate() + 1)) {
-			const dayDate = new Date(d);
-			const isCurrentMonth = dayDate.getMonth() === month;
-			const isTodayDate = dayDate.getTime() === today.getTime();
-
-			const dayEvents = events.filter((event: SlotCalendarEvent) => {
-				const eventStart = new Date(event.start);
-				eventStart.setHours(0, 0, 0, 0);
-				return eventStart.getTime() === dayDate.getTime();
-			});
-
-			calendarDays.push({ date: dayDate, isCurrentMonth, isToday: isTodayDate, events: dayEvents });
-		}
-
-		return calendarDays;
-	}
 
 	function navigateMonth(direction: number): void {
 		const step = currentViewMode === 'day' ? direction : currentViewMode === 'week' ? direction * 7 : 0;
@@ -147,54 +122,22 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	}
 
 	return {
-		get currentDate() {
-			return currentDate;
-		},
-		get events() {
-			return events;
-		},
-		get viewMode() {
-			return viewMode;
-		},
-		get showWeekNumbers() {
-			return showWeekNumbers;
-		},
-		get dayClass() {
-			return dayClass;
-		},
-		get eventClass() {
-			return eventClass;
-		},
-		get days() {
-			return days;
-		},
-		get weekdays() {
-			return weekdays;
-		},
-		get monthYear() {
-			return monthYear;
-		},
-		get wrapperClasses() {
-			return wrapperClasses;
-		},
-		get headerClasses() {
-			return headerClasses;
-		},
-		get gridClasses() {
-			return gridClasses;
-		},
-		get weekdayHeaderClasses() {
-			return weekdayHeaderClasses;
-		},
-		get todayButtonClasses() {
-			return todayButtonClasses;
-		},
-		get navigationButtonClasses() {
-			return navigationButtonClasses;
-		},
-		get restProps() {
-			return restProps;
-		},
+		get currentDate() { return currentDate; },
+		get events() { return events; },
+		get viewMode() { return viewMode; },
+		get showWeekNumbers() { return showWeekNumbers; },
+		get dayClass() { return dayClass; },
+		get eventClass() { return eventClass; },
+		get days() { return days; },
+		get weekdays() { return weekdays; },
+		get monthYear() { return monthYear; },
+		get wrapperClasses() { return wrapperClasses; },
+		get headerClasses() { return headerClasses; },
+		get gridClasses() { return gridClasses; },
+		get weekdayHeaderClasses() { return weekdayHeaderClasses; },
+		get todayButtonClasses() { return todayButtonClasses; },
+		get navigationButtonClasses() { return navigationButtonClasses; },
+		get restProps() { return restProps; },
 		navigateMonth,
 		navigateToToday,
 		handleDayClick,

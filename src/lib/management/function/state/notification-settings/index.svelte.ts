@@ -1,5 +1,5 @@
-import type { NotificationItem } from '$stylist/management/type/struct/notification-item';
-import type { TokenNotifictionChannel } from '$stylist/management/type/enum/notification-channel';
+import type { AnyProperty } from '$stylist/layout/type/object/any-property';
+import type { TokenNotifictionChannel } from '$stylist/management/type/alias/notification-channel';
 import { updateNotificationPreference } from '$stylist/management/function/script/notification-settings';
 
 const Bell = 'bell';
@@ -8,7 +8,7 @@ const Smartphone = 'smartphone';
 const Monitor = 'monitor';
 const Settings = 'settings';
 
-export function createNotificationSettingsState(props: NotificationItem) {
+export function createNotificationSettingsState(props: AnyProperty) {
 	// Props with defaults
 	const preferences = $derived(props.preferences ?? []);
 	const onPreferenceChange = $derived(props.onPreferenceChange);

@@ -1,4 +1,4 @@
-import type { TokenThemeScheme } from '$stylist/theme/type/enum/theme-scheme';
+import type { TokenThemeScheme } from '$stylist/theme/type/alias/theme-scheme';
 
 export const BAR_CHART_COLOR_SCHEME = {
 	minimal: [

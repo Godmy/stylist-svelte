@@ -1,6 +1,6 @@
 import type { HorizontalLayoutProps } from '$stylist/layout/type/struct/layout-extended/horizontal-layout-props';
-import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
-import type { TokenJustification } from '$stylist/layout/type/enum/justification';
+import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
+import type { TokenJustification } from '$stylist/layout/type/alias/justification';
 
 export function createHorizontalLayoutState(props: HorizontalLayoutProps) {
 	const gap = $derived(props.gap ?? 16);

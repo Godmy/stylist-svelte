@@ -1,11 +1,11 @@
-import type { RecipeLitegraphNode } from '$stylist/architecture/interface/recipe/litegraph-node';
+import type { RecipeLitegraphNode } from '$stylist/workspace/interface/recipe/litegraph-node';
 import type { Snippet } from 'svelte';
-import type { GraphPosition2D } from '$stylist/architecture/type/struct/graph-position-2d';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 
 export type GraphMinimapProps = {
 	nodes?: readonly RecipeLitegraphNode[];
 	zoom?: number;
-	offset?: GraphPosition2D;
+	offset?: Point2D;
 	width?: number;
 	height?: number;
 	miniMapZoom?: number;
@@ -16,9 +16,9 @@ export type GraphMinimapProps = {
 	viewportColor?: string;
 	backgroundColor?: string;
 	gridColor?: string;
-	onOffsetChange?: (offset: GraphPosition2D) => void;
+	onOffsetChange?: (offset: Point2D) => void;
 	onZoomChange?: (zoom: number) => void;
-	onMapClick?: (position: GraphPosition2D) => void;
+	onMapClick?: (position: Point2D) => void;
 	children?: Snippet;
 	class?: string;
 };

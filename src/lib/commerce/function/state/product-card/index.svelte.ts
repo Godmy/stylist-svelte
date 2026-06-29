@@ -1,4 +1,4 @@
-import type { TierContent } from '$stylist/architecture/type/enum/tier';
+import type { TierContent } from '$stylist/architecture/type/alias/tier';
 import type { RecipeProductCard } from '$stylist/commerce/interface/recipe/product-card';
 
 export function createProductCardState(props: RecipeProductCard) {

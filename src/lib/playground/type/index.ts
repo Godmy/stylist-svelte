@@ -1,41 +1,13 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { PlaygroundComponentTreeState } from './alias';
 export type {
+	PlaygroundCanvasShellBackgroundType,
+	PlaygroundCanvasShellViewportSize
+} from './alias';
+export type {
+	DeviceFrameProps,
 	InterfaceControllerSettings,
-	PlaygroundAiAssistantAIClientLike,
-	PlaygroundAiAssistantChatMessage,
-	PlaygroundAiAssistantChatResponse,
-	PlaygroundAiAssistantCreateAIClient,
-	PlaygroundAiAssistantProps,
-	PlaygroundAiChatChatMessage,
-	PlaygroundAiChatProps,
-	PlaygroundAiPanelAIOption,
-	PlaygroundAiPanelAIProvider,
-	PlaygroundAiPanelProps,
-	PlaygroundCanvasShellProps,
-	PlaygroundCodeViewerProps,
-	PlaygroundComponentCatalogComponentCatalogStats,
-	PlaygroundComponentCatalogComponentCatalogStory,
-	PlaygroundComponentCatalogProps,
-	PlaygroundComponentInfoCardProps,
-	PlaygroundComponentTreeGroupedStories,
-	PlaygroundComponentTreeProps,
-	PlaygroundComponentTreeStory,
-	PlaygroundComponentTreeTreeNodeData,
-	PlaygroundDeviceFrameProps,
-	PlaygroundDrawingOverlayProps,
-	PlaygroundEnhancedExportPanelProps,
-	PlaygroundErrorBoundaryProps,
-	PlaygroundGenericCodeViewerProps,
-	PlaygroundLiveCodeSectionProps,
-	PlaygroundMarkdownRendererProps,
-	PlaygroundScreenshotSelectorProps,
-	PlaygroundShellHeaderColorScheme,
-	PlaygroundShellHeaderProps,
-	PlaygroundShortcutsPanelProps,
-	PlaygroundShortcutsPanelShortcut,
-	PlaygroundTreeNodeProps,
-	PlaygroundTreeNodeStory,
-	PlaygroundTreeNodeTreeNodeData,
-	PropDefinition
+	PropDefinition,
+	ShellCanvasProps,
+	ShellHeaderColorScheme,
+	ShellHeaderProps
 } from './struct';

@@ -1,8 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	LIST_ITEM_MARKER_TYPE,
+	STATUS_STATE,
 	TOKEN_SOFTWARE_BADGE,
 	TOKEN_STATUS
-} from './enum';
+} from './array';
 export { STATS_CARD_TREND_TEXT_CLASSES } from './map';
 export {
 	CARD_SIZE_CLASSES,

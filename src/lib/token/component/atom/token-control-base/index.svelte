@@ -35,14 +35,23 @@
 
 <style>
 	.token-control-base {
-		border: 1px solid var(--md-sys-color-outline-variant, #cac4d0);
+		box-sizing: border-box;
+		--token-control-bg: var(--surface, var(--color-background-primary, #ffffff));
+		--token-control-bg-muted: var(--bg, var(--color-background-secondary, #f8fafc));
+		--token-control-border: var(--line, var(--color-border-primary, #cbd5e1));
+		--token-control-text: var(--text, var(--color-text-primary, #1d1b20));
+		--token-control-muted: var(--muted, var(--color-text-secondary, #49454f));
+		--token-control-accent: var(--accent, var(--color-primary-600, #6750a4));
+		border: 1px solid var(--token-control-border);
 		border-radius: 0.75rem;
-		background: var(--md-sys-color-surface, #fffbfe);
+		background: var(--token-control-bg);
+		color: var(--token-control-text);
 		padding: var(--spacing-3, 1rem);
 		display: grid;
 		gap: var(--spacing-2, 0.75rem);
-		justify-self: start;
-		width: min(100%, 34rem);
+		justify-self: stretch;
+		min-width: 0;
+		width: 100%;
 		max-width: 100%;
 		box-shadow: 0 1px 2px rgba(29, 27, 32, 0.08);
 	}
@@ -50,6 +59,7 @@
 	.token-control-base__header {
 		display: grid;
 		gap: var(--spacing-1, 0.35rem);
+		min-width: 0;
 	}
 
 	.token-control-base__name-row {
@@ -63,7 +73,7 @@
 		width: 1rem;
 		height: 1rem;
 		flex: 0 0 auto;
-		color: var(--md-sys-color-on-surface-variant, #49454f);
+		color: var(--token-control-muted);
 	}
 
 	.token-control-base__name {
@@ -72,33 +82,34 @@
 		white-space: nowrap;
 		font-size: var(--font-size-3, 0.875rem);
 		font-weight: var(--font-weight-bold, 700);
-		color: var(--md-sys-color-on-surface, #1d1b20);
+		color: var(--token-control-text);
 	}
 
 	.token-control-base__count {
 		font-size: 0.75rem;
 		line-height: 1;
 		font-weight: 700;
-		color: var(--md-sys-color-on-secondary-container, #1d192b);
-		border: 1px solid var(--md-sys-color-secondary-container, #e8def8);
+		color: var(--token-control-text);
+		border: 1px solid color-mix(in srgb, var(--token-control-accent) 24%, var(--token-control-border) 76%);
 		border-radius: 999px;
-		background: var(--md-sys-color-secondary-container, #e8def8);
+		background: color-mix(in srgb, var(--token-control-bg-muted) 84%, var(--token-control-accent) 16%);
 		padding: 0.15rem 0.35rem;
 	}
 
 	.token-control-base__description {
 		margin: 0;
 		font-size: var(--font-size-3, 0.875rem);
-		color: var(--md-sys-color-on-surface-variant, #49454f);
+		color: var(--token-control-muted);
 	}
 
 	.token-control-base__body {
 		display: grid;
 		gap: var(--spacing-2, 0.75rem);
+		min-width: 0;
 	}
 
 	.token-control-base--inline {
-		grid-template-columns: minmax(9rem, 14rem) minmax(12rem, 1fr);
+		grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
 		align-items: center;
 		gap: var(--spacing-3, 1rem);
 	}

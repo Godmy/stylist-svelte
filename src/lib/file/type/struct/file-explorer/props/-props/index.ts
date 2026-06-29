@@ -1,5 +1,5 @@
-﻿import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
-import type { ViewMode } from '$stylist/token/type/alias/file-explorer-view-mode';
+import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
+import type { ViewMode } from '$stylist/file/type/alias/file-explorer-view-mode';
 import type { RestProps } from '$stylist/file/type/struct/file-explorer/props/rest-props';
 
 export type Props = RestProps & {

@@ -5,5 +5,6 @@ export type { RecipeCellIcon } from './cell-icon';
 export type { RecipeCellPill } from './cell-pill';
 export type { RecipeCellText } from './cell-text';
 export type { RecipeColumn } from './column';
+export type { RecipeComponent } from './component';
 export type { RecipeRow } from './row';
 export type { RecipeTable } from './table';

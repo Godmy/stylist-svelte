@@ -1,4 +1,4 @@
-import type { TOKEN_TREND } from '$stylist/management/const/enum/trend';
+import type { TOKEN_TREND } from '$stylist/management/const/array/trend';
 
 export const STATS_CARD_TREND_ICON: Record<(typeof TOKEN_TREND)[number], string> = {
 	up: 'arrow-up',

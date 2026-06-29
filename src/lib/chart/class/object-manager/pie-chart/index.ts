@@ -1,6 +1,6 @@
-﻿import type { AnalyticsPieChartSegment } from '$stylist/chart/type/struct/pie-chart-segment';
+import type { AnalyticsPieChartSegment } from '$stylist/chart/type/struct/pie-chart-segment';
 import type { PieChartDataPoint } from '$stylist/chart/type/struct/pie-chart';
-import { TOKEN_CHART_COLORS } from '$stylist/chart/const/enum/chart-colors';
+import { TOKEN_CHART_COLORS } from '$stylist/chart/const/array/chart-colors';
 
 export class ObjectManagerPieChart {
 	static resolveTotal(data: PieChartDataPoint[]): number {

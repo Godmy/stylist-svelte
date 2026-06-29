@@ -1,4 +1,4 @@
-import type { TierContent } from '$stylist/architecture/type/enum/tier';
+import type { TierContent } from '$stylist/architecture/type/alias/tier';
 
 export const TEAM_MEMBER_CARD_VARIANT_CLASSES: Partial<Record<TierContent, string>> = {
 	detailed: '',

@@ -1,37 +1,85 @@
-import type { SlotDateTimeRangePickerComponent as DateTimeRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-time-range-picker-component';
+import type { SlotDatePicker as DateTimeRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-picker';
 
 export const createDateTimeRangePickerState = (props: DateTimeRangePickerComponentProps) => {
-	let selectedRange = $state({
-		start: props.value?.start ? new Date(props.value.start) : null,
-		end: props.value?.end ? new Date(props.value.end) : null
+	const isRangeValue = (
+		value: DateTimeRangePickerComponentProps['value']
+	): value is { start: Date | null; end: Date | null } => {
+		return (
+			!!value &&
+			typeof value === 'object' &&
+			!(value instanceof Date) &&
+			'start' in value &&
+			'end' in value
+		);
+	};
+
+	const parseRange = (value: DateTimeRangePickerComponentProps['value']) => ({
+		start: isRangeValue(value) && value.start ? new Date(value.start) : null,
+		end: isRangeValue(value) && value.end ? new Date(value.end) : null
 	});
+
+	let selectedRange = $state(parseRange(props.value));
 	let isOpen = $state(false);
+	let validationError = $state('');
 
 	function fmt(date: Date | null) {
 		return date ? date.toLocaleString() : '';
 	}
 
-	function changeTime(kind: 'start' | 'end', hh: number, mm: number, dateValue?: string) {
-		const base = dateValue
-			? new Date(dateValue)
-			: selectedRange[kind]
-				? new Date(selectedRange[kind] as Date)
-				: new Date();
+	function changeDate(kind: 'start' | 'end', dateValue: string) {
+		const existing = selectedRange[kind];
+		const base = dateValue ? new Date(dateValue) : new Date();
+		if (existing) {
+			base.setHours(existing.getHours(), existing.getMinutes(), 0, 0);
+		}
+		selectedRange = { ...selectedRange, [kind]: base };
+		validationError = '';
+	}
+
+	function changeTimePart(kind: 'start' | 'end', hh: number, mm: number) {
+		const existing = selectedRange[kind];
+		if (!existing) return;
+		const base = new Date(existing);
 		base.setHours(hh, mm, 0, 0);
 		selectedRange = { ...selectedRange, [kind]: base };
-		props.onInput?.(selectedRange);
+		validationError = '';
+	}
+
+	function commit() {
+		const { start, end } = selectedRange;
+		if (!start || !end) {
+			validationError = 'Select both start and end';
+			return;
+		}
+		if (start > end) {
+			validationError = 'Start must be before end';
+			return;
+		}
 		props.onChange?.(selectedRange);
+		isOpen = false;
+		validationError = '';
+	}
+
+	function cancel() {
+		selectedRange = parseRange(props.value);
+		isOpen = false;
+		validationError = '';
 	}
 
 	function toggleOpen() {
-		if (!props.disabled) {
-			isOpen = !isOpen;
-		}
+		if (!props.disabled) isOpen = !isOpen;
 	}
 
 	function clear() {
 		selectedRange = { start: null, end: null };
+		props.onChange?.(selectedRange);
 	}
+
+	const toDateInput = (date: Date | null) => (date ? date.toISOString().split('T')[0] : '');
+	const toTimeInput = (date: Date | null) => {
+		if (!date) return '';
+		return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+	};
 
 	return {
 		get selectedRange() {
@@ -55,10 +103,18 @@ export const createDateTimeRangePickerState = (props: DateTimeRangePickerCompone
 		get inputClass() {
 			return props.inputClass ?? '';
 		},
+		get validationError() {
+			return validationError;
+		},
 		fmt,
-		changeTime,
+		changeDate,
+		changeTimePart,
+		commit,
+		cancel,
 		toggleOpen,
-		clear
+		clear,
+		toDateInput,
+		toTimeInput
 	};
 };
 

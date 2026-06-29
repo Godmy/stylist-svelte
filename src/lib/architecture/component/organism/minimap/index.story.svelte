@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import type { RecipeLitegraphNode } from '$stylist/architecture/interface/recipe/litegraph-node';
+	import type { RecipeLitegraphNode } from '$stylist/workspace/interface/recipe/litegraph-node';
 	import Minimap from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [

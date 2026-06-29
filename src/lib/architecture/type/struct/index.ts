@@ -1,38 +1,20 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { SceneCameraInput } from './camera-input';
-export type { ConnectionLinePoint } from './connection-line-point';
 export type { ConnectionPathResult } from './connection-path-result';
-export type { GraphEditorNodeData } from './graph-editor-node-data';
-export type { GraphEditorPaletteNode } from './graph-editor-palette-node';
-export type { GraphEditorProps } from './graph-editor-props';
 export type { GraphMinimapContract } from './graph-minimap-contract';
 export type { GraphMinimapProps } from './graph-minimap-props';
-export type { GraphNodeCardData } from './graph-node-card-data';
-export type { GraphNodeCardProps } from './graph-node-card-props';
 export type { GraphPortDimensions } from './graph-port-dimensions';
-export type { GraphToolbarItem } from './graph-toolbar-item';
-export type { LiteGraphNodePresentation } from './lite-graph-node-presentation';
-export type { LiteGraphNodeProperty } from './lite-graph-node-property';
-export type { LiteGraphPort } from './lite-graph-port';
 export type { MinimapBounds } from './minimap-bounds';
 export type { MinimapNodeRect } from './minimap-node-rect';
-export type { MinimapOffset } from './minimap-offset';
-export type { MinimapPoint } from './minimap-point';
 export type { MinimapProps } from './minimap-props';
 export type { MinimapViewport } from './minimap-viewport';
 export type {
 	OntologyEdge,
 	OntologyEdgeComponentProps,
-	OntologyNode,
-	Position2D
+	OntologyNode
 } from './ontology-edge-component';
 export type { OntologyNodeComponentProps } from './ontology-node-component';
-export type { PortGroupProps } from './port-group-props';
-export type { PresenterNodeShellProps } from './presenter-node-shell';
-export type { PresenterSceneContract } from './presenter-scene';
-export type { PresenterSceneLink } from './presenter-scene-link';
-export type { PresenterSceneProps } from './presenter-scene-props';
-export type { PreziSceneContract } from './prezi-scene';
+export type { Point2D } from './point-2d';
 export type { ArchitectureScene } from './scene';
 export type { SceneCamera } from './scene-camera';
 export type { SceneNode } from './scene-node';
@@ -52,7 +34,6 @@ export type { Zoom } from './zoom';
 export type { ZoomStep } from './zoom-step';
 export type { GraphNode } from './graph-node';
 export type { GraphNodeDraft } from './graph-node-draft';
-export type { GraphPosition2D } from './graph-position-2d';
 export type { GraphViewport } from './graph-viewport';
 export type { GraphWorkspaceBounds } from './graph-workspace-bounds';
 export type { GraphWorkspaceConnection } from './graph-workspace-connection';

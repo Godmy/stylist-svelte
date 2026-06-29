@@ -8,7 +8,9 @@
 	<div class="ring-a ring" aria-hidden="true"></div>
 	<div class="ring-b ring" aria-hidden="true"></div>
 	<div class="ring-c ring" aria-hidden="true"></div>
-	{@render children?.()}
+	<div class="orbit-bg__content">
+		{@render children?.()}
+	</div>
 </div>
 
 <style>
@@ -37,6 +39,17 @@
 		pointer-events: none;
 	}
 
+	.orbit-bg__content {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+	}
+
+	.orbit-bg__content :global(.token-orbit) {
+		grid-area: 1 / 1;
+	}
+
 	.orbit-bg.opened {
 		transform: scale(1);
 		opacity: 1;
@@ -45,10 +58,12 @@
 
 	.ring {
 		position: absolute;
+		top: 50%;
+		left: 50%;
 		border-radius: 999px;
 		border: 1px dashed transparent;
 		opacity: 0;
-		transform: scale(0.78);
+		transform: translate(-50%, -50%) scale(0.78);
 		transition:
 			transform 360ms ease,
 			opacity 360ms ease,
@@ -56,28 +71,28 @@
 	}
 
 	.ring-a {
-		width: 148px;
-		height: 148px;
+		width: 136px;
+		height: 136px;
 		border-color: rgba(37, 99, 235, 0.5);
 		transition-delay: 70ms;
 	}
 
 	.ring-b {
-		width: 216px;
-		height: 216px;
+		width: 204px;
+		height: 204px;
 		border-color: rgba(14, 116, 144, 0.45);
 		transition-delay: 130ms;
 	}
 
 	.ring-c {
-		width: 282px;
-		height: 282px;
+		width: 272px;
+		height: 272px;
 		border-color: rgba(147, 51, 234, 0.4);
 		transition-delay: 190ms;
 	}
 
 	.orbit-bg.opened .ring {
 		opacity: 1;
-		transform: scale(1);
+		transform: translate(-50%, -50%) scale(1);
 	}
 </style>

@@ -1,8 +1,8 @@
-﻿import type { HTMLButtonAttributes } from 'svelte/elements';
+import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { RecipeCloseButton } from '$stylist/control/interface/recipe/close-button';
 import { VARIANT_CLASSES } from '$stylist/interaction/const/record/variant-classes';
 import { createBasePreset } from '$stylist/interaction/preset/base';
-import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import { TOKEN_SIZE } from '$stylist/layout/const/array/size';
 import { resolveAriaLabel } from '$stylist/information/function/resolve/aria-label';
 
 export function createCloseButtonState(props: RecipeCloseButton & HTMLButtonAttributes) {

@@ -17,27 +17,34 @@
 
 <style>
 	.token-select__input {
-		min-width: 12rem;
+		box-sizing: border-box;
+		--token-select-bg: var(--surface, var(--color-background-primary, #ffffff));
+		--token-select-bg-muted: var(--bg, var(--color-background-secondary, #f8fafc));
+		--token-select-border: var(--line, var(--color-border-primary, #79747e));
+		--token-select-text: var(--text, var(--color-text-primary, #1d1b20));
+		--token-select-accent: var(--accent, var(--color-primary-600, #6750a4));
+		min-width: 0;
+		width: 100%;
 		min-height: 2.5rem;
 		padding: 0.45rem 0.75rem;
 		font-size: 0.875rem;
-		border: 1px solid var(--md-sys-color-outline, #79747e);
+		border: 1px solid var(--token-select-border);
 		border-radius: 0.75rem;
-		background: var(--md-sys-color-surface-container-low, #f7f2fa);
-		color: var(--md-sys-color-on-surface, #1d1b20);
+		background: var(--token-select-bg-muted);
+		color: var(--token-select-text);
 		cursor: pointer;
 	}
 
 	.token-select__input:hover {
 		background: color-mix(
 			in srgb,
-			var(--md-sys-color-primary, #6750a4) 6%,
-			var(--md-sys-color-surface-container-low, #f7f2fa) 94%
+			var(--token-select-accent) 10%,
+			var(--token-select-bg) 90%
 		);
 	}
 
 	.token-select__input:focus {
-		outline: 2px solid var(--md-sys-color-primary, #6750a4);
+		outline: 2px solid var(--token-select-accent);
 		outline-offset: 2px;
 	}
 

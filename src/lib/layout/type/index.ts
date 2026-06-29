@@ -1,7 +1,14 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { WidgetContainerProps } from './alias';
 export type {
+	CenteredLayoutAxis,
+	ContainerQueryType,
+	GradientDirection,
+	GridMoleculeJustify,
+	LayoutGravity,
+	LayoutLevel,
+	LayoutShape,
 	OverlayLayoutAlign,
+	SplitLayoutGap,
 	StackedLayoutJustifyContent,
 	ThemeGradientBackgroundDirection,
 	TokenAlignment,
@@ -18,9 +25,11 @@ export type {
 	TokenSize,
 	TokenSizeRem,
 	TokenStackDirection,
-	TokenZIndex
-} from './enum';
+	TokenZIndex,
+	WidgetContainerProps
+} from './alias';
 export type { GraphPortSizeMapDimensions } from './map';
+export type { AnyProperty } from './object';
 export type {
 	RecordBorderRadius,
 	RecordElevation,

@@ -1,9 +1,9 @@
-import type { GraphPosition2D } from '$stylist/architecture/type/struct/graph-position-2d';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 
 export function resolveMinimapOffsetForPoint(
-	point: GraphPosition2D,
+	point: Point2D,
 	miniMapZoom: number
-): GraphPosition2D {
+): Point2D {
 	return {
 		x: -point.x * miniMapZoom,
 		y: -point.y * miniMapZoom

@@ -1,5 +1,5 @@
 import type { FoundationSemanticZoomStage } from '$stylist/architecture/type/script/foundation-semantic-zoom-stages';
-import type { TierContent } from '$stylist/architecture/type/enum/tier/index';
+import type { TierContent } from '$stylist/architecture/type/alias/index';
 
 export const RECORD_LEVEL: Record<FoundationSemanticZoomStage, TierContent> = {
 	dot: 'dot',

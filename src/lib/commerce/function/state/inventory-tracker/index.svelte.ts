@@ -1,4 +1,4 @@
-﻿import type { InventoryItemStatus } from '$stylist/token/type/alias/inventory-item-status';
+import type { InventoryItemStatus } from '$stylist/commerce/type/alias/inventory-item-status';
 import type { RecipeInventoryTracker as InventoryTrackerContract } from '$stylist/commerce/interface/recipe/inventory-tracker';
 import type { SlotInventoryItem as InventoryItemContract } from '$stylist/commerce/interface/slot/inventory-item';
 export function createInventoryTrackerState(props: InventoryTrackerContract) {

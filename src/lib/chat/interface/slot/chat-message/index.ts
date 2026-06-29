@@ -1,4 +1,4 @@
-﻿import type { ChatMessageStatus } from '$stylist/token/type/alias/chat-message-status';
+import type { ChatMessageStatus } from '$stylist/chat/type/alias/chat-message-status';
 
 export interface SlotChatMessage {
 	text?: string;

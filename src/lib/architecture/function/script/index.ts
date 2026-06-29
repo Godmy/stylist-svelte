@@ -18,6 +18,5 @@ export { resolveMinimapNodeRect } from './resolve-minimap-node-rect';
 export { resolveMinimapOffsetForPoint } from './resolve-minimap-offset-for-point';
 export { resolveMinimapViewport } from './resolve-minimap-viewport';
 export { resolveSemanticZoomNode } from './resolve-semantic-zoom-node';
-export { resolvePresenterSceneLinks } from './scene';
 export { resolveSemanticZoomPresentation } from './semantic-zoom';
 export { useSemanticZoom } from './use-semantic-zoom';

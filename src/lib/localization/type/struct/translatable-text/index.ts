@@ -1,4 +1,4 @@
-import type { TokenTranslation } from '$stylist/localization/type/enum/translation';
+import type { TokenTranslation } from '$stylist/localization/type/alias/translation';
 
 export type TranslatableText = {
 	id: string;

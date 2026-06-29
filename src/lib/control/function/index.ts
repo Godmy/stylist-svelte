@@ -3,7 +3,6 @@ export {
 	handleFilterChange,
 	handleLayoutChange,
 	handleReset,
-	normalizeTreeViewerNode,
 	pageBuilderGetDefaultAttributes,
 	pageBuilderGetDefaultContent,
 	pageBuilderRenderElement,
@@ -81,9 +80,6 @@ export {
 	createToolButtonState,
 	createToolbarState,
 	createTooltipState,
-	createTreeExpansionState,
-	createTreeNodeItemState,
-	createTreeViewerState,
 	createZoomControlsState,
 	createZoomToolbarState
 } from './state';

@@ -1,15 +1,15 @@
 <script lang="ts">
+	import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createChatPreviewState from '$stylist/chat/function/state/chat-preview/index.svelte';
-	import type { ChatPreviewContract } from '$stylist/chat/type/struct/chat-preview-contract';
 	import type { ChatPreviewMessage } from '$stylist/chat/type/struct/chat-preview-message';
 	import { CHAT_PREVIEW_ICON_CHECK } from '$stylist/chat/const/value/chat-preview-icon-check';
 	import { CHAT_PREVIEW_ICON_CHECK_CHECK } from '$stylist/chat/const/value/chat-preview-icon-check-check';
 	import { getChatMessageAlignmentClass } from '$stylist/chat/function/script/chat-message-alignment-class';
 	import { getChatMessageBubbleClasses } from '$stylist/chat/function/script/chat-message-bubble-classes';
 
-	let props: ChatPreviewContract = $props();
+	let props: AnyProperty = $props();
 
 	const state = createChatPreviewState(props);
 	const displayMessages = $derived(state.displayMessages as ChatPreviewMessage[]);

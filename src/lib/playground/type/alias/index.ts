@@ -1,2 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { PlaygroundComponentTreeState } from './playground-component-tree-state';
+export type { PlaygroundCanvasShellBackgroundType } from './playground-canvas-shell-background-type';
+export type { PlaygroundCanvasShellViewportSize } from './playground-canvas-shell-viewport-size';

@@ -1,4 +1,4 @@
-﻿import type { PerformanceMonitorStatus } from '$stylist/token/type/alias/performance-monitor-status';
+import type { PerformanceMonitorStatus } from '$stylist/management/type/alias/performance-monitor-status';
 
 export const PERFORMANCE_MONITOR_STATUS_COLOR = {
 	normal: 'bg-[var(--color-success-500)]',

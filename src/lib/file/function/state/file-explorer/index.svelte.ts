@@ -1,6 +1,6 @@
-﻿import type { RecipeFileExplorer } from '$stylist/file/interface/recipe/file-explorer';
+import type { RecipeFileExplorer } from '$stylist/file/interface/recipe/file-explorer';
 import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
-import type { ViewMode } from '$stylist/token/type/alias/file-explorer-view-mode';
+import type { ViewMode } from '$stylist/file/type/alias/file-explorer-view-mode';
 import { handleDownload as handleDownloadFn } from '$stylist/file/function/script/file-explorer-handle-download';
 import { handleItemClick as handleItemClickFn } from '$stylist/file/function/script/file-explorer';
 import { handleItemDoubleClick as handleItemDoubleClickFn } from '$stylist/file/function/script/file-explorer-handle-item-double-click';

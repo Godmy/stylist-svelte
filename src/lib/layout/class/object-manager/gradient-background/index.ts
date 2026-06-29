@@ -1,7 +1,7 @@
-﻿import type { RecipeThemeGradientBackground } from '$stylist/layout/interface/recipe/gradient-background';
-import type { TokenGradient } from '$stylist/layout/type/enum/gradient-mode';
+import type { RecipeThemeGradientBackground } from '$stylist/layout/interface/recipe/gradient-background';
+import type { TokenGradient } from '$stylist/layout/type/alias/gradient-mode';
 import type { GradientBackgroundStyle } from '$stylist/layout/type/struct/gradient-background-style';
-import type { GradientDirection } from '$stylist/token/type/alias/gradient-direction';
+import type { GradientDirection } from '$stylist/layout/type/alias/gradient-direction';
 
 export class ObjectManagerGradientBackground {
 	static readonly defaultColors = [

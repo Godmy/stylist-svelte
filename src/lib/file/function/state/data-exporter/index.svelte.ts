@@ -1,5 +1,5 @@
-﻿import { createEventDispatcher } from 'svelte';
-import type { DataExporterFormat } from '$stylist/token/type/alias/data-exporter-format';
+import { createEventDispatcher } from 'svelte';
+import type { DataExporterFormat } from '$stylist/file/type/alias/data-exporter-format';
 import type { DataItem } from '$stylist/file/type/struct/data-exporter/data-item';
 import { exportData as exportDataFn } from '$stylist/file/function/script/data-exporter';
 

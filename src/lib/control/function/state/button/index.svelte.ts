@@ -4,8 +4,8 @@ import type { ButtonFactoryInput } from '$stylist/interaction/factory/button';
 import { createBasePreset } from '$stylist/interaction/preset/base';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import { resolveAriaLabel } from '$stylist/information/function/resolve/aria-label';
-import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import { TOKEN_SIZE } from '$stylist/layout/const/array/size';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 
 export function createButtonState(input: ButtonFactoryInput | RecipeButton) {
 	const preset = createBasePreset<TokenAppearance, TokenSize>(

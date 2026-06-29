@@ -1,4 +1,4 @@
-import type { TOKEN_DENSITY } from '$stylist/layout/const/enum/density';
+import type { TOKEN_DENSITY } from '$stylist/layout/const/array/density';
 import type { DashboardLayoutProps } from '$stylist/management/interface/recipe/dashboard-layout';
 
 export function createDashboardLayoutState(props: DashboardLayoutProps) {

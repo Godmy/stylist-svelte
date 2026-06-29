@@ -1,4 +1,4 @@
-import type { TOKEN_TREND } from '$stylist/management/const/enum/trend';
+import type { TOKEN_TREND } from '$stylist/management/const/array/trend';
 import type { Snippet } from 'svelte';
 
 /** Raw compact stats card payload. UI contract lives in interface/recipe. */

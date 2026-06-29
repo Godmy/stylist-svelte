@@ -1,11 +1,11 @@
-﻿import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorDimensionable as IDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
 import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slot/text';
 import type { BehaviorLegendable as ILegendable } from '$stylist/chart/interface/behavior/legendable';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
-import type { TokenCanvasChartType } from '$stylist/token/type/alias/canvas-chart-type';
+import type { TokenCanvasChartType } from '$stylist/chart/type/alias/canvas-chart-type';
 import type { AnalyticsChartDataPoint } from '$stylist/chart/type/struct/analytics-chart-data-point';
 
 export interface RecipeAnalyticsChart

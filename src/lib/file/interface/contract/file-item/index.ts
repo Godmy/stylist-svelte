@@ -1,4 +1,4 @@
-﻿import type { FileItemType } from '$stylist/token/type/alias/file-item-type';
+import type { FileItemType } from '$stylist/file/type/alias/file-item-type';
 
 export interface ContractFileItem {
 	id: string;

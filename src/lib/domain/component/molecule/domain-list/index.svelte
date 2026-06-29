@@ -1,22 +1,7 @@
 <script lang="ts">
 	import DomainEntity from '$stylist/domain/component/atom/domain-entity/index.svelte';
 	import DomainListHeader from '$stylist/domain/component/atom/domain-list-header/index.svelte';
-
-	interface DomainListItem {
-		name: string;
-		path: string;
-		files: { path: string }[];
-	}
-
-	interface DomainListProps {
-		entities?: DomainListItem[];
-		activePath?: string;
-		draggable?: boolean;
-		onSelect?: (path: string) => void;
-		onAdd?: (path: string) => void;
-		onDragStart?: (entity: DomainListItem, event: DragEvent) => void;
-		class?: string;
-	}
+	import type { RecipeDomainList } from '$stylist/domain/interface/recipe/domain-list';
 
 	let {
 		entities = [],
@@ -26,7 +11,7 @@
 		onAdd,
 		onDragStart,
 		class: className = ''
-	}: DomainListProps = $props();
+	}: RecipeDomainList = $props();
 </script>
 
 <div class="c-domain-list {className}">

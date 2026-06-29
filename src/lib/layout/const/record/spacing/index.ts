@@ -1,5 +1,5 @@
-import { TOKEN_SIZE_REM } from '$stylist/layout/const/enum/size-rem/index';
-import type { TokenSizeRem } from '$stylist/layout/type/enum/size-rem/index';
+import { TOKEN_SIZE_REM } from '$stylist/layout/const/array/index';
+import type { TokenSizeRem } from '$stylist/layout/type/alias/index';
 import type { RecordSpacing } from '$stylist/layout/type/record/spacing';
 
 export const RECORD_SPACING: RecordSpacing = Object.fromEntries(

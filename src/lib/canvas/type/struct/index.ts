@@ -1,20 +1,20 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { CanvasObject } from './canvas-object';
 export type { CanvasToolbarProps } from './canvas-toolbar';
-export type { CanvasUser } from './canvas-user';
 export type { CollaborativeEditEvent } from './collaborative-edit-event';
 export type { CollaborativeEditorProps } from './collaborative-editor-props';
 export type { CollaborativeUser } from './collaborative-user';
+export type { DrawingOverlayProps } from './drawing-overlay-props';
 export type {
 	DrawingSurfaceCanvasClearedEvent,
 	DrawingSurfaceContract,
 	DrawingSurfaceExposeMethodsEvent,
 	DrawingSurfaceProps
 } from './drawing-surface';
+export type { ScreenshotSelectorProps } from './screenshot-selector-props';
 export type {
 	SharedCanvasContract,
 	SharedCanvasObjectBounds,
-	SharedCanvasPoint,
 	SharedCanvasTool,
 	SharedCanvasToolDefinition
 } from './shared-canvas';

@@ -1,8 +1,8 @@
-import type { ConnectionLinePoint } from '$stylist/architecture/type/struct/connection-line-point';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 
 export type ConnectionPathResult = {
 	path: string;
 	length: number;
-	midPoint: ConnectionLinePoint;
+	midPoint: Point2D;
 	angle: number;
 };

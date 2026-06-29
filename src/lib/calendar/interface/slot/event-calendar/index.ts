@@ -1,6 +1,7 @@
-import type { TokenTimeMeasure } from '$stylist/calendar/type/enum/time-measure';
+import type { TokenTimeMeasure } from '$stylist/calendar/type/alias/time-measure';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';
+import type { Snippet } from 'svelte';
 
 export interface SlotEventCalendar {
 	events?: SlotCalendarEvent[];
@@ -13,6 +14,7 @@ export interface SlotEventCalendar {
 	class?: string;
 	showAllDayEvents?: boolean;
 	showEventDuration?: boolean;
+	children?: Snippet;
 	onEventClick?: (event: SlotCalendarEvent) => void;
 	onEventCreate?: (date: Date) => void;
 	onEventEdit?: (event: SlotCalendarEvent) => void;

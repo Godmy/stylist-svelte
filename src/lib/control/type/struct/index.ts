@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { RecipeActionSegmentedControlProps } from './action-segmented-control-props';
-export type { AdvancedVirtualTreeProps } from './advanced-virtual-tree-props';
 export type { ButtonPropsRecord } from './button-props-record';
 export type { CheckboxGroupOption } from './checkbox-group-option';
 export type { CheckboxGroupProps } from './checkbox-group-props';
@@ -8,7 +7,6 @@ export type { CheckboxGroupRestProps } from './checkbox-group-rest-props';
 export type { ComboboxItem } from './combobox';
 export type { CubeControlProps } from './cube-control-props';
 export type { CubeDebugLogEntry } from './cube-debug-log-entry';
-export type { CubeRotation } from './cube-rotation';
 export type { CubeSelectionState } from './cube-selection-state';
 export type { DragAndDropListItem } from './drag-and-drop-list-item';
 export type { DragAndDropListProps } from './drag-and-drop-list-props';
@@ -22,8 +20,6 @@ export type {
 	FilterChangePayload,
 	FilterPanelProps
 } from './filter-panel';
-export type { FlatTreeProps } from './flat-tree-props';
-export type { FolderTreeProps } from './folder-tree-props';
 export type { Language } from './language';
 export type { ListItem } from './list-with-avatars';
 export type { PageBuilderButtonAttributes } from './page-builder-button-attributes';
@@ -53,6 +49,3 @@ export type { ToggleButtonGroupProps } from './toggle-button-group-props';
 export type { ToggleGroupContext } from './toggle-group-context';
 export type { ToggleProps } from './toggle-props';
 export type { ToolButtonProps } from './tool-button-props';
-export type { TreeNode } from './tree-node';
-export type { TreeNodeItemNode } from './tree-node-item-node';
-export type { ITreeNodeItemStyleClasses } from './tree-node-item-style-classes';

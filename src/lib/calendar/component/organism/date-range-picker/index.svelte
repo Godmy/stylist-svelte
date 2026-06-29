@@ -1,8 +1,8 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { SlotDateRangePickerComponent as DateRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-range-picker-component';
+	import type { SlotDatePicker as DateRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-picker';
 	import createDateRangePickerState from '$stylist/calendar/function/state/date-range-picker/index.svelte';
-	const Calendar = 'calendar';
+
 	const ChevronLeft = 'chevron-left';
 	const ChevronRight = 'chevron-right';
 	const X = 'x';
@@ -18,68 +18,61 @@
 			readonly
 			disabled={state.disabled}
 			class={`c-drp__input ${state.inputClass}`}
-			value={state.selectedRange.start
-				? state.selectedRange.end
-					? `${state.fmt(state.selectedRange.start)} - ${state.fmt(state.selectedRange.end)}`
-					: `${state.fmt(state.selectedRange.start)} - ...`
-				: state.placeholder}
+			value={state.displayValue}
 			onclick={state.toggleOpen}
 		/>
-		<BaseIcon
-			name={Calendar}
-			style="position: absolute; top: 50%; left: 0.75rem; transform: translateY(-50%); width: 1.25rem; height: 1.25rem; color: var(--color-text-secondary); pointer-events: none;"
-		/>
 		{#if state.selectedRange.start}
-			<button type="button" class="c-drp__clear-btn" onclick={state.clear}>
+			<button type="button" class="c-drp__clear-btn" onclick={state.clear} aria-label="Clear">
 				<BaseIcon name={X} style="width: 1rem; height: 1rem;" />
 			</button>
 		{/if}
-		<button
-			type="button"
-			class={`c-drp__toggle-btn ${state.buttonClass}`}
-			onclick={state.toggleOpen}
-		>
-			<BaseIcon name={Calendar} style="width: 1rem; height: 1rem;" />
-		</button>
 	</div>
 
 	{#if state.isOpen}
 		<div class={`c-drp__panel ${state.calendarClass}`}>
 			<div class="c-drp__nav">
-				<button type="button" onclick={state.previousMonth}>
+				<button type="button" class="c-drp__nav-btn" onclick={state.previousMonth} aria-label="Previous month">
 					<BaseIcon name={ChevronLeft} style="width: 1rem; height: 1rem;" />
 				</button>
-				<div class="c-drp__month-label">
+				<span class="c-drp__month-label">
 					{state.currentDateView.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
-				</div>
-				<button type="button" onclick={state.nextMonth}>
+				</span>
+				<button type="button" class="c-drp__nav-btn" onclick={state.nextMonth} aria-label="Next month">
 					<BaseIcon name={ChevronRight} style="width: 1rem; height: 1rem;" />
 				</button>
 			</div>
+
 			<div class="c-drp__week-header">
-				{#each ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'] as d}<div>{d}</div>{/each}
+				{#each ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'] as d}
+					<div>{d}</div>
+				{/each}
 			</div>
+
 			<div class="c-drp__days">
 				{#each state.calendarDates as date}
 					{#if date.getMonth() === state.currentDateView.getMonth()}
 						<button
 							type="button"
-							class={`c-drp__day ${state.inRange(date) ? 'c-drp__day--in-range' : ''} ${state.selectedRange.start && date.toDateString() === state.selectedRange.start.toDateString() ? 'c-drp__day--selected' : ''} ${state.selectedRange.end && date.toDateString() === state.selectedRange.end.toDateString() ? 'c-drp__day--selected' : ''}`}
-							onclick={() => state.pick(date)}>{date.getDate()}</button
+							class={`c-drp__day${state.inRange(date) ? ' c-drp__day--in-range' : ''}${state.isRangeEnd(date) ? ' c-drp__day--selected' : ''}`}
+							onclick={() => state.pick(date)}
 						>
+							{date.getDate()}
+						</button>
 					{:else}
 						<div class="c-drp__day-empty"></div>
 					{/if}
 				{/each}
 			</div>
+
 			<div class="c-drp__actions">
 				<button type="button" class="c-drp__action" onclick={state.clear}>Clear</button>
 				<button
 					type="button"
 					class="c-drp__action c-drp__action--primary"
-					onclick={() => (state.isOpen = false)}
+					onclick={state.applySelection}
+					disabled={!state.selectedRange.start || !state.selectedRange.end}
 				>
-					Done
+					Apply
 				</button>
 			</div>
 		</div>
@@ -100,7 +93,7 @@
 		box-sizing: border-box;
 		width: 100%;
 		padding-block: 0.5rem;
-		padding-inline: 2.5rem 4rem;
+		padding-inline: 0.75rem 2.5rem;
 		border: 1px solid var(--color-border-primary);
 		border-radius: var(--border-radius-base, 0.375rem);
 		background-color: var(--color-background-primary);
@@ -115,23 +108,13 @@
 	.c-drp__clear-btn {
 		position: absolute;
 		top: 50%;
-		right: 2.5rem;
-		transform: translateY(-50%);
-		background: none;
-		border: none;
-		cursor: pointer;
-		padding: 0.25rem;
-	}
-
-	.c-drp__toggle-btn {
-		position: absolute;
-		top: 50%;
 		right: 0.5rem;
 		transform: translateY(-50%);
 		background: none;
 		border: none;
 		cursor: pointer;
 		padding: 0.25rem;
+		color: var(--color-text-secondary);
 	}
 
 	.c-drp__panel {
@@ -154,11 +137,17 @@
 		margin-block-end: 0.5rem;
 	}
 
-	.c-drp__nav button {
+	.c-drp__nav-btn {
 		background: none;
 		border: none;
 		cursor: pointer;
 		padding: 0.25rem;
+		border-radius: var(--border-radius-sm, 0.25rem);
+		color: var(--color-text-secondary);
+	}
+
+	.c-drp__nav-btn:hover {
+		background-color: var(--color-background-secondary);
 	}
 
 	.c-drp__month-label {
@@ -189,6 +178,7 @@
 		background: none;
 		border: none;
 		cursor: pointer;
+		color: var(--color-text-primary);
 	}
 
 	.c-drp__day:hover {
@@ -213,6 +203,8 @@
 		justify-content: flex-end;
 		gap: 0.5rem;
 		margin-block-start: 0.75rem;
+		padding-block-start: 0.5rem;
+		border-top: 1px solid var(--color-border-primary);
 	}
 
 	.c-drp__action {
@@ -222,11 +214,25 @@
 		color: var(--color-text-primary);
 		padding: 0.375rem 0.75rem;
 		cursor: pointer;
+		font-size: var(--text-size-sm, 0.875rem);
+	}
+
+	.c-drp__action:hover {
+		background-color: var(--color-background-secondary);
 	}
 
 	.c-drp__action--primary {
 		border-color: var(--color-primary-500);
 		background: var(--color-primary-500);
 		color: var(--color-text-inverse);
+	}
+
+	.c-drp__action--primary:hover:not(:disabled) {
+		background: var(--color-primary-600, var(--color-primary-500));
+	}
+
+	.c-drp__action--primary:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
 	}
 </style>

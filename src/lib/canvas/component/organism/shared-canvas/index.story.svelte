@@ -1,6 +1,6 @@
 <script lang="ts">
+	import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 	import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
-	import type { CanvasUser } from '$stylist/canvas/type/struct/canvas-user';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 
@@ -19,7 +19,7 @@
 		{ id: 'text1', type: 'text', x: 100, y: 200, text: 'Shared Canvas', color: '#10b981' }
 	];
 
-	const defaultUsers: CanvasUser[] = [
+	const defaultUsers: AnyProperty[] = [
 		{ id: 'user1', name: 'Alice', color: '#8b5cf6' },
 		{ id: 'user2', name: 'Bob', color: '#ec4899' }
 	];

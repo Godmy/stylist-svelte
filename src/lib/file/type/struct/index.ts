@@ -10,7 +10,6 @@ export type {
 	RestProps,
 	SlotDropItem
 } from './drop-zone';
-export type { ExportFormatDetails } from './export-format-details';
 export type { SlotFolderItem } from './file-browser';
 export type { SlotFileSystemItem } from './file-explorer';
 export type { FileItem } from './file-list-item';

@@ -1,72 +1,54 @@
 import { ZWICKY_LAYOUT_SCALE } from '$stylist/graph/const/value/zwicky-layout-scale';
+import { ZWICKY_CLUSTER_ORDER } from '$stylist/graph/const/array/zwicky-cluster-order';
 import type { ZwickyNode } from '$stylist/graph/type/struct/zwicky-node';
 
-const CLUSTER_Y_ORDER: Record<string, number> = {
-	data: 0,
-	const: 1,
-	type: 2,
-	interface: 3,
-	class: 4,
-	function: 5,
-	component: 6
-};
+// X position for each cluster lane — follows assembly direction left→right
+const CLUSTER_X: Record<string, number> = Object.fromEntries(
+	ZWICKY_CLUSTER_ORDER.map((c, i) => [c, ZWICKY_LAYOUT_SCALE.clusterXFirst + i * ZWICKY_LAYOUT_SCALE.clusterXSpacing])
+);
 
 export function layoutZwickyNodes(nodes: ZwickyNode[]): void {
-	const { domainRadius, familyMaxRadius, clusterYStep, goldenAngle } = ZWICKY_LAYOUT_SCALE;
+	const { domainZStep, laneScatterX, laneScatterY, laneScatterZ, goldenAngle } = ZWICKY_LAYOUT_SCALE;
 
-	// Group: domain → cluster → [nodes]
-	const domainMap = new Map<string, Map<string, ZwickyNode[]>>();
+	// Group: cluster → domain → [nodes]
+	const clusterMap = new Map<string, Map<string, ZwickyNode[]>>();
+	const domainSet = new Set<string>();
 
 	for (const node of nodes) {
-		if (!domainMap.has(node.domain)) {
-			domainMap.set(node.domain, new Map());
-		}
-		const clusterMap = domainMap.get(node.domain)!;
-		if (!clusterMap.has(node.cluster)) {
-			clusterMap.set(node.cluster, []);
-		}
-		clusterMap.get(node.cluster)!.push(node);
+		if (!clusterMap.has(node.cluster)) clusterMap.set(node.cluster, new Map());
+		const domMap = clusterMap.get(node.cluster)!;
+		if (!domMap.has(node.domain)) domMap.set(node.domain, []);
+		domMap.get(node.domain)!.push(node);
+		domainSet.add(node.domain);
 	}
 
-	const domains = Array.from(domainMap.keys()).sort();
+	const domains = Array.from(domainSet).sort();
 	const nDomains = domains.length;
+	// Center domains along Z axis
+	const domainZ = new Map(
+		domains.map((d, i) => [d, (i - (nDomains - 1) / 2) * domainZStep])
+	);
 
-	for (let di = 0; di < nDomains; di++) {
-		const domain = domains[di];
-		const angle = (2 * Math.PI * di) / nDomains;
+	for (const [cluster, domMap] of clusterMap) {
+		const baseX = CLUSTER_X[cluster] ?? 0;
 
-		// Domain center on large ring
-		const domainX = domainRadius * Math.cos(angle);
-		const domainZ = domainRadius * Math.sin(angle);
+		for (const [domain, families] of domMap) {
+			const baseZ = domainZ.get(domain) ?? 0;
+			const n = families.length;
 
-		// Tangent direction (perpendicular to radius) for spreading families
-		const tanX = -Math.sin(angle);
-		const tanZ = Math.cos(angle);
+			for (let i = 0; i < n; i++) {
+				const node = families[i];
 
-		const clusterMap = domainMap.get(domain)!;
+				// Golden phyllotaxis gives uniform coverage, no overlaps
+				const r = Math.sqrt((i + 0.5) / n);
+				const theta = i * goldenAngle;
 
-		for (const [cluster, families] of clusterMap) {
-			const clusterY = (CLUSTER_Y_ORDER[cluster] ?? 3) * clusterYStep;
-			const nFamilies = families.length;
+				// Constrain X scatter to stay within lane; spread Y vertically
+				node.x = baseX + r * laneScatterX * Math.cos(theta);
+				node.y = r * laneScatterY * Math.sin(theta);
+				node.z = baseZ + r * laneScatterZ * Math.cos(theta + Math.PI / 3);
 
-			for (let fi = 0; fi < nFamilies; fi++) {
-				const node = families[fi];
-
-				// Sunflower phyllotaxis for even disc coverage
-				const r = familyMaxRadius * Math.sqrt((fi + 0.5) / nFamilies);
-				const theta = fi * goldenAngle;
-
-				const localX = r * Math.cos(theta);
-				const localZ = r * Math.sin(theta);
-
-				// Rotate local disc to face outward from domain ring
-				node.x = domainX + tanX * localX + Math.cos(angle) * localZ;
-				node.y = clusterY;
-				node.z = domainZ + tanZ * localX + Math.sin(angle) * localZ;
-
-				// Size slightly larger for nodes with more dependencies
-				const depCount = node.dependencyIds.length;
-				node.size = 0.42 + Math.min(depCount * 0.04, 0.4);
+				node.size = 0.42 + Math.min(node.dependencyIds.length * 0.045, 0.45);
 			}
 		}
 	}

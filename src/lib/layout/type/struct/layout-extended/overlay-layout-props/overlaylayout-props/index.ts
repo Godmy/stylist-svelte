@@ -1,16 +1,16 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
-import type { OverlayLayoutAlign } from '$stylist/layout/type/enum/overlay-layout-align';
+import type { OverlayLayoutAlign } from '$stylist/layout/type/alias/overlay-layout-align';
 import type { OverlayLayerProps } from '$stylist/layout/type/struct/layout-extended/overlay-layout-props/overlaylayer-props';
 
 export type OverlayLayoutProps = LayoutHTMLAttributes<HTMLDivElement> & {
 	class?: string;
-	/** Р‘Р°Р·РѕРІС‹Р№ РєРѕРЅС‚РµРЅС‚ (РІСЃРµРіРґР° СЃРЅРёР·Сѓ) */
+	/** Базовый контент (всегда снизу) */
 	base: Snippet;
-	/** РћРґРёРЅ РёР»Рё РЅРµСЃРєРѕР»СЊРєРѕ РѕРІРµСЂР»РµР№-СЃР»РѕС‘РІ РїРѕРІРµСЂС… Р±Р°Р·РѕРІРѕРіРѕ */
+	/** Один или несколько оверлей-слоёв поверх базового */
 	overlays?: OverlayLayerProps[];
-	/** Р”РµС„РѕР»С‚РЅРѕРµ РїРѕР·РёС†РёРѕРЅРёСЂРѕРІР°РЅРёРµ РѕРІРµСЂР»РµСЏ РµСЃР»Рё overlays РЅРµ Р·Р°РґР°РЅ */
+	/** Дефолтное позиционирование оверлея если overlays не задан */
 	overlay?: Snippet;
 	overlayAlign?: OverlayLayoutAlign;
 	overlayZIndex?: number;

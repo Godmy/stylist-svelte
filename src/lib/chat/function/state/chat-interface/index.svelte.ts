@@ -1,5 +1,5 @@
+import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 import type { AIProvider } from '$stylist/chat/type/struct/chat-interface/ai-provider';
-import type { ChatInterfaceProps } from '$stylist/chat/type/struct/chat-interface-props';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 const Send = 'send';
@@ -8,7 +8,7 @@ const User = 'user';
 const Settings = 'settings';
 const MoreVertical = 'more-vertical';
 
-export const createChatInterfaceState = (props: ChatInterfaceProps) => {
+export const createChatInterfaceState = (props: AnyProperty) => {
 	let newMessage = $state('');
 	let selectedProvider = $state(props.currentProvider ?? '');
 

@@ -1,14 +1,7 @@
 <script lang="ts">
 	import IconToolbar from '$stylist/control/component/molecule/icon-toolbar/index.svelte';
 	import { DOMAIN_MENU_ICONS } from '$stylist/domain/const/map/domain-menu';
-
-	interface DomainToolbarProps {
-		active?: string;
-		orientation?: 'horizontal' | 'vertical';
-		showLabel?: boolean;
-		onSelect?: (name: string) => void;
-		class?: string;
-	}
+	import type { RecipeDomainToolbar } from '$stylist/domain/interface/recipe/domain-toolbar';
 
 	let {
 		active,
@@ -16,7 +9,7 @@
 		showLabel = true,
 		onSelect,
 		class: className = ''
-	}: DomainToolbarProps = $props();
+	}: RecipeDomainToolbar = $props();
 </script>
 
 <IconToolbar

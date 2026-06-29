@@ -1,10 +1,10 @@
 import { getCanvasObjectBounds } from '$stylist/canvas/function/script/canvas-get-object-bounds';
-import type { SharedCanvasPoint } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-point';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
 
 export function hitTestCanvasObject(
 	objects: readonly CanvasObject[],
-	point: SharedCanvasPoint
+	point: Point2D
 ): CanvasObject | null {
 	for (let index = objects.length - 1; index >= 0; index -= 1) {
 		const object = objects[index];

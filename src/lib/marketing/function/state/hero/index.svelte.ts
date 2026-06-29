@@ -1,6 +1,6 @@
 import type { SlotHero as IHeroProps } from '$stylist/marketing/interface/slot/hero';
-import type { TokenBackground } from '$stylist/layout/type/enum/background';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenBackground } from '$stylist/layout/type/alias/background';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
 export function createHeroState(props: IHeroProps) {
 	const hostClass = $derived(props.class == null ? undefined : String(props.class));
 	const title = $derived(props.title);

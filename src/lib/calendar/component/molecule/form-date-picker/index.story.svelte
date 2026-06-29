@@ -2,6 +2,7 @@
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import FormDatePicker from './index.svelte';
 	import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
+	import type { DatePickerValue } from '$stylist/calendar/interface/slot/date-picker';
 
 	const controls = [
 		{
@@ -42,7 +43,7 @@
 		}
 	];
 
-	function handleChange(newValue: string) {
+	function handleChange(newValue: DatePickerValue) {
 		console.log('Date changed:', newValue);
 	}
 </script>
@@ -62,7 +63,7 @@
 					minDate={controlValues.minDate}
 					maxDate={controlValues.maxDate}
 					placeholder={controlValues.placeholder}
-					onValueInput={(newValue) => console.log('Date input:', newValue)}
+					onValueInput={(newValue: DatePickerValue) => console.log('Date input:', newValue)}
 					onValueChange={handleChange}
 				/>
 			</div>

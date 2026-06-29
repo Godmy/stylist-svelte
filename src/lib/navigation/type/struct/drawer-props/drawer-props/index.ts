@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 
-import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/enum/alignment';
+import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/array/alignment';
 export type DrawerProps = HTMLAttributes<HTMLDivElement> & {
 	open?: boolean;
 	position?: (typeof TOKEN_ALIGNMENT)[number];

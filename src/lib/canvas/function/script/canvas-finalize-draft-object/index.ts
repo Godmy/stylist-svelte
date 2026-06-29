@@ -1,13 +1,13 @@
 import { updateDraftCanvasObject } from '$stylist/canvas/function/script/canvas-update-draft-object';
-import type { SharedCanvasPoint } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-point';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 import type { SharedCanvasTool } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-tool';
 import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
 
 export function finalizeDraftCanvasObject(
 	object: CanvasObject,
 	tool: SharedCanvasTool,
-	startPoint: SharedCanvasPoint,
-	endPoint: SharedCanvasPoint
+	startPoint: Point2D,
+	endPoint: Point2D
 ): CanvasObject {
 	if (tool === 'rectangle') {
 		return updateDraftCanvasObject(object, tool, startPoint, endPoint);

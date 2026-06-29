@@ -1,5 +1,5 @@
-﻿import type { RecipePredictionResult as PredictionResultContract } from '$stylist/science/interface/recipe/prediction-result';
-import type { StatusState } from '$stylist/token/type/alias/status-state';
+import type { RecipePredictionResult as PredictionResultContract } from '$stylist/science/interface/recipe/prediction-result';
+import type { StatusState } from '$stylist/information/type/alias/status-state';
 
 export function createPredictionResultState(props: PredictionResultContract) {
 	const predictions = $derived(props.predictions ?? []);

@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { UserBehaviorMetricsProps } from '$stylist/marketing/type/struct/user-behavior-metrics/userbehaviormetrics-props';
-	import type { TimeRange } from '$stylist/token/type/alias/traffic-analytics-time-range';
+	import type { TimeRange } from '$stylist/marketing/type/alias/traffic-analytics-time-range';
 	import createUserBehaviorMetricsState from '$stylist/marketing/function/state/user-behavior-metrics/index.svelte';
 
 	let props: UserBehaviorMetricsProps = $props();
@@ -12,7 +12,7 @@
 		<div class="ubm-header-inner">
 			<div>
 				<div class="ubm-row">
-					<span class="ubm-emoji">рџ“Љ</span>
+					<span class="ubm-emoji">📊</span>
 					<h3 class="ubm-title">{state.title}</h3>
 				</div>
 				{#if state.subtitle}

@@ -16,8 +16,8 @@ export function pickZwickyNodeFromScreen(
 	const ndcX = ((clientX - rect.left) / rect.width) * 2 - 1;
 	const ndcY = -((clientY - rect.top) / rect.height) * 2 + 1;
 
-	const view = camera.getViewMatrix().toArray();
-	const proj = camera.getProjectionMatrix().toArray();
+	const view = Array.from(camera.getViewMatrix().toArray());
+	const proj = Array.from(camera.getProjectionMatrix().toArray());
 
 	// Unproject two points to get ray (near and far plane)
 	const invVP = invertMat4(multiplyMat4(proj, view));

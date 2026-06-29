@@ -1,9 +1,9 @@
-import type { SharedCanvasPoint } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-point';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 
 export function getCanvasPointerPosition(
 	event: MouseEvent,
 	canvas: HTMLCanvasElement
-): SharedCanvasPoint {
+): Point2D {
 	const rect = canvas.getBoundingClientRect();
 
 	return {

@@ -1,6 +1,6 @@
 import type { PopoverProps } from '$stylist/layout/interface/recipe/popover';
 
-import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/enum/alignment';
+import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/array/alignment';
 export function createPopoverState(props: PopoverProps) {
 	let isVisible = $state(props.open ?? false);
 	let triggerElement: HTMLElement | null = $state(null);

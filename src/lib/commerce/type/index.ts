@@ -1,11 +1,15 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	DiscountType,
+	InventoryItemStatus,
+	SubscriptionStatus,
 	TokenBillingItem,
 	TokenBillingSummary,
 	TokenMonitoringType,
 	TokenOrderStatus,
-	TokenPaymentStatus
-} from './enum';
+	TokenPaymentStatus,
+	WarrantyPeriodType
+} from './alias';
 export type {
 	Address,
 	BulkOrderFormItem,

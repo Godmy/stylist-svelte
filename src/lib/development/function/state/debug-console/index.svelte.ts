@@ -1,5 +1,5 @@
-﻿import type { RecipeDebugConsole } from '$stylist/development/interface/recipe/debug-console';
-import type { DebugConsoleLogLevel } from '$stylist/token/type/alias/debug-console-log-level';
+import type { RecipeDebugConsole } from '$stylist/development/interface/recipe/debug-console';
+import type { DebugConsoleLogLevel } from '$stylist/development/type/alias/debug-console-log-level';
 import type { DebugConsoleLogEntry } from '$stylist/development/type/struct/debug-console-log-entry';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 

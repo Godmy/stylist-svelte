@@ -44,7 +44,7 @@
 	.token {
 		display: grid;
 		width: 100%;
-		color: var(--md-sys-color-on-surface, #1d1b20);
+		color: var(--text, var(--color-text-primary, #1d1b20));
 	}
 
 	.token__control {

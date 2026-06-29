@@ -1,4 +1,4 @@
-import type { TokenColumn } from '$stylist/layout/type/enum/column';
+import type { TokenColumn } from '$stylist/layout/type/alias/column';
 import type { RecipeThemeIconPicker } from '$stylist/information/interface/recipe/icon-picker';
 import type { ThemeIconItem } from '$stylist/information/interface/slot/icon-picker';
 

@@ -6,14 +6,22 @@ export {
 	SceneObjectManager
 } from './class';
 export {
+	GraphClusterFilter,
+	GraphDot,
 	GraphLegend,
+	GraphTooltip,
 	Scene,
 	SceneCameraControl,
 	ZwickyScene
 } from './component';
 export {
+	INSTANCED_MAX_COUNT,
 	MATERIAL_PALETTE,
-	ZWICKY_DOMAIN_COLOR
+	SCENE_CAMERA_PRESET,
+	ZWICKY_CLUSTER_COLOR,
+	ZWICKY_CLUSTER_ORDER,
+	ZWICKY_DOMAIN_COLOR,
+	ZWICKY_LAYOUT_SCALE
 } from './const';
 export {
 	bindSceneAttributeBuffer,
@@ -58,6 +66,7 @@ export type {
 	SceneAtomMotion,
 	SceneAtomTransform,
 	SceneBufferSet,
+	SceneCameraPreset,
 	SceneDebugInfo,
 	SceneGeometry,
 	SceneGraph,
@@ -67,6 +76,7 @@ export type {
 	SceneMolecule,
 	SceneProps,
 	ZwickyFilterState,
+	ZwickyLevel,
 	ZwickyNode,
 	ZwickySceneProps
 } from './type';

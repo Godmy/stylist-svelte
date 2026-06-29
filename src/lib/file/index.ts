@@ -12,7 +12,14 @@ export {
 	UploadProgress,
 	ZipViewer
 } from './component';
-export { TOKEN_DOCUMENT_FORMAT } from './const';
+export {
+	DATA_EXPORTER_FORMAT,
+	FILE_EXPLORER_VIEW_MODE,
+	FILE_ITEM_TYPE,
+	TOKEN_DOCUMENT_FORMAT,
+	UPLOAD_PROGRESS_VARIANT,
+	UPLOAD_STATUS
+} from './const';
 export {
 	clearAll,
 	clearFile,
@@ -71,10 +78,11 @@ export {
 } from './function';
 export type {
 	Attachment,
+	DataExporterFormat,
 	DataItem,
 	DragDropFileStatus,
-	ExportFormatDetails,
 	FileItem,
+	FileItemType,
 	FileStateOptions,
 	FileStateResult,
 	FileType,
@@ -83,7 +91,10 @@ export type {
 	SlotDropItem,
 	SlotFileSystemItem,
 	SlotFolderItem,
-	SlotZipEntry
+	SlotZipEntry,
+	UploadProgressVariant,
+	UploadStatus,
+	ViewMode
 } from './type';
 export type {
 	BehaviorDragDropFileUploadEvents,

@@ -1,4 +1,4 @@
-import type { TokenColorTone } from '$stylist/color/type/enum/tone';
+import type { TokenColorTone } from '$stylist/color/type/alias/tone';
 
 export interface BehaviorColorToken {
 	variant?: string;

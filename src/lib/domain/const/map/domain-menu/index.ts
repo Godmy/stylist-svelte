@@ -1,4 +1,5 @@
 import type { SlotSvgName } from '$stylist/svg/interface/slot/svg-name';
+import { ICON_AI }           from '$stylist/svg/const/value/ai';
 import { ICON_AUDIO }        from '$stylist/svg/const/value/audio';
 import { ICON_ANIMATION }    from '$stylist/svg/const/value/animation';
 import { ICON_ARCHITECTURE } from '$stylist/svg/const/value/architecture';
@@ -11,6 +12,7 @@ import { ICON_COMMERCE }     from '$stylist/svg/const/value/commerce';
 import { ICON_CONTROL }      from '$stylist/svg/const/value/control';
 import { ICON_DEVELOPMENT }  from '$stylist/svg/const/value/development';
 import { ICON_DOMAIN }       from '$stylist/svg/const/value/domain';
+import { ICON_ERD }          from '$stylist/svg/const/value/erd';
 import { ICON_FILE }         from '$stylist/svg/const/value/file';
 import { ICON_FORM }         from '$stylist/svg/const/value/form';
 import { ICON_GEO }          from '$stylist/svg/const/value/geo';
@@ -27,6 +29,7 @@ import { ICON_NAVIGATION }   from '$stylist/svg/const/value/navigation';
 import { ICON_NOTIFICATION } from '$stylist/svg/const/value/notification';
 import { ICON_PLAYGROUND }   from '$stylist/svg/const/value/playground';
 import { ICON_PORTFOLIO }    from '$stylist/svg/const/value/portfolio';
+import { ICON_PRESENTATION } from '$stylist/svg/const/value/presentation';
 import { ICON_SCIENCE }      from '$stylist/svg/const/value/science';
 import { ICON_SERVER }       from '$stylist/svg/const/value/server';
 import { ICON_SOCIAL }       from '$stylist/svg/const/value/social';
@@ -34,10 +37,13 @@ import { ICON_SVG }          from '$stylist/svg/const/value/svg';
 import { ICON_TABLE }        from '$stylist/svg/const/value/table';
 import { ICON_THEME }        from '$stylist/svg/const/value/theme';
 import { ICON_TOKEN }        from '$stylist/svg/const/value/token';
+import { ICON_TREES }        from '$stylist/svg/const/value/trees';
 import { ICON_TYPOGRAPHY }   from '$stylist/svg/const/value/typography';
 import { ICON_USER }         from '$stylist/svg/const/value/user';
+import { ICON_WORKSPACE }    from '$stylist/svg/const/value/workspace';
 
 export const DOMAIN_MENU_ICONS = [
+	{ name: 'ai',           svg: ICON_AI },
 	{ name: 'audio',        svg: ICON_AUDIO },
 	{ name: 'animation',    svg: ICON_ANIMATION },
 	{ name: 'architecture', svg: ICON_ARCHITECTURE },
@@ -50,6 +56,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'control',      svg: ICON_CONTROL },
 	{ name: 'development',  svg: ICON_DEVELOPMENT },
 	{ name: 'domain',       svg: ICON_DOMAIN },
+	{ name: 'erd',          svg: ICON_ERD },
 	{ name: 'file',         svg: ICON_FILE },
 	{ name: 'form',         svg: ICON_FORM },
 	{ name: 'geo',          svg: ICON_GEO },
@@ -66,6 +73,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'notification', svg: ICON_NOTIFICATION },
 	{ name: 'playground',   svg: ICON_PLAYGROUND },
 	{ name: 'portfolio',    svg: ICON_PORTFOLIO },
+	{ name: 'presentation', svg: ICON_PRESENTATION },
 	{ name: 'science',      svg: ICON_SCIENCE },
 	{ name: 'server',       svg: ICON_SERVER },
 	{ name: 'social',       svg: ICON_SOCIAL },
@@ -73,8 +81,10 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'table',        svg: ICON_TABLE },
 	{ name: 'theme',        svg: ICON_THEME },
 	{ name: 'token',        svg: ICON_TOKEN },
+	{ name: 'tree',         svg: ICON_TREES },
 	{ name: 'typography',   svg: ICON_TYPOGRAPHY },
-	{ name: 'user',         svg: ICON_USER }
+	{ name: 'user',         svg: ICON_USER },
+	{ name: 'workspace',    svg: ICON_WORKSPACE }
 ] as const satisfies readonly SlotSvgName[];
 
 export const DOMAIN_COUNT = DOMAIN_MENU_ICONS.length;

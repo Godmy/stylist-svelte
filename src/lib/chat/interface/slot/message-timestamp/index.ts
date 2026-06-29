@@ -1,4 +1,4 @@
-import type { TokenTimeFormat } from '$stylist/calendar/type/enum/time-format';
+import type { TokenTimeFormat } from '$stylist/calendar/type/alias/time-format';
 
 export interface SlotMessageTimestamp {
 	/**

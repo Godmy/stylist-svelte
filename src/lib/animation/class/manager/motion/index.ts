@@ -1,7 +1,7 @@
 import type { BehaviorAnimate } from '$stylist/animation/interface/behavior/animate';
 import type { BehaviorTransformable } from '$stylist/animation/interface/behavior/transformable';
 import { TOKEN_EASING } from '$stylist/animation/const/object/easing';
-import type { TokenAnimation } from '$stylist/animation/type/enum/animation';
+import type { TokenAnimation } from '$stylist/animation/type/alias/animation';
 
 export class ManagerMotion {
 	static normalizeMotionContract(contract: BehaviorAnimate): BehaviorAnimate {

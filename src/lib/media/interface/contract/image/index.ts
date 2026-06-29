@@ -1,5 +1,5 @@
 
-import type { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
 export interface ContractImage {
 	/** Image variant */
 	variant?: 'default';

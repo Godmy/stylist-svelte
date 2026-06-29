@@ -3,6 +3,7 @@ export type { RecipeAtomicPrinciplesShowcase } from './atomic-principles-showcas
 export type { RecipeCodeBlock } from './code-block';
 export type { RecipeCodeDiff } from './code-diff';
 export type { RecipeCodeEditor } from './code-editor';
+export type { RecipeCodeViewer } from './code-viewer';
 export type { RecipeComponentLibraryStats } from './component-library-stats';
 export type { RecipeComponentPreview } from './component-preview';
 export type { ContentEditorStateProps } from './content-editor-state-props';
@@ -10,6 +11,10 @@ export type { RecipeDebugConsole } from './debug-console';
 export type { RecipeDesignTokens } from './design-tokens';
 export type { RecipeDevelopmentErrorBoundary } from './development-error-boundary';
 export type { RecipeDocumentationBlock } from './documentation-block';
+export type { RecipeEnhancedExportPanel } from './enhanced-export-panel';
+export type { RecipeErrorBoundary } from './error-boundary';
+export type { RecipeGenericCodeViewer } from './generic-code-viewer';
+export type { RecipeLiveCodeSection } from './live-code-section';
 export type { RecipeMockDataSelector } from './mock-data-selector';
 export type { RecipePrivacySettings } from './privacy-settings';
 export type { RecipeResourceOptimizer } from './resource-optimizer';

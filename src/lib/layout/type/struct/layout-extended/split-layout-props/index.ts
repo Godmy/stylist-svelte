@@ -1,10 +1,10 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
-import type { TOKEN_ORIENTATION } from '$stylist/layout/const/enum/orientation';
-import type { SplitLayoutGap } from '$stylist/token/type/alias/split-layout-gap';
+import type { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
+import type { SplitLayoutGap } from '$stylist/layout/type/alias/split-layout-gap';
 
-import type { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
 export type SplitLayoutProps = LayoutHTMLAttributes<HTMLDivElement> & {
 	class?: string;
 	primary: Snippet;

@@ -1,7 +1,7 @@
 import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { TokenThemeTone } from '$stylist/theme/type/enum/theme-tone';
+import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenThemeTone } from '$stylist/theme/type/alias/theme-tone';
 
 /**
  * SlotConfirmationDialog — свойства диалога подтверждения.
