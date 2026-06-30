@@ -1,22 +1,3 @@
-﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { applyKanbanColumnDrop } from '$stylist/portfolio/function/script/apply-kanban-column-drop';
-export { createBacklogItem } from '$stylist/portfolio/function/script/create-backlog-item';
-export { formatBacklogItemDate } from '$stylist/portfolio/function/script/format-backlog-item-date';
-export { generateBurnDownActualPath } from '$stylist/portfolio/function/script/generate-burn-down-actual-path';
-export { generateBurnDownIdealPath } from '$stylist/portfolio/function/script/generate-burn-down-ideal-path';
-export { generateBurnDownXLabels } from '$stylist/portfolio/function/script/generate-burn-down-x-labels';
-export { generateBurnDownYLabels } from '$stylist/portfolio/function/script/generate-burn-down-y-labels';
-export { getBurnDownMinMaxValues } from '$stylist/portfolio/function/script/get-burn-down-min-max-values';
-export { getBurnDownTimestamps } from '$stylist/portfolio/function/script/get-burn-down-timestamps';
-export { cloneKanbanBoard } from '$stylist/portfolio/function/script/kanban-board';
-export { addKanbanCard } from '$stylist/portfolio/function/script/kanban-board-add-card';
-export { addKanbanColumn } from '$stylist/portfolio/function/script/kanban-board-add-column';
-export { archiveKanbanCard } from '$stylist/portfolio/function/script/kanban-board-archive-card';
-export { deleteKanbanCard } from '$stylist/portfolio/function/script/kanban-board-delete-card';
-export { moveKanbanCard } from '$stylist/portfolio/function/script/kanban-board-move-card';
-export { renameKanbanCard } from '$stylist/portfolio/function/script/kanban-board-rename-card';
-export { renameKanbanColumn } from '$stylist/portfolio/function/script/kanban-board-rename-column';
-export { parseDragPayload } from '$stylist/portfolio/function/script/kanban-column';
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { updateNotificationPreference } from './notification-settings';
 export { resolveDashboardLayoutPreset } from './resolve-dashboard-layout-preset';
-export { filterBacklogItems } from '$stylist/portfolio/function/script/scrum-backlog';

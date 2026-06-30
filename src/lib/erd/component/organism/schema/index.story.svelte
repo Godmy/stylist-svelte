@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import audienceEngagementSql from '../../../../../../../../docs/chat/20260628 - db/20250428 - SQL - audience_engagement.sql?raw';
+	import schemaSource from '$stylist/erd/data/md/schema/schema.md?raw';
 	import Schema from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
@@ -20,7 +20,7 @@
 >
 	{#snippet children(values: any)}
 		<Schema
-			value={audienceEngagementSql}
+			value={schemaSource}
 			zoom={Number(values.zoom ?? 1)}
 			showRelations={Boolean(values.showRelations)}
 			highlightRelations={Boolean(values.highlightRelations)}

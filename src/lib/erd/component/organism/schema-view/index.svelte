@@ -17,8 +17,9 @@
 	const tableWidth = 260;
 	const columnGap = 80;
 	const rowGap = 72;
-	const canvasWidth = 1280;
-	const canvasHeight = 820;
+	const minCanvasWidth = 1280;
+	const minCanvasHeight = 820;
+	const canvasPadding = 240;
 	const tableHeaderHeight = 48;
 	const tableFieldHeight = 37;
 
@@ -34,6 +35,7 @@
 		new Map(positions.map((position) => [position.tableId, position]))
 	);
 	const relatedFieldIds = $derived(createRelatedFieldIds(document.dependencies));
+	const canvasSize = $derived(createCanvasSize(positions));
 
 	$effect(() => {
 		const nextLayoutKey = document.tables
@@ -83,6 +85,25 @@
 				y: previousPosition.y
 			};
 		});
+	}
+
+	function createCanvasSize(currentPositions: readonly SchemaTablePosition[]): {
+		width: number;
+		height: number;
+	} {
+		const rightEdge = Math.max(
+			0,
+			...currentPositions.map((position) => position.x + position.width)
+		);
+		const bottomEdge = Math.max(
+			0,
+			...currentPositions.map((position) => position.y + position.height)
+		);
+
+		return {
+			width: Math.max(minCanvasWidth, rightEdge + canvasPadding),
+			height: Math.max(minCanvasHeight, bottomEdge + canvasPadding)
+		};
 	}
 
 	function clamp(value: number, min: number, max: number): number {
@@ -162,8 +183,8 @@
 
 		const deltaX = (event.clientX - dragStartClientX) / zoom;
 		const deltaY = (event.clientY - dragStartClientY) / zoom;
-		const nextX = clamp(dragStartX + deltaX, 0, canvasWidth - position.width);
-		const nextY = clamp(dragStartY + deltaY, 0, canvasHeight - position.height);
+		const nextX = clamp(dragStartX + deltaX, 0, canvasSize.width - position.width);
+		const nextY = clamp(dragStartY + deltaY, 0, canvasSize.height - position.height);
 
 		positions = positions.map((entry) =>
 			entry.tableId === tableId
@@ -190,9 +211,17 @@
 </script>
 
 <section class="schema-view">
-	<div class="schema-view__canvas" style={`transform: scale(${zoom});`}>
+	<div
+		class="schema-view__canvas"
+		style={`width:${canvasSize.width}px; min-height:${canvasSize.height}px; transform: scale(${zoom});`}
+	>
 		{#if showRelations}
-			<svg class="schema-view__relations" aria-hidden="true">
+			<svg
+				class="schema-view__relations"
+				width={canvasSize.width}
+				height={canvasSize.height}
+				aria-hidden="true"
+			>
 				{#each document.dependencies as dependency (dependency.id)}
 					{@const points = getDependencyPoints(dependency)}
 					{#if points}
@@ -246,16 +275,12 @@
 
 	.schema-view__canvas {
 		position: relative;
-		width: 1280px;
-		min-height: 820px;
 		transform-origin: top left;
 	}
 
 	.schema-view__relations {
 		position: absolute;
 		inset: 0;
-		width: 1280px;
-		height: 820px;
 		overflow: visible;
 		pointer-events: none;
 	}

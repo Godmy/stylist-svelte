@@ -2,10 +2,6 @@ import type { ClickContract } from '$stylist/interaction/type/struct/gesture/cli
 import type { DragContract } from '$stylist/interaction/type/struct/gesture/drag-contract';
 import type { GestureContract } from '$stylist/interaction/type/struct/gesture/gesture-contract';
 
-/**
- * Object Manager для жестов
- * Управляет состоянием и данными для всех типов жестов
- */
 export class ObjectManagerGesture {
 	/**
 	 * Нормализует базовый контракт жеста
