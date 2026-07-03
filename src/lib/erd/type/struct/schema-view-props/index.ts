@@ -1,3 +1,4 @@
+import type { SchemaLayout } from '$stylist/erd/type/alias/schema-layout';
 import type { SchemaDocument } from '$stylist/erd/type/struct/schema-document';
 
 export type SchemaViewProps = {
@@ -5,6 +6,7 @@ export type SchemaViewProps = {
 	zoom?: number;
 	showRelations?: boolean;
 	highlightRelations?: boolean;
+	layout?: SchemaLayout;
 	activeTableId?: string;
 	draggable?: boolean;
 };

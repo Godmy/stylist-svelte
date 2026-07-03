@@ -11,6 +11,7 @@
 		zoom = 1,
 		showRelations = true,
 		highlightRelations = true,
+		layout = 'grid',
 		draggable = true
 	}: SchemaProps = $props();
 
@@ -18,6 +19,7 @@
 	let currentZoom = $state(zoom);
 	let relationsVisible = $state(showRelations);
 	let relationHighlight = $state(highlightRelations);
+	let currentLayout = $state(layout);
 	let fileInput: HTMLInputElement | undefined = $state();
 	let parseResult = $derived(schemaTextToDocument(source));
 
@@ -67,11 +69,13 @@
 			zoom={currentZoom}
 			showRelations={relationsVisible}
 			highlightRelations={relationHighlight}
+			layout={currentLayout}
 			on:import={importSchema}
 			on:export={exportSchema}
 			on:zoom-in={() => (currentZoom = clampZoom(currentZoom + 0.1))}
 			on:zoom-out={() => (currentZoom = clampZoom(currentZoom - 0.1))}
 			on:zoom-reset={() => (currentZoom = 1)}
+			on:layout-change={(event) => (currentLayout = event.detail.layout)}
 			on:toggle-relations={(event) => (relationsVisible = event.detail.enabled)}
 			on:toggle-highlight={(event) => (relationHighlight = event.detail.enabled)}
 		/>
@@ -88,6 +92,7 @@
 				zoom={currentZoom}
 				showRelations={relationsVisible}
 				highlightRelations={relationHighlight}
+				layout={currentLayout}
 				{draggable}
 			/>
 		</div>

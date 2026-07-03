@@ -9,6 +9,7 @@
 		'zoom-in': undefined;
 		'zoom-out': undefined;
 		'zoom-reset': undefined;
+		'layout-change': { layout: NonNullable<SchemaToolProps['layout']> };
 		'toggle-relations': { enabled: boolean };
 		'toggle-highlight': { enabled: boolean };
 	}>();
@@ -17,6 +18,7 @@
 		zoom = 1,
 		showRelations = true,
 		highlightRelations = true,
+		layout = 'grid',
 		canImport = true,
 		canExport = true
 	}: SchemaToolProps = $props();
@@ -57,6 +59,25 @@
 	<button type="button" aria-label="Zoom in" title="Zoom in" onclick={() => dispatch('zoom-in')}>
 		<Icon name="zoom-in" size={18} />
 	</button>
+	<div class="schema-tool__separator"></div>
+	<label class="schema-tool__select" title="Layout">
+		<span>Layout</span>
+		<select
+			aria-label="Layout"
+			value={layout}
+			onchange={(event) =>
+				dispatch('layout-change', {
+					layout: (event.currentTarget as HTMLSelectElement).value as NonNullable<
+						SchemaToolProps['layout']
+					>
+				})}
+		>
+			<option value="grid">Grid</option>
+			<option value="wide">Wide</option>
+			<option value="columns">Columns</option>
+			<option value="radial">Radial</option>
+		</select>
+	</label>
 	<div class="schema-tool__separator"></div>
 	<button
 		type="button"
@@ -105,6 +126,32 @@
 		cursor: pointer;
 		font: inherit;
 		font-size: 0.78rem;
+	}
+
+	.schema-tool__select {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		min-height: 2.15rem;
+		padding: 0 0.62rem;
+		border: 1px solid rgba(22, 31, 44, 0.12);
+		border-radius: 0.4rem;
+		background: #f8fafc;
+		color: #263244;
+		font-size: 0.78rem;
+	}
+
+	.schema-tool__select span {
+		color: #5a6678;
+	}
+
+	.schema-tool__select select {
+		min-width: 6.2rem;
+		border: 0;
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		cursor: pointer;
 	}
 
 	.schema-tool__value {
