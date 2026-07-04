@@ -1,11 +1,11 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+	import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 	import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 	import type { RecipeAvatarGroup } from '$stylist/media/interface/recipe/avatar-group';
 	import { createAvatarGroupState } from '$stylist/media/function/state/avatar-group/index.svelte';
 
-	let props: RecipeAvatarGroup & HTMLAttributes<HTMLDivElement> & BehaviorBorderToken & BehaviorTypography = $props();
+	let props: RecipeAvatarGroup & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & BehaviorTypography = $props();
 	const state = createAvatarGroupState(props);
 </script>
 

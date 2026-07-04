@@ -4,7 +4,7 @@ import type { HTMLAttributes } from 'svelte/elements';
  * ���� � ���������� ��� ���������� Rating
  */
 
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 /**
  * ������� ����� � ���������� ��������

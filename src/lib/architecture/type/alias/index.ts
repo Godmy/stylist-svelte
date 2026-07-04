@@ -11,7 +11,6 @@ export type { TokenLineType } from './line-type';
 export type { TokenMarker } from './marker';
 export type { NodeTitleVariant } from './node-title-variant';
 export type { TokenNodeType } from './node-type';
-export type { TokenOpacity } from './opacity';
 export type { PresentationMode } from './presentation-mode';
 export type { TokenPropertyType } from './property-type';
 export type { TokenRelationship } from './relationship';

@@ -1,6 +1,6 @@
 import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotListWithAvatars } from '$stylist/control/interface/slot/list-with-avatars';
 import type { BehaviorFocusable } from '$stylist/interaction/interface/behavior/focusable';
 import type { BehaviorSelectable } from '$stylist/interaction/interface/behavior/selectable';

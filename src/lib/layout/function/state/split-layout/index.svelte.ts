@@ -2,7 +2,7 @@ import type { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation'
 import type { SplitLayoutGap } from '$stylist/layout/type/alias/split-layout-gap';
 import type { SplitLayoutProps } from '$stylist/layout/type/struct/layout-extended/split-layout-props';
 
-import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
+import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 export function createSplitLayoutState(props: SplitLayoutProps) {
 	const direction = $derived<(typeof TOKEN_ORIENTATION)[number]>(props.direction ?? 'horizontal');
 	const gap = $derived<SplitLayoutGap>(props.gap ?? 'md');

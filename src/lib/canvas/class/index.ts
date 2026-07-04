@@ -1,2 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerSharedCanvas } from './object-manager';
+export {
+	ObjectManagerColorPalette,
+	ObjectManagerSharedCanvas
+} from './object-manager';

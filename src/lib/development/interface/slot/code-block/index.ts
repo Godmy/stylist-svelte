@@ -1,11 +1,11 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { TokenCodeLanguage } from '$stylist/development/type/alias/code-language';
 import type { TokenCodeView } from '$stylist/development/type/alias/code-view';
 
-export interface SlotCodeBlock extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, BehaviorBorderToken, BehaviorTypography {
+export interface SlotCodeBlock extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotThemeBorder, BehaviorTypography {
 	code?: string;
 	language?: TokenCodeLanguage | 'text';
 	variant?: TokenCodeView;

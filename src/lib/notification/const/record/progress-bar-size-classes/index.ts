@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export const PROGRESS_BAR_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'h-1 rounded-sm',

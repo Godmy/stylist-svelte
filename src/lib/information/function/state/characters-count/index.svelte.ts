@@ -2,7 +2,7 @@ import { createInputFieldState } from '$stylist/input/function/script/create-inp
 import { INPUT_FIELD_PRESET } from '$stylist/input/preset/input';
 import { resolveCharacterCountState } from '$stylist/input/function/script/resolve-character-count-state';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { InputStateOptions } from '$stylist/input/type/script/create-input-field-state';
 
 export function createCharacterCountState(

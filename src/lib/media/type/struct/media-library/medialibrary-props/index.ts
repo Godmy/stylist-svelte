@@ -1,5 +1,5 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { MediaItem } from '$stylist/media/type/struct/media-library/media-item';
 
@@ -19,4 +19,4 @@ export type MediaLibraryProps = {
 	toolbarClass?: string;
 	gridClass?: string;
 	itemClass?: string;
-} & HTMLAttributes<HTMLDivElement> & BehaviorBorderToken & BehaviorTypography;
+} & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & BehaviorTypography;

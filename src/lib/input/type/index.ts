@@ -2,8 +2,6 @@
 export type { InputStateOptions } from './script';
 export type {
 	AutoCompleteOption,
-	ColorItem,
-	ColorPaletteProps,
 	InputAttributesBase,
 	InputFieldBaseProps,
 	InputFieldRequiredProps,

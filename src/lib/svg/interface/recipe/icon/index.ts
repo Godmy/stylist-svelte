@@ -1,19 +1,19 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
+import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 import type { SlotSvgName } from '$stylist/svg/interface/slot/svg-name';
-import type { TokenDirection } from '$stylist/svg/type/alias/direction';
-import type { TokenVariant } from '$stylist/svg/type/alias/variant';
-import type { TokenShape } from '$stylist/svg/type/alias/shape';
+import type { TokenDirection } from '$stylist/theme/type/alias/direction';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
+import type { TokenShape } from '$stylist/theme/type/alias/shape';
 
 export interface RecipeIcon
 	extends ComputeIntersectAll<
 		[
 			Omit<HTMLAttributes<HTMLSpanElement>, 'class'>,
 			Partial<SlotSvgName>,
-			BehaviorBorderToken, 
+			SlotThemeBorder, 
 			BehaviorTypography
 		]
 > {
@@ -22,7 +22,7 @@ export interface RecipeIcon
 	/** Stroke width */
 	strokeWidth?: number;
 	/** Icon variant */
-	variant?: TokenVariant;
+	variant?: TokenColorTone;
 	/** Icon direction */
 	direction?: TokenDirection;
 	/** Is open state */

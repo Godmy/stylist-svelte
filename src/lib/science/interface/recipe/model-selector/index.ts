@@ -1,4 +1,4 @@
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotModelOption } from '$stylist/science/interface/slot/model-option';
 

@@ -53,14 +53,12 @@ export {
 	formatFileSize,
 	getIconName,
 	handleDownload,
-	handleRemove,
-	resolveAriaLabel
+	handleRemove
 } from './function';
 export type {
 	BaseCardProps,
 	ClassProp,
 	ClassValue,
-	ContentProp,
 	ListItemMarkerType,
 	MarkdownRendererProps,
 	MetricBarData,

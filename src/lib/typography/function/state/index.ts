@@ -8,4 +8,3 @@ export { createLinkState } from './link';
 export { createParagraphState } from './paragraph';
 export { createRichTextState } from './rich-text';
 export { createTextState } from './text';
-export { createTextPresenterState } from './text-presenter';

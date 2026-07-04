@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export const TOOLTIP_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'px-2 py-1 text-xs max-w-[150px]',

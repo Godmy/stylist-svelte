@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export const BUTTON_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'h-6 px-2 text-xs rounded',

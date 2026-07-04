@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotAbbr as AbbrProps } from '$stylist/typography/interface/slot/abbr';
+	import type { RecipeAbbr } from '$stylist/typography/interface/recipe/abbr';
 	import createAbbrState from '$stylist/typography/function/state/abbr/index.svelte';
 
-	let props: AbbrProps = $props();
+	let props: RecipeAbbr = $props();
 
 	const state = createAbbrState(props);
 	const children = $derived(props.children);

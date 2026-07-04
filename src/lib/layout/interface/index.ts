@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	BehaviorBorderToken,
 	BehaviorDimensionable,
 	BehaviorElevatable,
 	BehaviorPositionable,
@@ -17,11 +16,6 @@ export type {
 	RecipeCard,
 	RecipeThemeBackground,
 	RecipeThemeGradientBackground,
-	RecipeThemeSurface,
 	StackedLayoutProps
 } from './recipe';
-export type {
-	SlotChildren,
-	SlotComposite,
-	SlotContent
-} from './slot';
+export type { SlotComposite } from './slot';

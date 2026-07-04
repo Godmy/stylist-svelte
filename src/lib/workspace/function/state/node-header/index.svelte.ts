@@ -1,5 +1,5 @@
 import type { RecipeNodeHeader } from '$stylist/workspace/interface/recipe/node-header';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export function createNodeHeaderState(props: RecipeNodeHeader) {
 	let isEditing = $state(false);

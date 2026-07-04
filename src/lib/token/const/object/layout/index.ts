@@ -15,12 +15,12 @@ import { ITEM_LAYOUT_GRAVITY } from '$stylist/layout/const/array/item-layout-gra
 import { ITEM_LAYOUT_LEVEL } from '$stylist/layout/const/array/item-layout-level';
 import { ITEM_LAYOUT_SHAPE } from '$stylist/layout/const/array/item-layout-shape';
 import { TOKEN_JUSTIFICATION } from '$stylist/layout/const/array/justification';
-import { TOKEN_LAYOUT_SIZE } from '$stylist/layout/const/array/layout-size';
+import { TOKEN_LAYOUT_SIZE } from '$stylist/theme/const/array/layout-size';
 import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 import { TOKEN_SHAPE } from '$stylist/layout/const/array/shape';
-import { TOKEN_SIZE } from '$stylist/layout/const/array/size';
-import { TOKEN_SIZE_DX } from '$stylist/layout/const/array/size-dx';
-import { TOKEN_SIZE_REM } from '$stylist/layout/const/array/size-rem';
+import { TOKEN_SIZE } from '$stylist/theme/const/array/size';
+import { TOKEN_SIZE_PX } from '$stylist/theme/const/array/size-px';
+import { TOKEN_SIZE_REM } from '$stylist/theme/const/array/size-rem';
 import { SPLIT_LAYOUT_GAP } from '$stylist/layout/const/array/split-layout-gap';
 import { TOKEN_STACK_DIRECTION } from '$stylist/layout/const/array/stack-direction';
 
@@ -45,7 +45,7 @@ export const TOKEN_LAYOUT_SETTING = [
 	{ key: 'orientation', label: 'Orientation', domain: 'layout', controlKind: 'radio', values: TOKEN_ORIENTATION },
 	{ key: 'shape', label: 'Shape', domain: 'layout', controlKind: 'radio', values: TOKEN_SHAPE },
 	{ key: 'size', label: 'Size', domain: 'layout', controlKind: 'radio', values: TOKEN_SIZE },
-	{ key: 'size-dx', label: 'Size Dx', domain: 'layout', controlKind: 'radio', values: TOKEN_SIZE_DX },
+	{ key: 'size-px', label: 'Size Px', domain: 'layout', controlKind: 'radio', values: TOKEN_SIZE_PX },
 	{ key: 'size-rem', label: 'Size Rem', domain: 'layout', controlKind: 'radio', values: TOKEN_SIZE_REM },
 	{ key: 'split-layout-gap', label: 'Split Layout Gap', domain: 'layout', controlKind: 'radio', values: SPLIT_LAYOUT_GAP },
 	{ key: 'stack-direction', label: 'Stack Direction', domain: 'layout', controlKind: 'radio', values: TOKEN_STACK_DIRECTION }

@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 
 export interface SlotInputCore<V extends string = TokenAppearance, S extends string = TokenSize> {

@@ -1,5 +1,5 @@
 import type { RecipeNodePropertiesPanel as NodePropertiesPanelProps } from '$stylist/workspace/interface/recipe/node-properties-panel';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import { ObjectManagerNodePropertiesPanel } from '$stylist/workspace/class/object-manager/node-properties-panel';
 
 export function createNodePropertiesPanelState(props: NodePropertiesPanelProps) {

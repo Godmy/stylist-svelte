@@ -15,6 +15,7 @@ export type {
 	SchemaDependencyProps,
 	SchemaDocument,
 	SchemaField,
+	SchemaLayout,
 	SchemaParseResult,
 	SchemaProps,
 	SchemaTableFieldProps,

@@ -1,4 +1,4 @@
-import type { TokenZIndex } from '$stylist/layout/type/alias/z-index';
+import type { TokenZIndex } from '$stylist/theme/type/alias/z-index';
 
 export type SceneNode = {
 	id: string;

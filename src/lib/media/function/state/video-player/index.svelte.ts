@@ -1,11 +1,11 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import { formatTime } from '$stylist/media/function/script/format-time';
 import { TOKEN_MEDIA_ICON } from '$stylist/media/const/record/media-icon';
 import type { RecipeVideoPlayer } from '$stylist/media/interface/recipe/video-player';
 
-type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & BehaviorBorderToken & BehaviorTypography;
+type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & BehaviorTypography;
 
 export function createVideoPlayerState(props: RecipeVideoPlayer) {
 	let videoRef = $state<HTMLVideoElement | null>(null);

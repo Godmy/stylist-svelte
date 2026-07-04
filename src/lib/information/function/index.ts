@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { resolveAriaLabel } from './resolve';
 export {
 	createAttachmentDispatch,
 	formatFileSize,

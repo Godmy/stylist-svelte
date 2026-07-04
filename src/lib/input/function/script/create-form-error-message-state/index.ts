@@ -1,7 +1,7 @@
 import { createInputFieldState } from '$stylist/input/function/script/create-input-field-state';
 import type { InputStateOptions } from '$stylist/input/type/script/create-input-field-state';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export function createFormErrorMessageState(
 	props: InputStateOptions<TokenAppearance, TokenSize> & Record<string, unknown>

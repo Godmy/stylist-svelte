@@ -1,8 +1,12 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerSharedCanvas } from './class';
+export {
+	ObjectManagerColorPalette,
+	ObjectManagerSharedCanvas
+} from './class';
 export {
 	CanvasToolbar,
 	CollaborativeEditor,
+	ColorPalette,
 	DrawingOverlay,
 	DrawingSurface,
 	ScreenshotSelector,
@@ -18,6 +22,7 @@ export {
 	createCanvasObjectId,
 	createCanvasToolbarState,
 	createCollaborativeEditorState,
+	createColorPaletteState,
 	createDraftCanvasObject,
 	createDrawingOverlayState,
 	createDrawingSurfaceState,
@@ -56,6 +61,7 @@ export type {
 } from './type';
 export type {
 	CanvasToolbarDrawingOptions,
+	RecipeCanvasColorPalette,
 	RecipeCanvasImageEditor,
 	RecipeDrawingOverlay,
 	RecipeScreenshotSelector,

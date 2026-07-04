@@ -22,21 +22,12 @@ export type {
 	TokenJustification,
 	TokenOrientation,
 	TokenShape,
-	TokenSize,
-	TokenSizeRem,
 	TokenStackDirection,
-	TokenZIndex,
 	WidgetContainerProps
 } from './alias';
 export type { GraphPortSizeMapDimensions } from './map';
 export type { AnyProperty } from './object';
-export type {
-	RecordBorderRadius,
-	RecordElevation,
-	RecordSizeMap,
-	RecordSpacing,
-	RecordZIndex
-} from './record';
+export type { RecordSizeMap } from './record';
 export type { ClassValue } from './script';
 export type {
 	AnimatedExpandableTableRowProps,
@@ -61,10 +52,8 @@ export type {
 	GridSvgProps,
 	HorizontalLayoutProps,
 	InputStateOptions,
-	LayoutElevationSemantic,
 	LayoutHTMLAttributes,
 	LayoutSection,
-	LayoutTheme,
 	OverlayLayerProps,
 	OverlayLayoutProps,
 	SeparatorProps,

@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export const TAG_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'px-1 py-0.5 text-[10px]',

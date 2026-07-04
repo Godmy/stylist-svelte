@@ -640,10 +640,7 @@ export {
 	ICON_ZOOM_OUT,
 	ICON_Z_INDEX,
 	RECORD_ICON_SIZE,
-	TOKEN_DIRECTION,
-	TOKEN_ICON_REGISTRY,
-	TOKEN_SHAPE,
-	TOKEN_VARIANT
+	TOKEN_ICON_REGISTRY
 } from './const';
 export {
 	buildSvgMarkup,
@@ -654,11 +651,6 @@ export {
 	normalizeIconName,
 	resolveSize
 } from './function';
-export type {
-	TokenDirection,
-	TokenShape,
-	TokenVariant
-} from './type';
 export type {
 	RecipeIcon,
 	RecipeSvg,

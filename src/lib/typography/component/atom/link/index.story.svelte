@@ -1,29 +1,12 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import { TOKEN_FONT_SIZE } from '$stylist/theme/const/array/font-size';
+	import { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';
 	import Link from './index.svelte';
 
-	const appearanceOptions = [
-		'default',
-		'primary',
-		'secondary',
-		'success',
-		'warning',
-		'danger',
-		'error',
-		'info',
-		'solid',
-		'outline',
-		'ghost',
-		'link',
-		'subtle',
-		'neutral',
-		'gray',
-		'dark',
-		'light',
-		'elevated',
-		'flat'
-	];
+	const toneOptions = [...TOKEN_COLOR_TONE];
+	const fontSizeOptions = [...TOKEN_FONT_SIZE];
 
 	const controls: InterfaceControllerSettings[] = [
 		{
@@ -34,20 +17,20 @@
 			defaultValue: 'https://example.com/design-system'
 		},
 		{
-			name: 'variant',
-			label: 'Variant',
-			description: 'Appearance token currently supported by the typography link.',
+			name: 'tone',
+			label: 'Tone',
+			description: 'Typography tone token currently supported by the link.',
 			type: 'select',
 			defaultValue: 'primary',
-			options: appearanceOptions
+			options: toneOptions
 		},
 		{
-			name: 'size',
-			label: 'Size',
-			description: 'Supports regular and fractional layout size tokens.',
+			name: 'fontSize',
+			label: 'Font Size',
+			description: 'Typography font-size token currently supported by the link.',
 			type: 'select',
-			defaultValue: 'md',
-			options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '1/3', '1/2', '2/3', 'full']
+			defaultValue: '4',
+			options: fontSizeOptions
 		},
 		{
 			name: 'disabled',
@@ -86,7 +69,7 @@
 	title="Link"
 	category="Atoms/Typography"
 	component={Link}
-	description="Typography link renderer with appearance, sizing, underline, target, and disabled states."
+	description="Typography link renderer with tone, font size, underline, target, and disabled states."
 	tags={['navigation', 'link', 'anchor']}
 	{controls}
 >
@@ -99,7 +82,7 @@
 						<h3 class="_c5">Inline navigation link</h3>
 					</div>
 					<span class="_c6">
-						{values.variant}
+						{values.tone}
 					</span>
 				</div>
 
@@ -107,8 +90,8 @@
 					<p class="_c8">The link below updates every visible prop of the component.</p>
 					<Link
 						href={values.href}
-						variant={values.variant}
-						size={values.size}
+						tone={values.tone}
+						fontSize={values.fontSize}
 						disabled={values.disabled}
 						underline={values.underline}
 						target={values.target}
@@ -120,7 +103,8 @@
 					Use it inline inside copy:
 					<Link
 						href={values.href}
-						variant={values.variant}
+						tone={values.tone}
+						fontSize={values.fontSize}
 						underline={values.underline}
 						text="embedded reference"
 					/>
@@ -130,26 +114,24 @@
 
 			<div class="_c10">
 				<div class="_c11">
-					<h3 class="_c12">Appearance Rail</h3>
+					<h3 class="_c12">Tone Rail</h3>
 					<div class="_c13">
-						{#each appearanceOptions as appearance}
+						{#each toneOptions as tone}
 							<Link
 								href="#"
-								variant={appearance as any}
-								underline={appearance !== 'ghost' &&
-									appearance !== 'outline' &&
-									appearance !== 'elevated'}
-								text={`variant: ${appearance}`}
+								tone={tone}
+								underline={tone !== 'default'}
+								text={`tone: ${tone}`}
 							/>
 						{/each}
 					</div>
 				</div>
 
 				<div class="_c14">
-					<h3 class="_c12">Size Rail</h3>
+					<h3 class="_c12">Font Size Rail</h3>
 					<div class="_c15">
-						{#each ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as size}
-							<Link href="#" size={size as any} variant="default" text={`size: ${size}`} />
+						{#each fontSizeOptions as fontSize}
+							<Link href="#" fontSize={fontSize} tone="primary" text={`font-size: ${fontSize}`} />
 						{/each}
 					</div>
 				</div>

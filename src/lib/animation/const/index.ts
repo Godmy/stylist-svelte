@@ -1,10 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	TOKEN_ANIMATION,
-	TOKEN_DURATION,
-	TOKEN_EASING
-} from './object';
-export {
-	BASE_EASING,
-	TOKEN_TRANSITION
-} from './record';
+export { BASE_EASING } from './record';

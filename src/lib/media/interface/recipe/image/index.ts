@@ -1,10 +1,10 @@
-import type { SlotContent } from '$stylist/layout/interface/slot/content';
+import type { SlotContent } from '$stylist/theme/interface/slot/content';
 import type { ContractImage } from '$stylist/media/interface/contract/image';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { Snippet } from 'svelte';
 import type { HTMLImgAttributes } from 'svelte/elements';
 
-import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
+import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 export interface RecipeImage
 	extends ComputeIntersectAll<
 		[

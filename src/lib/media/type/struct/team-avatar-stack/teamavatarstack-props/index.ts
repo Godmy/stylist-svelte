@@ -1,5 +1,5 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { TeamMember } from '$stylist/media/type/struct/team-avatar-stack/teammember';
 
@@ -13,4 +13,4 @@ export type TeamAvatarStackProps = {
 	class?: string;
 	avatarClass?: string;
 	tooltipClass?: string;
-} & HTMLAttributes<HTMLDivElement> & BehaviorBorderToken & BehaviorTypography;
+} & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & BehaviorTypography;

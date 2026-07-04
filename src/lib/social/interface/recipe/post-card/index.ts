@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';

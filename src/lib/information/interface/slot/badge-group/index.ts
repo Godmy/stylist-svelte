@@ -1,5 +1,5 @@
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export interface BadgeGroupItem {
 	id: string | number;

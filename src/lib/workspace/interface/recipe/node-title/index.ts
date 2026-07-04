@@ -2,8 +2,8 @@ import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { NodeTitleVariant } from '$stylist/architecture/type/alias/node-title-variant';
 
 export interface RecipeNodeTitle

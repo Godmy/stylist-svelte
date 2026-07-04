@@ -1,6 +1,6 @@
 import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { TierContent } from '$stylist/architecture/type/alias/tier';
 
 export interface SlotPagination extends HTMLAttributes<HTMLDivElement>, SlotInteraction {

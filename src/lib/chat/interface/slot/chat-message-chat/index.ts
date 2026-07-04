@@ -1,5 +1,5 @@
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { TokenMessageStatus } from '$stylist/chat/type/alias/message-status';
 
 export interface SlotChatMessage extends SlotChildren {

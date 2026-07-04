@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorBorderToken } from './border-token';
 export type { BehaviorDimensionable } from './dimensionable';
 export type { BehaviorElevatable } from './elevatable';
 export type { BehaviorPositionable } from './positionable';

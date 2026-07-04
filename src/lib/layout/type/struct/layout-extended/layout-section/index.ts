@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export type LayoutSection = {
 	id?: string;

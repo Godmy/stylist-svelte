@@ -1,11 +1,11 @@
-import { TOKEN_FONT_FAMILY } from '$stylist/typography/const/object/font-family';
-import { RECORD_FONT_SIZE } from '$stylist/typography/const/object/font-size';
-import { RECORD_FONT_WEIGHT } from '$stylist/typography/const/object/font-weight';
-import { TOKEN_LETTER_SPACING } from '$stylist/typography/const/object/letter-spacing';
-import { TOKEN_LINE_HEIGHT } from '$stylist/typography/const/object/line-height';
+import { TOKEN_FONT_FAMILY } from '$stylist/theme/const/object/font-family';
+import { RECORD_FONT_SIZE } from '$stylist/theme/const/object/font-size';
+import { RECORD_FONT_WEIGHT } from '$stylist/theme/const/object/font-weight';
+import { TOKEN_LETTER_SPACING } from '$stylist/theme/const/object/letter-spacing';
+import { TOKEN_LINE_HEIGHT } from '$stylist/theme/const/object/line-height';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
-import type { TokenFontSize } from '$stylist/typography/type/alias/font-size';
-import type { TokenTypographyTone } from '$stylist/typography/type/alias/tone';
+import type { TokenFontSize } from '$stylist/theme/type/alias/font-size';
+import type { TokenTypographyTone } from '$stylist/theme/type/alias/tone';
 
 export function resolveTypographyInlineStyle(
 	styleValue: unknown,
@@ -70,14 +70,16 @@ export function resolveTypographyInlineStyle(
 	const resolvedToneColor = props.disabled
 		? 'var(--color-text-tertiary)'
 		: {
+				default: 'var(--color-text-primary)',
+				neutral: 'var(--color-text-secondary)',
 				primary: 'var(--color-text-primary)',
 				secondary: 'var(--color-text-secondary)',
 				tertiary: 'var(--color-text-tertiary)',
-				accent: 'var(--color-primary-700, var(--color-text-primary))',
 				success: 'var(--color-success-700, var(--color-text-primary))',
+				info: 'var(--color-info-700, var(--color-text-primary))',
 				warning: 'var(--color-warning-700, var(--color-text-primary))',
 				danger: 'var(--color-danger-700, var(--color-text-primary))',
-				inverse: 'var(--color-text-inverse, var(--color-text-primary))'
+				error: 'var(--color-error-700, var(--color-text-primary))'
 			}[props.tone ?? 'primary'];
 	declarations.push(`--typography-color: ${resolvedToneColor}`);
 	declarations.push('color: var(--typography-color)');

@@ -17,7 +17,7 @@
 			label: 'Tone',
 			description: 'Semantic text color token.',
 			type: 'select',
-			options: ['primary', 'secondary', 'tertiary', 'accent', 'success', 'warning', 'danger'],
+			options: ['primary', 'secondary', 'tertiary', 'info', 'success', 'warning', 'danger'],
 			defaultValue: 'primary'
 		},
 		{
@@ -123,7 +123,7 @@
 		'primary',
 		'secondary',
 		'tertiary',
-		'accent',
+		'info',
 		'success',
 		'warning',
 		'danger'
@@ -202,7 +202,7 @@
 				<div class="_c15">
 					<h3 class="_c12">Inline In Context</h3>
 					<p class="_c16">
-						Use <Text tone="accent" fontWeight="semibold">Text</Text> inside richer layouts when you
+						Use <Text tone="info" fontWeight="semibold">Text</Text> inside richer layouts when you
 						need token-driven emphasis without promoting the content to a paragraph or a heading.
 					</p>
 				</div>

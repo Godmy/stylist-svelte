@@ -23,7 +23,6 @@ export {
 	TOKEN_TIER_CONTENT,
 	TOKEN_TRAJECTORY
 } from './array';
-export { TOKEN_OPACITY } from './map';
 export { TOKEN_ZOOM } from './preset';
 export {
 	DEFAULT_GRAPH_CANVAS,

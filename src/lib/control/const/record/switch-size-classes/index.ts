@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export const SWITCH_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'w-7 h-3.5',

@@ -17,7 +17,7 @@
 			label: 'Tone',
 			description: 'Semantic paragraph color token.',
 			type: 'select',
-			options: ['primary', 'secondary', 'tertiary', 'accent', 'success', 'warning', 'danger'],
+			options: ['primary', 'secondary', 'tertiary', 'info', 'success', 'warning', 'danger'],
 			defaultValue: 'primary'
 		},
 		{
@@ -184,8 +184,8 @@
 						<Paragraph tone="secondary">
 							Secondary tone works well for supporting explanations and system guidance.
 						</Paragraph>
-						<Paragraph tone="accent" fontWeight="medium">
-							Accent tone can spotlight one key paragraph without turning it into a heading.
+						<Paragraph tone="info" fontWeight="medium">
+							Info tone can spotlight one key paragraph without turning it into a heading.
 						</Paragraph>
 					</div>
 				</div>

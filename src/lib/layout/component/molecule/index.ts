@@ -11,6 +11,5 @@ export { SidebarLayout } from './sidebar-layout/index';
 export { SplitLayout } from './split-layout/index';
 export { StackedLayout } from './stacked-layout/index';
 export { StickyLayout } from './sticky-layout/index';
-export { ThemeSurface } from './theme-surface/index';
 export { VerticalLayout } from './vertical-layout/index';
 export { WidgetContainer } from './widget-container/index';

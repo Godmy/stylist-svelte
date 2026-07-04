@@ -1,11 +1,11 @@
 <script lang="ts">
 	import createNpmBadgeState from '$stylist/information/function/state/npm-badge/index.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+	import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 	import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 	import type { RecipeNpmBadge } from '$stylist/information/interface/recipe/npm-badge';
 
-	let props: RecipeNpmBadge & HTMLAttributes<HTMLElement> & BehaviorBorderToken & BehaviorTypography = $props();
+	let props: RecipeNpmBadge & HTMLAttributes<HTMLElement> & SlotThemeBorder & BehaviorTypography = $props();
 
 	const state = createNpmBadgeState(props);
 	const value = $derived(props.value);

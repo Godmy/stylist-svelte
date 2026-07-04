@@ -7,8 +7,8 @@
 </script>
 
 <div class={state.classes}>
-	{#if props.content}
-		{@render props.content()}
+	{#if props.children}
+		{@render props.children()}
 	{:else}
 		{state.message}
 	{/if}

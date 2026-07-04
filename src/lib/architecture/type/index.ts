@@ -15,7 +15,6 @@ export type {
 	TokenLineType,
 	TokenMarker,
 	TokenNodeType,
-	TokenOpacity,
 	TokenPropertyType,
 	TokenRelationship,
 	TokenSkeleton,

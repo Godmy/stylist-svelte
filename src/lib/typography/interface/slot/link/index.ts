@@ -1,10 +1,10 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
+import type { TokenFontSize } from '$stylist/theme/type/alias/font-size';
+import type { TokenTypographyTone } from '$stylist/theme/type/alias/tone';
 
 export interface SlotLink extends SlotChildren {
-	variant?: TokenAppearance;
-	size?: TokenSize;
+	tone?: TokenTypographyTone;
+	fontSize?: TokenFontSize;
 	disabled?: boolean;
 	underline?: boolean;
 	href?: string;

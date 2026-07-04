@@ -1,5 +1,5 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { AvatarGroupAvatar } from '$stylist/media/type/struct/avatar-group/avatargroupavatar';
 
@@ -12,4 +12,4 @@ export type AvatarGroupProps = {
 	class?: string;
 	avatarClass?: string;
 	overflowClass?: string;
-} & HTMLAttributes<HTMLDivElement> & BehaviorBorderToken & BehaviorTypography;
+} & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & BehaviorTypography;

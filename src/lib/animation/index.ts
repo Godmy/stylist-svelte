@@ -8,13 +8,7 @@ export {
 	NumberFlow,
 	Transformable
 } from './component';
-export {
-	BASE_EASING,
-	TOKEN_ANIMATION,
-	TOKEN_DURATION,
-	TOKEN_EASING,
-	TOKEN_TRANSITION
-} from './const';
+export { BASE_EASING } from './const';
 export {
 	animateValue,
 	createAnimatedBackgroundState,

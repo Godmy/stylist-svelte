@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export const PAGINATION_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'h-7 min-w-7 text-xs',

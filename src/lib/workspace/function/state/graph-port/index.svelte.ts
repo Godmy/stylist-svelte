@@ -1,5 +1,5 @@
 import type { RecipeGraphPort as GraphPortProps } from '$stylist/workspace/interface/recipe/graph-port';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 const PORT_SIZE_MAP: Record<string, string> = {
 	xs: 'graph-port--xs',

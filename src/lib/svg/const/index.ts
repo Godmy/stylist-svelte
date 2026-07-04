@@ -1,10 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	TOKEN_DIRECTION,
-	TOKEN_SHAPE,
-	TOKEN_VARIANT
-} from './array';
-export {
 	RECORD_ICON_SIZE,
 	TOKEN_ICON_REGISTRY
 } from './record';

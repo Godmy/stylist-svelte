@@ -1,5 +1,5 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { FunnelStep } from '$stylist/marketing/type/struct/conversion-funnel/funnelstep';
 
@@ -15,4 +15,4 @@ export type ConversionFunnelProps = {
 	class?: string;
 	headerClass?: string;
 	stepClass?: string;
-} & HTMLAttributes<HTMLDivElement> & BehaviorBorderToken & BehaviorTypography;
+} & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & BehaviorTypography;

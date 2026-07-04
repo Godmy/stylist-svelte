@@ -1,5 +1,5 @@
 import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export function createContainerState(props: ContainerProps) {
 	const size = $derived<TokenSize>((props.size ?? 'full') as TokenSize);

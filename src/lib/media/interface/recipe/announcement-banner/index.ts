@@ -1,6 +1,6 @@
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ContractAnnouncementBanner } from '$stylist/media/interface/contract/announcement-banner';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { HTMLAttributes } from 'svelte/elements';
@@ -10,7 +10,7 @@ export interface RecipeAnnouncementBanner
 		[
 			ContractAnnouncementBanner,
 			Omit<HTMLAttributes<HTMLDivElement>, 'class'>,
-			BehaviorBorderToken,
+			SlotThemeBorder,
 			BehaviorTypography,
 			SlotChildren
 		]

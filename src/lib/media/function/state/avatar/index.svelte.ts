@@ -1,10 +1,10 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { AvatarUserStatus } from '$stylist/media/type/alias/avatar-user-status';
 import type { RecipeAvatar } from '$stylist/media/interface/recipe/avatar';
 
-import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
+import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 const SIZE_CLASSES: Partial<Record<(typeof TOKEN_SIZE)[number], string>> = {
 	sm: 'w-6 h-6 text-sm',
 	md: 'w-8 h-8 text-base',
@@ -12,7 +12,7 @@ const SIZE_CLASSES: Partial<Record<(typeof TOKEN_SIZE)[number], string>> = {
 	xl: 'w-12 h-12 text-xl'
 };
 
-export function createAvatarState(props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & BehaviorBorderToken & BehaviorTypography) {
+export function createAvatarState(props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & BehaviorTypography) {
 	const name = $derived(props.name ?? '');
 	const status = $derived(props.status);
 	const showStatus = $derived(props.showStatus ?? false);

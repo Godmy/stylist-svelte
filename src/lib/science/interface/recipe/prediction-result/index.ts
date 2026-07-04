@@ -1,4 +1,4 @@
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { ContractPrediction } from '$stylist/science/interface/contract/prediction';
 import type { StatusState } from '$stylist/information/type/alias/status-state';

@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { RecipeAbbr } from './abbr';
 export type { RecipeBlockquote } from './blockquote';
 export type { RecipeHeading } from './heading';
 export type { RecipeThemeInlineCode } from './inline-code';

@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { GraphToolbarItem } from '$stylist/workspace/type/struct/graph-toolbar-item';
 import type { RecipeGraphToolbar } from '$stylist/workspace/interface/recipe/graph-toolbar';
 

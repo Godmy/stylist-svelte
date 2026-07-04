@@ -4,7 +4,7 @@ import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
 import type { SplitLayoutGap } from '$stylist/layout/type/alias/split-layout-gap';
 
 import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/array/alignment';
-import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
+import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 export type SidebarLayoutProps = LayoutHTMLAttributes<HTMLDivElement> & {
 	class?: string;
 	sidebar: Snippet;

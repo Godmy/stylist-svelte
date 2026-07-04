@@ -1,4 +1,4 @@
-import { TOKEN_EASING } from '$stylist/animation/const/object/easing';
+import { TOKEN_EASING } from '$stylist/theme/const/object/easing';
 import type { EasingFunction } from '$stylist/animation/type/script/get-easing-function';
 
 type EasingValue = (typeof TOKEN_EASING)[keyof typeof TOKEN_EASING];

@@ -1,4 +1,4 @@
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { ContractPromptVariable } from '$stylist/science/interface/contract/prompt-variable';
 import type { ContractPromptTemplate } from '$stylist/science/interface/contract/prompt-template';

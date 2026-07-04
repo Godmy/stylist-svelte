@@ -67,8 +67,6 @@ export {
 } from './function';
 export type {
 	AutoCompleteOption,
-	ColorItem,
-	ColorPaletteProps,
 	InputAttributesBase,
 	InputFieldBaseProps,
 	InputFieldRequiredProps,

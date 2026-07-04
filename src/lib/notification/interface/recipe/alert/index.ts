@@ -3,7 +3,7 @@ import type { AlertProps as LegacyAlertProps1 } from '$stylist/notification/type
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorMotionPreset as IMotionPreset } from '$stylist/animation/interface/behavior/motion-preset';
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/slot/status';
 import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';

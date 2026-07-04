@@ -1,4 +1,4 @@
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotButtonAttributesBase } from '$stylist/control/interface/slot/button-attributes-base';
 import type { SlotButtonControl } from '$stylist/control/interface/slot/button-control';

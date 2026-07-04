@@ -1,4 +1,4 @@
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotProductSorting } from '$stylist/commerce/interface/slot/product-sorting';
 import type { SlotProductSortingOption } from '$stylist/commerce/interface/slot/product-sorting-option';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';

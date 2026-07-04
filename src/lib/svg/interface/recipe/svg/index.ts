@@ -1,4 +1,4 @@
-import type { SlotContent } from '$stylist/layout/interface/slot/content';
+import type { SlotContent } from '$stylist/theme/interface/slot/content';
 import type { SlotSvg } from '$stylist/svg/interface/slot/svg';
 import type { SlotSvgName } from '$stylist/svg/interface/slot/svg-name';
 import type { SlotClass } from '$stylist/theme/interface/slot/class';

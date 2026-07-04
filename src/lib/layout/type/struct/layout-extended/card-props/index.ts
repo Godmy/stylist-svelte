@@ -2,7 +2,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
 import type { LayoutShape } from '$stylist/layout/type/alias/item-layout-shape';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export type CardProps = LayoutHTMLAttributes<HTMLDivElement> & {
 	class?: string;

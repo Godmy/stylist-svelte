@@ -3,7 +3,7 @@ import type { LiteGraphPort } from '$stylist/workspace/type/struct/lite-graph-po
 import type { TokenInteration } from '$stylist/interaction/type/record/interaction';
 import type { TokenSeverity } from '$stylist/interaction/type/record/sevetity';
 import type { TokenNodeType } from '$stylist/architecture/type/alias/node-type';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom';
 import { resolveSemanticZoomPresentation } from '$stylist/architecture/function/script/semantic-zoom/index';
 

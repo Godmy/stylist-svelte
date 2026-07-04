@@ -2,7 +2,7 @@ import type { SplitLayoutGap } from '$stylist/layout/type/alias/split-layout-gap
 import type { SidebarLayoutProps } from '$stylist/layout/type/struct/layout-extended/sidebar-layout-props';
 
 import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/array/alignment';
-import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
+import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 export function createSidebarLayoutState(props: SidebarLayoutProps) {
 	const side = $derived<(typeof TOKEN_ALIGNMENT)[number]>(props.side ?? 'left');
 	const sidebarLabel = $derived(props.sidebarLabel ?? 'Sidebar');

@@ -1,4 +1,4 @@
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotButtonDom } from '$stylist/control/interface/slot/button-dom';
 import type { SlotCopyButton } from '$stylist/control/interface/slot/copy-button';
 import type { Props } from '$stylist/information/type/struct/props';

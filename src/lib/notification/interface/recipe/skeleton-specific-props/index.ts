@@ -1,4 +1,4 @@
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 export interface SkeletonSpecificProps extends ComputeIntersectAll<[SlotChildren]> {
 	type?: 'skeleton' | 'circle' | 'rectangle' | 'text' | 'table';

@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { TokenMonitoringType } from '$stylist/commerce/type/alias/monitoring-type';
 
 export interface SlotPriceAlertElement {

@@ -19,7 +19,7 @@
 	import SplitLayout from '$stylist/layout/component/molecule/split-layout/index.svelte';
 	import StackedLayout from '$stylist/layout/component/molecule/stacked-layout/index.svelte';
 	import StickyLayout from '$stylist/layout/component/molecule/sticky-layout/index.svelte';
-	import ThemeSurface from '$stylist/layout/component/molecule/theme-surface/index.svelte';
+	import ThemeSurface from '$stylist/theme/component/molecule/theme-surface/index.svelte';
 	import VerticalLayout from '$stylist/layout/component/molecule/vertical-layout/index.svelte';
 	import WidgetContainer from '$stylist/layout/component/molecule/widget-container/index.svelte';
 	import ThemeProvider from '$stylist/theme/component/atom/theme-provider/index.svelte';

@@ -18,7 +18,7 @@
 			description: 'Base wrapper tone token.',
 			type: 'select',
 			defaultValue: 'primary',
-			options: ['primary', 'secondary', 'tertiary', 'accent', 'success', 'warning', 'danger']
+			options: ['primary', 'secondary', 'tertiary', 'info', 'success', 'warning', 'danger']
 		},
 		{
 			name: 'fontSize',
@@ -220,7 +220,7 @@
 							<RichText text={documentText} marks={documentMarks} tone="primary" block />
 						</div>
 						<div class="_c13">
-							<RichText text={numericText} marks={numericMarks} tone="accent" block />
+							<RichText text={numericText} marks={numericMarks} tone="info" block />
 						</div>
 					</div>
 				</div>

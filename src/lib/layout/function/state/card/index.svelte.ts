@@ -1,5 +1,5 @@
 import type { LayoutShape } from '$stylist/layout/type/alias/item-layout-shape';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { RecipeCard } from '$stylist/layout/interface/recipe/card';
 
 export function createCardState(props: RecipeCard) {

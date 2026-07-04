@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TOKEN_SIZE } from '$stylist/layout/const/array/size';
+	import { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 	import type { User } from '$stylist/commerce/type/struct/user';
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';

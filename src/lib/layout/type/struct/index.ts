@@ -25,7 +25,6 @@ export type {
 	GridLayoutItem,
 	GridLayoutProps
 } from './layout';
-export type { LayoutElevationSemantic } from './layout-elevation-semantic';
 export type {
 	BaseLayoutProps,
 	CardProps,
@@ -41,7 +40,6 @@ export type {
 	SplitLayoutProps,
 	StickyLayoutProps
 } from './layout-extended';
-export type { LayoutTheme } from './layout-theme';
 export type { SeparatorProps } from './separator';
 export type { SpacerProps } from './spacer';
 export type { StackProps } from './stack';

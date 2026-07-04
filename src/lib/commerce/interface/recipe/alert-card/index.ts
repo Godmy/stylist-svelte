@@ -1,5 +1,5 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { SlotClass } from '$stylist/theme/interface/slot/class';
 import type { SlotText } from '$stylist/typography/interface/slot/text';

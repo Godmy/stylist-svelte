@@ -1,4 +1,4 @@
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotMenuItem } from '$stylist/control/interface/slot/menu-item';
 import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
 import type { BehaviorFocusable } from '$stylist/interaction/interface/behavior/focusable';

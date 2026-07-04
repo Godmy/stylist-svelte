@@ -1,6 +1,6 @@
 import type { HTMLInputAttributes } from 'svelte/elements';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
+import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 
 export type Props = {
 	value?: File | File[];

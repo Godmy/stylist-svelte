@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export const LINK_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'text-xs',

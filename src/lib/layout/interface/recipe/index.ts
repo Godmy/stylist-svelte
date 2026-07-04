@@ -6,4 +6,3 @@ export type { RecipeThemeGradientBackground } from './gradient-background';
 export type { NodeDotProps } from './node-dot';
 export type { PopoverProps } from './popover';
 export type { StackedLayoutProps } from './stacked-layout';
-export type { RecipeThemeSurface } from './theme-surface';

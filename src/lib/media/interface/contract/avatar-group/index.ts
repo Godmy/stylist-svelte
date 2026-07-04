@@ -1,10 +1,10 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { ContractAvatar } from '$stylist/media/interface/contract/avatar';
 
 export interface ContractAvatarGroup
-	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, BehaviorBorderToken, BehaviorTypography {
+	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotThemeBorder, BehaviorTypography {
 	/** List of avatars */
 	avatars: ContractAvatar[];
 	/** Maximum visible avatars */

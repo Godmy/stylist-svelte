@@ -1,6 +1,6 @@
 import type { Language } from '$stylist/control/type/struct/language';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export interface SlotLanguageSelector {
 	languages: Language[];

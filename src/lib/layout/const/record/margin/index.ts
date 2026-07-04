@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export const RECORD_MARGIN: Record<TokenSize, string> = {
 	xs: 'mx-2 my-1',

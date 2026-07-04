@@ -1,4 +1,4 @@
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorMotion } from '$stylist/animation/interface/behavior/motion';
 import type { BehaviorTransform } from '$stylist/animation/interface/behavior/transform';

@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { BehaviorTypography } from './behavior';
 export type {
+	RecipeAbbr,
 	RecipeBlockquote,
 	RecipeHeading,
 	RecipeRichText,
@@ -11,7 +12,6 @@ export type {
 	RecipeThemeLink
 } from './recipe';
 export type {
-	SlotAbbr,
 	SlotLink,
 	SlotText
 } from './slot';

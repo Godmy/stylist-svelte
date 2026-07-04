@@ -1,6 +1,6 @@
 import type { PortGroupProps } from '$stylist/workspace/type/struct/port-group-props';
 import type { RecipeGraphPort } from '$stylist/workspace/interface/recipe/graph-port';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export function createPortGroupState(props: PortGroupProps) {
 	const direction = $derived(

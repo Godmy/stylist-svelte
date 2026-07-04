@@ -1,5 +1,5 @@
 import type { ImageGalleryStateProps as LegacyImageGalleryProps1 } from '$stylist/media/interface/recipe/image-gallery-image-gallery-state-props';
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 export interface RecipeImageGallery
 	extends ComputeIntersectAll<[LegacyImageGalleryProps1, SlotChildren]> {

@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export const SWITCH_THUMB_TRANSLATE_CLASSES: Record<TokenSize, string> = {
 	xs: 'translate-x-3',

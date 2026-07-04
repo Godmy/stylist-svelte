@@ -1,4 +1,3 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { createRichTextSegments } from '$stylist/typography/function/script/rich-text-segments';
 import { resolveTypographyInlineStyle } from '$stylist/typography/function/script/inline-style';
 import type { RecipeRichText } from '$stylist/typography/interface/recipe/rich-text';
@@ -11,12 +10,14 @@ export function createRichTextState(props: RecipeRichText) {
 	const wrapperTag = $derived(block ? 'div' : 'span');
 	const segments = $derived(createRichTextSegments(text, marks));
 	const classes = $derived(
-		mergeClassNames(
+		[
 			'c-typography-rich-text',
 			block && 'c-typography-rich-text--block',
 			disabled && 'c-typography-rich-text--disabled',
 			typeof props.class === 'string' ? props.class : undefined
-		)
+		]
+			.filter(Boolean)
+			.join(' ')
 	);
 	const style = $derived(resolveTypographyInlineStyle(props.style, props));
 	const restProps = $derived.by(() => {

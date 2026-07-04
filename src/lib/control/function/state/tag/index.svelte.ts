@@ -1,5 +1,5 @@
 import type { RecipeTag } from '$stylist/control/interface/recipe/tag';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export const createTagState = (props: RecipeTag) => {
 	const variant = $derived((props.variant ?? 'default') as string);

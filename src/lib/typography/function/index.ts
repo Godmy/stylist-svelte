@@ -14,6 +14,5 @@ export {
 	createLinkState,
 	createParagraphState,
 	createRichTextState,
-	createTextPresenterState,
 	createTextState
 } from './state';

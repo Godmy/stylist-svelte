@@ -1,6 +1,6 @@
 import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { BehaviorFileUploadEvents } from '$stylist/file/interface/behavior/file-upload-events';
 import type { SlotFileUpload } from '$stylist/file/interface/slot/file-upload';
 import type { UploadStatus } from '$stylist/file/type/alias/upload-status';

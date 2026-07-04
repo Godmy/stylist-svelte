@@ -1,5 +1,5 @@
 import type { HTMLInputAttributes } from 'svelte/elements';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 
 import type { SlotInputCore } from '$stylist/input/interface/slot/input-core';

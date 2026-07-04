@@ -53,8 +53,7 @@ export type { DatePickerValue } from './interface';
 export type {
 	TokenPriority,
 	TokenTimeFormat,
-	TokenTimeMeasure,
-	TokenTimeRange
+	TokenTimeMeasure
 } from './type';
 export type { TimeSlotStyleConfig } from './const';
 export type {

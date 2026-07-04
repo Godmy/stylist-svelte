@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { SchemaLayout } from './alias';
 export type {
 	SchemaDependency,
 	SchemaDependencyProps,

@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { TokenPropertyType } from '$stylist/architecture/type/alias/property-type';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export interface RecipeNodeProperty
 	extends ComputeIntersectAll<[SlotTheme, Omit<HTMLAttributes<HTMLDivElement>, 'onchange'>]> {

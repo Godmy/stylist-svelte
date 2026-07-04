@@ -1,7 +1,7 @@
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { TokenMarker } from '$stylist/architecture/type/alias/marker';
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 
 export interface SlotNotificationBadge extends SlotChildren {
 	count?: number;

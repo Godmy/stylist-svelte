@@ -1,4 +1,4 @@
-import { resolveAriaLabel } from '$stylist/information/function/resolve/aria-label';
+import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 import { buildPresetClassNames } from '$stylist/interaction/function/script/build-preset-class-names';
 import { resolveAllowedOption } from '$stylist/interaction/function/script/resolve-allowed-option';
 import type { InputPreset } from '$stylist/interaction/type/struct/preset/input-preset';

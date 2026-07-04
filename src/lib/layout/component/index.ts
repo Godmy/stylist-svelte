@@ -24,7 +24,6 @@ export {
 	SplitLayout,
 	StackedLayout,
 	StickyLayout,
-	ThemeSurface,
 	VerticalLayout,
 	WidgetContainer
 } from './molecule';

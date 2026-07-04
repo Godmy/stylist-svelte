@@ -1,6 +1,6 @@
-import type { SlotContent } from '$stylist/layout/interface/slot/content';
+import type { SlotContent } from '$stylist/theme/interface/slot/content';
 import type { ContractFavicon } from '$stylist/media/interface/contract/favicon';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { Snippet } from 'svelte';
@@ -11,7 +11,7 @@ export interface RecipeFavicon
 		[
 			ContractFavicon,
 			Omit<HTMLAttributes<HTMLDivElement>, 'class'>,
-			BehaviorBorderToken,
+			SlotThemeBorder,
 			BehaviorTypography,
 			SlotContent
 		]

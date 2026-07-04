@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-	import type { TokenSize } from '$stylist/layout/type/alias/size';
+	import type { TokenSize } from '$stylist/theme/type/alias/size';
 	import type { SlotInputBase as IInputBaseProps } from '$stylist/input/interface/slot/input-base';
 	import createAdvancedInputState from '$stylist/input/function/state/advanced-input/index.svelte';
 

@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export const RADIO_INDICATOR_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'w-1 h-1',

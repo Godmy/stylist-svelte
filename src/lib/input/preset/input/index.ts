@@ -1,6 +1,6 @@
 import type { InputPreset } from '$stylist/interaction/type/struct/preset/input-preset';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
-import { TOKEN_SIZE } from '$stylist/layout/const/array/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
+import { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import { TOKEN_APPEARANCE } from '$stylist/interaction/const/array/appearance';
 import { createBasePreset } from '$stylist/interaction/preset/base';

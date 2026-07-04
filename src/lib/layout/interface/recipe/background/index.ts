@@ -1,11 +1,11 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 import type { TokenBackground } from '$stylist/layout/type/alias/background';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 
 export interface RecipeThemeBackground
-	extends HTMLAttributes<HTMLDivElement>, BehaviorBorderToken, BehaviorTypography {
+	extends HTMLAttributes<HTMLDivElement>, SlotThemeBorder, BehaviorTypography {
 	background?: TokenBackground;
 	backgroundColor?: string;
 	backgroundImage?: string;

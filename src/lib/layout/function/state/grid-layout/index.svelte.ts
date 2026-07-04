@@ -1,7 +1,7 @@
 import type { GridLayoutProps } from '$stylist/layout/type/struct/layout/grid-layout-props';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenJustification } from '$stylist/layout/type/alias/justification';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 const GAP_VALUES: Record<string, string> = {
 	xs: '0.25rem',

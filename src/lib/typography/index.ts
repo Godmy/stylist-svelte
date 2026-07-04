@@ -11,17 +11,6 @@ export {
 	Text
 } from './component';
 export {
-	RECORD_FONT_SIZE,
-	RECORD_FONT_WEIGHT,
-	THEME_TYPOGRAPHY,
-	TOKEN_FONT_FAMILY,
-	TOKEN_FONT_SIZE,
-	TOKEN_FONT_WEIGHT,
-	TOKEN_LETTER_SPACING,
-	TOKEN_LINE_HEIGHT,
-	TOKEN_TYPOGRAPHY_TONE
-} from './const';
-export {
 	createAbbrState,
 	createBlockquoteState,
 	createHeadingState,
@@ -31,7 +20,6 @@ export {
 	createParagraphState,
 	createRichTextSegments,
 	createRichTextState,
-	createTextPresenterState,
 	createTextState,
 	normalizeText,
 	resolveTypographyInlineStyle,
@@ -39,17 +27,11 @@ export {
 } from './function';
 export type {
 	StructRichTextMark,
-	StructRichTextSegment,
-	StructThemeTypography,
-	TokenFontFamily,
-	TokenFontSize,
-	TokenFontWeight,
-	TokenLetterSpacing,
-	TokenLineHeight,
-	TokenTypographyTone
+	StructRichTextSegment
 } from './type';
 export type {
 	BehaviorTypography,
+	RecipeAbbr,
 	RecipeBlockquote,
 	RecipeHeading,
 	RecipeRichText,
@@ -58,7 +40,6 @@ export type {
 	RecipeThemeInlineCode,
 	RecipeThemeKbd,
 	RecipeThemeLink,
-	SlotAbbr,
 	SlotLink,
 	SlotText
 } from './interface';

@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { RecipeBlockquote } from '$stylist/typography/interface/recipe/blockquote';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createBlockquoteState(props: RecipeBlockquote) {
 	const citeUrl = $derived.by(() => {
@@ -19,12 +18,14 @@ export function createBlockquoteState(props: RecipeBlockquote) {
 	const withBorder = $derived(props.withBorder ?? true);
 	const withBackground = $derived(props.withBackground ?? false);
 	const classes = $derived(
-		mergeClassNames(
+		[
 			'c-typography-blockquote',
 			withBorder && 'c-typography-blockquote--bordered',
 			withBackground && 'c-typography-blockquote--surface',
 			typeof props.class === 'string' ? props.class : undefined
-		)
+		]
+			.filter(Boolean)
+			.join(' ')
 	);
 	const footerClasses = $derived('c-typography-blockquote__footer');
 

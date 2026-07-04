@@ -1,9 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { BehaviorBorderToken } from '$stylist/layout/interface/behavior/border-token';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
 
-import type { TOKEN_COLOR_TONE } from '$stylist/color/const/array/tone';
-export interface SlotDocumentationBlock extends HTMLAttributes<HTMLElement>, BehaviorBorderToken, BehaviorTypography {
+import type { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';
+export interface SlotDocumentationBlock extends HTMLAttributes<HTMLElement>, SlotThemeBorder, BehaviorTypography {
 	title?: string;
 	content: string;
 	variant?: (typeof TOKEN_COLOR_TONE)[number];

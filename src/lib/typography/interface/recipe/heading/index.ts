@@ -1,9 +1,9 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SlotChildren } from '$stylist/layout/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
-import type { TokenTypographyTone } from '$stylist/typography/type/alias/tone';
+import type { TokenTypographyTone } from '$stylist/theme/type/alias/tone';
 
 export interface RecipeHeading
 	extends ComputeIntersectAll<

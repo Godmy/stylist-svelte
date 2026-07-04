@@ -1,7 +1,7 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { AvatarUserStatus } from '$stylist/media/type/alias/avatar-user-status';
 
-import type { TOKEN_SIZE } from '$stylist/layout/const/array/size';
+import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 export interface AvatarProps extends ComputeIntersectAll<[]> {
 	variant?: 'default';
 	size?: (typeof TOKEN_SIZE)[number];

@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/layout/type/alias/size';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { TokenAvailability } from '$stylist/interaction/type/record/availability';
 
 export interface SlotChatStatusIndicator {

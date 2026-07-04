@@ -27,7 +27,6 @@ export {
 	createStackState,
 	createStackedLayoutState,
 	createStickyLayoutState,
-	createThemeSurfaceState,
 	createVerticalLayoutState,
 	createWidgetContainerState,
 	stateFn

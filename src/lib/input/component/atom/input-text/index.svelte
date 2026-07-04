@@ -3,7 +3,7 @@
 	import createInputTextState from '$stylist/input/function/state/input-text/index.svelte';
 	import type { SlotInputBase as IInputBaseProps } from '$stylist/input/interface/slot/input-base';
 	import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-	import type { TokenSize } from '$stylist/layout/type/alias/size';
+	import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 	let {
 		variant = 'default',

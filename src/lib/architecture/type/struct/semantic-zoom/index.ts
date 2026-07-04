@@ -2,8 +2,8 @@ import type { FoundationSemanticZoomStage } from '$stylist/architecture/type/scr
 import type { TierContent } from '$stylist/architecture/type/alias/tier';
 import type { TokenDensity } from '$stylist/layout/type/alias/density';
 import type { TokenShape } from '$stylist/layout/type/alias/shape';
-import type { TokenSize } from '$stylist/layout/type/alias/size';
-import type { TokenZIndex } from '$stylist/layout/type/alias/z-index';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
+import type { TokenZIndex } from '$stylist/theme/type/alias/z-index';
 
 export type SemanticZoomPresentation = {
 	stage: FoundationSemanticZoomStage;
