@@ -3,13 +3,13 @@ import { RECORD_FONT_SIZE } from '$stylist/theme/const/object/font-size';
 import { RECORD_FONT_WEIGHT } from '$stylist/theme/const/object/font-weight';
 import { TOKEN_LETTER_SPACING } from '$stylist/theme/const/object/letter-spacing';
 import { TOKEN_LINE_HEIGHT } from '$stylist/theme/const/object/line-height';
-import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { TokenFontSize } from '$stylist/theme/type/alias/font-size';
 import type { TokenTypographyTone } from '$stylist/theme/type/alias/tone';
 
 export function resolveTypographyInlineStyle(
 	styleValue: unknown,
-	props: Partial<BehaviorTypography> & {
+	props: Partial<SlotTypography> & {
 		fontSize?: TokenFontSize;
 		tone?: TokenTypographyTone;
 		disabled?: boolean;

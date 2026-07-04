@@ -15,7 +15,6 @@ import { ITEM_LAYOUT_GRAVITY } from '$stylist/layout/const/array/item-layout-gra
 import { ITEM_LAYOUT_LEVEL } from '$stylist/layout/const/array/item-layout-level';
 import { ITEM_LAYOUT_SHAPE } from '$stylist/layout/const/array/item-layout-shape';
 import { TOKEN_JUSTIFICATION } from '$stylist/layout/const/array/justification';
-import { TOKEN_LAYOUT_SIZE } from '$stylist/theme/const/array/layout-size';
 import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 import { TOKEN_SHAPE } from '$stylist/layout/const/array/shape';
 import { TOKEN_SIZE } from '$stylist/theme/const/array/size';
@@ -41,7 +40,6 @@ export const TOKEN_LAYOUT_SETTING = [
 	{ key: 'item-layout-level', label: 'Item Layout Level', domain: 'layout', controlKind: 'radio', values: ITEM_LAYOUT_LEVEL },
 	{ key: 'item-layout-shape', label: 'Item Layout Shape', domain: 'layout', controlKind: 'radio', values: ITEM_LAYOUT_SHAPE },
 	{ key: 'justification', label: 'Justification', domain: 'layout', controlKind: 'radio', values: TOKEN_JUSTIFICATION },
-	{ key: 'layout-size', label: 'Layout Size', domain: 'layout', controlKind: 'radio', values: TOKEN_LAYOUT_SIZE },
 	{ key: 'orientation', label: 'Orientation', domain: 'layout', controlKind: 'radio', values: TOKEN_ORIENTATION },
 	{ key: 'shape', label: 'Shape', domain: 'layout', controlKind: 'radio', values: TOKEN_SHAPE },
 	{ key: 'size', label: 'Size', domain: 'layout', controlKind: 'radio', values: TOKEN_SIZE },

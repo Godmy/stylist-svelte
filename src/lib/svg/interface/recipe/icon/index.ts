@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
-import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 import type { SlotSvgName } from '$stylist/svg/interface/slot/svg-name';
@@ -14,7 +14,7 @@ export interface RecipeIcon
 			Omit<HTMLAttributes<HTMLSpanElement>, 'class'>,
 			Partial<SlotSvgName>,
 			SlotThemeBorder, 
-			BehaviorTypography
+			SlotTypography
 		]
 > {
 	/** Icon size */

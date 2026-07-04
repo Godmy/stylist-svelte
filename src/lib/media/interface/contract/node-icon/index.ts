@@ -1,9 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
-import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 
 export interface ContractNodeIcon
-	extends Omit<HTMLAttributes<HTMLSpanElement>, 'class'>, SlotThemeBorder, BehaviorTypography {
+	extends Omit<HTMLAttributes<HTMLSpanElement>, 'class'>, SlotThemeBorder, SlotTypography {
 	/** Additional CSS class */
 	class?: string;
 }

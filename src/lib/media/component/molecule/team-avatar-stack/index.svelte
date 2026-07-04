@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
-	import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+	import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 	import type { RecipeTeamAvatarStack } from '$stylist/media/interface/recipe/team-avatar-stack';
 	import { createTeamAvatarStackState } from '$stylist/media/function/state/team-avatar-stack/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const Users = 'users';
 	const User = 'user';
 
-	let props: RecipeTeamAvatarStack & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & BehaviorTypography = $props();
+	let props: RecipeTeamAvatarStack & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography = $props();
 	const state = createTeamAvatarStackState(props);
 </script>
 

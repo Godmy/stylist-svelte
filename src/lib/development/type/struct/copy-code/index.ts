@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
-import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { TOKEN_CODE_VIEW } from '$stylist/development/const/array/code-view';
 
 export type CopyCode = {
@@ -13,4 +13,4 @@ export type CopyCode = {
 	children: import('svelte').Snippet;
 } & HTMLAttributes<HTMLElement> &
 	SlotThemeBorder &
-	BehaviorTypography;
+	SlotTypography;

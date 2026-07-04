@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorTypography } from './behavior';
 export type {
 	RecipeAbbr,
 	RecipeBlockquote,

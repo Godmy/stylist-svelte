@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
-import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { RecipeCountryFlag } from '$stylist/media/interface/recipe/country-flag';
 
-export type CountryFlagProps = RecipeCountryFlag & HTMLAttributes<HTMLSpanElement> & SlotThemeBorder & BehaviorTypography;
+export type CountryFlagProps = RecipeCountryFlag & HTMLAttributes<HTMLSpanElement> & SlotThemeBorder & SlotTypography;

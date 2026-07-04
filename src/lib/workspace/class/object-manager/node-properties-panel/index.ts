@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
-import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { LiteGraphNodeProperty } from '$stylist/workspace/type/struct/lite-graph-node-property';
 import type { RecipeNodePropertiesPanel as NodePropertiesPanelProps } from '$stylist/workspace/interface/recipe/node-properties-panel';
 
@@ -28,7 +28,7 @@ export class ObjectManagerNodePropertiesPanel {
 		} = props;
 
 		return rest as Omit<
-			HTMLAttributes<HTMLElement> & SlotThemeBorder & BehaviorTypography,
+			HTMLAttributes<HTMLElement> & SlotThemeBorder & SlotTypography,
 			'class' | 'id' | 'oncopy' | 'oncut' | 'onpaste'
 		>;
 	}

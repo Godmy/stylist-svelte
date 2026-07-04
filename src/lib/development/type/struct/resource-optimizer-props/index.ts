@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
-import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { ResourceOptimizerResource } from '$stylist/development/type/struct/resource-optimizer-resource';
 import type { ResourceOptimizerOptimizationSuggestion } from '$stylist/development/type/struct/resource-optimizer-optimization-suggestion';
 
@@ -16,4 +16,4 @@ export type ResourceOptimizerProps = {
 	title?: string;
 	description?: string;
 	class?: string;
-} & HTMLAttributes<HTMLElement> & SlotThemeBorder & BehaviorTypography;
+} & HTMLAttributes<HTMLElement> & SlotThemeBorder & SlotTypography;

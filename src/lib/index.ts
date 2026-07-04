@@ -2387,7 +2387,6 @@ export {
 	TOKEN_FONT_FAMILY,
 	TOKEN_FONT_SIZE,
 	TOKEN_FONT_WEIGHT,
-	TOKEN_LAYOUT_SIZE,
 	TOKEN_LETTER_SPACING,
 	TOKEN_LINE_HEIGHT,
 	TOKEN_OPACITY,
@@ -3270,11 +3269,6 @@ export type {
 export type {
 	ComputeIntersectAll,
 	ObjectThemeTypography,
-	RecordBorderRadius,
-	RecordElevation,
-	RecordElevationSemantic,
-	RecordSpacing,
-	RecordZIndex,
 	Theme,
 	ThemeColorBackground,
 	ThemeColorBorder,
@@ -4316,14 +4310,14 @@ export type {
 	SlotThemeBorder,
 	SlotThemeChildren,
 	SlotThemePaletteColor,
-	SlotThemeSettings
+	SlotThemeSettings,
+	SlotTypography
 } from './theme';
 export type {
 	RecipeTree,
 	TreeViewerProps
 } from './tree';
 export type {
-	BehaviorTypography,
 	RecipeAbbr,
 	RecipeBlockquote,
 	RecipeHeading,

@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
-	import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+	import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 	import type { RecipeAvatar } from '$stylist/media/interface/recipe/avatar';
 	import { createAvatarState } from '$stylist/media/function/state/avatar/index.svelte';
 
-	let props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & BehaviorTypography = $props();
+	let props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography = $props();
 	const state = createAvatarState(props);
 </script>
 

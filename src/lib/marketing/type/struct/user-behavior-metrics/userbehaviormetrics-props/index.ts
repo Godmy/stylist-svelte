@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
-import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { TimeRange } from '$stylist/marketing/type/alias/traffic-analytics-time-range';
 import type { UserBehaviorMetric } from '$stylist/marketing/type/struct/user-behavior-metrics/userbehaviormetric';
 
@@ -14,5 +14,5 @@ export type UserBehaviorMetricsProps = {
 	headerClass?: string;
 	metricsClass?: string;
 	metricCardClass?: string;
-} & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & BehaviorTypography;
+} & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography;
 

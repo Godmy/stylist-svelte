@@ -8,7 +8,7 @@ import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { TokenMonitoringType } from '$stylist/commerce/type/alias/monitoring-type';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { BehaviorTypography } from '$stylist/typography/interface/behavior/typography';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { HTMLAttributes } from 'svelte/elements';
 
 export interface RecipePriceAlert
@@ -21,7 +21,7 @@ export interface RecipePriceAlert
 			BehaviorSizable,
 			BehaviorClickable,
 			SlotThemeBorder,
-			BehaviorTypography,
+			SlotTypography,
 			SlotChildren
 		]
 	> {

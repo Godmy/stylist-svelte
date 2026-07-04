@@ -30,7 +30,6 @@ export type {
 	StructRichTextSegment
 } from './type';
 export type {
-	BehaviorTypography,
 	RecipeAbbr,
 	RecipeBlockquote,
 	RecipeHeading,

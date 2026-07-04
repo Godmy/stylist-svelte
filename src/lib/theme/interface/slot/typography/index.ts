@@ -5,7 +5,7 @@ import type { TokenFontSize } from '$stylist/theme/type/alias/font-size';
 import type { TokenFontWeight } from '$stylist/theme/type/alias/font-weight';
 
 /** Typography token settings: font, size, weight, spacing, and alignment. */
-export interface BehaviorTypography {
+export interface SlotTypography {
 	/** Font size token. */
 	fontSize?: TokenFontSize;
 	/** Font weight token. */
