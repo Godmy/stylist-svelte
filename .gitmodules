@@ -4,3 +4,6 @@
 [submodule "src/lib/server"]
 	path = src/lib/server
 	url = https://github.com/Godmy/stylist-svelte-server.git
+[submodule "src/lib/theme"]
+	path = src/lib/theme
+	url = https://github.com/Godmy/stylist-svelte-theme.git
