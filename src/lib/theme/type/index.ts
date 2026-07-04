@@ -14,9 +14,7 @@ export type {
 	TokenSizeRem,
 	TokenThemeMode,
 	TokenThemeScheme,
-	TokenThemeTone,
 	TokenTokenValue,
-	TokenTypographyTone,
 	TokenZIndex
 } from './alias';
 export type { ComputeIntersectAll } from './compute';
@@ -27,8 +25,8 @@ export type {
 	ThemeColorBorder,
 	ThemeColorSurfaceTint,
 	ThemeColorText,
+	ThemeColors,
 	ThemeLayout,
 	ThemeSchemeDefinition,
 	ThemeStorageContract
 } from './object';
-export type { ThemeColors } from './struct';

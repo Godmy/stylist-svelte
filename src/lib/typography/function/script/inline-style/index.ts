@@ -5,13 +5,13 @@ import { TOKEN_LETTER_SPACING } from '$stylist/theme/const/object/letter-spacing
 import { TOKEN_LINE_HEIGHT } from '$stylist/theme/const/object/line-height';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { TokenFontSize } from '$stylist/theme/type/alias/font-size';
-import type { TokenTypographyTone } from '$stylist/theme/type/alias/tone';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 export function resolveTypographyInlineStyle(
 	styleValue: unknown,
 	props: Partial<SlotTypography> & {
 		fontSize?: TokenFontSize;
-		tone?: TokenTypographyTone;
+		tone?: TokenColorTone;
 		disabled?: boolean;
 	}
 ): string | undefined {

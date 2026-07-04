@@ -13,7 +13,5 @@ export type { TokenSize } from './size';
 export type { TokenSizeRem } from './size-rem';
 export type { TokenThemeMode } from './theme-mode';
 export type { TokenThemeScheme } from './theme-scheme';
-export type { TokenThemeTone } from './theme-tone';
 export type { TokenTokenValue } from './token-value';
-export type { TokenTypographyTone } from './tone';
 export type { TokenZIndex } from './z-index';

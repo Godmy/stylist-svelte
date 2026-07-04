@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
-import type { TokenTypographyTone } from '$stylist/theme/type/alias/tone';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 export interface RecipeHeading
 	extends ComputeIntersectAll<
@@ -11,7 +11,7 @@ export interface RecipeHeading
 	> {
 	level?: 1 | 2 | 3 | 4 | 5 | 6;
 	text?: string;
-	tone?: TokenTypographyTone;
+	tone?: TokenColorTone;
 	disabled?: boolean;
 	block?: boolean;
 	ariaLabel?: string;

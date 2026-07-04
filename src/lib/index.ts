@@ -3291,9 +3291,7 @@ export type {
 	TokenSizeRem,
 	TokenThemeMode,
 	TokenThemeScheme,
-	TokenThemeTone,
 	TokenTokenValue,
-	TokenTypographyTone,
 	TokenZIndex
 } from './theme';
 export type {

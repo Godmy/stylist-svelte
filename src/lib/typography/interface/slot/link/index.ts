@@ -1,9 +1,9 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { TokenFontSize } from '$stylist/theme/type/alias/font-size';
-import type { TokenTypographyTone } from '$stylist/theme/type/alias/tone';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 export interface SlotLink extends SlotChildren {
-	tone?: TokenTypographyTone;
+	tone?: TokenColorTone;
 	fontSize?: TokenFontSize;
 	disabled?: boolean;
 	underline?: boolean;

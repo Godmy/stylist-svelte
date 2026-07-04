@@ -1,7 +1,7 @@
 import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-import type { TokenThemeTone } from '$stylist/theme/type/alias/theme-tone';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 /**
  * SlotConfirmationDialog — свойства диалога подтверждения.
@@ -24,7 +24,7 @@ export interface SlotConfirmationDialog
 	onCancel?: () => void;
 	onClose?: () => void;
 	/** Тон диалога (успех, предупреждение, ошибка, информация) */
-	variant?: TokenThemeTone;
+	variant?: TokenColorTone;
 	class?: string;
 	contentClass?: string;
 	headerClass?: string;

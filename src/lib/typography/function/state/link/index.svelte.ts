@@ -1,6 +1,6 @@
 import type { RecipeThemeLink } from '$stylist/typography/interface/recipe/link';
 import type { TokenFontSize } from '$stylist/theme/type/alias/font-size';
-import type { TokenTypographyTone } from '$stylist/theme/type/alias/tone';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 export function createLinkState(props: RecipeThemeLink) {
 	const tone = $derived(props.tone ?? 'primary');
@@ -21,7 +21,7 @@ export function createLinkState(props: RecipeThemeLink) {
 			return classes;
 		},
 		get tone() {
-			return tone as TokenTypographyTone;
+			return tone as TokenColorTone;
 		},
 		get fontSize() {
 			return fontSize as TokenFontSize;
