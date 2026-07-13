@@ -1,12 +1,13 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import { TOKEN_FONT_SIZE } from '$stylist/theme/const/array/font-size';
+	import type { TokenFontSize } from '$stylist/theme/type/alias/font-size';
+	import { TOKEN_FONT_SIZE } from '$stylist/theme/const/object/font-size';
 	import { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';
 	import Link from './index.svelte';
 
 	const toneOptions = [...TOKEN_COLOR_TONE];
-	const fontSizeOptions = [...TOKEN_FONT_SIZE];
+	const fontSizeOptions = Object.keys(TOKEN_FONT_SIZE) as TokenFontSize[];
 
 	const controls: InterfaceControllerSettings[] = [
 		{

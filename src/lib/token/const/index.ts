@@ -31,7 +31,3 @@ export {
 	TOKEN_THEME_SETTING,
 	TOKEN_TYPOGRAPHY_SETTING
 } from './object';
-export {
-	TOKEN_TOGGLE_HANDLE_SIZE_CLASSES,
-	TOKEN_TOGGLE_SIZE_CLASSES
-} from './record';

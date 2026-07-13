@@ -1,6 +1,6 @@
 import { TOKEN_FONT_FAMILY } from '$stylist/theme/const/object/font-family';
-import { RECORD_FONT_SIZE } from '$stylist/theme/const/object/font-size';
-import { RECORD_FONT_WEIGHT } from '$stylist/theme/const/object/font-weight';
+import { TOKEN_FONT_SIZE } from '$stylist/theme/const/object/font-size';
+import { TOKEN_FONT_WEIGHT } from '$stylist/theme/const/object/font-weight';
 import { TOKEN_LETTER_SPACING } from '$stylist/theme/const/object/letter-spacing';
 import { TOKEN_LINE_HEIGHT } from '$stylist/theme/const/object/line-height';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
@@ -23,13 +23,13 @@ export function resolveTypographyInlineStyle(
 	}
 
 	if (props.fontSize) {
-		const resolvedFontSize = RECORD_FONT_SIZE[props.fontSize];
+		const resolvedFontSize = TOKEN_FONT_SIZE[props.fontSize];
 		declarations.push(`--typography-font-size: ${resolvedFontSize}`);
 		declarations.push('font-size: var(--typography-font-size)');
 	}
 
 	if (props.fontWeight) {
-		declarations.push(`--typography-font-weight: ${RECORD_FONT_WEIGHT[props.fontWeight]}`);
+		declarations.push(`--typography-font-weight: ${TOKEN_FONT_WEIGHT[props.fontWeight]}`);
 		declarations.push('font-weight: var(--typography-font-weight)');
 	}
 

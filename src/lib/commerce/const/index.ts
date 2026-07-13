@@ -12,11 +12,6 @@ export {
 	WARRANTY_PERIOD_TYPE
 } from './array';
 export {
-	ORDER_STATUS_CLASSES,
-	PAYMENT_STATUS_CLASSES,
-	PRICE_ALERT_SIZE_CLASSES
-} from './map';
-export {
 	PRESET_BULK_ORDER,
 	PresetAlertCard,
 	PresetBillingSummary,
@@ -24,16 +19,6 @@ export {
 	PresetPriceAlert,
 	PresetQuoteRequest
 } from './preset';
-export {
-	DEFAULT_BULK_ORDER,
-	LINK_CARD_VARIANT_CLASSES,
-	PRICE_ALERT_VARIANT_CLASSES,
-	PRODUCT_CARD_CONTAINER_VARIANT_CLASSES,
-	PRODUCT_CARD_CONTENT_VARIANT_CLASSES,
-	PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES,
-	PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES,
-	PRODUCT_CARD_TITLE_VARIANT_CLASSES
-} from './record';
 export { returnPolicyPolicyData } from './return-policy';
 export {
 	shippingCalculatorCountries,

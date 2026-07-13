@@ -7,7 +7,6 @@ import { ICON_CALENDAR }     from '$stylist/svg/const/value/calendar';
 import { ICON_CANVAS }       from '$stylist/svg/const/value/canvas';
 import { ICON_CHART }        from '$stylist/svg/const/value/chart';
 import { ICON_CHAT }         from '$stylist/svg/const/value/chat';
-import { ICON_COLOR }        from '$stylist/svg/const/value/color';
 import { ICON_COMMERCE }     from '$stylist/svg/const/value/commerce';
 import { ICON_CONTROL }      from '$stylist/svg/const/value/control';
 import { ICON_DEVELOPMENT }  from '$stylist/svg/const/value/development';
@@ -51,7 +50,6 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'canvas',       svg: ICON_CANVAS },
 	{ name: 'chart',        svg: ICON_CHART },
 	{ name: 'chat',         svg: ICON_CHAT },
-	{ name: 'color',        svg: ICON_COLOR },
 	{ name: 'commerce',     svg: ICON_COMMERCE },
 	{ name: 'control',      svg: ICON_CONTROL },
 	{ name: 'development',  svg: ICON_DEVELOPMENT },

@@ -26,16 +26,7 @@ export {
 	Toast,
 	ToastStack
 } from './component';
-export {
-	PROGRESS_BAR_SIZE_CLASSES,
-	PROGRESS_BAR_VARIANT_CLASSES,
-	SKELETON_ANIMATION_CLASSES,
-	SKELETON_VARIANT_CLASSES,
-	SPINNER_COLOR_CLASSES,
-	SPINNER_SIZE_CLASSES,
-	SPINNER_VARIANT,
-	SPINNER_VARIANT_CLASSES
-} from './const';
+export { SPINNER_VARIANT } from './const';
 export {
 	createAccountProgressTrackerState,
 	createAlertState,

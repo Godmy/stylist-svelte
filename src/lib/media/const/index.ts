@@ -3,8 +3,4 @@ export {
 	AVATAR_USER_STATUS,
 	MEDIA_LIBRARY_MEDIA_TYPE
 } from './array';
-export { ANNOUNCEMENT_BANNER_CLASSES } from './map';
-export {
-	IMAGE_WITH_CAPTION_CLASSES,
-	TOKEN_MEDIA_ICON
-} from './record';
+export { TOKEN_MEDIA_ICON } from './record';

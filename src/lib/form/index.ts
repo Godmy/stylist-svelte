@@ -11,10 +11,7 @@ export {
 	SearchForm,
 	Validation
 } from './component';
-export {
-	RADIO_GROUP_LAYOUT_CLASS,
-	SEARCH_ICON_NAME
-} from './const';
+export { SEARCH_ICON_NAME } from './const';
 export {
 	createAddressFormState,
 	createFormErrorMessageState,

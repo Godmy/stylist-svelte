@@ -17,9 +17,4 @@ export {
 	TOKEN_CURSOR
 } from './map';
 export { PRESET_DRAGGABLE } from './preset';
-export {
-	DEFAULT_DRAGGABLE,
-	TAB_SIZE_CLASSES,
-	TAB_VARIANT_CLASSES,
-	VARIANT_CLASSES
-} from './record';
+export { VARIANT_CLASSES } from './record';

@@ -1,5 +1,4 @@
-﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-import type { SlotFilterPills } from '$stylist/table/interface/slot/filter-pills';
+﻿import type { SlotFilterPills } from '$stylist/table/interface/slot/filter-pills';
 
 export interface SlotFilterBar {
 	searchValue?: string;

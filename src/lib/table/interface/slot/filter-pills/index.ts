@@ -1,5 +1,4 @@
-﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export interface SlotFilterPills {
+﻿export interface SlotFilterPills {
 	columnKey: string;
 	label?: string;
 	options: string[];

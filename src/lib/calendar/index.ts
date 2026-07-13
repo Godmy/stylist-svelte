@@ -14,7 +14,6 @@ export {
 	Timeline
 } from './component';
 export {
-	TIME_SLOT_DEFAULT_CONFIG,
 	TOKEN_CALENDAR,
 	TOKEN_PRIORITY,
 	TOKEN_TIMESTAMP_FORMAT,
@@ -55,7 +54,6 @@ export type {
 	TokenTimeFormat,
 	TokenTimeMeasure
 } from './type';
-export type { TimeSlotStyleConfig } from './const';
 export type {
 	BehaviorTimeRangeFilter,
 	RecipeCalendarView,

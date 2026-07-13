@@ -25,7 +25,6 @@ export {
 	TagInput,
 	TextArea
 } from './component';
-export { INPUT_VARIANT_CLASSES } from './const';
 export {
 	createAdvancedInputState,
 	createAdvancedPasswordInputState,

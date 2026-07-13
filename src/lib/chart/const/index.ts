@@ -10,7 +10,4 @@ export {
 	LINE_CHART_COLOR_SCHEME,
 	PRESET_CANVAS_CHART
 } from './preset';
-export {
-	HEATMAP_GRADIENT_BY_SCHEME,
-	TOKEN_COLOR_SCALE
-} from './record';
+export { HEATMAP_GRADIENT_BY_SCHEME } from './record';
