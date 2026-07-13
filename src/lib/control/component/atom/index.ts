@@ -2,6 +2,8 @@
 export { AccessibilityCheckbox } from './accessibility-checkbox/index';
 export { AccordionLayout } from './accordion-layout/index';
 export { ActionSegmentedControl } from './action-segmented-control/index';
+export { AutocompleteDropdown } from './autocomplete-dropdown/index';
+export { AutoSearch } from './auto-search/index';
 export { BurgerMenu } from './burger-menu/index';
 export { ButtonComposed } from './button-composed/index';
 export { Button } from './button/index';
@@ -15,6 +17,7 @@ export { IconButton } from './icon-button/index';
 export { MenuItem } from './menu-item/index';
 export { PageButton } from './page-button/index';
 export { Radio } from './radio/index';
+export { SearchSuggestion } from './search-suggestion/index';
 export { SplitButton } from './split-button/index';
 export { Switch } from './switch/index';
 export { TabIndicator } from './tab-indicator/index';

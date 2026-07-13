@@ -9,4 +9,5 @@ export type ToggleProps = {
 	class?: string;
 	ariaLabel?: string;
 	name?: string;
-} & Omit<HTMLAttributes<HTMLInputElement>, 'size' | 'checked'> & SlotInteraction;
+} & Omit<HTMLAttributes<HTMLInputElement>, 'size' | 'checked'> &
+	SlotInteraction;

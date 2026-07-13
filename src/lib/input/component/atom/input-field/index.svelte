@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
 	import InputText from '$stylist/input/component/atom/input-text/index.svelte';
-	import type { SlotInputField as IInputFieldProps } from '$stylist/input/interface/slot/input-field';
+	import type { RecipeInputField as IInputFieldProps } from '$stylist/input/interface/recipe/input-field';
 	import { createInputFieldState } from '$stylist/input/function/state/input-field/index.svelte';
 
 	let props: IInputFieldProps = $props();

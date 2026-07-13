@@ -36,7 +36,10 @@
 				<div class="_copy">
 					<span>Default taxonomy</span>
 					<h3>Stylist mode</h3>
-					<p>Compact icon tabs for switching between architecture, information, and interaction views.</p>
+					<p>
+						Compact icon tabs for switching between architecture, information, and interaction
+						views.
+					</p>
 				</div>
 				<StylistTab selectedId={controlValues.selectedId} onSelect={handleSelect} />
 			</div>
@@ -104,4 +107,3 @@
 		}
 	}
 </style>
-

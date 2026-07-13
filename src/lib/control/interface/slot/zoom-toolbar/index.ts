@@ -1,7 +1,9 @@
 import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 
-export interface SlotZoomToolbar extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotInteraction {
+export interface SlotZoomToolbar
+	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>,
+		SlotInteraction {
 	zoomLevel?: number;
 	minZoom?: number;
 	maxZoom?: number;

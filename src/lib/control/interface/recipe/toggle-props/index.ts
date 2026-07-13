@@ -4,4 +4,6 @@ import type { SlotToggle as BaseToggleProps } from '$stylist/control/interface/s
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeToggleProps
-	extends ComputeIntersectAll<[BaseToggleProps, HTMLAttributes<HTMLInputElement>, SlotInteraction]> {}
+	extends ComputeIntersectAll<
+		[BaseToggleProps, HTMLAttributes<HTMLInputElement>, SlotInteraction]
+	> {}

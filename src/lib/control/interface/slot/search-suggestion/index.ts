@@ -3,7 +3,8 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotSearchSuggestionItem } from '$stylist/control/interface/slot/search-suggestion-item';
 
 export interface SlotSearchSuggestion
-	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotInteraction {
+	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>,
+		SlotInteraction {
 	suggestions: SlotSearchSuggestionItem[];
 	query?: string;
 	loading?: boolean;

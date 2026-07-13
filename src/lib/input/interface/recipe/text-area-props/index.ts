@@ -4,4 +4,6 @@ import type { SlotTextarea as BaseTextAreaProps } from '$stylist/input/interface
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeTextAreaProps
-	extends ComputeIntersectAll<[BaseTextAreaProps, HTMLAttributes<HTMLTextAreaElement>, SlotInteraction]> {}
+	extends ComputeIntersectAll<
+		[BaseTextAreaProps, HTMLAttributes<HTMLTextAreaElement>, SlotInteraction]
+	> {}

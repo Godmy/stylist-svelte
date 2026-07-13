@@ -5,9 +5,6 @@ import type { SlotButtonElement } from '$stylist/control/interface/slot/button-e
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeButtonElement
-	extends ComputeIntersectAll<[
-		SlotButtonElement,
-		Omit<SlotButtonCore, 'children'>,
-		SlotButtonDom,
-		SlotChildren
-	]> {}
+	extends ComputeIntersectAll<
+		[SlotButtonElement, Omit<SlotButtonCore, 'children'>, SlotButtonDom, SlotChildren]
+	> {}

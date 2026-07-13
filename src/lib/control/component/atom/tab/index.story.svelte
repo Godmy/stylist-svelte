@@ -25,7 +25,12 @@
 	];
 </script>
 
-<Story component={Tab} title="Tab" description="Button-level states for one item inside a Tabs context." {controls}>
+<Story
+	component={Tab}
+	title="Tab"
+	description="Button-level states for one item inside a Tabs context."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<div class="_surface">
 			<div class="_copy">

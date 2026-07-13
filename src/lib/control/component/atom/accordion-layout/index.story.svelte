@@ -27,7 +27,11 @@
 				</p>
 				<Accordion>
 					{#snippet children()}
-						<AccordionLayout value="a" title={values.title as string} disabled={values.disabled as boolean}>
+						<AccordionLayout
+							value="a"
+							title={values.title as string}
+							disabled={values.disabled as boolean}
+						>
 							{#snippet children()}
 								<p>{values.content as string}</p>
 							{/snippet}
@@ -47,7 +51,11 @@
 				</p>
 				<AccordionGroup>
 					{#snippet children()}
-						<AccordionLayout value="a" title={values.title as string} disabled={values.disabled as boolean}>
+						<AccordionLayout
+							value="a"
+							title={values.title as string}
+							disabled={values.disabled as boolean}
+						>
 							{#snippet children()}
 								<p>{values.content as string}</p>
 							{/snippet}

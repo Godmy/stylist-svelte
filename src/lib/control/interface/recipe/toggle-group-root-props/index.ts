@@ -12,4 +12,3 @@ export interface RecipeToggleGroupRootProps
 	class?: string;
 	onValueChange?: (event: CustomEvent<{ value: string | string[] | null }>) => void;
 }
-

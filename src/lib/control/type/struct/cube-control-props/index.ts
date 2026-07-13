@@ -29,4 +29,5 @@ export type CubeControlProps = {
 		x?: number;
 		y?: number;
 	}) => void;
-} & HTMLAttributes<HTMLDivElement> & SlotInteraction;
+} & HTMLAttributes<HTMLDivElement> &
+	SlotInteraction;

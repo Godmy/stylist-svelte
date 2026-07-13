@@ -6,8 +6,7 @@
 
 	const GripVertical = 'grip-vertical';
 
-	let props: SortableGridProps & Omit<LayoutHTMLAttributes<HTMLDivElement>, 'class'> =
-		$props();
+	let props: SortableGridProps & Omit<LayoutHTMLAttributes<HTMLDivElement>, 'class'> = $props();
 	const state = createSortableGridState(props);
 
 	const restProps = $derived.by(() => {

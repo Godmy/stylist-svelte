@@ -18,5 +18,4 @@ export interface FeedbackSpecificProps extends ComputeIntersectAll<[SlotChildren
 	autoDismiss?: boolean;
 
 	dismissTimeout?: number;
-
 }

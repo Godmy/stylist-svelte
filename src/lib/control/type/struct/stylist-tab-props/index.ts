@@ -2,9 +2,10 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { StylistTabItem } from '$stylist/control/type/struct/stylist-tab-item';
 
-export type StylistTabProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotInteraction & {
-	class?: string;
-	items?: StylistTabItem[];
-	selectedId?: string;
-	onSelect?: (item: StylistTabItem) => void;
-};
+export type StylistTabProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> &
+	SlotInteraction & {
+		class?: string;
+		items?: StylistTabItem[];
+		selectedId?: string;
+		onSelect?: (item: StylistTabItem) => void;
+	};

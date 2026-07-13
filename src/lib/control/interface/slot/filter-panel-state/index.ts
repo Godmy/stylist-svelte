@@ -15,4 +15,3 @@ export interface SlotFilterPanelState {
 	filterItemClass: string;
 	layoutControlsClass: string;
 }
-

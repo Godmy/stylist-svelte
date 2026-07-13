@@ -27,7 +27,11 @@
 				disabled={values.disabled}
 				rows="4"
 			></textarea>
-			<CharacterCount current={draft.length} max={values.max} showPercentage={values.showPercentage} />
+			<CharacterCount
+				current={draft.length}
+				max={values.max}
+				showPercentage={values.showPercentage}
+			/>
 		</div>
 	{/snippet}
 </Story>

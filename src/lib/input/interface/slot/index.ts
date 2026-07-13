@@ -1,10 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { SlotAdvancedInput } from './advanced-input';
-export type { SlotAdvancedPasswordInput } from './advanced-password-input';
-export type { SlotAutoComplete } from './auto-complete';
 export type { SlotCharacterCount } from './character-count';
-export type { ContentElement } from './content-editor-style-content-element';
-export type { ContentEditorStyleManagerOptions } from './content-editor-style-manager-options';
+export type { ContentElement } from './content-element';
 export type { SlotFieldHighlighter } from './field-highlighter';
 export type { SlotFieldHighlighterSelectedField } from './field-highlighter-selected-field';
 export type { SlotGraphEdge } from './graph-edge';
@@ -20,7 +16,6 @@ export type { SlotInputField } from './input-field';
 export type { SlotInputGroup } from './input-group';
 export type { SlotInputHelper } from './input-helper';
 export type { SlotInputHelperChildren } from './input-helper-children';
-export type { SlotInputLong } from './input-long';
 export type { SlotInputPassword } from './input-password';
 export type { SlotInputWithHelper } from './input-with-helper';
 export type { SlotInputWithLabel } from './input-with-label';
@@ -29,6 +24,5 @@ export type { SlotNumberInput } from './number-input';
 export type { SlotPhoneNumberInput } from './phone-number-input';
 export type { SlotPinInputDigit } from './pin-input-digit';
 export type { SlotRangeSlider } from './range-slider';
-export type { RichTextEditorStyleManagerOptions } from './rich-text-editor-style-manager-options';
 export type { SlotTagInput } from './tag-input';
 export type { SlotTextarea } from './textarea';

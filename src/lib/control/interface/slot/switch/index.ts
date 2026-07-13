@@ -6,7 +6,9 @@ import type { TokenSize } from '$stylist/theme/type/alias/size';
  * Switch Props
  * Used for toggle switch controls
  */
-export interface SlotSwitch extends Omit<HTMLAttributes<HTMLInputElement>, 'size'>, SlotInteraction {
+export interface SlotSwitch
+	extends Omit<HTMLAttributes<HTMLInputElement>, 'size'>,
+		SlotInteraction {
 	/** Whether the switch is checked */
 	checked?: boolean;
 	/** Whether the switch is disabled */

@@ -12,4 +12,3 @@ export function handleLayoutChange(
 	state.currentLayout = target.value as FilterPanelLayout;
 	handleFilterChange(state, onFilterChange);
 }
-

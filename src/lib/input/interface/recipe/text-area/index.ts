@@ -1,4 +1,4 @@
-import type { RecipeTextAreaProps as LegacyTextAreaProps1 } from '$stylist/input/interface/recipe/text-area-props';
+import type { RecipeTextAreaProps } from '$stylist/input/interface/recipe/text-area-props';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
 import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
@@ -8,5 +8,5 @@ import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/
 
 export interface RecipeTextArea
 	extends ComputeIntersectAll<
-		[LegacyTextAreaProps1, ILabelSlot, ICaptionSlot, IIconSlot, IFocusable, ISizable]
+		[RecipeTextAreaProps, ILabelSlot, ICaptionSlot, IIconSlot, IFocusable, ISizable]
 	> {}

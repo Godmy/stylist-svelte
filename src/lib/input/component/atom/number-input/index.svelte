@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
-	import type { SlotNumberInput as INumberInputProps } from '$stylist/input/interface/slot/number-input';
+	import type { RecipeNumberInput as INumberInputProps } from '$stylist/input/interface/recipe/number-input';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createNumberInputState } from '$stylist/input/function/state/number-input/index.svelte';
 

@@ -1,5 +1,4 @@
-import type { SlotPhoneNumberInput as Slot } from '$stylist/input/interface/slot/phone-number-input';
-import type { SlotPhoneNumberInput as SlotPhoneNumberInput } from '$stylist/input/interface/slot/phone-number-input';
+import type { SlotPhoneNumberInput } from '$stylist/input/interface/slot/phone-number-input';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
 import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
@@ -9,5 +8,5 @@ import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/
 
 export interface RecipePhoneNumberInput
 	extends ComputeIntersectAll<
-		[Slot, SlotPhoneNumberInput, ILabelSlot, ICaptionSlot, IIconSlot, IFocusable, ISizable]
+		[SlotPhoneNumberInput, ILabelSlot, ICaptionSlot, IIconSlot, IFocusable, Omit<ISizable, 'size'>]
 	> {}

@@ -1,7 +1,7 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { SlotClick as ClickProps } from '$stylist/control/interface/slot/click';
+import type { SlotClick } from '$stylist/control/interface/slot/click';
 
-export function createClickState(props: ClickProps) {
+export function createClickState(props: SlotClick) {
 	const disabled = $derived(props.disabled ?? false);
 	const variant = $derived(props.variant ?? 'default');
 	const pressEffect = $derived(props.pressEffect ?? true);

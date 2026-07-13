@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { RecipeAutoComplete } from '$stylist/input/interface/recipe/auto-complete';
+	import type { RecipeAutoComplete } from '$stylist/control/interface/recipe/auto-complete';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { createAutoCompleteState } from '$stylist/input/function/state/auto-complete/index.svelte';
+	import { createAutoCompleteState } from '$stylist/control/function/state/auto-complete/index.svelte';
 	const Search = 'search';
 
 	let props: RecipeAutoComplete = $props();

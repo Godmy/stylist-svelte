@@ -4,4 +4,6 @@ import type { SlotSearchBar as BaseSearchBarProps } from '$stylist/control/inter
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeSearchBarProps
-	extends ComputeIntersectAll<[BaseSearchBarProps, HTMLAttributes<HTMLDivElement>, SlotInteraction]> {}
+	extends ComputeIntersectAll<
+		[BaseSearchBarProps, HTMLAttributes<HTMLDivElement>, SlotInteraction]
+	> {}

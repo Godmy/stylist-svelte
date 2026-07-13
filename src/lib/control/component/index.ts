@@ -3,6 +3,8 @@ export {
 	AccessibilityCheckbox,
 	AccordionLayout,
 	ActionSegmentedControl,
+	AutocompleteDropdown,
+	AutoSearch,
 	BurgerMenu,
 	Button,
 	ButtonComposed,
@@ -16,6 +18,7 @@ export {
 	MenuItem,
 	PageButton,
 	Radio,
+	SearchSuggestion,
 	SplitButton,
 	Switch,
 	Tab,
@@ -45,6 +48,7 @@ export {
 	RadioButtonGroup,
 	RangeInput,
 	RangeSlider,
+	SearchBar,
 	Selector,
 	SliderWithInput,
 	StylistTab,
@@ -56,6 +60,7 @@ export {
 } from './molecule';
 export {
 	AccessibilityToolbar,
+	AutoComplete,
 	Combobox,
 	Controls,
 	ExportPanel,

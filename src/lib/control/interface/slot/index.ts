@@ -3,6 +3,7 @@ export type { SlotAccessibilityToolbar } from './accessibility-toolbar';
 export type { SlotAccordion } from './accordion';
 export type { SlotAccordionGroup } from './accordion-group';
 export type { SlotAccordionLayout } from './accordion-layout';
+export type { SlotAutoComplete } from './auto-complete';
 export type { SlotAutoSearch } from './auto-search';
 export type { SlotAutocompleteDropdown } from './autocomplete-dropdown';
 export type { SlotAutocompleteDropdownOption } from './autocomplete-dropdown-option';

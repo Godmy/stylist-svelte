@@ -1,9 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	handleFilterChange,
-	handleLayoutChange,
-	handleReset
-} from './filter-panel';
+export { handleFilterChange, handleLayoutChange, handleReset } from './filter-panel';
 export { pageBuilderGetDefaultContent } from './page-builder';
 export { pageBuilderGetDefaultAttributes } from './page-builder-get-default-attributes';
 export { pageBuilderRenderElement } from './page-builder-render-element';

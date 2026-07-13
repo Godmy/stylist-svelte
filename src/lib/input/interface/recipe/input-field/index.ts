@@ -1,8 +1,7 @@
-import type { InputFieldRequiredProps as LegacyInputFieldProps3 } from '$stylist/input/type/struct/input-field-required-props';
-import type { InputFieldBaseProps as LegacyInputFieldProps2 } from '$stylist/input/type/struct/input-field-base-props';
-import type { RecipeInputFieldProps as LegacyInputFieldProps1 } from '$stylist/input/interface/recipe/input-field-props';
-import type { SlotInputField as Slot } from '$stylist/input/interface/slot/input-field';
-import type { SlotInputField as SlotInputField } from '$stylist/input/interface/slot/input-field';
+import type { InputFieldRequiredProps } from '$stylist/input/type/struct/input-field-required-props';
+import type { InputFieldBaseProps } from '$stylist/input/type/struct/input-field-base-props';
+import type { RecipeInputFieldProps } from '$stylist/input/interface/recipe/input-field-props';
+import type { SlotInputField } from '$stylist/input/interface/slot/input-field';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
 import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
@@ -14,10 +13,9 @@ import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/s
 export interface RecipeInputField
 	extends ComputeIntersectAll<
 		[
-			LegacyInputFieldProps3,
-			LegacyInputFieldProps2,
-			LegacyInputFieldProps1,
-			Slot,
+			InputFieldRequiredProps,
+			InputFieldBaseProps,
+			RecipeInputFieldProps,
 			SlotInputField,
 			ILabelSlot,
 			ICaptionSlot,

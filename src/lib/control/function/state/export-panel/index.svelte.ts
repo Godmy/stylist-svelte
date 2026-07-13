@@ -49,4 +49,3 @@ export function createExportPanelState(props: RecipeExportPanel) {
 		handleExport
 	};
 }
-

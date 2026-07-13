@@ -1,4 +1,4 @@
-type RichTextEditorStateProps = { [key: string]: any };
+import type { RichTextEditorStateProps } from '$stylist/input/interface/recipe/rich-text-editor-state-props';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createRichTextEditorState = (props: RichTextEditorStateProps) => {
@@ -77,49 +77,31 @@ export const createRichTextEditorState = (props: RichTextEditorStateProps) => {
 	}
 
 	// Computed classes
-	const rootClasses = $derived.by(() =>
-		mergeClassNames(
-			'border border-[var(--color-border-primary)] rounded-lg overflow-hidden',
-			props.class
-		)
-	);
+	const rootClasses = $derived.by(() => mergeClassNames('rich-text-editor', props.class));
 
 	const toolbarClasses = $derived.by(() =>
-		mergeClassNames(
-			'flex items-center flex-wrap p-2 border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] space-x-1',
-			props.toolbarClass
-		)
+		mergeClassNames('rich-text-editor__toolbar', props.toolbarClass)
 	);
 
 	const editorClasses = $derived.by(() =>
 		mergeClassNames(
-			'px-4 py-3 min-h-[200px] focus:outline-none',
-			isFocused ? 'ring-0' : '',
+			'rich-text-editor__editor',
+			isFocused ? 'rich-text-editor__editor--focused' : '',
 			props.editorClass
 		)
 	);
 
-	const buttonClasses = $derived.by(
-		() => 'p-2 rounded hover:bg-[var(--color-background-tertiary)]'
-	);
+	const buttonClasses = $derived.by(() => 'rich-text-editor__btn');
 
-	const dividerClasses = $derived.by(() => 'w-px h-6 bg-[var(--color-background-tertiary)] mx-1');
+	const dividerClasses = $derived.by(() => 'rich-text-editor__divider');
 
-	const linkInputClasses = $derived.by(
-		() =>
-			'absolute z-[var(--z-index-docked)] mt-1 w-64 p-3 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md shadow-lg'
-	);
+	const linkInputClasses = $derived.by(() => 'rich-text-editor__link-popover');
 
-	const linkInputFieldClasses = $derived.by(
-		() => 'flex-1 px-2 py-1 border border-[var(--color-border-primary)] rounded-l text-sm'
-	);
+	const linkInputFieldClasses = $derived.by(() => 'rich-text-editor__link-input');
 
-	const linkInputButtonClasses = $derived.by(
-		() =>
-			'px-3 py-1 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded-r text-sm'
-	);
+	const linkInputButtonClasses = $derived.by(() => 'rich-text-editor__link-button');
 
-	const iconButtonClasses = $derived.by(() => 'h-4 w-4');
+	const iconButtonClasses = $derived.by(() => 'rich-text-editor__icon');
 
 	return {
 		// SlotState getters

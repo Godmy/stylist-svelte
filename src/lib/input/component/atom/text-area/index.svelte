@@ -1,7 +1,8 @@
 <script lang="ts">
+	import '$stylist/input/const/style/field/index.css';
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import type { SlotTextarea as ITextareaProps } from '$stylist/input/interface/slot/textarea';
+	import type { RecipeTextArea as ITextareaProps } from '$stylist/input/interface/recipe/text-area';
 	import createTextareaState from '$stylist/input/function/state/text-area/index.svelte';
 
 	let props: ITextareaProps &
@@ -81,74 +82,8 @@
 </div>
 
 <style>
-	.input-field-container {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-	}
-
 	.text-area__textarea {
 		resize: vertical;
-	}
-
-	.input-field-label {
-		display: block;
-		margin-block-end: 0.25rem;
-		font-weight: 500;
-		color: var(--color-text-primary);
-	}
-
-	.input-field-label[data-size='xs'] {
-		font-size: var(--text-size-xs, 0.75rem);
-	}
-
-	.input-field-label[data-size='sm'],
-	.input-field-label[data-size='1/3'],
-	.input-field-label[data-size='2/5'] {
-		font-size: var(--text-size-sm, 0.875rem);
-	}
-
-	.input-field-label[data-size='md'],
-	.input-field-label[data-size='1/2'],
-	.input-field-label[data-size='3/5'] {
-		font-size: var(--text-size-md, 1rem);
-	}
-
-	.input-field-label[data-size='lg'],
-	.input-field-label[data-size='2/3'] {
-		font-size: var(--text-size-lg, 1.125rem);
-	}
-
-	.input-field-label[data-size='xl'],
-	.input-field-label[data-size='3/4'] {
-		font-size: var(--text-size-xl, 1.25rem);
-	}
-
-	.input-field-label[data-size='2xl'],
-	.input-field-label[data-size='full'] {
-		font-size: var(--text-size-2xl, 1.5rem);
-	}
-
-	.input-field-label[data-disabled='true'] {
-		color: var(--color-text-tertiary);
-		cursor: not-allowed;
-	}
-
-	.input-field-required {
-		margin-inline-start: 0.25rem;
-		color: var(--color-danger-500);
-	}
-
-	.input-field-helper-text {
-		margin-block-start: 0.25rem;
-		font-size: var(--text-size-xs, 0.75rem);
-		color: var(--color-text-secondary);
-	}
-
-	.input-field-error-text {
-		margin-block-start: 0.25rem;
-		font-size: var(--text-size-xs, 0.75rem);
-		color: var(--color-danger-600);
 	}
 
 	.text-area-counter {

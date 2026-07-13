@@ -7,10 +7,6 @@ export type { InputSpecificProps } from './input-specific-props';
 export type { InputTextStateOptions } from './input-text-state-options';
 export type { InputValidationProps } from './input-validation-props';
 export type { InputValueProps } from './input-value-props';
-export type {
-	AutoCompleteOption,
-	ProductForQuote,
-	QuoteRequestValue
-} from './interaction-input';
+export type { AutoCompleteOption, ProductForQuote, QuoteRequestValue } from './interaction-input';
 export type { TextAreaStateOptions } from './text-area-state-options';
 export type { TextInputBaseProps } from './text-input-base-props';

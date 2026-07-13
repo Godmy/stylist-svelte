@@ -2,6 +2,7 @@
 export type { RecipeAccessibilityToolbar } from './accessibility-toolbar';
 export type { RecipeActionSegmentedControlProps } from './action-segmented-control-props';
 export type { RecipeAdvancedToggleProps } from './advanced-toggle-props';
+export type { RecipeAutoComplete } from './auto-complete';
 export type { RecipeAutoSearch } from './auto-search';
 export type { RecipeAutocompleteDropdown } from './autocomplete-dropdown';
 export type { AvatarSelectorProps } from './avatar-selector';

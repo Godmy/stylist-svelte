@@ -9,8 +9,4 @@ export { getInputFieldHelperTextClass } from './get-input-field-helper-text-clas
 export { getInputGroupButtonClass } from './get-input-group-button-class';
 export { getInputGroupContainerClass } from './get-input-group-container-class';
 export { getInputGroupInputClass } from './get-input-group-input-class';
-export { getSharedPasswordInputClass } from './get-shared-password-input-class';
-export { getSharedPasswordInputContainerClass } from './get-shared-password-input-container-class';
-export { getSharedPasswordInputHelpTextClass } from './get-shared-password-input-help-text-class';
-export { getSharedPasswordInputToggleButtonClass } from './get-shared-password-input-toggle-button-class';
 export { resolveCharacterCountState } from './resolve-character-count-state';

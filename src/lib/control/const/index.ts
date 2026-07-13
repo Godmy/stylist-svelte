@@ -8,10 +8,7 @@ export {
 	TOKEN_SELECTION_TYPE,
 	TOKEN_SELECTOR_KIND
 } from './array';
-export {
-	CONTROL_BUTTON_ICON,
-	PAGE_BUILDER_ICON
-} from './map';
+export { CONTROL_BUTTON_ICON, PAGE_BUILDER_ICON } from './map';
 export {
 	PresetAccessibilityToolbar,
 	PresetCloseButton,

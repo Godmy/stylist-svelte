@@ -10,4 +10,5 @@ export type SearchResultsProps = {
 	onResultClick?: (result: SearchResultItem) => void;
 	showMetadata?: boolean;
 	maxResults?: number;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'class' | 'results'> & SlotInteraction;
+} & Omit<HTMLAttributes<HTMLDivElement>, 'class' | 'results'> &
+	SlotInteraction;

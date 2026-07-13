@@ -12,4 +12,3 @@ export type FilterPanelProps = {
 	onFilterChange?: (payload: FilterChangePayload) => void;
 	onReset?: () => void;
 };
-

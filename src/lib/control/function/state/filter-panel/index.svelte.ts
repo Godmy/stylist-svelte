@@ -83,4 +83,3 @@ export function createFilterPanelState(props: FilterPanelProps): SlotFilterPanel
 }
 
 export default createFilterPanelState;
-

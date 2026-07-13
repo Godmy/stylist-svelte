@@ -92,7 +92,8 @@
 		display: inline-flex;
 		align-items: center;
 		flex-shrink: 0;
-		transition: transform var(--duration-200, 200ms) var(--animation-ease, cubic-bezier(0.4, 0, 0.2, 1));
+		transition: transform var(--duration-200, 200ms)
+			var(--animation-ease, cubic-bezier(0.4, 0, 0.2, 1));
 	}
 
 	.c-accordion-layout[data-expanded] .c-accordion-layout__chevron {

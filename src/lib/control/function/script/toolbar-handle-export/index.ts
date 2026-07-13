@@ -6,4 +6,3 @@ export function toolbarHandleExport(
 ): void {
 	onExportImage?.(format);
 }
-

@@ -13,6 +13,7 @@ export interface RecipeIconButtonProps
 			Omit<Props, 'children' | 'icon'>,
 			SlotButtonDom,
 			SlotChildren,
-			HTMLAttributes<HTMLButtonElement>, SlotInteraction
+			HTMLAttributes<HTMLButtonElement>,
+			SlotInteraction
 		]
 	> {}

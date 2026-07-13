@@ -62,11 +62,7 @@
 	</dl>
 {/snippet}
 
-<Story
-	{controls}
-	title="TabGroup"
-	description="Array-driven tabs API for data-defined sections."
->
+<Story {controls} title="TabGroup" description="Array-driven tabs API for data-defined sections.">
 	{#snippet children(controlValues: any)}
 		{@const tabs = [
 			{ id: 'dashboard', title: 'Dashboard', content: dashboardContent },
@@ -78,11 +74,7 @@
 				<span>Array model</span>
 				<strong>{controlValues.activeTab}</strong>
 			</div>
-			<TabGroup
-				{tabs}
-				activeTab={controlValues.activeTab}
-				onValueChange={handleTabChange}
-			/>
+			<TabGroup {tabs} activeTab={controlValues.activeTab} onValueChange={handleTabChange} />
 		</div>
 	{/snippet}
 </Story>

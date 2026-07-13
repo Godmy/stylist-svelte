@@ -12,16 +12,19 @@
 	});
 
 	const restProps = $derived.by(() => {
-		const { children: _c, defaultValues: _d, value: _v, onValueChange: _o, class: _cl, ...rest } =
-			props;
+		const {
+			children: _c,
+			defaultValues: _d,
+			value: _v,
+			onValueChange: _o,
+			class: _cl,
+			...rest
+		} = props;
 		return rest;
 	});
 </script>
 
-<div
-	{...restProps}
-	class={['c-accordion-group', props.class].filter(Boolean).join(' ')}
->
+<div {...restProps} class={['c-accordion-group', props.class].filter(Boolean).join(' ')}>
 	{#if props.children}{@render props.children()}{/if}
 </div>
 

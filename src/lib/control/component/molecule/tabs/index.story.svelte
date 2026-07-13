@@ -8,9 +8,19 @@
 	import TabPanels from '$stylist/control/component/atom/tab-panels/index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'selectedId', type: 'select', defaultValue: 'overview', options: ['overview', 'activity', 'settings'] },
+		{
+			name: 'selectedId',
+			type: 'select',
+			defaultValue: 'overview',
+			options: ['overview', 'activity', 'settings']
+		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
-		{ name: 'variant', type: 'select', defaultValue: 'primary', options: ['primary', 'secondary', 'ghost', 'outline'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'ghost', 'outline']
+		},
 		{ name: 'disabled', type: 'boolean', defaultValue: false }
 	];
 

@@ -13,7 +13,8 @@ export interface RecipeListWithAvatars
 	extends ComputeIntersectAll<
 		[
 			SlotListWithAvatars,
-			HTMLAttributes<HTMLDivElement>, SlotInteraction,
+			HTMLAttributes<HTMLDivElement>,
+			SlotInteraction,
 			SlotChildren,
 			SlotText,
 			SlotText,

@@ -4,4 +4,6 @@ import type { SlotInputField as BaseInputFieldProps } from '$stylist/input/inter
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeInputFieldProps
-	extends ComputeIntersectAll<[BaseInputFieldProps, HTMLAttributes<HTMLInputElement>, SlotInteraction]> {}
+	extends ComputeIntersectAll<
+		[BaseInputFieldProps, HTMLAttributes<HTMLInputElement>, SlotInteraction]
+	> {}

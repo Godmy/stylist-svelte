@@ -1,16 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	RecipeAdvancedPasswordInput,
-	RecipeAutoComplete,
-	RecipeInput,
-	RecipeInputControl,
 	RecipeInputField,
 	RecipeInputFieldProps,
-	RecipeInputGraphNode,
 	RecipeNumberInput,
 	RecipeNumberInputProps,
 	RecipePhoneNumberInput,
-	RecipeRangeSlider,
 	RecipeTagInput,
 	RecipeTextArea,
 	RecipeTextAreaProps,
@@ -19,12 +13,7 @@ export type {
 	VariablesEditorStateProps
 } from './recipe';
 export type {
-	ContentEditorStyleManagerOptions,
 	ContentElement,
-	RichTextEditorStyleManagerOptions,
-	SlotAdvancedInput,
-	SlotAdvancedPasswordInput,
-	SlotAutoComplete,
 	SlotCharacterCount,
 	SlotFieldHighlighter,
 	SlotFieldHighlighterSelectedField,
@@ -41,7 +30,6 @@ export type {
 	SlotInputGroup,
 	SlotInputHelper,
 	SlotInputHelperChildren,
-	SlotInputLong,
 	SlotInputPassword,
 	SlotInputWithHelper,
 	SlotInputWithLabel,

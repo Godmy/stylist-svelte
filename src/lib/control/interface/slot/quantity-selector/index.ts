@@ -21,4 +21,3 @@ export interface SlotQuantitySelector extends HTMLAttributes<HTMLDivElement>, Sl
 	showButtons?: boolean;
 	label?: string;
 }
-

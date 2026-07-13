@@ -13,6 +13,7 @@ export { QuantitySelector } from './quantity-selector/index';
 export { RadioButtonGroup } from './radio-button-group/index';
 export { RangeInput } from './range-input/index';
 export { RangeSlider } from './range-slider/index';
+export { SearchBar } from './search-bar/index';
 export { Selector } from './selector/index';
 export { SliderWithInput } from './slider-with-input/index';
 export { StylistTab } from './stylist-tab/index';

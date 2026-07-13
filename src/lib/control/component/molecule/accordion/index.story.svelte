@@ -18,7 +18,7 @@
 >
 	{#snippet children(values: any)}
 		<div style="max-width: 480px;">
-			<Accordion defaultValue={values.defaultValue as string || undefined}>
+			<Accordion defaultValue={(values.defaultValue as string) || undefined}>
 				{#snippet children()}
 					<AccordionLayout value="section-1" title="What is Vibe?">
 						{#snippet children()}

@@ -6,4 +6,3 @@ export interface ContentElement {
 	content: string;
 	attributes?: Record<string, any>;
 }
-

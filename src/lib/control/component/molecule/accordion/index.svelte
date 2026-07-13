@@ -17,10 +17,7 @@
 	});
 </script>
 
-<div
-	{...restProps}
-	class={['c-accordion', props.class].filter(Boolean).join(' ')}
->
+<div {...restProps} class={['c-accordion', props.class].filter(Boolean).join(' ')}>
 	{#if props.children}{@render props.children()}{/if}
 </div>
 

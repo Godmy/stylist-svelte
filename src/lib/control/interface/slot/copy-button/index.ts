@@ -1,4 +1,3 @@
-
 export interface SlotCopyButton {
 	class?: string;
 	text?: string;

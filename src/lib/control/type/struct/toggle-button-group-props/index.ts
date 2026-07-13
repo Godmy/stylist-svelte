@@ -16,4 +16,5 @@ export type ToggleButtonGroupProps = {
 	onValueChange?: (value: string | string[]) => void;
 	onInput?: (value: string | string[]) => void;
 	onChange?: (value: string | string[]) => void;
-} & HTMLAttributes<HTMLDivElement> & SlotInteraction;
+} & HTMLAttributes<HTMLDivElement> &
+	SlotInteraction;

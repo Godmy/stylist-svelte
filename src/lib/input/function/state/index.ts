@@ -1,7 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { createAdvancedInputState } from './advanced-input';
-export { createAdvancedPasswordInputState } from './advanced-password-input';
-export { createAutoCompleteState } from './auto-complete';
 export { createCharactersCountState } from './characters-count';
 export { createFieldHighlighterState } from './field-highlighter';
 export { formatPhoneNumber } from './format-phone-number';
@@ -12,7 +9,6 @@ export { createInputErrorState } from './input-error';
 export { createInputFieldState } from './input-field';
 export { createInputGroupState } from './input-group';
 export { createInputHelperState } from './input-helper';
-export { createInputLongState } from './input-long';
 export { createInputPasswordState } from './input-password';
 export { createPinInputDigitState } from './input-pin-digit';
 export { createInputTextState } from './input-text';
@@ -20,7 +16,6 @@ export { normalizePhoneInputValue } from './normalize-phone-input-value';
 export { createNumberInputState } from './number-input';
 export { createPhoneNumberInputState } from './phone-number-input';
 export { createRichTextEditorState } from './rich-text-editor';
-export { createSearchBarState } from './search-bar';
 export { createTagInputState } from './tag-input';
 export { createTextareaState } from './text-area';
 export { createVariablesEditorState } from './variables-editor';

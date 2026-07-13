@@ -11,15 +11,8 @@ export type { CubeSelectionState } from './cube-selection-state';
 export type { DragAndDropListItem } from './drag-and-drop-list-item';
 export type { DragAndDropListProps } from './drag-and-drop-list-props';
 export type { DragAndDropListRestProps } from './drag-and-drop-list-rest-props';
-export type {
-	RangeFilter,
-	TagFilter,
-	ToggleFilter
-} from './filter-bar';
-export type {
-	FilterChangePayload,
-	FilterPanelProps
-} from './filter-panel';
+export type { RangeFilter, TagFilter, ToggleFilter } from './filter-bar';
+export type { FilterChangePayload, FilterPanelProps } from './filter-panel';
 export type { Language } from './language';
 export type { ListItem } from './list-with-avatars';
 export type { PageBuilderButtonAttributes } from './page-builder-button-attributes';

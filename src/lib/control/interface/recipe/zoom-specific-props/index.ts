@@ -20,5 +20,4 @@ export interface ZoomSpecificProps extends ComputeIntersectAll<[SlotChildren]> {
 	onZoomOut?: () => void;
 
 	onFit?: () => void;
-
 }

@@ -4,4 +4,6 @@ import type { SlotCheckbox as BaseCheckboxProps } from '$stylist/control/interfa
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeCheckbox
-	extends ComputeIntersectAll<[BaseCheckboxProps, HTMLAttributes<HTMLInputElement>, SlotInteraction]> {}
+	extends ComputeIntersectAll<
+		[BaseCheckboxProps, HTMLAttributes<HTMLInputElement>, SlotInteraction]
+	> {}
