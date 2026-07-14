@@ -19,8 +19,7 @@ export {
 	resolveMinimapOffsetForPoint,
 	resolveMinimapViewport,
 	resolveSemanticZoomNode,
-	resolveSemanticZoomPresentation,
-	useSemanticZoom
+	resolveSemanticZoomPresentation
 } from './script';
 export {
 	createCss3dCubeState,

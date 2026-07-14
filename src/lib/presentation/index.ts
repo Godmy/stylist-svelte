@@ -9,7 +9,8 @@ export { FOCUS_DURATION_MS } from './const';
 export {
 	createPresenterNodeShellState,
 	resolvePresenterSceneLinks,
-	usePreziState
+	usePreziState,
+	useSemanticZoom
 } from './function';
 export type {
 	PresenterNodeShellProps,

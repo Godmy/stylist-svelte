@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { RecipeAccessibilityCheckbox } from './accessibility-checkbox';
-export type { RecipeAtomicPrinciples } from './atomic-principles';
 export type { RecipeAttachmentPreview } from './attachment-preview';
 export type { RecipeBadge } from './badge';
 export type { RecipeBadgeGroup } from './badge-group';

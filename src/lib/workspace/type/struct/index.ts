@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { ConnectionPathResult } from './connection-path-result';
 export type { GraphEditorNodeData } from './graph-editor-node-data';
 export type { GraphEditorPaletteNode } from './graph-editor-palette-node';
 export type { GraphEditorProps } from './graph-editor-props';
@@ -9,3 +10,4 @@ export type { LiteGraphNodePresentation } from './lite-graph-node-presentation';
 export type { LiteGraphNodeProperty } from './lite-graph-node-property';
 export type { LiteGraphPort } from './lite-graph-port';
 export type { PortGroupProps } from './port-group-props';
+export type { GraphViewport } from './graph-viewport';

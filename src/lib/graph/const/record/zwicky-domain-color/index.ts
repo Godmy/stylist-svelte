@@ -26,7 +26,7 @@ export const ZWICKY_DOMAIN_COLOR: Record<string, readonly [number, number, numbe
 	notification: [1.0, 0.44, 0.14],
 	playground: [0.58, 1.0, 0.38],
 	portfolio: [0.82, 0.66, 0.18],
-	science: [0.08, 0.52, 1.0],
+	'idef-zero': [0.08, 0.52, 1.0],
 	server: [0.5, 0.66, 0.56],
 	social: [0.44, 0.24, 0.86],
 	svg: [0.96, 0.56, 0.08],

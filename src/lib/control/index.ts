@@ -106,6 +106,7 @@ export {
 	TOKEN_SELECTOR_KIND
 } from './const';
 export {
+	copyTextToClipboard,
 	createAccessibilityToolbarState,
 	createAccordionGroupState,
 	createAccordionState,
@@ -120,7 +121,6 @@ export {
 	createCheckboxGroupState,
 	createCheckboxState,
 	createChipState,
-	createClickState,
 	createCloseButtonState,
 	createComboboxState,
 	createControlPanelState,
@@ -128,7 +128,6 @@ export {
 	createCopyButtonState,
 	createCubeControlState,
 	createDragAndDropListState,
-	createDragAndDropState,
 	createDropdownMenuState,
 	createExportPanelState,
 	createFilterBarState,
@@ -191,6 +190,7 @@ export {
 } from './function';
 export type { AccordionContext } from './const';
 export type {
+	AutoCompleteOption,
 	ButtonPropsRecord,
 	CheckboxGroupOption,
 	CheckboxGroupProps,
@@ -208,7 +208,6 @@ export type {
 	FilterPanelLayout,
 	FilterPanelProps,
 	FunctionalTabItem,
-	Language,
 	ListItem,
 	PageBuilderButtonAttributes,
 	PageBuilderContainerAttributes,
@@ -348,6 +347,7 @@ export type {
 	SlotQuantitySelector,
 	SlotRadio,
 	SlotRangeInput,
+	SlotRangeSlider,
 	SlotSearchBar,
 	SlotSearchBarEvents,
 	SlotSearchSuggestion,

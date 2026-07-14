@@ -1,6 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorBarClickable } from './bar-clickable';
-export type { BehaviorCellClickable } from './cell-clickable';
 export type { BehaviorClickable } from './clickable';
 export type { BehaviorDraggable } from './draggable';
 export type { BehaviorFocusable } from './focusable';

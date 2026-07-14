@@ -11,6 +11,7 @@ export type {
 	TokenSelectorKind
 } from './alias';
 export type {
+	AutoCompleteOption,
 	ButtonPropsRecord,
 	CheckboxGroupOption,
 	CheckboxGroupProps,
@@ -25,7 +26,6 @@ export type {
 	FilterChangePayload,
 	FilterPanelProps,
 	FunctionalTabItem,
-	Language,
 	ListItem,
 	PageBuilderButtonAttributes,
 	PageBuilderContainerAttributes,

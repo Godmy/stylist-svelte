@@ -1,4 +1,4 @@
-import type { AutoCompleteOption } from '$stylist/input/type/struct/interaction-input/auto-complete-option';
+import type { AutoCompleteOption } from '$stylist/control/type/struct/auto-complete-option';
 
 export interface SlotAutoComplete {
 	options?: AutoCompleteOption[];

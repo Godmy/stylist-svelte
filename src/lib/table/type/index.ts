@@ -4,6 +4,7 @@ export type {
 	PlaygroundComponentCatalogSortBy,
 	PlaygroundComponentCatalogViewMode
 } from './alias';
+export type { TokenSortDirection } from './record';
 export type {
 	ColumnSchema,
 	FilterSchema,

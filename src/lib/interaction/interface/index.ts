@@ -1,7 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	BehaviorBarClickable,
-	BehaviorCellClickable,
 	BehaviorClickable,
 	BehaviorDraggable,
 	BehaviorFocusable,

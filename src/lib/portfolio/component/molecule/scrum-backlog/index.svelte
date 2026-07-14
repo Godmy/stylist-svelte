@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Button from '$stylist/control/component/atom/button/index.svelte';
-	import InputField from '$stylist/input/component/atom/input-field/index.svelte';
+	import InputField from '$stylist/input/component/molecule/input-field/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
-	import TextArea from '$stylist/input/component/atom/text-area/index.svelte';
+	import TextArea from '$stylist/input/component/molecule/text-area/index.svelte';
 	import { createScrumBacklogState } from '$stylist/portfolio/function/state/scrum-backlog/index.svelte';
 	import type { SlotBacklogItem as BacklogItem } from '$stylist/portfolio/interface/slot/backlog-item';
 	import type { SlotBacklogData as BacklogData } from '$stylist/portfolio/interface/slot/backlog-data';

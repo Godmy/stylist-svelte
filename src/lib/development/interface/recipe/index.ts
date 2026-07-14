@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { RecipeAtomicPrinciples } from './atomic-principles';
 export type { RecipeAtomicPrinciplesShowcase } from './atomic-principles-showcase';
 export type { RecipeCodeBlock } from './code-block';
 export type { RecipeCodeDiff } from './code-diff';

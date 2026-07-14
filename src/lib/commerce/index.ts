@@ -99,6 +99,7 @@ export {
 } from './const';
 export {
 	BulkOrderFormModel,
+	buildPresetClassNames,
 	createAlertCardState,
 	createArticleCardState,
 	createBillingSummaryState,
@@ -184,8 +185,10 @@ export type {
 	PricingTablePlan,
 	Product,
 	ProductCarouselProduct,
+	ProductForQuote,
 	ProductReviewItem,
 	ProductSortOption,
+	QuoteRequestValue,
 	RFQFormData,
 	RFQFormProps,
 	RFQProduct,

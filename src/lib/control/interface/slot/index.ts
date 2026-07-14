@@ -37,6 +37,7 @@ export type { SlotPageButton } from './page-button';
 export type { SlotQuantitySelector } from './quantity-selector';
 export type { SlotRadio } from './radio-toggles';
 export type { SlotRangeInput } from './range-input';
+export type { SlotRangeSlider } from './range-slider';
 export type { SlotSearchBar } from './search-bar';
 export type { SlotSearchBarEvents } from './search-bar-events';
 export type { SlotSearchSuggestion } from './search-suggestion';

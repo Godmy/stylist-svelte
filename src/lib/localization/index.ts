@@ -17,6 +17,7 @@ export {
 	formatTime
 } from './function';
 export type {
+	Language,
 	TokenTranslation,
 	TranslatableText,
 	TranslationLocale

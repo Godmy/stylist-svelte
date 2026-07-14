@@ -4,6 +4,7 @@ export type {
 	TimeRange
 } from './alias';
 export type { IHeroCTA } from './hero-cta';
+export type { TokenTest } from './record';
 export type {
 	ConversionFunnelProps,
 	CtaBannerButton,

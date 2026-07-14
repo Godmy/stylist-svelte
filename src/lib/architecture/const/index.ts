@@ -25,7 +25,6 @@ export {
 } from './array';
 export { TOKEN_ZOOM } from './preset';
 export {
-	DEFAULT_GRAPH_CANVAS,
 	RECORD_DENSITY,
 	RECORD_FRAME,
 	RECORD_LAYER,

@@ -9,3 +9,5 @@ export type { AiChatProps } from './ai-chat-props';
 export type { AiPanelAIOption } from './ai-panel-ai-option';
 export type { AiPanelAIProvider } from './ai-panel-ai-provider';
 export type { AiPanelProps } from './ai-panel-props';
+export type { Model } from './model';
+export type { ModelSelectorProps } from './model-selector-props';

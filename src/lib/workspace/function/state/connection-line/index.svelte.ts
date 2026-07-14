@@ -1,5 +1,5 @@
-import type { RecipeConnectionLine } from '$stylist/workspace/interface/recipe/connection-line';
-import type { ConnectionPathResult } from '$stylist/architecture/type/struct/connection-path-result';
+﻿import type { RecipeConnectionLine } from '$stylist/workspace/interface/recipe/connection-line';
+import type { ConnectionPathResult } from '$stylist/workspace/type/struct/connection-path-result';
 import type { TokenTrajectory } from '$stylist/architecture/type/alias/trajectory';
 import type { TokenBorderStyle as LineStyleToken } from '$stylist/layout/type/alias/border-style';
 

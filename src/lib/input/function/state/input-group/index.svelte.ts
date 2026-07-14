@@ -40,6 +40,12 @@ export const createInputGroupState = (props: IInputGroupProps) => {
 		get inputClasses() {
 			return inputState.classes;
 		},
+		get inputVariant() {
+			return inputState.variant;
+		},
+		get inputSize() {
+			return inputState.size;
+		},
 		get containerClasses() {
 			return 'input-field-container';
 		},

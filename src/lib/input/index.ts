@@ -9,6 +9,7 @@ export {
 	InputField,
 	InputGroup,
 	InputHelper,
+	InputLabel,
 	InputPassword,
 	InputPinDigit,
 	InputText,
@@ -19,17 +20,19 @@ export {
 	TextArea
 } from './component';
 export {
+	createCharacterCountState,
 	createCharactersCountState,
 	createFieldHighlighterState,
+	createFieldPresetState,
 	createFormErrorMessageState,
 	createFormHelperTextState,
 	createInputAddonState,
-	createInputDoubleState,
 	createInputEmailState,
 	createInputErrorState,
 	createInputFieldState,
 	createInputGroupState,
 	createInputHelperState,
+	createInputLabelState,
 	createInputPasswordState,
 	createInputTextState,
 	createNumberInputState,
@@ -38,34 +41,20 @@ export {
 	createRichTextEditorState,
 	createTagInputState,
 	createTextareaState,
-	createVariablesEditorState,
 	formatPhoneNumber,
-	getInputFieldContainerClass,
-	getInputFieldHelperTextClass,
-	getInputGroupButtonClass,
-	getInputGroupContainerClass,
-	getInputGroupInputClass,
 	normalizePhoneInputValue,
 	resolveCharacterCountState
 } from './function';
 export type {
-	AutoCompleteOption,
-	InputAttributesBase,
 	InputFieldBaseProps,
 	InputFieldRequiredProps,
 	InputLabelProps,
-	InputSpecificProps,
 	InputStateOptions,
 	InputTextStateOptions,
-	InputValidationProps,
 	InputValueProps,
-	ProductForQuote,
-	QuoteRequestValue,
-	TextAreaStateOptions,
-	TextInputBaseProps
+	TextAreaStateOptions
 } from './type';
 export type {
-	ContentElement,
 	RecipeInputField,
 	RecipeInputFieldProps,
 	RecipeNumberInput,
@@ -75,7 +64,6 @@ export type {
 	RecipeTextArea,
 	RecipeTextAreaProps,
 	RichTextEditorStateProps,
-	SearchBarStateProps,
 	SlotCharacterCount,
 	SlotFieldHighlighter,
 	SlotFieldHighlighterSelectedField,
@@ -92,6 +80,7 @@ export type {
 	SlotInputGroup,
 	SlotInputHelper,
 	SlotInputHelperChildren,
+	SlotInputLabel,
 	SlotInputPassword,
 	SlotInputWithHelper,
 	SlotInputWithLabel,
@@ -99,8 +88,6 @@ export type {
 	SlotNumberInput,
 	SlotPhoneNumberInput,
 	SlotPinInputDigit,
-	SlotRangeSlider,
 	SlotTagInput,
-	SlotTextarea,
-	VariablesEditorStateProps
+	SlotTextarea
 } from './interface';

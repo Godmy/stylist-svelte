@@ -1,5 +1,5 @@
 import type { RecipeQuoteRequest } from '$stylist/commerce/interface/recipe/quote-request';
-import type { QuoteRequestValue } from '$stylist/input/type/struct/interaction-input/quote-request-value';
+import type { QuoteRequestValue } from '$stylist/commerce/type/struct/quote-request-value';
 
 export function createQuoteRequestState(props: RecipeQuoteRequest) {
 	let request = $state<QuoteRequestValue>({

@@ -1,4 +1,4 @@
-import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
+﻿import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
 import type { RecipeThemeBackground } from '$stylist/layout/interface/recipe/background';
 import type { RecipeBorder } from '$stylist/layout/interface/recipe/border';
 import type { SlotClick as ClickProps } from '$stylist/control/interface/slot/click';
@@ -6,7 +6,7 @@ import type { SlotClick as ClickProps } from '$stylist/control/interface/slot/cl
 import createContainerState from '$stylist/layout/function/state/container/index.svelte';
 import createBackgroundState from '$stylist/layout/function/state/background/index.svelte';
 import createBorderState from '$stylist/layout/function/state/border/index.svelte';
-import createClickState from '$stylist/control/function/state/click/index.svelte';
+import createClickState from '$stylist/interaction/function/state/click/index.svelte';
 
 type ContainerContract = ContainerProps;
 

@@ -1,6 +1,6 @@
 ﻿import type { Preset } from '$stylist/interaction/type/struct/preset/preset';
 import type { RecipeAlertCard } from '$stylist/commerce/interface/recipe/alert-card';
-import { buildPresetClassNames } from '$stylist/interaction/function/script/build-preset-class-names';
+import { buildPresetClassNames } from '$stylist/commerce/function/script/build-preset-class-names';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 
 export function createAlertCardState<V extends string, S extends string>(

@@ -33,7 +33,7 @@
 
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 
-	import TextArea from '$stylist/input/component/atom/text-area/index.svelte';
+	import TextArea from '$stylist/input/component/molecule/text-area/index.svelte';
 
 	import type { RFQFormProps } from '$stylist/commerce/type/struct/rfqform-props';
 

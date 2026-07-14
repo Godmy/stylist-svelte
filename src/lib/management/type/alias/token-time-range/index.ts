@@ -1,3 +1,1 @@
-﻿import type { TokenTimeRange as CalendarTokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
-
-export type TokenTimeRange = CalendarTokenTimeRange;
+export type TokenTimeRange = '1d' | '7d' | '30d' | '90d';

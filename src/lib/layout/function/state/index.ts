@@ -20,7 +20,6 @@ export { createSeparatorState } from './separator';
 export { createSidebarLayoutState } from './sidebar-layout';
 export { createSpacerState } from './spacer';
 export { createSplitLayoutState } from './split-layout';
-export { createStackState } from './stack';
 export { createStackedLayoutState } from './stacked-layout';
 export { createStickyLayoutState } from './sticky-layout';
 export { createVerticalLayoutState } from './vertical-layout';

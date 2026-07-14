@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import BaseCard from '$stylist/information/component/molecule/base-card/index.svelte';
 	import type { DragAndDropListProps } from '$stylist/control/type/struct/drag-and-drop-list-props';

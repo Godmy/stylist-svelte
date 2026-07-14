@@ -2,18 +2,24 @@
 export {
 	CharactersCount,
 	InputAddon,
+	InputError,
+	InputHelper,
+	InputLabel,
+	InputPinDigit
+} from './atom';
+export {
+	FieldHighlighter,
 	InputDouble,
 	InputEmail,
-	InputError,
 	InputField,
 	InputGroup,
-	InputHelper,
 	InputPassword,
-	InputPinDigit,
 	InputText,
 	NumberInput,
 	PhoneNumberInput,
 	TextArea
-} from './atom';
-export { FieldHighlighter } from './molecule';
-export { RichTextEditor, TagInput } from './organism';
+} from './molecule';
+export {
+	RichTextEditor,
+	TagInput
+} from './organism';

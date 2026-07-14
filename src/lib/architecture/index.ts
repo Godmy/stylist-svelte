@@ -13,7 +13,6 @@ export {
 } from './component';
 export {
 	DEFAULT_FOUNDATION_CAMERA,
-	DEFAULT_GRAPH_CANVAS,
 	FOUNDATION_DEPTH_RANGE,
 	FOUNDATION_DEPTH_THRESHOLDS,
 	FOUNDATION_SEMANTIC_ZOOM_STAGES,
@@ -88,12 +87,10 @@ export {
 	useCamera,
 	useFocus,
 	usePresentation,
-	useSelection,
-	useSemanticZoom
+	useSelection
 } from './function';
 export type {
 	ArchitectureScene,
-	ConnectionPathResult,
 	FoundationAxis,
 	FoundationSemanticZoomStage,
 	GraphGridMode,
@@ -158,7 +155,6 @@ export type {
 export type {
 	FoundationDepthThreshold,
 	GraphNodeDraft,
-	GraphViewport,
 	GraphWorkspaceBounds,
 	GraphWorkspaceConnection,
 	GraphWorkspaceNode

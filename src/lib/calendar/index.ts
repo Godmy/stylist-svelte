@@ -55,7 +55,6 @@ export type {
 	TokenTimeMeasure
 } from './type';
 export type {
-	BehaviorTimeRangeFilter,
 	RecipeCalendarView,
 	RecipeMiniCalendar,
 	RecipeTimeGrid,

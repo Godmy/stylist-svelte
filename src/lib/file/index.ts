@@ -121,6 +121,7 @@ export type {
 	RecipeFileUpload,
 	RecipeUploadProgress,
 	RecipeZipViewer,
+	SlotDocumentPreview,
 	SlotDownloadCard,
 	SlotDragDropFile,
 	SlotDragDropFileUpload,

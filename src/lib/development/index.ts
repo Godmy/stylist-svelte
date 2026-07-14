@@ -68,6 +68,7 @@ export {
 	createMockDataSelectorState,
 	createPrivacySettingsState,
 	createResourceOptimizerState,
+	createStackState,
 	createStylistState,
 	createSyntaxHighlightedCodeState
 } from './function';
@@ -117,10 +118,12 @@ export type {
 export type {
 	ComponentPreviewCodeOptions,
 	ContentEditorStateProps,
+	ContentElement,
 	ContractCodeBlock,
 	ContractDevelopment,
 	DomainForEachContext,
 	DomainForEachOptions,
+	RecipeAtomicPrinciples,
 	RecipeAtomicPrinciplesShowcase,
 	RecipeCodeBlock,
 	RecipeCodeDiff,

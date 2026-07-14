@@ -1,16 +1,15 @@
-﻿import formatPhoneNumber from '$stylist/input/function/state/format-phone-number/index.svelte';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import formatPhoneNumber from '$stylist/input/function/state/format-phone-number/index.svelte';
 import normalizePhoneInputValue from '$stylist/input/function/state/normalize-phone-input-value/index.svelte';
 import type { SlotPhoneNumberInput as IPhoneNumberInputProps } from '$stylist/input/interface/slot/phone-number-input';
 
 export const createPhoneNumberInputState = (props: IPhoneNumberInputProps) => {
 	const error = $derived(props.error ?? false);
 	const disabled = $derived(props.disabled ?? false);
-	const containerClass = $derived('relative');
-	const inputClass = $derived(
-		`w-full py-2 px-3 border ${error ? 'border-[--color-danger-500]' : 'border-[--color-border-primary]'} rounded-md focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] ${disabled ? 'bg-[--color-background-disabled] cursor-not-allowed' : 'bg-[--color-background-surface]'}`
-	);
+	const containerClass = $derived('input-field-container');
+	const inputClass = $derived(mergeClassNames('input-field__control', props.class as string | undefined));
 	const helpTextClass = $derived(
-		`mt-1 text-sm ${error ? 'text-[--color-danger-500]' : 'text-[--color-text-secondary]'}`
+		error ? 'input-field-error-text' : 'input-field-helper-text'
 	);
 	const formattedValue = $derived(formatPhoneNumber(props.value ?? ''));
 
@@ -32,6 +31,12 @@ export const createPhoneNumberInputState = (props: IPhoneNumberInputProps) => {
 		},
 		get helpTextClass() {
 			return helpTextClass;
+		},
+		get error() {
+			return error;
+		},
+		get disabled() {
+			return disabled;
 		},
 		get formattedValue() {
 			return formattedValue;

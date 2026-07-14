@@ -28,6 +28,7 @@ export {
 	createMockDataSelectorState,
 	createPrivacySettingsState,
 	createResourceOptimizerState,
+	createStackState,
 	createStylistState,
 	createSyntaxHighlightedCodeState
 } from './state';

@@ -23,7 +23,6 @@ export type {
 export type { FoundationSemanticZoomStage } from './script';
 export type {
 	ArchitectureScene,
-	ConnectionPathResult,
 	GraphMinimapContract,
 	GraphMinimapProps,
 	GraphPortDimensions,
@@ -54,7 +53,6 @@ export type { FoundationDepthThreshold } from './script';
 export type {
 	GraphNode,
 	GraphNodeDraft,
-	GraphViewport,
 	GraphWorkspaceBounds,
 	GraphWorkspaceConnection,
 	GraphWorkspaceNode

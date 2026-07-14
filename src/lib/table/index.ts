@@ -62,7 +62,8 @@ export type {
 	PlaygroundComponentCatalogSortBy,
 	PlaygroundComponentCatalogViewMode,
 	RowExpandableProps,
-	TableSchema
+	TableSchema,
+	TokenSortDirection
 } from './type';
 export type {
 	RecipeCell,

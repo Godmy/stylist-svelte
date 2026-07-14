@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	copyTextToClipboard,
 	handleFilterChange,
 	handleLayoutChange,
 	handleReset,
@@ -29,7 +30,6 @@ export {
 	createCheckboxGroupState,
 	createCheckboxState,
 	createChipState,
-	createClickState,
 	createCloseButtonState,
 	createComboboxState,
 	createControlPanelState,
@@ -37,7 +37,6 @@ export {
 	createCopyButtonState,
 	createCubeControlState,
 	createDragAndDropListState,
-	createDragAndDropState,
 	createDropdownMenuState,
 	createExportPanelState,
 	createFilterBarState,

@@ -2,8 +2,8 @@
 export { AccessibilityCheckbox } from './accessibility-checkbox/index';
 export { AccordionLayout } from './accordion-layout/index';
 export { ActionSegmentedControl } from './action-segmented-control/index';
-export { AutocompleteDropdown } from './autocomplete-dropdown/index';
 export { AutoSearch } from './auto-search/index';
+export { AutocompleteDropdown } from './autocomplete-dropdown/index';
 export { BurgerMenu } from './burger-menu/index';
 export { ButtonComposed } from './button-composed/index';
 export { Button } from './button/index';

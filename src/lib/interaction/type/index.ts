@@ -11,8 +11,6 @@ export type {
 	TokenInteration,
 	TokenLoading,
 	TokenSeverity,
-	TokenSortDirection,
-	TokenTest,
 	TokenTrigger
 } from './record';
 export type {

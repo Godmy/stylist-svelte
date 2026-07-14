@@ -1,4 +1,4 @@
-import type { Language } from '$stylist/control/type/struct/language';
+﻿import type { Language } from '$stylist/localization/type/struct/language';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 

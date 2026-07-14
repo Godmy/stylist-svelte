@@ -9,7 +9,6 @@ export type { SlotChatRoom } from './chat-room';
 export type { SlotChatStatusIndicator } from './chat-status-indicator';
 export type { SlotChatWindow } from './chat-window';
 export type { ChatWindowChat } from './chat-window-chat';
-export type { SlotDocumentPreview } from './document-preview';
 export type { SlotMessage } from './message';
 export type { SlotMessageAttachment } from './message-attachment';
 export type { SlotMessageBubble } from './message-bubble';

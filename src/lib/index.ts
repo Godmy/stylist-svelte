@@ -3,10 +3,22 @@ export {
 	AiAssistant,
 	AiChat,
 	AiPanel,
+	AiResultCard,
+	ModelSelector,
 	PLAYGROUND_AI_ASSISTANT_AI_PROVIDER_ID,
+	PROMPT_VARIABLE_TYPE,
+	PredictionResult,
+	PromptBuilder,
+	SENTIMENT_ANALYSIS_STATUS,
+	SentimentAnalysis,
 	createAiAssistantState,
 	createAiChatState,
-	createAiPanelState
+	createAiPanelState,
+	createAiResultCardState,
+	createModelSelectorState,
+	createPredictionResultState,
+	createPromptBuilderState,
+	createSentimentAnalysisState
 } from './ai';
 export {
 	Animated,
@@ -32,7 +44,6 @@ export {
 export {
 	Css3dCube,
 	DEFAULT_FOUNDATION_CAMERA,
-	DEFAULT_GRAPH_CANVAS,
 	FOUNDATION_DEPTH_RANGE,
 	FOUNDATION_DEPTH_THRESHOLDS,
 	FOUNDATION_SEMANTIC_ZOOM_STAGES,
@@ -114,8 +125,7 @@ export {
 	useCamera,
 	useFocus,
 	usePresentation,
-	useSelection,
-	useSemanticZoom
+	useSelection
 } from './architecture';
 export {
 	AudioPlayer,
@@ -397,6 +407,7 @@ export {
 	WARRANTY_PERIOD_TYPE,
 	WarrantyInfo,
 	WishlistButton,
+	buildPresetClassNames,
 	createAlertCardState,
 	createArticleCardState,
 	createBillingSummaryState,
@@ -571,6 +582,7 @@ export {
 	Tooltip,
 	ZoomControls,
 	ZoomToolbar,
+	copyTextToClipboard,
 	createAccessibilityToolbarState,
 	createAccordionGroupState,
 	createAccordionState,
@@ -585,7 +597,6 @@ export {
 	createCheckboxGroupState,
 	createCheckboxState,
 	createChipState,
-	createClickState,
 	createCloseButtonState,
 	createComboboxState,
 	createControlPanelState,
@@ -593,7 +604,6 @@ export {
 	createCopyButtonState,
 	createCubeControlState,
 	createDragAndDropListState,
-	createDragAndDropState,
 	createDropdownMenuState,
 	createExportPanelState,
 	createFilterBarState,
@@ -718,6 +728,7 @@ export {
 	createMockDataSelectorState,
 	createPrivacySettingsState,
 	createResourceOptimizerState,
+	createStackState,
 	createStylistState,
 	createSyntaxHighlightedCodeState,
 	panelId
@@ -959,6 +970,22 @@ export {
 	resolveSceneAtomTint
 } from './graph';
 export {
+	Idef0BlackBox,
+	Idef0Connector,
+	Idef0Diagram,
+	Idef0FunctionBox,
+	Idef0Inputs,
+	Idef0Outputs,
+	Idef0PortLabel,
+	createIdef0BlackBoxState,
+	createIdef0ConnectorState,
+	createIdef0DiagramState,
+	createIdef0FunctionBoxState,
+	createIdef0InputsState,
+	createIdef0OutputsState,
+	createIdef0PortLabelState
+} from './idef-zero';
+export {
 	AttachmentPreview,
 	Badge,
 	BadgeGroup,
@@ -987,11 +1014,9 @@ export {
 	createBadgeState,
 	createBaseCardState,
 	createBlockquoteState,
-	createCharacterCountState,
 	createCountBadgeState,
 	createCounterState,
 	createDotState,
-	createIconPickerState,
 	createImageWithCaptionState,
 	createListItemMarkerState,
 	createMarkdownRendererState,
@@ -1012,6 +1037,7 @@ export {
 	InputField,
 	InputGroup,
 	InputHelper,
+	InputLabel,
 	InputPassword,
 	InputPinDigit,
 	InputText,
@@ -1020,15 +1046,17 @@ export {
 	RichTextEditor,
 	TagInput,
 	TextArea,
+	createCharacterCountState,
 	createCharactersCountState,
 	createFieldHighlighterState,
+	createFieldPresetState,
 	createInputAddonState,
-	createInputDoubleState,
 	createInputEmailState,
 	createInputErrorState,
 	createInputFieldState,
 	createInputGroupState,
 	createInputHelperState,
+	createInputLabelState,
 	createInputPasswordState,
 	createInputTextState,
 	createNumberInputState,
@@ -1037,13 +1065,7 @@ export {
 	createRichTextEditorState,
 	createTagInputState,
 	createTextareaState,
-	createVariablesEditorState,
 	formatPhoneNumber,
-	getInputFieldContainerClass,
-	getInputFieldHelperTextClass,
-	getInputGroupButtonClass,
-	getInputGroupContainerClass,
-	getInputGroupInputClass,
 	normalizePhoneInputValue,
 	resolveCharacterCountState
 } from './input';
@@ -1072,9 +1094,9 @@ export {
 	TOKEN_TEST,
 	TOKEN_TRIGGER,
 	VARIANT_CLASSES,
-	buildPresetClassNames,
-	copyTextToClipboard,
+	createClickState,
 	createClickableState,
+	createDragAndDropState,
 	createDraggableState,
 	createFocusableState,
 	createHoverableState,
@@ -1153,7 +1175,6 @@ export {
 	createSidebarLayoutState,
 	createSpacerState,
 	createSplitLayoutState,
-	createStackState,
 	createStackedLayoutState,
 	createStickyLayoutState,
 	createVerticalLayoutState,
@@ -1297,6 +1318,7 @@ export {
 	createCanvasImageEditorState,
 	createCountryFlagState,
 	createFaviconState,
+	createIconPickerState,
 	createImageGalleryState,
 	createImageState,
 	createMediaLibraryState,
@@ -1479,36 +1501,9 @@ export {
 	SceneInspector,
 	createPresenterNodeShellState,
 	resolvePresenterSceneLinks,
-	usePreziState
+	usePreziState,
+	useSemanticZoom
 } from './presentation';
-export {
-	AiResultCard,
-	IdefZeroBlackBox,
-	IdefZeroConnector,
-	IdefZeroDiagram,
-	IdefZeroFunctionBox,
-	IdefZeroInputs,
-	IdefZeroOutputs,
-	IdefZeroPortLabel,
-	ModelSelector,
-	PROMPT_VARIABLE_TYPE,
-	PredictionResult,
-	PromptBuilder,
-	SENTIMENT_ANALYSIS_STATUS,
-	SentimentAnalysis,
-	createAiResultCardState,
-	createIdef0BlackBoxState,
-	createIdef0ConnectorState,
-	createIdef0DiagramState,
-	createIdef0FunctionBoxState,
-	createIdef0InputsState,
-	createIdef0OutputsState,
-	createIdef0PortLabelState,
-	createModelSelectorState,
-	createPredictionResultState,
-	createPromptBuilderState,
-	createSentimentAnalysisState
-} from './science';
 export {
 	CommentSystem,
 	CommentThread,
@@ -1834,6 +1829,7 @@ export {
 	ICON_HORIZONTAL_LAYOUT,
 	ICON_ICON,
 	ICON_ICONS,
+	ICON_IDEF_ZERO,
 	ICON_IMAGE,
 	ICON_IMAGE_GALLERY,
 	ICON_IMAGE_WITH_CAPTION,
@@ -2372,7 +2368,6 @@ export {
 	TOKEN_MEDIA_SETTING,
 	TOKEN_NOTIFICATION_SETTING,
 	TOKEN_PLAYGROUND_SETTING,
-	TOKEN_SCIENCE_SETTING,
 	TOKEN_SETTING,
 	TOKEN_SVG_SETTING,
 	TOKEN_TABLE_SETTING,
@@ -2462,6 +2457,7 @@ export {
 } from './user';
 export {
 	ConnectionLine,
+	DEFAULT_GRAPH_CANVAS,
 	GraphCanvas,
 	GraphEditor,
 	GraphNodeCard,
@@ -2504,7 +2500,11 @@ export type {
 	AiPanelAIOption,
 	AiPanelAIProvider,
 	AiPanelProps,
-	PlaygroundAiAssistantAIProviderId
+	Model,
+	ModelSelectorProps,
+	PlaygroundAiAssistantAIProviderId,
+	PromptVariableType,
+	SentimentAnalysisStatus
 } from './ai';
 export type {
 	EasingFunction,
@@ -2515,7 +2515,6 @@ export type {
 } from './animation';
 export type {
 	ArchitectureScene,
-	ConnectionPathResult,
 	FoundationAxis,
 	FoundationSemanticZoomStage,
 	GraphGridMode,
@@ -2668,8 +2667,10 @@ export type {
 	PricingTablePlan,
 	Product,
 	ProductCarouselProduct,
+	ProductForQuote,
 	ProductReviewItem,
 	ProductSortOption,
+	QuoteRequestValue,
 	RFQFormData,
 	RFQFormProps,
 	RFQProduct,
@@ -2695,6 +2696,7 @@ export type {
 } from './commerce';
 export type {
 	AccordionContext,
+	AutoCompleteOption,
 	ButtonPropsRecord,
 	CheckboxGroupOption,
 	CheckboxGroupProps,
@@ -2712,7 +2714,6 @@ export type {
 	FilterPanelLayout,
 	FilterPanelProps,
 	FunctionalTabItem,
-	Language,
 	ListItem,
 	PageBuilderButtonAttributes,
 	PageBuilderContainerAttributes,
@@ -2896,6 +2897,7 @@ export type {
 	ZwickyNode,
 	ZwickySceneProps
 } from './graph';
+export type { Idef0Port } from './idef-zero';
 export type {
 	BaseCardProps,
 	ClassProp,
@@ -2910,20 +2912,13 @@ export type {
 	TokenStatus
 } from './information';
 export type {
-	AutoCompleteOption,
-	InputAttributesBase,
 	InputFieldBaseProps,
 	InputFieldRequiredProps,
 	InputLabelProps,
-	InputSpecificProps,
 	InputStateOptions,
 	InputTextStateOptions,
-	InputValidationProps,
 	InputValueProps,
-	ProductForQuote,
-	QuoteRequestValue,
-	TextAreaStateOptions,
-	TextInputBaseProps
+	TextAreaStateOptions
 } from './input';
 export type {
 	ClickContract,
@@ -2946,8 +2941,6 @@ export type {
 	TokenInteration,
 	TokenLoading,
 	TokenSeverity,
-	TokenSortDirection,
-	TokenTest,
 	TokenTrigger
 } from './interaction';
 export type {
@@ -3011,6 +3004,7 @@ export type {
 	WidgetContainerProps
 } from './layout';
 export type {
+	Language,
 	TokenTranslation,
 	TranslatableText,
 	TranslationLocale
@@ -3043,6 +3037,7 @@ export type {
 	TestResult,
 	TestResultsViewerProps,
 	TimeRange,
+	TokenTest,
 	TrafficAnalyticsProps,
 	TrafficDataPoint,
 	TrafficSource,
@@ -3128,19 +3123,6 @@ export type {
 	PreziSceneContract
 } from './presentation';
 export type {
-	Idef0BlackBoxProps,
-	Idef0DiagramProps,
-	Idef0InputsProps,
-	Idef0Model,
-	Idef0OutputsProps,
-	Idef0Port,
-	Model,
-	ModelSelectorProps,
-	PromptVariableType,
-	SentimentAnalysisStatus,
-	ThemeSceneColors
-} from './science';
-export type {
 	Activity,
 	ActivityType,
 	FRIEND_LIST_FRIEND,
@@ -3168,7 +3150,8 @@ export type {
 	PlaygroundComponentCatalogSortBy,
 	PlaygroundComponentCatalogViewMode,
 	RowExpandableProps,
-	TableSchema
+	TableSchema,
+	TokenSortDirection
 } from './table';
 export type {
 	ComputeIntersectAll,
@@ -3241,6 +3224,7 @@ export type {
 	UserData
 } from './user';
 export type {
+	ConnectionPathResult,
 	GraphEditorNodeData,
 	GraphEditorPaletteNode,
 	GraphEditorProps,
@@ -3253,9 +3237,28 @@ export type {
 	PortGroupProps
 } from './workspace';
 export type {
+	ContractPrediction,
+	ContractPromptTemplate,
+	ContractPromptVariable,
 	RecipeAiAssistant,
 	RecipeAiChat,
-	RecipeAiPanel
+	RecipeAiPanel,
+	RecipeAiResultCard,
+	RecipeModelSelector,
+	RecipePredictionResult,
+	RecipePromptBuilder,
+	RecipeScience,
+	RecipeSentimentAnalysis,
+	SlotAiResultCard,
+	SlotModelOption,
+	SlotPrediction,
+	SlotPredictionResult,
+	SlotPromptBuilder,
+	SlotPromptTemplate,
+	SlotPromptVariable,
+	SlotSentimentAnalysis,
+	SlotSentimentAnalysisResult,
+	SlotSentimentResult
 } from './ai';
 export type {
 	AnimateValueOptions,
@@ -3279,7 +3282,6 @@ export type {
 	FocusTarget,
 	FoundationDepthThreshold,
 	GraphNodeDraft,
-	GraphViewport,
 	GraphWorkspaceBounds,
 	GraphWorkspaceConnection,
 	GraphWorkspaceNode,
@@ -3308,7 +3310,6 @@ export type {
 	RecipeTranscriber
 } from './audio';
 export type {
-	BehaviorTimeRangeFilter,
 	RecipeCalendarView,
 	RecipeMiniCalendar,
 	RecipeTimeGrid,
@@ -3332,6 +3333,8 @@ export type {
 	SlotSharedCanvas
 } from './canvas';
 export type {
+	BehaviorBarClickable,
+	BehaviorCellClickable,
 	BehaviorChartAxis,
 	BehaviorChartColorable,
 	BehaviorLegendable,
@@ -3369,7 +3372,6 @@ export type {
 	SlotChatRoom,
 	SlotChatStatusIndicator,
 	SlotChatWindow,
-	SlotDocumentPreview,
 	SlotMessage,
 	SlotMessageAttachment,
 	SlotMessageBubble,
@@ -3628,6 +3630,7 @@ export type {
 	SlotQuantitySelector,
 	SlotRadio,
 	SlotRangeInput,
+	SlotRangeSlider,
 	SlotSearchBar,
 	SlotSearchBarEvents,
 	SlotSearchSuggestion,
@@ -3661,6 +3664,7 @@ export type {
 	ContractDevelopment,
 	DomainForEachContext,
 	DomainForEachOptions,
+	RecipeAtomicPrinciples,
 	RecipeAtomicPrinciplesShowcase,
 	RecipeCodeBlock,
 	RecipeCodeDiff,
@@ -3729,6 +3733,7 @@ export type {
 	RecipeFileUpload,
 	RecipeUploadProgress,
 	RecipeZipViewer,
+	SlotDocumentPreview,
 	SlotDownloadCard,
 	SlotDragDropFile,
 	SlotDragDropFileUpload,
@@ -3806,12 +3811,20 @@ export type {
 	RecipeZwickyScene
 } from './graph';
 export type {
+	RecipeIdef0BlackBox,
+	RecipeIdef0Connector,
+	RecipeIdef0Diagram,
+	RecipeIdef0FunctionBox,
+	RecipeIdef0Io,
+	RecipeIdef0PortLabel,
+	SlotIdef0
+} from './idef-zero';
+export type {
 	BadgeGroupItem,
 	BehaviorAttachmentPreviewEvents,
 	BehaviorMetricValue,
 	HtmlAttributesBase,
 	RecipeAccessibilityCheckbox,
-	RecipeAtomicPrinciples,
 	RecipeAttachmentPreview,
 	RecipeBadge,
 	RecipeBadgeGroup,
@@ -3846,7 +3859,6 @@ export type {
 	RecipeTextArea,
 	RecipeTextAreaProps,
 	RichTextEditorStateProps,
-	SearchBarStateProps,
 	SlotCharacterCount,
 	SlotFieldHighlighter,
 	SlotFieldHighlighterSelectedField,
@@ -3863,6 +3875,7 @@ export type {
 	SlotInputGroup,
 	SlotInputHelper,
 	SlotInputHelperChildren,
+	SlotInputLabel,
 	SlotInputPassword,
 	SlotInputWithHelper,
 	SlotInputWithLabel,
@@ -3870,14 +3883,10 @@ export type {
 	SlotNumberInput,
 	SlotPhoneNumberInput,
 	SlotPinInputDigit,
-	SlotRangeSlider,
 	SlotTagInput,
-	SlotTextarea,
-	VariablesEditorStateProps
+	SlotTextarea
 } from './input';
 export type {
-	BehaviorBarClickable,
-	BehaviorCellClickable,
 	BehaviorClickable,
 	BehaviorDraggable,
 	BehaviorFocusable,
@@ -3929,6 +3938,7 @@ export type {
 } from './localization';
 export type {
 	BehaviorOperationsHistoryEvents,
+	BehaviorTimeRangeFilter,
 	BehaviorTrendable,
 	ContractDashboardLayout,
 	ContractManagement,
@@ -4107,36 +4117,6 @@ export type {
 	RecipePreziScene
 } from './presentation';
 export type {
-	ChildrenHtmlAttributes,
-	ContractPrediction,
-	ContractPromptTemplate,
-	ContractPromptVariable,
-	RecipeAiResultCard,
-	RecipeIdef0BlackBox,
-	RecipeIdef0Connector,
-	RecipeIdef0Diagram,
-	RecipeIdef0FunctionBox,
-	RecipeIdef0Inputs,
-	RecipeIdef0Outputs,
-	RecipeIdef0PortLabel,
-	RecipeMapScience,
-	RecipeModelSelector,
-	RecipePredictionResult,
-	RecipePromptBuilder,
-	RecipeScience,
-	RecipeSentimentAnalysis,
-	SlotAiResultCard,
-	SlotModelOption,
-	SlotPrediction,
-	SlotPredictionResult,
-	SlotPromptBuilder,
-	SlotPromptTemplate,
-	SlotPromptVariable,
-	SlotSentimentAnalysis,
-	SlotSentimentAnalysisResult,
-	SlotSentimentResult
-} from './science';
-export type {
 	BehaviorPostCard,
 	ContractSocial,
 	RecipePostCard,
@@ -4245,6 +4225,7 @@ export type {
 	ContractLitegraphNode,
 	ContractLitegraphNodeProperty,
 	ContractLitegraphPort,
+	GraphViewport,
 	RecipeConnectionLine,
 	RecipeGraphCanvas,
 	RecipeGraphPort,

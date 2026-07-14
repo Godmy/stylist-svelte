@@ -30,9 +30,9 @@ export {
 	VARIANT_CLASSES
 } from './const';
 export {
-	buildPresetClassNames,
-	copyTextToClipboard,
+	createClickState,
 	createClickableState,
+	createDragAndDropState,
 	createDraggableState,
 	createFocusableState,
 	createHoverableState,
@@ -61,13 +61,9 @@ export type {
 	TokenInteration,
 	TokenLoading,
 	TokenSeverity,
-	TokenSortDirection,
-	TokenTest,
 	TokenTrigger
 } from './type';
 export type {
-	BehaviorBarClickable,
-	BehaviorCellClickable,
 	BehaviorClickable,
 	BehaviorDraggable,
 	BehaviorFocusable,

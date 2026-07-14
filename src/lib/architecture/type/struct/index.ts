@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { SceneCameraInput } from './camera-input';
-export type { ConnectionPathResult } from './connection-path-result';
 export type { GraphMinimapContract } from './graph-minimap-contract';
 export type { GraphMinimapProps } from './graph-minimap-props';
 export type { GraphPortDimensions } from './graph-port-dimensions';
@@ -34,7 +33,6 @@ export type { Zoom } from './zoom';
 export type { ZoomStep } from './zoom-step';
 export type { GraphNode } from './graph-node';
 export type { GraphNodeDraft } from './graph-node-draft';
-export type { GraphViewport } from './graph-viewport';
 export type { GraphWorkspaceBounds } from './graph-workspace-bounds';
 export type { GraphWorkspaceConnection } from './graph-workspace-connection';
 export type { GraphWorkspaceNode } from './graph-workspace-node';

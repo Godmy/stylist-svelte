@@ -24,7 +24,6 @@ export {
 	createSidebarLayoutState,
 	createSpacerState,
 	createSplitLayoutState,
-	createStackState,
 	createStackedLayoutState,
 	createStickyLayoutState,
 	createVerticalLayoutState,

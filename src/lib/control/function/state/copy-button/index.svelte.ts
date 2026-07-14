@@ -1,10 +1,10 @@
-import type { HTMLButtonAttributes } from 'svelte/elements';
+﻿import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { RecipeCopyButton } from '$stylist/control/interface/recipe/copy-button';
 import { VARIANT_CLASSES } from '$stylist/interaction/const/record/variant-classes';
 import { createBasePreset } from '$stylist/interaction/preset/base';
 import { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
-import { copyTextToClipboard } from '$stylist/interaction/function/script/copy-text-to-clipboard';
+import { copyTextToClipboard } from '$stylist/control/function/script/copy-text-to-clipboard';
 
 export function createCopyButtonState(props: RecipeCopyButton & HTMLButtonAttributes) {
 	const preset = createBasePreset(Object.keys(VARIANT_CLASSES), TOKEN_SIZE, {

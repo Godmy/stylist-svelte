@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { resolvePresenterSceneLinks } from './script';
+export {
+	resolvePresenterSceneLinks,
+	useSemanticZoom
+} from './script';
 export {
 	createPresenterNodeShellState,
 	usePreziState

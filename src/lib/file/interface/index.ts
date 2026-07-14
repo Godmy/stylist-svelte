@@ -30,6 +30,7 @@ export type {
 	RecipeZipViewer
 } from './recipe';
 export type {
+	SlotDocumentPreview,
 	SlotDownloadCard,
 	SlotDragDropFile,
 	SlotDragDropFileUpload,

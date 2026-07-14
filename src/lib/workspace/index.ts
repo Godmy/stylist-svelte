@@ -19,7 +19,10 @@ export {
 	NodeTitle,
 	PortGroup
 } from './component';
-export { LITEGRAPH_CANVAS_ICONS } from './const';
+export {
+	DEFAULT_GRAPH_CANVAS,
+	LITEGRAPH_CANVAS_ICONS
+} from './const';
 export {
 	createConnectionLineState,
 	createGraphCanvasState,
@@ -37,6 +40,7 @@ export {
 	createPortGroupState
 } from './function';
 export type {
+	ConnectionPathResult,
 	GraphEditorNodeData,
 	GraphEditorPaletteNode,
 	GraphEditorProps,
@@ -70,3 +74,4 @@ export type {
 	SlotNodePalette,
 	SlotNodePaletteItem
 } from './interface';
+export type { GraphViewport } from './type';

@@ -1,5 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	BehaviorBarClickable,
+	BehaviorCellClickable,
 	BehaviorChartAxis,
 	BehaviorChartColorable,
 	BehaviorLegendable

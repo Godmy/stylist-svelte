@@ -1,7 +1,7 @@
 ﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenSortDirection } from '$stylist/interaction/type/record/sort-direction';
+import type { TokenSortDirection } from '$stylist/table/type/record/sort-direction';
 import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
 import type { BehaviorFocusable } from '$stylist/interaction/interface/behavior/focusable';
 

@@ -6,6 +6,7 @@ export type { SlotCodeDiff } from './code-diff';
 export type { SlotComponentLibraryStats } from './component-library-stats';
 export type { SlotComponentPreview } from './component-preview';
 export type { ComponentPreviewCodeOptions } from './component-preview-code-options';
+export type { ContentElement } from './content-element';
 export type { SlotDebugConsole } from './debug-console';
 export type { SlotDesignTokens } from './design-tokens';
 export type { SlotDevelopmentErrorBoundary } from './development-error-boundary';

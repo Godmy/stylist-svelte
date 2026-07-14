@@ -19,6 +19,7 @@ import { ICON_GRAPH }        from '$stylist/svg/const/value/graph';
 import { ICON_INFORMATION }  from '$stylist/svg/const/value/information';
 import { ICON_INPUT }        from '$stylist/svg/const/value/input';
 import { ICON_INTERACTION }  from '$stylist/svg/const/value/interaction';
+import { ICON_IDEF_ZERO }    from '$stylist/svg/const/value/idef-zero';
 import { ICON_LAYOUT }       from '$stylist/svg/const/value/layout';
 import { ICON_LOCALIZATION } from '$stylist/svg/const/value/localization';
 import { ICON_MANAGEMENT }   from '$stylist/svg/const/value/management';
@@ -29,7 +30,6 @@ import { ICON_NOTIFICATION } from '$stylist/svg/const/value/notification';
 import { ICON_PLAYGROUND }   from '$stylist/svg/const/value/playground';
 import { ICON_PORTFOLIO }    from '$stylist/svg/const/value/portfolio';
 import { ICON_PRESENTATION } from '$stylist/svg/const/value/presentation';
-import { ICON_SCIENCE }      from '$stylist/svg/const/value/science';
 import { ICON_SERVER }       from '$stylist/svg/const/value/server';
 import { ICON_SOCIAL }       from '$stylist/svg/const/value/social';
 import { ICON_SVG }          from '$stylist/svg/const/value/svg';
@@ -62,6 +62,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'information',  svg: ICON_INFORMATION },
 	{ name: 'input',        svg: ICON_INPUT },
 	{ name: 'interaction',  svg: ICON_INTERACTION },
+	{ name: 'idef-zero',    svg: ICON_IDEF_ZERO },
 	{ name: 'layout',       svg: ICON_LAYOUT },
 	{ name: 'localization', svg: ICON_LOCALIZATION },
 	{ name: 'management',   svg: ICON_MANAGEMENT },
@@ -72,7 +73,6 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'playground',   svg: ICON_PLAYGROUND },
 	{ name: 'portfolio',    svg: ICON_PORTFOLIO },
 	{ name: 'presentation', svg: ICON_PRESENTATION },
-	{ name: 'science',      svg: ICON_SCIENCE },
 	{ name: 'server',       svg: ICON_SERVER },
 	{ name: 'social',       svg: ICON_SOCIAL },
 	{ name: 'svg',          svg: ICON_SVG },

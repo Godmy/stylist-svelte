@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotRangeSlider as RangeSliderProps } from '$stylist/input/interface/slot/range-slider';
+	import type { SlotRangeSlider as RangeSliderProps } from '$stylist/control/interface/slot/range-slider';
 	import createRangeSliderState from '$stylist/control/function/state/range-slider/index.svelte';
 
 	let props: RangeSliderProps = $props();

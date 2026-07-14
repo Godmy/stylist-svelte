@@ -1,5 +1,5 @@
 ﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { ContentElement } from '$stylist/input/interface/slot/content-element';
+import type { ContentElement } from '$stylist/development/interface/slot/content-element';
 
 export interface ContentEditorStateProps extends ComputeIntersectAll<[]> {
 	initialContent?: ContentElement[];

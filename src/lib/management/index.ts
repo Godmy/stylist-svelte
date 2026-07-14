@@ -92,6 +92,7 @@ export type {
 } from './type';
 export type {
 	BehaviorOperationsHistoryEvents,
+	BehaviorTimeRangeFilter,
 	BehaviorTrendable,
 	BreadcrumbItem,
 	ContractDashboardLayout,

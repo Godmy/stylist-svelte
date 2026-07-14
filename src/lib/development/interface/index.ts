@@ -5,6 +5,7 @@ export type {
 } from './contract';
 export type {
 	ContentEditorStateProps,
+	RecipeAtomicPrinciples,
 	RecipeAtomicPrinciplesShowcase,
 	RecipeCodeBlock,
 	RecipeCodeDiff,
@@ -28,6 +29,7 @@ export type {
 } from './recipe';
 export type {
 	ComponentPreviewCodeOptions,
+	ContentElement,
 	DomainForEachContext,
 	DomainForEachOptions,
 	SlotAiModel,

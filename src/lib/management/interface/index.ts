@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	BehaviorOperationsHistoryEvents,
+	BehaviorTimeRangeFilter,
 	BehaviorTrendable
 } from './behavior';
 export type {

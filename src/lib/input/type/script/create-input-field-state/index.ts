@@ -1,7 +1,5 @@
-import { INPUT_FIELD_PRESET } from '$stylist/input/preset/input';
-
-type TokenAppearance = (typeof INPUT_FIELD_PRESET.variants)[number];
-type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
+import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenSize as InputSize } from '$stylist/theme/type/alias/size';
 
 export type InputStateOptions<V extends string = TokenAppearance, S extends string = InputSize> = {
 	variant?: V;

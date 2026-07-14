@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { PlaygroundAiAssistantAIProviderId } from './alias';
+export type {
+	PlaygroundAiAssistantAIProviderId,
+	PromptVariableType,
+	SentimentAnalysisStatus
+} from './alias';
 export type {
 	AiAssistantAIClientLike,
 	AiAssistantChatMessage,
@@ -10,5 +14,7 @@ export type {
 	AiChatProps,
 	AiPanelAIOption,
 	AiPanelAIProvider,
-	AiPanelProps
+	AiPanelProps,
+	Model,
+	ModelSelectorProps
 } from './struct';

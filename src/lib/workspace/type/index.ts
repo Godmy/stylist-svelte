@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	ConnectionPathResult,
 	GraphEditorNodeData,
 	GraphEditorPaletteNode,
 	GraphEditorProps,
@@ -11,3 +12,4 @@ export type {
 	LiteGraphPort,
 	PortGroupProps
 } from './struct';
+export type { GraphViewport } from './struct';

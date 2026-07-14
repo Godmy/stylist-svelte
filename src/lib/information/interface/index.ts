@@ -5,7 +5,6 @@ export type {
 } from './behavior';
 export type {
 	RecipeAccessibilityCheckbox,
-	RecipeAtomicPrinciples,
 	RecipeAttachmentPreview,
 	RecipeBadge,
 	RecipeBadgeGroup,

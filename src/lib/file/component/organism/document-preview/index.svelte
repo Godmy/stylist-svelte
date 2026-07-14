@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import type { SlotDocumentPreview as DocumentPreviewProps } from '$stylist/chat/interface/slot/document-preview';
+	import type { SlotDocumentPreview as DocumentPreviewProps } from '$stylist/file/interface/slot/document-preview';
 	import createDocumentPreviewState from '$stylist/file/function/state/document-preview/index.svelte';
 	let props: DocumentPreviewProps = $props();
 	const state = createDocumentPreviewState(props);

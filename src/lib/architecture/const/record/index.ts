@@ -1,7 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { RECORD_DENSITY } from './density';
 export { RECORD_FRAME } from './frame';
-export { DEFAULT_GRAPH_CANVAS } from './graph-canvas';
 export { RECORD_LAYER } from './layer';
 export { RECORD_LEVEL } from './level';
 export { RECORD_SHAPE } from './shape';

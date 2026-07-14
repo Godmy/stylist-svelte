@@ -1,6 +1,6 @@
-import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
-import type { GraphViewport } from '$stylist/architecture/type/struct/graph-viewport';
-import { DEFAULT_GRAPH_CANVAS } from '$stylist/architecture/const/record/graph-canvas';
+﻿import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
+import type { GraphViewport } from '$stylist/workspace/type/struct/graph-viewport';
+import { DEFAULT_GRAPH_CANVAS } from '$stylist/workspace/const/record/graph-canvas';
 import type { RecipeGraphCanvas } from '$stylist/workspace/interface/recipe/graph-canvas';
 
 export function createGraphCanvasState(props: RecipeGraphCanvas) {

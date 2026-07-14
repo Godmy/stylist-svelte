@@ -41,6 +41,7 @@ export type {
 	TestResult,
 	TestResultsViewerProps,
 	TimeRange,
+	TokenTest,
 	TrafficAnalyticsProps,
 	TrafficDataPoint,
 	TrafficSource,

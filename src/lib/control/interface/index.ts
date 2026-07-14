@@ -107,6 +107,7 @@ export type {
 	SlotQuantitySelector,
 	SlotRadio,
 	SlotRangeInput,
+	SlotRangeSlider,
 	SlotSearchBar,
 	SlotSearchBarEvents,
 	SlotSearchSuggestion,

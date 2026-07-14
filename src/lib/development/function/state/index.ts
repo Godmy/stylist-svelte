@@ -23,5 +23,6 @@ export { createLiveCodeSectionState } from './live-code-section';
 export { createMockDataSelectorState } from './mock-data-selector';
 export { createPrivacySettingsState } from './privacy-settings';
 export { createResourceOptimizerState } from './resource-optimizer';
+export { createStackState } from './stack';
 export { createStylistState } from './stylist';
 export { createSyntaxHighlightedCodeState } from './syntax-highlighted-code';

@@ -1,7 +1,7 @@
-import type { HTMLAttributes } from 'svelte/elements';
+﻿import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
-import type { RecipeAtomicPrinciples } from '$stylist/information/interface/recipe/atomic-principles';
+import type { RecipeAtomicPrinciples } from '$stylist/development/interface/recipe/atomic-principles';
 import type { AtomicPrinciplesShowcaseAtomicPrinciplesStats } from '$stylist/development/type/struct/atomic-principles-showcase-atomic-principles-stats';
 
 export type AtomicPrinciplesShowcaseProps = RecipeAtomicPrinciples &

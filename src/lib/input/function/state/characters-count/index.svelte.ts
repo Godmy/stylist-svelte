@@ -1,4 +1,5 @@
-import createCharacterCountScriptState from '$stylist/information/function/state/characters-count/index.svelte';
+import createCharacterCountScriptState from '$stylist/input/function/state/character-count/index.svelte';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { SlotCharacterCount as ICharacterCountProps } from '$stylist/input/interface/slot/character-count';
 
 export const createCharactersCountState = (props: ICharacterCountProps) => {
@@ -24,7 +25,7 @@ export const createCharactersCountState = (props: ICharacterCountProps) => {
 			return message;
 		},
 		get classes() {
-			return [state.classes, state.colorClass].filter(Boolean).join(' ');
+			return mergeClassNames('characters-count', state.colorClass, props.class);
 		}
 	};
 };

@@ -1,5 +1,5 @@
 import type { SlotQuoteRequestContract } from '$stylist/commerce/interface/slot/quote-request-contract';
-import type { QuoteRequestValue } from '$stylist/input/type/struct/interaction-input/quote-request-value';
+import type { QuoteRequestValue } from '$stylist/commerce/type/struct/quote-request-value';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { HTMLAttributes } from 'svelte/elements';

@@ -20,7 +20,6 @@ import { TOKEN_MARKETING_SETTING } from '$stylist/token/const/object/marketing';
 import { TOKEN_MEDIA_SETTING } from '$stylist/token/const/object/media';
 import { TOKEN_NOTIFICATION_SETTING } from '$stylist/token/const/object/notification';
 import { TOKEN_PLAYGROUND_SETTING } from '$stylist/token/const/object/playground';
-import { TOKEN_SCIENCE_SETTING } from '$stylist/token/const/object/science';
 import { TOKEN_SVG_SETTING } from '$stylist/token/const/object/svg';
 import { TOKEN_TABLE_SETTING } from '$stylist/token/const/object/table';
 import { TOKEN_THEME_SETTING } from '$stylist/token/const/object/theme';
@@ -49,7 +48,6 @@ export const TOKEN_SETTING = [
 	...TOKEN_MEDIA_SETTING,
 	...TOKEN_NOTIFICATION_SETTING,
 	...TOKEN_PLAYGROUND_SETTING,
-	...TOKEN_SCIENCE_SETTING,
 	...TOKEN_SVG_SETTING,
 	...TOKEN_TABLE_SETTING,
 	...TOKEN_THEME_SETTING,

@@ -22,7 +22,6 @@ export { TOKEN_MEDIA_SETTING } from './media';
 export { TOKEN_NOTIFICATION_SETTING } from './notification';
 export { L6_TOKEN_DEFINITIONS } from './orbit-control-definition';
 export { TOKEN_PLAYGROUND_SETTING } from './playground';
-export { TOKEN_SCIENCE_SETTING } from './science';
 export { TOKEN_SVG_SETTING } from './svg';
 export { TOKEN_TABLE_SETTING } from './table';
 export { TOKEN_THEME_SETTING } from './theme';

@@ -84,6 +84,8 @@ export type {
 	TokenChart
 } from './type';
 export type {
+	BehaviorBarClickable,
+	BehaviorCellClickable,
 	BehaviorChartAxis,
 	BehaviorChartColorable,
 	BehaviorLegendable,

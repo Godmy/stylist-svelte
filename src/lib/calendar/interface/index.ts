@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { DatePickerValue } from './slot';
-export type { BehaviorTimeRangeFilter } from './behavior';
 export type {
 	RecipeCalendarView,
 	RecipeMiniCalendar,

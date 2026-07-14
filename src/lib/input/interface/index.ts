@@ -8,12 +8,9 @@ export type {
 	RecipeTagInput,
 	RecipeTextArea,
 	RecipeTextAreaProps,
-	RichTextEditorStateProps,
-	SearchBarStateProps,
-	VariablesEditorStateProps
+	RichTextEditorStateProps
 } from './recipe';
 export type {
-	ContentElement,
 	SlotCharacterCount,
 	SlotFieldHighlighter,
 	SlotFieldHighlighterSelectedField,
@@ -30,6 +27,7 @@ export type {
 	SlotInputGroup,
 	SlotInputHelper,
 	SlotInputHelperChildren,
+	SlotInputLabel,
 	SlotInputPassword,
 	SlotInputWithHelper,
 	SlotInputWithLabel,
@@ -37,7 +35,6 @@ export type {
 	SlotNumberInput,
 	SlotPhoneNumberInput,
 	SlotPinInputDigit,
-	SlotRangeSlider,
 	SlotTagInput,
 	SlotTextarea
 } from './slot';
