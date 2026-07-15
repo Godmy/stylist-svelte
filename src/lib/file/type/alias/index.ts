@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { DataExporterFormat } from './data-exporter-format';
+export type { ExportFormat } from './export-format';
 export type { ViewMode } from './file-explorer-view-mode';
 export type { FileItemType } from './file-item-type';
 export type { FileStateOptions } from './file-state-options';

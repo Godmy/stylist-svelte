@@ -2,7 +2,7 @@ import type { Token } from '$stylist/token/type/struct/token';
 import { TOKEN_BUTTON_LOADER_CLASSES } from '$stylist/control/const/array/button-loader-classes';
 import { TOKEN_CUBE_FACE_NAME } from '$stylist/control/const/array/cube-face-name';
 import { TOKEN_CUBE_FACE_TITLE } from '$stylist/control/const/array/cube-face-title';
-import { EXPORT_FORMAT } from '$stylist/control/const/array/export-format';
+import { EXPORT_FORMAT } from '$stylist/file/const/array/export-format';
 import { FILTER_PANEL_LAYOUT } from '$stylist/control/const/array/filter-panel-layout';
 import { TOKEN_SELECTOR_KIND } from '$stylist/control/const/array/selection-kind';
 import { TOKEN_SELECTION_TYPE } from '$stylist/control/const/array/selection-type';

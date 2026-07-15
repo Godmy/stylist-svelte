@@ -1,18 +1,8 @@
 <script lang="ts">
-	import type { SlotPinInputDigit as IPinInputDigitProps } from '$stylist/input/interface/slot/pin-input-digit';
+	import type { RecipePinInputDigit as IPinInputDigitProps } from '$stylist/input/interface/recipe/input-pin-digit';
 	import createPinInputDigitState from '$stylist/input/function/state/input-pin-digit/index.svelte';
-	import type { HTMLInputAttributes } from 'svelte/elements';
 
-	let props: IPinInputDigitProps &
-		Omit<
-			HTMLInputAttributes,
-			'size' | 'class' | 'onchange' | 'onfocus' | 'onblur' | 'onkeydown'
-		> & {
-			focused?: boolean;
-			invalid?: boolean;
-			variant?: string;
-			size?: 'sm' | 'md' | 'lg';
-		} = $props();
+	let props: IPinInputDigitProps = $props();
 	const state = createPinInputDigitState({
 		variant: (props.variant ?? 'default') as
 			| 'default'

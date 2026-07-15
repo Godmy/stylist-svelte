@@ -3,9 +3,7 @@
 	import { onMount } from 'svelte';
 	import InputLabel from '$stylist/input/component/atom/input-label/index.svelte';
 	import createInputTextState from '$stylist/input/function/state/input-text/index.svelte';
-	import type { SlotInputBase as IInputBaseProps } from '$stylist/input/interface/slot/input-base';
-	import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-	import type { TokenSize } from '$stylist/theme/type/alias/size';
+	import type { RecipeInputText as IInputBaseProps } from '$stylist/input/interface/recipe/input-text';
 
 	let {
 		variant = 'default',
@@ -36,7 +34,7 @@
 		max,
 		step,
 		...restProps
-	}: IInputBaseProps<TokenAppearance, TokenSize> = $props();
+	}: IInputBaseProps = $props();
 
 	const state = createInputTextState({
 		variant,

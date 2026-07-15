@@ -2,6 +2,7 @@
 export type { RecipeDownloadCard } from './download-card';
 export type { RecipeDragDropFileUpload } from './drag-drop-file-upload';
 export type { RecipeDropZone } from './drop-zone';
+export type { RecipeExportPanel } from './export-panel';
 export type { RecipeFileBrowser } from './file-browser';
 export type { RecipeFileExplorer } from './file-explorer';
 export type { RecipeFileInput } from './file-input';

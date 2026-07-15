@@ -8,6 +8,7 @@ export {
 	DocumentPreview,
 	DragDropFileUpload,
 	DropZone,
+	ExportPanel,
 	FileBrowser,
 	FileExplorer,
 	FileListItem,

@@ -2,6 +2,7 @@
 export { toggleCollapsed } from './script';
 export {
 	createAddressFormState,
+	createCheckboxGroupState,
 	createFormErrorMessageState,
 	createFormFooterState,
 	createFormHeaderState,
@@ -9,8 +10,11 @@ export {
 	createFormSelectionState,
 	createFormWithValidationState,
 	createLoginFormState,
+	createRadioButtonGroupState,
 	createRadioGroupState,
 	createScreenReaderState,
+	createSearchBarState,
 	createSearchFormState,
+	createToggleButtonGroupState,
 	createValidationState
 } from './state';

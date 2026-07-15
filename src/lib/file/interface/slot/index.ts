@@ -6,6 +6,8 @@ export type { SlotDragDropFileUpload } from './drag-drop-file-upload';
 export type { SlotDropItem } from './drop-item';
 export type { SlotDropZone } from './drop-zone';
 export type { SlotDropZoneStyleClasses } from './drop-zone-style-classes';
+export type { SlotExportPanel } from './export-panel';
+export type { SlotExportPanelStyleClasses } from './export-panel-style-classes';
 export type { SlotFileBrowser } from './file-browser';
 export type { SlotFileExplorer } from './file-explorer';
 export type { SlotFileInput } from './file-input';

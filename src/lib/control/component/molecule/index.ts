@@ -1,24 +1,14 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AccordionGroup } from './accordion-group/index';
-export { Accordion } from './accordion/index';
 export { AvatarSelector } from './avatar-selector/index';
 export { Button } from './button/index';
-export { CheckboxGroup } from './checkbox-group/index';
 export { ControlPanel } from './control-panel/index';
 export { DragAndDropList } from './drag-and-drop-list/index';
-export { DropdownMenu } from './dropdown-menu/index';
 export { FilterPanel } from './filter-panel/index';
 export { IconToolbar } from './icon-toolbar/index';
 export { QuantitySelector } from './quantity-selector/index';
-export { RadioButtonGroup } from './radio-button-group/index';
 export { RangeInput } from './range-input/index';
 export { RangeSlider } from './range-slider/index';
-export { SearchBar } from './search-bar/index';
 export { Selector } from './selector/index';
 export { SliderWithInput } from './slider-with-input/index';
-export { StylistTab } from './stylist-tab/index';
-export { TabGroup } from './tab-group/index';
-export { Tabs } from './tabs/index';
-export { ToggleButtonGroup } from './toggle-button-group/index';
 export { Toolbar } from './toolbar/index';
 export { ZoomToolbar } from './zoom-toolbar/index';

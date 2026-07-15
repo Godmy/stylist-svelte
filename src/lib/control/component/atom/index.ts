@@ -1,10 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AccessibilityCheckbox } from './accessibility-checkbox/index';
-export { AccordionLayout } from './accordion-layout/index';
 export { ActionSegmentedControl } from './action-segmented-control/index';
 export { AutoSearch } from './auto-search/index';
 export { AutocompleteDropdown } from './autocomplete-dropdown/index';
-export { BurgerMenu } from './burger-menu/index';
 export { ButtonComposed } from './button-composed/index';
 export { Button } from './button/index';
 export { Checkbox } from './checkbox/index';
@@ -14,17 +12,10 @@ export { CopyButton } from './copy-button/index';
 export { CubeControl } from './cube-control/index';
 export { FollowButton } from './follow-button/index';
 export { IconButton } from './icon-button/index';
-export { MenuItem } from './menu-item/index';
-export { PageButton } from './page-button/index';
 export { Radio } from './radio/index';
 export { SearchSuggestion } from './search-suggestion/index';
 export { SplitButton } from './split-button/index';
 export { Switch } from './switch/index';
-export { TabIndicator } from './tab-indicator/index';
-export { TabList } from './tab-list/index';
-export { TabPanel } from './tab-panel/index';
-export { TabPanels } from './tab-panels/index';
-export { Tab } from './tab/index';
 export { Tag } from './tag/index';
 export { Tick } from './tick/index';
 export { ToggleGroupItem } from './toggle-group-item/index';

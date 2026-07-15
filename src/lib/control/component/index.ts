@@ -1,11 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	AccessibilityCheckbox,
-	AccordionLayout,
 	ActionSegmentedControl,
 	AutoSearch,
 	AutocompleteDropdown,
-	BurgerMenu,
 	Button,
 	ButtonComposed,
 	Checkbox,
@@ -15,17 +13,10 @@ export {
 	CubeControl,
 	FollowButton,
 	IconButton,
-	MenuItem,
-	PageButton,
 	Radio,
 	SearchSuggestion,
 	SplitButton,
 	Switch,
-	Tab,
-	TabIndicator,
-	TabList,
-	TabPanel,
-	TabPanels,
 	Tag,
 	Tick,
 	ToggleGroupItem,
@@ -35,26 +26,16 @@ export {
 	ZoomControls
 } from './atom';
 export {
-	Accordion,
-	AccordionGroup,
 	AvatarSelector,
-	CheckboxGroup,
 	ControlPanel,
 	DragAndDropList,
-	DropdownMenu,
 	FilterPanel,
 	IconToolbar,
 	QuantitySelector,
-	RadioButtonGroup,
 	RangeInput,
 	RangeSlider,
-	SearchBar,
 	Selector,
 	SliderWithInput,
-	StylistTab,
-	TabGroup,
-	Tabs,
-	ToggleButtonGroup,
 	Toolbar,
 	ZoomToolbar
 } from './molecule';
@@ -63,13 +44,11 @@ export {
 	AutoComplete,
 	Combobox,
 	Controls,
-	ExportPanel,
 	FilterBar,
 	ListWithAvatars,
 	MultiSelect,
 	PageBuilder,
 	SearchResults,
 	SortableGrid,
-	SortableList,
-	StylistMenu
+	SortableList
 } from './organism';

@@ -11,6 +11,8 @@ export type { SlotLoginFormState } from './login-form-state';
 export type { SlotRadioGroupState } from './radio-group-state';
 export type { SlotScreenReader } from './screen-reader';
 export type { SlotScreenReaderState } from './screen-reader-state';
+export type { SlotSearchBar } from './search-bar';
+export type { SlotSearchBarEvents } from './search-bar-events';
 export type { SlotSearchForm } from './search-form';
 export type { SlotSearchFormState } from './search-form-state';
 export type { SlotValidationState } from './validation-state';

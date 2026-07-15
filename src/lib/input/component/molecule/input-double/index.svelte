@@ -1,6 +1,6 @@
 <script lang="ts">
 	import InputText from '$stylist/input/component/molecule/input-text/index.svelte';
-	import type { SlotInputDouble as IInputDoubleProps } from '$stylist/input/interface/slot/input-double';
+	import type { RecipeInputDouble as IInputDoubleProps } from '$stylist/input/interface/recipe/input-double';
 
 	let {
 		value1 = $bindable<string>(''),

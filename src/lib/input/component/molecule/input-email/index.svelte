@@ -1,15 +1,9 @@
 ﻿<script lang="ts">
-	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { SlotInputEmail } from '$stylist/input/interface/slot/input-email';
+	import type { RecipeInputEmail } from '$stylist/input/interface/recipe/input-email';
 	import createInputEmailState from '$stylist/input/function/state/input-email/index.svelte';
 	import InputText from '$stylist/input/component/molecule/input-text/index.svelte';
 
-	let {
-		value = $bindable<string>(''),
-		...props
-	}: SlotInputEmail &
-		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> =
-		$props();
+	let { value = $bindable<string>(''), ...props }: RecipeInputEmail = $props();
 	const state = createInputEmailState(props);
 </script>
 

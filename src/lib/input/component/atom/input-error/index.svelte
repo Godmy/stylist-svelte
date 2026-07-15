@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotInputError } from '$stylist/input/interface/slot/input-error';
+	import type { RecipeInputError } from '$stylist/input/interface/recipe/input-error';
 	import createInputErrorState from '$stylist/input/function/state/input-error/index.svelte';
 
-	let props: SlotInputError = $props();
+	let props: RecipeInputError = $props();
 	const state = createInputErrorState(props);
 	const restProps = $derived.by(() => {
 		const { class: _class, text: _text, visible: _visible, ...rest } = props;

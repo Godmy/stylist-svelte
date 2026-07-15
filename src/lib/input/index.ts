@@ -55,11 +55,23 @@ export type {
 	TextAreaStateOptions
 } from './type';
 export type {
+	RecipeCharacterCount,
+	RecipeFieldHighlighter,
+	RecipeInputAddon,
+	RecipeInputDouble,
+	RecipeInputEmail,
+	RecipeInputError,
 	RecipeInputField,
 	RecipeInputFieldProps,
+	RecipeInputGroup,
+	RecipeInputHelper,
+	RecipeInputLabel,
+	RecipeInputPassword,
+	RecipeInputText,
 	RecipeNumberInput,
 	RecipeNumberInputProps,
 	RecipePhoneNumberInput,
+	RecipePinInputDigit,
 	RecipeTagInput,
 	RecipeTextArea,
 	RecipeTextAreaProps,

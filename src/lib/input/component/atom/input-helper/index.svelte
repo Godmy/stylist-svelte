@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotInputHelper as IInputHelperProps } from '$stylist/input/interface/slot/input-helper';
+	import type { RecipeInputHelper as IInputHelperProps } from '$stylist/input/interface/recipe/input-helper';
 	import createInputHelperState from '$stylist/input/function/state/input-helper/index.svelte';
 
 	let props: IInputHelperProps = $props();

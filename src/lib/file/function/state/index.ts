@@ -5,6 +5,7 @@ export { createDocumentPreviewState } from './document-preview';
 export { createDownloadCardState } from './download-card';
 export { createDragDropFileUploadState } from './drag-drop-file-upload';
 export { createDropZoneState } from './drop-zone';
+export { createExportPanelState } from './export-panel';
 export { createFileBrowserState } from './file-browser';
 export { createFileExplorerState } from './file-explorer';
 export { createFileInputState } from './file-input';

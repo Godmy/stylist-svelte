@@ -1,15 +1,12 @@
 <script lang="ts">
 	import '$stylist/input/const/style/field/index.css';
-	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import type { SlotInputGroup as IInputGroupProps } from '$stylist/input/interface/slot/input-group';
+	import type { RecipeInputGroup as IInputGroupProps } from '$stylist/input/interface/recipe/input-group';
 	import createInputGroupState from '$stylist/input/function/state/input-group/index.svelte';
 	import Button from '$stylist/control/component/atom/button/index.svelte';
 	import InputLabel from '$stylist/input/component/atom/input-label/index.svelte';
 
-	let props: IInputGroupProps &
-		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> =
-		$props();
+	let props: IInputGroupProps = $props();
 	const state = createInputGroupState(props);
 
 	let inputElement: HTMLInputElement | null = null;

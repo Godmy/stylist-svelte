@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotInputAddon as IInputAddonProps } from '$stylist/input/interface/slot/input-addon';
+	import type { RecipeInputAddon as IInputAddonProps } from '$stylist/input/interface/recipe/input-addon';
 	import createInputAddonState from '$stylist/input/function/state/input-addon/index.svelte';
 
-	let props: IInputAddonProps & { position?: 'left' | 'right' } = $props();
+	let props: IInputAddonProps = $props();
 	const state = createInputAddonState({
 		variant: props.variant,
 		size: 'md',

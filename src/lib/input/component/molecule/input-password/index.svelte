@@ -1,18 +1,15 @@
 <script lang="ts">
 	import '$stylist/input/const/style/field/index.css';
-	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import InputLabel from '$stylist/input/component/atom/input-label/index.svelte';
-	import type { SlotInputPassword as IInputPasswordProps } from '$stylist/input/interface/slot/input-password';
+	import type { RecipeInputPassword as IInputPasswordProps } from '$stylist/input/interface/recipe/input-password';
 	import createInputPasswordState from '$stylist/input/function/state/input-password/index.svelte';
 
 	const Eye = 'eye';
 	const EyeOff = 'eye-off';
 
-	let props: IInputPasswordProps &
-		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> =
-		$props();
+	let props: IInputPasswordProps = $props();
 	const state = createInputPasswordState(props);
 
 	let inputElement: HTMLInputElement | null = null;

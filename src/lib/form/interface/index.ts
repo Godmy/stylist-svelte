@@ -3,7 +3,10 @@ export type {
 	RecipeAccountForms,
 	RecipeFormFooter,
 	RecipeFormHeader,
-	RecipeInteractionForms
+	RecipeInteractionForms,
+	RecipeRadioButtonGroupProps,
+	RecipeSearchBar,
+	RecipeSearchBarProps
 } from './recipe';
 export type {
 	SlotAddressForm,
@@ -18,6 +21,8 @@ export type {
 	SlotRadioGroupState,
 	SlotScreenReader,
 	SlotScreenReaderState,
+	SlotSearchBar,
+	SlotSearchBarEvents,
 	SlotSearchForm,
 	SlotSearchFormState,
 	SlotValidationState

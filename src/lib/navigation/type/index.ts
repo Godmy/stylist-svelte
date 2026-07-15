@@ -6,12 +6,18 @@ export type {
 	BreadcrumbsProps,
 	DialogConfirmProps,
 	DrawerProps,
+	FunctionalTabItem,
 	GeneralToolbarRecipe,
 	NavItem,
+	PrimaryMenuItem,
 	SideBySideLayoutProps,
 	SideBySideLayoutRestProps,
 	SideBySideSection,
 	Step,
 	StepperProps,
+	StylistMenuProps,
+	StylistTabItem,
+	StylistTabProps,
+	TabItem,
 	ToolbarItem
 } from './struct';

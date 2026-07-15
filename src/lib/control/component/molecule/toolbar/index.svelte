@@ -8,7 +8,7 @@
 	import { toolbarHandleSearchToggle } from '$stylist/control/function/script/toolbar-handle-search-toggle';
 	import { toolbarHandleZoomOut } from '$stylist/control/function/script/toolbar-handle-zoom-out';
 	import { toolbarHandleZoomIn } from '$stylist/control/function/script/toolbar';
-	import type { ExportFormat } from '$stylist/control/type/alias/export-format';
+	import type { ExportFormat } from '$stylist/file/type/alias/export-format';
 
 	let props = $props<{
 		onZoomIn?: () => void;
