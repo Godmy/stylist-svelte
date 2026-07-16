@@ -41,7 +41,7 @@
 			<div class="_c2">
 				<button class="_c3">
 					Messages
-					<span class="_c4 _c1">
+					<span class="_c4">
 						<CountBadge
 							count={Number.isNaN(count) ? 12 : count}
 							max={Number.isNaN(max) ? 99 : max}
@@ -74,21 +74,20 @@
 		margin-top: 2rem;
 	}
 	._c2 {
-		border-color: var(--color-border-primary);
-		background-color: var(--color-background-primary);
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
 		border-radius: 1rem;
-		border-width: 1px;
-		border-style: solid;
+		border: 1px solid var(--color-border-primary, #d1d5db);
+		background-color: var(--color-background-primary, #ffffff);
 		padding: 1rem;
 		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 	}
 	._c3 {
 		position: relative;
 		border-radius: 0.75rem;
-		background-color: var(--color-neutral-900);
+		border: 0;
+		background-color: var(--color-neutral-900, #111827);
 		padding-left: 1rem;
 		padding-right: 1rem;
 		padding-top: 0.5rem;
@@ -96,15 +95,16 @@
 		font-size: 0.875rem;
 		line-height: 1.25rem;
 		font-weight: 600;
-		color: var(--color-text-inverse);
+		color: var(--color-text-inverse, #ffffff);
 	}
 	._c4 {
 		position: absolute;
+		top: -0.5rem;
+		right: -0.5rem;
 	}
 	._c5 {
 		border-radius: 1rem;
-		border-width: 1px;
-		border-style: solid;
+		border: 1px solid var(--color-border-primary, #d1d5db);
 		padding: 1rem;
 		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 	}
@@ -113,8 +113,7 @@
 		line-height: 1.25rem;
 	}
 	._c6 > * + * {
-		border-top-width: 1px;
-		border-style: solid;
+		border-top: 1px solid var(--color-border-primary, #d1d5db);
 	}
 	._c7 {
 		display: flex;
@@ -124,23 +123,6 @@
 		padding-bottom: 0.75rem;
 	}
 	._c8 {
-		color: var(--color-text-primary);
-	}
-
-	._c1 {
-		top: -0.5rem;
-		right: -0.5rem;
-	}
-	@media (prefers-color-scheme: dark) {
-		._c2 {
-			border-color: var(--color-border-primary);
-			background-color: var(--color-background-primary);
-			border-color: var(--color-border-primary);
-		}
-	}
-	@media (prefers-color-scheme: dark) {
-		._c3 {
-			color: var(--color-neutral-200);
-		}
+		color: var(--color-text-primary, #111827);
 	}
 </style>

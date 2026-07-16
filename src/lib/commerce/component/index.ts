@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ProductSort } from './atom';
 export {
 	AlertCard,
 	ArticleCard,
@@ -13,27 +12,13 @@ export {
 	PriceFilter,
 	PriceHistory,
 	PriceMatch,
-	PricingTable,
-	ProductAvailability,
-	ProductCard,
-	ProductCardCompact,
-	ProductCardWithActions,
-	ProductCarousel,
-	ProductComparison,
-	ProductComparisonTable,
-	ProductDemo,
-	ProductGallery,
-	ProductRecommendation,
-	ProductSearch,
-	ProductWishlist,
-	WishlistButton
+	PricingTable
 } from './molecule';
 export {
 	BillingSummary,
 	BulkOrderForm,
 	CartSummary,
 	CheckoutForm,
-	ComparisonCard,
 	CurrencyConverter,
 	DiscountApplier,
 	InventoryTracker,
@@ -44,11 +29,6 @@ export {
 	PaymentMethodSelector,
 	PaymentSelector,
 	PaymentSummary,
-	ProductCardExtended,
-	ProductCatalog,
-	ProductReviews,
-	ProductSorting,
-	ProductTour,
 	QuoteRequest,
 	ReturnPolicy,
 	Rfqform,

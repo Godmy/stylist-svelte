@@ -26,10 +26,10 @@
 
 	{#if state.showActions}
 		<div class="attachment-actions">
-			<Button variant="ghost" size="sm" onclick={state.download} title="Скачать">
+			<Button variant="ghost" size="sm" onclick={state.download} title="Download">
 				<Icon name="download" size="sm" />
 			</Button>
-			<Button variant="ghost" size="sm" onclick={state.remove} title="Удалить">
+			<Button variant="ghost" size="sm" onclick={state.remove} title="Remove">
 				<Icon name="x" size="sm" />
 			</Button>
 		</div>
@@ -40,47 +40,50 @@
 	.attachment-preview {
 		display: flex;
 		align-items: center;
-		gap: var(--spacing-3);
-		padding: var(--spacing-3);
-		background-color: var(--color-background-secondary);
-		border-radius: var(--border-radius-lg);
-		border: 1px solid var(--color-border-primary);
+		gap: var(--spacing-3, 0.75rem);
+		min-width: 0;
+		padding: var(--spacing-3, 0.75rem);
+		border: 1px solid var(--color-border-primary, #d1d5db);
+		border-radius: var(--border-radius-lg, 0.75rem);
+		background-color: var(--color-background-secondary, #f9fafb);
 	}
 
 	.attachment-icon {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: var(--spacing-12);
-		height: var(--spacing-12);
-		border-radius: var(--border-radius-lg);
-		background-color: var(--color-background-tertiary);
-		color: var(--color-text-secondary);
+		flex: 0 0 auto;
+		width: var(--spacing-12, 3rem);
+		height: var(--spacing-12, 3rem);
+		border-radius: var(--border-radius-lg, 0.75rem);
+		background-color: var(--color-background-tertiary, #eef2ff);
+		color: var(--color-text-secondary, #4b5563);
 	}
 
 	.attachment-details {
 		flex: 1;
-		min-width: var(--size-0);
+		min-width: var(--size-0, 0);
 	}
 
 	.attachment-name {
-		font-weight: var(--font-weight-medium);
-		color: var(--color-text-primary);
-		font-size: var(--font-size-3);
-		white-space: nowrap;
 		overflow: hidden;
+		color: var(--color-text-primary, #111827);
+		font-size: var(--font-size-3, 0.875rem);
+		font-weight: var(--font-weight-medium, 600);
 		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.attachment-info {
 		display: flex;
-		gap: var(--spacing-2);
-		font-size: var(--font-size-3);
-		color: var(--color-text-secondary);
+		gap: var(--spacing-2, 0.5rem);
+		color: var(--color-text-secondary, #4b5563);
+		font-size: var(--font-size-3, 0.875rem);
 	}
 
 	.attachment-actions {
 		display: flex;
-		gap: var(--spacing-1);
+		flex: 0 0 auto;
+		gap: var(--spacing-1, 0.25rem);
 	}
 </style>

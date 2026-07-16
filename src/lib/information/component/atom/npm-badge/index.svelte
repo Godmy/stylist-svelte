@@ -40,6 +40,56 @@
 {/if}
 
 <style>
+	.npm-badge-link {
+		display: inline-flex;
+		align-items: center;
+		width: fit-content;
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.npm-badge-link:hover {
+		opacity: var(--opacity-80, 0.8);
+	}
+
+	.npm-badge {
+		display: inline-flex;
+		align-items: center;
+		width: fit-content;
+		max-width: 100%;
+		padding: 0.125rem 0.625rem;
+		border-radius: 999px;
+		font-size: 0.75rem;
+		font-weight: 600;
+		line-height: 1.25rem;
+		white-space: nowrap;
+	}
+
+	.npm-badge--version {
+		background: var(--color-primary-100);
+		color: var(--color-primary-800);
+	}
+
+	.npm-badge--downloads {
+		background: var(--color-success-100);
+		color: var(--color-success-800);
+	}
+
+	.npm-badge--license {
+		background: var(--color-secondary-100);
+		color: var(--color-secondary-800);
+	}
+
+	.npm-badge--size {
+		background: var(--color-warning-100);
+		color: var(--color-warning-800);
+	}
+
+	.npm-badge--custom {
+		background: var(--color-neutral-100);
+		color: var(--color-neutral-800);
+	}
+
 	.npm-badge-label {
 		font-weight: 600;
 	}

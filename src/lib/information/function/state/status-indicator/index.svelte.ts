@@ -9,6 +9,7 @@ export function createStatusIndicatorState(props: RecipeStatusIndicator) {
 	const className = $derived(typeof props.class === 'string' ? props.class : undefined);
 	const customColor = $derived(props.customColor);
 	const size = $derived(props.size ?? 'md');
+	const sizeClass = $derived(`status-indicator__indicator--${String(size).replaceAll('/', '-')}`);
 	const showLabel = $derived(props.showLabel ?? true);
 	const indicatorClass = $derived(props.indicatorClass ?? '');
 	const labelClass = $derived(props.labelClass ?? '');
@@ -28,7 +29,7 @@ export function createStatusIndicatorState(props: RecipeStatusIndicator) {
 			: [
 					'status-indicator__indicator',
 					`status-indicator__indicator--${appearance}`,
-					`status-indicator__indicator--${size}`,
+					sizeClass,
 					indicatorClass
 				]
 					.filter(Boolean)

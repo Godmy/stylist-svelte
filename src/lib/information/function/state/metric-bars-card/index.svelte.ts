@@ -9,18 +9,13 @@ export function createMetricBarsCardState(props: RecipeMetricBarsCard) {
 	const color = $derived(props.color ?? 'var(--color-primary-500)');
 	const trackColor = $derived(props.trackColor ?? 'var(--color-neutral-200)');
 	const containerClasses = $derived(
-		mergeClassNames(
-			'flex flex-col gap-5 rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-background-primary)] p-6 shadow-sm',
-			props.class == null ? '' : String(props.class)
-		)
+		mergeClassNames('metric-bars-card', props.class == null ? '' : String(props.class))
 	);
-	const headerClasses = $derived('flex items-start justify-between gap-4');
-	const titleClasses = $derived('text-lg font-semibold text-[var(--color-text-primary)]');
-	const captionClasses = $derived('mt-1 text-sm text-[var(--color-text-secondary)]');
-	const totalClasses = $derived(
-		'text-lg font-semibold tabular-nums text-[var(--color-text-primary)]'
-	);
-	const barsClasses = $derived('flex flex-col gap-4');
+	const headerClasses = $derived('metric-bars-card__header');
+	const titleClasses = $derived('metric-bars-card__title');
+	const captionClasses = $derived('metric-bars-card__caption');
+	const totalClasses = $derived('metric-bars-card__total');
+	const barsClasses = $derived('metric-bars-card__bars');
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,

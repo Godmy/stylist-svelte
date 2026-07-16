@@ -9,17 +9,13 @@ export function createMetricBarState(props: RecipeMetricBar) {
 	const color = $derived(props.color ?? 'var(--color-primary-500)');
 	const trackColor = $derived(props.trackColor ?? 'var(--color-neutral-200)');
 	const containerClasses = $derived(
-		mergeClassNames('flex flex-col gap-2', props.class == null ? '' : String(props.class))
+		mergeClassNames('metric-bar', props.class == null ? '' : String(props.class))
 	);
-	const headerClasses = $derived('flex items-center justify-between gap-3');
-	const labelClasses = $derived('text-sm font-medium text-[var(--color-text-primary)]');
-	const valueClasses = $derived('text-sm tabular-nums text-[var(--color-text-secondary)]');
-	const trackClasses = $derived(
-		'h-2 overflow-hidden rounded-full bg-[var(--metric-bar-track-color,var(--color-neutral-200))]'
-	);
-	const fillClasses = $derived(
-		'h-full rounded-full bg-[var(--metric-bar-color,var(--color-primary-500))] transition-[width] duration-300 ease-out'
-	);
+	const headerClasses = $derived('metric-bar__header');
+	const labelClasses = $derived('metric-bar__label');
+	const valueClasses = $derived('metric-bar__value');
+	const trackClasses = $derived('metric-bar__track');
+	const fillClasses = $derived('metric-bar__fill');
 	const widthStyle = $derived(`width: ${percentage}%;`);
 	const cssVariables = $derived(
 		`--metric-bar-color: ${color}; --metric-bar-track-color: ${trackColor};`

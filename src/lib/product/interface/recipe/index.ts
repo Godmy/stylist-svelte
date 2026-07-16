@@ -1,0 +1,22 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { RecipeComparisonCard } from './comparison-card';
+export type { RecipeProductAvailability } from './product-availability';
+export type { RecipeProductCard } from './product-card';
+export type { ProductCardCompactProps } from './product-card-compact-props';
+export type { RecipeProductCardExtended } from './product-card-extended';
+export type { ProductCardWithActionsProps } from './product-card-with-actions-props';
+export type { RecipeProductCarousel } from './product-carousel';
+export type { RecipeProductCatalog } from './product-catalog';
+export type { RecipeProductComparison } from './product-comparison';
+export type { RecipeProductComparisonFeature } from './product-comparison-feature';
+export type { RecipeProductComparisonTable } from './product-comparison-table';
+export type { RecipeProductDemo } from './product-demo';
+export type { RecipeProductGallery } from './product-gallery';
+export type { RecipeProductRecommendation } from './product-recommendation';
+export type { RecipeProductReviews } from './product-reviews';
+export type { RecipeProductSearch } from './product-search';
+export type { RecipeProductSort } from './product-sort';
+export type { RecipeProductSorting } from './product-sorting';
+export type { RecipeProductTour } from './product-tour';
+export type { RecipeProductWishlist } from './product-wishlist';
+export type { RecipeWishlistButton } from './wishlist-button';

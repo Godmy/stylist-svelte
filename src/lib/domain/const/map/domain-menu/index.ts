@@ -30,6 +30,7 @@ import { ICON_NOTIFICATION } from '$stylist/svg/const/value/notification';
 import { ICON_PLAYGROUND }   from '$stylist/svg/const/value/playground';
 import { ICON_PORTFOLIO }    from '$stylist/svg/const/value/portfolio';
 import { ICON_PRESENTATION } from '$stylist/svg/const/value/presentation';
+import { ICON_PRODUCT }      from '$stylist/svg/const/value/product';
 import { ICON_SERVER }       from '$stylist/svg/const/value/server';
 import { ICON_SOCIAL }       from '$stylist/svg/const/value/social';
 import { ICON_SVG }          from '$stylist/svg/const/value/svg';
@@ -73,6 +74,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'playground',   svg: ICON_PLAYGROUND },
 	{ name: 'portfolio',    svg: ICON_PORTFOLIO },
 	{ name: 'presentation', svg: ICON_PRESENTATION },
+	{ name: 'product',      svg: ICON_PRODUCT },
 	{ name: 'server',       svg: ICON_SERVER },
 	{ name: 'social',       svg: ICON_SOCIAL },
 	{ name: 'svg',          svg: ICON_SVG },

@@ -31,4 +31,49 @@
 </div>
 
 <style>
+	.metric-bar {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		min-width: 0;
+	}
+
+	.metric-bar__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.75rem;
+		min-width: 0;
+	}
+
+	.metric-bar__label {
+		min-width: 0;
+		overflow-wrap: anywhere;
+		font-size: 0.875rem;
+		font-weight: 600;
+		line-height: 1.25rem;
+		color: var(--color-text-primary);
+	}
+
+	.metric-bar__value {
+		flex: 0 0 auto;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+		color: var(--color-text-secondary);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.metric-bar__track {
+		height: 0.5rem;
+		overflow: hidden;
+		border-radius: 999px;
+		background: var(--metric-bar-track-color, var(--color-neutral-200));
+	}
+
+	.metric-bar__fill {
+		height: 100%;
+		border-radius: inherit;
+		background: var(--metric-bar-color, var(--color-primary-500));
+		transition: width 180ms ease-out;
+	}
 </style>

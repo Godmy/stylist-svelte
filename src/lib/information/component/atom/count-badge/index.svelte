@@ -21,4 +21,20 @@
 {/if}
 
 <style>
+	.count-badge {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 1.25rem;
+		height: 1.25rem;
+		padding: 0 0.375rem;
+		border-radius: 999px;
+		background: var(--color-danger-600, #dc2626);
+		color: var(--color-text-inverse, #ffffff);
+		font-size: 0.75rem;
+		font-weight: 700;
+		line-height: 1;
+		font-variant-numeric: tabular-nums;
+		white-space: nowrap;
+	}
 </style>

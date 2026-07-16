@@ -5,6 +5,13 @@
 
 	const variantOptions = ['default', 'success', 'warning', 'danger', 'info'] as const;
 	const sizeOptions = ['sm', 'md', 'lg'] as const;
+	const examples = [
+		{ label: 'Default', variant: 'default' },
+		{ label: 'Ready', variant: 'success' },
+		{ label: 'Review', variant: 'warning' },
+		{ label: 'Blocked', variant: 'danger' },
+		{ label: 'Info', variant: 'info' }
+	] as const;
 
 	type BadgeStoryProps = {
 		label: string;
@@ -29,18 +36,22 @@
 	{controls}
 >
 	{#snippet children(values: any)}
-		{#snippet badgeLabel()}
-			{(values as BadgeStoryProps).label || 'New'}
-		{/snippet}
-
 		<div class="_c1">
-			<Badge variant={(values as BadgeStoryProps).variant} size={(values as BadgeStoryProps).size}>
-				{@render badgeLabel()}
-			</Badge>
+			<Badge
+				label={(values as BadgeStoryProps).label || 'New'}
+				variant={(values as BadgeStoryProps).variant}
+				size={(values as BadgeStoryProps).size}
+			/>
+
+			<div class="_c3">
+				{#each examples as example}
+					<Badge label={example.label} variant={example.variant} size={(values as BadgeStoryProps).size} />
+				{/each}
+			</div>
 
 			<div class="_c2">
-				<p>Variants demonstrate different semantic contexts.</p>
-				<p>Use size to match surrounding typography.</p>
+				<p>Inline status marker for priorities, tags, counters, and short state labels.</p>
+				<p>Variants map the marker to a semantic state; size should follow nearby text.</p>
 			</div>
 		</div>
 	{/snippet}
@@ -58,5 +69,10 @@
 		font-size: 0.875rem;
 		line-height: 1.25rem;
 		color: var(--color-text-secondary);
+	}
+	._c3 {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
 	}
 </style>

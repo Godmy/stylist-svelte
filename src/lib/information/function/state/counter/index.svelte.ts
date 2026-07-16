@@ -6,8 +6,9 @@ export function createCounterState(props: RecipeCounter) {
 	const variant = $derived(props.variant ?? 'primary');
 	const size = $derived(props.size ?? 'md');
 	const className = $derived(typeof props.class === 'string' ? props.class : undefined);
+	const sizeClass = $derived(`counter--${String(size).replaceAll('/', '-')}`);
 	const classes = $derived(
-		['counter', `counter--${variant}`, `counter--${size}`, className].filter(Boolean).join(' ')
+		['counter', `counter--${variant}`, sizeClass, className].filter(Boolean).join(' ')
 	);
 	const displayCount = $derived(count > max ? `${max}+` : count);
 
