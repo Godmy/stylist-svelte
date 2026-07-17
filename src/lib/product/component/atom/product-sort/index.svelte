@@ -16,11 +16,7 @@
 		class={state.selectClasses}
 	>
 		{#each state.options as option}
-			{#if typeof option === 'string'}
-				<option value={option}>{option}</option>
-			{:else}
-				<option value={option.value}>{option.label}</option>
-			{/if}
+			<option value={option.value}>{option.label}</option>
 		{/each}
 	</select>
 </div>

@@ -11,6 +11,7 @@
 
 	function getProducts(count: number, basePrice: number, currency: string) {
 		return Array.from({ length: count }, (_, idx) => ({
+			id: `product-${idx + 1}`,
 			title: `Product ${idx + 1}`,
 			price: basePrice + idx * 25,
 			currency,

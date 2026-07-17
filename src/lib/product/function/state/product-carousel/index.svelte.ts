@@ -1,6 +1,6 @@
-import type { RecipeProductCarousel } from '$stylist/product/interface/recipe/product-carousel';
+import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 
-export function createProductCarouselState(props: RecipeProductCarousel) {
+export function createProductCarouselState(props: RecipeProductCollection) {
 	let currentIndex = $state(0);
 
 	function nextSlide() {

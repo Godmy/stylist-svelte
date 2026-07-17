@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { RecipeProductComparisonTable } from '$stylist/product/interface/recipe/product-comparison-table';
+	import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 	import { createProductComparisonTableState } from '$stylist/product/function/state/product-comparison-table/index.svelte';
 
-	let props: RecipeProductComparisonTable = $props();
+	let props: RecipeProductCollection = $props();
 	const state = createProductComparisonTableState(props);
 </script>
 
@@ -11,7 +11,7 @@
 		<thead>
 			<tr>
 				<th class={state.spacerCellClass}></th>
-				{#each props.products as product}
+				{#each props.products ?? [] as product}
 					<th class={state.productCellClass}>
 						<div class={state.productHeaderClass}>
 							{#if product.image}
@@ -38,7 +38,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each props.specifications as spec, index}
+			{#each props.specifications ?? [] as spec, index}
 				<tr class={state.getRowClass(index)}>
 					<td class={state.specCellClass}>{spec.name}</td>
 					{#each spec.values as value}

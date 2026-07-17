@@ -6,23 +6,29 @@
 	const state = createProductSearchState(props);
 </script>
 
-<div class="product-search" {...props}>
-	<div class="_c1">
+<div class={state.rootClasses}>
+	<div class="product-search__field">
 		<input
 			type="text"
 			bind:value={state.query}
 			oninput={(e) => state.handleInput((e.target as HTMLInputElement).value)}
 			onkeydown={(e) => e.key === 'Enter' && state.handleSearch()}
 			placeholder={props.placeholder ?? 'Search products...'}
-			class="ps-input-left _c2 _c1"
+			class="product-search__input"
 		/>
-		<button type="button" onclick={state.handleSearch} class="ps-btn-right _c3">Search</button>
+		<button type="button" onclick={state.handleSearch} class="product-search__button">
+			Search
+		</button>
 	</div>
 
 	{#if state.showSuggestions}
-		<div class="_c4 z-[var(--z-index-docked)]">
+		<div class="product-search__suggestions">
 			{#each props.suggestions ?? [] as suggestion}
-				<button type="button" onclick={() => state.selectSuggestion(suggestion)} class="_c5 _c2">
+				<button
+					type="button"
+					onclick={() => state.selectSuggestion(suggestion)}
+					class="product-search__suggestion"
+				>
 					{suggestion}
 				</button>
 			{/each}
@@ -31,64 +37,50 @@
 </div>
 
 <style>
-	._c1 {
+	.product-search__field {
 		display: flex;
 	}
-	._c2 {
+	.product-search__input {
 		flex: 1 1 0%;
-		border-width: 1px;
-		border-style: solid;
-		border-color: var(--color-border-primary);
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem 0 0 0.5rem;
 		padding: 0.75rem;
 	}
-	._c3 {
+	.product-search__input:focus {
+		outline: 2px solid transparent;
+		outline-offset: 2px;
+	}
+	.product-search__button {
+		border-radius: 0 0.5rem 0.5rem 0;
 		background-color: var(--color-primary-600);
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
-		padding-top: 0.75rem;
-		padding-bottom: 0.75rem;
+		padding: 0.75rem 1.5rem;
 		color: var(--color-text-inverse);
 	}
-	._c4 {
+	.product-search__suggestions {
 		position: absolute;
+		z-index: var(--z-index-docked);
 		margin-top: 0.25rem;
 		max-height: 15rem;
 		width: 100%;
 		overflow-y: auto;
 		border-radius: 0.5rem;
-		border-width: 1px;
-		border-style: solid;
-		border-color: var(--color-border-primary);
+		border: 1px solid var(--color-border-primary);
 		background-color: var(--color-background-primary);
 		box-shadow:
 			0 10px 15px -3px rgb(0 0 0 / 0.1),
 			0 4px 6px -4px rgb(0 0 0 / 0.1);
 	}
-	._c5 {
+	.product-search__suggestion {
 		display: block;
 		width: 100%;
-		border-bottom-width: 1px;
-		border-style: solid;
-		border-color: var(--color-border-primary);
+		border-bottom: 1px solid var(--color-border-primary);
 		padding: 0.75rem;
 		text-align: left;
 	}
-
-	._c1:focus {
-		outline: 2px solid transparent;
-		outline-offset: 2px;
-	}
-	._c2:hover {
+	.product-search__suggestion:hover {
 		background-color: var(--color-background-secondary);
 	}
-
-	.ps-input-left {
-		border-radius: 0.5rem 0 0 0.5rem;
-	}
-	.ps-btn-right {
-		border-radius: 0 0.5rem 0.5rem 0;
-	}
-	._c5:last-child {
+	.product-search__suggestion:last-child {
 		border-bottom: 0;
 	}
 </style>

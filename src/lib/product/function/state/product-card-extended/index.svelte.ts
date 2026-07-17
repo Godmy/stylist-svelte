@@ -1,6 +1,6 @@
-import type { RecipeProductCardExtended } from '$stylist/product/interface/recipe/product-card-extended';
+import type { RecipeProductCard } from '$stylist/product/interface/recipe/product-card';
 
-export function createProductCardExtendedState(props: RecipeProductCardExtended) {
+export function createProductCardExtendedState(props: RecipeProductCard) {
 	return {
 		get containerClass() {
 			return ['product-card-extended', props.class].filter(Boolean).join(' ');

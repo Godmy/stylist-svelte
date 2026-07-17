@@ -5,7 +5,7 @@ export function createProductSearchState(props: RecipeProductSearch) {
 	let query = $state('');
 	let showSuggestions = $state(false);
 
-	const rootClasses = $derived(mergeClassNames(props.class));
+	const rootClasses = $derived(mergeClassNames('product-search', props.class));
 	const suggestionVisible = $derived(
 		showSuggestions && query.length > 0 && (props.suggestions?.length ?? 0) > 0
 	);
@@ -27,6 +27,9 @@ export function createProductSearchState(props: RecipeProductSearch) {
 	}
 
 	return {
+		get rootClasses() {
+			return rootClasses;
+		},
 		get query() {
 			return query;
 		},

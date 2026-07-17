@@ -1,6 +1,6 @@
-import type { RecipeProductCatalog } from '$stylist/product/interface/recipe/product-catalog';
+import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 
-export function createProductCatalogState(props: RecipeProductCatalog) {
+export function createProductCatalogState(props: RecipeProductCollection) {
 	const layout = $derived(props.layout ?? 'grid');
 
 	function isGridLayout(): boolean {

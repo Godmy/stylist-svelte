@@ -5,8 +5,9 @@ import type { SlotReview } from '$stylist/product/interface/slot/review';
 import type { BehaviorProductReviewsEvents } from '$stylist/product/interface/behavior/product-reviews-events';
 
 export interface RecipeProductReviews
-	extends ComputeIntersectAll<[SlotTheme, HTMLAttributes<HTMLDivElement>]>,
-		BehaviorProductReviewsEvents {
+	extends ComputeIntersectAll<
+		[SlotTheme, BehaviorProductReviewsEvents, HTMLAttributes<HTMLDivElement>]
+	> {
 	reviews: SlotReview[];
 	averageRating?: number;
 	totalReviews?: number;

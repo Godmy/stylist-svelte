@@ -1,18 +1,18 @@
 <script lang="ts">
-	import type { RecipeProductWishlist } from '$stylist/product/interface/recipe/product-wishlist';
+	import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 	import { createProductWishlistState } from '$stylist/product/function/state/product-wishlist/index.svelte';
 
-	let props: RecipeProductWishlist = $props();
+	let props: RecipeProductCollection = $props();
 	const state = createProductWishlistState(props);
 </script>
 
 <div class={state.containerClass}>
-	<h2 class={state.titleClass}>Wishlist ({props.items.length})</h2>
-	{#if props.items.length === 0}
+	<h2 class={state.titleClass}>Wishlist ({(props.items ?? []).length})</h2>
+	{#if (props.items ?? []).length === 0}
 		<div class={state.emptyClass}>Your wishlist is empty</div>
 	{:else}
 		<div class={state.listClass}>
-			{#each props.items as item}
+			{#each props.items ?? [] as item}
 				<div class={state.itemClass}>
 					{#if item.image}
 						<img src={item.image} alt={item.title} class={state.imageClass} />

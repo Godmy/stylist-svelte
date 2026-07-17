@@ -2,13 +2,10 @@
 export {
 	createComparisonCardState,
 	createProductAvailabilityState,
-	createProductCardCompactState,
 	createProductCardExtendedState,
 	createProductCardState,
-	createProductCardWithActionsState,
 	createProductCarouselState,
 	createProductCatalogState,
-	createProductComparisonState,
 	createProductComparisonTableState,
 	createProductDemoState,
 	createProductGalleryState,

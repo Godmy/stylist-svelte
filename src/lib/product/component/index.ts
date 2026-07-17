@@ -3,10 +3,7 @@ export { ProductSort } from './atom';
 export {
 	ProductAvailability,
 	ProductCard,
-	ProductCardCompact,
-	ProductCardWithActions,
 	ProductCarousel,
-	ProductComparison,
 	ProductComparisonTable,
 	ProductDemo,
 	ProductGallery,

@@ -20,5 +20,9 @@ export interface RecipeProductCard
 	reviewCount?: number;
 	badge?: string;
 	description?: string;
+	class?: string;
+	features?: string[];
 	actions?: Snippet;
+	onAddToCart?: () => void;
+	onWishlist?: () => void;
 }

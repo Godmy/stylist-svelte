@@ -5,8 +5,9 @@ import type { SlotProductTourStep } from '$stylist/product/interface/slot/produc
 import type { BehaviorProductTourEvents } from '$stylist/product/interface/behavior/product-tour-events';
 
 export interface RecipeProductTour
-	extends ComputeIntersectAll<[SlotTheme, HTMLAttributes<HTMLDivElement>]>,
-		BehaviorProductTourEvents {
+	extends ComputeIntersectAll<
+		[SlotTheme, BehaviorProductTourEvents, HTMLAttributes<HTMLDivElement>]
+	> {
 	steps: SlotProductTourStep[];
 	currentStep?: number;
 	showTour?: boolean;

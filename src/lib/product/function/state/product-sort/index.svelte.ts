@@ -3,7 +3,7 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 import type { RecipeProductSort } from '$stylist/product/interface/recipe/product-sort';
 
 export function createProductSortState(props: RecipeProductSort) {
-	const options = $derived(props.options);
+	const options = $derived(props.options ?? []);
 	const selectedOption = $derived(props.selectedOption ?? '');
 	const onValueChange = $derived.by(() => props.onValueChange || ((option: string) => {}));
 	const containerClasses = $derived(mergeClassNames('c-product-sort', props.class));

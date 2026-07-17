@@ -1,6 +1,6 @@
-import type { ComparisonCardItem } from '$stylist/product/interface/slot/comparison-card-item';
+import type { SlotProductOption } from '$stylist/product/interface/slot/product-option';
 
 export interface ComparisonCardColumn {
 	title: string;
-	items: ComparisonCardItem[];
+	items: SlotProductOption[];
 }

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { RecipeProductCardExtended } from '$stylist/product/interface/recipe/product-card-extended';
+	import type { RecipeProductCard } from '$stylist/product/interface/recipe/product-card';
 	import { createProductCardExtendedState } from '$stylist/product/function/state/product-card-extended/index.svelte';
 
-	let props: RecipeProductCardExtended = $props();
+	let props: RecipeProductCard = $props();
 	const state = createProductCardExtendedState(props);
 </script>
 

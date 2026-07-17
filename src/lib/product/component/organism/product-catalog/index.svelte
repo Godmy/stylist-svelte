@@ -1,14 +1,14 @@
 <script lang="ts">
-	import type { RecipeProductCatalog } from '$stylist/product/interface/recipe/product-catalog';
+	import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 	import { createProductCatalogState } from '$stylist/product/function/state/product-catalog/index.svelte';
 
-	let props: RecipeProductCatalog = $props();
+	let props: RecipeProductCollection = $props();
 	const state = createProductCatalogState(props);
 </script>
 
 <div class={state.containerClass}>
 	<div class={state.contentClass}>
-		{#each props.products as product}
+		{#each props.products ?? [] as product}
 			{#if state.isGridLayout()}
 				<div class={state.getGridItemClass()}>
 					{#if product.image}

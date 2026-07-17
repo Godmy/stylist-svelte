@@ -19,13 +19,7 @@ export interface RecipeWishlistButton
 			BehaviorClickable,
 			BehaviorWishlistButtonEvents,
 			HTMLAttributes<HTMLButtonElement>
-		]
+	]
 	> {
-	inWishlist?: boolean;
-	buttonClass?: string;
-	showLabel?: boolean;
 	disabled?: boolean;
-	onToggle?: (inWishlist: boolean) => void;
-	onSuccess?: () => void;
-	onError?: (error: string) => void;
 }

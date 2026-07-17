@@ -12,41 +12,26 @@ export type {
 	ContractWishlistButton
 } from './contract';
 export type {
-	ProductCardCompactProps,
-	ProductCardWithActionsProps,
 	RecipeComparisonCard,
 	RecipeProductAvailability,
 	RecipeProductCard,
-	RecipeProductCardExtended,
-	RecipeProductCarousel,
-	RecipeProductCatalog,
-	RecipeProductComparison,
-	RecipeProductComparisonFeature,
-	RecipeProductComparisonTable,
+	RecipeProductCollection,
 	RecipeProductDemo,
 	RecipeProductGallery,
-	RecipeProductRecommendation,
 	RecipeProductReviews,
 	RecipeProductSearch,
 	RecipeProductSort,
 	RecipeProductSorting,
 	RecipeProductTour,
-	RecipeProductWishlist,
 	RecipeWishlistButton
 } from './recipe';
 export type {
 	ComparisonCardColumn,
-	ComparisonCardItem,
 	SlotAddReviewData,
-	SlotProductCarouselItem,
-	SlotProductCatalogItem,
-	SlotProductComparisonItem,
-	SlotProductComparisonTableItem,
+	SlotProductDescription,
+	SlotProductOption,
 	SlotProductSorting,
-	SlotProductSortingOption,
 	SlotProductSortingStyleClasses,
 	SlotProductTourStep,
-	SlotRecommendationProduct,
-	SlotReview,
-	SlotWishlistItem
+	SlotReview
 } from './slot';

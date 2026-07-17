@@ -1,6 +1,6 @@
-import type { RecipeProductComparisonTable } from '$stylist/product/interface/recipe/product-comparison-table';
+import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 
-export function createProductComparisonTableState(props: RecipeProductComparisonTable) {
+export function createProductComparisonTableState(props: RecipeProductCollection) {
 	return {
 		get containerClass() {
 			return ['product-comparison-table', props.class].filter(Boolean).join(' ');

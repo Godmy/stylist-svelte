@@ -7,13 +7,13 @@ export function createWishlistButtonState(props: RecipeWishlistButton) {
 	let message = $state('');
 	let inWishlist = $state(props.inWishlist ?? false);
 
-	const containerClass = $derived(mergeClassNames(props.class ?? ''));
+	const containerClass = $derived(mergeClassNames('wishlist-button', props.class));
 	const buttonClass = $derived(
-		`inline-flex items-center px-3 py-2 border rounded-md ${
-			inWishlist
-				? 'bg-[var(--color-danger-100)] text-[var(--color-danger-600)] border-[var(--color-danger-200)]'
-				: 'bg-[var(--color-background-primary)] border-[var(--color-border-primary)]'
-		} ${props.buttonClass ?? ''}`
+		mergeClassNames(
+			'wishlist-button__button',
+			inWishlist && 'wishlist-button__button--active',
+			props.buttonClass
+		)
 	);
 
 	return {

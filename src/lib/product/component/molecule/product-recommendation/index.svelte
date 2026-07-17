@@ -1,15 +1,15 @@
 <script lang="ts">
-	import type { RecipeProductRecommendation } from '$stylist/product/interface/recipe/product-recommendation';
+	import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 	import { createProductRecommendationState } from '$stylist/product/function/state/product-recommendation/index.svelte';
 
-	let props: RecipeProductRecommendation = $props();
+	let props: RecipeProductCollection = $props();
 	const state = createProductRecommendationState(props);
 </script>
 
 <div class={state.containerClass}>
 	<h2 class={state.titleClass}>{props.title ?? 'Recommended for you'}</h2>
 	<div class={state.gridClass}>
-		{#each props.products as product}
+		{#each props.products ?? [] as product}
 			<div
 				class={state.cardClass}
 				onclick={() => props.onProductClick?.(product.id)}

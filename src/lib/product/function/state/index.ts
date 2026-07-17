@@ -2,12 +2,9 @@
 export { createComparisonCardState } from './comparison-card';
 export { createProductAvailabilityState } from './product-availability';
 export { createProductCardState } from './product-card';
-export { createProductCardCompactState } from './product-card-compact';
 export { createProductCardExtendedState } from './product-card-extended';
-export { createProductCardWithActionsState } from './product-card-with-actions';
 export { createProductCarouselState } from './product-carousel';
 export { createProductCatalogState } from './product-catalog';
-export { createProductComparisonState } from './product-comparison';
 export { createProductComparisonTableState } from './product-comparison-table';
 export { createProductDemoState } from './product-demo';
 export { createProductGalleryState } from './product-gallery';

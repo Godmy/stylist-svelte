@@ -1,6 +1,6 @@
-import type { RecipeProductWishlist } from '$stylist/product/interface/recipe/product-wishlist';
+import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 
-export function createProductWishlistState(props: RecipeProductWishlist) {
+export function createProductWishlistState(props: RecipeProductCollection) {
 	return {
 		get containerClass() {
 			return ['product-wishlist', props.class].filter(Boolean).join(' ');

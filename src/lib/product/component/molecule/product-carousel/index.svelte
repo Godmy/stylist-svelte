@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { RecipeProductCarousel } from '$stylist/product/interface/recipe/product-carousel';
+	import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 	import { createProductCarouselState } from '$stylist/product/function/state/product-carousel/index.svelte';
 
-	let props: RecipeProductCarousel = $props();
+	let props: RecipeProductCollection = $props();
 	const state = createProductCarouselState(props);
 </script>
 
