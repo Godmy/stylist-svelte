@@ -7,7 +7,6 @@ export type { RecipeProductDemo } from './product-demo';
 export type { RecipeProductGallery } from './product-gallery';
 export type { RecipeProductReviews } from './product-reviews';
 export type { RecipeProductSearch } from './product-search';
-export type { RecipeProductSort } from './product-sort';
 export type { RecipeProductSorting } from './product-sorting';
 export type { RecipeProductTour } from './product-tour';
 export type { RecipeWishlistButton } from './wishlist-button';

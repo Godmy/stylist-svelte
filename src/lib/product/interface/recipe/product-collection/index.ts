@@ -3,12 +3,14 @@ import type { BehaviorProductRecommendationEvents } from '$stylist/product/inter
 import type { BehaviorProductWishlistEvents } from '$stylist/product/interface/behavior/product-wishlist-events';
 import type { SlotProductDescription } from '$stylist/product/interface/slot/product-description';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
+import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeProductCollection
 	extends ComputeIntersectAll<
 		[
 			SlotTheme,
+			SlotText,
 			BehaviorProductRecommendationEvents,
 			BehaviorProductWishlistEvents,
 			HTMLAttributes<HTMLDivElement>
@@ -19,6 +21,5 @@ export interface RecipeProductCollection
 	layout?: 'grid' | 'list';
 	features?: string[];
 	specifications?: Array<{ name: string; values: string[] }>;
-	title?: string;
 	class?: string;
 }

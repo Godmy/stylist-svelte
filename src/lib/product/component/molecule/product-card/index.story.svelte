@@ -2,16 +2,25 @@
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import ProductCard from './index.svelte';
+	import WishlistButton from '$stylist/product/component/molecule/wishlist-button/index.svelte';
 
 	let cartClicks = $state(0);
 	let detailsClicks = $state(0);
+	let inWishlist = $state(false);
+	let log = $state<string[]>([]);
+
+	function record(message: string) {
+		log = [message, ...log].slice(0, 5);
+	}
 
 	const controls: InterfaceControllerSettings[] = [
 		{
 			name: 'variant',
 			type: 'select',
-			options: ['default', 'compact', 'with-actions'],
-			defaultValue: 'default'
+			options: ['detailed', 'compact', 'screen'],
+			defaultValue: 'detailed',
+			description:
+				'detailed — full card; compact — dense, no description; screen — with action buttons.'
 		},
 		{ name: 'title', type: 'text', defaultValue: 'Wireless Headphones' },
 		{ name: 'price', type: 'number', defaultValue: 199.99, min: 0 },
@@ -38,11 +47,11 @@
 	title="Molecules / Information / Commerce / Products / ProductCard"
 	component={ProductCard}
 	category="Molecules/Information/Commerce/Products"
-	description="Unified product card with default, compact and action variants."
+	description="Single product card component. The 'variant' control switches between the detailed, compact and screen (with actions) presentations that used to be separate components."
 	{controls}
 >
 	{#snippet children(args: any)}
-		<div class="_c1">
+		<div class="product-card-story__frame">
 			<ProductCard
 				variant={args.variant}
 				title={args.title}
@@ -55,59 +64,107 @@
 				description={args.description}
 			>
 				{#snippet actions()}
-					<div class="_c2">
-						<button class="_c3" onclick={() => (cartClicks += 1)}>Add to cart</button>
-						<button class="_c4" onclick={() => (detailsClicks += 1)}>Details</button>
+					<div class="product-card-story__actions">
+						<button
+							class="product-card-story__button product-card-story__button--primary"
+							onclick={() => {
+								cartClicks += 1;
+								record(`Added "${args.title}" to cart`);
+							}}
+						>
+							Add to cart
+						</button>
+						<button
+							class="product-card-story__button"
+							onclick={() => {
+								detailsClicks += 1;
+								record(`Opened details for "${args.title}"`);
+							}}
+						>
+							Details
+						</button>
+						<WishlistButton
+							{inWishlist}
+							onToggle={(next) => (inWishlist = next)}
+							onSuccess={() => record(inWishlist ? 'Added to wishlist' : 'Removed from wishlist')}
+						/>
 					</div>
 				{/snippet}
 			</ProductCard>
-			<div class="_c5">
-				Actions: cart {cartClicks}, details {detailsClicks}
+		</div>
+
+		<div class="product-card-story__panel">
+			<div class="product-card-story__stats">
+				<span>Cart clicks: <strong>{cartClicks}</strong></span>
+				<span>Details clicks: <strong>{detailsClicks}</strong></span>
+				<span>Wishlist: <strong>{inWishlist ? 'yes' : 'no'}</strong></span>
 			</div>
+			{#if log.length > 0}
+				<ul class="product-card-story__log">
+					{#each log as entry}
+						<li>{entry}</li>
+					{/each}
+				</ul>
+			{:else}
+				<p class="product-card-story__hint">
+					Switch the variant to "screen" to see the action buttons, then click them.
+				</p>
+			{/if}
 		</div>
 	{/snippet}
 </Story>
 
 <style>
-	._c1 {
-		border-radius: 0.75rem;
-		background-color: var(--color-background-secondary);
-		padding: 1.5rem;
+	.product-card-story__frame {
+		max-width: 22rem;
 	}
-	._c1 > * + * {
-		margin-top: 1rem;
-	}
-	._c2 {
+
+	.product-card-story__actions {
 		display: flex;
+		align-items: center;
 		gap: 0.5rem;
 	}
-	._c3 {
+
+	.product-card-story__button {
 		border-radius: 0.25rem;
-		background-color: var(--color-primary-600);
-		padding-left: 0.75rem;
-		padding-right: 0.75rem;
-		padding-top: 0.375rem;
-		padding-bottom: 0.375rem;
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+		padding: 0.375rem 0.75rem;
 		font-size: 0.875rem;
 		line-height: 1.25rem;
+	}
+
+	.product-card-story__button--primary {
+		border-color: transparent;
+		background-color: var(--color-primary-600);
 		color: var(--color-text-inverse);
 	}
-	._c4 {
-		border-radius: 0.25rem;
-		border-width: 1px;
-		border-style: solid;
-		border-color: var(--color-border-primary);
-		background-color: var(--color-background-primary);
-		padding-left: 0.75rem;
-		padding-right: 0.75rem;
-		padding-top: 0.375rem;
-		padding-bottom: 0.375rem;
-		font-size: 0.875rem;
-		line-height: 1.25rem;
+
+	.product-card-story__panel {
+		margin-top: 1rem;
+		border-radius: 0.75rem;
+		background-color: var(--color-background-secondary);
+		padding: 1rem 1.25rem;
 	}
-	._c5 {
+
+	.product-card-story__stats {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
 		font-size: 0.875rem;
-		line-height: 1.25rem;
 		color: var(--color-text-secondary);
+	}
+
+	.product-card-story__log {
+		margin: 0.75rem 0 0;
+		padding-left: 1.1rem;
+		font-size: 0.8125rem;
+		color: var(--color-text-secondary);
+	}
+
+	.product-card-story__hint {
+		margin: 0.75rem 0 0;
+		font-size: 0.8125rem;
+		color: var(--color-text-tertiary);
 	}
 </style>

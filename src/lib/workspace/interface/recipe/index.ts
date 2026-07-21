@@ -1,14 +1,13 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { RecipeConnectionLine } from './connection-line';
-export type { RecipeGraphCanvas } from './graph-canvas';
 export type { RecipeGraphNodeCard } from './graph-node-card';
-export type { RecipeGraphPort } from './graph-port';
-export type { RecipeGraphToolbar } from './graph-toolbar';
-export type { RecipeLitegraphCanvas } from './litegraph-canvas';
-export type { RecipeLitegraphNode } from './litegraph-node';
+export type { RecipeNodeConnection } from './node-connection';
 export type { RecipeNodeHeader } from './node-header';
-export type { RecipeNodePalette } from './node-palette';
-export type { RecipeNodePropertiesPanel } from './node-properties-panel';
+export type { RecipeNodePort } from './node-port';
+export type { RecipeNodePortGroup } from './node-port-group';
+export type { RecipeNodeProperties } from './node-properties';
 export type { RecipeNodeProperty } from './node-property';
-export type { RecipeNodeTitle } from './node-title';
-export type { RecipePortGroup } from './port-group';
+export type { RecipeWorkspace } from './workspace';
+export type { RecipeWorkspaceCanvas } from './workspace-canvas';
+export type { RecipeWorkspaceNode } from './workspace-node';
+export type { RecipeWorkspacePalette } from './workspace-palette';
+export type { RecipeWorkspaceToolbar } from './workspace-toolbar';

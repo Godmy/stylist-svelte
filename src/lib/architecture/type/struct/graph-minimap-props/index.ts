@@ -1,9 +1,9 @@
-import type { RecipeLitegraphNode } from '$stylist/workspace/interface/recipe/litegraph-node';
+import type { RecipeWorkspaceNode } from '$stylist/workspace/interface/recipe/workspace-node';
 import type { Snippet } from 'svelte';
 import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 
 export type GraphMinimapProps = {
-	nodes?: readonly RecipeLitegraphNode[];
+	nodes?: readonly RecipeWorkspaceNode[];
 	zoom?: number;
 	offset?: Point2D;
 	width?: number;

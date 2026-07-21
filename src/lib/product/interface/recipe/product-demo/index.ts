@@ -5,7 +5,7 @@ import type { Snippet } from 'svelte';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 
 export interface RecipeProductDemo
-	extends ComputeIntersectAll<[SlotTheme, SlotText, SlotText, HTMLAttributes<HTMLDivElement>]> {
+	extends ComputeIntersectAll<[SlotTheme, SlotText, HTMLAttributes<HTMLDivElement>]> {
 	demoContent: Snippet;
 	features?: string[];
 	onDemo?: () => void;

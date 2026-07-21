@@ -20,7 +20,6 @@ export type {
 	RecipeProductGallery,
 	RecipeProductReviews,
 	RecipeProductSearch,
-	RecipeProductSort,
 	RecipeProductSorting,
 	RecipeProductTour,
 	RecipeWishlistButton

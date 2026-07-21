@@ -4,6 +4,7 @@
 	import { DOMAIN_SCREEN_DIAGNOSTICS } from '$stylist/domain/const/value/domain-screen-diagnostics';
 	import { DOMAIN_SCREEN_DOMAIN } from '$stylist/domain/const/value/domain-screen-domain';
 	import { DOMAIN_SCREEN_LANDING } from '$stylist/domain/const/value/domain-screen-landing';
+	import { DOMAIN_SCREEN_WORKSPACE } from '$stylist/domain/const/value/domain-screen-workspace';
 	import DomainMenu from '$stylist/domain/component/molecule/domain-menu/index.svelte';
 	import createDomainBacklogState from '$stylist/domain/function/state/domain-backlog/index.svelte';
 	import createDomainLandingScreenState from '$stylist/domain/function/state/domain-landing-screen/index.svelte';
@@ -49,6 +50,7 @@
 		activeDomain = selection.domain;
 		activeFamily = selection.family;
 	}
+
 </script>
 
 <div class="c-domain-workspace-shell {className}">
@@ -57,6 +59,34 @@
 			{@const DomainExplorer = module.default}
 			<DomainExplorer {tree} onSelectionChange={handleSelectionChange} />
 		{/await}
+	{:else if screenState.currentScreen === DOMAIN_SCREEN_WORKSPACE}
+		<main class="workspace-screen">
+			<header class="workspace-screen__header">
+				<div class="workspace-screen__title">
+					<p>workspace</p>
+					<h1>Clean workspace</h1>
+				</div>
+
+				<DomainMenu
+					landingVisible={false}
+					domainVisible={false}
+					workspaceOpen={true}
+					builderOpen={false}
+					backlogOpen={false}
+					dashboardOpen={false}
+					settingsOpen={screenState.isSettingsOpen}
+					onLandingToggle={screenState.handleLandingToggle}
+					onDomainToggle={screenState.handleDomainToggle}
+					onWorkspaceToggle={screenState.handleWorkspaceToggle}
+					onBuilderToggle={screenState.handleBuilderToggle}
+					onBacklogToggle={() => void backlogState.handleBacklogToggle()}
+					onDashboardToggle={screenState.handleDiagnosticsToggle}
+					onSettingsToggle={screenState.handleSettingsToggle}
+				/>
+			</header>
+
+			<section class="workspace-screen__content" aria-label="Clean workspace"></section>
+		</main>
 	{:else if screenState.currentScreen === DOMAIN_SCREEN_BUILDER}
 		{#await loadDomainBuilder() then module}
 			{@const DomainBuilder = module.default}
@@ -99,22 +129,26 @@
 		<StylistLanding rootDomainCount={tree.length} {storyModuleCount} />
 	{/if}
 
-	<div class="menu-shell">
-		<DomainMenu
-			landingVisible={screenState.currentScreen === DOMAIN_SCREEN_LANDING}
-			domainVisible={screenState.currentScreen === DOMAIN_SCREEN_DOMAIN}
-			builderOpen={screenState.currentScreen === DOMAIN_SCREEN_BUILDER}
-			backlogOpen={screenState.currentScreen === DOMAIN_SCREEN_BACKLOG}
-			dashboardOpen={screenState.currentScreen === DOMAIN_SCREEN_DIAGNOSTICS}
-			settingsOpen={screenState.isSettingsOpen}
-			onLandingToggle={screenState.handleLandingToggle}
-			onDomainToggle={screenState.handleDomainToggle}
-			onBuilderToggle={screenState.handleBuilderToggle}
-			onBacklogToggle={() => void backlogState.handleBacklogToggle()}
-			onDashboardToggle={screenState.handleDiagnosticsToggle}
-			onSettingsToggle={screenState.handleSettingsToggle}
-		/>
-	</div>
+	{#if screenState.currentScreen !== DOMAIN_SCREEN_WORKSPACE}
+		<div class="menu-shell">
+			<DomainMenu
+				landingVisible={screenState.currentScreen === DOMAIN_SCREEN_LANDING}
+				domainVisible={screenState.currentScreen === DOMAIN_SCREEN_DOMAIN}
+				workspaceOpen={false}
+				builderOpen={screenState.currentScreen === DOMAIN_SCREEN_BUILDER}
+				backlogOpen={screenState.currentScreen === DOMAIN_SCREEN_BACKLOG}
+				dashboardOpen={screenState.currentScreen === DOMAIN_SCREEN_DIAGNOSTICS}
+				settingsOpen={screenState.isSettingsOpen}
+				onLandingToggle={screenState.handleLandingToggle}
+				onDomainToggle={screenState.handleDomainToggle}
+				onWorkspaceToggle={screenState.handleWorkspaceToggle}
+				onBuilderToggle={screenState.handleBuilderToggle}
+				onBacklogToggle={() => void backlogState.handleBacklogToggle()}
+				onDashboardToggle={screenState.handleDiagnosticsToggle}
+				onSettingsToggle={screenState.handleSettingsToggle}
+			/>
+		</div>
+	{/if}
 </div>
 
 {#if screenState.isSettingsOpen}
@@ -137,15 +171,75 @@
 		z-index: 20;
 	}
 
+	.workspace-screen {
+		display: grid;
+		grid-template-rows: auto minmax(0, 1fr);
+		height: 100vh;
+		min-height: 0;
+		background: var(--color-background-primary);
+		color: var(--color-text-primary);
+		overflow: hidden;
+	}
+
+	.workspace-screen__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.75rem;
+		border-bottom: 1px solid var(--color-border-primary);
+		background: var(--color-background-primary);
+	}
+
+	.workspace-screen__title {
+		display: grid;
+		gap: 0.15rem;
+		min-width: 0;
+	}
+
+	.workspace-screen__title p,
+	.workspace-screen__title h1,
+	.workspace-screen__title span {
+		margin: 0;
+	}
+
+	.workspace-screen__title p,
+	.workspace-screen__title span {
+		color: var(--color-text-secondary);
+		font-family: var(--font-mono, monospace);
+		font-size: 0.72rem;
+	}
+
+	.workspace-screen__title h1 {
+		font-size: 1rem;
+		font-weight: 650;
+	}
+
+	.workspace-screen__content {
+		min-height: 0;
+		min-width: 0;
+		overflow: hidden;
+	}
+
 	@media (max-width: 840px) {
 		.c-domain-workspace-shell {
 			padding-top: calc(env(safe-area-inset-top, 0px) + 6rem);
+		}
+
+		.c-domain-workspace-shell:has(.workspace-screen) {
+			padding-top: 0;
 		}
 
 		.menu-shell {
 			top: calc(env(safe-area-inset-top, 0px) + 0.75rem);
 			left: 0.75rem;
 			right: 0.75rem;
+		}
+
+		.workspace-screen__header {
+			align-items: stretch;
+			flex-direction: column;
+			padding-top: calc(env(safe-area-inset-top, 0px) + 0.75rem);
 		}
 	}
 </style>

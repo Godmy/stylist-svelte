@@ -11,7 +11,6 @@ export { createProductGalleryState } from './product-gallery';
 export { createProductRecommendationState } from './product-recommendation';
 export { createProductReviewsState } from './product-reviews';
 export { createProductSearchState } from './product-search';
-export { createProductSortState } from './product-sort';
 export { createProductSortingState } from './product-sorting';
 export { createProductTourState } from './product-tour';
 export { createProductWishlistState } from './product-wishlist';

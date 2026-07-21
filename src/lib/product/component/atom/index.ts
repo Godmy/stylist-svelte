@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ProductSort } from './product-sort/index';
+export { ProductSorting } from './product-sorting/index';

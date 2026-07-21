@@ -20,6 +20,10 @@ export type {
 	TokenSkeleton,
 	TokenTrajectory
 } from './alias';
+export type {
+	ObjectPoint2DPath,
+	ObjectPresentation
+} from './object';
 export type { FoundationSemanticZoomStage } from './script';
 export type {
 	ArchitectureScene,

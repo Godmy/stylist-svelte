@@ -1,9 +1,9 @@
 import type { MinimapBounds } from '$stylist/architecture/type/struct/minimap-bounds';
 import type { MinimapNodeRect } from '$stylist/architecture/type/struct/minimap-node-rect';
-import type { RecipeLitegraphNode } from '$stylist/workspace/interface/recipe/litegraph-node';
+import type { RecipeWorkspaceNode } from '$stylist/workspace/interface/recipe/workspace-node';
 
 export function resolveMinimapNodeRect(
-	node: RecipeLitegraphNode,
+	node: RecipeWorkspaceNode,
 	bounds: MinimapBounds,
 	width: number,
 	height: number

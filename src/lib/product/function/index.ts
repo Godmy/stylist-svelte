@@ -12,7 +12,6 @@ export {
 	createProductRecommendationState,
 	createProductReviewsState,
 	createProductSearchState,
-	createProductSortState,
 	createProductSortingState,
 	createProductTourState,
 	createProductWishlistState,

@@ -1,16 +1,19 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
+	import { ICON_WORKSPACE } from '$stylist/svg/const/value/workspace';
 	import ThemeModeToggle from '$stylist/theme/component/atom/theme-mode-toggle/index.svelte';
 
 	interface DomainMenuProps {
 		landingVisible?: boolean;
 		domainVisible?: boolean;
+		workspaceOpen?: boolean;
 		builderOpen?: boolean;
 		backlogOpen?: boolean;
 		dashboardOpen?: boolean;
 		settingsOpen?: boolean;
 		onLandingToggle?: () => void;
 		onDomainToggle?: () => void;
+		onWorkspaceToggle?: () => void;
 		onBuilderToggle?: () => void;
 		onBacklogToggle?: () => void;
 		onDashboardToggle?: () => void;
@@ -21,12 +24,14 @@
 	let {
 		landingVisible = false,
 		domainVisible = true,
+		workspaceOpen = false,
 		builderOpen = false,
 		backlogOpen = false,
 		dashboardOpen = false,
 		settingsOpen = false,
 		onLandingToggle,
 		onDomainToggle,
+		onWorkspaceToggle,
 		onBuilderToggle,
 		onBacklogToggle,
 		onDashboardToggle,
@@ -58,6 +63,18 @@
 		title="Show domain"
 	>
 		<Icon name="domain" size={18} />
+	</button>
+
+	<button
+		type="button"
+		class:active={workspaceOpen}
+		class="menu-button menu-button--icon"
+		onclick={onWorkspaceToggle}
+		aria-pressed={workspaceOpen}
+		aria-label="Show workspace"
+		title="Show workspace"
+	>
+		<Icon svg={ICON_WORKSPACE} size={18} />
 	</button>
 
 	<button

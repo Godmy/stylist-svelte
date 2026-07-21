@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ProductSort } from './atom';
+export { ProductSorting } from './atom';
 export {
 	ProductAvailability,
 	ProductCard,
@@ -17,6 +17,5 @@ export {
 	ProductCardExtended,
 	ProductCatalog,
 	ProductReviews,
-	ProductSorting,
 	ProductTour
 } from './organism';

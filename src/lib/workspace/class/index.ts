@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	ObjectManagerNodePalette,
-	ObjectManagerNodePropertiesPanel
+	ObjectManagerNodeProperties,
+	ObjectManagerWorkspacePalette
 } from './object-manager';

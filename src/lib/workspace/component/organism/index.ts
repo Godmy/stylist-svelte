@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { GraphEditor } from './graph-editor/index';
-export { GraphNodeCard } from './graph-node-card/index';
-export { LitegraphCanvas } from './litegraph-canvas/index';
-export { NodePalette } from './node-palette/index';
+export { WorkspaceNode } from './workspace-node/index';
+export { WorkspacePalette } from './workspace-palette/index';
+export { Workspace } from './workspace/index';

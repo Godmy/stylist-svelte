@@ -20,6 +20,7 @@
 
 	interface DomainExplorerProps {
 		tree: DomainTree;
+		initialDomain?: string;
 		onSelectionChange?: (selection: { domain: string; family: string }) => void;
 		class?: string;
 	}
@@ -29,9 +30,14 @@
 		() => Promise<StoryModule>
 	>;
 
-	let { tree, onSelectionChange, class: className = '' }: DomainExplorerProps = $props();
+	let {
+		tree,
+		initialDomain,
+		onSelectionChange,
+		class: className = ''
+	}: DomainExplorerProps = $props();
 
-	const s = createDomainPageState({ tree, storyModules });
+	const s = createDomainPageState({ tree, storyModules, initialDomain });
 
 	$effect(() => {
 		onSelectionChange?.({ domain: s.activeDomain, family: s.activeFamily });

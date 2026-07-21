@@ -2,7 +2,7 @@
 	const browser = typeof window !== 'undefined';
 	import { onDestroy } from 'svelte';
 	import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
-	import ConnectionLine from '$stylist/workspace/component/molecule/connection-line/index.svelte';
+	import NodeConnection from '$stylist/workspace/component/atom/node-connection/index.svelte';
 	import NodeIcon from '$stylist/media/component/atom/node-icon/index.svelte';
 	import Viewport from '$stylist/architecture/component/atom/viewport/index.svelte';
 
@@ -829,7 +829,7 @@
 					{#each connections as connection, index (connection.id)}
 						{@const points = getConnectionPoints(connection.startId, connection.endId)}
 						{#if points}
-							<ConnectionLine
+							<NodeConnection
 								id={connection.id}
 								startX={points.startX}
 								startY={points.startY}

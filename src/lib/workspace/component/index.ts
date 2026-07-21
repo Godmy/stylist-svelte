@@ -1,21 +1,19 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	GraphCanvas,
-	GraphPort,
+	NodeConnection,
+	NodeHeader,
+	NodePort,
 	NodeProperty,
-	NodeTitle
+	WorkspaceCanvas
 } from './atom';
 export {
-	ConnectionLine,
-	GraphToolbar,
-	LitegraphNode,
-	NodeHeader,
-	NodePropertiesPanel,
-	PortGroup
+	GraphNodeCard,
+	NodePortGroup,
+	NodeProperties,
+	WorkspaceToolbar
 } from './molecule';
 export {
-	GraphEditor,
-	GraphNodeCard,
-	LitegraphCanvas,
-	NodePalette
+	Workspace,
+	WorkspaceNode,
+	WorkspacePalette
 } from './organism';

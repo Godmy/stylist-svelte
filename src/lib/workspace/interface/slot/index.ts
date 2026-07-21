@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { SlotGraphToolbarItem } from './graph-toolbar-item';
-export type { SlotLitegraphConnection } from './litegraph-connection';
-export type { SlotNodePalette } from './node-palette';
-export type { SlotNodePaletteItem } from './node-palette-item';
+export type { SlotNodeConnection } from './node-connection';
+export type { SlotWorkspaceNode } from './workspace-node';
+export type { SlotWorkspacePalette } from './workspace-palette';

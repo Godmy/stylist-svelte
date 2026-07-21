@@ -105,6 +105,8 @@ export type {
 	MinimapProps,
 	MinimapViewport,
 	NodeTitleVariant,
+	ObjectPoint2DPath,
+	ObjectPresentation,
 	OntologyEdge,
 	OntologyEdgeComponentProps,
 	OntologyNode,
@@ -150,7 +152,8 @@ export type {
 	RecipeGraphvizDirectedEdge,
 	RecipeStylistGraphWorkspace,
 	SelectedItem,
-	SelectionState
+	SelectionState,
+	SlotViewport
 } from './interface';
 export type {
 	FoundationDepthThreshold,

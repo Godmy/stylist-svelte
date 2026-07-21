@@ -4,9 +4,10 @@ import type { Snippet } from 'svelte';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { TokenPropertyType } from '$stylist/architecture/type/alias/property-type';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
+import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
 
 export interface RecipeNodeProperty
-	extends ComputeIntersectAll<[SlotTheme, Omit<HTMLAttributes<HTMLDivElement>, 'onchange'>]> {
+	extends ComputeIntersectAll<[SlotWorkspaceNode, SlotTheme, Omit<HTMLAttributes<HTMLDivElement>, 'onchange'>]> {
 	id?: string;
 	name: string;
 	type?: TokenPropertyType;
@@ -15,15 +16,11 @@ export interface RecipeNodeProperty
 	size?: TokenSize;
 	editable?: boolean;
 	typeEditable?: boolean;
-	options?: string[];
 	min?: number;
 	max?: number;
 	step?: number;
 	prefix?: string;
 	suffix?: string;
-	label?: string;
-	description?: string;
-	icon?: string | Snippet;
 	error?: boolean;
 	errorMessage?: string;
 	placeholder?: string;

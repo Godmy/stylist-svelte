@@ -3,3 +3,4 @@ export type { FocusTarget } from './focus-target';
 export type { PresentationFrame } from './presentation-frame';
 export type { PreziCamera } from './prezi-camera';
 export type { SelectedItem } from './selected-item';
+export type { SlotViewport } from './viewport';

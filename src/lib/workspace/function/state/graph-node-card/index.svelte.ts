@@ -1,12 +1,12 @@
 import { createEventDispatcher } from 'svelte';
-import type { GraphNodeCardData } from '$stylist/workspace/type/struct/graph-node-card-data';
+import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
 import type { RecipeGraphNodeCard } from '$stylist/workspace/interface/recipe/graph-node-card';
 
 export function createGraphNodeCardState(props: RecipeGraphNodeCard) {
 	const dispatch = createEventDispatcher<{
-		toggleExpand: { node: GraphNodeCardData };
-		viewDetails: { node: GraphNodeCardData };
-		addField: { node: GraphNodeCardData };
+		toggleExpand: { node: SlotWorkspaceNode };
+		viewDetails: { node: SlotWorkspaceNode };
+		addField: { node: SlotWorkspaceNode };
 		fieldClick: { field: { name: string; type: string; isRequired?: boolean } };
 	}>();
 
@@ -26,6 +26,27 @@ export function createGraphNodeCardState(props: RecipeGraphNodeCard) {
 			.filter(Boolean)
 			.join(' ')
 	);
+
+	const restProps = $derived.by(() => {
+		const {
+			node: _node,
+			expanded: _expanded,
+			showDetails: _showDetails,
+			selected: _selected,
+			highlight: _highlight,
+			variant: _variant,
+			size: _size,
+			id: _id,
+			name: _name,
+			type: _type,
+			description: _description,
+			fields: _fields,
+			class: _class,
+			children: _children,
+			...rest
+		} = props;
+		return rest;
+	});
 
 	function getIconName(type: string) {
 		switch (type) {
@@ -69,6 +90,9 @@ export function createGraphNodeCardState(props: RecipeGraphNodeCard) {
 		},
 		get containerClass() {
 			return containerClass;
+		},
+		get restProps() {
+			return restProps;
 		},
 		get headerClass() {
 			return 'graph-node-card__header';

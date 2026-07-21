@@ -9,17 +9,15 @@ import type { ComparisonCardColumn } from '$stylist/product/interface/slot/compa
 
 export interface RecipeComparisonCard
 	extends ComputeIntersectAll<
-		[
+			[
 			SlotTheme,
-			SlotText,
 			SlotText,
 			SlotMedia,
 			SlotBadge,
 			SlotStatus,
 			HTMLAttributes<HTMLDivElement>
-		]
+	]
 	> {
-	title?: string;
 	before: ComparisonCardColumn;
 	after: ComparisonCardColumn;
 }

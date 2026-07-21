@@ -1,27 +1,20 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	ContractLitegraphNode,
-	ContractLitegraphNodeProperty,
-	ContractLitegraphPort
-} from './contract';
-export type {
-	RecipeConnectionLine,
-	RecipeGraphCanvas,
 	RecipeGraphNodeCard,
-	RecipeGraphPort,
-	RecipeGraphToolbar,
-	RecipeLitegraphCanvas,
-	RecipeLitegraphNode,
+	RecipeNodeConnection,
 	RecipeNodeHeader,
-	RecipeNodePalette,
-	RecipeNodePropertiesPanel,
+	RecipeNodePort,
+	RecipeNodePortGroup,
+	RecipeNodeProperties,
 	RecipeNodeProperty,
-	RecipeNodeTitle,
-	RecipePortGroup
+	RecipeWorkspace,
+	RecipeWorkspaceCanvas,
+	RecipeWorkspaceNode,
+	RecipeWorkspacePalette,
+	RecipeWorkspaceToolbar
 } from './recipe';
 export type {
-	SlotGraphToolbarItem,
-	SlotLitegraphConnection,
-	SlotNodePalette,
-	SlotNodePaletteItem
+	SlotNodeConnection,
+	SlotWorkspaceNode,
+	SlotWorkspacePalette
 } from './slot';

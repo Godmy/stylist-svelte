@@ -6,20 +6,21 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SlotMedia } from '$stylist/media/interface/slot/media';
 import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
+import type { SlotProductDescription } from '$stylist/product/interface/slot/product-description';
 
 export interface RecipeProductCard
 	extends ComputeIntersectAll<
-		[SlotTheme, SlotText, SlotText, SlotBadge, SlotMedia, HTMLAttributes<HTMLDivElement>]
+		[
+			SlotTheme,
+			Partial<SlotProductDescription>,
+			SlotText,
+			SlotBadge,
+			SlotMedia,
+			HTMLAttributes<HTMLDivElement>
+		]
 	> {
 	variant?: TierContent;
-	title?: string;
-	price?: number;
-	currency?: string;
-	image?: string;
-	rating?: number;
 	reviewCount?: number;
-	badge?: string;
-	description?: string;
 	class?: string;
 	features?: string[];
 	actions?: Snippet;

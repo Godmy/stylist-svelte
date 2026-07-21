@@ -36,6 +36,7 @@ interface DomainTreeNode {
 interface DomainPageInput {
 	tree: DomainTreeNode[];
 	storyModules: Record<string, () => Promise<StoryModule>>;
+	initialDomain?: string;
 }
 
 interface SearchDomainEntry {
@@ -50,9 +51,13 @@ interface SearchDomainEntry {
 }
 
 export function createDomainPageState(input: DomainPageInput) {
-	const { tree, storyModules } = input;
+	const { tree, storyModules, initialDomain } = input;
 
-	let activeDomain = $state(tree[0]?.name ?? '');
+	let activeDomain = $state(
+		tree.some((domainNode) => domainNode.name === initialDomain)
+			? (initialDomain ?? '')
+			: (tree[0]?.name ?? '')
+	);
 	let activeCluster = $state('');
 	let activeJoint = $state('');
 	let activeEntityPath = $state('');

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import type { RecipeLitegraphNode } from '$stylist/workspace/interface/recipe/litegraph-node';
+	import type { RecipeWorkspaceNode } from '$stylist/workspace/interface/recipe/workspace-node';
 	import Minimap from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
@@ -19,7 +19,7 @@
 		{ name: 'viewportColor', type: 'color', defaultValue: '#1d4ed8' }
 	];
 
-	const sampleNodes: RecipeLitegraphNode[] = [
+	const sampleNodes: RecipeWorkspaceNode[] = [
 		{
 			id: 'node-1',
 			title: 'Collector',
