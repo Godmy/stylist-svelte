@@ -111,6 +111,15 @@
 {/if}
 
 <style>
+	:global(.pdf-color--mobile) {
+		background: linear-gradient(to bottom right, #1f2937, #111827);
+	}
+	:global(.pdf-color--tablet) {
+		background: linear-gradient(to bottom right, #374151, #1f2937);
+	}
+	:global(.pdf-color--desktop) {
+		background: linear-gradient(to bottom right, #4b5563, #374151);
+	}
 	:global(.device-content) {
 		scroll-behavior: smooth;
 	}

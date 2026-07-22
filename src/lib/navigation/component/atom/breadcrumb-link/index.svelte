@@ -1,12 +1,11 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { Snippet } from 'svelte';
-	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeBreadcrumbLink } from '$stylist/navigation/interface/recipe/breadcrumb-link';
 	import createBreadcrumbLinkState from '$stylist/navigation/function/state/breadcrumb-link/index.svelte';
 
 	type BreadcrumbLinkProps = RecipeBreadcrumbLink &
-		HTMLAttributes<HTMLAnchorElement> & SlotInteraction & {
+		HTMLAttributes<HTMLAnchorElement> & {
 			current?: boolean;
 			href?: string;
 			children?: Snippet;
@@ -39,4 +38,23 @@
 {/if}
 
 <style>
+	.c-breadcrumb-link {
+		display: inline-flex;
+		align-items: center;
+		border-radius: 9999px;
+		padding: 0.375rem 0.75rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+		text-decoration: none;
+		transition: color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out),
+			background-color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out);
+	}
+	.c-breadcrumb-link:hover {
+		background-color: var(--color-background-secondary);
+		color: var(--color-primary-600);
+	}
+	.c-breadcrumb-link--current {
+		background-color: var(--color-background-secondary);
+		color: var(--color-text-primary);
+	}
 </style>

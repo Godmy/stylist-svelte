@@ -11,6 +11,9 @@ export type {
 	ContainerProps
 } from './container';
 export type { DividerProps } from './divider';
+export type { DragAndDropListItem } from './drag-and-drop-list-item';
+export type { DragAndDropListProps } from './drag-and-drop-list-props';
+export type { DragAndDropListRestProps } from './drag-and-drop-list-rest-props';
 export type { GradientBackgroundStyle } from './gradient-background-style';
 export type {
 	GridProps,

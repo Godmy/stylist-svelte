@@ -1,10 +1,9 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { MapSelectorLocation as SlotMapSelectorLocation } from '$stylist/geo/type/struct/map-selector/mapselectorlocation';
 import type { MapProvider } from '$stylist/geo/type/alias/map-provider';
 
-export interface SlotMapSelector extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotInteraction {
+export interface SlotMapSelector extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
 	locations: SlotMapSelectorLocation[];
 	initialCenter?: { lat: number; lng: number };
 	initialZoom?: number;

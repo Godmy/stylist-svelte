@@ -63,8 +63,7 @@
 						<li>
 							<a
 								href={item.href || '#'}
-								class="sidebar__TODO"
-								data-TODO="was state.getNavItemClass(...)"
+								class={state.getNavItemClass(item)}
 								onclick={(e) => {
 									e.preventDefault();
 									state.handleClick(item);
@@ -201,12 +200,20 @@
 		transition-property: color, background-color, border-color;
 		transition-duration: 150ms;
 		border-color: var(--color-border-primary);
-		background-color: var(--color-primary-50);
 		color: var(--color-text-primary);
+		text-decoration: none;
 		cursor: pointer;
 	}
 	.sidebar__nav-item:hover {
 		background-color: var(--color-background-hover);
+	}
+	.sidebar__nav-item--active {
+		background-color: var(--color-primary-50);
+	}
+	.sidebar__nav-item--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
 	}
 
 	.sidebar__nav-item-icon-wrapper {

@@ -7,7 +7,7 @@
 </script>
 
 <div
-	class="legend-item__TODO-itemClasses"
+	class={state.itemClasses}
 	onclick={state.handleClick}
 	role={props.onClick ? 'button' : undefined}
 	{...props.onClick ? { tabindex: 0 } : {}}

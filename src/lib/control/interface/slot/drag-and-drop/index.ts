@@ -1,4 +1,3 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { BehaviorDraggable } from '$stylist/interaction/interface/behavior/draggable';
@@ -8,12 +7,11 @@ import type { BehaviorDraggable } from '$stylist/interaction/interface/behavior/
  *
  * LEGO-состав:
  *   BehaviorDraggable            (interaction) — dropEffect, onDrag*, onDrop
- *   HTMLAttributes<HTMLDivElement>, SlotInteraction
+ *   HTMLAttributes<HTMLDivElement>
  */
 export interface SlotDragAndDrop
 	extends Omit<BehaviorDraggable, 'draggable' | 'dragCursor'>,
-		Omit<HTMLAttributes<HTMLDivElement>, 'draggable'>,
-		SlotInteraction {
+		Omit<HTMLAttributes<HTMLDivElement>, 'draggable'> {
 	/** Разрешить перетаскивание */
 	draggable?: boolean;
 	/** Разрешить сброс элемента (drop zone) */

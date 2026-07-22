@@ -20,3 +20,4 @@ export type { RecipeShortcutsPanel } from './shortcuts-panel';
 export type { RecipeSort } from './sort';
 export type { RecipeSortableGrid } from './sortable-grid';
 export type { RecipeStatusIndicator } from './status-indicator';
+export type { RecipeTooltip } from './tooltip';

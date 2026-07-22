@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import UserStatus from '$stylist/chat/component/molecule/user-status/index.svelte';

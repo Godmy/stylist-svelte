@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { useCamera } from './camera';
 export { createCss3dCubeState } from './css-3d-cube';
+export { createCubeControlState } from './cube-control';
 export { useFocus } from './focus';
 export { createFocusState } from './focus-state';
 export { createFocusTarget } from './focus-target';

@@ -21,6 +21,7 @@ export {
 	CheckoutForm,
 	CurrencyConverter,
 	DiscountApplier,
+	FilterBar,
 	InventoryTracker,
 	OrderConfirmation,
 	OrderHistory,

@@ -1,11 +1,5 @@
 ﻿import type { RecipeImage } from '$stylist/media/interface/recipe/image';
-
-const SIZE_CLASSES: Record<string, string> = {
-	sm: 'max-w-[200px] h-auto',
-	md: 'max-w-[400px] h-auto',
-	lg: 'max-w-[600px] h-auto',
-	xl: 'max-w-full h-auto'
-};
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createImageState(props: RecipeImage) {
 	let isLoaded = $state(false);
@@ -18,24 +12,18 @@ export function createImageState(props: RecipeImage) {
 	const height = $derived(props.height);
 	const content = $derived(props.content);
 	const size = $derived(props.size ?? 'md');
-	const sizeClasses = $derived(SIZE_CLASSES[size] ?? '');
 
-	const baseClasses = $derived('block max-w-full h-auto object-cover');
-	const transitionClass = $derived('transition-opacity duration-[var(--duration-200)]');
-
-	const containerClass = $derived(
-		'relative inline-block overflow-clip bg-[var(--color-background-secondary)] rounded-md'
-	);
-	const wrapperClass = $derived(
-		'flex items-center justify-center w-full h-full min-h-[100px] text-[var(--color-text-secondary)]'
-	);
+	const containerClass = $derived('c-image');
+	const wrapperClass = $derived('c-image__placeholder');
 
 	const imageSource = $derived(hasError && fallback ? fallback : src);
-	const loadedClass = $derived(
-		isLoaded ? 'opacity-[var(--opacity-100)]' : 'opacity-[var(--opacity-0)]'
-	);
 	const imageClasses = $derived(
-		`${baseClasses} ${loadedClass} ${transitionClass} ${sizeClasses} ${props.class ?? ''}`
+		mergeClassNames(
+			'c-image__img',
+			`c-image__img--${size}`,
+			isLoaded ? 'c-image__img--loaded' : '',
+			props.class ?? ''
+		)
 	);
 
 	const restProps = $derived.by(() => {

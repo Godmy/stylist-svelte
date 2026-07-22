@@ -99,27 +99,26 @@ export function createShortcutsPanelState(_props: RecipeShortcutsPanel) {
 	function getCategoryColor(category: string) {
 		switch (category) {
 			case 'Navigation':
-				return 'from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 border-indigo-200 dark:border-indigo-800';
+				return 'sp-cat--navigation';
 			case 'View':
-				return 'from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 border-green-200 dark:border-green-800';
+				return 'sp-cat--view';
 			case 'Actions':
-				return 'from-orange-50 to-amber-50 dark:from-orange-900/30 dark:to-amber-900/30 border-orange-200 dark:border-orange-800';
+				return 'sp-cat--actions';
 			case 'Viewport':
-				return 'from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 border-blue-200 dark:border-blue-800';
+				return 'sp-cat--viewport';
 			case 'Tabs':
-				return 'from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 border-purple-200 dark:border-purple-800';
+				return 'sp-cat--tabs';
 			case 'Misc':
-				return 'from-gray-50 to-slate-50 dark:from-gray-900/30 dark:to-slate-900/30 border-gray-200 dark:border-gray-800';
 			default:
-				return 'from-gray-50 to-slate-50 dark:from-gray-900/30 dark:to-slate-900/30 border-gray-200 dark:border-gray-800';
+				return 'sp-cat--misc';
 		}
 	}
 
 	function getKeyColor(key: string) {
 		if (key === 'Ctrl' || key === 'Alt' || key === 'Shift') {
-			return 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 border-indigo-300 dark:border-indigo-700';
+			return 'sp-kbd--modifier';
 		}
-		return 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600';
+		return 'sp-kbd--default';
 	}
 
 	return {

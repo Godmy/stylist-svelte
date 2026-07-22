@@ -4,10 +4,6 @@ export {
 	TOKEN_MESSAGE_STATUS
 } from './array';
 export {
-	MESSAGE_ALIGNMENT_CLASSES,
-	MESSAGE_BUBBLE_WRAPPER_VARIANTS
-} from './map';
-export {
 	PRESET_CHAT_HEADER,
 	PRESET_MESSAGE_TIMESTAMP
 } from './preset';

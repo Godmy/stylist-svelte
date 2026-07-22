@@ -16,5 +16,4 @@ export {
 	TOKEN_CONTROLLER_TYPE,
 	TOKEN_CURSOR
 } from './map';
-export { PRESET_DRAGGABLE } from './preset';
 export { VARIANT_CLASSES } from './record';

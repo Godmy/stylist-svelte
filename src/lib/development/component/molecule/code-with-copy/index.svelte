@@ -29,4 +29,33 @@
 </div>
 
 <style>
+	.c-code-with-copy {
+		position: relative;
+	}
+	.c-code-with-copy__copy-btn {
+		position: absolute;
+		right: 0.5rem;
+		top: 0.5rem;
+		border: none;
+		border-radius: 0.375rem;
+		background-color: var(--color-background-secondary);
+		padding: 0.375rem;
+		cursor: pointer;
+		opacity: 0;
+		transition: opacity var(--duration-150, 150ms) var(--easing-smooth, ease-in-out),
+			background-color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out);
+	}
+	.c-code-with-copy:hover .c-code-with-copy__copy-btn {
+		opacity: 1;
+	}
+	.c-code-with-copy__copy-btn:hover {
+		background-color: var(--color-neutral-200, var(--color-background-tertiary));
+	}
+	:global(.c-code-with-copy__icon) {
+		width: 1rem;
+		height: 1rem;
+	}
+	:global(.c-code-with-copy__icon--copied) {
+		color: var(--color-success-600, #16a34a);
+	}
 </style>

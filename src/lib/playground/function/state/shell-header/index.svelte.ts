@@ -91,12 +91,7 @@ export function createShellHeaderState(props: RecipeShellHeader) {
 	}
 
 	function toggleButtonClasses(isActive: boolean) {
-		return [
-			'flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border shadow-sm transition-all h-9',
-			isActive
-				? 'bg-gradient-to-r from-[var(--playground-accent)] to-[var(--playground-accent-strong)] border-[var(--playground-accent)] text-[var(--playground-accent-contrast)] shadow-[0_12px_30px_var(--playground-accent-shadow)]'
-				: 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
-		].join(' ');
+		return `psh-toggle-btn ${isActive ? 'psh-toggle-btn--active' : ''}`.trim();
 	}
 
 	return {

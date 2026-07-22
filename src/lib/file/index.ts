@@ -10,6 +10,7 @@ export {
 	FileInput,
 	FileListItem,
 	FileUpload,
+	QuantitySelector,
 	UploadProgress,
 	ZipViewer
 } from './component';
@@ -18,6 +19,7 @@ export {
 	EXPORT_FORMAT,
 	FILE_EXPLORER_VIEW_MODE,
 	FILE_ITEM_TYPE,
+	PresetQuantitySelector,
 	TOKEN_DOCUMENT_FORMAT,
 	UPLOAD_PROGRESS_VARIANT,
 	UPLOAD_STATUS
@@ -38,6 +40,7 @@ export {
 	createFileListItemState,
 	createFileState,
 	createFileUploadState,
+	createQuantitySelectorState,
 	createUploadProgressState,
 	createZipViewerState,
 	exportData,
@@ -124,6 +127,7 @@ export type {
 	RecipeFileInput,
 	RecipeFileListItem,
 	RecipeFileUpload,
+	RecipeQuantitySelector,
 	RecipeUploadProgress,
 	RecipeZipViewer,
 	SlotDocumentPreview,
@@ -141,6 +145,7 @@ export type {
 	SlotFileListItem,
 	SlotFileMetadata,
 	SlotFileUpload,
+	SlotQuantitySelector,
 	SlotUploadFile,
 	SlotUploadProgress,
 	SlotUploadProgressBehaviorOptions,

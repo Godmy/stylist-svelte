@@ -1,6 +1,5 @@
 import type { RecipeTimeline } from '$stylist/calendar/interface/recipe/timeline';
 
-import type { TOKEN_FLOW } from '$stylist/interaction/const/array/flow';
 export function createTimelineState(props: RecipeTimeline) {
 	const items = $derived(props.items ?? []);
 	const orientation = $derived(props.orientation ?? 'vertical');
@@ -23,28 +22,6 @@ export function createTimelineState(props: RecipeTimeline) {
 		return rest;
 	});
 
-	function getStatusClasses(status: (typeof TOKEN_FLOW)[number]) {
-		switch (status) {
-			case 'completed':
-				return 'bg-[var(--color-success-500)] text-[var(--color-text-inverse)]';
-			case 'current':
-				return 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]';
-			default:
-				return 'bg-[var(--color-background-tertiary)] text-[var(--color-text-secondary)]';
-		}
-	}
-
-	function getItemBackgroundClasses(status: (typeof TOKEN_FLOW)[number]) {
-		switch (status) {
-			case 'completed':
-				return 'bg-[var(--color-success-50)]';
-			case 'current':
-				return 'bg-[var(--color-primary-50)]';
-			default:
-				return 'bg-[var(--color-background-secondary)]';
-		}
-	}
-
 	return {
 		get items() {
 			return items;
@@ -66,9 +43,7 @@ export function createTimelineState(props: RecipeTimeline) {
 		},
 		get restProps() {
 			return restProps;
-		},
-		getStatusClasses,
-		getItemBackgroundClasses
+		}
 	};
 }
 

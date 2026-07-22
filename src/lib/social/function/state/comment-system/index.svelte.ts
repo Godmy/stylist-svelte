@@ -39,22 +39,22 @@ export function createCommentSystemState(props: SlotCommentSystem) {
 			return `comment-system ${props.class ?? ''}`.trim();
 		},
 		get cardClass() {
-			return 'rounded-md border border-[var(--color-border-primary)] bg-[var(--color-background-primary)]';
+			return 'c-comment-system__card';
 		},
 		get composerClass() {
-			return `p-4 ${props.formClass ?? ''}`.trim();
+			return `c-comment-system__composer ${props.formClass ?? ''}`.trim();
 		},
 		get controlInputClass() {
-			return `w-full rounded-md border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-3 text-sm ${props.inputClass ?? ''}`.trim();
+			return `c-comment-system__input ${props.inputClass ?? ''}`.trim();
 		},
 		get actionBarClass() {
-			return `mt-2 flex items-center gap-3 text-sm text-[var(--color-text-secondary)] ${props.actionsClass ?? ''}`.trim();
+			return `c-comment-system__actions ${props.actionsClass ?? ''}`.trim();
 		},
 		get primaryButtonClass() {
-			return `rounded-md bg-[var(--color-primary-600)] px-4 py-2 text-sm font-medium text-[var(--color-text-inverse)] ${props.buttonClass ?? ''}`.trim();
+			return `c-comment-system__submit-btn ${props.buttonClass ?? ''}`.trim();
 		},
 		get countHeaderClass() {
-			return `border-t border-[var(--color-border-primary)] px-4 py-3 text-sm font-medium ${props.headerClass ?? ''}`.trim();
+			return `c-comment-system__header ${props.headerClass ?? ''}`.trim();
 		},
 		get currentUserId() {
 			return props.currentUser?.id;

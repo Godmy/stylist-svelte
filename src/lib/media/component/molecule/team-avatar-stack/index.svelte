@@ -66,6 +66,53 @@
 </div>
 
 <style>
+	.tas-host {
+		display: flex;
+		align-items: center;
+	}
+	.tas-host--vertical {
+		flex-direction: column;
+	}
+	.tas-host--horizontal {
+		flex-direction: row;
+	}
+	.tas-size--sm {
+		width: 2rem;
+		height: 2rem;
+	}
+	.tas-size--md {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+	.tas-size--lg {
+		width: 3rem;
+		height: 3rem;
+	}
+	.tas-status-size--sm {
+		width: 0.5rem;
+		height: 0.5rem;
+	}
+	.tas-status-size--md {
+		width: 0.625rem;
+		height: 0.625rem;
+	}
+	.tas-status-size--lg {
+		width: 0.75rem;
+		height: 0.75rem;
+	}
+	.tas-status-dot--online {
+		background-color: var(--color-success-500, #10b981);
+	}
+	.tas-status-dot--away {
+		background-color: var(--color-warning-500, #f59e0b);
+	}
+	.tas-status-dot--busy {
+		background-color: var(--color-danger-500);
+	}
+	.tas-status-dot--offline,
+	.tas-status-dot--default {
+		background-color: var(--color-neutral-400, #94a3b8);
+	}
 	.tas-item {
 		position: relative;
 	}

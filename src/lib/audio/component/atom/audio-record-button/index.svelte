@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeAudioRecordButton } from '$stylist/audio/interface/recipe/audio-record-button';
 	import { createAudioRecordButtonState } from '$stylist/audio/function/state/audio-record-button/index.svelte';

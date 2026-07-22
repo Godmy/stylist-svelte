@@ -1,7 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 
-export type ProgressBarWithLabelProps = HTMLAttributes<HTMLDivElement> & SlotInteraction & {
+export type ProgressBarWithLabelProps = HTMLAttributes<HTMLDivElement> & {
 	value?: number;
 	max?: number;
 	label?: string;

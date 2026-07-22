@@ -1,4 +1,3 @@
-﻿import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComparisonTableFeature } from '$stylist/table/type/struct/comparison-table-feature';
 import type { ComparisonTableProduct } from '$stylist/table/type/struct/comparison-table-product';
@@ -14,4 +13,4 @@ export type ComparisonTableProps = {
 	productClass?: string;
 	valueClass?: string;
 	primaryProductClass?: string;
-} & HTMLAttributes<HTMLDivElement> & SlotInteraction;
+} & HTMLAttributes<HTMLDivElement>;

@@ -37,15 +37,12 @@ export function createOperationsHistoryState(
 	function getStatusVariant(
 		status: Operation['status']
 	): 'success' | 'danger' | 'warning' | 'default' {
-		const variant = ['operations-history__TODO', status ? `operations-history__TODO--selected` : '']
-			.filter(Boolean)
-			.join(' ');
-		switch (variant) {
+		switch (status) {
 			case 'success':
 				return 'success';
-			case 'danger':
+			case 'error':
 				return 'danger';
-			case 'warning':
+			case 'pending':
 				return 'warning';
 			default:
 				return 'default';

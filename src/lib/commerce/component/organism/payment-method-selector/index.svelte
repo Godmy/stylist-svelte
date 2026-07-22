@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 
 	import type { PaymentMethodSelectorProps } from '$stylist/commerce/type/struct/payment-method-selector-props';
 

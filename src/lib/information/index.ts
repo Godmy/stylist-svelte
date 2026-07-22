@@ -17,7 +17,8 @@ export {
 	MetricBarsCard,
 	NpmBadge,
 	ShortcutsPanel,
-	StatusIndicator
+	StatusIndicator,
+	Tooltip
 } from './component';
 export {
 	DEFAULT_BADGE,
@@ -33,7 +34,6 @@ export {
 	createBadgeGroupState,
 	createBadgeState,
 	createBaseCardState,
-	createBlockquoteState,
 	createCountBadgeState,
 	createCounterState,
 	createDotState,
@@ -45,6 +45,7 @@ export {
 	createNpmBadgeState,
 	createShortcutsPanelState,
 	createStatusIndicatorState,
+	createTooltipState,
 	formatFileSize,
 	getIconName,
 	handleDownload,
@@ -90,9 +91,11 @@ export type {
 	RecipeSortableGrid,
 	RecipeStatusIndicator,
 	RecipeThemeIconPicker,
+	RecipeTooltip,
 	SlotAttachment,
 	SlotAttachmentPreview,
 	SlotBadge,
 	SlotStatus,
+	SlotTooltip,
 	ThemeIconItem
 } from './interface';

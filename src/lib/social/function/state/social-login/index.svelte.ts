@@ -13,65 +13,65 @@ export function createSocialLoginState(props: Props) {
 			id: 'google',
 			name: 'Google',
 			icon: null,
-			color: 'bg-[var(--color-background-primary)]',
-			textColor: 'text-[var(--color-text-primary)]',
-			borderColor: 'border-[var(--color-border-primary)]'
+			color: '--color-background-primary',
+			textColor: '--color-text-primary',
+			borderColor: '--color-border-primary'
 		},
 		facebook: {
 			id: 'facebook',
 			name: 'Facebook',
 			icon: null,
-			color: 'bg-[var(--color-background-primary)]',
-			textColor: 'text-[var(--color-text-primary)]',
-			borderColor: 'border-[var(--color-border-primary)]'
+			color: '--color-background-primary',
+			textColor: '--color-text-primary',
+			borderColor: '--color-border-primary'
 		},
 		github: {
 			id: 'github',
 			name: 'GitHub',
 			icon: null,
-			color: 'bg-[var(--color-background-primary)]',
-			textColor: 'text-[var(--color-text-primary)]',
-			borderColor: 'border-[var(--color-border-primary)]'
+			color: '--color-background-primary',
+			textColor: '--color-text-primary',
+			borderColor: '--color-border-primary'
 		},
 		twitter: {
 			id: 'twitter',
 			name: 'Twitter',
 			icon: null,
-			color: 'bg-[var(--color-background-primary)]',
-			textColor: 'text-[var(--color-text-primary)]',
-			borderColor: 'border-[var(--color-border-primary)]'
+			color: '--color-background-primary',
+			textColor: '--color-text-primary',
+			borderColor: '--color-border-primary'
 		},
 		linkedin: {
 			id: 'linkedin',
 			name: 'LinkedIn',
 			icon: null,
-			color: 'bg-[var(--color-background-primary)]',
-			textColor: 'text-[var(--color-text-primary)]',
-			borderColor: 'border-[var(--color-border-primary)]'
+			color: '--color-background-primary',
+			textColor: '--color-text-primary',
+			borderColor: '--color-border-primary'
 		},
 		apple: {
 			id: 'apple',
 			name: 'Apple',
 			icon: null,
-			color: 'bg-[var(--color-background-primary)]',
-			textColor: 'text-[var(--color-text-primary)]',
-			borderColor: 'border-[var(--color-border-primary)]'
+			color: '--color-background-primary',
+			textColor: '--color-text-primary',
+			borderColor: '--color-border-primary'
 		},
 		microsoft: {
 			id: 'microsoft',
 			name: 'Microsoft',
 			icon: null,
-			color: 'bg-[var(--color-background-primary)]',
-			textColor: 'text-[var(--color-text-primary)]',
-			borderColor: 'border-[var(--color-border-primary)]'
+			color: '--color-background-primary',
+			textColor: '--color-text-primary',
+			borderColor: '--color-border-primary'
 		},
 		slack: {
 			id: 'slack',
 			name: 'Slack',
 			icon: null,
-			color: 'bg-[var(--color-background-primary)]',
-			textColor: 'text-[var(--color-text-primary)]',
-			borderColor: 'border-[var(--color-border-primary)]'
+			color: '--color-background-primary',
+			textColor: '--color-text-primary',
+			borderColor: '--color-border-primary'
 		}
 	};
 

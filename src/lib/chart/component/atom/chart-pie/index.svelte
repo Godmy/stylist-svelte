@@ -30,4 +30,13 @@
 </div>
 
 <style>
+	.c-chart-pie {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.c-chart-pie__svg {
+		display: block;
+	}
 </style>

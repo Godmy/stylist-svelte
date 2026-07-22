@@ -27,10 +27,10 @@ export function createShellCanvasState(props: RecipeShellCanvas) {
 	};
 
 	const backgroundClasses: Record<ShellCanvasBackgroundType, string> = {
-		white: 'bg-white',
-		gray: 'bg-gray-50 dark:bg-gray-900',
-		dark: 'bg-gray-900',
-		transparent: 'bg-transparent'
+		white: 'cs-bg--white',
+		gray: 'cs-bg--gray',
+		dark: 'cs-bg--dark',
+		transparent: 'cs-bg--transparent'
 	};
 
 	const currentViewportWidth = $derived(viewportSizes[viewport]);

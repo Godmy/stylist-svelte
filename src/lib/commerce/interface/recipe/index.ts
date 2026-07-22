@@ -11,6 +11,7 @@ export type { RecipeCurrencyConverter } from './currency-converter';
 export type { RecipeDataDisplayCard } from './data-display-card';
 export type { RecipeDiscountApplier } from './discount-applier';
 export type { RecipeExpandableCard } from './expandable-card';
+export type { RecipeFilterBar } from './filter-bar';
 export type { RecipeGraphNodeCard } from './graph-node-card';
 export type { RecipeInventoryTracker } from './inventory-tracker';
 export type { RecipeLinkCard } from './link-card';

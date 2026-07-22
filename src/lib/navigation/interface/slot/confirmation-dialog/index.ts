@@ -1,4 +1,3 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
@@ -14,7 +13,7 @@ import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
  *   ThemeAttributes       (theme)       — variant (tone)
  */
 export interface SlotConfirmationDialog
-	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotInteraction {
+	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
 	open?: boolean;
 	title?: string;
 	message?: string;

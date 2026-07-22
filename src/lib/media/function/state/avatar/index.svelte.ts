@@ -5,12 +5,7 @@ import type { AvatarUserStatus } from '$stylist/media/type/alias/avatar-user-sta
 import type { RecipeAvatar } from '$stylist/media/interface/recipe/avatar';
 
 import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
-const SIZE_CLASSES: Partial<Record<(typeof TOKEN_SIZE)[number], string>> = {
-	sm: 'w-6 h-6 text-sm',
-	md: 'w-8 h-8 text-base',
-	lg: 'w-10 h-10 text-lg',
-	xl: 'w-12 h-12 text-xl'
-};
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createAvatarState(props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography) {
 	const name = $derived(props.name ?? '');
@@ -18,38 +13,24 @@ export function createAvatarState(props: RecipeAvatar & HTMLAttributes<HTMLDivEl
 	const showStatus = $derived(props.showStatus ?? false);
 	const size = $derived((props.size ?? 'md') as (typeof TOKEN_SIZE)[number]);
 	const initials = $derived(name ? name.charAt(0).toUpperCase() : '?');
-	const sizeClasses = $derived(SIZE_CLASSES[size] ?? SIZE_CLASSES.md);
 	const avatarClasses = $derived(
-		`inline-flex items-center justify-center rounded-full bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] overflow-hidden ${sizeClasses} ${props.class ?? ''}`
+		mergeClassNames('c-avatar', `c-avatar--${size}`, props.class ?? '')
 	);
-	const imageClasses = $derived('w-full h-full object-cover rounded-full');
-	const fallbackClasses = $derived('w-full h-full flex items-center justify-center');
+	const imageClasses = $derived('c-avatar__image');
+	const fallbackClasses = $derived('c-avatar__fallback');
 
 	function getStatusClasses(status?: AvatarUserStatus): string {
-		const statusClasses: Record<AvatarUserStatus, string> = {
-			online: 'bg-[var(--color-success-500)]',
-			away: 'bg-[var(--color-warning-500)]',
-			offline: 'bg-[var(--color-text-secondary)]',
-			typing: 'bg-[var(--color-primary-500)]',
-			idle: 'bg-[var(--color-warning-600)]'
-		};
-		return statusClasses[status || 'offline'] || statusClasses.offline;
+		return `c-avatar__status--${status || 'offline'}`;
 	}
 
 	function getStatusSizeClasses(size: (typeof TOKEN_SIZE)[number]): string {
-		const statusSizeClasses: Partial<Record<(typeof TOKEN_SIZE)[number], string>> = {
-			sm: 'w-2 h-2',
-			md: 'w-2.5 h-2.5',
-			lg: 'w-3 h-3',
-			xl: 'w-3.5 h-3.5'
-		};
-		return statusSizeClasses[size] ?? statusSizeClasses.md ?? 'w-2.5 h-2.5';
+		return `c-avatar__status--${size}`;
 	}
 
 	const statusColor = $derived(getStatusClasses(status));
 	const statusSize = $derived(getStatusSizeClasses(size));
 	const statusIndicatorClasses = $derived(
-		`absolute bottom-0 right-0 rounded-full border-2 border-[var(--color-background-primary)] ${statusColor} ${statusSize}`
+		mergeClassNames('c-avatar__status', statusColor, statusSize)
 	);
 
 	const src = $derived(props.src);
@@ -86,9 +67,6 @@ export function createAvatarState(props: RecipeAvatar & HTMLAttributes<HTMLDivEl
 		},
 		get initials() {
 			return initials;
-		},
-		get sizeClasses() {
-			return sizeClasses;
 		},
 		get avatarClasses() {
 			return avatarClasses;

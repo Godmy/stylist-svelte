@@ -1,7 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 
-export type ProgressCircleProps = HTMLAttributes<HTMLDivElement> & SlotInteraction & {
+export type ProgressCircleProps = HTMLAttributes<HTMLDivElement> & {
 	progress?: number;
 	size?: 'sm' | 'md' | 'lg';
 	color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'gray';

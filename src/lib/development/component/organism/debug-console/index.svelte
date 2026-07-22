@@ -131,6 +131,57 @@
 </div>
 
 <style>
+	.dc-container {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 16rem;
+		background: var(--color-background-primary);
+		border-top: 1px solid var(--color-border-primary);
+		box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+		z-index: var(--z-index-modal);
+		display: flex;
+		flex-direction: column;
+	}
+	.dc-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.5rem 1rem;
+		border-bottom: 1px solid var(--color-border-primary);
+		background: #f3f4f6;
+	}
+	.dc-level--log {
+		color: #374151;
+	}
+	.dc-level--error {
+		color: #ef4444;
+	}
+	.dc-level--warn {
+		color: #eab308;
+	}
+	.dc-level--info {
+		color: #3b82f6;
+	}
+	.dc-level--debug {
+		color: #a855f7;
+	}
+	.dc-level-bg--log {
+		background: #f3f4f6;
+	}
+	.dc-level-bg--error {
+		background: #fee2e2;
+	}
+	.dc-level-bg--warn {
+		background: #fef9c3;
+	}
+	.dc-level-bg--info {
+		background: #dbeafe;
+	}
+	.dc-level-bg--debug {
+		background: #f3e8ff;
+	}
 	.dc-header-left {
 		display: flex;
 		align-items: center;

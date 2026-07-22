@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { createZipViewerState } from '$stylist/file/function/state/zip-viewer/index.svelte';
 	import type { RecipeZipViewer } from '$stylist/file/interface/recipe/zip-viewer';

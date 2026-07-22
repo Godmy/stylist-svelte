@@ -258,6 +258,11 @@
 </div>
 
 <style>
+	.ml-host {
+		overflow: hidden;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+	}
 	.ml-header {
 		border-bottom: 1px solid var(--color-border-primary);
 		background-color: var(--color-background-primary);

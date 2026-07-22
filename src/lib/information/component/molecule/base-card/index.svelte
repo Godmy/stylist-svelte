@@ -26,6 +26,18 @@
 </div>
 
 <style>
+	.base-card {
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+	}
+	.base-card__header {
+		padding: 1rem;
+		border-bottom: 1px solid var(--color-border-primary);
+	}
+	.base-card__body {
+		padding: 1rem;
+	}
 	.bc-title {
 		font-size: 1.125rem;
 		font-weight: 600;

@@ -8,6 +8,7 @@ export { createChatPreviewState } from './chat-preview';
 export { createChatRoomState } from './chat-room';
 export { createChatStatusIndicatorState } from './chat-status-indicator';
 export { createChatWindowState } from './chat-window';
+export { createListWithAvatarsState } from './list-with-avatars';
 export { createMessageBubbleState } from './message-bubble';
 export { createMessageComposerState } from './message-composer';
 export { createMessageInputState } from './message-input';

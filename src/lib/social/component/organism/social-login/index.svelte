@@ -31,7 +31,7 @@
 						<button
 							type="button"
 							class="c-social-login__provider-btn {state.buttonClass}"
-							style={`border-color: ${config.borderColor ? 'var(' + config.borderColor.replace(/^border-\[(.+)\]$/, '$1') + ')' : 'var(--color-border-primary)'}`}
+							style={`border-color: var(${config.borderColor ?? '--color-border-primary'});`}
 							onclick={() => state.handleSocialLogin(provider)}
 							disabled={state.isLoading}
 							aria-label={`Sign in with ${config.name}`}

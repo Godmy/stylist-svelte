@@ -1,9 +1,7 @@
 import type { BreadcrumbSeparatorProps } from '$stylist/navigation/type/struct/breadcrumb-separator-props';
 
 export function createBreadcrumbSeparatorState(props: BreadcrumbSeparatorProps) {
-	const separatorClasses = $derived(
-		`inline-flex items-center text-[var(--color-text-tertiary)] ${props.class ?? ''}`
-	);
+	const separatorClasses = $derived(`c-breadcrumb-separator ${props.class ?? ''}`.trim());
 
 	return {
 		get separatorClasses() {

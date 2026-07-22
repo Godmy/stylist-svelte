@@ -55,6 +55,7 @@ export {
 	createFileListItemState,
 	createFileState,
 	createFileUploadState,
+	createQuantitySelectorState,
 	createUploadProgressState,
 	createZipViewerState
 } from './state';

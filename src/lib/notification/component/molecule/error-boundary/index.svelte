@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createErrorBoundaryState } from '$stylist/notification/function/state/error-boundary/index.svelte';
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	const props = $props();

@@ -3,6 +3,7 @@ export { AnimatedExpandableTableRow } from './animated-expandable-table-row/inde
 export { Card } from './card/index';
 export { CenteredLayout } from './centered-layout/index';
 export { ContainerQuery } from './container-query/index';
+export { DragAndDropList } from './drag-and-drop-list/index';
 export { GradientBackground } from './gradient-background/index';
 export { Grid } from './grid/index';
 export { OverlayLayout } from './overlay-layout/index';

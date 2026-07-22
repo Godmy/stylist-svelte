@@ -9,16 +9,10 @@ export function createBadgeGroupState(props: RecipeBadgeGroup) {
 	const visibleBadges = $derived(badges.slice(0, maxVisible));
 	const overflowCount = $derived(Math.max(0, badges.length - maxVisible));
 	const containerClasses = $derived(
-		mergeClassNames(
-			'flex flex-wrap items-center gap-2',
-			typeof props.class === 'string' ? props.class : ''
-		)
+		mergeClassNames('badge-group', typeof props.class === 'string' ? props.class : '')
 	);
 	const overflowClasses = $derived(
-		mergeClassNames(
-			'inline-flex items-center rounded-full text-xs font-medium bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)] px-2.5 py-0.5',
-			props.overflowClass ?? ''
-		)
+		mergeClassNames('badge-group__overflow', props.overflowClass ?? '')
 	);
 
 	return {

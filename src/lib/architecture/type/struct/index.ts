@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { SceneCameraInput } from './camera-input';
+export type { CubeControlProps } from './cube-control-props';
+export type { CubeDebugLogEntry } from './cube-debug-log-entry';
+export type { CubeSelectionState } from './cube-selection-state';
 export type { GraphMinimapContract } from './graph-minimap-contract';
 export type { GraphMinimapProps } from './graph-minimap-props';
 export type { GraphPortDimensions } from './graph-port-dimensions';

@@ -1,4 +1,3 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { MockDataSelectorMockDataSchema } from '$stylist/development/type/struct/mock-data-selector-mock-data-schema';
 import type { MockDataSelectorDataSelection } from '$stylist/development/type/struct/mock-data-selector-data-selection';
@@ -20,4 +19,4 @@ export type MockDataSelectorProps = {
 	selectorClass?: string;
 	previewClass?: string;
 	footerClass?: string;
-} & HTMLAttributes<HTMLDivElement> & SlotInteraction;
+} & HTMLAttributes<HTMLDivElement>;

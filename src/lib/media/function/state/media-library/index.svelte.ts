@@ -21,9 +21,7 @@ export function createMediaLibraryState(props: RecipeMediaLibrary) {
 	const gridClass = $derived(props.gridClass ?? '');
 	const itemClass = $derived(props.itemClass ?? '');
 
-	const hostClasses = $derived(
-		`border border-[var(--color-border-primary)] rounded-lg overflow-hidden ${props.class ?? ''}`
-	);
+	const hostClasses = $derived(`ml-host ${props.class ?? ''}`.trim());
 
 	const filteredItems = $derived.by(() => {
 		if (!searchQuery) return items;

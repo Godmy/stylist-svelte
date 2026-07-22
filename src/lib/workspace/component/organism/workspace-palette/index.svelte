@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconButton from '$stylist/control/component/atom/icon-button/index.svelte';
+	import IconButton from '$stylist/button/component/atom/icon-button/index.svelte';
 	import InputText from '$stylist/input/component/molecule/input-text/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Separator from '$stylist/layout/component/atom/separator/index.svelte';

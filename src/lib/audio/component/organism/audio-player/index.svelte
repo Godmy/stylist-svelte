@@ -2,7 +2,7 @@
 	import type { RecipeAudioPlayer } from '$stylist/audio/interface/recipe/audio-player';
 	import { createAudioPlayerState } from '$stylist/audio/function/state/audio-player/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 
 	let props: RecipeAudioPlayer = $props();
 	const state = createAudioPlayerState(props);
@@ -89,6 +89,12 @@
 </div>
 
 <style>
+	.audio-player {
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+		padding: 1rem;
+	}
 	.ap-title {
 		margin-bottom: 0.5rem;
 		overflow: hidden;

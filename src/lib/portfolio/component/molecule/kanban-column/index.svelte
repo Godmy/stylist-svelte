@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 	import { createKanbanColumnState } from '$stylist/portfolio/function/state/kanban-column/index.svelte';

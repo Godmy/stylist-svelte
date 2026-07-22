@@ -15,29 +15,20 @@ export function createChatPreviewState(props: ChatPreviewProps | AnyProperty) {
 	// Get display messages (limited by maxMessages)
 	const displayMessages = $derived(messages.slice(0, maxMessages));
 
-	const variantClasses: Record<string, string> = {
-		default: 'border-[--color-border-secondary] bg-[--color-background-primary]',
-		elevated: 'border-transparent bg-[--color-background-primary] shadow-md',
-		muted: 'border-[--color-border-secondary] bg-[--color-background-secondary]'
-	};
-
-	const sizeClasses: Record<string, string> = {
-		sm: 'max-w-sm',
-		md: 'max-w-md',
-		lg: 'max-w-lg'
-	};
+	const validVariant = ['default', 'elevated', 'muted'].includes(variant) ? variant : 'default';
+	const validSize = ['sm', 'md', 'lg'].includes(size) ? size : 'md';
 
 	const styles = {
 		container: joinClassNames(
-			'rounded-xl border p-4',
-			variantClasses[variant] ?? variantClasses.default,
-			sizeClasses[size] ?? sizeClasses.md
+			'c-chat-preview',
+			`c-chat-preview--${validVariant}`,
+			`c-chat-preview--${validSize}`
 		),
-		header: 'mb-4 flex items-center justify-between gap-3',
-		chatInfo: 'min-w-0',
-		title: 'truncate text-sm font-semibold text-[var(--color-text-primary)]',
-		participants: 'mt-1 text-xs text-[var(--color-text-secondary)]',
-		messagesContainer: 'space-y-3'
+		header: 'c-chat-preview__header',
+		chatInfo: 'c-chat-preview__chat-info',
+		title: 'c-chat-preview__title',
+		participants: 'c-chat-preview__participants',
+		messagesContainer: 'c-chat-preview__messages'
 	};
 
 	// Merge classes with custom classes

@@ -1,9 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	ObjectManagerContentEditor,
-	ObjectManagerGesture,
-	ObjectManagerSearchBar
-} from './class';
+export { ObjectManagerGesture } from './class';
 export {
 	Click,
 	Clickable,
@@ -15,7 +11,6 @@ export {
 export {
 	CONTENT_EDITOR_CONTENT_TYPE,
 	INTERACTION_FEEDBACK,
-	PRESET_DRAGGABLE,
 	TOKEN_APPEARANCE,
 	TOKEN_AVAILABILITY,
 	TOKEN_CONTROLLER_TYPE,
@@ -37,20 +32,13 @@ export {
 	createFocusableState,
 	createHoverableState,
 	detectClipboardSupport,
-	formatNumberValue,
 	resolveAllowedOption
 } from './function';
 export type {
 	ClickContract,
-	ComponentClasses,
-	ContentElement,
 	ContentType,
 	DragContract,
-	ExtendedPreset,
-	FocusContract,
 	GestureContract,
-	HoverContract,
-	InputPreset,
 	InteractionFeedback,
 	InteractionIntent,
 	Preset,
@@ -71,16 +59,10 @@ export type {
 	BehaviorPointClickable,
 	BehaviorSelectable,
 	BehaviorTooltipable,
-	ClickableStyleManagerOptions,
-	DraggableStyleManagerOptions,
-	FocusableStyleManagerOptions,
-	HoverableStyleManagerOptions,
 	NumberFormatOptions,
 	RecipeClickable,
 	RecipeDraggable,
 	RecipeFocusable,
 	RecipeHoverable,
-	SearchSuggestion,
-	SlotClickable,
-	SlotInteraction
+	SlotClickable
 } from './interface';

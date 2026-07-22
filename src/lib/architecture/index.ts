@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	Css3dCube,
+	CubeControl,
 	GraphEdge,
 	GraphNode,
 	GraphvizDirectedEdge,
@@ -12,6 +13,10 @@ export {
 	Viewport
 } from './component';
 export {
+	CUBE_FACE_NUMBERS_SNAPSHOT,
+	CUBE_FACE_THEMES,
+	CUBE_HORIZONTAL_ICONS,
+	CUBE_VERTICAL_ICONS,
 	DEFAULT_FOUNDATION_CAMERA,
 	FOUNDATION_DEPTH_RANGE,
 	FOUNDATION_DEPTH_THRESHOLDS,
@@ -32,6 +37,8 @@ export {
 	TOKEN_ARCHITECTURE_SHADER_VERTEX,
 	TOKEN_COMPONENT_TYPE,
 	TOKEN_CONNECTOR,
+	TOKEN_CUBE_FACE_NAME,
+	TOKEN_CUBE_FACE_TITLE,
 	TOKEN_FOUNDATION_AXES,
 	TOKEN_FOUNDATION_AXIS_DIRECTIONS,
 	TOKEN_FUNCTIONAL_TAXONOMY,
@@ -49,6 +56,7 @@ export {
 export {
 	clampFoundationDepth,
 	createCss3dCubeState,
+	createCubeControlState,
 	createFocusState,
 	createFocusTarget,
 	createFoundationCameraState,
@@ -91,6 +99,9 @@ export {
 } from './function';
 export type {
 	ArchitectureScene,
+	CubeControlProps,
+	CubeDebugLogEntry,
+	CubeSelectionState,
 	FoundationAxis,
 	FoundationSemanticZoomStage,
 	GraphGridMode,

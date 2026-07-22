@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	Css3dCube,
+	CubeControl,
 	GraphEdge,
 	GraphNode,
 	Stage,

@@ -16,24 +16,21 @@ export const createInputAccessibilityCheckboxState = (
 	});
 
 	const containerClasses = $derived(
-		['flex items-center', props.class ?? ''].filter(Boolean).join(' ')
+		['a-checkbox', props.class ?? ''].filter(Boolean).join(' ')
 	);
 	const indicatorClasses = $derived(
 		[
-			'w-6 h-6 flex items-center justify-center rounded border',
-			localChecked
-				? 'bg-[var(--color-primary-500)] border-[var(--color-primary-500)]'
-				: 'bg-[var(--color-background-primary)] border-[var(--color-border-primary)]',
-			props.disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
+			'a-checkbox__indicator',
+			localChecked ? 'a-checkbox__indicator--checked' : '',
+			props.disabled ? 'a-checkbox__indicator--disabled' : ''
 		]
 			.filter(Boolean)
 			.join(' ')
 	);
 	const labelClasses = $derived(
-		[
-			'ml-2',
-			props.disabled ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-primary)]'
-		].join(' ')
+		['a-checkbox__text', props.disabled ? 'a-checkbox__text--disabled' : '']
+			.filter(Boolean)
+			.join(' ')
 	);
 
 	function handleChange() {

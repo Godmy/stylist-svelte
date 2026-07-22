@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	getChatMessageAlignmentClass,
-	getChatMessageBubbleClasses,
-	getMessageAlignmentClass,
 	handleAttachFn,
 	handleEmojiFn,
 	handleInputFn,
@@ -18,6 +15,7 @@ export {
 	createChatRoomState,
 	createChatStatusIndicatorState,
 	createChatWindowState,
+	createListWithAvatarsState,
 	createMessageBubbleState,
 	createMessageComposerState,
 	createMessageInputState,

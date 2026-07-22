@@ -45,9 +45,7 @@ export function createAiAssistantState(props: RecipeAiAssistant) {
 	const loadingIndicatorClass = $derived('ai-assistant__loading');
 
 	const messageClass = (role: 'user' | 'assistant') =>
-		['ai-assistant__message', role ? `ai-assistant__message--selected` : '']
-			.filter(Boolean)
-			.join(' ');
+		`ai-assistant__message ai-assistant__message--${role}`;
 
 	// Send message to AI
 	async function sendMessage() {

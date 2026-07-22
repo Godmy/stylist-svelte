@@ -16,7 +16,7 @@
 			state.html = marked.parse(state.content) as string;
 		} catch (error) {
 			console.error('Error parsing markdown:', error);
-			state.html = `<p class="text-red-600">Error rendering markdown</p>`;
+			state.html = `<p class="mr-error">Error rendering markdown</p>`;
 		}
 	});
 </script>
@@ -26,6 +26,9 @@
 </div>
 
 <style>
+	:global(.mr-error) {
+		color: var(--color-danger-600);
+	}
 	:global(.markdown-content) {
 		color: inherit;
 	}

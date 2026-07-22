@@ -32,13 +32,11 @@ export function createCodeWithCopyState(
 ) {
 	const copied = $state(false);
 
-	const containerClass = $derived('c-code-with-copy relative group');
+	const containerClass = $derived('c-code-with-copy');
 	const codeContentClass = $derived('code-content');
-	const copyButtonClass = $derived(
-		'absolute right-2 top-2 rounded-md bg-[var(--color-background-secondary)] p-1.5 opacity-[var(--opacity-0)] transition-colors transition-opacity hover:bg-[var(--color-neutral-200)] group-hover:opacity-[var(--opacity-100)]'
-	);
+	const copyButtonClass = $derived('c-code-with-copy__copy-btn');
 	const iconClass = (isCopied: boolean) =>
-		mergeClassNames('h-4 w-4', isCopied ? 'text-[var(--color-success-600)]' : '');
+		mergeClassNames('c-code-with-copy__icon', isCopied ? 'c-code-with-copy__icon--copied' : '');
 
 	function handleCopyToClipboard() {
 		copyToClipboard(

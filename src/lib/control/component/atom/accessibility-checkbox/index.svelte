@@ -43,10 +43,38 @@
 </div>
 
 <style>
+	.a-checkbox {
+		display: inline-flex;
+	}
 	.a-checkbox__label {
 		display: flex;
 		cursor: pointer;
 		align-items: center;
+	}
+	.a-checkbox__indicator {
+		display: flex;
+		width: 1.5rem;
+		height: 1.5rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0.25rem;
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+	}
+	.a-checkbox__indicator--checked {
+		background-color: var(--color-primary-500);
+		border-color: var(--color-primary-500);
+	}
+	.a-checkbox__indicator--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+	.a-checkbox__text {
+		margin-left: 0.5rem;
+		color: var(--color-text-primary);
+	}
+	.a-checkbox__text--disabled {
+		color: var(--color-text-tertiary);
 	}
 
 	.a-checkbox__input {

@@ -15,19 +15,19 @@ export function createCommentThreadState(props: SlotCommentThread) {
 			return `comment-thread ${props.class ?? ''}`.trim();
 		},
 		get headerClass() {
-			return `border-b border-[var(--color-border-primary)] p-4 ${props.headerClass ?? ''}`.trim();
+			return `c-comment-thread__header ${props.headerClass ?? ''}`.trim();
 		},
 		get commentClass() {
-			return `p-4 ${props.commentClass ?? ''}`.trim();
+			return `c-comment-thread__comment ${props.commentClass ?? ''}`.trim();
 		},
 		get replyClass() {
-			return `ml-8 border-l border-[var(--color-border-primary)] ${props.replyClass ?? ''}`.trim();
+			return `c-comment-thread__reply ${props.replyClass ?? ''}`.trim();
 		},
 		get composerInputClass() {
-			return `w-full rounded-md border border-[var(--color-border-primary)] p-3 ${props.inputClass ?? ''}`.trim();
+			return `c-comment-thread__input ${props.inputClass ?? ''}`.trim();
 		},
 		get actionButtonClass() {
-			return 'text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary-600)]';
+			return 'c-comment-thread__action-btn';
 		},
 		get newComment() {
 			return newComment;

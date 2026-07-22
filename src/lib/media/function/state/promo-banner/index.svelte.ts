@@ -1,17 +1,5 @@
 import type { RecipePromoBanner } from '$stylist/media/interface/recipe/promo-banner';
-
-import type { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';
-const VARIANT_CLASSES: Partial<Record<(typeof TOKEN_COLOR_TONE)[number], string>> = {
-	primary:
-		'bg-[var(--color-primary-50)] border-[var(--color-primary-200)] text-[var(--color-primary-800)]',
-	secondary:
-		'bg-[var(--color-background-secondary)] border-[var(--color-border-primary)] text-[var(--color-text-primary)]',
-	success:
-		'bg-[var(--color-success-50)] border-[var(--color-success-200)] text-[var(--color-success-800)]',
-	warning: 'bg-yellow-50 border-yellow-200 text-yellow-800',
-	danger:
-		'bg-[var(--color-danger-50)] border-[var(--color-danger-200)] text-[var(--color-danger-800)]'
-};
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createPromoBannerState(props: RecipePromoBanner) {
 	const title = $derived(props.title ?? '');
@@ -22,12 +10,8 @@ export function createPromoBannerState(props: RecipePromoBanner) {
 	const variant = $derived(props.variant ?? 'primary');
 	const onCtaClick = $derived(props.onCtaClick ?? (() => {}));
 	const className = $derived(props.class ?? '');
-	const variantClasses = $derived(
-		VARIANT_CLASSES[variant as (typeof TOKEN_COLOR_TONE)[number]] ?? VARIANT_CLASSES.primary
-	);
-	const hostClasses = $derived(
-		`border rounded-lg p-6 flex flex-col md:flex-row items-center ${variantClasses} ${className}`
-	);
+	const variantClasses = $derived(`pb-host--${variant}`);
+	const hostClasses = $derived(mergeClassNames('pb-host', variantClasses, className));
 
 	return {
 		get title() {

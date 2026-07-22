@@ -12,7 +12,7 @@
 		<div class="ig-main">
 			<!-- Main image display -->
 			<div
-				class="image-gallery__TODO-getImageContainerClasses"
+				class={state.imageContainerClasses}
 				onclick={() => state.openFullscreen(state.currentIndex)}
 				onkeydown={(e) =>
 					(e.key === 'Enter' || e.key === ' ') && state.openFullscreen(state.currentIndex)}
@@ -22,14 +22,14 @@
 				<img
 					src={state.images[state.currentIndex].src}
 					alt={state.images[state.currentIndex].alt || `Gallery image ${state.currentIndex + 1}`}
-					class="image-gallery__TODO-getImageClasses"
+					class={state.imageClasses}
 				/>
 
 				<!-- Navigation arrows -->
 				{#if state.images.length > 1}
 					<button
 						type="button"
-						class="image-gallery__TODO-getNavigationButtonClasses"
+						class={state.navigationButtonClasses}
 						onclick={() => state.prevImage()}
 						aria-label="Previous image"
 					>
@@ -38,7 +38,7 @@
 
 					<button
 						type="button"
-						class="image-gallery__TODO-getNavigationButtonClasses"
+						class={state.navigationButtonClasses}
 						onclick={() => state.nextImage()}
 						aria-label="Next image"
 					>
@@ -54,7 +54,7 @@
 
 			<!-- Caption -->
 			{#if state.showCaptions && state.images[state.currentIndex].caption}
-				<div class="image-gallery__TODO-getCaptionClasses">
+				<div class={state.captionClasses}>
 					{state.images[state.currentIndex].caption}
 				</div>
 			{/if}
@@ -64,7 +64,7 @@
 				<div class="image-gallery__thumbnails-container">
 					{#each state.images as img, index}
 						<div
-							class="image-gallery__thumbnail"
+							class={state.getThumbnailClasses(index)}
 							onclick={() => state.goToImage(index)}
 							onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && state.goToImage(index)}
 							role="button"
@@ -111,7 +111,7 @@
 				/>
 
 				{#if state.showCaptions && state.images[state.currentIndex].caption}
-					<div class="image-gallery__TODO-getFullscreenCaptionClasses">
+					<div class={state.fullscreenCaptionClasses}>
 						{state.images[state.currentIndex].caption}
 					</div>
 				{/if}
@@ -136,6 +136,57 @@
 <style>
 	.ig-main {
 		position: relative;
+	}
+
+	.image-gallery__image-container {
+		position: relative;
+		cursor: pointer;
+		border-radius: 0.5rem;
+		overflow: hidden;
+	}
+
+	.image-gallery__image {
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+
+	.image-gallery__nav-button {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		border-radius: 9999px;
+		padding: 0.5rem;
+		background-color: color-mix(in srgb, var(--color-neutral-900) 40%, transparent);
+		color: var(--color-text-inverse);
+		cursor: pointer;
+	}
+	.image-gallery__nav-button:first-of-type {
+		left: 0.75rem;
+	}
+	.image-gallery__nav-button:last-of-type {
+		right: 0.75rem;
+	}
+	.image-gallery__nav-button:hover {
+		background-color: color-mix(in srgb, var(--color-neutral-900) 60%, transparent);
+	}
+
+	.image-gallery__caption {
+		margin-top: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.image-gallery__fullscreen-caption {
+		margin-top: 1rem;
+		font-size: 0.875rem;
+		color: var(--color-text-inverse);
+		text-align: center;
 	}
 
 	.image-gallery__image-counter {
@@ -172,6 +223,10 @@
 		overflow: hidden;
 		border-width: 2px;
 		border-style: solid;
+		border-color: transparent;
+	}
+	.image-gallery__thumbnail--active {
+		border-color: var(--color-primary-500);
 	}
 
 	.image-gallery__thumbnail-image {

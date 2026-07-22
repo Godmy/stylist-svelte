@@ -8,74 +8,74 @@
 	const state = createFeatureToggleState(props);
 </script>
 
-ï»¿
-<div class="feature-toggle__TODO-containerClasses" {...state.restProps}>
-	<div class="_c1">
+<div class={state.containerClasses} {...state.restProps}>
+	<div class="ft-row">
 		<div>
-			<div class="_c2">{state.label}</div>
+			<div class="ft-label">{state.label}</div>
 
-			<div class="_c3">{state.description}</div>
+			<div class="ft-description">{state.description}</div>
 		</div>
 
 		<button
 			type="button"
 			aria-label={state.label}
-			class={`${state.isChecked ? 'ft-track--on' : 'ft-track--off'} ${state.disabled ? 'cursor-not-allowed opacity-[var(--opacity-50)]' : ''} _c1`}
+			class={`ft-track ${state.isChecked ? 'ft-track--on' : 'ft-track--off'} ${state.disabled ? 'ft-track--disabled' : ''}`}
 			disabled={state.disabled}
 			onclick={state.handleChange}
 		>
-			<span class={`${state.isChecked ? 'left-6' : 'left-1'} _c2`}></span>
+			<span class={`ft-thumb ${state.isChecked ? 'ft-thumb--on' : 'ft-thumb--off'}`}></span>
 		</button>
 	</div>
 </div>
 
 <style>
-	._c1 {
+	.ft-row {
 		display: flex;
-
 		align-items: flex-start;
-
 		justify-content: space-between;
-
 		gap: 1rem;
 	}
 
-	._c2 {
+	.ft-label {
 		font-weight: 500;
 	}
 
-	._c3 {
+	.ft-description {
 		font-size: 0.875rem;
-
 		line-height: 1.25rem;
-
 		color: var(--color-text-secondary);
 	}
 
-	._c1 {
+	.ft-track {
 		position: relative;
-
 		height: 1.75rem;
-
 		width: 3rem;
-
 		border-radius: 9999px;
+		border: none;
+		cursor: pointer;
+		padding: 0;
 	}
 
-	._c2 {
+	.ft-track--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	.ft-thumb {
 		position: absolute;
-
 		top: 0.25rem;
-
 		height: 1.25rem;
-
 		width: 1.25rem;
-
 		border-radius: 9999px;
-
 		background-color: var(--color-background-primary);
+		transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
 
-		transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+	.ft-thumb--on {
+		left: 1.5rem;
+	}
+	.ft-thumb--off {
+		left: 0.25rem;
 	}
 
 	.ft-track--on {

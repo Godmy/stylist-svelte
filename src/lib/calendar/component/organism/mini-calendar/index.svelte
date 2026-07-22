@@ -1,7 +1,7 @@
 <script lang="ts">
 	import createMiniCalendarState from '$stylist/calendar/function/state/mini-calendar/index.svelte';
 	import type { RecipeMiniCalendar as MiniCalendarStateProps } from '$stylist/calendar/interface/recipe/mini-calendar';
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	const ChevronLeft = 'chevron-left';

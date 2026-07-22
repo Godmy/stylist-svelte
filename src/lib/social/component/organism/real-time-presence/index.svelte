@@ -207,6 +207,12 @@
 	.c-real-time-presence__status-dot--away {
 		background: #eab308;
 	}
+	.c-real-time-presence__status-dot--busy {
+		background: var(--color-danger-500);
+	}
+	.c-real-time-presence__status-dot--typing {
+		background: var(--color-primary-500);
+	}
 	.c-real-time-presence__status-dot--offline {
 		background: var(--color-text-tertiary, var(--color-text-secondary));
 	}
@@ -250,6 +256,12 @@
 	}
 	.c-real-time-presence__status-icon--away {
 		color: #eab308;
+	}
+	.c-real-time-presence__status-icon--busy {
+		color: var(--color-danger-500);
+	}
+	.c-real-time-presence__status-icon--typing {
+		color: var(--color-primary-500);
 	}
 	.c-real-time-presence__status-icon--offline {
 		color: var(--color-text-tertiary, var(--color-text-secondary));

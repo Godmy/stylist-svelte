@@ -18,4 +18,25 @@
 </form>
 
 <style>
+	.c-address-form {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		padding: 1rem;
+	}
+	.c-address-form__input {
+		width: 100%;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.25rem;
+		padding: 0.25rem 0.5rem;
+		color: var(--color-text-primary);
+		background-color: var(--color-background-primary);
+	}
+	.c-address-form__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.5rem;
+	}
 </style>

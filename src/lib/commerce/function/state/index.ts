@@ -11,6 +11,7 @@ export { createCurrencyConverterState } from './currency-converter';
 export { createDataDisplayCardState } from './data-display-card';
 export { createDiscountApplierState } from './discount-applier';
 export { createExpandableCardState } from './expandable-card';
+export { createFilterBarState } from './filter-bar';
 export { createInventoryTrackerState } from './inventory-tracker';
 export { createLinkCardState } from './link-card';
 export { createMetricCardState } from './metric-card';

@@ -6,8 +6,7 @@ export const createChatListState = (props: {
 	currentUser: User;
 	activeChatId?: string;
 }) => {
-	const containerClasses =
-		'chat-list flex h-full flex-col overflow-y-auto rounded-[1.25rem] bg-[var(--color-background-primary)]';
+	const containerClasses = 'chat-list';
 
 	function handleChatSelect(chat: Chat) {
 		// dispatch('chatSelect', { chat })

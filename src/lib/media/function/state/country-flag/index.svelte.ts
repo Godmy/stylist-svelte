@@ -1,13 +1,21 @@
 import type { RecipeCountryFlag } from '$stylist/media/interface/recipe/country-flag';
 
+function countryCodeToEmoji(countryCode: string): string {
+	return countryCode
+		.toUpperCase()
+		.split('')
+		.map((char) => String.fromCodePoint(0x1f1e6 - 65 + char.charCodeAt(0)))
+		.join('');
+}
+
 export function createCountryFlagState(props: RecipeCountryFlag) {
 	const countryCode = $derived(props.countryCode ?? '');
 	const size = $derived(props.size ?? 24);
-	const emoji = $derived(`media__TODO media__TODO--${countryCode}`);
 	const isValid = $derived(Boolean(countryCode && countryCode.length === 2));
+	const emoji = $derived(isValid ? countryCodeToEmoji(countryCode) : '');
 	const classes = $derived('media__country-flag');
-	const style = $derived(`media__TODO media__TODO--${size}`);
-	const fallbackStyle = $derived(`media__TODO media__TODO--${size}`);
+	const style = $derived(`font-size: ${size}px; line-height: 1;`);
+	const fallbackStyle = $derived(`width: ${size}px; height: ${size}px; font-size: ${size * 0.5}px;`);
 	const fallbackClasses = $derived('media__country-flag-fallback');
 
 	// Rest props

@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+<script lang="ts">
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import { createFileUploadState } from '$stylist/file/function/state/file-upload/index.svelte';
 	import type { RecipeFileUpload } from '$stylist/file/interface/recipe/file-upload';
 

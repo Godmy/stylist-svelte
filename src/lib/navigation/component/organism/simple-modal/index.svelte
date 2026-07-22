@@ -30,6 +30,13 @@
 		padding: 1rem;
 	}
 
+	.sm-dialog {
+		width: 100%;
+		max-width: 24rem;
+		border-radius: 0.5rem;
+		background-color: var(--color-background-primary);
+		padding: 1.25rem;
+	}
 	.sm-header {
 		display: flex;
 		align-items: center;

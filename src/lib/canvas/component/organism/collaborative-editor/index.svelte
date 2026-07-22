@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createCollaborativeEditorState from '$stylist/canvas/function/state/collaborative-editor/index.svelte';
 
@@ -22,7 +21,7 @@
 		toolbarClass?: string;
 		editorClass?: string;
 		userListClass?: string;
-	} & HTMLAttributes<HTMLDivElement> & SlotInteraction;
+	} & HTMLAttributes<HTMLDivElement>;
 
 	let props: CollaborativeEditorProps = $props();
 

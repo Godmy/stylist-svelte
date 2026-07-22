@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import SlotCheckbox from '$stylist/control/component/atom/checkbox/index.svelte';
 	import Select from '$stylist/control/component/molecule/selector/index.svelte';
 	import type { FilterPanelProps } from '$stylist/control/type/struct/filter-panel/filterpanel-props';

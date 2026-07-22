@@ -6,14 +6,12 @@ export function createBreadcrumbsState(props: BreadcrumbsProps) {
 	let hoveredId = $state<string | null>(null);
 	const visibleCrumbs = $derived(getBreadcrumbItems(props.crumbs ?? [], props.activeId));
 	const totalCrumbs = $derived(visibleCrumbs.length);
-	const listClass =
-		'flex flex-wrap items-center gap-y-2 rounded-[1.25rem] border border-[var(--color-border-secondary)] bg-[var(--color-background-primary)] px-4 py-3';
-	const itemClass = 'flex items-center';
-	const linkClusterClass = 'relative flex items-center';
-	const separatorClass = 'mx-2';
-	const activeLinkClass =
-		'text-[var(--color-text-secondary)] hover:text-[var(--color-primary-600)] hover:underline';
-	const currentItemClass = 'text-[var(--color-text-primary)] font-semibold';
+	const listClass = 'c-breadcrumbs';
+	const itemClass = 'c-breadcrumbs__item';
+	const linkClusterClass = 'c-breadcrumbs__link-cluster';
+	const separatorClass = 'c-breadcrumbs__separator';
+	const activeLinkClass = 'c-breadcrumbs__link';
+	const currentItemClass = 'c-breadcrumbs__current';
 
 	function setHoveredId(id: string) {
 		hoveredId = id;

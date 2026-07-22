@@ -8,17 +8,16 @@
 	 * Interface Segregation: Provides clear interface through well-defined props
 	 * Dependency Inversion: Depends on abstractions (types and style manager) not concretions
 	 */
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createSearchBarState from '$stylist/form/function/state/search-bar/index.svelte';
 	import type { SlotSearchBar as ISearchBarProps } from '$stylist/form/interface/slot/search-bar';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 
 	const Search = 'search';
 	const X = 'x';
 
-	let props: ISearchBarProps & HTMLAttributes<HTMLDivElement> & SlotInteraction = $props();
+	let props: ISearchBarProps & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createSearchBarState(props);
 </script>
 
@@ -65,4 +64,62 @@
 </div>
 
 <style>
+	.c-search-bar {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.5rem 1rem;
+		background-color: var(--color-background-primary);
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+	}
+	.c-search-bar:focus-within {
+		border-color: transparent;
+		box-shadow: 0 0 0 2px var(--color-primary-500);
+	}
+	.c-search-bar--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+	.c-search-bar__icon-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-text-secondary);
+	}
+	.c-search-bar__input {
+		flex: 1;
+		border: none;
+		background: transparent;
+		color: var(--color-text-primary);
+		font: inherit;
+	}
+	.c-search-bar__input::placeholder {
+		color: var(--color-text-tertiary);
+	}
+	.c-search-bar__input:focus {
+		outline: none;
+	}
+	.c-search-bar__input--disabled {
+		cursor: not-allowed;
+	}
+	.c-search-bar__controls {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+	.c-search-bar__clear {
+		border-radius: 0.375rem;
+	}
+	.c-search-bar__submit {
+		margin-left: 0.25rem;
+	}
+	:global(.c-search-bar__icon) {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+	:global(.c-search-bar__icon--sm) {
+		width: 1rem;
+		height: 1rem;
+	}
 </style>

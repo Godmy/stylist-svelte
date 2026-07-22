@@ -69,17 +69,17 @@ export function createKanbanCardState(props: KanbanCardStateProps) {
 	}
 
 	function getPriorityAccentClass(priority: (typeof TOKEN_PRIORITY)[number] | undefined): string {
-		if (!priority) return 'before:bg-[var(--color-background-tertiary)]';
+		if (!priority) return 'c-kanban-card--accent-default';
 		const priorityAccentClasses: Partial<Record<(typeof TOKEN_PRIORITY)[number], string>> = {
-			low: 'before:bg-[var(--color-success-400)]',
-			medium: 'before:bg-[var(--color-warning-400)]',
-			high: 'before:bg-[var(--color-danger-400)]'
+			low: 'c-kanban-card--accent-low',
+			medium: 'c-kanban-card--accent-medium',
+			high: 'c-kanban-card--accent-high'
 		};
-		return priorityAccentClasses[priority] ?? 'before:bg-[var(--color-danger-400)]';
+		return priorityAccentClasses[priority] ?? 'c-kanban-card--accent-high';
 	}
 
 	const containerClasses = $derived(
-		`c-kanban-card group relative rounded-xl border border-[color:var(--color-border-secondary)] bg-[--color-background-primary]/95 p-4 cursor-pointer transition-all duration-[var(--duration-200)] hover:-translate-y-[1px] hover:border-[color:color-mix(in_srgb,var(--color-primary-500)_38%,var(--color-border-secondary)_62%)] hover:shadow-[0_14px_26px_-18px_color-mix(in_srgb,var(--color-info-600)_55%,transparent)] before:absolute before:inset-y-3 before:left-0 before:w-1 before:rounded-full ${getPriorityAccentClass(card.priority)}`
+		`c-kanban-card ${getPriorityAccentClass(card.priority)}`
 	);
 
 	return {

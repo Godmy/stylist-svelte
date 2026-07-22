@@ -1,25 +1,13 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AccessibilityCheckbox } from './accessibility-checkbox/index';
 export { ActionSegmentedControl } from './action-segmented-control/index';
-export { AutoSearch } from './auto-search/index';
 export { AutocompleteDropdown } from './autocomplete-dropdown/index';
-export { ButtonComposed } from './button-composed/index';
-export { Button } from './button/index';
 export { Checkbox } from './checkbox/index';
 export { Chip } from './chip/index';
-export { CloseButton } from './close-button/index';
-export { CopyButton } from './copy-button/index';
-export { CubeControl } from './cube-control/index';
-export { FollowButton } from './follow-button/index';
-export { IconButton } from './icon-button/index';
 export { Radio } from './radio/index';
-export { SearchSuggestion } from './search-suggestion/index';
-export { SplitButton } from './split-button/index';
 export { Switch } from './switch/index';
 export { Tag } from './tag/index';
 export { Tick } from './tick/index';
 export { ToggleGroupItem } from './toggle-group-item/index';
 export { ToggleGroupRoot } from './toggle-group-root/index';
-export { ToolButton } from './tool-button/index';
-export { Tooltip } from './tooltip/index';
 export { ZoomControls } from './zoom-controls/index';

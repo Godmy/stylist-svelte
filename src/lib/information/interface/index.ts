@@ -24,7 +24,8 @@ export type {
 	RecipeSort,
 	RecipeSortableGrid,
 	RecipeStatusIndicator,
-	RecipeThemeIconPicker
+	RecipeThemeIconPicker,
+	RecipeTooltip
 } from './recipe';
 export type {
 	BadgeGroupItem,
@@ -33,5 +34,6 @@ export type {
 	SlotAttachmentPreview,
 	SlotBadge,
 	SlotStatus,
+	SlotTooltip,
 	ThemeIconItem
 } from './slot';

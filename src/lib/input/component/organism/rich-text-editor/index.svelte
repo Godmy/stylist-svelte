@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RichTextEditorStateProps } from '$stylist/input/interface/recipe/rich-text-editor-state-props';
 	import createRichTextEditorState from '$stylist/input/function/state/rich-text-editor/index.svelte';
@@ -16,7 +15,7 @@
 	const Link = 'link';
 	const Image = 'image';
 
-	let props: RichTextEditorStateProps & HTMLAttributes<HTMLDivElement> & SlotInteraction = $props();
+	let props: RichTextEditorStateProps & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createRichTextEditorState(props);
 </script>
 

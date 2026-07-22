@@ -11,7 +11,6 @@ export {
 	createBadgeGroupState,
 	createBadgeState,
 	createBaseCardState,
-	createBlockquoteState,
 	createCountBadgeState,
 	createCounterState,
 	createDotState,
@@ -22,5 +21,6 @@ export {
 	createMetricBarsCardState,
 	createNpmBadgeState,
 	createShortcutsPanelState,
-	createStatusIndicatorState
+	createStatusIndicatorState,
+	createTooltipState
 } from './state';

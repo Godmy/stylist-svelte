@@ -96,6 +96,15 @@
 		width: 1.5rem;
 		height: 1.5rem;
 	}
+	:global(.dc-icon--danger) {
+		color: var(--color-danger-600);
+	}
+	:global(.dc-icon--warning) {
+		color: var(--color-warning-600);
+	}
+	:global(.dc-icon--info) {
+		color: var(--color-primary-600);
+	}
 
 	.dc-message-wrap {
 		flex: 1;
@@ -127,6 +136,25 @@
 	.dc-btn-confirm:disabled {
 		cursor: not-allowed;
 		opacity: var(--opacity-50, 0.5);
+	}
+
+	.dc-btn-confirm--danger {
+		background-color: var(--color-danger-600);
+	}
+	.dc-btn-confirm--danger:hover:not(:disabled) {
+		background-color: var(--color-danger-700);
+	}
+	.dc-btn-confirm--warning {
+		background-color: var(--color-warning-600, #d97706);
+	}
+	.dc-btn-confirm--warning:hover:not(:disabled) {
+		background-color: var(--color-warning-700, #b45309);
+	}
+	.dc-btn-confirm--info {
+		background-color: var(--color-primary-600);
+	}
+	.dc-btn-confirm--info:hover:not(:disabled) {
+		background-color: var(--color-primary-700);
 	}
 
 	.dc-btn-cancel {

@@ -1,5 +1,5 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
-import type { SlotButtonDom } from '$stylist/control/interface/slot/button-dom';
+import type { SlotButtonDom } from '$stylist/button/interface/slot/button-dom';
 import type { SlotPageButton } from '$stylist/navigation/interface/slot/page-button';
 import type { Props } from '$stylist/information/type/struct/props';
 import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';

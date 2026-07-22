@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { Css3dCube } from './css-3d-cube/index';
+export { CubeControl } from './cube-control/index';
 export { GraphEdge } from './graph-edge/index';
 export { GraphNode } from './graph-node/index';
 export { Stage } from './stage/index';

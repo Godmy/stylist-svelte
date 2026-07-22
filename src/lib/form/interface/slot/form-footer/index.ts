@@ -1,7 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 
-export interface SlotFormFooter extends HTMLAttributes<HTMLDivElement>, SlotInteraction {
+export interface SlotFormFooter extends HTMLAttributes<HTMLDivElement> {
 	primaryButtonLabel?: string;
 	secondaryButtonLabel?: string;
 	primaryButtonDisabled?: boolean;

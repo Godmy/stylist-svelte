@@ -13,6 +13,11 @@ export type { CartSummaryItem } from './cart-summary-item';
 export type { CartSummaryPromotion } from './cart-summary-promotion';
 export type { CheckoutFormProps } from './checkout-form-props';
 export type { CheckoutStep } from './checkout-step';
+export type {
+	RangeFilter,
+	TagFilter,
+	ToggleFilter
+} from './filter-bar';
 export type { OrderConfirmationProps } from './order-confirmation-props';
 export type { OrderStatusType } from './order-status-type';
 export type { PaymentInfo } from './payment-info';

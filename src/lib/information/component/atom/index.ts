@@ -7,3 +7,4 @@ export { ListItemMarker } from './list-item-marker/index';
 export { MetricBar } from './metric-bar/index';
 export { NpmBadge } from './npm-badge/index';
 export { StatusIndicator } from './status-indicator/index';
+export { Tooltip } from './tooltip/index';

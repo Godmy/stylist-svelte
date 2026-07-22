@@ -26,10 +26,10 @@ export function createABTestConfiguratorState(
 	const formClassName = $derived(props.formClass ?? '');
 	const variantClassName = $derived(props.variantClass ?? '');
 	const footerClassName = $derived(props.footerClass ?? '');
-	const containerClasses = $derived(className == null ? undefined : String(className));
-	const headerClasses = $derived(headerClassName == null ? undefined : String(headerClassName));
-	const formClasses = $derived(formClassName == null ? undefined : String(formClassName));
-	const footerClasses = $derived(footerClassName == null ? undefined : String(footerClassName));
+	const containerClasses = $derived(`abt-container ${className}`.trim());
+	const headerClasses = $derived(`abt-header ${headerClassName}`.trim());
+	const formClasses = $derived(`abt-form ${formClassName}`.trim());
+	const footerClasses = $derived(`abt-footer ${footerClassName}`.trim());
 
 	let test = $state<ABTest>(
 		untrack(() => ({

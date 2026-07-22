@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const Package = 'package';
 	const Plus = 'plus';
@@ -10,7 +9,7 @@
 	const Download = 'download';
 	const ImageIcon = 'image';
 
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BulkOrderFormModel from '$stylist/commerce/function/state/bulk-order-form/index.svelte';
 	import type { BulkOrderFormProps } from '$stylist/commerce/type/struct/bulk-order-form/bulk-order-form-props';
 
@@ -32,7 +31,7 @@
 		currency = 'USD',
 		locale = 'en-US',
 		...restProps
-	}: BulkOrderFormProps & Omit<HTMLAttributes<HTMLElement>, 'class'> & SlotInteraction = $props();
+	}: BulkOrderFormProps & Omit<HTMLAttributes<HTMLElement>, 'class'> = $props();
 
 	const state = BulkOrderFormModel({
 		products,

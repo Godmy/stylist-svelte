@@ -1,7 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	detectClipboardSupport,
-	formatNumberValue,
 	resolveAllowedOption
 } from './script';
 export {

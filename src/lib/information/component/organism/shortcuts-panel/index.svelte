@@ -35,7 +35,7 @@
 				{@const categoryShortcuts = state.groupedShortcuts.get(category) || []}
 				<div class="category-section">
 					<div class="sp-cat-header">
-						<div class="sp-cat-icon bg-gradient-to-br {state.getCategoryColor(category)} _c1">
+						<div class="sp-cat-icon {state.getCategoryColor(category)} _c1">
 							<BaseIcon
 								name={state.getCategoryIcon(category)}
 								style="width:1rem;height:1rem;color:#374151"
@@ -179,6 +179,57 @@
 		justify-content: center;
 		border-radius: 0.5rem;
 		flex-shrink: 0;
+		border: 1px solid transparent;
+	}
+	.sp-cat--navigation {
+		background: linear-gradient(to bottom right, #eef2ff, #faf5ff);
+		border-color: #c7d2fe;
+	}
+	.sp-cat--view {
+		background: linear-gradient(to bottom right, #f0fdf4, #ecfdf5);
+		border-color: #bbf7d0;
+	}
+	.sp-cat--actions {
+		background: linear-gradient(to bottom right, #fff7ed, #fffbeb);
+		border-color: #fed7aa;
+	}
+	.sp-cat--viewport {
+		background: linear-gradient(to bottom right, #eff6ff, #ecfeff);
+		border-color: #bfdbfe;
+	}
+	.sp-cat--tabs {
+		background: linear-gradient(to bottom right, #faf5ff, #fdf2f8);
+		border-color: #e9d5ff;
+	}
+	.sp-cat--misc {
+		background: linear-gradient(to bottom right, #f9fafb, #f8fafc);
+		border-color: #e5e7eb;
+	}
+	@media (prefers-color-scheme: dark) {
+		.sp-cat--navigation {
+			background: linear-gradient(to bottom right, rgba(49, 46, 129, 0.3), rgba(88, 28, 135, 0.3));
+			border-color: #3730a3;
+		}
+		.sp-cat--view {
+			background: linear-gradient(to bottom right, rgba(20, 83, 45, 0.3), rgba(6, 78, 59, 0.3));
+			border-color: #166534;
+		}
+		.sp-cat--actions {
+			background: linear-gradient(to bottom right, rgba(124, 45, 18, 0.3), rgba(120, 53, 15, 0.3));
+			border-color: #9a3412;
+		}
+		.sp-cat--viewport {
+			background: linear-gradient(to bottom right, rgba(30, 58, 138, 0.3), rgba(22, 78, 99, 0.3));
+			border-color: #1e40af;
+		}
+		.sp-cat--tabs {
+			background: linear-gradient(to bottom right, rgba(88, 28, 135, 0.3), rgba(131, 24, 67, 0.3));
+			border-color: #6b21a8;
+		}
+		.sp-cat--misc {
+			background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.3), rgba(15, 23, 42, 0.3));
+			border-color: #374151;
+		}
 	}
 	.sp-cat-label {
 		font-size: 0.875rem;
@@ -284,6 +335,28 @@
 	@media (prefers-color-scheme: dark) {
 		.sp-key-sep {
 			color: #4b5563;
+		}
+	}
+	.sp-kbd--modifier {
+		background: #e0e7ff;
+		color: #4338ca;
+		border-color: #a5b4fc;
+	}
+	.sp-kbd--default {
+		background: white;
+		color: #111827;
+		border-color: #d1d5db;
+	}
+	@media (prefers-color-scheme: dark) {
+		.sp-kbd--modifier {
+			background: rgba(49, 46, 129, 0.5);
+			color: #a5b4fc;
+			border-color: #4338ca;
+		}
+		.sp-kbd--default {
+			background: #1f2937;
+			color: white;
+			border-color: #4b5563;
 		}
 	}
 	.sp-tips {

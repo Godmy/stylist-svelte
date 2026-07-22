@@ -33,6 +33,14 @@
 		padding: 1rem;
 	}
 
+	.nav-dialog {
+		width: 100%;
+		max-width: 28rem;
+		border-radius: 0.5rem;
+		background-color: var(--color-background-primary);
+		padding: 1.25rem;
+	}
+
 	.nav-dialog-header {
 		display: flex;
 		align-items: center;

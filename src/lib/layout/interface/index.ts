@@ -18,4 +18,8 @@ export type {
 	RecipeThemeGradientBackground,
 	StackedLayoutProps
 } from './recipe';
-export type { SlotComposite } from './slot';
+export type {
+	SlotComposite,
+	SlotSortableList,
+	SlotSortableListItem
+} from './slot';

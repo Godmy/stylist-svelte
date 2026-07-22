@@ -29,6 +29,17 @@ export type { LiveCodeSectionProps } from './live-code-section-props';
 export type { MockDataSelectorDataSelection } from './mock-data-selector-data-selection';
 export type { MockDataSelectorMockDataSchema } from './mock-data-selector-mock-data-schema';
 export type { MockDataSelectorProps } from './mock-data-selector-props';
+export type { PageBuilderButtonAttributes } from './page-builder-button-attributes';
+export type { PageBuilderContainerAttributes } from './page-builder-container-attributes';
+export type { PageBuilderElement } from './page-builder-element';
+export type {
+	PageBuilderDividerAttributes,
+	PageBuilderHeadingAttributes,
+	PageBuilderImageAttributes,
+	PageBuilderTextAttributes
+} from './page-builder-element-attributes';
+export type { PageBuilderProps } from './page-builder-props';
+export type { PageBuilderToolbarItem } from './page-builder-toolbar-item';
 export type { PrivacySettingsProps } from './privacy-settings-props';
 export type { PrivacySettingsSetting } from './privacy-settings-setting';
 export type { ResourceOptimizerOptimizationSuggestion } from './resource-optimizer-optimization-suggestion';

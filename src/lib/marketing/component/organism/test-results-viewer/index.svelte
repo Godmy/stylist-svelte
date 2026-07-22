@@ -301,6 +301,17 @@
 </div>
 
 <style>
+	.trv-container {
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+		overflow: hidden;
+	}
+	.trv-header {
+		border-bottom: 1px solid var(--color-border-primary);
+		padding: 1.25rem 1.5rem;
+	}
 	.trv-row {
 		display: flex;
 		align-items: center;

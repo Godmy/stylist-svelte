@@ -15,4 +15,9 @@
 </span>
 
 <style>
+	.c-breadcrumb-separator {
+		display: inline-flex;
+		align-items: center;
+		color: var(--color-text-tertiary);
+	}
 </style>

@@ -54,37 +54,27 @@ export const createSearchBarState = (props: SearchBarStateProps) => {
 	// Computed classes
 	const containerClasses = $derived.by(() =>
 		mergeClassNames(
-			'flex items-center gap-3 px-4 py-2 bg-[var(--color-background-primary)]',
-			'border border-[var(--color-border-primary)] rounded-lg',
-			'focus-within:ring-2 focus-within:ring-[var(--color-primary-500)] focus-within:border-transparent',
-			props.disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : '',
+			'c-search-bar',
+			props.disabled ? 'c-search-bar--disabled' : '',
 			props.class
 		)
 	);
 
-	const iconContainerClasses = $derived.by(
-		() => 'flex items-center justify-center text-[var(--color-text-secondary)]'
-	);
+	const iconContainerClasses = $derived.by(() => 'c-search-bar__icon-wrap');
 
 	const inputClasses = $derived.by(() =>
-		mergeClassNames(
-			'flex-1 bg-transparent border-none focus:outline-none focus:ring-0',
-			'text-[var(--color-text-primary)] placeholder-[var(--color-text-tertiary)]',
-			props.disabled ? 'cursor-not-allowed' : ''
-		)
+		mergeClassNames('c-search-bar__input', props.disabled ? 'c-search-bar__input--disabled' : '')
 	);
 
-	const controlsContainerClasses = $derived.by(() => 'flex items-center gap-1');
+	const controlsContainerClasses = $derived.by(() => 'c-search-bar__controls');
 
-	const clearButtonClasses = $derived.by(
-		() => 'p-2 rounded-md hover:bg-[var(--color-background-hover)]'
-	);
+	const clearButtonClasses = $derived.by(() => 'c-search-bar__clear');
 
-	const searchButtonClasses = $derived.by(() => 'ml-1');
+	const searchButtonClasses = $derived.by(() => 'c-search-bar__submit');
 
-	const iconClasses = $derived.by(() => 'h-5 w-5');
+	const iconClasses = $derived.by(() => 'c-search-bar__icon');
 
-	const smallIconClasses = $derived.by(() => 'h-4 w-4');
+	const smallIconClasses = $derived.by(() => 'c-search-bar__icon c-search-bar__icon--sm');
 
 	return {
 		// SlotState getters

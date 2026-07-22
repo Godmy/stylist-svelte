@@ -27,6 +27,9 @@ export type {
 export type { FoundationSemanticZoomStage } from './script';
 export type {
 	ArchitectureScene,
+	CubeControlProps,
+	CubeDebugLogEntry,
+	CubeSelectionState,
 	GraphMinimapContract,
 	GraphMinimapProps,
 	GraphPortDimensions,

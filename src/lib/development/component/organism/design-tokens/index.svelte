@@ -106,6 +106,89 @@
 </div>
 
 <style>
+	.dt-container {
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+		padding: 1.5rem;
+	}
+	.dt-header {
+		margin-bottom: 1.5rem;
+	}
+	.dt-title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--color-text-primary);
+	}
+	.dt-description {
+		margin-top: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+	.dt-section {
+		margin-bottom: 2rem;
+	}
+	.dt-section-title {
+		margin-bottom: 1rem;
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
+	}
+	.dt-tokens-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+	@media (min-width: 768px) {
+		.dt-tokens-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (min-width: 1024px) {
+		.dt-tokens-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	.dt-token-card {
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		padding: 1rem;
+		transition: box-shadow var(--duration-150, 150ms) var(--easing-smooth, ease-in-out);
+	}
+	.dt-token-card:hover {
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	}
+	.dt-token-preview,
+	.dt-color-preview {
+		height: 4rem;
+		margin-bottom: 0.75rem;
+		border-radius: 0.375rem;
+		border: 1px solid var(--color-border-primary);
+	}
+	.dt-preview-cell {
+		width: 6rem;
+	}
+	.dt-token-name {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-primary);
+	}
+	.dt-token-value {
+		margin-top: 0.25rem;
+		font-size: 0.75rem;
+		font-family: monospace;
+		color: var(--color-text-secondary);
+	}
+	.dt-token-category {
+		display: inline-block;
+		margin-top: 0.5rem;
+		border-radius: 0.25rem;
+		padding: 0.25rem 0.5rem;
+		font-size: 0.75rem;
+		font-weight: 500;
+		background-color: var(--color-primary-100);
+		color: var(--color-primary-800);
+	}
 	.dt-token-row {
 		display: flex;
 		flex-wrap: wrap;

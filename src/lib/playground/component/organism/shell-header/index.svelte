@@ -1100,6 +1100,29 @@
 	.psh-zoom-btn:hover ._c6 {
 		color: var(--playground-accent);
 	}
+	.psh-toggle-btn {
+		display: flex;
+		align-items: center;
+		gap: 0.375rem;
+		height: 2.25rem;
+		padding: 0.375rem 0.625rem;
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+		color: var(--color-text-secondary);
+		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+		cursor: pointer;
+		transition: all var(--duration-150, 150ms) var(--easing-smooth, ease-in-out);
+	}
+	.psh-toggle-btn:hover {
+		background-color: var(--color-background-secondary);
+	}
+	.psh-toggle-btn--active {
+		background: linear-gradient(to right, var(--playground-accent), var(--playground-accent-strong));
+		border-color: var(--playground-accent);
+		color: var(--playground-accent-contrast);
+		box-shadow: 0 12px 30px var(--playground-accent-shadow);
+	}
 	.psh-toggle-on {
 		background-color: #ffffff;
 	}

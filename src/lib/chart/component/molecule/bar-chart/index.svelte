@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Tooltip from '$stylist/control/component/atom/tooltip/index.svelte';
+	import Tooltip from '$stylist/information/component/atom/tooltip/index.svelte';
 	import createBarChartState from '$stylist/chart/function/state/bar-chart/index.svelte';
 	import type { RecipeBarChart } from '$stylist/chart/interface/recipe/bar-chart';
 

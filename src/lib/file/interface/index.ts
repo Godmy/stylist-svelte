@@ -27,6 +27,7 @@ export type {
 	RecipeFileInput,
 	RecipeFileListItem,
 	RecipeFileUpload,
+	RecipeQuantitySelector,
 	RecipeUploadProgress,
 	RecipeZipViewer
 } from './recipe';
@@ -49,6 +50,7 @@ export type {
 	SlotFileSystemItem,
 	SlotFileUpload,
 	SlotFolderItem,
+	SlotQuantitySelector,
 	SlotUploadFile,
 	SlotUploadProgress,
 	SlotUploadProgressBehaviorOptions,

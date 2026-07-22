@@ -26,9 +26,7 @@ export function createUserBehaviorMetricsState(props: UserBehaviorMetricsProps) 
 		}
 	}
 
-	const containerClasses = $derived(
-		`bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${className}`.trim()
-	);
+	const containerClasses = $derived(`ubm-container ${className}`.trim());
 
 	const restProps = $derived.by(() => {
 		const {

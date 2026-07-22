@@ -3,6 +3,7 @@ export { resolveAuthGuardState } from './script';
 export {
 	createAccountSettingsFormState,
 	createAuthGuardState,
+	createAvatarSelectorState,
 	createForgotPasswordState,
 	createLoginFieldState,
 	createLoginState,

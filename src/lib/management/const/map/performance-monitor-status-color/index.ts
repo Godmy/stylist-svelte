@@ -1,8 +1,8 @@
 import type { PerformanceMonitorStatus } from '$stylist/management/type/alias/performance-monitor-status';
 
 export const PERFORMANCE_MONITOR_STATUS_COLOR = {
-	normal: 'bg-[var(--color-success-500)]',
-	warning: 'bg-yellow-500',
-	critical: 'bg-[var(--color-danger-500)]'
+	normal: 'performance-monitor__bar--normal',
+	warning: 'performance-monitor__bar--warning',
+	critical: 'performance-monitor__bar--critical'
 } as const satisfies Record<PerformanceMonitorStatus, string>;
 

@@ -23,5 +23,6 @@ export {
 export {
 	ChatHeader,
 	ChatInterface,
-	ChatWorkbench
+	ChatWorkbench,
+	ListWithAvatars
 } from './organism';

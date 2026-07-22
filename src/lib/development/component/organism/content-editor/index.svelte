@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { ContentEditorStateProps } from '$stylist/development/interface/recipe/content-editor-state-props';
 	import createContentEditorState from '$stylist/development/function/state/content-editor/index.svelte';
@@ -18,7 +17,7 @@
 	const Save = 'save';
 	const Eye = 'eye';
 
-	let props: ContentEditorStateProps & HTMLAttributes<HTMLDivElement> & SlotInteraction = $props();
+	let props: ContentEditorStateProps & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createContentEditorState(props);
 </script>
 

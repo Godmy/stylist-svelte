@@ -4,6 +4,7 @@ export {
 	AuthError,
 	AuthGuard,
 	AuthLink,
+	AvatarSelector,
 	ForgotPassword,
 	ForgotPasswordPage,
 	Login,
@@ -20,6 +21,7 @@ export {
 export {
 	createAccountSettingsFormState,
 	createAuthGuardState,
+	createAvatarSelectorState,
 	createForgotPasswordState,
 	createLoginFieldState,
 	createLoginState,
@@ -43,6 +45,7 @@ export type {
 	UserData
 } from './type';
 export type {
+	AvatarSelectorProps,
 	RecipeAccountSettings,
 	RecipeAccountSettingsForm,
 	RecipeAuthGuard,

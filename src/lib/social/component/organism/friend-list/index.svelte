@@ -280,6 +280,19 @@
 		box-shadow: 0 0 0 2px white;
 	}
 
+	.c-friend-list__status--online {
+		background-color: var(--color-success-500);
+	}
+	.c-friend-list__status--away {
+		background-color: #eab308;
+	}
+	.c-friend-list__status--busy {
+		background-color: var(--color-danger-500);
+	}
+	.c-friend-list__status--offline {
+		background-color: var(--color-neutral-400, #94a3b8);
+	}
+
 	.c-friend-list__info {
 		margin-left: 1rem;
 		min-width: 0;

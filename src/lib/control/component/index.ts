@@ -2,36 +2,22 @@
 export {
 	AccessibilityCheckbox,
 	ActionSegmentedControl,
-	AutoSearch,
 	AutocompleteDropdown,
-	Button,
-	ButtonComposed,
 	Checkbox,
 	Chip,
-	CloseButton,
-	CopyButton,
-	CubeControl,
-	FollowButton,
-	IconButton,
 	Radio,
-	SearchSuggestion,
-	SplitButton,
 	Switch,
 	Tag,
 	Tick,
 	ToggleGroupItem,
 	ToggleGroupRoot,
-	ToolButton,
-	Tooltip,
 	ZoomControls
 } from './atom';
 export {
-	AvatarSelector,
+	Combobox,
 	ControlPanel,
-	DragAndDropList,
 	FilterPanel,
 	IconToolbar,
-	QuantitySelector,
 	RangeInput,
 	RangeSlider,
 	Selector,
@@ -41,14 +27,5 @@ export {
 } from './molecule';
 export {
 	AccessibilityToolbar,
-	AutoComplete,
-	Combobox,
-	Controls,
-	FilterBar,
-	ListWithAvatars,
-	MultiSelect,
-	PageBuilder,
-	SearchResults,
-	SortableGrid,
-	SortableList
+	MultiSelect
 } from './organism';

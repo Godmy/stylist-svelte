@@ -1,7 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	buildComponentPreviewCode,
-	copyToClipboard
+	copyToClipboard,
+	pageBuilderGetDefaultAttributes,
+	pageBuilderGetDefaultContent,
+	pageBuilderRenderElement
 } from './script';
 export {
 	createAtomicPrinciplesShowcaseState,
@@ -26,6 +29,7 @@ export {
 	createGenericCodeViewerState,
 	createLiveCodeSectionState,
 	createMockDataSelectorState,
+	createPageBuilderState,
 	createPrivacySettingsState,
 	createResourceOptimizerState,
 	createStackState,

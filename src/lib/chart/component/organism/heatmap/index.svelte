@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeHeatmap } from '$stylist/chart/interface/recipe/heatmap';
-	import Tooltip from '$stylist/control/component/atom/tooltip/index.svelte';
+	import Tooltip from '$stylist/information/component/atom/tooltip/index.svelte';
 	import createHeatmapState from '$stylist/chart/function/state/heatmap/index.svelte';
 	import { ObjectManagerHeatmap } from '$stylist/chart/class/object-manager/heatmap';
 

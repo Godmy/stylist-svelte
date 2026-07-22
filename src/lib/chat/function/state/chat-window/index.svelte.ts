@@ -15,17 +15,13 @@ export const createChatWindowState = (props: {
 				: (props.chat.lastMessage as string)
 	});
 
-	const containerClasses =
-		'chat-window flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] shadow-custom40';
+	const containerClasses = 'chat-window';
 
-	const headerClasses =
-		'flex items-center justify-between border-b border-[var(--color-border-primary)] bg-[var(--color-background-primary)] px-4 py-3';
+	const headerClasses = 'chat-window__header';
 
-	const messagesClasses =
-		'chat-messages flex-1 overflow-y-auto bg-[var(--color-background-secondary)]';
+	const messagesClasses = 'chat-messages';
 
-	const inputClasses =
-		'chat-input border-t border-[var(--color-border-primary)] bg-[var(--color-background-primary)]';
+	const inputClasses = 'chat-input';
 
 	function handleMessageSend(content: string) {
 		// dispatch('messageSend', { content, chatId: props.chat.id })

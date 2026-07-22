@@ -2,30 +2,28 @@ import { joinClassNames } from '$stylist/layout/function/script/join-class-names
 import type { RecipeThemeSyntaxHighlightedCode } from '$stylist/development/interface/recipe/syntax-highlighted-code';
 
 export function createSyntaxHighlightedCodeState(props: RecipeThemeSyntaxHighlightedCode) {
+	const SIZE_CLASS: Record<string, string> = {
+		xs: 'shc--xs',
+		sm: 'shc--sm',
+		md: 'shc--md',
+		lg: 'shc--lg',
+		xl: 'shc--xl',
+		'2xl': 'shc--2xl',
+		'1/4': 'shc--xs',
+		'1/3': 'shc--sm',
+		'2/5': 'shc--sm',
+		'1/2': 'shc--md',
+		'3/5': 'shc--md',
+		'2/3': 'shc--lg',
+		'3/4': 'shc--xl',
+		full: 'shc--2xl'
+	};
+
 	const containerClasses = $derived(
 		joinClassNames(
-			'rounded-md',
-			{
-				default: 'bg-[--color-neutral-900] text-[--color-text-inverse]',
-				terminal: 'bg-[var(--color-neutral-900)] text-[--color-success-400] font-mono',
-				diff: 'bg-[--color-background-secondary] text-[--color-text-primary]'
-			}[props.variant ?? 'default'],
-			{
-				xs: 'text-[10px] p-1.5',
-				sm: 'text-xs p-2',
-				md: 'text-sm p-4',
-				lg: 'text-base p-6',
-				xl: 'text-lg p-8',
-				'2xl': 'text-xl p-10',
-				'1/4': 'text-[10px] p-1.5',
-				'1/3': 'text-xs p-2',
-				'2/5': 'text-xs p-2',
-				'1/2': 'text-sm p-4',
-				'3/5': 'text-sm p-4',
-				'2/3': 'text-base p-6',
-				'3/4': 'text-lg p-8',
-				full: 'text-xl p-10'
-			}[props.size ?? 'md'] ?? 'text-sm p-4',
+			'shc',
+			`shc--${props.variant ?? 'default'}`,
+			SIZE_CLASS[props.size ?? 'md'] ?? 'shc--md',
 			props.class ?? ''
 		)
 	);

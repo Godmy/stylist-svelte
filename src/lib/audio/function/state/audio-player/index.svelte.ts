@@ -21,9 +21,7 @@ export function createAudioPlayerState(props: RecipeAudioPlayer) {
 	const hostClass = $derived(props.class ?? '');
 	const controlsClass = $derived(props.controlsClass ?? '');
 
-	const hostClasses = $derived(
-		`audio-player bg-[var(--color-background-primary)] rounded-lg p-4 border border-[var(--color-border-primary)] ${hostClass}`
-	);
+	const hostClasses = $derived(`audio-player ${hostClass}`.trim());
 
 	const restProps = $derived.by(() => {
 		const {

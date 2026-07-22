@@ -1,9 +1,8 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 
 export type DatePickerValue = Date | string | { start: Date | null; end: Date | null } | undefined;
 
-export interface SlotDatePicker extends HTMLAttributes<HTMLInputElement>, SlotInteraction {
+export interface SlotDatePicker extends HTMLAttributes<HTMLInputElement> {
 	value?: DatePickerValue;
 	minDate?: Date | string;
 	maxDate?: Date | string;

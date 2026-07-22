@@ -8,3 +8,4 @@ export {
 	UPLOAD_PROGRESS_VARIANT,
 	UPLOAD_STATUS
 } from './array';
+export { PresetQuantitySelector } from './preset';

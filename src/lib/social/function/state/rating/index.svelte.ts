@@ -6,8 +6,10 @@ export function createRatingState(props: SlotRating & { rating?: number }) {
 	const disabled = $derived(props.disabled ?? false);
 	const readonly = $derived(props.readonly ?? false);
 
-	const rootClasses = $derived(`inline-flex items-center gap-1 ${props.class ?? ''}`.trim());
-	const ratingTextClasses = $derived('ml-2 text-sm text-[var(--color-text-secondary)]');
+	const rootClasses = $derived(`c-rating ${props.class ?? ''}`.trim());
+	const ratingTextClasses = $derived(
+		`c-rating__text ${disabled ? 'c-rating__text--disabled' : ''}`.trim()
+	);
 
 	function handleStarClick(value: number): void {
 		if (disabled || readonly) return;
@@ -25,13 +27,25 @@ export function createRatingState(props: SlotRating & { rating?: number }) {
 
 	function starButtonClasses(index: number): string {
 		const active = index < (hoverRating || props.rating || 0);
-		return `${disabled ? 'cursor-not-allowed opacity-[var(--opacity-50)]' : 'cursor-pointer'} ${active ? 'text-[var(--color-warning-500)]' : 'text-[var(--color-text-tertiary)]'}`;
+		return [
+			'c-rating__star-btn',
+			active ? 'c-rating__star-btn--filled' : '',
+			readonly ? 'c-rating__star-btn--readonly' : '',
+			disabled ? 'c-rating__star-btn--disabled' : ''
+		]
+			.filter(Boolean)
+			.join(' ');
 	}
 
 	function starIconClasses(index: number): string {
-		const sizeClass = size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5';
 		const active = index < (hoverRating || props.rating || 0);
-		return `${sizeClass} ${active ? 'fill-current' : ''}`;
+		return [
+			'c-rating__star-icon',
+			`c-rating__star-icon--${size}`,
+			active ? 'c-rating__star-icon--filled' : ''
+		]
+			.filter(Boolean)
+			.join(' ');
 	}
 
 	return {

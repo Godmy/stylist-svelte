@@ -67,6 +67,16 @@ export function createImageGalleryState(props: RecipeImageGallery) {
 		isFullscreen = false;
 	}
 
+	const imageContainerClasses = 'image-gallery__image-container';
+	const imageClasses = 'image-gallery__image';
+	const navigationButtonClasses = 'image-gallery__nav-button';
+	const captionClasses = 'image-gallery__caption';
+	const fullscreenCaptionClasses = 'image-gallery__fullscreen-caption';
+
+	function getThumbnailClasses(index: number): string {
+		return `image-gallery__thumbnail ${index === currentIndex ? 'image-gallery__thumbnail--active' : ''}`.trim();
+	}
+
 	function handleKeyDown(e: KeyboardEvent) {
 		if (isFullscreen) {
 			if (e.key === 'ArrowRight') nextImage();
@@ -117,6 +127,22 @@ export function createImageGalleryState(props: RecipeImageGallery) {
 		get icons() {
 			return TOKEN_MEDIA_ICON;
 		},
+		get imageContainerClasses() {
+			return imageContainerClasses;
+		},
+		get imageClasses() {
+			return imageClasses;
+		},
+		get navigationButtonClasses() {
+			return navigationButtonClasses;
+		},
+		get captionClasses() {
+			return captionClasses;
+		},
+		get fullscreenCaptionClasses() {
+			return fullscreenCaptionClasses;
+		},
+		getThumbnailClasses,
 		nextImage,
 		prevImage,
 		goToImage,

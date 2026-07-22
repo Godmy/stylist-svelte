@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeGraphNodeCard } from '$stylist/workspace/interface/recipe/graph-node-card';
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createGraphNodeCardState } from '$stylist/workspace/function/state/graph-node-card/index.svelte';
 

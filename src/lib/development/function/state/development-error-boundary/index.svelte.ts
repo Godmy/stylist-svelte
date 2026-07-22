@@ -28,10 +28,10 @@ export function createDevelopmentErrorBoundaryState(props: RecipeDevelopmentErro
 	const children = $derived(props.children);
 
 	const containerClass = $derived(className);
-	const fallbackContainerClass = $derived('border border-red-200 rounded-lg bg-red-50 p-6');
-	const headerComputedClass = $derived('flex items-start');
-	const detailsComputedClass = $derived('mt-4 p-4 bg-white rounded border');
-	const actionsComputedClass = $derived('mt-4 flex flex-wrap gap-3');
+	const fallbackContainerClass = $derived('deb-fallback');
+	const headerComputedClass = $derived('deb-header');
+	const detailsComputedClass = $derived('deb-details');
+	const actionsComputedClass = $derived('deb-actions');
 
 	$effect(() => {
 		if (hasError && error && errorInfo && onError) {

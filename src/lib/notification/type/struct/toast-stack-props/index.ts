@@ -1,8 +1,7 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Toast } from '$stylist/notification/interface/slot/toast';
 
-export type ToastStackProps = HTMLAttributes<HTMLDivElement> & SlotInteraction & {
+export type ToastStackProps = HTMLAttributes<HTMLDivElement> & {
 	toasts: Toast[];
 	position?:
 		| 'top-right'

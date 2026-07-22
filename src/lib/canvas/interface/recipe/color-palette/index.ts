@@ -1,9 +1,8 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeCanvasColorPalette
-	extends ComputeIntersectAll<[HTMLAttributes<HTMLDivElement>, SlotInteraction]> {
+	extends ComputeIntersectAll<[HTMLAttributes<HTMLDivElement>]> {
 	value?: string;
 	disabled?: boolean;
 	showInput?: boolean;

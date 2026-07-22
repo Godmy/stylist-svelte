@@ -29,18 +29,9 @@ export function createDebugConsoleState(props: RecipeDebugConsole) {
 	const entryClass = $derived(props.entryClass ?? '');
 	const footerClass = $derived(props.footerClass ?? '');
 
-	const containerClass = $derived(
-		mergeClassNames(
-			'fixed bottom-0 left-0 right-0 h-64 bg-[--color-background-primary] border-t border-[--color-border-primary] shadow-lg z-[var(--z-index-modal)]',
-			className
-		)
-	);
-	const headerComputedClass = $derived(
-		`flex items-center justify-between px-4 py-2 border-b border-[--color-border-primary] bg-[--color-background-tertiary] ${headerClass}`
-	);
-	const footerComputedClass = $derived(
-		`border-t border-[--color-border-primary] p-2 ${footerClass}`
-	);
+	const containerClass = $derived(mergeClassNames('dc-container', className));
+	const headerComputedClass = $derived(`dc-header ${headerClass}`.trim());
+	const footerComputedClass = $derived(`dc-footer ${footerClass}`.trim());
 
 	$effect(() => {
 		updateFilteredLogs();
@@ -120,33 +111,11 @@ export function createDebugConsoleState(props: RecipeDebugConsole) {
 	}
 
 	function getLevelColor(level: DebugConsoleLogLevel) {
-		switch (level) {
-			case 'error':
-				return 'text-red-500';
-			case 'warn':
-				return 'text-yellow-500';
-			case 'info':
-				return 'text-blue-500';
-			case 'debug':
-				return 'text-purple-500';
-			default:
-				return 'text-gray-700';
-		}
+		return `dc-level--${level}`;
 	}
 
 	function getLevelBgColor(level: DebugConsoleLogLevel) {
-		switch (level) {
-			case 'error':
-				return 'bg-red-100';
-			case 'warn':
-				return 'bg-yellow-100';
-			case 'info':
-				return 'bg-blue-100';
-			case 'debug':
-				return 'bg-purple-100';
-			default:
-				return 'bg-gray-100';
-		}
+		return `dc-level-bg--${level}`;
 	}
 
 	function formatTimestamp(timestamp: Date) {

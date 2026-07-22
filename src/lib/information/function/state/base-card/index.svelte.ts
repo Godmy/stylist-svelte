@@ -1,13 +1,9 @@
 ﻿import type { RecipeBaseCard } from '$stylist/information/interface/recipe/base-card';
 
 export function createBaseCardState(props: RecipeBaseCard) {
-	const containerClasses = $derived(
-		`base-card rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] ${props.class ?? ''}`.trim()
-	);
-	const headerClasses = $derived(
-		`base-card__header p-4 border-b border-[var(--color-border-primary)] ${props.headerClass ?? ''}`.trim()
-	);
-	const bodyClasses = $derived(`base-card__body p-4 ${props.bodyClass ?? ''}`.trim());
+	const containerClasses = $derived(`base-card ${props.class ?? ''}`.trim());
+	const headerClasses = $derived(`base-card__header ${props.headerClass ?? ''}`.trim());
+	const bodyClasses = $derived(`base-card__body ${props.bodyClass ?? ''}`.trim());
 	const hasHeader = $derived(Boolean(props.title || props.description));
 
 	return {

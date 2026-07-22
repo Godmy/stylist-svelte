@@ -21,6 +21,7 @@ export { createErrorBoundaryState } from './error-boundary';
 export { createGenericCodeViewerState } from './generic-code-viewer';
 export { createLiveCodeSectionState } from './live-code-section';
 export { createMockDataSelectorState } from './mock-data-selector';
+export { createPageBuilderState } from './page-builder';
 export { createPrivacySettingsState } from './privacy-settings';
 export { createResourceOptimizerState } from './resource-optimizer';
 export { createStackState } from './stack';

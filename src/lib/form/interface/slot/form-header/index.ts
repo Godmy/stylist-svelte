@@ -1,8 +1,7 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 
-export interface SlotFormHeader extends HTMLAttributes<HTMLDivElement>, SlotInteraction {
+export interface SlotFormHeader extends HTMLAttributes<HTMLDivElement> {
 	title: string;
 	subtitle?: string;
 	description?: string;

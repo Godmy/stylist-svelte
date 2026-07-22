@@ -32,13 +32,13 @@ export const createUserStatusState = (props: {
 		}
 	});
 
-	const containerClasses = 'user-status inline-flex items-center gap-2.5';
+	const containerClasses = 'user-status';
 
-	const userInfoClasses = 'user-info flex min-w-0 flex-col gap-[2px]';
+	const userInfoClasses = 'user-info';
 
-	const userNameClasses = 'user-name truncate text-sm font-medium text-[var(--color-text-primary)]';
+	const userNameClasses = 'user-name';
 
-	const statusTextClasses = 'status-text text-xs leading-4 text-[var(--color-text-secondary)]';
+	const statusTextClasses = 'status-text';
 
 	return {
 		get showAvatar() {

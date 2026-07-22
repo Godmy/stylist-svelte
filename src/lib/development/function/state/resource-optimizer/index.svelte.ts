@@ -57,21 +57,6 @@ export function createResourceOptimizerState(props: RecipeResourceOptimizer) {
 		}
 	}
 
-	function getResourceColor(status: string) {
-		switch (status) {
-			case 'loaded':
-				return 'bg-green-100 text-green-800';
-			case 'loading':
-				return 'bg-blue-100 text-blue-800';
-			case 'error':
-				return 'bg-red-100 text-red-800';
-			case 'cached':
-				return 'bg-purple-100 text-purple-800';
-			default:
-				return 'bg-gray-100 text-gray-800';
-		}
-	}
-
 	function toggleResourceDetails(id: string) {
 		expandedResources = {
 			...expandedResources,
@@ -163,7 +148,6 @@ export function createResourceOptimizerState(props: RecipeResourceOptimizer) {
 		},
 		formatBytes,
 		getResourceTypeIcon,
-		getResourceColor,
 		toggleResourceDetails,
 		toggleOptimization,
 		applySelectedOptimizations,

@@ -1,4 +1,3 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 /**
  * ���� � ���������� ��� ���������� Rating
@@ -13,7 +12,7 @@ import type { TokenSize } from '$stylist/theme/type/alias/size';
 /**
  * ������ ��� ���������� Rating
  */
-export interface SlotRating extends HTMLAttributes<HTMLDivElement>, SlotInteraction {
+export interface SlotRating extends HTMLAttributes<HTMLDivElement> {
 	/**
 	 * ������� ������� (0-5)
 	 * @default 0

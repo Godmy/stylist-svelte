@@ -13,6 +13,7 @@ export {
 	createDataDisplayCardState,
 	createDiscountApplierState,
 	createExpandableCardState,
+	createFilterBarState,
 	createInventoryTrackerState,
 	createLinkCardState,
 	createMetricCardState,

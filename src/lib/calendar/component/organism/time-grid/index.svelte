@@ -2,7 +2,7 @@
 	import createTimeGridState from '$stylist/calendar/function/state/time-grid/index.svelte';
 	import type { RecipeTimeGrid as TimeGridStateProps } from '$stylist/calendar/interface/recipe/time-grid';
 	import TimeSlotComponent from '$stylist/calendar/component/atom/time-slot/index.svelte';
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: TimeGridStateProps = $props();

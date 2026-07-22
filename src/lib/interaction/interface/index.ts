@@ -15,12 +15,6 @@ export type {
 	RecipeHoverable
 } from './recipe';
 export type {
-	ClickableStyleManagerOptions,
-	DraggableStyleManagerOptions,
-	FocusableStyleManagerOptions,
-	HoverableStyleManagerOptions,
 	NumberFormatOptions,
-	SearchSuggestion,
-	SlotClickable,
-	SlotInteraction
+	SlotClickable
 } from './slot';

@@ -9,31 +9,25 @@ export const createMessageComposerState = (props: IMessageComposerProps) => {
 	});
 
 	const containerClasses = $derived(
-		mergeClassNames(
-			'message-composer rounded-[1.15rem] border border-[--color-border-primary] bg-[--color-background-primary] p-2 shadow-custom28',
-			String(props.class ?? '')
-		)
+		mergeClassNames('message-composer', String(props.class ?? ''))
 	);
 
-	const formClasses = $derived('flex flex-1 items-end gap-2');
+	const formClasses = $derived('message-composer__form');
 
-	const attachmentButtonClasses = $derived('shrink-0');
+	const attachmentButtonClasses = $derived('message-composer__icon-btn');
 
-	const inputContainerClasses = $derived('relative flex-1');
+	const inputContainerClasses = $derived('message-composer__field-wrap');
 
 	const inputClasses = $derived(
-		mergeClassNames(
-			'w-full resize-none rounded-[1rem] border border-transparent bg-[--color-background-secondary] px-4 py-3 pr-10 text-[--color-text-primary] focus:border-[--color-primary-500] focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] max-h-32',
-			props.inputClass ?? ''
-		)
+		mergeClassNames('message-composer__field', props.inputClass ?? '')
 	);
 
 	const sendButtonClasses = $derived(
-		mergeClassNames('shrink-0 rounded-full', props.buttonClass ?? '')
+		mergeClassNames('message-composer__icon-btn', props.buttonClass ?? '')
 	);
 
 	const voiceButtonClasses = $derived(
-		mergeClassNames('shrink-0 rounded-full', props.buttonClass ?? '')
+		mergeClassNames('message-composer__icon-btn', props.buttonClass ?? '')
 	);
 
 	const showSendButton = $derived(messageText.trim().length > 0);

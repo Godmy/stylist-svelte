@@ -4,58 +4,30 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 export function createChatRoomState(props: ChatRoomProps) {
 	let messageText = $state('');
 
-	const variantClass = $derived(
-		(
-			{
-				default: 'gap-4',
-				compact: 'gap-2',
-				spacious: 'gap-6'
-			} as Record<string, string>
-		)[props.variant ?? 'default']
-	);
+	const variantClass = $derived(`c-chat-room__messages--${props.variant ?? 'default'}`);
 
-	const containerClasses = $derived(
-		mergeClassNames(
-			'chat-room flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] shadow-custom40',
-			props.class ?? ''
-		)
-	);
+	const containerClasses = $derived(mergeClassNames('c-chat-room', props.class ?? ''));
 
 	const headerClasses = $derived(
-		mergeClassNames(
-			'flex items-center justify-between border-b border-[var(--color-border-primary)] bg-[var(--color-background-primary)] px-4 py-4',
-			props.headerClass ?? ''
-		)
+		mergeClassNames('c-chat-room__header', props.headerClass ?? '')
 	);
 
 	const messagesAreaClasses = $derived(
-		mergeClassNames(
-			'flex-1 overflow-y-auto bg-[var(--color-background-secondary)] px-4 py-4',
-			variantClass,
-			props.messagesClass ?? ''
-		)
+		mergeClassNames('c-chat-room__messages', variantClass, props.messagesClass ?? '')
 	);
 
 	const footerClasses = $derived(
-		mergeClassNames(
-			'border-t border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4',
-			props.footerClass ?? ''
-		)
+		mergeClassNames('c-chat-room__footer', props.footerClass ?? '')
 	);
 
 	const participantAvatarClasses = (index: number) =>
-		mergeClassNames(
-			'h-8 w-8 overflow-hidden rounded-full ring-2 ring-[var(--color-background-primary)]',
-			index > 0 ? '-ml-2' : 'ml-0'
-		);
+		mergeClassNames('c-chat-room__avatar', index > 0 && 'c-chat-room__avatar--overlap');
 
-	const participantOverflowClasses =
-		'flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-background-secondary)] text-xs font-semibold text-[var(--color-text-secondary)] ring-2 ring-[var(--color-background-primary)]';
+	const participantOverflowClasses = 'c-chat-room__overflow';
 
-	const loadingClasses = 'flex h-full items-center justify-center';
+	const loadingClasses = 'c-chat-room__loading';
 
-	const spinnerClasses =
-		'h-8 w-8 animate-spin rounded-full border-b-2 border-[var(--color-primary-500)]';
+	const spinnerClasses = 'c-chat-room__spinner';
 
 	function handleSend(text: string) {
 		props.onMessageSend?.(text);

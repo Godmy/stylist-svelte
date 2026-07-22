@@ -1,9 +1,8 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { TierContent } from '$stylist/architecture/type/alias/tier';
 
-export interface SlotPagination extends HTMLAttributes<HTMLDivElement>, SlotInteraction {
+export interface SlotPagination extends HTMLAttributes<HTMLDivElement> {
 	currentPage: number;
 	totalPages: number;
 	showFirstLast?: boolean;

@@ -38,8 +38,8 @@
 	const state = createABTestConfiguratorState(props);
 </script>
 
-<div class="a-b-test-configurator__TODO-containerClasses" {...state.restProps}>
-	<div class="a-b-test-configurator__TODO-headerClasses">
+<div class={state.containerClasses} {...state.restProps}>
+	<div class={state.headerClasses}>
 		<div class="abt-row">
 			<BaseIcon
 				name={TestTube}
@@ -52,7 +52,7 @@
 		<p class="abt-subtitle">Configure and manage your A/B tests</p>
 	</div>
 
-	<div class="a-b-test-configurator__TODO-formClasses">
+	<div class={state.formClasses}>
 		<div class="abt-form-grid">
 			<div class="abt-col-4">
 				<label for="test-name" class="abt-label">Test Name</label>
@@ -249,7 +249,7 @@
 		</div>
 	</div>
 
-	<div class="a-b-test-configurator__TODO-footerClasses">
+	<div class={state.footerClasses}>
 		<div class="abt-footer-row">
 			<div class="abt-row">
 				<span class="abt-status-badge">
@@ -300,6 +300,21 @@
 </div>
 
 <style>
+	.abt-container {
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		background-color: var(--color-background-primary);
+	}
+	.abt-header {
+		padding: 1.5rem 1.5rem 0;
+	}
+	.abt-form {
+		padding: 1.5rem;
+	}
+	.abt-footer {
+		border-top: 1px solid var(--color-border-primary);
+		padding: 1rem 1.5rem;
+	}
 	.abt-row {
 		display: flex;
 

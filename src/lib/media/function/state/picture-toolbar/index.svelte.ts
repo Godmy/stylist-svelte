@@ -9,13 +9,10 @@ export function createPictureToolbarState(props: RecipePictureToolbar) {
 	});
 
 	const rootClass = $derived(
-		joinClassNames(
-			'picture-toolbar flex space-x-2 p-2 bg-[var(--color-background-secondary)] rounded',
-			(props.class as string | null | undefined) ?? ''
-		)
+		joinClassNames('picture-toolbar', (props.class as string | null | undefined) ?? '')
 	);
 
-	const iconClasses = $derived('w-4 h-4');
+	const iconClasses = $derived('picture-toolbar__icon');
 
 	function selectTool(toolId: string) {
 		activeTool = toolId;
@@ -24,10 +21,8 @@ export function createPictureToolbarState(props: RecipePictureToolbar) {
 
 	const getButtonClasses = (isActive: boolean) =>
 		joinClassNames(
-			'flex items-center justify-center p-2 rounded border transition-colors',
-			isActive
-				? 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] border-[var(--color-primary-500)]'
-				: 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]'
+			'picture-toolbar__button',
+			isActive ? 'picture-toolbar__button--active' : ''
 		);
 
 	return {

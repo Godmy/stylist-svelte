@@ -50,4 +50,20 @@
 </div>
 
 <style>
+	.badge-group {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	.badge-group__overflow {
+		display: inline-flex;
+		align-items: center;
+		border-radius: 9999px;
+		background-color: var(--color-neutral-100, var(--color-background-secondary));
+		color: var(--color-neutral-800, var(--color-text-primary));
+		padding: 0.125rem 0.625rem;
+		font-size: 0.75rem;
+		font-weight: 500;
+	}
 </style>

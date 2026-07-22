@@ -6,13 +6,7 @@ export const createMessageListState = (props: {
 	currentUser: User;
 	onMessageAction?: (action: string, message: Message) => void;
 }) => {
-	const containerClasses =
-		'message-list flex flex-col gap-3 overflow-y-auto px-4 py-5 flex-1 bg-[var(--color-background-secondary)]';
-
-	const scrollbarTrackClasses = 'bg-[var(--color-background-secondary)]';
-
-	const scrollbarThumbClasses =
-		'bg-[var(--color-border-secondary)] rounded-sm hover:bg-[var(--color-text-secondary)]';
+	const containerClasses = 'message-list';
 
 	function handleMessageClick(message: Message) {
 		// dispatch('messageClick', { message })
@@ -48,12 +42,6 @@ export const createMessageListState = (props: {
 	return {
 		get containerClasses() {
 			return containerClasses;
-		},
-		get scrollbarTrackClasses() {
-			return scrollbarTrackClasses;
-		},
-		get scrollbarThumbClasses() {
-			return scrollbarThumbClasses;
 		},
 		handleMessageClick,
 		handleMessageReaction,

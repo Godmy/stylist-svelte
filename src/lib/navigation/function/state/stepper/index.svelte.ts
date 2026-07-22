@@ -1,33 +1,25 @@
 import type { StepperProps } from '$stylist/navigation/type/struct/stepper-props/stepper-props';
 
 export function createStepperState(props: StepperProps) {
-	const orientationClass = $derived(props.orientation === 'vertical' ? 'flex flex-col' : 'flex');
+	const orientationClass = $derived(
+		props.orientation === 'vertical' ? 'stepper--col' : 'stepper--row'
+	);
 
 	function getStepCircleClass(status: string): string {
-		const base = 'flex flex-shrink-0 items-center justify-center w-10 h-10 rounded-full border-2';
-		if (status === 'completed')
-			return `${base} bg-[var(--color-primary-500)] border-[var(--color-primary-500)] text-[var(--color-text-inverse)]`;
-		if (status === 'current')
-			return `${base} bg-[var(--color-background-primary)] border-[var(--color-primary-500)] text-[var(--color-primary-500)]`;
-		return `${base} bg-[var(--color-background-primary)] border-[var(--color-border-primary)] text-[var(--color-text-secondary)]`;
+		return `stepper__circle stepper__circle--${status}`;
 	}
 
 	function getStepLabelClass(status: string): string {
-		if (status === 'current') return 'text-[var(--color-primary-600)]';
-		if (status === 'completed') return 'text-[var(--color-text-primary)]';
-		return 'text-[var(--color-text-secondary)]';
+		return `stepper__label-text stepper__label-text--${status}`;
 	}
 
 	function getStepDescriptionClass(status: string): string {
-		if (status === 'current') return 'text-[var(--color-primary-600)]';
-		if (status === 'completed') return 'text-[var(--color-text-secondary)]';
-		return 'text-[var(--color-text-tertiary)]';
+		return `stepper__description stepper__description--${status}`;
 	}
 
 	function getConnectorClass(steps: StepperProps['steps'], index: number): string {
 		const nextStatus = steps[index + 1]?.status;
-		if (nextStatus === 'completed') return 'bg-[var(--color-primary-500)]';
-		return 'bg-[var(--color-background-tertiary)]';
+		return nextStatus === 'completed' ? 'stepper__connector--completed' : '';
 	}
 
 	return {

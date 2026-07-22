@@ -23,6 +23,7 @@ export {
 } from './script';
 export {
 	createCss3dCubeState,
+	createCubeControlState,
 	createFocusState,
 	createFocusTarget,
 	createGraphEdgeState,

@@ -51,10 +51,10 @@
 		{/if}
 
 		{#if state.primaryCTA || state.secondaryCTA}
-			<div class="hero__TODO-ctaContainerClasses">
+			<div class={state.ctaContainerClasses}>
 				{#if state.primaryCTA}
 					<button
-						class="hero__TODO-primaryCTAButtonClasses"
+						class={state.primaryCTAButtonClasses}
 						onclick={state.handlePrimaryClick}
 						type="button"
 						aria-label={state.primaryCTA.label}
@@ -65,7 +65,7 @@
 
 				{#if state.secondaryCTA}
 					<button
-						class="hero__TODO-secondaryCTAButtonClasses"
+						class={state.secondaryCTAButtonClasses}
 						onclick={state.handleSecondaryClick}
 						type="button"
 						aria-label={state.secondaryCTA.label}
@@ -87,5 +87,35 @@
 <style>
 	.hero-children {
 		margin-top: 2rem;
+	}
+	.hero__cta-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 1rem;
+		margin-top: 2rem;
+	}
+	.hero__cta-button {
+		border-radius: 0.5rem;
+		padding: 0.625rem 1.5rem;
+		font-weight: 600;
+		cursor: pointer;
+		border: 1px solid transparent;
+		transition: background-color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out);
+	}
+	.hero__cta-button--primary {
+		background-color: var(--color-primary-600);
+		color: var(--color-text-inverse);
+	}
+	.hero__cta-button--primary:hover {
+		background-color: var(--color-primary-700);
+	}
+	.hero__cta-button--secondary {
+		background-color: transparent;
+		border-color: var(--color-border-primary);
+		color: var(--color-text-primary);
+	}
+	.hero__cta-button--secondary:hover {
+		background-color: var(--color-background-secondary);
 	}
 </style>

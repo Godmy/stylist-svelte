@@ -1,9 +1,7 @@
 import type { RecipePageEllipsis } from '$stylist/navigation/interface/recipe/page-ellipsis';
 
 export function createPageEllipsisState(props: RecipePageEllipsis) {
-	const containerClasses = $derived(
-		`flex items-center px-3 py-2 text-sm font-medium text-[var(--color-text-primary)] ${props.class ?? ''}`
-	);
+	const containerClasses = $derived(`page-ellipsis ${props.class ?? ''}`.trim());
 
 	return {
 		get containerClasses() {

@@ -1,4 +1,3 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { DebugConsoleLogLevel } from '$stylist/development/type/alias/debug-console-log-level';
 import type { DebugConsoleLogEntry } from '$stylist/development/type/struct/debug-console-log-entry';
@@ -19,5 +18,5 @@ export type DebugConsoleProps = {
 	consoleClass?: string;
 	entryClass?: string;
 	footerClass?: string;
-} & HTMLAttributes<HTMLDivElement> & SlotInteraction;
+} & HTMLAttributes<HTMLDivElement>;
 

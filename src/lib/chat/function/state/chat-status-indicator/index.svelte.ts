@@ -28,19 +28,13 @@ export function createChatStatusIndicatorState(
 	});
 
 	const styles = {
-		container: 'inline-flex items-center gap-2',
+		container: 'c-chat-status',
 		indicator: joinClassNames(
-			'inline-flex rounded-full ring-2 ring-[var(--color-background-primary)] shadow-sm',
-			size === 'lg' ? 'h-3 w-3' : size === 'md' ? 'h-2.5 w-2.5' : 'h-2 w-2',
-			status === 'online'
-				? 'bg-emerald-500'
-				: status === 'away'
-					? 'bg-amber-500'
-					: status === 'typing'
-						? 'bg-sky-500'
-						: 'bg-slate-400'
+			'c-chat-status__dot',
+			`c-chat-status__dot--${size}`,
+			`c-chat-status__dot--${status}`
 		),
-		label: 'text-xs font-medium text-[var(--color-text-secondary)]'
+		label: 'c-chat-status__label'
 	};
 
 	// Merge classes with custom classes

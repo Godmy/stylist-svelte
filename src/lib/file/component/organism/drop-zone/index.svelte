@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { createDropZoneState } from '$stylist/file/function/state/drop-zone/index.svelte';
 	import { formatFileSize } from '$stylist/file/function/script/drop-zone-format-file-size';
@@ -10,17 +10,14 @@
 	const state = createDropZoneState(props);
 	const rootClasses = $derived(
 		mergeClassNames(
-			'c-drop-zone border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors',
-			state.isDragOver
-				? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]'
-				: 'border-[var(--color-border-primary)] hover:border-[var(--color-border-primary)]',
-			state.disabled && 'opacity-[var(--opacity-50)] cursor-not-allowed',
+			'c-drop-zone',
+			state.isDragOver ? 'c-drop-zone--active' : '',
+			state.disabled ? 'c-drop-zone--disabled' : '',
 			state.classes
 		)
 	);
-	const listClasses = 'space-y-2 max-h-60 overflow-y-auto';
-	const itemClasses =
-		'flex items-center justify-between p-3 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md';
+	const listClasses = 'dz-list';
+	const itemClasses = 'dz-item';
 </script>
 
 <div
@@ -110,6 +107,42 @@
 </div>
 
 <style>
+	.c-drop-zone {
+		border: 2px dashed var(--color-border-primary);
+		border-radius: 0.5rem;
+		padding: 1.5rem;
+		text-align: center;
+		cursor: pointer;
+		transition: border-color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out),
+			background-color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out);
+	}
+	.c-drop-zone:hover {
+		border-color: var(--color-primary-500);
+	}
+	.c-drop-zone--active {
+		border-color: var(--color-primary-500);
+		background-color: var(--color-primary-50);
+	}
+	.c-drop-zone--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+	.dz-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		max-height: 15rem;
+		overflow-y: auto;
+	}
+	.dz-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.75rem;
+		background-color: var(--color-background-primary);
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.375rem;
+	}
 	.dz-inner {
 		display: flex;
 		flex-direction: column;

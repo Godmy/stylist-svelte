@@ -6,8 +6,6 @@
 	import type { ChatPreviewMessage } from '$stylist/chat/type/struct/chat-preview-message';
 	import { CHAT_PREVIEW_ICON_CHECK } from '$stylist/chat/const/value/chat-preview-icon-check';
 	import { CHAT_PREVIEW_ICON_CHECK_CHECK } from '$stylist/chat/const/value/chat-preview-icon-check-check';
-	import { getChatMessageAlignmentClass } from '$stylist/chat/function/script/chat-message-alignment-class';
-	import { getChatMessageBubbleClasses } from '$stylist/chat/function/script/chat-message-bubble-classes';
 
 	let props: AnyProperty = $props();
 
@@ -30,7 +28,7 @@
 
 	<div class={state.messagesContainerClasses}>
 		{#each displayMessages as message}
-			<div class={`cp-msg-row ${getChatMessageAlignmentClass(!!message.isOwn)}`}>
+			<div class={`cp-msg-row ${message.isOwn ? 'cp-msg-row--own' : ''}`}>
 				<div class="cp-msg-wrap">
 					{#if !message.isOwn}
 						<div class="cp-sender-row">
@@ -46,7 +44,7 @@
 						</div>
 					{/if}
 
-					<div class={`cp-bubble ${getChatMessageBubbleClasses(!!message.isOwn)}`}>
+					<div class={`cp-bubble ${message.isOwn ? 'cp-bubble--own' : 'cp-bubble--other'}`}>
 						<p>{message.text}</p>
 					</div>
 
@@ -75,8 +73,72 @@
 </div>
 
 <style>
+	.c-chat-preview {
+		border-radius: 0.75rem;
+		border: 1px solid var(--color-border-secondary);
+		background-color: var(--color-background-primary);
+		padding: 1rem;
+	}
+	.c-chat-preview--elevated {
+		border-color: transparent;
+		box-shadow: 0 6px 16px -6px rgba(15, 23, 42, 0.16);
+	}
+	.c-chat-preview--muted {
+		background-color: var(--color-background-secondary);
+	}
+	.c-chat-preview--sm {
+		max-width: 24rem;
+	}
+	.c-chat-preview--md {
+		max-width: 28rem;
+	}
+	.c-chat-preview--lg {
+		max-width: 32rem;
+	}
+	.c-chat-preview__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.75rem;
+		margin-bottom: 1rem;
+	}
+	.c-chat-preview__chat-info {
+		min-width: 0;
+	}
+	.c-chat-preview__title {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
+	}
+	.c-chat-preview__participants {
+		margin-top: 0.25rem;
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+	}
+	.c-chat-preview__messages {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
 	.cp-msg-row {
 		display: flex;
+		justify-content: flex-start;
+	}
+	.cp-msg-row--own {
+		justify-content: flex-end;
+	}
+	.cp-bubble--own {
+		background-color: var(--color-primary-500);
+		color: var(--color-text-inverse);
+		border-bottom-right-radius: 0;
+	}
+	.cp-bubble--other {
+		background-color: var(--color-background-secondary);
+		color: var(--color-text-primary);
+		border-bottom-left-radius: 0;
 	}
 	.cp-msg-wrap {
 		max-width: 20rem;

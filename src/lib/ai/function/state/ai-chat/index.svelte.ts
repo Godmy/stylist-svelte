@@ -20,9 +20,7 @@ export function createAiChatState(props: RecipeAiChat) {
 	const inputContainerClass = $derived('ai-chat__input');
 
 	const messageClass = (role: 'user' | 'assistant') =>
-		['ai-chat__message', role ? `ai-chat__message--selected` : '']
-			.filter(Boolean)
-			.join(' ');
+		`ai-chat__message ai-chat__message--${role}`;
 
 	function sendMessage() {
 		if (!inputMessage.trim()) return;

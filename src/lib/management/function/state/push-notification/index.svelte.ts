@@ -21,15 +21,6 @@ export function createPushNotificationState(props: PushNotificationProps) {
 		}
 	});
 
-	const typeStyles: Record<'info' | 'success' | 'warning' | 'error', string> = {
-		info: 'bg-[var(--color-primary-50)] border-[var(--color-primary-200)] text-[var(--color-primary-800)]',
-		success:
-			'bg-[var(--color-success-50)] border-[var(--color-success-200)] text-[var(--color-success-800)]',
-		warning: 'bg-yellow-50 border-yellow-200 text-yellow-800',
-		error:
-			'bg-[var(--color-danger-50)] border-[var(--color-danger-200)] text-[var(--color-danger-800)]'
-	};
-
 	const typeIcons: Record<'info' | 'success' | 'warning' | 'error', string> = {
 		info: '\u2139',
 		success: '\u2713',
@@ -38,7 +29,7 @@ export function createPushNotificationState(props: PushNotificationProps) {
 	};
 
 	const containerClasses = $derived(
-		`border-l-4 p-4 rounded-r-lg flex items-start justify-between ${typeStyles[type as keyof typeof typeStyles]} ${className}`
+		`c-push-notification c-push-notification--${type} ${className}`.trim()
 	);
 
 	function handleClose(): void {
@@ -70,9 +61,6 @@ export function createPushNotificationState(props: PushNotificationProps) {
 		},
 		get className() {
 			return className;
-		},
-		get typeStyles() {
-			return typeStyles;
 		},
 		get typeIcons() {
 			return typeIcons;

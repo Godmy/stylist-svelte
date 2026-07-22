@@ -1,8 +1,7 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 
-export type FormSelectionProps = HTMLAttributes<HTMLElement> & SlotInteraction & {
+export type FormSelectionProps = HTMLAttributes<HTMLElement> & {
 	title?: string;
 	description?: string;
 	collapsible?: boolean;

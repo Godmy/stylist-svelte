@@ -18,14 +18,10 @@ export function createAvatarGroupState(
 	const visibleAvatars = $derived(avatars.slice(0, maxVisible));
 	const overflowCount = $derived(Math.max(0, avatars.length - maxVisible));
 
-	const sizeClasses = $derived(
-		size === 'sm' ? 'w-8 h-8' : size === 'lg' ? 'w-12 h-12' : 'w-10 h-10'
-	);
-	const fontSizeClasses = $derived(
-		size === 'sm' ? 'text-xs' : size === 'lg' ? 'text-base' : 'text-sm'
-	);
+	const sizeClasses = $derived(`ag-size--${size}`);
+	const fontSizeClasses = $derived(`ag-font-size--${size}`);
 
-	const hostClasses = $derived(`flex items-center ${className}`);
+	const hostClasses = $derived(`ag-host ${className}`.trim());
 
 	const restProps = $derived.by(() => {
 		const {

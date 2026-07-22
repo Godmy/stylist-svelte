@@ -15,21 +15,33 @@ export function createSidebarState(props: RecipeSidebar) {
 	const width = $derived(props.width ?? '280px');
 	const mobileWidth = $derived(props.mobileWidth ?? '280px');
 	const disabled = $derived(props.disabled ?? false);
-	const hostClass = $derived(props.class == null ? undefined : String(props.class));
+	const hostClass = $derived(
+		`sidebar__host ${props.class ?? ''}`.trim()
+	);
 	const mobileButtonClass = $derived('sidebar__mobile-button');
 	const overlayClass = $derived('sidebar__overlay');
-	const sidebarClass = $derived('sidebar');
-	const sidebarContainerClass = $derived('sidebar__container');
+	const sidebarClass = $derived('sidebar__sidebar');
+	const sidebarContainerClass = $derived('sidebar__sidebar-container');
 	const headerClass = $derived('sidebar__header');
-	const logoWrapperClass = $derived(props.logoClass ?? 'sidebar__logo');
+	const logoWrapperClass = $derived(props.logoClass ?? 'sidebar__logo-wrapper');
 	const titleClassComputed = $derived(props.titleClass ?? 'sidebar__title');
 	const navClassComputed = $derived(props.navClass ?? 'sidebar__nav');
 	const navListClass = $derived('sidebar__nav-list');
 	const footerClassComputed = $derived(props.footerClass ?? 'sidebar__footer');
-	const contentAreaClass = $derived('sidebar__content');
-	const navItemIconWrapperClass = $derived('sidebar__nav-item-icon');
+	const contentAreaClass = $derived('sidebar__content-area');
+	const navItemIconWrapperClass = $derived('sidebar__nav-item-icon-wrapper');
 	const navItemLabelClass = $derived('sidebar__nav-item-label');
 	const navItemBadgeClass = $derived('sidebar__nav-item-badge');
+
+	function getNavItemClass(item: NavItem): string {
+		return [
+			'sidebar__nav-item',
+			item.active ? 'sidebar__nav-item--active' : '',
+			item.disabled || disabled ? 'sidebar__nav-item--disabled' : ''
+		]
+			.filter(Boolean)
+			.join(' ');
+	}
 
 	// Handle window resize to detect mobile view
 	$effect(() => {
@@ -58,7 +70,7 @@ export function createSidebarState(props: RecipeSidebar) {
 
 	// Computed classes
 	const sidebarStyle = $derived(
-		['sidebar__TODO', isMobile ? `sidebar__TODO--selected` : ''].filter(Boolean).join(' ')
+		`width: ${isMobile ? mobileWidth : width}; transform: ${isSidebarOpen ? 'translateX(0)' : 'translateX(-100%)'};`
 	);
 
 	// Methods
@@ -187,6 +199,7 @@ export function createSidebarState(props: RecipeSidebar) {
 			return restProps;
 		},
 		toggleSidebar,
-		handleClick
+		handleClick,
+		getNavItemClass
 	};
 }

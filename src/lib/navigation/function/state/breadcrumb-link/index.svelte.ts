@@ -6,10 +6,8 @@ export function createBreadcrumbLinkState(
 ) {
 	const linkClass = $derived(
 		joinClassNames(
-			'inline-flex items-center rounded-full px-3 py-1.5 text-sm transition-colors',
-			props.current
-				? 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]'
-				: 'text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)] hover:text-[var(--color-primary-600)]',
+			'c-breadcrumb-link',
+			props.current ? 'c-breadcrumb-link--current' : '',
 			props.class ?? ''
 		)
 	);

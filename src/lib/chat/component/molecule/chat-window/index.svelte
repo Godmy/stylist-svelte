@@ -69,6 +69,15 @@
 		box-shadow: var(--shadow-custom40);
 	}
 
+	.chat-window__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+		padding: 0.75rem 1rem;
+	}
+
 	.chat-messages {
 		flex: 1;
 		overflow-y: auto;

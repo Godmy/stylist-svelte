@@ -150,7 +150,7 @@
 				{#each state.stories as story}
 					{@const colors = state.getCategoryColor(story.category)}
 					<button onclick={() => state.onOpenStory(story.id)} class="pcc-card group">
-						<div class="pcc-card-preview bg-gradient-to-br {colors.bg} {colors.border} _c1">
+						<div class="pcc-card-preview {colors.bg} {colors.border} _c1">
 							<div class="pcc-card-preview-overlay"></div>
 							<BaseIcon
 								name={state.getCategoryIcon(story.category)}
@@ -205,7 +205,7 @@
 				{#each state.stories as story}
 					{@const colors = state.getCategoryColor(story.category)}
 					<button onclick={() => state.onOpenStory(story.id)} class="pcc-list-card group">
-						<div class="pcc-list-icon bg-gradient-to-br {colors.bg} {colors.border} _c1">
+						<div class="pcc-list-icon {colors.bg} {colors.border} _c1">
 							<BaseIcon
 								name={state.getCategoryIcon(story.category)}
 								style="width:2.5rem;height:2.5rem"
@@ -256,6 +256,62 @@
 </div>
 
 <style>
+	.pcc-color--atoms-bg {
+		background-color: #eff6ff;
+	}
+	.pcc-color--atoms-text {
+		color: #1d4ed8;
+	}
+	.pcc-color--atoms-border {
+		border-color: #bfdbfe;
+	}
+	.pcc-color--molecules-bg {
+		background-color: #faf5ff;
+	}
+	.pcc-color--molecules-text {
+		color: #7e22ce;
+	}
+	.pcc-color--molecules-border {
+		border-color: #e9d5ff;
+	}
+	.pcc-color--organisms-bg {
+		background-color: #f0fdf4;
+	}
+	.pcc-color--organisms-text {
+		color: #15803d;
+	}
+	.pcc-color--organisms-border {
+		border-color: #bbf7d0;
+	}
+	@media (prefers-color-scheme: dark) {
+		.pcc-color--atoms-bg {
+			background-color: rgba(30, 58, 138, 0.2);
+		}
+		.pcc-color--atoms-text {
+			color: #93c5fd;
+		}
+		.pcc-color--atoms-border {
+			border-color: #1e40af;
+		}
+		.pcc-color--molecules-bg {
+			background-color: rgba(88, 28, 135, 0.2);
+		}
+		.pcc-color--molecules-text {
+			color: #d8b4fe;
+		}
+		.pcc-color--molecules-border {
+			border-color: #6b21a8;
+		}
+		.pcc-color--organisms-bg {
+			background-color: rgba(20, 83, 45, 0.2);
+		}
+		.pcc-color--organisms-text {
+			color: #86efac;
+		}
+		.pcc-color--organisms-border {
+			border-color: #166534;
+		}
+	}
 	.pcc-wrap {
 		min-height: 100vh;
 		background: linear-gradient(to bottom right, #f9fafb, white, #f3f4f6);

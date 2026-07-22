@@ -16,26 +16,6 @@ export const createChatMessageState = (props: {
 	footerClass?: string;
 	variant?: TokenAppearance;
 }) => {
-	const alignmentClass = $derived(props.isOwn ? 'justify-end' : 'justify-start');
-
-	const bgClass = $derived(
-		props.isOwn
-			? 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]'
-			: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]'
-	);
-
-	const variantClass = $derived(
-		(
-			{
-				default: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]',
-				primary: 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]',
-				secondary: 'bg-[var(--color-background-tertiary)] text-[var(--color-text-primary)]'
-			} as Partial<Record<string, string>>
-		)[props.variant ?? 'default'] ?? ''
-	);
-
-	const bubbleShapeClass = $derived(props.isOwn ? 'rounded-br-none' : 'rounded-bl-none');
-
 	const statusIcon = $derived(
 		{
 			sent: 'check',
@@ -45,62 +25,44 @@ export const createChatMessageState = (props: {
 	);
 
 	const statusIconClasses = $derived(
-		`ml-1 h-3 w-3 ${props.status === 'read' ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-tertiary)]'}`
+		mergeClassNames(
+			'c-chat-message__status-icon',
+			props.status === 'read' && 'c-chat-message__status-icon--read'
+		)
 	);
 
 	const containerClasses = $derived(
-		mergeClassNames(`flex ${props.isOwn ? 'justify-end' : 'justify-start'}`, props.class ?? '')
+		mergeClassNames(
+			'c-chat-message',
+			props.isOwn && 'c-chat-message--own',
+			props.class ?? ''
+		)
 	);
 
 	const contentClasses = $derived(
-		mergeClassNames('max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl', props.contentClass ?? '')
+		mergeClassNames('c-chat-message__content', props.contentClass ?? '')
 	);
 
 	const headerClasses = $derived(
-		mergeClassNames(
-			'mb-1 flex items-center text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-secondary)]',
-			props.headerClass ?? ''
-		)
+		mergeClassNames('c-chat-message__header', props.headerClass ?? '')
 	);
 
 	const footerClasses = $derived(
-		mergeClassNames(
-			'mt-1 flex items-center justify-end text-[11px] text-[var(--color-text-secondary)]',
-			props.footerClass ?? ''
-		)
+		mergeClassNames('c-chat-message__footer', props.footerClass ?? '')
 	);
 
 	const bubbleClasses = $derived(
 		mergeClassNames(
-			'rounded-[1.25rem] px-4 py-3 shadow-custom28',
+			'c-chat-message__bubble',
 			props.isOwn
-				? 'rounded-br-md bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]'
-				: `rounded-bl-md ${stateVariantClass()}`,
-			!props.isOwn &&
-				!stateVariantClass() &&
-				'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]'
+				? 'c-chat-message__bubble--own'
+				: `c-chat-message__bubble--${props.variant ?? 'default'}`
 		)
 	);
 
-	const textClasses = $derived('text-sm leading-6');
-
-	function stateVariantClass() {
-		return props.isOwn ? '' : variantClass;
-	}
+	const textClasses = $derived('c-chat-message__text');
 
 	return {
-		get alignmentClass() {
-			return alignmentClass;
-		},
-		get bgClass() {
-			return bgClass;
-		},
-		get variantClass() {
-			return variantClass;
-		},
-		get bubbleShapeClass() {
-			return bubbleShapeClass;
-		},
 		get statusIcon() {
 			return statusIcon;
 		},

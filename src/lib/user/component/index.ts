@@ -2,6 +2,7 @@
 export {
 	AuthError,
 	AuthLink,
+	AvatarSelector,
 	LoginField,
 	SubmitButton
 } from './atom';

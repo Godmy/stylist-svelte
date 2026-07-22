@@ -2,3 +2,4 @@
 export { ChatHeader } from './chat-header/index';
 export { ChatInterface } from './chat-interface/index';
 export { ChatWorkbench } from './chat-workbench/index';
+export { ListWithAvatars } from './list-with-avatars/index';

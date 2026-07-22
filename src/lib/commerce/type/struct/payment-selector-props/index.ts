@@ -1,8 +1,7 @@
-﻿import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { PaymentMethod } from '$stylist/commerce/type/struct/payment-method';
 
-export type PaymentSelectorProps = HTMLAttributes<HTMLDivElement> & SlotInteraction & {
+export type PaymentSelectorProps = HTMLAttributes<HTMLDivElement> & {
 	methods: PaymentMethod[];
 	selectedMethod?: string;
 	showAddButton?: boolean;

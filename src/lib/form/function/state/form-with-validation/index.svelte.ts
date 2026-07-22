@@ -9,16 +9,16 @@ export function createFormWithValidationState(
 	const passwordValid = $derived((props.password?.length ?? 0) >= 8);
 
 	const rootClass = $derived(
-		mergeClassNames('c-form-with-validation border rounded-lg p-4 space-y-2', props.class ?? '')
+		mergeClassNames('c-form-with-validation', props.class ?? '')
 	);
-	const inputClass = $derived('w-full border rounded px-2 py-1');
+	const inputClass = $derived('c-form-with-validation__input');
 	const emailValidText = $derived(emailValid ? 'Valid email' : 'Enter valid email');
 	const emailValidClass = $derived(
-		`text-xs ${emailValid ? 'text-[var(--color-success-600)]' : 'text-[var(--color-danger-600)]'}`
+		`c-form-with-validation__hint ${emailValid ? 'c-form-with-validation__hint--valid' : 'c-form-with-validation__hint--invalid'}`
 	);
 	const passwordValidText = $derived(passwordValid ? 'Strong enough' : 'Min 8 chars');
 	const passwordValidClass = $derived(
-		`text-xs ${passwordValid ? 'text-[var(--color-success-600)]' : 'text-[var(--color-danger-600)]'}`
+		`c-form-with-validation__hint ${passwordValid ? 'c-form-with-validation__hint--valid' : 'c-form-with-validation__hint--invalid'}`
 	);
 
 	return {

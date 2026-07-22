@@ -32,10 +32,8 @@ export function createTestResultsViewerState(props: TestResultsViewerProps) {
 	);
 	const bestVariant = $derived(getBestVariant(testResults));
 
-	const containerClasses = $derived(
-		`bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${className}`.trim()
-	);
-	const headerClasses = $derived(`border-b px-6 py-5 ${headerClassName}`.trim());
+	const containerClasses = $derived(`trv-container ${className}`.trim());
+	const headerClasses = $derived(`trv-header ${headerClassName}`.trim());
 
 	const restProps = $derived.by(() => {
 		const {

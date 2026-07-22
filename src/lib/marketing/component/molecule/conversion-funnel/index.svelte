@@ -10,8 +10,8 @@
 	const state = createConversionFunnelState(props);
 </script>
 
-<div class="conversion-funnel__TODO-containerClasses" {...state.restProps}>
-	<div class="conversion-funnel__TODO-headerClasses">
+<div class={state.containerClasses} {...state.restProps}>
+	<div class={state.headerClasses}>
 		<div class="cf-row">
 			<BaseIcon
 				name={BarChart3}
@@ -89,6 +89,14 @@
 </div>
 
 <style>
+	.conversion-funnel {
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		background-color: var(--color-background-primary);
+	}
+	.conversion-funnel__header {
+		padding: 1.5rem 1.5rem 0;
+	}
 	.cf-row {
 		display: flex;
 		align-items: center;

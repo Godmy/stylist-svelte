@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconButton from '$stylist/control/component/atom/icon-button/index.svelte';
+	import IconButton from '$stylist/button/component/atom/icon-button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Separator from '$stylist/layout/component/atom/separator/index.svelte';
 	import WorkspaceCanvas from '$stylist/workspace/component/atom/workspace-canvas/index.svelte';
@@ -23,6 +23,7 @@
 />
 
 <div bind:this={state.editorRef} class={`workspace ${props.class ?? ''}`} {...state.restProps}>
+	<div class="workspace__body">
 	<div class="workspace__main">
 		{#if props.showToolbar ?? true}
 			<div class="workspace__toolbar">
@@ -125,6 +126,24 @@
 		</div>
 	</div>
 
+	{#if (props.showPropertiesPanel ?? true) && state.isPropertiesPanelOpen && state.selectedNode}
+		<aside class="workspace__properties">
+			<NodeProperties
+				id="properties-panel"
+				nodeId={state.selectedNode.id}
+				title="Node Properties"
+				properties={state.selectedNode.properties ?? []}
+				size="md"
+				editable={true}
+				showHeader={true}
+				showClose={true}
+				onPropertyChange={state.handlePropertyChange}
+				onclose={() => (state.isPropertiesPanelOpen = false)}
+			/>
+		</aside>
+	{/if}
+	</div>
+
 	{#if props.showWorkspacePalette ?? true}
 		<div class="workspace__palette">
 			<WorkspacePalette
@@ -139,23 +158,6 @@
 				onNodeSelect={state.handlePaletteNodeSelect}
 				onClose={() => (state.isPaletteOpen = false)}
 				onCategorySelect={(category: string) => (state.paletteSelectedCategory = category)}
-			/>
-		</div>
-	{/if}
-
-	{#if (props.showPropertiesPanel ?? true) && state.isPropertiesPanelOpen && state.selectedNode}
-		<div class="workspace__properties">
-			<NodeProperties
-				id="properties-panel"
-				nodeId={state.selectedNode.id}
-				title="Node Properties"
-				properties={state.selectedNode.properties ?? []}
-				size="md"
-				editable={true}
-				showHeader={true}
-				showClose={true}
-				onPropertyChange={state.handlePropertyChange}
-				onclose={() => (state.isPropertiesPanelOpen = false)}
 			/>
 		</div>
 	{/if}
@@ -194,19 +196,27 @@
 <style>
 	.workspace {
 		position: relative;
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: 1fr;
+		display: flex;
+		flex-direction: column;
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
 		background: var(--color-background-primary);
 	}
+	.workspace__body {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		flex: 1 1 auto;
+		min-height: 0;
+		overflow: hidden;
+	}
 	.workspace__main {
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		width: 100%;
+		flex: 1 1 auto;
+		min-width: 0;
 		height: 100%;
 		overflow: hidden;
 	}
@@ -255,10 +265,20 @@
 		pointer-events: auto;
 	}
 	.workspace__properties {
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		z-index: 50;
+		position: relative;
+		flex: 0 0 300px;
+		width: 300px;
+		height: 100%;
+		overflow-y: auto;
+		border-left: 1px solid var(--color-border-primary);
+		background: var(--color-background-primary);
+	}
+	.workspace__properties > :global(.node-properties) {
+		width: 100%;
+		height: 100%;
+		max-height: none;
+		border: none;
+		border-radius: 0;
 	}
 	.workspace__quick-actions {
 		position: absolute;

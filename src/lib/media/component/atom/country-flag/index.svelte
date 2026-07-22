@@ -19,3 +19,17 @@
 		{/if}
 	</div>
 {/if}
+
+<style>
+	.media__country-flag {
+		display: inline-block;
+	}
+	.media__country-flag-fallback {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0.125rem;
+		background-color: var(--color-background-secondary);
+		color: var(--color-text-secondary);
+	}
+</style>

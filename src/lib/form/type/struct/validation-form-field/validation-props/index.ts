@@ -1,9 +1,8 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 
-export type ValidationProps = HTMLAttributes<HTMLDivElement> & SlotInteraction & {
+export type ValidationProps = HTMLAttributes<HTMLDivElement> & {
 	label?: string;
 	description?: string;
 	required?: boolean;

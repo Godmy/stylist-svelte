@@ -1,4 +1,3 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotWorkspacePalette } from '$stylist/workspace/interface/slot/workspace-palette';
@@ -6,7 +5,7 @@ import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/worksp
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeWorkspacePalette
-	extends ComputeIntersectAll<[SlotWorkspacePalette, HTMLAttributes<HTMLDivElement>, SlotInteraction, SlotChildren]> {
+	extends ComputeIntersectAll<[SlotWorkspacePalette, HTMLAttributes<HTMLDivElement>, SlotChildren]> {
 	isOpen?: boolean;
 	x?: number;
 	y?: number;

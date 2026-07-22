@@ -3,6 +3,7 @@ import { ICON_AI }           from '$stylist/svg/const/value/ai';
 import { ICON_AUDIO }        from '$stylist/svg/const/value/audio';
 import { ICON_ANIMATION }    from '$stylist/svg/const/value/animation';
 import { ICON_ARCHITECTURE } from '$stylist/svg/const/value/architecture';
+import { ICON_BUTTON }       from '$stylist/svg/const/value/button';
 import { ICON_CALENDAR }     from '$stylist/svg/const/value/calendar';
 import { ICON_CANVAS }       from '$stylist/svg/const/value/canvas';
 import { ICON_CHART }        from '$stylist/svg/const/value/chart';
@@ -31,6 +32,7 @@ import { ICON_PLAYGROUND }   from '$stylist/svg/const/value/playground';
 import { ICON_PORTFOLIO }    from '$stylist/svg/const/value/portfolio';
 import { ICON_PRESENTATION } from '$stylist/svg/const/value/presentation';
 import { ICON_PRODUCT }      from '$stylist/svg/const/value/product';
+import { ICON_SCIENCE }      from '$stylist/svg/const/value/science';
 import { ICON_SERVER }       from '$stylist/svg/const/value/server';
 import { ICON_SOCIAL }       from '$stylist/svg/const/value/social';
 import { ICON_SVG }          from '$stylist/svg/const/value/svg';
@@ -47,6 +49,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'audio',        svg: ICON_AUDIO },
 	{ name: 'animation',    svg: ICON_ANIMATION },
 	{ name: 'architecture', svg: ICON_ARCHITECTURE },
+	{ name: 'button',       svg: ICON_BUTTON },
 	{ name: 'calendar',     svg: ICON_CALENDAR },
 	{ name: 'canvas',       svg: ICON_CANVAS },
 	{ name: 'chart',        svg: ICON_CHART },
@@ -75,6 +78,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'portfolio',    svg: ICON_PORTFOLIO },
 	{ name: 'presentation', svg: ICON_PRESENTATION },
 	{ name: 'product',      svg: ICON_PRODUCT },
+	{ name: 'science',      svg: ICON_SCIENCE },
 	{ name: 'server',       svg: ICON_SERVER },
 	{ name: 'social',       svg: ICON_SOCIAL },
 	{ name: 'svg',          svg: ICON_SVG },

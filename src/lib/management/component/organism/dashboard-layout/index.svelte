@@ -3,7 +3,7 @@
 
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 
 	import createDashboardLayoutState from '$stylist/management/function/state/dashboard-layout/index.svelte';
 

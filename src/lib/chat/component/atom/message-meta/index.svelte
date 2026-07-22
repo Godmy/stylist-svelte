@@ -44,4 +44,22 @@
 		color: var(--color-text-secondary);
 		font-size: var(--font-size-3);
 	}
+
+	.message-meta__status-text {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		font-size: 0.6875rem;
+		color: var(--color-text-secondary);
+	}
+
+	.message-meta__status-icon {
+		width: 0.75rem;
+		height: 0.75rem;
+		color: var(--color-text-tertiary);
+	}
+
+	.message-meta__status-icon--read {
+		color: var(--color-primary-600);
+	}
 </style>

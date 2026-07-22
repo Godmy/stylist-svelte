@@ -39,6 +39,35 @@
 {/if}
 
 <style>
+	.c-push-notification {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		border-left-width: 4px;
+		border-left-style: solid;
+		border-radius: 0 0.5rem 0.5rem 0;
+		padding: 1rem;
+	}
+	.c-push-notification--info {
+		background-color: var(--color-primary-50);
+		border-left-color: var(--color-primary-200);
+		color: var(--color-primary-800);
+	}
+	.c-push-notification--success {
+		background-color: var(--color-success-50, #ecfdf5);
+		border-left-color: var(--color-success-200, #a7f3d0);
+		color: var(--color-success-800, #065f46);
+	}
+	.c-push-notification--warning {
+		background-color: var(--color-warning-50, #fffbeb);
+		border-left-color: var(--color-warning-200, #fde68a);
+		color: var(--color-warning-800, #92400e);
+	}
+	.c-push-notification--error {
+		background-color: var(--color-danger-50, #fef2f2);
+		border-left-color: var(--color-danger-200, #fecaca);
+		color: var(--color-danger-800, #991b1b);
+	}
 	._c1 {
 		display: flex;
 		align-items: flex-start;

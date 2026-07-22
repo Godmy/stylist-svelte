@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 	import type { RecipeLanguageSelector as ILanguageSelectorProps } from '$stylist/localization/interface/recipe/language-selector';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createLanguageSelectorState from '$stylist/localization/function/state/language-selector/index.svelte';
@@ -8,7 +7,7 @@
 	const Globe = 'globe';
 	const Check = 'check';
 
-	let props: ILanguageSelectorProps & HTMLAttributes<HTMLDivElement> & SlotInteraction = $props();
+	let props: ILanguageSelectorProps & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createLanguageSelectorState(props);
 </script>
 

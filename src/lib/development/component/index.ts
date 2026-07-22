@@ -29,6 +29,7 @@ export {
 	GenericCodeViewer,
 	LiveCodeSection,
 	MockDataSelector,
+	PageBuilder,
 	ResourceOptimizer,
 	Stylist
 } from './organism';

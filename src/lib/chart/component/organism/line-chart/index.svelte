@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Tooltip from '$stylist/control/component/atom/tooltip/index.svelte';
+	import Tooltip from '$stylist/information/component/atom/tooltip/index.svelte';
 	import type { RecipeLineChart } from '$stylist/chart/interface/recipe/line-chart';
 	import createLineChartState from '$stylist/chart/function/state/line-chart/index.svelte';
 	import { ObjectManagerLineChart } from '$stylist/chart/class/object-manager/line-chart';

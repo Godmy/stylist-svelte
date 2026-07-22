@@ -1,7 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 
-export interface SlotAddressForm extends HTMLAttributes<HTMLFormElement>, SlotInteraction {
+export interface SlotAddressForm extends HTMLAttributes<HTMLFormElement> {
 	street?: string;
 	city?: string;
 	region?: string;

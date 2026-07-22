@@ -148,6 +148,43 @@
 </div>
 
 <style>
+	.c-kanban-card {
+		position: relative;
+		border-radius: 0.75rem;
+		border: 1px solid var(--color-border-secondary);
+		background-color: color-mix(in srgb, var(--color-background-primary) 95%, transparent);
+		padding: 1rem;
+		cursor: pointer;
+		transition: transform var(--duration-200, 200ms) var(--easing-smooth, ease-in-out),
+			border-color var(--duration-200, 200ms) var(--easing-smooth, ease-in-out),
+			box-shadow var(--duration-200, 200ms) var(--easing-smooth, ease-in-out);
+	}
+	.c-kanban-card:hover {
+		transform: translateY(-1px);
+		border-color: color-mix(in srgb, var(--color-primary-500) 38%, var(--color-border-secondary) 62%);
+		box-shadow: 0 14px 26px -18px color-mix(in srgb, var(--color-info-600, var(--color-primary-600)) 55%, transparent);
+	}
+	.c-kanban-card::before {
+		content: '';
+		position: absolute;
+		top: 0.75rem;
+		bottom: 0.75rem;
+		left: 0;
+		width: 0.25rem;
+		border-radius: 9999px;
+	}
+	.c-kanban-card--accent-default::before {
+		background-color: var(--color-background-tertiary);
+	}
+	.c-kanban-card--accent-low::before {
+		background-color: var(--color-success-400, #4ade80);
+	}
+	.c-kanban-card--accent-medium::before {
+		background-color: var(--color-warning-400, #fbbf24);
+	}
+	.c-kanban-card--accent-high::before {
+		background-color: var(--color-danger-400, #f87171);
+	}
 	._c1 {
 		margin-bottom: 0.5rem;
 		display: flex;

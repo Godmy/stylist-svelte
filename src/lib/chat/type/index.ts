@@ -15,6 +15,7 @@ export type {
 	ChatPreviewItem,
 	ChatPreviewMessage,
 	ChatPreviewProps,
+	ListItem,
 	Message,
 	User
 } from './struct';

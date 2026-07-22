@@ -1,4 +1,5 @@
 import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 const Check = 'check';
 const CheckCheck = 'check-check';
@@ -32,15 +33,14 @@ export const createMessageMetaState = (props: {
 	);
 
 	const statusIconClasses = $derived(
-		`h-3 w-3 ${displayStatus === 'read' ? 'text-[var(--color-primary-600)]' : 'text-[var(--color-text-tertiary)]'}`
+		mergeClassNames('message-meta__status-icon', displayStatus === 'read' && 'message-meta__status-icon--read')
 	);
 
-	const containerClasses = 'message-meta mt-2 flex items-center gap-2 text-[11px]';
+	const containerClasses = 'message-meta';
 
-	const separatorClasses = 'meta-separator text-[11px] text-[var(--color-text-secondary)]';
+	const separatorClasses = 'meta-separator';
 
-	const statusTextClasses =
-		'inline-flex items-center gap-1 text-[11px] text-[var(--color-text-secondary)]';
+	const statusTextClasses = 'message-meta__status-text';
 
 	return {
 		get showTimestamp() {

@@ -3,14 +3,10 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 import type { SlotLoginFormState } from '$stylist/form/interface/slot/login-form-state';
 
 export function createLoginFormState(props: LoginFormProps): SlotLoginFormState {
-	const rootClass = $derived(
-		mergeClassNames('c-login-form border rounded-lg p-4 space-y-3', props.class ?? '')
-	);
-	const inputClass = $derived('w-full border rounded px-2 py-1');
-	const checkboxLabelClass = $derived('text-sm flex items-center gap-2');
-	const submitButtonClass = $derived(
-		'px-3 py-1 bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] rounded'
-	);
+	const rootClass = $derived(mergeClassNames('c-login-form', props.class ?? ''));
+	const inputClass = $derived('c-login-form__input');
+	const checkboxLabelClass = $derived('c-login-form__checkbox-label');
+	const submitButtonClass = $derived('c-login-form__submit');
 
 	return {
 		get rootClass() {

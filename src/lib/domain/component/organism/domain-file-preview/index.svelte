@@ -92,6 +92,15 @@
 		color: var(--color-text-primary);
 	}
 
+	.story-preview-shell {
+		/* Previewed stories can use any z-index for their own internal layering
+		   (overlays, panels, dropdowns). Without a stacking context boundary here,
+		   those z-indexes compete directly with the shell's own fixed chrome
+		   (e.g. the top-right DomainMenu, z-index: 20) and can paint over it. */
+		position: relative;
+		isolation: isolate;
+	}
+
 	.svg-art {
 		display: grid;
 		place-items: center;

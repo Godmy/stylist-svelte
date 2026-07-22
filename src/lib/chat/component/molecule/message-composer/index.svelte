@@ -4,7 +4,7 @@
 	const Mic = 'mic';
 	const Send = 'send';
 
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 
 	import type { SlotMessageComposer as IMessageComposerProps } from '$stylist/chat/interface/slot/message-composer';
 	import createMessageComposerState from '$stylist/chat/function/state/message-composer/index.svelte';
@@ -95,4 +95,41 @@
 </div>
 
 <style>
+	.message-composer {
+		border-radius: 1.15rem;
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+		padding: 0.5rem;
+		box-shadow: 0 8px 20px -10px rgba(15, 23, 42, 0.2);
+	}
+	.message-composer__form {
+		display: flex;
+		flex: 1;
+		align-items: flex-end;
+		gap: 0.5rem;
+	}
+	.message-composer__icon-btn {
+		flex-shrink: 0;
+		border-radius: 9999px;
+	}
+	.message-composer__field-wrap {
+		position: relative;
+		flex: 1;
+	}
+	.message-composer__field {
+		width: 100%;
+		max-height: 8rem;
+		resize: none;
+		border-radius: 1rem;
+		border: 1px solid transparent;
+		background-color: var(--color-background-secondary);
+		padding: 0.75rem 2.5rem 0.75rem 1rem;
+		color: var(--color-text-primary);
+		font: inherit;
+	}
+	.message-composer__field:focus {
+		outline: none;
+		border-color: var(--color-primary-500);
+		box-shadow: 0 0 0 2px var(--color-primary-500);
+	}
 </style>

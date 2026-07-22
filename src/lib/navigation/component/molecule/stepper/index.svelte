@@ -114,6 +114,58 @@
 	.stepper--horizontal {
 		align-items: center;
 	}
+	.stepper--row {
+		display: flex;
+	}
+	.stepper--col {
+		display: flex;
+		flex-direction: column;
+	}
+	.stepper__circle {
+		display: flex;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 9999px;
+		border-width: 2px;
+		border-style: solid;
+		background-color: var(--color-background-primary);
+		border-color: var(--color-border-primary);
+		color: var(--color-text-secondary);
+	}
+	.stepper__circle--completed {
+		background-color: var(--color-primary-500);
+		border-color: var(--color-primary-500);
+		color: var(--color-text-inverse);
+	}
+	.stepper__circle--current {
+		background-color: var(--color-background-primary);
+		border-color: var(--color-primary-500);
+		color: var(--color-primary-500);
+	}
+	.stepper__label-text {
+		color: var(--color-text-secondary);
+	}
+	.stepper__label-text--current {
+		color: var(--color-primary-600);
+	}
+	.stepper__label-text--completed {
+		color: var(--color-text-primary);
+	}
+	.stepper__description {
+		color: var(--color-text-tertiary);
+	}
+	.stepper__description--current {
+		color: var(--color-primary-600);
+	}
+	.stepper__description--completed {
+		color: var(--color-text-secondary);
+	}
+	.stepper__connector--completed {
+		background-color: var(--color-primary-500);
+	}
 	.stepper__item--row {
 		flex-direction: row;
 	}
@@ -140,11 +192,13 @@
 		height: 0.125rem;
 		width: 100%;
 		flex-grow: 1;
+		background-color: var(--color-background-tertiary);
 	}
 	.stepper__connector--v {
 		margin-top: 1rem;
 		margin-left: 1rem;
 		height: 100%;
 		width: 0.125rem;
+		background-color: var(--color-background-tertiary);
 	}
 </style>

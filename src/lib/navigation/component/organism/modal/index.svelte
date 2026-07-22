@@ -38,6 +38,14 @@
 		background-color: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
 	}
 
+	.nav-dialog {
+		width: 100%;
+		max-width: 32rem;
+		border-radius: 0.75rem;
+		background-color: var(--color-background-primary);
+		padding: 1.5rem;
+	}
+
 	.nav-dialog-header {
 		display: flex;
 		align-items: center;

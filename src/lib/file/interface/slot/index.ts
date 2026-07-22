@@ -17,6 +17,7 @@ export type { SlotFileMetadata } from './file-metadata';
 export type { SlotFileSystemItem } from './file-system-item';
 export type { SlotFileUpload } from './file-upload';
 export type { SlotFolderItem } from './folder-item';
+export type { SlotQuantitySelector } from './quantity-selector';
 export type { SlotUploadFile } from './upload-file';
 export type { SlotUploadProgress } from './upload-progress';
 export type { SlotUploadProgressBehaviorOptions } from './upload-progress-behavior-options';

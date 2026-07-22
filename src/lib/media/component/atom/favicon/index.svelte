@@ -24,3 +24,20 @@
 		{/if}
 	</div>
 {/if}
+
+<style>
+	.favicon__favicon-image {
+		display: inline-block;
+		border-radius: 0.125rem;
+		object-fit: contain;
+	}
+	.favicon__favicon-fallback {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--color-background-secondary);
+		color: var(--color-text-secondary);
+		font-size: 0.75rem;
+		border-radius: 0.125rem;
+	}
+</style>

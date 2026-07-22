@@ -14,18 +14,11 @@ export const createChatHeaderState = (props: ChatHeaderOrganismProps) => {
 		!isGroupChat ? chat.participants.find((u: User) => u.id !== currentUser.id) : null
 	) as User | null;
 
-	const containerClasses = $derived(
-		mergeClassNames(
-			'c-chat-header flex items-center justify-between border-b border-[--color-border-primary] bg-[--color-background-primary] px-4 py-3',
-			className
-		)
-	);
-	const infoClasses = $derived('chat-info flex flex-1 items-center gap-3.5 min-w-0');
-	const detailsClasses = $derived('chat-details flex flex-1 flex-col gap-[2px] min-w-0');
-	const nameClasses = $derived(
-		'chat-name truncate text-sm font-semibold tracking-[0.01em] text-[--color-text-primary]'
-	);
-	const actionsClasses = $derived('chat-actions flex items-center gap-2');
+	const containerClasses = $derived(mergeClassNames('c-chat-header', className));
+	const infoClasses = $derived('chat-info');
+	const detailsClasses = $derived('chat-details');
+	const nameClasses = $derived('chat-name');
+	const actionsClasses = $derived('chat-actions');
 
 	function handleCall() {
 		props.onCall?.();

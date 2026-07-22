@@ -36,19 +36,19 @@ export function createComponentState(props: RecipeComponent) {
 
 	const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
 		atoms: {
-			bg: 'bg-blue-50 dark:bg-blue-900/20',
-			text: 'text-blue-700 dark:text-blue-300',
-			border: 'border-blue-200 dark:border-blue-800'
+			bg: 'pcc-color--atoms-bg',
+			text: 'pcc-color--atoms-text',
+			border: 'pcc-color--atoms-border'
 		},
 		molecules: {
-			bg: 'bg-purple-50 dark:bg-purple-900/20',
-			text: 'text-purple-700 dark:text-purple-300',
-			border: 'border-purple-200 dark:border-purple-800'
+			bg: 'pcc-color--molecules-bg',
+			text: 'pcc-color--molecules-text',
+			border: 'pcc-color--molecules-border'
 		},
 		organisms: {
-			bg: 'bg-green-50 dark:bg-green-900/20',
-			text: 'text-green-700 dark:text-green-300',
-			border: 'border-green-200 dark:border-green-800'
+			bg: 'pcc-color--organisms-bg',
+			text: 'pcc-color--organisms-text',
+			border: 'pcc-color--organisms-border'
 		}
 	};
 

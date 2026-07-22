@@ -5,6 +5,7 @@ export { CartSummary } from './cart-summary/index';
 export { CheckoutForm } from './checkout-form/index';
 export { CurrencyConverter } from './currency-converter/index';
 export { DiscountApplier } from './discount-applier/index';
+export { FilterBar } from './filter-bar/index';
 export { InventoryTracker } from './inventory-tracker/index';
 export { OrderConfirmation } from './order-confirmation/index';
 export { OrderHistory } from './order-history/index';

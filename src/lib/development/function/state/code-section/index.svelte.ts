@@ -4,17 +4,15 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 export function createCodeSectionState(props: CodeSectionProps) {
 	const containerClass = $derived(
 		mergeClassNames(
-			'c-code-section rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] shadow-sm overflow-hidden',
+			'c-code-section',
 			typeof props.class === 'string' ? props.class : undefined
 		)
 	);
-	const headerContainerClass = $derived(
-		'border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] px-4 py-3 text-sm font-medium text-[var(--color-text-primary)]'
-	);
-	const headerContentClass = $derived('flex items-center justify-between gap-3');
-	const titleClass = $derived('font-semibold text-[var(--color-text-primary)]');
-	const tagsContainerClass = $derived('flex flex-wrap gap-2');
-	const tagClass = $derived('text-xs text-[var(--color-text-secondary)]');
+	const headerContainerClass = $derived('c-code-section__header');
+	const headerContentClass = $derived('c-code-section__header-content');
+	const titleClass = $derived('c-code-section__title');
+	const tagsContainerClass = $derived('c-code-section__tags');
+	const tagClass = $derived('c-code-section__tag');
 
 	return {
 		get containerClass() {

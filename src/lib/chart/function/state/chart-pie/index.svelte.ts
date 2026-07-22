@@ -10,12 +10,9 @@ export function createPieChartState(props: PieChartProps & { width?: number; hei
 		ObjectManagerChart.getPieChartSegments(props.data ?? [], width, height)
 	);
 	const containerClasses = $derived(
-		mergeClassNames(
-			'relative inline-flex items-center justify-center',
-			typeof props.class === 'string' ? props.class : undefined
-		)
+		mergeClassNames('c-chart-pie', typeof props.class === 'string' ? props.class : undefined)
 	);
-	const svgClasses = $derived('block');
+	const svgClasses = $derived('c-chart-pie__svg');
 
 	return {
 		get width() {

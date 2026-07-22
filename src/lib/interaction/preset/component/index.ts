@@ -1,33 +1,14 @@
 ﻿import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 import { buildPresetClassNames } from '$stylist/commerce/function/script/build-preset-class-names';
 import { resolveAllowedOption } from '$stylist/interaction/function/script/resolve-allowed-option';
-import type { InputPreset } from '$stylist/interaction/type/struct/preset/input-preset';
 import type { Preset } from '$stylist/interaction/type/struct/preset/preset';
 import type { ComponentStateOptions } from '$stylist/layout/type/struct/component-state';
-import type { InputStateOptions } from '$stylist/layout/type/struct/component-state-input-state-options';
 
 type ComponentStateResult<V extends string, S extends string> = {
 	variant: V;
 	size: S;
 	disabled: boolean;
 	loading: boolean;
-	block: boolean;
-	isDisabled: boolean;
-	classes: string;
-	attrs: {
-		'aria-busy': boolean;
-		'aria-live': 'polite' | undefined;
-		'aria-label': string | undefined;
-		disabled: boolean;
-	};
-};
-
-type InputStateResult<V extends string, S extends string> = {
-	variant: V;
-	size: S;
-	disabled: boolean;
-	loading: boolean;
-	error: boolean;
 	block: boolean;
 	isDisabled: boolean;
 	classes: string;
@@ -121,28 +102,6 @@ export function createState<V extends string, S extends string>(
 		size: base.size,
 		disabled: base.disabled,
 		loading: base.loading,
-		block: base.block,
-		isDisabled: base.isDisabled,
-		classes: base.classes,
-		attrs: base.attrs
-	};
-}
-
-export function createInputState<V extends string, S extends string>(
-	preset: InputPreset<V, S>,
-	props: InputStateOptions<V, S> & Record<string, unknown>
-): InputStateResult<V, S> {
-	const base = buildStateBase(
-		preset as unknown as StatePresetLike<V, S>,
-		props as StatePropsLike<V, S>,
-		true
-	);
-	return {
-		variant: base.variant,
-		size: base.size,
-		disabled: base.disabled,
-		loading: base.loading,
-		error: base.error,
 		block: base.block,
 		isDisabled: base.isDisabled,
 		classes: base.classes,

@@ -8,7 +8,11 @@
 </script>
 
 {#if state.isVisible}
-	<div class="notification-atom__TODO-containerClasses" role="alert" {...state.restProps}>
+	<div
+		class={`notification-atom__base notification-atom__position notification-atom__type--${state.visualType} ${state.containerClasses ?? ''}`}
+		role="alert"
+		{...state.restProps}
+	>
 		<div class="_c1">
 			<div class="_c2">
 				<BaseIcon name={state.iconComponent} class="_c3"></BaseIcon>
@@ -64,10 +68,25 @@
 		flex-shrink: 0;
 	}
 
-	.notification-atom__type {
-		background-color: var(--color-info-50);
-		border-color: var(--color-info-200);
-		color: var(--color-info-800);
+	.notification-atom__type--info {
+		background-color: var(--color-info-50, var(--color-primary-50));
+		border-color: var(--color-info-200, var(--color-primary-200));
+		color: var(--color-info-800, var(--color-primary-800));
+	}
+	.notification-atom__type--success {
+		background-color: var(--color-success-50, #ecfdf5);
+		border-color: var(--color-success-200, #a7f3d0);
+		color: var(--color-success-800, #065f46);
+	}
+	.notification-atom__type--warning {
+		background-color: var(--color-warning-50, #fffbeb);
+		border-color: var(--color-warning-200, #fde68a);
+		color: var(--color-warning-800, #92400e);
+	}
+	.notification-atom__type--error {
+		background-color: var(--color-danger-50, #fef2f2);
+		border-color: var(--color-danger-200, #fecaca);
+		color: var(--color-danger-800, #991b1b);
 	}
 
 	.notification-atom__position {

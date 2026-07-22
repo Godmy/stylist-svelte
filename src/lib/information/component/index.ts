@@ -7,7 +7,8 @@ export {
 	ListItemMarker,
 	MetricBar,
 	NpmBadge,
-	StatusIndicator
+	StatusIndicator,
+	Tooltip
 } from './atom';
 export {
 	AttachmentPreview,

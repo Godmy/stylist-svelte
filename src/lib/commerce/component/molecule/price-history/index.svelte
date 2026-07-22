@@ -18,7 +18,7 @@
 						y1={tick * state.chartHeight}
 						x2={state.chartWidth}
 						y2={tick * state.chartHeight}
-						class="price-history__TODO-getGridLineClass"
+						class="price-history__grid-line"
 					/>
 					<text
 						x={state.chartWidth + 5}
@@ -43,7 +43,7 @@
 							return `${x},${y}`;
 						})
 						.join(' ')}
-					class="price-history__TODO-getPriceLineClass"
+					class="price-history__price-line"
 				/>
 
 				<!-- Data points -->
@@ -54,7 +54,7 @@
 							((d.price - state.minPrice) / state.priceRange) * state.chartHeight}
 						r="3"
 						fill="var(--color-primary-500)"
-						class="price-history__TODO-getDataPointClass"
+						class="price-history__data-point"
 					/>
 				{/each}
 			</svg>
@@ -101,6 +101,20 @@
 	.price-history__grid-text {
 		font-size: 0.75rem;
 		line-height: 1rem;
+		fill: var(--color-text-tertiary);
+	}
+
+	.price-history__grid-line {
+		stroke: var(--color-border-primary);
+		stroke-width: 1;
+	}
+
+	.price-history__price-line {
+		vector-effect: non-scaling-stroke;
+	}
+
+	.price-history__data-point {
+		transition: r var(--duration-150, 150ms) var(--easing-smooth, ease-in-out);
 	}
 
 	.price-history__no-data {

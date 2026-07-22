@@ -1,8 +1,7 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 
-export type StepIconProps = HTMLAttributes<HTMLSpanElement> & SlotInteraction & {
+export type StepIconProps = HTMLAttributes<HTMLSpanElement> & {
 	status?: 'pending' | 'active' | 'completed' | 'error';
 	size?: 'sm' | 'md' | 'lg';
 	stepNumber?: number;

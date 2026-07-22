@@ -27,9 +27,7 @@ export function createVideoPlayerState(props: RecipeVideoPlayer) {
 	const videoClass = $derived(props.videoClass ?? '');
 	const controlsClass = $derived(props.controlsClass ?? '');
 
-	const hostClasses = $derived(
-		`video-player bg-[var(--color-neutral-900)] rounded-lg overflow-hidden ${hostClass}`
-	);
+	const hostClasses = $derived(`video-player ${hostClass}`.trim());
 	const hostStyle = $derived(`width: ${width}; height: ${height};`);
 
 	const restProps = $derived.by(() => {

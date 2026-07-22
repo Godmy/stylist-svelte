@@ -1,4 +1,5 @@
 import type { RecipeFavicon } from '$stylist/media/interface/recipe/favicon';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createFaviconState(props: RecipeFavicon) {
 	let error = $state(props.error ?? false);
@@ -9,14 +10,13 @@ export function createFaviconState(props: RecipeFavicon) {
 
 	const size = $derived(props.size ?? 16);
 	const url = $derived(props.url);
-	const faviconUrl = $derived(`favicon__TODO favicon__TODO--${url}`);
-	const baseClasses = $derived(`favicon__favicon-image favicon__favicon-image--${props.class}`);
-	const sizeStyle = $derived(`favicon__TODO favicon__TODO--${size}`);
+	const faviconUrl = $derived(url);
+	const sizeStyle = $derived(`width: ${size}px; height: ${size}px;`);
 
 	// Define individual classes for different elements
-	const imageClasses = $derived(baseClasses);
+	const imageClasses = $derived(mergeClassNames('favicon__favicon-image', props.class ?? ''));
 	const fallbackClasses = $derived(
-		`favicon__favicon-fallback favicon__favicon-fallback--${baseClasses}`
+		mergeClassNames('favicon__favicon-fallback', props.class ?? '')
 	);
 
 	const restProps = $derived.by(() => {

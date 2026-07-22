@@ -1,4 +1,3 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ToggleButtonGroupOption } from '$stylist/form/type/struct/toggle-button-group-option';
 
@@ -16,5 +15,4 @@ export type ToggleButtonGroupProps = {
 	onValueChange?: (value: string | string[]) => void;
 	onInput?: (value: string | string[]) => void;
 	onChange?: (value: string | string[]) => void;
-} & HTMLAttributes<HTMLDivElement> &
-	SlotInteraction;
+} & HTMLAttributes<HTMLDivElement>;

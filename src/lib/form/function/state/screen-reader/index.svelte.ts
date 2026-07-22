@@ -3,12 +3,10 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 import type { SlotScreenReaderState } from '$stylist/form/interface/slot/screen-reader-state';
 
 export function createScreenReaderState(props: ScreenReaderProps): SlotScreenReaderState {
-	const rootClass = $derived(
-		mergeClassNames('c-screen-reader border rounded-lg p-4', props.class ?? '')
-	);
-	const titleClass = $derived('font-semibold');
-	const contentClass = $derived('text-sm text-[var(--color-text-primary)]');
-	const actionButtonClass = $derived('sr-only');
+	const rootClass = $derived(mergeClassNames('c-screen-reader', props.class ?? ''));
+	const titleClass = $derived('c-screen-reader__title');
+	const contentClass = $derived('c-screen-reader__content');
+	const actionButtonClass = $derived('c-screen-reader__action');
 
 	return {
 		get rootClass() {

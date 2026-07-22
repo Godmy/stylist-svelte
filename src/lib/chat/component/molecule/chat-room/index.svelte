@@ -69,6 +69,86 @@
 </div>
 
 <style>
+	.c-chat-room {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		overflow: hidden;
+		border-radius: 1.5rem;
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+		box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.18);
+	}
+	.c-chat-room__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+		padding: 1rem;
+	}
+	.c-chat-room__messages {
+		flex: 1;
+		overflow-y: auto;
+		background-color: var(--color-background-secondary);
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.c-chat-room__messages--compact {
+		gap: 0.5rem;
+	}
+	.c-chat-room__messages--spacious {
+		gap: 1.5rem;
+	}
+	.c-chat-room__footer {
+		border-top: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-primary);
+		padding: 1rem;
+	}
+	.c-chat-room__avatar {
+		width: 2rem;
+		height: 2rem;
+		overflow: hidden;
+		border-radius: 9999px;
+		box-shadow: 0 0 0 2px var(--color-background-primary);
+	}
+	.c-chat-room__avatar--overlap {
+		margin-left: -0.5rem;
+	}
+	.c-chat-room__overflow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 9999px;
+		background-color: var(--color-background-secondary);
+		font-size: 0.75rem;
+		font-weight: 600;
+		color: var(--color-text-secondary);
+		box-shadow: 0 0 0 2px var(--color-background-primary);
+	}
+	.c-chat-room__loading {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+	.c-chat-room__spinner {
+		width: 2rem;
+		height: 2rem;
+		border-radius: 9999px;
+		border: 2px solid transparent;
+		border-bottom-color: var(--color-primary-500);
+		animation: c-chat-room-spin 0.7s linear infinite;
+	}
+	@keyframes c-chat-room-spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
 	.cr-title-wrap {
 		flex: 1;
 	}

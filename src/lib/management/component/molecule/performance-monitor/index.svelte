@@ -27,7 +27,10 @@
 		<span class="performance-monitor__value">{state.percentage}{state.unit}</span>
 	</div>
 	<div class="performance-monitor__track">
-		<div class="performance-monitor__bar" style={`width: ${state.progressWidth}`}></div>
+		<div
+			class={`performance-monitor__bar ${state.statusBarClass}`}
+			style={`width: ${state.progressWidth}`}
+		></div>
 	</div>
 </div>
 
@@ -64,5 +67,15 @@
 	.performance-monitor__bar {
 		height: 0.625rem;
 		border-radius: 9999px;
+		background-color: var(--color-primary-500);
+	}
+	.performance-monitor__bar--normal {
+		background-color: var(--color-success-500, #10b981);
+	}
+	.performance-monitor__bar--warning {
+		background-color: var(--color-warning-500, #f59e0b);
+	}
+	.performance-monitor__bar--critical {
+		background-color: var(--color-danger-500);
 	}
 </style>

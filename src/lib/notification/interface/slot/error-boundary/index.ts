@@ -1,4 +1,3 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 
@@ -8,7 +7,7 @@ import type { Snippet } from 'svelte';
  * Separates the concerns of the component by defining all external contracts
  */
 export interface SlotErrorBoundary
-	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotInteraction {
+	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
 	/**
 	 * The content to be wrapped by the error boundary
 	 */

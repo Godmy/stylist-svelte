@@ -17,6 +17,7 @@ export {
 	Card,
 	CenteredLayout,
 	ContainerQuery,
+	DragAndDropList,
 	GradientBackground,
 	OverlayLayout,
 	Popover,
@@ -27,3 +28,7 @@ export {
 	VerticalLayout,
 	WidgetContainer
 } from './molecule';
+export {
+	SortableGrid,
+	SortableList
+} from './organism';

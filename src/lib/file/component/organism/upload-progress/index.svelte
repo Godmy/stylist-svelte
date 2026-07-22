@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import type { RecipeUploadProgress } from '$stylist/file/interface/recipe/upload-progress';
 	import { createUploadProgressState } from '$stylist/file/function/state/upload-progress/index.svelte';

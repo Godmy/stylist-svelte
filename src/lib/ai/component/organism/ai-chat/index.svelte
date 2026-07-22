@@ -20,7 +20,7 @@
 
 	<div class={state.messagesContainerClass}>
 		{#each state.messages as message}
-			<div class="ai-chat__TODO" data-TODO="was state.messageClass(...)">
+			<div class={state.messageClass(message.role)}>
 				{message.content}
 			</div>
 		{/each}
@@ -174,6 +174,45 @@
 	@media (prefers-color-scheme: dark) {
 		.ai-chat__header {
 			border-color: #374151;
+		}
+	}
+	.ai-chat__messages {
+		flex: 1;
+		overflow-y: auto;
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.ai-chat__input {
+		padding: 0.75rem 1rem;
+		border-top: 1px solid #e5e7eb;
+	}
+	@media (prefers-color-scheme: dark) {
+		.ai-chat__input {
+			border-color: #374151;
+		}
+	}
+	.ai-chat__message {
+		max-width: 80%;
+		border-radius: 0.75rem;
+		padding: 0.5rem 0.75rem;
+		font-size: 0.875rem;
+	}
+	.ai-chat__message--user {
+		align-self: flex-end;
+		background: var(--playground-accent, #f97316);
+		color: white;
+	}
+	.ai-chat__message--assistant {
+		align-self: flex-start;
+		background: #f3f4f6;
+		color: #111827;
+	}
+	@media (prefers-color-scheme: dark) {
+		.ai-chat__message--assistant {
+			background: #1f2937;
+			color: white;
 		}
 	}
 </style>

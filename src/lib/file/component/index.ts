@@ -2,7 +2,8 @@
 export { FileInput } from './atom';
 export {
 	DataExporter,
-	FileUpload
+	FileUpload,
+	QuantitySelector
 } from './molecule';
 export {
 	DocumentPreview,

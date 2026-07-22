@@ -1,7 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 
-export interface SlotTimePicker extends HTMLAttributes<HTMLInputElement>, SlotInteraction {
+export interface SlotTimePicker extends HTMLAttributes<HTMLInputElement> {
 	value?: string;
 	disabled?: boolean;
 	class?: string;

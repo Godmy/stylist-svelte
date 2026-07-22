@@ -13,6 +13,8 @@ export type { SlotDimensions } from './dimensions';
 export type { SlotDiscountRule } from './discount-rule';
 export type { SlotExchangeRate } from './exchange-rate';
 export type { SlotFaq } from './faq';
+export type { SlotFilterBar } from './filter-bar';
+export type { SlotFilterBarStyleClasses } from './filter-bar-style-classes';
 export type { SlotInventoryItem } from './inventory-item';
 export type { SlotLocation } from './location';
 export type { SlotLowStockAlert } from './low-stock-alert';

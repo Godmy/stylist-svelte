@@ -1,4 +1,3 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 
@@ -7,8 +6,7 @@ import type { TokenSize } from '$stylist/theme/type/alias/size';
  * Used for toggle switch controls
  */
 export interface SlotSwitch
-	extends Omit<HTMLAttributes<HTMLInputElement>, 'size'>,
-		SlotInteraction {
+	extends Omit<HTMLAttributes<HTMLInputElement>, 'size'> {
 	/** Whether the switch is checked */
 	checked?: boolean;
 	/** Whether the switch is disabled */

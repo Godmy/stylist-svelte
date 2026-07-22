@@ -94,6 +94,29 @@
 {/if}
 
 <style>
+	.deb-fallback {
+		border: 1px solid #fecaca;
+		border-radius: 0.5rem;
+		background: #fef2f2;
+		padding: 1.5rem;
+	}
+	.deb-header {
+		display: flex;
+		align-items: flex-start;
+	}
+	.deb-details {
+		margin-top: 1rem;
+		padding: 1rem;
+		background: white;
+		border-radius: 0.375rem;
+		border: 1px solid #fecaca;
+	}
+	.deb-actions {
+		margin-top: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
 	.deb-icon-wrap {
 		flex-shrink: 0;
 	}

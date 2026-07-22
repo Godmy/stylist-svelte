@@ -30,19 +30,6 @@ export function createRealTimePresenceState(props: RealTimePresenceContract) {
 		return rest;
 	});
 
-	function getStatusColor(status: (typeof TOKEN_AVAILABILITY)[number]): string {
-		switch (status) {
-			case 'online':
-				return 'bg-[var(--color-success-500)]';
-			case 'away':
-				return 'bg-yellow-500';
-			case 'busy':
-				return 'bg-[var(--color-danger-500)]';
-			default:
-				return 'bg-[var(--color-neutral-500)]';
-		}
-	}
-
 	function getStatusText(status: (typeof TOKEN_AVAILABILITY)[number]): string {
 		switch (status) {
 			case 'online':
@@ -53,19 +40,6 @@ export function createRealTimePresenceState(props: RealTimePresenceContract) {
 				return 'Busy';
 			default:
 				return 'Offline';
-		}
-	}
-
-	function getStatusIconClass(status: (typeof TOKEN_AVAILABILITY)[number]): string {
-		switch (status) {
-			case 'online':
-				return 'text-[var(--color-success-500)]';
-			case 'away':
-				return 'text-yellow-500';
-			case 'busy':
-				return 'text-[var(--color-danger-500)]';
-			default:
-				return 'text-[var(--color-text-secondary)]';
 		}
 	}
 
@@ -113,9 +87,7 @@ export function createRealTimePresenceState(props: RealTimePresenceContract) {
 		get restProps() {
 			return restProps;
 		},
-		getStatusColor,
 		getStatusText,
-		getStatusIconClass,
 		formatLastSeen
 	};
 }

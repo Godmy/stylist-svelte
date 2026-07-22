@@ -1,7 +1,6 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 
-export interface SlotDialog extends HTMLAttributes<HTMLDivElement>, SlotInteraction {
+export interface SlotDialog extends HTMLAttributes<HTMLDivElement> {
 	open?: boolean;
 	title?: string;
 	description?: string;

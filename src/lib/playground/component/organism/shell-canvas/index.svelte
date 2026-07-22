@@ -76,6 +76,23 @@
 </div>
 
 <style>
+	.cs-bg--white {
+		background-color: #ffffff;
+	}
+	.cs-bg--gray {
+		background-color: #f9fafb;
+	}
+	@media (prefers-color-scheme: dark) {
+		.cs-bg--gray {
+			background-color: #111827;
+		}
+	}
+	.cs-bg--dark {
+		background-color: #111827;
+	}
+	.cs-bg--transparent {
+		background-color: transparent;
+	}
 	.grid-overlay {
 		background-image: var(--gradient-custom112);
 		background-size: 20px 20px;

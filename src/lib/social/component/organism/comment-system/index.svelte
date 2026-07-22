@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import type { SlotCommentSystem as CommentSystemProps } from '$stylist/social/interface/slot/comment-system';
 	import type { SlotCommentItem as CommentItem } from '$stylist/social/interface/slot/comment-item';
 	import createCommentSystemState from '$stylist/social/function/state/comment-system/index.svelte';

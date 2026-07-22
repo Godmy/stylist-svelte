@@ -2,6 +2,7 @@
 export type {
 	RecipeChatHeader,
 	RecipeChatMessage,
+	RecipeListWithAvatars,
 	RecipeMessageMeta,
 	RecipeMessageStatusProps
 } from './recipe';
@@ -16,6 +17,8 @@ export type {
 	SlotChatRoom,
 	SlotChatStatusIndicator,
 	SlotChatWindow,
+	SlotListWithAvatars,
+	SlotListWithAvatarsStyleClasses,
 	SlotMessage,
 	SlotMessageAttachment,
 	SlotMessageBubble,

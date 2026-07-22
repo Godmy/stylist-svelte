@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { GraphMinimapContract } from '$stylist/architecture/type/struct/graph-minimap-contract';
 	import type { MinimapProps } from '$stylist/architecture/type/struct/minimap-props';
-	import IconButton from '$stylist/control/component/atom/icon-button/index.svelte';
+	import IconButton from '$stylist/button/component/atom/icon-button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createMinimapState from '$stylist/architecture/function/state/minimap/index.svelte';
 

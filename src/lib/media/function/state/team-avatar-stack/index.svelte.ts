@@ -2,18 +2,10 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { RecipeTeamAvatarStack } from '$stylist/media/interface/recipe/team-avatar-stack';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 function getStatusColor(status?: string): string {
-	switch (status) {
-		case 'online':
-			return 'bg-[var(--color-success-500)]';
-		case 'away':
-			return 'bg-yellow-500';
-		case 'busy':
-			return 'bg-[var(--color-danger-500)]';
-		default:
-			return 'bg-[var(--color-neutral-400)]';
-	}
+	return `tas-status-dot--${status ?? 'default'}`;
 }
 
 export function createTeamAvatarStackState(
@@ -32,15 +24,15 @@ export function createTeamAvatarStackState(
 	const visibleMembers = $derived(members.slice(0, maxVisible));
 	const overflowCount = $derived(Math.max(0, members.length - maxVisible));
 
-	const sizeClasses = $derived(
-		size === 'sm' ? 'w-8 h-8' : size === 'lg' ? 'w-12 h-12' : 'w-10 h-10'
-	);
-	const statusSize = $derived(
-		size === 'sm' ? 'w-2 h-2' : size === 'lg' ? 'w-3 h-3' : 'w-2.5 h-2.5'
-	);
+	const sizeClasses = $derived(`tas-size--${size}`);
+	const statusSize = $derived(`tas-status-size--${size}`);
 
 	const hostClasses = $derived(
-		`flex items-center ${stackDirection === 'vertical' ? 'flex-col' : 'flex-row'} ${className}`
+		mergeClassNames(
+			'tas-host',
+			stackDirection === 'vertical' ? 'tas-host--vertical' : 'tas-host--horizontal',
+			className
+		)
 	);
 
 	const restProps = $derived.by(() => {

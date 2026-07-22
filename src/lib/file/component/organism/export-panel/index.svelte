@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$stylist/control/component/atom/button/index.svelte';
+	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import { createExportPanelState } from '$stylist/file/function/state/export-panel/index.svelte';
 	import type { RecipeExportPanel } from '$stylist/file/interface/recipe/export-panel';
 

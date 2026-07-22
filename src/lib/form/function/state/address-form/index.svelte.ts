@@ -3,12 +3,10 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 import type { SlotAddressFormState } from '$stylist/form/interface/slot/address-form-state';
 
 export function createAddressFormState(props: AddressFormProps): SlotAddressFormState {
-	const rootClass = $derived(
-		mergeClassNames('c-address-form border rounded-lg p-4 space-y-2', props.class ?? '')
-	);
-	const inputClass = $derived('w-full border rounded px-2 py-1');
-	const gridClass = $derived('grid grid-cols-2 gap-2');
-	const gridItemClass = $derived('w-full border rounded px-2 py-1');
+	const rootClass = $derived(mergeClassNames('c-address-form', props.class ?? ''));
+	const inputClass = $derived('c-address-form__input');
+	const gridClass = $derived('c-address-form__grid');
+	const gridItemClass = $derived('c-address-form__input');
 
 	return {
 		get rootClass() {

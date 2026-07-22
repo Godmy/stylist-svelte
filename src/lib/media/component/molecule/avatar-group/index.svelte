@@ -43,6 +43,31 @@
 </div>
 
 <style>
+	.ag-host {
+		display: flex;
+		align-items: center;
+	}
+	.ag-size--sm {
+		width: 2rem;
+		height: 2rem;
+	}
+	.ag-size--md {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+	.ag-size--lg {
+		width: 3rem;
+		height: 3rem;
+	}
+	.ag-font-size--sm {
+		font-size: 0.75rem;
+	}
+	.ag-font-size--md {
+		font-size: 0.875rem;
+	}
+	.ag-font-size--lg {
+		font-size: 1rem;
+	}
 	.ag-item {
 		position: relative;
 		margin-left: -0.5rem;

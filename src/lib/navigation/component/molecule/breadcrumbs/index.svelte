@@ -38,3 +38,42 @@
 		{/each}
 	</ol>
 </nav>
+
+<style>
+	.c-breadcrumbs {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		row-gap: 0.5rem;
+		border-radius: 1.25rem;
+		border: 1px solid var(--color-border-secondary);
+		background-color: var(--color-background-primary);
+		padding: 0.75rem 1rem;
+		list-style: none;
+		margin: 0;
+	}
+	.c-breadcrumbs__item {
+		display: flex;
+		align-items: center;
+	}
+	.c-breadcrumbs__link-cluster {
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+	.c-breadcrumbs__separator {
+		margin: 0 0.5rem;
+	}
+	.c-breadcrumbs__link {
+		color: var(--color-text-secondary);
+		text-decoration: none;
+	}
+	.c-breadcrumbs__link:hover {
+		color: var(--color-primary-600);
+		text-decoration: underline;
+	}
+	.c-breadcrumbs__current {
+		color: var(--color-text-primary);
+		font-weight: 600;
+	}
+</style>

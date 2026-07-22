@@ -1,8 +1,7 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TranslatableText } from '$stylist/localization/type/struct/translatable-text';
 
-export interface SlotExtendedTranslationEditor extends HTMLAttributes<HTMLDivElement>, SlotInteraction {
+export interface SlotExtendedTranslationEditor extends HTMLAttributes<HTMLDivElement> {
 	texts?: TranslatableText[];
 	locales?: string[];
 	defaultLocale?: string;

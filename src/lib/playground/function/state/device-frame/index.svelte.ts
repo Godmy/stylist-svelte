@@ -8,9 +8,9 @@ export function createDeviceFrameState(props: RecipeDeviceFrame) {
 		ShellCanvasViewportSize,
 		{ width: number; height: number; name: string; color: string }
 	> = {
-		mobile: { width: 375, height: 667, name: 'iPhone SE', color: 'from-gray-800 to-gray-900' },
-		tablet: { width: 768, height: 1024, name: 'iPad', color: 'from-gray-700 to-gray-800' },
-		desktop: { width: 1440, height: 900, name: 'Desktop', color: 'from-gray-600 to-gray-700' },
+		mobile: { width: 375, height: 667, name: 'iPhone SE', color: 'pdf-color--mobile' },
+		tablet: { width: 768, height: 1024, name: 'iPad', color: 'pdf-color--tablet' },
+		desktop: { width: 1440, height: 900, name: 'Desktop', color: 'pdf-color--desktop' },
 		fullscreen: { width: 0, height: 0, name: 'Fullscreen', color: '' }
 	};
 

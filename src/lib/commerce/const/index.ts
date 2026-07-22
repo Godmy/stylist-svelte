@@ -38,7 +38,6 @@ export {
 	upsellCurrentProduct,
 	upsellProducts
 } from './upsell';
-export { PRICE_ALERT_BASE_CLASSES } from './value';
 export {
 	warrantyInfoClaims,
 	warrantyInfoCoverageDetails,

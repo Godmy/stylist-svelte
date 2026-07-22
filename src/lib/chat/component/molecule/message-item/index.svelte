@@ -112,8 +112,13 @@
 <style>
 	.message-container {
 		display: flex;
+		align-items: flex-end;
 		gap: var(--spacing-2);
 		width: 100%;
+	}
+
+	.message-container--own {
+		justify-content: flex-end;
 	}
 
 	.message-bubble {
@@ -125,6 +130,19 @@
 		border: 1px solid;
 		box-shadow: var(--shadow-custom28);
 		position: relative;
+	}
+
+	.message-bubble--own {
+		margin-left: auto;
+		background-color: var(--color-primary-500);
+		border-color: var(--color-primary-600);
+		color: var(--color-text-inverse);
+	}
+
+	.message-bubble--other {
+		background-color: var(--color-background-primary);
+		border-color: var(--color-border-primary);
+		color: var(--color-text-primary);
 	}
 
 	.message-content {

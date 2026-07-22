@@ -41,7 +41,7 @@
 
 	<div bind:this={state.messagesContainer} class={state.messagesContainerClass}>
 		{#each state.messages as message}
-			<div class="ai-assistant__TODO" data-TODO="was state.messageClass(...)">
+			<div class={state.messageClass(message.role)}>
 				{message.content}
 			</div>
 		{/each}
@@ -228,6 +228,60 @@
 	@media (prefers-color-scheme: dark) {
 		.ai-assistant__header {
 			border-color: #374151;
+		}
+	}
+	.ai-assistant__messages {
+		flex: 1;
+		overflow-y: auto;
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.ai-assistant__input {
+		padding: 0.75rem 1rem;
+		border-top: 1px solid #e5e7eb;
+	}
+	@media (prefers-color-scheme: dark) {
+		.ai-assistant__input {
+			border-color: #374151;
+		}
+	}
+	.ai-assistant__error {
+		margin: 0 1rem;
+		padding: 0.5rem 0.75rem;
+		border-radius: 0.5rem;
+		background: #fef2f2;
+		color: #991b1b;
+		font-size: 0.875rem;
+	}
+	.ai-assistant__loading {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.875rem;
+		color: #6b7280;
+	}
+	.ai-assistant__message {
+		max-width: 80%;
+		border-radius: 0.75rem;
+		padding: 0.5rem 0.75rem;
+		font-size: 0.875rem;
+	}
+	.ai-assistant__message--user {
+		align-self: flex-end;
+		background: linear-gradient(to right, #9333ea, #7e22ce);
+		color: white;
+	}
+	.ai-assistant__message--assistant {
+		align-self: flex-start;
+		background: #f3f4f6;
+		color: #111827;
+	}
+	@media (prefers-color-scheme: dark) {
+		.ai-assistant__message--assistant {
+			background: #1f2937;
+			color: white;
 		}
 	}
 

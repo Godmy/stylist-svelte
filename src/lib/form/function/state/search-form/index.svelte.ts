@@ -3,17 +3,10 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 import type { SlotSearchFormState } from '$stylist/form/interface/slot/search-form-state';
 
 export function createSearchFormState(props: SearchFormProps): SlotSearchFormState {
-	const rootClass = $derived(
-		mergeClassNames(
-			'c-search-form border rounded-lg p-3 flex items-center gap-2',
-			props.class ?? ''
-		)
-	);
-	const iconClass = $derived('h-4 w-4 text-[var(--color-text-secondary)]');
-	const inputClass = $derived('flex-1 border rounded px-2 py-1');
-	const submitButtonClass = $derived(
-		'px-3 py-1 bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] rounded'
-	);
+	const rootClass = $derived(mergeClassNames('c-search-form', props.class ?? ''));
+	const iconClass = $derived('c-search-form__icon');
+	const inputClass = $derived('c-search-form__input');
+	const submitButtonClass = $derived('c-search-form__submit');
 
 	return {
 		get rootClass() {

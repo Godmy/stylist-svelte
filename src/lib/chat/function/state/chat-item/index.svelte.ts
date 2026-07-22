@@ -27,28 +27,17 @@ export const createChatItemState = (props: {
 		return content.length > 30 ? `${content.substring(0, 30)}...` : content;
 	});
 
-	const containerClasses = $derived(
-		mergeClassNames(
-			'chat-item group relative flex items-center gap-3 border-b border-[var(--color-border-primary)] px-4 py-4 transition-all duration-200',
-			isActiveVal
-				? 'bg-[var(--color-primary-50)] shadow-[inset_3px_0_0_var(--color-primary-500)]'
-				: 'bg-transparent hover:bg-[var(--color-background-secondary)] hover:translate-x-[2px]',
-			props.class ?? ''
-		)
-	);
+	const containerClasses = $derived(mergeClassNames('chat-item', props.class ?? ''));
 
-	const chatInfoClasses = 'chat-info flex-1 min-w-0';
+	const chatInfoClasses = 'chat-info';
 
-	const chatNameClasses =
-		'chat-name mb-1 truncate text-sm font-semibold tracking-[0.01em] text-[var(--color-text-primary)]';
+	const chatNameClasses = 'chat-name';
 
-	const lastMessageClasses =
-		'last-message truncate text-[13px] leading-5 text-[var(--color-text-secondary)]';
+	const lastMessageClasses = 'last-message';
 
-	const chatMetaClasses = 'chat-meta flex flex-col items-end gap-1 self-start';
+	const chatMetaClasses = 'chat-meta';
 
-	const chatActionsClasses =
-		'chat-actions absolute right-3 top-3 opacity-0 transition-opacity duration-200 group-hover:opacity-100';
+	const chatActionsClasses = 'chat-actions';
 
 	function handleClick() {
 		// dispatch('select')

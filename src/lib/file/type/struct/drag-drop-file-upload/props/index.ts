@@ -1,4 +1,3 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 
 export type Props = {
@@ -14,4 +13,4 @@ export type Props = {
 	preview?: boolean;
 	onFileSelect?: (files: FileList) => void;
 	onFileUpload?: (file: File) => void;
-} & HTMLAttributes<HTMLDivElement> & SlotInteraction;
+} & HTMLAttributes<HTMLDivElement>;

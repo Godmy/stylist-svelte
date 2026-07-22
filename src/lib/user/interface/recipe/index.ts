@@ -2,6 +2,7 @@
 export type { RecipeAccountSettings } from './account-settings';
 export type { RecipeAccountSettingsForm } from './account-settings-form';
 export type { RecipeAuthGuard } from './auth-guard';
+export type { AvatarSelectorProps } from './avatar-selector';
 export type { RecipeForgotPassword } from './forgot-password';
 export type { RecipeLogin } from './login';
 export type { RecipeLoginField } from './login-field';

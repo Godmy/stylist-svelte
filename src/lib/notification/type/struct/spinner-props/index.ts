@@ -1,8 +1,7 @@
-import type { SlotInteraction } from '$stylist/interaction/interface/slot/interaction';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SpinnerVariant } from '$stylist/notification/type/alias/spinner-variant';
 
-export type SpinnerProps = HTMLAttributes<HTMLDivElement> & SlotInteraction & {
+export type SpinnerProps = HTMLAttributes<HTMLDivElement> & {
 	variant?: SpinnerVariant;
 	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 	color?: 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'white' | string;

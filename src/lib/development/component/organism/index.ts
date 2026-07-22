@@ -11,5 +11,6 @@ export { ErrorBoundary } from './error-boundary/index';
 export { GenericCodeViewer } from './generic-code-viewer/index';
 export { LiveCodeSection } from './live-code-section/index';
 export { MockDataSelector } from './mock-data-selector/index';
+export { PageBuilder } from './page-builder/index';
 export { ResourceOptimizer } from './resource-optimizer/index';
 export { Stylist } from './stylist/index';
