@@ -27,6 +27,7 @@ export type {
 	SchemaMode,
 	SchemaParseResult,
 	SchemaProps,
+	SchemaStats,
 	SchemaTableFieldProps,
 	SchemaTableHeaderProps,
 	SchemaTablePosition,

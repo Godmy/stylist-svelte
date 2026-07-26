@@ -6,6 +6,7 @@ export type { SchemaField } from './schema-field';
 export type { SchemaHeaderProps } from './schema-header-props';
 export type { SchemaParseResult } from './schema-parse-result';
 export type { SchemaProps } from './schema-props';
+export type { SchemaStats } from './schema-stats';
 export type { SchemaTable } from './schema-table';
 export type { SchemaTableFieldProps } from './schema-table-field-props';
 export type { SchemaTableHeaderProps } from './schema-table-header-props';

@@ -92,6 +92,11 @@
 
 	<SchemaHeader
 		{title}
+		stats={{
+			tables: parseResult.document.tables.length,
+			relations: parseResult.document.dependencies.length,
+			errors: parseResult.errors.length
+		}}
 		zoom={currentZoom}
 		showRelations={relationsVisible}
 		highlightRelations={relationHighlight}
@@ -111,16 +116,6 @@
 	/>
 
 	<div class={`schema__workspace ${textPanelVisible ? '' : 'schema__workspace--full'}`}>
-		{#if textPanelVisible}
-			<aside class="schema__editor">
-				{#if currentMode === 'edit'}
-					<SchemaText bind:value={editSource} />
-				{:else}
-					<SchemaText bind:value={liveSource} />
-				{/if}
-			</aside>
-		{/if}
-
 		<div class="schema__view">
 			<SchemaView
 				document={parseResult.document}
@@ -131,6 +126,16 @@
 				{draggable}
 			/>
 		</div>
+
+		{#if textPanelVisible}
+			<aside class="schema__editor">
+				{#if currentMode === 'edit'}
+					<SchemaText bind:value={editSource} />
+				{:else}
+					<SchemaText bind:value={liveSource} />
+				{/if}
+			</aside>
+		{/if}
 	</div>
 </section>
 
@@ -154,12 +159,12 @@
 
 	.schema__workspace {
 		display: grid;
-		grid-template-columns: minmax(18rem, 0.42fr) minmax(0, 1fr);
-		gap: 0.5rem;
+		grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.42fr);
+		gap: 0;
 		min-width: 0;
 		min-height: 0;
 		flex: 1;
-		padding: 0.5rem;
+		padding: 0.5rem 0;
 	}
 
 	.schema__workspace--full {

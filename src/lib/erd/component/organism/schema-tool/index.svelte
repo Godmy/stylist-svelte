@@ -198,11 +198,6 @@
 		flex-wrap: wrap;
 		align-items: center;
 		gap: 0.4rem;
-		padding: 0.55rem;
-		border: 1px solid var(--color-border-primary, rgba(22, 31, 44, 0.12));
-		border-radius: 0.5rem;
-		background: var(--color-background-primary, #ffffff);
-		box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 	}
 
 	.schema-tool button {

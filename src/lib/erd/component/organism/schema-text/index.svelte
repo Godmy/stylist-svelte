@@ -21,13 +21,6 @@
 		{value}
 		oninput={handleInput}
 	></textarea>
-	<div class="schema-text__status">
-		<span>{result.document.tables.length} tables</span>
-		<span>{result.document.dependencies.length} relations</span>
-		<span class={result.errors.length > 0 ? 'schema-text__error-count' : ''}>
-			{result.errors.length} errors
-		</span>
-	</div>
 	{#if result.errors.length > 0}
 		<ul class="schema-text__errors">
 			{#each result.errors as error}
@@ -40,11 +33,10 @@
 <style>
 	/* flex column, not grid+min-height:100% -- the old version forced the
 	   whole section to 100% of its (now full-viewport) parent height even
-	   though its actual content (textarea + status row) never grows to fill
-	   that much space, leaving a large dead gap and making the status row
-	   look like it "trails off" toward the bottom of the page. Here the
-	   textarea is the one flexible element (flex:1); status/errors stay
-	   their natural size right below it. */
+	   though its actual content (textarea + errors) never grows to fill
+	   that much space, leaving a large dead gap. Here the textarea is the
+	   one flexible element (flex:1); errors stay their natural size right
+	   below it. */
 	.schema-text {
 		display: flex;
 		flex-direction: column;
@@ -64,26 +56,6 @@
 		color: var(--color-text-primary, #111827);
 		font: 0.86rem/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 		tab-size: 2;
-	}
-
-	.schema-text__status {
-		flex-shrink: 0;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.45rem;
-	}
-
-	.schema-text__status span {
-		padding: 0.32rem 0.48rem;
-		border-radius: 0.4rem;
-		background: var(--color-background-secondary, #edf2f7);
-		color: var(--color-text-secondary, #334155);
-		font-size: 0.76rem;
-	}
-
-	.schema-text__error-count {
-		background: color-mix(in srgb, var(--color-danger-600, #dc2626) 16%, transparent) !important;
-		color: var(--color-danger-600, #dc2626) !important;
 	}
 
 	.schema-text__errors {

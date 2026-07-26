@@ -11,6 +11,7 @@ export type {
 	SchemaHeaderProps,
 	SchemaParseResult,
 	SchemaProps,
+	SchemaStats,
 	SchemaTable,
 	SchemaTableFieldProps,
 	SchemaTableHeaderProps,
