@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
-import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
+import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 
 /**
  * Контракт для PreziScene компонента

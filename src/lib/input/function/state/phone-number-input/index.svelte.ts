@@ -1,4 +1,3 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import formatPhoneNumber from '$stylist/input/function/state/format-phone-number/index.svelte';
 import normalizePhoneInputValue from '$stylist/input/function/state/normalize-phone-input-value/index.svelte';
 import type { SlotPhoneNumberInput as IPhoneNumberInputProps } from '$stylist/input/interface/slot/phone-number-input';
@@ -7,7 +6,11 @@ export const createPhoneNumberInputState = (props: IPhoneNumberInputProps) => {
 	const error = $derived(props.error ?? false);
 	const disabled = $derived(props.disabled ?? false);
 	const containerClass = $derived('input-field-container');
-	const inputClass = $derived(mergeClassNames('input-field__control', props.class as string | undefined));
+	const inputClass = $derived(
+		['input-field__control', typeof props.class === 'string' ? props.class : '']
+			.filter(Boolean)
+			.join(' ')
+	);
 	const helpTextClass = $derived(
 		error ? 'input-field-error-text' : 'input-field-helper-text'
 	);

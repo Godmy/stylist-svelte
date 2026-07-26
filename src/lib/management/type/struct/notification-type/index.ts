@@ -1,5 +1,5 @@
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 export type NotificationType =
 	| 'silent'
-	| Extract<TokenAppearance, 'info' | 'success' | 'warning' | 'error'>;
+	| Extract<TokenColorTone, 'info' | 'success' | 'warning' | 'error'>;

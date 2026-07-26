@@ -2,6 +2,7 @@
 export {
 	Schema,
 	SchemaDependency,
+	SchemaHeader,
 	SchemaTable,
 	SchemaTableField,
 	SchemaTableHeader,
@@ -9,13 +10,21 @@ export {
 	SchemaTool,
 	SchemaView
 } from './component';
-export { DEFAULT_SCHEMA_TEXT } from './const';
-export { schemaTextToDocument } from './function';
+export {
+	DEFAULT_SCHEMA_TEXT,
+	EDIT_CANDIDATE_SCHEMA_TEXT
+} from './const';
+export {
+	schemaDocumentToText,
+	schemaTextToDocument
+} from './function';
 export type {
 	SchemaDependencyProps,
 	SchemaDocument,
 	SchemaField,
+	SchemaHeaderProps,
 	SchemaLayout,
+	SchemaMode,
 	SchemaParseResult,
 	SchemaProps,
 	SchemaTableFieldProps,

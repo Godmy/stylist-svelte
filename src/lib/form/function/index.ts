@@ -3,10 +3,8 @@ export { toggleCollapsed } from './script';
 export {
 	createAddressFormState,
 	createCheckboxGroupState,
-	createFormErrorMessageState,
 	createFormFooterState,
 	createFormHeaderState,
-	createFormHelperTextState,
 	createFormSelectionState,
 	createFormWithValidationState,
 	createLoginFormState,

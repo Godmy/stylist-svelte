@@ -1,5 +1,4 @@
 import { ObjectManagerMetricBar } from '$stylist/information/class/object-manager/metric-bar';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { RecipeMetricBar } from '$stylist/information/interface/recipe/metric-bar';
 
 export function createMetricBarState(props: RecipeMetricBar) {
@@ -9,7 +8,9 @@ export function createMetricBarState(props: RecipeMetricBar) {
 	const color = $derived(props.color ?? 'var(--color-primary-500)');
 	const trackColor = $derived(props.trackColor ?? 'var(--color-neutral-200)');
 	const containerClasses = $derived(
-		mergeClassNames('metric-bar', props.class == null ? '' : String(props.class))
+		['metric-bar', typeof props.class === 'string' ? props.class : '']
+			.filter(Boolean)
+			.join(' ')
 	);
 	const headerClasses = $derived('metric-bar__header');
 	const labelClasses = $derived('metric-bar__label');

@@ -1,9 +1,18 @@
 <script lang="ts">
 	import type { RecipeInputHelper as IInputHelperProps } from '$stylist/input/interface/recipe/input-helper';
-	import createInputHelperState from '$stylist/input/function/state/input-helper/index.svelte';
+	import { createFieldClassState } from '$stylist/input/function/script/create-field-class-state';
 
 	let props: IInputHelperProps = $props();
-	const state = createInputHelperState(props);
+	const state = $derived(
+		createFieldClassState(
+			{
+				variant: props.variant,
+				size: 'md',
+				class: props.class
+			},
+			'input-field-helper-text'
+		)
+	);
 	const restProps = $derived.by(() => {
 		const { class: _class, text: _text, variant: _variant, ...rest } = props;
 		return rest;

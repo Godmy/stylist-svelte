@@ -37,11 +37,14 @@
 
 <style>
 	.error-message {
+		display: grid;
+		gap: 0.25rem;
 		border-radius: var(--border-radius-large, 0.5rem);
 		border: 1px solid var(--color-danger-200);
 		background-color: var(--color-danger-50);
 		padding: 1rem;
 		color: var(--color-danger-900);
+		box-shadow: var(--shadow-sm, 0 1px 2px rgb(15 23 42 / 0.08));
 	}
 
 	.error-message__title {
@@ -50,8 +53,9 @@
 	}
 
 	.error-message__text {
-		margin-top: 0.25rem;
 		font-size: 0.875rem;
+		line-height: 1.35;
+		overflow-wrap: anywhere;
 	}
 
 	.error-message__actions {

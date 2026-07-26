@@ -16,14 +16,14 @@
 		justify-content: space-between;
 		gap: 0.75rem;
 		padding: 0.75rem 0.9rem;
-		border-bottom: 1px solid rgba(22, 31, 44, 0.12);
-		background: #f6f8fb;
-		color: #172033;
+		border-bottom: 1px solid var(--color-border-primary, rgba(22, 31, 44, 0.12));
+		background: var(--color-background-secondary, #f6f8fb);
+		color: var(--color-text-primary, #172033);
 	}
 
 	.schema-table-header--active {
-		background: #eaf3ff;
-		color: #174a7c;
+		background: var(--color-primary-50, #eaf3ff);
+		color: var(--color-primary-700, #174a7c);
 	}
 
 	.schema-table-header strong {
@@ -37,6 +37,6 @@
 	.schema-table-header span {
 		flex: 0 0 auto;
 		font-size: 0.72rem;
-		color: #627086;
+		color: var(--color-text-secondary, #627086);
 	}
 </style>

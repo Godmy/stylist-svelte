@@ -3,6 +3,7 @@ import { ICON_AI }           from '$stylist/svg/const/value/ai';
 import { ICON_AUDIO }        from '$stylist/svg/const/value/audio';
 import { ICON_ANIMATION }    from '$stylist/svg/const/value/animation';
 import { ICON_ARCHITECTURE } from '$stylist/svg/const/value/architecture';
+import { ICON_AUTH }         from '$stylist/svg/const/value/auth';
 import { ICON_BUTTON }       from '$stylist/svg/const/value/button';
 import { ICON_CALENDAR }     from '$stylist/svg/const/value/calendar';
 import { ICON_CANVAS }       from '$stylist/svg/const/value/canvas';
@@ -49,6 +50,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'audio',        svg: ICON_AUDIO },
 	{ name: 'animation',    svg: ICON_ANIMATION },
 	{ name: 'architecture', svg: ICON_ARCHITECTURE },
+	{ name: 'auth',         svg: ICON_AUTH },
 	{ name: 'button',       svg: ICON_BUTTON },
 	{ name: 'calendar',     svg: ICON_CALENDAR },
 	{ name: 'canvas',       svg: ICON_CANVAS },

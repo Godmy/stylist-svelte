@@ -5,13 +5,13 @@ import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotStatus } from '$stylist/information/interface/slot/status';
 import type { BehaviorMetricValue } from '$stylist/information/interface/behavior/metric-value';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 export interface RecipeMetricCard
 	extends ComputeIntersectAll<
 		[SlotTheme, SlotClass, SlotText, SlotText, SlotBadge, SlotStatus, BehaviorMetricValue]
 	> {
 	description?: string;
-	variant?: TokenAppearance;
+	variant?: TokenColorTone;
 	showProgressBar?: boolean;
 }

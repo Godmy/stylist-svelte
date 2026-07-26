@@ -13,6 +13,7 @@
 		value={state.displayValue}
 		placeholder={state.placeholder}
 		class="date-picker__input"
+		role="combobox"
 		onclick={state.openPicker}
 		disabled={state.disabled}
 		aria-haspopup="dialog"

@@ -1,5 +1,4 @@
 import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
-import type { SceneCameraInput } from '$stylist/architecture/type/struct/camera-input';
 import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
 
 const DEFAULT_CAMERA: SceneCamera = {
@@ -11,7 +10,7 @@ const DEFAULT_CAMERA: SceneCamera = {
 	viewportHeight: 720
 };
 
-export function useCamera(initialCamera: SceneCameraInput = {}) {
+export function useCamera(initialCamera: Partial<SceneCamera> = {}) {
 	let camera = $state<SceneCamera>({
 		...DEFAULT_CAMERA,
 		...initialCamera
@@ -56,7 +55,7 @@ export function useCamera(initialCamera: SceneCameraInput = {}) {
 		setDepth(node.depth);
 	}
 
-	function reset(nextCamera: SceneCameraInput = initialCamera) {
+	function reset(nextCamera: Partial<SceneCamera> = initialCamera) {
 		camera = {
 			...DEFAULT_CAMERA,
 			...nextCamera

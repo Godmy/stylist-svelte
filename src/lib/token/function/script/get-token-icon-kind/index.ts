@@ -64,7 +64,7 @@ export function getTokenIconKind(tokenName: string): TokenIconKind {
 		case 'ANIMATION_DELAY':
 			return 'motion';
 		case 'APPEARANCE_STYLES':
-		case 'TOKEN_APPEARANCE':
+		case 'TOKEN_COLOR_TONE':
 		case 'STATE_VARIANTS':
 		case 'FLOW_VARIANTS':
 		case 'ALL_VARIANTS':

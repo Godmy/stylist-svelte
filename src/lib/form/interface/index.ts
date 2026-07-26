@@ -5,6 +5,7 @@ export type {
 	RecipeFormHeader,
 	RecipeInteractionForms,
 	RecipeRadioButtonGroupProps,
+	RecipeSchemaFormDialog,
 	RecipeSearchBar,
 	RecipeSearchBarProps
 } from './recipe';

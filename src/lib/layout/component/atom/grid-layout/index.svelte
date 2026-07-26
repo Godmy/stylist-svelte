@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { GridLayoutProps } from '$stylist/layout/type/struct/layout/grid-layout-props';
+	import type { GridLayoutProps } from '$stylist/layout/interface/recipe/grid-layout';
 	import createGridLayoutState from '$stylist/layout/function/state/grid-layout/index.svelte';
 
 	let props: GridLayoutProps = $props();

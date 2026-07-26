@@ -3,68 +3,63 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import Alert from './index.svelte';
 
-	type Props = {
-		variant?: 'info' | 'success' | 'warning' | 'error';
-		title?: string;
-		closable?: boolean;
-	};
-
 	const controls: InterfaceControllerSettings[] = [
-		{
-			name: 'variant',
-			type: 'select',
-			options: ['info', 'success', 'warning', 'error'],
-			defaultValue: 'info'
-		},
-		{
-			name: 'title',
-			type: 'text',
-			defaultValue: 'Sample Alert'
-		},
-		{
-			name: 'closable',
-			type: 'boolean',
-			defaultValue: false
-		}
+		{ name: 'variant', type: 'select', options: ['info', 'success', 'warning', 'error'], defaultValue: 'info' },
+		{ name: 'title', type: 'text', defaultValue: 'Workspace synced' },
+		{ name: 'showIcon', type: 'boolean', defaultValue: true },
+		{ name: 'closable', type: 'boolean', defaultValue: false }
 	];
+
+	const examples = [
+		{ variant: 'success', title: 'Deployment complete', text: 'The production bundle was published and all checks passed.' },
+		{ variant: 'warning', title: 'Usage approaching limit', text: 'Storage is at 82%. Review large generated assets before the next export.' },
+		{ variant: 'error', title: 'Sync failed', text: 'The latest workspace changes could not be saved. Retry after checking connectivity.' }
+	] as const;
 </script>
 
 <Story
-	id="molecules-alert"
+	id="atoms-alert"
 	title="Alert"
 	component={Alert}
-	category="Molecules/Feedback/Alerts"
-	description="Display important messages to users with different severity levels."
+	category="Atoms"
+	description="Inline feedback for important user-visible status."
+	tags={['notification', 'alert', 'feedback']}
 	{controls}
 >
 	{#snippet children(values: any)}
-		{@const variant =
-			typeof values.variant === 'string'
-				? (values.variant as NonNullable<Props['variant']>)
-				: 'info'}
-		{@const title = typeof values.title === 'string' ? values.title : 'Sample Alert'}
-		{@const closable = typeof values.closable === 'boolean' ? values.closable : false}
 		<div class="_c1">
-			<Alert {variant} {title} {closable}>
+			<Alert
+				variant={values.variant}
+				title={String(values.title || 'Workspace synced')}
+				showIcon={Boolean(values.showIcon)}
+				closable={Boolean(values.closable)}
+			>
 				{#snippet children()}
-					<p class="_c2">
-						{variant === 'success'
-							? 'Everything looks good! Keep monitoring for anomalies.'
-							: 'Add remediation steps or contextual information inside the slot.'}
-					</p>
+					<p>Changes are saved automatically. The alert keeps enough text to test wrapping.</p>
 				{/snippet}
 			</Alert>
+
+			<div class="_c2">
+				{#each examples as example}
+					<Alert variant={example.variant} title={example.title} showIcon>
+						{#snippet children()}<p>{example.text}</p>{/snippet}
+					</Alert>
+				{/each}
+			</div>
 		</div>
 	{/snippet}
 </Story>
 
 <style>
 	._c1 {
-		max-width: 28rem;
+		display: grid;
+		gap: 1.25rem;
+		max-width: 42rem;
 		padding: 1rem;
 	}
+
 	._c2 {
-		font-size: 0.875rem;
-		line-height: 1.25rem;
+		display: grid;
+		gap: 0.75rem;
 	}
 </style>

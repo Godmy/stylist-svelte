@@ -1,7 +1,7 @@
 import type { LayoutGravity } from '$stylist/layout/type/alias/item-layout-gravity';
 import type { SplitLayoutGap } from '$stylist/layout/type/alias/split-layout-gap';
 import type { GridMoleculeJustify } from '$stylist/layout/type/alias/grid-molecule-justify';
-import type { GridMoleculeProps } from '$stylist/layout/type/struct/layout-extended/grid-molecule-props';
+import type { GridMoleculeProps } from '$stylist/layout/interface/recipe/grid-molecule';
 
 export function createGridMoleculeState(props: GridMoleculeProps) {
 	const cols = $derived(props.cols ?? 2);

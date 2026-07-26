@@ -1,4 +1,3 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { RecipeMetricBarsCard } from '$stylist/information/interface/recipe/metric-bars-card';
 
 export function createMetricBarsCardState(props: RecipeMetricBarsCard) {
@@ -9,7 +8,9 @@ export function createMetricBarsCardState(props: RecipeMetricBarsCard) {
 	const color = $derived(props.color ?? 'var(--color-primary-500)');
 	const trackColor = $derived(props.trackColor ?? 'var(--color-neutral-200)');
 	const containerClasses = $derived(
-		mergeClassNames('metric-bars-card', props.class == null ? '' : String(props.class))
+		['metric-bars-card', typeof props.class === 'string' ? props.class : '']
+			.filter(Boolean)
+			.join(' ')
 	);
 	const headerClasses = $derived('metric-bars-card__header');
 	const titleClasses = $derived('metric-bars-card__title');

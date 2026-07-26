@@ -1,12 +1,11 @@
 <script lang="ts">
-	import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createSortableGridState from '$stylist/layout/function/state/sortable-grid/index.svelte';
-	import type { SortableGridProps } from '$stylist/layout/type/alias/sortable-grid-props';
+	import type { SortableGridProps } from '$stylist/layout/interface/recipe/sortable-grid';
 
 	const GripVertical = 'grip-vertical';
 
-	let props: SortableGridProps & Omit<LayoutHTMLAttributes<HTMLDivElement>, 'class'> = $props();
+	let props: SortableGridProps = $props();
 	const state = createSortableGridState(props);
 
 	const restProps = $derived.by(() => {

@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { RecipeAppHeader } from './app-header';
 export type { RecipeBreadcrumb } from './breadcrumb';
 export type { RecipeBreadcrumbDropdown } from './breadcrumb-dropdown';
 export type { RecipeBreadcrumbLink } from './breadcrumb-link';

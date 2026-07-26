@@ -1,4 +1,3 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { RecipeBadgeGroup } from '$stylist/information/interface/recipe/badge-group';
 
 export function createBadgeGroupState(props: RecipeBadgeGroup) {
@@ -9,10 +8,10 @@ export function createBadgeGroupState(props: RecipeBadgeGroup) {
 	const visibleBadges = $derived(badges.slice(0, maxVisible));
 	const overflowCount = $derived(Math.max(0, badges.length - maxVisible));
 	const containerClasses = $derived(
-		mergeClassNames('badge-group', typeof props.class === 'string' ? props.class : '')
+		['badge-group', typeof props.class === 'string' ? props.class : ''].filter(Boolean).join(' ')
 	);
 	const overflowClasses = $derived(
-		mergeClassNames('badge-group__overflow', props.overflowClass ?? '')
+		['badge-group__overflow', props.overflowClass ?? ''].filter(Boolean).join(' ')
 	);
 
 	return {

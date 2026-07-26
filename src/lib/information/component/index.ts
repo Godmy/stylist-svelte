@@ -7,6 +7,9 @@ export {
 	ListItemMarker,
 	MetricBar,
 	NpmBadge,
+	ProgressBar,
+	Skeleton,
+	Spinner,
 	StatusIndicator,
 	Tooltip
 } from './atom';
@@ -14,6 +17,7 @@ export {
 	AttachmentPreview,
 	BadgeGroup,
 	BaseCard,
+	Loading,
 	MetricBarsCard
 } from './molecule';
 export {

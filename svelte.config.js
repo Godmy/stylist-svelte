@@ -1,3 +1,4 @@
+import adapterNode from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -11,6 +12,7 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
+		adapter: adapterNode(),
 		alias: {
 			$stylist: libRoot,
 			'stylist-test': testRoot

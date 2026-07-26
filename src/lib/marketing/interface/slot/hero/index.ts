@@ -1,4 +1,4 @@
-import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
+import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { TokenBackground } from '$stylist/layout/type/alias/background';
 import type { TokenSize } from '$stylist/theme/type/alias/size';

@@ -1,12 +1,12 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
-import type { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';
 export interface SlotDocumentationBlock extends HTMLAttributes<HTMLElement>, SlotThemeBorder, SlotTypography {
 	title?: string;
 	content: string;
-	variant?: (typeof TOKEN_COLOR_TONE)[number];
+	variant?: TokenColorTone;
 	codeExamples?: {
 		title?: string;
 		code: string;

@@ -1,9 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { SceneCameraInput } from './camera-input';
 export type { CubeControlProps } from './cube-control-props';
-export type { CubeDebugLogEntry } from './cube-debug-log-entry';
-export type { CubeSelectionState } from './cube-selection-state';
-export type { GraphMinimapContract } from './graph-minimap-contract';
 export type { GraphMinimapProps } from './graph-minimap-props';
 export type { GraphPortDimensions } from './graph-port-dimensions';
 export type { MinimapBounds } from './minimap-bounds';
@@ -23,15 +19,8 @@ export type { SceneNode } from './scene-node';
 export type { SceneNodePoint } from './scene-node-point';
 export type { SemanticZoomPresentation } from './semantic-zoom';
 export type { SemanticZoomParams } from './semantic-zoom-params';
-export type {
-	StageCamera,
-	StageContract,
-	StageProps
-} from './stage';
-export type {
-	ViewportContract,
-	ViewportProps
-} from './viewport';
+export type { StageProps } from './stage';
+export type { ViewportProps } from './viewport';
 export type { Zoom } from './zoom';
 export type { ZoomStep } from './zoom-step';
 export type { GraphNode } from './graph-node';

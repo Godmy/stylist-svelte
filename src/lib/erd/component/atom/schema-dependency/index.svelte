@@ -13,14 +13,14 @@
 
 <style>
 	.schema-dependency line {
-		stroke: #6c7f99;
+		stroke: var(--color-text-tertiary, #6c7f99);
 		stroke-width: 2;
 		stroke-linecap: round;
 	}
 
 	.schema-dependency circle {
-		fill: #ffffff;
-		stroke: #6c7f99;
+		fill: var(--color-background-primary, #ffffff);
+		stroke: var(--color-text-tertiary, #6c7f99);
 		stroke-width: 2;
 	}
 

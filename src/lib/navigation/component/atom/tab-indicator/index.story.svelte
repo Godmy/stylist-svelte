@@ -3,7 +3,7 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import TabIndicator from './index.svelte';
 
-	const colorOptions = ['primary', 'secondary', 'success', 'warning', 'danger', 'gray'] as const;
+	const colorOptions = ['primary', 'secondary', 'success', 'warning', 'danger', 'neutral'] as const;
 
 	type Props = {
 		width: string;

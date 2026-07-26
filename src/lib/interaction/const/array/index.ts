@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TOKEN_APPEARANCE } from './appearance';
 export { TOKEN_AVAILABILITY } from './availability';
 export { CONTENT_EDITOR_CONTENT_TYPE } from './content-editor-content-type';
 export { TOKEN_FLOW } from './flow';

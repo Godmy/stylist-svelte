@@ -8,8 +8,6 @@ export type {
 	LayoutLevel,
 	LayoutShape,
 	OverlayLayoutAlign,
-	SortableGridItem,
-	SortableGridProps,
 	SplitLayoutGap,
 	StackedLayoutJustifyContent,
 	ThemeGradientBackgroundDirection,
@@ -24,47 +22,11 @@ export type {
 	TokenJustification,
 	TokenOrientation,
 	TokenShape,
-	TokenStackDirection,
-	WidgetContainerProps
+	TokenStackDirection
 } from './alias';
-export type { GraphPortSizeMapDimensions } from './map';
 export type { AnyProperty } from './object';
-export type { RecordSizeMap } from './record';
-export type { ClassValue } from './script';
 export type {
-	AnimatedExpandableTableRowProps,
-	AspectRatioProps,
-	AttributeAspectRatio,
-	AttributeContainer,
-	BaseLayoutProps,
-	CardProps,
-	CenteredLayoutProps,
-	ComponentStateOptions,
-	ContainerProps,
-	ContainerQueryProps,
-	DividerProps,
-	DragAndDropListItem,
-	DragAndDropListProps,
-	DragAndDropListRestProps,
-	GradientBackgroundStyle,
-	GridItem,
-	GridItemContent,
-	GridLayoutExtendedProps,
-	GridLayoutItem,
-	GridLayoutProps,
-	GridMoleculeProps,
-	GridProps,
-	GridSvgProps,
-	HorizontalLayoutProps,
-	InputStateOptions,
-	LayoutHTMLAttributes,
-	LayoutSection,
-	OverlayLayerProps,
-	OverlayLayoutProps,
-	SeparatorProps,
-	SidebarLayoutProps,
-	SpacerProps,
-	SplitLayoutProps,
-	StackProps,
-	StickyLayoutProps
-} from './struct';
+	GraphPortSizeMapDimensions,
+	RecordSizeMap
+} from './record';
+export type { ClassValue } from './script';

@@ -22,8 +22,4 @@ export {
 	TOKEN_STACK_DIRECTION
 } from './array';
 export { TOKEN_ASPECT_RATIO } from './map';
-export {
-	RECORD_CLASS_SIZE,
-	RECORD_PADDING
-} from './record';
 export { SIDEBAR_COLLAPSED_WIDTH } from './value';

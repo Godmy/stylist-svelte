@@ -26,10 +26,6 @@ export {
 	toNullableString
 } from './function';
 export type {
-	StructRichTextMark,
-	StructRichTextSegment
-} from './type';
-export type {
 	RecipeAbbr,
 	RecipeBlockquote,
 	RecipeHeading,
@@ -40,5 +36,6 @@ export type {
 	RecipeThemeKbd,
 	RecipeThemeLink,
 	SlotLink,
+	SlotRichText,
 	SlotText
 } from './interface';

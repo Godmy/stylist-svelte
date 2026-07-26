@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
+	import type { ContainerProps } from '$stylist/layout/interface/recipe/container';
 	import createContainerState from '$stylist/layout/function/state/container/index.svelte';
 
 	let props: ContainerProps = $props();

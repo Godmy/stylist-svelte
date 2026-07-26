@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AppHeaderNavLink } from './object';
 export type {
 	BreadcrumbDropdownItem,
 	BreadcrumbItem,

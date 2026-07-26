@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import BaseCard from '$stylist/information/component/molecule/base-card/index.svelte';
-	import type { DragAndDropListProps } from '$stylist/layout/type/struct/drag-and-drop-list-props';
+	import type { DragAndDropListProps } from '$stylist/layout/interface/recipe/drag-and-drop-list';
 	import createDragAndDropListState from '$stylist/layout/function/state/drag-and-drop-list/index.svelte';
 
 	const GripVertical = 'grip-vertical';

@@ -1,5 +1,5 @@
 import type { OverlayLayoutAlign } from '$stylist/layout/type/alias/overlay-layout-align';
-import type { OverlayLayoutProps } from '$stylist/layout/type/struct/layout-extended/overlay-layout-props/overlaylayout-props';
+import type { OverlayLayoutProps } from '$stylist/layout/interface/recipe/overlay-layout';
 
 export function createOverlayLayoutState(props: OverlayLayoutProps) {
 	const overlayAlign = $derived<OverlayLayoutAlign>(props.overlayAlign ?? 'fill');

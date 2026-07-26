@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createSplitLayoutState from '$stylist/layout/function/state/split-layout/index.svelte';
-	import type { SplitLayoutProps } from '$stylist/layout/type/struct/layout-extended/split-layout-props';
+	import type { SplitLayoutProps } from '$stylist/layout/interface/recipe/split-layout';
 
 	let props: SplitLayoutProps = $props();
 	const state = createSplitLayoutState(props);

@@ -1,13 +1,16 @@
 <script lang="ts">
 	import type { RecipeInputAddon as IInputAddonProps } from '$stylist/input/interface/recipe/input-addon';
-	import createInputAddonState from '$stylist/input/function/state/input-addon/index.svelte';
+	import { createFieldClassState } from '$stylist/input/function/script/create-field-class-state';
 
 	let props: IInputAddonProps = $props();
-	const state = createInputAddonState({
-		variant: props.variant,
-		size: 'md',
-		class: props.class
-	});
+	const state = createFieldClassState(
+		{
+			variant: props.variant,
+			size: 'md',
+			class: props.class
+		},
+		'input-addon'
+	);
 	const classes = $derived(
 		[
 			state.classes,

@@ -1,6 +1,5 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotPriceAlertElement } from '$stylist/commerce/interface/slot/price-alert-element';
-import type { Props } from '$stylist/information/type/struct/props';
 import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
@@ -15,7 +14,6 @@ export interface RecipePriceAlert
 	extends ComputeIntersectAll<
 		[
 			SlotPriceAlertElement,
-			Omit<Props, 'variant' | 'size' | 'onclick' | 'class'>,
 			Omit<HTMLAttributes<HTMLDivElement>, 'variant' | 'size' | 'onclick'>,
 			SlotTheme,
 			BehaviorSizable,
@@ -34,4 +32,5 @@ export interface RecipePriceAlert
 	size?: TokenSize;
 	disabled?: boolean;
 	onStatusChange?: (status: TokenMonitoringType) => void;
+	[prop: string]: unknown;
 }

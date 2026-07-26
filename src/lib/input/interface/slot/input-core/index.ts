@@ -1,7 +1,7 @@
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
-export interface SlotInputCore<V extends string = TokenAppearance, S extends string = TokenSize> {
+export interface SlotInputCore<V extends string = TokenColorTone, S extends string = TokenSize> {
 	variant?: V;
 	size?: S;
 	disabled?: boolean;

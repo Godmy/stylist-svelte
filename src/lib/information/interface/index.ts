@@ -1,7 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	BehaviorAttachmentPreviewEvents,
-	BehaviorMetricValue
+	BehaviorLoadingState,
+	BehaviorMetricValue,
+	BehaviorProgressValue
 } from './behavior';
 export type {
 	RecipeAccessibilityCheckbox,
@@ -14,15 +16,19 @@ export type {
 	RecipeCounter,
 	RecipeDot,
 	RecipeListItemMarker,
+	RecipeLoading,
 	RecipeMarkdownRenderer,
 	RecipeMetricBar,
 	RecipeMetricBarsCard,
 	RecipeMetricCard,
 	RecipeNpmBadge,
+	RecipeProgressBar,
 	RecipeSearchResults,
 	RecipeShortcutsPanel,
+	RecipeSkeleton,
 	RecipeSort,
 	RecipeSortableGrid,
+	RecipeSpinner,
 	RecipeStatusIndicator,
 	RecipeThemeIconPicker,
 	RecipeTooltip
@@ -33,6 +39,11 @@ export type {
 	SlotAttachment,
 	SlotAttachmentPreview,
 	SlotBadge,
+	SlotLoading,
+	SlotProgressBar,
+	SlotShortcut,
+	SlotSkeleton,
+	SlotSpinner,
 	SlotStatus,
 	SlotTooltip,
 	ThemeIconItem

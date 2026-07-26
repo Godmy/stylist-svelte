@@ -1,46 +1,13 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	RecipeAlert,
-	RecipeCardSkeleton,
-	RecipeErrorBoundary,
-	RecipeErrorMessage,
-	RecipeLazyLoader,
-	RecipeLoadingBoundary,
-	RecipeNotificationBadge,
-	RecipeProgressBarProps,
-	RecipeSkeleton,
-	RecipeSkeletonCircle,
-	RecipeSkeletonProps,
-	RecipeSkeletonRectangle,
-	RecipeSkeletonTable,
-	RecipeSkeletonText,
-	RecipeSpinner,
-	RecipeSpinnerProps,
-	RecipeToast,
-	RecipeToastProps,
-	SkeletonSpecificProps
-} from './recipe';
+	BehaviorActionable,
+	BehaviorDismissible
+} from './behavior';
 export type {
-	SlotAccountProgressTracker,
-	SlotAlert,
-	SlotBaseFeedback,
-	SlotCardSkeleton,
-	SlotErrorBoundary,
-	SlotErrorBoundaryDetails,
-	SlotErrorMessage,
-	SlotLazyLoader,
-	SlotLoadingBoundary,
-	SlotLoadingOverlay,
-	SlotNotificationBadge,
-	SlotProgressBar,
-	SlotProgressCircle,
-	SlotResponseViewer,
-	SlotSimpleTooltip,
-	SlotSkeleton,
-	SlotSpinner,
-	SlotStepConnector,
-	SlotStepIcon,
-	SlotTableSkeleton,
-	Toast,
-	ToastAction
-} from './slot';
+	RecipeAlert,
+	RecipeErrorMessage,
+	RecipeNotificationBadge,
+	RecipeNotificationOptions,
+	RecipeToast,
+	RecipeToastStack
+} from './recipe';

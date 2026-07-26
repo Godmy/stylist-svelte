@@ -9,7 +9,7 @@ import type { RecipeBorder } from '$stylist/layout/interface/recipe/border';
 import type { RecipeThemeBackground } from '$stylist/layout/interface/recipe/background';
 import type { BehaviorShapeable } from '$stylist/layout/interface/behavior/shapeable';
 import type { BehaviorSized } from '$stylist/layout/interface/behavior/sized';
-import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
+import type { ContainerProps } from '$stylist/layout/interface/recipe/container';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { SlotText } from '$stylist/typography/interface/slot/text';

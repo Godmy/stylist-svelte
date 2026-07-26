@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createWidgetContainerState from '$stylist/layout/function/state/widget-container/index.svelte';
-	import type { WidgetContainerProps } from '$stylist/layout/type/alias/widget-container-props';
+	import type { WidgetContainerProps } from '$stylist/layout/interface/recipe/widget-container';
 
 	const GripVertical = 'grip-vertical';
 	const MoreHorizontal = 'more-horizontal';

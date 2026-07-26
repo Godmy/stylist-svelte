@@ -1,6 +1,6 @@
 import type { HTMLTextareaAttributes } from 'svelte/elements';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 import type { SlotInputCore } from '$stylist/input/interface/slot/input-core';
 import type { SlotInputWithLabel } from '$stylist/input/interface/slot/input-with-label';
@@ -8,7 +8,7 @@ import type { SlotInputWithValidation } from '$stylist/input/interface/slot/inpu
 import type { SlotInputWithHelper } from '$stylist/input/interface/slot/input-with-helper';
 
 export interface SlotTextarea
-	extends SlotInputCore<TokenAppearance, TokenSize>,
+	extends SlotInputCore<TokenColorTone, TokenSize>,
 		SlotInputWithLabel,
 		SlotInputWithValidation,
 		SlotInputWithHelper,

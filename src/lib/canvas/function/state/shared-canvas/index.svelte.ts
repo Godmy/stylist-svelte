@@ -5,7 +5,6 @@ import { drawCanvasObjects } from '$stylist/canvas/function/script/canvas-draw-o
 import { finalizeDraftCanvasObject } from '$stylist/canvas/function/script/canvas-finalize-draft-object';
 import { hitTestCanvasObject } from '$stylist/canvas/function/script/canvas-hit-test-object';
 import { updateDraftCanvasObject } from '$stylist/canvas/function/script/canvas-update-draft-object';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
 import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 import type { SharedCanvasTool } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-tool';
@@ -34,14 +33,20 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 	const restProps = $derived.by(() => ObjectManagerSharedCanvas.getRestProps(contract));
 
 	const containerClass = $derived(
-		mergeClassNames(
+		[
 			'c-shared-canvas',
-			contract.variant === 'minimal' && 'c-shared-canvas--minimal',
-			mergeClassNames(contract.class)
-		)
+			contract.variant === 'minimal' ? 'c-shared-canvas--minimal' : '',
+			contract.class ?? ''
+		]
+			.filter(Boolean)
+			.join(' ')
 	);
-	const toolbarClass = $derived(mergeClassNames('c-shared-canvas__toolbar', contract.toolbarClass));
-	const canvasClass = $derived(mergeClassNames('c-shared-canvas__canvas', contract.canvasClass));
+	const toolbarClass = $derived(
+		['c-shared-canvas__toolbar', contract.toolbarClass ?? ''].filter(Boolean).join(' ')
+	);
+	const canvasClass = $derived(
+		['c-shared-canvas__canvas', contract.canvasClass ?? ''].filter(Boolean).join(' ')
+	);
 	const toolDefinitions = $derived(ObjectManagerSharedCanvas.toolDefinitions);
 	const toolbarGroupClass = $derived('c-shared-canvas__toolbar-group');
 	const toolbarDividerClass = $derived('c-shared-canvas__toolbar-divider');
@@ -59,10 +64,12 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 	const currentUserClass = $derived('c-shared-canvas__current-user');
 	const toolButtonClass = $derived.by(
 		() => (tool: SharedCanvasTool) =>
-			mergeClassNames(
+			[
 				'c-shared-canvas__tool-btn',
-				selectedTool === tool && 'c-shared-canvas__tool-btn--active'
-			)
+				selectedTool === tool ? 'c-shared-canvas__tool-btn--active' : ''
+			]
+				.filter(Boolean)
+				.join(' ')
 	);
 	const actionButtonClass = $derived('c-shared-canvas__action-btn');
 	const actionIcons = $derived(ObjectManagerSharedCanvas.actionIcons);

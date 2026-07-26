@@ -4,3 +4,4 @@ import type { SlotAccountSettingsForm } from '$stylist/user/interface/slot/accou
 
 export interface RecipeAccountSettingsForm
 	extends ComputeIntersectAll<[RecipeAccountSettings, SlotAccountSettingsForm]> {}
+

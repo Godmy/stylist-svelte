@@ -1,6 +1,6 @@
 import type { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 import type { SplitLayoutGap } from '$stylist/layout/type/alias/split-layout-gap';
-import type { SplitLayoutProps } from '$stylist/layout/type/struct/layout-extended/split-layout-props';
+import type { SplitLayoutProps } from '$stylist/layout/interface/recipe/split-layout';
 
 import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 export function createSplitLayoutState(props: SplitLayoutProps) {

@@ -1,4 +1,4 @@
-import type { StickyLayoutProps } from '$stylist/layout/type/struct/layout-extended/sticky-layout-props';
+import type { StickyLayoutProps } from '$stylist/layout/interface/recipe/sticky-layout';
 
 export function createStickyLayoutState(props: StickyLayoutProps) {
 	const fillHeight = $derived(props.fillHeight ?? true);

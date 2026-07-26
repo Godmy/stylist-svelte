@@ -1,4 +1,3 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { RecipeUserProfileCard } from '$stylist/user/interface/recipe/user-profile-card';
 
 export function createUserProfileCardState(props: RecipeUserProfileCard) {
@@ -8,7 +7,7 @@ export function createUserProfileCardState(props: RecipeUserProfileCard) {
 	const className = $derived(props.class ?? '');
 
 	const containerClasses = $derived(
-		mergeClassNames('c-user-profile-card border rounded-lg p-4', className)
+		['c-user-profile-card border rounded-lg p-4', className].filter(Boolean).join(' ')
 	);
 
 	const initial = $derived(name.charAt(0));
@@ -39,3 +38,4 @@ export function createUserProfileCardState(props: RecipeUserProfileCard) {
 		}
 	};
 }
+

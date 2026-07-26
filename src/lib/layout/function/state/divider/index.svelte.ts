@@ -1,4 +1,4 @@
-import type { DividerProps } from '$stylist/layout/type/struct/divider';
+import type { DividerProps } from '$stylist/layout/interface/recipe/divider';
 import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 

@@ -13,3 +13,4 @@ export interface RecipeAccountSettings
 	onSubmit?: (settings: AccountSettings) => void;
 	onDeleteAccount?: () => void;
 }
+

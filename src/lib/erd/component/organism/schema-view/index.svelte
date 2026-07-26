@@ -16,17 +16,31 @@
 	}: SchemaViewProps = $props();
 
 	const tableWidth = 260;
-	const columnGap = 80;
-	const rowGap = 72;
-	const minCanvasWidth = 4800;
-	const minCanvasHeight = 3200;
-	const canvasPadding = 720;
+	const columnGap = 110;
+	const rowGap = 90;
+	// A floor, not a target: keeps tiny documents from collapsing to near-zero
+	// canvas. Previously fixed at 4800x3200 regardless of content, which for a
+	// typical (non-demo-scale) document left most of the canvas empty -- the
+	// default (0,0) scroll position then showed blank space instead of the
+	// diagram, and radial's center (tied to this same minimum) landed well
+	// off to the side of the visible viewport. canvasPadding is extra slack
+	// beyond the auto-computed layout bounds specifically so there's room to
+	// drag tables around -- a freeform diagram needs more than just enough
+	// space for its own initial layout.
+	const minCanvasWidth = 2600;
+	const minCanvasHeight = 1700;
+	const canvasPadding = 480;
 	const tableHeaderHeight = 48;
 	const tableFieldHeight = 37;
 
 	let positions = $state<SchemaTablePosition[]>([]);
 	let documentLayoutKey = $state('');
-	let activeLayout = $state(layout);
+	// Seeded empty (not from the `layout` prop) so it never equals `layout` on
+	// the first effect run -- that run always takes the createPositions()
+	// branch, which is equivalent to mergePositions() while `positions` is
+	// still empty anyway. Avoids capturing a reactive prop's value into local
+	// $state at declaration time (state_referenced_locally).
+	let activeLayout = $state('');
 	let draggedTableId = $state<string | null>(null);
 	let dragStartClientX = $state(0);
 	let dragStartClientY = $state(0);
@@ -57,18 +71,98 @@
 
 	function createPositions(count: number): SchemaTablePosition[] {
 		if (layout === 'wide') {
-			return createGridPositions(count, Math.max(1, Math.ceil(Math.sqrt(count * 2.2))), 96, 96);
+			return resolveOverlaps(
+				createGridPositions(count, Math.max(1, Math.ceil(Math.sqrt(count * 2.2))), 140, 130)
+			);
 		}
 
 		if (layout === 'columns') {
-			return createGridPositions(count, Math.min(6, Math.max(1, Math.ceil(count / 14))), 180, 58);
+			return resolveOverlaps(
+				createGridPositions(count, Math.min(6, Math.max(1, Math.ceil(count / 14))), 240, 110)
+			);
 		}
 
 		if (layout === 'radial') {
-			return createRadialPositions(count);
+			return resolveOverlaps(createRadialPositions(count));
 		}
 
-		return createGridPositions(count, Math.max(1, Math.ceil(Math.sqrt(count))), columnGap, rowGap);
+		return resolveOverlaps(
+			createGridPositions(count, Math.max(1, Math.ceil(Math.sqrt(count))), columnGap, rowGap)
+		);
+	}
+
+	// Final safety net on top of the per-layout math above: pushes any two
+	// still-overlapping cards apart along whichever axis needs the smaller
+	// nudge, iterating until stable. The per-layout functions get the common
+	// cases right on their own, but closed-form angle/row math can't fully
+	// account for arbitrarily-tall cards (e.g. a table with 20+ fields next
+	// to one with 2) without this -- a card's height can intrude on a
+	// neighbor's space in ways a simple arc-length or row-height formula
+	// doesn't predict at every angle.
+	function resolveOverlaps(items: SchemaTablePosition[]): SchemaTablePosition[] {
+		const result = items.map((item) => ({ ...item }));
+		const gap = 24;
+		const maxIterations = 200;
+
+		for (let iteration = 0; iteration < maxIterations; iteration += 1) {
+			let moved = false;
+
+			for (let i = 0; i < result.length; i += 1) {
+				for (let j = i + 1; j < result.length; j += 1) {
+					const a = result[i];
+					const b = result[j];
+
+					const overlapX =
+						Math.min(a.x + a.width + gap, b.x + b.width + gap) - Math.max(a.x, b.x);
+					const overlapY =
+						Math.min(a.y + a.height + gap, b.y + b.height + gap) - Math.max(a.y, b.y);
+
+					if (overlapX <= 0 || overlapY <= 0) {
+						continue;
+					}
+
+					moved = true;
+
+					const aCenterX = a.x + a.width / 2;
+					const aCenterY = a.y + a.height / 2;
+					const bCenterX = b.x + b.width / 2;
+					const bCenterY = b.y + b.height / 2;
+
+					if (overlapX < overlapY) {
+						const push = overlapX / 2 + 1;
+						if (aCenterX <= bCenterX) {
+							a.x -= push;
+							b.x += push;
+						} else {
+							a.x += push;
+							b.x -= push;
+						}
+					} else {
+						const push = overlapY / 2 + 1;
+						if (aCenterY <= bCenterY) {
+							a.y -= push;
+							b.y += push;
+						} else {
+							a.y += push;
+							b.y -= push;
+						}
+					}
+				}
+			}
+
+			if (!moved) {
+				break;
+			}
+		}
+
+		const minX = Math.min(0, ...result.map((item) => item.x));
+		const minY = Math.min(0, ...result.map((item) => item.y));
+
+		if (minX < 0 || minY < 0) {
+			return result.map((item) => ({ ...item, x: item.x - minX + 40, y: item.y - minY + 40 }));
+		}
+
+		return result;
 	}
 
 	function createGridPositions(
@@ -77,55 +171,107 @@
 		horizontalGap: number,
 		verticalGap: number
 	): SchemaTablePosition[] {
+		const heights = document.tables.map((table) => createTableHeight(table.fields.length));
+		const rowCount = Math.max(1, Math.ceil(count / columns));
+
+		// Row Y must come from the tallest card actually placed in each
+		// preceding row, not from each card's own height -- using "this
+		// table's height" for `row * height` (the previous formula) only
+		// happened to work when every card was the same height. Real tables
+		// have wildly different field counts, so rows silently overlapped.
+		const rowHeights = new Array(rowCount).fill(0);
+		document.tables.forEach((_, index) => {
+			const row = Math.floor(index / columns);
+			rowHeights[row] = Math.max(rowHeights[row], heights[index]);
+		});
+
+		const rowY = new Array(rowCount).fill(56);
+		for (let row = 1; row < rowCount; row += 1) {
+			rowY[row] = rowY[row - 1] + rowHeights[row - 1] + verticalGap;
+		}
+
 		return document.tables.map((table, index) => {
 			const column = index % columns;
 			const row = Math.floor(index / columns);
-			const height = createTableHeight(table.fields.length);
 
 			return {
 				tableId: table.id,
 				x: 56 + column * (tableWidth + horizontalGap),
-				y: 56 + row * (height + verticalGap),
+				y: rowY[row],
 				width: tableWidth,
-				height
+				height: heights[index]
 			};
 		});
 	}
 
 	function createRadialPositions(count: number): SchemaTablePosition[] {
-		const firstRingCapacity = 10;
-		const ringGap = 520;
-		const maxRing = Math.max(0, Math.floor((count - 1) / firstRingCapacity));
-		const centerX = Math.max(minCanvasWidth / 2, 900 + maxRing * ringGap);
-		const centerY = Math.max(minCanvasHeight / 2, 900 + maxRing * ringGap);
+		const firstRingCapacity = 8;
+		const ringCapacityGrowth = 6;
+		const arcGap = 70; // breathing room between cards sharing a ring
+		const ringGap = 90; // radial breathing room between rings
+		const minRadius = 320;
 
-		return document.tables.map((table, index) => {
-			const height = createTableHeight(table.fields.length);
-			const ring = Math.floor(index / firstRingCapacity);
-			const ringStart = ring * firstRingCapacity;
-			const ringCapacity = firstRingCapacity + ring * 8;
-			const ringIndex = index - ringStart;
-			const radius = 420 + ring * ringGap;
-			const angle = (Math.PI * 2 * ringIndex) / ringCapacity - Math.PI / 2;
+		const heights = document.tables.map((table) => createTableHeight(table.fields.length));
 
-			if (index === 0) {
-				return {
+		// Assign tables to rings first (same growth scheme as before), then size
+		// each ring from what's actually in it.
+		const ringAssignments: number[][] = [];
+		{
+			let index = 0;
+			let ring = 0;
+			while (index < count) {
+				const capacity = firstRingCapacity + ring * ringCapacityGrowth;
+				const slice: number[] = [];
+				for (let slot = 0; slot < capacity && index < count; slot += 1, index += 1) {
+					slice.push(index);
+				}
+				ringAssignments.push(slice);
+				ring += 1;
+			}
+		}
+
+		// A ring's radius must be large enough for two independent reasons:
+		// (1) enough arc length per slot that cards on the same ring don't
+		// collide sideways, and (2) enough clearance from the previous ring's
+		// tallest card that rings don't collide radially. The previous version
+		// used a single fixed radius-per-ring regardless of how many tables
+		// were on it or how tall they were, which is what caused overlaps.
+		const ringRadius: number[] = [];
+		let previousOuterEdge = 0;
+		ringAssignments.forEach((indices, ring) => {
+			const maxHeightInRing = Math.max(...indices.map((index) => heights[index]));
+			const arcRequiredRadius = ((tableWidth + arcGap) * indices.length) / (2 * Math.PI);
+			const clearanceRadius =
+				ring === 0 ? 0 : previousOuterEdge + maxHeightInRing / 2 + ringGap;
+			const radius = Math.max(arcRequiredRadius, clearanceRadius, minRadius);
+
+			ringRadius.push(radius);
+			previousOuterEdge = radius + maxHeightInRing / 2;
+		});
+
+		const center = previousOuterEdge + tableWidth / 2 + canvasPadding / 2;
+		const positions: SchemaTablePosition[] = [];
+
+		ringAssignments.forEach((indices, ring) => {
+			const radius = ringRadius[ring];
+			const capacity = indices.length;
+
+			indices.forEach((tableIndex, slot) => {
+				const table = document.tables[tableIndex];
+				const height = heights[tableIndex];
+				const angle = (Math.PI * 2 * slot) / capacity - Math.PI / 2;
+
+				positions.push({
 					tableId: table.id,
-					x: centerX - tableWidth / 2,
-					y: centerY - height / 2,
+					x: center + Math.cos(angle) * radius - tableWidth / 2,
+					y: center + Math.sin(angle) * radius - height / 2,
 					width: tableWidth,
 					height
-				};
-			}
-
-			return {
-				tableId: table.id,
-				x: centerX + Math.cos(angle) * radius - tableWidth / 2,
-				y: centerY + Math.sin(angle) * radius - height / 2,
-				width: tableWidth,
-				height
-			};
+				});
+			});
 		});
+
+		return positions;
 	}
 
 	function createTableHeight(fieldCount: number): number {
@@ -308,6 +454,9 @@
 				<div
 					class={`schema-view__table ${draggable ? 'schema-view__table--draggable' : ''} ${draggedTableId === table.id ? 'schema-view__table--dragging' : ''}`}
 					style={`left:${position.x}px; top:${position.y}px;`}
+					role="group"
+					aria-roledescription={draggable ? 'draggable table' : 'table'}
+					aria-label={`Table ${table.name}`}
 					onpointerdown={(event) => startTableDrag(event, table.id)}
 					onpointermove={(event) => moveTable(event, table.id)}
 					onpointerup={(event) => stopTableDrag(event, table.id)}
@@ -326,14 +475,24 @@
 
 <style>
 	.schema-view {
+		height: 100%;
 		min-height: 560px;
 		overflow: auto;
-		border: 1px solid rgba(22, 31, 44, 0.12);
+		border: 1px solid var(--color-border-primary, rgba(22, 31, 44, 0.12));
 		border-radius: 0.5rem;
 		background:
-			linear-gradient(rgba(22, 31, 44, 0.06) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(22, 31, 44, 0.06) 1px, transparent 1px),
-			#eef3f8;
+			linear-gradient(
+					color-mix(in srgb, var(--color-border-primary, #22314c) 55%, transparent) 1px,
+					transparent 1px
+				)
+				0 0,
+			linear-gradient(
+					90deg,
+					color-mix(in srgb, var(--color-border-primary, #22314c) 55%, transparent) 1px,
+					transparent 1px
+				)
+				0 0,
+			var(--color-background-secondary, #eef3f8);
 		background-size: 32px 32px;
 	}
 

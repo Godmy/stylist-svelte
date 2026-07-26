@@ -1,31 +1,40 @@
-import type { ToastStackProps } from '$stylist/notification/type/struct/toast-stack-props';
+import { TOKEN_COLOR_TONE_ICON } from '$stylist/theme/const/map/color-tone-icon';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
+import type { RecipeToastStack } from '$stylist/notification/interface/recipe/toast-stack';
 
-import type { TOKEN_STATUS } from '$stylist/information/const/array/status';
-const iconMap: Partial<Record<(typeof TOKEN_STATUS)[number], string>> = {
-	success: 'check-circle',
-	warning: 'alert-triangle',
-	error: 'x-circle',
-	info: 'info'
-};
-
-export function createToastStackState(props: ToastStackProps) {
+export function createToastStackState(props: RecipeToastStack) {
 	const position = $derived(props.position ?? 'bottom-right');
 	const maxToasts = $derived(props.maxToasts ?? 5);
 	const toasts = $derived(props.toasts ?? []);
+	const dismissAllLabel = $derived(props.dismissAllLabel ?? 'Dismiss all');
+	const canDismissAll = $derived(Boolean(props.onDismissAll) && toasts.length > 1);
 
 	const containerClasses = $derived(
 		`toast-stack toast-stack--${position} ${props.class ?? ''}`.trim()
 	);
+	const restProps = $derived.by(() => {
+		const {
+			class: _class,
+			toasts: _toasts,
+			position: _position,
+			maxToasts: _maxToasts,
+			onDismissAll: _onDismissAll,
+			dismissAllLabel: _dismissAllLabel,
+			toastClass: _toastClass,
+			...rest
+		} = props;
+		return rest;
+	});
 
-	function getToastColor(type: (typeof TOKEN_STATUS)[number]) {
+	function getToastColor(type: TokenColorTone) {
 		return `toast-item toast-item--${type}`;
 	}
 
-	function getToastIcon(type: (typeof TOKEN_STATUS)[number]) {
-		return iconMap[type] || 'info';
+	function getToastIcon(type: TokenColorTone) {
+		return TOKEN_COLOR_TONE_ICON[type];
 	}
 
-	function getToastIconColor(type: (typeof TOKEN_STATUS)[number]) {
+	function getToastIconColor(type: TokenColorTone) {
 		return `toast-item__icon toast-item__icon--${type}`;
 	}
 
@@ -39,11 +48,18 @@ export function createToastStackState(props: ToastStackProps) {
 		get maxToasts() {
 			return maxToasts;
 		},
+		get dismissAllLabel() {
+			return dismissAllLabel;
+		},
+		get canDismissAll() {
+			return canDismissAll;
+		},
+		get restProps() {
+			return restProps;
+		},
 		getToastColor,
 		getToastIcon,
 		getToastIconColor,
 		X: 'x' as const
 	};
 }
-
-export default createToastStackState;

@@ -1,4 +1,4 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { ClassProp } from '$stylist/information/type/struct/class-prop';
+import type { SlotClass } from '$stylist/theme/interface/slot/class';
 
-export interface SlotButtonAttributesBase extends Omit<HTMLButtonAttributes, 'class'>, ClassProp {}
+export interface SlotButtonAttributesBase extends Omit<HTMLButtonAttributes, 'class'>, SlotClass {}

@@ -1,4 +1,3 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { ObjectManagerColorPalette } from '$stylist/canvas/class/object-manager/color-palette';
 import type { RecipeCanvasColorPalette } from '$stylist/canvas/interface/recipe/color-palette';
 
@@ -11,7 +10,7 @@ export function createColorPaletteState(props: RecipeCanvasColorPalette) {
 	});
 
 	const palette = $derived(ObjectManagerColorPalette.resolvePalette());
-	const rootClass = $derived(mergeClassNames('c-color-picker', props.class));
+	const rootClass = $derived(['c-color-picker', props.class].filter(Boolean).join(' '));
 	const triggerClass = $derived('c-color-picker__trigger');
 	const panelClass = $derived('c-color-picker__panel');
 	const previewClass = $derived('c-color-picker__preview');

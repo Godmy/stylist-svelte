@@ -1,5 +1,5 @@
 import type { RecipeShortcutsPanel } from '$stylist/information/interface/recipe/shortcuts-panel';
-import type { ShortcutsPanelShortcut } from '$stylist/information/type/struct/shortcuts-panel-shortcut';
+import type { SlotShortcut } from '$stylist/information/interface/slot/shortcut';
 const Keyboard = 'keyboard';
 const Command = 'command';
 const Search = 'search';
@@ -12,7 +12,7 @@ const Moon = 'moon';
 const Code = 'code';
 const Copy = 'copy';
 
-const shortcuts: ShortcutsPanelShortcut[] = [
+const shortcuts: SlotShortcut[] = [
 	{
 		keys: ['Ctrl', '/'],
 		description: 'Toggle Sidebar',
@@ -65,7 +65,7 @@ const shortcuts: ShortcutsPanelShortcut[] = [
 
 export function createShortcutsPanelState(_props: RecipeShortcutsPanel) {
 	const groupedShortcuts = $derived.by(() => {
-		const groups = new Map<string, ShortcutsPanelShortcut[]>();
+		const groups = new Map<string, SlotShortcut[]>();
 		shortcuts.forEach((shortcut) => {
 			if (!groups.has(shortcut.category)) {
 				groups.set(shortcut.category, []);

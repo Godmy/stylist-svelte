@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SeparatorProps } from '$stylist/layout/type/struct/separator';
+	import type { SeparatorProps } from '$stylist/layout/interface/recipe/separator';
 	import createSeparatorState from '$stylist/layout/function/state/separator/index.svelte';
 
 	let props: SeparatorProps = $props();

@@ -1,5 +1,5 @@
-﻿import type { Language } from '$stylist/localization/type/struct/language';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { Language } from '$stylist/localization/type/struct/language';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export interface SlotLanguageSelector {
@@ -10,7 +10,7 @@ export interface SlotLanguageSelector {
 	showNativeName?: boolean;
 	searchable?: boolean;
 	dropdownPlacement?: 'top' | 'bottom';
-	variant?: TokenAppearance;
+	variant?: TokenColorTone;
 	size?: TokenSize;
 	class?: string;
 	buttonClass?: string;

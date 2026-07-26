@@ -3,50 +3,62 @@
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import ErrorMessage from './index.svelte';
 
-	let retried = $state(false);
+	let retryCount = $state(0);
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'title', type: 'text', defaultValue: 'Failed to load data' },
-		{
-			name: 'errorType',
-			type: 'select',
-			defaultValue: 'string',
-			options: ['string', 'error', 'none']
-		},
+		{ name: 'title', type: 'text', defaultValue: 'Could not load invoices' },
+		{ name: 'errorType', type: 'select', defaultValue: 'string', options: ['string', 'error', 'none'] },
 		{ name: 'showRetry', type: 'boolean', defaultValue: true }
 	];
 </script>
 
 <Story
+	id="atoms-error-message"
 	component={ErrorMessage}
 	title="ErrorMessage"
-	description="Error feedback block with optional retry action."
+	category="Atoms"
+	description="Focused error feedback block with optional retry action."
+	tags={['notification', 'error', 'feedback']}
 	{controls}
 >
 	{#snippet children(values: any)}
 		<div class="_c1">
 			<ErrorMessage
-				title={values.title}
+				title={String(values.title || 'Could not load invoices')}
 				error={values.errorType === 'none'
 					? null
 					: values.errorType === 'error'
-						? new Error('Unexpected server error')
-						: 'Unable to connect to the service.'}
-				showRetry={values.showRetry}
-				onRetry={() => (retried = true)}
+						? new Error('The server returned a malformed response.')
+						: 'The request timed out after 30 seconds.'}
+				showRetry={Boolean(values.showRetry)}
+				onRetry={() => (retryCount += 1)}
 			/>
-			<p class="_c2">Retry pressed: {retried ? 'yes' : 'no'}</p>
+			<div class="_c2">
+				<span>Retry attempts</span>
+				<strong>{retryCount}</strong>
+			</div>
 		</div>
 	{/snippet}
 </Story>
 
 <style>
-	._c1 > * + * {
-		margin-top: 0.75rem;
+	._c1 {
+		display: grid;
+		gap: 0.875rem;
+		max-width: 34rem;
+		padding: 1rem;
 	}
+
 	._c2 {
-		font-size: 0.875rem;
-		line-height: 1.25rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		width: fit-content;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.375rem;
+		background: var(--color-background-primary);
 		color: var(--color-text-secondary);
+		font-size: 0.8125rem;
+		padding: 0.375rem 0.625rem;
 	}
 </style>

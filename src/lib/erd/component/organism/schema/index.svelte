@@ -1,12 +1,16 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import { DEFAULT_SCHEMA_TEXT } from '$stylist/erd/const/value/schema-text';
+	import { EDIT_CANDIDATE_SCHEMA_TEXT } from '$stylist/erd/const/value/schema-text-candidate';
 	import { schemaTextToDocument } from '$stylist/erd/function/transform/schema-text-to-document';
 	import SchemaText from '$stylist/erd/component/organism/schema-text/index.svelte';
-	import SchemaTool from '$stylist/erd/component/organism/schema-tool/index.svelte';
+	import SchemaHeader from '$stylist/erd/component/organism/schema-header/index.svelte';
 	import SchemaView from '$stylist/erd/component/organism/schema-view/index.svelte';
+	import type { SchemaMode } from '$stylist/erd/type/alias/schema-mode';
 	import type { SchemaProps } from '$stylist/erd/type/struct/schema-props';
 
 	let {
+		title = 'Schema',
 		value = DEFAULT_SCHEMA_TEXT,
 		zoom = 1,
 		showRelations = true,
@@ -15,13 +19,28 @@
 		draggable = true
 	}: SchemaProps = $props();
 
-	let source = $state(value);
-	let currentZoom = $state(zoom);
-	let relationsVisible = $state(showRelations);
-	let relationHighlight = $state(highlightRelations);
-	let currentLayout = $state(layout);
+	// Each of these intentionally captures the prop only once (uncontrolled
+	// widget: initial value from the prop, then locally editable via the
+	// toolbar/text editor) -- untrack() makes that explicit instead of
+	// tripping the "did you mean a closure?" state_referenced_locally warning.
+	let liveSource = $state<string>(untrack(() => value));
+	// Candidate pool for Mode: Edit -- see docs/chat/20260726/001-CLAUDE-ERD-EDIT.md.
+	// Purely a format conversion of erd/data/md/schema/schema.md, nothing added
+	// or removed yet.
+	let editSource = $state<string>(EDIT_CANDIDATE_SCHEMA_TEXT);
+	let currentZoom = $state(untrack(() => zoom));
+	let relationsVisible = $state(untrack(() => showRelations));
+	let relationHighlight = $state(untrack(() => highlightRelations));
+	let currentLayout = $state(untrack(() => layout));
+	let currentMode = $state<SchemaMode>('live');
+	let textPanelVisible = $state(true);
 	let fileInput: HTMLInputElement | undefined = $state();
-	let parseResult = $derived(schemaTextToDocument(source));
+
+	// Migrate = Live + Edit.selected once table selection exists (iteration 2/3
+	// of the plan doc above). No selection UI yet, so it mirrors Live for now
+	// rather than pretending to merge nothing meaningful.
+	let activeSource = $derived(currentMode === 'edit' ? editSource : liveSource);
+	let parseResult = $derived(schemaTextToDocument(activeSource));
 
 	function clampZoom(nextZoom: number): number {
 		return Math.min(1.8, Math.max(0.45, Number(nextZoom.toFixed(2))));
@@ -32,12 +51,12 @@
 	}
 
 	function exportSchema(): void {
-		const blob = new Blob([source], { type: 'text/plain;charset=utf-8' });
+		const blob = new Blob([activeSource], { type: 'text/plain;charset=utf-8' });
 		const url = URL.createObjectURL(blob);
 		const link = document.createElement('a');
 
 		link.href = url;
-		link.download = 'schema.erd.txt';
+		link.download = `schema.${currentMode}.erd.txt`;
 		link.click();
 		URL.revokeObjectURL(url);
 	}
@@ -50,7 +69,14 @@
 			return;
 		}
 
-		source = await file.text();
+		const text = await file.text();
+
+		if (currentMode === 'edit') {
+			editSource = text;
+		} else {
+			liveSource = text;
+		}
+
 		input.value = '';
 	}
 </script>
@@ -64,27 +90,36 @@
 		onchange={handleFileImport}
 	/>
 
-	<header class="schema__toolbar">
-		<SchemaTool
-			zoom={currentZoom}
-			showRelations={relationsVisible}
-			highlightRelations={relationHighlight}
-			layout={currentLayout}
-			on:import={importSchema}
-			on:export={exportSchema}
-			on:zoom-in={() => (currentZoom = clampZoom(currentZoom + 0.1))}
-			on:zoom-out={() => (currentZoom = clampZoom(currentZoom - 0.1))}
-			on:zoom-reset={() => (currentZoom = 1)}
-			on:layout-change={(event) => (currentLayout = event.detail.layout)}
-			on:toggle-relations={(event) => (relationsVisible = event.detail.enabled)}
-			on:toggle-highlight={(event) => (relationHighlight = event.detail.enabled)}
-		/>
-	</header>
+	<SchemaHeader
+		{title}
+		zoom={currentZoom}
+		showRelations={relationsVisible}
+		highlightRelations={relationHighlight}
+		layout={currentLayout}
+		mode={currentMode}
+		{textPanelVisible}
+		on:import={importSchema}
+		on:export={exportSchema}
+		on:zoom-in={() => (currentZoom = clampZoom(currentZoom + 0.1))}
+		on:zoom-out={() => (currentZoom = clampZoom(currentZoom - 0.1))}
+		on:zoom-reset={() => (currentZoom = 1)}
+		on:layout-change={(event) => (currentLayout = event.detail.layout)}
+		on:toggle-relations={(event) => (relationsVisible = event.detail.enabled)}
+		on:toggle-highlight={(event) => (relationHighlight = event.detail.enabled)}
+		on:mode-change={(event) => (currentMode = event.detail.mode)}
+		on:toggle-text-panel={(event) => (textPanelVisible = event.detail.visible)}
+	/>
 
-	<div class="schema__workspace">
-		<aside class="schema__editor">
-			<SchemaText bind:value={source} />
-		</aside>
+	<div class={`schema__workspace ${textPanelVisible ? '' : 'schema__workspace--full'}`}>
+		{#if textPanelVisible}
+			<aside class="schema__editor">
+				{#if currentMode === 'edit'}
+					<SchemaText bind:value={editSource} />
+				{:else}
+					<SchemaText bind:value={liveSource} />
+				{/if}
+			</aside>
+		{/if}
 
 		<div class="schema__view">
 			<SchemaView
@@ -101,13 +136,11 @@
 
 <style>
 	.schema {
-		display: grid;
-		gap: 0.75rem;
+		display: flex;
+		flex-direction: column;
 		min-width: 0;
-		padding: 0.75rem;
-		border: 1px solid rgba(22, 31, 44, 0.12);
-		border-radius: 0.5rem;
-		background: #f8fafc;
+		min-height: 0;
+		height: 100%;
 	}
 
 	.schema__file-input {
@@ -119,24 +152,31 @@
 		white-space: nowrap;
 	}
 
-	.schema__toolbar {
-		display: flex;
-		justify-content: flex-start;
-	}
-
 	.schema__workspace {
 		display: grid;
 		grid-template-columns: minmax(18rem, 0.42fr) minmax(0, 1fr);
-		gap: 0.75rem;
+		gap: 0.5rem;
 		min-width: 0;
+		min-height: 0;
+		flex: 1;
+		padding: 0.5rem;
+	}
+
+	.schema__workspace--full {
+		grid-template-columns: minmax(0, 1fr);
 	}
 
 	.schema__editor,
 	.schema__view {
 		min-width: 0;
+		min-height: 0;
 	}
 
 	.schema__editor {
+		display: grid;
+	}
+
+	.schema__view {
 		display: grid;
 	}
 

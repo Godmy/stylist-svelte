@@ -20,7 +20,8 @@ export {
 	FilterText,
 	Row,
 	RowExpandable,
-	Table
+	Table,
+	TableListPanel
 } from './component';
 export {
 	PLAYGROUND_COMPONENT_CATALOG_SORT_BY,
@@ -62,6 +63,7 @@ export type {
 	PlaygroundComponentCatalogSortBy,
 	PlaygroundComponentCatalogViewMode,
 	RowExpandableProps,
+	TableListItem,
 	TableSchema,
 	TokenSortDirection
 } from './type';
@@ -75,6 +77,7 @@ export type {
 	RecipeComponent,
 	RecipeRow,
 	RecipeTable,
+	RecipeTableListPanel,
 	SlotColumnConfig,
 	SlotColumnManager,
 	SlotDataTable,

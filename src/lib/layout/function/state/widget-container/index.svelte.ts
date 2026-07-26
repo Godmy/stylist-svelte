@@ -1,4 +1,4 @@
-import type { WidgetContainerProps } from '$stylist/layout/type/alias/widget-container-props';
+import type { WidgetContainerProps } from '$stylist/layout/interface/recipe/widget-container';
 
 export function createWidgetContainerState(props: WidgetContainerProps) {
 	let isCollapsed = $state(props.initiallyCollapsed ?? false);

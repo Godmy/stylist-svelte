@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SpacerProps } from '$stylist/layout/type/struct/spacer';
+	import type { SpacerProps } from '$stylist/layout/interface/recipe/spacer';
 	import createSpacerState from '$stylist/layout/function/state/spacer/index.svelte';
 
 	let props: SpacerProps = $props();

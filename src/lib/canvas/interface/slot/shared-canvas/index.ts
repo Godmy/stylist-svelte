@@ -1,6 +1,6 @@
 import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
+import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
 

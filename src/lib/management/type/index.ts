@@ -11,7 +11,6 @@ export type {
 	INotificationSettingsPreference,
 	Metric,
 	NotificationData,
-	NotificationSettingsData,
 	NotificationType,
 	ScheduledNotificationItem,
 	StatsCardData,

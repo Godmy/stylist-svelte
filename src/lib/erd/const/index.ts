@@ -1,2 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { DEFAULT_SCHEMA_TEXT } from './value';
+export {
+	DEFAULT_SCHEMA_TEXT,
+	EDIT_CANDIDATE_SCHEMA_TEXT
+} from './value';

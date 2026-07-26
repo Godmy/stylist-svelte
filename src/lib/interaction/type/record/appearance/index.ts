@@ -1,3 +1,3 @@
-import { TOKEN_APPEARANCE } from '$stylist/interaction/const/array/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
-export type TokenAppearance = (typeof TOKEN_APPEARANCE)[number];
+export type TokenAppearance = TokenColorTone;

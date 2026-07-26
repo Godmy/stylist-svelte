@@ -1,4 +1,4 @@
-import type { SeparatorProps } from '$stylist/layout/type/struct/separator';
+import type { SeparatorProps } from '$stylist/layout/interface/recipe/separator';
 
 export function createSeparatorState(props: SeparatorProps) {
 	const orientation = $derived(props.orientation ?? 'horizontal');

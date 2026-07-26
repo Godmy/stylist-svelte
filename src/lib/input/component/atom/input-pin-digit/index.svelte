@@ -1,33 +1,17 @@
 <script lang="ts">
 	import type { RecipePinInputDigit as IPinInputDigitProps } from '$stylist/input/interface/recipe/input-pin-digit';
-	import createPinInputDigitState from '$stylist/input/function/state/input-pin-digit/index.svelte';
+	import { createFieldClassState } from '$stylist/input/function/script/create-field-class-state';
 
 	let props: IPinInputDigitProps = $props();
-	const state = createPinInputDigitState({
-		variant: (props.variant ?? 'default') as
-			| 'default'
-			| 'neutral'
-			| 'primary'
-			| 'secondary'
-			| 'success'
-			| 'info'
-			| 'warning'
-			| 'danger'
-			| 'error'
-			| 'ghost'
-			| 'link'
-			| 'flat'
-			| 'solid'
-			| 'elevated'
-			| 'outline'
-			| 'subtle'
-			| 'gray'
-			| 'dark'
-			| 'light',
-		size: props.size ?? 'md',
-		error: props.invalid,
-		class: props.class
-	});
+	const state = createFieldClassState(
+		{
+			variant: props.variant ?? 'default',
+			size: props.size ?? 'md',
+			error: props.invalid,
+			class: props.class
+		},
+		'input-pin-digit'
+	);
 	const classes = $derived(
 		[state.classes, props.focused ? 'input-pin-digit--focused' : ''].filter(Boolean).join(' ')
 	);

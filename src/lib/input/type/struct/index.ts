@@ -1,7 +1,0 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { InputFieldBaseProps } from './input-field-base-props';
-export type { InputFieldRequiredProps } from './input-field-required-props';
-export type { InputLabelProps } from './input-label-props';
-export type { InputTextStateOptions } from './input-text-state-options';
-export type { InputValueProps } from './input-value-props';
-export type { TextAreaStateOptions } from './text-area-state-options';

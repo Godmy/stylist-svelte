@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createContainerQueryState from '$stylist/layout/function/state/container-query/index.svelte';
-	import type { ContainerQueryProps } from '$stylist/layout/type/struct/layout-extended/container-query-props';
+	import type { ContainerQueryProps } from '$stylist/layout/interface/recipe/container-query';
 
 	let props: ContainerQueryProps = $props();
 	const state = createContainerQueryState(props);

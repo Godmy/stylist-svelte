@@ -1,5 +1,4 @@
 import type { Token } from '$stylist/token/type/struct/token';
-import { TOKEN_APPEARANCE } from '$stylist/interaction/const/array/appearance';
 import { TOKEN_AVAILABILITY } from '$stylist/interaction/const/array/availability';
 import { CONTENT_EDITOR_CONTENT_TYPE } from '$stylist/interaction/const/array/content-editor-content-type';
 import { TOKEN_FLOW } from '$stylist/interaction/const/array/flow';
@@ -10,9 +9,10 @@ import { TOKEN_SEVERITY } from '$stylist/interaction/const/array/sevetity';
 import { TOKEN_SORT_DIRECTION } from '$stylist/interaction/const/array/sort-direction';
 import { TOKEN_TEST } from '$stylist/interaction/const/array/test';
 import { TOKEN_TRIGGER } from '$stylist/interaction/const/array/trigger';
+import { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';
 
 export const TOKEN_INTERACTION_SETTING = [
-	{ key: 'appearance', label: 'Appearance', domain: 'interaction', controlKind: 'radio', values: TOKEN_APPEARANCE },
+	{ key: 'appearance', label: 'Appearance', domain: 'interaction', controlKind: 'radio', values: TOKEN_COLOR_TONE },
 	{ key: 'availability', label: 'Availability', domain: 'interaction', controlKind: 'radio', values: TOKEN_AVAILABILITY },
 	{ key: 'content-editor-content-type', label: 'Content Editor Content Type', domain: 'interaction', controlKind: 'radio', values: CONTENT_EDITOR_CONTENT_TYPE },
 	{ key: 'flow', label: 'Flow', domain: 'interaction', controlKind: 'radio', values: TOKEN_FLOW },

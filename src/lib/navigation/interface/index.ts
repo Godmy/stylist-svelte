@@ -3,6 +3,7 @@ export type {
 	LayoutSpecificProps,
 	LinkSpecificProps,
 	PaginationStateProps,
+	RecipeAppHeader,
 	RecipeBreadcrumb,
 	RecipeBreadcrumbDropdown,
 	RecipeBreadcrumbLink,

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createGridState from '$stylist/layout/function/state/grid/index.svelte';
-	import type { GridSvgProps } from '$stylist/layout/type/struct/grid/grid-svg-props';
+	import type { GridSvgProps } from '$stylist/layout/interface/recipe/grid-svg';
 	import stateFn from '$stylist/layout/function/state/grid-svg/index.svelte';
 
 	let props: GridSvgProps = $props();

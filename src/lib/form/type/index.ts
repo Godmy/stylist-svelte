@@ -9,6 +9,7 @@ export type {
 	LoginCredentials,
 	RadioGroupProps,
 	RadioOption,
+	SchemaFormField,
 	ToggleButtonGroupOption,
 	ToggleButtonGroupProps,
 	ValidationErrors,

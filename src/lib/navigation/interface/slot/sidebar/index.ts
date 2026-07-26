@@ -1,4 +1,4 @@
-import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
+import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TierContent } from '$stylist/architecture/type/alias/tier';
 import type { NavItem } from '$stylist/navigation/type/struct/sidebar';

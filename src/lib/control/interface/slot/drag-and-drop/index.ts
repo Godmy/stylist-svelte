@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { BehaviorDraggable } from '$stylist/interaction/interface/behavior/draggable';
 
 /**
@@ -23,7 +23,7 @@ export interface SlotDragAndDrop
 	/** Блокировка перетаскивания */
 	disabled?: boolean;
 	/** Вариант отображения */
-	variant?: TokenAppearance;
+	variant?: TokenColorTone;
 	/** Показывать индикатор перетаскивания */
 	showDragHandle?: boolean;
 	/** Курсор при перетаскивании */

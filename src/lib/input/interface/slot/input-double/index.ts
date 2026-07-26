@@ -1,6 +1,6 @@
 import type { HTMLInputAttributes } from 'svelte/elements';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 export interface SlotInputDouble {
 	label1?: string;
@@ -19,7 +19,7 @@ export interface SlotInputDouble {
 	errors2?: string[];
 	required1?: boolean;
 	required2?: boolean;
-	variant?: TokenAppearance;
+	variant?: TokenColorTone;
 	size?: TokenSize;
 	class?: string;
 }

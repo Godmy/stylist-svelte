@@ -3082,7 +3082,7 @@ CREATE TABLE investment_pools (
     CONSTRAINT fk_pool_pipeline FOREIGN KEY (pipeline_id) REFERENCES financial_pipelines(id)
 );
 
-CREATE TABLE financial_transactions (
+CREATE TABLE pipeline_financial_transactions (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     pipeline_id BIGINT NOT NULL,
     stage_id BIGINT NOT NULL,

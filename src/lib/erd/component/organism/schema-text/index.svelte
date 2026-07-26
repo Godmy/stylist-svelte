@@ -38,25 +38,36 @@
 </section>
 
 <style>
+	/* flex column, not grid+min-height:100% -- the old version forced the
+	   whole section to 100% of its (now full-viewport) parent height even
+	   though its actual content (textarea + status row) never grows to fill
+	   that much space, leaving a large dead gap and making the status row
+	   look like it "trails off" toward the bottom of the page. Here the
+	   textarea is the one flexible element (flex:1); status/errors stay
+	   their natural size right below it. */
 	.schema-text {
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		gap: 0.6rem;
-		min-height: 100%;
+		height: 100%;
+		min-height: 0;
 	}
 
 	.schema-text textarea {
+		flex: 1;
 		min-height: 420px;
 		resize: vertical;
 		padding: 0.9rem;
-		border: 1px solid rgba(22, 31, 44, 0.14);
+		border: 1px solid var(--color-border-primary, rgba(22, 31, 44, 0.14));
 		border-radius: 0.5rem;
-		background: #111827;
-		color: #edf2f7;
+		background: var(--color-background-secondary, #f9fafb);
+		color: var(--color-text-primary, #111827);
 		font: 0.86rem/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 		tab-size: 2;
 	}
 
 	.schema-text__status {
+		flex-shrink: 0;
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.45rem;
@@ -65,22 +76,23 @@
 	.schema-text__status span {
 		padding: 0.32rem 0.48rem;
 		border-radius: 0.4rem;
-		background: #edf2f7;
-		color: #334155;
+		background: var(--color-background-secondary, #edf2f7);
+		color: var(--color-text-secondary, #334155);
 		font-size: 0.76rem;
 	}
 
 	.schema-text__error-count {
-		background: #fff1f2 !important;
-		color: #be123c !important;
+		background: color-mix(in srgb, var(--color-danger-600, #dc2626) 16%, transparent) !important;
+		color: var(--color-danger-600, #dc2626) !important;
 	}
 
 	.schema-text__errors {
+		flex-shrink: 0;
 		margin: 0;
 		padding: 0.7rem 0.9rem 0.7rem 1.6rem;
 		border-radius: 0.5rem;
-		background: #fff1f2;
-		color: #9f1239;
+		background: color-mix(in srgb, var(--color-danger-600, #dc2626) 10%, transparent);
+		color: var(--color-danger-600, #dc2626);
 		font-size: 0.78rem;
 	}
 </style>

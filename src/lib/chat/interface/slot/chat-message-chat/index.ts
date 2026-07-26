@@ -1,4 +1,4 @@
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { TokenMessageStatus } from '$stylist/chat/type/alias/message-status';
 
@@ -12,5 +12,5 @@ export interface SlotChatMessage extends SlotChildren {
 	contentClass?: string;
 	headerClass?: string;
 	footerClass?: string;
-	variant?: TokenAppearance;
+	variant?: TokenColorTone;
 }

@@ -1,7 +1,6 @@
 import type { RecipeThemeGradientBackground } from '$stylist/layout/interface/recipe/gradient-background';
-import type { TokenGradient } from '$stylist/layout/type/alias/gradient-mode';
-import type { GradientBackgroundStyle } from '$stylist/layout/type/struct/gradient-background-style';
 import type { GradientDirection } from '$stylist/layout/type/alias/gradient-direction';
+import type { TokenGradient } from '$stylist/layout/type/alias/gradient-mode';
 
 export class ObjectManagerGradientBackground {
 	static readonly defaultColors = [
@@ -60,7 +59,14 @@ export class ObjectManagerGradientBackground {
 		direction: GradientDirection,
 		colors: string[],
 		speed: number
-	): GradientBackgroundStyle {
+	): {
+		backgroundImage: string;
+		gradientStart: string;
+		gradientEnd: string;
+		gradientInner: string;
+		gradientOuter: string;
+		animationDuration?: string;
+	} {
 		const animationDuration = `${speed * 0.75}s`;
 		const startColor = colors[0] ?? 'var(--color-primary-500)';
 		const endColor = colors[colors.length - 1] ?? startColor;
@@ -75,4 +81,3 @@ export class ObjectManagerGradientBackground {
 		};
 	}
 }
-

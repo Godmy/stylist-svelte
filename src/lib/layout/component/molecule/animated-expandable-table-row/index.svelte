@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createAnimatedExpandableTableRowState from '$stylist/layout/function/state/animated-expandable-table-row/index.svelte';
-	import type { AnimatedExpandableTableRowProps } from '$stylist/layout/type/struct/animated-expandable-table-row';
+	import type { AnimatedExpandableTableRowProps } from '$stylist/layout/interface/recipe/animated-expandable-table-row';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	const ChevronDown = 'chevron-down';

@@ -1,10 +1,14 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { SchemaLayout } from './alias';
+export type {
+	SchemaLayout,
+	SchemaMode
+} from './alias';
 export type {
 	SchemaDependency,
 	SchemaDependencyProps,
 	SchemaDocument,
 	SchemaField,
+	SchemaHeaderProps,
 	SchemaParseResult,
 	SchemaProps,
 	SchemaTable,

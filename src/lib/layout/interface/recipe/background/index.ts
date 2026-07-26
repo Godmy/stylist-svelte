@@ -2,7 +2,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { TokenBackground } from '$stylist/layout/type/alias/background';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 export interface RecipeThemeBackground
 	extends HTMLAttributes<HTMLDivElement>, SlotThemeBorder, SlotTypography {
@@ -14,5 +14,5 @@ export interface RecipeThemeBackground
 	backgroundRepeat?: 'no-repeat' | 'repeat' | 'repeat-x' | 'repeat-y';
 	gradient?: string;
 	opacity?: number;
-	variant?: TokenAppearance;
+	variant?: TokenColorTone;
 }

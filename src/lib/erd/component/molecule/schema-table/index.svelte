@@ -22,14 +22,14 @@
 	.schema-table {
 		width: 260px;
 		overflow: hidden;
-		border: 1px solid rgba(22, 31, 44, 0.14);
+		border: 1px solid var(--color-border-primary, rgba(22, 31, 44, 0.14));
 		border-radius: 0.5rem;
-		background: #ffffff;
+		background: var(--color-background-primary, #ffffff);
 		box-shadow: 0 16px 32px rgba(15, 23, 42, 0.1);
 	}
 
 	.schema-table--active {
-		border-color: #4d92cf;
+		border-color: var(--color-primary-500, #4d92cf);
 		box-shadow: 0 18px 34px rgba(77, 146, 207, 0.18);
 	}
 

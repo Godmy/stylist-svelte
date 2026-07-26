@@ -1,9 +1,0 @@
-import type { TokenSize } from '$stylist/theme/type/alias/size';
-import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
-
-export interface SlotStepIcon extends HtmlAttributesBase<HTMLSpanElement> {
-	status?: 'pending' | 'active' | 'completed' | 'error';
-	size?: TokenSize;
-	stepNumber?: number;
-	iconName?: string;
-}

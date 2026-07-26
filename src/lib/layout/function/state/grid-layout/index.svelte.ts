@@ -1,4 +1,4 @@
-import type { GridLayoutProps } from '$stylist/layout/type/struct/layout/grid-layout-props';
+import type { GridLayoutProps } from '$stylist/layout/interface/recipe/grid-layout';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenJustification } from '$stylist/layout/type/alias/justification';
 import type { TokenSize } from '$stylist/theme/type/alias/size';

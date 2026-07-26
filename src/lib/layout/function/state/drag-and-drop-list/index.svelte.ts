@@ -1,5 +1,5 @@
-import type { DragAndDropListItem } from '$stylist/layout/type/struct/drag-and-drop-list-item';
-import type { DragAndDropListProps } from '$stylist/layout/type/struct/drag-and-drop-list-props';
+import type { SlotDragAndDropListItem as DragAndDropListItem } from '$stylist/layout/interface/slot/drag-and-drop-list-item';
+import type { DragAndDropListProps } from '$stylist/layout/interface/recipe/drag-and-drop-list';
 
 export function createDragAndDropListState(props: DragAndDropListProps) {
 	const items = $derived(props.items ?? []);

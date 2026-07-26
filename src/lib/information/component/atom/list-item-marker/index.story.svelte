@@ -18,8 +18,8 @@
 		{
 			name: 'color',
 			type: 'select',
-			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'gray'],
-			defaultValue: 'gray'
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'neutral'],
+			defaultValue: 'neutral'
 		},
 		{
 			name: 'size',
@@ -54,9 +54,9 @@
 			<div class="_c3">
 				<h3 class="_c4">Bullet Marker</h3>
 				<div class="_c5">
-					<ListItemMarker type="bullet" color="gray" size="sm" />
-					<ListItemMarker type="bullet" color="gray" size="md" />
-					<ListItemMarker type="bullet" color="gray" size="lg" />
+					<ListItemMarker type="bullet" color="neutral" size="sm" />
+					<ListItemMarker type="bullet" color="neutral" size="md" />
+					<ListItemMarker type="bullet" color="neutral" size="lg" />
 				</div>
 			</div>
 
@@ -90,7 +90,7 @@
 					<ListItemMarker type="bullet" color="warning" size="md" />
 					<ListItemMarker type="bullet" color="danger" size="md" />
 					<ListItemMarker type="bullet" color="info" size="md" />
-					<ListItemMarker type="bullet" color="gray" size="md" />
+					<ListItemMarker type="bullet" color="neutral" size="md" />
 				</div>
 			</div>
 		</div>

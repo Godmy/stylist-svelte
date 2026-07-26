@@ -1,13 +1,13 @@
 <script lang="ts">
 	import createRichTextState from '$stylist/typography/function/state/rich-text/index.svelte';
 	import type { RecipeRichText } from '$stylist/typography/interface/recipe/rich-text';
-	import type { StructRichTextSegment } from '$stylist/typography/type/struct/rich-text-segment';
+	import type { SlotRichText } from '$stylist/typography/interface/slot/rich-text';
 
 	let props: RecipeRichText = $props();
 	const state = createRichTextState(props);
 
 	function createSegmentStyle(
-		segment: StructRichTextSegment,
+		segment: NonNullable<SlotRichText['segments']>[number],
 		disabled: boolean
 	): string | undefined {
 		const declarations: string[] = [];
@@ -37,7 +37,7 @@
 		return declarations.length > 0 ? `${declarations.join('; ')};` : undefined;
 	}
 
-	function createSegmentRel(segment: StructRichTextSegment): string | undefined {
+	function createSegmentRel(segment: NonNullable<SlotRichText['segments']>[number]): string | undefined {
 		if (segment.rel) {
 			return segment.rel;
 		}

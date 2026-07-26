@@ -1,4 +1,4 @@
-import type { StackProps } from '$stylist/layout/type/struct/stack';
+import type { StackProps } from '$stylist/layout/interface/recipe/stack';
 import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenJustification } from '$stylist/layout/type/alias/justification';

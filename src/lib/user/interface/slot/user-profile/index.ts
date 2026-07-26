@@ -23,3 +23,4 @@ export interface SlotUserProfile extends HTMLAttributes<HTMLDivElement> {
 	/** Callback when save is clicked */
 	onSave?: (user: UserData) => void;
 }
+

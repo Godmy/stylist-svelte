@@ -1,8 +1,12 @@
-import type { ViewportContract } from '$stylist/architecture/type/struct/viewport/viewport-contract';
-import type { StageCamera } from '$stylist/architecture/type/struct/stage/stage-camera';
+import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 
-export type ViewportProps = ViewportContract & {
-	camera: StageCamera;
+export type ViewportProps = LayoutHTMLAttributes<HTMLDivElement> & {
+	class?: string;
+	camera: {
+		x: number;
+		y: number;
+		zoom: number;
+	};
 	interactive?: boolean;
 	showGrid?: boolean;
 	worldWidth?: number;

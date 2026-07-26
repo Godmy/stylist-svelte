@@ -4,3 +4,4 @@ import type { SlotUserProfileCard as UserProfileCardProps } from '$stylist/user/
 
 export interface RecipeUserProfileCard
 	extends ComputeIntersectAll<[LegacyUserProfileCardProps1, UserProfileCardProps]> {}
+

@@ -1,4 +1,4 @@
-﻿import type { SlotErrorMessage as RecipeErrorMessage } from '$stylist/notification/interface/slot/error-message-error-message';
+import type { RecipeErrorMessage } from '$stylist/notification/interface/recipe/error-message';
 
 export function createErrorMessageState(props: RecipeErrorMessage) {
 	const error = props.error;
@@ -27,7 +27,9 @@ export function createErrorMessageState(props: RecipeErrorMessage) {
 		get errorMessage() {
 			return errorMessage;
 		},
-		containerClasses,
+		get containerClasses() {
+			return containerClasses;
+		},
 		titleClasses: 'error-message__title',
 		textClasses: 'error-message__text',
 		buttonClasses: 'error-message__retry-btn',

@@ -15,7 +15,7 @@
 	];
 
 	const textContent =
-		'<script lang="ts">\n\timport { Clickable } from \'$stylist/interaction/component\';\n<\\/script>';
+		'<script lang="ts">\n\timport { Clickable } from \'$stylist/interaction/component\';\n<$stylist/script>';
 	const markdownContent = `# Story Coverage\n\n- clickable\n- hoverable\n- focusable`;
 	const jsonContent = JSON.stringify(
 		{ story: 'clickable', ready: true, events: ['click', 'dblclick'] },
@@ -63,3 +63,5 @@
 		background-color: #ffffff;
 	}
 </style>
+
+

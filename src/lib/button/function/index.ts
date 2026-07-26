@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { createButtonPreset } from './script';
 export {
 	createButtonComposedState,
 	createButtonState,
@@ -9,3 +10,4 @@ export {
 	createSplitButtonState,
 	createToolButtonState
 } from './state';
+export type { ButtonPreset } from './script';

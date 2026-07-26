@@ -1,14 +1,12 @@
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { InputLabelProps } from '$stylist/input/type/struct/input-label-props';
-import type { InputValueProps } from '$stylist/input/type/struct/input-value-props';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { SlotInputBase } from '$stylist/input/interface/slot/input-base';
 
-export interface SlotInputGroup
-	extends Omit<SlotInputBase, 'type'>,
-		InputLabelProps,
-		Omit<InputValueProps, 'defaultValue'> {
+export interface SlotInputGroup extends Omit<SlotInputBase, 'type'> {
+	label?: string;
+	htmlFor?: string;
+	value?: string;
 	buttonLabel?: string;
-	buttonVariant?: TokenAppearance;
+	buttonVariant?: TokenColorTone;
 	buttonDisabled?: boolean;
 	onButtonClick?: () => void;
 	onValueInput?: (value: string) => void;

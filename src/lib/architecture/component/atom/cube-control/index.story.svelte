@@ -2,17 +2,31 @@
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import CubeControl from './index.svelte';
-	import type { CubeDebugLogEntry } from '$stylist/architecture/type/struct/cube-debug-log-entry';
 	import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
-	import type { CubeSelectionState } from '$stylist/architecture/type/struct/cube-selection-state';
 
 	let currentRotation = $state<Point2D>({ x: -22, y: 32 });
-	let selectionState = $state<CubeSelectionState>({
+	let selectionState = $state<{
+		selectedIconId: string | null;
+		selectedTitleFace: number | null;
+		selectedCellByFace: number[];
+	}>({
 		selectedIconId: null,
 		selectedTitleFace: null,
 		selectedCellByFace: [-1, -1, -1, -1, -1, -1]
 	});
-	let debugLogs = $state<CubeDebugLogEntry[]>([]);
+	let debugLogs = $state<
+		{
+			ts: number;
+			source: 'stage' | 'icon' | 'title' | 'cell';
+			action: string;
+			id?: string;
+			faceIndex?: number;
+			cellIndex?: number;
+			pointerType?: string;
+			x?: number;
+			y?: number;
+		}[]
+	>([]);
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'size', type: 'number', defaultValue: 380, min: 80, max: 520, step: 10 },

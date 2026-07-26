@@ -1,4 +1,3 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { DrawingSurfaceExposeMethodsEvent } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-expose-methods-event';
 import type { DrawingSurfaceProps } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-props';
 
@@ -19,7 +18,7 @@ export function createDrawingSurfaceState(
 	const strokeWidth = $derived(props.strokeWidth ?? 2);
 	const backgroundColor = $derived(props.backgroundColor ?? 'var(--color-background-primary)');
 	const canvasClass = $derived(
-		mergeClassNames('drawing-surface__canvas', props.class?.toString() ?? '')
+		['drawing-surface__canvas', props.class?.toString() ?? ''].filter(Boolean).join(' ')
 	);
 	const restProps = $derived.by(() => {
 		const {

@@ -1,28 +1,22 @@
 import type { RecipeButton } from '$stylist/button/interface/recipe/button';
-import { VARIANT_CLASSES } from '$stylist/interaction/const/record/variant-classes';
 import type { ButtonFactoryInput } from '$stylist/interaction/factory/button';
-import { createBasePreset } from '$stylist/interaction/preset/base';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import { createButtonPreset } from '$stylist/button/function/script/create-button-preset';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
-import { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export function createButtonState(input: ButtonFactoryInput | RecipeButton) {
-	const preset = createBasePreset<TokenAppearance, TokenSize>(
-		Object.keys(VARIANT_CLASSES) as TokenAppearance[],
-		TOKEN_SIZE,
-		{
-			variant: 'primary',
-			size: 'md'
-		}
-	);
+	const preset = createButtonPreset<TokenColorTone, TokenSize>({
+		variant: 'primary',
+		size: 'md'
+	});
 
 	const props = $derived.by(() => {
 		if ('contract' in input && 'html' in input) {
 			return {
 				...input.html.attrs,
 				...input.slots,
-				variant: input.contract.variant as TokenAppearance,
+				variant: input.contract.variant as TokenColorTone,
 				size: input.contract.size as TokenSize,
 				disabled: input.contract.disabled as boolean | undefined,
 				loading: input.contract.loading as boolean | undefined,
@@ -36,7 +30,7 @@ export function createButtonState(input: ButtonFactoryInput | RecipeButton) {
 		return input;
 	});
 
-	const variant = $derived((props.variant ?? preset.defaults.variant) as TokenAppearance);
+	const variant = $derived((props.variant ?? preset.defaults.variant) as TokenColorTone);
 	const size = $derived((props.size ?? preset.defaults.size) as TokenSize);
 	const disabled = $derived(props.disabled ?? preset.defaults.disabled);
 	const loading = $derived(props.loading ?? false);

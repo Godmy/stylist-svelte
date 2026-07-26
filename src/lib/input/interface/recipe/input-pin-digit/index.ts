@@ -1,5 +1,6 @@
 import type { SlotPinInputDigit } from '$stylist/input/interface/slot/pin-input-digit';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { HTMLInputAttributes } from 'svelte/elements';
 
 export interface RecipePinInputDigit
@@ -10,6 +11,6 @@ export interface RecipePinInputDigit
 				HTMLInputAttributes,
 				'size' | 'class' | 'onchange' | 'onfocus' | 'onblur' | 'onkeydown'
 			>,
-			{ focused?: boolean; invalid?: boolean; variant?: string; size?: 'sm' | 'md' | 'lg' }
+			{ focused?: boolean; invalid?: boolean; variant?: TokenColorTone; size?: 'sm' | 'md' | 'lg' }
 		]
 	> {}

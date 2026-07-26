@@ -1,4 +1,4 @@
-import type { ContainerProps } from '$stylist/layout/type/struct/container/container-props';
+import type { ContainerProps } from '$stylist/layout/interface/recipe/container';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export function createContainerState(props: ContainerProps) {

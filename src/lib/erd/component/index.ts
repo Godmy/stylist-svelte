@@ -7,6 +7,7 @@ export {
 export { SchemaTable } from './molecule';
 export {
 	Schema,
+	SchemaHeader,
 	SchemaText,
 	SchemaTool,
 	SchemaView

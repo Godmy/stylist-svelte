@@ -1,4 +1,4 @@
-import type { SpacerProps } from '$stylist/layout/type/struct/spacer';
+import type { SpacerProps } from '$stylist/layout/interface/recipe/spacer';
 import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
 
 function resolveSize(size?: string | number): string {

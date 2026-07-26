@@ -1,5 +1,5 @@
-import type { GridProps } from '$stylist/layout/type/struct/grid/grid-props';
-import type { LayoutHTMLAttributes } from '$stylist/layout/type/struct/item';
+import type { GridProps } from '$stylist/layout/interface/recipe/grid';
+import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 
 export function stateFn(props: GridProps) {
 	const restProps = $derived.by(() => {

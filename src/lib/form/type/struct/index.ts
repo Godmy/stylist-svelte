@@ -13,6 +13,7 @@ export type {
 	RadioGroupProps,
 	RadioOption
 } from './radio-group';
+export type { SchemaFormField } from './schema-form-field';
 export type { ToggleButtonGroupOption } from './toggle-button-group-option';
 export type { ToggleButtonGroupProps } from './toggle-button-group-props';
 export type { ValidationProps } from './validation-form-field';

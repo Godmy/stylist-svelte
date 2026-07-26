@@ -1,4 +1,4 @@
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { NotificationStateProps } from '$stylist/management/interface/recipe/notification';
 
 export function createNotificationState(props: NotificationStateProps) {
@@ -46,7 +46,7 @@ export function createNotificationState(props: NotificationStateProps) {
 	};
 
 	const iconComponent = $derived(iconMap[type] ?? 'info');
-	const visualType = $derived<TokenAppearance>(type === 'silent' ? 'info' : type);
+	const visualType = $derived<TokenColorTone>(type === 'silent' ? 'info' : type);
 
 	// Methods
 	function handleClose(): void {

@@ -1,11 +1,12 @@
 <script lang="ts">
-	import type { GraphMinimapContract } from '$stylist/architecture/type/struct/graph-minimap-contract';
 	import type { MinimapProps } from '$stylist/architecture/type/struct/minimap-props';
+	import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 	import IconButton from '$stylist/button/component/atom/icon-button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createMinimapState from '$stylist/architecture/function/state/minimap/index.svelte';
 
-	const contract: GraphMinimapContract & MinimapProps = $props();
+	const contract: LayoutHTMLAttributes<HTMLDivElement> &
+		MinimapProps & { class?: string } = $props();
 	const state = createMinimapState(contract);
 </script>
 

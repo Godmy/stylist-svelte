@@ -1,5 +1,5 @@
-import type { CardProps as LegacyCardProps1 } from '$stylist/layout/type/struct/layout-extended/card-props';
 import type { HTMLAttributes } from 'svelte/elements';
+import type { Snippet } from 'svelte';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slot/text';
 import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
@@ -10,11 +10,12 @@ import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/
 import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavior/spaced';
 import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
+import type { LayoutShape } from '$stylist/layout/type/alias/item-layout-shape';
+import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export interface RecipeCard
 	extends ComputeIntersectAll<
 		[
-			LegacyCardProps1,
 			ICaptionSlot,
 			IMediaSlot,
 			IStatusSlot,
@@ -26,4 +27,15 @@ export interface RecipeCard
 			SlotTheme,
 			HTMLAttributes<HTMLDivElement>
 		]
-	> {}
+	> {
+	class?: string;
+	children?: Snippet;
+	media?: Snippet;
+	header?: Snippet;
+	footer?: Snippet;
+	shape?: LayoutShape;
+	size?: TokenSize;
+	elevation?: number;
+	clickable?: boolean;
+	fullWidth?: boolean;
+}

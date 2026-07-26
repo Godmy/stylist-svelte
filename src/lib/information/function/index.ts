@@ -16,11 +16,15 @@ export {
 	createDotState,
 	createImageWithCaptionState,
 	createListItemMarkerState,
+	createLoadingState,
 	createMarkdownRendererState,
 	createMetricBarState,
 	createMetricBarsCardState,
 	createNpmBadgeState,
+	createProgressBarState,
 	createShortcutsPanelState,
+	createSkeletonState,
+	createSpinnerState,
 	createStatusIndicatorState,
 	createTooltipState
 } from './state';

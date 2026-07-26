@@ -1,10 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { createAddressFormState } from './address-form';
 export { createCheckboxGroupState } from './checkbox-group';
-export { createFormErrorMessageState } from './form-error-message';
 export { createFormFooterState } from './form-footer';
 export { createFormHeaderState } from './form-header';
-export { createFormHelperTextState } from './form-helper-text';
 export { createFormSelectionState } from './form-selection';
 export { createFormWithValidationState } from './form-with-validation';
 export { createLoginFormState } from './login-form';

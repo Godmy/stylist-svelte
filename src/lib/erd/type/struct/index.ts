@@ -3,6 +3,7 @@ export type { SchemaDependency } from './schema-dependency';
 export type { SchemaDependencyProps } from './schema-dependency-props';
 export type { SchemaDocument } from './schema-document';
 export type { SchemaField } from './schema-field';
+export type { SchemaHeaderProps } from './schema-header-props';
 export type { SchemaParseResult } from './schema-parse-result';
 export type { SchemaProps } from './schema-props';
 export type { SchemaTable } from './schema-table';

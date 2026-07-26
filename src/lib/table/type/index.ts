@@ -18,5 +18,6 @@ export type {
 	ComponentProps,
 	ComponentStats,
 	ComponentStory,
-	RowExpandableProps
+	RowExpandableProps,
+	TableListItem
 } from './struct';

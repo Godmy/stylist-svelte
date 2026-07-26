@@ -1,4 +1,4 @@
-import type { AspectRatioProps } from '$stylist/layout/type/struct/aspect-ratio/aspect-ratio-props';
+import type { AspectRatioProps } from '$stylist/layout/interface/recipe/aspect-ratio';
 
 export function createAspectRatioState(props: AspectRatioProps) {
 	const ratio = $derived(props.ratio ?? 1);

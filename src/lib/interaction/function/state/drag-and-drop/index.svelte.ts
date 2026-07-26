@@ -1,4 +1,3 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { SlotDragAndDrop as DragAndDropProps } from '$stylist/control/interface/slot/drag-and-drop';
 
 export function createDragAndDropState(props: DragAndDropProps) {
@@ -14,17 +13,19 @@ export function createDragAndDropState(props: DragAndDropProps) {
 	});
 
 	const classes = $derived(
-		mergeClassNames(
+		[
 			'c-drag-and-drop',
-			draggable && !disabled && 'c-drag-and-drop--draggable',
-			showDragHandle && draggable && !disabled && 'c-drag-and-drop--handle',
-			dropzone && !disabled && 'c-drag-and-drop--dropzone',
-			state.isOverDropZone && 'c-drag-and-drop--drop-active',
-			state.isDragging && 'c-drag-and-drop--dragging',
-			disabled && 'c-drag-and-drop--disabled',
-			variant !== 'default' && `c-drag-and-drop--${variant}`,
-			props.class
-		)
+			draggable && !disabled ? 'c-drag-and-drop--draggable' : '',
+			showDragHandle && draggable && !disabled ? 'c-drag-and-drop--handle' : '',
+			dropzone && !disabled ? 'c-drag-and-drop--dropzone' : '',
+			state.isOverDropZone ? 'c-drag-and-drop--drop-active' : '',
+			state.isDragging ? 'c-drag-and-drop--dragging' : '',
+			disabled ? 'c-drag-and-drop--disabled' : '',
+			variant !== 'default' ? `c-drag-and-drop--${variant}` : '',
+			props.class ?? ''
+		]
+			.filter(Boolean)
+			.join(' ')
 	);
 
 	function startDragging() {

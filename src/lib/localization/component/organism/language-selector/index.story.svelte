@@ -36,7 +36,7 @@
 		{
 			name: 'variant',
 			type: 'select',
-			options: ['default', 'ghost', 'subtle'],
+			options: ['default', 'neutral', 'primary'],
 			defaultValue: 'default'
 		},
 		{ name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' }
@@ -72,23 +72,23 @@
 				<h2 class="_c4">LanguageSelector Variants</h2>
 				<div class="_c6">
 					<div>
-						<h3 class="_c7">Subtle Variant</h3>
+						<h3 class="_c7">Neutral Variant</h3>
 						<LanguageSelector
 							{languages}
 							{currentLanguage}
 							onLanguageChange={handleLanguageChange}
-							variant="subtle"
+							variant="neutral"
 							size="sm"
 						/>
 					</div>
 					<div>
-						<h3 class="_c7">Ghost Variant (No Flags)</h3>
+						<h3 class="_c7">Primary Variant (No Flags)</h3>
 						<LanguageSelector
 							{languages}
 							{currentLanguage}
 							onLanguageChange={handleLanguageChange}
 							showFlags={false}
-							variant="ghost"
+							variant="primary"
 						/>
 					</div>
 				</div>

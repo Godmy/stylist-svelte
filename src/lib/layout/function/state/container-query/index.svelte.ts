@@ -1,5 +1,5 @@
 import type { ContainerQueryType } from '$stylist/layout/type/alias/container-query-type';
-import type { ContainerQueryProps } from '$stylist/layout/type/struct/layout-extended/container-query-props';
+import type { ContainerQueryProps } from '$stylist/layout/interface/recipe/container-query';
 
 export function createContainerQueryState(props: ContainerQueryProps) {
 	const containerType = $derived<ContainerQueryType>(props.containerType ?? 'inline-size');

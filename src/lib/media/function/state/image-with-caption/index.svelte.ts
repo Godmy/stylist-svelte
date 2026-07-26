@@ -27,5 +27,15 @@ export function createImageWithCaptionState(props: ContractImageWithCaption) {
 		['c-image-with-caption__caption', props.captionClass].filter(Boolean).join(' ')
 	);
 
-	return { hostClasses, imageClasses, captionClasses };
+	return {
+		get hostClasses() {
+			return hostClasses;
+		},
+		get imageClasses() {
+			return imageClasses;
+		},
+		get captionClasses() {
+			return captionClasses;
+		}
+	};
 }

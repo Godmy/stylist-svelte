@@ -6,3 +6,4 @@ export type { ComponentProps } from './component-props';
 export type { ComponentStats } from './component-stats';
 export type { ComponentStory } from './component-story';
 export type { RowExpandableProps } from './row-expandable-props';
+export type { TableListItem } from './table-list-item';

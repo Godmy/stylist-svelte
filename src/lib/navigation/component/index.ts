@@ -29,6 +29,7 @@ export {
 	Tabs
 } from './molecule';
 export {
+	AppHeader,
 	Dialog,
 	Drawer,
 	Modal,

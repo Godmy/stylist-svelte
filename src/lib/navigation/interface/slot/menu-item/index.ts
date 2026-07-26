@@ -1,4 +1,4 @@
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 export interface SlotMenuItem {
 	/**
@@ -11,7 +11,7 @@ export interface SlotMenuItem {
 	 * Variant of the menu item
 	 * @default 'default'
 	 */
-	variant?: TokenAppearance;
+	variant?: TokenColorTone;
 
 	/**
 	 * Link URL for the menu item

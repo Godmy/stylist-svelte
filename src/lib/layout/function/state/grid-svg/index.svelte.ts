@@ -1,4 +1,4 @@
-import type { GridSvgProps } from '$stylist/layout/type/struct/grid/grid-svg-props';
+import type { GridSvgProps } from '$stylist/layout/interface/recipe/grid-svg';
 
 export function stateFn(props: GridSvgProps) {
 	const gridSize = $derived(props.gridSize ?? 50);

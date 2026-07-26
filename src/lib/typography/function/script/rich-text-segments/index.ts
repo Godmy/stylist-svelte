@@ -1,10 +1,9 @@
-import type { StructRichTextMark } from '$stylist/typography/type/struct/rich-text-mark';
-import type { StructRichTextSegment } from '$stylist/typography/type/struct/rich-text-segment';
+import type { SlotRichText } from '$stylist/typography/interface/slot/rich-text';
 
 export function createRichTextSegments(
 	text: string,
-	marks: StructRichTextMark[] = []
-): StructRichTextSegment[] {
+	marks: NonNullable<SlotRichText['marks']> = []
+): NonNullable<SlotRichText['segments']> {
 	const normalizedText = typeof text === 'string' ? text : '';
 
 	if (normalizedText.length === 0) {
@@ -44,11 +43,11 @@ export function createRichTextSegments(
 	}
 
 	const sortedBoundaries = [...boundaries].sort((left, right) => left - right);
-	const segments: StructRichTextSegment[] = [];
+	const segments: NonNullable<SlotRichText['segments']> = [];
 
 	const getLastDefinedValue = <Value>(
-		activeMarks: StructRichTextMark[],
-		pick: (mark: StructRichTextMark) => Value | undefined
+		activeMarks: NonNullable<SlotRichText['marks']>,
+		pick: (mark: NonNullable<SlotRichText['marks']>[number]) => Value | undefined
 	): Value | undefined => {
 		for (let index = activeMarks.length - 1; index >= 0; index -= 1) {
 			const value = pick(activeMarks[index]);
@@ -60,7 +59,10 @@ export function createRichTextSegments(
 		return undefined;
 	};
 
-	const canMergeSegments = (left: StructRichTextSegment, right: StructRichTextSegment) =>
+	const canMergeSegments = (
+		left: NonNullable<SlotRichText['segments']>[number],
+		right: NonNullable<SlotRichText['segments']>[number]
+	) =>
 		left.tag === right.tag &&
 		left.color === right.color &&
 		left.backgroundColor === right.backgroundColor &&
@@ -108,7 +110,7 @@ export function createRichTextSegments(
 						? 'mark'
 						: 'span';
 
-		const nextSegment: StructRichTextSegment = {
+		const nextSegment: NonNullable<SlotRichText['segments']>[number] = {
 			key: `${start}:${end}:${tag}:${href ?? 'plain'}`,
 			text: segmentText,
 			tag,

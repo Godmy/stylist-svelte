@@ -1,14 +1,22 @@
 import { resolveAllowedOption } from '$stylist/interaction/function/script/resolve-allowed-option';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import { TOKEN_APPEARANCE } from '$stylist/interaction/const/array/appearance';
+import { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';
 import { TOKEN_SIZE } from '$stylist/theme/const/array/size';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-import type { TextAreaStateOptions } from '$stylist/input/type/struct/text-area-state-options';
+import type { InputStateOptions } from '$stylist/input/type/script/create-input-field-state';
 
-export const createTextareaState = (props: TextAreaStateOptions) => {
+export const createTextareaState = (
+	props: InputStateOptions & {
+		id?: string;
+		value?: string;
+		maxlength?: number;
+		helperText?: string;
+		showHelperWhenError?: boolean;
+		autoResize?: boolean;
+	}
+) => {
 	const variant = $derived(
-		resolveAllowedOption(props.variant as TokenAppearance | undefined, TOKEN_APPEARANCE, 'default')
+		resolveAllowedOption(props.variant as TokenColorTone | undefined, TOKEN_COLOR_TONE, 'default')
 	);
 	const size = $derived(resolveAllowedOption(props.size as TokenSize | undefined, TOKEN_SIZE, 'md'));
 	const disabled = $derived(!!props.disabled);
@@ -20,7 +28,11 @@ export const createTextareaState = (props: TextAreaStateOptions) => {
 		typeof props.maxlength === 'number' ? props.maxlength - currentLength : null
 	);
 	const showHelper = $derived(!!props.helperText && (!!props.showHelperWhenError || !hasError));
-	const classes = $derived(mergeClassNames('input-field__control', props.class));
+	const classes = $derived(
+		['input-field__control', typeof props.class === 'string' ? props.class : '']
+			.filter(Boolean)
+			.join(' ')
+	);
 
 	function autoResizeTextarea(textareaElement: HTMLTextAreaElement | null) {
 		if (!props.autoResize || !textareaElement) {

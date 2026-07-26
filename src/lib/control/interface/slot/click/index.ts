@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 export interface SlotClick extends HTMLAttributes<HTMLDivElement> {
 	/** Обработчик клика */
@@ -19,7 +19,7 @@ export interface SlotClick extends HTMLAttributes<HTMLDivElement> {
 	/** Блокировка клика */
 	disabled?: boolean;
 	/** Вариант отображения */
-	variant?: TokenAppearance;
+	variant?: TokenColorTone;
 	/** Показывать эффект нажатия */
 	pressEffect?: boolean;
 	/** Показывать эффект наведения */

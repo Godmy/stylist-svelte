@@ -1,4 +1,3 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { RecipeAccountSettingsForm } from '$stylist/user/interface/recipe/account-settings-form';
 
 export function createAccountSettingsFormState(props: RecipeAccountSettingsForm) {
@@ -12,7 +11,9 @@ export function createAccountSettingsFormState(props: RecipeAccountSettingsForm)
 	const localeId = 'account-settings-locale';
 
 	const containerClasses = $derived(
-		mergeClassNames('c-account-settings-form border rounded-lg p-4 space-y-3', className)
+		['c-account-settings-form border rounded-lg p-4 space-y-3', className]
+			.filter(Boolean)
+			.join(' ')
 	);
 
 	const restProps = $derived.by(() => {
@@ -47,3 +48,4 @@ export function createAccountSettingsFormState(props: RecipeAccountSettingsForm)
 		}
 	};
 }
+

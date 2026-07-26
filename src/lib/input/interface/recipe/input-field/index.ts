@@ -1,5 +1,3 @@
-import type { InputFieldRequiredProps } from '$stylist/input/type/struct/input-field-required-props';
-import type { InputFieldBaseProps } from '$stylist/input/type/struct/input-field-base-props';
 import type { RecipeInputFieldProps } from '$stylist/input/interface/recipe/input-field-props';
 import type { SlotInputField } from '$stylist/input/interface/slot/input-field';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
@@ -13,8 +11,16 @@ import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/s
 export interface RecipeInputField
 	extends ComputeIntersectAll<
 		[
-			InputFieldRequiredProps,
-			InputFieldBaseProps,
+			{
+				required?: boolean;
+				requiredLabel?: string;
+			},
+			{
+				label?: string;
+				helperText?: string;
+				error?: boolean;
+				errorMessage?: string;
+			},
 			RecipeInputFieldProps,
 			SlotInputField,
 			ILabelSlot,

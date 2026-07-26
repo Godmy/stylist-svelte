@@ -11,7 +11,7 @@
  * Dependency Inversion: Зависит от абстракций, а не от конкретных реализаций
  */
 
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { SlotFileMetadata } from '$stylist/file/interface/slot/file-metadata';
 
 export interface SlotDownloadCard {
@@ -19,7 +19,7 @@ export interface SlotDownloadCard {
 	file: SlotFileMetadata;
 
 	/** Вариант оформления */
-	variant?: TokenAppearance;
+	variant?: TokenColorTone;
 
 	/** URL для скачивания файла */
 	downloadUrl: string;

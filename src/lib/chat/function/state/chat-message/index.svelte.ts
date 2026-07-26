@@ -1,4 +1,4 @@
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 type MessageStatus = 'sent' | 'delivered' | 'read';
@@ -14,7 +14,7 @@ export const createChatMessageState = (props: {
 	contentClass?: string;
 	headerClass?: string;
 	footerClass?: string;
-	variant?: TokenAppearance;
+	variant?: TokenColorTone;
 }) => {
 	const statusIcon = $derived(
 		{

@@ -1,5 +1,5 @@
 import type { CenteredLayoutAxis } from '$stylist/layout/type/alias/centered-layout-axis';
-import type { CenteredLayoutProps } from '$stylist/layout/type/struct/layout-extended/centered-layout-props';
+import type { CenteredLayoutProps } from '$stylist/layout/interface/recipe/centered-layout';
 
 export function createCenteredLayoutState(props: CenteredLayoutProps) {
 	const axis = $derived<CenteredLayoutAxis>(props.axis ?? 'both');

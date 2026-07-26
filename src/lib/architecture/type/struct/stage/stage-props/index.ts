@@ -1,8 +1,12 @@
-import type { StageContract } from '$stylist/architecture/type/struct/stage/stage-contract';
-import type { StageCamera } from '$stylist/architecture/type/struct/stage/stage-camera';
+import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 
-export type StageProps = StageContract & {
-	camera: StageCamera;
+export type StageProps = LayoutHTMLAttributes<HTMLDivElement> & {
+	class?: string;
+	camera: {
+		x: number;
+		y: number;
+		zoom: number;
+	};
 	worldWidth?: number;
 	worldHeight?: number;
 };

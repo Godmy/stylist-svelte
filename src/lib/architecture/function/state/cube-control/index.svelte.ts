@@ -1,7 +1,5 @@
 import type { CubeControlProps } from '$stylist/architecture/type/struct/cube-control-props';
 import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
-import type { CubeSelectionState } from '$stylist/architecture/type/struct/cube-selection-state';
-import type { CubeDebugLogEntry } from '$stylist/architecture/type/struct/cube-debug-log-entry';
 import { TOKEN_CUBE_FACE_TITLE } from '$stylist/architecture/const/array/cube-face-title';
 import { TOKEN_CUBE_FACE_NAME } from '$stylist/architecture/const/array/cube-face-name';
 import { CUBE_FACE_NUMBERS_SNAPSHOT } from '$stylist/architecture/const/record/cube-face-numbers-snapshot';
@@ -98,7 +96,17 @@ export function createCubeControlState(props: CubeControlProps) {
 		});
 	}
 
-	function pushDebugLog(entry: CubeDebugLogEntry) {
+	function pushDebugLog(entry: {
+		ts: number;
+		source: 'stage' | 'icon' | 'title' | 'cell';
+		action: string;
+		id?: string;
+		faceIndex?: number;
+		cellIndex?: number;
+		pointerType?: string;
+		x?: number;
+		y?: number;
+	}) {
 		props.onDebugLog?.(entry);
 	}
 
@@ -115,7 +123,11 @@ export function createCubeControlState(props: CubeControlProps) {
 		rotationY = 32;
 	}
 
-	const selectionState: CubeSelectionState = {
+	const selectionState: {
+		selectedIconId: string | null;
+		selectedTitleFace: number | null;
+		selectedCellByFace: number[];
+	} = {
 		get selectedIconId() {
 			return selectedIconId;
 		},

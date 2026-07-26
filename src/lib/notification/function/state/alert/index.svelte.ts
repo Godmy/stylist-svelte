@@ -12,20 +12,21 @@ export function createAlertState(props: RecipeAlert) {
 		secondary: 'info'
 	} as const;
 
-	const IconComponent = $derived(iconMap[props.variant as keyof typeof iconMap]);
+	const variant = $derived(props.variant ?? 'info');
+	const IconComponent = $derived(iconMap[variant as keyof typeof iconMap] ?? 'info');
 	const XIcon = 'x';
 
 	const alertClasses = $derived(
-		joinClassNames('alert-container', `variant-${props.variant}`, props.class ?? '')
+		joinClassNames('alert-container', `variant-${variant}`, props.class ?? '')
 	);
-	const iconContainerClasses = $derived('alert-icon');
-	const iconClasses = $derived(joinClassNames('alert-icon', `variant-${props.variant}`));
-	const textContainerClasses = $derived('alert-content');
+	const iconContainerClasses = $derived('alert-icon-wrap');
+	const iconClasses = $derived(joinClassNames('alert-icon', `variant-${variant}`));
+	const textContainerClasses = $derived('alert-text');
 	const titleClasses = $derived('alert-title');
 	const contentContainerClasses = $derived('alert-description');
 	const mainContainerClasses = $derived('alert-content');
-	const closeButtonContainerClasses = $derived('alert-content');
-	const closeButtonClasses = $derived(joinClassNames('alert-icon', `variant-${props.variant}`));
+	const closeButtonContainerClasses = $derived('alert-close');
+	const closeButtonClasses = $derived(joinClassNames('alert-close-button', `variant-${variant}`));
 
 	let open = $state(true);
 

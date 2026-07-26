@@ -18,6 +18,7 @@ export {
 } from './const';
 export {
 	createButtonComposedState,
+	createButtonPreset,
 	createButtonState,
 	createCloseButtonState,
 	createCopyButtonState,
@@ -31,6 +32,7 @@ export type {
 	SplitButtonButtonAttributes,
 	ToolButtonProps
 } from './type';
+export type { ButtonPreset } from './function';
 export type {
 	RecipeButton,
 	RecipeButtonComposed,

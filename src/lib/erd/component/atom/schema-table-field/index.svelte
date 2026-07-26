@@ -32,13 +32,14 @@
 		align-items: center;
 		gap: 0.65rem;
 		padding: 0.58rem 0.8rem;
-		border-bottom: 1px solid rgba(22, 31, 44, 0.08);
-		color: #202b3c;
+		border-bottom: 1px solid var(--color-border-primary, rgba(22, 31, 44, 0.08));
+		background: var(--color-background-primary, transparent);
+		color: var(--color-text-primary, #202b3c);
 	}
 
 	.schema-table-field--active,
 	.schema-table-field--related {
-		background: #fff7ed;
+		background: color-mix(in srgb, #d46b34 12%, var(--color-background-primary, #fff7ed));
 	}
 
 	.schema-table-field__main {
@@ -58,7 +59,7 @@
 	}
 
 	.schema-table-field__type {
-		color: #637083;
+		color: var(--color-text-secondary, #637083);
 		font-size: 0.78rem;
 	}
 
@@ -72,8 +73,8 @@
 	.schema-table-field__badges span {
 		padding: 0.12rem 0.28rem;
 		border-radius: 0.35rem;
-		background: #e8edf4;
-		color: #3b4657;
+		background: var(--color-background-secondary, #e8edf4);
+		color: var(--color-text-secondary, #3b4657);
 		font-size: 0.62rem;
 		font-weight: 700;
 	}

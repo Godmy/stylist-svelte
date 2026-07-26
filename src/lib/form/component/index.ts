@@ -16,6 +16,7 @@ export {
 	AddressForm,
 	FormWithValidation,
 	LoginForm,
+	SchemaFormDialog,
 	ScreenReader,
 	SearchForm
 } from './organism';

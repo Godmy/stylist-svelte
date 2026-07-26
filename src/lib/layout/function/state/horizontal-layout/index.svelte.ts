@@ -1,4 +1,4 @@
-import type { HorizontalLayoutProps } from '$stylist/layout/type/struct/layout-extended/horizontal-layout-props';
+import type { HorizontalLayoutProps } from '$stylist/layout/interface/recipe/horizontal-layout';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenJustification } from '$stylist/layout/type/alias/justification';
 

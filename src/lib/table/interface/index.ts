@@ -8,7 +8,8 @@ export type {
 	RecipeColumn,
 	RecipeComponent,
 	RecipeRow,
-	RecipeTable
+	RecipeTable,
+	RecipeTableListPanel
 } from './recipe';
 export type {
 	SlotColumnConfig,

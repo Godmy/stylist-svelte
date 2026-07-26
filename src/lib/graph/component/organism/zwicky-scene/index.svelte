@@ -38,21 +38,21 @@
 		<div class="zwicky-scene__metrics">
 			<div class="zwicky-scene__metric">
 				<span>{state.nodeCount.toLocaleString()}</span>
-				<label>nodes</label>
+				<small>nodes</small>
 			</div>
 			<div class="zwicky-scene__metric">
 				<span>{state.edgeCount.toLocaleString()}</span>
-				<label>edges</label>
+				<small>edges</small>
 			</div>
 			<div class="zwicky-scene__metric">
 				<span>{state.isLoaded ? 'GPU' : '—'}</span>
-				<label>render</label>
+				<small>render</small>
 			</div>
 		</div>
 
 		{#if state.selectedNode}
 			<div class="zwicky-scene__selection">
-				<label>selected</label>
+				<small>selected</small>
 				<code class="zwicky-scene__path">{state.selectedNode.path}</code>
 				<div class="zwicky-scene__tags">
 					<span class="zwicky-scene__tag--domain">{state.selectedNode.domain}</span>
@@ -176,7 +176,7 @@
 		color: rgb(240 250 255);
 	}
 
-	.zwicky-scene__metric label {
+	.zwicky-scene__metric small {
 		display: block;
 		margin-top: 0.1rem;
 		font-size: 0.64rem;
@@ -194,7 +194,7 @@
 		gap: 0.28rem;
 	}
 
-	.zwicky-scene__selection > label {
+	.zwicky-scene__selection > small {
 		font-size: 0.64rem;
 		text-transform: uppercase;
 		color: rgb(155 175 200);

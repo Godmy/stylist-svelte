@@ -20,5 +20,6 @@ export {
 export {
 	Component,
 	DataTable,
-	DataTableShell
+	DataTableShell,
+	TableListPanel
 } from './organism';

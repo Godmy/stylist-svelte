@@ -1,13 +1,21 @@
 <script lang="ts">
-	import createToastStackState from '$stylist/notification/function/state/toast-stack/index.svelte';
+	import { createToastStackState } from '$stylist/notification/function/state/toast-stack/index.svelte';
+	import type { RecipeToastStack } from '$stylist/notification/interface/recipe/toast-stack';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
-	const props = $props();
+	const props: RecipeToastStack = $props();
 	const state = createToastStackState(props);
 </script>
 
 {#if state.toasts.length > 0}
-	<div class={state.containerClasses} {...props}>
+	<div class={state.containerClasses} {...state.restProps}>
+		{#if state.canDismissAll}
+			<div class="toast-stack__toolbar">
+				<button type="button" class="toast-stack__dismiss-all" onclick={props.onDismissAll}>
+					{state.dismissAllLabel}
+				</button>
+			</div>
+		{/if}
 		{#each state.toasts.slice(0, state.maxToasts) as toast}
 			<div class={`${state.getToastColor(toast.type)} ${props.toastClass ?? ''}`}>
 				<div class="toast-item__body">
@@ -35,16 +43,18 @@
 						{/if}
 					</div>
 
-					<div class="toast-item__dismiss">
-						<button
-							type="button"
-							class="toast-item__dismiss-btn"
-							onclick={() => toast.onDismiss && toast.onDismiss()}
-							aria-label="Dismiss toast"
-						>
-							<Icon name={state.X} class="toast-item__dismiss-icon" />
-						</button>
-					</div>
+					{#if toast.onDismiss}
+						<div class="toast-item__dismiss">
+							<button
+								type="button"
+								class="toast-item__dismiss-btn"
+								onclick={toast.onDismiss}
+								aria-label="Dismiss toast"
+							>
+								<Icon name={state.X} class="toast-item__dismiss-icon" />
+							</button>
+						</div>
+					{/if}
 				</div>
 			</div>
 		{/each}
@@ -58,6 +68,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
+		width: min(24rem, calc(100vw - 2rem));
 	}
 
 	.toast-stack--top-right {
@@ -87,13 +98,50 @@
 		transform: translateX(-50%);
 	}
 
+	.toast-stack__toolbar {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.toast-stack__dismiss-all {
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--border-radius-base, 0.375rem);
+		background: var(--color-background-primary);
+		color: var(--color-text-secondary);
+		box-shadow: var(--shadow-sm, 0 1px 2px rgb(15 23 42 / 0.08));
+		cursor: pointer;
+		font-size: 0.75rem;
+		font-weight: 650;
+		line-height: 1rem;
+		padding: 0.375rem 0.625rem;
+	}
+
+	.toast-stack__dismiss-all:hover {
+		color: var(--color-text-primary);
+		background: var(--color-background-secondary);
+	}
+
 	.toast-item {
 		width: 100%;
-		max-width: 20rem;
 		border-radius: var(--border-radius-large, 0.5rem);
 		border: 1px solid transparent;
 		padding: 1rem;
 		box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+	}
+
+	.toast-item--default,
+	.toast-item--neutral {
+		background-color: var(--color-neutral-50);
+		border-color: var(--color-neutral-200);
+		color: var(--color-neutral-800);
+	}
+
+	.toast-item--primary,
+	.toast-item--secondary,
+	.toast-item--tertiary {
+		background-color: var(--color-primary-50);
+		border-color: var(--color-primary-200);
+		color: var(--color-primary-800);
 	}
 
 	.toast-item--success {
@@ -108,6 +156,7 @@
 		color: #92400e;
 	}
 
+	.toast-item--danger,
 	.toast-item--error {
 		background-color: var(--color-danger-50);
 		border-color: var(--color-danger-200);
@@ -123,6 +172,7 @@
 	.toast-item__body {
 		display: flex;
 		align-items: flex-start;
+		gap: 0.75rem;
 	}
 
 	.toast-item__icon-wrap {
@@ -148,8 +198,8 @@
 	}
 
 	.toast-item__content {
-		margin-left: 0.75rem;
 		flex: 1;
+		min-width: 0;
 	}
 
 	.toast-item__title {
@@ -159,13 +209,16 @@
 	}
 
 	.toast-item__message {
+		line-height: 1.35;
 		margin-top: 0.25rem;
 		font-size: 0.875rem;
+		overflow-wrap: anywhere;
 	}
 
 	.toast-item__actions {
 		margin-top: 0.75rem;
 		display: flex;
+		flex-wrap: wrap;
 		gap: 0.5rem;
 	}
 

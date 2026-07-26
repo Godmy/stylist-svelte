@@ -37,19 +37,19 @@
 		<div class="scene__metric-grid">
 			<div>
 				<span>{state.debugInfo.graphNodes}</span>
-				<label>nodes</label>
+				<small>nodes</small>
 			</div>
 			<div>
 				<span>{state.debugInfo.graphConnections}</span>
-				<label>links</label>
+				<small>links</small>
 			</div>
 			<div>
 				<span>{state.debugInfo.drawCount}</span>
-				<label>frames</label>
+				<small>frames</small>
 			</div>
 		</div>
 		<div class="scene__selection">
-			<label>selected</label>
+			<small>selected</small>
 			<span>{state.debugInfo.selectedAtom}</span>
 		</div>
 		{#if state.debugInfo.lastError}
@@ -146,8 +146,8 @@
 		font-size: 1.1rem;
 	}
 
-	.scene__metric-grid label,
-	.scene__selection label {
+	.scene__metric-grid small,
+	.scene__selection small {
 		display: block;
 		margin-top: 0.18rem;
 		color: rgb(171 184 198);

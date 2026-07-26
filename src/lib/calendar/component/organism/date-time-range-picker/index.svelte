@@ -1,3 +1,7 @@
+<script module lang="ts">
+	let uidCounter = 0;
+</script>
+
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { SlotDatePicker as DateTimeRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-picker';
@@ -7,6 +11,8 @@
 
 	let props: DateTimeRangePickerComponentProps = $props();
 	const state = createDateTimeRangePickerState(props);
+
+	const fieldId = `dtrp-${uidCounter++}`;
 </script>
 
 <div class={`c-date-time-range-picker ${state.className}`.trim()}>
@@ -32,15 +38,17 @@
 			<div class="c-dtrp__grid">
 				<div class="c-dtrp__col">
 					<div class="c-dtrp__col-header">Start</div>
-					<label class="c-dtrp__field-label">Date</label>
+					<label class="c-dtrp__field-label" for={`${fieldId}-start-date`}>Date</label>
 					<input
+						id={`${fieldId}-start-date`}
 						type="date"
 						class="c-dtrp__field-input"
 						value={state.toDateInput(state.selectedRange.start)}
 						onchange={(e) => state.changeDate('start', (e.target as HTMLInputElement).value)}
 					/>
-					<label class="c-dtrp__field-label">Time</label>
+					<label class="c-dtrp__field-label" for={`${fieldId}-start-time`}>Time</label>
 					<input
+						id={`${fieldId}-start-time`}
 						type="time"
 						class="c-dtrp__field-input"
 						value={state.toTimeInput(state.selectedRange.start)}
@@ -53,15 +61,17 @@
 
 				<div class="c-dtrp__col">
 					<div class="c-dtrp__col-header">End</div>
-					<label class="c-dtrp__field-label">Date</label>
+					<label class="c-dtrp__field-label" for={`${fieldId}-end-date`}>Date</label>
 					<input
+						id={`${fieldId}-end-date`}
 						type="date"
 						class="c-dtrp__field-input"
 						value={state.toDateInput(state.selectedRange.end)}
 						onchange={(e) => state.changeDate('end', (e.target as HTMLInputElement).value)}
 					/>
-					<label class="c-dtrp__field-label">Time</label>
+					<label class="c-dtrp__field-label" for={`${fieldId}-end-time`}>Time</label>
 					<input
+						id={`${fieldId}-end-time`}
 						type="time"
 						class="c-dtrp__field-input"
 						value={state.toTimeInput(state.selectedRange.end)}

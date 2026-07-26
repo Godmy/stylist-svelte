@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import type { StackProps } from '$stylist/layout/type/struct/stack';
+<script lang="ts">
+	import type { StackProps } from '$stylist/layout/interface/recipe/stack';
 	import createStackState from '$stylist/development/function/state/stack/index.svelte';
 
 	let props: StackProps = $props();

@@ -9,7 +9,6 @@ export function createNotificationBadgeState(props: RecipeNotificationBadge) {
 	const showZero = $derived(props.showZero ?? false);
 	const className = $derived(props.class ?? '');
 	const badgeClass = $derived(props.badgeClass ?? '');
-
 	const showDot = $derived(marker === 'dot');
 
 	const badgeContent = $derived.by(() => {
@@ -21,6 +20,19 @@ export function createNotificationBadgeState(props: RecipeNotificationBadge) {
 	});
 
 	const shouldShow = $derived(count > 0 || showZero || showDot);
+	const containerClasses = $derived(`notification-badge ${className}`.trim());
+	const fallbackClasses = $derived(className || 'notification-badge__fallback');
+	const badgeClasses = $derived(
+		[
+			'notification-badge__badge',
+			`notification-badge__badge--${appearance}`,
+			`notification-badge__badge--${position}`,
+			showDot ? 'notification-badge__badge--dot' : '',
+			badgeClass
+		]
+			.filter(Boolean)
+			.join(' ')
+	);
 
 	const restProps = $derived.by(() => {
 		const {
@@ -65,6 +77,15 @@ export function createNotificationBadgeState(props: RecipeNotificationBadge) {
 		},
 		get shouldShow() {
 			return shouldShow;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get fallbackClasses() {
+			return fallbackClasses;
+		},
+		get badgeClasses() {
+			return badgeClasses;
 		},
 		get restProps() {
 			return restProps;

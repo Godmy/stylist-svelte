@@ -1,4 +1,3 @@
-import type { BaseCardProps as LegacyBaseCardProps1 } from '$stylist/information/type/struct/base-card-props';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
@@ -12,11 +11,9 @@ import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/medi
 export interface RecipeBaseCard
 	extends ComputeIntersectAll<
 		[
-			LegacyBaseCardProps1,
 			SlotTheme,
 			ComputeIntersectAll<
 				[
-					LegacyBaseCardProps1,
 					ILabelSlot,
 					ICaptionSlot,
 					IMediaSlot,
@@ -34,4 +31,5 @@ export interface RecipeBaseCard
 	disabled?: boolean;
 	headerClass?: string;
 	bodyClass?: string;
+	footerClass?: string;
 }

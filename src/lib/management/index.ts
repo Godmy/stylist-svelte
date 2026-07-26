@@ -77,7 +77,6 @@ export type {
 	INotificationSettingsPreference,
 	Metric,
 	NotificationData,
-	NotificationSettingsData,
 	NotificationType,
 	PerformanceMonitorStatus,
 	ScheduledNotificationItem,

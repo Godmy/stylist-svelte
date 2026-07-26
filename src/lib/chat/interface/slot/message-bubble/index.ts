@@ -1,5 +1,5 @@
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 /**
  * @file MessageBubble Types
@@ -50,7 +50,7 @@ export interface SlotMessageBubble {
 	 * Visual variant of the message bubble
 	 * @default 'primary'
 	 */
-	variant?: TokenAppearance;
+	variant?: TokenColorTone;
 
 	/**
 	 * Additional CSS classes to apply to the component

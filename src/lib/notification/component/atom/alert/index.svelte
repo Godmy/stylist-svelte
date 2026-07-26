@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { createAlertState } from '$stylist/notification/function/state/alert/index.svelte';
+	import type { RecipeAlert } from '$stylist/notification/interface/recipe/alert';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
-	const props = $props();
+	const props: RecipeAlert = $props();
 	const state = createAlertState(props);
 </script>
 
 {#if state.open}
 	<div role="alert" class={state.alertClasses} aria-live="polite" aria-atomic="true">
 		<div class={state.mainContainerClasses}>
-			{#if props.icon}
+			{#if props.showIcon}
 				<div class={state.iconContainerClasses}>
 					<Icon name={state.IconComponent} class={state.iconClasses} aria-hidden="true" />
 				</div>
@@ -19,13 +20,11 @@
 					<h3 class={state.titleClasses}>{props.title}</h3>
 				{/if}
 				<div class={state.contentContainerClasses}>
-					<p>
-						{#if props.content}
-							{@render props.content()}
-						{:else if props.children}
-							{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
-						{/if}
-					</p>
+					{#if props.content}
+						{@render props.content()}
+					{:else if props.children}
+						{@render props.children()}
+					{/if}
 				</div>
 			</div>
 			{#if props.closable}
@@ -33,7 +32,7 @@
 					<button
 						type="button"
 						class={state.closeButtonClasses}
-						aria-label="Закрыть"
+						aria-label="Close alert"
 						onclick={state.handleClose}
 					>
 						<Icon name={state.XIcon} class="alert-close-icon" aria-hidden="true" />
@@ -49,6 +48,7 @@
 		padding: 1rem;
 		border-radius: var(--border-radius-base, 0.375rem);
 		border: 1px solid transparent;
+		box-shadow: var(--shadow-sm, 0 1px 2px rgb(15 23 42 / 0.08));
 	}
 
 	.alert-container.variant-info {
@@ -94,6 +94,20 @@
 		gap: 0.75rem;
 	}
 
+	.alert-text {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.alert-close {
+		flex: 0 0 auto;
+		margin-left: auto;
+	}
+
+	.alert-icon-wrap {
+		flex: 0 0 auto;
+	}
+
 	.alert-icon {
 		flex-shrink: 0;
 		width: 1.25rem;
@@ -122,12 +136,38 @@
 
 	.alert-title {
 		font-size: 0.875rem;
-		font-weight: 600;
+		font-weight: 650;
+		line-height: 1.25rem;
 		margin: 0 0 0.25rem;
 	}
 
 	.alert-description {
 		font-size: 0.875rem;
+		line-height: 1.35;
+		overflow-wrap: anywhere;
+	}
+
+	.alert-description :global(p) {
+		margin: 0;
+	}
+
+	.alert-close-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.75rem;
+		height: 1.75rem;
+		border: 0;
+		border-radius: var(--border-radius-base, 0.375rem);
+		background: transparent;
+		color: inherit;
+		cursor: pointer;
+		opacity: 0.72;
+	}
+
+	.alert-close-button:hover {
+		background: rgb(15 23 42 / 0.08);
+		opacity: 1;
 	}
 
 	.alert-close-icon {

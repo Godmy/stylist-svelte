@@ -17,6 +17,7 @@
 		{#each icons as icon}
 			<button
 				type="button"
+				role="option"
 				class="token-icon__button"
 				class:token-icon__button--active={value === icon}
 				aria-label={icon}

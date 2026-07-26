@@ -4,6 +4,7 @@ export {
 	Accordion,
 	AccordionGroup,
 	AccordionLayout,
+	AppHeader,
 	BreadcrumbDropdown,
 	BreadcrumbLink,
 	BreadcrumbSeparator,
@@ -102,6 +103,7 @@ export {
 } from './function';
 export type { AccordionContext } from './const';
 export type {
+	AppHeaderNavLink,
 	BreadcrumbDropdownItem,
 	BreadcrumbItem,
 	BreadcrumbSeparatorProps,
@@ -127,6 +129,7 @@ export type {
 	LayoutSpecificProps,
 	LinkSpecificProps,
 	PaginationStateProps,
+	RecipeAppHeader,
 	RecipeBreadcrumb,
 	RecipeBreadcrumbDropdown,
 	RecipeBreadcrumbLink,
