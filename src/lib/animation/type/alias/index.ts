@@ -2,3 +2,4 @@
 export type { TokenAnimation } from './animation';
 export type { TokenDuration } from './duration';
 export type { TokenEasing } from './easing';
+export type { TokenTransition } from './transition';

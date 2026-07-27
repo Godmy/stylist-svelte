@@ -696,6 +696,7 @@ export {
 export {
 	DEFAULT_SCHEMA_TEXT,
 	EDIT_CANDIDATE_SCHEMA_TEXT,
+	SCIENCE_DOMAIN_SCHEMA_TEXT,
 	Schema,
 	SchemaDependency,
 	SchemaHeader,
@@ -705,6 +706,7 @@ export {
 	SchemaText,
 	SchemaTool,
 	SchemaView,
+	mergeSchemaDocuments,
 	schemaDocumentToText,
 	schemaTextToDocument
 } from './erd';
@@ -972,6 +974,7 @@ export {
 	InputGroup,
 	InputHelper,
 	InputLabel,
+	InputName,
 	InputPassword,
 	InputPinDigit,
 	InputText,
@@ -989,6 +992,7 @@ export {
 	createInputFieldState,
 	createInputGroupState,
 	createInputLabelState,
+	createInputNameState,
 	createInputPasswordState,
 	createInputTextState,
 	createNumberInputState,
@@ -2071,6 +2075,7 @@ export {
 	ICON_SPACING,
 	ICON_SPINNER,
 	ICON_SPLIT_LAYOUT,
+	ICON_SQUARE,
 	ICON_STACK,
 	ICON_STACKED_LAYOUT,
 	ICON_STAGE,
@@ -2777,21 +2782,13 @@ export type {
 	TypeDomainTreeNode
 } from './domain';
 export type {
-	SchemaDependencyProps,
 	SchemaDocument,
 	SchemaField,
-	SchemaHeaderProps,
 	SchemaLayout,
 	SchemaMode,
 	SchemaParseResult,
-	SchemaProps,
-	SchemaTableFieldProps,
-	SchemaTableHeaderProps,
-	SchemaTablePosition,
-	SchemaTableProps,
-	SchemaTextProps,
-	SchemaToolProps,
-	SchemaViewProps
+	SchemaStats,
+	SchemaTablePosition
 } from './erd';
 export type {
 	Attachment,
@@ -3549,6 +3546,17 @@ export type {
 	SlotDomainEntity
 } from './domain';
 export type {
+	RecipeErdDepencency,
+	RecipeErdTable,
+	RecipeErdTableField,
+	RecipeErdTableHeader,
+	SlotErdHeader,
+	SlotErdSettings,
+	SlotErdText,
+	SlotErdTool,
+	SlotErdView
+} from './erd';
+export type {
 	BehaviorDragDropFileUploadEvents,
 	BehaviorDropZoneEvents,
 	BehaviorFileBrowserEvents,
@@ -3724,6 +3732,7 @@ export type {
 	RecipeInputGroup,
 	RecipeInputHelper,
 	RecipeInputLabel,
+	RecipeInputName,
 	RecipeInputPassword,
 	RecipeInputText,
 	RecipeNumberInput,
@@ -3751,6 +3760,7 @@ export type {
 	SlotInputHelper,
 	SlotInputHelperChildren,
 	SlotInputLabel,
+	SlotInputName,
 	SlotInputPassword,
 	SlotInputWithHelper,
 	SlotInputWithLabel,

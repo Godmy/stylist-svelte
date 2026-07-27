@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	CharactersCount,
+	CheckboxGroup,
 	FieldHighlighter,
 	InputAddon,
 	InputDouble,
@@ -10,11 +11,14 @@ export {
 	InputGroup,
 	InputHelper,
 	InputLabel,
+	InputName,
 	InputPassword,
 	InputPinDigit,
 	InputText,
 	NumberInput,
 	PhoneNumberInput,
+	RadioButtonGroup,
+	RadioGroup,
 	RichTextEditor,
 	TagInput,
 	TextArea
@@ -22,6 +26,7 @@ export {
 export {
 	createCharacterCountState,
 	createCharactersCountState,
+	createCheckboxGroupState,
 	createFieldClassState,
 	createFieldHighlighterState,
 	createFieldPresetState,
@@ -29,10 +34,13 @@ export {
 	createInputFieldState,
 	createInputGroupState,
 	createInputLabelState,
+	createInputNameState,
 	createInputPasswordState,
 	createInputTextState,
 	createNumberInputState,
 	createPhoneNumberInputState,
+	createRadioButtonGroupState,
+	createRadioGroupState,
 	createRichTextEditorState,
 	createTagInputState,
 	createTextareaState,
@@ -40,7 +48,14 @@ export {
 	normalizePhoneInputValue,
 	resolveCharacterCountState
 } from './function';
-export type { InputStateOptions } from './type';
+export type {
+	CheckboxGroupOption,
+	CheckboxGroupProps,
+	CheckboxGroupRestProps,
+	InputStateOptions,
+	RadioGroupProps,
+	RadioOption
+} from './type';
 export type {
 	RecipeCharacterCount,
 	RecipeFieldHighlighter,
@@ -53,12 +68,14 @@ export type {
 	RecipeInputGroup,
 	RecipeInputHelper,
 	RecipeInputLabel,
+	RecipeInputName,
 	RecipeInputPassword,
 	RecipeInputText,
 	RecipeNumberInput,
 	RecipeNumberInputProps,
 	RecipePhoneNumberInput,
 	RecipePinInputDigit,
+	RecipeRadioButtonGroupProps,
 	RecipeTagInput,
 	RecipeTextArea,
 	RecipeTextAreaProps,
@@ -80,6 +97,7 @@ export type {
 	SlotInputHelper,
 	SlotInputHelperChildren,
 	SlotInputLabel,
+	SlotInputName,
 	SlotInputPassword,
 	SlotInputWithHelper,
 	SlotInputWithLabel,
@@ -87,6 +105,7 @@ export type {
 	SlotNumberInput,
 	SlotPhoneNumberInput,
 	SlotPinInputDigit,
+	SlotRadioGroupState,
 	SlotTagInput,
 	SlotTextarea
 } from './interface';

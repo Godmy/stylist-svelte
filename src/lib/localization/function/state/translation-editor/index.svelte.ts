@@ -1,4 +1,3 @@
-﻿import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { TranslatableText } from '$stylist/localization/type/struct/translatable-text';
 import type { RecipeTranslationEditor } from '$stylist/localization/interface/recipe/translation-editor';
 
@@ -32,12 +31,12 @@ export function createTranslationEditorState(props: RecipeTranslationEditor) {
 		editingId = null;
 	}
 
-	const rootClass = $derived(mergeClassNames('c-translation-editor', props.class));
+	const rootClass = $derived(['c-translation-editor', props.class].filter(Boolean).join(' '));
 	const panelClass = $derived('c-translation-editor__panel');
-	const headerClass = $derived(mergeClassNames('c-translation-editor__header', props.headerClass));
-	const tableClass = $derived(mergeClassNames('c-translation-editor__table', props.tableClass));
-	const rowClass = $derived(mergeClassNames('c-translation-editor__row', props.rowClass));
-	const editorClass = $derived(mergeClassNames('c-translation-editor__editor', props.editorClass));
+	const headerClass = $derived(['c-translation-editor__header', props.headerClass].filter(Boolean).join(' '));
+	const tableClass = $derived(['c-translation-editor__table', props.tableClass].filter(Boolean).join(' '));
+	const rowClass = $derived(['c-translation-editor__row', props.rowClass].filter(Boolean).join(' '));
+	const editorClass = $derived(['c-translation-editor__editor', props.editorClass].filter(Boolean).join(' '));
 
 	const restProps = $derived.by(() => {
 		const {

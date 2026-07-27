@@ -10,20 +10,17 @@
 
 <section class={`c-transcriber ${state.className}`} {...state.restProps}>
 	<div class="c-transcriber__toolbar">
-		<Button
-			variant={state.isRecording ? 'danger' : 'primary'}
-			size="sm"
+		<button
+			type="button"
+			class="c-transcriber__record"
 			disabled={!state.canRecord}
 			onclick={state.toggleRecording}
 			aria-pressed={state.isRecording}
+			aria-label={state.actionLabel}
+			data-recording={state.isRecording || undefined}
 		>
-			<BaseIcon
-				name={state.isRecording ? 'square' : 'mic'}
-				style="width:1rem;height:1rem"
-				aria-hidden="true"
-			/>
-			<span>{state.actionLabel}</span>
-		</Button>
+			<BaseIcon name={state.isRecording ? 'square' : 'mic'} size={16} aria-hidden="true" />
+		</button>
 
 		<Button
 			variant="outline"
@@ -31,7 +28,7 @@
 			disabled={!state.canCopy}
 			onclick={() => void state.copyTranscript()}
 		>
-			<BaseIcon name="copy" style="width:1rem;height:1rem" aria-hidden="true" />
+			<BaseIcon name="copy" size={16} aria-hidden="true" />
 			<span>{state.copyLabel}</span>
 		</Button>
 	</div>
@@ -78,6 +75,48 @@
 		justify-content: space-between;
 		gap: 0.75rem;
 		min-width: 0;
+	}
+
+	.c-transcriber__record {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		min-width: 2.75rem;
+		min-height: 2.75rem;
+		padding: 0;
+		border-radius: 999px;
+		border: 1px solid transparent;
+		background: var(--color-primary-600);
+		color: var(--color-text-inverse);
+		cursor: pointer;
+		transition:
+			background-color var(--duration-120, 120ms) ease,
+			transform var(--duration-120, 120ms) ease;
+	}
+
+	.c-transcriber__record:hover:not(:disabled) {
+		background: var(--color-primary-700);
+		transform: translateY(-1px);
+	}
+
+	.c-transcriber__record:focus-visible {
+		outline: 2px solid var(--color-primary-500);
+		outline-offset: 2px;
+	}
+
+	.c-transcriber__record[data-recording] {
+		background: var(--color-danger-600);
+	}
+
+	.c-transcriber__record[data-recording]:hover:not(:disabled) {
+		background: var(--color-danger-700, var(--color-danger-600));
+	}
+
+	.c-transcriber__record:disabled {
+		opacity: var(--opacity-50, 0.5);
+		cursor: not-allowed;
+		pointer-events: none;
 	}
 
 	.c-transcriber__status {

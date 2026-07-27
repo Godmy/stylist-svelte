@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import Svg from '$stylist/svg/component/atom/svg/index.svelte';
 	import ThemeModeToggle from '$stylist/theme/component/atom/theme-mode-toggle/index.svelte';
-	import type { SchemaToolProps } from '$stylist/erd/type/struct/schema-tool-props';
+	import type { SlotErdTool } from '$stylist/erd/interface/slot/erd-tool';
 
 	// Inlined instead of `Icon` (which statically drags in the ~650-file icon
 	// registry barrel) -- that eager import graph is slow enough to resolve
@@ -68,10 +68,10 @@
 		'zoom-in': undefined;
 		'zoom-out': undefined;
 		'zoom-reset': undefined;
-		'layout-change': { layout: NonNullable<SchemaToolProps['layout']> };
+		'layout-change': { layout: NonNullable<SlotErdTool['layout']> };
 		'toggle-relations': { enabled: boolean };
 		'toggle-highlight': { enabled: boolean };
-		'mode-change': { mode: NonNullable<SchemaToolProps['mode']> };
+		'mode-change': { mode: NonNullable<SlotErdTool['mode']> };
 		'toggle-text-panel': { visible: boolean };
 	}>();
 
@@ -84,7 +84,7 @@
 		canExport = true,
 		mode = 'live',
 		textPanelVisible = true
-	}: SchemaToolProps = $props();
+	}: SlotErdTool = $props();
 </script>
 
 <nav class="schema-tool" aria-label="Schema tools">
@@ -115,7 +115,7 @@
 			onchange={(event) =>
 				dispatch('mode-change', {
 					mode: (event.currentTarget as HTMLSelectElement).value as NonNullable<
-						SchemaToolProps['mode']
+						SlotErdTool['mode']
 					>
 				})}
 		>
@@ -149,7 +149,7 @@
 			onchange={(event) =>
 				dispatch('layout-change', {
 					layout: (event.currentTarget as HTMLSelectElement).value as NonNullable<
-						SchemaToolProps['layout']
+						SlotErdTool['layout']
 					>
 				})}
 		>

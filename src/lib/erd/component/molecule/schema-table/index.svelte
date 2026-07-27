@@ -1,9 +1,9 @@
 <script lang="ts">
 	import SchemaTableField from '$stylist/erd/component/atom/schema-table-field/index.svelte';
 	import SchemaTableHeader from '$stylist/erd/component/atom/schema-table-header/index.svelte';
-	import type { SchemaTableProps } from '$stylist/erd/type/struct/schema-table-props';
+	import type { RecipeErdTable } from '$stylist/erd/interface/recipe/erd-table';
 
-	let { table, active = false, relatedFieldIds = [] }: SchemaTableProps = $props();
+	let { table, active = false, relatedFieldIds = [] }: RecipeErdTable = $props();
 </script>
 
 <article class={`schema-table ${active ? 'schema-table--active' : ''}`}>

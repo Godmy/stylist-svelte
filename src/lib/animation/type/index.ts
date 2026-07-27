@@ -2,7 +2,7 @@
 export type {
 	TokenAnimation,
 	TokenDuration,
-	TokenEasing
+	TokenEasing,
+	TokenTransition
 } from './alias';
-export type { TokenTransition } from './record';
 export type { EasingFunction } from './script';

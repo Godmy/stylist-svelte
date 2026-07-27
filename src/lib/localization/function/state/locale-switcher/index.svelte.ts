@@ -1,4 +1,3 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import {
 	formatDate,
 	formatTime,
@@ -20,11 +19,11 @@ export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
 	const currentLocaleObj =
 		locales.find((loc: LocaleSwitcherLocale) => loc.code === currentLocale) ?? locales[0];
 
-	const rootClass = $derived(mergeClassNames('c-locale-switcher', props.class));
-	const headerClass = $derived(mergeClassNames('c-locale-switcher__header', props.headerClass));
-	const contentClass = $derived(mergeClassNames('c-locale-switcher__content', props.contentClass));
+	const rootClass = $derived(['c-locale-switcher', props.class].filter(Boolean).join(' '));
+	const headerClass = $derived(['c-locale-switcher__header', props.headerClass].filter(Boolean).join(' '));
+	const contentClass = $derived(['c-locale-switcher__content', props.contentClass].filter(Boolean).join(' '));
 	const timezoneSelectClass = $derived('c-locale-switcher__timezone-select');
-	const footerClass = $derived(mergeClassNames('c-locale-switcher__footer', props.footerClass));
+	const footerClass = $derived(['c-locale-switcher__footer', props.footerClass].filter(Boolean).join(' '));
 
 	const restProps = $derived.by(() => {
 		const {
@@ -46,11 +45,13 @@ export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
 	});
 
 	function getLocaleButtonClass(isActive: boolean): string {
-		return mergeClassNames(
+		return [
 			'c-locale-switcher__locale-btn',
 			isActive && 'c-locale-switcher__locale-btn--active',
 			props.localeClass
-		);
+		]
+			.filter(Boolean)
+			.join(' ');
 	}
 
 	return {

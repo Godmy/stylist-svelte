@@ -1,7 +1,6 @@
 import type { SchemaTable } from '$stylist/erd/type/struct/schema-table';
 
-export type SchemaTableProps = {
+export interface RecipeErdTableHeader {
 	table: SchemaTable;
 	active?: boolean;
-	relatedFieldIds?: readonly string[];
-};
+}

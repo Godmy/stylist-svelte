@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { DEFAULT_SCHEMA_TEXT } from '$stylist/erd/const/value/schema-text';
 	import { schemaTextToDocument } from '$stylist/erd/function/transform/schema-text-to-document';
-	import type { SchemaTextProps } from '$stylist/erd/type/struct/schema-text-props';
+	import type { SlotErdText } from '$stylist/erd/interface/slot/erd-text';
 
 	let {
 		value = $bindable(DEFAULT_SCHEMA_TEXT),
 		placeholder = DEFAULT_SCHEMA_TEXT
-	}: SchemaTextProps = $props();
+	}: SlotErdText = $props();
 	let result = $derived(schemaTextToDocument(value));
 
 	function handleInput(event: Event): void {
@@ -47,7 +47,7 @@
 
 	.schema-text textarea {
 		flex: 1;
-		min-height: 420px;
+		min-height: 0;
 		resize: vertical;
 		padding: 0.9rem;
 		border: 1px solid var(--color-border-primary, rgba(22, 31, 44, 0.14));

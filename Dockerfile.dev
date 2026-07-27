@@ -1,0 +1,25 @@
+# Dev container that runs a production build instead of `vite dev`.
+# The component library has thousands of files under src/lib; on Windows,
+# Vite's dev SSR module-runner fetches/transforms them over an RPC transport
+# with a hard 60s timeout, and Docker Desktop's bind-mount overhead blows
+# past that on every request. A one-time build avoids per-request transforms.
+
+FROM node:22-slim
+
+WORKDIR /app/stylist-svelte
+
+RUN corepack enable && corepack prepare yarn@4.6.0 --activate
+
+COPY package.json yarn.lock .yarnrc.yml ./
+RUN yarn install
+
+COPY . .
+
+ENV HOST=0.0.0.0
+ENV PORT=5174
+
+EXPOSE 5174
+
+# `yarn build` runs svelte-package (library packaging), not the demo app —
+# the demo route app is built directly with vite.
+CMD ["sh", "-c", "yarn install && yarn vite build && node build/index.js"]

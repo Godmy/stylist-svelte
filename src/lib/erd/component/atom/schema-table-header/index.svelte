@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { SchemaTableHeaderProps } from '$stylist/erd/type/struct/schema-table-header-props';
+	import type { RecipeErdTableHeader } from '$stylist/erd/interface/recipe/erd-table-header';
 
-	let { table, active = false }: SchemaTableHeaderProps = $props();
+	let { table, active = false }: RecipeErdTableHeader = $props();
 </script>
 
 <div class={`schema-table-header ${active ? 'schema-table-header--active' : ''}`}>

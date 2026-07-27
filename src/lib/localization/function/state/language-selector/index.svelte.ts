@@ -1,5 +1,4 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { RecipeLanguageSelector as ILanguageSelectorProps } from '$stylist/localization/interface/recipe/language-selector';
 
 function createLanguageSelectorState(
@@ -24,23 +23,27 @@ function createLanguageSelectorState(
 
 	const selectedLanguage = $derived(languages.find((lang) => lang.code === currentLanguage));
 
-	const baseClasses = $derived(mergeClassNames('c-language-selector', props.class));
+	const baseClasses = $derived(['c-language-selector', props.class].filter(Boolean).join(' '));
 	const buttonBaseClasses = $derived(
-		mergeClassNames(
+		[
 			'c-language-selector__trigger',
 			props.variant &&
 				props.variant !== 'default' &&
 				`c-language-selector__trigger--${props.variant}`,
 			props.size && props.size !== 'md' && `c-language-selector__trigger--${props.size}`,
 			props.buttonClass
-		)
+		]
+			.filter(Boolean)
+			.join(' ')
 	);
 	const dropdownBaseClasses = $derived(
-		mergeClassNames(
+		[
 			'c-language-selector__dropdown',
 			props.dropdownPlacement === 'top' && 'c-language-selector__dropdown--top',
 			props.dropdownClass
-		)
+		]
+			.filter(Boolean)
+			.join(' ')
 	);
 	const searchInputClasses = $derived('c-language-selector__search');
 	const flagClasses = $derived('c-language-selector__flag');
@@ -77,11 +80,13 @@ function createLanguageSelectorState(
 	}
 
 	function getLanguageItemClasses(isActive: boolean): string {
-		return mergeClassNames(
+		return [
 			'c-language-selector__item',
 			isActive && 'c-language-selector__item--active',
 			props.languageClass
-		);
+		]
+			.filter(Boolean)
+			.join(' ');
 	}
 
 	return {

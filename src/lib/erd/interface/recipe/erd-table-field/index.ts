@@ -1,7 +1,7 @@
 import type { SchemaField } from '$stylist/erd/type/struct/schema-field';
 
-export type SchemaTableFieldProps = {
+export interface RecipeErdTableField {
 	field: SchemaField;
 	active?: boolean;
 	related?: boolean;
-};
+}

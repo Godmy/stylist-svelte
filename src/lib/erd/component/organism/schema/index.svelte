@@ -2,12 +2,15 @@
 	import { untrack } from 'svelte';
 	import { DEFAULT_SCHEMA_TEXT } from '$stylist/erd/const/value/schema-text';
 	import { EDIT_CANDIDATE_SCHEMA_TEXT } from '$stylist/erd/const/value/schema-text-candidate';
+	import { SCIENCE_DOMAIN_SCHEMA_TEXT } from '$stylist/erd/const/value/schema-text-science-domain';
+	import { mergeSchemaDocuments } from '$stylist/erd/function/merge/schema-documents';
+	import { schemaDocumentToText } from '$stylist/erd/function/transform/schema-document-to-text';
 	import { schemaTextToDocument } from '$stylist/erd/function/transform/schema-text-to-document';
 	import SchemaText from '$stylist/erd/component/organism/schema-text/index.svelte';
 	import SchemaHeader from '$stylist/erd/component/organism/schema-header/index.svelte';
 	import SchemaView from '$stylist/erd/component/organism/schema-view/index.svelte';
 	import type { SchemaMode } from '$stylist/erd/type/alias/schema-mode';
-	import type { SchemaProps } from '$stylist/erd/type/struct/schema-props';
+	import type { SlotErdSettings } from '$stylist/erd/interface/slot/erd-settings';
 
 	let {
 		title = 'Schema',
@@ -17,7 +20,7 @@
 		highlightRelations = true,
 		layout = 'grid',
 		draggable = true
-	}: SchemaProps = $props();
+	}: SlotErdSettings = $props();
 
 	// Each of these intentionally captures the prop only once (uncontrolled
 	// widget: initial value from the prop, then locally editable via the
@@ -36,11 +39,40 @@
 	let textPanelVisible = $state(true);
 	let fileInput: HTMLInputElement | undefined = $state();
 
-	// Migrate = Live + Edit.selected once table selection exists (iteration 2/3
-	// of the plan doc above). No selection UI yet, so it mirrors Live for now
-	// rather than pretending to merge nothing meaningful.
-	let activeSource = $derived(currentMode === 'edit' ? editSource : liveSource);
-	let parseResult = $derived(schemaTextToDocument(activeSource));
+	let scienceDomainSource = $state<string>(SCIENCE_DOMAIN_SCHEMA_TEXT);
+	let liveParseResult = $derived(schemaTextToDocument(liveSource));
+	let editParseResult = $derived(schemaTextToDocument(editSource));
+	let scienceDomainParseResult = $derived(schemaTextToDocument(scienceDomainSource));
+	let migrateParseResult = $derived.by(() => {
+		const merged = mergeSchemaDocuments(liveParseResult.document, scienceDomainParseResult.document);
+
+		return {
+			document: merged.document,
+			errors: [...liveParseResult.errors, ...scienceDomainParseResult.errors, ...merged.errors]
+		};
+	});
+	let parseResult = $derived.by(() => {
+		if (currentMode === 'edit') {
+			return editParseResult;
+		}
+
+		if (currentMode === 'migrate') {
+			return migrateParseResult;
+		}
+
+		return liveParseResult;
+	});
+	let activeSource = $derived.by(() => {
+		if (currentMode === 'edit') {
+			return editSource;
+		}
+
+		if (currentMode === 'migrate') {
+			return schemaDocumentToText(migrateParseResult.document);
+		}
+
+		return liveSource;
+	});
 
 	function clampZoom(nextZoom: number): number {
 		return Math.min(1.8, Math.max(0.45, Number(nextZoom.toFixed(2))));
@@ -73,6 +105,8 @@
 
 		if (currentMode === 'edit') {
 			editSource = text;
+		} else if (currentMode === 'migrate') {
+			scienceDomainSource = text;
 		} else {
 			liveSource = text;
 		}
@@ -131,6 +165,8 @@
 			<aside class="schema__editor">
 				{#if currentMode === 'edit'}
 					<SchemaText bind:value={editSource} />
+				{:else if currentMode === 'migrate'}
+					<SchemaText value={activeSource} />
 				{:else}
 					<SchemaText bind:value={liveSource} />
 				{/if}
@@ -159,12 +195,11 @@
 
 	.schema__workspace {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.42fr);
+		grid-template-columns: minmax(0, 1fr) minmax(14.4rem, 0.336fr);
 		gap: 0;
 		min-width: 0;
 		min-height: 0;
 		flex: 1;
-		padding: 0.5rem 0;
 	}
 
 	.schema__workspace--full {

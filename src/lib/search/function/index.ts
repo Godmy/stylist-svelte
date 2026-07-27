@@ -2,6 +2,8 @@
 export {
 	createAutoCompleteState,
 	createAutoSearchState,
+	createSearchBarState,
+	createSearchFormState,
 	createSearchResultsState,
 	createSearchSuggestionState
 } from './state';

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeAudioRecordButton } from '$stylist/audio/interface/recipe/audio-record-button';
 	import { createAudioRecordButtonState } from '$stylist/audio/function/state/audio-record-button/index.svelte';
@@ -9,18 +8,18 @@
 </script>
 
 <div class={`c-audio-record-button ${state.className}`} aria-live="polite">
-	<Button
+	<button
+		type="button"
 		{...state.restProps}
-		variant={state.isRecording ? 'danger' : 'primary'}
-		size="sm"
+		class="c-audio-record-button__toggle"
 		disabled={state.isDisabled}
 		onclick={state.toggleRecording}
 		aria-pressed={state.isRecording}
 		aria-label={state.buttonLabel}
+		data-recording={state.isRecording || undefined}
 	>
-		<BaseIcon name={state.iconName} style="width:1rem;height:1rem" aria-hidden="true" />
-		<span>{state.buttonLabel}</span>
-	</Button>
+		<BaseIcon name={state.iconName} size={16} aria-hidden="true" />
+	</button>
 	{#if state.statusLabel}
 		<span class="c-audio-record-button__status">{state.statusLabel}</span>
 	{/if}
@@ -35,6 +34,48 @@
 		align-items: center;
 		gap: 0.5rem;
 		min-width: 0;
+	}
+
+	.c-audio-record-button__toggle {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		min-width: 2.75rem;
+		min-height: 2.75rem;
+		padding: 0;
+		border-radius: 999px;
+		border: 1px solid transparent;
+		background: var(--color-primary-600);
+		color: var(--color-text-inverse);
+		cursor: pointer;
+		transition:
+			background-color var(--duration-120, 120ms) ease,
+			transform var(--duration-120, 120ms) ease;
+	}
+
+	.c-audio-record-button__toggle:hover:not(:disabled) {
+		background: var(--color-primary-700);
+		transform: translateY(-1px);
+	}
+
+	.c-audio-record-button__toggle:focus-visible {
+		outline: 2px solid var(--color-primary-500);
+		outline-offset: 2px;
+	}
+
+	.c-audio-record-button__toggle[data-recording] {
+		background: var(--color-danger-600);
+	}
+
+	.c-audio-record-button__toggle[data-recording]:hover:not(:disabled) {
+		background: var(--color-danger-700, var(--color-danger-600));
+	}
+
+	.c-audio-record-button__toggle:disabled {
+		opacity: var(--opacity-50, 0.5);
+		cursor: not-allowed;
+		pointer-events: none;
 	}
 
 	.c-audio-record-button__status,

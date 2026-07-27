@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { SchemaTableFieldProps } from '$stylist/erd/type/struct/schema-table-field-props';
+	import type { RecipeErdTableField } from '$stylist/erd/interface/recipe/erd-table-field';
 
-	let { field, active = false, related = false }: SchemaTableFieldProps = $props();
+	let { field, active = false, related = false }: RecipeErdTableField = $props();
 </script>
 
 <div class={`schema-table-field ${active ? 'schema-table-field--active' : ''} ${related ? 'schema-table-field--related' : ''}`}>

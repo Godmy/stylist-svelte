@@ -1,5 +1,4 @@
 import type { SchemaDependency } from '$stylist/erd/type/struct/schema-dependency';
-import type { SchemaDocument } from '$stylist/erd/type/struct/schema-document';
 import type { SchemaField } from '$stylist/erd/type/struct/schema-field';
 import type { SchemaParseResult } from '$stylist/erd/type/struct/schema-parse-result';
 import type { SchemaTable } from '$stylist/erd/type/struct/schema-table';
