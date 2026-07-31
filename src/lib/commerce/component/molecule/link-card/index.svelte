@@ -122,7 +122,7 @@
 		color: var(--color-text-secondary);
 	}
 
-	.link-card__arrow {
+	:global(.link-card__arrow) {
 		margin-left: 0.5rem;
 		flex-shrink: 0;
 		color: var(--color-text-tertiary);

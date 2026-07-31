@@ -171,7 +171,7 @@
 		color: var(--color-text-tertiary);
 	}
 
-	.c-combobox__spinner {
+	:global(.c-combobox__spinner) {
 		width: 1rem;
 		height: 1rem;
 		animation: spin 1s linear infinite;
@@ -179,11 +179,11 @@
 		flex-shrink: 0;
 	}
 
-	.c-combobox__spinner circle {
+	:global(.c-combobox__spinner circle) {
 		opacity: 0.25;
 	}
 
-	.c-combobox__spinner path {
+	:global(.c-combobox__spinner path) {
 		opacity: 0.75;
 	}
 

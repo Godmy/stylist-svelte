@@ -71,8 +71,4 @@
 		color: var(--token-radio-text);
 	}
 
-	.token-radio__option[data-disabled] {
-		opacity: var(--opacity-50, 0.5);
-		cursor: not-allowed;
-	}
 </style>

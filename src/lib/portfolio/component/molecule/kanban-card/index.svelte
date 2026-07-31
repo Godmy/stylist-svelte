@@ -231,7 +231,7 @@
 		transition-property: color, background-color, border-color;
 		transition-duration: 150ms;
 	}
-	._c18 {
+	:global(._c18) {
 		height: 1rem;
 		width: 1rem;
 		color: var(--color-text-tertiary);
@@ -322,8 +322,8 @@
 		box-shadow: 0 0 0 2px var(--color-primary-500);
 	}
 
-	:global(*):hover > .kanban-card .c18,
-	.kanban-card:hover ._c18 {
+	:global(*):hover > .kanban-card :global(._c18),
+	.kanban-card:hover :global(._c18) {
 		color: var(--color-text-secondary);
 	}
 </style>

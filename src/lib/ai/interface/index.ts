@@ -12,18 +12,9 @@ export type {
 	RecipeModelSelector,
 	RecipePredictionResult,
 	RecipePromptBuilder,
-	RecipeScience,
 	RecipeSentimentAnalysis
 } from './recipe';
 export type {
-	SlotAiResultCard,
 	SlotModelOption,
-	SlotPrediction,
-	SlotPredictionResult,
-	SlotPromptBuilder,
-	SlotPromptTemplate,
-	SlotPromptVariable,
-	SlotSentimentAnalysis,
-	SlotSentimentAnalysisResult,
-	SlotSentimentResult
+	SlotSentimentAnalysisResult
 } from './slot';

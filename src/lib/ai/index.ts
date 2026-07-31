@@ -35,8 +35,6 @@ export type {
 	AiPanelAIOption,
 	AiPanelAIProvider,
 	AiPanelProps,
-	Model,
-	ModelSelectorProps,
 	PlaygroundAiAssistantAIProviderId,
 	PromptVariableType,
 	SentimentAnalysisStatus
@@ -52,16 +50,7 @@ export type {
 	RecipeModelSelector,
 	RecipePredictionResult,
 	RecipePromptBuilder,
-	RecipeScience,
 	RecipeSentimentAnalysis,
-	SlotAiResultCard,
 	SlotModelOption,
-	SlotPrediction,
-	SlotPredictionResult,
-	SlotPromptBuilder,
-	SlotPromptTemplate,
-	SlotPromptVariable,
-	SlotSentimentAnalysis,
-	SlotSentimentAnalysisResult,
-	SlotSentimentResult
+	SlotSentimentAnalysisResult
 } from './interface';

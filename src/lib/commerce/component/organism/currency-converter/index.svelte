@@ -241,12 +241,6 @@
 		box-shadow: 0 0 0 3px var(--color-primary-500);
 	}
 
-	.currency-converter__icon {
-		height: 1.25rem;
-		width: 1.25rem;
-		margin-right: 0.5rem;
-	}
-
 	.currency-converter__switch-container {
 		display: flex;
 		align-items: center;

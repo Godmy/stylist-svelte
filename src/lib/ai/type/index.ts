@@ -14,7 +14,5 @@ export type {
 	AiChatProps,
 	AiPanelAIOption,
 	AiPanelAIProvider,
-	AiPanelProps,
-	Model,
-	ModelSelectorProps
+	AiPanelProps
 } from './struct';

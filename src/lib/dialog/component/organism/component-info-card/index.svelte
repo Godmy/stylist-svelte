@@ -396,26 +396,6 @@
 		background: linear-gradient(to right, #eef2ff, #f5f3ff);
 		color: #4338ca;
 	}
-	@keyframes fade-in {
-		from {
-			opacity: var(--opacity-0);
-		}
-		to {
-			opacity: var(--opacity-100);
-		}
-	}
-
-	@keyframes scale-in {
-		from {
-			opacity: var(--opacity-0);
-			transform: scale(0.95);
-		}
-		to {
-			opacity: var(--opacity-100);
-			transform: scale(1);
-		}
-	}
-
 	@keyframes fade-slide-up {
 		from {
 			opacity: var(--opacity-0);
@@ -425,14 +405,6 @@
 			opacity: var(--opacity-100);
 			transform: translateY(0);
 		}
-	}
-
-	.animate-fade-in {
-		animation: fade-in var(--duration-200) var(--animation-ease-out);
-	}
-
-	.animate-scale-in {
-		animation: scale-in var(--duration-300) var(--easing-ease-standard);
 	}
 
 	.info-card-modal {

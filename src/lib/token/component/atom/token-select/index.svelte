@@ -48,8 +48,4 @@
 		outline-offset: 2px;
 	}
 
-	.token-select__input[data-disabled] {
-		opacity: var(--opacity-50, 0.5);
-		cursor: not-allowed;
-	}
 </style>

@@ -1,7 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	ChatHeader,
-	ChatInterface,
 	ChatItem,
 	ChatList,
 	ChatMessage,
@@ -26,13 +25,10 @@ export {
 	CHAT_MESSAGE_STATUS,
 	CHAT_PREVIEW_ICON_CHECK,
 	CHAT_PREVIEW_ICON_CHECK_CHECK,
-	PRESET_CHAT_HEADER,
-	PRESET_MESSAGE_TIMESTAMP,
 	TOKEN_MESSAGE_STATUS
 } from './const';
 export {
 	createChatHeaderState,
-	createChatInterfaceState,
 	createChatItemState,
 	createChatListState,
 	createChatMessageState,
@@ -57,54 +53,28 @@ export {
 	handleKeydownFn
 } from './function';
 export type {
-	AIProvider,
-	Chat,
-	ChatHeaderChat,
 	ChatHeaderOrganismProps,
-	ChatHeaderProps,
-	ChatHeaderUser,
-	ChatMessageStatus,
-	ChatPreviewItem,
 	ChatPreviewMessage,
 	ChatPreviewProps,
-	ChatRoomMessage,
 	ChatRoomProps,
 	ListItem,
-	Message,
-	TokenMessageStatus,
-	User
+	TokenMessageStatus
 } from './type';
 export type {
 	ChatWindowChat,
-	RecipeChatHeader,
-	RecipeChatMessage,
 	RecipeListWithAvatars,
-	RecipeMessageMeta,
 	RecipeMessageStatusProps,
 	SlotChat,
-	SlotChatHeader,
-	SlotChatHeaderStyleClasses,
-	SlotChatItem,
-	SlotChatList,
-	SlotChatMessage,
-	SlotChatRoom,
 	SlotChatStatusIndicator,
-	SlotChatWindow,
 	SlotListWithAvatars,
-	SlotListWithAvatarsStyleClasses,
 	SlotMessage,
 	SlotMessageAttachment,
 	SlotMessageBubble,
 	SlotMessageComposer,
 	SlotMessageInput,
-	SlotMessageItem,
-	SlotMessageList,
-	SlotMessageMeta,
-	SlotMessageMetaStyleClasses,
 	SlotMessageReaction,
 	SlotMessageThread,
 	SlotMessageThreadMessage,
 	SlotMessageTimestamp,
-	SlotUser,
-	SlotUserStatus
+	SlotUser
 } from './interface';

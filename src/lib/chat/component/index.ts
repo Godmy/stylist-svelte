@@ -22,7 +22,6 @@ export {
 } from './molecule';
 export {
 	ChatHeader,
-	ChatInterface,
 	ChatWorkbench,
 	ListWithAvatars
 } from './organism';

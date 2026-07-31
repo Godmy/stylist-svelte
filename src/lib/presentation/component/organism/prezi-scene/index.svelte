@@ -309,7 +309,7 @@
 		transition: transform var(--prezi-animation-duration, 600ms) cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
-	.prezi-scene__grid {
+	:global(.prezi-scene__grid) {
 		position: absolute;
 		inset: 0;
 		pointer-events: none;

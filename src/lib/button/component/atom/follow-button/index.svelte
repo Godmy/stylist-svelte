@@ -154,7 +154,7 @@
 		pointer-events: none;
 	}
 
-	.c-follow-button__loader {
+	:global(.c-follow-button__loader) {
 		animation: c-follow-button-spin 1s linear infinite;
 	}
 

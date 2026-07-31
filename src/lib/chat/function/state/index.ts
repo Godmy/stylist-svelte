@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { createChatHeaderState } from './chat-header';
-export { createChatInterfaceState } from './chat-interface';
 export { createChatItemState } from './chat-item';
 export { createChatListState } from './chat-list';
 export { createChatMessageState } from './chat-message';

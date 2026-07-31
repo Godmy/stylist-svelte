@@ -4,10 +4,6 @@ export {
 	TOKEN_MESSAGE_STATUS
 } from './array';
 export {
-	PRESET_CHAT_HEADER,
-	PRESET_MESSAGE_TIMESTAMP
-} from './preset';
-export {
 	CHAT_PREVIEW_ICON_CHECK,
 	CHAT_PREVIEW_ICON_CHECK_CHECK
 } from './value';

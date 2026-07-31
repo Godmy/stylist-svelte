@@ -55,7 +55,7 @@
 {/if}
 
 <style>
-	.drawer-backdrop {
+	.drawer__backdrop {
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -63,15 +63,8 @@
 		height: 100%;
 		z-index: var(--z-index-dropdown);
 		display: flex;
-		opacity: var(--opacity-0);
-		transition: opacity var(--duration-300) var(--animation-ease);
-	}
-
-	.drawer-backdrop.show {
-		background-color: color-mix(in srgb, var(--color-text-primary) 50%, transparent);
-	}
-
-	.drawer-backdrop.show {
 		opacity: var(--opacity-100);
+		background-color: color-mix(in srgb, var(--color-text-primary) 50%, transparent);
+		transition: opacity var(--duration-300) var(--animation-ease);
 	}
 </style>

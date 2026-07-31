@@ -84,13 +84,13 @@
 </div>
 
 <style>
-	.operations-history {
+	.operations-history__base {
 		display: flex;
 		flex-direction: column;
 		height: 100%;
 	}
 
-	.toolbar {
+	.operations-history__toolbar {
 		flex-shrink: 0;
 	}
 
@@ -109,7 +109,7 @@
 		font-weight: 500;
 		color: var(--color-gray-900);
 	}
-	._c11 {
+	:global(._c11) {
 		margin-left: 0.5rem;
 	}
 	._c12 {
@@ -145,7 +145,7 @@
 	._c2 > * + * {
 		margin-left: 0.5rem;
 	}
-	._c3 {
+	:global(._c3) {
 		height: 1rem;
 		width: 1rem;
 	}
@@ -193,7 +193,7 @@
 		}
 	}
 	@media (prefers-color-scheme: dark) {
-		._c3 {
+		:global(._c3) {
 			color: var(--color-gray-500);
 		}
 	}

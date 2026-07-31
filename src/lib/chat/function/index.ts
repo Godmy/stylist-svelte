@@ -7,7 +7,6 @@ export {
 } from './script';
 export {
 	createChatHeaderState,
-	createChatInterfaceState,
 	createChatItemState,
 	createChatListState,
 	createChatMessageState,
