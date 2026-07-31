@@ -2447,6 +2447,11 @@ export {
 	createUserProfileCardState
 } from './user';
 export {
+	GlCanvas,
+	compileShader,
+	createProgram
+} from './webgl';
+export {
 	DEFAULT_WORKSPACE_CANVAS,
 	GraphNodeCard,
 	NodeConnection,
