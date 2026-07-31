@@ -4,6 +4,7 @@ export { createConvergenceChartState } from './convergence-chart';
 export { createDiscussionNoteItemState } from './discussion-note-item';
 export { createDiscussionThreadState } from './discussion-thread';
 export { createEstimateInputRowState } from './estimate-input-row';
+export { createEstimateRangeChartState } from './estimate-range-chart';
 export { createEstimateThreePointInputState } from './estimate-three-point-input';
 export { createEstimatorBadgeState } from './estimator-badge';
 export { createFacilitatorControlPanelState } from './facilitator-control-panel';

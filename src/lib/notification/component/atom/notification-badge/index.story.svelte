@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import NotificationBadge from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'count', type: 'range', defaultValue: 12, min: 0, max: 140, step: 1 },
 		{ name: 'marker', type: 'select', defaultValue: 'number', options: ['number', 'dot', 'check', 'x'] },
 		{ name: 'appearance', type: 'select', defaultValue: 'danger', options: ['danger', 'success', 'info', 'warning', 'neutral'] },

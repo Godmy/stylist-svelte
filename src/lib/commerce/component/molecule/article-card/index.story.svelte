@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import ArticleCard from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Shipping Design Systems at Scale' },
 		{ name: 'subtitle', type: 'text', defaultValue: 'How teams align product and engineering.' },
 		{ name: 'image', type: 'text', defaultValue: '' }

@@ -1,6 +1,9 @@
 <script lang="ts">
 	import MarkdownRenderer from '$stylist/information/component/organism/markdown-renderer/index.svelte';
 	import JsonTreeViewer from '$stylist/domain/component/molecule/json-tree-viewer/index.svelte';
+	import DeviceFrame from '$stylist/domain/component/organism/device-frame/index.svelte';
+	import { DEVICE_FRAME_VIEWPORT } from '$stylist/domain/const/array/device-frame-viewport';
+	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
 
 	interface DomainFilePreviewProps {
 		previewMode?: 'file' | 'markdown' | 'story' | 'json-tree';
@@ -26,6 +29,8 @@
 		class: className = ''
 	}: DomainFilePreviewProps = $props();
 
+	let storyDevice = $state<DeviceFrameViewport>('fullscreen');
+
 	const renderedContent = $derived.by(() => {
 		if (previewKind !== 'json') return fileContent;
 		try {
@@ -44,7 +49,23 @@
 	{:else if previewMode === 'story' && storyPreviewComponent}
 		{@const StoryPreviewComponent = storyPreviewComponent}
 		<div class="story-preview-shell">
-			<StoryPreviewComponent />
+			<div class="story-device-switcher" role="tablist" aria-label="Preview viewport">
+				{#each DEVICE_FRAME_VIEWPORT as device}
+					<button
+						type="button"
+						class:active={storyDevice === device}
+						class="story-device-switcher__button"
+						role="tab"
+						aria-selected={storyDevice === device}
+						onclick={() => (storyDevice = device)}
+					>
+						{device}
+					</button>
+				{/each}
+			</div>
+			<DeviceFrame device={storyDevice}>
+				<StoryPreviewComponent />
+			</DeviceFrame>
 		</div>
 	{:else if fileLoading}
 		<p class="empty-state">Loading preview...</p>
@@ -99,6 +120,33 @@
 		   (e.g. the top-right DomainMenu, z-index: 20) and can paint over it. */
 		position: relative;
 		isolation: isolate;
+	}
+
+	.story-device-switcher {
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		display: flex;
+		gap: 0.4rem;
+		margin-bottom: 1rem;
+	}
+
+	.story-device-switcher__button {
+		padding: 0.4rem 0.85rem;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 999px;
+		background: var(--color-background-primary);
+		color: var(--color-text-secondary);
+		font-size: 0.78rem;
+		font-weight: 600;
+		text-transform: capitalize;
+		cursor: pointer;
+	}
+
+	.story-device-switcher__button.active {
+		background: var(--color-primary-500);
+		border-color: var(--color-primary-500);
+		color: var(--color-text-inverse, white);
 	}
 
 	.svg-art {

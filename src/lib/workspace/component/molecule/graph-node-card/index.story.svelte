@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 
 	import GraphNodeCard from './index.svelte';
 
@@ -17,7 +17,7 @@
 		]
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'expanded', type: 'boolean', defaultValue: false },
 		{ name: 'selected', type: 'boolean', defaultValue: false },
 		{ name: 'highlight', type: 'boolean', defaultValue: false },

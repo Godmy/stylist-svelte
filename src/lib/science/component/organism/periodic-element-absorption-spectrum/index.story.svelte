@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import { PERIODIC_ELEMENTS } from '$stylist/science/const/array/periodic-elements';
 	import PeriodicElementAbsorptionSpectrum from './index.svelte';
 

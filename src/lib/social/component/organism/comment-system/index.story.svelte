@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import CommentSystem from './index.svelte';
 	import type { SlotCommentItem as CommentItem } from '$stylist/social/interface/slot/comment-item';
 	import type { SlotCommentUser as CommentUser } from '$stylist/social/interface/slot/comment-user';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showReply', type: 'boolean', defaultValue: true },
 		{ name: 'showLikes', type: 'boolean', defaultValue: true },
 		{ name: 'showDislikes', type: 'boolean', defaultValue: true },

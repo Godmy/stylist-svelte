@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import TreeView from './index.svelte';
 
 	type Props = {
@@ -10,7 +10,7 @@
 		indentSize: number;
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'expandable', type: 'boolean', defaultValue: true },
 		{ name: 'selectable', type: 'boolean', defaultValue: true },
 		{ name: 'showIcons', type: 'boolean', defaultValue: true },

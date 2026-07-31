@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Workspace from '$stylist/workspace/component/organism/workspace/index.svelte';
 	import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
 	import type { SlotNodeConnection } from '$stylist/workspace/interface/slot/node-connection';
@@ -174,7 +174,7 @@
 		);
 	}
 
-	const controls: InterfaceControllerSettings[] = [];
+	const controls: SlotStory[] = [];
 </script>
 
 <Story

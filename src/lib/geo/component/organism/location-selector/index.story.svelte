@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { LocationSelectorLocation } from '$stylist/geo/type/struct/location-selector/locationselectorlocation';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import LocationSelector from './index.svelte';
 
@@ -75,7 +75,7 @@
 	let showDistance = true;
 	let maxLocations = 10;
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'currentView', type: 'select', options: ['list', 'grid', 'map'], defaultValue: 'list' },
 		{ name: 'showSearch', type: 'boolean', defaultValue: true },
 		{ name: 'showCategoryFilter', type: 'boolean', defaultValue: true },

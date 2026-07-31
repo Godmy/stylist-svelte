@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import SlotGraphEdge from './index.svelte';
 	import SlotGraphNode from '../graph-node/index.svelte';
 	import type { TokenSize as GraphNodeSize } from '$stylist/theme/type/alias/size';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	type Position = { x: number; y: number };
 	type CanvasNodeSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
@@ -28,7 +28,7 @@
 	const CANVAS_WIDTH = 640;
 	const CANVAS_HEIGHT = 320;
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{
 			name: 'edgeType',
 			type: 'select',

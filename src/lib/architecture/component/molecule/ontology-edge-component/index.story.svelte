@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 	import OntologyEdgeComponent from './index.svelte';
 
@@ -23,7 +23,7 @@
 
 	type Props = { showLabel: boolean };
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showLabel', type: 'boolean', defaultValue: true }
 	];
 

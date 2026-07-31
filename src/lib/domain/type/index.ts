@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { TypeDomainScreen } from './alias';
+export type {
+	DeviceFrameViewport,
+	TypeDomainScreen
+} from './alias';
 export type {
 	TypeDomainCluster,
 	TypeDomainComponentDescriptor,

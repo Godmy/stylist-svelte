@@ -9,15 +9,15 @@
 		updatedAt?: Date;
 	};
 
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import KanbanCard from './index.svelte';
 
 	const id = 'molecules-kanban-card';
 	const title = 'Molecules / Management / Kanban / Kanban Card';
 	const description = 'Draggable kanban card with inline editing, tags, assignee and actions.';
-	const controls: InterfaceControllerSettings[] = [];
+	const controls: SlotStory[] = [];
 
 	const sampleCard: KanbanCardType = {
 		id: 'card-1',

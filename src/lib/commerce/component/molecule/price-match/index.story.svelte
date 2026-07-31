@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import PriceMatch from './index.svelte';
 
 	const competitors = [
@@ -9,7 +9,7 @@
 		{ name: 'Shop C', price: 212 }
 	];
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'productName', type: 'text', defaultValue: 'Ergonomic Chair' },
 		{ name: 'targetPrice', type: 'number', defaultValue: 215, min: 1, max: 2000, step: 1 },
 		{ name: 'currency', type: 'text', defaultValue: '$' }

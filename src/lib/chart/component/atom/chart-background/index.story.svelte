@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import ChartBackground from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'width', type: 'number', defaultValue: 420, min: 240, max: 800, step: 20 },
 		{ name: 'height', type: 'number', defaultValue: 220, min: 120, max: 500, step: 20 },
 		{ name: 'fill', type: 'text', defaultValue: '#f8fafc' },

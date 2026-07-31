@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import type { TypeAudioRecording } from '$stylist/audio/type/struct/audio-recording';
 
 	import AudioRecordButton from './index.svelte';
@@ -8,7 +8,7 @@
 	let recording = $state<TypeAudioRecording | null>(null);
 	let eventLog = $state<string[]>([]);
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'startLabel', type: 'text', defaultValue: 'Record' },
 		{ name: 'stopLabel', type: 'text', defaultValue: 'Stop' },
 		{ name: 'saveLabel', type: 'text', defaultValue: 'Audio ready' },

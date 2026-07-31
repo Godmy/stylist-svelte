@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import BulkOrderForm from './index.svelte';
 
@@ -12,7 +12,7 @@
 		description: string;
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showTotal', type: 'boolean', defaultValue: true },
 		{ name: 'showNotes', type: 'boolean', defaultValue: true },
 		{ name: 'allowFileUpload', type: 'boolean', defaultValue: true },

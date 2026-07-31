@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import Avatar from './index.svelte';
 	import type { AvatarUserStatus } from '$stylist/media/type/alias/avatar-user-status';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{
 			name: 'src',
 			type: 'text',

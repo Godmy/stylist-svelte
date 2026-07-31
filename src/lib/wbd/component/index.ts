@@ -16,6 +16,7 @@ export {
 export {
 	ConvergenceChart,
 	DiscussionThread,
+	EstimateRangeChart,
 	FacilitatorControlPanel,
 	FinalEstimateReport,
 	RoundCollectionPanel,

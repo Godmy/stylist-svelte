@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import ChatItem from './index.svelte';
 	import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
@@ -35,7 +35,7 @@
 		unreadCount: 0
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'isActive', type: 'boolean', defaultValue: false }
 	];
 

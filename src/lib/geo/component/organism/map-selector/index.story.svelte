@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import MapSelector from './index.svelte';
 
@@ -19,7 +19,7 @@
 		width: string;
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showSearch', type: 'boolean', defaultValue: true },
 		{ name: 'showZoomControls', type: 'boolean', defaultValue: true },
 		{ name: 'showCurrentLocation', type: 'boolean', defaultValue: true },

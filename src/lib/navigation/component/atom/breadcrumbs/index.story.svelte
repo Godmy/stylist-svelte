@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import Breadcrumbs from './index.svelte';
 	import BreadcrumbLink from '../breadcrumb-link/index.svelte';
 	import BreadcrumbSeparator from '../breadcrumb-separator/index.svelte';

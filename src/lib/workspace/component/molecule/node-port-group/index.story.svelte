@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import type { RecipeNodePort } from '$stylist/workspace/interface/recipe/node-port';
 	import NodePortGroup from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'direction', type: 'select', defaultValue: 'input', options: ['input', 'output'] },
 		{ name: 'portSize', type: 'select', defaultValue: 'md', options: ['xs', 'sm', 'md', 'lg'] },
 		{ name: 'showLabels', type: 'boolean', defaultValue: true },

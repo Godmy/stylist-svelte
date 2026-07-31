@@ -1,13 +1,13 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import ScrumBacklog from './index.svelte';
 
 	let added = $state(0);
 	let updated = $state(0);
 	let removed = $state(0);
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showFilters', type: 'boolean', defaultValue: true },
 		{ name: 'showOnlyHighPriority', type: 'boolean', defaultValue: false }
 	];

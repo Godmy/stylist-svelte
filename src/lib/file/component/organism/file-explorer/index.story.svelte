@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 
 	import FileExplorer from './index.svelte';
 
@@ -59,7 +59,7 @@
 	let enableSelection = true;
 	let multiselect = false;
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'currentPath', type: 'text', defaultValue: '/home/user' },
 		{ name: 'viewMode', type: 'select', options: ['list', 'grid'], defaultValue: 'grid' },
 		{ name: 'searchable', type: 'boolean', defaultValue: true },

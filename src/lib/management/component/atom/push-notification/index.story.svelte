@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import PushNotification from './index.svelte';
 
 	let closed = $state(false);
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Build completed' },
 		{ name: 'message', type: 'text', defaultValue: 'Your release was deployed successfully.' },
 		{

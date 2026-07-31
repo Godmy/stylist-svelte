@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { RecipeStatCard } from '$stylist/management/interface/recipe/stat-card';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import StatCard from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'label', type: 'text', defaultValue: 'Total Components' },
 		{ name: 'value', type: 'text', defaultValue: '429' },
 		{ name: 'trend', type: 'select', options: ['up', 'down', 'neutral'], defaultValue: 'up' }

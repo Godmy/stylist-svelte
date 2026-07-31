@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { DeviceFrame } from './device-frame/index';
 export { DomainBacklog } from './domain-backlog/index';
 export { DomainBuilder } from './domain-builder/index';
 export { DomainDashboard } from './domain-dashboard/index';

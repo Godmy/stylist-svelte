@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import CubeControl from './index.svelte';
 	import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 
@@ -28,7 +28,7 @@
 		}[]
 	>([]);
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'size', type: 'number', defaultValue: 380, min: 80, max: 520, step: 10 },
 		{ name: 'perspective', type: 'number', defaultValue: 700, min: 300, max: 1400, step: 50 },
 		{ name: 'rotationDuration', type: 'number', defaultValue: 24, min: 2, max: 40, step: 1 },

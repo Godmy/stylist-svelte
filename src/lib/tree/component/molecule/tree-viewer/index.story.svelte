@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import TreeViewer from './index.svelte';
 	import type { TreeNodeItemNode } from '$stylist/tree/type/struct/tree-node-item-node';
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import StylistGraphWorkspace from './index.svelte';
 	import type { GraphWorkspaceNode } from '$stylist/architecture/type/struct/graph-workspace-node';
 	import type { GraphWorkspaceConnectionInput } from '$stylist/architecture/type/alias/graph-workspace-connection-input';

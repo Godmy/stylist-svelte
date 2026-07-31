@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Accordion from '$stylist/navigation/component/molecule/accordion/index.svelte';
 	import AccordionGroup from '$stylist/navigation/component/molecule/accordion-group/index.svelte';
 	import AccordionLayout from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Accordion Item' },
 		{ name: 'content', type: 'text', defaultValue: 'Panel content goes here.' },
 		{ name: 'disabled', type: 'boolean', defaultValue: false }

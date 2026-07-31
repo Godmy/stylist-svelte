@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
 	import { resolveSemanticZoomNode } from '$stylist/architecture/function/script/resolve-semantic-zoom-node';
 	import { resolveSemanticZoomPresentation } from '$stylist/architecture/function/script/semantic-zoom';
@@ -9,7 +9,7 @@
 	const VIEWPORT_WIDTH = 1320;
 	const VIEWPORT_HEIGHT = 760;
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showGrid', type: 'boolean', defaultValue: true },
 		{ name: 'showMinimap', type: 'boolean', defaultValue: true },
 		{ name: 'showInspector', type: 'boolean', defaultValue: true },

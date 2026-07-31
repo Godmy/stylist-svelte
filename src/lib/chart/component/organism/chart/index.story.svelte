@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { ChartSeries } from '$stylist/chart/type/struct/chart-series';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import Chart from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'width', type: 'number', defaultValue: 720, min: 380, max: 1020, step: 20 },
 		{ name: 'height', type: 'number', defaultValue: 420, min: 260, max: 700, step: 20 },
 		{ name: 'xMin', type: 'number', defaultValue: -6, min: -20, max: 20, step: 1 },

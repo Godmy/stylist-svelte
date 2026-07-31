@@ -4,6 +4,7 @@ export type { RecipeConvergenceChart } from './convergence-chart';
 export type { RecipeDiscussionNoteItem } from './discussion-note-item';
 export type { RecipeDiscussionThread } from './discussion-thread';
 export type { RecipeEstimateInputRow } from './estimate-input-row';
+export type { RecipeEstimateRangeChart } from './estimate-range-chart';
 export type { RecipeEstimateThreePointInput } from './estimate-three-point-input';
 export type { RecipeEstimatorBadge } from './estimator-badge';
 export type { RecipeFacilitatorControlPanel } from './facilitator-control-panel';

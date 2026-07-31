@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import RecipeAtomicPrinciplesShowcase from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'atoms', type: 'number', defaultValue: 180, min: 0, max: 1000, step: 1 },
 		{ name: 'molecules', type: 'number', defaultValue: 90, min: 0, max: 1000, step: 1 },
 		{ name: 'organisms', type: 'number', defaultValue: 50, min: 0, max: 1000, step: 1 },

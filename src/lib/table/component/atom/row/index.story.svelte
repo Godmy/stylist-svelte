@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import Row from './index.svelte';
 	import Cell from '$stylist/table/component/atom/cell/index.svelte';
 </script>

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import CopyButton from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'text', type: 'text', defaultValue: 'npm install stylist-svelte' },
 		{ name: 'label', type: 'text', defaultValue: 'Copy command' },
 		{ name: 'showIcon', type: 'boolean', defaultValue: true },

@@ -1,4 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { GlCanvas } from './atom';
-export { ConcentricCirclesScene } from './molecule';
-export { ConcentricCirclesLauncher } from './organism';
+export {
+	ConcentricCirclesScene,
+	HyperspaceScene
+} from './molecule';
+export { SceneLauncher } from './organism';

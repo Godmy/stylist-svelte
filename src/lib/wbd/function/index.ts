@@ -6,6 +6,7 @@ export {
 	createDiscussionNoteItemState,
 	createDiscussionThreadState,
 	createEstimateInputRowState,
+	createEstimateRangeChartState,
 	createEstimateThreePointInputState,
 	createEstimatorBadgeState,
 	createFacilitatorControlPanelState,

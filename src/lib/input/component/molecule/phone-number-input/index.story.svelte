@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import PhoneNumberInput from './index.svelte';
 
 	let value = $state('79999999999');
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'placeholder', type: 'text', defaultValue: '+7 (___) ___-__-__' },
 		{ name: 'helpText', type: 'text', defaultValue: 'Supports Russian +7 format.' },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },

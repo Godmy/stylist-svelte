@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import PriceAlert from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'productName', type: 'text', defaultValue: 'Noise-canceling headphones' },
 		{ name: 'currentPrice', type: 'number', defaultValue: 189, min: 1, max: 1000, step: 1 },
 		{ name: 'targetPrice', type: 'number', defaultValue: 170, min: 1, max: 1000, step: 1 },

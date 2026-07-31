@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';
 	import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
 	import SceneInspector from './index.svelte';

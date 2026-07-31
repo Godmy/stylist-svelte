@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import CharacterCount from './index.svelte';
 
 	let draft = $state('The quick brief for a new onboarding screen.');
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'max', type: 'number', defaultValue: 120, min: 1, max: 500, step: 1 },
 		{ name: 'showPercentage', type: 'boolean', defaultValue: true },
 		{ name: 'disabled', type: 'boolean', defaultValue: false }

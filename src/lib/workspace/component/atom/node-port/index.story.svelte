@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import NodePort from './index.svelte';
 
 	type PortProps = {
@@ -18,7 +18,7 @@
 		dataType: PortProps['dataType'];
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'direction', type: 'select', defaultValue: 'input', options: ['input', 'output'] },
 		{
 			name: 'dataType',

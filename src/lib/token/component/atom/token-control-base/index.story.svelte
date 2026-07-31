@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import TokenControlBase from './index.svelte';
 	import type { TokenRadioControlDefinition } from '$stylist/token/type/struct/radio-control-definition';
 

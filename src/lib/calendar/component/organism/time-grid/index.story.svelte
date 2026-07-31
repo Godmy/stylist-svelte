@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import TimeGrid from './index.svelte';
 	import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 	import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';

@@ -4,6 +4,7 @@ export type { SlotConvergenceChart } from './convergence-chart';
 export type { SlotDiscussionNoteItem } from './discussion-note-item';
 export type { SlotDiscussionThread } from './discussion-thread';
 export type { SlotEstimateInputRow } from './estimate-input-row';
+export type { SlotEstimateRangeChart } from './estimate-range-chart';
 export type { SlotEstimateThreePointInput } from './estimate-three-point-input';
 export type { SlotEstimatorBadge } from './estimator-badge';
 export type { SlotFacilitatorControlPanel } from './facilitator-control-panel';

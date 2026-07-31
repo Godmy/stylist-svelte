@@ -1,8 +1,8 @@
-import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 export type TaxCalculatorStoryProps = {
 	id?: string;
 	title?: string;
 	description?: string;
-	controls?: InterfaceControllerSettings[];
+	controls?: SlotStory[];
 };

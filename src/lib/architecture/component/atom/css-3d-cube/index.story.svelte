@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import Css3dCube from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'autoRotate', type: 'boolean', defaultValue: true },
 		{ name: 'size', type: 'range', min: 100, max: 300, step: 10, defaultValue: 200 },
 		{ name: 'rotationX', type: 'range', min: 0, max: 360, step: 1, defaultValue: 25 },

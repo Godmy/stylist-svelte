@@ -29,7 +29,6 @@ import { ICON_MARKETING }    from '$stylist/svg/const/value/marketing';
 import { ICON_MEDIA }        from '$stylist/svg/const/value/media';
 import { ICON_NAVIGATION }   from '$stylist/svg/const/value/navigation';
 import { ICON_NOTIFICATION } from '$stylist/svg/const/value/notification';
-import { ICON_PLAYGROUND }   from '$stylist/svg/const/value/playground';
 import { ICON_PORTFOLIO }    from '$stylist/svg/const/value/portfolio';
 import { ICON_PRESENTATION } from '$stylist/svg/const/value/presentation';
 import { ICON_PRODUCT }      from '$stylist/svg/const/value/product';
@@ -76,7 +75,6 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'media',        svg: ICON_MEDIA },
 	{ name: 'navigation',   svg: ICON_NAVIGATION },
 	{ name: 'notification', svg: ICON_NOTIFICATION },
-	{ name: 'playground',   svg: ICON_PLAYGROUND },
 	{ name: 'portfolio',    svg: ICON_PORTFOLIO },
 	{ name: 'presentation', svg: ICON_PRESENTATION },
 	{ name: 'product',      svg: ICON_PRODUCT },

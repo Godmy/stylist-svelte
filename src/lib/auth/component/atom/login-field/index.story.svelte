@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import LoginField from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'label', type: 'text', defaultValue: 'Email' },
 		{ name: 'fieldType', type: 'select', options: ['email', 'password', 'text'], defaultValue: 'email' },
 		{ name: 'placeholder', type: 'text', defaultValue: 'you@example.com' },

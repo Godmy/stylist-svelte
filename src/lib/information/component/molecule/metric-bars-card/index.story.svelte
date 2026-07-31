@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import MetricBarsCard from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'label', type: 'text', defaultValue: 'Sprint Health' },
 		{ name: 'caption', type: 'text', defaultValue: 'Distribution across current delivery lanes.' },
 		{ name: 'total', type: 'text', defaultValue: '42 issues' },

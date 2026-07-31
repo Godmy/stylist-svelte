@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
 	import type { SlotModelOption } from '$stylist/ai/interface/slot/model-option';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 
 	import ModelSelector from './index.svelte';
 
@@ -35,7 +35,7 @@
 		}
 	];
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'selectedModel', type: 'text', defaultValue: '' },
 		{ name: 'placeholder', type: 'text', defaultValue: 'AI Model Selector' },
 		{ name: 'showTags', type: 'boolean', defaultValue: true },

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import Select from './index.svelte';
 	import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
 

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import DocumentPreview from './index.svelte';
 
 	type Props = {
@@ -12,7 +12,7 @@
 		height: string;
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'format', type: 'select', options: ['json', 'text', 'markdown'], defaultValue: 'json' },
 		{ name: 'showLineNumbers', type: 'boolean', defaultValue: true },
 		{ name: 'showCopyButton', type: 'boolean', defaultValue: true },

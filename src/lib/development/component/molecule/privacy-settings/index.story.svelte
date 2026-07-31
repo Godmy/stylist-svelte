@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import RecipePrivacySettings from './index.svelte';
 
 	let saveCount = $state(0);
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'analyticsEnabled', type: 'boolean', defaultValue: true },
 		{ name: 'adsEnabled', type: 'boolean', defaultValue: false },
 		{ name: 'locationEnabled', type: 'boolean', defaultValue: true }

@@ -1,13 +1,13 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 	import MessageList from './index.svelte';
 
 	let lastAction = $state('none');
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'messageCount', type: 'number', defaultValue: 6, min: 1, max: 12 },
 		{ name: 'includeAttachments', type: 'boolean', defaultValue: false }
 	];

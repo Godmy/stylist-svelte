@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import AudioVisualizer from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Sample Track' },
 		{ name: 'author', type: 'text', defaultValue: 'Sample Artist' },
 		{ name: 'duration', type: 'text', defaultValue: '3:45' },

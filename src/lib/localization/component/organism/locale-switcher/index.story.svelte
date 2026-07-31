@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import LocaleSwitcher from './index.svelte';
 
 	let locales = [
@@ -25,7 +25,7 @@
 		showTimePreview: boolean;
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showRegional', type: 'boolean', defaultValue: true },
 		{ name: 'showDatePreview', type: 'boolean', defaultValue: true },
 		{ name: 'showTimePreview', type: 'boolean', defaultValue: true }

@@ -645,6 +645,7 @@ export {
 export {
 	CLUSTER_TOOLBAR_ITEMS,
 	ClusterToolbar,
+	DEVICE_FRAME_VIEWPORT,
 	DOMAIN_COMPONENT_DEBUG_ERROR,
 	DOMAIN_COUNT,
 	DOMAIN_MENU_ICONS,
@@ -655,6 +656,7 @@ export {
 	DOMAIN_SCREEN_LANDING,
 	DOMAIN_SCREEN_VALUES,
 	DOMAIN_SCREEN_WORKSPACE,
+	DeviceFrame,
 	DomainBacklog,
 	DomainBuilder,
 	DomainDashboard,
@@ -683,6 +685,7 @@ export {
 	StylistRibbonMenu,
 	TaxonomyBreadcrumbs,
 	TokenSettings,
+	createDeviceFrameState,
 	createDomainBacklogPreviewState,
 	createDomainBacklogState,
 	createDomainLandingScreenState,
@@ -1366,19 +1369,6 @@ export {
 	createNotificationStore,
 	createToastStackState
 } from './notification';
-export {
-	DeviceFrame,
-	PLAYGROUND_CANVAS_SHELL_BACKGROUND_TYPE,
-	PLAYGROUND_CANVAS_SHELL_VIEWPORT_SIZE,
-	PropsEditor,
-	ShellCanvas,
-	ShellHeader,
-	Story,
-	createDeviceFrameState,
-	createPropsEditorState,
-	createShellCanvasState,
-	createShellHeaderState
-} from './playground';
 export {
 	BURN_DOWN_CHART_DEFAULT_MARGINS,
 	BacklogViewTabs,
@@ -2278,6 +2268,7 @@ export {
 	SCHEME_MINIMAL,
 	SCHEME_OCEAN,
 	SCHEME_SUNSET,
+	Story,
 	THEME_LAYOUT,
 	THEME_MODE_DARK,
 	THEME_MODE_DEFAULT,
@@ -2323,6 +2314,7 @@ export {
 	applyThemeToDOM,
 	createColorPickerState,
 	createColorSwatchState,
+	createStoryState,
 	createThemeConsumerState,
 	createThemeContextState,
 	createThemeModeToggleState,
@@ -2362,6 +2354,7 @@ export {
 	TOKEN_COMMERCE_SETTING,
 	TOKEN_CONTROL_SETTING,
 	TOKEN_DEVELOPMENT_SETTING,
+	TOKEN_DEVICE_FRAME_SETTING,
 	TOKEN_FILE_SETTING,
 	TOKEN_GEO_SETTING,
 	TOKEN_GRAPH_SETTING,
@@ -2374,7 +2367,6 @@ export {
 	TOKEN_MARKETING_SETTING,
 	TOKEN_MEDIA_SETTING,
 	TOKEN_NOTIFICATION_SETTING,
-	TOKEN_PLAYGROUND_SETTING,
 	TOKEN_SETTING,
 	TOKEN_SVG_SETTING,
 	TOKEN_TABLE_SETTING,
@@ -2448,6 +2440,7 @@ export {
 	DiscussionNoteItem,
 	DiscussionThread,
 	EstimateInputRow,
+	EstimateRangeChart,
 	EstimateThreePointInput,
 	EstimatorBadge,
 	FacilitatorControlPanel,
@@ -2470,6 +2463,7 @@ export {
 	createDiscussionNoteItemState,
 	createDiscussionThreadState,
 	createEstimateInputRowState,
+	createEstimateRangeChartState,
 	createEstimateThreePointInputState,
 	createEstimatorBadgeState,
 	createFacilitatorControlPanelState,
@@ -2486,9 +2480,10 @@ export {
 	validateWbdEstimate
 } from './wbd';
 export {
-	ConcentricCirclesLauncher,
 	ConcentricCirclesScene,
 	GlCanvas,
+	HyperspaceScene,
+	SceneLauncher,
 	compileShader,
 	createProgram
 } from './webgl';
@@ -2807,6 +2802,7 @@ export type {
 } from './development';
 export type { ComponentInfoCardProps } from './dialog';
 export type {
+	DeviceFrameViewport,
 	TypeDomainCluster,
 	TypeDomainComponentDescriptor,
 	TypeDomainComponentProjection,
@@ -3045,16 +3041,6 @@ export type {
 	TabItem,
 	ToolbarItem
 } from './navigation';
-export type {
-	DeviceFrameProps,
-	InterfaceControllerSettings,
-	PlaygroundCanvasShellBackgroundType,
-	PlaygroundCanvasShellViewportSize,
-	PropDefinition,
-	ShellCanvasProps,
-	ShellHeaderColorScheme,
-	ShellHeaderProps
-} from './playground';
 export type {
 	DragPayload,
 	KanbanBoardAction,
@@ -3561,6 +3547,7 @@ export type {
 } from './development';
 export type { RecipeComponentInfoCard } from './dialog';
 export type {
+	RecipeDeviceFrame,
 	RecipeDomainList,
 	RecipeDomainSidebar,
 	RecipeDomainToolbar,
@@ -4010,12 +3997,6 @@ export type {
 	RecipeToastStack
 } from './notification';
 export type {
-	RecipeDeviceFrame,
-	RecipePropsEditor,
-	RecipeShellCanvas,
-	RecipeShellHeader
-} from './playground';
-export type {
 	BurnDownChartMargins,
 	BurnDownLabel,
 	BurnDownMinMaxResult,
@@ -4153,6 +4134,7 @@ export type {
 	BehaviorThemeMode,
 	BehaviorThemeScheme,
 	ContentList,
+	RecipeStory,
 	RecipeTheme,
 	RecipeThemeColorPicker,
 	RecipeThemeColorSwatch,
@@ -4167,6 +4149,7 @@ export type {
 	SlotChildren,
 	SlotClass,
 	SlotContent,
+	SlotStory,
 	SlotTheme,
 	SlotThemeBorder,
 	SlotThemeChildren,
@@ -4212,6 +4195,7 @@ export type {
 	RecipeDiscussionNoteItem,
 	RecipeDiscussionThread,
 	RecipeEstimateInputRow,
+	RecipeEstimateRangeChart,
 	RecipeEstimateThreePointInput,
 	RecipeEstimatorBadge,
 	RecipeFacilitatorControlPanel,
@@ -4230,6 +4214,7 @@ export type {
 	SlotDiscussionNoteItem,
 	SlotDiscussionThread,
 	SlotEstimateInputRow,
+	SlotEstimateRangeChart,
 	SlotEstimateThreePointInput,
 	SlotEstimatorBadge,
 	SlotFacilitatorControlPanel,

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Alert from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'variant', type: 'select', options: ['info', 'success', 'warning', 'error'], defaultValue: 'info' },
 		{ name: 'title', type: 'text', defaultValue: 'Workspace synced' },
 		{ name: 'showIcon', type: 'boolean', defaultValue: true },

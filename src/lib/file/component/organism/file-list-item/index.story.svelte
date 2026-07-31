@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { FileItem } from '$stylist/file/type/struct/file-list-item/file-item';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 
 	import FileListItem from './index.svelte';
 
@@ -17,7 +17,7 @@
 		selected: false
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showThumbnail', type: 'boolean', defaultValue: false },
 		{ name: 'showSize', type: 'boolean', defaultValue: true },
 		{ name: 'showModified', type: 'boolean', defaultValue: true },

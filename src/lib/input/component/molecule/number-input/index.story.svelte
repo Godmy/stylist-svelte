@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import NumberInput from './index.svelte';
 
 	let value = $state(10);
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'min', type: 'number', defaultValue: 0, min: -100, max: 100, step: 1 },
 		{ name: 'max', type: 'number', defaultValue: 100, min: 1, max: 500, step: 1 },
 		{ name: 'step', type: 'number', defaultValue: 1, min: 1, max: 50, step: 1 },

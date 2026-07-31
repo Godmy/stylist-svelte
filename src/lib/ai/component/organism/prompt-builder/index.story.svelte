@@ -1,11 +1,11 @@
 ﻿<script lang="ts">
 	import type { ContractPromptTemplate } from '$stylist/ai/interface/contract/prompt-template';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 
 	import PromptBuilder from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showTemplates', type: 'boolean', defaultValue: true },
 		{ name: 'showVariables', type: 'boolean', defaultValue: true },
 		{ name: 'initialPrompt', type: 'text', defaultValue: 'You are a helpful assistant.' }

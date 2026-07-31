@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import PostCard from '$stylist/social/component/molecule/post-card/index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Release Notes v2.8' },
 		{ name: 'subtitle', type: 'text', defaultValue: 'Performance, stability, and DX upgrades.' },
 		{ name: 'author', type: 'text', defaultValue: 'Platform Team' },

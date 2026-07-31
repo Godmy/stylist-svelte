@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 	import type { User } from '$stylist/commerce/type/struct/user';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import UserCard from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
 		{ name: 'showEmail', type: 'boolean', defaultValue: true },
 		{ name: 'showRole', type: 'boolean', defaultValue: true }

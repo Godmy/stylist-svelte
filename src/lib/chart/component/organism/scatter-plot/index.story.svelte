@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import ScatterPlot from './index.svelte';
 	const data = [
 		{ id: 'a', x: 12, y: 30, name: 'A', color: '#3b82f6' },
@@ -8,7 +8,7 @@
 		{ id: 'c', x: 70, y: 40, name: 'C', color: '#f59e0b' }
 	];
 	type Props = { showGrid: boolean; showAxis: boolean; showLabels: boolean };
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showGrid', type: 'boolean', defaultValue: true },
 		{ name: 'showAxis', type: 'boolean', defaultValue: true },
 		{ name: 'showLabels', type: 'boolean', defaultValue: false }

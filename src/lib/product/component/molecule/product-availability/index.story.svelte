@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import ProductAvailability from './index.svelte';
 
 	let notified = $state(false);
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'available', type: 'boolean', defaultValue: true },
 		{ name: 'stock', type: 'number', defaultValue: 5, min: 0 },
 		{ name: 'location', type: 'text', defaultValue: 'Warehouse A' },

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import schemaSource from '$stylist/erd/data/md/schema/schema.md?raw';
 	import Schema from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'zoom', type: 'number', defaultValue: 1, min: 0.5, max: 1.6, step: 0.1 },
 		{ name: 'showRelations', type: 'boolean', defaultValue: true },
 		{ name: 'highlightRelations', type: 'boolean', defaultValue: true },

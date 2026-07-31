@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 	import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 
 	import SharedCanvas from './index.svelte';
 
@@ -24,7 +24,7 @@
 		{ id: 'user2', name: 'Bob', color: '#ec4899' }
 	];
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'width', type: 'select', options: [600, 700, 800, 900], defaultValue: 800 },
 		{ name: 'height', type: 'select', options: [400, 500, 600, 700], defaultValue: 600 },
 		{ name: 'showUsers', type: 'boolean', defaultValue: true },

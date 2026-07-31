@@ -21,6 +21,7 @@ export {
 	TokenSettings
 } from './molecule';
 export {
+	DeviceFrame,
 	DomainBacklog,
 	DomainBuilder,
 	DomainDashboard,

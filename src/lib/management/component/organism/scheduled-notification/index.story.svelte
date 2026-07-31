@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import type { ScheduledNotificationItem } from '$stylist/management/type/struct/scheduled-notification-item';
 	import ScheduledNotification from './index.svelte';
 
@@ -11,7 +11,7 @@
 		allowReorder: boolean;
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showEditButton', type: 'boolean', defaultValue: true },
 		{ name: 'showDeleteButton', type: 'boolean', defaultValue: true },
 		{ name: 'showRecurrence', type: 'boolean', defaultValue: true },

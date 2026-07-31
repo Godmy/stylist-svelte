@@ -2,12 +2,12 @@
 	import type { FeedUser } from '$stylist/social/type/struct/social-feed/feeduser';
 	import type { FilterOption } from '$stylist/social/type/struct/social-feed/filteroption';
 	import type { Post } from '$stylist/social/type/struct/social-feed/post';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import SocialFeed from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showComments', type: 'boolean', defaultValue: true },
 		{ name: 'showShare', type: 'boolean', defaultValue: true },
 		{ name: 'showBookmarks', type: 'boolean', defaultValue: true }

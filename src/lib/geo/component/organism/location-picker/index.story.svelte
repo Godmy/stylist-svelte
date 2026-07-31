@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { Coordinates } from '$stylist/geo/type/struct/location-picker/coordinates';
 	import type { MapMarker } from '$stylist/geo/type/struct/location-picker/mapmarker';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import LocationPicker from './index.svelte';
 
@@ -36,7 +36,7 @@
 	let maxZoom = 18;
 	let minZoom = 1;
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showSearch', type: 'boolean', defaultValue: true },
 		{ name: 'showCoordinates', type: 'boolean', defaultValue: true },
 		{ name: 'showCurrentLocation', type: 'boolean', defaultValue: true },

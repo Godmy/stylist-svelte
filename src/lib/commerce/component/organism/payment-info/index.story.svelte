@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import type { PaymentMethod } from '$stylist/commerce/type/struct/payment-method';
 	import PaymentInfo from './index.svelte';
 
@@ -34,7 +34,7 @@
 	];
 
 	type Props = { showMethods: boolean; showSecurityInfo: boolean; showAcceptedCards: boolean };
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showMethods', type: 'boolean', defaultValue: true },
 		{ name: 'showSecurityInfo', type: 'boolean', defaultValue: true },
 		{ name: 'showAcceptedCards', type: 'boolean', defaultValue: true }

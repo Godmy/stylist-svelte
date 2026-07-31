@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import TeamMemberCard from './index.svelte';
 	import type { SlotTeamMemberCard as ITeamMemberCardProps } from '$stylist/management/interface/slot/team-member-card';
@@ -23,7 +23,7 @@
 		id?: string;
 		title?: string;
 		description?: string;
-		controls?: InterfaceControllerSettings[];
+		controls?: SlotStory[];
 	}>();
 
 	// Sample data for the team member card

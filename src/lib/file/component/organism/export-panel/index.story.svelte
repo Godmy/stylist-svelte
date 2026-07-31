@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ExportFormat } from '$stylist/file/type/alias/export-format';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import ExportPanel from './index.svelte';
 
@@ -13,7 +13,7 @@
 		console.log('Export event:', detail);
 	}
 
-	const controls: InterfaceControllerSettings[] = [];
+	const controls: SlotStory[] = [];
 </script>
 
 <Story

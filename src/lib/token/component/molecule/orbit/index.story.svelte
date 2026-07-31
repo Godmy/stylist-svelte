@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import { L6_TOKEN_DEFINITIONS } from '$stylist/token/const/object/orbit-control-definition';
 	import Orbit from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'opened', type: 'boolean', defaultValue: true },
 		{ name: 'radius', type: 'number', defaultValue: 112, min: 72, max: 160 }
 	];

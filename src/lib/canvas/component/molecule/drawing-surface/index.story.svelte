@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import DrawingSurface from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'width', type: 'number', defaultValue: 640, min: 300, max: 1000, step: 20 },
 		{ name: 'height', type: 'number', defaultValue: 360, min: 200, max: 700, step: 20 },
 		{ name: 'drawingEnabled', type: 'boolean', defaultValue: true },

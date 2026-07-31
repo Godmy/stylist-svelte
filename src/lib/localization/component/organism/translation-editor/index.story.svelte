@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import TranslationEditor from './index.svelte';
 	import type { TranslatableText } from '$stylist/localization/type/struct/translatable-text';
 	import type { TranslationLocale } from '$stylist/localization/type/struct/translation-locale';
@@ -13,7 +13,7 @@
 		currentLocale: string;
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{
 			name: 'showKeyColumn',
 			type: 'boolean',

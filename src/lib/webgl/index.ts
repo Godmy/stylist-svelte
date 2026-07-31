@@ -1,8 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	ConcentricCirclesLauncher,
 	ConcentricCirclesScene,
-	GlCanvas
+	GlCanvas,
+	HyperspaceScene,
+	SceneLauncher
 } from './component';
 export {
 	compileShader,

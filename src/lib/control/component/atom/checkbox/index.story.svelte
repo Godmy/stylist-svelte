@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import SlotCheckbox from './index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	// Define CheckboxProps type locally
 	type CheckboxProps = {
@@ -25,7 +25,7 @@
 		id: string;
 		title: string;
 		description: string;
-		controls: InterfaceControllerSettings[];
+		controls: SlotStory[];
 	}>();
 
 	// Generate a random ID for the checkbox

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import LoginPage from './index.svelte';
 	import type { LoginCredentials } from '$stylist/auth/type/object/login-credentials';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Sign in' },
 		{ name: 'subtitle', type: 'text', defaultValue: 'Use your workspace account to continue.' },
 		{ name: 'isLoading', type: 'boolean', defaultValue: false },

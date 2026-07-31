@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import FileInput from './index.svelte';
 
 	let selectedLabel = $state('No file selected');
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'placeholder', type: 'text', defaultValue: 'Attach files' },
 		{ name: 'accept', type: 'text', defaultValue: '.png,.jpg,.pdf' },
 		{ name: 'multiple', type: 'boolean', defaultValue: false },

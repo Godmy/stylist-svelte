@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import ZipViewer from './index.svelte';
 
@@ -98,7 +98,7 @@
 		defaultExpanded?: boolean;
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'searchable', type: 'boolean', defaultValue: true },
 		{ name: 'showPath', type: 'boolean', defaultValue: true },
 		{ name: 'enableFiltering', type: 'boolean', defaultValue: true },

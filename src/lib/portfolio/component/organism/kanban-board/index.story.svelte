@@ -1,8 +1,8 @@
 ﻿<script lang="ts">
 	import type { KanbanBoardAction } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardaction';
 	import type { KanbanBoardType } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardtype';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import KanbanBoard from './index.svelte';
 
@@ -11,7 +11,7 @@
 	let newCards = $state(0);
 	let externalUpdates = $state(0);
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'allowReordering', type: 'boolean', defaultValue: true },
 		{ name: 'controlled', type: 'boolean', defaultValue: false }
 	];

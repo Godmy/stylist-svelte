@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
 	import type { ContentElement } from '$stylist/development/interface/slot/content-element';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import ContentEditor from './index.svelte';
 
@@ -11,7 +11,7 @@
 		{ id: '3', type: 'quote', content: 'The only way to do great work is to love what you do.' }
 	];
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'placeholder', type: 'text', defaultValue: 'Start writing your content here...' },
 		{ name: 'showToolbar', type: 'boolean', defaultValue: true },
 		{ name: 'showPreviewButton', type: 'boolean', defaultValue: true }

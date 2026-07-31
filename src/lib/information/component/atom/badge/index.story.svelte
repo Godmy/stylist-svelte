@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Badge from './index.svelte';
 
 	const variantOptions = ['default', 'success', 'warning', 'danger', 'info'] as const;
@@ -19,7 +19,7 @@
 		size: (typeof sizeOptions)[number];
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'label', type: 'text', defaultValue: 'New' },
 		{ name: 'variant', type: 'select', defaultValue: 'default', options: [...variantOptions] },
 		{ name: 'size', type: 'select', defaultValue: 'md', options: [...sizeOptions] }

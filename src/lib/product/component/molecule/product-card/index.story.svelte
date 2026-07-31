@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import ProductCard from './index.svelte';
 	import WishlistButton from '$stylist/product/component/molecule/wishlist-button/index.svelte';
 
@@ -13,7 +13,7 @@
 		log = [message, ...log].slice(0, 5);
 	}
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{
 			name: 'variant',
 			type: 'select',

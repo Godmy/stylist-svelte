@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { AnyProperty } from '$stylist/layout/type/object/any-property';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import NotificationCenter from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showUnreadCount', type: 'boolean', defaultValue: true },
 		{ name: 'showMarkAllRead', type: 'boolean', defaultValue: true },
 		{ name: 'showClearAll', type: 'boolean', defaultValue: true },

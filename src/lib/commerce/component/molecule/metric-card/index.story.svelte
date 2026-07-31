@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import MetricCard from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'label', type: 'text', defaultValue: 'Completion' },
 		{ name: 'value', type: 'text', defaultValue: '74%' },
 		{ name: 'percentage', type: 'number', defaultValue: 74, min: 0, max: 100, step: 1 },

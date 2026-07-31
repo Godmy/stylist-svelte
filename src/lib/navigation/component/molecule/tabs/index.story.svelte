@@ -1,13 +1,13 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Tabs from './index.svelte';
 	import TabList from '$stylist/navigation/component/atom/tab-list/index.svelte';
 	import Tab from '$stylist/navigation/component/atom/tab/index.svelte';
 	import TabPanel from '$stylist/navigation/component/atom/tab-panel/index.svelte';
 	import TabPanels from '$stylist/navigation/component/atom/tab-panels/index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{
 			name: 'selectedId',
 			type: 'select',

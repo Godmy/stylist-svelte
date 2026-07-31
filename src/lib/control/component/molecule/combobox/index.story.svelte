@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ComboboxItem } from '$stylist/control/type/struct/combobox/item';
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import Combobox from './index.svelte';
 
@@ -11,7 +11,7 @@
 		{ id: '3', label: 'Cherry', description: 'A small, round stone fruit' }
 	];
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'placeholder', type: 'text', defaultValue: 'Start typing...' },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'clearable', type: 'boolean', defaultValue: true },

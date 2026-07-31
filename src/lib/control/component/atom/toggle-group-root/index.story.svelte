@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import ToggleGroupRoot from './index.svelte';
 	import ToggleGroupItem from '../toggle-group-item/index.svelte';
 
 	let valueText = $state('none');
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'type', type: 'select', defaultValue: 'single', options: ['single', 'multiple'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false }
 	];

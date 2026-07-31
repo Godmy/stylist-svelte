@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import ChatPreview from './index.svelte';
 	import type { ChatPreviewProps } from '$stylist/chat/type/struct/chat-preview';
 
@@ -16,7 +16,7 @@
 		]
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'title', type: 'text', defaultValue: 'AI Team Chat' },
 		{ name: 'maxMessages', type: 'number', defaultValue: 3, min: 1, max: 10 },
 		{ name: 'showAvatars', type: 'boolean', defaultValue: true }

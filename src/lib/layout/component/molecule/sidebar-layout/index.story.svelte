@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import AspectRatio from '$stylist/layout/component/atom/aspect-ratio/index.svelte';
 	import Background from '$stylist/layout/component/atom/background/index.svelte';
 	import Border from '$stylist/layout/component/atom/border/index.svelte';
@@ -25,7 +25,7 @@
 	import ThemeProvider from '$stylist/theme/component/atom/theme-provider/index.svelte';
 	import SidebarLayout from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'side', type: 'select', defaultValue: 'left', options: ['left', 'right'] },
 		{
 			name: 'sidebarWidth',

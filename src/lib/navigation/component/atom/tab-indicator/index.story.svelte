@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import TabIndicator from './index.svelte';
 
 	const colorOptions = ['primary', 'secondary', 'success', 'warning', 'danger', 'neutral'] as const;
@@ -11,7 +11,7 @@
 		color: (typeof colorOptions)[number];
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'width', type: 'text', defaultValue: '7rem' },
 		{ name: 'left', type: 'text', defaultValue: '8rem' },
 		{ name: 'color', type: 'select', defaultValue: 'primary', options: [...colorOptions] }

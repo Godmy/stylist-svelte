@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import MultiSelect from './index.svelte';
 
 	const options = [
@@ -18,7 +18,7 @@
 		placeholder: string;
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'searchable', type: 'boolean', defaultValue: true },
 		{ name: 'maxSelections', type: 'number', defaultValue: 0, min: 0, max: 5, step: 1 },

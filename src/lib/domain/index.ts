@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	ClusterToolbar,
+	DeviceFrame,
 	DomainBacklog,
 	DomainBuilder,
 	DomainDashboard,
@@ -30,6 +31,7 @@ export {
 } from './component';
 export {
 	CLUSTER_TOOLBAR_ITEMS,
+	DEVICE_FRAME_VIEWPORT,
 	DOMAIN_COMPONENT_DEBUG_ERROR,
 	DOMAIN_COUNT,
 	DOMAIN_MENU_ICONS,
@@ -44,6 +46,7 @@ export {
 	STYLIST_GRAPH_WORKSPACE_SEED
 } from './const';
 export {
+	createDeviceFrameState,
 	createDomainBacklogPreviewState,
 	createDomainBacklogState,
 	createDomainLandingScreenState,
@@ -51,6 +54,7 @@ export {
 	serializeUnknownError
 } from './function';
 export type {
+	DeviceFrameViewport,
 	TypeDomainCluster,
 	TypeDomainComponentDescriptor,
 	TypeDomainComponentProjection,
@@ -61,6 +65,7 @@ export type {
 	TypeDomainTreeNode
 } from './type';
 export type {
+	RecipeDeviceFrame,
 	RecipeDomainList,
 	RecipeDomainSidebar,
 	RecipeDomainToolbar,

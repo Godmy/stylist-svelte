@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 
-	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import ScreenReader from './index.svelte';
 
@@ -15,7 +15,7 @@
 		announcePageChanges: boolean;
 	};
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'showSkipLink', type: 'boolean', defaultValue: true },
 
 		{ name: 'showAriaLive', type: 'boolean', defaultValue: true },
