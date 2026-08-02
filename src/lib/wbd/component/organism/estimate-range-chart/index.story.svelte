@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/theme/type/struct/interface-controller-settings';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import EstimateRangeChart from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
+	const controls: SlotStory[] = [
 		{ name: 'itemCount', type: 'number', defaultValue: 12, min: 1, max: 20 }
 	];
 

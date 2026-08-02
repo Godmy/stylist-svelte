@@ -4,11 +4,31 @@ export type {
 	TokenWbdRoundStatus
 } from './alias';
 export type {
+	StructWbdAuditLogEntry,
+	StructWbdConfidenceDistributionItem,
+	StructWbdConsensusItem,
+	StructWbdConsensusMatrixCell,
+	StructWbdDiscussionMessage,
 	StructWbdDiscussionNote,
 	StructWbdEstimate,
+	StructWbdExpertAnswer,
+	StructWbdExportOption,
+	StructWbdFinalReportSection,
+	StructWbdMutationStatus,
 	StructWbdParticipant,
 	StructWbdPertResult,
+	StructWbdQuestion,
+	StructWbdRationaleItem,
+	StructWbdResponseDistributionBin,
 	StructWbdRound,
+	StructWbdRoundComparisonItem,
+	StructWbdRoundProgress,
+	StructWbdRoundSnapshot,
 	StructWbdRoundSummary,
-	StructWbdTask
+	StructWbdSession,
+	StructWbdSessionExpert,
+	StructWbdSessionLifecycleAction,
+	StructWbdTask,
+	StructWbdTrendPoint,
+	StructWbdUser
 } from './struct';
