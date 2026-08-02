@@ -13,7 +13,7 @@
 			<article>
 				<span style={`height: ${Math.max(4, point.heightPercent)}%;`}></span>
 				<small>{point.value}</small>
-				<label>R{point.roundNumber}</label>
+				<span class="wbd-median-trend__label">R{point.roundNumber}</span>
 			</article>
 		{/each}
 	</div>
@@ -49,7 +49,7 @@
 		background: var(--color-primary-500, #3b82f6);
 	}
 	.wbd-median-trend small,
-	.wbd-median-trend label {
+	.wbd-median-trend__label {
 		font-size: 0.6875rem;
 		color: var(--color-text-tertiary, #64748b);
 	}

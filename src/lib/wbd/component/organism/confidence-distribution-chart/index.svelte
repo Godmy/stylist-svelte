@@ -13,7 +13,7 @@
 			<article>
 				<span style={`height: ${Math.max(4, bar.heightPercent)}%;`}></span>
 				<small>{bar.count}</small>
-				<label>{bar.confidence}</label>
+				<span class="wbd-confidence-chart__label">{bar.confidence}</span>
 			</article>
 		{/each}
 	</div>
@@ -49,7 +49,7 @@
 		background: var(--color-success-500, #22c55e);
 	}
 	.wbd-confidence-chart small,
-	.wbd-confidence-chart label {
+	.wbd-confidence-chart__label {
 		font-size: 0.6875rem;
 		color: var(--color-text-tertiary, #64748b);
 	}

@@ -1,6 +1,8 @@
 <script lang="ts">
 	import createWbdExpertQuestionnaireState from '$stylist/wbd/function/state/expert-questionnaire/index.svelte';
 	import type { RecipeWbdExpertQuestionnaire } from '$stylist/wbd/interface/recipe/expert-questionnaire';
+	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
+	import Text from '$stylist/typography/component/atom/text/index.svelte';
 
 	let props: RecipeWbdExpertQuestionnaire = $props();
 	const model = createWbdExpertQuestionnaireState(props);
@@ -30,20 +32,20 @@
 
 <section class="wbd-expert-questionnaire {model.className}">
 	<div class="wbd-expert-questionnaire__header">
-		<span>{model.submittedCount}/{model.totalCount} submitted</span>
+		<Text text={`${model.submittedCount}/${model.totalCount} submitted`} />
 	</div>
 
 	{#if model.currentQuestion}
 		<article class="wbd-expert-questionnaire__question">
 			<div class="wbd-expert-questionnaire__context">
-				<span>{model.currentQuestion.category ?? 'General'}</span>
-				<span>{model.currentQuestion.type}{model.currentQuestion.unit ? ` · ${model.currentQuestion.unit}` : ''}</span>
+				<Text text={model.currentQuestion.category ?? 'General'} />
+				<Text text={`${model.currentQuestion.type}${model.currentQuestion.unit ? ` · ${model.currentQuestion.unit}` : ''}`} />
 			</div>
-			<h2>{model.currentQuestion.text}</h2>
+			<Heading level={2} class="wbd-expert-questionnaire__title" text={model.currentQuestion.text} />
 			{#if model.currentQuestion.minValue !== undefined || model.currentQuestion.maxValue !== undefined}
-				<p>
+				<Text class="wbd-expert-questionnaire__range" block>
 					Range: {model.currentQuestion.minValue ?? 'any'} to {model.currentQuestion.maxValue ?? 'any'}
-				</p>
+				</Text>
 			{/if}
 		</article>
 
@@ -105,15 +107,11 @@
 		font-weight: 600;
 		color: var(--color-text-tertiary, #64748b);
 	}
-	.wbd-expert-questionnaire__question h2,
-	.wbd-expert-questionnaire__question p {
-		margin: 0;
-	}
-	.wbd-expert-questionnaire__question h2 {
+	.wbd-expert-questionnaire__title {
 		font-size: 1.125rem;
 		color: var(--color-text-primary, #0f172a);
 	}
-	.wbd-expert-questionnaire__question p {
+	.wbd-expert-questionnaire__range {
 		font-size: 0.8125rem;
 		color: var(--color-text-secondary, #475569);
 	}

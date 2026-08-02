@@ -4,6 +4,8 @@
 	import DiscussionMessageComposer from '$stylist/wbd/component/molecule/discussion-message-composer/index.svelte';
 	import DiscussionMessageThread from '$stylist/wbd/component/molecule/discussion-message-thread/index.svelte';
 	import DiscussionRoundFilter from '$stylist/wbd/component/molecule/discussion-round-filter/index.svelte';
+	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
+	import Text from '$stylist/typography/component/atom/text/index.svelte';
 
 	let props: RecipeWbdQuestionDiscussionPanel = $props();
 	const state = createWbdQuestionDiscussionPanelState(props);
@@ -12,8 +14,8 @@
 <section class="wbd-question-discussion {state.className}">
 	<header>
 		<div>
-			<span>{state.question.category ?? 'General'}</span>
-			<h2>{state.question.text}</h2>
+			<Text class="wbd-question-discussion__category" text={state.question.category ?? 'General'} />
+			<Heading level={2} class="wbd-question-discussion__title" text={state.question.text} />
 		</div>
 		<DiscussionRoundFilter
 			rounds={state.rounds}
@@ -37,12 +39,12 @@
 		justify-content: space-between;
 		gap: 1rem;
 	}
-	.wbd-question-discussion header span {
+	.wbd-question-discussion__category {
 		font-size: 0.75rem;
 		font-weight: 700;
 		color: var(--color-text-tertiary, #64748b);
 	}
-	.wbd-question-discussion header h2 {
+	.wbd-question-discussion__title {
 		margin: 0.25rem 0 0;
 		font-size: 1rem;
 		color: var(--color-text-primary, #0f172a);

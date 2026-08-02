@@ -1,6 +1,8 @@
 <script lang="ts">
 	import createWbdSessionListState from '$stylist/wbd/function/state/session-list/index.svelte';
 	import type { RecipeWbdSessionList } from '$stylist/wbd/interface/recipe/session-list';
+	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
+	import Text from '$stylist/typography/component/atom/text/index.svelte';
 
 	let props: RecipeWbdSessionList = $props();
 	const state = createWbdSessionListState(props);
@@ -9,8 +11,8 @@
 <section class="wbd-session-list {state.className}">
 	<div class="wbd-session-list__header">
 		<div>
-			<h2>Sessions</h2>
-			<p>{state.activeCount} active, {state.completedCount} completed</p>
+			<Heading level={2} class="wbd-session-list__heading" text="Sessions" />
+			<Text class="wbd-session-list__summary" text={`${state.activeCount} active, ${state.completedCount} completed`} />
 		</div>
 		<button type="button" onclick={state.createSession}>New session</button>
 	</div>
@@ -23,12 +25,12 @@
 				class:wbd-session-list__item--selected={session.id === state.selectedSessionId}
 				onclick={() => state.selectSession(session.id)}
 			>
-				<span class="wbd-session-list__title">{session.title}</span>
-				<span class="wbd-session-list__meta">
+				<Text class="wbd-session-list__title" text={session.title} />
+				<Text class="wbd-session-list__meta">
 					Round {session.currentRound}/{session.maxRounds} · {session.expertCount ?? 0} experts ·
 					{session.questionCount ?? 0} questions
-				</span>
-				<span class="wbd-session-list__status">{session.status}</span>
+				</Text>
+				<Text class="wbd-session-list__status" text={session.status} />
 			</button>
 		{/each}
 	</div>
@@ -46,15 +48,11 @@
 		justify-content: space-between;
 		gap: 1rem;
 	}
-	.wbd-session-list__header h2,
-	.wbd-session-list__header p {
-		margin: 0;
-	}
-	.wbd-session-list__header h2 {
+	.wbd-session-list__heading {
 		font-size: 1rem;
 		color: var(--color-text-primary, #0f172a);
 	}
-	.wbd-session-list__header p,
+	.wbd-session-list__summary,
 	.wbd-session-list__meta {
 		font-size: 0.75rem;
 		color: var(--color-text-tertiary, #64748b);

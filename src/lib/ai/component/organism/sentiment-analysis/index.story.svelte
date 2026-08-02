@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import SentimentAnalysis from './index.svelte';
-	import type { SlotSentimentResult as SentimentResult } from '$stylist/ai/interface/slot/sentiment-result';
+	import type { SlotSentimentAnalysisResult as SentimentResult } from '$stylist/ai/interface/slot/sentiment-analysis-result';
 
 	const controls: SlotStory[] = [
 		{ name: 'text', type: 'text', defaultValue: 'I like this product. It works very well.' },

@@ -1,6 +1,8 @@
 <script lang="ts">
 	import createWbdExpertAnswerCardState from '$stylist/wbd/function/state/expert-answer-card/index.svelte';
 	import type { RecipeWbdExpertAnswerCard } from '$stylist/wbd/interface/recipe/expert-answer-card';
+	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
+	import Text from '$stylist/typography/component/atom/text/index.svelte';
 
 	let props: RecipeWbdExpertAnswerCard = $props();
 	const model = createWbdExpertAnswerCardState(props);
@@ -30,11 +32,11 @@
 <article class="wbd-answer-card {model.className}">
 	<header>
 		<div>
-			<span>{model.question.category ?? 'General'}</span>
-			<h2>{model.question.text}</h2>
+			<Text class="wbd-answer-card__category" text={model.question.category ?? 'General'} />
+			<Heading level={2} class="wbd-answer-card__title" text={model.question.text} />
 		</div>
 		{#if model.question.required}
-			<strong>Required</strong>
+			<Text class="wbd-answer-card__required" text="Required" />
 		{/if}
 	</header>
 	<div class="wbd-answer-card__inputs">
@@ -78,18 +80,18 @@
 		justify-content: space-between;
 		gap: 1rem;
 	}
-	.wbd-answer-card header span,
+	.wbd-answer-card__category,
 	.wbd-answer-card label span {
 		font-size: 0.75rem;
 		font-weight: 700;
 		color: var(--color-text-tertiary, #64748b);
 	}
-	.wbd-answer-card h2 {
-		margin: 0.25rem 0 0;
+	.wbd-answer-card__title {
+		margin-top: 0.25rem;
 		font-size: 1rem;
 		color: var(--color-text-primary, #0f172a);
 	}
-	.wbd-answer-card header strong {
+	.wbd-answer-card__required {
 		align-self: flex-start;
 		padding: 0.25rem 0.5rem;
 		border-radius: 999px;

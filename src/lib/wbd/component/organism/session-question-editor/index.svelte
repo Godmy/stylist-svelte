@@ -1,6 +1,7 @@
 <script lang="ts">
 	import createWbdSessionQuestionEditorState from '$stylist/wbd/function/state/session-question-editor/index.svelte';
 	import type { RecipeWbdSessionQuestionEditor } from '$stylist/wbd/interface/recipe/session-question-editor';
+	import Text from '$stylist/typography/component/atom/text/index.svelte';
 
 	let props: RecipeWbdSessionQuestionEditor = $props();
 	const state = createWbdSessionQuestionEditorState(props);
@@ -9,7 +10,7 @@
 <section class="wbd-question-editor {state.className}">
 	<div class="wbd-question-editor__list">
 		<div class="wbd-question-editor__list-header">
-			<span>Questions</span>
+			<Text text="Questions" />
 			<button type="button" onclick={state.createQuestion}>Add</button>
 		</div>
 		{#each state.questions as question (question.id)}
@@ -19,8 +20,8 @@
 				class:wbd-question-editor__list-item--selected={question.id === state.selectedQuestion?.id}
 				onclick={() => state.selectQuestion(question.id)}
 			>
-				<span>{question.orderIndex + 1}. {question.text}</span>
-				<small>{question.category ?? 'General'}</small>
+				<Text class="wbd-question-editor__item-title" text={`${question.orderIndex + 1}. ${question.text}`} />
+				<Text class="wbd-question-editor__item-meta" text={question.category ?? 'General'} />
 			</button>
 		{/each}
 	</div>
@@ -170,7 +171,7 @@
 	.wbd-question-editor__list-item--selected {
 		border-color: var(--color-primary-500, #3b82f6);
 	}
-	.wbd-question-editor__list-item span {
+	.wbd-question-editor__item-title {
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
@@ -179,7 +180,7 @@
 		font-weight: 600;
 		color: var(--color-text-primary, #0f172a);
 	}
-	.wbd-question-editor__list-item small {
+	.wbd-question-editor__item-meta {
 		font-size: 0.6875rem;
 		color: var(--color-text-tertiary, #64748b);
 	}

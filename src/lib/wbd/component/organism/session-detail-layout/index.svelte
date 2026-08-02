@@ -1,6 +1,8 @@
 <script lang="ts">
 	import createWbdSessionDetailLayoutState from '$stylist/wbd/function/state/session-detail-layout/index.svelte';
 	import type { RecipeWbdSessionDetailLayout } from '$stylist/wbd/interface/recipe/session-detail-layout';
+	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
+	import Text from '$stylist/typography/component/atom/text/index.svelte';
 
 	let props: RecipeWbdSessionDetailLayout = $props();
 	const state = createWbdSessionDetailLayoutState(props);
@@ -9,12 +11,12 @@
 <section class="wbd-session-detail {state.className}">
 	<header class="wbd-session-detail__header">
 		<div>
-			<h1>{state.session.title}</h1>
+			<Heading level={1} class="wbd-session-detail__title" text={state.session.title} />
 			{#if state.session.description}
-				<p>{state.session.description}</p>
+				<Text class="wbd-session-detail__description" text={state.session.description} />
 			{/if}
 		</div>
-		<span>{state.session.status}</span>
+		<Text class="wbd-session-detail__status" text={state.session.status} />
 	</header>
 
 	<div class="wbd-session-detail__grid">
@@ -43,20 +45,17 @@
 		justify-content: space-between;
 		gap: 1rem;
 	}
-	.wbd-session-detail__header h1,
-	.wbd-session-detail__header p {
-		margin: 0;
-	}
-	.wbd-session-detail__header h1 {
+	.wbd-session-detail__title {
 		font-size: 1.25rem;
 		color: var(--color-text-primary, #0f172a);
 	}
-	.wbd-session-detail__header p {
+	.wbd-session-detail__description {
+		display: block;
 		margin-top: 0.25rem;
 		font-size: 0.875rem;
 		color: var(--color-text-secondary, #475569);
 	}
-	.wbd-session-detail__header span {
+	.wbd-session-detail__status {
 		padding: 0.25rem 0.5rem;
 		border-radius: 999px;
 		background: var(--color-background-secondary, #f1f5f9);

@@ -13,7 +13,7 @@
 			<div class="wbd-response-distribution__bar">
 				<span style={`height: ${Math.max(4, bar.heightPercent)}%;`}></span>
 				<small>{bar.count}</small>
-				<label>{bar.label}</label>
+				<span class="wbd-response-distribution__label">{bar.label}</span>
 			</div>
 		{/each}
 	</div>
@@ -51,7 +51,7 @@
 		background: var(--color-primary-500, #3b82f6);
 	}
 	.wbd-response-distribution__bar small,
-	.wbd-response-distribution__bar label {
+	.wbd-response-distribution__label {
 		font-size: 0.6875rem;
 		color: var(--color-text-tertiary, #64748b);
 	}
