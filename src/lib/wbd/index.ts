@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	AdminSidebar,
 	AuditLogPanel,
 	ConfidenceDistributionChart,
 	ConfidenceRangeBar,
@@ -84,6 +85,7 @@ export {
 	createRoundSummaryCardState,
 	createRoundSummaryTableState,
 	createSessionHeaderState,
+	createWbdAdminSidebarState,
 	createWbdAuditLogPanelState,
 	createWbdConfidenceDistributionChartState,
 	createWbdConsensusReviewBoardState,
@@ -129,6 +131,7 @@ export {
 	validateWbdEstimate
 } from './function';
 export type {
+	StructWbdAdminNavItem,
 	StructWbdAuditLogEntry,
 	StructWbdConfidenceDistributionItem,
 	StructWbdConsensusItem,
@@ -205,6 +208,7 @@ export type {
 	RecipeRoundSummaryCard,
 	RecipeRoundSummaryTable,
 	RecipeSessionHeader,
+	RecipeWbdAdminSidebar,
 	RecipeWbdAuditLogPanel,
 	RecipeWbdConfidenceDistributionChart,
 	RecipeWbdConsensusReviewBoard,
@@ -264,6 +268,7 @@ export type {
 	SlotRoundSummaryCard,
 	SlotRoundSummaryTable,
 	SlotSessionHeader,
+	SlotWbdAdminSidebar,
 	SlotWbdAuditLogPanel,
 	SlotWbdConfidenceDistributionChart,
 	SlotWbdConsensusReviewBoard,

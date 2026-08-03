@@ -23,10 +23,6 @@
 		}
 	};
 
-	function handleSaveAnswer(answer: StructWbdExpertAnswer): void {
-		console.info('WBD questionnaire answer saved', answer);
-	}
-
 	function handleSubmitAnswer(answer: StructWbdExpertAnswer): void {
 		console.info('WBD questionnaire answer submitted', answer);
 	}
@@ -44,7 +40,6 @@
 			{questions}
 			{answers}
 			currentQuestionId="q-1"
-			onSaveAnswer={handleSaveAnswer}
 			onSubmitAnswer={handleSubmitAnswer}
 		/>
 	{/snippet}

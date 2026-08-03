@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { PresetCodeEditor } from '$stylist/development/const/preset/code-editor';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeCodeEditor } from '$stylist/development/interface/recipe/code-editor';
@@ -16,7 +17,7 @@
 		class: className = '',
 		onCodeChange,
 		...restProps
-	}: RecipeCodeEditor = $props();
+	}: RecipeCodeEditor & HTMLAttributes<HTMLDivElement> = $props();
 
 	const state = createCodeEditorState({
 		code,

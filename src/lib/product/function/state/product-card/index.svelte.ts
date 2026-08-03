@@ -1,7 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { TierContent } from '$stylist/architecture/type/alias/tier';
 import type { RecipeProductCard } from '$stylist/product/interface/recipe/product-card';
 
-export function createProductCardState(props: RecipeProductCard) {
+export function createProductCardState(props: RecipeProductCard & HTMLAttributes<HTMLDivElement>) {
 	const variant = $derived(props.variant ?? ('detailed' as TierContent));
 	const title = $derived(props.title ?? '');
 	const price = $derived(props.price ?? 0);

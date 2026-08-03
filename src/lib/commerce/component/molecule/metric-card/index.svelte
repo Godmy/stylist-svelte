@@ -1,8 +1,9 @@
 ﻿<script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeMetricCard } from '$stylist/commerce/interface/recipe/metric-card';
 	import { createMetricCardState } from '$stylist/commerce/function/state/metric-card/index.svelte';
 
-	let props: RecipeMetricCard = $props();
+	let props: RecipeMetricCard & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createMetricCardState(props);
 </script>
 

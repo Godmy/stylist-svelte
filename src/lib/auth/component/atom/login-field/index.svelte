@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { RecipeLoginField } from '$stylist/auth/interface/recipe/login-field';
 	import createLoginFieldState from '$stylist/auth/function/state/login-field/index.svelte';
 
-	let props: RecipeLoginField = $props();
+	let props: RecipeLoginField & HTMLInputAttributes = $props();
 	const state = createLoginFieldState(props);
 </script>
 

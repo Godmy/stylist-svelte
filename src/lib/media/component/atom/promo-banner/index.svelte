@@ -1,8 +1,9 @@
 ﻿<script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipePromoBanner } from '$stylist/media/interface/recipe/promo-banner';
 	import { createPromoBannerState } from '$stylist/media/function/state/promo-banner/index.svelte';
 
-	let props: RecipePromoBanner = $props();
+	let props: RecipePromoBanner & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createPromoBannerState(props);
 </script>
 

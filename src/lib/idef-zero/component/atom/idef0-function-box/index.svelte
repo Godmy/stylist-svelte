@@ -1,8 +1,9 @@
 <script lang="ts">
+	import type { SVGAttributes } from 'svelte/elements';
 	import type { RecipeIdef0FunctionBox as Idef0FunctionBoxProps } from '$stylist/idef-zero/interface/recipe/idef0-function-box';
 	import createIdef0FunctionBoxState from '$stylist/idef-zero/function/state/idef0-function-box/index.svelte';
 
-	let props: Idef0FunctionBoxProps = $props();
+	let props: Idef0FunctionBoxProps & SVGAttributes<SVGGElement> = $props();
 	const state = createIdef0FunctionBoxState(props);
 </script>
 

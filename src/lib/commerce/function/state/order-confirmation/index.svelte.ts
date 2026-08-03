@@ -1,3 +1,4 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeOrderConfirmation } from '$stylist/commerce/interface/recipe/order-confirmation';
 import type { TokenOrderStatus } from '$stylist/commerce/type/alias/order-status';
 import type { TokenBillingItem } from '$stylist/commerce/type/alias/billing-item';
@@ -18,7 +19,7 @@ const ORDER_STATUS_TEXT: Record<TokenOrderStatus, string> = {
 	cancelled: 'Cancelled'
 };
 
-export function createOrderConfirmationState(props: RecipeOrderConfirmation) {
+export function createOrderConfirmationState(props: RecipeOrderConfirmation & HTMLAttributes<HTMLDivElement>) {
 	const status = $derived(props.orderStatus ?? 'processing');
 	const subtotal = $derived(props.items.reduce((sum, item) => sum + item.price * item.quantity, 0));
 

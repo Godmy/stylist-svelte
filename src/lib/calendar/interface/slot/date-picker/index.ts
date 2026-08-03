@@ -1,8 +1,7 @@
-import type { HTMLAttributes } from 'svelte/elements';
 
 export type DatePickerValue = Date | string | { start: Date | null; end: Date | null } | undefined;
 
-export interface SlotDatePicker extends HTMLAttributes<HTMLInputElement> {
+export interface SlotDatePicker {
 	value?: DatePickerValue;
 	minDate?: Date | string;
 	maxDate?: Date | string;

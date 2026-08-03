@@ -1,9 +1,10 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { ChartLegendProps } from '$stylist/chart/interface/recipe/chart-legend';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import createChartLegendState from '$stylist/chart/function/state/chart-legend/index.svelte';
 
-	let props: ChartLegendProps = $props();
+	let props: ChartLegendProps & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createChartLegendState({ ...props, class: mergeClassNames(props.class) });
 </script>
 

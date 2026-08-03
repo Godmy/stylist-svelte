@@ -1,7 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeQuoteRequest } from '$stylist/commerce/interface/recipe/quote-request';
 import type { QuoteRequestValue } from '$stylist/commerce/type/struct/quote-request-value';
 
-export function createQuoteRequestState(props: RecipeQuoteRequest) {
+export function createQuoteRequestState(props: RecipeQuoteRequest & HTMLAttributes<HTMLDivElement>) {
 	let request = $state<QuoteRequestValue>({
 		requesterName: '',
 		requesterEmail: '',

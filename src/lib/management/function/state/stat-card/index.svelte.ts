@@ -1,7 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import { ObjectManagerStatCard } from '$stylist/management/class/object-manager/stat-card';
 import type { RecipeStatCard } from '$stylist/management/interface/recipe/stat-card';
 
-export function createStatCardState(props: RecipeStatCard) {
+export function createStatCardState(props: RecipeStatCard & HTMLAttributes<HTMLDivElement>) {
 	const label = $derived((props as any).label ?? '');
 	const value = $derived((props as any).value);
 	const icon = $derived((props as any).icon);

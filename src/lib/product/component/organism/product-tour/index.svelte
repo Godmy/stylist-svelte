@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeProductTour } from '$stylist/product/interface/recipe/product-tour';
 	import { createProductTourState } from '$stylist/product/function/state/product-tour/index.svelte';
 
-	let props: RecipeProductTour = $props();
+	let props: RecipeProductTour & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createProductTourState(props);
 </script>
 

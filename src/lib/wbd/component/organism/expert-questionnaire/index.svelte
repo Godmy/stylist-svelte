@@ -73,7 +73,6 @@
 				<textarea rows="4" bind:value={draft.rationale}></textarea>
 			</label>
 			<div class="wbd-expert-questionnaire__actions">
-				<button type="button" onclick={() => model.saveAnswer(draft)}>Save draft</button>
 				<button type="button" class="wbd-expert-questionnaire__submit" onclick={() => model.submitAnswer(draft)}>
 					Submit answer
 				</button>

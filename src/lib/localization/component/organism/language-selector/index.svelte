@@ -1,13 +1,16 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { RecipeLanguageSelector as ILanguageSelectorProps } from '$stylist/localization/interface/recipe/language-selector';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
+	import BaseFlag from '$stylist/svg/component/atom/flag/index.svelte';
+	import type { RecipeLanguageSelector } from '$stylist/localization/interface/recipe/language-selector';
 	import createLanguageSelectorState from '$stylist/localization/function/state/language-selector/index.svelte';
 
 	const Globe = 'globe';
 	const Check = 'check';
+	const ChevronDown = 'chevron-down';
+	const Search = 'search';
 
-	let props: ILanguageSelectorProps & HTMLAttributes<HTMLDivElement> = $props();
+	let props: RecipeLanguageSelector & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createLanguageSelectorState(props);
 </script>
 
@@ -23,7 +26,11 @@
 		>
 			{#if state.selectedLanguage}
 				{#if state.showFlags && state.selectedLanguage.flag}
-					<span class={state.flagClasses}>{state.selectedLanguage.flag}</span>
+					<BaseFlag
+						flag={state.selectedLanguage.flag}
+						code={state.selectedLanguage.code}
+						class={state.flagClasses}
+					/>
 				{/if}
 				<span>
 					{state.selectedLanguage.name}
@@ -39,19 +46,9 @@
 					Select Language
 				</span>
 			{/if}
-			<svg
-				class="c-language-selector__chevron"
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 20 20"
-				fill="currentColor"
-				aria-hidden="true"
-			>
-				<path
-					fill-rule="evenodd"
-					d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-					clip-rule="evenodd"
-				/>
-			</svg>
+			<span class="c-language-selector__chevron">
+				<BaseIcon name={ChevronDown} size={20} />
+			</span>
 		</button>
 	</div>
 
@@ -61,19 +58,9 @@
 				<div class="c-language-selector__search-wrapper">
 					<div class="c-language-selector__search-inner">
 						<div class="c-language-selector__search-icon">
-							<svg
-								class="c-language-selector__search-svg"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 20 20"
-								fill="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									fill-rule="evenodd"
-									d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-									clip-rule="evenodd"
-								/>
-							</svg>
+							<span class="c-language-selector__search-svg">
+								<BaseIcon name={Search} size={20} />
+							</span>
 						</div>
 						<input
 							type="text"
@@ -96,7 +83,7 @@
 							onclick={() => state.selectLanguage(language.code)}
 						>
 							{#if state.showFlags && language.flag}
-								<span class={state.flagClasses}>{language.flag}</span>
+								<BaseFlag flag={language.flag} code={language.code} class={state.flagClasses} />
 							{/if}
 							<span class="c-language-selector__lang-name">
 								{language.name}

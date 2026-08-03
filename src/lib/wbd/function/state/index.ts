@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { createWbdAdminSidebarState } from './admin-sidebar';
 export { createWbdAuditLogPanelState } from './audit-log-panel';
 export { createWbdConfidenceDistributionChartState } from './confidence-distribution-chart';
 export { createConfidenceRangeBarState } from './confidence-range-bar';

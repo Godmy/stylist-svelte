@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeProductGallery } from '$stylist/product/interface/recipe/product-gallery';
 	import { createProductGalleryState } from '$stylist/product/function/state/product-gallery/index.svelte';
 
-	let props: RecipeProductGallery = $props();
+	let props: RecipeProductGallery & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createProductGalleryState(props);
 </script>
 

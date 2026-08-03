@@ -1,11 +1,10 @@
 ﻿import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotOrder } from '$stylist/commerce/interface/slot/order';
 import type { BehaviorOrderHistoryEvents } from '$stylist/commerce/interface/behavior/order-history-events';
 
 export interface RecipeOrderHistory
-	extends ComputeIntersectAll<[SlotTheme, HTMLAttributes<HTMLDivElement>]>,
+	extends ComputeIntersectAll<[SlotTheme]>,
 		BehaviorOrderHistoryEvents {
 	orders: SlotOrder[];
 

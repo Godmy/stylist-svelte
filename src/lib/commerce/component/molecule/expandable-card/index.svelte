@@ -1,10 +1,11 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeExpandableCard } from '$stylist/commerce/interface/recipe/expandable-card';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { ObjectManagerExpandableCard } from '$stylist/commerce/class/object-manager/expandable-card';
 	import createExpandableCardState from '$stylist/commerce/function/state/expandable-card/index.svelte';
 
-	let props: RecipeExpandableCard = $props();
+	let props: RecipeExpandableCard & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createExpandableCardState(props);
 </script>
 

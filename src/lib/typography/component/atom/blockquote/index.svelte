@@ -1,8 +1,9 @@
 <script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeBlockquote } from '$stylist/typography/interface/recipe/blockquote';
 	import createBlockquoteState from '$stylist/typography/function/state/blockquote/index.svelte';
 
-	let props: RecipeBlockquote = $props();
+	let props: RecipeBlockquote & HTMLAttributes<HTMLQuoteElement> = $props();
 
 	const state = createBlockquoteState(props);
 	const children = $derived(props.children);

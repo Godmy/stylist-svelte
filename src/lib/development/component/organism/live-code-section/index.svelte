@@ -1,11 +1,12 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeLiveCodeSection } from '$stylist/development/interface/recipe/live-code-section';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createLiveCodeSectionState } from '$stylist/development/function/state/live-code-section/index.svelte';
 	const Play = 'play';
 	const ArrowRight = 'arrow-right';
 
-	let props: RecipeLiveCodeSection = $props();
+	let props: RecipeLiveCodeSection & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createLiveCodeSectionState(props);
 </script>
 

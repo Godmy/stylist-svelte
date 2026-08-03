@@ -1,7 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 ﻿import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 import type { RecipePictureToolbar } from '$stylist/media/interface/recipe/picture-toolbar';
 
-export function createPictureToolbarState(props: RecipePictureToolbar) {
+export function createPictureToolbarState(props: RecipePictureToolbar & HTMLAttributes<HTMLDivElement>) {
 	let activeTool = $state(props.activeTool);
 
 	$effect(() => {

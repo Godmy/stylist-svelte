@@ -1,5 +1,6 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeCanvasImageEditor } from '$stylist/media/interface/recipe/canvas-image-editor';
-export function createCanvasImageEditorState(props: RecipeCanvasImageEditor) {
+export function createCanvasImageEditorState(props: RecipeCanvasImageEditor & HTMLAttributes<HTMLCanvasElement>) {
 	let canvasRef = $state<HTMLCanvasElement | null>(null);
 	let image = $state<HTMLImageElement | null>(null);
 	let imageLoaded = $state(false);

@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeIdef0Diagram } from '$stylist/idef-zero/interface/recipe/idef0-diagram';
 
-export function createIdef0DiagramState(props: RecipeIdef0Diagram) {
+export function createIdef0DiagramState(props: RecipeIdef0Diagram & HTMLAttributes<HTMLDivElement>) {
 	const containerClasses = $derived(
 		typeof props.class === 'string' ? `idef0-diagram ${props.class}` : 'idef0-diagram'
 	);

@@ -1,10 +1,11 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { PresetQuoteRequest } from '$stylist/commerce/const/preset/quote-request';
 	import type { RecipeQuoteRequest } from '$stylist/commerce/interface/recipe/quote-request';
 	import { createQuoteRequestState } from '$stylist/commerce/function/state/quote-request/index.svelte';
 
-	let props: RecipeQuoteRequest = $props();
+	let props: RecipeQuoteRequest & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createQuoteRequestState(props);
 </script>
 

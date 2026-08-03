@@ -1,7 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipePromoBanner } from '$stylist/media/interface/recipe/promo-banner';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
-export function createPromoBannerState(props: RecipePromoBanner) {
+export function createPromoBannerState(props: RecipePromoBanner & HTMLAttributes<HTMLDivElement>) {
 	const title = $derived(props.title ?? '');
 	const description = $derived(props.description ?? '');
 	const cta = $derived(props.cta ?? 'Learn More');

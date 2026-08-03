@@ -1,7 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipePerformanceMonitor } from '$stylist/management/interface/recipe/performance-monitor';
 import { ObjectManagerPerformanceMonitor } from '$stylist/management/class/object-manager/performance-monitor';
 
-export function createPerformanceMonitorState(props: RecipePerformanceMonitor) {
+export function createPerformanceMonitorState(props: RecipePerformanceMonitor & HTMLAttributes<HTMLDivElement>) {
 	// Props with defaults
 	const label = $derived(props.label ?? '');
 	const value = $derived(props.value ?? 0);

@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { RecipeWbdAdminSidebar } from './admin-sidebar';
 export type { RecipeWbdAuditLogPanel } from './audit-log-panel';
 export type { RecipeWbdConfidenceDistributionChart } from './confidence-distribution-chart';
 export type { RecipeConfidenceRangeBar } from './confidence-range-bar';

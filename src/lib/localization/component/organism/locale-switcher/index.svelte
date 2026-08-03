@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { LocaleSwitcherStateProps } from '$stylist/localization/interface/recipe/locale-switcher';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
+	import BaseFlag from '$stylist/svg/component/atom/flag/index.svelte';
 	import createLocaleSwitcherState from '$stylist/localization/function/state/locale-switcher/index.svelte';
 	import type { SlotLocaleSwitcher } from '$stylist/localization/interface/slot/locale-switcher';
 
@@ -31,7 +32,12 @@
 						>
 							<div class="c-locale-switcher__locale-inner">
 								{#if locale.flag}
-									<div class="c-locale-switcher__flag">{locale.flag}</div>
+									<BaseFlag
+										flag={locale.flag}
+										code={locale.code}
+										class="c-locale-switcher__flag"
+										size="1.5rem"
+									/>
 								{:else}
 									<div class="c-locale-switcher__flag-fallback">
 										<span class="c-locale-switcher__flag-code">
@@ -48,13 +54,7 @@
 							</div>
 							{#if locale.code === state.currentLocale}
 								<div class="c-locale-switcher__check">
-									<svg fill="currentColor" viewBox="0 0 20 20">
-										<path
-											fill-rule="evenodd"
-											d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-											clip-rule="evenodd"
-										/>
-									</svg>
+									<BaseIcon name={state.iconCheck} size={20} />
 								</div>
 							{/if}
 						</button>

@@ -1,3 +1,4 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeComponent } from '$stylist/table/interface/recipe/component';
 import type { ComponentStory } from '$stylist/table/type/struct/component-story';
 const Search = 'search';
@@ -13,7 +14,7 @@ const Package = 'package';
 const ArrowRight = 'arrow-right';
 const Sparkles = 'sparkles';
 
-export function createComponentState(props: RecipeComponent) {
+export function createComponentState(props: RecipeComponent & HTMLAttributes<HTMLDivElement>) {
 	const stories = $derived(props.stories);
 	const categories = $derived(props.categories);
 	const categoryCounts = $derived(props.categoryCounts);

@@ -1,8 +1,9 @@
 ﻿<script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeFavicon } from '$stylist/media/interface/recipe/favicon';
 	import { createFaviconState } from '$stylist/media/function/state/favicon/index.svelte';
 
-	let props: RecipeFavicon = $props();
+	let props: RecipeFavicon & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createFaviconState(props);
 </script>
 

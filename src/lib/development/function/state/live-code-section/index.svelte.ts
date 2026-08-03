@@ -1,5 +1,6 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeLiveCodeSection } from '$stylist/development/interface/recipe/live-code-section';
-export function createLiveCodeSectionState(props: RecipeLiveCodeSection) {
+export function createLiveCodeSectionState(props: RecipeLiveCodeSection & HTMLAttributes<HTMLDivElement>) {
 	const badgeText = $derived(props.badgeText ?? 'Live Preview');
 	const title = $derived(props.title ?? 'See It In Action');
 	const description = $derived(props.description ?? 'Every component comes with ready-to-use code');

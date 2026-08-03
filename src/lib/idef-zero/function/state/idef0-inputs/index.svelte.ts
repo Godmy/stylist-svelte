@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeIdef0Io } from '$stylist/idef-zero/interface/recipe/idef0-io';
 
-export function createIdef0InputsState(props: RecipeIdef0Io) {
+export function createIdef0InputsState(props: RecipeIdef0Io & HTMLAttributes<HTMLDivElement>) {
 	const startX = $derived(props.startX ?? 32);
 	const positions = $derived.by(() => {
 		if (props.ports.length === 0) return [];

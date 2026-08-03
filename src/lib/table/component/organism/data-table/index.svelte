@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { SlotDataTable } from '$stylist/table/interface/slot/data-table';
 	import { createDataTableState } from '$stylist/table/function/state/data-table';
 	import Table from '$stylist/table/component/atom/table/index.svelte';

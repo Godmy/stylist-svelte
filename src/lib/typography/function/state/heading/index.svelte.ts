@@ -1,8 +1,9 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 import { resolveTypographyInlineStyle } from '$stylist/typography/function/script/inline-style';
 import type { RecipeHeading } from '$stylist/typography/interface/recipe/heading';
 
-export function createHeadingState(props: RecipeHeading) {
+export function createHeadingState(props: RecipeHeading & HTMLAttributes<HTMLHeadingElement>) {
 	const disabled = $derived(props.disabled ?? false);
 	const block = $derived(props.block ?? false);
 	const children = $derived(props.children);

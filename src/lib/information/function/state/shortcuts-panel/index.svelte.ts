@@ -1,3 +1,4 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeShortcutsPanel } from '$stylist/information/interface/recipe/shortcuts-panel';
 import type { SlotShortcut } from '$stylist/information/interface/slot/shortcut';
 const Keyboard = 'keyboard';
@@ -63,7 +64,7 @@ const shortcuts: SlotShortcut[] = [
 	{ keys: ['Esc'], description: 'Close Modals/Panels', category: 'Misc', icon: Keyboard }
 ];
 
-export function createShortcutsPanelState(_props: RecipeShortcutsPanel) {
+export function createShortcutsPanelState(_props: RecipeShortcutsPanel & HTMLAttributes<HTMLDivElement>) {
 	const groupedShortcuts = $derived.by(() => {
 		const groups = new Map<string, SlotShortcut[]>();
 		shortcuts.forEach((shortcut) => {

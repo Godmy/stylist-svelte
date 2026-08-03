@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import createCanvasImageEditorState from '$stylist/media/function/state/canvas-image-editor/index.svelte';
 	import type { RecipeCanvasImageEditor } from '$stylist/media/interface/recipe/canvas-image-editor';
 
-	let props: RecipeCanvasImageEditor = $props();
+	let props: RecipeCanvasImageEditor & HTMLAttributes<HTMLCanvasElement> = $props();
 	const state = createCanvasImageEditorState(props);
 </script>
 

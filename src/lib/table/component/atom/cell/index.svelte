@@ -1,9 +1,10 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeCell } from '$stylist/table/interface/recipe/cell';
 	import { createCellState } from '$stylist/table/function/state/cell';
 
-	let props: RecipeCell & { children?: Snippet } = $props();
+	let props: RecipeCell & HTMLAttributes<HTMLTableCellElement> & { children?: Snippet } = $props();
 	const state = createCellState(props);
 	const content = $derived(props.content ?? props.children);
 </script>

@@ -1,9 +1,10 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import Spinner from '$stylist/information/component/atom/spinner/index.svelte';
 	import { createLoadingState } from '$stylist/information/function/state/loading/index.svelte';
 	import type { RecipeLoading } from '$stylist/information/interface/recipe/loading';
 
-	let props: RecipeLoading = $props();
+	let props: RecipeLoading & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createLoadingState(props);
 </script>
 

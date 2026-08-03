@@ -1,8 +1,9 @@
 ﻿<script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeNodeIcon } from '$stylist/media/interface/recipe/node-icon';
 	import { createNodeIconState } from '$stylist/media/function/state/node-icon/index.svelte';
 
-	let props: RecipeNodeIcon = $props();
+	let props: RecipeNodeIcon & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createNodeIconState(props);
 </script>
 

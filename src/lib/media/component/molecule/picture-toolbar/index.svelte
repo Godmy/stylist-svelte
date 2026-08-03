@@ -1,8 +1,9 @@
 ﻿<script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipePictureToolbar } from '$stylist/media/interface/recipe/picture-toolbar';
 	import { createPictureToolbarState } from '$stylist/media/function/state/picture-toolbar/index.svelte';
 
-	let props: RecipePictureToolbar = $props();
+	let props: RecipePictureToolbar & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createPictureToolbarState(props);
 </script>
 

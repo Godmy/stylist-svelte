@@ -1,7 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { RecipeSkeleton } from '$stylist/information/interface/recipe/skeleton';
 
-export function createSkeletonState(props: RecipeSkeleton) {
+export function createSkeletonState(props: RecipeSkeleton & HTMLAttributes<HTMLDivElement>) {
 	const variant = $derived(props.variant ?? 'rectangle');
 	const animated = $derived(props.animated ?? true);
 	const lines = $derived(Math.max(1, Math.floor(props.lines ?? 1)));

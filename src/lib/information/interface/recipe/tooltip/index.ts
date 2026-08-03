@@ -7,13 +7,11 @@ import type { BehaviorSized } from '$stylist/layout/interface/behavior/sized';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-import type { HTMLAttributes } from 'svelte/elements';
 
 export interface RecipeTooltip
 	extends ComputeIntersectAll<
 		[
 			SlotTooltip,
-			HTMLAttributes<HTMLElement>,
 			SlotChildren,
 			SlotText,
 			SlotText,
@@ -21,7 +19,6 @@ export interface RecipeTooltip
 			BehaviorSized,
 			BehaviorShapeable,
 			BehaviorMotionPreset,
-			SlotTheme,
-			HTMLAttributes<HTMLDivElement>
+			SlotTheme
 		]
 	> {}

@@ -1,8 +1,9 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import { createEventDispatcher } from 'svelte';
 import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
 import type { RecipeGraphNodeCard } from '$stylist/workspace/interface/recipe/graph-node-card';
 
-export function createGraphNodeCardState(props: RecipeGraphNodeCard) {
+export function createGraphNodeCardState(props: RecipeGraphNodeCard & HTMLAttributes<HTMLDivElement>) {
 	const dispatch = createEventDispatcher<{
 		toggleExpand: { node: SlotWorkspaceNode };
 		viewDetails: { node: SlotWorkspaceNode };

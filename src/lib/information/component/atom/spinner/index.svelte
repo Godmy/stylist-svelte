@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import { createSpinnerState } from '$stylist/information/function/state/spinner/index.svelte';
 	import type { RecipeSpinner } from '$stylist/information/interface/recipe/spinner';
 
-	let props: RecipeSpinner = $props();
+	let props: RecipeSpinner & HTMLAttributes<HTMLSpanElement> = $props();
 	const state = createSpinnerState(props);
 </script>
 

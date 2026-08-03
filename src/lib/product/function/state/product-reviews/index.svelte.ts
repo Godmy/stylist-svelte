@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductReviews } from '$stylist/product/interface/recipe/product-reviews';
 
-export function createProductReviewsState(props: RecipeProductReviews) {
+export function createProductReviewsState(props: RecipeProductReviews & HTMLAttributes<HTMLDivElement>) {
 	let newReview = $state({
 		title: '',
 		content: '',

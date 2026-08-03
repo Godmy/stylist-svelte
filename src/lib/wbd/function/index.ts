@@ -18,6 +18,7 @@ export {
 	createRoundSummaryCardState,
 	createRoundSummaryTableState,
 	createSessionHeaderState,
+	createWbdAdminSidebarState,
 	createWbdAuditLogPanelState,
 	createWbdConfidenceDistributionChartState,
 	createWbdConsensusReviewBoardState,

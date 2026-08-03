@@ -1,12 +1,11 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-import type { HTMLAttributes } from 'svelte/elements';
 
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { ChartSeries } from '$stylist/chart/type/struct/chart-series';
 import type { ChartScale } from '$stylist/chart/type/struct/chart-scale';
 
 export interface RecipeChartCanvas
-	extends ComputeIntersectAll<[SlotTheme, HTMLAttributes<HTMLDivElement>]> {
+	extends ComputeIntersectAll<[SlotTheme]> {
 	width?: number;
 	height?: number;
 	padding?: number;

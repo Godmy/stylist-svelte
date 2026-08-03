@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeZoomControls } from '$stylist/control/interface/recipe/zoom-controls';
 	import { createZoomControlsState } from '$stylist/control/function/state/zoom-controls/index.svelte';
 
-	let props: RecipeZoomControls = $props();
+	let props: RecipeZoomControls & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createZoomControlsState(props);
 </script>
 

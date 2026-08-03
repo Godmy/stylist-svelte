@@ -1,8 +1,9 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeThemeLink } from '$stylist/typography/interface/recipe/link';
 import type { TokenFontSize } from '$stylist/theme/type/alias/font-size';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
-export function createLinkState(props: RecipeThemeLink) {
+export function createLinkState(props: RecipeThemeLink & HTMLAttributes<HTMLAnchorElement>) {
 	const tone = $derived(props.tone ?? 'primary');
 	const fontSize = $derived(props.fontSize ?? '4');
 	const disabled = $derived(props.disabled ?? false);

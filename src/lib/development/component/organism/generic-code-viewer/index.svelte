@@ -1,7 +1,8 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeGenericCodeViewer } from '$stylist/development/interface/recipe/generic-code-viewer';
 	import { createGenericCodeViewerState } from '$stylist/development/function/state/generic-code-viewer/index.svelte';
-	let props: RecipeGenericCodeViewer = $props();
+	let props: RecipeGenericCodeViewer & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createGenericCodeViewerState(props);
 
 	$effect(() => {

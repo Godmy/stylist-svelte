@@ -1,6 +1,5 @@
-import type { HTMLInputAttributes } from 'svelte/elements';
 
-export interface RecipeLoginField extends HTMLInputAttributes {
+export interface RecipeLoginField {
 	label: string;
 	fieldType?: 'email' | 'password' | 'text';
 	fieldError?: string;

@@ -1,5 +1,4 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
@@ -7,9 +6,7 @@ import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/
 import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
 
 export interface RecipeLinkCard
-	extends ComputeIntersectAll<
-		[SlotTheme, ILabelSlot, ICaptionSlot, IMediaSlot, IIconSlot, HTMLAttributes<HTMLAnchorElement>]
-	> {
+	extends ComputeIntersectAll<[SlotTheme, ILabelSlot, ICaptionSlot, IMediaSlot, IIconSlot]> {
 	title?: string;
 	description?: string;
 	href: string;

@@ -1,7 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { RecipeBlockquote } from '$stylist/typography/interface/recipe/blockquote';
 
-export function createBlockquoteState(props: RecipeBlockquote) {
+export function createBlockquoteState(props: RecipeBlockquote & HTMLAttributes<HTMLQuoteElement>) {
 	const citeUrl = $derived.by(() => {
 		if (props.citeUrl) {
 			return props.citeUrl;

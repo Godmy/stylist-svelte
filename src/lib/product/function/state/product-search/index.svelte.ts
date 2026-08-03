@@ -1,7 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductSearch } from '$stylist/product/interface/recipe/product-search';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
-export function createProductSearchState(props: RecipeProductSearch) {
+export function createProductSearchState(props: RecipeProductSearch & HTMLAttributes<HTMLDivElement>) {
 	let query = $state('');
 	let showSuggestions = $state(false);
 

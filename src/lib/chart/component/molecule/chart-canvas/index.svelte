@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeChartCanvas as InformationChartCanvasRecipe } from '$stylist/chart/interface/recipe/chart-canvas';
 	import type { AnalyticsChartCanvasProps } from '$stylist/chart/type/struct/analytics-chart-canvas-props';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
@@ -11,12 +12,12 @@
 	import ChartPolyline from '$stylist/chart/component/atom/chart-polyline/index.svelte';
 	import { ObjectManagerChartCanvas } from '$stylist/chart/class/object-manager/chart-canvas';
 
-	let props: AnalyticsChartCanvasProps = $props();
+	let props: AnalyticsChartCanvasProps & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createChartCanvasState({
 		width: props.width,
 		height: props.height,
 		class: mergeClassNames(props.class)
-	} as InformationChartCanvasRecipe);
+	} as InformationChartCanvasRecipe & HTMLAttributes<HTMLDivElement>);
 
 	const width = $derived(state.width);
 	const height = $derived(state.height);

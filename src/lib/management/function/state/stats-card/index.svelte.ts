@@ -1,8 +1,9 @@
+import type { HTMLAttributes } from 'svelte/elements';
 ﻿import { ObjectManagerStatsCard } from '$stylist/management/class/object-manager/stats-card';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { RecipeStatsCard } from '$stylist/management/interface/recipe/stats-card';
 
-export function createStatsCardState(props: RecipeStatsCard) {
+export function createStatsCardState(props: RecipeStatsCard & HTMLAttributes<HTMLDivElement>) {
 	// Props with defaults
 	const label = props.label;
 	const value = props.value;

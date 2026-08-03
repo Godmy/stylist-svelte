@@ -1,8 +1,9 @@
 ﻿<script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipePriceMatch } from '$stylist/commerce/interface/recipe/price-match';
 	import { createPriceMatchState } from '$stylist/commerce/function/state/price-match/index.svelte';
 
-	let props: RecipePriceMatch = $props();
+	let props: RecipePriceMatch & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createPriceMatchState(props);
 </script>
 

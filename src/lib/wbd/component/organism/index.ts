@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { AdminSidebar } from './admin-sidebar/index';
 export { AuditLogPanel } from './audit-log-panel/index';
 export { ConfidenceDistributionChart } from './confidence-distribution-chart/index';
 export { ConsensusReviewBoard } from './consensus-review-board/index';

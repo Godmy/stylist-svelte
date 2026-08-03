@@ -19,6 +19,7 @@ export {
 	WbsTaskRow
 } from './molecule';
 export {
+	AdminSidebar,
 	AuditLogPanel,
 	ConfidenceDistributionChart,
 	ConsensusReviewBoard,

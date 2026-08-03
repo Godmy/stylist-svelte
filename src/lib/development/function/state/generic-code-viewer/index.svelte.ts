@@ -1,5 +1,6 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeGenericCodeViewer } from '$stylist/development/interface/recipe/generic-code-viewer';
-export function createGenericCodeViewerState(props: RecipeGenericCodeViewer) {
+export function createGenericCodeViewerState(props: RecipeGenericCodeViewer & HTMLAttributes<HTMLDivElement>) {
 	const code = $derived(props.code ?? '');
 	const language = $derived(props.language ?? 'svelte');
 

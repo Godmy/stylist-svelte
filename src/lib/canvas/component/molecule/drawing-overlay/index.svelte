@@ -1,7 +1,8 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeDrawingOverlay } from '$stylist/canvas/interface/recipe/drawing-overlay';
 	import { createDrawingOverlayState } from '$stylist/canvas/function/state/drawing-overlay/index.svelte';
-	let props: RecipeDrawingOverlay = $props();
+	let props: RecipeDrawingOverlay & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createDrawingOverlayState(props);
 </script>
 

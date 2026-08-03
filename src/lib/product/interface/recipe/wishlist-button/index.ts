@@ -6,20 +6,8 @@ import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-import type { HTMLAttributes } from 'svelte/elements';
 
 export interface RecipeWishlistButton
-	extends ComputeIntersectAll<
-		[
-			ContractWishlistButton,
-			SlotTheme,
-			SlotText,
-			SlotIcon,
-			SlotBadge,
-			BehaviorClickable,
-			BehaviorWishlistButtonEvents,
-			HTMLAttributes<HTMLButtonElement>
-	]
-	> {
+	extends ComputeIntersectAll<[ContractWishlistButton, SlotTheme, SlotText, SlotIcon, SlotBadge, BehaviorClickable, BehaviorWishlistButtonEvents]> {
 	disabled?: boolean;
 }

@@ -1,4 +1,3 @@
-import type { HTMLAttributes } from 'svelte/elements';
 import type { BehaviorProductRecommendationEvents } from '$stylist/product/interface/behavior/product-recommendation-events';
 import type { BehaviorProductWishlistEvents } from '$stylist/product/interface/behavior/product-wishlist-events';
 import type { SlotProductDescription } from '$stylist/product/interface/slot/product-description';
@@ -7,15 +6,7 @@ import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeProductCollection
-	extends ComputeIntersectAll<
-		[
-			SlotTheme,
-			SlotText,
-			BehaviorProductRecommendationEvents,
-			BehaviorProductWishlistEvents,
-			HTMLAttributes<HTMLDivElement>
-		]
-	> {
+	extends ComputeIntersectAll<[SlotTheme, SlotText, BehaviorProductRecommendationEvents, BehaviorProductWishlistEvents]> {
 	products?: SlotProductDescription[];
 	items?: SlotProductDescription[];
 	layout?: 'grid' | 'list';

@@ -1,3 +1,4 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import { onMount } from 'svelte';
 import type { RecipeAiAssistant } from '$stylist/ai/interface/recipe/ai-assistant';
 import type { AiAssistantChatMessage } from '$stylist/ai/type/struct/ai-assistant-chat-message';
@@ -17,7 +18,7 @@ const providerNames: Record<string, string> = {
 	codex: 'Codex'
 };
 
-export function createAiAssistantState(props: RecipeAiAssistant) {
+export function createAiAssistantState(props: RecipeAiAssistant & HTMLAttributes<HTMLDivElement>) {
 	const X = 'x';
 	const Send = 'send';
 	const Trash2 = 'trash-2';

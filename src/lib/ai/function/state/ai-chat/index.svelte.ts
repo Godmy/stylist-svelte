@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeAiChat } from '$stylist/ai/interface/recipe/ai-chat';
 import type { AiChatChatMessage } from '$stylist/ai/type/struct/ai-chat-chat-message';
-export function createAiChatState(props: RecipeAiChat) {
+export function createAiChatState(props: RecipeAiChat & HTMLAttributes<HTMLDivElement>) {
 	const X = 'x';
 	const Send = 'send';
 

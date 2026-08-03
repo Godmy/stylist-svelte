@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProgressBar } from '$stylist/information/interface/recipe/progress-bar';
 
-export function createProgressBarState(props: RecipeProgressBar) {
+export function createProgressBarState(props: RecipeProgressBar & HTMLAttributes<HTMLDivElement>) {
 	const max = $derived(Math.max(1, props.max ?? 100));
 	const rawValue = $derived(props.value ?? 0);
 	const value = $derived(Math.min(max, Math.max(0, rawValue)));

@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { StructWbdAdminNavItem } from './admin-nav-item';
 export type { StructWbdAuditLogEntry } from './audit-log-entry';
 export type { StructWbdConfidenceDistributionItem } from './confidence-distribution-item';
 export type { StructWbdConsensusItem } from './consensus-item';

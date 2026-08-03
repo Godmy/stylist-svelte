@@ -1,7 +1,8 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeScreenshotSelector } from '$stylist/canvas/interface/recipe/screenshot-selector';
 	import { createScreenshotSelectorState } from '$stylist/canvas/function/state/screenshot-selector/index.svelte';
-	let props: RecipeScreenshotSelector = $props();
+	let props: RecipeScreenshotSelector & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createScreenshotSelectorState(props);
 
 	$effect(() => {

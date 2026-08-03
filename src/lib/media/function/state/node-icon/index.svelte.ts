@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 ﻿import type { RecipeNodeIcon } from '$stylist/media/interface/recipe/node-icon';
 
-export function createNodeIconState(props: RecipeNodeIcon) {
+export function createNodeIconState(props: RecipeNodeIcon & HTMLAttributes<HTMLDivElement>) {
 	const icon = $derived(props.icon ?? 'рџ“¦');
 	const size = $derived(props.size ?? 32);
 	const accent = $derived(props.accent ?? 'var(--color-accent, #3498db)');

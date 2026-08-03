@@ -1,4 +1,3 @@
-import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
@@ -8,7 +7,7 @@ export interface RecipeBlockquote
 		[
 			SlotTheme, 
 			SlotChildren, 
-			HTMLAttributes<HTMLQuoteElement>
+			
 		]
 	> {
 		cite?: string;

@@ -1,7 +1,8 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeDeviceFrame } from '$stylist/domain/interface/recipe/device-frame';
 	import { createDeviceFrameState } from '$stylist/domain/function/state/device-frame/index.svelte';
-	let props: RecipeDeviceFrame = $props();
+	let props: RecipeDeviceFrame & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createDeviceFrameState(props);
 </script>
 

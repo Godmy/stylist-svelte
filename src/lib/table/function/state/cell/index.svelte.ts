@@ -1,7 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeCell } from '$stylist/table/interface/recipe/cell';
 import { TABLE_ALIGNMENT_CLASSES } from '$stylist/table/const/record/table-alignment-classes';
 
-export function createCellState(props: RecipeCell) {
+export function createCellState(props: RecipeCell & HTMLAttributes<HTMLTableCellElement>) {
 	const variant = $derived(props.variant ?? 'data');
 	const align = $derived((props.align ?? 'left') as 'left' | 'center' | 'right');
 	const alignClass = $derived((TABLE_ALIGNMENT_CLASSES[align] ?? TABLE_ALIGNMENT_CLASSES['left'])[0] ?? '');

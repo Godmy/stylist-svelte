@@ -2,8 +2,9 @@ import type { RecipeWbdSessionSetupWizard } from '$stylist/wbd/interface/recipe/
 import type { StructWbdSession } from '$stylist/wbd/type/struct/session';
 
 export function createWbdSessionSetupWizardState(props: RecipeWbdSessionSetupWizard) {
+	let activeStep = $state<'basics' | 'questions' | 'experts' | 'review'>(props.step ?? 'basics');
 	const className = $derived(props.class ?? '');
-	const step = $derived(props.step ?? 'basics');
+	const step = $derived(props.step ?? activeStep);
 	const steps = $derived(['basics', 'questions', 'experts', 'review'] as const);
 	const canCreate = $derived(Boolean(props.session.title?.trim()) && (props.session.maxRounds ?? 0) > 0);
 
@@ -27,6 +28,7 @@ export function createWbdSessionSetupWizardState(props: RecipeWbdSessionSetupWiz
 			props.onUpdateSession?.(session);
 		},
 		changeStep(nextStep: 'basics' | 'questions' | 'experts' | 'review') {
+			activeStep = nextStep;
 			props.onChangeStep?.(nextStep);
 		},
 		createSession() {

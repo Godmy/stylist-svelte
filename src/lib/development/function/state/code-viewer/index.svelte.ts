@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeCodeViewer } from '$stylist/development/interface/recipe/code-viewer';
 import { untrack } from 'svelte';
-export function createCodeViewerState(props: RecipeCodeViewer) {
+export function createCodeViewerState(props: RecipeCodeViewer & HTMLAttributes<HTMLDivElement>) {
 	const code = $derived(props.code ?? '');
 	const componentName = $derived(props.componentName ?? '');
 	const componentProps = $derived(props.props ?? {});

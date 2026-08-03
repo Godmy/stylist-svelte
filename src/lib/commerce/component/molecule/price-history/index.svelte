@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipePriceHistory } from '$stylist/commerce/interface/recipe/price-history';
 	import { createPriceHistoryState } from '$stylist/commerce/function/state/price-history/index.svelte';
 
-	let props: RecipePriceHistory = $props();
+	let props: RecipePriceHistory & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createPriceHistoryState(props);
 </script>
 

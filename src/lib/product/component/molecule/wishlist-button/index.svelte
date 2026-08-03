@@ -1,9 +1,10 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeWishlistButton } from '$stylist/product/interface/recipe/wishlist-button';
 	import createWishlistButtonState from '$stylist/product/function/state/wishlist-button/index.svelte';
 
-	let props: RecipeWishlistButton = $props();
+	let props: RecipeWishlistButton & HTMLAttributes<HTMLButtonElement> = $props();
 	const state = createWishlistButtonState(props);
 </script>
 

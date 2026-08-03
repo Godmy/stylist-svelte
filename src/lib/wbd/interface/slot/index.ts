@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { SlotWbdAdminSidebar } from './admin-sidebar';
 export type { SlotWbdAuditLogPanel } from './audit-log-panel';
 export type { SlotWbdConfidenceDistributionChart } from './confidence-distribution-chart';
 export type { SlotConfidenceRangeBar } from './confidence-range-bar';

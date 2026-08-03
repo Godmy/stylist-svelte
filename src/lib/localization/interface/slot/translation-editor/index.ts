@@ -1,6 +1,5 @@
-import type { HTMLAttributes } from 'svelte/elements';
 
-export interface SlotTranslationEditor extends HTMLAttributes<HTMLDivElement> {
+export interface SlotTranslationEditor {
 	sourceText?: string;
 	targetLocale?: string;
 	class?: string;

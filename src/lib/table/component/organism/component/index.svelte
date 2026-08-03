@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeComponent } from '$stylist/table/interface/recipe/component';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createComponentState } from '$stylist/table/function/state/component/index.svelte';
@@ -16,7 +17,7 @@
 	const ArrowRight = 'arrow-right';
 	const Sparkles = 'sparkles';
 
-	let props: RecipeComponent = $props();
+	let props: RecipeComponent & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createComponentState(props);
 </script>
 

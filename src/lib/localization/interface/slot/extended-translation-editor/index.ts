@@ -1,7 +1,6 @@
-import type { HTMLAttributes } from 'svelte/elements';
 import type { TranslatableText } from '$stylist/localization/type/struct/translatable-text';
 
-export interface SlotExtendedTranslationEditor extends HTMLAttributes<HTMLDivElement> {
+export interface SlotExtendedTranslationEditor {
 	texts?: TranslatableText[];
 	locales?: string[];
 	defaultLocale?: string;

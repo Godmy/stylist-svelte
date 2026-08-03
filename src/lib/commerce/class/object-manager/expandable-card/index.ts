@@ -9,10 +9,11 @@ export class ObjectManagerExpandableCard {
 	}
 
 	static getContainerClasses(
-		props: Pick<RecipeExpandableCard, 'variant' | 'class'>,
+		props: Pick<RecipeExpandableCard, 'variant'> & { class?: unknown },
 		baseClasses: string,
 		themedClasses: string
 	): string {
-		return `${baseClasses} ${themedClasses} ${props.class ?? ''}`.trim();
+		const className = typeof props.class === 'string' ? props.class : '';
+		return `${baseClasses} ${themedClasses} ${className}`.trim();
 	}
 }

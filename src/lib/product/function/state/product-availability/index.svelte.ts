@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductAvailability } from '$stylist/product/interface/recipe/product-availability';
 
-export function createProductAvailabilityState(props: RecipeProductAvailability) {
+export function createProductAvailabilityState(props: RecipeProductAvailability & HTMLAttributes<HTMLDivElement>) {
 	let showNotificationForm = $state(false);
 	const statusClass = $derived(
 		props.available

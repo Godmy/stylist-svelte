@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeThemeLink } from '$stylist/typography/interface/recipe/link';
 	import createLinkState from '$stylist/typography/function/state/link/index.svelte';
 
-	let props: RecipeThemeLink = $props();
+	let props: RecipeThemeLink & HTMLAttributes<HTMLAnchorElement> = $props();
 
 	const state = createLinkState(props);
 	const children = $derived(props.children);

@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeDeviceFrame } from '$stylist/domain/interface/recipe/device-frame';
 import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
-export function createDeviceFrameState(props: RecipeDeviceFrame) {
+export function createDeviceFrameState(props: RecipeDeviceFrame & HTMLAttributes<HTMLDivElement>) {
 	const device = $derived(props.device ?? 'desktop');
 	const children = $derived(props.children);
 

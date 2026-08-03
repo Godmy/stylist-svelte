@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeMarkdownRenderer } from '$stylist/information/interface/recipe/markdown-renderer';
 	import { marked } from 'marked';
 	import { createMarkdownRendererState } from '$stylist/information/function/state/markdown-renderer/index.svelte';
-	let props: RecipeMarkdownRenderer = $props();
+	let props: RecipeMarkdownRenderer & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createMarkdownRendererState(props);
 
 	// Configure marked for safe rendering

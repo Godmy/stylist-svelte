@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeAudioVisualizer } from '$stylist/audio/interface/recipe/audio-visualizer';
 
-export function createAudioVisualizerState(props: RecipeAudioVisualizer) {
+export function createAudioVisualizerState(props: RecipeAudioVisualizer & HTMLAttributes<HTMLDivElement>) {
 	let localIsPlaying = $state(props.isPlaying ?? false);
 
 	$effect(() => {

@@ -1,6 +1,5 @@
-import type { HTMLAttributes } from 'svelte/elements';
 
-export interface SlotTimePicker extends HTMLAttributes<HTMLInputElement> {
+export interface SlotTimePicker {
 	value?: string;
 	disabled?: boolean;
 	class?: string;

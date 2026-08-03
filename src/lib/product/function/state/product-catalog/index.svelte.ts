@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 
-export function createProductCatalogState(props: RecipeProductCollection) {
+export function createProductCatalogState(props: RecipeProductCollection & HTMLAttributes<HTMLDivElement>) {
 	const layout = $derived(props.layout ?? 'grid');
 
 	function isGridLayout(): boolean {

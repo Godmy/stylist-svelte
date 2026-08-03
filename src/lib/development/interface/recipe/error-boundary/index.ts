@@ -1,4 +1,3 @@
-import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { ErrorBoundaryProps as ErrorBoundaryProps } from '$stylist/development/type/struct/error-boundary-props';
@@ -6,7 +5,7 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 
 export interface RecipeErrorBoundary
 	extends ComputeIntersectAll<
-		[ErrorBoundaryProps, Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotThemeBorder, SlotTypography]
+		[ErrorBoundaryProps,  SlotThemeBorder, SlotTypography]
 	> {
 	class?: string;
 }

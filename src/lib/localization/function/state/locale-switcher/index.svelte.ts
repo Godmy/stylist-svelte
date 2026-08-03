@@ -55,6 +55,9 @@ export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
 	}
 
 	return {
+		get iconCheck() {
+			return 'check';
+		},
 		get iconClock() {
 			return 'clock';
 		},

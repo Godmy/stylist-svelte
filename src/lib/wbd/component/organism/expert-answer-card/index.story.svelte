@@ -26,10 +26,6 @@
 		confidence: 4
 	};
 
-	function handleSaveAnswer(nextAnswer: StructWbdExpertAnswer): void {
-		console.info('WBD answer saved', nextAnswer);
-	}
-
 	function handleSubmitAnswer(nextAnswer: StructWbdExpertAnswer): void {
 		console.info('WBD answer submitted', nextAnswer);
 	}
@@ -46,7 +42,6 @@
 		<ExpertAnswerCard
 			{question}
 			{answer}
-			onSaveAnswer={handleSaveAnswer}
 			onSubmitAnswer={handleSubmitAnswer}
 		/>
 	{/snippet}

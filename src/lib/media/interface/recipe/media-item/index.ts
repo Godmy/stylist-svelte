@@ -1,4 +1,3 @@
-import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { SlotMedia } from '$stylist/media/interface/slot/media';
@@ -9,15 +8,4 @@ import type { BehaviorElevatable } from '$stylist/layout/interface/behavior/elev
 import type { BehaviorMotionPreset } from '$stylist/animation/interface/behavior/motion-preset';
 
 export interface RecipeMediaItem
-	extends ComputeIntersectAll<
-		[
-			SlotTheme,
-			SlotMedia,
-			SlotText,
-			BehaviorClickable,
-			BehaviorSizable,
-			BehaviorElevatable,
-			BehaviorMotionPreset,
-			HTMLAttributes<HTMLDivElement>
-		]
-	> {}
+	extends ComputeIntersectAll<[SlotTheme, SlotMedia, SlotText, BehaviorClickable, BehaviorSizable, BehaviorElevatable, BehaviorMotionPreset]> {}

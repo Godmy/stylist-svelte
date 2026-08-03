@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeIdef0PortLabel } from '$stylist/idef-zero/interface/recipe/idef0-port-label';
 	import createIdef0PortLabelState from '$stylist/idef-zero/function/state/idef0-port-label/index.svelte';
 
-	let props: RecipeIdef0PortLabel = $props();
+	let props: RecipeIdef0PortLabel & HTMLAttributes<HTMLSpanElement> = $props();
 	const state = createIdef0PortLabelState(props);
 </script>
 

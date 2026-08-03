@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeEnhancedExportPanel } from '$stylist/development/interface/recipe/enhanced-export-panel';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createEnhancedExportPanelState } from '$stylist/development/function/state/enhanced-export-panel/index.svelte';
@@ -11,7 +12,7 @@
 	const Package = 'package';
 	const Terminal = 'terminal';
 
-	let props: RecipeEnhancedExportPanel = $props();
+	let props: RecipeEnhancedExportPanel & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createEnhancedExportPanelState(props);
 </script>
 

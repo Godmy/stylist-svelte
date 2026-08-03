@@ -1,10 +1,9 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
 
 export interface RecipeCanvasImageEditor
-	extends ComputeIntersectAll<[SlotTheme, IMediaSlot, HTMLAttributes<HTMLCanvasElement>]> {
+	extends ComputeIntersectAll<[SlotTheme, IMediaSlot]> {
 	width?: number;
 	height?: number;
 	cropEnabled?: boolean;

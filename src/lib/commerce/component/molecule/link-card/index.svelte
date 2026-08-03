@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	/**
 	 * LinkCard - РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РєР°СЂС‚РѕС‡РєРё-СЃСЃС‹Р»РєРё РґР»СЏ Р±С‹СЃС‚СЂС‹С… РїРµСЂРµС…РѕРґРѕРІ
 	 *
@@ -28,7 +29,7 @@
 		icon,
 		showArrow = true,
 		class: className = ''
-	}: RecipeLinkCard = $props();
+	}: RecipeLinkCard & HTMLAttributes<HTMLAnchorElement> = $props();
 
 	// Р’С‹С‡РёСЃР»СЏРµРјС‹Рµ СЃС‚РёР»Рё С‡РµСЂРµР· derived РґР»СЏ РёР·РѕР»СЏС†РёРё Р»РѕРіРёРєРё СЃС‚РёР»РёР·Р°С†РёРё
 	const state = createLinkCardState({

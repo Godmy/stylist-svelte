@@ -1,7 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeFavicon } from '$stylist/media/interface/recipe/favicon';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
-export function createFaviconState(props: RecipeFavicon) {
+export function createFaviconState(props: RecipeFavicon & HTMLAttributes<HTMLDivElement>) {
 	let error = $state(props.error ?? false);
 
 	$effect(() => {

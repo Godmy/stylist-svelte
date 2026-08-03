@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeShortcutsPanel } from '$stylist/information/interface/recipe/shortcuts-panel';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createShortcutsPanelState } from '$stylist/information/function/state/shortcuts-panel/index.svelte';
@@ -14,7 +15,7 @@
 	const Code = 'code';
 	const Copy = 'copy';
 
-	let props: RecipeShortcutsPanel = $props();
+	let props: RecipeShortcutsPanel & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createShortcutsPanelState(props);
 </script>
 

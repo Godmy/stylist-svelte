@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeProductSorting } from '$stylist/product/interface/recipe/product-sorting';
 	import { createProductSortingState } from '$stylist/product/function/state/product-sorting/index.svelte';
 
-	let props: RecipeProductSorting = $props();
+	let props: RecipeProductSorting & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createProductSortingState(props);
 </script>
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipePerformanceMonitor } from '$stylist/management/interface/recipe/performance-monitor';
 	import createPerformanceMonitorState from '$stylist/management/function/state/performance-monitor/index.svelte';
 
@@ -9,7 +10,7 @@
 		unit = '%',
 		status = 'normal',
 		class: className = ''
-	}: RecipePerformanceMonitor = $props();
+	}: RecipePerformanceMonitor & HTMLAttributes<HTMLDivElement> = $props();
 
 	const state = createPerformanceMonitorState({
 		label,

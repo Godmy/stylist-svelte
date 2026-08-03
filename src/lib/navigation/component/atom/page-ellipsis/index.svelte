@@ -1,8 +1,9 @@
 <script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipePageEllipsis } from '$stylist/navigation/interface/recipe/page-ellipsis';
 	import createPageEllipsisState from '$stylist/navigation/function/state/page-ellipsis/index.svelte';
 
-	let props: RecipePageEllipsis = $props();
+	let props: RecipePageEllipsis & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createPageEllipsisState(props);
 </script>
 

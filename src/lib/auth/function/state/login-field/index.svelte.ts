@@ -1,6 +1,7 @@
+import type { HTMLInputAttributes } from 'svelte/elements';
 import type { RecipeLoginField } from '$stylist/auth/interface/recipe/login-field';
 
-export const createLoginFieldState = (props: RecipeLoginField) => {
+export const createLoginFieldState = (props: RecipeLoginField & HTMLInputAttributes) => {
 	const hasError = $derived(!!props.fieldError);
 
 	const wrapperClass = $derived(['c-login-field', props.class ?? ''].filter(Boolean).join(' '));

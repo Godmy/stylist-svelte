@@ -4,6 +4,7 @@ export type {
 	TokenWbdRoundStatus
 } from './alias';
 export type {
+	StructWbdAdminNavItem,
 	StructWbdAuditLogEntry,
 	StructWbdConfidenceDistributionItem,
 	StructWbdConsensusItem,

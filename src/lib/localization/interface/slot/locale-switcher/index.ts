@@ -1,8 +1,7 @@
-import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotLocaleSwitcherLocale } from '$stylist/localization/interface/slot/locale-switcher-locale';
 import type { SlotLocaleSwitcherTimezoneOption } from '$stylist/localization/interface/slot/locale-switcher-timezone-option';
 
-export interface SlotLocaleSwitcher extends HTMLAttributes<HTMLDivElement> {
+export interface SlotLocaleSwitcher {
 	locales: SlotLocaleSwitcherLocale[];
 	currentLocale: string;
 	onLocaleChange?: (localeCode: string) => void;

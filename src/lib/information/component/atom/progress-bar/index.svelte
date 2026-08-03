@@ -1,8 +1,9 @@
 <script lang="ts">
+import type { HTMLAttributes } from 'svelte/elements';
 	import { createProgressBarState } from '$stylist/information/function/state/progress-bar/index.svelte';
 	import type { RecipeProgressBar } from '$stylist/information/interface/recipe/progress-bar';
 
-	let props: RecipeProgressBar = $props();
+	let props: RecipeProgressBar & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createProgressBarState(props);
 </script>
 

@@ -1,6 +1,7 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductCard } from '$stylist/product/interface/recipe/product-card';
 
-export function createProductCardExtendedState(props: RecipeProductCard) {
+export function createProductCardExtendedState(props: RecipeProductCard & HTMLAttributes<HTMLDivElement>) {
 	return {
 		get containerClass() {
 			return ['product-card-extended', props.class].filter(Boolean).join(' ');

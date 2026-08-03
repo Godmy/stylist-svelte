@@ -1,6 +1,5 @@
 import type { NodeIconProps as LegacyNodeIconProps1 } from '$stylist/media/interface/recipe/node-icon-node-icon-props';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
@@ -11,18 +10,6 @@ import type { BehaviorElevatable as IElevatable } from '$stylist/layout/interfac
 import type { BehaviorMotionPreset as IMotionToken } from '$stylist/animation/interface/behavior/motion-preset';
 
 export interface RecipeNodeIcon
-	extends ComputeIntersectAll<
-		[
-			LegacyNodeIconProps1,
-			SlotTheme,
-			IMediaSlot,
-			ILabelSlot,
-			ICaptionSlot,
-			IClickable,
-			IElevatable,
-			IMotionToken,
-			HTMLAttributes<HTMLDivElement>
-		]
-	> {
+	extends ComputeIntersectAll<[LegacyNodeIconProps1, SlotTheme, IMediaSlot, ILabelSlot, ICaptionSlot, IClickable, IElevatable, IMotionToken]> {
 	size?: number;
 }
