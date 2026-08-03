@@ -25,6 +25,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 				tooltipClass: _tooltipClass,
 				arrowClass: _arrowClass,
 				disabled: _disabled,
+				asChild: _asChild,
 				delay: _delay,
 				hideDelay: _hideDelay,
 				children: _children,
@@ -43,8 +44,8 @@ import type { HTMLAttributes } from 'svelte/elements';
 		class="c-tooltip__trigger"
 		onmouseenter={() => state.trigger === 'hover' && state.showTooltip()}
 		onmouseleave={() => state.trigger === 'hover' && state.hideTooltip()}
-		onfocus={() => state.trigger === 'focus' && state.showTooltip()}
-		onblur={() => state.trigger === 'focus' && state.hideTooltip()}
+		onfocusin={() => state.trigger === 'focus' && state.showTooltip()}
+		onfocusout={() => state.trigger === 'focus' && state.hideTooltip()}
 		onclick={(e) => {
 			if (state.trigger === 'click') {
 				e.stopPropagation();
@@ -57,10 +58,10 @@ import type { HTMLAttributes } from 'svelte/elements';
 				state.toggleTooltip();
 			}
 		}}
-		role="button"
-		tabindex="0"
-		aria-haspopup="true"
-		aria-expanded={state.trigger === 'click' ? state.isVisible : undefined}
+		role={state.asChild ? undefined : 'button'}
+		tabindex={state.asChild ? undefined : 0}
+		aria-haspopup={state.asChild ? undefined : 'true'}
+		aria-expanded={!state.asChild && state.trigger === 'click' ? state.isVisible : undefined}
 		aria-disabled={state.disabled ? true : undefined}
 	>
 		{#if props.children}
@@ -72,7 +73,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 		<span
 			bind:this={state.tooltipRef}
 			role="tooltip"
-			class="c-tooltip__popup"
+			class={['c-tooltip__popup', props.tooltipClass].filter(Boolean).join(' ')}
 			data-placement={state.normalizedPlacement}
 			data-variant={state.variant}
 		>
@@ -82,7 +83,10 @@ import type { HTMLAttributes } from 'svelte/elements';
 				{@render state.content()}
 			{/if}
 			{#if state.variant === 'arrow'}
-				<span class="c-tooltip__arrow" data-placement={state.normalizedPlacement}></span>
+				<span
+					class={['c-tooltip__arrow', props.arrowClass].filter(Boolean).join(' ')}
+					data-placement={state.normalizedPlacement}
+				></span>
 			{/if}
 		</span>
 	{/if}

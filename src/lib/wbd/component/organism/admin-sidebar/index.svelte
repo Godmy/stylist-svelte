@@ -86,7 +86,7 @@
 	}
 	.wbd-admin-sidebar__item--active {
 		background: var(--color-primary-container, var(--color-primary-50, #dbeafe));
-		color: var(--color-primary-700, #1d4ed8);
+		color: var(--color-on-primary-container, var(--color-primary-700, #1d4ed8));
 	}
 	.wbd-admin-sidebar__footer {
 		display: flex;

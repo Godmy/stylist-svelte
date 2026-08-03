@@ -56,6 +56,7 @@ export function createTooltipState(props: RecipeTooltip & HTMLAttributes<HTMLEle
 	const trigger = $derived(props.trigger ?? 'hover');
 	const variant = $derived(props.variant ?? 'line');
 	const disabled = $derived(props.disabled ?? false);
+	const asChild = $derived(props.asChild ?? false);
 	const delay = $derived(props.delay ?? 0);
 	const hideDelay = $derived(props.hideDelay ?? 0);
 	const controlledShow = $derived(props.show);
@@ -155,6 +156,9 @@ export function createTooltipState(props: RecipeTooltip & HTMLAttributes<HTMLEle
 		},
 		get disabled() {
 			return disabled;
+		},
+		get asChild() {
+			return asChild;
 		},
 		get delay() {
 			return delay;

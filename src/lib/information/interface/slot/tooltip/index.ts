@@ -58,6 +58,13 @@ export interface SlotTooltip {
 	disabled?: boolean;
 
 	/**
+	 * Do not add interactive role, tabindex, or expanded state to the trigger wrapper.
+	 * Use when the tooltip wraps an already interactive element such as a button or link.
+	 * @default false
+	 */
+	asChild?: boolean;
+
+	/**
 	 * Delay in milliseconds before showing the tooltip
 	 * @default 0
 	 */

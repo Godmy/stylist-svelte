@@ -42,6 +42,7 @@ import { ICON_TOKEN }        from '$stylist/svg/const/value/token';
 import { ICON_TREES }        from '$stylist/svg/const/value/trees';
 import { ICON_TYPOGRAPHY }   from '$stylist/svg/const/value/typography';
 import { ICON_USER }         from '$stylist/svg/const/value/user';
+import { ICON_WBD }          from '$stylist/svg/const/value/wbd';
 import { ICON_WORKSPACE }    from '$stylist/svg/const/value/workspace';
 
 export const DOMAIN_MENU_ICONS = [
@@ -88,6 +89,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'tree',         svg: ICON_TREES },
 	{ name: 'typography',   svg: ICON_TYPOGRAPHY },
 	{ name: 'user',         svg: ICON_USER },
+	{ name: 'wbd',          svg: ICON_WBD },
 	{ name: 'workspace',    svg: ICON_WORKSPACE }
 ] as const satisfies readonly SlotSvgName[];
 
