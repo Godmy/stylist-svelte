@@ -65,3 +65,4 @@ export {
 	UserManagementTable,
 	WbsTree
 } from './organism';
+export { WbdLandingPage } from './template';

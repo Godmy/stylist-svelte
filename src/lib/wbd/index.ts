@@ -58,6 +58,7 @@ export {
 	SessionQuestionEditor,
 	SessionSetupWizard,
 	UserManagementTable,
+	WbdLandingPage,
 	WbsTaskRow,
 	WbsTree
 } from './component';
@@ -191,6 +192,7 @@ export type {
 	BehaviorWbdTaskEstimateSubmit,
 	BehaviorWbdTaskSelect,
 	BehaviorWbdUserManagementEvents,
+	LandingPageContent,
 	RecipeConfidenceRangeBar,
 	RecipeConvergenceChart,
 	RecipeDiscussionNoteItem,

@@ -28,6 +28,7 @@ export type { RecipeFacilitatorControlPanel } from './facilitator-control-panel'
 export type { RecipeFinalEstimateReport } from './final-estimate-report';
 export type { RecipeWbdFinalReportBuilder } from './final-report-builder';
 export type { RecipeWbdInviteEmailPreview } from './invite-email-preview';
+export type { LandingPageContent } from './landing-page';
 export type { RecipeWbdLoadingStatePanel } from './loading-state-panel';
 export type { RecipeWbdMedianTrendChart } from './median-trend-chart';
 export type { RecipeWbdMutationStatusToast } from './mutation-status-toast';

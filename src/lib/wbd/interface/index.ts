@@ -30,6 +30,7 @@ export type {
 	BehaviorWbdUserManagementEvents
 } from './behavior';
 export type {
+	LandingPageContent,
 	RecipeConfidenceRangeBar,
 	RecipeConvergenceChart,
 	RecipeDiscussionNoteItem,
