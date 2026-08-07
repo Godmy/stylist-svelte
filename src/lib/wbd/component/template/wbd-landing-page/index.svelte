@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import ThemeModeToggle from '$stylist/theme/component/atom/theme-mode-toggle/index.svelte';
+	import HeroMediaSection from '$stylist/layout/component/molecule/hero-media-section/index.svelte';
+	import NameHeroMediaItems from '$stylist/layout/component/molecule/name-hero-media-items/index.svelte';
 	import type { LandingPageContent } from '$stylist/wbd/interface/recipe/landing-page';
 
 	interface WbdLandingPageProps {
@@ -42,6 +44,7 @@
 		<nav class="nav" aria-label={content.labels.nav}>
 			{#if brand}{@render brand()}{/if}
 			<div class="nav__links">
+				<a class="nav__section-link" href="#definition">{content.nav.about}</a>
 				<a class="nav__section-link" href="#cases">{content.nav.cases}</a>
 				<a class="nav__section-link" href="#workflow">{content.nav.method}</a>
 				<a href={appSignInHref}>{content.nav.signIn}</a>
@@ -50,20 +53,74 @@
 			</div>
 		</nav>
 
-		<div class="hero__grid">
-			<div class="hero__copy">
-				<h1>{content.hero.title}</h1>
+		<HeroMediaSection
+			class="hero__section"
+			title={content.hero.title}
+			lead={content.hero.lead}
+			imageSrc={heroImageSrc}
+			imageAlt={heroImageAlt}
+		/>
+	</section>
+
+	<NameHeroMediaItems
+		class="hero__items"
+		items={content.metrics}
+		ariaLabel={content.labels.metrics}
+	/>
+
+	<section id="definition" class="definition" aria-label={content.labels.definition}>
+		<div class="section-heading">
+			<p class="eyebrow">{content.definition.eyebrow}</p>
+			<h2>{content.definition.title}</h2>
+		</div>
+		{#each content.definition.paragraphs as paragraph}
+			<p>{paragraph}</p>
+		{/each}
+
+		<div class="comparison">
+			<h3>{content.definition.comparisonTitle}</h3>
+			<div class="comparison__table-wrap">
+				<table class="comparison__table">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							{#each content.definition.comparisonColumns as column}
+								<th scope="col">{column}</th>
+							{/each}
+						</tr>
+					</thead>
+					<tbody>
+						{#each content.definition.comparisonCriteria as criterion, i}
+							<tr>
+								<th scope="row">{criterion}</th>
+								{#each content.definition.comparisonRows[i] as value, j}
+									<td data-highlight={j === content.definition.comparisonRows[i].length - 1}
+										>{value}</td
+									>
+								{/each}
+							</tr>
+						{/each}
+					</tbody>
+				</table>
 			</div>
-			<figure class="hero__media">
-				<img src={heroImageSrc} alt={heroImageAlt} />
-			</figure>
 		</div>
 	</section>
 
-	<section class="statement-band" aria-label={content.hero.eyebrow}>
-		<div class="statement-band__inner">
-			<p>{content.hero.lead}</p>
+	<section id="workflow" class="workflow" aria-label={content.labels.workflow}>
+		<div class="workflow__copy">
+			<div class="section-heading">
+				<p class="eyebrow">{content.hero.eyebrow} / {content.workflow.eyebrow}</p>
+				<h2>{content.workflow.title}</h2>
+			</div>
 		</div>
+		<figure class="workflow__media">
+			<img src={workflowImageSrc} alt={workflowImageAlt} loading="lazy" />
+		</figure>
+		<ol class="workflow__steps">
+			{#each content.workflow.steps as step}
+				<li>{step}</li>
+			{/each}
+		</ol>
 	</section>
 
 	<section class="intro" aria-label={content.intro.eyebrow}>
@@ -72,14 +129,6 @@
 			<h2>{content.intro.title}</h2>
 		</div>
 		<p>{content.intro.body}</p>
-		<div class="metric-row" aria-label={content.labels.metrics}>
-			{#each content.metrics as metric}
-				<div class="metric">
-					<strong>{metric[0]}</strong>
-					<span>{metric[1]}</span>
-				</div>
-			{/each}
-		</div>
 	</section>
 
 	<section id="cases" class="cases" aria-label={content.labels.cases}>
@@ -115,22 +164,6 @@
 		</div>
 	</section>
 
-	<section id="workflow" class="workflow" aria-label={content.labels.workflow}>
-		<div class="workflow__copy">
-			<div class="section-heading">
-				<p class="eyebrow">{content.hero.eyebrow} / {content.workflow.eyebrow}</p>
-				<h2>{content.workflow.title}</h2>
-			</div>
-		</div>
-		<figure class="workflow__media">
-			<img src={workflowImageSrc} alt={workflowImageAlt} loading="lazy" />
-		</figure>
-		<ol class="workflow__steps">
-			{#each content.workflow.steps as step}
-				<li>{step}</li>
-			{/each}
-		</ol>
-	</section>
 </main>
 
 <style>
@@ -191,6 +224,8 @@
 	}
 
 	.hero,
+	:global(.hero__items),
+	.definition,
 	.intro,
 	.cases,
 	.workflow,
@@ -201,6 +236,24 @@
 
 	.hero {
 		padding: 1.25rem 0 4rem;
+	}
+
+	:global(.hero__section) {
+		--hero-media-section-heading: var(--landing-heading);
+		--hero-media-section-lead: var(--landing-heading);
+		--hero-media-section-border: var(--landing-border);
+		--hero-media-section-media: var(--landing-media);
+		--hero-media-section-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.28);
+		padding: 4rem 0 0;
+	}
+
+	:global(.hero__items) {
+		--name-hero-media-items-border: var(--landing-border);
+		--name-hero-media-items-background: var(--landing-panel);
+		--name-hero-media-items-name: var(--landing-heading);
+		--name-hero-media-items-text: var(--landing-muted-soft);
+		margin-top: -2rem;
+		padding-bottom: 5rem;
 	}
 
 	.nav {
@@ -229,18 +282,6 @@
 		color: var(--landing-heading);
 	}
 
-	.hero__grid {
-		display: grid;
-		grid-template-columns: minmax(0, 0.86fr) minmax(22rem, 1.14fr);
-		gap: 2.25rem;
-		align-items: center;
-		padding: 4rem 0 0;
-	}
-
-	.hero__copy {
-		max-width: 38rem;
-	}
-
 	.eyebrow,
 	.case-card__kicker {
 		margin: 0 0 0.75rem;
@@ -250,19 +291,10 @@
 		text-transform: uppercase;
 	}
 
-	h1,
 	h2,
 	h3,
 	p {
 		margin-top: 0;
-	}
-
-	h1 {
-		margin-bottom: 1.25rem;
-		font-size: clamp(2.25rem, 4.8cqw, 4.35rem);
-		line-height: 1.02;
-		letter-spacing: 0;
-		color: var(--landing-heading);
 	}
 
 	h2 {
@@ -312,7 +344,6 @@
 		color: var(--landing-text);
 	}
 
-	.hero__media,
 	.workflow__media,
 	.result figure {
 		margin: 0;
@@ -323,11 +354,6 @@
 		box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.28);
 	}
 
-	.hero__media {
-		aspect-ratio: 16 / 9;
-	}
-
-	.hero__media img,
 	.case-card img,
 	.workflow__media img,
 	.result img {
@@ -335,57 +361,6 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-	}
-
-	.statement-band {
-		width: 100%;
-		border-top: 1px solid var(--landing-border);
-		border-bottom: 1px solid var(--landing-border);
-		background: var(--landing-panel);
-	}
-
-	.statement-band__inner {
-		width: min(100% - 2rem, 1180px);
-		margin: 0 auto;
-		padding: 2rem 0;
-	}
-
-	.statement-band p {
-		max-width: 68rem;
-		margin: 0;
-		color: var(--landing-heading);
-		font-size: clamp(1.25rem, 2.4cqw, 2rem);
-		font-weight: 650;
-		line-height: 1.35;
-	}
-
-	.metric-row {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 0.75rem;
-	}
-
-	.metric {
-		min-height: 7.25rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		gap: 0.75rem;
-		padding: 1rem;
-		border: 1px solid var(--landing-border);
-		border-radius: 0.5rem;
-		background: var(--landing-panel);
-	}
-
-	.metric strong {
-		color: var(--landing-heading);
-		font-size: 1.45rem;
-	}
-
-	.metric span {
-		color: var(--landing-muted-soft);
-		font-size: 0.9rem;
-		line-height: 1.45;
 	}
 
 	.intro {
@@ -396,12 +371,77 @@
 		border-top: 1px solid var(--landing-border);
 	}
 
-	.intro .metric-row {
-		grid-column: 1 / -1;
-	}
-
 	.section-heading {
 		max-width: 42rem;
+	}
+
+	.definition {
+		padding: 5rem 0;
+		border-top: 1px solid var(--landing-border);
+	}
+
+	.definition > p {
+		max-width: 54rem;
+		margin-bottom: 1rem;
+		color: var(--landing-muted);
+		font-size: 1rem;
+		line-height: 1.7;
+	}
+
+	.comparison {
+		margin-top: 2.5rem;
+	}
+
+	.comparison h3 {
+		max-width: 42rem;
+	}
+
+	.comparison__table-wrap {
+		overflow-x: auto;
+		border: 1px solid var(--landing-border);
+		border-radius: 0.5rem;
+	}
+
+	.comparison__table {
+		width: 100%;
+		min-width: 36rem;
+		border-collapse: collapse;
+		font-size: 0.9rem;
+	}
+
+	.comparison__table th,
+	.comparison__table td {
+		padding: 0.85rem 1rem;
+		text-align: left;
+		border-bottom: 1px solid var(--landing-border);
+		white-space: nowrap;
+	}
+
+	.comparison__table thead th {
+		color: var(--landing-heading);
+		font-weight: 700;
+		background: var(--landing-panel);
+	}
+
+	.comparison__table tbody th {
+		color: var(--landing-heading);
+		font-weight: 600;
+		white-space: normal;
+	}
+
+	.comparison__table tbody td {
+		color: var(--landing-muted);
+		white-space: normal;
+	}
+
+	.comparison__table tbody td[data-highlight='true'] {
+		color: var(--landing-accent);
+		font-weight: 700;
+	}
+
+	.comparison__table tbody tr:last-child th,
+	.comparison__table tbody tr:last-child td {
+		border-bottom: 0;
 	}
 
 	.cases {
@@ -519,16 +559,11 @@
 	}
 
 	@container (max-width: 920px) {
-		.hero__grid,
 		.intro,
 		.workflow,
 		.result {
 			grid-template-columns: 1fr;
 		}
-		.hero__grid {
-			padding-top: 3rem;
-		}
-
 		.workflow__copy,
 		.workflow__media,
 		.workflow__steps {
@@ -545,14 +580,12 @@
 
 	@container (max-width: 680px) {
 		.hero,
+		:global(.hero__items),
+		.definition,
 		.intro,
 		.cases,
 		.workflow,
 		.result {
-			width: min(100% - 1rem, 1180px);
-		}
-
-		.statement-band__inner {
 			width: min(100% - 1rem, 1180px);
 		}
 
@@ -570,11 +603,6 @@
 			display: none;
 		}
 
-		h1 {
-			font-size: 2.35rem;
-		}
-
-		.metric-row,
 		.case-grid {
 			grid-template-columns: 1fr;
 		}

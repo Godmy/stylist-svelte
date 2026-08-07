@@ -14,7 +14,7 @@
 		metaTitle: 'WeOracle — Wideband Delphi for executive decisions',
 		metaDescription:
 			'WeOracle gathers anonymous expert consensus for CAPEX, technology roadmaps, budgets, contract prices, and industrial schedules.',
-		nav: { cases: 'Cases', method: 'Method', signIn: 'Sign in' },
+		nav: { cases: 'Cases', method: 'Method', about: 'About', signIn: 'Sign in' },
 		hero: {
 			eyebrow: 'Wideband Delphi platform',
 			title: 'Expert consensus for decisions where mistakes are expensive',
@@ -27,6 +27,26 @@
 			['P10-P90', 'decision ranges instead of one decorative precise number'],
 			['Anonymous', 'experts can name risks without career pressure']
 		] as [string, string][],
+		definition: {
+			eyebrow: 'What it is',
+			title: 'Wideband Delphi: a collective forecast without the illusion of consensus',
+			paragraphs: [
+				'Wideband Delphi is a method for producing a group forecast or expert estimate in which participants respond anonymously, see the spread of other opinions, and refine their position over several rounds.',
+				'The name comes from software engineering: "wideband" means a wide estimation range (minimum-expected-maximum), and "Delphi" refers to the ancient Greek oracle.'
+			],
+			comparisonTitle: 'Why it beats a regular poll or a vote',
+			comparisonColumns: ['Regular poll', 'Open discussion', 'Wideband Delphi'] as [
+				string,
+				string,
+				string
+			],
+			comparisonCriteria: ['Anonymity', 'Accounts for uncertainty', 'Protection from anchoring'],
+			comparisonRows: [
+				['Usually not', 'No', 'Yes'],
+				['No', 'Sometimes', 'Yes (min-max range)'],
+				['No', 'No', 'Yes']
+			] as [string, string, string][]
+		},
 		intro: {
 			eyebrow: 'Decision intelligence',
 			title: 'Not a survey. A decision artifact.',
@@ -97,6 +117,7 @@
 		labels: {
 			nav: 'Primary navigation',
 			metrics: 'Core method properties',
+			definition: 'What Wideband Delphi is',
 			cases: 'WeOracle cases',
 			workflow: 'Wideband Delphi process',
 			result: 'Session result'
