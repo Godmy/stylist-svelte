@@ -66,8 +66,13 @@
 		</div>
 	</section>
 
-	<section class="metrics-section" aria-label={content.labels.metrics}>
-		<div class="metric-row">
+	<section class="intro" aria-label={content.intro.eyebrow}>
+		<div class="section-heading">
+			<p class="eyebrow">{content.intro.eyebrow}</p>
+			<h2>{content.intro.title}</h2>
+		</div>
+		<p>{content.intro.body}</p>
+		<div class="metric-row" aria-label={content.labels.metrics}>
 			{#each content.metrics as metric}
 				<div class="metric">
 					<strong>{metric[0]}</strong>
@@ -75,14 +80,6 @@
 				</div>
 			{/each}
 		</div>
-	</section>
-
-	<section class="intro" aria-label={content.intro.eyebrow}>
-		<div class="section-heading">
-			<p class="eyebrow">{content.intro.eyebrow}</p>
-			<h2>{content.intro.title}</h2>
-		</div>
-		<p>{content.intro.body}</p>
 	</section>
 
 	<section id="cases" class="cases" aria-label={content.labels.cases}>
@@ -118,25 +115,21 @@
 		</div>
 	</section>
 
-	<section class="method-kicker" aria-label={content.hero.eyebrow}>
-		<p class="eyebrow">{content.hero.eyebrow}</p>
-	</section>
-
 	<section id="workflow" class="workflow" aria-label={content.labels.workflow}>
 		<div class="workflow__copy">
 			<div class="section-heading">
-				<p class="eyebrow">{content.workflow.eyebrow}</p>
+				<p class="eyebrow">{content.hero.eyebrow} / {content.workflow.eyebrow}</p>
 				<h2>{content.workflow.title}</h2>
 			</div>
-			<ol>
-				{#each content.workflow.steps as step}
-					<li>{step}</li>
-				{/each}
-			</ol>
 		</div>
 		<figure class="workflow__media">
 			<img src={workflowImageSrc} alt={workflowImageAlt} loading="lazy" />
 		</figure>
+		<ol class="workflow__steps">
+			{#each content.workflow.steps as step}
+				<li>{step}</li>
+			{/each}
+		</ol>
 	</section>
 </main>
 
@@ -198,8 +191,6 @@
 	}
 
 	.hero,
-	.method-kicker,
-	.metrics-section,
 	.intro,
 	.cases,
 	.workflow,
@@ -222,8 +213,10 @@
 
 	.nav__links {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
-		gap: 0.875rem;
+		justify-content: flex-end;
+		gap: 0.5rem 0.875rem;
 		font-size: 0.875rem;
 	}
 
@@ -366,22 +359,10 @@
 		line-height: 1.35;
 	}
 
-	.method-kicker {
-		padding: 4rem 0 0;
-	}
-
-	.method-kicker .eyebrow {
-		margin-bottom: 0;
-	}
-
 	.metric-row {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 0.75rem;
-	}
-
-	.metrics-section {
-		padding: 0 0 5rem;
 	}
 
 	.metric {
@@ -413,6 +394,10 @@
 		gap: 2rem;
 		padding: 5rem 0;
 		border-top: 1px solid var(--landing-border);
+	}
+
+	.intro .metric-row {
+		grid-column: 1 / -1;
 	}
 
 	.section-heading {
@@ -471,14 +456,23 @@
 	}
 
 	.workflow {
-		padding-top: 1rem;
-		border-top: 0;
+		align-items: start;
 	}
 
-	.workflow ol {
+	.workflow__copy {
+		grid-column: 1;
+	}
+
+	.workflow__media {
+		grid-column: 2;
+		grid-row: 1 / span 2;
+	}
+
+	.workflow__steps {
+		grid-column: 1;
 		display: grid;
 		gap: 0.75rem;
-		margin: 1.5rem 0 0;
+		margin: 0;
 		padding: 0;
 		list-style: none;
 		counter-reset: workflow;
@@ -535,6 +529,13 @@
 			padding-top: 3rem;
 		}
 
+		.workflow__copy,
+		.workflow__media,
+		.workflow__steps {
+			grid-column: auto;
+			grid-row: auto;
+		}
+
 		.case-card,
 		.case-card:nth-child(1),
 		.case-card:nth-child(2) {
@@ -544,8 +545,6 @@
 
 	@container (max-width: 680px) {
 		.hero,
-		.method-kicker,
-		.metrics-section,
 		.intro,
 		.cases,
 		.workflow,
