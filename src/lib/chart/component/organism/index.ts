@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { AnalyticsChart } from './analytics-chart/index';
 export { CanvasChart } from './canvas-chart/index';
 export { Chart } from './chart/index';
 export { Heatmap } from './heatmap/index';

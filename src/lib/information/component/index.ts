@@ -4,9 +4,7 @@ export {
 	CountBadge,
 	Counter,
 	Dot,
-	ListItemMarker,
-	MetricBar,
-	NpmBadge,
+	NodeIcon,
 	ProgressBar,
 	Skeleton,
 	Spinner,
@@ -14,11 +12,9 @@ export {
 	Tooltip
 } from './atom';
 export {
-	AttachmentPreview,
 	BadgeGroup,
 	BaseCard,
-	Loading,
-	MetricBarsCard
+	Loading
 } from './molecule';
 export {
 	MarkdownRenderer,

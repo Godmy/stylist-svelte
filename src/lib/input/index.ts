@@ -20,6 +20,7 @@ export {
 	RadioButtonGroup,
 	RadioGroup,
 	RichTextEditor,
+	RichTextFormatToolbar,
 	TagInput,
 	TextArea
 } from './component';
@@ -46,6 +47,7 @@ export {
 	createTextareaState,
 	formatPhoneNumber,
 	normalizePhoneInputValue,
+	resolveAllowedOption,
 	resolveCharacterCountState
 } from './function';
 export type {

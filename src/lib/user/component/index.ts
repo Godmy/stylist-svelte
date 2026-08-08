@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AvatarSelector } from './atom';
+export {
+	Avatar,
+	AvatarSelector
+} from './atom';
+export { AvatarGroup } from './molecule';
 export {
 	AccountSettingsForm,
 	UserProfileCard

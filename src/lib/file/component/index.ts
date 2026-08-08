@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { FileInput } from './atom';
 export {
+	AttachmentPreview,
 	DataExporter,
 	FileUpload,
 	QuantitySelector
@@ -13,6 +14,7 @@ export {
 	FileBrowser,
 	FileExplorer,
 	FileListItem,
+	MediaLibrary,
 	UploadProgress,
 	ZipViewer
 } from './organism';

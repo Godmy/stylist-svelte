@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { BehaviorSelectable } from './behavior';
 export type {
 	FeedbackSpecificProps,
 	RecipeAccessibilityToolbar,

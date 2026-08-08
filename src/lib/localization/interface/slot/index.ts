@@ -5,4 +5,5 @@ export type { SlotLanguageSelectorStyleClasses } from './language-selector-style
 export type { SlotLocaleSwitcher } from './locale-switcher';
 export type { SlotLocaleSwitcherLocale } from './locale-switcher-locale';
 export type { SlotLocaleSwitcherTimezoneOption } from './locale-switcher-timezone-option';
+export type { NumberFormatOptions } from './number-format-options';
 export type { SlotTranslationEditor } from './translation-editor';

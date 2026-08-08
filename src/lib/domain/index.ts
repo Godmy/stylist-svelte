@@ -2,6 +2,8 @@
 export {
 	ClusterToolbar,
 	DeviceFrame,
+	DeviceViewport,
+	DomainAiAgent,
 	DomainBacklog,
 	DomainBuilder,
 	DomainDashboard,
@@ -20,12 +22,11 @@ export {
 	DomainSidebar,
 	DomainTable,
 	DomainToolbar,
-	DomainWorkspaceShell,
 	FunctionalTaxonomy,
 	JointTabButtons,
 	JointToolbar,
 	JsonTreeViewer,
-	StylistRibbonMenu,
+	PageDomain,
 	TaxonomyBreadcrumbs,
 	TokenSettings
 } from './component';
@@ -43,7 +44,8 @@ export {
 	DOMAIN_SCREEN_VALUES,
 	DOMAIN_SCREEN_WORKSPACE,
 	JOINT_TOOLBAR_ITEMS,
-	STYLIST_GRAPH_WORKSPACE_SEED
+	STYLIST_GRAPH_WORKSPACE_SEED,
+	TOKEN_CONTROLLER_TYPE
 } from './const';
 export {
 	createDeviceFrameState,
@@ -55,6 +57,7 @@ export {
 } from './function';
 export type {
 	DeviceFrameViewport,
+	TokenControllerType,
 	TypeDomainCluster,
 	TypeDomainComponentDescriptor,
 	TypeDomainComponentProjection,

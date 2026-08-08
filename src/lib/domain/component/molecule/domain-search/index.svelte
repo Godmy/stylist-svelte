@@ -16,15 +16,23 @@
 
 	interface DomainSearchProps {
 		entries?: SearchEntry[];
+		currentPath?: string;
 		onSelect?: (entryId: string) => void;
 		class?: string;
 	}
 
-	let { entries = [], onSelect, class: className = '' }: DomainSearchProps = $props();
+	let {
+		entries = [],
+		currentPath = '',
+		onSelect,
+		class: className = ''
+	}: DomainSearchProps = $props();
 
 	let open = $state(false);
 	let query = $state('');
 	let inputRef = $state<HTMLInputElement | null>(null);
+	let pathCopied = $state(false);
+	let copyResetTimeout: ReturnType<typeof setTimeout> | undefined;
 
 	const filteredEntries = $derived.by(() => {
 		const normalizedQuery = query.trim().toLowerCase();
@@ -81,6 +89,14 @@
 		onSelect?.(entryId);
 		closeSearch();
 	}
+
+	async function handleCopyPath(): Promise<void> {
+		if (!currentPath) return;
+		await navigator.clipboard.writeText(currentPath);
+		pathCopied = true;
+		clearTimeout(copyResetTimeout);
+		copyResetTimeout = setTimeout(() => (pathCopied = false), 1600);
+	}
 </script>
 
 <div class="c-domain-search {className}">
@@ -117,6 +133,27 @@
 	{/if}
 
 	<DomainSearchToggle {open} onToggle={handleToggle} />
+
+	<button
+		type="button"
+		class="copy-path-button"
+		class:is-copied={pathCopied}
+		disabled={!currentPath}
+		title={currentPath ? `Copy path: ${currentPath}` : 'No entity selected'}
+		aria-label="Copy component path"
+		onclick={handleCopyPath}
+	>
+		{#if pathCopied}
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="M20 6 9 17l-5-5" />
+			</svg>
+		{:else}
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<rect x="9" y="9" width="12" height="12" rx="2" />
+				<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+			</svg>
+		{/if}
+	</button>
 </div>
 
 <style>
@@ -179,5 +216,34 @@
 		padding: 0.7rem;
 		color: var(--color-text-secondary);
 		font-size: 12px;
+	}
+
+	.copy-path-button {
+		display: inline-grid;
+		place-items: center;
+		width: 2rem;
+		height: 2rem;
+		padding: 0;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 8px;
+		background: var(--color-background-primary);
+		color: var(--color-text-secondary);
+		cursor: pointer;
+	}
+
+	.copy-path-button:hover:not(:disabled) {
+		color: var(--color-text-primary);
+		border-color: var(--color-primary-500);
+		background: color-mix(in srgb, var(--color-primary-500) 10%, var(--color-background-primary));
+	}
+
+	.copy-path-button:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+
+	.copy-path-button.is-copied {
+		color: var(--color-success-500, var(--color-text-primary));
+		border-color: var(--color-success-500, var(--color-border-primary));
 	}
 </style>

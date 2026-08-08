@@ -7,6 +7,7 @@
 	import TaxonomyBreadcrumbs from '$stylist/domain/component/molecule/taxonomy-breadcrumbs/index.svelte';
 	import createDomainPageState from '$stylist/domain/function/state/domain-page/index.svelte';
 	import TextInputDialog from '$stylist/navigation/component/organism/text-input-dialog/index.svelte';
+	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
 
 	type StoryModule = { default: unknown };
 	type DomainTree = Parameters<typeof createDomainPageState>[0]['tree'];
@@ -22,6 +23,8 @@
 		tree: DomainTree;
 		initialDomain?: string;
 		onSelectionChange?: (selection: { domain: string; family: string }) => void;
+		storyDevice?: DeviceFrameViewport;
+		deviceViewportVisible?: boolean;
 		class?: string;
 	}
 
@@ -34,6 +37,8 @@
 		tree,
 		initialDomain,
 		onSelectionChange,
+		storyDevice = $bindable('fullscreen'),
+		deviceViewportVisible = $bindable(false),
 		class: className = ''
 	}: DomainExplorerProps = $props();
 
@@ -43,10 +48,17 @@
 		onSelectionChange?.({ domain: s.activeDomain, family: s.activeFamily });
 	});
 
+	$effect(() => {
+		deviceViewportVisible = s.previewMode === 'story' && !!s.storyPreviewComponent;
+	});
+
 	const isComponentJoint = $derived.by(
 		() =>
 			s.activeCluster === 'component' &&
-			(s.activeJoint === 'atom' || s.activeJoint === 'molecule' || s.activeJoint === 'organism')
+			(s.activeJoint === 'atom' ||
+				s.activeJoint === 'molecule' ||
+				s.activeJoint === 'organism' ||
+				s.activeJoint === 'template')
 	);
 
 	function buildIssueText(baseText: string): string {
@@ -180,7 +192,19 @@
 					family={s.activeFamilyName}
 					file={s.breadcrumbFile}
 				/>
-				<DomainSearch entries={s.searchEntries} onSelect={s.selectSearchEntry} />
+				<DomainSearch
+					entries={s.searchEntries}
+					currentPath={[
+						s.activeDomain,
+						s.activeCluster,
+						s.activeJoint,
+						s.activeFamilyName,
+						s.breadcrumbFile
+					]
+						.filter(Boolean)
+						.join('\\')}
+					onSelect={s.selectSearchEntry}
+				/>
 			</div>
 
 			{#if s.activeEntity}
@@ -192,6 +216,7 @@
 					activeFilePath={s.activeFilePath}
 					previewMode={s.previewMode}
 					previewKind={s.previewKind}
+					activeJoint={s.activeJoint}
 					{debugMenuItems}
 					onFileSelect={s.handleFileSelect}
 					onMarkdownSelect={s.handleMarkdownSelect}
@@ -209,6 +234,7 @@
 				storyPreviewLoading={s.storyPreviewLoading}
 				storyPreviewError={s.storyPreviewError}
 				previewKind={s.previewKind}
+				bind:storyDevice
 			/>
 		</div>
 	</section>

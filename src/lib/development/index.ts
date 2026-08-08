@@ -22,6 +22,7 @@ export {
 	GenericCodeViewer,
 	LiveCodeSection,
 	MockDataSelector,
+	NpmBadge,
 	PageBuilder,
 	PrivacySettings,
 	ResourceOptimizer,
@@ -31,7 +32,9 @@ export {
 } from './component';
 export {
 	CODE_WITH_COPY_DISPATCH,
+	CONTENT_EDITOR_CONTENT_TYPE,
 	DEBUG_CONSOLE_LOG_LEVEL,
+	DEFAULT_BADGE_LABEL,
 	PAGE_BUILDER_ICON,
 	PAGE_BUILDER_TOOLBAR_ITEMS,
 	PARTICLE_COUNT,
@@ -41,6 +44,7 @@ export {
 	PresetStylist,
 	TOKEN_CODE_LANGUAGE,
 	TOKEN_CODE_VIEW,
+	TOKEN_SOFTWARE_BADGE,
 	categories,
 	panelId
 } from './const';
@@ -69,6 +73,7 @@ export {
 	createGenericCodeViewerState,
 	createLiveCodeSectionState,
 	createMockDataSelectorState,
+	createNpmBadgeState,
 	createPageBuilderState,
 	createPrivacySettingsState,
 	createResourceOptimizerState,
@@ -94,6 +99,7 @@ export type {
 	CodeViewerProps,
 	ComponentLibraryStatsComponentStats,
 	ComponentLibraryStatsProps,
+	ContentType,
 	CopyCode,
 	CopyableCodeBlockProps,
 	CopyableCodeBlockRestProps,
@@ -129,7 +135,8 @@ export type {
 	StylistProps,
 	StylistSelection,
 	TokenCodeLanguage,
-	TokenCodeView
+	TokenCodeView,
+	TokenSoftwareBadge
 } from './type';
 export type {
 	ComponentPreviewCodeOptions,
@@ -156,6 +163,7 @@ export type {
 	RecipeGenericCodeViewer,
 	RecipeLiveCodeSection,
 	RecipeMockDataSelector,
+	RecipeNpmBadge,
 	RecipePrivacySettings,
 	RecipeResourceOptimizer,
 	RecipeStylist,

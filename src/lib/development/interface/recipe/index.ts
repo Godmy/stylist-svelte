@@ -17,6 +17,7 @@ export type { RecipeErrorBoundary } from './error-boundary';
 export type { RecipeGenericCodeViewer } from './generic-code-viewer';
 export type { RecipeLiveCodeSection } from './live-code-section';
 export type { RecipeMockDataSelector } from './mock-data-selector';
+export type { RecipeNpmBadge } from './npm-badge';
 export type { RecipePrivacySettings } from './privacy-settings';
 export type { RecipeResourceOptimizer } from './resource-optimizer';
 export type { RecipeStylist } from './stylist';

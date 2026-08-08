@@ -17,14 +17,22 @@ export type {
 	TokenBorderStyle,
 	TokenBreakpoint,
 	TokenColumn,
+	TokenCursor,
 	TokenDensity,
 	TokenGradient,
 	TokenJustification,
 	TokenOrientation,
 	TokenShape,
-	TokenStackDirection
+	TokenStackDirection,
+	TokenTrigger
 } from './alias';
-export type { AnyProperty } from './object';
+export type {
+	AnyProperty,
+	ClickContract,
+	DragContract,
+	GestureContract,
+	Preset
+} from './object';
 export type {
 	GraphPortSizeMapDimensions,
 	RecordSizeMap

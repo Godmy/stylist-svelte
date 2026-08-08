@@ -11,6 +11,7 @@
 		backlogOpen?: boolean;
 		dashboardOpen?: boolean;
 		settingsOpen?: boolean;
+		aiOpen?: boolean;
 		onLandingToggle?: () => void;
 		onDomainToggle?: () => void;
 		onWorkspaceToggle?: () => void;
@@ -18,6 +19,7 @@
 		onBacklogToggle?: () => void;
 		onDashboardToggle?: () => void;
 		onSettingsToggle?: () => void;
+		onAiToggle?: () => void;
 		class?: string;
 	}
 
@@ -29,6 +31,7 @@
 		backlogOpen = false,
 		dashboardOpen = false,
 		settingsOpen = false,
+		aiOpen = false,
 		onLandingToggle,
 		onDomainToggle,
 		onWorkspaceToggle,
@@ -36,6 +39,7 @@
 		onBacklogToggle,
 		onDashboardToggle,
 		onSettingsToggle,
+		onAiToggle,
 		class: className = ''
 	}: DomainMenuProps = $props();
 </script>
@@ -111,6 +115,18 @@
 		title="Dashboard"
 	>
 		<Icon name="diagnostics" size={18} />
+	</button>
+
+	<button
+		type="button"
+		class:active={aiOpen}
+		class="menu-button menu-button--icon"
+		onclick={onAiToggle}
+		aria-pressed={aiOpen}
+		aria-label="AI agent"
+		title="AI agent"
+	>
+		<Icon name="ai" size={18} />
 	</button>
 
 	<button

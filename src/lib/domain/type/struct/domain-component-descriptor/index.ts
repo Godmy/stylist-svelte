@@ -2,7 +2,7 @@ export type TypeDomainComponentDescriptor = {
 	entityPath: string;
 	domain: string;
 	cluster: 'component';
-	joint: 'atom' | 'molecule' | 'organism';
+	joint: 'atom' | 'molecule' | 'organism' | 'template';
 	family: string;
 	componentModulePath: string | null;
 	recipeTypePath: string | null;

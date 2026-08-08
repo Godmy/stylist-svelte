@@ -1,4 +1,4 @@
-import type { RecipeAttachmentPreview } from '$stylist/information/interface/recipe/attachment-preview';
+import type { RecipeAttachmentPreview } from '$stylist/file/interface/recipe/attachment-preview';
 import type { RecipeDownloadCard } from '$stylist/file/interface/recipe/download-card';
 import type { RecipeDragDropFileUpload } from '$stylist/file/interface/recipe/drag-drop-file-upload';
 import type { RecipeDropZone } from '$stylist/file/interface/recipe/drop-zone';

@@ -1,7 +1,7 @@
 import type { RecipeWorkspaceNode } from '$stylist/workspace/interface/recipe/workspace-node';
 import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
-import type { TokenInteration } from '$stylist/interaction/type/record/interaction';
-import type { TokenSeverity } from '$stylist/interaction/type/record/sevetity';
+import type { TokenInteration } from '$stylist/workspace/type/alias/interaction';
+import type { TokenSeverity } from '$stylist/workspace/type/alias/sevetity';
 import type { TokenNodeType } from '$stylist/architecture/type/alias/node-type';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom';

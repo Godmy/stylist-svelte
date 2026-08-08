@@ -29,6 +29,7 @@ export {
 	createGenericCodeViewerState,
 	createLiveCodeSectionState,
 	createMockDataSelectorState,
+	createNpmBadgeState,
 	createPageBuilderState,
 	createPrivacySettingsState,
 	createResourceOptimizerState,

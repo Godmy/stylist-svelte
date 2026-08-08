@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import Select from './index.svelte';
-	import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
+	import type { TokenControllerType } from '$stylist/domain/type/alias/controller-type';
 
 	const exampleOptions = [
 		{ value: 'option1', label: 'Option 1' },

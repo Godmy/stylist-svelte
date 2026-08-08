@@ -10,4 +10,5 @@ export {
 	createSplitButtonState,
 	createToolButtonState
 } from './state';
+export { createButtonFactoryInput } from './transform';
 export type { ButtonPreset } from './script';

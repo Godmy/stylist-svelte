@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
-	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
+	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 	import MessageTimestamp from '$stylist/chat/component/atom/message-timestamp/index.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';

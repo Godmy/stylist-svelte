@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createButtonFactoryInput } from '$stylist/interaction/factory/button';
+	import { createButtonFactoryInput } from '$stylist/button/function/transform/button-factory-input';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const Loader2 = 'loader-2';
 	import type { HTMLButtonAttributes } from 'svelte/elements';

@@ -2,6 +2,7 @@
 export {
 	createFieldClassState,
 	createFieldPresetState,
+	resolveAllowedOption,
 	resolveCharacterCountState
 } from './script';
 export {

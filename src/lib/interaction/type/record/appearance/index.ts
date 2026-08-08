@@ -1,3 +1,0 @@
-import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
-
-export type TokenAppearance = TokenColorTone;

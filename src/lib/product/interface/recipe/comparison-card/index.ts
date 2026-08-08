@@ -2,7 +2,7 @@ import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-import type { SlotMedia } from '$stylist/media/interface/slot/media';
+import type { SlotImage as SlotMedia } from '$stylist/image/interface/slot/image';
 import type { SlotStatus } from '$stylist/information/interface/slot/status';
 import type { ComparisonCardColumn } from '$stylist/product/interface/slot/comparison-card-column';
 

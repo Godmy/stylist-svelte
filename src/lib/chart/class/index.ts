@@ -7,5 +7,6 @@ export {
 	ObjectManagerChartCanvas,
 	ObjectManagerHeatmap,
 	ObjectManagerLineChart,
+	ObjectManagerMetricBar,
 	ObjectManagerPieChart
 } from './object-manager';

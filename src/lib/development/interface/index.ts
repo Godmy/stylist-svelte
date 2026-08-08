@@ -22,6 +22,7 @@ export type {
 	RecipeGenericCodeViewer,
 	RecipeLiveCodeSection,
 	RecipeMockDataSelector,
+	RecipeNpmBadge,
 	RecipePrivacySettings,
 	RecipeResourceOptimizer,
 	RecipeStylist,

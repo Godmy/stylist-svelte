@@ -19,3 +19,4 @@ export { TOKEN_ORIENTATION } from './orientation';
 export { TOKEN_SHAPE } from './shape';
 export { SPLIT_LAYOUT_GAP } from './split-layout-gap';
 export { TOKEN_STACK_DIRECTION } from './stack-direction';
+export { TOKEN_TRIGGER } from './trigger';

@@ -1,7 +1,7 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotDropdownMenu } from '$stylist/navigation/interface/slot/dropdown-menu';
-import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
-import type { BehaviorFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
+import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorScrollable } from '$stylist/layout/interface/behavior/scrollable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';

@@ -29,5 +29,12 @@ export const BAR_CHART_COLOR_SCHEME = {
 		'var(--color-warning-400)',
 		'var(--color-warning-500)',
 		'var(--color-warning-200)'
+	],
+	weoracle: [
+		'var(--color-primary-500)',
+		'var(--color-secondary-500)',
+		'var(--color-info-500)',
+		'var(--color-success-500)',
+		'var(--color-warning-500)'
 	]
 } as const satisfies Record<TokenThemeScheme, readonly string[]>;

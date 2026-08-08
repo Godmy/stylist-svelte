@@ -1,7 +1,7 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotCombobox } from '$stylist/control/interface/slot/combobox';
-import type { BehaviorFocusable } from '$stylist/interaction/interface/behavior/focusable';
-import type { BehaviorSelectable } from '$stylist/interaction/interface/behavior/selectable';
+import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
+import type { BehaviorSelectable } from '$stylist/control/interface/behavior/selectable';
 import type { BehaviorScrollable } from '$stylist/layout/interface/behavior/scrollable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';

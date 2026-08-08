@@ -1,19 +1,8 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
+	import RichTextFormatToolbar from '$stylist/input/component/molecule/rich-text-format-toolbar/index.svelte';
 	import type { RichTextEditorStateProps } from '$stylist/input/interface/recipe/rich-text-editor-state-props';
 	import createRichTextEditorState from '$stylist/input/function/state/rich-text-editor/index.svelte';
-
-	const Bold = 'bold';
-	const Italic = 'italic';
-	const Underline = 'underline';
-	const Blockquote = 'blockquote';
-	const Heading = 'heading';
-	const List = 'list';
-	const ListOrdered = 'list-ordered';
-	const Divider = 'divider';
-	const Link = 'link';
-	const Image = 'image';
 
 	let props: RichTextEditorStateProps & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createRichTextEditorState(props);
@@ -21,132 +10,26 @@
 
 <div class={state.rootClasses} {...props}>
 	{#if props.showToolbar ?? true}
-		<div class={state.toolbarClasses}>
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={() => state.formatText('bold')}
-				title="Bold"
-			>
-				<BaseIcon name={Bold} class={state.iconButtonClasses} />
-			</button>
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={() => state.formatText('italic')}
-				title="Italic"
-			>
-				<BaseIcon name={Italic} class={state.iconButtonClasses} />
-			</button>
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={() => state.formatText('underline')}
-				title="Underline"
-			>
-				<BaseIcon name={Underline} class={state.iconButtonClasses} />
-			</button>
-
-			<div class={state.dividerClasses}></div>
-
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={() => state.toggleHeading(1)}
-				title="Heading 1"
-			>
-				<BaseIcon name={Heading} class={state.iconButtonClasses} />
-			</button>
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={() => state.toggleHeading(2)}
-				title="Heading 2"
-			>
-				<BaseIcon name={Heading} class={state.iconButtonClasses} />
-			</button>
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={() => state.toggleBlockquote()}
-				title="Blockquote"
-			>
-				<BaseIcon name={Blockquote} class={state.iconButtonClasses} />
-			</button>
-
-			<div class={state.dividerClasses}></div>
-
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={() => state.formatText('insertUnorderedList')}
-				title="Bullet List"
-			>
-				<BaseIcon name={List} class={state.iconButtonClasses} />
-			</button>
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={() => state.formatText('insertOrderedList')}
-				title="Numbered List"
-			>
-				<BaseIcon name={ListOrdered} class={state.iconButtonClasses} />
-			</button>
-
-			<div class={state.dividerClasses}></div>
-
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={() => state.toggleHorizontalRule()}
-				title="Horizontal Rule"
-			>
-				<BaseIcon name={Divider} class={state.iconButtonClasses} />
-			</button>
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={() => state.toggleLinkInput()}
-				title="Link"
-			>
-				<BaseIcon name={Link} class={state.iconButtonClasses} />
-			</button>
-			<button
-				type="button"
-				class={state.buttonClasses}
-				onclick={() => state.insertImage()}
-				title="Image"
-			>
-				<BaseIcon name={Image} class={state.iconButtonClasses} />
-			</button>
-
-			{#if state.showLinkInput}
-				<div class={state.linkInputClasses}>
-					<input
-						type="text"
-						class={state.linkInputFieldClasses}
-						placeholder="https://example.com"
-						value={state.linkUrl}
-						oninput={(event) => state.setLinkUrl((event.target as HTMLInputElement).value)}
-						onkeydown={(event) => {
-							if (event.key === 'Enter') {
-								event.preventDefault();
-								state.insertLink();
-							} else if (event.key === 'Escape') {
-								state.setShowLinkInput(false);
-							}
-						}}
-					/>
-					<button
-						type="button"
-						class={state.linkInputButtonClasses}
-						onclick={() => state.insertLink()}
-					>
-						Insert
-					</button>
-				</div>
-			{/if}
-		</div>
+		<RichTextFormatToolbar
+			class={state.toolbarClasses}
+			buttonClass={state.buttonClasses}
+			dividerClass={state.dividerClasses}
+			iconClass={state.iconButtonClasses}
+			showLinkInput={state.showLinkInput}
+			linkUrl={state.linkUrl}
+			linkInputClass={state.linkInputClasses}
+			linkInputFieldClass={state.linkInputFieldClasses}
+			linkInputButtonClass={state.linkInputButtonClasses}
+			onFormatText={state.formatText}
+			onToggleHeading={state.toggleHeading}
+			onToggleBlockquote={state.toggleBlockquote}
+			onToggleHorizontalRule={state.toggleHorizontalRule}
+			onToggleLinkInput={state.toggleLinkInput}
+			onSetShowLinkInput={state.setShowLinkInput}
+			onSetLinkUrl={state.setLinkUrl}
+			onInsertLink={state.insertLink}
+			onInsertImage={state.insertImage}
+		/>
 	{/if}
 
 	<div
@@ -174,22 +57,17 @@
 	}
 
 	.rich-text-editor__toolbar {
-		position: relative;
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-		gap: 0.25rem;
-		padding: 0.5rem;
 		border-block-end: 1px solid var(--color-border-primary);
 		background-color: var(--color-background-secondary);
 	}
 
 	.rich-text-editor__btn {
-		padding: 0.5rem;
-		border-radius: var(--border-radius-sm, 0.25rem);
-		background: none;
-		border: none;
-		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2rem;
+		height: 2rem;
+		padding: 0;
 	}
 
 	.rich-text-editor__btn:hover {

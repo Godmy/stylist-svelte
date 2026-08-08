@@ -18,12 +18,12 @@ import { TOKEN_LAYOUT_SETTING } from '$stylist/token/const/object/layout';
 import { TOKEN_LOCALIZATION_SETTING } from '$stylist/token/const/object/localization';
 import { TOKEN_MANAGEMENT_SETTING } from '$stylist/token/const/object/management';
 import { TOKEN_MARKETING_SETTING } from '$stylist/token/const/object/marketing';
-import { TOKEN_MEDIA_SETTING } from '$stylist/token/const/object/media';
 import { TOKEN_NOTIFICATION_SETTING } from '$stylist/token/const/object/notification';
 import { TOKEN_SVG_SETTING } from '$stylist/token/const/object/svg';
 import { TOKEN_TABLE_SETTING } from '$stylist/token/const/object/table';
 import { TOKEN_THEME_SETTING } from '$stylist/token/const/object/theme';
 import { TOKEN_TYPOGRAPHY_SETTING } from '$stylist/token/const/object/typography';
+import { TOKEN_USER_SETTING } from '$stylist/token/const/object/user';
 
 export const TOKEN_SETTING = [
 	...TOKEN_AI_SETTING,
@@ -46,10 +46,10 @@ export const TOKEN_SETTING = [
 	...TOKEN_LOCALIZATION_SETTING,
 	...TOKEN_MANAGEMENT_SETTING,
 	...TOKEN_MARKETING_SETTING,
-	...TOKEN_MEDIA_SETTING,
 	...TOKEN_NOTIFICATION_SETTING,
 	...TOKEN_SVG_SETTING,
 	...TOKEN_TABLE_SETTING,
 	...TOKEN_THEME_SETTING,
-	...TOKEN_TYPOGRAPHY_SETTING
+	...TOKEN_TYPOGRAPHY_SETTING,
+	...TOKEN_USER_SETTING
 ] as const;

@@ -4,11 +4,13 @@ export type {
 	BehaviorCellClickable,
 	BehaviorChartAxis,
 	BehaviorChartColorable,
-	BehaviorLegendable
+	BehaviorLegendable,
+	BehaviorPointClickable,
+	BehaviorRangeBarSelect,
+	BehaviorTooltipable
 } from './behavior';
 export type {
 	ChartLegendProps,
-	PieChartProps,
 	RecipeAnalyticsChart,
 	RecipeBarChart,
 	RecipeCanvasChart,
@@ -22,7 +24,15 @@ export type {
 	RecipeChartPolyline,
 	RecipeHeatmap,
 	RecipeLineChart,
+	RecipeMetricBar,
+	RecipeMetricBarsCard,
 	RecipePieChart,
-	RecipeScatterPlot
+	RecipeRangeBarsChart,
+	RecipeScatterPlot,
+	RecipeVerticalBarsChart
 } from './recipe';
-export type { SlotChartAxis } from './slot';
+export type {
+	SlotChartAxis,
+	SlotRangeBarsChart,
+	SlotVerticalBarsChart
+} from './slot';

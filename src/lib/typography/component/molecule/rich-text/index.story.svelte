@@ -10,7 +10,7 @@
 			description: 'Choose which rich text composition to preview.',
 			type: 'select',
 			defaultValue: 'document',
-			options: ['numeric', 'document', 'workflow']
+			options: ['numeric', 'document', 'workflow', 'editor-html']
 		},
 		{
 			name: 'tone',
@@ -87,6 +87,25 @@
 		'RichText can combine semantic ranges, highlights, links, and code inside a single display-only renderer.';
 	const workflowText =
 		'Review the brief, approve the content, publish the update, and monitor feedback across channels.';
+	const editorHtml = `
+		<h1>Quarterly content plan</h1>
+		<p><font face="Georgia" size="4">This paragraph keeps editor formatting with <b>bold</b>, <i>italic</i>, <u>underline</u>, <font color="#2563eb">color</font>, and <span style="background-color: #fef3c7;">highlight</span>.</font></p>
+		<h2>Publishing checklist</h2>
+		<ul>
+			<li>Draft the announcement</li>
+			<li>Review brand language</li>
+			<li>Attach supporting images</li>
+		</ul>
+		<ol>
+			<li>Approve</li>
+			<li>Schedule</li>
+			<li>Publish</li>
+		</ol>
+		<blockquote>Key excerpts keep the quote treatment from the editor.</blockquote>
+		<p style="text-align: center;"><a href="https://example.com">Reference link</a></p>
+		<hr>
+		<p style="text-align: right;">Right-aligned summary text.</p>
+	`;
 
 	function createPresetMarks(values: any) {
 		if (values.preset === 'numeric') {
@@ -133,6 +152,10 @@
 	}
 
 	function createPresetText(values: any) {
+		if (values.preset === 'editor-html') {
+			return '';
+		}
+
 		if (values.preset === 'numeric') {
 			return numericText;
 		}
@@ -179,6 +202,7 @@
 	{#snippet children(values: any)}
 		{@const activeText = createPresetText(values)}
 		{@const activeMarks = createPresetMarks(values)}
+		{@const activeHtml = values.preset === 'editor-html' ? editorHtml : undefined}
 		<section class="_c1">
 			<div class="_c2">
 				<p class="_c3 tracking-[0.24em]">Display-Only Range Formatting</p>
@@ -188,6 +212,7 @@
 				<div class="_c6">
 					<RichText
 						text={activeText}
+						html={activeHtml}
 						marks={activeMarks}
 						tone={values.tone}
 						fontSize={values.fontSize}

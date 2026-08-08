@@ -15,6 +15,7 @@
 			primaryProductClass: _primaryProductClass,
 			showHeader: _showHeader,
 			showDescription: _showDescription,
+			featureColumnLabel: _featureColumnLabel,
 			features: _features,
 			products: _products,
 			...rest
@@ -27,7 +28,9 @@
 	<table class="c-comparison-table__table">
 		<thead class={state.headerClass}>
 			<tr>
-				<th class="c-comparison-table__th c-comparison-table__th--feature">Features</th>
+				<th class="c-comparison-table__th c-comparison-table__th--feature"
+					>{state.featureColumnLabel}</th
+				>
 				{#each state.products as product}
 					<th
 						class={[

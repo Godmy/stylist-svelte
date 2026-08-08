@@ -27,7 +27,7 @@
 			<TextInputDialog
 				open={Boolean(values.open)}
 				title="Story Backlog"
-				path="src/lib/interaction/component/atom/clickable/README.md"
+				path="src/lib/layout/component/atom/clickable/README.md"
 				bind:value={draft}
 				loading={Boolean(values.loading)}
 				saving={Boolean(values.saving)}

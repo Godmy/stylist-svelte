@@ -21,6 +21,8 @@ export const JOINT_TOOLBAR_ITEMS = [
 	{ name: 'atom',         svg: TOKEN_ICON_REGISTRY['atom'] },
 	{ name: 'molecule',     svg: TOKEN_ICON_REGISTRY['molecule'] },
 	{ name: 'organism',     svg: TOKEN_ICON_REGISTRY['organism'] },
+	{ name: 'template',     svg: TOKEN_ICON_REGISTRY['template'] },
+	{ name: 'page',         svg: TOKEN_ICON_REGISTRY['page'] },
 	{ name: 'svg',          svg: TOKEN_ICON_REGISTRY['svg'] },
 	{ name: 'json',         svg: TOKEN_ICON_REGISTRY['json'] },
 	{ name: 'md',           svg: TOKEN_ICON_REGISTRY['md'] },

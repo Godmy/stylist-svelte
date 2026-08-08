@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	copyTextToClipboard,
+	detectClipboardSupport,
 	handleFilterChange,
 	handleLayoutChange,
 	handleReset,

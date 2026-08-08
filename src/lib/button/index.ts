@@ -18,6 +18,7 @@ export {
 } from './const';
 export {
 	createButtonComposedState,
+	createButtonFactoryInput,
 	createButtonPreset,
 	createButtonState,
 	createCloseButtonState,
@@ -34,6 +35,10 @@ export type {
 } from './type';
 export type { ButtonPreset } from './function';
 export type {
+	ButtonFactoryContractInput,
+	ButtonFactoryHtmlInput,
+	ButtonFactoryInput,
+	ButtonFactorySlotsInput,
 	RecipeButton,
 	RecipeButtonComposed,
 	RecipeButtonElement,

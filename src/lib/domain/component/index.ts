@@ -7,6 +7,7 @@ export {
 } from './atom';
 export {
 	ClusterToolbar,
+	DeviceViewport,
 	DomainDescriptorPanel,
 	DomainList,
 	DomainMenu,
@@ -22,6 +23,7 @@ export {
 } from './molecule';
 export {
 	DeviceFrame,
+	DomainAiAgent,
 	DomainBacklog,
 	DomainBuilder,
 	DomainDashboard,
@@ -29,7 +31,6 @@ export {
 	DomainExplorer,
 	DomainFilePreview,
 	DomainSettings,
-	DomainSidebar,
-	DomainWorkspaceShell,
-	StylistRibbonMenu
+	DomainSidebar
 } from './organism';
+export { PageDomain } from './page';

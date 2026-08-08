@@ -1,4 +1,4 @@
-import type { TokenLoading } from '$stylist/interaction/type/record/loading';
+import type { TokenLoading } from '$stylist/animation/type/alias/loading';
 
 export type AuthGuardResolution = {
 	isLoggedIn: boolean;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
+	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 	import { socialActivityFeedFormatTime } from '$stylist/social/function/script/social-activity-feed-format-time';
 	import { socialActivityFeedGetDescription } from '$stylist/social/function/script/social-activity-feed-get-description';
 	import createSocialActivityFeedState from '$stylist/social/function/state/social-activity-feed/index.svelte';

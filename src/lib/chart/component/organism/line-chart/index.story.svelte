@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import LineChart from './index.svelte';
 	import type { LineChartData } from '$stylist/chart/type/struct/line-chart-data';
-	import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';
+	import { TOKEN_CONTROLLER_TYPE } from '$stylist/domain/const/map/controller-type';
 
 	// Define sample data for the chart
 	const data: LineChartData[] = [

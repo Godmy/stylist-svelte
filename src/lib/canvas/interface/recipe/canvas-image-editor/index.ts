@@ -1,6 +1,6 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
+import type { SlotImage as IMediaSlot } from '$stylist/image/interface/slot/image';
 
 export interface RecipeCanvasImageEditor
 	extends ComputeIntersectAll<[SlotTheme, IMediaSlot]> {

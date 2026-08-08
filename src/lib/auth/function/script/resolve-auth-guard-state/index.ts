@@ -1,4 +1,4 @@
-import { TOKEN_LOADING } from '$stylist/interaction/const/array/loading';
+import { TOKEN_LOADING } from '$stylist/animation/const/array/loading';
 import type { AuthGuardResolutionInput } from '$stylist/auth/type/struct/auth-guard-resolution-input';
 import type { AuthGuardResolution } from '$stylist/auth/type/struct/auth-guard-resolution';
 

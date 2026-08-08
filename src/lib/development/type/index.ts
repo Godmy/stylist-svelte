@@ -1,8 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	ContentType,
 	DebugConsoleLogLevel,
 	TokenCodeLanguage,
-	TokenCodeView
+	TokenCodeView,
+	TokenSoftwareBadge
 } from './alias';
 export type {
 	AtomicPrinciplesShowcaseAtomicPrinciplesStats,

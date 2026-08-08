@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
-import type { BehaviorDraggable } from '$stylist/interaction/interface/behavior/draggable';
+import type { BehaviorDraggable } from '$stylist/layout/interface/behavior/draggable';
 
 /**
  * SlotDragAndDrop — свойства перетаскивания элемента.

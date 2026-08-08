@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
+	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 	import type { FRIEND_LIST_FRIEND } from '$stylist/social/type/struct/friend-list/friend_list_friend';
 	import type { FRIEND_LIST_PROPS } from '$stylist/social/type/struct/friend-list/friend_list_-props';
 	import { friendListFormatLastSeen as formatLastSeen } from '$stylist/social/function/script/friend-list-format-last-seen';

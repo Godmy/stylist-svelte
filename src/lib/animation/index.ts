@@ -8,7 +8,11 @@ export {
 	NumberFlow,
 	Transformable
 } from './component';
-export { BASE_EASING } from './const';
+export {
+	BASE_EASING,
+	INTERACTION_FEEDBACK,
+	TOKEN_LOADING
+} from './const';
 export {
 	animateValue,
 	createAnimatedBackgroundState,
@@ -24,9 +28,12 @@ export {
 } from './function';
 export type {
 	EasingFunction,
+	InteractionFeedback,
+	InteractionIntent,
 	TokenAnimation,
 	TokenDuration,
 	TokenEasing,
+	TokenLoading,
 	TokenTransition
 } from './type';
 export type {

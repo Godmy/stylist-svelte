@@ -15,6 +15,7 @@ export {
 } from './component';
 export {
 	TOKEN_CALENDAR,
+	TOKEN_FLOW,
 	TOKEN_PRIORITY,
 	TOKEN_TIMESTAMP_FORMAT,
 	TOKEN_TIME_RANGE

@@ -3,7 +3,7 @@
 	import { onDestroy } from 'svelte';
 	import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
 	import NodeConnection from '$stylist/workspace/component/atom/node-connection/index.svelte';
-	import NodeIcon from '$stylist/media/component/atom/node-icon/index.svelte';
+	import NodeIcon from '$stylist/information/component/atom/node-icon/index.svelte';
 	import Viewport from '$stylist/architecture/component/atom/viewport/index.svelte';
 
 	import type { TOKEN_THEME_MODE } from '$stylist/theme/const/array/theme-mode';

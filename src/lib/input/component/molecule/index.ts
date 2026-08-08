@@ -12,4 +12,5 @@ export { NumberInput } from './number-input/index';
 export { PhoneNumberInput } from './phone-number-input/index';
 export { RadioButtonGroup } from './radio-button-group/index';
 export { RadioGroup } from './radio-group/index';
+export { RichTextFormatToolbar } from './rich-text-format-toolbar/index';
 export { TextArea } from './text-area/index';

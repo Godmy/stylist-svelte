@@ -56,15 +56,32 @@
 	class={state.classes}
 	style={state.style}
 >
-	{#each state.segments as segment (segment.key)}
-		{#if segment.href}
-			<a
-				href={segment.href}
-				target={segment.target}
-				title={segment.title}
-				rel={createSegmentRel(segment)}
-				class="c-typography-rich-text__link"
-			>
+	{#if state.html}
+		<div class="c-typography-rich-text__html">
+			{@html state.html}
+		</div>
+	{:else}
+		{#each state.segments as segment (segment.key)}
+			{#if segment.href}
+				<a
+					href={segment.href}
+					target={segment.target}
+					title={segment.title}
+					rel={createSegmentRel(segment)}
+					class="c-typography-rich-text__link"
+				>
+					<svelte:element
+						this={segment.tag}
+						class="c-typography-rich-text__segment"
+						data-bold={segment.bold ? 'true' : 'false'}
+						data-italic={segment.italic ? 'true' : 'false'}
+						data-highlight={segment.highlight ? 'true' : 'false'}
+						style={createSegmentStyle(segment, state.disabled)}
+					>
+						{segment.text}
+					</svelte:element>
+				</a>
+			{:else}
 				<svelte:element
 					this={segment.tag}
 					class="c-typography-rich-text__segment"
@@ -75,20 +92,9 @@
 				>
 					{segment.text}
 				</svelte:element>
-			</a>
-		{:else}
-			<svelte:element
-				this={segment.tag}
-				class="c-typography-rich-text__segment"
-				data-bold={segment.bold ? 'true' : 'false'}
-				data-italic={segment.italic ? 'true' : 'false'}
-				data-highlight={segment.highlight ? 'true' : 'false'}
-				style={createSegmentStyle(segment, state.disabled)}
-			>
-				{segment.text}
-			</svelte:element>
-		{/if}
-	{/each}
+			{/if}
+		{/each}
+	{/if}
 </svelte:element>
 
 <style>
@@ -178,5 +184,111 @@
 	.c-typography-rich-text--disabled .c-typography-rich-text__link {
 		color: inherit;
 		pointer-events: none;
+	}
+
+	.c-typography-rich-text__html {
+		display: flow-root;
+		color: inherit;
+		font: inherit;
+		line-height: inherit;
+		letter-spacing: inherit;
+	}
+
+	:global(.c-typography-rich-text__html > :first-child) {
+		margin-block-start: 0;
+	}
+
+	:global(.c-typography-rich-text__html > :last-child) {
+		margin-block-end: 0;
+	}
+
+	:global(.c-typography-rich-text__html p) {
+		margin-block: 0.75em;
+	}
+
+	:global(.c-typography-rich-text__html h1),
+	:global(.c-typography-rich-text__html h2),
+	:global(.c-typography-rich-text__html h3) {
+		margin-block: 0.85em 0.35em;
+		color: inherit;
+		font-family: inherit;
+		line-height: 1.2;
+	}
+
+	:global(.c-typography-rich-text__html h1) {
+		font-size: 1.875em;
+		font-weight: var(--font-weight-bold, 700);
+	}
+
+	:global(.c-typography-rich-text__html h2) {
+		font-size: 1.5em;
+		font-weight: var(--font-weight-semibold, 600);
+	}
+
+	:global(.c-typography-rich-text__html h3) {
+		font-size: 1.25em;
+		font-weight: var(--font-weight-semibold, 600);
+	}
+
+	:global(.c-typography-rich-text__html blockquote) {
+		margin-block: 1em;
+		margin-inline: 0;
+		padding-inline-start: 1em;
+		border-inline-start: 0.25rem solid var(--color-border-primary);
+		color: var(--color-text-secondary);
+	}
+
+	:global(.c-typography-rich-text__html ul),
+	:global(.c-typography-rich-text__html ol) {
+		margin-block: 0.75em;
+		padding-inline-start: 1.5em;
+	}
+
+	:global(.c-typography-rich-text__html ul) {
+		list-style: disc;
+	}
+
+	:global(.c-typography-rich-text__html ol) {
+		list-style: decimal;
+	}
+
+	:global(.c-typography-rich-text__html li) {
+		margin-block: 0.25em;
+		padding-inline-start: 0.2em;
+	}
+
+	:global(.c-typography-rich-text__html a) {
+		color: var(--color-primary-600);
+		text-decoration-line: underline;
+		text-underline-offset: 0.12em;
+	}
+
+	:global(.c-typography-rich-text__html img) {
+		display: block;
+		max-width: 100%;
+		height: auto;
+		margin-block: 1em;
+		border-radius: var(--border-radius-base, 0.375rem);
+	}
+
+	:global(.c-typography-rich-text__html hr) {
+		margin-block: 1.25em;
+		border: 0;
+		border-block-start: 1px solid var(--color-border-primary);
+	}
+
+	:global(.c-typography-rich-text__html b),
+	:global(.c-typography-rich-text__html strong) {
+		font-weight: var(--font-weight-bold, 700);
+	}
+
+	:global(.c-typography-rich-text__html i),
+	:global(.c-typography-rich-text__html em) {
+		font-style: italic;
+	}
+
+	:global(.c-typography-rich-text__html u) {
+		text-decoration-line: underline;
+		text-decoration-thickness: 0.08em;
 	}
 </style>

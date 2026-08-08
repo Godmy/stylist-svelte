@@ -2,7 +2,8 @@
 export { DEVICE_FRAME_VIEWPORT } from './array';
 export {
 	DOMAIN_COUNT,
-	DOMAIN_MENU_ICONS
+	DOMAIN_MENU_ICONS,
+	TOKEN_CONTROLLER_TYPE
 } from './map';
 export { DOMAIN_COMPONENT_DEBUG_ERROR } from './object';
 export { DOMAIN_SCREEN_VALUES } from './record';

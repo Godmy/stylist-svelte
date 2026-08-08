@@ -3,8 +3,8 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SlotButtonAttributesBase } from '$stylist/button/interface/slot/button-attributes-base';
 import type { SlotButtonControl } from '$stylist/button/interface/slot/button-control';
 import type { SlotBadge } from '$stylist/information/interface/slot/badge';
-import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
-import type { BehaviorFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
+import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { RecipeBorder } from '$stylist/layout/interface/recipe/border';
 import type { RecipeThemeBackground } from '$stylist/layout/interface/recipe/background';
 import type { BehaviorShapeable } from '$stylist/layout/interface/behavior/shapeable';

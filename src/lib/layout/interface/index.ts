@@ -1,8 +1,12 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	BehaviorClickable,
 	BehaviorComponentState,
 	BehaviorDimensionable,
+	BehaviorDraggable,
 	BehaviorElevatable,
+	BehaviorFocusable,
+	BehaviorHoverable,
 	BehaviorPositionable,
 	BehaviorScrollable,
 	BehaviorShapeable,
@@ -18,7 +22,6 @@ export type {
 	ContainerProps,
 	ContainerQueryProps,
 	DividerProps,
-	DragAndDropListProps,
 	GridItem,
 	GridLayoutProps,
 	GridMoleculeProps,
@@ -30,6 +33,10 @@ export type {
 	PopoverProps,
 	RecipeBorder,
 	RecipeCard,
+	RecipeClickable,
+	RecipeDraggable,
+	RecipeFocusable,
+	RecipeHoverable,
 	RecipeThemeBackground,
 	RecipeThemeGradientBackground,
 	SeparatorProps,
@@ -44,11 +51,10 @@ export type {
 	WidgetContainerProps
 } from './recipe';
 export type {
+	SlotClickable,
 	SlotComposite,
-	SlotDragAndDropListItem,
 	SlotGridItem,
 	SlotGridLayoutItem,
-	SlotSortableGridItem,
-	SlotSortableList,
-	SlotSortableListItem
+	SlotSize,
+	SlotSortableGridItem
 } from './slot';

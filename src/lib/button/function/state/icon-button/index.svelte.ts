@@ -1,5 +1,4 @@
-import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { ButtonFactoryInput } from '$stylist/interaction/factory/button';
+import type { ButtonFactoryInput } from '$stylist/button/interface/recipe/button-factory-input';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 
 export function createIconButtonState(input: ButtonFactoryInput) {

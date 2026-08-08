@@ -1,7 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { BehaviorClickable } from './clickable';
 export type { BehaviorComponentState } from './component-state';
 export type { BehaviorDimensionable } from './dimensionable';
+export type { BehaviorDraggable } from './draggable';
 export type { BehaviorElevatable } from './elevatable';
+export type { BehaviorFocusable } from './focusable';
+export type { BehaviorHoverable } from './hoverable';
 export type { LayoutHTMLAttributes } from './layout-html-attributes';
 export type { BehaviorPositionable } from './positionable';
 export type { BehaviorScrollable } from './scrollable';

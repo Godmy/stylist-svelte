@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	TOKEN_INTERACTION,
+	TOKEN_SEVERITY
+} from './array';
+export {
 	DEFAULT_WORKSPACE_CANVAS,
 	WORKSPACE_ICONS
 } from './record';

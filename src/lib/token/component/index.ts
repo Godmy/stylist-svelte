@@ -15,6 +15,7 @@ export {
 } from './atom';
 export {
 	Orbit,
+	RibbonMenu,
 	Token
 } from './molecule';
 export {

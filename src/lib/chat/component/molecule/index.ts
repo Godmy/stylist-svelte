@@ -4,6 +4,7 @@ export { ChatList } from './chat-list/index';
 export { ChatMessage } from './chat-message/index';
 export { ChatRoom } from './chat-room/index';
 export { ChatWindow } from './chat-window/index';
+export { IconPicker } from './icon-picker/index';
 export { MessageBubble } from './message-bubble/index';
 export { MessageComposer } from './message-composer/index';
 export { MessageItem } from './message-item/index';

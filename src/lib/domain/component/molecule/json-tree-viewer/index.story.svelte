@@ -9,7 +9,7 @@
 
 	const validJson = JSON.stringify(
 		{
-			domain: 'interaction',
+			domain: 'layout',
 			component: 'clickable',
 			story: {
 				ready: true,
@@ -21,7 +21,7 @@
 		2
 	);
 
-	const invalidJson = '{ "domain": "interaction", "story": [1, 2, }';
+	const invalidJson = '{ "domain": "layout", "story": [1, 2, }';
 </script>
 
 <Story

@@ -1,4 +1,5 @@
 export interface SlotRichText {
+	html?: string;
 	marks?: {
 		start: number;
 		end: number;

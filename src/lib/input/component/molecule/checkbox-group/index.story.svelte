@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import CheckboxGroup from './index.svelte';
-	import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
+	import type { TokenControllerType } from '$stylist/domain/type/alias/controller-type';
 
 	const options = [
 		{ id: 'option1', label: 'Option 1', value: 'option1', description: 'First option description' },

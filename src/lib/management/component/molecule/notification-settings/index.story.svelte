@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import NotificationSettings from './index.svelte';
 	import type { INotificationSettingsPreference } from '$stylist/management/type/struct/notification-settings-preference';
-	import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
+	import type { TokenControllerType } from '$stylist/domain/type/alias/controller-type';
 
 	const controls = [
 		{

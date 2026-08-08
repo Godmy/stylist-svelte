@@ -5,17 +5,17 @@
 	const entities = [
 		{
 			name: 'clickable',
-			path: '/src/lib/interaction/component/atom/clickable',
+			path: '/src/lib/layout/component/atom/clickable',
 			files: [{ path: 'index.svelte' }, { path: 'index.story.svelte' }, { path: 'index.ts' }]
 		},
 		{
 			name: 'hoverable',
-			path: '/src/lib/interaction/component/atom/hoverable',
+			path: '/src/lib/layout/component/atom/hoverable',
 			files: [{ path: 'index.svelte' }, { path: 'index.ts' }]
 		},
 		{
 			name: 'focusable',
-			path: '/src/lib/interaction/component/atom/focusable',
+			path: '/src/lib/layout/component/atom/focusable',
 			files: [{ path: 'index.svelte' }, { path: 'index.story.svelte' }, { path: 'index.ts' }]
 		}
 	];

@@ -5,6 +5,7 @@ export type {
 	FileItemType,
 	FileStateOptions,
 	FileStateResult,
+	MediaType,
 	UploadProgressVariant,
 	UploadStatus,
 	ViewMode
@@ -15,6 +16,7 @@ export type {
 	DragDropFileStatus,
 	FileItem,
 	FileType,
+	MediaItem,
 	Props,
 	RestProps,
 	SlotDropItem,

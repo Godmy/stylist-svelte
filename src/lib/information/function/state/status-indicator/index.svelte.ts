@@ -1,5 +1,5 @@
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
-import type { TokenAvailability } from '$stylist/interaction/type/record/availability';
+import type { TokenAvailability } from '$stylist/user/type/alias/availability';
 import type { RecipeStatusIndicator } from '$stylist/information/interface/recipe/status-indicator';
 
 export function createStatusIndicatorState(props: RecipeStatusIndicator) {

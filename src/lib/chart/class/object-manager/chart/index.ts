@@ -2,12 +2,9 @@ import type { ChartFunctionPoint } from '$stylist/chart/type/struct/chart-point'
 import type { ChartSeries } from '$stylist/chart/type/struct/chart-series';
 import type { RecipeChartAxisY } from '$stylist/chart/interface/recipe/chart-axis-y';
 import type { RecipeChartPolyline as ChartPolylineProps } from '$stylist/chart/interface/recipe/chart-polyline';
-import type { PieChartProps } from '$stylist/chart/interface/recipe/pie-chart-props';
-import type { AnalyticsChartDataPoint } from '$stylist/chart/type/struct/analytics-chart-data-point';
 import type { ChartLegendItem } from '$stylist/chart/type/object/chart-legend-item';
 import type { ChartBounds } from '$stylist/chart/type/struct/chart-bounds';
 import type { ChartAxisYMetrics } from '$stylist/chart/type/struct/chart-axis-y-metrics';
-import type { InformationPieChartSegment } from '$stylist/chart/type/struct/information-pie-chart-segment';
 
 export class ObjectManagerChart {
 	static resolveSeries(series?: ChartSeries[]): ChartSeries[] {
@@ -85,40 +82,5 @@ export class ObjectManagerChart {
 			minY,
 			maxY: maxY === minY ? minY + 1 : maxY
 		};
-	}
-
-	static getPieChartRestProps(props: PieChartProps & { width?: number; height?: number }) {
-		const { class: _class, data: _data, width: _width, height: _height, ...rest } = props;
-
-		return rest;
-	}
-
-	static getPieChartSegments(
-		data: readonly AnalyticsChartDataPoint[],
-		width: number,
-		height: number
-	): InformationPieChartSegment[] {
-		const total = data.reduce((sum, item) => sum + item.value, 0);
-		const centerX = width / 2;
-		const centerY = height / 2;
-		const radius = Math.max(10, Math.min(width, height) / 2 - 10);
-		let startAngle = 0;
-
-		return data.map((item, index) => {
-			const sliceAngle = total === 0 ? 0 : (item.value / total) * 360;
-			const endAngle = startAngle + sliceAngle;
-			const startRad = (startAngle * Math.PI) / 180;
-			const endRad = (endAngle * Math.PI) / 180;
-			const x1 = centerX + radius * Math.cos(startRad);
-			const y1 = centerY + radius * Math.sin(startRad);
-			const x2 = centerX + radius * Math.cos(endRad);
-			const y2 = centerY + radius * Math.sin(endRad);
-			const path = `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${sliceAngle > 180 ? 1 : 0} 1 ${x2} ${y2} Z`;
-			const fill = item.color || `hsl(${(index * 137.5) % 360}, 70%, 50%)`;
-
-			startAngle = endAngle;
-
-			return { fill, path };
-		});
 	}
 }

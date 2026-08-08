@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { RecipeAccessibilityCheckbox } from './accessibility-checkbox';
-export type { RecipeAttachmentPreview } from './attachment-preview';
 export type { RecipeBadge } from './badge';
 export type { RecipeBadgeGroup } from './badge-group';
 export type { RecipeBaseCard } from './base-card';
@@ -8,14 +7,10 @@ export type { RecipeCountBadge } from './count-badge';
 export type { RecipeCounter } from './counter';
 export type { RecipeDot } from './dot';
 export type { RecipeCanvasImageEditor } from './icon-canvas-image-editor';
-export type { RecipeThemeIconPicker } from './icon-picker';
-export type { RecipeListItemMarker } from './list-item-marker';
 export type { RecipeLoading } from './loading';
 export type { RecipeMarkdownRenderer } from './markdown-renderer';
-export type { RecipeMetricBar } from './metric-bar';
-export type { RecipeMetricBarsCard } from './metric-bars-card';
 export type { RecipeMetricCard } from './metric-card';
-export type { RecipeNpmBadge } from './npm-badge';
+export type { RecipeNodeIcon } from './node-icon';
 export type { RecipeProgressBar } from './progress-bar';
 export type { RecipeSearchResults } from './search-results';
 export type { RecipeShortcutsPanel } from './shortcuts-panel';

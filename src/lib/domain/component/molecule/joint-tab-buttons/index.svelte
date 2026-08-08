@@ -22,6 +22,7 @@
 		activeFilePath?: string;
 		previewMode?: 'file' | 'markdown' | 'story' | 'json-tree';
 		previewKind?: 'svg' | 'json' | 'text';
+		activeJoint?: string;
 		debugMenuItems?: DebugMenuItem[];
 		onFileSelect?: (path: string) => void;
 		onMarkdownSelect?: () => void;
@@ -38,6 +39,7 @@
 		activeFilePath = '',
 		previewMode = 'file',
 		previewKind = 'text',
+		activeJoint = '',
 		debugMenuItems = [],
 		onFileSelect,
 		onMarkdownSelect,
@@ -85,6 +87,10 @@
 			if (hasRegisteredIcon(candidate)) {
 				return candidate;
 			}
+		}
+
+		if (activeJoint && hasRegisteredIcon(activeJoint)) {
+			return activeJoint;
 		}
 
 		return NOT_FOUND_ICON_NAME;

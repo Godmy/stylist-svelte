@@ -1,0 +1,106 @@
+# Таблица переноса `graph` -> `architecture`, итерация 3
+
+## Цель таблицы
+
+Целевая граница: `graph` должен остаться минимальным доменом чистого трехмерного WebGL-графа. Все UI/editor/litegraph/minimap/ontology/workspace части переносятся в `architecture`.
+
+Текущие внешние потребители `$stylist/graph` найдены в `architecture`. В остальных проверенных доменах новых внешних потребителей не найдено. Внутри `graph` есть обратные зависимости на `architecture`, что подтверждает необходимость переноса не-core островов.
+
+## Легенда решений
+
+| Решение | Значение |
+| --- | --- |
+| `move` | Перенести dependency island из `graph` в `architecture` и обновить импорты. |
+| `merge` | В `architecture` уже есть destination family; нужно слить зависимости, а не создать дубль. |
+| `keep` | Оставить в `graph` как часть 3D graph-core. |
+| `rework` | Переработать в 3D/WebGL core или заменить новой сущностью. |
+| `delete` | Удалить после переноса/слияния как устаревший дубль. |
+
+## Destination conflicts
+
+| Family | Source in `graph` | Existing destination in `architecture` | Decision |
+| --- | --- | --- | --- |
+| `graph-editor` | `component/organism/graph-editor` story-only | `component/organism/graph-editor` exists | `merge`: оставить реализацию в `architecture`, перенести оставшиеся graph-only story/types/deps. |
+| `litegraph-canvas` | `component/organism/litegraph-canvas` story-only | `component/organism/litegraph-canvas` exists | `merge`: оставить реализацию в `architecture`, перенести недостающие graph deps. |
+| `minimap` | `component/organism/minimap` | no destination | `move`: создать `architecture/component/organism/minimap`. |
+| `connection-line` | `component/molecule/connection-line` | no destination | `move`: создать `architecture/component/molecule/connection-line`. |
+| `graph-toolbar` | `component/molecule/graph-toolbar` | no destination | `move`: создать `architecture/component/molecule/graph-toolbar`. |
+| `litegraph-node` | `component/molecule/litegraph-node` | no destination | `move`: создать `architecture/component/molecule/litegraph-node`. |
+| `node-palette` | `component/organism/node-palette` | no destination | `move`: создать `architecture/component/organism/node-palette`. |
+| `node-properties-panel` | `component/molecule/node-properties-panel` | no destination | `move`: создать `architecture/component/molecule/node-properties-panel`. |
+| `ontology-edge-component` | `component/molecule/ontology-edge-component` | no destination | `move`. |
+| `ontology-node-component` | `component/molecule/ontology-node-component` | no destination | `move`. |
+| `graph-node-card` | `component/organism/graph-node-card` | no destination | `move`. |
+| `stylist-graph-workspace` | `component/organism/stylist-graph-workspace` | no destination | `move`, likely rename later if architecture naming requires it. |
+| `stage` | `component/atom/stage` | no destination | `keep/rework`: remains graph-core only if converted from 2D world transform to 3D/WebGL stage. |
+| `viewport` | `component/atom/viewport` | no destination | `keep/rework`: remains graph-core only if converted from 2D pan/zoom UI to WebGL viewport contract. |
+
+## Transfer table
+
+| Package | Island | Decision | Source paths in `graph` | Target in `architecture` | External consumers now | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | `graph-editor` | `merge/delete` | `component/organism/graph-editor`, `function/state/graph-editor`, `type/struct/graph-editor-node-data`, `type/struct/graph-editor-palette-node`, related `interface/recipe/graph-editor` if present in generated exports | Existing `component/organism/graph-editor`, `function/state/graph-editor`, `type/struct/graph-editor-props` | `architecture/component/organism/graph-editor/index.svelte`, `architecture/function/state/graph-editor/index.svelte.ts`, `architecture/type/struct/graph-editor-props/index.ts` | Graph source is story-only for component. Move remaining editor types/deps into architecture, then remove graph story wrapper. |
+| 1 | `litegraph-canvas` | `merge/delete` | `component/organism/litegraph-canvas`, `function/state/litegraph-canvas`, `interface/recipe/litegraph-canvas` if graph-side exists, `type/struct/litegraph-canvas-node-add-payload` | Existing `component/organism/litegraph-canvas`, `function/state/litegraph-canvas`, `interface/recipe/litegraph-canvas` | `architecture/component/organism/litegraph-canvas/index.svelte`, `architecture/function/state/litegraph-canvas/index.svelte.ts`, `architecture/interface/recipe/litegraph-canvas/index.ts` | Graph source is story-only for component. Architecture implementation imports multiple graph deps; those should become local architecture deps. |
+| 1 | `litegraph-node` | `move` | `component/molecule/litegraph-node`, `function/state/litegraph-node`, `interface/recipe/litegraph-node`, `interface/contract/litegraph-node`, `interface/contract/litegraph-node-property`, `interface/contract/litegraph-port`, `type/struct/lite-graph-node-presentation`, `type/struct/lite-graph-node-property`, `type/struct/lite-graph-port` | `component/molecule/litegraph-node`, `function/state/litegraph-node`, `interface/recipe/litegraph-node`, `interface/contract/litegraph-*`, `type/struct/lite-graph-*` | `architecture/component/organism/litegraph-canvas/index.svelte`, `architecture/function/state/litegraph-canvas/index.svelte.ts`, `architecture/interface/recipe/litegraph-canvas/index.ts` | Depends on `architecture` semantic zoom and node-type already, so it belongs in `architecture`. |
+| 1 | `graph-canvas` | `move` | `component/atom/graph-canvas`, `function/state/graph-canvas`, `interface/recipe/graph-canvas`, `const/record/graph-canvas`, `type/struct/graph-viewport`, `type/struct/graph-position-2d` | `component/atom/graph-canvas`, `function/state/graph-canvas`, `interface/recipe/graph-canvas`, `const/record/graph-canvas`, `type/struct/graph-viewport`, `type/struct/graph-position-2d` | `architecture/component/organism/litegraph-canvas/index.svelte`, `architecture/function/state/litegraph-canvas/index.svelte.ts` | Current implementation is 2D canvas/pan/grid model, not 3D WebGL graph-core. Note: files in this island currently have pre-existing worktree modifications. |
+| 1 | `connection-line` | `move` | `component/molecule/connection-line`, `function/state/connection-line`, `interface/recipe/connection-line`, `type/struct/connection-line-point`, `type/struct/connection-path-result` | `component/molecule/connection-line`, `function/state/connection-line`, `interface/recipe/connection-line`, `type/struct/connection-line-*`, `type/struct/connection-path-result` | `architecture/component/organism/litegraph-canvas/index.svelte`, `architecture/type/struct/graph-editor-props/index.ts` | 2D connection rendering; imports architecture trajectory token, so not graph-core. |
+| 1 | `graph-toolbar` | `move` | `component/molecule/graph-toolbar`, `function/state/graph-toolbar`, `interface/recipe/graph-toolbar`, `interface/slot/graph-toolbar-item`, `type/struct/graph-toolbar-item`, `const/record/litegraph-canvas-icons` | `component/molecule/graph-toolbar`, `function/state/graph-toolbar`, `interface/recipe/graph-toolbar`, `interface/slot/graph-toolbar-item`, `type/struct/graph-toolbar-item`, `const/record/litegraph-canvas-icons` | `architecture/component/organism/litegraph-canvas/index.svelte`, `architecture/function/state/litegraph-canvas/index.svelte.ts`, `architecture/type/struct/graph-editor-props/index.ts`, `architecture/interface/recipe/litegraph-canvas/index.ts` | Toolbar/icons are editor UI, not WebGL graph-core. |
+| 1 | `node-palette` | `move` | `component/organism/node-palette`, `function/state/node-palette`, `class/object-manager/node-palette`, `interface/recipe/node-palette`, `interface/slot/node-palette`, `interface/slot/node-palette-item`, `type/struct/graph-editor-palette-node` | same cluster/joint/family under `architecture` | `architecture/component/organism/graph-editor/index.svelte`, `architecture/function/state/graph-editor/index.svelte.ts`, `architecture/type/struct/graph-editor-props/index.ts` | Editor-only palette. |
+| 1 | `node-properties-panel` | `move` | `component/molecule/node-properties-panel`, `function/state/node-properties-panel`, `class/object-manager/node-properties-panel`, `interface/recipe/node-properties-panel`, `type/struct/lite-graph-node-property` | same under `architecture` | `architecture/component/organism/graph-editor/index.svelte` | Inspector/editor UI. Shared `lite-graph-node-property` moves with litegraph-node island. |
+| 1 | `node-header` | `move` | `component/molecule/node-header`, `function/state/node-header`, `interface/recipe/node-header` | same under `architecture` | via `litegraph-node` internal dependency | Litegraph node UI subpart. |
+| 1 | `node-property` | `move` | `component/atom/node-property`, `function/state/node-property`, `interface/recipe/node-property`, `interface/slot/node-property`, `type/enum/property-type`, `const/enum/property-type` | same under `architecture` | via `litegraph-node` and properties panel | Property editor UI. Move `property-type` only if no remaining 3D-core use exists. |
+| 1 | `node-title` | `move` | `component/atom/node-title`, `function/state/node-title`, `interface/recipe/node-title`, `type/enum/node-title-variant` | same under `architecture` | via `node-header`/`litegraph-node` internal dependency | Node display UI, not graph-core. |
+| 1 | `graph-port` | `move` | `component/atom/graph-port`, `function/state/graph-port`, `interface/recipe/graph-port`, `type/struct/graph-port-dimensions` | same under `architecture` | via `port-group`/`litegraph-node` internal dependency | 2D litegraph port UI. |
+| 1 | `port-group` | `move` | `component/molecule/port-group`, `function/state/port-group`, `interface/recipe/port-group`, `type/struct/port-group-props` | same under `architecture` | via `litegraph-node` internal dependency | Litegraph port grouping UI; imports architecture relationship token. |
+| 1 | `graph-edge` | `move/rework` | `component/atom/graph-edge`, `function/state/graph-edge`, `interface/recipe/graph-edge` | move current UI to `architecture`; later create graph-core edge type in `graph` if needed | no direct external consumer found | Current layer is Svelte/trajectory UI, not core. Do not confuse with future 3D `graph-edge` model. |
+| 1 | `graph-node` | `move/rework` | `component/atom/graph-node`, `function/state/graph-node`, `interface/recipe/graph-node` | move current UI to `architecture`; keep/rework `type/struct/graph-node` separately | no direct external consumer found | Current component is UI. The type is also 2D/display-heavy and needs 3D rework. |
+| 2 | `minimap` | `move` | `component/organism/minimap`, `function/state/minimap`, `function/script/minimap`, `function/script/resolve-minimap-canvas-point`, `function/script/resolve-minimap-fit-offset`, `function/script/resolve-minimap-fit-zoom`, `function/script/resolve-minimap-node-rect`, `function/script/resolve-minimap-offset-for-point`, `function/script/resolve-minimap-viewport`, `type/struct/minimap-*`, `type/struct/graph-minimap-contract`, `type/struct/graph-minimap-props` | same under `architecture` | `architecture/component/organism/prezi-scene/index.svelte`, `architecture/component/organism/litegraph-canvas/index.svelte` | 2D overview UI; not WebGL graph-core. |
+| 3 | `ontology-edge-component` | `move` | `component/molecule/ontology-edge-component`, `function/state/ontology-edge-component`, `type/struct/ontology-edge-component/*` | same under `architecture` | no external consumer found outside graph | Ontology UI/presentation. Includes `Position2D`; not 3D graph-core. |
+| 3 | `ontology-node-component` | `move` | `component/molecule/ontology-node-component`, `function/state/ontology-node-component`, `type/struct/ontology-node-component/*` | same under `architecture` | no external consumer found outside graph | Ontology UI/presentation. |
+| 3 | `graph-node-card` | `move` | `component/organism/graph-node-card`, `function/state/graph-node-card`, `interface/recipe/graph-node-card`, `type/struct/graph-node-card-data`, `type/struct/graph-node-card-props` | same under `architecture` | no external consumer found outside graph | Card UI, not graph-core. |
+| 3 | `stylist-graph-workspace` | `move` | `component/organism/stylist-graph-workspace`, `interface/recipe/stylist-graph-workspace`, `type/alias/graph-workspace-connection-input`, `type/struct/graph-workspace-node`, `type/struct/graph-workspace-connection`, `type/struct/graph-workspace-bounds`, `type/struct/graph-node-draft` | same under `architecture` | no external consumer found outside graph | Workspace UI imports `architecture` scene camera already; belongs in `architecture`. |
+| 4 | `stage` | `keep/rework` | `component/atom/stage`, `function/state/stage`, `type/struct/stage/stage-camera`, `type/struct/stage/stage-contract`, `type/struct/stage/stage-props` | stay in `graph` only if made WebGL/3D graph stage | internal `viewport` | Current `StageCamera` is `{ x, y, zoom }`, so it is 2D. Needs 3D camera or should move to architecture with current viewport UI. |
+| 4 | `viewport` | `keep/rework` | `component/atom/viewport`, `function/state/viewport`, `type/struct/viewport/viewport-contract`, `type/struct/viewport/viewport-props` | stay in `graph` only if made WebGL/3D graph viewport | internal `stylist-graph-workspace` currently uses it | Current viewport uses 2D pan/zoom and layout `Grid`; needs 3D/WebGL rework or move to `architecture`. |
+| 4 | `graph-node` model | `rework` | `type/struct/graph-node` | stay in `graph` as 3D model after rewrite | no external consumer found outside graph | Current type contains `x`, `y`, `width`, `height`, `color`, `summary`, `details`, shape; too presentation-heavy. Split core model from presentation. |
+| 4 | `graph-connection` model | `keep/rework` | `type/struct/graph-connection` | stay in `graph` after validating naming as edge/connection | no external consumer found outside graph | Minimal `id`, `startId`, `endId` is close to core, but may need directed/weighted/metadata decisions. |
+| 4 | `graph-position-2d` | `delete/rework` | `type/struct/graph-position-2d` | replace with `type/struct/graph-position-3d` or `graph-vector-3d` in `graph` | internal canvas/minimap/viewport consumers | 2D-only; incompatible with clean 3D graph-core. |
+| 4 | `graph-bounds` | `rework` | `type/struct/graph-bounds` directory exists but has no `index.ts` | create real `graph-bounds-3d` if needed | none | Current folder is empty/stale. |
+| 4 | `graph-viewport` | `delete/rework` | `type/struct/graph-viewport` | replace with 3D viewport/camera contract if needed | internal 2D canvas consumers | Current type depends on `GraphPosition2D` and `zoom`; not enough for 3D/WebGL. |
+
+## Remaining graph-core target
+
+After migration, `graph` should be reduced to a small set like:
+
+| Target family | Cluster/joint | Status |
+| --- | --- | --- |
+| `graph-node` | `type/struct` | `rework`: remove presentation fields, add 3D position reference or payload. |
+| `graph-edge` or `graph-connection` | `type/struct` | `keep/rework`: decide one naming model. |
+| `graph-position-3d` | `type/struct` | `create`: replacement for `graph-position-2d`. |
+| `graph-bounds-3d` | `type/struct` | `create`: replacement for empty/stale `graph-bounds`. |
+| `graph-stage` | `type/struct` or `interface/contract` | `create/rework`: WebGL stage contract, not 2D DOM world transform. |
+| `graph-viewport` | `type/struct` or `interface/contract` | `create/rework`: WebGL viewport/camera contract. |
+| `stage` | `component/atom` and `function/state` | `keep` only after 3D/WebGL rewrite; otherwise move current implementation to `architecture`. |
+| `viewport` | `component/atom` and `function/state` | `keep` only after 3D/WebGL rewrite; otherwise move current implementation to `architecture`. |
+
+## Import updates required in `architecture`
+
+| Current file | Current graph imports | Target after migration |
+| --- | --- | --- |
+| `architecture/component/organism/prezi-scene/index.svelte` | `graph/component/organism/minimap` | `architecture/component/organism/minimap` |
+| `architecture/component/organism/litegraph-canvas/index.svelte` | `LiteGraphPort`, `ConnectionLine`, `GraphCanvas`, `GraphToolbar`, `Minimap`, `LitegraphNodeComponent` | local `architecture` imports |
+| `architecture/component/organism/graph-editor/index.svelte` | `NodePalette`, `NodePropertiesPanel` | local `architecture` imports |
+| `architecture/function/state/litegraph-canvas/index.svelte.ts` | `LITEGRAPH_CANVAS_ICONS`, `SlotGraphToolbarItem`, `ContractLitegraphPort`, `RecipeGraphCanvas`, `LiteGraphPort`, `ContractLitegraphNode` | local `architecture` imports |
+| `architecture/function/state/graph-editor/index.svelte.ts` | `GraphEditorPaletteNode` | local `architecture` type |
+| `architecture/type/struct/graph-editor-props/index.ts` | `RecipeGraphToolbar`, `GraphEditorNodeData`, `RecipeConnectionLine`, `GraphEditorPaletteNode` | local `architecture` types/interfaces |
+| `architecture/interface/recipe/litegraph-canvas/index.ts` | `SlotGraphToolbarItem`, `ContractLitegraphPort`, `ContractLitegraphNode`, `SlotLitegraphConnection` | local `architecture` interfaces |
+
+## Execution order
+
+1. Move/merge package 1 first: editor/litegraph/canvas/toolbar/palette/properties/node UI.
+2. Run indexation and fix imports.
+3. Move package 2: minimap.
+4. Run indexation and fix imports.
+5. Move package 3: ontology/workspace UI.
+6. Run indexation and fix imports.
+7. Rework remaining package 4 into real 3D graph-core.
+8. Run unified errors CLI and update the checklist.

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
+	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import UserStatus from '$stylist/chat/component/molecule/user-status/index.svelte';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';

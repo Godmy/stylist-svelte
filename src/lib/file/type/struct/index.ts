@@ -13,4 +13,5 @@ export type {
 export type { SlotFolderItem } from './file-browser';
 export type { SlotFileSystemItem } from './file-explorer';
 export type { FileItem } from './file-list-item';
+export type { MediaItem } from './media-item';
 export type { SlotZipEntry } from './zip-viewer';

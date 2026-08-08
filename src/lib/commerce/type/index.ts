@@ -31,6 +31,7 @@ export type {
 	PaymentSummaryItem,
 	PaymentSummaryProps,
 	PaymentSummaryTax,
+	Preset,
 	PricingTablePlan,
 	Product,
 	ProductForQuote,

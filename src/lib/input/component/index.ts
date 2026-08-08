@@ -21,6 +21,7 @@ export {
 	PhoneNumberInput,
 	RadioButtonGroup,
 	RadioGroup,
+	RichTextFormatToolbar,
 	TextArea
 } from './molecule';
 export {

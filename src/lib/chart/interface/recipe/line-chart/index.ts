@@ -4,8 +4,8 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { BehaviorDimensionable as IDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
 import type { TokenLineType } from '$stylist/architecture/type/alias/line-type';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-import type { BehaviorPointClickable as IPointClickable } from '$stylist/interaction/interface/behavior/point-clickable';
-import type { BehaviorTooltipable as ITooltipable } from '$stylist/interaction/interface/behavior/tooltipable';
+import type { BehaviorPointClickable as IPointClickable } from '$stylist/chart/interface/behavior/point-clickable';
+import type { BehaviorTooltipable as ITooltipable } from '$stylist/chart/interface/behavior/tooltipable';
 import type { BehaviorLegendable as ILegendable } from '$stylist/chart/interface/behavior/legendable';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 import type { BehaviorChartColorable as IChartColorable } from '$stylist/chart/interface/behavior/chart-colorable';

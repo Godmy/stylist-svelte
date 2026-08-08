@@ -1,6 +1,6 @@
 type SearchBarStateProps = { [key: string]: any };
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import { debounce } from '$stylist/interaction/function/script/debounce';
+import { debounce } from '$stylist/control/function/script/debounce';
 
 export const createSearchBarState = (props: SearchBarStateProps) => {
 	// SlotState

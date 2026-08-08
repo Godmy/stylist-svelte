@@ -9,9 +9,11 @@ export {
 } from './script';
 export {
 	createABTestConfiguratorState,
+	createAnnouncementBannerState,
 	createConversionFunnelState,
 	createCtaBannerState,
 	createHeroState,
+	createPromoBannerState,
 	createTestResultsViewerState,
 	createTrafficAnalyticsState,
 	createUserBehaviorMetricsState

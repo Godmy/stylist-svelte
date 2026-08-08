@@ -9,6 +9,7 @@ export {
 	ChatStatusIndicator,
 	ChatWindow,
 	ChatWorkbench,
+	IconPicker,
 	ListWithAvatars,
 	MessageBubble,
 	MessageComposer,
@@ -36,6 +37,7 @@ export {
 	createChatRoomState,
 	createChatStatusIndicatorState,
 	createChatWindowState,
+	createIconPickerState,
 	createListWithAvatarsState,
 	createMessageBubbleState,
 	createMessageComposerState,
@@ -62,6 +64,7 @@ export type {
 } from './type';
 export type {
 	ChatWindowChat,
+	RecipeIconPicker,
 	RecipeListWithAvatars,
 	RecipeMessageStatusProps,
 	SlotChat,
@@ -76,5 +79,6 @@ export type {
 	SlotMessageThread,
 	SlotMessageThreadMessage,
 	SlotMessageTimestamp,
-	SlotUser
+	SlotUser,
+	ThemeIconItem
 } from './interface';

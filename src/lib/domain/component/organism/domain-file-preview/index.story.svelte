@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import DomainFilePreview from './index.svelte';
-	import ClickableStory from '$stylist/interaction/component/atom/clickable/index.story.svelte';
+	import ClickableStory from '$stylist/layout/component/atom/clickable/index.story.svelte';
 
 	const controls: SlotStory[] = [
 		{
@@ -15,7 +15,7 @@
 	];
 
 	const textContent =
-		'<script lang="ts">\n\timport { Clickable } from \'$stylist/interaction/component\';\n<$stylist/script>';
+		'<script lang="ts">\n\timport { Clickable } from \'$stylist/layout/component\';\n<$stylist/script>';
 	const markdownContent = `# Story Coverage\n\n- clickable\n- hoverable\n- focusable`;
 	const jsonContent = JSON.stringify(
 		{ story: 'clickable', ready: true, events: ['click', 'dblclick'] },

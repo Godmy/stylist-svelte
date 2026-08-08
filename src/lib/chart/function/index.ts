@@ -15,6 +15,10 @@ export {
 	createChartState,
 	createHeatmapState,
 	createLineChartState,
+	createMetricBarState,
+	createMetricBarsCardState,
 	createPieChartState,
-	createScatterPlotState
+	createRangeBarsChartState,
+	createScatterPlotState,
+	createVerticalBarsChartState
 } from './state';

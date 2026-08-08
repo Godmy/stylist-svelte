@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { BehaviorAttachmentPreviewEvents } from './attachment-preview-events';
 export type { BehaviorDragDropFileUploadEvents } from './drag-drop-file-upload-events';
 export type { BehaviorDropZoneEvents } from './drop-zone-events';
 export type { BehaviorFileBrowserEvents } from './file-browser-events';

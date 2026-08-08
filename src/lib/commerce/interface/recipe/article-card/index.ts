@@ -6,7 +6,7 @@ import type { SlotBadge as IBadgeSlot } from '$stylist/information/interface/slo
 import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
-import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
+import type { SlotImage as IMediaSlot } from '$stylist/image/interface/slot/image';
 import type { ArticleCardAction } from '$stylist/commerce/interface/slot/article-card-action';
 
 export interface RecipeArticleCard

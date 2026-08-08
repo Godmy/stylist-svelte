@@ -1,5 +1,5 @@
 import type { RecipeButton } from '$stylist/button/interface/recipe/button';
-import type { ButtonFactoryInput } from '$stylist/interaction/factory/button';
+import type { ButtonFactoryInput } from '$stylist/button/interface/recipe/button-factory-input';
 import { createButtonPreset } from '$stylist/button/function/script/create-button-preset';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';

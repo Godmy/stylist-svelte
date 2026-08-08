@@ -13,6 +13,7 @@ export {
 	ChatMessage,
 	ChatRoom,
 	ChatWindow,
+	IconPicker,
 	MessageBubble,
 	MessageComposer,
 	MessageItem,

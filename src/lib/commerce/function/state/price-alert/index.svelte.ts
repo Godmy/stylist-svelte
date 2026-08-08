@@ -1,5 +1,5 @@
 ﻿import type { HTMLAttributes } from 'svelte/elements';
-import type { Preset } from '$stylist/interaction/type/struct/preset/preset';
+import type { Preset } from '$stylist/commerce/type/struct/preset';
 import type { RecipePriceAlert } from '$stylist/commerce/interface/recipe/price-alert';
 import { buildPresetClassNames } from '$stylist/commerce/function/script/build-preset-class-names';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';

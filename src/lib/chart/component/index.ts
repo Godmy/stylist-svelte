@@ -5,17 +5,20 @@ export {
 	ChartAxisZ,
 	ChartBackground,
 	ChartName,
-	ChartPie,
-	ChartPolyline
+	ChartPolyline,
+	MetricBar
 } from './atom';
 export {
-	AnalyticsChart,
 	BarChart,
 	ChartCanvas,
 	ChartLegend,
-	PieChart
+	MetricBarsCard,
+	PieChart,
+	RangeBarsChart,
+	VerticalBarsChart
 } from './molecule';
 export {
+	AnalyticsChart,
 	CanvasChart,
 	Chart,
 	Heatmap,

@@ -160,12 +160,22 @@ export function createDomainPageState(input: DomainPageInput) {
 		if (entities.length === 0) {
 			activeEntityPath = '';
 			activeFilePath = '';
+			previewMode = 'file';
 			return;
 		}
 		if (!activeEntityPath || !entities.some((e) => e.path === activeEntityPath)) {
 			const first = entities[0];
 			activeEntityPath = first.path;
+
+			const story = first.files.find((f) => f.name === 'index.story.svelte');
+			if (story) {
+				activeFilePath = story.path;
+				previewMode = 'story';
+				return;
+			}
+
 			activeFilePath = first.files[0]?.path ?? '';
+			previewMode = 'file';
 		}
 	});
 
@@ -260,21 +270,18 @@ export function createDomainPageState(input: DomainPageInput) {
 		activeDomain = name;
 		activeEntityPath = '';
 		activeFilePath = '';
-		previewMode = 'file';
 	}
 
 	function handleClusterSelect(name: string) {
 		activeCluster = name;
 		activeEntityPath = '';
 		activeFilePath = '';
-		previewMode = 'file';
 	}
 
 	function handleJointSelect(name: string) {
 		activeJoint = name;
 		activeEntityPath = '';
 		activeFilePath = '';
-		previewMode = 'file';
 	}
 
 	function handleEntitySelect(path: string) {
@@ -288,18 +295,18 @@ export function createDomainPageState(input: DomainPageInput) {
 				return;
 			}
 		}
-		if (previewMode === 'story') {
-			const story = next?.files.find((f) => f.name === 'index.story.svelte');
-			if (story) {
-				activeFilePath = story.path;
-				return;
-			}
+
+		const story = next?.files.find((f) => f.name === 'index.story.svelte');
+		if (story) {
+			activeFilePath = story.path;
+			previewMode = 'story';
+			return;
 		}
 
 		const currentName = activeFilePath.split('/').pop();
 		const same = currentName ? next?.files.find((f) => f.name === currentName) : null;
 		activeFilePath = same?.path ?? next?.files[0]?.path ?? '';
-		if (!same) previewMode = 'file';
+		previewMode = 'file';
 	}
 
 	function handleFileSelect(path: string) {

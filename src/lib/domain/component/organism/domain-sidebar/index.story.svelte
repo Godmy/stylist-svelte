@@ -8,16 +8,16 @@
 		files: { path: string }[];
 	};
 
-	const entitiesByDomain: Record<'interaction' | 'theme', StoryEntity[]> = {
-		interaction: [
+	const entitiesByDomain: Record<'layout' | 'theme', StoryEntity[]> = {
+		layout: [
 			{
 				name: 'clickable',
-				path: '/src/lib/interaction/component/atom/clickable',
+				path: '/src/lib/layout/component/atom/clickable',
 				files: [{ path: 'index.svelte' }, { path: 'index.story.svelte' }]
 			},
 			{
 				name: 'hoverable',
-				path: '/src/lib/interaction/component/atom/hoverable',
+				path: '/src/lib/layout/component/atom/hoverable',
 				files: [{ path: 'index.svelte' }]
 			}
 		],
@@ -35,10 +35,10 @@
 		]
 	};
 
-	let activeDomain = $state<'interaction' | 'theme'>('interaction');
+	let activeDomain = $state<'layout' | 'theme'>('layout');
 	let activeCluster = $state('component');
 	let activeJoint = $state('atom');
-	let activeEntityPath = $state<string>(entitiesByDomain.interaction[0].path);
+	let activeEntityPath = $state<string>(entitiesByDomain.layout[0].path);
 
 	const availableJoints = ['atom', 'molecule', 'organism'] as const;
 </script>
@@ -58,7 +58,7 @@
 				entities={entitiesByDomain[activeDomain]}
 				{activeEntityPath}
 				onDomainSelect={(name) => {
-					activeDomain = name === 'theme' ? 'theme' : 'interaction';
+					activeDomain = name === 'theme' ? 'theme' : 'layout';
 					activeEntityPath = entitiesByDomain[activeDomain][0].path;
 				}}
 				onClusterSelect={(name) => {

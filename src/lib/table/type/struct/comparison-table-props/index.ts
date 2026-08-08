@@ -5,6 +5,7 @@ import type { ComparisonTableProduct } from '$stylist/table/type/struct/comparis
 export type ComparisonTableProps = {
 	features: ComparisonTableFeature[];
 	products: ComparisonTableProduct[];
+	featureColumnLabel?: string;
 	showHeader?: boolean;
 	showDescription?: boolean;
 	class?: string;

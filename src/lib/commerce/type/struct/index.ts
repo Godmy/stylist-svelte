@@ -28,6 +28,7 @@ export type { PaymentSummaryDiscount } from './payment-summary-discount';
 export type { PaymentSummaryItem } from './payment-summary-item';
 export type { PaymentSummaryProps } from './payment-summary-props';
 export type { PaymentSummaryTax } from './payment-summary-tax';
+export type { Preset } from './preset';
 export type { PricingTablePlan } from './pricing-table-plan';
 export type { ProductForQuote } from './product-for-quote';
 export type { QuoteRequestValue } from './quote-request-value';

@@ -2,7 +2,7 @@ import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorDimensionable as IDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
-import type { BehaviorPointClickable as IPointClickable } from '$stylist/interaction/interface/behavior/point-clickable';
+import type { BehaviorPointClickable as IPointClickable } from '$stylist/chart/interface/behavior/point-clickable';
 import type { BehaviorLegendable as ILegendable } from '$stylist/chart/interface/behavior/legendable';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 import type { BehaviorChartColorable as IChartColorable } from '$stylist/chart/interface/behavior/chart-colorable';

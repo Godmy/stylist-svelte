@@ -8,7 +8,7 @@ import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { BehaviorMotionPreset } from '$stylist/animation/interface/behavior/motion-preset';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotStatus } from '$stylist/information/interface/slot/status';
-import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorShapeable } from '$stylist/layout/interface/behavior/shapeable';
 import type { BehaviorSized } from '$stylist/layout/interface/behavior/sized';
 import type { BehaviorSpaced } from '$stylist/layout/interface/behavior/spaced';

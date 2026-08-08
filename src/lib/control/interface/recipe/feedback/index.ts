@@ -3,8 +3,8 @@ import type { FeedbackSpecificProps } from '$stylist/control/interface/recipe/fe
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotStatus } from '$stylist/information/interface/slot/status';
-import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
-import type { BehaviorFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
+import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorMotionPreset } from '$stylist/animation/interface/behavior/motion-preset';
 import type { BehaviorShapeable } from '$stylist/layout/interface/behavior/shapeable';
 import type { BehaviorSized } from '$stylist/layout/interface/behavior/sized';

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import SortableGrid from './index.svelte';
-	import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';
+	import { TOKEN_CONTROLLER_TYPE } from '$stylist/domain/const/map/controller-type';
 
 	const defaultItems = [
 		{ id: '1', title: 'Item 1', content: 'Content for Item 1' },

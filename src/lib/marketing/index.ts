@@ -1,11 +1,13 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	AbtestConfigurator,
+	AnnouncementBanner,
 	ConversionFunnel,
 	CtaBanner,
 	CtaButtons,
 	FeatureGrid,
 	Hero,
+	PromoBanner,
 	StylistHero,
 	StylistLanding,
 	StylistMission,
@@ -13,14 +15,19 @@ export {
 	TrafficAnalytics,
 	UserBehaviorMetrics
 } from './component';
-export { TRAFFIC_ANALYTICS_TIME_RANGE } from './const';
+export {
+	TOKEN_TEST,
+	TRAFFIC_ANALYTICS_TIME_RANGE
+} from './const';
 export {
 	addABTestVariant,
 	calculateABTestTotalWeight,
 	createABTestConfiguratorState,
+	createAnnouncementBannerState,
 	createConversionFunnelState,
 	createCtaBannerState,
 	createHeroState,
+	createPromoBannerState,
 	createTestResultsViewerState,
 	createTrafficAnalyticsState,
 	createUserBehaviorMetricsState,
@@ -50,6 +57,8 @@ export type {
 } from './type';
 export type {
 	ContractMarketing,
+	RecipeAnnouncementBanner,
+	RecipePromoBanner,
 	SlotABTest,
 	SlotABTestConfigurator,
 	SlotABTestVariant,

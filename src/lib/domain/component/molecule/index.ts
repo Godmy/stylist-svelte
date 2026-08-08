@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { ClusterToolbar } from './cluster-toolbar/index';
+export { DeviceViewport } from './device-viewport/index';
 export { DomainDescriptorPanel } from './domain-descriptor-panel/index';
 export { DomainList } from './domain-list/index';
 export { DomainMenu } from './domain-menu/index';

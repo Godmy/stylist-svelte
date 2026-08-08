@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
-	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
+	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import MessageMeta from '$stylist/chat/component/atom/message-meta/index.svelte';
-	import RecipeAttachmentPreview from '$stylist/information/component/molecule/attachment-preview/index.svelte';
+	import RecipeAttachmentPreview from '$stylist/file/component/molecule/attachment-preview/index.svelte';
 	import createMessageItemState from '$stylist/chat/function/state/message-item/index.svelte';
 
 	export type MessageItemProps = {

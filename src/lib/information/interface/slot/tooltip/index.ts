@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenConnector } from '$stylist/architecture/type/alias/connector';
-import type { TokenTrigger } from '$stylist/interaction/type/record/trigger';
+import type { TokenTrigger } from '$stylist/layout/type/alias/trigger';
 
 /**
  * Unified Tooltip props following SOLID principles

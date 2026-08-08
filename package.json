@@ -30,6 +30,7 @@
 		"ci:pipeline": "yarn lint && yarn test:unit && yarn build",
 		"preview": "vite preview",
 		"package": "svelte-package",
+		"package:watch": "svelte-package --watch",
 		"tsc": "tsc --noEmit",
 		"prepublishOnly": "yarn build",
 		"check": "svelte-check --tsconfig ./tsconfig.json --diagnostic-sources js",

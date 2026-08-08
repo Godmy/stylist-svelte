@@ -5,6 +5,7 @@ export {
 	formatTime
 } from './format-date-time';
 export {
+	createCountryFlagState,
 	createLanguageSelectorState,
 	createLocaleSwitcherState,
 	createTranslationEditorState

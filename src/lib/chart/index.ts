@@ -7,6 +7,7 @@ export {
 	ObjectManagerChartCanvas,
 	ObjectManagerHeatmap,
 	ObjectManagerLineChart,
+	ObjectManagerMetricBar,
 	ObjectManagerPieChart
 } from './class';
 export {
@@ -21,12 +22,15 @@ export {
 	ChartCanvas,
 	ChartLegend,
 	ChartName,
-	ChartPie,
 	ChartPolyline,
 	Heatmap,
 	LineChart,
+	MetricBar,
+	MetricBarsCard,
 	PieChart,
-	ScatterPlot
+	RangeBarsChart,
+	ScatterPlot,
+	VerticalBarsChart
 } from './component';
 export {
 	BAR_CHART_COLOR_SCHEME,
@@ -53,8 +57,12 @@ export {
 	createChartState,
 	createHeatmapState,
 	createLineChartState,
+	createMetricBarState,
+	createMetricBarsCardState,
 	createPieChartState,
+	createRangeBarsChartState,
 	createScatterPlotState,
+	createVerticalBarsChartState,
 	resolveCanvasChartPreset
 } from './function';
 export type {
@@ -79,9 +87,11 @@ export type {
 	LineChartData,
 	LineChartPoint,
 	PieChartDataPoint,
+	RangeBarChartItem,
 	ScatterPlotDataPoint,
 	TokenCanvasChartType,
-	TokenChart
+	TokenChart,
+	VerticalBarChartItem
 } from './type';
 export type {
 	BehaviorBarClickable,
@@ -89,8 +99,10 @@ export type {
 	BehaviorChartAxis,
 	BehaviorChartColorable,
 	BehaviorLegendable,
+	BehaviorPointClickable,
+	BehaviorRangeBarSelect,
+	BehaviorTooltipable,
 	ChartLegendProps,
-	PieChartProps,
 	RecipeAnalyticsChart,
 	RecipeBarChart,
 	RecipeCanvasChart,
@@ -104,7 +116,13 @@ export type {
 	RecipeChartPolyline,
 	RecipeHeatmap,
 	RecipeLineChart,
+	RecipeMetricBar,
+	RecipeMetricBarsCard,
 	RecipePieChart,
+	RecipeRangeBarsChart,
 	RecipeScatterPlot,
-	SlotChartAxis
+	RecipeVerticalBarsChart,
+	SlotChartAxis,
+	SlotRangeBarsChart,
+	SlotVerticalBarsChart
 } from './interface';

@@ -4,9 +4,9 @@ import type { SlotSidebar as SlotSidebar } from '$stylist/navigation/interface/s
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
-import type { BehaviorDraggable as IDraggable } from '$stylist/interaction/interface/behavior/draggable';
-import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorClickable as IClickable } from '$stylist/layout/interface/behavior/clickable';
+import type { BehaviorDraggable as IDraggable } from '$stylist/layout/interface/behavior/draggable';
+import type { BehaviorFocusable as IFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorScrollable as IScrollable } from '$stylist/layout/interface/behavior/scrollable';
 import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
 import type { BehaviorTransformable as ITransformable } from '$stylist/animation/interface/behavior/transformable';

@@ -3,7 +3,7 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SlotBadge as IBadgeSlot } from '$stylist/information/interface/slot/badge';
 import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slot/text';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
-import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
+import type { SlotImage as IMediaSlot } from '$stylist/image/interface/slot/image';
 import type { Snippet } from 'svelte';
 
 export interface RecipeExpandableCard

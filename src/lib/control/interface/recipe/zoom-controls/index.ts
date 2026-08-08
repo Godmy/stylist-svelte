@@ -1,8 +1,8 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotZoomControls } from '$stylist/control/interface/slot/zoom-controls';
 import type { ZoomSpecificProps } from '$stylist/control/interface/recipe/zoom-specific-props';
-import type { BehaviorClickable } from '$stylist/interaction/interface/behavior/clickable';
-import type { BehaviorFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
+import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorShapeable } from '$stylist/layout/interface/behavior/shapeable';
 import type { BehaviorSized } from '$stylist/layout/interface/behavior/sized';
 import type { BehaviorSpaced } from '$stylist/layout/interface/behavior/spaced';

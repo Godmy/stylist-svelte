@@ -1,13 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	BehaviorAttachmentPreviewEvents,
 	BehaviorLoadingState,
 	BehaviorMetricValue,
 	BehaviorProgressValue
 } from './behavior';
 export type {
 	RecipeAccessibilityCheckbox,
-	RecipeAttachmentPreview,
 	RecipeBadge,
 	RecipeBadgeGroup,
 	RecipeBaseCard,
@@ -15,13 +13,10 @@ export type {
 	RecipeCountBadge,
 	RecipeCounter,
 	RecipeDot,
-	RecipeListItemMarker,
 	RecipeLoading,
 	RecipeMarkdownRenderer,
-	RecipeMetricBar,
-	RecipeMetricBarsCard,
 	RecipeMetricCard,
-	RecipeNpmBadge,
+	RecipeNodeIcon,
 	RecipeProgressBar,
 	RecipeSearchResults,
 	RecipeShortcutsPanel,
@@ -30,14 +25,11 @@ export type {
 	RecipeSortableGrid,
 	RecipeSpinner,
 	RecipeStatusIndicator,
-	RecipeThemeIconPicker,
 	RecipeTooltip
 } from './recipe';
 export type {
 	BadgeGroupItem,
 	HtmlAttributesBase,
-	SlotAttachment,
-	SlotAttachmentPreview,
 	SlotBadge,
 	SlotLoading,
 	SlotProgressBar,
@@ -45,6 +37,5 @@ export type {
 	SlotSkeleton,
 	SlotSpinner,
 	SlotStatus,
-	SlotTooltip,
-	ThemeIconItem
+	SlotTooltip
 } from './slot';

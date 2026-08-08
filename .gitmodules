@@ -10,3 +10,6 @@
 [submodule "src/lib/svg"]
 	path = src/lib/svg
 	url = https://github.com/Godmy/stylist-svelte-svg.git
+[submodule "src/lib/wbd"]
+	path = src/lib/wbd
+	url = https://github.com/Godmy/stylist-svelte-wbd.git

@@ -1,10 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	LIST_ITEM_MARKER_TYPE,
-	STATUS_STATE,
-	TOKEN_SOFTWARE_BADGE
-} from './array';
-export {
-	DEFAULT_BADGE,
-	DEFAULT_BADGE_LABEL
-} from './record';
+export { STATUS_STATE } from './array';
+export { DEFAULT_BADGE } from './record';

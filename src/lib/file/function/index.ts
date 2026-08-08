@@ -3,10 +3,14 @@ export {
 	clearAll,
 	clearFile,
 	convertToCSV,
+	createAttachmentDispatch,
 	exportData,
 	formatFileSize,
+	formatMediaDate,
+	formatMediaFileSize,
 	getEntryIcon,
 	getFileIcon,
+	getIconName,
 	getItemCount,
 	handleAction,
 	handleCancel,
@@ -43,6 +47,7 @@ export {
 	toggleViewMode
 } from './script';
 export {
+	createAttachmentPreviewState,
 	createDataExporterState,
 	createDocumentPreviewState,
 	createDownloadCardState,
@@ -55,6 +60,7 @@ export {
 	createFileListItemState,
 	createFileState,
 	createFileUploadState,
+	createMediaLibraryState,
 	createQuantitySelectorState,
 	createUploadProgressState,
 	createZipViewerState

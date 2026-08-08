@@ -1,4 +1,4 @@
-import { resolveAllowedOption } from '$stylist/interaction/function/script/resolve-allowed-option';
+import { resolveAllowedOption } from '$stylist/input/function/script/resolve-allowed-option';
 import { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';
 import { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';

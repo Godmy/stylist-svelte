@@ -12,6 +12,7 @@ import { ICON_CHAT }         from '$stylist/svg/const/value/chat';
 import { ICON_COMMERCE }     from '$stylist/svg/const/value/commerce';
 import { ICON_CONTROL }      from '$stylist/svg/const/value/control';
 import { ICON_DEVELOPMENT }  from '$stylist/svg/const/value/development';
+import { ICON_DIALOGS }      from '$stylist/svg/const/value/dialogs';
 import { ICON_DOMAIN }       from '$stylist/svg/const/value/domain';
 import { ICON_ERD }          from '$stylist/svg/const/value/erd';
 import { ICON_FILE }         from '$stylist/svg/const/value/file';
@@ -22,7 +23,9 @@ import { ICON_INFORMATION }  from '$stylist/svg/const/value/information';
 import { ICON_INPUT }        from '$stylist/svg/const/value/input';
 import { ICON_INTERACTION }  from '$stylist/svg/const/value/interaction';
 import { ICON_IDEF_ZERO }    from '$stylist/svg/const/value/idef-zero';
+import { ICON_LANDING }      from '$stylist/svg/const/value/landing';
 import { ICON_LAYOUT }       from '$stylist/svg/const/value/layout';
+import { ICON_LIST }         from '$stylist/svg/const/value/list';
 import { ICON_LOCALIZATION } from '$stylist/svg/const/value/localization';
 import { ICON_MANAGEMENT }   from '$stylist/svg/const/value/management';
 import { ICON_MARKETING }    from '$stylist/svg/const/value/marketing';
@@ -33,6 +36,7 @@ import { ICON_PORTFOLIO }    from '$stylist/svg/const/value/portfolio';
 import { ICON_PRESENTATION } from '$stylist/svg/const/value/presentation';
 import { ICON_PRODUCT }      from '$stylist/svg/const/value/product';
 import { ICON_SCIENCE }      from '$stylist/svg/const/value/science';
+import { ICON_SEARCH }       from '$stylist/svg/const/value/search';
 import { ICON_SERVER }       from '$stylist/svg/const/value/server';
 import { ICON_SOCIAL }       from '$stylist/svg/const/value/social';
 import { ICON_SVG }          from '$stylist/svg/const/value/svg';
@@ -59,6 +63,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'commerce',     svg: ICON_COMMERCE },
 	{ name: 'control',      svg: ICON_CONTROL },
 	{ name: 'development',  svg: ICON_DEVELOPMENT },
+	{ name: 'dialog',       svg: ICON_DIALOGS },
 	{ name: 'domain',       svg: ICON_DOMAIN },
 	{ name: 'erd',          svg: ICON_ERD },
 	{ name: 'file',         svg: ICON_FILE },
@@ -69,7 +74,9 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'input',        svg: ICON_INPUT },
 	{ name: 'interaction',  svg: ICON_INTERACTION },
 	{ name: 'idef-zero',    svg: ICON_IDEF_ZERO },
+	{ name: 'landing',      svg: ICON_LANDING },
 	{ name: 'layout',       svg: ICON_LAYOUT },
+	{ name: 'list',         svg: ICON_LIST },
 	{ name: 'localization', svg: ICON_LOCALIZATION },
 	{ name: 'management',   svg: ICON_MANAGEMENT },
 	{ name: 'marketing',    svg: ICON_MARKETING },
@@ -80,6 +87,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'presentation', svg: ICON_PRESENTATION },
 	{ name: 'product',      svg: ICON_PRODUCT },
 	{ name: 'science',      svg: ICON_SCIENCE },
+	{ name: 'search',       svg: ICON_SEARCH },
 	{ name: 'server',       svg: ICON_SERVER },
 	{ name: 'social',       svg: ICON_SOCIAL },
 	{ name: 'svg',          svg: ICON_SVG },
@@ -90,6 +98,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'typography',   svg: ICON_TYPOGRAPHY },
 	{ name: 'user',         svg: ICON_USER },
 	{ name: 'wbd',          svg: ICON_WBD },
+	{ name: 'webgl',        svg: ICON_CANVAS },
 	{ name: 'workspace',    svg: ICON_WORKSPACE }
 ] as const satisfies readonly SlotSvgName[];
 

@@ -2,6 +2,7 @@
 export type { SlotChat } from './chat';
 export type { SlotChatStatusIndicator } from './chat-status-indicator';
 export type { ChatWindowChat } from './chat-window-chat';
+export type { ThemeIconItem } from './icon-picker';
 export type { SlotListWithAvatars } from './list-with-avatars';
 export type { SlotMessage } from './message';
 export type { SlotMessageAttachment } from './message-attachment';

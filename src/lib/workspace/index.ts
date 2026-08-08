@@ -19,6 +19,8 @@ export {
 } from './component';
 export {
 	DEFAULT_WORKSPACE_CANVAS,
+	TOKEN_INTERACTION,
+	TOKEN_SEVERITY,
 	WORKSPACE_ICONS
 } from './const';
 export {
@@ -35,6 +37,10 @@ export {
 	createWorkspaceState,
 	createWorkspaceToolbarState
 } from './function';
+export type {
+	TokenInteration,
+	TokenSeverity
+} from './type';
 export type {
 	RecipeGraphNodeCard,
 	RecipeNodeConnection,

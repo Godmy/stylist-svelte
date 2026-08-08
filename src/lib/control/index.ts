@@ -60,6 +60,7 @@ export {
 	createToolbarState,
 	createZoomControlsState,
 	createZoomToolbarState,
+	detectClipboardSupport,
 	handleFilterChange,
 	handleLayoutChange,
 	handleReset,
@@ -88,6 +89,7 @@ export type {
 	TokenSelectorKind
 } from './type';
 export type {
+	BehaviorSelectable,
 	FeedbackSpecificProps,
 	RecipeAccessibilityToolbar,
 	RecipeAdvancedToggleProps,

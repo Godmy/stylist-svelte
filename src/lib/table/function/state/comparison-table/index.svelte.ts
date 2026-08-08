@@ -41,6 +41,7 @@ export function createComparisonTableState(props: ComparisonTableProps) {
 		},
 		features: props.features ?? [],
 		products: props.products ?? [],
+		featureColumnLabel: props.featureColumnLabel ?? 'Features',
 		showHeader: props.showHeader ?? true,
 		showDescription: props.showDescription ?? false
 	};

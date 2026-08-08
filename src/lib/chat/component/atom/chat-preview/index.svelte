@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { AnyProperty } from '$stylist/layout/type/object/any-property';
-	import Avatar from '$stylist/media/component/atom/avatar/index.svelte';
+	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createChatPreviewState from '$stylist/chat/function/state/chat-preview/index.svelte';
 	import type { ChatPreviewMessage } from '$stylist/chat/type/struct/chat-preview-message';

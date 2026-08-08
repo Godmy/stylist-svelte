@@ -4,9 +4,10 @@ import type { RecipeRichText } from '$stylist/typography/interface/recipe/rich-t
 
 export function createRichTextState(props: RecipeRichText) {
 	const text = $derived(props.text ?? '');
+	const html = $derived(props.html ?? '');
 	const marks = $derived(props.marks ?? []);
 	const disabled = $derived(props.disabled ?? false);
-	const block = $derived(props.block ?? false);
+	const block = $derived(props.block ?? Boolean(props.html));
 	const wrapperTag = $derived(block ? 'div' : 'span');
 	const segments = $derived(createRichTextSegments(text, marks));
 	const classes = $derived(
@@ -27,6 +28,7 @@ export function createRichTextState(props: RecipeRichText) {
 			tone: _tone,
 			disabled: _disabled,
 			block: _block,
+			html: _html,
 			text: _text,
 			marks: _marks,
 			ariaLabel: _ariaLabel,
@@ -50,6 +52,9 @@ export function createRichTextState(props: RecipeRichText) {
 		},
 		get text() {
 			return text;
+		},
+		get html() {
+			return html;
 		},
 		get marks() {
 			return marks;

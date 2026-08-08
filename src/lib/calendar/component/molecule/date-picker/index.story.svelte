@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import DatePicker from './index.svelte';
-	import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
+	import type { TokenControllerType } from '$stylist/domain/type/alias/controller-type';
 	import type { DatePickerValue } from '$stylist/calendar/interface/slot/date-picker';
 
 	const controls = [

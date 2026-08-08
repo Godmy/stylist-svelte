@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorDimensionable as IDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
 import type { BehaviorBarClickable as IBarClickable } from '$stylist/chart/interface/behavior/bar-clickable';
-import type { BehaviorTooltipable as ITooltipable } from '$stylist/interaction/interface/behavior/tooltipable';
+import type { BehaviorTooltipable as ITooltipable } from '$stylist/chart/interface/behavior/tooltipable';
 import type { BehaviorLegendable as ILegendable } from '$stylist/chart/interface/behavior/legendable';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 import type { BehaviorChartColorable as IChartColorable } from '$stylist/chart/interface/behavior/chart-colorable';

@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	ButtonFactoryInput,
 	RecipeButton,
 	RecipeButtonComposed,
 	RecipeButtonElement,
@@ -12,6 +13,9 @@ export type {
 	RecipeSplitButtonProps
 } from './recipe';
 export type {
+	ButtonFactoryContractInput,
+	ButtonFactoryHtmlInput,
+	ButtonFactorySlotsInput,
 	SlotButtonAttributesBase,
 	SlotButtonControl,
 	SlotButtonCore,

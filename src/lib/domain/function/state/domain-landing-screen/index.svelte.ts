@@ -18,6 +18,7 @@ export function createDomainLandingScreenState(
 ) {
 	let currentScreen = $state<DomainScreenStateValue>(initialScreen);
 	let isSettingsOpen = $state(false);
+	let isAiOpen = $state(false);
 
 	function handleDomainToggle() {
 		currentScreen = DOMAIN_SCREEN_DOMAIN;
@@ -51,12 +52,23 @@ export function createDomainLandingScreenState(
 		isSettingsOpen = false;
 	}
 
+	function handleAiToggle() {
+		isAiOpen = !isAiOpen;
+	}
+
+	function closeAi() {
+		isAiOpen = false;
+	}
+
 	return {
 		get currentScreen() {
 			return currentScreen;
 		},
 		get isSettingsOpen() {
 			return isSettingsOpen;
+		},
+		get isAiOpen() {
+			return isAiOpen;
 		},
 		handleDomainToggle,
 		handleWorkspaceToggle,
@@ -65,7 +77,9 @@ export function createDomainLandingScreenState(
 		handleBuilderToggle,
 		openBacklogScreen,
 		handleSettingsToggle,
-		closeSettings
+		closeSettings,
+		handleAiToggle,
+		closeAi
 	};
 }
 

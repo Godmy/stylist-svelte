@@ -7,7 +7,7 @@ import type { SlotRichText } from '$stylist/typography/interface/slot/rich-text'
 
 export interface RecipeRichText
 	extends ComputeIntersectAll<[SlotTheme, HTMLAttributes<HTMLElement>, SlotTypography, SlotRichText]> {
-	text: string;
+	text?: string;
 	tone?: TokenColorTone;
 	disabled?: boolean;
 	block?: boolean;

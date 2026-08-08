@@ -10,20 +10,26 @@
 			defaultValue: 'file',
 			options: ['file', 'markdown', 'story', 'json-tree']
 		},
-		{ name: 'previewKind', type: 'select', defaultValue: 'text', options: ['text', 'json', 'svg'] }
+		{ name: 'previewKind', type: 'select', defaultValue: 'text', options: ['text', 'json', 'svg'] },
+		{
+			name: 'activeJoint',
+			type: 'select',
+			defaultValue: 'template',
+			options: ['atom', 'molecule', 'organism', 'template']
+		}
 	];
 
 	const files = [
-		{ name: 'index.svelte', path: '/src/lib/interaction/component/atom/clickable/index.svelte' },
-		{ name: 'index.ts', path: '/src/lib/interaction/component/atom/clickable/index.ts' }
+		{ name: 'index.svelte', path: '/src/lib/wbd/component/template/invite-page/index.svelte' },
+		{ name: 'index.ts', path: '/src/lib/wbd/component/template/invite-page/index.ts' }
 	];
 	const markdownFile = {
 		name: 'README.md',
-		path: '/src/lib/interaction/component/atom/clickable/README.md'
+		path: '/src/lib/wbd/component/template/invite-page/README.md'
 	};
 	const storyFile = {
 		name: 'index.story.svelte',
-		path: '/src/lib/interaction/component/atom/clickable/index.story.svelte'
+		path: '/src/lib/wbd/component/template/invite-page/index.story.svelte'
 	};
 
 	let activeFilePath = $state(files[0].path);
@@ -42,10 +48,11 @@
 				{files}
 				{markdownFile}
 				{storyFile}
-				selectedEntityName="announcement-banner"
+				selectedEntityName="invite-page"
 				{activeFilePath}
 				previewMode={values.previewMode as any}
 				previewKind={values.previewKind as any}
+				activeJoint={values.activeJoint as string}
 				onFileSelect={(path) => {
 					activeFilePath = path;
 					actionLabel = `file: ${path.split('/').pop()}`;

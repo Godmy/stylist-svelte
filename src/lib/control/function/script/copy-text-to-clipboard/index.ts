@@ -1,4 +1,4 @@
-import { detectClipboardSupport } from '$stylist/interaction/function/script/detect-clipboard-support';
+import { detectClipboardSupport } from '$stylist/control/function/script/detect-clipboard-support';
 
 export function copyTextToClipboard(text: string): Promise<boolean> {
 	return (async () => {

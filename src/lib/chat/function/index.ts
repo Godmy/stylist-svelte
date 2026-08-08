@@ -14,6 +14,7 @@ export {
 	createChatRoomState,
 	createChatStatusIndicatorState,
 	createChatWindowState,
+	createIconPickerState,
 	createListWithAvatarsState,
 	createMessageBubbleState,
 	createMessageComposerState,

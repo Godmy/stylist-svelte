@@ -5,7 +5,7 @@ import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
-import type { SlotMedia } from '$stylist/media/interface/slot/media';
+import type { SlotImage as SlotMedia } from '$stylist/image/interface/slot/image';
 import type { BehaviorPostCard } from '$stylist/social/interface/behavior/post-card';
 
 export interface RecipePostCard
