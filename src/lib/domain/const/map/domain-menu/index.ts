@@ -19,9 +19,9 @@ import { ICON_FILE }         from '$stylist/svg/const/value/file';
 import { ICON_FORM }         from '$stylist/svg/const/value/form';
 import { ICON_GEO }          from '$stylist/svg/const/value/geo';
 import { ICON_GRAPH }        from '$stylist/svg/const/value/graph';
+import { ICON_IMAGE }        from '$stylist/svg/const/value/image';
 import { ICON_INFORMATION }  from '$stylist/svg/const/value/information';
 import { ICON_INPUT }        from '$stylist/svg/const/value/input';
-import { ICON_INTERACTION }  from '$stylist/svg/const/value/interaction';
 import { ICON_IDEF_ZERO }    from '$stylist/svg/const/value/idef-zero';
 import { ICON_LANDING }      from '$stylist/svg/const/value/landing';
 import { ICON_LAYOUT }       from '$stylist/svg/const/value/layout';
@@ -29,7 +29,6 @@ import { ICON_LIST }         from '$stylist/svg/const/value/list';
 import { ICON_LOCALIZATION } from '$stylist/svg/const/value/localization';
 import { ICON_MANAGEMENT }   from '$stylist/svg/const/value/management';
 import { ICON_MARKETING }    from '$stylist/svg/const/value/marketing';
-import { ICON_MEDIA }        from '$stylist/svg/const/value/media';
 import { ICON_NAVIGATION }   from '$stylist/svg/const/value/navigation';
 import { ICON_NOTIFICATION } from '$stylist/svg/const/value/notification';
 import { ICON_PORTFOLIO }    from '$stylist/svg/const/value/portfolio';
@@ -46,6 +45,7 @@ import { ICON_TOKEN }        from '$stylist/svg/const/value/token';
 import { ICON_TREES }        from '$stylist/svg/const/value/trees';
 import { ICON_TYPOGRAPHY }   from '$stylist/svg/const/value/typography';
 import { ICON_USER }         from '$stylist/svg/const/value/user';
+import { ICON_VIDEO }        from '$stylist/svg/const/value/video';
 import { ICON_WBD }          from '$stylist/svg/const/value/wbd';
 import { ICON_WORKSPACE }    from '$stylist/svg/const/value/workspace';
 
@@ -70,17 +70,16 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'form',         svg: ICON_FORM },
 	{ name: 'geo',          svg: ICON_GEO },
 	{ name: 'graph',        svg: ICON_GRAPH },
+	{ name: 'idef-zero',    svg: ICON_IDEF_ZERO },
+	{ name: 'image',        svg: ICON_IMAGE },
 	{ name: 'information',  svg: ICON_INFORMATION },
 	{ name: 'input',        svg: ICON_INPUT },
-	{ name: 'interaction',  svg: ICON_INTERACTION },
-	{ name: 'idef-zero',    svg: ICON_IDEF_ZERO },
 	{ name: 'landing',      svg: ICON_LANDING },
 	{ name: 'layout',       svg: ICON_LAYOUT },
 	{ name: 'list',         svg: ICON_LIST },
 	{ name: 'localization', svg: ICON_LOCALIZATION },
 	{ name: 'management',   svg: ICON_MANAGEMENT },
 	{ name: 'marketing',    svg: ICON_MARKETING },
-	{ name: 'media',        svg: ICON_MEDIA },
 	{ name: 'navigation',   svg: ICON_NAVIGATION },
 	{ name: 'notification', svg: ICON_NOTIFICATION },
 	{ name: 'portfolio',    svg: ICON_PORTFOLIO },
@@ -97,6 +96,7 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'tree',         svg: ICON_TREES },
 	{ name: 'typography',   svg: ICON_TYPOGRAPHY },
 	{ name: 'user',         svg: ICON_USER },
+	{ name: 'video',        svg: ICON_VIDEO },
 	{ name: 'wbd',          svg: ICON_WBD },
 	{ name: 'webgl',        svg: ICON_CANVAS },
 	{ name: 'workspace',    svg: ICON_WORKSPACE }
