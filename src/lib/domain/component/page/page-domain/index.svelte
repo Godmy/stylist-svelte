@@ -22,11 +22,19 @@
 		tree = [],
 		descriptors = [],
 		initialScreen = DOMAIN_SCREEN_LANDING,
+		initialDomain,
+		initialCluster,
+		initialJoint,
+		initialPreviewMode,
 		class: className = ''
 	}: {
 		tree?: TypeDomainTreeNode[];
 		descriptors?: TypeDomainComponentDescriptor[];
 		initialScreen?: TypeDomainScreen | typeof DOMAIN_SCREEN_BUILDER;
+		initialDomain?: string;
+		initialCluster?: string;
+		initialJoint?: string;
+		initialPreviewMode?: 'file' | 'markdown' | 'story' | 'json-tree';
 		class?: string;
 	} = $props();
 
@@ -228,6 +236,10 @@
 			{@const DomainExplorer = module.default}
 			<DomainExplorer
 				{tree}
+				{initialDomain}
+				{initialCluster}
+				{initialJoint}
+				{initialPreviewMode}
 				onSelectionChange={handleSelectionChange}
 				bind:storyDevice
 				bind:deviceViewportVisible

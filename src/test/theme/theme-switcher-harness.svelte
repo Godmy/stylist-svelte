@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { ThemeSwitcher } from '$stylist';
+	import type { TokenThemeScheme } from '$stylist/theme/type/alias/theme-scheme';
 
-	let theme = $state<'minimal' | 'ocean' | 'forest' | 'sunset'>('minimal');
+	let theme = $state<TokenThemeScheme>('minimal');
 	let changeCount = $state(0);
 
-	function handleThemeChange(nextTheme: 'minimal' | 'ocean' | 'forest' | 'sunset') {
+	function handleThemeChange(nextTheme: TokenThemeScheme) {
 		theme = nextTheme;
 		changeCount += 1;
 	}

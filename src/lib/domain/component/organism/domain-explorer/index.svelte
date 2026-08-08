@@ -22,6 +22,9 @@
 	interface DomainExplorerProps {
 		tree: DomainTree;
 		initialDomain?: string;
+		initialCluster?: string;
+		initialJoint?: string;
+		initialPreviewMode?: 'file' | 'markdown' | 'story' | 'json-tree';
 		onSelectionChange?: (selection: { domain: string; family: string }) => void;
 		storyDevice?: DeviceFrameViewport;
 		deviceViewportVisible?: boolean;
@@ -36,13 +39,23 @@
 	let {
 		tree,
 		initialDomain,
+		initialCluster,
+		initialJoint,
+		initialPreviewMode,
 		onSelectionChange,
 		storyDevice = $bindable('fullscreen'),
 		deviceViewportVisible = $bindable(false),
 		class: className = ''
 	}: DomainExplorerProps = $props();
 
-	const s = createDomainPageState({ tree, storyModules, initialDomain });
+	const s = createDomainPageState({
+		tree,
+		storyModules,
+		initialDomain,
+		initialCluster,
+		initialJoint,
+		initialPreviewMode
+	});
 
 	$effect(() => {
 		onSelectionChange?.({ domain: s.activeDomain, family: s.activeFamily });

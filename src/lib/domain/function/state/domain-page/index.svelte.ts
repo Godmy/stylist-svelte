@@ -37,6 +37,9 @@ interface DomainPageInput {
 	tree: DomainTreeNode[];
 	storyModules: Record<string, () => Promise<StoryModule>>;
 	initialDomain?: string;
+	initialCluster?: string;
+	initialJoint?: string;
+	initialPreviewMode?: PreviewMode;
 }
 
 interface SearchDomainEntry {
@@ -51,21 +54,22 @@ interface SearchDomainEntry {
 }
 
 export function createDomainPageState(input: DomainPageInput) {
-	const { tree, storyModules, initialDomain } = input;
+	const { tree, storyModules, initialDomain, initialCluster, initialJoint, initialPreviewMode } =
+		input;
 
 	let activeDomain = $state(
 		tree.some((domainNode) => domainNode.name === initialDomain)
 			? (initialDomain ?? '')
 			: (tree[0]?.name ?? '')
 	);
-	let activeCluster = $state('');
-	let activeJoint = $state('');
+	let activeCluster = $state(initialCluster ?? '');
+	let activeJoint = $state(initialJoint ?? '');
 	let activeEntityPath = $state('');
 	let activeFilePath = $state('');
 	let fileContent = $state('');
 	let fileError = $state('');
 	let fileLoading = $state(false);
-	let previewMode = $state<PreviewMode>('file');
+	let previewMode = $state<PreviewMode>(initialPreviewMode ?? 'file');
 	let storyPreviewComponent = $state<unknown>(null);
 	let storyPreviewLoading = $state(false);
 	let storyPreviewError = $state('');
