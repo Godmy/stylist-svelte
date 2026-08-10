@@ -26,7 +26,6 @@ export type {
 	RecipeAutoComplete,
 	RecipeAutoSearch,
 	RecipeSearchBar,
-	RecipeSearchBarProps,
 	RecipeSearchSuggestion,
 	SlotAutoComplete,
 	SlotAutoSearch,

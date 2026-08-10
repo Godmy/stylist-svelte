@@ -8,7 +8,7 @@
 			name: 'previewMode',
 			type: 'select',
 			defaultValue: 'file',
-			options: ['file', 'markdown', 'story', 'json-tree']
+			options: ['file', 'markdown', 'story', 'json-tree', 'di']
 		},
 		{ name: 'previewKind', type: 'select', defaultValue: 'text', options: ['text', 'json', 'svg'] },
 		{
@@ -53,6 +53,7 @@
 				previewMode={values.previewMode as any}
 				previewKind={values.previewKind as any}
 				activeJoint={values.activeJoint as string}
+				hasDependencyPreview={true}
 				onFileSelect={(path) => {
 					activeFilePath = path;
 					actionLabel = `file: ${path.split('/').pop()}`;
@@ -65,6 +66,9 @@
 				}}
 				onJsonTreeSelect={() => {
 					actionLabel = 'json-tree';
+				}}
+				onDependencySelect={() => {
+					actionLabel = 'di';
 				}}
 			/>
 			<p class="_c2">Last action: {actionLabel}</p>

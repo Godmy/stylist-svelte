@@ -103,6 +103,12 @@
 	let activeDropTarget = $state<BuilderDropTarget | null>(null);
 	let hasLoadedLayout = $state(false);
 
+	const SLUG_PATTERN = /^[a-z][a-z0-9]*(-[a-z0-9]+)*$/;
+	let templateDomain = $state(componentDomains[0]?.name ?? '');
+	let templateFamily = $state('');
+	let exportState = $state<'idle' | 'saving' | 'saved' | 'error'>('idle');
+	let exportMessage = $state('');
+
 	const activeDomainNode = $derived(
 		componentDomains.find((domain) => domain.name === activeDomain)
 	);
@@ -516,6 +522,68 @@
 		}));
 	}
 
+	function moveSection(sectionId: string, direction: -1 | 1): void {
+		const index = sections.findIndex((section) => section.id === sectionId);
+		if (index < 0) return;
+		const nextIndex = index + direction;
+		if (nextIndex < 0 || nextIndex >= sections.length) return;
+
+		const nextSections = [...sections];
+		[nextSections[index], nextSections[nextIndex]] = [nextSections[nextIndex], nextSections[index]];
+		sections = nextSections;
+	}
+
+	async function exportTemplate(): Promise<void> {
+		if (!SLUG_PATTERN.test(templateDomain) || !SLUG_PATTERN.test(templateFamily)) {
+			exportState = 'error';
+			exportMessage = 'Domain and family must be lowercase kebab-case, e.g. "hero-banner".';
+			return;
+		}
+
+		if (instances.length === 0) {
+			exportState = 'error';
+			exportMessage = 'Add at least one component to the canvas first.';
+			return;
+		}
+
+		const targetPath = `${templateDomain}/component/template/${templateFamily}/index.svelte`;
+		const alreadyExists = entityDirectory.has(targetPath.replace('/index.svelte', ''));
+		if (
+			alreadyExists &&
+			!window.confirm(`${targetPath} already exists. Overwrite it with the current canvas?`)
+		) {
+			return;
+		}
+
+		exportState = 'saving';
+		exportMessage = '';
+
+		try {
+			const response = await fetch('/api/template-export', {
+				method: 'POST',
+				headers: { 'content-type': 'application/json' },
+				body: JSON.stringify({
+					domain: templateDomain,
+					family: templateFamily,
+					sections,
+					instances: instances.map((instance) => ({
+						id: instance.id,
+						componentPath: instance.componentPath,
+						config: instance.config
+					}))
+				})
+			});
+			const payload = await response.json();
+			if (!response.ok) throw new Error(payload.error ?? 'Export failed');
+
+			exportState = 'saved';
+			exportMessage = `Saved to ${payload.path}. Run indexation to refresh barrel exports.`;
+		} catch (error) {
+			exportState = 'error';
+			exportMessage = error instanceof Error ? error.message : String(error);
+		}
+	}
+
 	function handleEntityDragStart(
 		entity: { name: string; path: string; files: { path: string }[] },
 		event: DragEvent
@@ -662,6 +730,33 @@
 		}}
 	>
 		<div class="builder-stage">
+			<div class="export-bar" onpointerdown={(event) => event.stopPropagation()}>
+				<select class="export-input" bind:value={templateDomain} aria-label="Template domain">
+					{#each componentDomains as domain (domain.name)}
+						<option value={domain.name}>{domain.name}</option>
+					{/each}
+				</select>
+				<input
+					class="export-input"
+					type="text"
+					placeholder="template-family-name"
+					bind:value={templateFamily}
+				/>
+				<button
+					type="button"
+					class="section-create"
+					disabled={exportState === 'saving'}
+					onclick={() => void exportTemplate()}
+				>
+					{exportState === 'saving' ? 'Exporting...' : 'Export as template'}
+				</button>
+				{#if exportMessage}
+					<span class:export-message--error={exportState === 'error'} class="export-message">
+						{exportMessage}
+					</span>
+				{/if}
+			</div>
+
 			{#if sections.length === 0}
 				<div class="empty-canvas">
 					<h2>Start with a section</h2>
@@ -725,6 +820,22 @@
 					}}
 				>
 					<div class="section-toolbar" onpointerdown={(event) => event.stopPropagation()}>
+						<button
+							type="button"
+							class="section-action"
+							disabled={sectionIndex === 0}
+							onclick={() => moveSection(section.id, -1)}
+						>
+							Section up
+						</button>
+						<button
+							type="button"
+							class="section-action"
+							disabled={sectionIndex === sections.length - 1}
+							onclick={() => moveSection(section.id, 1)}
+						>
+							Section down
+						</button>
 						<button
 							type="button"
 							class="section-action"
@@ -1012,6 +1123,42 @@
 		color: var(--color-text-primary);
 		font: inherit;
 		cursor: pointer;
+	}
+
+	.section-action:disabled,
+	.section-create:disabled {
+		opacity: 0.45;
+		cursor: not-allowed;
+	}
+
+	.export-bar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.6rem;
+		margin-bottom: 1rem;
+		padding: 0.85rem 1rem;
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 78%, transparent);
+		border-radius: 20px;
+		background: color-mix(in srgb, var(--color-primary-500) 6%, white 94%);
+	}
+
+	.export-input {
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 82%, transparent);
+		border-radius: 10px;
+		padding: 0.5rem 0.7rem;
+		background: rgba(255, 255, 255, 0.95);
+		color: var(--color-text-primary);
+		font: inherit;
+	}
+
+	.export-message {
+		font-size: 0.82rem;
+		color: var(--color-text-secondary);
+	}
+
+	.export-message--error {
+		color: color-mix(in srgb, var(--color-danger-500) 72%, var(--color-text-primary));
 	}
 
 	.page-section {

@@ -6,7 +6,6 @@ export {
 	DomainAiAgent,
 	DomainBacklog,
 	DomainBuilder,
-	DomainDashboard,
 	DomainDescriptorPanel,
 	DomainDiagnostics,
 	DomainEntity,
@@ -20,15 +19,12 @@ export {
 	DomainSearchToggle,
 	DomainSettings,
 	DomainSidebar,
-	DomainTable,
 	DomainToolbar,
-	FunctionalTaxonomy,
 	JointTabButtons,
 	JointToolbar,
 	JsonTreeViewer,
 	PageDomain,
-	TaxonomyBreadcrumbs,
-	TokenSettings
+	TaxonomyBreadcrumbs
 } from './component';
 export {
 	CLUSTER_TOOLBAR_ITEMS,

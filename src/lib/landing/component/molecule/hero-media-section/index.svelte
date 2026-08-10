@@ -1,15 +1,23 @@
 <script lang="ts">
+	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
+	import Text from '$stylist/typography/component/atom/text/index.svelte';
+	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
+
 	interface HeroMediaSectionProps {
+		eyebrow?: string;
 		title: string;
-		lead: string;
+		lead?: string;
+		level?: 1 | 2 | 3;
 		imageSrc: string;
 		imageAlt: string;
 		class?: string;
 	}
 
 	let {
+		eyebrow,
 		title,
 		lead,
+		level = 1,
 		imageSrc,
 		imageAlt,
 		class: className = ''
@@ -17,17 +25,38 @@
 </script>
 
 <section class="hero-media-section {className}">
-	<div class="hero-media-section__copy">
-		<h1>{title}</h1>
-		<p>{lead}</p>
+	<div class="hero-media-section__top">
+		<div class="hero-media-section__copy">
+			{#if eyebrow}
+				<Text
+					text={eyebrow}
+					class="hero-media-section__eyebrow"
+					fontSize="3"
+					fontWeight="extrabold"
+					textTransform="uppercase"
+					block
+				/>
+			{/if}
+			<Heading {level} text={title} class="hero-media-section__title" />
+		</div>
+		<figure class="hero-media-section__media">
+			<img src={imageSrc} alt={imageAlt} />
+		</figure>
 	</div>
-	<figure class="hero-media-section__media">
-		<img src={imageSrc} alt={imageAlt} />
-	</figure>
+	{#if lead}
+		<div class="hero-media-section__message">
+			<Paragraph text={lead} class="hero-media-section__lead" />
+		</div>
+	{/if}
 </section>
 
 <style>
 	.hero-media-section {
+		display: grid;
+		gap: var(--hero-media-section-gap, 2.25rem);
+	}
+
+	.hero-media-section__top {
 		display: grid;
 		grid-template-columns: minmax(0, 0.86fr) minmax(22rem, 1.14fr);
 		gap: var(--hero-media-section-gap, 2.25rem);
@@ -38,25 +67,28 @@
 		max-width: var(--hero-media-section-copy-max-width, 38rem);
 	}
 
-	.hero-media-section h1,
-	.hero-media-section p {
-		margin-top: 0;
+	.hero-media-section__message {
+		max-width: var(--hero-media-section-message-max-width, 64rem);
 	}
 
-	.hero-media-section h1 {
-		margin-bottom: 1.25rem;
-		color: var(--hero-media-section-heading, currentColor);
-		font-size: var(--hero-media-section-title-size, clamp(2.25rem, 4.8cqw, 4.35rem));
-		line-height: 1.02;
-		letter-spacing: 0;
+	:global(.hero-media-section__eyebrow) {
+		margin: 0 0 0.75rem;
+		--typography-color: var(--hero-media-section-eyebrow, currentColor);
 	}
 
-	.hero-media-section p {
-		margin-bottom: 0;
-		color: var(--hero-media-section-lead, currentColor);
-		font-size: var(--hero-media-section-lead-size, clamp(1.1rem, 1.75cqw, 1.45rem));
-		font-weight: 650;
-		line-height: 1.42;
+	:global(.hero-media-section__title) {
+		margin: 0 0 1.25rem;
+		--typography-color: var(--hero-media-section-heading, currentColor);
+		--typography-font-size: var(--hero-media-section-title-size, clamp(2.25rem, 4.8cqw, 4.35rem));
+		--typography-line-height: 1.02;
+	}
+
+	:global(.hero-media-section__lead) {
+		margin: 0;
+		--typography-color: var(--hero-media-section-lead, currentColor);
+		--typography-font-size: var(--hero-media-section-lead-size, clamp(1.1rem, 1.75cqw, 1.45rem));
+		--typography-font-weight: 650;
+		--typography-line-height: 1.42;
 	}
 
 	.hero-media-section__media {
@@ -77,15 +109,15 @@
 	}
 
 	@container (max-width: 920px) {
-		.hero-media-section {
+		.hero-media-section__top {
 			grid-template-columns: 1fr;
 			gap: var(--hero-media-section-mobile-gap, 1.5rem);
 		}
 	}
 
 	@container (max-width: 680px) {
-		.hero-media-section h1 {
-			font-size: var(--hero-media-section-mobile-title-size, 2.35rem);
+		:global(.hero-media-section__title) {
+			--typography-font-size: var(--hero-media-section-mobile-title-size, 2.35rem);
 		}
 	}
 </style>

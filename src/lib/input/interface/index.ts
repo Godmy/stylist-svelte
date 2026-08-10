@@ -1,13 +1,12 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	RecipeCharacterCount,
-	RecipeFieldHighlighter,
+	RecipeCheckboxGroup,
 	RecipeInputAddon,
 	RecipeInputDouble,
 	RecipeInputEmail,
 	RecipeInputError,
 	RecipeInputField,
-	RecipeInputFieldProps,
 	RecipeInputGroup,
 	RecipeInputHelper,
 	RecipeInputLabel,
@@ -15,22 +14,17 @@ export type {
 	RecipeInputPassword,
 	RecipeInputText,
 	RecipeNumberInput,
-	RecipeNumberInputProps,
 	RecipePhoneNumberInput,
 	RecipePinInputDigit,
 	RecipeRadioButtonGroupProps,
+	RecipeRadioGroup,
 	RecipeTagInput,
 	RecipeTextArea,
-	RecipeTextAreaProps,
 	RichTextEditorStateProps
 } from './recipe';
 export type {
 	SlotCharacterCount,
-	SlotFieldHighlighter,
-	SlotFieldHighlighterSelectedField,
-	SlotGraphEdge,
-	SlotGraphNode,
-	SlotGraphVisualizationData,
+	SlotCheckboxGroupOption,
 	SlotInputAddon,
 	SlotInputBase,
 	SlotInputCore,
@@ -44,6 +38,7 @@ export type {
 	SlotInputLabel,
 	SlotInputName,
 	SlotInputPassword,
+	SlotInputStateOptions,
 	SlotInputWithHelper,
 	SlotInputWithLabel,
 	SlotInputWithValidation,
@@ -51,6 +46,7 @@ export type {
 	SlotPhoneNumberInput,
 	SlotPinInputDigit,
 	SlotRadioGroupState,
+	SlotRadioOption,
 	SlotTagInput,
 	SlotTextarea
 } from './slot';

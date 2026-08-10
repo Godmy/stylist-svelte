@@ -1,37 +1,35 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeInputEmail } from '$stylist/input/interface/recipe/input-email';
-	import createInputEmailState from '$stylist/input/function/state/input-email/index.svelte';
 	import InputText from '$stylist/input/component/molecule/input-text/index.svelte';
 
 	let { value = $bindable<string>(''), ...props }: RecipeInputEmail = $props();
-	const state = createInputEmailState(props);
 </script>
 
 <InputText
-	label={state.label}
-	id={state.id}
-	showRequiredIndicator={state.showRequiredIndicator ?? true}
-	errors={state.errors ?? []}
-	showErrors={state.showErrors ?? true}
-	helperText={state.helperText}
-	showHelperWhenError={state.showHelperWhenError ?? false}
-	variant={state.variant ?? 'default'}
-	size={state.size ?? 'md'}
-	disabled={state.disabled ?? false}
-	error={state.error ?? false}
-	block={state.block ?? false}
-	class={state.className ?? ''}
+	label={props.label}
+	id={props.id}
+	showRequiredIndicator={props.showRequiredIndicator ?? true}
+	errors={props.errors ?? []}
+	showErrors={props.showErrors ?? true}
+	helperText={props.helperText}
+	showHelperWhenError={props.showHelperWhenError ?? false}
+	variant={props.variant ?? 'default'}
+	size={props.size ?? 'md'}
+	disabled={props.disabled ?? false}
+	error={props.error ?? false}
+	block={props.block ?? false}
+	class={props.class ?? ''}
 	bind:value
 	type="email"
-	placeholder={state.placeholder ?? 'example@email.com'}
-	autocomplete={state.autocomplete ?? 'email'}
-	name={state.name}
-	required={state.required ?? false}
-	readonly={state.readonly ?? false}
-	autofocus={state.autofocus ?? false}
-	pattern={state.pattern ?? '[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$'}
-	minlength={state.minlength}
-	maxlength={state.maxlength}
+	placeholder={props.placeholder ?? 'example@email.com'}
+	autocomplete={props.autocomplete ?? 'email'}
+	name={props.name}
+	required={props.required ?? false}
+	readonly={props.readonly ?? false}
+	autofocus={props.autofocus ?? false}
+	pattern={props.pattern ?? '[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$'}
+	minlength={props.minlength}
+	maxlength={props.maxlength}
 	{...props}
 />
 

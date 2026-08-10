@@ -34,7 +34,7 @@
 		initialDomain?: string;
 		initialCluster?: string;
 		initialJoint?: string;
-		initialPreviewMode?: 'file' | 'markdown' | 'story' | 'json-tree';
+		initialPreviewMode?: 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
 		class?: string;
 	} = $props();
 

@@ -2,13 +2,10 @@
 export { createCharacterCountState } from './character-count';
 export { createCharactersCountState } from './characters-count';
 export { createCheckboxGroupState } from './checkbox-group';
-export { createFieldHighlighterState } from './field-highlighter';
 export { formatPhoneNumber } from './format-phone-number';
-export { createInputEmailState } from './input-email';
 export { createInputFieldState } from './input-field';
 export { createInputGroupState } from './input-group';
 export { createInputLabelState } from './input-label';
-export { createInputNameState } from './input-name';
 export { createInputPasswordState } from './input-password';
 export { createInputTextState } from './input-text';
 export { normalizePhoneInputValue } from './normalize-phone-input-value';

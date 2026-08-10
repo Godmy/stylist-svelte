@@ -1,11 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	FlatTree,
 	TreeNodeItem,
 	TreeViewer
 } from './molecule';
 export {
 	AdvancedVirtualTree,
-	FlatTree,
 	FolderTree,
 	VirtualTree
 } from './organism';

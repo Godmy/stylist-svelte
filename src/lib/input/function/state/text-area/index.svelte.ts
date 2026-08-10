@@ -3,10 +3,10 @@ import { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';
 import { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-import type { InputStateOptions } from '$stylist/input/type/script/create-input-field-state';
+import type { SlotInputStateOptions } from '$stylist/input/interface/slot/input-state-options';
 
 export const createTextareaState = (
-	props: InputStateOptions & {
+	props: SlotInputStateOptions & {
 		id?: string;
 		value?: string;
 		maxlength?: number;

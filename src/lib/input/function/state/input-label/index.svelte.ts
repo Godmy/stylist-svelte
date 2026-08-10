@@ -1,6 +1,6 @@
-import type { SlotInputLabel as IInputLabelProps } from '$stylist/input/interface/slot/input-label';
+import type { SlotInputLabel } from '$stylist/input/interface/slot/input-label';
 
-export const createInputLabelState = (props: IInputLabelProps) => {
+export const createInputLabelState = (props: SlotInputLabel) => {
 	return {
 		get labelClasses() {
 			return 'input-field-label';

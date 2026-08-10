@@ -1,4 +1,4 @@
-﻿import type { SlotInputField as IInputFieldProps } from '$stylist/input/interface/slot/input-field';
+import type { RecipeInputField as IInputFieldProps } from '$stylist/input/interface/recipe/input-field';
 
 export const createInputFieldState = (props: IInputFieldProps) => {
 	const showHelper = $derived(!!props.helperText && (props.errors?.length ?? 0) === 0);

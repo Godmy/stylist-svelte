@@ -1,4 +1,6 @@
-type PreviewMode = 'file' | 'markdown' | 'story' | 'json-tree';
+import type { TreeNode } from '$stylist/tree/type/struct/tree-node';
+
+type PreviewMode = 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
 type StoryModule = { default: unknown };
 
 interface IssueDialogOptions {
@@ -53,6 +55,16 @@ interface SearchDomainEntry {
 	searchText: string;
 }
 
+interface DomainDependency {
+	key: string;
+	depth: number;
+}
+
+interface DomainDependencyFile {
+	name: string;
+	content: string;
+}
+
 export function createDomainPageState(input: DomainPageInput) {
 	const { tree, storyModules, initialDomain, initialCluster, initialJoint, initialPreviewMode } =
 		input;
@@ -73,6 +85,12 @@ export function createDomainPageState(input: DomainPageInput) {
 	let storyPreviewComponent = $state<unknown>(null);
 	let storyPreviewLoading = $state(false);
 	let storyPreviewError = $state('');
+	let dependencyLoading = $state(false);
+	let dependencyError = $state('');
+	let dependencyItems = $state<DomainDependency[]>([]);
+	let dependencyTreeNodes = $state<TreeNode[]>([]);
+	let selectedDependencyKey = $state('');
+	let selectedDependencyFiles = $state<DomainDependencyFile[]>([]);
 	let issueDialogOpen = $state(false);
 	let issueDialogTitle = $state('Component issue');
 	let issueDialogPlaceholder = $state('');
@@ -95,6 +113,14 @@ export function createDomainPageState(input: DomainPageInput) {
 	const activeFamily = $derived(activeEntity?.name.split('/').at(-1) ?? '');
 	const activeFamilyName = $derived(activeEntity?.name ?? '');
 	const breadcrumbFile = $derived(activeFilePath ? (activeFilePath.split('/').pop() ?? '') : '');
+	const activeEntityDependencyKey = $derived(activeEntity?.path.replace(/\//g, '\\') ?? '');
+	const hasDependencyPreview = $derived(
+		activeCluster === 'component' &&
+			(activeJoint === 'atom' ||
+				activeJoint === 'molecule' ||
+				activeJoint === 'organism' ||
+				activeJoint === 'template')
+	);
 	const issueLogPath = $derived('management/data/jsonl/component/issues/index.jsonl');
 	const issueId = $derived(
 		activeFilePath ||
@@ -270,6 +296,50 @@ export function createDomainPageState(input: DomainPageInput) {
 			});
 	});
 
+	$effect(() => {
+		if (previewMode !== 'di') return;
+		if (!hasDependencyPreview || !activeEntityDependencyKey) {
+			dependencyItems = [];
+			dependencyTreeNodes = [];
+			selectedDependencyKey = '';
+			selectedDependencyFiles = [];
+			dependencyError = 'DI preview is available for components only.';
+			dependencyLoading = false;
+			return;
+		}
+
+		const componentKey = activeEntityDependencyKey;
+		const dependencyKey = selectedDependencyKey;
+		dependencyLoading = true;
+		dependencyError = '';
+		fetch(
+			`/api/di?component=${encodeURIComponent(componentKey)}&dependency=${encodeURIComponent(dependencyKey)}`
+		)
+			.then(async (r) => {
+				const p = await r.json();
+				if (!r.ok) throw new Error(p.error ?? 'DI preview failed');
+				if (activeEntityDependencyKey !== componentKey || previewMode !== 'di') return;
+				dependencyItems = Array.isArray(p.dependencies) ? p.dependencies : [];
+				dependencyTreeNodes = Array.isArray(p.dependencyTreeNodes) ? p.dependencyTreeNodes : [];
+				selectedDependencyKey = p.selectedDependencyKey ?? '';
+				selectedDependencyFiles = Array.isArray(p.selectedDependencyFiles)
+					? p.selectedDependencyFiles
+					: [];
+			})
+			.catch((e: Error) => {
+				if (activeEntityDependencyKey !== componentKey || previewMode !== 'di') return;
+				dependencyItems = [];
+				dependencyTreeNodes = [];
+				selectedDependencyFiles = [];
+				dependencyError = e.message;
+			})
+			.finally(() => {
+				if (activeEntityDependencyKey === componentKey && previewMode === 'di') {
+					dependencyLoading = false;
+				}
+			});
+	});
+
 	function handleDomainSelect(name: string) {
 		activeDomain = name;
 		activeEntityPath = '';
@@ -332,6 +402,14 @@ export function createDomainPageState(input: DomainPageInput) {
 
 	function handleJsonTreeSelect() {
 		previewMode = 'json-tree';
+	}
+
+	function handleDependencySelect(key?: string) {
+		if (!hasDependencyPreview) return;
+		if (key) {
+			selectedDependencyKey = key;
+		}
+		previewMode = 'di';
 	}
 
 	function selectSearchEntry(entryId: string) {
@@ -436,6 +514,24 @@ export function createDomainPageState(input: DomainPageInput) {
 		get storyPreviewError() {
 			return storyPreviewError;
 		},
+		get dependencyLoading() {
+			return dependencyLoading;
+		},
+		get dependencyError() {
+			return dependencyError;
+		},
+		get dependencyItems() {
+			return dependencyItems;
+		},
+		get dependencyTreeNodes() {
+			return dependencyTreeNodes;
+		},
+		get selectedDependencyKey() {
+			return selectedDependencyKey;
+		},
+		get selectedDependencyFiles() {
+			return selectedDependencyFiles;
+		},
 		get backlogDialogOpen() {
 			return issueDialogOpen;
 		},
@@ -490,6 +586,9 @@ export function createDomainPageState(input: DomainPageInput) {
 		get previewKind() {
 			return previewKind;
 		},
+		get hasDependencyPreview() {
+			return hasDependencyPreview;
+		},
 		get searchEntries() {
 			return searchEntries;
 		},
@@ -503,6 +602,7 @@ export function createDomainPageState(input: DomainPageInput) {
 		handleMarkdownSelect,
 		handleStorySelect,
 		handleJsonTreeSelect,
+		handleDependencySelect,
 		selectSearchEntry,
 		openBacklogDialog: openIssueDialog,
 		openIssueDialog,

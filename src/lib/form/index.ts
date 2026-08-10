@@ -58,7 +58,6 @@ export type {
 	RecipeRadioButtonGroupProps,
 	RecipeSchemaFormDialog,
 	RecipeSearchBar,
-	RecipeSearchBarProps,
 	SlotAddressForm,
 	SlotAddressFormState,
 	SlotFormFooter,

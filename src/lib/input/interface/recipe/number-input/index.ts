@@ -1,4 +1,3 @@
-import type { RecipeNumberInputProps } from '$stylist/input/interface/recipe/number-input-props';
 import type { SlotNumberInput } from '$stylist/input/interface/slot/number-input';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorFocusable as IFocusable } from '$stylist/layout/interface/behavior/focusable';
@@ -7,11 +6,13 @@ import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slo
 import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 
+import type { HTMLAttributes } from 'svelte/elements';
+
 export interface RecipeNumberInput
 	extends ComputeIntersectAll<
 		[
-			RecipeNumberInputProps,
 			SlotNumberInput,
+			HTMLAttributes<HTMLInputElement>,
 			ILabelSlot,
 			ICaptionSlot,
 			IIconSlot,

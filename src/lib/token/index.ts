@@ -16,6 +16,7 @@ export {
 	TokenRadio,
 	TokenRange,
 	TokenSelect,
+	TokenSetting,
 	TokenSettings,
 	TokenText
 } from './component';

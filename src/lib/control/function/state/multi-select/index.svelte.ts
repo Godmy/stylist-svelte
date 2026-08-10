@@ -3,9 +3,12 @@ import { PresetMultiSelect } from '$stylist/control/const/preset/multi-select';
 import type { RecipeMultiSelect } from '$stylist/control/interface/recipe/multi-select';
 import type { SlotMultiSelectOption as MultiSelectOption } from '$stylist/control/interface/slot/multi-select-option';
 
+const EMPTY_MULTI_SELECT_VALUE: string[] = [];
+const EMPTY_MULTI_SELECT_OPTIONS: MultiSelectOption[] = [];
+
 export function createMultiSelectState(props: RecipeMultiSelect) {
-	const options = $derived(props.options ?? []);
-	const value = $derived(props.value ?? []);
+	const options = $derived(props.options ?? EMPTY_MULTI_SELECT_OPTIONS);
+	const value = $derived(props.value ?? EMPTY_MULTI_SELECT_VALUE);
 	const placeholder = $derived(props.placeholder ?? 'Select options...');
 	const disabled = $derived(props.disabled ?? false);
 	const searchable = $derived(props.searchable ?? true);
@@ -102,6 +105,7 @@ export function createMultiSelectState(props: RecipeMultiSelect) {
 		['c-multiselect__search-input', searchInputClass].filter(Boolean).join(' ')
 	);
 	const noOptionsMessageClasses = 'c-multiselect__empty';
+	const filteredOptions = $derived(getFilteredOptions());
 
 	function getOptionClasses(option: MultiSelectOption): string {
 		return [
@@ -188,6 +192,9 @@ export function createMultiSelectState(props: RecipeMultiSelect) {
 		},
 		get noOptionsMessageClasses() {
 			return noOptionsMessageClasses;
+		},
+		get filteredOptions() {
+			return filteredOptions;
 		},
 		get ChevronDown() {
 			return PresetMultiSelect.ChevronDown;

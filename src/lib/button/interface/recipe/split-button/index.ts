@@ -5,5 +5,16 @@ import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/beha
 import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 
+import type { SlotButtonAttributesBase } from '$stylist/button/interface/slot/button-attributes-base';
+
 export interface RecipeSplitButton
-	extends ComputeIntersectAll<[ILabelSlot, IIconSlot, IClickable, IFocusable, ISizable]> {}
+	extends ComputeIntersectAll<
+		[
+			SlotButtonAttributesBase,
+			ILabelSlot,
+			IIconSlot,
+			IClickable,
+			IFocusable,
+			ISizable
+		]
+	> {}

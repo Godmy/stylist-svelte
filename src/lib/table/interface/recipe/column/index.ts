@@ -1,5 +1,5 @@
 ﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-import type { ColumnSchema } from '$stylist/table/type/schema/column';
+import type { ColumnSchema } from '$stylist/table/type/object/column';
 
 export interface RecipeColumn<T = Record<string, unknown>> {
 	schema: ColumnSchema<T>;

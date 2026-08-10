@@ -6,6 +6,7 @@ export {
 	SceneObjectManager
 } from './class';
 export {
+	FieldHighlighter,
 	GraphClusterFilter,
 	GraphDot,
 	GraphLegend,
@@ -32,6 +33,7 @@ export {
 	clampZwickyRadius,
 	compileSceneShader,
 	createDemoSceneGraph,
+	createFieldHighlighterState,
 	createSceneAtom,
 	createSceneAtomBuffers,
 	createSceneBoxGeometry,
@@ -81,8 +83,14 @@ export type {
 	ZwickySceneProps
 } from './type';
 export type {
+	RecipeFieldHighlighter,
 	RecipeSceneCameraControl,
-	RecipeZwickyScene
+	RecipeZwickyScene,
+	SlotFieldHighlighter,
+	SlotFieldHighlighterSelectedField,
+	SlotGraphEdge,
+	SlotGraphNode,
+	SlotGraphVisualizationData
 } from './interface';
 export type {
 	GraphBounds3D,

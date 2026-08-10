@@ -1,4 +1,4 @@
-import type { SlotCheckbox as CheckboxProps } from '$stylist/control/interface/slot/checkbox-toggles';
+import type { RecipeCheckbox as CheckboxProps } from '$stylist/control/interface/recipe/checkbox';
 
 export function createCheckboxState(props: CheckboxProps) {
 	const id = props.id;

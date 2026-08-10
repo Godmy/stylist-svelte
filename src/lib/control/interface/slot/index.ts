@@ -2,7 +2,6 @@
 export type { SlotAccessibilityToolbar } from './accessibility-toolbar';
 export type { SlotAutocompleteDropdown } from './autocomplete-dropdown';
 export type { SlotAutocompleteDropdownOption } from './autocomplete-dropdown-option';
-export type { SlotCheckbox } from './checkbox-toggles';
 export type { SlotClick } from './click';
 export type { SlotCombobox } from './combobox';
 export type { SlotComboboxStyleClasses } from './combobox-style-classes';

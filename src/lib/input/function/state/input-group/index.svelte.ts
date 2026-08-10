@@ -1,5 +1,5 @@
 import createInputTextState from '$stylist/input/function/state/input-text/index.svelte';
-import type { SlotInputGroup as IInputGroupProps } from '$stylist/input/interface/slot/input-group';
+import type { RecipeInputGroup as IInputGroupProps } from '$stylist/input/interface/recipe/input-group';
 
 export const createInputGroupState = (props: IInputGroupProps) => {
 	const hasError = $derived(!!props.error || (props.errors?.length ?? 0) > 0);

@@ -24,7 +24,7 @@
 		initialDomain?: string;
 		initialCluster?: string;
 		initialJoint?: string;
-		initialPreviewMode?: 'file' | 'markdown' | 'story' | 'json-tree';
+		initialPreviewMode?: 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
 		onSelectionChange?: (selection: { domain: string; family: string }) => void;
 		storyDevice?: DeviceFrameViewport;
 		deviceViewportVisible?: boolean;
@@ -230,11 +230,13 @@
 					previewMode={s.previewMode}
 					previewKind={s.previewKind}
 					activeJoint={s.activeJoint}
+					hasDependencyPreview={s.hasDependencyPreview}
 					{debugMenuItems}
 					onFileSelect={s.handleFileSelect}
 					onMarkdownSelect={s.handleMarkdownSelect}
 					onStorySelect={s.handleStorySelect}
 					onJsonTreeSelect={s.handleJsonTreeSelect}
+					onDependencySelect={() => s.handleDependencySelect()}
 				/>
 			{/if}
 
@@ -246,6 +248,13 @@
 				storyPreviewComponent={s.storyPreviewComponent}
 				storyPreviewLoading={s.storyPreviewLoading}
 				storyPreviewError={s.storyPreviewError}
+				dependencyItems={s.dependencyItems}
+				dependencyTreeNodes={s.dependencyTreeNodes}
+				selectedDependencyKey={s.selectedDependencyKey}
+				selectedDependencyFiles={s.selectedDependencyFiles}
+				dependencyLoading={s.dependencyLoading}
+				dependencyError={s.dependencyError}
+				onDependencySelect={s.handleDependencySelect}
 				previewKind={s.previewKind}
 				bind:storyDevice
 			/>

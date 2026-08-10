@@ -4,6 +4,7 @@ export {
 	GraphTooltip
 } from './atom';
 export {
+	FieldHighlighter,
 	GraphClusterFilter,
 	GraphLegend,
 	SceneCameraControl

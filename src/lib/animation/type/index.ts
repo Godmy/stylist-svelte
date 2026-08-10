@@ -7,5 +7,5 @@ export type {
 	TokenLoading,
 	TokenTransition
 } from './alias';
-export type { EasingFunction } from './script';
+export type { EasingFunction } from './compute';
 export type { InteractionIntent } from './struct';

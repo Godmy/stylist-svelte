@@ -20,14 +20,16 @@
 		storyFile?: TabFile | null;
 		selectedEntityName?: string;
 		activeFilePath?: string;
-		previewMode?: 'file' | 'markdown' | 'story' | 'json-tree';
+		previewMode?: 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
 		previewKind?: 'svg' | 'json' | 'text';
 		activeJoint?: string;
+		hasDependencyPreview?: boolean;
 		debugMenuItems?: DebugMenuItem[];
 		onFileSelect?: (path: string) => void;
 		onMarkdownSelect?: () => void;
 		onStorySelect?: () => void;
 		onJsonTreeSelect?: () => void;
+		onDependencySelect?: () => void;
 		class?: string;
 	}
 
@@ -40,11 +42,13 @@
 		previewMode = 'file',
 		previewKind = 'text',
 		activeJoint = '',
+		hasDependencyPreview = false,
 		debugMenuItems = [],
 		onFileSelect,
 		onMarkdownSelect,
 		onStorySelect,
 		onJsonTreeSelect,
+		onDependencySelect,
 		class: className = ''
 	}: JointTabButtonsProps = $props();
 
@@ -186,6 +190,17 @@
 				onclick={() => onJsonTreeSelect?.()}
 			>
 				tree
+			</button>
+		{/if}
+
+		{#if hasDependencyPreview}
+			<button
+				type="button"
+				class="tab tab--mode"
+				class:active={previewMode === 'di'}
+				onclick={() => onDependencySelect?.()}
+			>
+				DI
 			</button>
 		{/if}
 

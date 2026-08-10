@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import DataTableShell from './index.svelte';
-	import { createColumn } from '$stylist/table/function/factory/column';
+	import { createColumn } from '$stylist/table/function/create/column';
 
 	type RowData = Record<string, unknown>;
 

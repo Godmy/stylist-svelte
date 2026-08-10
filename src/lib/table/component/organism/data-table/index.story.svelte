@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import { createColumn } from '$stylist/table/function/factory/column';
+	import { createColumn } from '$stylist/table/function/create/column';
 	import DataTable from './index.svelte';
 
 	type RowData = Record<string, unknown>;

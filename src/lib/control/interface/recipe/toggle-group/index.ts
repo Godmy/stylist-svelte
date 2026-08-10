@@ -5,7 +5,16 @@ import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/beha
 import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 
+import type { RecipeToggleGroupRootProps as BaseToggleGroupProps } from '$stylist/control/interface/recipe/toggle-group-root-props';
+
 export interface RecipeToggleGroup
 	extends ComputeIntersectAll<
-		[ILabelSlot, IIconSlot, ISelectable<string[]>, IFocusable, ISizable]
+		[
+			BaseToggleGroupProps,
+			ILabelSlot,
+			IIconSlot,
+			ISelectable<string[]>,
+			IFocusable,
+			ISizable
+		]
 	> {}

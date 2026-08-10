@@ -3,4 +3,5 @@ export type TreeNode = {
 	label: string;
 	children?: TreeNode[];
 	expanded?: boolean;
+	disabled?: boolean;
 };

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotCheckbox as CheckboxProps } from '$stylist/control/interface/slot/checkbox-toggles';
+	import type { RecipeCheckbox } from '$stylist/control/interface/recipe/checkbox';
 	import createCheckboxState from '$stylist/control/function/state/checkbox/index.svelte';
 
 	let {
@@ -12,7 +12,7 @@
 		disabled = false,
 		class: className = '',
 		...restProps
-	}: CheckboxProps = $props();
+	}: RecipeCheckbox = $props();
 
 	const inputProps = $derived.by(() => {
 		const {

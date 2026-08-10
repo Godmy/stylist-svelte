@@ -271,11 +271,6 @@
 		flex-shrink: 0;
 	}
 
-	.c-locale-switcher__check svg {
-		width: 1.25rem;
-		height: 1.25rem;
-	}
-
 	.c-locale-switcher__preview-card {
 		border-radius: 0.5rem;
 		border: 1px solid var(--color-border-secondary);

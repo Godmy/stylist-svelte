@@ -112,8 +112,8 @@
 				</div>
 			{/if}
 
-			{#if state.getFilteredOptions().length > 0}
-				{#each state.getFilteredOptions() as option}
+			{#if state.filteredOptions.length > 0}
+				{#each state.filteredOptions as option}
 					<div
 						class={state.getOptionClasses(option)}
 						onclick={() => state.selectOption(option.value)}

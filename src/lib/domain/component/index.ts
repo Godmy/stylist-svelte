@@ -12,21 +12,17 @@ export {
 	DomainList,
 	DomainMenu,
 	DomainSearch,
-	DomainTable,
 	DomainToolbar,
-	FunctionalTaxonomy,
 	JointTabButtons,
 	JointToolbar,
 	JsonTreeViewer,
-	TaxonomyBreadcrumbs,
-	TokenSettings
+	TaxonomyBreadcrumbs
 } from './molecule';
 export {
 	DeviceFrame,
 	DomainAiAgent,
 	DomainBacklog,
 	DomainBuilder,
-	DomainDashboard,
 	DomainDiagnostics,
 	DomainExplorer,
 	DomainFilePreview,

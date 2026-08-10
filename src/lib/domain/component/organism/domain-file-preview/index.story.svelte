@@ -9,7 +9,7 @@
 			name: 'previewMode',
 			type: 'select',
 			defaultValue: 'file',
-			options: ['file', 'markdown', 'story', 'json-tree']
+			options: ['file', 'markdown', 'story', 'json-tree', 'di']
 		},
 		{ name: 'previewKind', type: 'select', defaultValue: 'text', options: ['text', 'json', 'svg'] }
 	];
@@ -24,6 +24,36 @@
 	);
 	const svgContent =
 		'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none"><rect x="18" y="18" width="84" height="84" rx="20" fill="#e0f2fe"/><path d="M36 60h48" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/><circle cx="84" cy="60" r="12" fill="#0f172a"/></svg>';
+	const dependencyItems = [
+		{ key: 'domain\\function\\state\\domain-page', depth: 1 },
+		{ key: 'svg\\component\\atom\\icon', depth: 1 },
+		{ key: 'svg\\const\\record\\icon-registry', depth: 2 }
+	];
+	const dependencyTreeNodes = [
+		{
+			id: 'domain\\function\\state\\domain-page',
+			label: 'domain\\function\\state\\domain-page',
+			expanded: true
+		},
+		{
+			id: 'svg\\component\\atom\\icon',
+			label: 'svg\\component\\atom\\icon',
+			expanded: true,
+			children: [
+				{
+					id: 'svg\\const\\record\\icon-registry',
+					label: 'svg\\const\\record\\icon-registry'
+				}
+			]
+		}
+	];
+	const selectedDependencyFiles = [
+		{
+			name: 'index.ts',
+			content:
+				"import type { TypeDomainFile } from '$stylist/domain/type/struct/domain-file';\n\nexport type TypeDomainEntity = {\n\tname: string;\n\tpath: string;\n\tfiles: TypeDomainFile[];\n};\n"
+		}
+	];
 </script>
 
 <Story
@@ -33,7 +63,7 @@
 	description="File preview panel for raw text, markdown, story, JSON tree, and SVG content."
 >
 	{#snippet children(values: any)}
-		{@const previewMode = values.previewMode as 'file' | 'markdown' | 'story' | 'json-tree'}
+		{@const previewMode = values.previewMode as 'file' | 'markdown' | 'story' | 'json-tree' | 'di'}
 		{@const previewKind = values.previewKind as 'text' | 'json' | 'svg'}
 		<div class="_c1">
 			<DomainFilePreview
@@ -47,6 +77,10 @@
 							? svgContent
 							: textContent}
 				storyPreviewComponent={ClickableStory}
+				{dependencyItems}
+				{dependencyTreeNodes}
+				selectedDependencyKey={dependencyItems[0].key}
+				{selectedDependencyFiles}
 			/>
 		</div>
 	{/snippet}
@@ -63,5 +97,3 @@
 		background-color: #ffffff;
 	}
 </style>
-
-

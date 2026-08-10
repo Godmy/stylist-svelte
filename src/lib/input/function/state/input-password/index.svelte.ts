@@ -1,5 +1,5 @@
 import createInputTextState from '$stylist/input/function/state/input-text/index.svelte';
-import type { SlotInputPassword as IInputPasswordProps } from '$stylist/input/interface/slot/input-password';
+import type { RecipeInputPassword as IInputPasswordProps } from '$stylist/input/interface/recipe/input-password';
 
 export const createInputPasswordState = (props: IInputPasswordProps) => {
 	const hasError = $derived(!!props.error || (props.errors?.length ?? 0) > 0);

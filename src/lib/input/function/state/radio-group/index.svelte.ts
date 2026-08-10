@@ -1,8 +1,8 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { RadioGroupProps } from '$stylist/input/type/struct/radio-group/radiogroup-props';
+import type { RecipeRadioGroup } from '$stylist/input/interface/recipe/radio-group';
 import type { SlotRadioGroupState } from '$stylist/input/interface/slot/radio-group-state';
 
-export function createRadioGroupState(props: RadioGroupProps): SlotRadioGroupState {
+export function createRadioGroupState(props: RecipeRadioGroup): SlotRadioGroupState {
 	let internalValue = $state(props.value ?? '');
 
 	$effect(() => {

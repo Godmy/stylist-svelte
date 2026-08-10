@@ -3,20 +3,10 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const Loader2 = 'loader-2';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { RecipeIconButtonProps as IconButtonProps } from '$stylist/button/interface/recipe/icon-button-props';
+	import type { RecipeIconButton } from '$stylist/button/interface/recipe/icon-button';
 	import createIconButtonState from '$stylist/button/function/state/icon-button/index.svelte';
 
-	/**
-	 * IconButton component - A button that primarily displays an icon
-	 *
-	 * @param variant - Visual style of the button
-	 * @param size - Size of the button
-	 * @param disabled - Whether the button is disabled
-	 * @param loading - Whether the button is in a loading state
-	 * @param icon - The icon component to display in the button
-	 * @param ariaLabel - Accessible label for the button
-	 */
-	let props: IconButtonProps & HTMLButtonAttributes = $props();
+	let props: RecipeIconButton & HTMLButtonAttributes = $props();
 	const state = createIconButtonState(createButtonFactoryInput(props as any));
 
 	const restProps = $derived.by(() => {

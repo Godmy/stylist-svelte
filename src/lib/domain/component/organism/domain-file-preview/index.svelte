@@ -1,17 +1,36 @@
 <script lang="ts">
 	import MarkdownRenderer from '$stylist/information/component/organism/markdown-renderer/index.svelte';
 	import JsonTreeViewer from '$stylist/domain/component/molecule/json-tree-viewer/index.svelte';
-	import DeviceFrame from '$stylist/domain/component/organism/device-frame/index.svelte';
+	import FlatTree from '$stylist/tree/component/molecule/flat-tree/index.svelte';
+	import { ManagerStoryViewportContext } from '$stylist/theme/class/manager/story-viewport-context';
 	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
+	import type { TreeNode } from '$stylist/tree/type/struct/tree-node';
+
+	interface DomainDependency {
+		key: string;
+		depth: number;
+	}
+
+	interface DomainDependencyFile {
+		name: string;
+		content: string;
+	}
 
 	interface DomainFilePreviewProps {
-		previewMode?: 'file' | 'markdown' | 'story' | 'json-tree';
+		previewMode?: 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
 		fileContent?: string;
 		fileLoading?: boolean;
 		fileError?: string;
 		storyPreviewComponent?: any;
 		storyPreviewLoading?: boolean;
 		storyPreviewError?: string;
+		dependencyItems?: DomainDependency[];
+		dependencyTreeNodes?: TreeNode[];
+		selectedDependencyKey?: string;
+		selectedDependencyFiles?: DomainDependencyFile[];
+		dependencyLoading?: boolean;
+		dependencyError?: string;
+		onDependencySelect?: (key: string) => void;
 		previewKind?: 'svg' | 'json' | 'text';
 		storyDevice?: DeviceFrameViewport;
 		class?: string;
@@ -25,10 +44,19 @@
 		storyPreviewComponent = null,
 		storyPreviewLoading = false,
 		storyPreviewError = '',
+		dependencyItems = [],
+		dependencyTreeNodes = [],
+		selectedDependencyKey = '',
+		selectedDependencyFiles = [],
+		dependencyLoading = false,
+		dependencyError = '',
+		onDependencySelect,
 		previewKind = 'text',
 		storyDevice = $bindable('fullscreen'),
 		class: className = ''
 	}: DomainFilePreviewProps = $props();
+
+	ManagerStoryViewportContext.set(() => storyDevice);
 
 	const renderedContent = $derived.by(() => {
 		if (previewKind !== 'json') return fileContent;
@@ -48,9 +76,7 @@
 	{:else if previewMode === 'story' && storyPreviewComponent}
 		{@const StoryPreviewComponent = storyPreviewComponent}
 		<div class="story-preview-shell">
-			<DeviceFrame device={storyDevice}>
-				<StoryPreviewComponent />
-			</DeviceFrame>
+			<StoryPreviewComponent />
 		</div>
 	{:else if fileLoading}
 		<p class="empty-state">Loading preview...</p>
@@ -62,6 +88,46 @@
 		</div>
 	{:else if previewMode === 'json-tree' && fileContent}
 		<JsonTreeViewer content={fileContent} />
+	{:else if previewMode === 'di'}
+		<div class="dependency-preview">
+			<aside class="dependency-list" aria-label="Dependency list">
+				<div class="dependency-list__header">
+					<span>DI</span>
+					<span>{dependencyItems.length}</span>
+				</div>
+				{#if dependencyLoading && dependencyItems.length === 0}
+					<p class="dependency-empty">Loading dependencies...</p>
+				{:else if dependencyError}
+					<p class="dependency-empty">{dependencyError}</p>
+				{:else if dependencyItems.length === 0}
+					<p class="dependency-empty">No dependencies found for this component.</p>
+				{:else}
+					<FlatTree
+						nodes={dependencyTreeNodes}
+						selectedId={selectedDependencyKey}
+						onSelect={(node) => onDependencySelect?.(node.id)}
+						class="dependency-tree"
+					/>
+				{/if}
+			</aside>
+			<section class="dependency-detail" aria-label="Dependency source">
+				{#if dependencyLoading && selectedDependencyFiles.length === 0}
+					<p class="empty-state">Loading source...</p>
+				{:else if dependencyError}
+					<p class="empty-state">{dependencyError}</p>
+				{:else if selectedDependencyFiles.length === 0}
+					<p class="empty-state">Select a dependency to preview source.</p>
+				{:else}
+					<div class="dependency-detail__title">{selectedDependencyKey}</div>
+					{#each selectedDependencyFiles as file (file.name)}
+						<div class="dependency-source">
+							<div class="dependency-source__name">{file.name}</div>
+							<pre><code>{file.content}</code></pre>
+						</div>
+					{/each}
+				{/if}
+			</section>
+		</div>
 	{:else if fileContent && previewKind === 'svg'}
 		<div class="svg-preview">
 			<div class="svg-art">
@@ -152,5 +218,86 @@
 		padding: 1rem;
 		color: var(--color-text-secondary);
 		font-size: 13px;
+	}
+
+	.dependency-preview {
+		display: grid;
+		grid-template-columns: minmax(220px, 32%) minmax(0, 1fr);
+		min-height: 100%;
+		background: var(--color-background-primary);
+	}
+
+	.dependency-list {
+		min-width: 0;
+		border-right: 1px solid var(--color-border-primary);
+		background: var(--color-background-secondary);
+		overflow: auto;
+	}
+
+	.dependency-list__header {
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.65rem 0.75rem;
+		border-bottom: 1px solid var(--color-border-primary);
+		background: var(--color-background-secondary);
+		color: var(--color-text-secondary);
+		font-family: var(--font-mono, monospace);
+		font-size: 12px;
+	}
+
+	.dependency-list :global(.dependency-tree) {
+		padding: 0.35rem;
+		font-family: var(--font-mono, monospace);
+		font-size: 12px;
+		line-height: 1.35;
+	}
+
+	.dependency-detail {
+		min-width: 0;
+		overflow: auto;
+	}
+
+	.dependency-detail__title,
+	.dependency-source__name {
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		padding: 0.65rem 1rem;
+		border-bottom: 1px solid var(--color-border-primary);
+		background: var(--color-background-primary);
+		color: var(--color-text-secondary);
+		font-family: var(--font-mono, monospace);
+		font-size: 12px;
+		word-break: break-word;
+	}
+
+	.dependency-source__name {
+		position: static;
+		border-top: 1px solid var(--color-border-primary);
+		background: var(--color-background-secondary);
+		color: var(--color-text-primary);
+	}
+
+	.dependency-empty {
+		margin: 0;
+		padding: 0.75rem;
+		color: var(--color-text-secondary);
+		font-size: 12px;
+	}
+
+	@media (max-width: 760px) {
+		.dependency-preview {
+			grid-template-columns: 1fr;
+		}
+
+		.dependency-list {
+			max-height: 15rem;
+			border-right: none;
+			border-bottom: 1px solid var(--color-border-primary);
+		}
 	}
 </style>

@@ -4,13 +4,13 @@ export type {
 	PlaygroundComponentCatalogSortBy,
 	PlaygroundComponentCatalogViewMode
 } from './alias';
-export type { TokenSortDirection } from './record';
 export type {
 	ColumnSchema,
 	FilterSchema,
 	FilterType,
 	TableSchema
-} from './schema';
+} from './object';
+export type { TokenSortDirection } from './record';
 export type {
 	ComparisonTableFeature,
 	ComparisonTableProduct,

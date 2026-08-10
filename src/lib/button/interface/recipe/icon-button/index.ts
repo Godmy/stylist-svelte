@@ -3,6 +3,23 @@ import type { BehaviorClickable as IClickable } from '$stylist/layout/interface/
 import type { BehaviorFocusable as IFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
 import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
+import type { SlotButtonDom } from '$stylist/button/interface/slot/button-dom';
+import type { SlotIconButton as BaseIconButtonProps } from '$stylist/button/interface/slot/icon-button';
 
 export interface RecipeIconButton
-	extends ComputeIntersectAll<[IIconSlot, IClickable, IFocusable, ISizable]> {}
+	extends ComputeIntersectAll<
+		[
+			BaseIconButtonProps,
+			SlotButtonDom,
+			SlotChildren,
+			HTMLAttributes<HTMLButtonElement>,
+			Omit<IIconSlot, 'icon'>,
+			IClickable,
+			IFocusable,
+			ISizable
+		]
+	> {
+	[prop: string]: unknown;
+}

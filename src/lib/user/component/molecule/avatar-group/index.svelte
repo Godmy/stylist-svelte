@@ -11,38 +11,65 @@
 
 <div class={state.hostClasses} {...state.restProps}>
 	{#each state.visibleAvatars as avatar, index}
-		<div
-			class={`ag-item ${state.itemDirectionClass} ${state.avatarClass}`}
-			style={`z-index: ${state.visibleAvatars.length - index}`}
-			role={avatar.onClick ? 'button' : undefined}
-			tabindex={avatar.onClick ? 0 : undefined}
-			onclick={avatar.onClick}
-			onkeydown={(e) =>
-				avatar.onClick && (e.key === 'Enter' || e.key === ' ') && avatar.onClick()}
-		>
-			{#if avatar.src}
-				<img src={avatar.src} alt={avatar.name} class={`ag-avatar-img ${state.sizeClasses}`} />
-			{:else}
-				<div class={`ag-avatar-initials ${state.sizeClasses} ${state.fontSizeClasses}`}>
-					{avatar.name ? avatar.name.charAt(0).toUpperCase() : '?'}
-				</div>
-			{/if}
+		{#if avatar.onClick}
+			<button
+				type="button"
+				class={`ag-item ag-item--button ${state.itemDirectionClass} ${state.avatarClass}`}
+				style={`z-index: ${state.visibleAvatars.length - index}`}
+				onclick={avatar.onClick}
+			>
+				{#if avatar.src}
+					<img src={avatar.src} alt={avatar.name} class={`ag-avatar-img ${state.sizeClasses}`} />
+				{:else}
+					<div class={`ag-avatar-initials ${state.sizeClasses} ${state.fontSizeClasses}`}>
+						{avatar.name ? avatar.name.charAt(0).toUpperCase() : '?'}
+					</div>
+				{/if}
 
-			{#if state.showStatus && avatar.status}
-				<div
-					class={`ag-status-dot ${state.statusSizeClasses} ${state.statusDotClass(avatar.status)}`}
-				></div>
-			{/if}
+				{#if state.showStatus && avatar.status}
+					<div
+						class={`ag-status-dot ${state.statusSizeClasses} ${state.statusDotClass(avatar.status)}`}
+					></div>
+				{/if}
 
-			{#if state.showTooltip}
-				<div class={`ag-tooltip ${state.tooltipClass}`}>
-					{avatar.name}
-					{#if avatar.role}
-						<div class="ag-tooltip-line">{avatar.role}</div>
-					{/if}
-				</div>
-			{/if}
-		</div>
+				{#if state.showTooltip}
+					<div class={`ag-tooltip ${state.tooltipClass}`}>
+						{avatar.name}
+						{#if avatar.role}
+							<div class="ag-tooltip-line">{avatar.role}</div>
+						{/if}
+					</div>
+				{/if}
+			</button>
+		{:else}
+			<div
+				class={`ag-item ${state.itemDirectionClass} ${state.avatarClass}`}
+				style={`z-index: ${state.visibleAvatars.length - index}`}
+			>
+				{#if avatar.src}
+					<img src={avatar.src} alt={avatar.name} class={`ag-avatar-img ${state.sizeClasses}`} />
+				{:else}
+					<div class={`ag-avatar-initials ${state.sizeClasses} ${state.fontSizeClasses}`}>
+						{avatar.name ? avatar.name.charAt(0).toUpperCase() : '?'}
+					</div>
+				{/if}
+
+				{#if state.showStatus && avatar.status}
+					<div
+						class={`ag-status-dot ${state.statusSizeClasses} ${state.statusDotClass(avatar.status)}`}
+					></div>
+				{/if}
+
+				{#if state.showTooltip}
+					<div class={`ag-tooltip ${state.tooltipClass}`}>
+						{avatar.name}
+						{#if avatar.role}
+							<div class="ag-tooltip-line">{avatar.role}</div>
+						{/if}
+					</div>
+				{/if}
+			</div>
+		{/if}
 	{/each}
 
 	{#if state.overflowCount > 0}
@@ -98,6 +125,20 @@
 	}
 	.ag-item {
 		position: relative;
+	}
+	.ag-item--button {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		cursor: pointer;
+	}
+	.ag-item--button:focus-visible {
+		outline: 2px solid var(--color-primary-500);
+		outline-offset: 2px;
+		border-radius: 9999px;
 	}
 	.ag-item--h {
 		margin-left: -0.5rem;

@@ -16,7 +16,8 @@ export {
 export {
 	Orbit,
 	RibbonMenu,
-	Token
+	Token,
+	TokenSetting
 } from './molecule';
 export {
 	OrbitContractL5,

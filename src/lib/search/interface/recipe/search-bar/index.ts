@@ -5,5 +5,16 @@ import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slo
 import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 
+import type { SlotSearchBar as BaseSearchBarProps } from '$stylist/search/interface/slot/search-bar';
+
 export interface RecipeSearchBar
-	extends ComputeIntersectAll<[ILabelSlot, ICaptionSlot, IIconSlot, IFocusable, ISizable]> {}
+	extends ComputeIntersectAll<
+		[
+			BaseSearchBarProps,
+			ILabelSlot,
+			ICaptionSlot,
+			IIconSlot,
+			IFocusable,
+			ISizable
+		]
+	> {}

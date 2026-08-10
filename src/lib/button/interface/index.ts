@@ -8,9 +8,7 @@ export type {
 	RecipeCopyButton,
 	RecipeFollowButton,
 	RecipeIconButton,
-	RecipeIconButtonProps,
-	RecipeSplitButton,
-	RecipeSplitButtonProps
+	RecipeSplitButton
 } from './recipe';
 export type {
 	ButtonFactoryContractInput,

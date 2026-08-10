@@ -6,8 +6,7 @@ export type {
 	RecipeInteractionForms,
 	RecipeRadioButtonGroupProps,
 	RecipeSchemaFormDialog,
-	RecipeSearchBar,
-	RecipeSearchBarProps
+	RecipeSearchBar
 } from './recipe';
 export type {
 	SlotAddressForm,

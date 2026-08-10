@@ -1,5 +1,5 @@
 import createCharacterCountScriptState from '$stylist/input/function/state/character-count/index.svelte';
-import type { SlotCharacterCount as ICharacterCountProps } from '$stylist/input/interface/slot/character-count';
+import type { RecipeCharacterCount as ICharacterCountProps } from '$stylist/input/interface/recipe/characters-count';
 
 export const createCharactersCountState = (props: ICharacterCountProps) => {
 	const percentage = $derived(

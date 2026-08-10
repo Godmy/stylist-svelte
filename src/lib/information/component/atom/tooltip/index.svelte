@@ -39,35 +39,49 @@ import type { HTMLAttributes } from 'svelte/elements';
 </script>
 
 <span class={state.containerClass} data-disabled={state.disabled || undefined} {...restProps}>
-	<span
-		bind:this={state.referenceRef}
-		class="c-tooltip__trigger"
-		onmouseenter={() => state.trigger === 'hover' && state.showTooltip()}
-		onmouseleave={() => state.trigger === 'hover' && state.hideTooltip()}
-		onfocusin={() => state.trigger === 'focus' && state.showTooltip()}
-		onfocusout={() => state.trigger === 'focus' && state.hideTooltip()}
-		onclick={(e) => {
-			if (state.trigger === 'click') {
-				e.stopPropagation();
-				state.toggleTooltip();
-			}
-		}}
-		onkeydown={(e) => {
-			if (state.trigger === 'click' && (e.key === 'Enter' || e.key === ' ')) {
-				e.preventDefault();
-				state.toggleTooltip();
-			}
-		}}
-		role={state.asChild ? undefined : 'button'}
-		tabindex={state.asChild ? undefined : 0}
-		aria-haspopup={state.asChild ? undefined : 'true'}
-		aria-expanded={!state.asChild && state.trigger === 'click' ? state.isVisible : undefined}
-		aria-disabled={state.disabled ? true : undefined}
-	>
-		{#if props.children}
-			{@render props.children()}
-		{/if}
-	</span>
+	{#if state.asChild}
+		<span
+			bind:this={state.referenceRef}
+			class="c-tooltip__trigger"
+			onmouseenter={() => state.trigger === 'hover' && state.showTooltip()}
+			onmouseleave={() => state.trigger === 'hover' && state.hideTooltip()}
+			onfocusin={() => state.trigger === 'focus' && state.showTooltip()}
+			onfocusout={() => state.trigger === 'focus' && state.hideTooltip()}
+			onclick={(e) => {
+				if (state.trigger === 'click') {
+					e.stopPropagation();
+					state.toggleTooltip();
+				}
+			}}
+		>
+			{#if props.children}
+				{@render props.children()}
+			{/if}
+		</span>
+	{:else}
+		<button
+			bind:this={state.referenceRef}
+			type="button"
+			class="c-tooltip__trigger"
+			onmouseenter={() => state.trigger === 'hover' && state.showTooltip()}
+			onmouseleave={() => state.trigger === 'hover' && state.hideTooltip()}
+			onfocusin={() => state.trigger === 'focus' && state.showTooltip()}
+			onfocusout={() => state.trigger === 'focus' && state.hideTooltip()}
+			onclick={(e) => {
+				if (state.trigger === 'click') {
+					e.stopPropagation();
+					state.toggleTooltip();
+				}
+			}}
+			aria-haspopup="true"
+			aria-expanded={state.trigger === 'click' ? state.isVisible : undefined}
+			aria-disabled={state.disabled ? true : undefined}
+		>
+			{#if props.children}
+				{@render props.children()}
+			{/if}
+		</button>
+	{/if}
 
 	{#if state.isVisible}
 		<span
@@ -99,6 +113,13 @@ import type { HTMLAttributes } from 'svelte/elements';
 	}
 
 	.c-tooltip__trigger {
+		display: inline;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		color: inherit;
+		font: inherit;
 		cursor: pointer;
 	}
 	.c-tooltip__trigger:focus-visible {

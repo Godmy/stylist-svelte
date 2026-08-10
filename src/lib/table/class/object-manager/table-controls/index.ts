@@ -1,5 +1,5 @@
 ﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-import type { ColumnSchema } from '$stylist/table/type/schema/column';
+import type { ColumnSchema } from '$stylist/table/type/object/column';
 
 type Row = Record<string, unknown>;
 

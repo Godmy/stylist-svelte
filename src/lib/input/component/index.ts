@@ -9,7 +9,6 @@ export {
 } from './atom';
 export {
 	CheckboxGroup,
-	FieldHighlighter,
 	InputDouble,
 	InputEmail,
 	InputField,

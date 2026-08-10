@@ -14,7 +14,7 @@
 		{
 			name: 'align',
 			type: 'select',
-			options: ['start', 'center', 'end'],
+			options: ['left', 'center', 'right'],
 			defaultValue: 'center'
 		},
 		{

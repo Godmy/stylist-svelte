@@ -1,10 +1,10 @@
 import { createFieldPresetState } from '$stylist/input/function/script/create-field-preset-state';
-import type { InputStateOptions } from '$stylist/input/type/script/create-input-field-state';
+import type { SlotInputStateOptions } from '$stylist/input/interface/slot/input-state-options';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 export function createFieldClassState(
-	props: InputStateOptions<TokenColorTone, TokenSize> & Record<string, unknown>,
+	props: SlotInputStateOptions<TokenColorTone, TokenSize> & Record<string, unknown>,
 	className: string
 ) {
 	const state = createFieldPresetState(props);

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SectionHeading from '$stylist/landing/component/molecule/section-heading/index.svelte';
+	import HeroMediaSection from '$stylist/landing/component/molecule/hero-media-section/index.svelte';
 	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
 
 	let {
@@ -7,37 +7,51 @@
 		eyebrow,
 		title,
 		body,
+		imageSrc,
+		imageAlt,
 		class: className = ''
 	}: {
 		ariaLabel: string;
 		eyebrow: string;
 		title: string;
 		body: string;
+		imageSrc: string;
+		imageAlt: string;
 		class?: string;
 	} = $props();
 </script>
 
 <section class="intro-section {className}" aria-label={ariaLabel}>
-	<SectionHeading {eyebrow} {title} />
+	<HeroMediaSection
+		class="intro-section__media"
+		level={2}
+		{eyebrow}
+		{title}
+		{imageSrc}
+		{imageAlt}
+	/>
 	<Paragraph text={body} class="intro-section__body" />
 </section>
 
 <style>
 	.intro-section {
-		display: grid;
-		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-		gap: 2rem;
 		padding: 5rem 0;
 		border-top: 1px solid var(--intro-section-border, currentColor);
 	}
 
-	:global(.intro-section__body) {
-		--typography-color: var(--intro-section-text, currentColor);
+	:global(.intro-section__media) {
+		--hero-media-section-eyebrow: var(--intro-section-accent, currentColor);
+		--hero-media-section-heading: var(--intro-section-heading, currentColor);
+		--hero-media-section-border: var(--intro-section-border, currentColor);
+		--hero-media-section-media: var(--intro-section-media-bg, transparent);
+		--hero-media-section-shadow: var(--intro-section-media-shadow, none);
+		--hero-media-section-title-size: clamp(2rem, 4cqw, 3.5rem);
+		--hero-media-section-mobile-title-size: 2rem;
 	}
 
-	@container (max-width: 920px) {
-		.intro-section {
-			grid-template-columns: 1fr;
-		}
+	:global(.intro-section__body) {
+		margin-top: 2rem;
+		max-width: 54rem;
+		--typography-color: var(--intro-section-text, currentColor);
 	}
 </style>

@@ -1,7 +1,3 @@
-/**
- * NumberInput types and interfaces following SOLID principles
- */
-
 import type { HTMLAttributes } from 'svelte/elements';
 
 export interface SlotNumberInput extends HTMLAttributes<HTMLInputElement> {

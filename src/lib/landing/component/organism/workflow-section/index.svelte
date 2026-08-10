@@ -1,6 +1,10 @@
 <script lang="ts">
 	import SectionHeading from '$stylist/landing/component/molecule/section-heading/index.svelte';
 	import StepList from '$stylist/landing/component/molecule/step-list/index.svelte';
+	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
+	import ComparisonTable from '$stylist/table/component/molecule/comparison-table/index.svelte';
+	import type { ComparisonTableFeature } from '$stylist/table/type/struct/comparison-table-feature';
+	import type { ComparisonTableProduct } from '$stylist/table/type/struct/comparison-table-product';
 
 	let {
 		id,
@@ -10,6 +14,10 @@
 		steps,
 		imageSrc,
 		imageAlt,
+		comparisonTitle,
+		comparisonColumns,
+		comparisonCriteria,
+		comparisonRows,
 		class: className = ''
 	}: {
 		id?: string;
@@ -19,37 +27,62 @@
 		steps: string[];
 		imageSrc: string;
 		imageAlt: string;
+		comparisonTitle: string;
+		comparisonColumns: [string, string, string];
+		comparisonCriteria: string[];
+		comparisonRows: [string, string, string][];
 		class?: string;
 	} = $props();
+
+	const features = $derived<ComparisonTableFeature[]>(
+		comparisonCriteria.map((name, index) => ({ id: `criterion-${index}`, name }))
+	);
+	const products = $derived<ComparisonTableProduct[]>(
+		comparisonColumns.map((name, columnIndex) => ({
+			id: `column-${columnIndex}`,
+			name,
+			primary: columnIndex === comparisonColumns.length - 1,
+			features: Object.fromEntries(
+				comparisonCriteria.map((_, rowIndex) => [
+					`criterion-${rowIndex}`,
+					comparisonRows[rowIndex][columnIndex]
+				])
+			)
+		}))
+	);
 </script>
 
 <section {id} class="workflow-section {className}" aria-label={ariaLabel}>
-	<div class="workflow-section__copy">
-		<SectionHeading {eyebrow} {title} />
+	<SectionHeading {eyebrow} {title} class="workflow-section__heading" />
+
+	<div class="workflow-section__pair">
+		<StepList {steps} class="workflow-section__steps" />
+		<figure class="workflow-section__media">
+			<img src={imageSrc} alt={imageAlt} loading="lazy" />
+		</figure>
 	</div>
-	<figure class="workflow-section__media">
-		<img src={imageSrc} alt={imageAlt} loading="lazy" />
-	</figure>
-	<StepList {steps} class="workflow-section__steps" />
+
+	<div class="workflow-section__comparison">
+		<Heading level={3} text={comparisonTitle} class="workflow-section__comparison-title" />
+		<ComparisonTable {features} {products} featureColumnLabel="" showHeader />
+	</div>
 </section>
 
 <style>
 	.workflow-section {
-		display: grid;
-		grid-template-columns: minmax(0, 0.9fr) minmax(24rem, 1.1fr);
-		gap: 2rem;
-		align-items: start;
 		padding: 5rem 0;
 		border-top: 1px solid var(--workflow-section-border, currentColor);
 	}
 
-	.workflow-section__copy {
-		grid-column: 1;
+	.workflow-section__pair {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(24rem, 1.1fr);
+		gap: 2rem;
+		align-items: start;
+		margin-top: 2.5rem;
 	}
 
 	.workflow-section__media {
-		grid-column: 2;
-		grid-row: 1 / span 2;
 		margin: 0;
 		overflow: hidden;
 		border: 1px solid var(--workflow-section-border, currentColor);
@@ -67,22 +100,24 @@
 	}
 
 	:global(.workflow-section__steps) {
-		grid-column: 1;
 		--step-list-text: var(--workflow-section-text, currentColor);
 		--step-list-marker-border: var(--workflow-section-marker-border, currentColor);
 		--step-list-marker-color: var(--workflow-section-marker-color, currentColor);
 	}
 
-	@container (max-width: 920px) {
-		.workflow-section {
-			grid-template-columns: 1fr;
-		}
+	.workflow-section__comparison {
+		margin-top: 2.5rem;
+	}
 
-		.workflow-section__copy,
-		.workflow-section__media,
-		:global(.workflow-section__steps) {
-			grid-column: auto;
-			grid-row: auto;
+	:global(.workflow-section__comparison-title) {
+		max-width: 42rem;
+		margin: 0 0 1rem;
+		--typography-color: var(--workflow-section-heading, currentColor);
+	}
+
+	@container (max-width: 920px) {
+		.workflow-section__pair {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>

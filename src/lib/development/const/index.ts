@@ -6,7 +6,6 @@ export {
 	TOKEN_CODE_VIEW,
 	TOKEN_SOFTWARE_BADGE
 } from './array';
-export { CODE_WITH_COPY_DISPATCH } from './code-with-copy';
 export { PAGE_BUILDER_ICON } from './map';
 export {
 	PresetAtomicPrinciplesShowcase,
@@ -19,5 +18,8 @@ export {
 	PAGE_BUILDER_TOOLBAR_ITEMS,
 	categories
 } from './record';
-export { panelId } from './stylist';
-export { PARTICLE_COUNT } from './value';
+export {
+	CODE_WITH_COPY_DISPATCH,
+	PARTICLE_COUNT,
+	panelId
+} from './value';

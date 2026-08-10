@@ -9,8 +9,24 @@ export {
 	TOKEN_ORDER_STATUS,
 	TOKEN_PAYMENT_METHOD,
 	TOKEN_PAYMENT_STATUS,
-	WARRANTY_PERIOD_TYPE
+	WARRANTY_PERIOD_TYPE,
+	shippingCalculatorCountries,
+	shippingCalculatorOptions,
+	shippingCalculatorStates,
+	shippingInfoOptions,
+	shippingInfoRegions,
+	taxCalculatorLocations,
+	taxCalculatorRates,
+	upsellProducts,
+	warrantyInfoClaims,
+	warrantyInfoCoverageDetails,
+	warrantyInfoExclusions
 } from './array';
+export {
+	returnPolicyPolicyData,
+	subscriptionManagerData,
+	upsellCurrentProduct
+} from './object';
 export {
 	PRESET_BULK_ORDER,
 	PresetAlertCard,
@@ -19,27 +35,3 @@ export {
 	PresetPriceAlert,
 	PresetQuoteRequest
 } from './preset';
-export { returnPolicyPolicyData } from './return-policy';
-export {
-	shippingCalculatorCountries,
-	shippingCalculatorOptions,
-	shippingCalculatorStates
-} from './shipping-calculator';
-export {
-	shippingInfoOptions,
-	shippingInfoRegions
-} from './shipping-info';
-export { subscriptionManagerData } from './subscription-manager';
-export {
-	taxCalculatorLocations,
-	taxCalculatorRates
-} from './tax-calculator';
-export {
-	upsellCurrentProduct,
-	upsellProducts
-} from './upsell';
-export {
-	warrantyInfoClaims,
-	warrantyInfoCoverageDetails,
-	warrantyInfoExclusions
-} from './warranty-info';

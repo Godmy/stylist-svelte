@@ -2,6 +2,7 @@
 	import type { Snippet } from 'svelte';
 	import NavBar from '$stylist/landing/component/molecule/nav-bar/index.svelte';
 	import HeroMediaSection from '$stylist/landing/component/molecule/hero-media-section/index.svelte';
+	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
 
 	interface NavBarLink {
 		href: string;
@@ -44,7 +45,8 @@
 		{brand}
 		{languageControl}
 	/>
-	<HeroMediaSection class="hero-section__media" {title} {lead} {imageSrc} {imageAlt} />
+	<HeroMediaSection class="hero-section__media" {title} {imageSrc} {imageAlt} />
+	<Paragraph text={lead} class="hero-section__lead" />
 </section>
 
 <style>
@@ -54,11 +56,19 @@
 
 	:global(.hero-section__media) {
 		--hero-media-section-heading: var(--hero-section-heading, currentColor);
-		--hero-media-section-lead: var(--hero-section-lead, currentColor);
 		--hero-media-section-border: var(--hero-section-border, currentColor);
 		--hero-media-section-media: var(--hero-section-media-bg, transparent);
 		--hero-media-section-shadow: var(--hero-section-media-shadow, none);
 		padding: 4rem 0 0;
+	}
+
+	:global(.hero-section__lead) {
+		margin-top: 0;
+		padding-top: 2.5rem;
+		--typography-color: var(--hero-section-lead, currentColor);
+		--typography-font-size: clamp(1.1rem, 1.75cqw, 1.45rem);
+		--typography-font-weight: 650;
+		--typography-line-height: 1.5;
 	}
 
 	@container (max-width: 920px) {

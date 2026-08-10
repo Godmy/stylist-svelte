@@ -1,6 +1,4 @@
-import type { SlotInputBase } from '$stylist/input/interface/slot/input-base';
-
-export interface SlotInputPassword extends Omit<SlotInputBase, 'type'> {
+export interface SlotInputPassword {
 	showPassword?: boolean;
 	allowTogglePassword?: boolean;
 	showPasswordStrength?: boolean;

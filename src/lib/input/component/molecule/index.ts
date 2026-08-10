@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { CheckboxGroup } from './checkbox-group/index';
-export { FieldHighlighter } from './field-highlighter/index';
 export { InputDouble } from './input-double/index';
 export { InputEmail } from './input-email/index';
 export { InputField } from './input-field/index';

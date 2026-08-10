@@ -7,6 +7,18 @@ import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 import type { LinkSpecificProps } from '$stylist/navigation/interface/recipe/link-specific-props';
 
+import type { SlotLink as BaseLinkProps } from '$stylist/typography/interface/slot/link';
+
 export interface RecipeLink
-	extends ComputeIntersectAll<[SlotTheme, ILabelSlot, IIconSlot, IClickable, IFocusable, ISizable]>,
+	extends ComputeIntersectAll<
+		[
+			Omit<BaseLinkProps, 'target'>,
+			SlotTheme,
+			ILabelSlot,
+			IIconSlot,
+			IClickable,
+			IFocusable,
+			ISizable
+		]
+	>,
 		LinkSpecificProps {}

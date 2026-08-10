@@ -2,7 +2,7 @@
 export {
 	createColumn,
 	createTable
-} from './factory';
+} from './create';
 export {
 	createCellHeaderState,
 	createCellIconState,

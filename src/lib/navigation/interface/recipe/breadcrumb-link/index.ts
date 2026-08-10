@@ -5,5 +5,16 @@ import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/beha
 import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 
+import type { SlotLink as BaseBreadcrumbLinkProps } from '$stylist/typography/interface/slot/link';
+
 export interface RecipeBreadcrumbLink
-	extends ComputeIntersectAll<[ILabelSlot, IIconSlot, IClickable, IFocusable, ISizable]> {}
+	extends ComputeIntersectAll<
+		[
+			BaseBreadcrumbLinkProps,
+			ILabelSlot,
+			IIconSlot,
+			IClickable,
+			IFocusable,
+			ISizable
+		]
+	> {}

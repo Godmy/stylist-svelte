@@ -5,7 +5,7 @@
 	import Tooltip from '$stylist/information/component/atom/tooltip/index.svelte';
 	import { categories } from '$stylist/development/const/record/stylist-categories';
 	import { createStylistState } from '$stylist/development/function/state/stylist/index.svelte';
-	import { panelId } from '$stylist/development/const/stylist/panel-id';
+	import { panelId } from '$stylist/development/const/value/panel-id';
 
 	let props: RecipeStylist = $props();
 	const state = createStylistState(props);
