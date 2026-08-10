@@ -1,10 +1,20 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { BehaviorLocationProto as ILocationProto } from '$stylist/geo/interface/behavior/location';
-
 export interface RecipeIRoute extends ComputeIntersectAll<[]> {
-	start: ILocationProto;
-	end: ILocationProto;
-	waypoints?: ILocationProto[];
+	start: {
+id: string;
+	name: string;
+	address?: string;
+};
+	end: {
+id: string;
+	name: string;
+	address?: string;
+};
+	waypoints?: {
+id: string;
+	name: string;
+	address?: string;
+}[];
 	mode?: 'driving' | 'walking' | 'cycling' | 'transit';
 	showOptions?: boolean;
 	showDirections?: boolean;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import createGeoJSONViewerState from '$stylist/geo/function/state/geo-jsonviewer/index.svelte';
+	import createGeoJSONViewerState from './state.svelte';
 	import { geoHandleKeyDown } from '$stylist/geo/function/script/handle-key-down';
 
 	const Globe = 'globe';

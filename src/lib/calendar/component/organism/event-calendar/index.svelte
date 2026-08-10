@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createEventCalendarState from '$stylist/calendar/function/state/event-calendar/index.svelte';
+	import createEventCalendarState from './state.svelte';
 	import type { SlotEventCalendar as EventCalendarStateProps } from '$stylist/calendar/interface/slot/event-calendar';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
@@ -148,7 +148,7 @@
 			<div class={state.getModalContentClasses()}>
 				<div class={state.getModalHeaderClasses()}>
 					<h3 class="c-event-calendar__modal-title">{state.selectedEvent.title}</h3>
-					<button onclick={state.closeEventActions} class="c-event-calendar__modal-close">✕</button>
+					<button onclick={state.closeEventActions} class="c-event-calendar__modal-close">вњ•</button>
 				</div>
 				<div class="c-event-calendar__modal-body">
 					<p class="c-event-calendar__modal-desc">{state.selectedEvent.description}</p>

@@ -4,7 +4,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Tooltip from '$stylist/information/component/atom/tooltip/index.svelte';
 	import { categories } from '$stylist/development/const/record/stylist-categories';
-	import { createStylistState } from '$stylist/development/function/state/stylist/index.svelte';
+	import { createStylistState } from './state.svelte';
 	import { panelId } from '$stylist/development/const/value/panel-id';
 
 	let props: RecipeStylist = $props();

@@ -2,7 +2,7 @@
 	import { PresetCopyButton } from '$stylist/button/const/preset/copy-button';
 	import type { RecipeCopyButton } from '$stylist/button/interface/recipe/copy-button';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { createCopyButtonState } from '$stylist/button/function/state/copy-button/index.svelte';
+	import { createCopyButtonState } from './state.svelte';
 
 	let props: RecipeCopyButton = $props();
 	const state = createCopyButtonState(props);

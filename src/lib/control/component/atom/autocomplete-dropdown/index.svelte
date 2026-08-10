@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createAutocompleteDropdownState from '$stylist/control/function/state/autocomplete-dropdown/index.svelte';
+	import createAutocompleteDropdownState from './state.svelte';
 	import type { SlotAutocompleteDropdown as AutocompleteDropdownProps } from '$stylist/control/interface/slot/autocomplete-dropdown';
 
 	let {

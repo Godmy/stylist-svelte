@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CheckoutFormProps as Props } from '$stylist/commerce/type/struct/checkout-form-props';
 
-	import createCheckoutFormState from '$stylist/commerce/function/state/checkout-form/index.svelte';
+	import createCheckoutFormState from './state.svelte';
 
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
@@ -671,17 +671,17 @@
 			<div class="_c43">
 				{#if state.currentStep !== 'information' && state.currentStep !== 'confirmation'}
 					<Button variant="ghost" onclick={state.goToPreviousStep}>
-						← Return to {state.getPreviousStepTitle(state.currentStep)}
+						в†ђ Return to {state.getPreviousStepTitle(state.currentStep)}
 					</Button>
 				{/if}
 
 				<div class={state.currentStep === 'information' ? 'sm:col-span-2' : ''}>
 					<Button variant="primary" class="_c44" onclick={state.goToNextStep}>
 						{state.currentStep === 'review'
-							? 'Place SlotOrder →'
+							? 'Place SlotOrder в†’'
 							: state.currentStep === 'confirmation'
-								? 'Continue Shopping →'
-								: `Continue to ${state.getNextStepTitle(state.currentStep)} →`}
+								? 'Continue Shopping в†’'
+								: `Continue to ${state.getNextStepTitle(state.currentStep)} в†’`}
 					</Button>
 				</div>
 			</div>

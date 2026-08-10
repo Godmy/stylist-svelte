@@ -4,7 +4,7 @@
 	import { commentThreadFormatDate } from '$stylist/social/function/script/comment-thread-format-date';
 	import { commentThreadHandleKeyDown } from '$stylist/social/function/script/comment-thread-handle-key-down';
 	import { commentThreadSubmitReply } from '$stylist/social/function/script/comment-thread-submit-reply';
-	import createCommentThreadState from '$stylist/social/function/state/comment-thread/index.svelte';
+	import createCommentThreadState from './state.svelte';
 
 	let props: CommentThreadProps = $props();
 	const state = createCommentThreadState(props);

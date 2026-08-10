@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeRegister } from '$stylist/auth/interface/recipe/register';
-	import createRegisterState from '$stylist/auth/function/state/register/index.svelte';
+	import createRegisterState from './state.svelte';
 	import LoginField from '$stylist/auth/component/atom/login-field/index.svelte';
 	import SubmitButton from '$stylist/auth/component/atom/submit-button/index.svelte';
 	import AuthError from '$stylist/auth/component/atom/auth-error/index.svelte';
@@ -63,7 +63,7 @@
 			value={state.password}
 			oninput={(e) => (state.password = (e.currentTarget as HTMLInputElement).value)}
 			autocomplete="new-password"
-			placeholder="••••••••"
+			placeholder="вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў"
 			required
 		/>
 		<LoginField
@@ -74,7 +74,7 @@
 			value={state.confirmPassword}
 			oninput={(e) => (state.confirmPassword = (e.currentTarget as HTMLInputElement).value)}
 			autocomplete="new-password"
-			placeholder="••••••••"
+			placeholder="вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў"
 			required
 		/>
 		{#if state.hasError}

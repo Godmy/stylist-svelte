@@ -6,7 +6,6 @@ export type { RecipeBillingSummary } from './billing-summary';
 export type { RecipeCardWithImage } from './card-with-image';
 export type { CartSummaryProps } from './cart-summary-props';
 export type { RecipeCategoryCard } from './category-card';
-export type { RecipeCompetitorPrice } from './competitor-price';
 export type { RecipeCurrencyConverter } from './currency-converter';
 export type { RecipeDataDisplayCard } from './data-display-card';
 export type { RecipeDiscountApplier } from './discount-applier';

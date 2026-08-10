@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { ContentEditorStateProps } from '$stylist/development/interface/recipe/content-editor-state-props';
-	import createContentEditorState from '$stylist/development/function/state/content-editor/index.svelte';
+	import createContentEditorState from './state.svelte';
 
 	const Bold = 'bold';
 	const Italic = 'italic';

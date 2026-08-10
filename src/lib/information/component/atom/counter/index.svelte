@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCounter } from '$stylist/information/interface/recipe/counter';
-	import createCounterState from '$stylist/information/function/state/counter/index.svelte';
+	import createCounterState from './state.svelte';
 
 	let props: RecipeCounter = $props();
 

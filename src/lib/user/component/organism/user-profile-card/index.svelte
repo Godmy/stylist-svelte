@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeUserProfileCard } from '$stylist/user/interface/recipe/user-profile-card';
-	import { createUserProfileCardState } from '$stylist/user/function/state/user-profile-card/index.svelte';
+	import { createUserProfileCardState } from './state.svelte';
 
 	let props: RecipeUserProfileCard = $props();
 	const state = createUserProfileCardState(props);

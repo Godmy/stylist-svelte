@@ -42,29 +42,7 @@ export {
 	TOKEN_CHART,
 	TOKEN_CHART_COLORS
 } from './const';
-export {
-	createAnalyticsChartState,
-	createBarChartState,
-	createCanvasChartState,
-	createChartAxisXState,
-	createChartAxisYState,
-	createChartAxisZState,
-	createChartBackgroundState,
-	createChartCanvasState,
-	createChartLegendState,
-	createChartNameState,
-	createChartPolylineState,
-	createChartState,
-	createHeatmapState,
-	createLineChartState,
-	createMetricBarState,
-	createMetricBarsCardState,
-	createPieChartState,
-	createRangeBarsChartState,
-	createScatterPlotState,
-	createVerticalBarsChartState,
-	resolveCanvasChartPreset
-} from './function';
+export { resolveCanvasChartPreset } from './function';
 export type {
 	AnalyticsChartBarPoint,
 	AnalyticsChartCanvasProps,
@@ -72,14 +50,11 @@ export type {
 	AnalyticsPieChartSegment,
 	CanvasChartDataPoint,
 	CanvasChartPadding,
-	ChartAxisYMetrics,
-	ChartBounds,
 	ChartFunctionPoint,
 	ChartLegendItem,
 	ChartScale,
 	ChartSeries,
 	HeatmapAxisValue,
-	IBarPosition,
 	IChartDataPoint,
 	IExtendedHeatmapCell,
 	IHeatmapCell,

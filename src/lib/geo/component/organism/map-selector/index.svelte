@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import { createMapSelectorState } from '$stylist/geo/function/state/map-selector/index.svelte';
+	import { createMapSelectorState } from './state.svelte';
 
 	let props = $props();
 	const state = createMapSelectorState(props);

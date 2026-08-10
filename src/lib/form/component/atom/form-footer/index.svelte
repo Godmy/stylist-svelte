@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeFormFooter } from '$stylist/form/interface/recipe/form-footer';
-	import { createFormFooterState } from '$stylist/form/function/state/form-footer/index.svelte';
+	import { createFormFooterState } from './state.svelte';
 
 	let {
 		primaryButtonLabel = 'Submit',

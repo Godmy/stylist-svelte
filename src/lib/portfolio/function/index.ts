@@ -20,11 +20,3 @@ export {
 	renameKanbanCard,
 	renameKanbanColumn
 } from './script';
-export {
-	createBurnDownChartState,
-	createIssuesTableState,
-	createKanbanBoardState,
-	createKanbanCardState,
-	createKanbanColumnState,
-	createScrumBacklogState
-} from './state';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createCenteredLayoutState from '$stylist/layout/function/state/centered-layout/index.svelte';
+	import createCenteredLayoutState from './state.svelte';
 	import type { CenteredLayoutProps } from '$stylist/layout/interface/recipe/centered-layout';
 
 	let props: CenteredLayoutProps = $props();

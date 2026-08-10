@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeUpsell as UpsellContract } from '$stylist/commerce/interface/recipe/upsell';
-	import stateFn from '$stylist/commerce/function/state/upsell/index.svelte';
+	import stateFn from './state.svelte';
 
 	let props: UpsellContract = $props();
 	const state = stateFn(props);
@@ -63,7 +63,7 @@
 				{#if product.rating}
 					<div class="_c7">
 						{#each Array.from({ length: 5 }) as _, index}
-							<span class={state.getStarClasses(index < Math.round(product.rating))}>★</span>
+							<span class={state.getStarClasses(index < Math.round(product.rating))}>в…</span>
 						{/each}
 						<span class="_c8">
 							{product.rating.toFixed(1)}{#if product.reviewCount}
@@ -76,7 +76,7 @@
 					<button
 						type="button"
 						class="upsell__action-button"
-						data-TODO="was state.ActionButtonClasses(...) — add data-attr"
+						data-TODO="was state.ActionButtonClasses(...) вЂ” add data-attr"
 						onclick={() => props.onProductUpgrade?.(product)}
 					>
 						Upgrade
@@ -84,7 +84,7 @@
 					<button
 						type="button"
 						class="upsell__action-button"
-						data-TODO="was state.ActionButtonClasses(...) — add data-attr"
+						data-TODO="was state.ActionButtonClasses(...) вЂ” add data-attr"
 						onclick={() => props.onProductAddToCart?.(product)}
 					>
 						Add to Cart

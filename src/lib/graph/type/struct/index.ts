@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { GraphJsonInput } from './graph-json-input';
-export type { InstancedDrawData } from './instanced-draw-data';
 export type { SceneAtom } from './scene-atom';
 export type { SceneAtomGeometry } from './scene-atom-geometry';
 export type { SceneAtomKind } from './scene-atom-kind';
@@ -11,7 +10,6 @@ export type { SceneBufferSet } from './scene-buffer-set';
 export type { SceneDebugInfo } from './scene-debug-info';
 export type { SceneGeometry } from './scene-geometry';
 export type { SceneGraph } from './scene-graph';
-export type { SceneInteractionState } from './scene-interaction-state';
 export type { SceneMaterial } from './scene-material';
 export type { SceneMaterialKind } from './scene-material-kind';
 export type { SceneMolecule } from './scene-molecule';

@@ -4,7 +4,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 	import TextArea from '$stylist/input/component/molecule/text-area/index.svelte';
-	import { createScrumBacklogState } from '$stylist/portfolio/function/state/scrum-backlog/index.svelte';
+	import { createScrumBacklogState } from './state.svelte';
 	import type { SlotBacklogItem as BacklogItem } from '$stylist/portfolio/interface/slot/backlog-item';
 	import type { SlotBacklogData as BacklogData } from '$stylist/portfolio/interface/slot/backlog-data';
 

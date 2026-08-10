@@ -1,4 +1,6 @@
-import type { SidebarStateProps as LegacySidebarProps1 } from '$stylist/navigation/interface/recipe/sidebar-sidebar-state-props';
+import type { SlotSidebar as SidebarProps } from '$stylist/navigation/interface/slot/sidebar';
+import type { Snippet } from 'svelte';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotSidebar as Slot } from '$stylist/navigation/interface/slot/sidebar';
 import type { SlotSidebar as SlotSidebar } from '$stylist/navigation/interface/slot/sidebar';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
@@ -12,12 +14,12 @@ import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/beha
 import type { BehaviorTransformable as ITransformable } from '$stylist/animation/interface/behavior/transformable';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-import type { LayoutSpecificProps } from '$stylist/navigation/interface/recipe/layout-specific-props';
-
 export interface RecipeSidebar
 	extends ComputeIntersectAll<
 		[
-			LegacySidebarProps1,
+			ComputeIntersectAll<[SidebarProps]> & {
+class?: string;
+},
 			Slot,
 			SlotSidebar,
 			SlotTheme,

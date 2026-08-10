@@ -2,7 +2,7 @@
 	import { PresetPageButton } from '$stylist/navigation/const/preset/page-button';
 	import type { RecipePageButton } from '$stylist/navigation/interface/recipe/page-button';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { createPageButtonState } from '$stylist/navigation/function/state/page-button/index.svelte';
+	import { createPageButtonState } from './state.svelte';
 
 	/**
 	 * PageButton component - A button for pagination

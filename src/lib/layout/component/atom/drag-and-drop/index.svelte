@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotDragAndDrop } from '$stylist/control/interface/slot/drag-and-drop';
-	import createDragAndDropState from '$stylist/layout/function/state/drag-and-drop/index.svelte';
+	import createDragAndDropState from './state.svelte';
 
 	let props: SlotDragAndDrop = $props();
 	const state = createDragAndDropState(props);

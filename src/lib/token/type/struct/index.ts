@@ -10,7 +10,6 @@ export type { TokenControlComposerProps } from './token-control-composer-props';
 export type { TokenControlDefinition } from './token-control-definition';
 export type { TokenControlDefinitionData } from './token-control-definition-data';
 export type { TokenControlOption } from './token-control-option';
-export type { TokenIconKind } from './token-icon-kind';
 export type { TokenIconProps } from './token-icon-props';
 export type { TokenRadioControlProps } from './token-radio-control-props';
 export type { TokenRangeControlProps } from './token-range-control-props';

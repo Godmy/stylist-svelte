@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeAccountSettingsForm } from '$stylist/user/interface/recipe/account-settings-form';
-	import { createAccountSettingsFormState } from '$stylist/user/function/state/account-settings-form/index.svelte';
+	import { createAccountSettingsFormState } from './state.svelte';
 
 	let props: RecipeAccountSettingsForm = $props();
 	const state = createAccountSettingsFormState(props);

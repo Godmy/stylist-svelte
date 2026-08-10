@@ -1,6 +1,24 @@
-import type { TokenIconKind } from '$stylist/token/type/struct/token-icon-kind';
-
-export function getTokenIconKind(tokenName: string): TokenIconKind {
+export function getTokenIconKind(tokenName: string): | 'layout'
+	| 'shape'
+	| 'size'
+	| 'SPACING'
+	| 'radius'
+	| 'SHADOW'
+	| 'border'
+	| 'TOKEN_OPACITY'
+	| 'blur'
+	| 'container'
+	| 'grid'
+	| 'aspect'
+	| 'layers'
+	| 'palette'
+	| 'gradient'
+	| 'TYPOGRAPHY'
+	| 'variant'
+	| 'state'
+	| 'graph'
+	| 'motion'
+	| 'default' {
 	switch (tokenName) {
 		case 'POSITIONS':
 		case 'TOKEN_ORIENTATION':

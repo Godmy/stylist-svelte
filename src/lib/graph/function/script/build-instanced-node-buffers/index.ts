@@ -1,13 +1,17 @@
 import type { ZwickyNode } from '$stylist/graph/type/struct/zwicky-node';
-import type { InstancedDrawData } from '$stylist/graph/type/struct/instanced-draw-data';
-
 export function buildInstancedNodeBuffers(
 	nodes: readonly ZwickyNode[],
 	hoveredId: string | null,
 	selectedId: string | null,
 	domainFilter: ReadonlySet<string>,
 	clusterFilter: ReadonlySet<string>
-): InstancedDrawData {
+): {
+	instancePositions: Float32Array;
+	instanceColors: Float32Array;
+	instanceSizes: Float32Array;
+	instanceHighlights: Float32Array;
+	count: number;
+} {
 	const count = nodes.length;
 	const instancePositions = new Float32Array(count * 3);
 	const instanceColors = new Float32Array(count * 3);

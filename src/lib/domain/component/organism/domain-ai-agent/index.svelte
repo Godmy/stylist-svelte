@@ -2,7 +2,7 @@
 	import Transcriber from '$stylist/audio/component/organism/transcriber/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import type { RecipeDomainAiAgent } from '$stylist/domain/interface/recipe/domain-ai-agent';
-	import { createDomainAiAgentState } from '$stylist/domain/function/state/domain-ai-agent/index.svelte';
+	import { createDomainAiAgentState } from './state.svelte';
 
 	let props: RecipeDomainAiAgent = $props();
 	const state = createDomainAiAgentState(props);

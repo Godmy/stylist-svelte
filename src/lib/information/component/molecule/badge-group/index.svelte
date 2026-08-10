@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import createBadgeGroupState from '$stylist/information/function/state/badge-group/index.svelte';
+<script lang="ts">
+	import createBadgeGroupState from './state.svelte';
 	import type { RecipeBadgeGroup } from '$stylist/information/interface/recipe/badge-group';
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	/**
 	 * CopyableCode - Legacy wrapper for unified Code
 	 *
@@ -6,7 +6,7 @@
 	 */
 	import Code from '$stylist/development/component/molecule/code-block/index.svelte';
 	import type { CopyableCodeBlockProps } from '$stylist/development/type/struct/copyable-code-block-props';
-	import createCopyableCodeBlockState from '$stylist/development/function/state/copyable-code-block/index.svelte';
+	import createCopyableCodeBlockState from './state.svelte';
 
 	let props: CopyableCodeBlockProps = $props();
 	const state = createCopyableCodeBlockState(props);

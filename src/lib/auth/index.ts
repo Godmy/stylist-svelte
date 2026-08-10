@@ -21,22 +21,10 @@ export {
 	STORAGE_KEYS,
 	TOKEN_TYPE
 } from './const';
-export {
-	createAuthGuardState,
-	createForgotPasswordState,
-	createLoginFieldState,
-	createLoginState,
-	createRegisterState,
-	createSecureFormState,
-	createSecuritySettingsState,
-	createSessionManagerState,
-	resolveAuthGuardState
-} from './function';
+export { resolveAuthGuardState } from './function';
 export type {
 	AuthFormState,
 	AuthGuardProps,
-	AuthGuardResolution,
-	AuthGuardResolutionInput,
 	AuthResponse,
 	AuthResult,
 	AuthState,

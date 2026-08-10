@@ -1,9 +1,9 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 	import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
 	import MessageList from '$stylist/chat/component/molecule/message-list/index.svelte';
 	import MessageInput from '$stylist/chat/component/atom/message-input/index.svelte';
-	import createChatWindowState from '$stylist/chat/function/state/chat-window/index.svelte';
+	import createChatWindowState from './state.svelte';
 
 	let props: {
 		chat: {

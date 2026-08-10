@@ -4,7 +4,7 @@
 	import NodeProperty from '$stylist/workspace/component/atom/node-property/index.svelte';
 	import NodePortGroup from '$stylist/workspace/component/molecule/node-port-group/index.svelte';
 	import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
-	import createWorkspaceNodeState from '$stylist/workspace/function/state/workspace-node/index.svelte';
+	import createWorkspaceNodeState from './state.svelte';
 
 	let props: RecipeWorkspaceNode = $props();
 	const state = createWorkspaceNodeState(props);

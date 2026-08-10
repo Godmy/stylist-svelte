@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createRadioGroupState from '$stylist/form/function/state/radio-group/index.svelte';
+	import createRadioGroupState from './state.svelte';
 	import type { RadioGroupProps } from '$stylist/form/type/struct/radio-group/radiogroup-props';
 
 	const props: RadioGroupProps = $props();

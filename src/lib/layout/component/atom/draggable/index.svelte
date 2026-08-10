@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeDraggable } from '$stylist/layout/interface/recipe/draggable';
-	import createDraggableState from '$stylist/layout/function/state/draggable/index.svelte';
+	import createDraggableState from './state.svelte';
 
 	let props: RecipeDraggable = $props();
 	const state = createDraggableState(props);

@@ -10,7 +10,7 @@
 
 	import type { TrafficAnalyticsProps } from '$stylist/marketing/type/struct/traffic-analytics/trafficanalytics-props';
 	import type { TimeRange } from '$stylist/marketing/type/alias/traffic-analytics-time-range';
-	import createTrafficAnalyticsState from '$stylist/marketing/function/state/traffic-analytics/index.svelte';
+	import createTrafficAnalyticsState from './state.svelte';
 
 	let props: TrafficAnalyticsProps = $props();
 	const state = createTrafficAnalyticsState(props);

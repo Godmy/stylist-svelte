@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import createStatsCardState from '$stylist/management/function/state/stats-card/index.svelte';
+	import createStatsCardState from './state.svelte';
 	import type { RecipeStatsCard } from '$stylist/management/interface/recipe/stats-card';
 
 	let stateProps: RecipeStatsCard = $props();

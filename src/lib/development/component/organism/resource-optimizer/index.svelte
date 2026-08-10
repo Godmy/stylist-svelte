@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeResourceOptimizer } from '$stylist/development/interface/recipe/resource-optimizer';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { createResourceOptimizerState } from '$stylist/development/function/state/resource-optimizer/index.svelte';
+	import { createResourceOptimizerState } from './state.svelte';
 
 	const HardDrive = 'hard-drive';
 	const Zap = 'zap';

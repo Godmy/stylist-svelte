@@ -3,21 +3,3 @@ export {
 	createColumn,
 	createTable
 } from './create';
-export {
-	createCellHeaderState,
-	createCellIconState,
-	createCellPillState,
-	createCellState,
-	createCellTextState,
-	createColumnManagerState,
-	createColumnState,
-	createComparisonTableState,
-	createComponentState,
-	createDataTableShellState,
-	createDataTableState,
-	createExpandableTableRowState,
-	createFilterBarState,
-	createFilterPillsState,
-	createFilterTextState,
-	createRowState
-} from './state';

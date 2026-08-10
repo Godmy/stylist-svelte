@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { TreeNodeItemProps } from '$stylist/tree/type/alias/tree-node-item-props';
-	import createTreeNodeItemState from '$stylist/tree/function/state/tree-node-item/index.svelte';
+	import createTreeNodeItemState from './state.svelte';
 	import Self from './index.svelte';
 
 	let props: TreeNodeItemProps = $props();

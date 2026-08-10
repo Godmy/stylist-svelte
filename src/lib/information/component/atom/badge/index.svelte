@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createBadgeState from '$stylist/information/function/state/badge/index.svelte';
+	import createBadgeState from './state.svelte';
 	import type { RecipeBadge } from '$stylist/information/interface/recipe/badge';
 
 	let props: RecipeBadge = $props();

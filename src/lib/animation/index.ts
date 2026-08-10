@@ -15,13 +15,6 @@ export {
 } from './const';
 export {
 	animateValue,
-	createAnimatedBackgroundState,
-	createAnimatedNumberState,
-	createAnimatedState,
-	createLayoutTransformationState,
-	createNumberFlowState,
-	createTransformableState,
-	createTransformationState,
 	formatAnimatedValue,
 	formatNumberFlowValue,
 	getEasingFunction

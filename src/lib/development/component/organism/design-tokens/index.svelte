@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeDesignTokens } from '$stylist/development/interface/recipe/design-tokens';
-	import { createDesignTokensState } from '$stylist/development/function/state/design-tokens/index.svelte';
+	import { createDesignTokensState } from './state.svelte';
 
 	let { ...props }: RecipeDesignTokens = $props();
 	const state = createDesignTokensState(props);

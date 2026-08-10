@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeImage } from '$stylist/image/interface/recipe/image';
-	import { createImageState } from '$stylist/image/function/state/image/index.svelte';
+	import { createImageState } from './state.svelte';
 
 	let props: RecipeImage = $props();
 	const state = createImageState(props);

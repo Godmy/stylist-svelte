@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import { createFileListItemState } from '$stylist/file/function/state/file-list-item/index.svelte';
+	import { createFileListItemState } from './state.svelte';
 	import { formatFileSize } from '$stylist/file/function/script/file-list-item-format-file-size';
 	import type { RecipeFileListItem } from '$stylist/file/interface/recipe/file-list-item';
 

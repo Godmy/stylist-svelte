@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeMenuItem } from '$stylist/navigation/interface/recipe/menu-item';
-	import { createMenuItemState } from '$stylist/navigation/function/state/menu-item/index.svelte';
+	import { createMenuItemState } from './state.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeMenuItem = $props();

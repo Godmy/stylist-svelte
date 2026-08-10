@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCharacterCount } from '$stylist/input/interface/recipe/characters-count';
-	import createCharactersCountState from '$stylist/input/function/state/characters-count/index.svelte';
+	import createCharactersCountState from './state.svelte';
 
 	let props: RecipeCharacterCount = $props();
 	const state = createCharactersCountState(props);

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCanvasChart } from '$stylist/chart/interface/recipe/canvas-chart';
-	import createCanvasChartState from '$stylist/chart/function/state/canvas-chart/index.svelte';
+	import createCanvasChartState from './state.svelte';
 	import { ObjectManagerCanvasChart } from '$stylist/chart/class/object-manager/canvas-chart';
 
 	let props: RecipeCanvasChart = $props();

@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import TokenControlBase from '$stylist/token/component/atom/token-control-base/index.svelte';
 	import type { TokenRangeControlProps } from '$stylist/token/type/struct/token-range-control-props';
-	import createTokenRangeState from '$stylist/token/function/state/token-range/index.svelte';
+	import createTokenRangeState from './state.svelte';
 
 	let props: TokenRangeControlProps = $props();
 	const state = createTokenRangeState(props);

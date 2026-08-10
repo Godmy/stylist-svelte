@@ -29,9 +29,3 @@ export {
 	resolveSceneAtomModelMatrix,
 	resolveSceneAtomTint
 } from './script';
-export {
-	createFieldHighlighterState,
-	createSceneCameraControlState,
-	createSceneState,
-	createZwickySceneState
-} from './state';

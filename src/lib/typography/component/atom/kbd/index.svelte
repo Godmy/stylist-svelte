@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeThemeKbd } from '$stylist/typography/interface/recipe/kbd';
-	import createKbdState from '$stylist/typography/function/state/kbd/index.svelte';
+	import createKbdState from './state.svelte';
 
 	let props: RecipeThemeKbd = $props();
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotClick } from '$stylist/control/interface/slot/click';
-	import createClickState from '$stylist/layout/function/state/click/index.svelte';
+	import createClickState from './state.svelte';
 
 	let props: SlotClick = $props();
 	const state = createClickState(props);

@@ -2,7 +2,7 @@
 	import type { TreeNodeItemNode } from '$stylist/tree/type/struct/tree-node-item-node';
 	import AdvancedVirtualTree from '$stylist/tree/component/organism/advanced-virtual-tree/index.svelte';
 	import { normalizeTreeViewerNode } from '$stylist/tree/function/script/normalize-tree-viewer-node';
-	import createTreeViewerState from '$stylist/tree/function/state/tree-viewer/index.svelte';
+	import createTreeViewerState from './state.svelte';
 
 	let props = $props<{
 		tree?: TreeNodeItemNode[];

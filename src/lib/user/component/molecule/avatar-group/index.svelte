@@ -3,7 +3,7 @@
 	import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 	import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 	import type { RecipeAvatarGroup } from '$stylist/user/interface/recipe/avatar-group';
-	import { createAvatarGroupState } from '$stylist/user/function/state/avatar-group/index.svelte';
+	import { createAvatarGroupState } from './state.svelte';
 
 	let props: RecipeAvatarGroup & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography = $props();
 	const state = createAvatarGroupState(props);

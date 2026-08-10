@@ -6,7 +6,7 @@
 	import type { PageBuilderImageAttributes } from '$stylist/development/type/struct/page-builder-image-attributes';
 	import { PAGE_BUILDER_TOOLBAR_ITEMS } from '$stylist/development/const/record/page-builder-toolbar-items';
 	import { PAGE_BUILDER_ICON } from '$stylist/development/const/map/page-builder-icons';
-	import createPageBuilderState from '$stylist/development/function/state/page-builder/index.svelte';
+	import createPageBuilderState from './state.svelte';
 	import { pageBuilderRenderElement } from '$stylist/development/function/script/page-builder-render-element';
 	import type { PageBuilderProps } from '$stylist/development/type/struct/page-builder-props';
 

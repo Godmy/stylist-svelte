@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeFormHeader } from '$stylist/form/interface/recipe/form-header';
-	import { createFormHeaderState } from '$stylist/form/function/state/form-header/index.svelte';
+	import { createFormHeaderState } from './state.svelte';
 
 	let {
 		title,

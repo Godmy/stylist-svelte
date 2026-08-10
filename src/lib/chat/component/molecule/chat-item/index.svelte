@@ -5,7 +5,7 @@
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 	import MessageTimestamp from '$stylist/chat/component/atom/message-timestamp/index.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import createChatItemState from '$stylist/chat/function/state/chat-item/index.svelte';
+	import createChatItemState from './state.svelte';
 
 	export type ChatItemProps = {
 		chat: Chat;

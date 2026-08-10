@@ -22,16 +22,3 @@ export {
 	socialActivityFeedGetDescription,
 	socialActivityFeedGetIcon
 } from './script';
-export {
-	createCommentSystemState,
-	createCommentThreadState,
-	createFriendListState,
-	createPostCardState,
-	createRatingState,
-	createReactionPickerState,
-	createRealTimePresenceState,
-	createSocialActivityFeedState,
-	createSocialFeedState,
-	createSocialLoginState,
-	createSocialShareState
-} from './state';

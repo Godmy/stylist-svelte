@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import createSortableGridState from '$stylist/layout/function/state/sortable-grid/index.svelte';
+	import createSortableGridState from './state.svelte';
 	import type { SortableGridProps } from '$stylist/layout/interface/recipe/sortable-grid';
 
 	const GripVertical = 'grip-vertical';

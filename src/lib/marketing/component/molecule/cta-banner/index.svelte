@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CtaBannerProps } from '$stylist/marketing/type/struct/cta-banner/ctabanner-props';
-	import createCtaBannerState from '$stylist/marketing/function/state/cta-banner/index.svelte';
+	import createCtaBannerState from './state.svelte';
 
 	let props: CtaBannerProps = $props();
 	const state = createCtaBannerState(props);

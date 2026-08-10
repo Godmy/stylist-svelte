@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TokenControlBaseProps } from '$stylist/token/type/struct/token-control-base-props';
-	import createTokenControlBaseState from '$stylist/token/function/state/token-control-base/index.svelte';
+	import createTokenControlBaseState from './state.svelte';
 
 	let props: TokenControlBaseProps = $props();
 	const state = createTokenControlBaseState(props);

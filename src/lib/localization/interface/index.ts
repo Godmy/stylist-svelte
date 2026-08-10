@@ -11,6 +11,5 @@ export type {
 	SlotExtendedTranslationEditor,
 	SlotLanguageSelectorStyleClasses,
 	SlotLocaleSwitcher,
-	SlotLocaleSwitcherLocale,
-	SlotLocaleSwitcherTimezoneOption
+	SlotLocaleSwitcherLocale
 } from './slot';

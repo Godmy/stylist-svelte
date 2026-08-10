@@ -2,7 +2,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { PresetCloseButton } from '$stylist/button/const/preset/close-button';
 	import type { RecipeCloseButton } from '$stylist/button/interface/recipe/close-button';
-	import { createCloseButtonState } from '$stylist/button/function/state/close-button/index.svelte';
+	import { createCloseButtonState } from './state.svelte';
 
 	let props: RecipeCloseButton = $props();
 	const state = createCloseButtonState(props);

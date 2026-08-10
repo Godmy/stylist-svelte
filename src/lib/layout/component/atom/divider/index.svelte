@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { DividerProps } from '$stylist/layout/interface/recipe/divider';
-	import createDividerState from '$stylist/layout/function/state/divider/index.svelte';
+	import createDividerState from './state.svelte';
 
 	let props: DividerProps = $props();
 	const state = createDividerState(props);

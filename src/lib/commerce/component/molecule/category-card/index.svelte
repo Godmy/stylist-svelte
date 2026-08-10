@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeCategoryCard as ICategoryCardProps } from '$stylist/commerce/interface/recipe/category-card';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
-	import createCategoryCardState from '$stylist/commerce/function/state/category-card/index.svelte';
+	import createCategoryCardState from './state.svelte';
 
 	let props: ICategoryCardProps & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createCategoryCardState(props);

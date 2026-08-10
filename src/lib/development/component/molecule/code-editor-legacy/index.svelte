@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	/**
 	 * CodeEditor - Legacy wrapper for unified Code
 	 *
@@ -6,7 +6,7 @@
 	 */
 	import Code from '$stylist/development/component/molecule/code-block/index.svelte';
 	import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor-props';
-	import createCodeEditorLegacyState from '$stylist/development/function/state/code-editor-legacy/index.svelte';
+	import createCodeEditorLegacyState from './state.svelte';
 
 	let {
 		code = '',

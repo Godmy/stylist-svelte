@@ -8,6 +8,5 @@ export type {
 	SlotFieldHighlighter,
 	SlotFieldHighlighterSelectedField,
 	SlotGraphEdge,
-	SlotGraphNode,
-	SlotGraphVisualizationData
+	SlotGraphNode
 } from './slot';

@@ -10,7 +10,7 @@
 	import Divider from '$stylist/layout/component/atom/divider/index.svelte';
 	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
-	import createKanbanCardState from '$stylist/portfolio/function/state/kanban-card/index.svelte';
+	import createKanbanCardState from './state.svelte';
 	import type { RecipeKanbanCard as KanbanCardProps } from '$stylist/portfolio/interface/recipe/kanban-card';
 
 	let props: KanbanCardProps = $props();

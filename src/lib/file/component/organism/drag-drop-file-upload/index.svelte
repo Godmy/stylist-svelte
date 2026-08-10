@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { createDragDropFileUploadState } from '$stylist/file/function/state/drag-drop-file-upload/index.svelte';
+	import { createDragDropFileUploadState } from './state.svelte';
 	import type { RecipeDragDropFileUpload } from '$stylist/file/interface/recipe/drag-drop-file-upload';
 
 	let props: RecipeDragDropFileUpload = $props();

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import TokenControlComposer from '$stylist/token/component/molecule/token/index.svelte';
 	import { TOKEN_SETTING } from '$stylist/token/const/object/token-setting';
-	import { createTokenSettingsState } from '$stylist/token/function/state/token-settings/index.svelte';
+	import { createTokenSettingsState } from './state.svelte';
 
 	let {
 		settings = TOKEN_SETTING,

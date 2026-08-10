@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeCellHeader } from '$stylist/table/interface/recipe/cell-header';
-	import { createCellHeaderState } from '$stylist/table/function/state/cell-header';
+	import { createCellHeaderState } from './state.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeCellHeader & HTMLAttributes<HTMLTableHeaderCellElement> = $props();

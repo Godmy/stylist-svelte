@@ -7,20 +7,6 @@ export {
 } from './script';
 export {
 	createCharacterCountState,
-	createCharactersCountState,
-	createCheckboxGroupState,
-	createInputFieldState,
-	createInputGroupState,
-	createInputLabelState,
-	createInputPasswordState,
-	createInputTextState,
-	createNumberInputState,
-	createPhoneNumberInputState,
-	createRadioButtonGroupState,
-	createRadioGroupState,
-	createRichTextEditorState,
-	createTagInputState,
-	createTextareaState,
 	formatPhoneNumber,
 	normalizePhoneInputValue
 } from './state';

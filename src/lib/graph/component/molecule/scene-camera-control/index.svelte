@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeSceneCameraControl } from '$stylist/graph/interface/recipe/scene-camera-control';
-	import createSceneCameraControlState from '$stylist/graph/function/state/scene-camera-control/index.svelte';
+	import createSceneCameraControlState from './state.svelte';
 
 	let props: RecipeSceneCameraControl = $props();
 	const state = createSceneCameraControlState(props);

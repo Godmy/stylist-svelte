@@ -21,7 +21,7 @@
 
 	import type { SlotABTestConfigurator as IABTestConfiguratorProps } from '$stylist/marketing/interface/slot/ab-test-configurator';
 
-	import createABTestConfiguratorState from '$stylist/marketing/function/state/abtest-configurator/index.svelte';
+	import createABTestConfiguratorState from './state.svelte';
 
 	let props: IABTestConfiguratorProps & {
 		class?: string;

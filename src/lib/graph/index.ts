@@ -33,16 +33,12 @@ export {
 	clampZwickyRadius,
 	compileSceneShader,
 	createDemoSceneGraph,
-	createFieldHighlighterState,
 	createSceneAtom,
 	createSceneAtomBuffers,
 	createSceneBoxGeometry,
 	createSceneBuffers,
-	createSceneCameraControlState,
 	createSceneCubeGeometry,
 	createSceneProgram,
-	createSceneState,
-	createZwickySceneState,
 	destroySceneBuffers,
 	drawSceneBuffers,
 	getAtomBoundsRadius,
@@ -60,7 +56,6 @@ export {
 } from './function';
 export type {
 	GraphJsonInput,
-	InstancedDrawData,
 	SceneAtom,
 	SceneAtomGeometry,
 	SceneAtomKind,
@@ -72,7 +67,6 @@ export type {
 	SceneDebugInfo,
 	SceneGeometry,
 	SceneGraph,
-	SceneInteractionState,
 	SceneMaterial,
 	SceneMaterialKind,
 	SceneMolecule,
@@ -89,8 +83,7 @@ export type {
 	SlotFieldHighlighter,
 	SlotFieldHighlighterSelectedField,
 	SlotGraphEdge,
-	SlotGraphNode,
-	SlotGraphVisualizationData
+	SlotGraphNode
 } from './interface';
 export type {
 	GraphBounds3D,

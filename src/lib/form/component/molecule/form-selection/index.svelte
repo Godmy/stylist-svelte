@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import createFormSelectionState from '$stylist/form/function/state/form-selection/index.svelte';
+	import createFormSelectionState from './state.svelte';
 	import { toggleCollapsed } from '$stylist/form/function/script/form-selection/toggle-collapsed';
 	import type { FormSelectionProps } from '$stylist/form/type/struct/form-selection';
 

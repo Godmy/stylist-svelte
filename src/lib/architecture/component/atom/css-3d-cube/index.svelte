@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCss3dCube } from '$stylist/architecture/interface/recipe/css-3d-cube';
-	import createCss3dCubeState from '$stylist/architecture/function/state/css-3d-cube/index.svelte';
+	import createCss3dCubeState from './state.svelte';
 
 	let props: RecipeCss3dCube = $props();
 	const state = createCss3dCubeState(props);

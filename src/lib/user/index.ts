@@ -10,13 +10,6 @@ export {
 	AVATAR_USER_STATUS,
 	TOKEN_AVAILABILITY
 } from './const';
-export {
-	createAccountSettingsFormState,
-	createAvatarGroupState,
-	createAvatarSelectorState,
-	createAvatarState,
-	createUserProfileCardState
-} from './function';
 export type {
 	AccountSettings,
 	AvatarGroupAvatar,

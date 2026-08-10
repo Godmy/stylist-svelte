@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeSubscriptionManager as SubscriptionManagerContract } from '$stylist/commerce/interface/recipe/subscription-manager';
-	import stateFn from '$stylist/commerce/function/state/subscription-manager/index.svelte';
+	import stateFn from './state.svelte';
 
 	let props: SubscriptionManagerContract = $props();
 	const state = stateFn(props);
@@ -16,7 +16,7 @@
 		</div>
 		<span
 			class="subscription-manager__status-badge"
-			data-TODO="was state.StatusBadgeClasses(...) — add data-attr"
+			data-TODO="was state.StatusBadgeClasses(...) вЂ” add data-attr"
 			>{state.subscription.status}</span
 		>
 	</header>
@@ -76,19 +76,19 @@
 			<button
 				type="button"
 				class="subscription-manager__action-button"
-				data-TODO="was state.ActionButtonClasses(...) — add data-attr"
+				data-TODO="was state.ActionButtonClasses(...) вЂ” add data-attr"
 				onclick={props.onUpgrade}>Upgrade</button
 			>
 			<button
 				type="button"
 				class="subscription-manager__action-button"
-				data-TODO="was state.ActionButtonClasses(...) — add data-attr"
+				data-TODO="was state.ActionButtonClasses(...) вЂ” add data-attr"
 				onclick={props.onPause}>Pause</button
 			>
 			<button
 				type="button"
 				class="subscription-manager__action-button"
-				data-TODO="was state.ActionButtonClasses(...) — add data-attr"
+				data-TODO="was state.ActionButtonClasses(...) вЂ” add data-attr"
 				onclick={props.onCancel}>Cancel</button
 			>
 		</div>

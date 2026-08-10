@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipePerformanceMonitor } from '$stylist/management/interface/recipe/performance-monitor';
-	import createPerformanceMonitorState from '$stylist/management/function/state/performance-monitor/index.svelte';
+	import createPerformanceMonitorState from './state.svelte';
 
 	let {
 		label = '',

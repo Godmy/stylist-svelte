@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { SlotMessageInput as MessageInputContract } from '$stylist/chat/interface/slot/message-input';
-	import createMessageInputState from '$stylist/chat/function/state/message-input/index.svelte';
+	import createMessageInputState from './state.svelte';
 
 	let props: MessageInputContract & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createMessageInputState(props);

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { PresetPriceAlert } from '$stylist/commerce/const/preset/price-alert';
 	import type { RecipePriceAlert } from '$stylist/commerce/interface/recipe/price-alert';
-	import { createPriceAlertState } from '$stylist/commerce/function/state/price-alert/index.svelte';
+	import { createPriceAlertState } from './state.svelte';
 
 	let props: RecipePriceAlert = $props();
 	const state = createPriceAlertState(PresetPriceAlert, props);

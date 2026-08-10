@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import '$stylist/input/const/style/field/index.css';
 	import InputText from '$stylist/input/component/molecule/input-text/index.svelte';
 	import type { RecipeInputField as IInputFieldProps } from '$stylist/input/interface/recipe/input-field';
-	import { createInputFieldState } from '$stylist/input/function/state/input-field/index.svelte';
+	import { createInputFieldState } from './state.svelte';
 
 	let { value = $bindable<string>(''), ...props }: IInputFieldProps = $props();
 	const state = createInputFieldState(props);

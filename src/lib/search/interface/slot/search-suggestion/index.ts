@@ -1,15 +1,31 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SlotSearchSuggestionItem } from '$stylist/search/interface/slot/search-suggestion-item';
-
 export interface SlotSearchSuggestion
 	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
-	suggestions: SlotSearchSuggestionItem[];
+	suggestions: ({
+id: string;
+	text: string;
+	category?: string;
+	icon?: string;
+	count?: number;
+})[];
 	query?: string;
 	loading?: boolean;
 	class?: string;
 	suggestionClass?: string;
 	headerClass?: string;
-	onValueInput?: (suggestion: SlotSearchSuggestionItem) => void;
-	onValueChange?: (suggestion: SlotSearchSuggestionItem) => void;
+	onValueInput?: (suggestion: ({
+id: string;
+	text: string;
+	category?: string;
+	icon?: string;
+	count?: number;
+})) => void;
+	onValueChange?: (suggestion: ({
+id: string;
+	text: string;
+	category?: string;
+	icon?: string;
+	count?: number;
+})) => void;
 	maxSuggestions?: number;
 }

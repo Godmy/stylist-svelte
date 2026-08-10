@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeCellIcon } from '$stylist/table/interface/recipe/cell-icon';
-	import { createCellIconState } from '$stylist/table/function/state/cell-icon';
+	import { createCellIconState } from './state.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeCellIcon & HTMLAttributes<HTMLTableCellElement> = $props();

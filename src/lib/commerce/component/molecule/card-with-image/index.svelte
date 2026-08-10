@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCardWithImage } from '$stylist/commerce/interface/recipe/card-with-image';
-	import createCardWithImageState from '$stylist/commerce/function/state/card-with-image/index.svelte';
+	import createCardWithImageState from './state.svelte';
 
 	let props: RecipeCardWithImage = $props();
 	const state = createCardWithImageState(props);

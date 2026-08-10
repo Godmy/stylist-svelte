@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeNumberFlow } from '$stylist/animation/interface/recipe/number-flow';
-	import createNumberFlowState from '$stylist/animation/function/state/number-flow/index.svelte';
+	import createNumberFlowState from './state.svelte';
 
 	let props: RecipeNumberFlow = $props();
 	const state = createNumberFlowState(props);

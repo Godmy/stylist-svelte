@@ -4,7 +4,7 @@
 	import TokenSelectControl from '$stylist/token/component/atom/token-select/index.svelte';
 	import TokenTextControl from '$stylist/token/component/atom/token-text/index.svelte';
 	import type { TokenControlComposerProps } from '$stylist/token/type/struct/token-control-composer-props';
-	import createTokenControlComposerState from '$stylist/token/function/state/token-control-composer/index.svelte';
+	import createTokenControlComposerState from './state.svelte';
 
 	let props: TokenControlComposerProps = $props();
 	const state = createTokenControlComposerState(props);

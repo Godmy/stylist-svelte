@@ -5,7 +5,6 @@ export type {
 } from './alias';
 export type {
 	GraphJsonInput,
-	InstancedDrawData,
 	SceneAtom,
 	SceneAtomGeometry,
 	SceneAtomKind,
@@ -16,7 +15,6 @@ export type {
 	SceneDebugInfo,
 	SceneGeometry,
 	SceneGraph,
-	SceneInteractionState,
 	SceneMaterial,
 	SceneMaterialKind,
 	SceneMolecule,

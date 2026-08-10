@@ -10,7 +10,7 @@
 	const Activity = 'activity';
 
 	import type { TestResultsViewerProps } from '$stylist/marketing/type/struct/test-results-viewer/testresultsviewer-props';
-	import createTestResultsViewerState from '$stylist/marketing/function/state/test-results-viewer/index.svelte';
+	import createTestResultsViewerState from './state.svelte';
 
 	let props: TestResultsViewerProps = $props();
 	const state = createTestResultsViewerState(props);

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeOrderTracking as OrderTrackingContract } from '$stylist/commerce/interface/recipe/order-tracking';
-	import createOrderTrackingState from '$stylist/commerce/function/state/order-tracking/index.svelte';
+	import createOrderTrackingState from './state.svelte';
 
 	let props: OrderTrackingContract = $props();
 	const state = createOrderTrackingState(props);
@@ -12,7 +12,7 @@
 			<h2 class="order-tracking__title">SlotOrder Tracking</h2>
 			<span
 				class="order-tracking__status-badge"
-				data-TODO="was state.StatusBadgeClasses(...) — add data-attr"
+				data-TODO="was state.StatusBadgeClasses(...) вЂ” add data-attr"
 			>
 				{state.trackingInfo.status}
 			</span>
@@ -42,7 +42,7 @@
 			<div class="order-tracking__timeline-item">
 				<div
 					class="order-tracking__timeline-indicator"
-					data-TODO="was state.TimelineIndicatorClasses(...) — add data-attr"
+					data-TODO="was state.TimelineIndicatorClasses(...) вЂ” add data-attr"
 				></div>
 				<div class="order-tracking__timeline-content">
 					<p class="order-tracking__event-title">{event.description}</p>
@@ -79,7 +79,7 @@
 			<button
 				onclick={props.onContactCarrier}
 				class="order-tracking__action-button"
-				data-TODO="was state.ActionButtonClasses(...) — add data-attr"
+				data-TODO="was state.ActionButtonClasses(...) вЂ” add data-attr"
 			>
 				Contact Carrier
 			</button>
@@ -88,7 +88,7 @@
 			<button
 				onclick={props.onReportIssue}
 				class="order-tracking__action-button"
-				data-TODO="was state.ActionButtonClasses(...) — add data-attr"
+				data-TODO="was state.ActionButtonClasses(...) вЂ” add data-attr"
 			>
 				Report Issue
 			</button>

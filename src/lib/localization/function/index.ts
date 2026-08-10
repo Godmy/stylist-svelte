@@ -4,9 +4,3 @@ export {
 	formatDateTime,
 	formatTime
 } from './format-date-time';
-export {
-	createCountryFlagState,
-	createLanguageSelectorState,
-	createLocaleSwitcherState,
-	createTranslationEditorState
-} from './state';

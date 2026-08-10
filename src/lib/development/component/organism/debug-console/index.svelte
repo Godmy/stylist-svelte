@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeDebugConsole } from '$stylist/development/interface/recipe/debug-console';
 	import type { DebugConsoleLogLevel } from '$stylist/development/type/alias/debug-console-log-level';
-	import { createDebugConsoleState } from '$stylist/development/function/state/debug-console/index.svelte';
+	import { createDebugConsoleState } from './state.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let { ...props }: RecipeDebugConsole = $props();

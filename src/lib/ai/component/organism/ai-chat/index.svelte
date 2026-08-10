@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeAiChat } from '$stylist/ai/interface/recipe/ai-chat';
-	import { createAiChatState } from '$stylist/ai/function/state/ai-chat/index.svelte';
+	import { createAiChatState } from './state.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let { ...props }: RecipeAiChat = $props();
@@ -32,7 +32,7 @@
 				type="text"
 				bind:value={state.inputMessage}
 				onkeypress={state.handleKeyPress}
-				placeholder="Введите сообщение..."
+				placeholder="Р’РІРµРґРёС‚Рµ СЃРѕРѕР±С‰РµРЅРёРµ..."
 				class="pac-input"
 			/>
 			<button

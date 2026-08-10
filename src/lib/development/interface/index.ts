@@ -30,7 +30,6 @@ export type {
 } from './recipe';
 export type {
 	ComponentPreviewCodeOptions,
-	DomainForEachContext,
 	DomainForEachOptions,
 	SlotAiModel,
 	SlotMockDataSelectorStyleClasses

@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
-	import { createProductCarouselState } from '$stylist/product/function/state/product-carousel/index.svelte';
+	import { createProductCarouselState } from './state.svelte';
 
 	let props: RecipeProductCollection & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createProductCarouselState(props);

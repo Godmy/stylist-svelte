@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { STYLIST_TAB_DEFAULT_ITEMS } from '$stylist/navigation/const/record/stylist-tab-default-items';
-	import createStylistTabState from '$stylist/navigation/function/state/stylist-tab/index.svelte';
+	import createStylistTabState from './state.svelte';
 	import type { StylistTabProps } from '$stylist/navigation/type/struct/stylist-tab-props';
 
 	let {

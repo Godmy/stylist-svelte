@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createAutoSearchState from '$stylist/search/function/state/auto-search/index.svelte';
+	import createAutoSearchState from './state.svelte';
 	import type { SlotAutoSearch as AutoSearchProps } from '$stylist/search/interface/slot/auto-search';
 
 	let {

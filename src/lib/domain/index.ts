@@ -44,15 +44,7 @@ export {
 	STYLIST_GRAPH_WORKSPACE_SEED,
 	TOKEN_CONTROLLER_TYPE
 } from './const';
-export {
-	createDeviceFrameState,
-	createDomainAiAgentState,
-	createDomainBacklogPreviewState,
-	createDomainBacklogState,
-	createDomainLandingScreenState,
-	createDomainPageState,
-	serializeUnknownError
-} from './function';
+export { serializeUnknownError } from './function';
 export type {
 	DeviceFrameViewport,
 	TokenControllerType,

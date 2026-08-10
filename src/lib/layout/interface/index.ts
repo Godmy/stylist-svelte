@@ -5,7 +5,6 @@ export type {
 	BehaviorDimensionable,
 	BehaviorDraggable,
 	BehaviorFocusable,
-	BehaviorHoverable,
 	BehaviorPositionable,
 	BehaviorScrollable,
 	BehaviorShapeable,

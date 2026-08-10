@@ -2,7 +2,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { CopyCode } from '$stylist/development/type/struct/copy-code';
 	import { createEventDispatcher } from 'svelte';
-	import createCodeWithCopyState from '$stylist/development/function/state/code-with-copy/index.svelte';
+	import createCodeWithCopyState from './state.svelte';
 
 	let props: CopyCode = $props();
 	const dispatch = createEventDispatcher();

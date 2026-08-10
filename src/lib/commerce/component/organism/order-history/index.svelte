@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeOrderHistory as OrderHistoryContract } from '$stylist/commerce/interface/recipe/order-history';
-	import createOrderHistoryState from '$stylist/commerce/function/state/order-history/index.svelte';
+	import createOrderHistoryState from './state.svelte';
 
 	let props: OrderHistoryContract = $props();
 	const state = createOrderHistoryState(props);
@@ -36,7 +36,7 @@
 					<div class="_c2">
 						<span
 							class="order-history__status-badge"
-							data-TODO="was state.StatusBadgeClasses(...) — add data-attr">{order.status}</span
+							data-TODO="was state.StatusBadgeClasses(...) вЂ” add data-attr">{order.status}</span
 						>
 						<p class="order-history__order-total">
 							{state.formatPrice(order.total, order.currency)}

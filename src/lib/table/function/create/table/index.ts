@@ -1,4 +1,4 @@
-﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { TableSchema } from '$stylist/table/type/object/table';
 
 export function createTable<T>(schema: TableSchema<T>) {

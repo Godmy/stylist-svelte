@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import { createFileInputState } from '$stylist/file/function/state/file-input/index.svelte';
+<script lang="ts">
+	import { createFileInputState } from './state.svelte';
 	import type { RecipeFileInput } from '$stylist/file/interface/recipe/file-input';
 
 	let props: RecipeFileInput = $props();

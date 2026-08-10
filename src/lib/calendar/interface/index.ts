@@ -5,7 +5,6 @@ export type {
 	RecipeMiniCalendar,
 	RecipeTimeGrid,
 	RecipeTimeline,
-	RecipeTimelineItem,
 	TimeSlotProps
 } from './recipe';
 export type {

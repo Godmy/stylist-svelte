@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeBaseCard } from '$stylist/information/interface/recipe/base-card';
-	import { createBaseCardState } from '$stylist/information/function/state/base-card/index.svelte';
+	import { createBaseCardState } from './state.svelte';
 
 	let props: RecipeBaseCard = $props();
 	const state = createBaseCardState(props);

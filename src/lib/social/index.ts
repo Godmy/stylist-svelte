@@ -24,17 +24,6 @@ export {
 	commentThreadSubmitComment,
 	commentThreadSubmitEdit,
 	commentThreadSubmitReply,
-	createCommentSystemState,
-	createCommentThreadState,
-	createFriendListState,
-	createPostCardState,
-	createRatingState,
-	createReactionPickerState,
-	createRealTimePresenceState,
-	createSocialActivityFeedState,
-	createSocialFeedState,
-	createSocialLoginState,
-	createSocialShareState,
 	friendListFormatLastSeen,
 	friendListGetStatusColor,
 	friendListGetStatusText,
@@ -59,7 +48,6 @@ export type {
 	SocialPlatform
 } from './type';
 export type {
-	BehaviorPostCard,
 	ContractSocial,
 	RecipePostCard,
 	RecipeRating,

@@ -7,7 +7,7 @@
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 
 	import type { SlotMessageComposer as IMessageComposerProps } from '$stylist/chat/interface/slot/message-composer';
-	import createMessageComposerState from '$stylist/chat/function/state/message-composer/index.svelte';
+	import createMessageComposerState from './state.svelte';
 
 	/**
 	 * MessageComposer component - A message input component with attachment and voice options

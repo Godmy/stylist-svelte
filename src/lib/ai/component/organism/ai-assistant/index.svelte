@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeAiAssistant } from '$stylist/ai/interface/recipe/ai-assistant';
-	import { createAiAssistantState } from '$stylist/ai/function/state/ai-assistant/index.svelte';
+	import { createAiAssistantState } from './state.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let { ...props }: RecipeAiAssistant = $props();
@@ -59,7 +59,7 @@
 			<textarea
 				bind:value={state.inputMessage}
 				onkeypress={state.handleKeyPress}
-				placeholder="Введите сообщение..."
+				placeholder="Р’РІРµРґРёС‚Рµ СЃРѕРѕР±С‰РµРЅРёРµ..."
 				rows="2"
 				disabled={state.isLoading}
 				class="paa-textarea"

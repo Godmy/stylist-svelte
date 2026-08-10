@@ -1,8 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	LayoutSpecificProps,
 	LinkSpecificProps,
-	PaginationStateProps,
 	RecipeAppHeader,
 	RecipeBreadcrumb,
 	RecipeBreadcrumbDropdown,
@@ -25,8 +23,7 @@ export type {
 	RecipeToolbarField,
 	RecipeToolbarGroup,
 	RecipeToolbarSeparator,
-	RecipeTooltipWithArrow,
-	SidebarStateProps
+	RecipeTooltipWithArrow
 } from './recipe';
 export type {
 	SlotAccordion,

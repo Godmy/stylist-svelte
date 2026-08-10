@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeMessageStatusProps as RecipeMessageStatusProps } from '$stylist/chat/interface/recipe/message-status-props';
-	import createMessageStatusState from '$stylist/chat/function/state/message-status/index.svelte';
+	import createMessageStatusState from './state.svelte';
 
 	let props: RecipeMessageStatusProps = $props();
 

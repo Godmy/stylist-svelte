@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeCodeDiff } from '$stylist/development/interface/recipe/code-diff';
-	import { createCodeDiffState } from '$stylist/development/function/state/code-diff/index.svelte';
+	import { createCodeDiffState } from './state.svelte';
 
 	let {
 		original = '',

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeImageWithCaption } from '$stylist/image/interface/recipe/image-with-caption';
-	import { createImageWithCaptionState } from '$stylist/image/function/state/image-with-caption/index.svelte';
+	import { createImageWithCaptionState } from './state.svelte';
 
 	let props: RecipeImageWithCaption = $props();
 	const state = createImageWithCaptionState(props);

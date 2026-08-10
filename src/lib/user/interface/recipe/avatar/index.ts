@@ -1,6 +1,7 @@
+import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
+import type { AvatarUserStatus } from '$stylist/user/type/alias/avatar-user-status';
 import type { AvatarGroupProps as LegacyAvatarProps4 } from '$stylist/user/type/struct/avatar-group/avatargroup-props';
 import type { AvatarGroupProps as LegacyAvatarProps2 } from '$stylist/user/interface/recipe/avatar-group-avatar-group-props';
-import type { AvatarProps as LegacyAvatarProps1 } from '$stylist/user/interface/recipe/avatar-avatar-props';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
@@ -16,7 +17,18 @@ export interface RecipeAvatar
 		[
 			LegacyAvatarProps4,
 			LegacyAvatarProps2,
-			LegacyAvatarProps1,
+			ComputeIntersectAll<[]> & {
+variant?: 'default';
+	size?: (typeof TOKEN_SIZE)[number];
+	src?: string;
+	alt?: string;
+	id?: string;
+	name?: string;
+	status?: AvatarUserStatus;
+	showStatus?: boolean;
+	children?: any;
+	class?: string;
+},
 			SlotTheme,
 			IMediaSlot,
 			ILabelSlot,

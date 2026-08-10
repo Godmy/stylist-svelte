@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createRealTimePresenceState from '$stylist/social/function/state/real-time-presence/index.svelte';
+	import createRealTimePresenceState from './state.svelte';
 	import type { RecipeRealTimePresence as RealTimePresenceStateProps } from '$stylist/social/interface/recipe/real-time-presence';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 

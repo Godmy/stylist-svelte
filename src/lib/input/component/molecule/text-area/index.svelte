@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import InputLabel from '$stylist/input/component/atom/input-label/index.svelte';
 	import type { RecipeTextArea } from '$stylist/input/interface/recipe/text-area';
-	import createTextareaState from '$stylist/input/function/state/text-area/index.svelte';
+	import createTextareaState from './state.svelte';
 
 	let props: RecipeTextArea &
 		Omit<HTMLTextareaAttributes, 'class' | 'autocomplete' | 'id' | 'disabled'> = $props();

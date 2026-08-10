@@ -4,7 +4,7 @@
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { formatFileSize } from '$stylist/file/function/script/format-file-size';
 	import { handleFileDownload } from '$stylist/file/function/script/handle-file-download';
-	import { createDownloadCardState } from '$stylist/file/function/state/download-card/index.svelte';
+	import { createDownloadCardState } from './state.svelte';
 
 	let props: RecipeDownloadCard = $props();
 	const state = createDownloadCardState(props as RecipeDownloadCard & Record<string, unknown>);
@@ -52,7 +52,7 @@
 </script>
 
 <div class={containerClasses} role="article" aria-label={`Download card: ${props.file.name}`}>
-	<!-- Иконка файла -->
+	<!-- пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ -->
 	<div class={iconContainerClasses} aria-hidden="true">
 		{#if props.icon}
 			<span class={iconClasses} aria-label={props.iconAlt ?? 'File'}>{props.icon}</span>
@@ -61,7 +61,7 @@
 		{/if}
 	</div>
 
-	<!-- Информация о файле -->
+	<!-- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ -->
 	<div class={infoContainerClasses}>
 		<div class={fileNameClasses} aria-label={`File name: ${props.file.name}`}>
 			{props.file.name}
@@ -91,7 +91,7 @@
 		{/if}
 	</div>
 
-	<!-- Кнопка скачивания -->
+	<!-- пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ -->
 	<button
 		class={downloadButtonClasses}
 		aria-label={`Download ${props.file.name}`}

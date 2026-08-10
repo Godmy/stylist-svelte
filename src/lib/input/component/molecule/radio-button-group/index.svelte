@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeRadioButtonGroupProps as RecipeRadioButtonGroupProps } from '$stylist/input/interface/recipe/radio-button-group-props';
-	import createRadioButtonGroupState from '$stylist/input/function/state/radio-button-group/index.svelte';
+	import createRadioButtonGroupState from './state.svelte';
 
 	let props: RecipeRadioButtonGroupProps = $props();
 

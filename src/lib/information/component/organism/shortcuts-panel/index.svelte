@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeShortcutsPanel } from '$stylist/information/interface/recipe/shortcuts-panel';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { createShortcutsPanelState } from '$stylist/information/function/state/shortcuts-panel/index.svelte';
+	import { createShortcutsPanelState } from './state.svelte';
 	const Keyboard = 'keyboard';
 	const Command = 'command';
 	const Search = 'search';

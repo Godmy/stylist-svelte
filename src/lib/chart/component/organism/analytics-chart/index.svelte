@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ObjectManagerAnalyticsChart } from '$stylist/chart/class/object-manager/analytics-chart';
 	import type { RecipeAnalyticsChart } from '$stylist/chart/interface/recipe/analytics-chart';
-	import createAnalyticsChartState from '$stylist/chart/function/state/analytics-chart/index.svelte';
+	import createAnalyticsChartState from './state.svelte';
 	import BarChart from '$stylist/chart/component/molecule/bar-chart/index.svelte';
 	import LineChart from '$stylist/chart/component/organism/line-chart/index.svelte';
 	import PieChart from '$stylist/chart/component/molecule/pie-chart/index.svelte';

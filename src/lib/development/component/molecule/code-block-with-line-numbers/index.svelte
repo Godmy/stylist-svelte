@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	/**
 	 * CodeWithLineNumbers - Legacy wrapper for unified Code
 	 *
@@ -6,7 +6,7 @@
 	 */
 	import Code from '$stylist/development/component/molecule/code-block/index.svelte';
 	import type { CodeBlockWithLineNumbersProps } from '$stylist/development/type/struct/code-block-with-line-numbers-props';
-	import createCodeBlockWithLineNumbersState from '$stylist/development/function/state/code-block-with-line-numbers/index.svelte';
+	import createCodeBlockWithLineNumbersState from './state.svelte';
 
 	let props: CodeBlockWithLineNumbersProps = $props();
 	const state = createCodeBlockWithLineNumbersState(props);

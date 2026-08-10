@@ -9,14 +9,6 @@ export {
 	SearchSuggestion
 } from './component';
 export { SEARCH_ICON_NAME } from './const';
-export {
-	createAutoCompleteState,
-	createAutoSearchState,
-	createSearchBarState,
-	createSearchFormState,
-	createSearchResultsState,
-	createSearchSuggestionState
-} from './function';
 export type {
 	AutoCompleteOption,
 	SearchResultItem,
@@ -31,6 +23,5 @@ export type {
 	SlotAutoSearch,
 	SlotSearchBar,
 	SlotSearchBarEvents,
-	SlotSearchSuggestion,
-	SlotSearchSuggestionItem
+	SlotSearchSuggestion
 } from './interface';

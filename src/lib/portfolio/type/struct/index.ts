@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { DragPayload } from './drag-payload';
 export type {
 	KanbanBoardAction,
 	KanbanBoardType

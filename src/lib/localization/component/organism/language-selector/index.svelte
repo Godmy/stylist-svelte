@@ -3,7 +3,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import BaseFlag from '$stylist/svg/component/atom/flag/index.svelte';
 	import type { RecipeLanguageSelector } from '$stylist/localization/interface/recipe/language-selector';
-	import createLanguageSelectorState from '$stylist/localization/function/state/language-selector/index.svelte';
+	import createLanguageSelectorState from './state.svelte';
 
 	const Globe = 'globe';
 	const Check = 'check';

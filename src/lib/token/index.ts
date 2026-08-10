@@ -51,17 +51,7 @@ export {
 	TOKEN_TYPOGRAPHY_SETTING,
 	TOKEN_USER_SETTING
 } from './const';
-export {
-	createTokenChipSetState,
-	createTokenControlBaseState,
-	createTokenControlComposerState,
-	createTokenRadioState,
-	createTokenRangeState,
-	createTokenSelectState,
-	createTokenSettingsState,
-	createTokenTextState,
-	getTokenIconKind
-} from './function';
+export { getTokenIconKind } from './function';
 export type {
 	TokenChipSetProps,
 	TokenControlBaseProps,
@@ -69,7 +59,6 @@ export type {
 	TokenControlDefinition,
 	TokenControlDefinitionData,
 	TokenControlOption,
-	TokenIconKind,
 	TokenIconProps,
 	TokenRadioControlDefinition,
 	TokenRadioControlProps,

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeNodeConnection } from '$stylist/workspace/interface/recipe/node-connection';
-	import createNodeConnectionState from '$stylist/workspace/function/state/node-connection/index.svelte';
+	import createNodeConnectionState from './state.svelte';
 
 	let props: RecipeNodeConnection = $props();
 	const state = createNodeConnectionState(props);

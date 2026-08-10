@@ -1,7 +1,4 @@
 import type { TokenMessageStatus } from '$stylist/chat/type/alias/message-status';
-import type { SlotMessageAttachment } from '$stylist/chat/interface/slot/message-attachment';
-import type { SlotMessageReaction } from '$stylist/chat/interface/slot/message-reaction';
-
 export interface SlotMessage {
 	id: string;
 	senderId: string;
@@ -10,6 +7,16 @@ export interface SlotMessage {
 	type?: 'text' | 'image' | 'file' | string;
 	status?: TokenMessageStatus | string;
 	replyTo?: string;
-	attachments?: SlotMessageAttachment[];
-	reactions?: SlotMessageReaction[];
+	attachments?: ({
+id?: string;
+	name?: string;
+	url?: string;
+	type?: string;
+	size?: number | string;
+})[];
+	reactions?: ({
+emoji: string;
+	count?: number;
+	users?: string[];
+})[];
 }

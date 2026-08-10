@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SlotRating as IRatingProps } from '$stylist/social/interface/slot/rating';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import createRatingState from '$stylist/social/function/state/rating/index.svelte';
+	import createRatingState from './state.svelte';
 
 	let {
 		rating = $bindable(0),

@@ -7,7 +7,6 @@ export type {
 	ContractTranscriber
 } from './contract';
 export type {
-	AudioPlayerProps,
 	RecipeAudioPlayer,
 	RecipeAudioRecordButton,
 	RecipeAudioSlider,

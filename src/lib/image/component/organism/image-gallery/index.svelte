@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeImageGallery } from '$stylist/image/interface/recipe/image-gallery';
-	import { createImageGalleryState } from '$stylist/image/function/state/image-gallery/index.svelte';
+	import { createImageGalleryState } from './state.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeImageGallery = $props();

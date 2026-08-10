@@ -1,7 +1,15 @@
-import type { SlotGeoJsonGeometry } from '$stylist/geo/interface/slot/geo-json-geometry';
-
 export interface SlotGeoJsonFeature {
 	type: 'Feature';
-	geometry: SlotGeoJsonGeometry;
+	geometry: ({
+type:
+		| 'Point'
+		| 'MultiPoint'
+		| 'LineString'
+		| 'MultiLineString'
+		| 'Polygon'
+		| 'MultiPolygon'
+		| 'GeometryCollection';
+	coordinates: any[] | any[][];
+});
 	properties?: Record<string, any>;
 }

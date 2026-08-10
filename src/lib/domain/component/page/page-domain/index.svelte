@@ -9,8 +9,8 @@
 	import DomainMenu from '$stylist/domain/component/molecule/domain-menu/index.svelte';
 	import DeviceViewport from '$stylist/domain/component/molecule/device-viewport/index.svelte';
 	import Workspace from '$stylist/workspace/component/organism/workspace/index.svelte';
-	import createDomainBacklogState from '$stylist/domain/function/state/domain-backlog/index.svelte';
-	import createDomainLandingScreenState from '$stylist/domain/function/state/domain-landing-screen/index.svelte';
+	import createDomainBacklogState from '$stylist/domain/component/organism/domain-backlog/state.svelte';
+	import createDomainLandingScreenState from './state.svelte';
 	import StylistLanding from '$stylist/marketing/component/organism/stylist-landing/index.svelte';
 	import type { TypeDomainComponentDescriptor } from '$stylist/domain/type/struct/domain-component-descriptor';
 	import type { TypeDomainScreen } from '$stylist/domain/type/alias/domain-screen';

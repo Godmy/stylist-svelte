@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeBurgerMenu } from '$stylist/navigation/interface/recipe/burger-menu';
-	import createBurgerMenuState from '$stylist/navigation/function/state/burger-menu/index.svelte';
+	import createBurgerMenuState from './state.svelte';
 
 	let props: RecipeBurgerMenu = $props();
 	const state = createBurgerMenuState(props);

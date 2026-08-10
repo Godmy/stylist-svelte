@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import createDataExporterState from '$stylist/file/function/state/data-exporter/index.svelte';
+<script lang="ts">
+	import createDataExporterState from './state.svelte';
 	import type { Props } from '$stylist/file/type/struct/data-exporter/props';
 
 	let props: Props = $props();

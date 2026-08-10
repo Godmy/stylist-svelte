@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createToastStackState } from '$stylist/notification/function/state/toast-stack/index.svelte';
+	import { createToastStackState } from './state.svelte';
 	import type { RecipeToastStack } from '$stylist/notification/interface/recipe/toast-stack';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 

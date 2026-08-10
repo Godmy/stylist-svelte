@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeFieldHighlighter as IFieldHighlighterProps } from '$stylist/graph/interface/recipe/field-highlighter';
-	import createFieldHighlighterState from '$stylist/graph/function/state/field-highlighter/index.svelte';
+	import createFieldHighlighterState from './state.svelte';
 
 	let props: IFieldHighlighterProps = $props();
 	const state = createFieldHighlighterState(props);

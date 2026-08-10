@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeWorkspaceToolbar } from '$stylist/workspace/interface/recipe/workspace-toolbar';
-	import { createWorkspaceToolbarState } from '$stylist/workspace/function/state/workspace-toolbar/index.svelte';
+	import { createWorkspaceToolbarState } from './state.svelte';
 	import IconButton from '$stylist/button/component/atom/icon-button/index.svelte';
 	import Separator from '$stylist/layout/component/atom/separator/index.svelte';
 

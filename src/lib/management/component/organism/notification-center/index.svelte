@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeNotificationCenter } from '$stylist/management/interface/recipe/notification-center';
-	import { createNotificationCenterState } from '$stylist/management/function/state/notification-center/index.svelte';
+	import { createNotificationCenterState } from './state.svelte';
 
 	let props: RecipeNotificationCenter = $props();
 	const state = createNotificationCenterState(props);

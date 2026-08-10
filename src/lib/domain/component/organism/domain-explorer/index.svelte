@@ -5,7 +5,7 @@
 	import DomainSidebar from '$stylist/domain/component/organism/domain-sidebar/index.svelte';
 	import JointTabButtons from '$stylist/domain/component/molecule/joint-tab-buttons/index.svelte';
 	import TaxonomyBreadcrumbs from '$stylist/domain/component/molecule/taxonomy-breadcrumbs/index.svelte';
-	import createDomainPageState from '$stylist/domain/function/state/domain-page/index.svelte';
+	import createDomainPageState from './state.svelte';
 	import TextInputDialog from '$stylist/navigation/component/organism/text-input-dialog/index.svelte';
 	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
 

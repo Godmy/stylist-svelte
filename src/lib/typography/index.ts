@@ -11,16 +11,7 @@ export {
 	Text
 } from './component';
 export {
-	createAbbrState,
-	createBlockquoteState,
-	createHeadingState,
-	createInlineCodeState,
-	createKbdState,
-	createLinkState,
-	createParagraphState,
 	createRichTextSegments,
-	createRichTextState,
-	createTextState,
 	normalizeText,
 	resolveTypographyInlineStyle,
 	toNullableString

@@ -2,7 +2,7 @@
 	import type { RecipeTag } from '$stylist/control/interface/recipe/tag';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const X = 'x';
-	import createTagState from '$stylist/control/function/state/tag/index.svelte';
+	import createTagState from './state.svelte';
 
 	let props: RecipeTag = $props();
 	const restProps = $derived(

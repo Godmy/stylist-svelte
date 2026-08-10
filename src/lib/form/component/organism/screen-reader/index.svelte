@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createScreenReaderState from '$stylist/form/function/state/screen-reader/index.svelte';
+	import createScreenReaderState from './state.svelte';
 
 	const props = $props();
 	const state = createScreenReaderState(props);

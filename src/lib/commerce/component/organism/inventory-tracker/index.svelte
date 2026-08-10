@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeInventoryTracker as InventoryTrackerContract } from '$stylist/commerce/interface/recipe/inventory-tracker';
-	import createInventoryTrackerState from '$stylist/commerce/function/state/inventory-tracker/index.svelte';
+	import createInventoryTrackerState from './state.svelte';
 
 	let props: InventoryTrackerContract = $props();
 	const state = createInventoryTrackerState(props);
@@ -57,11 +57,11 @@
 					<p class="inventory-tracker__item-sku">SKU: {item.sku}</p>
 					<span
 						class="inventory-tracker__status-badge"
-						data-TODO="was state.StatusBadgeClasses(...) — add data-attr">{item.status}</span
+						data-TODO="was state.StatusBadgeClasses(...) вЂ” add data-attr">{item.status}</span
 					>
 				</div>
 				<div class="_c2">
-					<p class="inventory-tracker__stock-level">{item.currentStock} / {item.maxStock ?? '∞'}</p>
+					<p class="inventory-tracker__stock-level">{item.currentStock} / {item.maxStock ?? 'в€ћ'}</p>
 					{#if item.maxStock}
 						<div class="inventory-tracker__progress-bar">
 							<div class="_c3" style="width: {state.getStockProgress(item)}%"></div>

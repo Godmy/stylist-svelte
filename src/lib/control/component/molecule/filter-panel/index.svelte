@@ -3,7 +3,7 @@
 	import SlotCheckbox from '$stylist/control/component/atom/checkbox/index.svelte';
 	import Select from '$stylist/control/component/molecule/selector/index.svelte';
 	import type { FilterPanelProps } from '$stylist/control/type/struct/filter-panel/filterpanel-props';
-	import createFilterPanelState from '$stylist/control/function/state/filter-panel/index.svelte';
+	import createFilterPanelState from './state.svelte';
 	import { handleFilterChange } from '$stylist/control/function/script/filter-panel/handle-filter-change';
 	import { handleLayoutChange } from '$stylist/control/function/script/filter-panel/handle-layout-change';
 	import { handleReset } from '$stylist/control/function/script/filter-panel/handle-reset';

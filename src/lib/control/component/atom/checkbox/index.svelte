@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCheckbox } from '$stylist/control/interface/recipe/checkbox';
-	import createCheckboxState from '$stylist/control/function/state/checkbox/index.svelte';
+	import createCheckboxState from './state.svelte';
 
 	let {
 		id,

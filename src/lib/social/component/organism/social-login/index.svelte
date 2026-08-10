@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Props } from '$stylist/social/type/struct/social-login/-props';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import createSocialLoginState from '$stylist/social/function/state/social-login/index.svelte';
+	import createSocialLoginState from './state.svelte';
 
 	let props: Props = $props();
 	const state = createSocialLoginState(props);

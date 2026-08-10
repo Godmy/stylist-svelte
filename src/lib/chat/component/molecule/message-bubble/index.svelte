@@ -14,7 +14,7 @@
 	 */
 
 	import type { SlotMessageBubble as IMessageBubbleProps } from '$stylist/chat/interface/slot/message-bubble';
-	import createMessageBubbleState from '$stylist/chat/function/state/message-bubble/index.svelte';
+	import createMessageBubbleState from './state.svelte';
 	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 
 	let props: IMessageBubbleProps = $props();

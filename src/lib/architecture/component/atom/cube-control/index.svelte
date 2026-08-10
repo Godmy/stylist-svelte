@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { CubeControlProps } from '$stylist/architecture/type/struct/cube-control-props';
-	import createCubeControlState from '$stylist/architecture/function/state/cube-control/index.svelte';
+	import createCubeControlState from './state.svelte';
 
 	const Atom = 'atom';
 	const Biohazard = 'biohazard';
@@ -247,7 +247,7 @@
 </div>
 
 <style>
-	/* Стили из оригинального cube-control */
+	/* РЎС‚РёР»Рё РёР· РѕСЂРёРіРёРЅР°Р»СЊРЅРѕРіРѕ cube-control */
 	.c-cube-control {
 		display: inline-flex;
 		flex-direction: column;

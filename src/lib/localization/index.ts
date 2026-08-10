@@ -10,10 +10,6 @@ export {
 	TOKEN_TRANSLATION_EDITOR_ICON
 } from './const';
 export {
-	createCountryFlagState,
-	createLanguageSelectorState,
-	createLocaleSwitcherState,
-	createTranslationEditorState,
 	formatDate,
 	formatDateTime,
 	formatTime
@@ -34,6 +30,5 @@ export type {
 	SlotExtendedTranslationEditor,
 	SlotLanguageSelectorStyleClasses,
 	SlotLocaleSwitcher,
-	SlotLocaleSwitcherLocale,
-	SlotLocaleSwitcherTimezoneOption
+	SlotLocaleSwitcherLocale
 } from './interface';

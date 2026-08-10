@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { HTMLAttributes } from 'svelte/elements';
-	import { createSkeletonState } from '$stylist/information/function/state/skeleton/index.svelte';
+	import { createSkeletonState } from './state.svelte';
 	import type { RecipeSkeleton } from '$stylist/information/interface/recipe/skeleton';
 
 	let props: RecipeSkeleton & HTMLAttributes<HTMLDivElement> = $props();

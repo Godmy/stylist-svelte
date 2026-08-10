@@ -21,27 +21,3 @@ export {
 	resolveSemanticZoomNode,
 	resolveSemanticZoomPresentation
 } from './script';
-export {
-	createCss3dCubeState,
-	createCubeControlState,
-	createFocusState,
-	createFocusTarget,
-	createGraphEdgeState,
-	createGraphNodeState,
-	createGraphvizDirectedEdgeState,
-	createMinimapState,
-	createOntologyEdgeComponentState,
-	createOntologyNodeComponentState,
-	createPresentationFrame,
-	createPresentationMode,
-	createPresentationState,
-	createSelectedItem,
-	createSelectionMode,
-	createSelectionState,
-	createStageState,
-	createViewportState,
-	useCamera,
-	useFocus,
-	usePresentation,
-	useSelection
-} from './state';

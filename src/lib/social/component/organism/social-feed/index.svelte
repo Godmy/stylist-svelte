@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import PostCard from '$stylist/social/component/molecule/post-card/index.svelte';
-	import createSocialFeedState from '$stylist/social/function/state/social-feed/index.svelte';
+	import createSocialFeedState from './state.svelte';
 	import type { Props } from '$stylist/social/type/struct/social-feed/-props';
 
 	let props: Props = $props();

@@ -3,7 +3,7 @@
 
 	import type { PaymentMethodSelectorProps } from '$stylist/commerce/type/struct/payment-method-selector-props';
 
-	import createPaymentMethodSelectorState from '$stylist/commerce/function/state/payment-method-selector/index.svelte';
+	import createPaymentMethodSelectorState from './state.svelte';
 
 	let props: PaymentMethodSelectorProps = $props();
 

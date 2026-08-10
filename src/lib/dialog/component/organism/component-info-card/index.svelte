@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeComponentInfoCard } from '$stylist/dialog/interface/recipe/component-info-card';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { createComponentInfoCardState } from '$stylist/dialog/function/state/component-info-card/index.svelte';
+	import { createComponentInfoCardState } from './state.svelte';
 
 	const X = 'x';
 	const Package = 'package';

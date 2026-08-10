@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createStickyLayoutState from '$stylist/layout/function/state/sticky-layout/index.svelte';
+	import createStickyLayoutState from './state.svelte';
 	import type { StickyLayoutProps } from '$stylist/layout/interface/recipe/sticky-layout';
 
 	let props: StickyLayoutProps = $props();

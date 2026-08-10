@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeConfirmationDialog } from '$stylist/navigation/interface/recipe/confirmation-dialog';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import { createConfirmationDialogState } from '$stylist/navigation/function/state/confirmation-dialog/index.svelte';
+	import { createConfirmationDialogState } from './state.svelte';
 
 	let {
 		open = false,

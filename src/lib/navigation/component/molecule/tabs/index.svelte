@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeTabs } from '$stylist/navigation/interface/recipe/tabs';
 	import { setContext } from 'svelte';
-	import { createTabsState } from '$stylist/navigation/function/state/tabs/index.svelte';
+	import { createTabsState } from './state.svelte';
 
 	let props: RecipeTabs = $props();
 

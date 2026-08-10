@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createMessageTimestampState from '$stylist/chat/function/state/message-timestamp/index.svelte';
+	import createMessageTimestampState from './state.svelte';
 	import type { SlotMessageTimestamp as MessageTimestampContract } from '$stylist/chat/interface/slot/message-timestamp';
 
 	let props: MessageTimestampContract = $props();

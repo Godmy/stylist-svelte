@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeComponentLibraryStats } from '$stylist/development/interface/recipe/component-library-stats';
-	import { createComponentLibraryStatsState } from '$stylist/development/function/state/component-library-stats/index.svelte';
+	import { createComponentLibraryStatsState } from './state.svelte';
 
 	let { ...props }: RecipeComponentLibraryStats = $props();
 	const state = createComponentLibraryStatsState(props);

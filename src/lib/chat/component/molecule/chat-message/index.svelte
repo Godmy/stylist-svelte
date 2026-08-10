@@ -3,7 +3,7 @@
 	import type { Snippet } from 'svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
-	import createChatMessageState from '$stylist/chat/function/state/chat-message/index.svelte';
+	import createChatMessageState from './state.svelte';
 
 	export type ChatMessageStatus = 'sent' | 'delivered' | 'read';
 

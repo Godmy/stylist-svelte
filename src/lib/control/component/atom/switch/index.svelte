@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeSwitch } from '$stylist/control/interface/recipe/switch';
-	import createSwitchState from '$stylist/control/function/state/switch/index.svelte';
+	import createSwitchState from './state.svelte';
 
 	let {
 		id: _id,

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeAnimatedNumber } from '$stylist/animation/interface/recipe/animated-number';
-	import createAnimatedNumberState from '$stylist/animation/function/state/animated-number/index.svelte';
+	import createAnimatedNumberState from './state.svelte';
 
 	let props: RecipeAnimatedNumber = $props();
 	const state = createAnimatedNumberState(props);

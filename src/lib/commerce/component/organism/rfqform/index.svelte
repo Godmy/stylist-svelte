@@ -37,7 +37,7 @@
 
 	import type { RFQFormProps } from '$stylist/commerce/type/struct/rfqform-props';
 
-	import createRFQFormState from '$stylist/commerce/function/state/rfqform/index.svelte';
+	import createRFQFormState from './state.svelte';
 
 	let {
 		title = 'Request for Quotation',
@@ -122,7 +122,7 @@
 	const rfqData = $derived(state.rfqData);
 </script>
 
-ï»¿
+ГЇВ»Вї
 <div class={`c-rfqform ${hostClass}`} {...restProps}>
 	<div class="_c1">
 		<h2 class="_c2">

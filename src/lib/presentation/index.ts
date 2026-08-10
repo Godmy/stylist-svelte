@@ -7,9 +7,7 @@ export {
 } from './component';
 export { FOCUS_DURATION_MS } from './const';
 export {
-	createPresenterNodeShellState,
 	resolvePresenterSceneLinks,
-	usePreziState,
 	useSemanticZoom
 } from './function';
 export type {

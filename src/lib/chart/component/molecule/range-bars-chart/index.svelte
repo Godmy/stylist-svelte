@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createRangeBarsChartState from '$stylist/chart/function/state/range-bars-chart/index.svelte';
+	import createRangeBarsChartState from './state.svelte';
 	import type { RecipeRangeBarsChart } from '$stylist/chart/interface/recipe/range-bars-chart';
 
 	let props: RecipeRangeBarsChart = $props();

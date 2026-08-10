@@ -3,9 +3,6 @@ import type { ChartSeries } from '$stylist/chart/type/struct/chart-series';
 import type { RecipeChartAxisY } from '$stylist/chart/interface/recipe/chart-axis-y';
 import type { RecipeChartPolyline as ChartPolylineProps } from '$stylist/chart/interface/recipe/chart-polyline';
 import type { ChartLegendItem } from '$stylist/chart/type/object/chart-legend-item';
-import type { ChartBounds } from '$stylist/chart/type/struct/chart-bounds';
-import type { ChartAxisYMetrics } from '$stylist/chart/type/struct/chart-axis-y-metrics';
-
 export class ObjectManagerChart {
 	static resolveSeries(series?: ChartSeries[]): ChartSeries[] {
 		return series ?? [];
@@ -19,7 +16,15 @@ export class ObjectManagerChart {
 		}));
 	}
 
-	static getAxisYMetrics(props: RecipeChartAxisY): ChartAxisYMetrics {
+	static getAxisYMetrics(props: RecipeChartAxisY): {
+	x: number;
+	startY: number;
+	endY: number;
+	tickCount: number;
+	tickSize: number;
+	showArrow: boolean;
+	ticks: number[];
+} {
 		const x = props.x ?? 0;
 		const startY = props.startY ?? 0;
 		const endY = props.endY ?? 100;
@@ -56,7 +61,12 @@ export class ObjectManagerChart {
 		};
 	}
 
-	static getBounds(props: ChartPolylineProps): ChartBounds {
+	static getBounds(props: ChartPolylineProps): {
+	minX: number;
+	maxX: number;
+	minY: number;
+	maxY: number;
+} {
 		if (props.xDomain && props.yDomain) {
 			return {
 				minX: props.xDomain[0],

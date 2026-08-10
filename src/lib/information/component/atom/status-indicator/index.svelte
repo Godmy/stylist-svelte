@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createStatusIndicatorState from '$stylist/information/function/state/status-indicator/index.svelte';
+	import createStatusIndicatorState from './state.svelte';
 	import type { RecipeStatusIndicator } from '$stylist/information/interface/recipe/status-indicator';
 
 	let props: RecipeStatusIndicator = $props();

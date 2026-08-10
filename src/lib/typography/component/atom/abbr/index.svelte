@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeAbbr } from '$stylist/typography/interface/recipe/abbr';
-	import createAbbrState from '$stylist/typography/function/state/abbr/index.svelte';
+	import createAbbrState from './state.svelte';
 
 	let props: RecipeAbbr = $props();
 

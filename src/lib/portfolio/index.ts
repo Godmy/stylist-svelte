@@ -24,12 +24,6 @@ export {
 	archiveKanbanCard,
 	cloneKanbanBoard,
 	createBacklogItem,
-	createBurnDownChartState,
-	createIssuesTableState,
-	createKanbanBoardState,
-	createKanbanCardState,
-	createKanbanColumnState,
-	createScrumBacklogState,
 	deleteKanbanCard,
 	filterBacklogItems,
 	formatBacklogItemDate,
@@ -45,7 +39,6 @@ export {
 	renameKanbanColumn
 } from './function';
 export type {
-	DragPayload,
 	KanbanBoardAction,
 	KanbanBoardType,
 	KanbanCardStateProps,

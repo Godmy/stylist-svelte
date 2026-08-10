@@ -3,7 +3,7 @@
 	import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 	import IconButton from '$stylist/button/component/atom/icon-button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
-	import createMinimapState from '$stylist/architecture/function/state/minimap/index.svelte';
+	import createMinimapState from './state.svelte';
 
 	const contract: LayoutHTMLAttributes<HTMLDivElement> &
 		MinimapProps & { class?: string } = $props();

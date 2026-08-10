@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeProductReviews } from '$stylist/product/interface/recipe/product-reviews';
-	import { createProductReviewsState } from '$stylist/product/function/state/product-reviews/index.svelte';
+	import { createProductReviewsState } from './state.svelte';
 
 	let props: RecipeProductReviews & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createProductReviewsState(props);

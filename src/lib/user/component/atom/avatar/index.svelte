@@ -3,7 +3,7 @@
 	import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 	import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 	import type { RecipeAvatar } from '$stylist/user/interface/recipe/avatar';
-	import { createAvatarState } from '$stylist/user/function/state/avatar/index.svelte';
+	import { createAvatarState } from './state.svelte';
 
 	let props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography = $props();
 	const state = createAvatarState(props);

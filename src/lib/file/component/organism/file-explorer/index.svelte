@@ -2,7 +2,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import { createFileExplorerState } from '$stylist/file/function/state/file-explorer/index.svelte';
+	import { createFileExplorerState } from './state.svelte';
 	import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
 	import type { RecipeFileExplorer } from '$stylist/file/interface/recipe/file-explorer';
 	import { getFileIcon } from '$stylist/file/function/script/file-explorer-get-file-icon';

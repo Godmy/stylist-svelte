@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeNodeProperty as NodePropertyProps } from '$stylist/workspace/interface/recipe/node-property';
-	import createNodePropertyState from '$stylist/workspace/function/state/node-property/index.svelte';
+	import createNodePropertyState from './state.svelte';
 
 	const Check = 'check';
 

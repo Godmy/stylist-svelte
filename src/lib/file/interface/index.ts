@@ -32,8 +32,5 @@ export type {
 	SlotExportPanelStyleClasses,
 	SlotUploadFile,
 	SlotUploadProgress,
-	SlotUploadProgressClasses,
-	SlotUploadProgressDisplayOptions,
-	SlotUploadProgressEventHandlers,
 	SlotZipViewerStyleClasses
 } from './slot';

@@ -3,7 +3,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const Lock = 'lock';
 
-	import { createSecureFormState } from '$stylist/auth/function/state/secure-form/index.svelte';
+	import { createSecureFormState } from './state.svelte';
 
 	let props: RecipeSecureForm = $props();
 	const state = createSecureFormState(props);

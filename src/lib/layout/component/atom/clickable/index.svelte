@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeClickable } from '$stylist/layout/interface/recipe/clickable';
-	import createClickableState from '$stylist/layout/function/state/clickable/index.svelte';
+	import createClickableState from './state.svelte';
 
 	let props: RecipeClickable = $props();
 	const state = createClickableState(props);

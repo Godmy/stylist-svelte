@@ -1,8 +1,9 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { BehaviorCoordinatesProto as ICoordinatesProto } from '$stylist/geo/interface/behavior/coordinates';
-
 export interface RecipeIMapSettings extends ComputeIntersectAll<[]> {
-	center: ICoordinatesProto;
+	center: {
+lat: number;
+	lng: number;
+};
 	zoom: number;
 	minZoom?: number;
 	maxZoom?: number;

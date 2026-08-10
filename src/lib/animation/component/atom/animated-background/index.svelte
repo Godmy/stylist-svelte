@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeAnimatedBackground } from '$stylist/animation/interface/recipe/animated-background';
-	import createAnimatedBackgroundState from '$stylist/animation/function/state/animated-background/index.svelte';
+	import createAnimatedBackgroundState from './state.svelte';
 	import Background from '$stylist/layout/component/atom/background/index.svelte';
 
 	let props: RecipeAnimatedBackground = $props();

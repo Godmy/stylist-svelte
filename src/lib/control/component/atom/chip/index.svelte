@@ -3,7 +3,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const X = 'x';
 
-	import createChipState from '$stylist/control/function/state/chip/index.svelte';
+	import createChipState from './state.svelte';
 
 	let props: RecipeChip = $props();
 

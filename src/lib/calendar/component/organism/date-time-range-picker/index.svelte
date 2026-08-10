@@ -5,7 +5,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { SlotDatePicker as DateTimeRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-picker';
-	import createDateTimeRangePickerState from '$stylist/calendar/function/state/date-time-range-picker/index.svelte';
+	import createDateTimeRangePickerState from './state.svelte';
 
 	const X = 'x';
 
@@ -22,7 +22,7 @@
 			disabled={state.disabled}
 			class={`c-dtrp__input ${state.inputClass}`}
 			value={state.selectedRange.start && state.selectedRange.end
-				? `${state.fmt(state.selectedRange.start)} — ${state.fmt(state.selectedRange.end)}`
+				? `${state.fmt(state.selectedRange.start)} вЂ” ${state.fmt(state.selectedRange.end)}`
 				: state.placeholder}
 			onclick={state.toggleOpen}
 		/>

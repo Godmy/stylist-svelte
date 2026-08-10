@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeText } from '$stylist/typography/interface/recipe/text';
-	import createTextState from '$stylist/typography/function/state/text/index.svelte';
+	import createTextState from './state.svelte';
 
 	let props: RecipeText = $props();
 	const state = createTextState(props);

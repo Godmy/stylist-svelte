@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { PresetAlertCard } from '$stylist/commerce/const/preset/alert-card';
 	import type { RecipeAlertCard } from '$stylist/commerce/interface/recipe/alert-card';
-	import { createAlertCardState } from '$stylist/commerce/function/state/alert-card/index.svelte';
+	import { createAlertCardState } from './state.svelte';
 
 	let props: RecipeAlertCard = $props();
 	const state = createAlertCardState(PresetAlertCard, props);

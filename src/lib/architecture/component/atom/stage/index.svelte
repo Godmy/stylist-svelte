@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { StageProps } from '$stylist/architecture/type/struct/stage/stage-props';
-	import createStageState from '$stylist/architecture/function/state/stage/index.svelte';
+	import createStageState from './state.svelte';
 
 	let props: StageProps = $props();
 	const state = createStageState(props);

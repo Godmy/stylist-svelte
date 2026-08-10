@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import createStatusDashboardState from '$stylist/management/function/state/status-dashboard/index.svelte';
+	import createStatusDashboardState from './state.svelte';
 	import type { RecipeStatusDashboard } from '$stylist/management/interface/recipe/status-dashboard';
 
 	let props: RecipeStatusDashboard = $props();

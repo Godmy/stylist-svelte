@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PushNotificationProps } from '$stylist/management/interface/recipe/push-notification';
-	import createPushNotificationState from '$stylist/management/function/state/push-notification/index.svelte';
+	import createPushNotificationState from './state.svelte';
 
 	let props: Parameters<typeof createPushNotificationState>[0] = $props();
 	const state = createPushNotificationState(props);

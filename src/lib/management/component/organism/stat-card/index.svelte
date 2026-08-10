@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeStatCard } from '$stylist/management/interface/recipe/stat-card';
-	import createStatCardState from '$stylist/management/function/state/stat-card/index.svelte';
+	import createStatCardState from './state.svelte';
 	import AnimatedNumber from '$stylist/animation/component/atom/animated-number/index.svelte';
 
 	let props: RecipeStatCard & HTMLAttributes<HTMLDivElement> = $props();

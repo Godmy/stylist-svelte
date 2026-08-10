@@ -10,7 +10,7 @@
 	 */
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import createSearchBarState from '$stylist/form/function/state/search-bar/index.svelte';
+	import createSearchBarState from './state.svelte';
 	import type { SlotSearchBar as ISearchBarProps } from '$stylist/form/interface/slot/search-bar';
 	import type { HTMLAttributes } from 'svelte/elements';
 

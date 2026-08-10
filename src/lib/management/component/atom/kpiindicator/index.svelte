@@ -3,7 +3,7 @@
 
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
-	import createKPIIndicatorState from '$stylist/management/function/state/kpi-indicator/index.svelte';
+	import createKPIIndicatorState from './state.svelte';
 
 	let props: RecipeKPIIndicator = $props();
 

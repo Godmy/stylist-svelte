@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { AvatarSelectorProps } from '$stylist/user/interface/recipe/avatar-selector';
-	import createAvatarSelectorState from '$stylist/user/function/state/avatar-selector/index.svelte';
+	import createAvatarSelectorState from './state.svelte';
 
 	let props: AvatarSelectorProps = $props();
 	const state = createAvatarSelectorState(props);

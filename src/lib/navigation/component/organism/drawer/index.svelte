@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { DrawerProps } from '$stylist/navigation/type/struct/drawer-props/drawer-props';
-	import stateFn from '$stylist/navigation/function/state/drawer/index.svelte';
+	import stateFn from './state.svelte';
 
 	let props: DrawerProps = $props();
 	const state = stateFn(props);

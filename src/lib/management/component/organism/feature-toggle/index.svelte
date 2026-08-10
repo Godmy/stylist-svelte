@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeFeatureToggle } from '$stylist/management/interface/recipe/feature-toggle';
 
-	import { createFeatureToggleState } from '$stylist/management/function/state/feature-toggle/index.svelte';
+	import { createFeatureToggleState } from './state.svelte';
 
 	let props: RecipeFeatureToggle = $props();
 

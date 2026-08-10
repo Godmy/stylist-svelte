@@ -1,5 +1,4 @@
 import type { MinimapBounds } from '$stylist/architecture/type/struct/minimap-bounds';
-import type { MinimapNodeRect } from '$stylist/architecture/type/struct/minimap-node-rect';
 import type { RecipeWorkspaceNode } from '$stylist/workspace/interface/recipe/workspace-node';
 
 export function resolveMinimapNodeRect(
@@ -7,7 +6,12 @@ export function resolveMinimapNodeRect(
 	bounds: MinimapBounds,
 	width: number,
 	height: number
-): MinimapNodeRect {
+): {
+	x: number;
+	y: number;
+	width: number;
+	height: number;
+} {
 	const nodeWidth = node.width ?? 200;
 	const nodeHeight = typeof node.height === 'number' ? node.height : 100;
 	const xRange = bounds.maxX - bounds.minX || 1;

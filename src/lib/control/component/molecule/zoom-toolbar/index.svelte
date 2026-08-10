@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { PresetZoomToolbar } from '$stylist/control/const/preset/zoom-toolbar';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import { createZoomToolbarState } from '$stylist/control/function/state/zoom-toolbar/index.svelte';
+	import { createZoomToolbarState } from './state.svelte';
 	import type { RecipeZoomToolbar } from '$stylist/control/interface/recipe/zoom-toolbar';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 

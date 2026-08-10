@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { VerticalLayoutProps } from '$stylist/layout/interface/recipe/vertical-layout';
-	import createVerticalLayoutState from '$stylist/layout/function/state/vertical-layout/index.svelte';
+	import createVerticalLayoutState from './state.svelte';
 
 	let props: VerticalLayoutProps = $props();
 	const state = createVerticalLayoutState(props);

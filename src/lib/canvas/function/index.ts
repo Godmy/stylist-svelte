@@ -13,12 +13,3 @@ export {
 	hitTestCanvasObject,
 	updateDraftCanvasObject
 } from './script';
-export {
-	createCanvasToolbarState,
-	createCollaborativeEditorState,
-	createColorPaletteState,
-	createDrawingOverlayState,
-	createDrawingSurfaceState,
-	createScreenshotSelectorState,
-	createSharedCanvasState
-} from './state';

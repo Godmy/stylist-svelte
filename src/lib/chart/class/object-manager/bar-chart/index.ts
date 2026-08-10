@@ -1,4 +1,3 @@
-import type { IBarPosition } from '$stylist/chart/type/struct/bar-chart-bar-position';
 import type { IChartDataPoint } from '$stylist/chart/type/struct/bar-chart';
 import type { TokenThemeScheme } from '$stylist/theme/type/alias/theme-scheme';
 import { BAR_CHART_COLOR_SCHEME } from '$stylist/chart/const/preset/bar-chart-color-scheme';
@@ -37,7 +36,13 @@ export class ObjectManagerBarChart {
 		showAxis: boolean;
 		calculatedMaxValue: number;
 		colorScheme?: TokenThemeScheme;
-	}): IBarPosition[] {
+	}): {
+	x: number;
+	y: number;
+	width: number;
+	height: number;
+	color: string;
+}[] {
 		const { data, barWidth, barGap, chartHeight, showAxis, calculatedMaxValue, colorScheme } =
 			params;
 		const startX = showAxis ? 50 : 5;

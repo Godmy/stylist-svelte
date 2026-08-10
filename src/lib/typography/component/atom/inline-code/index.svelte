@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeThemeInlineCode } from '$stylist/typography/interface/recipe/inline-code';
-	import createInlineCodeState from '$stylist/typography/function/state/inline-code/index.svelte';
+	import createInlineCodeState from './state.svelte';
 
 	let props: RecipeThemeInlineCode = $props();
 

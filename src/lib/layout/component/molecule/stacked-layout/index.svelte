@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import createStackedLayoutState from '$stylist/layout/function/state/stacked-layout/index.svelte';
+<script lang="ts">
+	import createStackedLayoutState from './state.svelte';
 	import type { StackedLayoutProps } from '$stylist/layout/interface/recipe/stacked-layout';
 
 	let props: StackedLayoutProps = $props();

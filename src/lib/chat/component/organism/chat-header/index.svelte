@@ -4,7 +4,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import UserStatus from '$stylist/chat/component/molecule/user-status/index.svelte';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
-	import createChatHeaderState from '$stylist/chat/function/state/chat-header/index.svelte';
+	import createChatHeaderState from './state.svelte';
 
 	export type ChatHeaderChat = {
 		id: string;

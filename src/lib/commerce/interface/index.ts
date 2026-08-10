@@ -15,7 +15,6 @@ export type {
 	RecipeBillingSummary,
 	RecipeCardWithImage,
 	RecipeCategoryCard,
-	RecipeCompetitorPrice,
 	RecipeCurrencyConverter,
 	RecipeDataDisplayCard,
 	RecipeDiscountApplier,

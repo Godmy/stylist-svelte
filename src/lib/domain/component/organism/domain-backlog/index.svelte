@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createDomainBacklogState from '$stylist/domain/function/state/domain-backlog/index.svelte';
+	import createDomainBacklogState from './state.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import BacklogViewTabs from '$stylist/portfolio/component/molecule/backlog-view-tabs/index.svelte';
 	import IssuesTable from '$stylist/portfolio/component/molecule/issues-table/index.svelte';

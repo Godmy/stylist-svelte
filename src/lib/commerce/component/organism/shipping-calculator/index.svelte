@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeShippingCalculator as ShippingCalculatorContract } from '$stylist/commerce/interface/recipe/shipping-calculator';
-	import stateFn from '$stylist/commerce/function/state/shipping-calculator/index.svelte';
+	import stateFn from './state.svelte';
 
 	let props: ShippingCalculatorContract = $props();
 	const state = stateFn(props);
@@ -116,7 +116,7 @@
 			<button
 				type="button"
 				class="shipping-calculator__shipping-option"
-				data-TODO="was state.ShippingOptionClasses(...) — add data-attr"
+				data-TODO="was state.ShippingOptionClasses(...) вЂ” add data-attr"
 				onclick={() => state.handleSelectOption(option)}
 			>
 				<div class="_c2">

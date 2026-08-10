@@ -1,4 +1,4 @@
-﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { ColumnSchema } from '$stylist/table/type/object/column';
 
 type Row = Record<string, unknown>;

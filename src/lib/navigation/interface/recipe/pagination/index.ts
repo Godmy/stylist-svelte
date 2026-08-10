@@ -1,4 +1,4 @@
-import type { PaginationStateProps as LegacyPaginationProps1 } from '$stylist/navigation/interface/recipe/pagination-pagination-state-props';
+import type { SlotPagination as PaginationProps } from '$stylist/navigation/interface/slot/pagination';
 import type { SlotPagination as Slot } from '$stylist/navigation/interface/slot/pagination';
 import type { SlotPagination as SlotPagination } from '$stylist/navigation/interface/slot/pagination';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
@@ -16,7 +16,9 @@ export interface RecipePagination
 		[
 			BasePaginationProps,
 			HTMLAttributes<HTMLDivElement>,
-			LegacyPaginationProps1,
+			ComputeIntersectAll<[PaginationProps, Omit<HTMLAttributes<HTMLDivElement>, 'class'>]> & {
+class?: string;
+},
 			Slot,
 			SlotPagination,
 			ILabelSlot,

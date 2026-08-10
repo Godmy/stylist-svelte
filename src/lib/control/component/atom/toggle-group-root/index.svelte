@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import type { RecipeToggleGroupRootProps } from '$stylist/control/interface/recipe/toggle-group-root-props';
-	import createToggleGroupRootState from '$stylist/control/function/state/toggle-group-root/index.svelte';
+	import createToggleGroupRootState from './state.svelte';
 
 	let props: RecipeToggleGroupRootProps = $props();
 

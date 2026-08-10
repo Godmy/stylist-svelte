@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { PageHeaderStateProps } from '$stylist/management/interface/recipe/page-header';
-	import createPageHeaderState from '$stylist/management/function/state/page-header/index.svelte';
+	import createPageHeaderState from './state.svelte';
 	import Link from '$stylist/typography/component/atom/link/index.svelte';
 
 	let props: PageHeaderStateProps = $props();

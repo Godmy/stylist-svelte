@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipePredictionResult as PredictionResultContract } from '$stylist/ai/interface/recipe/prediction-result';
-	import createPredictionResultState from '$stylist/ai/function/state/prediction-result/index.svelte';
+	import createPredictionResultState from './state.svelte';
 
 	let props: PredictionResultContract = $props();
 	const state = createPredictionResultState(props);

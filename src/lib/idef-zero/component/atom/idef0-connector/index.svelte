@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SVGAttributes } from 'svelte/elements';
 	import type { RecipeIdef0Connector } from '$stylist/idef-zero/interface/recipe/idef0-connector';
-	import createIdef0ConnectorState from '$stylist/idef-zero/function/state/idef0-connector/index.svelte';
+	import createIdef0ConnectorState from './state.svelte';
 	import Idef0PortLabel from '$stylist/idef-zero/component/atom/idef0-port-label/index.svelte';
 
 	let props: RecipeIdef0Connector & SVGAttributes<SVGGElement> = $props();

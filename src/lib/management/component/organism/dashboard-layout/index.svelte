@@ -5,7 +5,7 @@
 
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 
-	import createDashboardLayoutState from '$stylist/management/function/state/dashboard-layout/index.svelte';
+	import createDashboardLayoutState from './state.svelte';
 
 	let props: DashboardLayoutProps = $props();
 

@@ -1,9 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type {
-	BehaviorCoordinatesProto,
-	BehaviorLocationProto,
-	BehaviorMarkerProto
-} from './behavior';
+export type { BehaviorMarkerProto } from './behavior';
 export type {
 	GeoJSONViewerStateProps,
 	RecipeIMapSettings,
@@ -20,7 +16,6 @@ export type {
 	SlotCoordinates,
 	SlotGeoJsonFeature,
 	SlotGeoJsonFeatureCollection,
-	SlotGeoJsonGeometry,
 	SlotGeoJsonLayer,
 	SlotMapSelector,
 	SlotMapView

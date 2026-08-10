@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeChartAxisX } from '$stylist/chart/interface/recipe/chart-axis-x';
-	import createChartAxisXState from '$stylist/chart/function/state/chart-axis-x/index.svelte';
+	import createChartAxisXState from './state.svelte';
 
 	let props: RecipeChartAxisX = $props();
 	const state = createChartAxisXState(props);

@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeErrorBoundary } from '$stylist/development/interface/recipe/error-boundary';
 	import { onMount } from 'svelte';
-	import { createErrorBoundaryState } from '$stylist/development/function/state/error-boundary/index.svelte';
+	import { createErrorBoundaryState } from './state.svelte';
 	let props: RecipeErrorBoundary & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createErrorBoundaryState(props);
 

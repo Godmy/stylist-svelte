@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeForgotPassword } from '$stylist/auth/interface/recipe/forgot-password';
-	import createForgotPasswordState from '$stylist/auth/function/state/forgot-password/index.svelte';
+	import createForgotPasswordState from './state.svelte';
 	import LoginField from '$stylist/auth/component/atom/login-field/index.svelte';
 	import SubmitButton from '$stylist/auth/component/atom/submit-button/index.svelte';
 	import AuthError from '$stylist/auth/component/atom/auth-error/index.svelte';
@@ -13,7 +13,7 @@
 <div class={state.rootClass}>
 	{#if state.isSuccess}
 		<div class="c-forgot-password__success">
-			<div class="c-forgot-password__success-icon" aria-hidden="true">✓</div>
+			<div class="c-forgot-password__success-icon" aria-hidden="true">вњ“</div>
 			<h3 class="c-forgot-password__success-title">Check your email</h3>
 			<p class="c-forgot-password__success-text">
 				We sent reset instructions to <strong>{state.submittedEmail}</strong>
@@ -49,7 +49,7 @@
 			/>
 			{#if props.loginHref}
 				<div class="c-forgot-password__back">
-					<AuthLink href={props.loginHref}>← Back to sign in</AuthLink>
+					<AuthLink href={props.loginHref}>в†ђ Back to sign in</AuthLink>
 				</div>
 			{/if}
 		</form>

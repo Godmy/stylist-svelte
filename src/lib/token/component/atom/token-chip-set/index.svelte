@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TokenChipSetProps } from '$stylist/token/type/struct/token-chip-set-props';
-	import createTokenChipSetState from '$stylist/token/function/state/token-chip-set/index.svelte';
+	import createTokenChipSetState from './state.svelte';
 
 	let props: TokenChipSetProps = $props();
 	const state = createTokenChipSetState(props);

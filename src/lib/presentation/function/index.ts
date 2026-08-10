@@ -3,7 +3,3 @@ export {
 	resolvePresenterSceneLinks,
 	useSemanticZoom
 } from './script';
-export {
-	createPresenterNodeShellState,
-	usePreziState
-} from './state';

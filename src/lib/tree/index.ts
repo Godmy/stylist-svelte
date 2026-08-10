@@ -9,8 +9,6 @@ export {
 } from './component';
 export {
 	createTreeExpansionState,
-	createTreeNodeItemState,
-	createTreeViewerState,
 	normalizeTreeViewerNode
 } from './function';
 export type {

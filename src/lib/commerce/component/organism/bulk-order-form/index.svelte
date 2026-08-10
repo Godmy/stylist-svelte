@@ -10,7 +10,7 @@
 	const ImageIcon = 'image';
 
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import BulkOrderFormModel from '$stylist/commerce/function/state/bulk-order-form/index.svelte';
+	import BulkOrderFormModel from './state.svelte';
 	import type { BulkOrderFormProps } from '$stylist/commerce/type/struct/bulk-order-form/bulk-order-form-props';
 
 	let {

@@ -8,13 +8,10 @@ export type {
 	SlotChat,
 	SlotChatStatusIndicator,
 	SlotMessage,
-	SlotMessageAttachment,
 	SlotMessageBubble,
 	SlotMessageComposer,
 	SlotMessageInput,
-	SlotMessageReaction,
 	SlotMessageThread,
-	SlotMessageThreadMessage,
 	SlotMessageTimestamp,
 	SlotUser,
 	ThemeIconItem

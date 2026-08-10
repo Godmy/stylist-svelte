@@ -1,9 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorProductWishlistEvents } from './behavior';
-export type {
-	ContractProductSearch,
-	ContractWishlistButton
-} from './contract';
 export type {
 	RecipeComparisonCard,
 	RecipeProductAvailability,

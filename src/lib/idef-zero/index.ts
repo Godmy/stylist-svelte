@@ -8,15 +8,6 @@ export {
 	Idef0Outputs,
 	Idef0PortLabel
 } from './component';
-export {
-	createIdef0BlackBoxState,
-	createIdef0ConnectorState,
-	createIdef0DiagramState,
-	createIdef0FunctionBoxState,
-	createIdef0InputsState,
-	createIdef0OutputsState,
-	createIdef0PortLabelState
-} from './function';
 export type { Idef0Port } from './type';
 export type {
 	RecipeIdef0BlackBox,

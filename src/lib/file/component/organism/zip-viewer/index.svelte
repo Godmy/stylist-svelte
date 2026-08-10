@@ -2,7 +2,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import { createZipViewerState } from '$stylist/file/function/state/zip-viewer/index.svelte';
+	import { createZipViewerState } from './state.svelte';
 	import type { RecipeZipViewer } from '$stylist/file/interface/recipe/zip-viewer';
 	import { getEntryIcon } from '$stylist/file/function/script/zip-viewer-get-entry-icon';
 	import { formatFileSize } from '$stylist/file/function/script/zip-viewer-format-file-size';

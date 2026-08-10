@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeSimpleModal } from '$stylist/navigation/interface/recipe/simple-modal';
-	import createSimpleModalState from '$stylist/navigation/function/state/simple-modal/index.svelte';
+	import createSimpleModalState from './state.svelte';
 
 	let props: RecipeSimpleModal = $props();
 	const state = createSimpleModalState(props);

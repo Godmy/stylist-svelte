@@ -3,6 +3,7 @@ export { FileInput } from './atom';
 export {
 	AttachmentPreview,
 	DataExporter,
+	DownloadCard,
 	FileUpload,
 	QuantitySelector
 } from './molecule';

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeWarrantyInfo as WarrantyInfoContract } from '$stylist/commerce/interface/recipe/warranty-info';
-	import stateFn from '$stylist/commerce/function/state/warranty-info/index.svelte';
+	import stateFn from './state.svelte';
 
 	let props: WarrantyInfoContract = $props();
 	const state = stateFn(props);
@@ -66,7 +66,7 @@
 								<h5 class="warranty-info__claim-title">{claim.issue}</h5>
 								<span
 									class="warranty-info__claim-status-badge"
-									data-TODO="was state.ClaimStatusBadgeClasses(...) — add data-attr"
+									data-TODO="was state.ClaimStatusBadgeClasses(...) вЂ” add data-attr"
 									>{claim.status}</span
 								>
 							</div>
@@ -100,7 +100,7 @@
 						<button
 							type="button"
 							class="warranty-info__button"
-							data-TODO="was state.ButtonClasses(...) — add data-attr"
+							data-TODO="was state.ButtonClasses(...) вЂ” add data-attr"
 							onclick={state.handleSubmitClaim}
 						>
 							Submit Claim
@@ -109,7 +109,7 @@
 							<button
 								type="button"
 								class="warranty-info__button"
-								data-TODO="was state.ButtonClasses(...) — add data-attr"
+								data-TODO="was state.ButtonClasses(...) вЂ” add data-attr"
 								onclick={props.onTermsClick}
 							>
 								Warranty Terms
@@ -119,7 +119,7 @@
 							<button
 								type="button"
 								class="warranty-info__button"
-								data-TODO="was state.ButtonClasses(...) — add data-attr"
+								data-TODO="was state.ButtonClasses(...) вЂ” add data-attr"
 								onclick={props.onFileDownload}
 							>
 								Download PDF

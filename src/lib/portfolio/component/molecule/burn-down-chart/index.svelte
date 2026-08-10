@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import { createBurnDownChartState } from '$stylist/portfolio/function/state/burn-down-chart/index.svelte';
+<script lang="ts">
+	import { createBurnDownChartState } from './state.svelte';
 	import type { SlotBurnDownData as BurnDownData } from '$stylist/portfolio/interface/slot/burn-down-data';
 
 	let {

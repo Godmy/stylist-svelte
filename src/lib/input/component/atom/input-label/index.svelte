@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeInputLabel as IInputLabelProps } from '$stylist/input/interface/recipe/input-label';
-	import createInputLabelState from '$stylist/input/function/state/input-label/index.svelte';
+	import createInputLabelState from './state.svelte';
 
 	let props: IInputLabelProps = $props();
 	const state = createInputLabelState(props);

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeChartBackground } from '$stylist/chart/interface/recipe/chart-background';
-	import createChartBackgroundState from '$stylist/chart/function/state/chart-background/index.svelte';
+	import createChartBackgroundState from './state.svelte';
 
 	let props: RecipeChartBackground = $props();
 	const state = createChartBackgroundState(props);

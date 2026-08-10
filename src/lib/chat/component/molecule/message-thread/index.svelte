@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotMessageThread as MessageThreadProps } from '$stylist/chat/interface/slot/message-thread';
-	import createMessageThreadState from '$stylist/chat/function/state/message-thread/index.svelte';
+	import createMessageThreadState from './state.svelte';
 
 	let props: MessageThreadProps = $props();
 

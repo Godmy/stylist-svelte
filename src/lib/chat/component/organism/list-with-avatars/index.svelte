@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeListWithAvatars } from '$stylist/chat/interface/recipe/list-with-avatars';
-	import { createListWithAvatarsState } from '$stylist/chat/function/state/list-with-avatars/index.svelte';
+	import { createListWithAvatarsState } from './state.svelte';
 
 	let {
 		items = [],

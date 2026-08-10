@@ -5,12 +5,6 @@ export {
 	ImageGallery,
 	ImageWithCaption
 } from './component';
-export {
-	createCanvasImageEditorState,
-	createImageGalleryState,
-	createImageState,
-	createImageWithCaptionState
-} from './function';
 export type {
 	RecipeCanvasImageEditor,
 	RecipeImage,

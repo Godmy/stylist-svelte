@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotTabContainer as TabContainerProps } from '$stylist/navigation/interface/slot/tab-container';
-	import createTabPanelsState from '$stylist/navigation/function/state/tab-panels/index.svelte';
+	import createTabPanelsState from './state.svelte';
 
 	let props: TabContainerProps = $props();
 

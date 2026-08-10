@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeRangeInput } from '$stylist/control/interface/recipe/range-input';
-	import { createRangeInputState } from '$stylist/control/function/state/range-input/index.svelte';
+	import { createRangeInputState } from './state.svelte';
 
 	let props: RecipeRangeInput = $props();
 	const state = createRangeInputState(props);

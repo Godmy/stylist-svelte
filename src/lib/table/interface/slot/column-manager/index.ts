@@ -1,7 +1,19 @@
-import type { SlotColumnConfig } from '$stylist/table/interface/slot/column-config';
-
 export interface SlotColumnManager {
-	columns: SlotColumnConfig[];
-	onColumnsChange?: (columns: SlotColumnConfig[]) => void;
+	columns: ({
+key: string;
+	header: string;
+	visible: boolean;
+	sortable?: boolean;
+	filterable?: boolean;
+	width?: string;
+})[];
+	onColumnsChange?: (columns: ({
+key: string;
+	header: string;
+	visible: boolean;
+	sortable?: boolean;
+	filterable?: boolean;
+	width?: string;
+})[]) => void;
 	class?: string;
 }

@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipePromptBuilder as PromptBuilderContract } from '$stylist/ai/interface/recipe/prompt-builder';
-	import createPromptBuilderState from '$stylist/ai/function/state/prompt-builder/index.svelte';
+	import createPromptBuilderState from './state.svelte';
 
 	let props: PromptBuilderContract = $props();
 	const state = createPromptBuilderState(props);

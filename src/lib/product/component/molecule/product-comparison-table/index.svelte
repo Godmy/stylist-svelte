@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
-	import { createProductComparisonTableState } from '$stylist/product/function/state/product-comparison-table/index.svelte';
+	import { createProductComparisonTableState } from './state.svelte';
 
 	let props: RecipeProductCollection & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createProductComparisonTableState(props);

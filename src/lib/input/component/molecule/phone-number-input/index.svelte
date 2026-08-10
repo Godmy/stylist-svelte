@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import '$stylist/input/const/style/field/index.css';
 	import type { RecipePhoneNumberInput as IPhoneNumberInputProps } from '$stylist/input/interface/recipe/phone-number-input';
-	import { createPhoneNumberInputState } from '$stylist/input/function/state/phone-number-input/index.svelte';
+	import { createPhoneNumberInputState } from './state.svelte';
 
 	let props: IPhoneNumberInputProps = $props();
 	const state = createPhoneNumberInputState(props);

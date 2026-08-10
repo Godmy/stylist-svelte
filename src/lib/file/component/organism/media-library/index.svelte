@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeMediaLibrary } from '$stylist/file/interface/recipe/media-library';
-	import { createMediaLibraryState } from '$stylist/file/function/state/media-library/index.svelte';
+	import { createMediaLibraryState } from './state.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeMediaLibrary = $props();

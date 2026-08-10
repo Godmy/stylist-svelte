@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { SlotHero as IHeroProps } from '$stylist/marketing/interface/slot/hero';
-	import createHeroState from '$stylist/marketing/function/state/hero/index.svelte';
+	import createHeroState from './state.svelte';
 	import AnimatedNumber from '$stylist/animation/component/atom/animated-number/index.svelte';
 
 	let props: IHeroProps = $props();

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotTimePicker as ITimePickerProps } from '$stylist/calendar/interface/slot/time-picker';
-	import createTimePickerState from '$stylist/calendar/function/state/time-picker/index.svelte';
+	import createTimePickerState from './state.svelte';
 
 	let props: ITimePickerProps = $props();
 	const state = createTimePickerState(props);

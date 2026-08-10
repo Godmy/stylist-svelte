@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeSessionManager } from '$stylist/auth/interface/recipe/session-manager';
-	import { createSessionManagerState } from '$stylist/auth/function/state/session-manager/index.svelte';
+	import { createSessionManagerState } from './state.svelte';
 
 	let props: RecipeSessionManager = $props();
 	const state = createSessionManagerState(props);

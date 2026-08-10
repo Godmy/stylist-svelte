@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createRadioGroupState from '$stylist/input/function/state/radio-group/index.svelte';
+	import createRadioGroupState from './state.svelte';
 	import type { RecipeRadioGroup } from '$stylist/input/interface/recipe/radio-group';
 
 	const props: RecipeRadioGroup = $props();

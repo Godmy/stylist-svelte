@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeNotificationPreferences } from '$stylist/management/interface/recipe/notification-preferences';
-	import { createNotificationPreferencesState } from '$stylist/management/function/state/notification-preferences/index.svelte';
+	import { createNotificationPreferencesState } from './state.svelte';
 
 	let props: RecipeNotificationPreferences & { email?: boolean; push?: boolean; sms?: boolean } =
 		$props();

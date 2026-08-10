@@ -8,7 +8,6 @@ export type {
 	TokenControlDefinition,
 	TokenControlDefinitionData,
 	TokenControlOption,
-	TokenIconKind,
 	TokenIconProps,
 	TokenRadioControlDefinition,
 	TokenRadioControlProps,

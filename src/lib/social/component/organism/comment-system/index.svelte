@@ -3,7 +3,7 @@
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import type { SlotCommentSystem as CommentSystemProps } from '$stylist/social/interface/slot/comment-system';
 	import type { SlotCommentItem as CommentItem } from '$stylist/social/interface/slot/comment-item';
-	import createCommentSystemState from '$stylist/social/function/state/comment-system/index.svelte';
+	import createCommentSystemState from './state.svelte';
 
 	let props: CommentSystemProps = $props();
 	const state = createCommentSystemState(props);

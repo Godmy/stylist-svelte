@@ -2,7 +2,7 @@
 	import Switch from '$stylist/control/component/atom/switch/index.svelte';
 	import Tag from '$stylist/control/component/atom/tag/index.svelte';
 	import type { RecipeFilterBar } from '$stylist/commerce/interface/recipe/filter-bar';
-	import { createFilterBarState } from '$stylist/commerce/function/state/filter-bar/index.svelte';
+	import { createFilterBarState } from './state.svelte';
 
 	let props: RecipeFilterBar = $props();
 	const state = createFilterBarState(props);

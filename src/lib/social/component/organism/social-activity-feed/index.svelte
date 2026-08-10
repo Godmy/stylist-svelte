@@ -3,7 +3,7 @@
 	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 	import { socialActivityFeedFormatTime } from '$stylist/social/function/script/social-activity-feed-format-time';
 	import { socialActivityFeedGetDescription } from '$stylist/social/function/script/social-activity-feed-get-description';
-	import createSocialActivityFeedState from '$stylist/social/function/state/social-activity-feed/index.svelte';
+	import createSocialActivityFeedState from './state.svelte';
 	import type { Props } from '$stylist/social/type/struct/social-activity-feed/-props';
 
 	let props: Props = $props();

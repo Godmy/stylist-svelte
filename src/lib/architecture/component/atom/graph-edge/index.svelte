@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeGraphEdge } from '$stylist/architecture/interface/recipe/graph-edge';
-	import createGraphEdgeState from '$stylist/architecture/function/state/graph-edge/index.svelte';
+	import createGraphEdgeState from './state.svelte';
 
 	let props: RecipeGraphEdge & { fromNodeId: string; toNodeId: string; label?: string } = $props();
 

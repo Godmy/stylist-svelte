@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeSecuritySettings } from '$stylist/auth/interface/recipe/security-settings';
-	import { createSecuritySettingsState } from '$stylist/auth/function/state/security-settings/index.svelte';
+	import { createSecuritySettingsState } from './state.svelte';
 
 	let props: RecipeSecuritySettings = $props();
 	const state = createSecuritySettingsState(props);

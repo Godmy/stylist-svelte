@@ -1,8 +1,16 @@
+import type { TokenLoading } from '$stylist/animation/type/alias/loading';
 import { TOKEN_LOADING } from '$stylist/animation/const/array/loading';
-import type { AuthGuardResolutionInput } from '$stylist/auth/type/struct/auth-guard-resolution-input';
-import type { AuthGuardResolution } from '$stylist/auth/type/struct/auth-guard-resolution';
-
-export function resolveAuthGuardState(input: AuthGuardResolutionInput): AuthGuardResolution {
+export function resolveAuthGuardState(input: {
+	isAuthenticated: boolean;
+	requiredRole?: string;
+	allowedRoles: string[];
+	userRoles: string[];
+}): {
+	isLoggedIn: boolean;
+	hasRequiredPermissions: boolean;
+	isAuthorized: boolean;
+	loadingStatus: TokenLoading;
+} {
 	const { isAuthenticated, requiredRole, allowedRoles, userRoles } = input;
 	const isLoggedIn = isAuthenticated;
 	let hasRequiredPermissions = isAuthenticated;

@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeAudioVisualizer } from '$stylist/audio/interface/recipe/audio-visualizer';
-	import { createAudioVisualizerState } from '$stylist/audio/function/state/audio-visualizer/index.svelte';
+	import { createAudioVisualizerState } from './state.svelte';
 
 	let props: RecipeAudioVisualizer & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createAudioVisualizerState(props);

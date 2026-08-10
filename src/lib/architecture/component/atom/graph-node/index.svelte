@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeGraphNode } from '$stylist/architecture/interface/recipe/graph-node';
-	import createGraphNodeState from '$stylist/architecture/function/state/graph-node/index.svelte';
+	import createGraphNodeState from './state.svelte';
 
 	let props: RecipeGraphNode = $props();
 

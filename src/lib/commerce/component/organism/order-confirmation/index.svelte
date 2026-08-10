@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeOrderConfirmation } from '$stylist/commerce/interface/recipe/order-confirmation';
 	import { PresetOrderConfirmation } from '$stylist/commerce/const/preset/order-confirmation';
-	import { createOrderConfirmationState } from '$stylist/commerce/function/state/order-confirmation/index.svelte';
+	import { createOrderConfirmationState } from './state.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 

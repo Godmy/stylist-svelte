@@ -5,7 +5,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import MessageMeta from '$stylist/chat/component/atom/message-meta/index.svelte';
 	import RecipeAttachmentPreview from '$stylist/file/component/molecule/attachment-preview/index.svelte';
-	import createMessageItemState from '$stylist/chat/function/state/message-item/index.svelte';
+	import createMessageItemState from './state.svelte';
 
 	export type MessageItemProps = {
 		message: Message;
@@ -44,7 +44,7 @@
 				class="mi-reply-preview"
 				style="border-left: 2px solid var(--color-border-secondary); padding-left: var(--spacing-2);"
 			>
-				В ответ на сообщение
+				Р’ РѕС‚РІРµС‚ РЅР° СЃРѕРѕР±С‰РµРЅРёРµ
 			</div>
 		{/if}
 
@@ -52,7 +52,7 @@
 			{#if !props.message.type || props.message.type === 'text'}
 				{props.message.content}
 			{:else if props.message.type === 'image'}
-				<img src={props.message.content} alt="Изображение" class="mi-image" />
+				<img src={props.message.content} alt="РР·РѕР±СЂР°Р¶РµРЅРёРµ" class="mi-image" />
 			{:else if props.message.type === 'file' && props.message.attachments?.length}
 				{#each props.message.attachments as attachment, index}
 					<RecipeAttachmentPreview

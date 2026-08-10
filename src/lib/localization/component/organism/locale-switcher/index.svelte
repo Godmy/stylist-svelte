@@ -2,7 +2,7 @@
 	import type { LocaleSwitcherStateProps } from '$stylist/localization/interface/recipe/locale-switcher';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import BaseFlag from '$stylist/svg/component/atom/flag/index.svelte';
-	import createLocaleSwitcherState from '$stylist/localization/function/state/locale-switcher/index.svelte';
+	import createLocaleSwitcherState from './state.svelte';
 	import type { SlotLocaleSwitcher } from '$stylist/localization/interface/slot/locale-switcher';
 
 	let { onLocaleChange, onTimezoneChange, ...stateProps }: LocaleSwitcherStateProps = $props();

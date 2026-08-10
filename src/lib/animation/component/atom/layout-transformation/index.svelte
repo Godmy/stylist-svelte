@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeLayoutTransformation } from '$stylist/animation/interface/recipe/layout-transformation';
-	import createLayoutTransformationState from '$stylist/animation/function/state/layout-transformation/index.svelte';
+	import createLayoutTransformationState from './state.svelte';
 
 	let props: RecipeLayoutTransformation = $props();
 	const state = createLayoutTransformationState(props);

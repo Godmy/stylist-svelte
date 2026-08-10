@@ -5,7 +5,7 @@
 	import type { FRIEND_LIST_PROPS } from '$stylist/social/type/struct/friend-list/friend_list_-props';
 	import { friendListFormatLastSeen as formatLastSeen } from '$stylist/social/function/script/friend-list-format-last-seen';
 	import { friendListGetStatusColor as getStatusColor } from '$stylist/social/function/script/friend-list-get-status-color';
-	import createFriendListState from '$stylist/social/function/state/friend-list/index.svelte';
+	import createFriendListState from './state.svelte';
 
 	let props: FRIEND_LIST_PROPS = $props();
 	const state = createFriendListState(props);

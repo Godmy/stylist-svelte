@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createSidebarLayoutState from '$stylist/layout/function/state/sidebar-layout/index.svelte';
+	import createSidebarLayoutState from './state.svelte';
 	import type { SidebarLayoutProps } from '$stylist/layout/interface/recipe/sidebar-layout';
 
 	let props: SidebarLayoutProps = $props();

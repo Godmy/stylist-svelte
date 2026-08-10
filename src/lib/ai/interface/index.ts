@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	ContractPrediction,
 	ContractPromptTemplate,
 	ContractPromptVariable
 } from './contract';

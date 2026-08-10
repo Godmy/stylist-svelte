@@ -17,16 +17,9 @@ export {
 	TOKEN_BUTTON_LOADER_CLASSES
 } from './const';
 export {
-	createButtonComposedState,
 	createButtonFactoryInput,
 	createButtonPreset,
-	createButtonState,
-	createCloseButtonState,
-	createCopyButtonState,
-	createFollowButtonState,
-	createIconButtonState,
-	createSplitButtonState,
-	createToolButtonState
+	createButtonState
 } from './function';
 export type {
 	ButtonPropsRecord,

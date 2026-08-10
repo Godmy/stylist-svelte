@@ -1,6 +1,4 @@
 import type { TierContent } from '$stylist/architecture/type/alias/tier';
-import type { SlotAchievement } from '$stylist/management/interface/slot/achievement';
-
 export interface SlotTeamMemberCard {
 	/**
 	 * Name of the team member
@@ -35,7 +33,17 @@ export interface SlotTeamMemberCard {
 	/**
 	 * Array of achievements
 	 */
-	achievements: SlotAchievement[];
+	achievements: ({
+/**
+	 * Title of the achievement
+	 */
+	title: string;
+
+	/**
+	 * Description of the achievement
+	 */
+	description: string;
+})[];
 
 	/**
 	 * Visual variant of the team member card

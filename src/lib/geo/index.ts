@@ -15,14 +15,6 @@ export {
 	TOKEN_PIN
 } from './const';
 export {
-	createGeoJSONViewerState,
-	createLocationPickerState,
-	createLocationSelectorState,
-	createMapMarkerState,
-	createMapSelectorState,
-	createMapWithMarkersState,
-	createRoutePlannerState,
-	createStoreLocatorState,
 	geoHandleKeyDown,
 	geoHandleKeyDownForLocation,
 	getCountryFlagEmoji
@@ -46,8 +38,6 @@ export type {
 	TokenPin
 } from './type';
 export type {
-	BehaviorCoordinatesProto,
-	BehaviorLocationProto,
 	BehaviorMarkerProto,
 	GeoJSONViewerStateProps,
 	RecipeIMapSettings,
@@ -62,7 +52,6 @@ export type {
 	SlotCoordinates,
 	SlotGeoJsonFeature,
 	SlotGeoJsonFeatureCollection,
-	SlotGeoJsonGeometry,
 	SlotGeoJsonLayer,
 	SlotMapSelector,
 	SlotMapView

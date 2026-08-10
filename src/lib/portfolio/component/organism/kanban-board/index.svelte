@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { createKanbanBoardState } from '$stylist/portfolio/function/state/kanban-board/index.svelte';
+	import { createKanbanBoardState } from './state.svelte';
 	import KanbanColumn from '$stylist/portfolio/component/molecule/kanban-column/index.svelte';
 	import type { KanbanBoardType } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardtype';
 	import type { KanbanBoardAction } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardaction';

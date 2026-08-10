@@ -3,7 +3,7 @@
 
 	import type { SlotReactionPicker as IReactionPickerProps } from '$stylist/social/interface/slot/reaction-picker';
 
-	import { createReactionPickerState } from '$stylist/social/function/state/reaction-picker/index.svelte';
+	import { createReactionPickerState } from './state.svelte';
 
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 

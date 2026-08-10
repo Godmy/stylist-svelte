@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipePriceFilter } from '$stylist/commerce/interface/recipe/price-filter';
-	import { createPriceFilterState } from '$stylist/commerce/function/state/price-filter/index.svelte';
+	import { createPriceFilterState } from './state.svelte';
 
 	let props: RecipePriceFilter & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createPriceFilterState(props);

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeAnimated } from '$stylist/animation/interface/recipe/animated';
-	import createAnimatedState from '$stylist/animation/function/state/animated/index.svelte';
+	import createAnimatedState from './state.svelte';
 
 	let props: RecipeAnimated = $props();
 	const state = createAnimatedState(props);

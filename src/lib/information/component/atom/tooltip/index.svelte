@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeTooltip } from '$stylist/information/interface/recipe/tooltip';
-	import { createTooltipState } from '$stylist/information/function/state/tooltip/index.svelte';
+	import { createTooltipState } from './state.svelte';
 
 	let props: RecipeTooltip & HTMLAttributes<HTMLElement> = $props();
 

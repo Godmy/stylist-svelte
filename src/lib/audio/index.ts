@@ -7,14 +7,7 @@ export {
 	Transcriber
 } from './component';
 export { TOKEN_AUDIO_ICON } from './const';
-export {
-	createAudioPlayerState,
-	createAudioRecordButtonState,
-	createAudioSliderState,
-	createAudioVisualizerState,
-	createTranscriberState,
-	formatAudioTime
-} from './function';
+export { formatAudioTime } from './function';
 export type {
 	AudioPlayerProps,
 	AudioSliderProps,

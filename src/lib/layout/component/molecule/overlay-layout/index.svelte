@@ -1,5 +1,5 @@
 <script lang="ts">
-	import createOverlayLayoutState from '$stylist/layout/function/state/overlay-layout/index.svelte';
+	import createOverlayLayoutState from './state.svelte';
 	import type { OverlayLayoutProps } from '$stylist/layout/interface/recipe/overlay-layout';
 
 	let props: OverlayLayoutProps = $props();

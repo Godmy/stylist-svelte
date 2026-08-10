@@ -20,7 +20,3 @@ export type {
 	User,
 	UserProfile
 } from './object';
-export type {
-	AuthGuardResolution,
-	AuthGuardResolutionInput
-} from './struct';

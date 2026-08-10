@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeSentimentAnalysis as SentimentAnalysisContract } from '$stylist/ai/interface/recipe/sentiment-analysis';
-	import createSentimentAnalysisState from '$stylist/ai/function/state/sentiment-analysis/index.svelte';
+	import createSentimentAnalysisState from './state.svelte';
 
 	let props: SentimentAnalysisContract = $props();
 	const state = createSentimentAnalysisState(props);

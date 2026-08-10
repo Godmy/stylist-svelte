@@ -5,7 +5,6 @@ export type {
 } from './contract';
 export type {
 	AvatarGroupProps,
-	AvatarProps,
 	AvatarSelectorProps,
 	RecipeAccountSettings,
 	RecipeAccountSettingsForm,

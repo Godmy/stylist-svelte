@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createTabGroupState } from '$stylist/navigation/function/state/tab-group/index.svelte';
+	import { createTabGroupState } from './state.svelte';
 	import type { RecipeTabGroup } from '$stylist/navigation/interface/recipe/tab-group';
 
 	let props: RecipeTabGroup = $props();

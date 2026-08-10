@@ -2,7 +2,7 @@
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeBreadcrumbLink } from '$stylist/navigation/interface/recipe/breadcrumb-link';
-	import createBreadcrumbLinkState from '$stylist/navigation/function/state/breadcrumb-link/index.svelte';
+	import createBreadcrumbLinkState from './state.svelte';
 
 	type BreadcrumbLinkProps = RecipeBreadcrumbLink &
 		HTMLAttributes<HTMLAnchorElement> & {

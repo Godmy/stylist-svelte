@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotDialog as DialogProps } from '$stylist/navigation/interface/slot/dialog';
-	import createDialogState from '$stylist/navigation/function/state/dialog/index.svelte';
+	import createDialogState from './state.svelte';
 
 	let props: DialogProps = $props();
 	const state = createDialogState(props);

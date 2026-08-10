@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import createIconPickerState from '$stylist/chat/function/state/icon-picker/index.svelte';
+	import createIconPickerState from './state.svelte';
 	import type { RecipeIconPicker } from '$stylist/chat/interface/recipe/icon-picker';
 
 	const SearchIconName = 'search';

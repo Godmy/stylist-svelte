@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeProductSearch } from '$stylist/product/interface/recipe/product-search';
-	import createProductSearchState from '$stylist/product/function/state/product-search/index.svelte';
+	import createProductSearchState from './state.svelte';
 
 	let props: RecipeProductSearch & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createProductSearchState(props);

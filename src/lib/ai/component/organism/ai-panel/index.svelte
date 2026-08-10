@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeAiPanel } from '$stylist/ai/interface/recipe/ai-panel';
-	import { createAiPanelState } from '$stylist/ai/function/state/ai-panel/index.svelte';
+	import { createAiPanelState } from './state.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let { ...props }: RecipeAiPanel = $props();
@@ -10,7 +10,7 @@
 <div class={state.containerClass}>
 	<div class={state.headerClass}>
 		<h2 class="pap-title">AI Assistants</h2>
-		<p class="pap-subtitle">Выберите AI-модель для работы</p>
+		<p class="pap-subtitle">Р’С‹Р±РµСЂРёС‚Рµ AI-РјРѕРґРµР»СЊ РґР»СЏ СЂР°Р±РѕС‚С‹</p>
 	</div>
 
 	<div class="pap-body">

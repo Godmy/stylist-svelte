@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeScatterPlot } from '$stylist/chart/interface/recipe/scatter-plot';
 	import type { ScatterPlotDataPoint } from '$stylist/chart/type/struct/scatter-plot-point';
-	import createScatterPlotState from '$stylist/chart/function/state/scatter-plot/index.svelte';
+	import createScatterPlotState from './state.svelte';
 	type ScatterPlotProps = RecipeScatterPlot & {
 		width?: number;
 		height?: number;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
-	import createPaymentInfoState from '$stylist/commerce/function/state/payment-info/createpaymentinfostate/index.svelte';
+	import createPaymentInfoState from './state.svelte';
 
 	import type { PaymentInfoProps } from '$stylist/commerce/interface/recipe/payment-info-props';
 

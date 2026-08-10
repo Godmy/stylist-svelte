@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotFilterText } from '$stylist/table/interface/slot/filter-text';
-	import { createFilterTextState } from '$stylist/table/function/state/filter-text';
+	import { createFilterTextState } from './state.svelte';
 
 	let props: SlotFilterText = $props();
 	const state = createFilterTextState(props);

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipePromoBanner } from '$stylist/marketing/interface/recipe/promo-banner';
-	import { createPromoBannerState } from '$stylist/marketing/function/state/promo-banner/index.svelte';
+	import { createPromoBannerState } from './state.svelte';
 
 	let props: RecipePromoBanner = $props();
 	const state = createPromoBannerState(props);

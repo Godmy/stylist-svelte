@@ -2,7 +2,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { CONTROL_BUTTON_ICON } from '$stylist/button/const/map/button';
 	import type { RecipeButtonComposed } from '$stylist/button/interface/recipe/button-composed';
-	import createButtonComposedState from '$stylist/button/function/state/button-composed/index.svelte';
+	import createButtonComposedState from './state.svelte';
 
 	let props: RecipeButtonComposed = $props();
 	const state = createButtonComposedState(props);

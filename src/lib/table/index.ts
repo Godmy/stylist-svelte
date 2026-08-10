@@ -31,23 +31,7 @@ export {
 	TOKEN_SORT_DIRECTION
 } from './const';
 export {
-	createCellHeaderState,
-	createCellIconState,
-	createCellPillState,
-	createCellState,
-	createCellTextState,
 	createColumn,
-	createColumnManagerState,
-	createColumnState,
-	createComparisonTableState,
-	createComponentState,
-	createDataTableShellState,
-	createDataTableState,
-	createExpandableTableRowState,
-	createFilterBarState,
-	createFilterPillsState,
-	createFilterTextState,
-	createRowState,
 	createTable
 } from './function';
 export type {

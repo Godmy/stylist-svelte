@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeScheduledNotification } from '$stylist/management/interface/recipe/scheduled-notification';
-	import { createScheduledNotificationState } from '$stylist/management/function/state/scheduled-notification/index.svelte';
+	import { createScheduledNotificationState } from './state.svelte';
 
 	let props: RecipeScheduledNotification = $props();
 	const state = createScheduledNotificationState(props);

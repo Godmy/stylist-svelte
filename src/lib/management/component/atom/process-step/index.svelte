@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	/**
 	 * @component ProcessStep
 	 * @description Process step for timeline
@@ -14,7 +14,7 @@
 	 */
 
 	import type { SlotProcessStep as IProcessStepProps } from '$stylist/management/interface/slot/process-step';
-	import { createProcessStepState } from '$stylist/management/function/state/process-step/index.svelte';
+	import { createProcessStepState } from './state.svelte';
 
 	let props: IProcessStepProps = $props();
 	const state = createProcessStepState(props);

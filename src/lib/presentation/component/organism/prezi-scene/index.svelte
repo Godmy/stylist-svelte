@@ -2,7 +2,7 @@
 	import type { Snippet } from 'svelte';
 	import type { RecipePreziScene } from '$stylist/presentation/interface/recipe/prezi-scene';
 	import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
-	import usePreziState from '$stylist/presentation/function/state/prezi-scene/index.svelte';
+	import usePreziState from './state.svelte';
 	import PresenterNodeShell from '$stylist/presentation/component/molecule/presenter-node-shell/index.svelte';
 	import Minimap from '$stylist/architecture/component/organism/minimap/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';

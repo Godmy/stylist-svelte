@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { SlotDataTable } from '$stylist/table/interface/slot/data-table';
-	import { createDataTableState } from '$stylist/table/function/state/data-table';
+	import { createDataTableState } from './state.svelte';
 	import Table from '$stylist/table/component/atom/table/index.svelte';
 	import Row from '$stylist/table/component/atom/row/index.svelte';
 	import Column from '$stylist/table/component/molecule/column/index.svelte';

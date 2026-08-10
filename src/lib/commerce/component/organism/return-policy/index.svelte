@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeReturnPolicy as ReturnPolicyContract } from '$stylist/commerce/interface/recipe/return-policy';
-	import stateFn from '$stylist/commerce/function/state/return-policy/index.svelte';
+	import stateFn from './state.svelte';
 
 	let props: ReturnPolicyContract = $props();
 	const state = stateFn(props);
@@ -121,7 +121,7 @@
 			<button
 				type="button"
 				class="return-policy__button"
-				data-TODO="was state.ButtonClasses(...) — add data-attr"
+				data-TODO="was state.ButtonClasses(...) вЂ” add data-attr"
 				onclick={props.onReturnInitiate}
 			>
 				Start Return
@@ -129,7 +129,7 @@
 			<button
 				type="button"
 				class="return-policy__button"
-				data-TODO="was state.ButtonClasses(...) — add data-attr"
+				data-TODO="was state.ButtonClasses(...) вЂ” add data-attr"
 				onclick={props.onPolicyClick}
 			>
 				View Details

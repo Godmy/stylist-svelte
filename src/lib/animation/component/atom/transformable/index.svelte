@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeTransformable } from '$stylist/animation/interface/recipe/transformable';
-	import createTransformableState from '$stylist/animation/function/state/transformable/index.svelte';
+	import createTransformableState from './state.svelte';
 
 	let props: RecipeTransformable = $props();
 	const state = createTransformableState(props);

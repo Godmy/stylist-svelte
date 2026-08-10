@@ -1,9 +1,10 @@
 import type { SceneAtom } from '$stylist/graph/type/struct/scene-atom/scene-atom';
-import type { SceneInteractionState } from '$stylist/graph/type/struct/scene-interaction-state';
-
 export function resolveSceneAtomTint(
 	atom: SceneAtom,
-	interaction: SceneInteractionState
+	interaction: {
+	hovered: boolean;
+	selected: boolean;
+}
 ): { color: readonly [number, number, number]; strength: number } {
 	if (interaction.selected) {
 		return {

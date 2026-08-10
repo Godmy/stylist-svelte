@@ -4,7 +4,7 @@
 	const MoreHorizontal = 'more-horizontal';
 
 	import type { SlotSortableList as SortableListProps } from '$stylist/list/interface/slot/sortable-list';
-	import createSortableListState from '$stylist/list/function/state/sortable-list/index.svelte';
+	import createSortableListState from './state.svelte';
 
 	let {
 		items = [],

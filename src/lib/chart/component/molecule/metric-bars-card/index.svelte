@@ -1,6 +1,6 @@
 <script lang="ts">
 	import MetricBar from '$stylist/chart/component/atom/metric-bar/index.svelte';
-	import createMetricBarsCardState from '$stylist/chart/function/state/metric-bars-card/index.svelte';
+	import createMetricBarsCardState from './state.svelte';
 	import type { RecipeMetricBarsCard } from '$stylist/chart/interface/recipe/metric-bars-card';
 
 	let props: RecipeMetricBarsCard = $props();

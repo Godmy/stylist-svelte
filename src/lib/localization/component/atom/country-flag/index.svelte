@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeCountryFlag } from '$stylist/localization/interface/recipe/country-flag';
-	import { createCountryFlagState } from '$stylist/localization/function/state/country-flag/index.svelte';
+	import { createCountryFlagState } from './state.svelte';
 
 	let props: RecipeCountryFlag = $props();
 	const state = createCountryFlagState(props);
