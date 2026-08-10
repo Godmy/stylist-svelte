@@ -1,5 +1,4 @@
-﻿import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
-import type { SlotViewport } from '$stylist/architecture/interface/slot/viewport';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 import { DEFAULT_WORKSPACE_CANVAS } from '$stylist/workspace/const/record/workspace-canvas';
 import type { RecipeWorkspaceCanvas } from '$stylist/workspace/interface/recipe/workspace-canvas';
 
@@ -35,7 +34,12 @@ export function createWorkspaceCanvasState(props: RecipeWorkspaceCanvas) {
 		`transform: translate(${offsetX}px, ${offsetY}px) scale(${zoom}); transform-origin: 0 0;`
 	);
 
-	const viewport = $derived<SlotViewport>({
+	const viewport = $derived<({
+position: Point2D;
+	zoom: number;
+	width: number;
+	height: number;
+})>({
 		position: { x: offsetX, y: offsetY },
 		zoom,
 		width,

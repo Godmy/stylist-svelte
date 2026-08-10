@@ -1,8 +1,15 @@
-import type { SlotScreenReader as ScreenReaderProps } from '$stylist/form/interface/slot/screen-reader';
+import type { HTMLAttributes } from 'svelte/elements';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { SlotScreenReaderState } from '$stylist/form/interface/slot/screen-reader-state';
-
-export function createScreenReaderState(props: ScreenReaderProps): SlotScreenReaderState {
+export function createScreenReaderState(props: ((HTMLAttributes<HTMLDivElement> & {
+title?: string;
+	content?: string;
+	class?: string;
+}))): ({
+rootClass: string;
+	titleClass: string;
+	contentClass: string;
+	actionButtonClass: string;
+}) {
 	const rootClass = $derived(mergeClassNames('c-screen-reader', props.class ?? ''));
 	const titleClass = $derived('c-screen-reader__title');
 	const contentClass = $derived('c-screen-reader__content');

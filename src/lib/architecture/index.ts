@@ -153,9 +153,7 @@ export type {
 	RecipeGraphNode,
 	RecipeGraphvizDirectedEdge,
 	RecipeStylistGraphWorkspace,
-	SelectedItem,
-	SelectionState,
-	SlotViewport
+	SelectionState
 } from './interface';
 export type {
 	FoundationDepthThreshold,

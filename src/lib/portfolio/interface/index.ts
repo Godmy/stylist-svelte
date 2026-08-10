@@ -11,7 +11,6 @@ export type {
 	BurnDownLabel,
 	BurnDownMinMaxResult,
 	BurnDownTimestamps,
-	KanbanCardType,
 	SlotBacklogData,
 	SlotBacklogItem,
 	SlotBurnDownData,

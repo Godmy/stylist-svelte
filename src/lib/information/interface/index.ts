@@ -26,6 +26,5 @@ export type {
 export type {
 	HtmlAttributesBase,
 	SlotBadge,
-	SlotShortcut,
 	SlotStatus
 } from './slot';

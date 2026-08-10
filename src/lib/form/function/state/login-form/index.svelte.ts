@@ -1,8 +1,15 @@
-import type { SlotLoginForm as LoginFormProps } from '$stylist/form/interface/slot/login-form';
+import type { HTMLAttributes } from 'svelte/elements';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { SlotLoginFormState } from '$stylist/form/interface/slot/login-form-state';
-
-export function createLoginFormState(props: LoginFormProps): SlotLoginFormState {
+export function createLoginFormState(props: ((HTMLAttributes<HTMLFormElement> & {
+email?: string;
+	rememberMe?: boolean;
+	class?: string;
+}))): ({
+rootClass: string;
+	inputClass: string;
+	checkboxLabelClass: string;
+	submitButtonClass: string;
+}) {
 	const rootClass = $derived(mergeClassNames('c-login-form', props.class ?? ''));
 	const inputClass = $derived('c-login-form__input');
 	const checkboxLabelClass = $derived('c-login-form__checkbox-label');

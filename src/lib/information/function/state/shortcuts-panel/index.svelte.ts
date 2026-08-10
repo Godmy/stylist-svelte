@@ -1,6 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeShortcutsPanel } from '$stylist/information/interface/recipe/shortcuts-panel';
-import type { SlotShortcut } from '$stylist/information/interface/slot/shortcut';
 const Keyboard = 'keyboard';
 const Command = 'command';
 const Search = 'search';
@@ -13,7 +12,12 @@ const Moon = 'moon';
 const Code = 'code';
 const Copy = 'copy';
 
-const shortcuts: SlotShortcut[] = [
+const shortcuts: ({
+keys: string[];
+	description: string;
+	category: string;
+	icon?: string;
+})[] = [
 	{
 		keys: ['Ctrl', '/'],
 		description: 'Toggle Sidebar',
@@ -66,7 +70,12 @@ const shortcuts: SlotShortcut[] = [
 
 export function createShortcutsPanelState(_props: RecipeShortcutsPanel & HTMLAttributes<HTMLDivElement>) {
 	const groupedShortcuts = $derived.by(() => {
-		const groups = new Map<string, SlotShortcut[]>();
+		const groups = new Map<string, ({
+keys: string[];
+	description: string;
+	category: string;
+	icon?: string;
+})[]>();
 		shortcuts.forEach((shortcut) => {
 			if (!groups.has(shortcut.category)) {
 				groups.set(shortcut.category, []);

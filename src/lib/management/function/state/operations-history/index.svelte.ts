@@ -1,26 +1,53 @@
 import type { SlotOperationsHistory as OperationsHistoryProps } from '$stylist/management/interface/slot/operations-history';
-import type { Operation } from '$stylist/management/interface/slot/operation';
 import type { BehaviorOperationsHistoryEvents } from '$stylist/management/interface/behavior/operations-history-events';
 
 export function createOperationsHistoryState(
 	props: OperationsHistoryProps & BehaviorOperationsHistoryEvents
 ) {
-	const operations = $derived((props.operations ?? []) as unknown as Operation[]);
+	const operations = $derived((props.operations ?? []) as unknown as ({
+id: string;
+	name: string;
+	query: string;
+	timestamp: Date;
+	status: 'success' | 'error' | 'pending';
+	executionTime?: number;
+})[]);
 	const className = $derived(props.class ?? '');
 
 	let searchQuery = $state('');
-	let selectedOperation: Operation | null = $state(null);
+	let selectedOperation: ({
+id: string;
+	name: string;
+	query: string;
+	timestamp: Date;
+	status: 'success' | 'error' | 'pending';
+	executionTime?: number;
+}) | null = $state(null);
 
 	const filteredOperations = $derived(
 		operations.filter(
-			(op: Operation) =>
+			(op: ({
+id: string;
+	name: string;
+	query: string;
+	timestamp: Date;
+	status: 'success' | 'error' | 'pending';
+	executionTime?: number;
+})) =>
 				!searchQuery ||
 				op.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
 				op.query.toLowerCase().includes(searchQuery.toLowerCase())
 		)
 	);
 
-	function handleSelect(op: Operation): void {
+	function handleSelect(op: ({
+id: string;
+	name: string;
+	query: string;
+	timestamp: Date;
+	status: 'success' | 'error' | 'pending';
+	executionTime?: number;
+})): void {
 		selectedOperation = op;
 		props.onSelect?.(op);
 	}
@@ -35,7 +62,14 @@ export function createOperationsHistoryState(
 	}
 
 	function getStatusVariant(
-		status: Operation['status']
+		status: ({
+id: string;
+	name: string;
+	query: string;
+	timestamp: Date;
+	status: 'success' | 'error' | 'pending';
+	executionTime?: number;
+})['status']
 	): 'success' | 'danger' | 'warning' | 'default' {
 		switch (status) {
 			case 'success':
@@ -49,7 +83,14 @@ export function createOperationsHistoryState(
 		}
 	}
 
-	function getStatusText(status: Operation['status']): string {
+	function getStatusText(status: ({
+id: string;
+	name: string;
+	query: string;
+	timestamp: Date;
+	status: 'success' | 'error' | 'pending';
+	executionTime?: number;
+})['status']): string {
 		switch (status) {
 			case 'success':
 				return 'Success';

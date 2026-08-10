@@ -1,10 +1,19 @@
-import type { SlotFormWithValidation as FormWithValidationProps } from '$stylist/form/interface/slot/form-with-validation';
+import type { HTMLAttributes } from 'svelte/elements';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { SlotFormWithValidationState } from '$stylist/form/interface/slot/form-with-validation-state';
-
 export function createFormWithValidationState(
-	props: FormWithValidationProps
-): SlotFormWithValidationState {
+	props: ((HTMLAttributes<HTMLFormElement> & {
+email?: string;
+	password?: string;
+	class?: string;
+}))
+): ({
+rootClass: string;
+	inputClass: string;
+	emailValidText: string;
+	emailValidClass: string;
+	passwordValidText: string;
+	passwordValidClass: string;
+}) {
 	const emailValid = $derived(props.email?.includes('@') ?? false);
 	const passwordValid = $derived((props.password?.length ?? 0) >= 8);
 

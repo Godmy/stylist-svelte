@@ -11,8 +11,6 @@ export type {
 	SlotAutoSearch,
 	SlotSearchBar,
 	SlotSearchBarEvents,
-	SlotSearchForm,
-	SlotSearchFormState,
 	SlotSearchSuggestion,
 	SlotSearchSuggestionItem
 } from './slot';

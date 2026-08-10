@@ -33,7 +33,6 @@ export type {
 export type {
 	CardData,
 	DraggableCardProps,
-	Operation,
 	SlotAchievement,
 	SlotDraggableCard,
 	SlotFeatureToggle,

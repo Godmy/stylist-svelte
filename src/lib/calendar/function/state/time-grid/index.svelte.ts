@@ -1,14 +1,30 @@
 import type { RecipeTimeGrid as TimeGridContract } from '$stylist/calendar/interface/recipe/time-grid';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
-import type { SlotTimeSlot } from '$stylist/calendar/interface/slot/time-slot';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { isToday, isWeekend } from '$stylist/calendar/function/script/calendar-utils';
+
+type TimeGridSlot = {
+	start: Date;
+	end: Date;
+	timeLabel?: string;
+	available?: boolean;
+	selected?: boolean;
+	active?: boolean;
+	events?: SlotCalendarEvent[];
+	hour?: number;
+	minute?: number;
+	time?: string;
+	class?: string;
+	onChange?: (slot: TimeGridSlot) => void;
+	onClick?: (slot: TimeGridSlot) => void;
+	onKeyDown?: (event: KeyboardEvent) => void;
+};
 
 type DayColumn = {
 	date: Date;
 	dayOfWeek: string;
 	dateStr: string;
-	slots: SlotTimeSlot[];
+	slots: TimeGridSlot[];
 };
 
 export function createTimeGridState(props: TimeGridContract) {
@@ -80,8 +96,8 @@ export function createTimeGridState(props: TimeGridContract) {
 		return rest;
 	});
 
-	function generateSlotsForDay(date: Date): SlotTimeSlot[] {
-		const slots: SlotTimeSlot[] = [];
+	function generateSlotsForDay(date: Date): TimeGridSlot[] {
+		const slots: TimeGridSlot[] = [];
 		const st = startTime;
 		const et = endTime;
 		const step = timeStep;

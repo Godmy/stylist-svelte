@@ -8,4 +8,3 @@ export type { BurnDownMinMaxResult } from './burn-down-min-max-result';
 export type { SlotBurnDownPoint } from './burn-down-point';
 export type { BurnDownTimestamps } from './burn-down-timestamps';
 export type { SlotIssueMessage } from './issue-message';
-export type { KanbanCardType } from './kanban-card-type';

@@ -61,7 +61,6 @@ export type {
 	TokenMessageStatus
 } from './type';
 export type {
-	ChatWindowChat,
 	RecipeIconPicker,
 	RecipeListWithAvatars,
 	RecipeMessageStatusProps,

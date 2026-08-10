@@ -3271,9 +3271,7 @@ export type {
 	RecipeGraphNode,
 	RecipeGraphvizDirectedEdge,
 	RecipeStylistGraphWorkspace,
-	SelectedItem,
-	SelectionState,
-	SlotViewport
+	SelectionState
 } from './architecture';
 export type {
 	ContractAudioPlayer,
@@ -3330,7 +3328,6 @@ export type {
 	SlotDatePicker,
 	SlotEventCalendar,
 	SlotTimePicker,
-	SlotTimeSlot,
 	TimeSlotProps
 } from './calendar';
 export type {
@@ -3371,7 +3368,6 @@ export type {
 	SlotChartAxis
 } from './chart';
 export type {
-	ChatWindowChat,
 	RecipeIconPicker,
 	RecipeListWithAvatars,
 	RecipeMessageStatusProps,
@@ -3596,23 +3592,11 @@ export type {
 	RecipeRadioButtonGroupProps,
 	RecipeSchemaFormDialog,
 	RecipeSearchBar,
-	SlotAddressForm,
-	SlotAddressFormState,
 	SlotFormFooter,
 	SlotFormHeader,
 	SlotFormSelectionState,
-	SlotFormWithValidation,
-	SlotFormWithValidationState,
-	SlotLoginForm,
-	SlotLoginFormState,
-	SlotRadioGroupState,
-	SlotScreenReader,
-	SlotScreenReaderState,
 	SlotSearchBar,
-	SlotSearchBarEvents,
-	SlotSearchForm,
-	SlotSearchFormState,
-	SlotValidationState
+	SlotSearchBarEvents
 } from './form';
 export type {
 	BehaviorCoordinatesProto,
@@ -3686,7 +3670,6 @@ export type {
 	RecipeStatusIndicator,
 	RecipeTooltip,
 	SlotBadge,
-	SlotShortcut,
 	SlotStatus
 } from './information';
 export type {
@@ -3799,7 +3782,6 @@ export type {
 	DashboardLayoutProps,
 	DraggableCardProps,
 	NotificationStateProps,
-	Operation,
 	PageHeaderStateProps,
 	PerformanceDashboardStateProps,
 	PermissionGateProps,

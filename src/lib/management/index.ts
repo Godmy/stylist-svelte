@@ -94,7 +94,6 @@ export type {
 	DashboardLayoutProps,
 	DraggableCardProps,
 	NotificationStateProps,
-	Operation,
 	PageHeaderStateProps,
 	PerformanceDashboardStateProps,
 	PermissionGateProps,

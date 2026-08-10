@@ -5,7 +5,6 @@ export type {
 	RecipeMessageStatusProps
 } from './recipe';
 export type {
-	ChatWindowChat,
 	SlotChat,
 	SlotChatStatusIndicator,
 	SlotMessage,

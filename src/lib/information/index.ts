@@ -63,6 +63,5 @@ export type {
 	RecipeStatusIndicator,
 	RecipeTooltip,
 	SlotBadge,
-	SlotShortcut,
 	SlotStatus
 } from './interface';

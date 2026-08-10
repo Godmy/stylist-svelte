@@ -1,5 +1,4 @@
 
-import type { SlotValidationState } from '$stylist/form/interface/slot/validation-state';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
@@ -15,7 +14,17 @@ export function createValidationState(props: (HTMLAttributes<HTMLDivElement> & {
 	class?: string;
 	id?: string;
 	children: Snippet;
-})): SlotValidationState {
+})): ({
+containerClasses: string;
+	hasError: boolean;
+	rootClass: string;
+	labelClass: string;
+	requiredMarkClass: string;
+	contentClass: string;
+	descriptionClass: string;
+	errorClass: string;
+	hintClass: string;
+}) {
 	const containerClasses = $derived(
 		`field-group ${props.orientation === 'horizontal' ? 'horizontal' : 'vertical'} ${props.disabled ? 'field-group--disabled' : ''} ${props.class ?? ''}`
 	);

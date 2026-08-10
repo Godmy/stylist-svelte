@@ -1,7 +1,13 @@
-import type { SelectedItem } from '$stylist/architecture/interface/slot/selected-item/index';
-
-export function createSelectedItem(initial?: Partial<SelectedItem>) {
-	const item = $state<SelectedItem>({
+export function createSelectedItem(
+	initial?: Partial<{
+		id: string;
+		type: 'node' | 'group' | 'frame' | 'connector';
+	}>
+) {
+	const item = $state<{
+		id: string;
+		type: 'node' | 'group' | 'frame' | 'connector';
+	}>({
 		id: initial?.id ?? '',
 		type: initial?.type ?? 'node'
 	});
@@ -16,7 +22,7 @@ export function createSelectedItem(initial?: Partial<SelectedItem>) {
 		setId(id: string) {
 			item.id = id;
 		},
-		setType(type: SelectedItem['type']) {
+	setType(type: 'node' | 'group' | 'frame' | 'connector') {
 			item.type = type;
 		}
 	};

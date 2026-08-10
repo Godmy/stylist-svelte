@@ -8,5 +8,4 @@ export type { SlotInputWithLabel } from './input-with-label';
 export type { SlotInputWithValidation } from './input-with-validation';
 export type { SlotNumberInput } from './number-input';
 export type { SlotPhoneNumberInput } from './phone-number-input';
-export type { SlotRadioGroupState } from './radio-group-state';
 export type { SlotTagInput } from './tag-input';

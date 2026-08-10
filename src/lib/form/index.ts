@@ -52,21 +52,9 @@ export type {
 	RecipeRadioButtonGroupProps,
 	RecipeSchemaFormDialog,
 	RecipeSearchBar,
-	SlotAddressForm,
-	SlotAddressFormState,
 	SlotFormFooter,
 	SlotFormHeader,
 	SlotFormSelectionState,
-	SlotFormWithValidation,
-	SlotFormWithValidationState,
-	SlotLoginForm,
-	SlotLoginFormState,
-	SlotRadioGroupState,
-	SlotScreenReader,
-	SlotScreenReaderState,
 	SlotSearchBar,
-	SlotSearchBarEvents,
-	SlotSearchForm,
-	SlotSearchFormState,
-	SlotValidationState
+	SlotSearchBarEvents
 } from './interface';

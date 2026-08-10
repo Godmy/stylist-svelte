@@ -13,7 +13,5 @@ export type {
 export type {
 	FocusTarget,
 	PresentationFrame,
-	PreziCamera,
-	SelectedItem,
-	SlotViewport
+	PreziCamera
 } from './slot';

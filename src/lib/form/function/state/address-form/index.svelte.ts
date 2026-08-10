@@ -1,8 +1,18 @@
-import type { SlotAddressForm as AddressFormProps } from '$stylist/form/interface/slot/address-form';
+import type { HTMLAttributes } from 'svelte/elements';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { SlotAddressFormState } from '$stylist/form/interface/slot/address-form-state';
-
-export function createAddressFormState(props: AddressFormProps): SlotAddressFormState {
+export function createAddressFormState(props: ((HTMLAttributes<HTMLFormElement> & {
+street?: string;
+	city?: string;
+	region?: string;
+	postalCode?: string;
+	country?: string;
+	class?: string;
+}))): ({
+rootClass: string;
+	inputClass: string;
+	gridClass: string;
+	gridItemClass: string;
+}) {
 	const rootClass = $derived(mergeClassNames('c-address-form', props.class ?? ''));
 	const inputClass = $derived('c-address-form__input');
 	const gridClass = $derived('c-address-form__grid');

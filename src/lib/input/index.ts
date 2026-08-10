@@ -77,6 +77,5 @@ export type {
 	SlotInputWithValidation,
 	SlotNumberInput,
 	SlotPhoneNumberInput,
-	SlotRadioGroupState,
 	SlotTagInput
 } from './interface';

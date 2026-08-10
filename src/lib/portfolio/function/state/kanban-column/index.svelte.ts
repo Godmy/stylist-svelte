@@ -1,5 +1,4 @@
-﻿import { untrack } from 'svelte';
-import type { KanbanCardType } from '$stylist/portfolio/interface/slot/kanban-card-type';
+import { untrack } from 'svelte';
 import { applyKanbanColumnDrop } from '$stylist/portfolio/function/script/apply-kanban-column-drop';
 import type { RecipeKanbanColumn } from '$stylist/portfolio/interface/recipe/kanban-column';
 
@@ -92,7 +91,16 @@ export function createKanbanColumnState(props: RecipeKanbanColumn) {
 		isEditingTitle = false;
 	}
 
-	function handleCardDragStart(e: DragEvent, card: KanbanCardType): void {
+	function handleCardDragStart(e: DragEvent, card: ({
+id: string;
+	title: string;
+	description?: string;
+	assignee?: string | Record<string, unknown>;
+	priority?: string;
+	status?: string;
+	tags?: string[];
+	updatedAt?: Date;
+})): void {
 		if (!droppable) return;
 		const payload = { cardId: card.id, fromColumnId: column.id };
 		e.dataTransfer?.setData('application/json', JSON.stringify(payload));
