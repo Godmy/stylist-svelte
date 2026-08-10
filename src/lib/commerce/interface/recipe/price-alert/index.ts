@@ -1,5 +1,5 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
-import type { SlotPriceAlertElement } from '$stylist/commerce/interface/slot/price-alert-element';
+
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
@@ -12,17 +12,11 @@ import type { HTMLAttributes } from 'svelte/elements';
 
 export interface RecipePriceAlert
 	extends ComputeIntersectAll<
-		[
-			SlotPriceAlertElement,
-			Omit<HTMLAttributes<HTMLDivElement>, 'variant' | 'size' | 'onclick'>,
-			SlotTheme,
-			BehaviorSizable,
-			BehaviorClickable,
-			SlotThemeBorder,
-			SlotTypography,
-			SlotChildren
-		]
+		[Omit<HTMLAttributes<HTMLDivElement>, 'variant' | 'size' | 'onclick'>, SlotTheme, BehaviorSizable, BehaviorClickable, SlotThemeBorder, SlotTypography, SlotChildren]
 	> {
+	class?: string;
+	onclick?: ((event: MouseEvent) => void) | undefined;
+
 	currentPrice?: number;
 	targetPrice?: number;
 	currency?: string;

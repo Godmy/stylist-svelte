@@ -1,7 +1,27 @@
-﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotGeoJSONViewer as IGeoJSONViewerProps } from '$stylist/geo/interface/slot/geo-json-viewer';
-
-export interface GeoJSONViewerStateProps extends ComputeIntersectAll<[IGeoJSONViewerProps]> {
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
+import type { SlotGeoJsonFeature } from '$stylist/geo/interface/slot/geo-json-feature';
+import type { SlotGeoJsonFeatureCollection } from '$stylist/geo/interface/slot/geo-json-feature-collection';
+import type { SlotGeoJsonLayer } from '$stylist/geo/interface/slot/geo-json-layer';
+import type { SlotMapView } from '$stylist/geo/interface/slot/map-view';
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+export interface GeoJSONViewerStateProps extends ComputeIntersectAll<[((Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography & {
+geojsonData?: SlotGeoJsonFeatureCollection;
+	layers?: SlotGeoJsonLayer[];
+	class?: string;
+	mapClass?: string;
+	initialView?: SlotMapView;
+	showControls?: boolean;
+	showLayers?: boolean;
+	showLegend?: boolean;
+	maxZoom?: number;
+	minZoom?: number;
+	mapType?: 'roadmap' | 'satellite' | 'terrain' | 'hybrid';
+	onFeatureClick?: (feature: SlotGeoJsonFeature) => void;
+	onMapClick?: (coordinates: { lat: number; lng: number }) => void;
+	onDataChange?: (data: SlotGeoJsonFeatureCollection) => void;
+}))]> {
 	class?: string;
 	mapClass?: string;
 }

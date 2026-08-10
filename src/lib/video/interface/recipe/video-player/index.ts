@@ -1,10 +1,13 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotSize } from '$stylist/layout/interface/slot/size';
+
 import type { SlotClass } from '$stylist/theme/interface/slot/class';
 
 export interface RecipeVideoPlayer
-	extends ComputeIntersectAll<[SlotSize, SlotClass, Omit<HTMLAttributes<HTMLDivElement>, 'class'>]> {
+	extends ComputeIntersectAll<[SlotClass, Omit<HTMLAttributes<HTMLDivElement>, 'class'>]> {
+	width?: string;
+	height?: string;
+
 	src?: string;
 	poster?: string;
 	title?: string;

@@ -1,10 +1,25 @@
-﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { CartSummaryItem } from '$stylist/commerce/type/struct/cart-summary-item';
-import type { CartSummaryPromotion } from '$stylist/commerce/type/struct/cart-summary-promotion';
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface CartSummaryProps extends ComputeIntersectAll<[]> {
-	items?: CartSummaryItem[];
-	promotions?: CartSummaryPromotion[];
+	items?: {
+	id: string;
+	name: string;
+	price: number;
+	quantity: number;
+	originalPrice?: number;
+	discountPercent?: number;
+	thumbnail?: string;
+	inStock?: boolean;
+	maxQuantity?: number;
+}[];
+	promotions?: {
+	id: string;
+	code: string;
+	description: string;
+	discountType: 'percentage' | 'fixed';
+	discountValue: number;
+	applied?: boolean;
+}[];
 	shippingCost?: number;
 	taxCost?: number;
 	discountAmount?: number;

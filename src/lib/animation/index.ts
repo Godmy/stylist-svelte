@@ -29,7 +29,6 @@ export {
 export type {
 	EasingFunction,
 	InteractionFeedback,
-	InteractionIntent,
 	TokenAnimation,
 	TokenDuration,
 	TokenEasing,
@@ -49,7 +48,5 @@ export type {
 	RecipeLayoutTransformation,
 	RecipeNumberFlow,
 	RecipeTransformable,
-	SlotAnimate,
-	SlotTransformable,
 	SlotTransformation
 } from './interface';

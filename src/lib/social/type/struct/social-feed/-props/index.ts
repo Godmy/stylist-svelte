@@ -1,15 +1,25 @@
-﻿import type { FeedUser } from '$stylist/social/type/struct/social-feed/feeduser';
-import type { FilterOption } from '$stylist/social/type/struct/social-feed/filteroption';
-import type { Post } from '$stylist/social/type/struct/social-feed/post';
-import type { RestProps } from '$stylist/social/type/struct/social-feed/rest-props';
 
-export type Props = RestProps & {
+
+import type { Post } from '$stylist/social/type/struct/social-feed/post';
+
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
+export type Props = (Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography) & {
 	posts: Post[];
-	currentUser?: FeedUser;
+	currentUser?: {
+	id: string;
+	name: string;
+	avatar?: string;
+};
 	showFilters?: boolean;
 	showSearch?: boolean;
 	showCreatePost?: boolean;
-	filters?: FilterOption[];
+	filters?: {
+	id: string;
+	label: string;
+	active: boolean;
+}[];
 	showLoadMore?: boolean;
 	onPostLike?: (postId: string) => void;
 	onPostComment?: (postId: string) => void;

@@ -14,6 +14,5 @@ export type {
 	SlotDatePicker,
 	SlotEventCalendar,
 	SlotTimePicker,
-	SlotTimeSlot,
-	SlotTimelineItem
+	SlotTimeSlot
 } from './slot';

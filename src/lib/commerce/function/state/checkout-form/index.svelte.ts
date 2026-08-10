@@ -1,7 +1,7 @@
 import { untrack } from 'svelte';
 import type { PaymentMethod } from '$stylist/commerce/type/struct/payment-method';
 import type { Address } from '$stylist/commerce/type/struct/address';
-import type { CardInfo } from '$stylist/commerce/type/struct/card-info';
+
 import type { CheckoutStep } from '$stylist/commerce/type/struct/checkout-step';
 import type { SlotShippingOption } from '$stylist/commerce/type/struct/shipping-option';
 import type { CheckoutFormProps as Props } from '$stylist/commerce/type/struct/checkout-form-props';
@@ -77,7 +77,12 @@ export function createCheckoutFormState(props: Props) {
 		id: 'credit_card',
 		type: 'credit_card'
 	});
-	let cardInfo = $state<CardInfo>({
+	let cardInfo = $state<{
+	number: string;
+	expiry: string;
+	cvv: string;
+	name: string;
+}>({
 		number: '',
 		expiry: '',
 		cvv: '',
@@ -194,7 +199,12 @@ export function createCheckoutFormState(props: Props) {
 		}
 	}
 
-	function handleCardChange(field: keyof CardInfo, value: string): void {
+	function handleCardChange(field: keyof {
+	number: string;
+	expiry: string;
+	cvv: string;
+	name: string;
+}, value: string): void {
 		cardInfo = { ...cardInfo, [field]: value };
 	}
 

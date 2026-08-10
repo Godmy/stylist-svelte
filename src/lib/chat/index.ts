@@ -57,9 +57,7 @@ export {
 export type {
 	ChatHeaderOrganismProps,
 	ChatPreviewMessage,
-	ChatPreviewProps,
 	ChatRoomProps,
-	ListItem,
 	TokenMessageStatus
 } from './type';
 export type {
@@ -69,7 +67,6 @@ export type {
 	RecipeMessageStatusProps,
 	SlotChat,
 	SlotChatStatusIndicator,
-	SlotListWithAvatars,
 	SlotMessage,
 	SlotMessageAttachment,
 	SlotMessageBubble,

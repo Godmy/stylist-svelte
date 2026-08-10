@@ -26,7 +26,6 @@ export type {
 	SchemaLayout,
 	SchemaMode,
 	SchemaParseResult,
-	SchemaStats,
 	SchemaTablePosition
 } from './type';
 export type {

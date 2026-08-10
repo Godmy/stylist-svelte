@@ -1,8 +1,12 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { ToggleButtonGroupOption } from '$stylist/form/type/struct/toggle-button-group-option';
 
 export type ToggleButtonGroupProps = {
-	options: ToggleButtonGroupOption[];
+	options: {
+	value: string;
+	label: string;
+	icon?: string;
+	disabled?: boolean;
+}[];
 	value?: string | string[];
 	multiple?: boolean;
 	disabled?: boolean;

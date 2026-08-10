@@ -13,9 +13,4 @@ export type {
 	RecipeAvatarGroup,
 	RecipeUserProfileCard
 } from './recipe';
-export type {
-	Avatar,
-	SlotAccountSettingsForm,
-	SlotUserProfile,
-	SlotUserProfileCard
-} from './slot';
+export type { Avatar } from './slot';

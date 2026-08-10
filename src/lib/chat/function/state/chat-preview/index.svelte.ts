@@ -1,8 +1,17 @@
 import type { AnyProperty } from '$stylist/layout/type/object/any-property';
-import type { ChatPreviewProps } from '$stylist/chat/type/struct/chat-preview';
+
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
-export function createChatPreviewState(props: ChatPreviewProps | AnyProperty) {
+export function createChatPreviewState(props: {
+	title?: string;
+	participants?: string[];
+	messages?: Array<{ author: string; text: string; timestamp: string }>;
+	maxMessages?: number;
+	showAvatars?: boolean;
+	variant?: string;
+	size?: string;
+	class?: string;
+} | AnyProperty) {
 	// Initialize props with defaults
 	const title = props.title ?? 'Chat';
 	const participants = props.participants ?? [];

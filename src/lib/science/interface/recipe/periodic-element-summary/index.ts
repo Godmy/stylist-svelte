@@ -1,3 +1,5 @@
-import type { SlotPeriodicElementSummary } from '$stylist/science/interface/slot/periodic-element-summary';
-
-export interface RecipePeriodicElementSummary extends SlotPeriodicElementSummary {}
+import type { HTMLAttributes } from 'svelte/elements';
+import type { PeriodicElement } from '$stylist/science/type/struct/periodic-element';
+export interface RecipePeriodicElementSummary extends HTMLAttributes<HTMLElement> {
+element?: PeriodicElement;
+}

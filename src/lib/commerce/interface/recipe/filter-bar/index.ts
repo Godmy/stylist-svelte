@@ -1,5 +1,5 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
-import type { SlotFilterBar } from '$stylist/commerce/interface/slot/filter-bar';
+
 import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorSelectable } from '$stylist/control/interface/behavior/selectable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
@@ -8,13 +8,28 @@ import type { SlotText } from '$stylist/typography/interface/slot/text';
 
 export interface RecipeFilterBar
 	extends ComputeIntersectAll<
-		[
-			SlotFilterBar,
-			SlotChildren,
-			SlotText,
-			SlotText,
-			BehaviorSelectable<string[]>,
-			BehaviorFocusable,
-			BehaviorSizable
-		]
-	> {}
+		[SlotChildren, SlotText, SlotText, BehaviorSelectable<string[]>, BehaviorFocusable, BehaviorSizable]
+	> {
+	toggles?: {
+	id: string;
+	label: string;
+	description?: string;
+	checked?: boolean;
+}[];
+	tags?: {
+	id: string;
+	label: string;
+	active?: boolean;
+}[];
+	range?: {
+	id: string;
+	label: string;
+	min: number;
+	max: number;
+	step?: number;
+	value?: number;
+	unit?: string;
+};
+	onClear?: () => void;
+	class?: string;
+}

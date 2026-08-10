@@ -1,7 +1,9 @@
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 ﻿import type { SlotZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
-import type { RestProps } from '$stylist/file/type/struct/zip-viewer/props/rest-props';
 
-export type Props = RestProps & {
+export type Props = (Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography) & {
 	entries: SlotZipEntry[];
 	archiveName?: string;
 	class?: string;

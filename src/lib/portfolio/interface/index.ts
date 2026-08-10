@@ -16,6 +16,5 @@ export type {
 	SlotBacklogItem,
 	SlotBurnDownData,
 	SlotBurnDownPoint,
-	SlotIssueMessage,
-	SlotKanbanCard
+	SlotIssueMessage
 } from './slot';

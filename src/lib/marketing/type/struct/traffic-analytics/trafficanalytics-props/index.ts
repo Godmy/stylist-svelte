@@ -2,8 +2,6 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { TimeRange } from '$stylist/marketing/type/alias/traffic-analytics-time-range';
-import type { TrafficDataPoint } from '$stylist/marketing/type/struct/traffic-analytics/trafficdatapoint';
-import type { TrafficSource } from '$stylist/marketing/type/struct/traffic-analytics/trafficsource';
 
 export type TrafficAnalyticsProps = {
 	title?: string;
@@ -13,8 +11,17 @@ export type TrafficAnalyticsProps = {
 	pageViews: number;
 	timeOnPage: string;
 	bounceRate: number;
-	trafficSources: TrafficSource[];
-	trafficData: TrafficDataPoint[];
+	trafficSources: {
+	id: string;
+	name: string;
+	value: number;
+	percentage: number;
+	color: string;
+}[];
+	trafficData: {
+	date: Date;
+	value: number;
+}[];
 	timeRange?: TimeRange;
 	onTimeRangeChange?: (range: TimeRange) => void;
 	class?: string;

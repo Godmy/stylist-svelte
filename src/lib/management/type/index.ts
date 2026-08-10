@@ -9,7 +9,6 @@ export type {
 } from './alias';
 export type {
 	INotificationSettingsPreference,
-	Metric,
 	NotificationData,
 	NotificationType,
 	ScheduledNotificationItem,

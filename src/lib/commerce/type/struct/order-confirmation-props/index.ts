@@ -1,15 +1,32 @@
 ﻿import type { HTMLAttributes } from 'svelte/elements';
-import type { OrderItem } from '$stylist/commerce/type/struct/order-item';
-import type { ShippingAddress } from '$stylist/commerce/type/struct/shipping-address';
-import type { PaymentInfo } from '$stylist/commerce/type/struct/payment-info';
 
 export type OrderConfirmationProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
 	orderId: string;
 	orderDate: Date;
-	items: OrderItem[];
+	items: {
+	id: string;
+	name: string;
+	price: number;
+	quantity: number;
+	thumbnail?: string;
+	variant?: string;
+}[];
 	total: number;
-	shippingAddress: ShippingAddress;
-	paymentInfo: PaymentInfo;
+	shippingAddress: {
+	firstName: string;
+	lastName: string;
+	address1: string;
+	address2?: string;
+	city: string;
+	state: string;
+	zipCode: string;
+	country: string;
+};
+	paymentInfo: {
+	method: string;
+	lastFour?: string;
+	status: 'paid' | 'pending' | 'failed';
+};
 	estimatedDelivery?: Date;
 	trackingNumber?: string;
 	orderStatus?: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';

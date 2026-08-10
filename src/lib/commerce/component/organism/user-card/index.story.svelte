@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { TOKEN_SIZE } from '$stylist/theme/const/array/size';
-	import type { User } from '$stylist/commerce/type/struct/user';
+	import type { UserCardProps } from '$stylist/commerce/interface/recipe/user-card-props';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
@@ -12,7 +12,7 @@
 		{ name: 'showRole', type: 'boolean', defaultValue: true }
 	];
 
-	const primaryUser: User = {
+	const primaryUser: NonNullable<UserCardProps['user']> = {
 		id: 'pm-42',
 		name: 'Alicia Norris',
 		email: 'alicia@orion.software',
@@ -20,7 +20,7 @@
 		avatar: 'https://i.pravatar.cc/96?img=12'
 	};
 
-	const roster: User[] = [
+	const roster: NonNullable<UserCardProps['user']>[] = [
 		{
 			id: 'sup-1',
 			name: 'Mika Howard',

@@ -1,8 +1,11 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SlotImageItem } from '$stylist/image/interface/slot/image-item';
-
 export interface RecipeImageGallery extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
-	images: SlotImageItem[];
+	images: ({
+id: string;
+	src: string;
+	alt?: string;
+	caption?: string;
+})[];
 	showThumbnails?: boolean;
 	autoPlay?: boolean;
 	autoPlayInterval?: number;

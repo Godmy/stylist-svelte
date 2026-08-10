@@ -56,15 +56,12 @@ export type {
 	ComparisonTableFeature,
 	ComparisonTableProduct,
 	ComparisonTableProps,
-	ComponentProps,
-	ComponentStats,
 	ComponentStory,
 	FilterSchema,
 	FilterType,
 	PlaygroundComponentCatalogSortBy,
 	PlaygroundComponentCatalogViewMode,
 	RowExpandableProps,
-	TableListItem,
 	TableSchema,
 	TokenSortDirection
 } from './type';

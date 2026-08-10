@@ -1,11 +1,14 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotProductTourStep } from '$stylist/product/interface/slot/product-tour-step';
-import type { BehaviorProductTourEvents } from '$stylist/product/interface/behavior/product-tour-events';
-
 export interface RecipeProductTour
-	extends ComputeIntersectAll<[SlotTheme, BehaviorProductTourEvents]> {
-	steps: SlotProductTourStep[];
+	extends ComputeIntersectAll<[SlotTheme]> {
+	onComplete?: () => void;
+
+	steps: ({
+title: string;
+	content: string;
+	position?: 'top' | 'bottom' | 'left' | 'right';
+})[];
 	currentStep?: number;
 	showTour?: boolean;
 }

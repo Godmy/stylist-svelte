@@ -1,4 +1,4 @@
-﻿import type { ProductForQuote } from '$stylist/commerce/type/struct/product-for-quote';
+
 
 export type QuoteRequestValue = {
 	requesterName: string;
@@ -7,7 +7,13 @@ export type QuoteRequestValue = {
 	companyName?: string;
 	companyAddress?: string;
 	shippingAddress?: string;
-	products: ProductForQuote[];
+	products: {
+	id: string;
+	name: string;
+	quantity: number;
+	unitPrice?: number;
+	notes?: string;
+}[];
 	message: string;
 	urgent?: boolean;
 	validUntil?: Date;

@@ -1,12 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type {
-	BehaviorProductRecommendationEvents,
-	BehaviorProductReviewsEvents,
-	BehaviorProductSearchEvents,
-	BehaviorProductTourEvents,
-	BehaviorProductWishlistEvents,
-	BehaviorWishlistButtonEvents
-} from './behavior';
+export type { BehaviorProductWishlistEvents } from './behavior';
 export type {
 	ContractProductSearch,
 	ContractWishlistButton
@@ -25,12 +18,7 @@ export type {
 	RecipeWishlistButton
 } from './recipe';
 export type {
-	ComparisonCardColumn,
-	SlotAddReviewData,
 	SlotProductDescription,
 	SlotProductOption,
-	SlotProductSorting,
-	SlotProductSortingStyleClasses,
-	SlotProductTourStep,
-	SlotReview
+	SlotProductSortingStyleClasses
 } from './slot';

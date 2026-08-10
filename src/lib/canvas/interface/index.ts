@@ -2,6 +2,7 @@
 export type {
 	RecipeCanvasColorPalette,
 	RecipeCanvasImageEditor,
+	RecipeCollaborativeEditor,
 	RecipeDrawingOverlay,
 	RecipeScreenshotSelector
 } from './recipe';

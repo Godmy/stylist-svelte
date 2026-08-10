@@ -1,11 +1,19 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeAiPanel } from '$stylist/ai/interface/recipe/ai-panel';
-import type { AiPanelAIProvider } from '$stylist/ai/type/struct/ai-panel-ai-provider';
+
 export function createAiPanelState(props: RecipeAiPanel & HTMLAttributes<HTMLDivElement>) {
 	const ChevronRight = 'chevron-right';
 	const ChevronDown = 'chevron-down';
 
-	const aiProviders: AiPanelAIProvider[] = [
+	const aiProviders: {
+	id: string;
+	name: string;
+	options: {
+	id: string;
+	label: string;
+	action?: () => void;
+}[];
+}[] = [
 		{
 			id: 'claude',
 			name: 'CLAUDE',

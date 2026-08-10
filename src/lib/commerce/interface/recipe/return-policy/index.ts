@@ -1,20 +1,28 @@
-﻿import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotReturnCondition } from '$stylist/commerce/interface/slot/return-condition';
-import type { SlotReturnStep } from '$stylist/commerce/interface/slot/return-step';
-import type { SlotFaq } from '$stylist/commerce/interface/slot/faq';
-import type { BehaviorReturnPolicyEvents } from '$stylist/commerce/interface/behavior/return-policy-events';
-
 export interface RecipeReturnPolicy
-	extends ComputeIntersectAll<[SlotTheme]>,
-		BehaviorReturnPolicyEvents {
+	extends ComputeIntersectAll<[SlotTheme]> {
+	onPolicyClick?: () => void;
+	onReturnInitiate?: () => void;
+
 	policyPeriod: number;
 
 	policyDescription?: string;
 
-	conditions?: SlotReturnCondition[];
+	conditions?: ({
+id: string;
+	title: string;
+	description: string;
+	appliesTo: string[];
+	exceptions?: string[];
+})[];
 
-	returnSteps?: SlotReturnStep[];
+	returnSteps?: ({
+id: string;
+	title: string;
+	description: string;
+	icon: any;
+})[];
 
 	eligibleProducts?: string[];
 
@@ -24,7 +32,10 @@ export interface RecipeReturnPolicy
 
 	restockingFee?: number;
 
-	faqs?: SlotFaq[];
+	faqs?: ({
+question: string;
+	answer: string;
+})[];
 
 	policyEffectiveDate?: Date;
 

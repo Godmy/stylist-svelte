@@ -1,9 +1,32 @@
-import type { ButtonFactoryContractInput } from '$stylist/button/interface/slot/button-factory-contract-input';
-import type { ButtonFactoryHtmlInput } from '$stylist/button/interface/slot/button-factory-html-input';
-import type { ButtonFactorySlotsInput } from '$stylist/button/interface/slot/button-factory-slots-input';
-
+import type { RecipeButtonElement as SlotButtonElement } from '$stylist/button/interface/recipe/button-element';
+import type { HTMLButtonAttributes } from 'svelte/elements';
 export interface ButtonFactoryInput {
-	contract: ButtonFactoryContractInput;
-	html: ButtonFactoryHtmlInput;
-	slots: ButtonFactorySlotsInput;
+	contract: ({
+variant?: SlotButtonElement['variant'];
+	size?: SlotButtonElement['size'];
+	disabled?: SlotButtonElement['disabled'];
+	loading?: SlotButtonElement['loading'];
+	block?: SlotButtonElement['block'];
+	ariaLabel?: SlotButtonElement['ariaLabel'];
+	loadingLabel?: SlotButtonElement['loadingLabel'];
+});
+	html: ({
+class?: string;
+	type?: HTMLButtonAttributes['type'];
+	attrs: Omit<
+		HTMLButtonAttributes,
+		| 'class'
+		| 'type'
+		| 'disabled'
+		| 'children'
+		| 'ariaLabel'
+		| 'variant'
+		| 'size'
+		| 'loading'
+		| 'block'
+	>;
+});
+	slots: ({
+children?: SlotButtonElement['children'];
+});
 }

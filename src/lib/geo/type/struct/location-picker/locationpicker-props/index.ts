@@ -1,8 +1,9 @@
 ﻿import type { Coordinates } from '$stylist/geo/type/struct/location-picker/coordinates';
-import type { LocationPickerRestProps } from '$stylist/geo/type/struct/location-picker/locationpickerrest-props';
+
 import type { MapMarker } from '$stylist/geo/type/struct/location-picker/mapmarker';
 
-export type LocationPickerProps = LocationPickerRestProps & {
+import type { HTMLAttributes } from 'svelte/elements';
+export type LocationPickerProps = (Omit<HTMLAttributes<HTMLDivElement>, 'class'>) & {
 	center?: Coordinates;
 	zoom?: number;
 	markers?: MapMarker[];

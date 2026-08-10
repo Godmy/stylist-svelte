@@ -1,7 +1,8 @@
+import type { TokenSize } from '$stylist/theme/type/alias/size';
+import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotButtonAttributesBase } from '$stylist/button/interface/slot/button-attributes-base';
-import type { SlotButtonControl } from '$stylist/button/interface/slot/button-control';
 import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
@@ -18,7 +19,14 @@ export interface RecipeButton
 	extends ComputeIntersectAll<
 		[
 			SlotButtonAttributesBase,
-			SlotButtonControl,
+			((SlotButtonAttributesBase & {
+variant?: TokenColorTone;
+	size?: TokenSize;
+	disabled?: boolean;
+	loading?: boolean;
+	block?: boolean;
+	onClick?: () => void;
+})),
 			SlotChildren,
 			SlotText,
 			SlotIcon,

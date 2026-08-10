@@ -1,8 +1,12 @@
 import type { ContractUploadFile } from '$stylist/file/interface/contract/upload-file';
-import type { BehaviorUploadProgressEvents } from '$stylist/file/interface/behavior/upload-progress-events';
+
 import type { UploadProgressVariant } from '$stylist/file/type/alias/upload-progress-variant';
 
-export interface ContractUploadProgress extends BehaviorUploadProgressEvents {
+export interface ContractUploadProgress {
+	onRetry?: (file: ContractUploadFile) => void;
+	onCancel?: (file: ContractUploadFile) => void;
+	onRemove?: (file: ContractUploadFile) => void;
+
 	/** List of upload files */
 	files: ContractUploadFile[];
 	/** Variant */

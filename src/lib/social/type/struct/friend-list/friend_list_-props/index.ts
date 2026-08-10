@@ -1,8 +1,11 @@
 import type { FRIEND_LIST_FRIEND } from '$stylist/social/type/struct/friend-list/friend_list_friend';
-import type { FRIEND_LIST_REST_PROPS } from '$stylist/social/type/struct/friend-list/friend_list_rest_-props';
+
 import type { TOKEN_AVAILABILITY } from '$stylist/user/const/array/availability';
 
-export type FRIEND_LIST_PROPS = FRIEND_LIST_REST_PROPS & {
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
+export type FRIEND_LIST_PROPS = (Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography) & {
 	friends: FRIEND_LIST_FRIEND[];
 	showStatus?: boolean;
 	showLastSeen?: boolean;

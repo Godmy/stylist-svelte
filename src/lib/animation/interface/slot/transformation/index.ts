@@ -1,7 +1,7 @@
 import type { TokenAnimation } from '$stylist/animation/type/alias/animation';
 import type { TokenDuration } from '$stylist/animation/type/alias/duration';
 import type { TokenEasing } from '$stylist/animation/type/alias/easing';
-import type { InteractionIntent } from '$stylist/animation/type/struct/interaction-intent';
+
 import type { InteractionFeedback } from '$stylist/animation/type/alias/interaction-feedback';
 
 export interface SlotTransformation {
@@ -22,7 +22,14 @@ export interface SlotTransformation {
 	animateOnHover?: boolean;
 	animateOnClick?: boolean;
 	animateInfinite?: boolean;
-	interactionIntent?: InteractionIntent;
+	interactionIntent?: (| 'tap'
+	| 'doubleTap'
+	| 'longPress'
+	| 'drag'
+	| 'drop'
+	| 'swipe'
+	| 'resize'
+	| 'zoom');
 	interactionFeedback?: InteractionFeedback;
 	interactionDelay?: number;
 	interactionDuration?: string;

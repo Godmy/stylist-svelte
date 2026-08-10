@@ -46,7 +46,7 @@
 <Story
 	component={PageDomain}
 	title="PageDomain"
-	description="Root app shell: switches between landing/domain/workspace/builder/backlog/diagnostics screens and always shows DomainMenu on top."
+	description="Root app shell: switches between landing/domain/workspace/builder/backlog/dashboard/diagnostics screens and always shows DomainMenu on top."
 >
 	{#snippet children()}
 		<div class="_c1">

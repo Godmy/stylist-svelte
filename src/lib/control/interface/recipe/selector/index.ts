@@ -1,5 +1,5 @@
+import type { HTMLSelectAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotSelector } from '$stylist/control/interface/slot/selector';
 import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorSelectable } from '$stylist/control/interface/behavior/selectable';
 import type { BehaviorScrollable } from '$stylist/layout/interface/behavior/scrollable';
@@ -14,7 +14,23 @@ import type { HTMLAttributes } from 'svelte/elements';
 export interface RecipeSelector
 	extends ComputeIntersectAll<
 		[
-			SlotSelector,
+			((((HTMLSelectAttributes & {
+id: string;
+	label: string;
+	value?: string;
+	options: ({
+value: string;
+	label: string;
+})[];
+	errors?: string[];
+	required?: boolean;
+	disabled?: boolean;
+	placeholder?: string;
+	class?: string;
+})) & {
+open?: boolean;
+	onToggle?: () => void;
+})),
 			SlotText,
 			SlotText,
 			SlotIcon,

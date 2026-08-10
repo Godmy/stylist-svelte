@@ -36,13 +36,7 @@ export {
 	createWishlistButtonState
 } from './function';
 export type {
-	BehaviorProductRecommendationEvents,
-	BehaviorProductReviewsEvents,
-	BehaviorProductSearchEvents,
-	BehaviorProductTourEvents,
 	BehaviorProductWishlistEvents,
-	BehaviorWishlistButtonEvents,
-	ComparisonCardColumn,
 	ContractProductSearch,
 	ContractWishlistButton,
 	RecipeComparisonCard,
@@ -56,11 +50,7 @@ export type {
 	RecipeProductSorting,
 	RecipeProductTour,
 	RecipeWishlistButton,
-	SlotAddReviewData,
 	SlotProductDescription,
 	SlotProductOption,
-	SlotProductSorting,
-	SlotProductSortingStyleClasses,
-	SlotProductTourStep,
-	SlotReview
+	SlotProductSortingStyleClasses
 } from './interface';

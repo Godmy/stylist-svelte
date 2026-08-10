@@ -87,20 +87,15 @@ export type {
 	LineChartData,
 	LineChartPoint,
 	PieChartDataPoint,
-	RangeBarChartItem,
 	ScatterPlotDataPoint,
 	TokenCanvasChartType,
-	TokenChart,
-	VerticalBarChartItem
+	TokenChart
 } from './type';
 export type {
-	BehaviorBarClickable,
-	BehaviorCellClickable,
 	BehaviorChartAxis,
 	BehaviorChartColorable,
 	BehaviorLegendable,
 	BehaviorPointClickable,
-	BehaviorRangeBarSelect,
 	BehaviorTooltipable,
 	ChartLegendProps,
 	RecipeAnalyticsChart,
@@ -122,7 +117,5 @@ export type {
 	RecipeRangeBarsChart,
 	RecipeScatterPlot,
 	RecipeVerticalBarsChart,
-	SlotChartAxis,
-	SlotRangeBarsChart,
-	SlotVerticalBarsChart
+	SlotChartAxis
 } from './interface';

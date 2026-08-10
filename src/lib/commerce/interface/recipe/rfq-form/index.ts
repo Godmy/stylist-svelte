@@ -1,13 +1,67 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotRfqFormData } from '$stylist/commerce/interface/slot/rfq-form-data';
-import type { BehaviorRfqFormEvents } from '$stylist/commerce/interface/behavior/rfq-form-events';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 
 export interface RecipeRfqForm
-	extends ComputeIntersectAll<[SlotTheme, SlotText, SlotText]>,
-		BehaviorRfqFormEvents {
-	formData?: SlotRfqFormData;
+	extends ComputeIntersectAll<[SlotTheme, SlotText, SlotText]> {
+	onSubmit?: (data: ({
+requesterName: string;
+	requesterEmail: string;
+	requesterPhone?: string;
+	companyName?: string;
+	companyAddress?: string;
+	shippingAddress?: string;
+	products: ({
+id: string;
+	name: string;
+	description?: string;
+	quantity: number;
+	unit?: string;
+	unitPrice?: number;
+	totalValue?: number;
+	specifications?: string;
+	deliveryDate?: string;
+	notes?: string;
+})[];
+	message: string;
+	urgent?: boolean;
+	validUntil?: Date;
+	deliveryTerms?: string;
+	paymentTerms?: string;
+	currency?: string;
+	attachments: File[];
+})) => void;
+	onProductAdd?: () => void;
+	onProductRemove?: (productId: string) => void;
+	onAttachmentChange?: (attachments: File[]) => void;
+
+	formData?: ({
+requesterName: string;
+	requesterEmail: string;
+	requesterPhone?: string;
+	companyName?: string;
+	companyAddress?: string;
+	shippingAddress?: string;
+	products: ({
+id: string;
+	name: string;
+	description?: string;
+	quantity: number;
+	unit?: string;
+	unitPrice?: number;
+	totalValue?: number;
+	specifications?: string;
+	deliveryDate?: string;
+	notes?: string;
+})[];
+	message: string;
+	urgent?: boolean;
+	validUntil?: Date;
+	deliveryTerms?: string;
+	paymentTerms?: string;
+	currency?: string;
+	attachments: File[];
+});
 
 	currency?: string;
 

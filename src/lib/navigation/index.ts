@@ -115,15 +115,11 @@ export type {
 	NavItem,
 	PrimaryMenuItem,
 	SideBySideLayoutProps,
-	SideBySideLayoutRestProps,
-	SideBySideSection,
-	Step,
 	StepperProps,
 	StylistMenuProps,
 	StylistTabItem,
 	StylistTabProps,
-	TabItem,
-	ToolbarItem
+	TabItem
 } from './type';
 export type {
 	LayoutSpecificProps,
@@ -156,22 +152,15 @@ export type {
 	SlotAccordion,
 	SlotAccordionGroup,
 	SlotAccordionLayout,
-	SlotBurgerMenu,
-	SlotCloseDropdownFunc,
 	SlotConfirmationDialog,
 	SlotDialog,
-	SlotDropdownMenu,
 	SlotDropdownMenuStyleClasses,
-	SlotMenuItem,
 	SlotModal,
-	SlotPageButton,
 	SlotPagination,
 	SlotSidebar,
 	SlotTab,
 	SlotTabContainer,
-	SlotTabGroup,
 	SlotTabIndicator,
 	SlotTabPanel,
-	SlotTabStyleClasses,
-	SlotTabs
+	SlotTabStyleClasses
 } from './interface';

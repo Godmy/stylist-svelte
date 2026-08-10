@@ -1,5 +1,6 @@
-import type { CollaborativeEditorProps } from '$stylist/canvas/type/struct/collaborative-editor-props';
+
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { RecipeCollaborativeEditor } from '$stylist/canvas/interface/recipe/collaborative-editor';
 
 const Bold = 'bold';
 const Italic = 'italic';
@@ -13,7 +14,7 @@ const MessageCircle = 'message-circle';
 const UserIcon = 'user';
 const Users = 'users';
 
-export const createCollaborativeEditorState = (props: CollaborativeEditorProps) => {
+export const createCollaborativeEditorState = (props: RecipeCollaborativeEditor) => {
 	let editorContent = $state(props.content ?? '');
 	let editorRef: HTMLDivElement | undefined;
 

@@ -1,4 +1,3 @@
-import type { SlotInputField } from '$stylist/input/interface/slot/input-field';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorFocusable as IFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
@@ -25,7 +24,9 @@ export interface RecipeInputField
 				error?: boolean;
 				errorMessage?: string;
 			},
-			SlotInputField,
+			({
+helperText?: string;
+}),
 			ILabelSlot,
 			ICaptionSlot,
 			IIconSlot,

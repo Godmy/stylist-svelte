@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { FeedUser } from '$stylist/social/type/struct/social-feed/feeduser';
-	import type { FilterOption } from '$stylist/social/type/struct/social-feed/filteroption';
 	import type { Post } from '$stylist/social/type/struct/social-feed/post';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
@@ -13,13 +11,13 @@
 		{ name: 'showBookmarks', type: 'boolean', defaultValue: true }
 	];
 
-	const defaultUser: FeedUser = {
+	const defaultUser: { id: string; name: string; avatar?: string } = {
 		id: 'user-1',
 		name: 'John Doe',
 		avatar: 'https://via.placeholder.com/40'
 	};
 
-	const filters: FilterOption[] = [
+	const filters: { id: string; label: string; active: boolean }[] = [
 		{ id: 'all', label: 'All', active: true },
 		{ id: 'following', label: 'Following', active: false }
 	];

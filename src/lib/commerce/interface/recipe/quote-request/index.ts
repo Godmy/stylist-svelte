@@ -1,10 +1,9 @@
-import type { SlotQuoteRequestContract } from '$stylist/commerce/interface/slot/quote-request-contract';
 import type { QuoteRequestValue } from '$stylist/commerce/type/struct/quote-request-value';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeQuoteRequest
-	extends ComputeIntersectAll<[SlotQuoteRequestContract, SlotTheme]> {
+	extends ComputeIntersectAll<[({}), SlotTheme]> {
 	title?: string;
 	description?: string;
 	formClass?: string;

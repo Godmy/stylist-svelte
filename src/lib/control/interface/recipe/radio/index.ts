@@ -1,6 +1,9 @@
+import type { RecipeToggleInputProps as RecipeToggleInputProps } from '$stylist/control/interface/recipe/toggle-input-props';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SlotRadio } from '$stylist/control/interface/slot/radio-toggles';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
 export interface RecipeRadio
-	extends ComputeIntersectAll<[SlotRadio, HTMLAttributes<HTMLInputElement>]> {}
+	extends ComputeIntersectAll<[((RecipeToggleInputProps & {
+value: string;
+	label?: string;
+})), HTMLAttributes<HTMLInputElement>]> {}

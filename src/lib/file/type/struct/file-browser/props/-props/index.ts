@@ -1,7 +1,9 @@
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 ﻿import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
-import type { RestProps } from '$stylist/file/type/struct/file-browser/props/rest-props';
 
-export type Props = RestProps & {
+export type Props = (Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography) & {
 	items: SlotFolderItem[];
 	class?: string;
 	itemClass?: string;

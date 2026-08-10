@@ -15,6 +15,5 @@ export type {
 } from './recipe';
 export type {
 	SlotNodeConnection,
-	SlotWorkspaceNode,
-	SlotWorkspacePalette
+	SlotWorkspaceNode
 } from './slot';

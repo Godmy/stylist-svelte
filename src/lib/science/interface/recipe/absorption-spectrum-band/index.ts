@@ -1,3 +1,7 @@
-import type { SlotAbsorptionSpectrumBand } from '$stylist/science/interface/slot/absorption-spectrum-band';
-
-export interface RecipeAbsorptionSpectrumBand extends SlotAbsorptionSpectrumBand {}
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SpectralLine } from '$stylist/science/type/struct/spectral-line';
+export interface RecipeAbsorptionSpectrumBand extends HTMLAttributes<HTMLDivElement> {
+lines: readonly SpectralLine[];
+	minWavelength?: number;
+	maxWavelength?: number;
+}

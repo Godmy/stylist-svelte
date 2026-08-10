@@ -7,8 +7,6 @@ import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slo
 import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
 import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
 import type { SlotImage as IMediaSlot } from '$stylist/image/interface/slot/image';
-import type { ArticleCardAction } from '$stylist/commerce/interface/slot/article-card-action';
-
 export interface RecipeArticleCard
 	extends ComputeIntersectAll<
 		[
@@ -22,5 +20,8 @@ export interface RecipeArticleCard
 	title?: string;
 	subtitle?: string;
 	image?: string;
-	actions?: ArticleCardAction[];
+	actions?: ({
+label: string;
+	onClick?: () => void;
+})[];
 }

@@ -32,22 +32,15 @@ export type {
 	SlotAccordion,
 	SlotAccordionGroup,
 	SlotAccordionLayout,
-	SlotBurgerMenu,
-	SlotCloseDropdownFunc,
 	SlotConfirmationDialog,
 	SlotDialog,
-	SlotDropdownMenu,
 	SlotDropdownMenuStyleClasses,
-	SlotMenuItem,
 	SlotModal,
-	SlotPageButton,
 	SlotPagination,
 	SlotSidebar,
 	SlotTab,
 	SlotTabContainer,
-	SlotTabGroup,
 	SlotTabIndicator,
 	SlotTabPanel,
-	SlotTabStyleClasses,
-	SlotTabs
+	SlotTabStyleClasses
 } from './slot';

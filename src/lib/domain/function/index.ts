@@ -2,6 +2,7 @@
 export { serializeUnknownError } from './serialize';
 export {
 	createDeviceFrameState,
+	createDomainAiAgentState,
 	createDomainBacklogPreviewState,
 	createDomainBacklogState,
 	createDomainLandingScreenState,

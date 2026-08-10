@@ -11,14 +11,6 @@ export type {
 	RecipeSplitButton
 } from './recipe';
 export type {
-	ButtonFactoryContractInput,
-	ButtonFactoryHtmlInput,
-	ButtonFactorySlotsInput,
 	SlotButtonAttributesBase,
-	SlotButtonControl,
-	SlotButtonCore,
-	SlotButtonDom,
-	SlotButtonElement,
-	SlotCopyButton,
-	SlotIconButton
+	SlotButtonDom
 } from './slot';

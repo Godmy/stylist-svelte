@@ -39,10 +39,7 @@ export {
 } from './function';
 export type { StatusState } from './type';
 export type {
-	BadgeGroupItem,
-	BehaviorLoadingState,
 	BehaviorMetricValue,
-	BehaviorProgressValue,
 	HtmlAttributesBase,
 	RecipeAccessibilityCheckbox,
 	RecipeBadge,
@@ -66,11 +63,6 @@ export type {
 	RecipeStatusIndicator,
 	RecipeTooltip,
 	SlotBadge,
-	SlotLoading,
-	SlotProgressBar,
 	SlotShortcut,
-	SlotSkeleton,
-	SlotSpinner,
-	SlotStatus,
-	SlotTooltip
+	SlotStatus
 } from './interface';

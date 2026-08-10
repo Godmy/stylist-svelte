@@ -1,8 +1,11 @@
-﻿import type { RestProps } from '$stylist/social/type/struct/social-share/rest-props';
+
 import type { ShareOption } from '$stylist/social/type/struct/social-share/shareoption';
 import type { SocialPlatform } from '$stylist/social/type/struct/social-share/socialplatform';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 
-export type Props = RestProps & {
+export type Props = (Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography) & {
 	title?: string;
 	url?: string;
 	description?: string;

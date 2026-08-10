@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import { onMount } from 'svelte';
 import type { RecipeAiAssistant } from '$stylist/ai/interface/recipe/ai-assistant';
-import type { AiAssistantChatMessage } from '$stylist/ai/type/struct/ai-assistant-chat-message';
+
 import type { AiAssistantAIClientLike } from '$stylist/ai/type/struct/ai-assistant-ai-client-like';
 const fallbackCreateAIClient = (): AiAssistantAIClientLike => ({
 	chat: async () => {
@@ -27,7 +27,11 @@ export function createAiAssistantState(props: RecipeAiAssistant & HTMLAttributes
 
 	// SlotState
 	let inputMessage = $state('');
-	let messages = $state<AiAssistantChatMessage[]>([]);
+	let messages = $state<{
+	role: 'user' | 'assistant';
+	content: string;
+	timestamp: number;
+}[]>([]);
 	let isLoading = $state(false);
 	let error = $state<string | null>(null);
 	let messagesContainer: HTMLDivElement | undefined = $state(undefined);
@@ -52,7 +56,11 @@ export function createAiAssistantState(props: RecipeAiAssistant & HTMLAttributes
 	async function sendMessage() {
 		if (!inputMessage.trim() || isLoading) return;
 
-		const userMessage: AiAssistantChatMessage = {
+		const userMessage: {
+	role: 'user' | 'assistant';
+	content: string;
+	timestamp: number;
+} = {
 			role: 'user',
 			content: inputMessage.trim(),
 			timestamp: Date.now()
@@ -73,7 +81,11 @@ export function createAiAssistantState(props: RecipeAiAssistant & HTMLAttributes
 				autoApproveTools: true
 			});
 
-			const assistantMessage: AiAssistantChatMessage = {
+			const assistantMessage: {
+	role: 'user' | 'assistant';
+	content: string;
+	timestamp: number;
+} = {
 				role: 'assistant',
 				content: response.text || '(empty response)',
 				timestamp: Date.now()

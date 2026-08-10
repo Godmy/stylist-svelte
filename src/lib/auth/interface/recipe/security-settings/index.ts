@@ -1,5 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotSecuritySettings as SecuritySettingsProps } from '$stylist/auth/interface/slot/security-settings';
-
-export interface RecipeSecuritySettings extends ComputeIntersectAll<[SecuritySettingsProps]> {}
+export interface RecipeSecuritySettings extends ComputeIntersectAll<[((HTMLAttributes<HTMLFormElement> & {
+twoFactor?: boolean;
+	loginAlerts?: boolean;
+	class?: string;
+}))]> {}
 

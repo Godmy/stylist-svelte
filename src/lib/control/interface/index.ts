@@ -40,26 +40,16 @@ export type {
 	ZoomSpecificProps
 } from './recipe';
 export type {
-	SlotAccessibilityToolbar,
 	SlotAutocompleteDropdown,
 	SlotAutocompleteDropdownOption,
 	SlotClick,
-	SlotCombobox,
 	SlotComboboxStyleClasses,
 	SlotDragAndDrop,
 	SlotFilterPanelState,
-	SlotMultiSelect,
 	SlotMultiSelectOption,
-	SlotRadio,
 	SlotRangeInput,
 	SlotRangeSlider,
-	SlotSelect,
-	SlotSelectOption,
 	SlotSelectStyleClasses,
-	SlotSelector,
 	SlotSliderWithInput,
-	SlotSwitch,
-	SlotToggle,
-	SlotZoomControls,
-	SlotZoomToolbar
+	SlotToggle
 } from './slot';

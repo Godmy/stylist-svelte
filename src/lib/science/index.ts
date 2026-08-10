@@ -36,17 +36,5 @@ export type {
 	RecipePeriodicElementSummary,
 	RecipePeriodicElementTable,
 	RecipePeriodicElementType,
-	RecipeSpectralAbsorptionLine,
-	SlotAbsorptionSpectrumBand,
-	SlotChemicalProperty,
-	SlotPeriodicElement,
-	SlotPeriodicElementAbsorptionSpectrum,
-	SlotPeriodicElementDetailCard,
-	SlotPeriodicElementLegend,
-	SlotPeriodicElementLightInteraction,
-	SlotPeriodicElementPropertyGrid,
-	SlotPeriodicElementSummary,
-	SlotPeriodicElementTable,
-	SlotPeriodicElementType,
-	SlotSpectralAbsorptionLine
+	RecipeSpectralAbsorptionLine
 } from './interface';

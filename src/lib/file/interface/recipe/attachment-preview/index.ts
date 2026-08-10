@@ -1,6 +1,12 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { BehaviorAttachmentPreviewEvents } from '$stylist/file/interface/behavior/attachment-preview-events';
-import type { SlotAttachmentPreview } from '$stylist/file/interface/slot/attachment-preview';
 
+import type { SlotAttachment } from '$stylist/file/interface/slot/attachment';
 export interface RecipeAttachmentPreview
-	extends ComputeIntersectAll<[SlotAttachmentPreview, BehaviorAttachmentPreviewEvents]> {}
+	extends ComputeIntersectAll<[({
+attachment: SlotAttachment;
+	showActions?: boolean;
+	class?: string;
+})]> {
+	onDownload?: (attachment: SlotAttachment) => void;
+	onRemove?: (attachment: SlotAttachment) => void;
+}

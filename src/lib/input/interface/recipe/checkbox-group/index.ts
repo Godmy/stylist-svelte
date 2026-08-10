@@ -1,8 +1,12 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SlotCheckboxGroupOption } from '$stylist/input/interface/slot/checkbox-group-option';
-
 export interface RecipeCheckboxGroup extends Omit<HTMLAttributes<HTMLFieldSetElement>, 'class'> {
-	options: SlotCheckboxGroupOption[];
+	options: ({
+id: string;
+	label: string;
+	value: string;
+	disabled?: boolean;
+	description?: string;
+})[];
 	value?: string[];
 	label?: string;
 	description?: string;

@@ -1,3 +1,5 @@
-import type { SlotPeriodicElementLightInteraction } from '$stylist/science/interface/slot/periodic-element-light-interaction';
-
-export interface RecipePeriodicElementLightInteraction extends SlotPeriodicElementLightInteraction {}
+import type { HTMLAttributes } from 'svelte/elements';
+import type { PeriodicElementLightInteraction } from '$stylist/science/type/struct/periodic-element-light-interaction';
+export interface RecipePeriodicElementLightInteraction extends HTMLAttributes<HTMLElement> {
+interaction: PeriodicElementLightInteraction;
+}

@@ -20,7 +20,6 @@ export {
 } from './function';
 export type {
 	CountryFlagProps,
-	Language,
 	TokenTranslation,
 	TranslatableText,
 	TranslationLocale
@@ -33,10 +32,8 @@ export type {
 	RecipeLanguageSelector,
 	RecipeTranslationEditor,
 	SlotExtendedTranslationEditor,
-	SlotLanguageSelector,
 	SlotLanguageSelectorStyleClasses,
 	SlotLocaleSwitcher,
 	SlotLocaleSwitcherLocale,
-	SlotLocaleSwitcherTimezoneOption,
-	SlotTranslationEditor
+	SlotLocaleSwitcherTimezoneOption
 } from './interface';

@@ -1,7 +1,14 @@
-﻿import type { Attachment } from '$stylist/file/type/struct/attachment-preview/attachment';
+
 
 export type Props = {
-	attachment: Attachment;
+	attachment: {
+	id: string;
+	name: string;
+	type: string;
+	size: number;
+	url?: string;
+	previewUrl?: string;
+};
 	showActions?: boolean;
 	class?: string;
 };

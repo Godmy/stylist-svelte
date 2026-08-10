@@ -36,19 +36,13 @@ export {
 } from './function';
 export type {
 	AddressData,
-	CheckboxGroupOption,
 	CheckboxGroupProps,
-	CheckboxGroupRestProps,
 	FormData,
 	FormSelectionProps,
 	LoginCredentials,
 	RadioGroupProps,
-	RadioOption,
-	SchemaFormField,
-	ToggleButtonGroupOption,
 	ToggleButtonGroupProps,
-	ValidationErrors,
-	ValidationProps
+	ValidationErrors
 } from './type';
 export type {
 	RecipeAccountForms,

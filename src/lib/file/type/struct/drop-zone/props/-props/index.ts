@@ -1,8 +1,8 @@
 ﻿import type { Snippet } from 'svelte';
 import type { SlotDropItem } from '$stylist/file/type/struct/drop-zone/item';
-import type { RestProps } from '$stylist/file/type/struct/drop-zone/props/rest-props';
 
-export type Props = RestProps & {
+import type { HTMLAttributes } from 'svelte/elements';
+export type Props = (Omit<HTMLAttributes<HTMLDivElement>, 'class'>) & {
 	children?: Snippet;
 	class?: string;
 	accept?: string;

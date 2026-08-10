@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { SlotOrder } from '$stylist/commerce/interface/slot/order';
+	import type { RecipeOrderHistory as RecipeOrderHistoryProps } from '$stylist/commerce/interface/recipe/order-history';
 
 	import RecipeOrderHistory from './index.svelte';
 
@@ -21,7 +21,7 @@
 	}>();
 
 	// Sample order history data
-	const orderHistory: SlotOrder[] = [
+	const orderHistory: RecipeOrderHistoryProps['orders'] = [
 		{
 			id: 'order1',
 			orderNumber: 'ORD-2023-001',

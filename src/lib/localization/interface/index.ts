@@ -9,10 +9,8 @@ export type {
 export type {
 	NumberFormatOptions,
 	SlotExtendedTranslationEditor,
-	SlotLanguageSelector,
 	SlotLanguageSelectorStyleClasses,
 	SlotLocaleSwitcher,
 	SlotLocaleSwitcherLocale,
-	SlotLocaleSwitcherTimezoneOption,
-	SlotTranslationEditor
+	SlotLocaleSwitcherTimezoneOption
 } from './slot';

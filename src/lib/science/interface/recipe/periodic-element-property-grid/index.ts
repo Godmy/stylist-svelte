@@ -1,3 +1,5 @@
-import type { SlotPeriodicElementPropertyGrid } from '$stylist/science/interface/slot/periodic-element-property-grid';
-
-export interface RecipePeriodicElementPropertyGrid extends SlotPeriodicElementPropertyGrid {}
+import type { HTMLAttributes } from 'svelte/elements';
+import type { ChemicalProperty } from '$stylist/science/type/struct/chemical-property';
+export interface RecipePeriodicElementPropertyGrid extends HTMLAttributes<HTMLDivElement> {
+properties: readonly ChemicalProperty[];
+}

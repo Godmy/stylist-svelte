@@ -1,9 +1,22 @@
-import type { Product } from '$stylist/commerce/type/struct/bulk-order-form/product';
-import type { OrderItem } from '$stylist/commerce/type/struct/bulk-order-form/order-item';
+
 
 export interface SlotBulkOrderForm {
-	products: Product[];
-	initialItems?: OrderItem[];
+	products: {
+	id: string;
+	name: string;
+	price: number;
+	originalPrice?: number;
+	thumbnail?: string;
+	minOrder?: number;
+	available?: number;
+}[];
+	initialItems?: {
+	id: string;
+	productId: string;
+	quantity: number;
+	price: number;
+	note?: string;
+}[];
 	title?: string;
 	description?: string;
 	showTotal?: boolean;
@@ -14,8 +27,20 @@ export interface SlotBulkOrderForm {
 	formClass?: string;
 	itemClass?: string;
 	actionsClass?: string;
-	onOrderSubmit?: (items: OrderItem[]) => void;
-	onItemsChange?: (items: OrderItem[]) => void;
+	onOrderSubmit?: (items: {
+	id: string;
+	productId: string;
+	quantity: number;
+	price: number;
+	note?: string;
+}[]) => void;
+	onItemsChange?: (items: {
+	id: string;
+	productId: string;
+	quantity: number;
+	price: number;
+	note?: string;
+}[]) => void;
 	currency?: string;
 	locale?: string;
 }

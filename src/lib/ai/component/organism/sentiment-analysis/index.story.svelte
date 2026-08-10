@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import SentimentAnalysis from './index.svelte';
-	import type { SlotSentimentAnalysisResult as SentimentResult } from '$stylist/ai/interface/slot/sentiment-analysis-result';
+	import type { RecipeSentimentAnalysis } from '$stylist/ai/interface/recipe/sentiment-analysis';
 
 	const controls: SlotStory[] = [
 		{ name: 'text', type: 'text', defaultValue: 'I like this product. It works very well.' },
@@ -14,7 +14,7 @@
 		}
 	];
 
-	const sampleResult: SentimentResult = {
+	const sampleResult: NonNullable<RecipeSentimentAnalysis['result']> = {
 		score: 0.7,
 		label: 'positive',
 		confidence: 0.95,

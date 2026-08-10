@@ -1,29 +1,9 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createCollaborativeEditorState from '$stylist/canvas/function/state/collaborative-editor/index.svelte';
+	import type { RecipeCollaborativeEditor } from '$stylist/canvas/interface/recipe/collaborative-editor';
 
-	export type CollaborativeEditorUser = {
-		id: string;
-		name: string;
-		color: string;
-		avatar?: string;
-	};
-
-	export type CollaborativeEditorProps = {
-		content?: string;
-		users?: CollaborativeEditorUser[];
-		currentUser?: CollaborativeEditorUser;
-		onContentChange?: (content: string) => void;
-		showToolbar?: boolean;
-		showUserList?: boolean;
-		class?: string;
-		toolbarClass?: string;
-		editorClass?: string;
-		userListClass?: string;
-	} & HTMLAttributes<HTMLDivElement>;
-
-	let props: CollaborativeEditorProps = $props();
+	let props: RecipeCollaborativeEditor = $props();
 
 	const state = createCollaborativeEditorState(props);
 

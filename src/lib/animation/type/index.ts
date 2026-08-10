@@ -8,4 +8,3 @@ export type {
 	TokenTransition
 } from './alias';
 export type { EasingFunction } from './compute';
-export type { InteractionIntent } from './struct';

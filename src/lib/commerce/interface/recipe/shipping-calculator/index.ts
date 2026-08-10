@@ -1,19 +1,23 @@
-﻿import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotShippingOption } from '$stylist/commerce/interface/slot/shipping-option';
-import type { SlotCountry } from '$stylist/commerce/interface/slot/country';
-import type { SlotState } from '$stylist/commerce/interface/slot/state';
-import type { SlotDimensions } from '$stylist/commerce/interface/slot/dimensions';
-import type { BehaviorShippingCalculatorEvents } from '$stylist/commerce/interface/behavior/shipping-calculator-events';
-
 export interface RecipeShippingCalculator
-	extends ComputeIntersectAll<[SlotTheme]>,
-		BehaviorShippingCalculatorEvents {
+	extends ComputeIntersectAll<[SlotTheme]> {
+	onCalculate?: (options: SlotShippingOption[]) => void;
+	onOptionSelect?: (option: SlotShippingOption) => void;
+
 	shippingOptions: SlotShippingOption[];
 
-	countries: SlotCountry[];
+	countries: ({
+code: string;
+	name: string;
+})[];
 
-	states?: SlotState[];
+	states?: ({
+code: string;
+	name: string;
+	countryCode?: string;
+})[];
 
 	defaultOriginCountry?: string;
 
@@ -21,7 +25,11 @@ export interface RecipeShippingCalculator
 
 	defaultWeight?: number;
 
-	defaultDimensions?: SlotDimensions;
+	defaultDimensions?: ({
+length: number;
+	width: number;
+	height: number;
+});
 
 	currency?: string;
 

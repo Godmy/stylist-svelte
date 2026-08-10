@@ -1,21 +1,40 @@
 import type { TokenComponentType } from '$stylist/architecture/type/alias/component-type';
-import type { PageBuilderTextAttributes } from '$stylist/development/type/struct/page-builder-element-attributes/pagebuildertextattributes';
-import type { PageBuilderHeadingAttributes } from '$stylist/development/type/struct/page-builder-element-attributes/pagebuilderheadingattributes';
-import type { PageBuilderButtonAttributes } from '$stylist/development/type/struct/page-builder-element-attributes/pagebuilderbuttonattributes';
-import type { PageBuilderImageAttributes } from '$stylist/development/type/struct/page-builder-element-attributes/pagebuilderimageattributes';
-import type { PageBuilderDividerAttributes } from '$stylist/development/type/struct/page-builder-element-attributes/pagebuilderdividerattributes';
-import type { PageBuilderContainerAttributes } from '$stylist/development/type/struct/page-builder-element-attributes/pagebuildercontainerattributes';
 
 export type PageBuilderElement = {
 	id: string;
 	type: TokenComponentType;
 	content?: string;
 	attributes?:
-		| PageBuilderTextAttributes
-		| PageBuilderHeadingAttributes
-		| PageBuilderButtonAttributes
-		| PageBuilderImageAttributes
-		| PageBuilderDividerAttributes
-		| PageBuilderContainerAttributes;
+		| {
+	fontSize?: string;
+	fontWeight?: string;
+	color?: string;
+	textAlign?: string;
+}
+		| {
+	level?: 1 | 2 | 3 | 4 | 5 | 6;
+	color?: string;
+}
+		| {
+	variant?: 'primary' | 'secondary' | 'ghost';
+	label?: string;
+	onClick?: () => void;
+}
+		| {
+	src?: string;
+	alt?: string;
+	objectFit?: 'cover' | 'contain' | 'fill';
+}
+		| {
+	orientation?: 'horizontal' | 'vertical';
+	color?: string;
+	thickness?: number;
+}
+		| {
+	padding?: string;
+	gap?: string;
+	direction?: 'row' | 'column';
+	wrap?: boolean;
+};
 	children?: PageBuilderElement[];
 };

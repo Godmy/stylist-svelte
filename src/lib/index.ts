@@ -578,6 +578,30 @@ export {
 	toolbarHandleZoomOut
 } from './control';
 export {
+	AuditTreePanel,
+	DASHBOARD_NAVIGATION_ITEM,
+	DASHBOARD_PIPELINE_STEP,
+	DASHBOARD_SCREEN_AUDIT_TREE,
+	DASHBOARD_SCREEN_ERROR_LIST,
+	DASHBOARD_SCREEN_INDEXATION,
+	DASHBOARD_SCREEN_PIPELINE_REPORTS,
+	DASHBOARD_SCREEN_VALUES,
+	DashboardCountTile,
+	DashboardRunButton,
+	DashboardSidebar,
+	DashboardStatusPill,
+	DashboardStatusStrip,
+	DashboardWorkspace,
+	ErrorDiagnosticList,
+	ErrorListPanel,
+	IndexationPanel,
+	PipelineReportList,
+	PipelineReportsPanel,
+	checkDashboardReportStatus,
+	transformAuditReportToTree,
+	transformErrorReportToItems
+} from './dashboard';
+export {
 	AtomicPrinciplesShowcase,
 	CODE_WITH_COPY_DISPATCH,
 	CONTENT_EDITOR_CONTENT_TYPE,
@@ -671,6 +695,7 @@ export {
 	DOMAIN_MENU_ICONS,
 	DOMAIN_SCREEN_BACKLOG,
 	DOMAIN_SCREEN_BUILDER,
+	DOMAIN_SCREEN_DASHBOARD,
 	DOMAIN_SCREEN_DIAGNOSTICS,
 	DOMAIN_SCREEN_DOMAIN,
 	DOMAIN_SCREEN_LANDING,
@@ -704,6 +729,7 @@ export {
 	TOKEN_CONTROLLER_TYPE,
 	TaxonomyBreadcrumbs,
 	createDeviceFrameState,
+	createDomainAiAgentState,
 	createDomainBacklogPreviewState,
 	createDomainBacklogState,
 	createDomainLandingScreenState,
@@ -2634,15 +2660,6 @@ export {
 } from './workspace';
 export type {
 	AiAssistantAIClientLike,
-	AiAssistantChatMessage,
-	AiAssistantChatResponse,
-	AiAssistantCreateAIClient,
-	AiAssistantProps,
-	AiChatChatMessage,
-	AiChatProps,
-	AiPanelAIOption,
-	AiPanelAIProvider,
-	AiPanelProps,
 	PlaygroundAiAssistantAIProviderId,
 	PromptVariableType,
 	SentimentAnalysisStatus
@@ -2650,7 +2667,6 @@ export type {
 export type {
 	EasingFunction,
 	InteractionFeedback,
-	InteractionIntent,
 	TokenAnimation,
 	TokenDuration,
 	TokenEasing,
@@ -2675,9 +2691,7 @@ export type {
 	NodeTitleVariant,
 	ObjectPoint2DPath,
 	ObjectPresentation,
-	OntologyEdge,
 	OntologyEdgeComponentProps,
-	OntologyNode,
 	OntologyNodeComponentProps,
 	Point2D,
 	PresentationMode,
@@ -2750,21 +2764,16 @@ export type {
 	CanvasToolbarDrawingTool,
 	CanvasToolbarProps,
 	CollaborativeEditEvent,
-	CollaborativeEditorProps,
 	CollaborativeUser,
-	DrawingOverlayProps,
 	DrawingSurfaceCanvasClearedEvent,
 	DrawingSurfaceContract,
 	DrawingSurfaceExposeMethodsEvent,
 	DrawingSurfaceProps,
-	ScreenshotSelectorProps,
 	SharedCanvasContract,
 	SharedCanvasObjectBounds,
 	SharedCanvasTool,
 	SharedCanvasToolDefinition,
-	ThemeGraphColors,
-	ThemeGraphPortDataTypeColors,
-	ThemeGraphPortStateColors
+	ThemeGraphColors
 } from './canvas';
 export type {
 	AnalyticsChartBarPoint,
@@ -2788,18 +2797,14 @@ export type {
 	LineChartData,
 	LineChartPoint,
 	PieChartDataPoint,
-	RangeBarChartItem,
 	ScatterPlotDataPoint,
 	TokenCanvasChartType,
-	TokenChart,
-	VerticalBarChartItem
+	TokenChart
 } from './chart';
 export type {
 	ChatHeaderOrganismProps,
 	ChatPreviewMessage,
-	ChatPreviewProps,
 	ChatRoomProps,
-	ListItem,
 	TokenMessageStatus
 } from './chat';
 export type {
@@ -2807,16 +2812,11 @@ export type {
 	BulkOrderFormItem,
 	BulkOrderFormProduct,
 	BulkOrderFormProps,
-	CardInfo,
-	CartSummaryItem,
-	CartSummaryPromotion,
 	CheckoutFormProps,
 	CheckoutStep,
 	DiscountType,
 	InventoryItemStatus,
 	OrderConfirmationProps,
-	OrderItem,
-	OrderStatusType,
 	PaymentMethod,
 	PaymentMethodSelectorProps,
 	PaymentSelectorProps,
@@ -2826,24 +2826,17 @@ export type {
 	PaymentSummaryTax,
 	Preset,
 	PricingTablePlan,
-	Product,
-	ProductForQuote,
 	QuoteRequestValue,
 	RFQFormData,
 	RFQFormProps,
 	RFQProduct,
-	RangeFilter,
 	ReturnPolicyStoryProps,
-	ShippingAddress,
 	ShippingCalculatorStoryProps,
 	ShippingInfoStoryProps,
-	SlotCartItem,
 	SlotShippingOption,
 	SubscriptionManagerStoryProps,
 	SubscriptionStatus,
-	TagFilter,
 	TaxCalculatorStoryProps,
-	ToggleFilter,
 	TokenBillingItem,
 	TokenBillingSummary,
 	TokenMonitoringType,
@@ -2862,7 +2855,6 @@ export type {
 	FilterPanelProps,
 	RecipeActionSegmentedControlProps,
 	SliderTickComponentProps,
-	SliderTickProps,
 	ToggleGroupContext,
 	ToggleGroupItemStateProps,
 	ToggleProps,
@@ -2870,41 +2862,37 @@ export type {
 	TokenSelectorKind
 } from './control';
 export type {
+	AuditTreeNode,
+	DashboardNavigationItem,
+	DashboardPipelineStatus,
+	DashboardReportSummary,
+	DashboardScreen,
+	ErrorDiagnosticItem,
+	IndexationRunSummary
+} from './dashboard';
+export type {
 	AtomicPrinciplesShowcaseAtomicPrinciplesStats,
 	AtomicPrinciplesShowcaseProps,
-	CodeBlockProps,
-	CodeBlockRestProps,
 	CodeBlockWithLineNumbersProps,
-	CodeBlockWithLineNumbersRestProps,
-	CodeDiffDiffLine,
 	CodeDiffProps,
-	CodeDiffRestProps,
 	CodeEditorProps,
 	CodeSectionProps,
-	CodeViewerProps,
 	ComponentLibraryStatsComponentStats,
 	ComponentLibraryStatsProps,
 	ContentType,
 	CopyCode,
 	CopyableCodeBlockProps,
-	CopyableCodeBlockRestProps,
 	DebugConsoleLogEntry,
 	DebugConsoleLogLevel,
 	DebugConsoleProps,
 	DesignTokensProps,
-	DesignTokensTheme,
 	DevelopmentErrorBoundaryErrorInfo,
 	DevelopmentErrorBoundaryProps,
-	EnhancedExportPanelProps,
-	ErrorBoundaryProps,
-	GenericCodeViewerProps,
-	LiveCodeSectionProps,
 	MockDataSelectorDataSelection,
 	MockDataSelectorMockDataSchema,
 	MockDataSelectorProps,
 	PageBuilderButtonAttributes,
 	PageBuilderContainerAttributes,
-	PageBuilderDividerAttributes,
 	PageBuilderElement,
 	PageBuilderHeadingAttributes,
 	PageBuilderImageAttributes,
@@ -2923,16 +2911,11 @@ export type {
 	TokenCodeView,
 	TokenSoftwareBadge
 } from './development';
-export type { ComponentInfoCardProps } from './dialog';
 export type {
 	DeviceFrameViewport,
 	TokenControllerType,
-	TypeDomainCluster,
 	TypeDomainComponentDescriptor,
 	TypeDomainComponentProjection,
-	TypeDomainEntity,
-	TypeDomainFile,
-	TypeDomainJoint,
 	TypeDomainScreen,
 	TypeDomainTreeNode
 } from './domain';
@@ -2942,11 +2925,9 @@ export type {
 	SchemaLayout,
 	SchemaMode,
 	SchemaParseResult,
-	SchemaStats,
 	SchemaTablePosition
 } from './erd';
 export type {
-	Attachment,
 	DataExporterFormat,
 	DataItem,
 	DragDropFileStatus,
@@ -2959,7 +2940,6 @@ export type {
 	MediaItem,
 	MediaType,
 	Props,
-	RestProps,
 	SlotDropItem,
 	SlotFileSystemItem,
 	SlotFolderItem,
@@ -2970,39 +2950,26 @@ export type {
 } from './file';
 export type {
 	AddressData,
-	CheckboxGroupOption,
 	CheckboxGroupProps,
-	CheckboxGroupRestProps,
 	FormData,
 	FormSelectionProps,
 	RadioGroupProps,
-	RadioOption,
-	SchemaFormField,
-	ToggleButtonGroupOption,
 	ToggleButtonGroupProps,
-	ValidationErrors,
-	ValidationProps
+	ValidationErrors
 } from './form';
 export type {
 	Coordinates,
 	LocationPickerProps,
-	LocationPickerRestProps,
 	LocationSelectorLocation,
-	LocationSelectorProps,
 	LocationSelectorRestProps,
 	MapProvider,
 	MapSelectorLocation,
-	MapSelectorProps,
 	MapSelectorRestProps,
 	MapWithMarkersMarker,
-	MapWithMarkersProps,
 	MapWithMarkersRestProps,
 	MapWithMarkersView,
 	RouteOption,
 	RoutePlannerLocation,
-	RoutePlannerProps,
-	RoutePlannerRestProps,
-	StoreLocatorProps,
 	StoreLocatorRestProps,
 	StoreLocatorStore,
 	TokenMapType,
@@ -3071,7 +3038,6 @@ export type {
 export type { ListItemMarkerType } from './list';
 export type {
 	CountryFlagProps,
-	Language,
 	TokenTranslation,
 	TranslatableText,
 	TranslationLocale
@@ -3079,7 +3045,6 @@ export type {
 export type {
 	CardData,
 	INotificationSettingsPreference,
-	Metric,
 	NotificationData,
 	NotificationType,
 	PerformanceMonitorStatus,
@@ -3094,20 +3059,14 @@ export type {
 export type {
 	ABTestConfiguratorState,
 	ConversionFunnelProps,
-	CtaBannerButton,
 	CtaBannerProps,
 	FunnelStep,
 	IHeroCTA,
-	IHeroStat,
-	TestOverview,
 	TestResult,
 	TestResultsViewerProps,
 	TimeRange,
 	TokenTest,
 	TrafficAnalyticsProps,
-	TrafficDataPoint,
-	TrafficSource,
-	UserBehaviorMetric,
 	UserBehaviorMetricsProps
 } from './marketing';
 export type {
@@ -3124,15 +3083,11 @@ export type {
 	NavItem,
 	PrimaryMenuItem,
 	SideBySideLayoutProps,
-	SideBySideLayoutRestProps,
-	SideBySideSection,
-	Step,
 	StepperProps,
 	StylistMenuProps,
 	StylistTabItem,
 	StylistTabProps,
-	TabItem,
-	ToolbarItem
+	TabItem
 } from './navigation';
 export type {
 	DragPayload,
@@ -3161,12 +3116,8 @@ export type {
 	ActivityType,
 	FRIEND_LIST_FRIEND,
 	FRIEND_LIST_PROPS,
-	FRIEND_LIST_REST_PROPS,
-	FeedUser,
-	FilterOption,
 	Post,
 	Provider,
-	ProviderConfig,
 	ShareOption,
 	SocialPlatform
 } from './social';
@@ -3176,15 +3127,12 @@ export type {
 	ComparisonTableFeature,
 	ComparisonTableProduct,
 	ComparisonTableProps,
-	ComponentProps,
-	ComponentStats,
 	ComponentStory,
 	FilterSchema,
 	FilterType,
 	PlaygroundComponentCatalogSortBy,
 	PlaygroundComponentCatalogViewMode,
 	RowExpandableProps,
-	TableListItem,
 	TableSchema,
 	TokenSortDirection
 } from './table';
@@ -3254,33 +3202,21 @@ export type {
 	UserData
 } from './user';
 export type {
-	StructWbdAdminNavItem,
-	StructWbdAuditLogEntry,
-	StructWbdConfidenceDistributionItem,
 	StructWbdConsensusItem,
-	StructWbdConsensusMatrixCell,
 	StructWbdDiscussionMessage,
 	StructWbdDiscussionNote,
 	StructWbdEstimate,
 	StructWbdExpertAnswer,
 	StructWbdExportOption,
 	StructWbdFinalReportSection,
-	StructWbdMutationStatus,
 	StructWbdParticipant,
 	StructWbdPertResult,
 	StructWbdQuestion,
-	StructWbdRationaleItem,
-	StructWbdResponseDistributionBin,
 	StructWbdRound,
-	StructWbdRoundComparisonItem,
-	StructWbdRoundProgress,
-	StructWbdRoundSnapshot,
 	StructWbdRoundSummary,
 	StructWbdSession,
-	StructWbdSessionExpert,
 	StructWbdSessionLifecycleAction,
 	StructWbdTask,
-	StructWbdTrendPoint,
 	StructWbdUser,
 	TokenWbdParticipantRole,
 	TokenWbdRoundStatus
@@ -3301,8 +3237,7 @@ export type {
 	RecipePredictionResult,
 	RecipePromptBuilder,
 	RecipeSentimentAnalysis,
-	SlotModelOption,
-	SlotSentimentAnalysisResult
+	SlotModelOption
 } from './ai';
 export type {
 	AnimateValueOptions,
@@ -3317,8 +3252,6 @@ export type {
 	RecipeLayoutTransformation,
 	RecipeNumberFlow,
 	RecipeTransformable,
-	SlotAnimate,
-	SlotTransformable,
 	SlotTransformation
 } from './animation';
 export type {
@@ -3370,16 +3303,10 @@ export type {
 	RecipeRegister,
 	RecipeSecureForm,
 	RecipeSecuritySettings,
-	RecipeSessionManager,
-	SlotSecureForm,
-	SlotSecuritySettings,
-	SlotSessionManager
+	RecipeSessionManager
 } from './auth';
 export type {
-	ButtonFactoryContractInput,
-	ButtonFactoryHtmlInput,
 	ButtonFactoryInput,
-	ButtonFactorySlotsInput,
 	ButtonPreset,
 	RecipeButton,
 	RecipeButtonComposed,
@@ -3390,12 +3317,7 @@ export type {
 	RecipeIconButton,
 	RecipeSplitButton,
 	SlotButtonAttributesBase,
-	SlotButtonControl,
-	SlotButtonCore,
-	SlotButtonDom,
-	SlotButtonElement,
-	SlotCopyButton,
-	SlotIconButton
+	SlotButtonDom
 } from './button';
 export type {
 	RecipeCalendarView,
@@ -3409,25 +3331,22 @@ export type {
 	SlotEventCalendar,
 	SlotTimePicker,
 	SlotTimeSlot,
-	SlotTimelineItem,
 	TimeSlotProps
 } from './calendar';
 export type {
 	CanvasToolbarDrawingOptions,
 	RecipeCanvasColorPalette,
 	RecipeCanvasImageEditor,
+	RecipeCollaborativeEditor,
 	RecipeDrawingOverlay,
 	RecipeScreenshotSelector,
 	SlotSharedCanvas
 } from './canvas';
 export type {
-	BehaviorBarClickable,
-	BehaviorCellClickable,
 	BehaviorChartAxis,
 	BehaviorChartColorable,
 	BehaviorLegendable,
 	BehaviorPointClickable,
-	BehaviorRangeBarSelect,
 	BehaviorTooltipable,
 	ChartLegendProps,
 	RecipeAnalyticsChart,
@@ -3449,9 +3368,7 @@ export type {
 	RecipeRangeBarsChart,
 	RecipeScatterPlot,
 	RecipeVerticalBarsChart,
-	SlotChartAxis,
-	SlotRangeBarsChart,
-	SlotVerticalBarsChart
+	SlotChartAxis
 } from './chart';
 export type {
 	ChatWindowChat,
@@ -3460,7 +3377,6 @@ export type {
 	RecipeMessageStatusProps,
 	SlotChat,
 	SlotChatStatusIndicator,
-	SlotListWithAvatars,
 	SlotMessage,
 	SlotMessageAttachment,
 	SlotMessageBubble,
@@ -3474,23 +3390,8 @@ export type {
 	ThemeIconItem
 } from './chat';
 export type {
-	AlertCardAction,
 	AlertCardStateProps,
-	ArticleCardAction,
-	BehaviorCurrencyConverterEvents,
-	BehaviorDiscountApplierEvents,
-	BehaviorInventoryTrackerEvents,
 	BehaviorOrderConfirmationEvents,
-	BehaviorOrderHistoryEvents,
-	BehaviorOrderTrackingEvents,
-	BehaviorPriceMatchEvents,
-	BehaviorReturnPolicyEvents,
-	BehaviorRfqFormEvents,
-	BehaviorShippingCalculatorEvents,
-	BehaviorSubscriptionManagerEvents,
-	BehaviorTaxCalculatorEvents,
-	BehaviorUpsellEvents,
-	BehaviorWarrantyInfoEvents,
 	CartSummaryProps,
 	ContractBillingItem,
 	ContractOrderConfirmationPaymentInfo,
@@ -3531,46 +3432,14 @@ export type {
 	RecipeTaxCalculator,
 	RecipeUpsell,
 	RecipeWarrantyInfo,
-	SlotBillingItem,
-	SlotBillingSummary,
 	SlotBulkOrderForm,
-	SlotCalculationResult,
-	SlotConversionResult,
-	SlotCountry,
 	SlotCurrency,
-	SlotDimensions,
 	SlotDiscountRule,
 	SlotExchangeRate,
-	SlotFaq,
-	SlotFilterBar,
 	SlotFilterBarStyleClasses,
 	SlotInventoryItem,
-	SlotLocation,
-	SlotLowStockAlert,
-	SlotOrder,
-	SlotOrderConfirmation,
-	SlotOrderConfirmationEvents,
-	SlotOrderConfirmationPaymentInfo,
-	SlotOrderItem,
-	SlotPriceAlertElement,
-	SlotPriceHistoryDataPoint,
-	SlotPricingPlan,
-	SlotQuoteRequestContract,
-	SlotReturnCondition,
-	SlotReturnStep,
-	SlotRfqFormData,
-	SlotRfqProduct,
-	SlotShippingAddress,
 	SlotShippingOptionInfo,
-	SlotState,
-	SlotSubscription,
-	SlotSubscriptionPlan,
-	SlotTaxRate,
-	SlotTrackingEvent,
-	SlotTrackingInfo,
 	SlotUpsellProduct,
-	SlotWarrantyClaim,
-	SlotWarrantyPeriod,
 	UserCardProps
 } from './commerce';
 export type {
@@ -3609,35 +3478,33 @@ export type {
 	RecipeTransformation,
 	RecipeZoomControls,
 	RecipeZoomToolbar,
-	SlotAccessibilityToolbar,
 	SlotAutocompleteDropdown,
 	SlotAutocompleteDropdownOption,
 	SlotClick,
-	SlotCombobox,
 	SlotComboboxStyleClasses,
 	SlotDragAndDrop,
 	SlotFilterPanelState,
-	SlotMultiSelect,
 	SlotMultiSelectOption,
-	SlotRadio,
 	SlotRangeInput,
 	SlotRangeSlider,
-	SlotSelect,
-	SlotSelectOption,
 	SlotSelectStyleClasses,
-	SlotSelector,
 	SlotSliderWithInput,
-	SlotSwitch,
 	SlotToggle,
-	SlotZoomControls,
-	SlotZoomToolbar,
 	ToggleSpecificProps,
 	ZoomSpecificProps
 } from './control';
 export type {
+	RecipeAuditTreePanel,
+	RecipeDashboardShell,
+	RecipeErrorListPanel,
+	RecipeIndexationPanel,
+	RecipePipelineReportList,
+	SlotDashboardNavigation,
+	SlotDashboardPanel
+} from './dashboard';
+export type {
 	ComponentPreviewCodeOptions,
 	ContentEditorStateProps,
-	ContentElement,
 	ContractCodeBlock,
 	ContractDevelopment,
 	DomainForEachContext,
@@ -3665,24 +3532,12 @@ export type {
 	RecipeStylist,
 	RecipeThemeSyntaxHighlightedCode,
 	SlotAiModel,
-	SlotAtomicPrinciplesShowcase,
-	SlotCodeBlock,
-	SlotCodeDiff,
-	SlotComponentLibraryStats,
-	SlotComponentPreview,
-	SlotDebugConsole,
-	SlotDesignTokens,
-	SlotDevelopmentErrorBoundary,
-	SlotDocumentationBlock,
-	SlotMockDataSelector,
-	SlotMockDataSelectorStyleClasses,
-	SlotPrivacySettings,
-	SlotResourceOptimizer,
-	SlotStylist
+	SlotMockDataSelectorStyleClasses
 } from './development';
 export type { RecipeComponentInfoCard } from './dialog';
 export type {
 	RecipeDeviceFrame,
+	RecipeDomainAiAgent,
 	RecipeDomainList,
 	RecipeDomainSidebar,
 	RecipeDomainToolbar,
@@ -3700,15 +3555,7 @@ export type {
 	SlotErdView
 } from './erd';
 export type {
-	BehaviorAttachmentPreviewEvents,
-	BehaviorDragDropFileUploadEvents,
-	BehaviorDropZoneEvents,
-	BehaviorFileBrowserEvents,
-	BehaviorFileExplorerEvents,
 	BehaviorFileListItemEvents,
-	BehaviorFileUploadEvents,
-	BehaviorUploadProgressEvents,
-	BehaviorZipViewerEvents,
 	ContractDragDropFile,
 	ContractFile,
 	ContractFileItem,
@@ -3730,30 +3577,15 @@ export type {
 	RecipeUploadProgress,
 	RecipeZipViewer,
 	SlotAttachment,
-	SlotAttachmentPreview,
 	SlotDocumentPreview,
-	SlotDownloadCard,
 	SlotDragDropFile,
-	SlotDragDropFileUpload,
-	SlotDropZone,
 	SlotDropZoneStyleClasses,
-	SlotExportPanel,
 	SlotExportPanelStyleClasses,
-	SlotFileBrowser,
-	SlotFileExplorer,
-	SlotFileInput,
-	SlotFileItem,
-	SlotFileListItem,
-	SlotFileMetadata,
-	SlotFileUpload,
-	SlotQuantitySelector,
 	SlotUploadFile,
 	SlotUploadProgress,
-	SlotUploadProgressBehaviorOptions,
 	SlotUploadProgressClasses,
 	SlotUploadProgressDisplayOptions,
 	SlotUploadProgressEventHandlers,
-	SlotZipViewer,
 	SlotZipViewerStyleClasses
 } from './file';
 export type {
@@ -3796,16 +3628,11 @@ export type {
 	RecipeMapWithMarkers,
 	RecipeStoreLocator,
 	RoutePlannerStateProps,
-	SlotContactInfo,
 	SlotCoordinates,
-	SlotGeoJSONViewer,
 	SlotGeoJsonFeature,
 	SlotGeoJsonFeatureCollection,
 	SlotGeoJsonGeometry,
 	SlotGeoJsonLayer,
-	SlotLocationPicker,
-	SlotLocationSelector,
-	SlotMapMarker,
 	SlotMapSelector,
 	SlotMapView
 } from './geo';
@@ -3835,14 +3662,10 @@ export type {
 	RecipeImage,
 	RecipeImageGallery,
 	RecipeImageWithCaption,
-	SlotImage,
-	SlotImageItem
+	SlotImage
 } from './image';
 export type {
-	BadgeGroupItem,
-	BehaviorLoadingState,
 	BehaviorMetricValue,
-	BehaviorProgressValue,
 	HtmlAttributesBase,
 	RecipeAccessibilityCheckbox,
 	RecipeBadge,
@@ -3863,13 +3686,8 @@ export type {
 	RecipeStatusIndicator,
 	RecipeTooltip,
 	SlotBadge,
-	SlotLoading,
-	SlotProgressBar,
 	SlotShortcut,
-	SlotSkeleton,
-	SlotSpinner,
-	SlotStatus,
-	SlotTooltip
+	SlotStatus
 } from './information';
 export type {
 	RecipeCharacterCount,
@@ -3892,31 +3710,16 @@ export type {
 	RecipeTagInput,
 	RecipeTextArea,
 	RichTextEditorStateProps,
-	SlotCharacterCount,
-	SlotCheckboxGroupOption,
-	SlotInputAddon,
 	SlotInputBase,
 	SlotInputCore,
-	SlotInputDouble,
-	SlotInputEmail,
-	SlotInputError,
-	SlotInputField,
-	SlotInputGroup,
-	SlotInputHelper,
-	SlotInputHelperChildren,
 	SlotInputLabel,
-	SlotInputName,
-	SlotInputPassword,
 	SlotInputStateOptions,
 	SlotInputWithHelper,
 	SlotInputWithLabel,
 	SlotInputWithValidation,
 	SlotNumberInput,
 	SlotPhoneNumberInput,
-	SlotPinInputDigit,
-	SlotRadioOption,
-	SlotTagInput,
-	SlotTextarea
+	SlotTagInput
 } from './input';
 export type {
 	AnimatedExpandableTableRowProps,
@@ -3925,7 +3728,6 @@ export type {
 	BehaviorComponentState,
 	BehaviorDimensionable,
 	BehaviorDraggable,
-	BehaviorElevatable,
 	BehaviorFocusable,
 	BehaviorHoverable,
 	BehaviorPositionable,
@@ -3958,11 +3760,7 @@ export type {
 	RecipeThemeGradientBackground,
 	SeparatorProps,
 	SidebarLayoutProps,
-	SlotClickable,
 	SlotComposite,
-	SlotGridItem,
-	SlotGridLayoutItem,
-	SlotSize,
 	SlotSortableGridItem,
 	SortableGridProps,
 	SpacerProps,
@@ -3988,16 +3786,13 @@ export type {
 	RecipeLanguageSelector,
 	RecipeTranslationEditor,
 	SlotExtendedTranslationEditor,
-	SlotLanguageSelector,
 	SlotLanguageSelectorStyleClasses,
 	SlotLocaleSwitcher,
 	SlotLocaleSwitcherLocale,
-	SlotLocaleSwitcherTimezoneOption,
-	SlotTranslationEditor
+	SlotLocaleSwitcherTimezoneOption
 } from './localization';
 export type {
 	BehaviorOperationsHistoryEvents,
-	BehaviorTimeRangeFilter,
 	BehaviorTrendable,
 	ContractDashboardLayout,
 	ContractManagement,
@@ -4072,24 +3867,17 @@ export type {
 	SlotAccordion,
 	SlotAccordionGroup,
 	SlotAccordionLayout,
-	SlotBurgerMenu,
-	SlotCloseDropdownFunc,
 	SlotConfirmationDialog,
 	SlotDialog,
-	SlotDropdownMenu,
 	SlotDropdownMenuStyleClasses,
-	SlotMenuItem,
 	SlotModal,
-	SlotPageButton,
 	SlotPagination,
 	SlotSidebar,
 	SlotTab,
 	SlotTabContainer,
-	SlotTabGroup,
 	SlotTabIndicator,
 	SlotTabPanel,
-	SlotTabStyleClasses,
-	SlotTabs
+	SlotTabStyleClasses
 } from './navigation';
 export type {
 	BehaviorActionable,
@@ -4118,8 +3906,7 @@ export type {
 	SlotBacklogItem,
 	SlotBurnDownData,
 	SlotBurnDownPoint,
-	SlotIssueMessage,
-	SlotKanbanCard
+	SlotIssueMessage
 } from './portfolio';
 export type {
 	BehaviorPreziSceneMethods,
@@ -4127,13 +3914,7 @@ export type {
 	RecipePreziScene
 } from './presentation';
 export type {
-	BehaviorProductRecommendationEvents,
-	BehaviorProductReviewsEvents,
-	BehaviorProductSearchEvents,
-	BehaviorProductTourEvents,
 	BehaviorProductWishlistEvents,
-	BehaviorWishlistButtonEvents,
-	ComparisonCardColumn,
 	ContractProductSearch,
 	ContractWishlistButton,
 	RecipeComparisonCard,
@@ -4147,13 +3928,9 @@ export type {
 	RecipeProductSorting,
 	RecipeProductTour,
 	RecipeWishlistButton,
-	SlotAddReviewData,
 	SlotProductDescription,
 	SlotProductOption,
-	SlotProductSorting,
-	SlotProductSortingStyleClasses,
-	SlotProductTourStep,
-	SlotReview
+	SlotProductSortingStyleClasses
 } from './product';
 export type {
 	RecipeAbsorptionSpectrumBand,
@@ -4167,19 +3944,7 @@ export type {
 	RecipePeriodicElementSummary,
 	RecipePeriodicElementTable,
 	RecipePeriodicElementType,
-	RecipeSpectralAbsorptionLine,
-	SlotAbsorptionSpectrumBand,
-	SlotChemicalProperty,
-	SlotPeriodicElement,
-	SlotPeriodicElementAbsorptionSpectrum,
-	SlotPeriodicElementDetailCard,
-	SlotPeriodicElementLegend,
-	SlotPeriodicElementLightInteraction,
-	SlotPeriodicElementPropertyGrid,
-	SlotPeriodicElementSummary,
-	SlotPeriodicElementTable,
-	SlotPeriodicElementType,
-	SlotSpectralAbsorptionLine
+	RecipeSpectralAbsorptionLine
 } from './science';
 export type {
 	RecipeAutoComplete,
@@ -4205,15 +3970,12 @@ export type {
 	SlotCommentUser,
 	SlotRating,
 	SlotReactionPicker,
-	SlotRealTimePresence,
-	SlotRealTimePresenceStyleClasses,
-	SlotRealTimePresenceUser
+	SlotRealTimePresenceStyleClasses
 } from './social';
 export type {
 	RecipeIcon,
 	RecipeSvg,
 	SlotIcon,
-	SlotSvg,
 	SlotSvgName
 } from './svg';
 export type {
@@ -4231,11 +3993,11 @@ export type {
 	SlotColumnManager,
 	SlotDataTable,
 	SlotDataTableShell,
+	SlotFilterBar,
 	SlotFilterPills,
 	SlotFilterText
 } from './table';
 export type {
-	BehaviorTheme,
 	BehaviorThemeMode,
 	BehaviorThemeScheme,
 	ContentList,
@@ -4289,42 +4051,14 @@ export type {
 	RecipeAccountSettingsForm,
 	RecipeAvatar,
 	RecipeAvatarGroup,
-	RecipeUserProfileCard,
-	SlotAccountSettingsForm,
-	SlotUserProfile,
-	SlotUserProfileCard
+	RecipeUserProfileCard
 } from './user';
 export type { RecipeVideoPlayer } from './video';
 export type {
-	BehaviorWbdConsensusReviewEvents,
-	BehaviorWbdDiscussionEvents,
 	BehaviorWbdDiscussionMessageComposeEvents,
 	BehaviorWbdDiscussionRoundFilterEvents,
-	BehaviorWbdEditSessionEvents,
-	BehaviorWbdErrorStateEvents,
 	BehaviorWbdEstimateSubmit,
-	BehaviorWbdExpertAnswerCardEvents,
-	BehaviorWbdExpertInviteEvents,
-	BehaviorWbdExpertQuestionnaireEvents,
-	BehaviorWbdExportResultsEvents,
-	BehaviorWbdFinalReportBuilderEvents,
-	BehaviorWbdInviteEmailPreviewEvents,
-	BehaviorWbdMutationStatusEvents,
-	BehaviorWbdPermissionDeniedEvents,
-	BehaviorWbdQuestionBulkEditorEvents,
-	BehaviorWbdQuestionEditorEvents,
-	BehaviorWbdQuestionImportEvents,
-	BehaviorWbdQuestionNavigationEvents,
-	BehaviorWbdRoleAssignmentEvents,
-	BehaviorWbdRoundControls,
-	BehaviorWbdSessionAssumptionsEvents,
-	BehaviorWbdSessionExpertInviteEvents,
-	BehaviorWbdSessionLifecycleEvents,
-	BehaviorWbdSessionListEvents,
-	BehaviorWbdSessionSetupEvents,
-	BehaviorWbdTaskEstimateSubmit,
 	BehaviorWbdTaskSelect,
-	BehaviorWbdUserManagementEvents,
 	LandingPageContent,
 	RecipeConfidenceRangeBar,
 	RecipeConvergenceChart,
@@ -4386,68 +4120,7 @@ export type {
 	RecipeWbdSessionSetupWizard,
 	RecipeWbdUserManagementTable,
 	RecipeWbsTaskRow,
-	RecipeWbsTree,
-	SlotConfidenceRangeBar,
-	SlotConvergenceChart,
-	SlotDiscussionNoteItem,
-	SlotDiscussionThread,
-	SlotEstimateInputRow,
-	SlotEstimateRangeChart,
-	SlotEstimateThreePointInput,
-	SlotEstimatorBadge,
-	SlotFacilitatorControlPanel,
-	SlotFinalEstimateReport,
-	SlotParticipantRosterList,
-	SlotPertResultChip,
-	SlotRoundCollectionPanel,
-	SlotRoundStatusBadge,
-	SlotRoundSummaryCard,
-	SlotRoundSummaryTable,
-	SlotSessionHeader,
-	SlotWbdAdminSidebar,
-	SlotWbdAuditLogPanel,
-	SlotWbdConfidenceDistributionChart,
-	SlotWbdConsensusReviewBoard,
-	SlotWbdDisagreementPromptCard,
-	SlotWbdDiscussionAliasBadge,
-	SlotWbdDiscussionMessageComposer,
-	SlotWbdDiscussionMessageThread,
-	SlotWbdDiscussionRoundFilter,
-	SlotWbdEditSession,
-	SlotWbdEmptyStatePanel,
-	SlotWbdErrorStatePanel,
-	SlotWbdExpertAnswerCard,
-	SlotWbdExpertInviteLanding,
-	SlotWbdExpertQuestionNavigator,
-	SlotWbdExpertQuestionnaire,
-	SlotWbdExpertSessionBriefing,
-	SlotWbdExportResultsPanel,
-	SlotWbdFinalReportBuilder,
-	SlotWbdInviteEmailPreview,
-	SlotWbdLoadingStatePanel,
-	SlotWbdMedianTrendChart,
-	SlotWbdMutationStatusToast,
-	SlotWbdPermissionDeniedPanel,
-	SlotWbdQuestionBulkEditor,
-	SlotWbdQuestionConsensusMatrix,
-	SlotWbdQuestionDiscussionPanel,
-	SlotWbdQuestionImportPanel,
-	SlotWbdRationaleDigest,
-	SlotWbdResponseDistributionChart,
-	SlotWbdRoleAssignmentPanel,
-	SlotWbdRoundComparisonPanel,
-	SlotWbdRoundProgressMonitor,
-	SlotWbdRoundSnapshotBoard,
-	SlotWbdSessionAssumptionsPanel,
-	SlotWbdSessionDetailLayout,
-	SlotWbdSessionExpertInvitePanel,
-	SlotWbdSessionLifecycleToolbar,
-	SlotWbdSessionList,
-	SlotWbdSessionQuestionEditor,
-	SlotWbdSessionSetupWizard,
-	SlotWbdUserManagementTable,
-	SlotWbsTaskRow,
-	SlotWbsTree
+	RecipeWbsTree
 } from './wbd';
 export type {
 	RecipeNodeConnection,
@@ -4462,6 +4135,5 @@ export type {
 	RecipeWorkspacePalette,
 	RecipeWorkspaceToolbar,
 	SlotNodeConnection,
-	SlotWorkspaceNode,
-	SlotWorkspacePalette
+	SlotWorkspaceNode
 } from './workspace';

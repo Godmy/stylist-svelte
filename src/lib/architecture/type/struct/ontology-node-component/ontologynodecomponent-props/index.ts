@@ -1,7 +1,16 @@
-import type { OntologyNode } from '$stylist/architecture/type/struct/ontology-node-component/ontologynode';
+import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
 
 export type OntologyNodeComponentProps = {
-	node: OntologyNode;
+	node: {
+	id: string;
+	name: string;
+	label?: string;
+	type: string;
+	position: Point2D;
+	width: number;
+	height: number;
+	attributes?: string[];
+};
 	showLabel?: boolean;
 	class?: string;
 };

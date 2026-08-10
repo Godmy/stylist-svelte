@@ -71,8 +71,5 @@ export type {
 	RecipeRegister,
 	RecipeSecureForm,
 	RecipeSecuritySettings,
-	RecipeSessionManager,
-	SlotSecureForm,
-	SlotSecuritySettings,
-	SlotSessionManager
+	RecipeSessionManager
 } from './interface';

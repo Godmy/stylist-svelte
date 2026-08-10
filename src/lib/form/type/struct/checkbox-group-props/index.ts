@@ -1,8 +1,14 @@
-import type { CheckboxGroupOption } from '$stylist/form/type/struct/checkbox-group-option';
-import type { CheckboxGroupRestProps } from '$stylist/form/type/struct/checkbox-group-rest-props';
+import type { HTMLAttributes } from 'svelte/elements';
 
-export type CheckboxGroupProps = CheckboxGroupRestProps & {
-	options: CheckboxGroupOption[];
+
+export type CheckboxGroupProps = (Omit<HTMLAttributes<HTMLFieldSetElement>, 'class'>) & {
+	options: {
+	id: string;
+	label: string;
+	value: string;
+	disabled?: boolean;
+	description?: string;
+}[];
 	value?: string[];
 	label?: string;
 	description?: string;

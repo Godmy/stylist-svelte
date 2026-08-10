@@ -1,7 +1,9 @@
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 ﻿import type { Activity } from '$stylist/social/type/struct/social-activity-feed/activity';
-import type { RestProps } from '$stylist/social/type/struct/social-activity-feed/rest-props';
 
-export type Props = RestProps & {
+export type Props = (Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography) & {
 	activities: Activity[];
 	showAvatars?: boolean;
 	showTimestamp?: boolean;

@@ -3,22 +3,10 @@ export type {
 	ConversionFunnelProps,
 	FunnelStep
 } from './conversion-funnel';
+export type { CtaBannerProps } from './cta-banner';
 export type {
-	CtaBannerButton,
-	CtaBannerProps
-} from './cta-banner';
-export type { IHeroStat } from './hero';
-export type {
-	TestOverview,
 	TestResult,
 	TestResultsViewerProps
 } from './test-results-viewer';
-export type {
-	TrafficAnalyticsProps,
-	TrafficDataPoint,
-	TrafficSource
-} from './traffic-analytics';
-export type {
-	UserBehaviorMetric,
-	UserBehaviorMetricsProps
-} from './user-behavior-metrics';
+export type { TrafficAnalyticsProps } from './traffic-analytics';
+export type { UserBehaviorMetricsProps } from './user-behavior-metrics';

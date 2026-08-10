@@ -8,8 +8,6 @@ import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotImage as SlotMedia } from '$stylist/image/interface/slot/image';
 import type { SlotStatus } from '$stylist/information/interface/slot/status';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
-import type { AlertCardAction } from '$stylist/commerce/interface/slot/alert-card-action';
-
 export interface RecipeAlertCard
 	extends ComputeIntersectAll<
 		[
@@ -30,5 +28,8 @@ export interface RecipeAlertCard
 	variant?: string;
 	disabled?: boolean;
 	icon?: string;
-	actions?: AlertCardAction[];
+	actions?: ({
+label: string;
+	onClick?: () => void;
+})[];
 }

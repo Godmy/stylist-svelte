@@ -12,13 +12,9 @@ export type {
 	NavItem,
 	PrimaryMenuItem,
 	SideBySideLayoutProps,
-	SideBySideLayoutRestProps,
-	SideBySideSection,
-	Step,
 	StepperProps,
 	StylistMenuProps,
 	StylistTabItem,
 	StylistTabProps,
-	TabItem,
-	ToolbarItem
+	TabItem
 } from './struct';

@@ -1,5 +1,5 @@
 import type { Provider } from '$stylist/social/type/struct/social-login/provider';
-import type { ProviderConfig } from '$stylist/social/type/struct/social-login/providerconfig';
+
 import type { Props } from '$stylist/social/type/struct/social-login/-props';
 
 export function createSocialLoginState(props: Props) {
@@ -8,7 +8,14 @@ export function createSocialLoginState(props: Props) {
 	let password = $state('');
 	let rememberMe = $state(false);
 
-	const providerConfigs: Record<Provider, ProviderConfig> = {
+	const providerConfigs: Record<Provider, {
+	id: Provider;
+	name: string;
+	icon: any;
+	color: string;
+	textColor: string;
+	borderColor: string;
+}> = {
 		google: {
 			id: 'google',
 			name: 'Google',

@@ -1,3 +1,5 @@
-import type { SlotChemicalProperty } from '$stylist/science/interface/slot/chemical-property';
-
-export interface RecipeChemicalProperty extends SlotChemicalProperty {}
+import type { HTMLAttributes } from 'svelte/elements';
+import type { ChemicalProperty } from '$stylist/science/type/struct/chemical-property';
+export interface RecipeChemicalProperty extends HTMLAttributes<HTMLDivElement> {
+chemicalProperty: ChemicalProperty;
+}

@@ -8,7 +8,6 @@ export type {
 	SchemaDocument,
 	SchemaField,
 	SchemaParseResult,
-	SchemaStats,
 	SchemaTable,
 	SchemaTablePosition
 } from './struct';

@@ -5,7 +5,4 @@ export type {
 	RecipeImageGallery,
 	RecipeImageWithCaption
 } from './recipe';
-export type {
-	SlotImage,
-	SlotImageItem
-} from './slot';
+export type { SlotImage } from './slot';

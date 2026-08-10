@@ -39,20 +39,14 @@ export {
 export type {
 	ABTestConfiguratorState,
 	ConversionFunnelProps,
-	CtaBannerButton,
 	CtaBannerProps,
 	FunnelStep,
 	IHeroCTA,
-	IHeroStat,
-	TestOverview,
 	TestResult,
 	TestResultsViewerProps,
 	TimeRange,
 	TokenTest,
 	TrafficAnalyticsProps,
-	TrafficDataPoint,
-	TrafficSource,
-	UserBehaviorMetric,
 	UserBehaviorMetricsProps
 } from './type';
 export type {

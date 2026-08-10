@@ -1,11 +1,16 @@
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
-import type { ErrorBoundaryProps as ErrorBoundaryProps } from '$stylist/development/type/struct/error-boundary-props';
+
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
+import type { ComponentType, Snippet } from 'svelte';
 export interface RecipeErrorBoundary
 	extends ComputeIntersectAll<
-		[ErrorBoundaryProps,  SlotThemeBorder, SlotTypography]
+		[SlotThemeBorder, SlotTypography]
 	> {
+	component: ComponentType | null | undefined;
+	props?: Record<string, any>;
+	children?: Snippet;
+
 	class?: string;
 }

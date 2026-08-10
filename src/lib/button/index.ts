@@ -35,10 +35,7 @@ export type {
 } from './type';
 export type { ButtonPreset } from './function';
 export type {
-	ButtonFactoryContractInput,
-	ButtonFactoryHtmlInput,
 	ButtonFactoryInput,
-	ButtonFactorySlotsInput,
 	RecipeButton,
 	RecipeButtonComposed,
 	RecipeButtonElement,
@@ -48,10 +45,5 @@ export type {
 	RecipeIconButton,
 	RecipeSplitButton,
 	SlotButtonAttributesBase,
-	SlotButtonControl,
-	SlotButtonCore,
-	SlotButtonDom,
-	SlotButtonElement,
-	SlotCopyButton,
-	SlotIconButton
+	SlotButtonDom
 } from './interface';

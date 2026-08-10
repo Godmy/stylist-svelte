@@ -67,6 +67,5 @@ export type {
 	SlotEventCalendar,
 	SlotTimePicker,
 	SlotTimeSlot,
-	SlotTimelineItem,
 	TimeSlotProps
 } from './interface';

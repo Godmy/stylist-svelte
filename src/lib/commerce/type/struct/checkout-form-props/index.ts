@@ -1,12 +1,18 @@
 ﻿import type { HTMLAttributes } from 'svelte/elements';
-import type { SlotCartItem } from '$stylist/commerce/type/struct/cart-item';
+
 import type { Address } from '$stylist/commerce/type/struct/address';
 import type { PaymentMethod } from '$stylist/commerce/type/struct/payment-method';
 import type { SlotShippingOption } from '$stylist/commerce/type/struct/shipping-option';
 import type { CheckoutStep } from '$stylist/commerce/type/struct/checkout-step';
 
 export type CheckoutFormProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
-	cartItems: SlotCartItem[];
+	cartItems: {
+	id: string;
+	name: string;
+	price: number;
+	quantity: number;
+	thumbnail?: string;
+}[];
 	subtotal: number;
 	tax: number;
 	shipping: number;

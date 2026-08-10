@@ -4,7 +4,6 @@ export type {
 	BehaviorComponentState,
 	BehaviorDimensionable,
 	BehaviorDraggable,
-	BehaviorElevatable,
 	BehaviorFocusable,
 	BehaviorHoverable,
 	BehaviorPositionable,
@@ -51,10 +50,6 @@ export type {
 	WidgetContainerProps
 } from './recipe';
 export type {
-	SlotClickable,
 	SlotComposite,
-	SlotGridItem,
-	SlotGridLayoutItem,
-	SlotSize,
 	SlotSortableGridItem
 } from './slot';

@@ -1,3 +1,7 @@
-import type { SlotPeriodicElementType } from '$stylist/science/interface/slot/periodic-element-type';
-
-export interface RecipePeriodicElementType extends SlotPeriodicElementType {}
+import type { HTMLAttributes } from 'svelte/elements';
+export interface RecipePeriodicElementType extends HTMLAttributes<HTMLButtonElement> {
+category: string;
+	selected?: boolean;
+	accent?: string;
+	onSelect?: (category: string) => void;
+}

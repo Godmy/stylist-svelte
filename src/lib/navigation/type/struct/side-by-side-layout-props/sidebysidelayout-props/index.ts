@@ -1,8 +1,13 @@
-﻿import type { SideBySideLayoutRestProps } from '$stylist/navigation/type/struct/side-by-side-layout-props/sidebysidelayoutrest-props';
-import type { SideBySideSection } from '$stylist/navigation/type/struct/side-by-side-layout-props/sidebysidesection';
+import type { Snippet } from 'svelte';
+import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 
-export type SideBySideLayoutProps = SideBySideLayoutRestProps & {
-	sections: SideBySideSection[];
+export type SideBySideLayoutProps = (Omit<LayoutHTMLAttributes<HTMLDivElement>, 'class'>) & {
+	sections: {
+	id: string;
+	content: Snippet;
+	size?: '1/4' | '1/3' | '2/5' | '1/2' | '3/5' | '2/3' | '3/4' | 'full';
+	className?: string;
+}[];
 	class?: string;
 	gap?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
 	alignItems?: 'start' | 'center' | 'end' | 'stretch';

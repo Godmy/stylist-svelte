@@ -2,7 +2,14 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import DomainMenu from './index.svelte';
 
-	type Screen = 'landing' | 'domain' | 'workspace' | 'builder' | 'backlog' | 'dashboard';
+	type Screen =
+		| 'landing'
+		| 'domain'
+		| 'workspace'
+		| 'builder'
+		| 'backlog'
+		| 'dashboard'
+		| 'diagnostics';
 
 	let screen = $state<Screen>('domain');
 	let settingsOpen = $state(false);
@@ -23,6 +30,7 @@
 				builderOpen={screen === 'builder'}
 				backlogOpen={screen === 'backlog'}
 				dashboardOpen={screen === 'dashboard'}
+				diagnosticsOpen={screen === 'diagnostics'}
 				{settingsOpen}
 				{aiOpen}
 				onLandingToggle={() => (screen = 'landing')}
@@ -31,6 +39,7 @@
 				onBuilderToggle={() => (screen = 'builder')}
 				onBacklogToggle={() => (screen = 'backlog')}
 				onDashboardToggle={() => (screen = 'dashboard')}
+				onDiagnosticsToggle={() => (screen = 'diagnostics')}
 				onSettingsToggle={() => (settingsOpen = !settingsOpen)}
 				onAiToggle={() => (aiOpen = !aiOpen)}
 			/>

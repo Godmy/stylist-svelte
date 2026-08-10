@@ -16,7 +16,5 @@ export type {
 } from './recipe';
 export type {
 	AnimateValueOptions,
-	SlotAnimate,
-	SlotTransformable,
 	SlotTransformation
 } from './slot';

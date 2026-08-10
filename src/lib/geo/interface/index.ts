@@ -17,16 +17,11 @@ export type {
 	RoutePlannerStateProps
 } from './recipe';
 export type {
-	SlotContactInfo,
 	SlotCoordinates,
-	SlotGeoJSONViewer,
 	SlotGeoJsonFeature,
 	SlotGeoJsonFeatureCollection,
 	SlotGeoJsonGeometry,
 	SlotGeoJsonLayer,
-	SlotLocationPicker,
-	SlotLocationSelector,
-	SlotMapMarker,
 	SlotMapSelector,
 	SlotMapView
 } from './slot';

@@ -1,11 +1,19 @@
-﻿import type { SlotChildren } from '$stylist/theme/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotSentimentAnalysisResult } from '$stylist/ai/interface/slot/sentiment-analysis-result';
 import type { SentimentAnalysisStatus } from '$stylist/ai/type/alias/sentiment-analysis-status';
 
 export interface RecipeSentimentAnalysis extends ComputeIntersectAll<[SlotChildren]> {
 	text?: string;
-	result?: SlotSentimentAnalysisResult;
+	result?: ({
+score: number;
+	label: 'very negative' | 'negative' | 'neutral' | 'positive' | 'very positive';
+	confidence: number;
+	breakdown?: {
+		positive: number;
+		neutral: number;
+		negative: number;
+	};
+});
 	onAnalyze?: (text: string) => void;
 	status?: SentimentAnalysisStatus;
 	errorMessage?: string;

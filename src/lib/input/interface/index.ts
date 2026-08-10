@@ -23,30 +23,15 @@ export type {
 	RichTextEditorStateProps
 } from './recipe';
 export type {
-	SlotCharacterCount,
-	SlotCheckboxGroupOption,
-	SlotInputAddon,
 	SlotInputBase,
 	SlotInputCore,
-	SlotInputDouble,
-	SlotInputEmail,
-	SlotInputError,
-	SlotInputField,
-	SlotInputGroup,
-	SlotInputHelper,
-	SlotInputHelperChildren,
 	SlotInputLabel,
-	SlotInputName,
-	SlotInputPassword,
 	SlotInputStateOptions,
 	SlotInputWithHelper,
 	SlotInputWithLabel,
 	SlotInputWithValidation,
 	SlotNumberInput,
 	SlotPhoneNumberInput,
-	SlotPinInputDigit,
 	SlotRadioGroupState,
-	SlotRadioOption,
-	SlotTagInput,
-	SlotTextarea
+	SlotTagInput
 } from './slot';

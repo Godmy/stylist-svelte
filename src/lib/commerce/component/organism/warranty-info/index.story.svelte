@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotWarrantyClaim } from '$stylist/commerce/interface/slot/warranty-claim';
+	import type { RecipeWarrantyInfo as RecipeWarrantyInfoProps } from '$stylist/commerce/interface/recipe/warranty-info';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
@@ -51,7 +51,7 @@
 			showClaimsHistory={values.showClaimsHistory as boolean}
 			showFileDownload={true}
 			showClaimForm={true}
-			onClaimSubmit={(claim: Omit<SlotWarrantyClaim, 'id' | 'date' | 'status'>) => {
+			onClaimSubmit={(claim: Parameters<NonNullable<RecipeWarrantyInfoProps['onClaimSubmit']>>[0]) => {
 				console.log('Submitting warranty claim:', claim);
 			}}
 			onTermsClick={() => {

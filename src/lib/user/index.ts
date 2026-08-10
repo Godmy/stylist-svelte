@@ -34,8 +34,5 @@ export type {
 	RecipeAccountSettingsForm,
 	RecipeAvatar,
 	RecipeAvatarGroup,
-	RecipeUserProfileCard,
-	SlotAccountSettingsForm,
-	SlotUserProfile,
-	SlotUserProfileCard
+	RecipeUserProfileCard
 } from './interface';

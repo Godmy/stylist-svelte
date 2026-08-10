@@ -25,7 +25,14 @@
 		initialCluster?: string;
 		initialJoint?: string;
 		initialPreviewMode?: 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
-		onSelectionChange?: (selection: { domain: string; family: string }) => void;
+		onSelectionChange?: (selection: {
+			domain: string;
+			cluster: string;
+			joint: string;
+			family: string;
+			entityPath: string;
+			files: { name: string; path: string }[];
+		}) => void;
 		storyDevice?: DeviceFrameViewport;
 		deviceViewportVisible?: boolean;
 		class?: string;
@@ -58,7 +65,14 @@
 	});
 
 	$effect(() => {
-		onSelectionChange?.({ domain: s.activeDomain, family: s.activeFamily });
+		onSelectionChange?.({
+			domain: s.activeDomain,
+			cluster: s.activeCluster,
+			joint: s.activeJoint,
+			family: s.activeFamily,
+			entityPath: s.activeEntityPath,
+			files: s.activeEntity?.files ?? []
+		});
 	});
 
 	$effect(() => {

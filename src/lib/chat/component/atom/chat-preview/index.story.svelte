@@ -2,9 +2,14 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import ChatPreview from './index.svelte';
-	import type { ChatPreviewProps } from '$stylist/chat/type/struct/chat-preview';
 
-	const baseData: ChatPreviewProps = {
+	const baseData: {
+		title: string;
+		participants: string[];
+		messages: { text: string; author: string; timestamp: string }[];
+		maxMessages: number;
+		showAvatars: boolean;
+	} = {
 		title: 'AI Team Chat',
 		participants: ['Claude', 'Qwen', 'Gemini'],
 		maxMessages: 3,

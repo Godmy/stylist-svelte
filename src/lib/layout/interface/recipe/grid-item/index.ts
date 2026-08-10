@@ -1,3 +1,9 @@
-import type { SlotGridItem } from '$stylist/layout/interface/slot/grid-item';
 
-export interface GridItem extends SlotGridItem {}
+import type { Snippet } from 'svelte';
+export interface GridItem {
+	id: string;
+	content: Snippet | string;
+	colSpan?: number;
+	rowSpan?: number;
+	class?: string;
+}

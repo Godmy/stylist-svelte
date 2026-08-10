@@ -30,22 +30,8 @@ export type {
 } from './recipe';
 export type {
 	ComponentPreviewCodeOptions,
-	ContentElement,
 	DomainForEachContext,
 	DomainForEachOptions,
 	SlotAiModel,
-	SlotAtomicPrinciplesShowcase,
-	SlotCodeBlock,
-	SlotCodeDiff,
-	SlotComponentLibraryStats,
-	SlotComponentPreview,
-	SlotDebugConsole,
-	SlotDesignTokens,
-	SlotDevelopmentErrorBoundary,
-	SlotDocumentationBlock,
-	SlotMockDataSelector,
-	SlotMockDataSelectorStyleClasses,
-	SlotPrivacySettings,
-	SlotResourceOptimizer,
-	SlotStylist
+	SlotMockDataSelectorStyleClasses
 } from './slot';

@@ -7,20 +7,10 @@ export type {
 } from './breadcrumbs-props';
 export type { DialogConfirmProps } from './dialog-confirm-props';
 export type { DrawerProps } from './drawer-props';
-export type {
-	GeneralToolbarRecipe,
-	ToolbarItem
-} from './general-toolbar-props';
-export type {
-	SideBySideLayoutProps,
-	SideBySideLayoutRestProps,
-	SideBySideSection
-} from './side-by-side-layout-props';
+export type { GeneralToolbarRecipe } from './general-toolbar-props';
+export type { SideBySideLayoutProps } from './side-by-side-layout-props';
 export type { NavItem } from './sidebar';
-export type {
-	Step,
-	StepperProps
-} from './stepper-props';
+export type { StepperProps } from './stepper-props';
 export type { FunctionalTabItem } from './stylist-menu-functional-tab-item';
 export type { PrimaryMenuItem } from './stylist-menu-primary-menu-item';
 export type { StylistMenuProps } from './stylist-menu-props';

@@ -1,7 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	BehaviorOperationsHistoryEvents,
-	BehaviorTimeRangeFilter,
 	BehaviorTrendable
 } from './behavior';
 export type {
@@ -32,7 +31,6 @@ export type {
 	TeamMemberCardStateProps
 } from './recipe';
 export type {
-	BreadcrumbItem,
 	CardData,
 	DraggableCardProps,
 	Operation,

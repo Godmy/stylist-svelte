@@ -1,6 +1,8 @@
-import type { CodeBlockWithLineNumbersRestProps } from '$stylist/development/type/struct/code-block-with-line-numbers-rest-props';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
+import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 
-export type CodeBlockWithLineNumbersProps = CodeBlockWithLineNumbersRestProps & {
+export type CodeBlockWithLineNumbersProps = (Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography) & {
 	code?: string;
 	language?: string;
 	highlightLines?: number[];

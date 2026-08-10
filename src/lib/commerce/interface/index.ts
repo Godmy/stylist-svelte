@@ -1,20 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type {
-	BehaviorCurrencyConverterEvents,
-	BehaviorDiscountApplierEvents,
-	BehaviorInventoryTrackerEvents,
-	BehaviorOrderConfirmationEvents,
-	BehaviorOrderHistoryEvents,
-	BehaviorOrderTrackingEvents,
-	BehaviorPriceMatchEvents,
-	BehaviorReturnPolicyEvents,
-	BehaviorRfqFormEvents,
-	BehaviorShippingCalculatorEvents,
-	BehaviorSubscriptionManagerEvents,
-	BehaviorTaxCalculatorEvents,
-	BehaviorUpsellEvents,
-	BehaviorWarrantyInfoEvents
-} from './behavior';
+export type { BehaviorOrderConfirmationEvents } from './behavior';
 export type {
 	ContractBillingItem,
 	ContractOrderConfirmationPaymentInfo,
@@ -62,48 +47,13 @@ export type {
 	UserCardProps
 } from './recipe';
 export type {
-	AlertCardAction,
-	ArticleCardAction,
-	SlotBillingItem,
-	SlotBillingSummary,
 	SlotBulkOrderForm,
-	SlotCalculationResult,
-	SlotCartItem,
-	SlotConversionResult,
-	SlotCountry,
 	SlotCurrency,
-	SlotDimensions,
 	SlotDiscountRule,
 	SlotExchangeRate,
-	SlotFaq,
-	SlotFilterBar,
 	SlotFilterBarStyleClasses,
 	SlotInventoryItem,
-	SlotLocation,
-	SlotLowStockAlert,
-	SlotOrder,
-	SlotOrderConfirmation,
-	SlotOrderConfirmationEvents,
-	SlotOrderConfirmationPaymentInfo,
-	SlotOrderItem,
-	SlotPriceAlertElement,
-	SlotPriceHistoryDataPoint,
-	SlotPricingPlan,
-	SlotQuoteRequestContract,
-	SlotReturnCondition,
-	SlotReturnStep,
-	SlotRfqFormData,
-	SlotRfqProduct,
-	SlotShippingAddress,
 	SlotShippingOption,
 	SlotShippingOptionInfo,
-	SlotState,
-	SlotSubscription,
-	SlotSubscriptionPlan,
-	SlotTaxRate,
-	SlotTrackingEvent,
-	SlotTrackingInfo,
-	SlotUpsellProduct,
-	SlotWarrantyClaim,
-	SlotWarrantyPeriod
+	SlotUpsellProduct
 } from './slot';

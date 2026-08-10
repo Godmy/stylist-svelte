@@ -1,5 +1,6 @@
 import { DOMAIN_SCREEN_BACKLOG } from '$stylist/domain/const/value/domain-screen-backlog';
 import { DOMAIN_SCREEN_BUILDER } from '$stylist/domain/const/value/domain-screen-builder';
+import { DOMAIN_SCREEN_DASHBOARD } from '$stylist/domain/const/value/domain-screen-dashboard';
 import { DOMAIN_SCREEN_DIAGNOSTICS } from '$stylist/domain/const/value/domain-screen-diagnostics';
 import { DOMAIN_SCREEN_DOMAIN } from '$stylist/domain/const/value/domain-screen-domain';
 import { DOMAIN_SCREEN_LANDING } from '$stylist/domain/const/value/domain-screen-landing';
@@ -11,6 +12,7 @@ type DomainScreenStateValue =
 	| typeof DOMAIN_SCREEN_WORKSPACE
 	| typeof DOMAIN_SCREEN_BUILDER
 	| typeof DOMAIN_SCREEN_BACKLOG
+	| typeof DOMAIN_SCREEN_DASHBOARD
 	| typeof DOMAIN_SCREEN_DIAGNOSTICS;
 
 export function createDomainLandingScreenState(
@@ -34,6 +36,10 @@ export function createDomainLandingScreenState(
 
 	function handleDiagnosticsToggle() {
 		currentScreen = DOMAIN_SCREEN_DIAGNOSTICS;
+	}
+
+	function handleDashboardToggle() {
+		currentScreen = DOMAIN_SCREEN_DASHBOARD;
 	}
 
 	function handleBuilderToggle() {
@@ -74,6 +80,7 @@ export function createDomainLandingScreenState(
 		handleWorkspaceToggle,
 		handleLandingToggle,
 		handleDiagnosticsToggle,
+		handleDashboardToggle,
 		handleBuilderToggle,
 		openBacklogScreen,
 		handleSettingsToggle,

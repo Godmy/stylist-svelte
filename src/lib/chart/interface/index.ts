@@ -1,12 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	BehaviorBarClickable,
-	BehaviorCellClickable,
 	BehaviorChartAxis,
 	BehaviorChartColorable,
 	BehaviorLegendable,
 	BehaviorPointClickable,
-	BehaviorRangeBarSelect,
 	BehaviorTooltipable
 } from './behavior';
 export type {
@@ -31,8 +28,4 @@ export type {
 	RecipeScatterPlot,
 	RecipeVerticalBarsChart
 } from './recipe';
-export type {
-	SlotChartAxis,
-	SlotRangeBarsChart,
-	SlotVerticalBarsChart
-} from './slot';
+export type { SlotChartAxis } from './slot';

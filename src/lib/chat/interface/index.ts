@@ -8,7 +8,6 @@ export type {
 	ChatWindowChat,
 	SlotChat,
 	SlotChatStatusIndicator,
-	SlotListWithAvatars,
 	SlotMessage,
 	SlotMessageAttachment,
 	SlotMessageBubble,

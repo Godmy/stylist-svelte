@@ -1,8 +1,12 @@
-import type { TableListItem } from '$stylist/table/type/struct/table-list-item';
+
 
 export interface RecipeTableListPanel {
 	class?: string;
-	items: TableListItem[];
+	items: {
+	name: string;
+	rowCount: number;
+	hasSoftDelete: boolean;
+}[];
 	selectedName: string | null;
 	onSelect: (name: string) => void;
 }

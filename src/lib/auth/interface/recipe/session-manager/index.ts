@@ -1,5 +1,8 @@
+import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotSessionManager } from '$stylist/auth/interface/slot/session-manager';
-
-export interface RecipeSessionManager extends ComputeIntersectAll<[SlotSessionManager]> {}
+export interface RecipeSessionManager extends ComputeIntersectAll<[((HTMLAttributes<HTMLDivElement> & {
+activeSessions?: number;
+	expiresAt?: string;
+	class?: string;
+}))]> {}
 

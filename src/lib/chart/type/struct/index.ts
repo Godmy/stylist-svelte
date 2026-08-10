@@ -18,6 +18,4 @@ export type { LineChartPoint } from './line-chart';
 export type { LineChartData } from './line-chart-data';
 export type { PieChartDataPoint } from './pie-chart';
 export type { AnalyticsPieChartSegment } from './pie-chart-segment';
-export type { RangeBarChartItem } from './range-bar-chart-item';
 export type { ScatterPlotDataPoint } from './scatter-plot-point';
-export type { VerticalBarChartItem } from './vertical-bar-chart-item';

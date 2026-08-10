@@ -75,7 +75,6 @@ export {
 export type {
 	CardData,
 	INotificationSettingsPreference,
-	Metric,
 	NotificationData,
 	NotificationType,
 	PerformanceMonitorStatus,
@@ -89,9 +88,7 @@ export type {
 } from './type';
 export type {
 	BehaviorOperationsHistoryEvents,
-	BehaviorTimeRangeFilter,
 	BehaviorTrendable,
-	BreadcrumbItem,
 	ContractDashboardLayout,
 	ContractManagement,
 	DashboardLayoutProps,

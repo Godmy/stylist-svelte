@@ -1,6 +1,6 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotButtonDom } from '$stylist/button/interface/slot/button-dom';
-import type { SlotPageButton } from '$stylist/navigation/interface/slot/page-button';
+
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
@@ -9,15 +9,11 @@ import type { SlotText } from '$stylist/typography/interface/slot/text';
 
 export interface RecipePageButton
 	extends ComputeIntersectAll<
-		[
-			SlotPageButton,
-			SlotButtonDom,
-			SlotChildren,
-			SlotText,
-			BehaviorClickable,
-			BehaviorFocusable,
-			BehaviorSizable
-		]
+		[SlotButtonDom, SlotChildren, SlotText, BehaviorClickable, BehaviorFocusable, BehaviorSizable]
 	> {
+	class?: string;
+	page?: number;
+	isActive?: boolean;
+
 	[prop: string]: unknown;
 }

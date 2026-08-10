@@ -1,3 +1,7 @@
-import type { SlotPeriodicElementTable } from '$stylist/science/interface/slot/periodic-element-table';
-
-export interface RecipePeriodicElementTable extends SlotPeriodicElementTable {}
+import type { HTMLAttributes } from 'svelte/elements';
+import type { PeriodicElement } from '$stylist/science/type/struct/periodic-element';
+export interface RecipePeriodicElementTable extends HTMLAttributes<HTMLDivElement> {
+elements?: readonly PeriodicElement[];
+	selectedSymbol?: string;
+	onElementSelect?: (element: PeriodicElement) => void;
+}

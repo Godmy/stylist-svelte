@@ -1,12 +1,32 @@
-﻿import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
+import type { TrackingStatusType } from '$stylist/commerce/type/struct/tracking-status-type';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotTrackingInfo } from '$stylist/commerce/interface/slot/tracking-info';
-import type { BehaviorOrderTrackingEvents } from '$stylist/commerce/interface/behavior/order-tracking-events';
-
 export interface RecipeOrderTracking
-	extends ComputeIntersectAll<[SlotTheme]>,
-		BehaviorOrderTrackingEvents {
-	trackingInfo: SlotTrackingInfo;
+	extends ComputeIntersectAll<[SlotTheme]> {
+	onContactCarrier?: () => void;
+	onReportIssue?: () => void;
+	onDeliveryReschedule?: () => void;
+
+	trackingInfo: ({
+orderId: string;
+	trackingNumber: string;
+	carrier: string;
+	estimatedDelivery: Date;
+	status: TrackingStatusType;
+	progress: number;
+	events: ({
+id: string;
+	status: TrackingStatusType;
+	timestamp: Date;
+	location?: string;
+	description: string;
+	notes?: string;
+})[];
+	recipientName?: string;
+	recipientPhone?: string;
+	shippingAddress: string;
+	deliveryNotes?: string;
+});
 
 	showRecipientDetails?: boolean;
 

@@ -34,6 +34,7 @@ export {
 	DOMAIN_MENU_ICONS,
 	DOMAIN_SCREEN_BACKLOG,
 	DOMAIN_SCREEN_BUILDER,
+	DOMAIN_SCREEN_DASHBOARD,
 	DOMAIN_SCREEN_DIAGNOSTICS,
 	DOMAIN_SCREEN_DOMAIN,
 	DOMAIN_SCREEN_LANDING,
@@ -45,6 +46,7 @@ export {
 } from './const';
 export {
 	createDeviceFrameState,
+	createDomainAiAgentState,
 	createDomainBacklogPreviewState,
 	createDomainBacklogState,
 	createDomainLandingScreenState,
@@ -54,17 +56,14 @@ export {
 export type {
 	DeviceFrameViewport,
 	TokenControllerType,
-	TypeDomainCluster,
 	TypeDomainComponentDescriptor,
 	TypeDomainComponentProjection,
-	TypeDomainEntity,
-	TypeDomainFile,
-	TypeDomainJoint,
 	TypeDomainScreen,
 	TypeDomainTreeNode
 } from './type';
 export type {
 	RecipeDeviceFrame,
+	RecipeDomainAiAgent,
 	RecipeDomainList,
 	RecipeDomainSidebar,
 	RecipeDomainToolbar,

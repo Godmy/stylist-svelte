@@ -13,7 +13,6 @@ export type {
 	FilterPanelProps,
 	RecipeActionSegmentedControlProps,
 	SliderTickComponentProps,
-	SliderTickProps,
 	ToggleGroupContext,
 	ToggleProps
 } from './struct';

@@ -16,6 +16,5 @@ export type {
 	RecipeImage,
 	RecipeImageGallery,
 	RecipeImageWithCaption,
-	SlotImage,
-	SlotImageItem
+	SlotImage
 } from './interface';

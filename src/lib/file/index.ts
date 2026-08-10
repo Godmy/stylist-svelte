@@ -92,7 +92,6 @@ export {
 	toggleViewMode
 } from './function';
 export type {
-	Attachment,
 	DataExporterFormat,
 	DataItem,
 	DragDropFileStatus,
@@ -105,7 +104,6 @@ export type {
 	MediaItem,
 	MediaType,
 	Props,
-	RestProps,
 	SlotDropItem,
 	SlotFileSystemItem,
 	SlotFolderItem,
@@ -115,15 +113,7 @@ export type {
 	ViewMode
 } from './type';
 export type {
-	BehaviorAttachmentPreviewEvents,
-	BehaviorDragDropFileUploadEvents,
-	BehaviorDropZoneEvents,
-	BehaviorFileBrowserEvents,
-	BehaviorFileExplorerEvents,
 	BehaviorFileListItemEvents,
-	BehaviorFileUploadEvents,
-	BehaviorUploadProgressEvents,
-	BehaviorZipViewerEvents,
 	ContractDragDropFile,
 	ContractFile,
 	ContractFileItem,
@@ -145,29 +135,14 @@ export type {
 	RecipeUploadProgress,
 	RecipeZipViewer,
 	SlotAttachment,
-	SlotAttachmentPreview,
 	SlotDocumentPreview,
-	SlotDownloadCard,
 	SlotDragDropFile,
-	SlotDragDropFileUpload,
-	SlotDropZone,
 	SlotDropZoneStyleClasses,
-	SlotExportPanel,
 	SlotExportPanelStyleClasses,
-	SlotFileBrowser,
-	SlotFileExplorer,
-	SlotFileInput,
-	SlotFileItem,
-	SlotFileListItem,
-	SlotFileMetadata,
-	SlotFileUpload,
-	SlotQuantitySelector,
 	SlotUploadFile,
 	SlotUploadProgress,
-	SlotUploadProgressBehaviorOptions,
 	SlotUploadProgressClasses,
 	SlotUploadProgressDisplayOptions,
 	SlotUploadProgressEventHandlers,
-	SlotZipViewer,
 	SlotZipViewerStyleClasses
 } from './interface';

@@ -16,7 +16,5 @@ export type {
 	SlotCommentUser,
 	SlotRating,
 	SlotReactionPicker,
-	SlotRealTimePresence,
-	SlotRealTimePresenceStyleClasses,
-	SlotRealTimePresenceUser
+	SlotRealTimePresenceStyleClasses
 } from './slot';

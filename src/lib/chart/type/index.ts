@@ -25,7 +25,5 @@ export type {
 	LineChartData,
 	LineChartPoint,
 	PieChartDataPoint,
-	RangeBarChartItem,
-	ScatterPlotDataPoint,
-	VerticalBarChartItem
+	ScatterPlotDataPoint
 } from './struct';

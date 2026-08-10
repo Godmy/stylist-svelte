@@ -1,9 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type {
-	BehaviorLoadingState,
-	BehaviorMetricValue,
-	BehaviorProgressValue
-} from './behavior';
+export type { BehaviorMetricValue } from './behavior';
 export type {
 	RecipeAccessibilityCheckbox,
 	RecipeBadge,
@@ -28,14 +24,8 @@ export type {
 	RecipeTooltip
 } from './recipe';
 export type {
-	BadgeGroupItem,
 	HtmlAttributesBase,
 	SlotBadge,
-	SlotLoading,
-	SlotProgressBar,
 	SlotShortcut,
-	SlotSkeleton,
-	SlotSpinner,
-	SlotStatus,
-	SlotTooltip
+	SlotStatus
 } from './slot';

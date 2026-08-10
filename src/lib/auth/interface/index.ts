@@ -19,8 +19,3 @@ export type {
 	RecipeSecuritySettings,
 	RecipeSessionManager
 } from './recipe';
-export type {
-	SlotSecureForm,
-	SlotSecuritySettings,
-	SlotSessionManager
-} from './slot';

@@ -1,10 +1,9 @@
-﻿import { THEME_MODE_DARK } from '$stylist/theme/const/record/theme-mode-dark';
+import { THEME_MODE_DARK } from '$stylist/theme/const/record/theme-mode-dark';
 import { THEME_MODE_LIGHT } from '$stylist/theme/const/record/theme-mode-light';
 import type { RecipeDesignTokens } from '$stylist/development/interface/recipe/design-tokens';
-import type { DesignTokensTheme } from '$stylist/development/type/struct/design-tokens-theme';
 
 export function createDesignTokensState(props: RecipeDesignTokens) {
-	let currentTheme = $state<DesignTokensTheme>(
+	let currentTheme = $state<(typeof THEME_MODE_LIGHT)>(
 		props.theme === 'light' ? THEME_MODE_LIGHT : THEME_MODE_DARK
 	);
 	const layoutTokens = $derived((currentTheme as any).layout ?? {});

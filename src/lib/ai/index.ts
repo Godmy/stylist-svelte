@@ -26,15 +26,6 @@ export {
 } from './function';
 export type {
 	AiAssistantAIClientLike,
-	AiAssistantChatMessage,
-	AiAssistantChatResponse,
-	AiAssistantCreateAIClient,
-	AiAssistantProps,
-	AiChatChatMessage,
-	AiChatProps,
-	AiPanelAIOption,
-	AiPanelAIProvider,
-	AiPanelProps,
 	PlaygroundAiAssistantAIProviderId,
 	PromptVariableType,
 	SentimentAnalysisStatus
@@ -51,6 +42,5 @@ export type {
 	RecipePredictionResult,
 	RecipePromptBuilder,
 	RecipeSentimentAnalysis,
-	SlotModelOption,
-	SlotSentimentAnalysisResult
+	SlotModelOption
 } from './interface';

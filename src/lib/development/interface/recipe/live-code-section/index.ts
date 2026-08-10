@@ -1,9 +1,18 @@
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
-import type { LiveCodeSectionProps as LiveCodeSectionProps } from '$stylist/development/type/struct/live-code-section-props';
+
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+import type { Snippet } from 'svelte';
 export interface RecipeLiveCodeSection
-	extends ComputeIntersectAll<[LiveCodeSectionProps, SlotThemeBorder, SlotTypography, SlotChildren]> {
+	extends ComputeIntersectAll<[SlotThemeBorder, SlotTypography, SlotChildren]> {
+	badgeText?: string;
+	title?: string;
+	description?: string;
+	code?: string;
+	ctaText?: string;
+	ctaHref?: string;
+	children?: Snippet;
+
 	class?: string;
 }

@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { SlotAchievement } from './achievement';
-export type { BreadcrumbItem } from './breadcrumb-item';
 export type { SlotDraggableCard } from './draggable-card';
 export type { CardData } from './draggable-card-data';
 export type { DraggableCardProps } from './draggable-card-props';

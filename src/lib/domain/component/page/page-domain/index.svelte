@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { DOMAIN_SCREEN_BACKLOG } from '$stylist/domain/const/value/domain-screen-backlog';
 	import { DOMAIN_SCREEN_BUILDER } from '$stylist/domain/const/value/domain-screen-builder';
+	import { DOMAIN_SCREEN_DASHBOARD } from '$stylist/domain/const/value/domain-screen-dashboard';
 	import { DOMAIN_SCREEN_DIAGNOSTICS } from '$stylist/domain/const/value/domain-screen-diagnostics';
 	import { DOMAIN_SCREEN_DOMAIN } from '$stylist/domain/const/value/domain-screen-domain';
 	import { DOMAIN_SCREEN_LANDING } from '$stylist/domain/const/value/domain-screen-landing';
@@ -40,7 +41,11 @@
 
 	const screenState = createDomainLandingScreenState(initialScreen);
 	let activeDomain = $state(tree[0]?.name ?? '');
+	let activeCluster = $state('');
+	let activeJoint = $state('');
 	let activeFamily = $state('');
+	let activeEntityPath = $state('');
+	let activeEntityFiles = $state<{ name: string; path: string }[]>([]);
 	let storyDevice = $state<DeviceFrameViewport>('fullscreen');
 	let deviceViewportVisible = $state(false);
 	const storyModuleCount = descriptors.filter((descriptor) => descriptor.hasStoryPreview).length;
@@ -130,6 +135,8 @@
 		import('$stylist/domain/component/organism/domain-builder/index.svelte');
 	const loadDomainBacklog = () =>
 		import('$stylist/domain/component/organism/domain-backlog/index.svelte');
+	const loadDashboardWorkspace = () =>
+		import('$stylist/dashboard/component/template/dashboard-workspace/index.svelte');
 	const loadDomainDiagnostics = () =>
 		import('$stylist/domain/component/organism/domain-diagnostics/index.svelte');
 	const loadDomainSettings = () =>
@@ -137,9 +144,20 @@
 	const loadDomainAiAgent = () =>
 		import('$stylist/domain/component/organism/domain-ai-agent/index.svelte');
 
-	function handleSelectionChange(selection: { domain: string; family: string }) {
+	function handleSelectionChange(selection: {
+		domain: string;
+		cluster: string;
+		joint: string;
+		family: string;
+		entityPath: string;
+		files: { name: string; path: string }[];
+	}) {
 		activeDomain = selection.domain;
+		activeCluster = selection.cluster;
+		activeJoint = selection.joint;
 		activeFamily = selection.family;
+		activeEntityPath = selection.entityPath;
+		activeEntityFiles = selection.files;
 	}
 
 	function handleWorkspaceNodeSelect(nodeId: string) {
@@ -304,6 +322,11 @@
 				onBoardChange={backlogState.handleBoardChange}
 			/>
 		{/await}
+	{:else if screenState.currentScreen === DOMAIN_SCREEN_DASHBOARD}
+		{#await loadDashboardWorkspace() then module}
+			{@const DashboardWorkspace = module.default}
+			<DashboardWorkspace />
+		{/await}
 	{:else if screenState.currentScreen === DOMAIN_SCREEN_DIAGNOSTICS}
 		{#await loadDomainDiagnostics() then module}
 			{@const DomainDiagnostics = module.default}
@@ -324,7 +347,8 @@
 			workspaceOpen={screenState.currentScreen === DOMAIN_SCREEN_WORKSPACE}
 			builderOpen={screenState.currentScreen === DOMAIN_SCREEN_BUILDER}
 			backlogOpen={screenState.currentScreen === DOMAIN_SCREEN_BACKLOG}
-			dashboardOpen={screenState.currentScreen === DOMAIN_SCREEN_DIAGNOSTICS}
+			dashboardOpen={screenState.currentScreen === DOMAIN_SCREEN_DASHBOARD}
+			diagnosticsOpen={screenState.currentScreen === DOMAIN_SCREEN_DIAGNOSTICS}
 			settingsOpen={screenState.isSettingsOpen}
 			aiOpen={screenState.isAiOpen}
 			onLandingToggle={screenState.handleLandingToggle}
@@ -332,7 +356,8 @@
 			onWorkspaceToggle={screenState.handleWorkspaceToggle}
 			onBuilderToggle={screenState.handleBuilderToggle}
 			onBacklogToggle={() => void backlogState.handleBacklogToggle()}
-			onDashboardToggle={screenState.handleDiagnosticsToggle}
+			onDashboardToggle={screenState.handleDashboardToggle}
+			onDiagnosticsToggle={screenState.handleDiagnosticsToggle}
 			onSettingsToggle={screenState.handleSettingsToggle}
 			onAiToggle={screenState.handleAiToggle}
 		/>
@@ -349,7 +374,20 @@
 {#if screenState.isAiOpen}
 	{#await loadDomainAiAgent() then module}
 		{@const DomainAiAgent = module.default}
-		<DomainAiAgent open={screenState.isAiOpen} onClose={screenState.closeAi} />
+		<DomainAiAgent
+			open={screenState.isAiOpen}
+			onClose={screenState.closeAi}
+			selectedEntity={activeEntityPath
+				? {
+						domain: activeDomain,
+						cluster: activeCluster,
+						joint: activeJoint,
+						family: activeFamily,
+						entityPath: activeEntityPath,
+						files: activeEntityFiles
+					}
+				: null}
+		/>
 	{/await}
 {/if}
 

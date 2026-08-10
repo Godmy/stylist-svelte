@@ -1,25 +1,15 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	FRIEND_LIST_FRIEND,
-	FRIEND_LIST_PROPS,
-	FRIEND_LIST_REST_PROPS
+	FRIEND_LIST_PROPS
 } from './friend-list';
 export type {
 	Activity,
 	ActivityType,
-	Props,
-	RestProps,
-	User
+	Props
 } from './social-activity-feed';
-export type {
-	FeedUser,
-	FilterOption,
-	Post
-} from './social-feed';
-export type {
-	Provider,
-	ProviderConfig
-} from './social-login';
+export type { Post } from './social-feed';
+export type { Provider } from './social-login';
 export type {
 	ShareOption,
 	SocialPlatform

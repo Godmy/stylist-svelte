@@ -1,3 +1,7 @@
-import type { SlotPeriodicElementAbsorptionSpectrum } from '$stylist/science/interface/slot/periodic-element-absorption-spectrum';
-
-export interface RecipePeriodicElementAbsorptionSpectrum extends SlotPeriodicElementAbsorptionSpectrum {}
+import type { HTMLAttributes } from 'svelte/elements';
+import type { PeriodicElement } from '$stylist/science/type/struct/periodic-element';
+export interface RecipePeriodicElementAbsorptionSpectrum extends HTMLAttributes<HTMLDivElement> {
+element?: PeriodicElement;
+	minWavelength?: number;
+	maxWavelength?: number;
+}

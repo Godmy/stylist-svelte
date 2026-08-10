@@ -6,11 +6,7 @@ export type { MinimapBounds } from './minimap-bounds';
 export type { MinimapNodeRect } from './minimap-node-rect';
 export type { MinimapProps } from './minimap-props';
 export type { MinimapViewport } from './minimap-viewport';
-export type {
-	OntologyEdge,
-	OntologyEdgeComponentProps,
-	OntologyNode
-} from './ontology-edge-component';
+export type { OntologyEdgeComponentProps } from './ontology-edge-component';
 export type { OntologyNodeComponentProps } from './ontology-node-component';
 export type { Point2D } from './point-2d';
 export type { ArchitectureScene } from './scene';

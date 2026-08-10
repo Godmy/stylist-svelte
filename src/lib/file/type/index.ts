@@ -11,14 +11,12 @@ export type {
 	ViewMode
 } from './alias';
 export type {
-	Attachment,
 	DataItem,
 	DragDropFileStatus,
 	FileItem,
 	FileType,
 	MediaItem,
 	Props,
-	RestProps,
 	SlotDropItem,
 	SlotFileSystemItem,
 	SlotFolderItem,

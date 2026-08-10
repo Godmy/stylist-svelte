@@ -55,6 +55,5 @@ export type {
 	RecipeWorkspacePalette,
 	RecipeWorkspaceToolbar,
 	SlotNodeConnection,
-	SlotWorkspaceNode,
-	SlotWorkspacePalette
+	SlotWorkspaceNode
 } from './interface';
