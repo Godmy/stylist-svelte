@@ -28,7 +28,6 @@ export type {
 } from './alias';
 export type {
 	AnyProperty,
-	ClickContract,
 	DragContract,
 	GestureContract,
 	Preset

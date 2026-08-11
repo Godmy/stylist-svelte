@@ -8,15 +8,11 @@ export type {
 	Coordinates,
 	LocationPickerProps,
 	LocationSelectorLocation,
-	LocationSelectorRestProps,
 	MapMarker,
 	MapSelectorLocation,
-	MapSelectorRestProps,
 	MapWithMarkersMarker,
-	MapWithMarkersRestProps,
 	MapWithMarkersView,
 	RouteOption,
 	RoutePlannerLocation,
-	StoreLocatorRestProps,
 	StoreLocatorStore
 } from './struct';

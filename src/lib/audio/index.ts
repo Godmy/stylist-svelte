@@ -18,10 +18,8 @@ export type {
 } from './type';
 export type {
 	ContractAudioPlayer,
-	ContractAudioRecordButton,
 	ContractAudioSlider,
 	ContractAudioVisualizer,
-	ContractTranscriber,
 	RecipeAudioPlayer,
 	RecipeAudioRecordButton,
 	RecipeAudioSlider,

@@ -1,10 +1,18 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { UserData } from '$stylist/user/type/object/user-data';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 export interface RecipeUserProfileCard
 	extends ComputeIntersectAll<[((HTMLAttributes<HTMLDivElement> & {
 /** User data */
-	user?: UserData;
+	user?: ({
+	id: string;
+	name: string;
+	email?: string;
+	phone?: string;
+	bio?: string;
+	avatar?: string;
+	role?: string;
+	location?: string;
+});
 	/** Show avatar */
 	showAvatar?: boolean;
 	/** Show email */
@@ -20,9 +28,27 @@ export interface RecipeUserProfileCard
 	/** Custom class name */
 	class?: string;
 	/** Callback when edit is clicked */
-	onEdit?: (user: UserData) => void;
+	onEdit?: (user: ({
+	id: string;
+	name: string;
+	email?: string;
+	phone?: string;
+	bio?: string;
+	avatar?: string;
+	role?: string;
+	location?: string;
+})) => void;
 	/** Callback when save is clicked */
-	onSave?: (user: UserData) => void;
+	onSave?: (user: ({
+	id: string;
+	name: string;
+	email?: string;
+	phone?: string;
+	bio?: string;
+	avatar?: string;
+	role?: string;
+	location?: string;
+})) => void;
 })), ((HTMLAttributes<HTMLDivElement> & {
 name?: string;
 	role?: string;

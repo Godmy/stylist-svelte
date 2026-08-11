@@ -1,7 +1,10 @@
-﻿import type { SlotBurnDownPoint as BurnDownPoint } from '$stylist/portfolio/interface/slot/burn-down-point';
-import type { BurnDownMinMaxResult } from '$stylist/portfolio/interface/slot/burn-down-min-max-result';
-
-export function getBurnDownMinMaxValues(points: BurnDownPoint[]): BurnDownMinMaxResult {
+import type { SlotBurnDownPoint as BurnDownPoint } from '$stylist/portfolio/interface/slot/burn-down-point';
+export function getBurnDownMinMaxValues(points: BurnDownPoint[]): {
+minActual: number;
+	maxActual: number;
+	minIdeal: number;
+	maxIdeal: number;
+} {
 	if (!points.length) return { minActual: 0, maxActual: 0, minIdeal: 0, maxIdeal: 0 };
 
 	const actualValues = points.map((point: BurnDownPoint) => point.actual);

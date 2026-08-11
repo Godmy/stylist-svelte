@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type {
-	ContractCodeBlock,
-	ContractDevelopment
-} from './contract';
+export type { ContractDevelopment } from './contract';
 export type {
 	ContentEditorStateProps,
 	RecipeAtomicPrinciples,
@@ -29,7 +26,6 @@ export type {
 	RecipeThemeSyntaxHighlightedCode
 } from './recipe';
 export type {
-	ComponentPreviewCodeOptions,
 	DomainForEachOptions,
 	SlotAiModel,
 	SlotMockDataSelectorStyleClasses

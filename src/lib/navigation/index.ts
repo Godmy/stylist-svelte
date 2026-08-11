@@ -72,14 +72,12 @@ export {
 } from './function';
 export type { AccordionContext } from './const';
 export type {
-	AppHeaderNavLink,
 	BreadcrumbDropdownItem,
 	BreadcrumbItem,
 	BreadcrumbSeparatorProps,
 	BreadcrumbsProps,
 	DialogConfirmProps,
 	DrawerProps,
-	FunctionalTabItem,
 	GeneralToolbarRecipe,
 	NavItem,
 	PrimaryMenuItem,
@@ -87,8 +85,7 @@ export type {
 	StepperProps,
 	StylistMenuProps,
 	StylistTabItem,
-	StylistTabProps,
-	TabItem
+	StylistTabProps
 } from './type';
 export type {
 	LinkSpecificProps,
@@ -122,8 +119,6 @@ export type {
 	SlotDialog,
 	SlotDropdownMenuStyleClasses,
 	SlotModal,
-	SlotPagination,
-	SlotSidebar,
 	SlotTab,
 	SlotTabContainer,
 	SlotTabIndicator,

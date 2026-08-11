@@ -33,8 +33,6 @@ export type {
 	SlotDialog,
 	SlotDropdownMenuStyleClasses,
 	SlotModal,
-	SlotPagination,
-	SlotSidebar,
 	SlotTab,
 	SlotTabContainer,
 	SlotTabIndicator,

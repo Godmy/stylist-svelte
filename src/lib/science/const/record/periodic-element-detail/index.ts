@@ -1,6 +1,13 @@
-import type { PeriodicElementDetail } from '$stylist/science/type/struct/periodic-element-detail';
-
-export const PERIODIC_ELEMENT_DETAIL: Record<string, PeriodicElementDetail> = {
+export const PERIODIC_ELEMENT_DETAIL: Record<string, ({
+	description: string;
+	electronConfiguration: string;
+	electronegativity?: string;
+	density?: string;
+	meltingPoint?: string;
+	boilingPoint?: string;
+	discovery: string;
+	uses: readonly string[];
+})> = {
 	H: {
 		description: 'The lightest element and the most abundant chemical substance in the observable universe.',
 		electronConfiguration: '1s1',

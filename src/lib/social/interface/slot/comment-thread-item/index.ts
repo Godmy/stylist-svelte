@@ -1,8 +1,11 @@
-import type { SlotCommentThreadUser } from '$stylist/social/interface/slot/comment-thread-user';
-
 export interface SlotCommentThreadItem {
 	id: string;
-	author: SlotCommentThreadUser;
+	author: {
+id: string;
+	name: string;
+	avatar?: string;
+	role?: string;
+};
 	content: string;
 	timestamp: Date;
 	replies?: SlotCommentThreadItem[];

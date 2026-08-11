@@ -1,4 +1,3 @@
-import type { ClickContract } from '$stylist/layout/type/object/click-contract';
 import type { DragContract } from '$stylist/layout/type/object/drag-contract';
 import type { GestureContract } from '$stylist/layout/type/object/gesture-contract';
 
@@ -21,7 +20,15 @@ export class ObjectManagerGesture {
 	/**
 	 * Нормализует клик контракт
 	 */
-	static normalizeClickContract(contract: Partial<ClickContract>): ClickContract {
+	static normalizeClickContract(contract: Partial<(GestureContract & {
+	onClick?: (event: MouseEvent) => void;
+	onDblClick?: (event: MouseEvent) => void;
+	onContextMenu?: (event: MouseEvent) => void;
+})>): (GestureContract & {
+	onClick?: (event: MouseEvent) => void;
+	onDblClick?: (event: MouseEvent) => void;
+	onContextMenu?: (event: MouseEvent) => void;
+}) {
 		return {
 			...this.normalizeGestureContract(contract),
 			onClick: contract.onClick,

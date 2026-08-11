@@ -36,7 +36,6 @@ export type {
 	CanvasToolbarDrawingTool,
 	CanvasToolbarProps,
 	CollaborativeEditEvent,
-	CollaborativeUser,
 	DrawingSurfaceCanvasClearedEvent,
 	DrawingSurfaceContract,
 	DrawingSurfaceExposeMethodsEvent,
@@ -44,7 +43,6 @@ export type {
 	SharedCanvasContract,
 	SharedCanvasObjectBounds,
 	SharedCanvasTool,
-	SharedCanvasToolDefinition,
 	ThemeGraphColors
 } from './type';
 export type {
@@ -53,6 +51,5 @@ export type {
 	RecipeCanvasImageEditor,
 	RecipeCollaborativeEditor,
 	RecipeDrawingOverlay,
-	RecipeScreenshotSelector,
-	SlotSharedCanvas
+	RecipeScreenshotSelector
 } from './interface';

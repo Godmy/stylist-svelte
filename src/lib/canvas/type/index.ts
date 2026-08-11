@@ -4,7 +4,6 @@ export type {
 	CanvasObject,
 	CanvasToolbarProps,
 	CollaborativeEditEvent,
-	CollaborativeUser,
 	DrawingSurfaceCanvasClearedEvent,
 	DrawingSurfaceContract,
 	DrawingSurfaceExposeMethodsEvent,
@@ -12,6 +11,5 @@ export type {
 	SharedCanvasContract,
 	SharedCanvasObjectBounds,
 	SharedCanvasTool,
-	SharedCanvasToolDefinition,
 	ThemeGraphColors
 } from './struct';

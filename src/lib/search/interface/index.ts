@@ -6,7 +6,6 @@ export type {
 	RecipeSearchSuggestion
 } from './recipe';
 export type {
-	SearchSuggestion,
 	SlotAutoComplete,
 	SlotAutoSearch,
 	SlotSearchBar,

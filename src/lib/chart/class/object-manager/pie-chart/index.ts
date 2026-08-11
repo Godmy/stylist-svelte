@@ -1,4 +1,3 @@
-import type { AnalyticsPieChartSegment } from '$stylist/chart/type/struct/pie-chart-segment';
 import type { PieChartDataPoint } from '$stylist/chart/type/struct/pie-chart';
 import { TOKEN_CHART_COLORS } from '$stylist/chart/const/array/chart-colors';
 
@@ -15,7 +14,11 @@ export class ObjectManagerPieChart {
 		data: PieChartDataPoint[],
 		total: number,
 		colors: string[]
-	): AnalyticsPieChartSegment[] {
+	): (PieChartDataPoint & {
+	startAngle: number;
+	endAngle: number;
+	color: string;
+})[] {
 		let startAngle = 0;
 
 		return data.map((item, index) => {

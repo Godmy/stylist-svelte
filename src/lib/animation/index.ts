@@ -29,7 +29,6 @@ export type {
 	TokenTransition
 } from './type';
 export type {
-	AnimateValueOptions,
 	BehaviorAnimate,
 	BehaviorMotion,
 	BehaviorMotionPreset,
@@ -40,6 +39,5 @@ export type {
 	RecipeAnimatedNumber,
 	RecipeLayoutTransformation,
 	RecipeNumberFlow,
-	RecipeTransformable,
-	SlotTransformation
+	RecipeTransformable
 } from './interface';

@@ -72,7 +72,6 @@ export type {
 	AnyProperty,
 	CenteredLayoutAxis,
 	ClassValue,
-	ClickContract,
 	ContainerQueryType,
 	DragContract,
 	GestureContract,

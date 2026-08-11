@@ -1,5 +1,3 @@
-import type { SearchSuggestion } from '$stylist/search/interface/slot/search-bar-suggestion';
-
 export class ObjectManagerSearchBar {
 	/**
 	 * Нормализует поисковый запрос
@@ -26,10 +24,20 @@ export class ObjectManagerSearchBar {
 	 * Фильтрует подсказки по поисковому запросу
 	 */
 	static filterSuggestions(
-		suggestions: SearchSuggestion[],
+		suggestions: {
+text: string;
+	icon?: string;
+	count?: number;
+	category?: string;
+}[],
 		query: string,
 		maxResults?: number
-	): SearchSuggestion[] {
+	): {
+text: string;
+	icon?: string;
+	count?: number;
+	category?: string;
+}[] {
 		const normalizedQuery = this.normalizeQuery(query);
 		if (!normalizedQuery) return suggestions.slice(0, maxResults);
 
@@ -43,7 +51,17 @@ export class ObjectManagerSearchBar {
 	/**
 	 * Сортирует подсказки по релевантности
 	 */
-	static sortSuggestions(suggestions: SearchSuggestion[], query: string): SearchSuggestion[] {
+	static sortSuggestions(suggestions: {
+text: string;
+	icon?: string;
+	count?: number;
+	category?: string;
+}[], query: string): {
+text: string;
+	icon?: string;
+	count?: number;
+	category?: string;
+}[] {
 		const normalizedQuery = this.normalizeQuery(query);
 		if (!normalizedQuery) return suggestions;
 
@@ -67,9 +85,24 @@ export class ObjectManagerSearchBar {
 	 * Группирует подсказки по категории
 	 */
 	static groupSuggestionsByCategory(
-		suggestions: SearchSuggestion[]
-	): Record<string, SearchSuggestion[]> {
-		return suggestions.reduce<Record<string, SearchSuggestion[]>>((groups, suggestion) => {
+		suggestions: {
+text: string;
+	icon?: string;
+	count?: number;
+	category?: string;
+}[]
+	): Record<string, {
+text: string;
+	icon?: string;
+	count?: number;
+	category?: string;
+}[]> {
+		return suggestions.reduce<Record<string, {
+text: string;
+	icon?: string;
+	count?: number;
+	category?: string;
+}[]>>((groups, suggestion) => {
 			const category = suggestion.category ?? 'default';
 			if (!groups[category]) {
 				groups[category] = [];

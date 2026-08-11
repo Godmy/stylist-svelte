@@ -1,10 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	ContractAudioPlayer,
-	ContractAudioRecordButton,
 	ContractAudioSlider,
-	ContractAudioVisualizer,
-	ContractTranscriber
+	ContractAudioVisualizer
 } from './contract';
 export type {
 	RecipeAudioPlayer,

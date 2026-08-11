@@ -1,6 +1,6 @@
+import type { TokenEasing } from '$stylist/animation/type/alias/easing';
+import type { TokenDuration } from '$stylist/animation/type/alias/duration';
 import { getEasingFunction } from '$stylist/animation/function/script/get-easing-function';
-import type { AnimateValueOptions } from '$stylist/animation/interface/slot/animate-value-options';
-
 export function animateValue({
 	from,
 	to,
@@ -9,7 +9,15 @@ export function animateValue({
 	easing,
 	onUpdate,
 	onFinish
-}: AnimateValueOptions): () => void {
+}: {
+from: number;
+	to: number;
+	duration: TokenDuration;
+	delay: number;
+	easing: TokenEasing;
+	onUpdate: (value: number) => void;
+	onFinish?: () => void;
+}): () => void {
 	const durationValue = duration.toString();
 	const durationMs = durationValue.endsWith('ms')
 		? Number.parseFloat(durationValue)

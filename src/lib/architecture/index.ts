@@ -91,7 +91,6 @@ export type {
 	MinimapViewport,
 	NodeTitleVariant,
 	ObjectPoint2DPath,
-	ObjectPresentation,
 	OntologyEdgeComponentProps,
 	OntologyNodeComponentProps,
 	Point2D,
@@ -119,8 +118,6 @@ export type {
 } from './type';
 export type {
 	FocusState,
-	FocusTarget,
-	PresentationFrame,
 	PresentationState,
 	PreziCamera,
 	RecipeCss3dCube,

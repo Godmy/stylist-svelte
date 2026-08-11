@@ -24,7 +24,6 @@ export type { PageBuilderHeadingAttributes } from './page-builder-heading-attrib
 export type { PageBuilderImageAttributes } from './page-builder-image-attributes';
 export type { PageBuilderProps } from './page-builder-props';
 export type { PageBuilderTextAttributes } from './page-builder-text-attributes';
-export type { PageBuilderToolbarItem } from './page-builder-toolbar-item';
 export type { PrivacySettingsProps } from './privacy-settings-props';
 export type { PrivacySettingsSetting } from './privacy-settings-setting';
 export type { ResourceOptimizerOptimizationSuggestion } from './resource-optimizer-optimization-suggestion';

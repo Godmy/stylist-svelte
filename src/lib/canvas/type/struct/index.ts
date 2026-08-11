@@ -2,7 +2,6 @@
 export type { CanvasObject } from './canvas-object';
 export type { CanvasToolbarProps } from './canvas-toolbar';
 export type { CollaborativeEditEvent } from './collaborative-edit-event';
-export type { CollaborativeUser } from './collaborative-user';
 export type {
 	DrawingSurfaceCanvasClearedEvent,
 	DrawingSurfaceContract,
@@ -12,7 +11,6 @@ export type {
 export type {
 	SharedCanvasContract,
 	SharedCanvasObjectBounds,
-	SharedCanvasTool,
-	SharedCanvasToolDefinition
+	SharedCanvasTool
 } from './shared-canvas';
 export type { ThemeGraphColors } from './theme-graph-colors';

@@ -11,7 +11,6 @@ export type {
 	SlotCommentSystem,
 	SlotCommentThread,
 	SlotCommentThreadItem,
-	SlotCommentThreadUser,
 	SlotCommentUser,
 	SlotRating,
 	SlotReactionPicker,

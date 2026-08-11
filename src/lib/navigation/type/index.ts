@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AppHeaderNavLink } from './object';
 export type {
 	BreadcrumbDropdownItem,
 	BreadcrumbItem,
@@ -7,7 +6,6 @@ export type {
 	BreadcrumbsProps,
 	DialogConfirmProps,
 	DrawerProps,
-	FunctionalTabItem,
 	GeneralToolbarRecipe,
 	NavItem,
 	PrimaryMenuItem,
@@ -15,6 +13,5 @@ export type {
 	StepperProps,
 	StylistMenuProps,
 	StylistTabItem,
-	StylistTabProps,
-	TabItem
+	StylistTabProps
 } from './struct';

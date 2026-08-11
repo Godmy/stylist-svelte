@@ -32,7 +32,6 @@ export type {
 	PageBuilderImageAttributes,
 	PageBuilderProps,
 	PageBuilderTextAttributes,
-	PageBuilderToolbarItem,
 	PrivacySettingsProps,
 	PrivacySettingsSetting,
 	ResourceOptimizerOptimizationSuggestion,

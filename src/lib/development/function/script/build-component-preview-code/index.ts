@@ -1,5 +1,3 @@
-import type { ComponentPreviewCodeOptions } from '$stylist/development/interface/slot/component-preview-code-options';
-
 function formatPreviewPropValue(value: any): string {
 	if (typeof value === 'string') return `${value.replace(/"/g, '&quot;')}`;
 	if (typeof value === 'boolean') return value ? '' : '{false}';
@@ -24,7 +22,11 @@ export function buildComponentPreviewCode({
 	componentName = '',
 	props = {},
 	svelteCode = ''
-}: ComponentPreviewCodeOptions): string {
+}: {
+componentName?: string;
+	props?: Record<string, any>;
+	svelteCode?: string;
+}): string {
 	if (svelteCode) return svelteCode;
 
 	const resolvedComponentName = componentName || 'Component';

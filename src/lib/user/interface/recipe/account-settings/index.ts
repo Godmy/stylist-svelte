@@ -1,7 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { AccountSettings } from '$stylist/user/type/object/account-settings';
-
 export interface RecipeAccountSettings
 	extends ComputeIntersectAll<[HTMLAttributes<HTMLFormElement>]> {
 	showEmailChange?: boolean;
@@ -10,7 +8,11 @@ export interface RecipeAccountSettings
 	showTwoFactor?: boolean;
 	loading?: boolean;
 	class?: string;
-	onSubmit?: (settings: AccountSettings) => void;
+	onSubmit?: (settings: ({
+	email?: string;
+	password?: string;
+	twoFactorEnabled?: boolean;
+})) => void;
 	onDeleteAccount?: () => void;
 }
 

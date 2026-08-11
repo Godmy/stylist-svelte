@@ -53,8 +53,6 @@ export type {
 export type {
 	BurnDownChartMargins,
 	BurnDownLabel,
-	BurnDownMinMaxResult,
-	BurnDownTimestamps,
 	RecipeBurnDownChart,
 	RecipeKanbanBoard,
 	RecipeKanbanCard,

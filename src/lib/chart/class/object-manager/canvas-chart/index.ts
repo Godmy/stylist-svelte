@@ -1,6 +1,5 @@
 import type { CanvasChartPadding } from '$stylist/chart/type/struct/canvas-chart-padding';
 import type { TokenCanvasChartType } from '$stylist/chart/type/alias/canvas-chart-type';
-import type { CanvasChartDataPoint } from '$stylist/chart/type/struct/canvas-chart';
 import { TOKEN_CHART_COLORS } from '$stylist/chart/const/array/chart-colors';
 import { DEFAULT_CANVAS_CHART_PADDING } from '$stylist/chart/const/map/default-canvas-chart-padding';
 
@@ -15,14 +14,22 @@ export class ObjectManagerCanvasChart {
 
 	static shouldDrawChart(
 		canvasRef: HTMLCanvasElement | null,
-		data: readonly CanvasChartDataPoint[]
+		data: readonly ({
+	x: number | string;
+	y: number;
+	label?: string;
+})[]
 	): canvasRef is HTMLCanvasElement {
 		return canvasRef !== null && data.length > 0;
 	}
 
 	static drawChart(params: {
 		canvas: HTMLCanvasElement;
-		data: readonly CanvasChartDataPoint[];
+		data: readonly ({
+	x: number | string;
+	y: number;
+	label?: string;
+})[];
 		type: TokenCanvasChartType;
 		title: string;
 		xAxisLabel: string;
@@ -102,7 +109,11 @@ export class ObjectManagerCanvasChart {
 		context: CanvasRenderingContext2D,
 		canvas: HTMLCanvasElement,
 		padding: CanvasChartPadding,
-		data: readonly CanvasChartDataPoint[]
+		data: readonly ({
+	x: number | string;
+	y: number;
+	label?: string;
+})[]
 	): void {
 		const chartWidth = canvas.width - padding.left - padding.right;
 		const chartHeight = canvas.height - padding.top - padding.bottom;
@@ -127,7 +138,11 @@ export class ObjectManagerCanvasChart {
 		}
 	}
 
-	private static resolveYStats(data: readonly CanvasChartDataPoint[]) {
+	private static resolveYStats(data: readonly ({
+	x: number | string;
+	y: number;
+	label?: string;
+})[]) {
 		const yValues = data.map((point) => point.y);
 		const minY = Math.min(...yValues);
 		const maxY = Math.max(...yValues);
@@ -139,7 +154,11 @@ export class ObjectManagerCanvasChart {
 	private static drawLineChart(
 		context: CanvasRenderingContext2D,
 		canvas: HTMLCanvasElement,
-		data: readonly CanvasChartDataPoint[],
+		data: readonly ({
+	x: number | string;
+	y: number;
+	label?: string;
+})[],
 		padding: CanvasChartPadding,
 		colors: string[]
 	): void {
@@ -195,7 +214,11 @@ export class ObjectManagerCanvasChart {
 	private static drawBarChart(
 		context: CanvasRenderingContext2D,
 		canvas: HTMLCanvasElement,
-		data: readonly CanvasChartDataPoint[],
+		data: readonly ({
+	x: number | string;
+	y: number;
+	label?: string;
+})[],
 		padding: CanvasChartPadding,
 		colors: string[]
 	): void {
@@ -234,7 +257,11 @@ export class ObjectManagerCanvasChart {
 	private static drawCartesianLabels(
 		context: CanvasRenderingContext2D,
 		canvas: HTMLCanvasElement,
-		data: readonly CanvasChartDataPoint[],
+		data: readonly ({
+	x: number | string;
+	y: number;
+	label?: string;
+})[],
 		padding: CanvasChartPadding,
 		minY: number,
 		yRange: number,
@@ -264,7 +291,11 @@ export class ObjectManagerCanvasChart {
 	private static drawPieChart(
 		context: CanvasRenderingContext2D,
 		canvas: HTMLCanvasElement,
-		data: readonly CanvasChartDataPoint[],
+		data: readonly ({
+	x: number | string;
+	y: number;
+	label?: string;
+})[],
 		colors: string[]
 	): void {
 		if (data.length === 0) {

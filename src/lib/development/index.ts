@@ -83,7 +83,6 @@ export type {
 	PageBuilderImageAttributes,
 	PageBuilderProps,
 	PageBuilderTextAttributes,
-	PageBuilderToolbarItem,
 	PrivacySettingsProps,
 	PrivacySettingsSetting,
 	ResourceOptimizerOptimizationSuggestion,
@@ -97,9 +96,7 @@ export type {
 	TokenSoftwareBadge
 } from './type';
 export type {
-	ComponentPreviewCodeOptions,
 	ContentEditorStateProps,
-	ContractCodeBlock,
 	ContractDevelopment,
 	DomainForEachOptions,
 	RecipeAtomicPrinciples,

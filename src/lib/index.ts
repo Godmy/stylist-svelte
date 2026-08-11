@@ -2123,7 +2123,6 @@ export type {
 	MinimapViewport,
 	NodeTitleVariant,
 	ObjectPoint2DPath,
-	ObjectPresentation,
 	OntologyEdgeComponentProps,
 	OntologyNodeComponentProps,
 	Point2D,
@@ -2164,19 +2163,14 @@ export type {
 	AuthResult,
 	AuthState,
 	AuthTokens,
-	EmailVerification,
-	GoogleAuthData,
 	LoginCredentials,
 	MessageResponse,
-	PasswordReset,
 	PasswordResetRequest,
 	Permission,
 	RegistrationData,
 	Role,
 	Session,
-	TelegramAuthData,
-	User,
-	UserProfile
+	User
 } from './auth';
 export type {
 	ButtonPropsRecord,
@@ -2194,7 +2188,6 @@ export type {
 	CanvasToolbarDrawingTool,
 	CanvasToolbarProps,
 	CollaborativeEditEvent,
-	CollaborativeUser,
 	DrawingSurfaceCanvasClearedEvent,
 	DrawingSurfaceContract,
 	DrawingSurfaceExposeMethodsEvent,
@@ -2202,15 +2195,12 @@ export type {
 	SharedCanvasContract,
 	SharedCanvasObjectBounds,
 	SharedCanvasTool,
-	SharedCanvasToolDefinition,
 	ThemeGraphColors
 } from './canvas';
 export type {
 	AnalyticsChartBarPoint,
 	AnalyticsChartCanvasProps,
 	AnalyticsChartDataPoint,
-	AnalyticsPieChartSegment,
-	CanvasChartDataPoint,
 	CanvasChartPadding,
 	ChartFunctionPoint,
 	ChartLegendItem,
@@ -2218,7 +2208,6 @@ export type {
 	ChartSeries,
 	HeatmapAxisValue,
 	IChartDataPoint,
-	IExtendedHeatmapCell,
 	IHeatmapCell,
 	InformationPieChartSegment,
 	LineChartData,
@@ -2325,7 +2314,6 @@ export type {
 	PageBuilderImageAttributes,
 	PageBuilderProps,
 	PageBuilderTextAttributes,
-	PageBuilderToolbarItem,
 	PrivacySettingsProps,
 	PrivacySettingsSetting,
 	ResourceOptimizerOptimizationSuggestion,
@@ -2388,16 +2376,12 @@ export type {
 	Coordinates,
 	LocationPickerProps,
 	LocationSelectorLocation,
-	LocationSelectorRestProps,
 	MapProvider,
 	MapSelectorLocation,
-	MapSelectorRestProps,
 	MapWithMarkersMarker,
-	MapWithMarkersRestProps,
 	MapWithMarkersView,
 	RouteOption,
 	RoutePlannerLocation,
-	StoreLocatorRestProps,
 	StoreLocatorStore,
 	TokenMapType,
 	TokenPin
@@ -2430,7 +2414,6 @@ export type {
 	AnyProperty,
 	CenteredLayoutAxis,
 	ClassValue,
-	ClickContract,
 	ContainerQueryType,
 	DragContract,
 	GestureContract,
@@ -2496,14 +2479,12 @@ export type {
 } from './marketing';
 export type {
 	AccordionContext,
-	AppHeaderNavLink,
 	BreadcrumbDropdownItem,
 	BreadcrumbItem,
 	BreadcrumbSeparatorProps,
 	BreadcrumbsProps,
 	DialogConfirmProps,
 	DrawerProps,
-	FunctionalTabItem,
 	GeneralToolbarRecipe,
 	NavItem,
 	PrimaryMenuItem,
@@ -2511,8 +2492,7 @@ export type {
 	StepperProps,
 	StylistMenuProps,
 	StylistTabItem,
-	StylistTabProps,
-	TabItem
+	StylistTabProps
 } from './navigation';
 export type {
 	KanbanBoardAction,
@@ -2526,10 +2506,7 @@ export type {
 	PresenterSceneLink,
 	PreziSceneContract
 } from './presentation';
-export type {
-	PeriodicElementDetail,
-	SpectralLine
-} from './science';
+export type { SpectralLine } from './science';
 export type {
 	AutoCompleteOption,
 	SearchResultItem,
@@ -2564,12 +2541,6 @@ export type {
 	ComputeIntersectAll,
 	ObjectThemeTypography,
 	Theme,
-	ThemeColorBackground,
-	ThemeColorBorder,
-	ThemeColorSurfaceTint,
-	ThemeColorText,
-	ThemeColors,
-	ThemeLayout,
 	ThemeSchemeDefinition,
 	ThemeStorageContract,
 	TokenColor,
@@ -2616,13 +2587,11 @@ export type {
 	TreeNodeItemProps
 } from './tree';
 export type {
-	AccountSettings,
 	AvatarGroupAvatar,
 	AvatarGroupProps,
 	AvatarProps,
 	AvatarUserStatus,
-	TokenAvailability,
-	UserData
+	TokenAvailability
 } from './user';
 export type {
 	StructWbdConsensusItem,
@@ -2662,7 +2631,6 @@ export type {
 	SlotModelOption
 } from './ai';
 export type {
-	AnimateValueOptions,
 	BehaviorAnimate,
 	BehaviorMotion,
 	BehaviorMotionPreset,
@@ -2673,18 +2641,15 @@ export type {
 	RecipeAnimatedNumber,
 	RecipeLayoutTransformation,
 	RecipeNumberFlow,
-	RecipeTransformable,
-	SlotTransformation
+	RecipeTransformable
 } from './animation';
 export type {
 	FocusState,
-	FocusTarget,
 	FoundationDepthThreshold,
 	GraphNodeDraft,
 	GraphWorkspaceBounds,
 	GraphWorkspaceConnection,
 	GraphWorkspaceNode,
-	PresentationFrame,
 	PresentationState,
 	PreziCamera,
 	RecipeCss3dCube,
@@ -2697,10 +2662,8 @@ export type {
 } from './architecture';
 export type {
 	ContractAudioPlayer,
-	ContractAudioRecordButton,
 	ContractAudioSlider,
 	ContractAudioVisualizer,
-	ContractTranscriber,
 	RecipeAudioPlayer,
 	RecipeAudioRecordButton,
 	RecipeAudioSlider,
@@ -2757,8 +2720,7 @@ export type {
 	RecipeCanvasImageEditor,
 	RecipeCollaborativeEditor,
 	RecipeDrawingOverlay,
-	RecipeScreenshotSelector,
-	SlotSharedCanvas
+	RecipeScreenshotSelector
 } from './canvas';
 export type {
 	BehaviorChartAxis,
@@ -2916,9 +2878,7 @@ export type {
 	SlotDashboardPanel
 } from './dashboard';
 export type {
-	ComponentPreviewCodeOptions,
 	ContentEditorStateProps,
-	ContractCodeBlock,
 	ContractDevelopment,
 	DomainForEachOptions,
 	RecipeAtomicPrinciples,
@@ -2970,10 +2930,7 @@ export type {
 	BehaviorFileListItemEvents,
 	ContractDragDropFile,
 	ContractFile,
-	ContractFileItem,
 	ContractFileMetadata,
-	ContractUploadFile,
-	ContractUploadProgress,
 	RecipeAttachmentPreview,
 	RecipeDownloadCard,
 	RecipeDragDropFileUpload,
@@ -3256,8 +3213,6 @@ export type {
 	SlotDialog,
 	SlotDropdownMenuStyleClasses,
 	SlotModal,
-	SlotPagination,
-	SlotSidebar,
 	SlotTab,
 	SlotTabContainer,
 	SlotTabIndicator,
@@ -3275,8 +3230,6 @@ export type {
 export type {
 	BurnDownChartMargins,
 	BurnDownLabel,
-	BurnDownMinMaxResult,
-	BurnDownTimestamps,
 	PortfolioData,
 	PortfolioEntry,
 	PortfolioSummaryData,
@@ -3344,7 +3297,6 @@ export type {
 	SlotCommentSystem,
 	SlotCommentThread,
 	SlotCommentThreadItem,
-	SlotCommentThreadUser,
 	SlotCommentUser,
 	SlotRating,
 	SlotReactionPicker,

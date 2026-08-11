@@ -29,19 +29,14 @@ export type {
 	AuthResult,
 	AuthState,
 	AuthTokens,
-	EmailVerification,
-	GoogleAuthData,
 	LoginCredentials,
 	MessageResponse,
-	PasswordReset,
 	PasswordResetRequest,
 	Permission,
 	RegistrationData,
 	Role,
 	Session,
-	TelegramAuthData,
-	User,
-	UserProfile
+	User
 } from './type';
 export type {
 	IAuthProvider,

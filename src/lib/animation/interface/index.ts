@@ -14,7 +14,3 @@ export type {
 	RecipeNumberFlow,
 	RecipeTransformable
 } from './recipe';
-export type {
-	AnimateValueOptions,
-	SlotTransformation
-} from './slot';

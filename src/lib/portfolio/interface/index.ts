@@ -9,8 +9,6 @@ export type {
 export type {
 	BurnDownChartMargins,
 	BurnDownLabel,
-	BurnDownMinMaxResult,
-	BurnDownTimestamps,
 	SlotBacklogData,
 	SlotBacklogItem,
 	SlotBurnDownData,

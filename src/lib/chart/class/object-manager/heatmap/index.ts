@@ -1,5 +1,4 @@
 import type { IHeatmapCell } from '$stylist/chart/type/struct/heatmap/cell';
-import type { IExtendedHeatmapCell } from '$stylist/chart/type/struct/extended-heatmap-cell';
 import type { TokenThemeScheme } from '$stylist/theme/type/alias/theme-scheme';
 import { HEATMAP_GRADIENT_BY_SCHEME } from '$stylist/chart/const/record/heatmap-gradient-by-scheme';
 import type { HeatmapAxisValue } from '$stylist/chart/type/alias/heatmap-axis-value';
@@ -77,7 +76,15 @@ export class ObjectManagerHeatmap {
 		minValue: number;
 		calculatedMaxValue: number;
 		colorScheme: TokenThemeScheme;
-	}): IExtendedHeatmapCell[] {
+	}): (IHeatmapCell & {
+	id: string;
+	x: number;
+	y: number;
+	width: number;
+	height: number;
+	color: string;
+	intensity: number;
+})[] {
 		const {
 			data,
 			rows,

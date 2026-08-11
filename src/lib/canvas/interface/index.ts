@@ -6,7 +6,4 @@ export type {
 	RecipeDrawingOverlay,
 	RecipeScreenshotSelector
 } from './recipe';
-export type {
-	CanvasToolbarDrawingOptions,
-	SlotSharedCanvas
-} from './slot';
+export type { CanvasToolbarDrawingOptions } from './slot';

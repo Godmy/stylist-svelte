@@ -1,11 +1,10 @@
+import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom';
 import type { Snippet } from 'svelte';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
-import type { ObjectPresentation } from '$stylist/architecture/type/object/presentation';
-
 export interface RecipeWorkspaceNode
 	extends ComputeIntersectAll<[SlotWorkspaceNode, SlotTheme, HTMLAttributes<HTMLDivElement>]> {
 	x: number;
@@ -42,7 +41,13 @@ export interface RecipeWorkspaceNode
 	canvasZoom?: number;
 	worldDepth?: number;
 	cameraDepth?: number;
-	presentation?: ObjectPresentation;
+	presentation?: (Partial<SemanticZoomPresentation> & {
+	stage?: SemanticZoomPresentation['stage'];
+	size?: TokenSize;
+	width?: number;
+	height?: number | 'auto';
+	showChildren?: boolean;
+});
 	properties?: SlotWorkspaceNode[];
 	inputs?: SlotWorkspaceNode[];
 	outputs?: SlotWorkspaceNode[];

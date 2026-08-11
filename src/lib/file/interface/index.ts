@@ -3,10 +3,7 @@ export type { BehaviorFileListItemEvents } from './behavior';
 export type {
 	ContractDragDropFile,
 	ContractFile,
-	ContractFileItem,
-	ContractFileMetadata,
-	ContractUploadFile,
-	ContractUploadProgress
+	ContractFileMetadata
 } from './contract';
 export type {
 	RecipeAttachmentPreview,

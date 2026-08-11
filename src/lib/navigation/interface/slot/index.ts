@@ -6,8 +6,6 @@ export type { SlotConfirmationDialog } from './confirmation-dialog';
 export type { SlotDialog } from './dialog';
 export type { SlotDropdownMenuStyleClasses } from './dropdown-menu-style-classes';
 export type { SlotModal } from './modal';
-export type { SlotPagination } from './pagination';
-export type { SlotSidebar } from './sidebar';
 export type { SlotTabContainer } from './tab-container';
 export type { SlotTabIndicator } from './tab-indicator';
 export type { SlotTabPanel } from './tab-panel';

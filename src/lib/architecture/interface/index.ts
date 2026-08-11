@@ -10,8 +10,4 @@ export type {
 	RecipeStylistGraphWorkspace,
 	SelectionState
 } from './recipe';
-export type {
-	FocusTarget,
-	PresentationFrame,
-	PreziCamera
-} from './slot';
+export type { PreziCamera } from './slot';

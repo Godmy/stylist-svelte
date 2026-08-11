@@ -11,13 +11,11 @@ export {
 	TOKEN_AVAILABILITY
 } from './const';
 export type {
-	AccountSettings,
 	AvatarGroupAvatar,
 	AvatarGroupProps,
 	AvatarProps,
 	AvatarUserStatus,
-	TokenAvailability,
-	UserData
+	TokenAvailability
 } from './type';
 export type {
 	AvatarSelectorProps,

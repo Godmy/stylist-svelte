@@ -4,24 +4,14 @@ export type {
 	LocationPickerProps,
 	MapMarker
 } from './location-picker';
-export type {
-	LocationSelectorLocation,
-	LocationSelectorRestProps
-} from './location-selector';
-export type {
-	MapSelectorLocation,
-	MapSelectorRestProps
-} from './map-selector';
+export type { LocationSelectorLocation } from './location-selector';
+export type { MapSelectorLocation } from './map-selector';
 export type {
 	MapWithMarkersMarker,
-	MapWithMarkersRestProps,
 	MapWithMarkersView
 } from './map-with-markers';
 export type {
 	RouteOption,
 	RoutePlannerLocation
 } from './route-planner';
-export type {
-	StoreLocatorRestProps,
-	StoreLocatorStore
-} from './store-locator';
+export type { StoreLocatorStore } from './store-locator';
