@@ -1,8 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createFileBrowserState } from './state.svelte';
-	import { getItemCount } from '$stylist/file/function/script/file-browser-get-item-count';
-	import type { SlotFolderItem } from '$stylist/file/type/object/file-browser/folder-item';
+	import { FileBrowserManager } from '$stylist/file/class/manager/file-browser';
+	import type { SlotFolderItem } from '$stylist/file/interface/slot/folder-item';
 	import type { RecipeFileBrowser } from '$stylist/file/interface/recipe/file-browser';
 
 	let props: RecipeFileBrowser = $props();
@@ -103,7 +103,7 @@
 			</div>
 
 			{#if state.showItemCount && item.children}
-				<span class="fb-count-badge">{getItemCount(item)}</span>
+				<span class="fb-count-badge">{FileBrowserManager.getItemCount(item)}</span>
 			{/if}
 		</div>
 

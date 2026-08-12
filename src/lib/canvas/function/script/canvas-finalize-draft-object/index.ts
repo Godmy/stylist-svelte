@@ -1,5 +1,5 @@
 import { updateDraftCanvasObject } from '$stylist/canvas/function/script/canvas-update-draft-object';
-import type { Point2D } from '$stylist/architecture/type/object/point-2d';
+import type { Point2D } from '$stylist/architecture/interface/slot/point-2d';
 import type { SharedCanvasTool } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-tool';
 import type { CanvasObject } from '$stylist/canvas/type/object/canvas-object';
 

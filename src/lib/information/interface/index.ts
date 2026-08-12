@@ -5,22 +5,18 @@ export type {
 	RecipeBadge,
 	RecipeBadgeGroup,
 	RecipeBaseCard,
-	RecipeCanvasImageEditor,
 	RecipeCountBadge,
 	RecipeCounter,
 	RecipeDot,
-	RecipeLoading,
+	RecipeIconCanvasImageEditor,
 	RecipeMarkdownRenderer,
 	RecipeMetricCard,
 	RecipeNodeIcon,
 	RecipeProgressBar,
 	RecipeSearchResults,
 	RecipeShortcutsPanel,
-	RecipeSkeleton,
 	RecipeSort,
 	RecipeSortableGrid,
-	RecipeSpinner,
-	RecipeStatusIndicator,
 	RecipeTooltip
 } from './recipe';
 export type {

@@ -8,6 +8,7 @@ export {
 	Idef0Outputs,
 	Idef0PortLabel
 } from './component';
+export { createButtonFactoryInput } from './type';
 export type {
 	RecipeIdef0BlackBox,
 	RecipeIdef0Connector,

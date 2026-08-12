@@ -48,9 +48,9 @@ export type {
 } from './type';
 export type {
 	CanvasToolbarDrawingOptions,
-	RecipeCanvasColorPalette,
 	RecipeCanvasImageEditor,
 	RecipeCollaborativeEditor,
+	RecipeColorPalette,
 	RecipeDrawingOverlay,
 	RecipeScreenshotSelector
 } from './interface';

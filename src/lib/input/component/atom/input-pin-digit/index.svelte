@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RecipePinInputDigit as IPinInputDigitProps } from '$stylist/input/interface/recipe/input-pin-digit';
+	import type { RecipeInputPinDigit as IPinInputDigitProps } from '$stylist/input/interface/recipe/input-pin-digit';
 	import { createFieldClassState } from '$stylist/input/function/script/create-field-class-state';
 
 	let props: IPinInputDigitProps = $props();

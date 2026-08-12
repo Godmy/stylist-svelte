@@ -6,17 +6,16 @@ export {
 	CountBadge,
 	Counter,
 	Dot,
-	Loading,
 	MarkdownRenderer,
 	NodeIcon,
 	ProgressBar,
 	ShortcutsPanel,
-	Skeleton,
-	Spinner,
-	StatusIndicator,
 	Tooltip
 } from './component';
-export { STATUS_STATE } from './const';
+export {
+	STATUS_STATE,
+	createButtonFactoryInput
+} from './const';
 export type { StatusState } from './type';
 export type {
 	BehaviorMetricValue,
@@ -25,22 +24,18 @@ export type {
 	RecipeBadge,
 	RecipeBadgeGroup,
 	RecipeBaseCard,
-	RecipeCanvasImageEditor,
 	RecipeCountBadge,
 	RecipeCounter,
 	RecipeDot,
-	RecipeLoading,
+	RecipeIconCanvasImageEditor,
 	RecipeMarkdownRenderer,
 	RecipeMetricCard,
 	RecipeNodeIcon,
 	RecipeProgressBar,
 	RecipeSearchResults,
 	RecipeShortcutsPanel,
-	RecipeSkeleton,
 	RecipeSort,
 	RecipeSortableGrid,
-	RecipeSpinner,
-	RecipeStatusIndicator,
 	RecipeTooltip,
 	SlotBadge,
 	SlotStatus

@@ -1,4 +1,4 @@
-export interface GridSvgProps {
+export interface RecipeGridSvg {
 	gridSize?: number;
 	zoom?: number;
 	visible?: boolean;

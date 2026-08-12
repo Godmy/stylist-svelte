@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 
-	import type { PaymentMethodSelectorProps } from '$stylist/commerce/type/object/payment-method-selector-props';
+	import type { RecipePaymentMethodSelector } from '$stylist/commerce/interface/recipe/payment-method-selector';
 
 	import createPaymentMethodSelectorState from './state.svelte';
 
-	let props: PaymentMethodSelectorProps = $props();
+	let props: RecipePaymentMethodSelector = $props();
 
 	const state = createPaymentMethodSelectorState(props);
 </script>

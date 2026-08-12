@@ -1,12 +1,12 @@
 import { tick } from 'svelte';
-import type { PrimaryMenuItem } from '$stylist/navigation/type/object/stylist-menu-primary-menu-item';
+import type { PrimaryMenuItem } from '$stylist/navigation/interface/slot/primary-menu-item';
 import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/architecture/const/array/functional-taxonomy';
-import type { StylistMenuProps } from '$stylist/navigation/type/object/stylist-menu-props';
+import type { RecipeStylistMenu } from '$stylist/navigation/interface/recipe/stylist-menu';
 import { STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS } from '$stylist/navigation/const/record/stylist-menu-functional-primary-sections';
 
 const functionalPrimarySections = new Set<string>(STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS);
 
-export function createStylistMenuState(props: StylistMenuProps) {
+export function createStylistMenuState(props: RecipeStylistMenu) {
 	let expandedItemId = $state(props.currentItemId ?? '');
 	let avatarMenuOpen = $state(false);
 	let focusedAvatarMenuIndex = $state(0);

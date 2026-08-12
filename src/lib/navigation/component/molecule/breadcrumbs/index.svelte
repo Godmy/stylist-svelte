@@ -2,10 +2,10 @@
 	import BreadcrumbDropdown from '$stylist/navigation/component/atom/breadcrumb-dropdown/index.svelte';
 	import BreadcrumbLink from '$stylist/navigation/component/atom/breadcrumb-link/index.svelte';
 	import BreadcrumbSeparator from '$stylist/navigation/component/atom/breadcrumb-separator/index.svelte';
-	import type { BreadcrumbsProps } from '$stylist/navigation/type/object/breadcrumbs-props/breadcrumbs-props';
+	import type { RecipeBreadcrumbs } from '$stylist/navigation/interface/recipe/breadcrumbs';
 	import createBreadcrumbsState from './state.svelte';
 
-	let props: BreadcrumbsProps = $props();
+	let props: RecipeBreadcrumbs = $props();
 	const state = createBreadcrumbsState(props);
 </script>
 

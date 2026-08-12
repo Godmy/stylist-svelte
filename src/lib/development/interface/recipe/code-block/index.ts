@@ -6,8 +6,8 @@ import type { TokenCodeLanguage } from '$stylist/development/type/alias/code-lan
 import type { TokenCodeView } from '$stylist/development/type/alias/code-view';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-export interface RecipeCodeBlock
-	extends ComputeIntersectAll<
+
+export interface RecipeCodeBlock extends ComputeIntersectAll<
 		[
 			Omit<HTMLAttributes<HTMLDivElement>, 'class'> &
 				SlotThemeBorder &

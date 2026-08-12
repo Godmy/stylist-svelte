@@ -1,8 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	RecipeChatPreview,
 	RecipeIconPicker,
 	RecipeListWithAvatars,
-	RecipeMessageStatusProps
+	RecipeMessageStatusProps,
+	RecipeStatusIndicator
 } from './recipe';
 export type {
 	SlotChat,

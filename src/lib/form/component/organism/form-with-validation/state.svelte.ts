@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 export function createFormWithValidationState(
 	props: ((HTMLAttributes<HTMLFormElement> & {
 email?: string;
@@ -18,7 +18,7 @@ rootClass: string;
 	const passwordValid = $derived((props.password?.length ?? 0) >= 8);
 
 	const rootClass = $derived(
-		mergeClassNames('c-form-with-validation', props.class ?? '')
+		ClassNamesManager.merge('c-form-with-validation', props.class ?? '')
 	);
 	const inputClass = $derived('c-form-with-validation__input');
 	const emailValidText = $derived(emailValid ? 'Valid email' : 'Enter valid email');

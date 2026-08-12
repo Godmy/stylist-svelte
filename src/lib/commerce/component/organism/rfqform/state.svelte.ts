@@ -1,8 +1,8 @@
-import type { RFQProduct } from '$stylist/commerce/type/object/rfq-product';
-import type { RFQFormData } from '$stylist/commerce/type/object/rfq-form-data';
-import type { RFQFormProps } from '$stylist/commerce/type/object/rfqform-props';
+import type { RFQProduct } from '$stylist/commerce/interface/slot/rfq-product';
+import type { RFQFormData } from '$stylist/commerce/interface/slot/rfq-form-data';
+import type { RecipeRfqForm } from '$stylist/commerce/interface/recipe/rfq-form';
 
-export function createRFQFormState(props: RFQFormProps) {
+export function createRFQFormState(props: RecipeRfqForm) {
 	let rfqData = $state<RFQFormData>({
 		requesterName: '',
 		requesterEmail: '',

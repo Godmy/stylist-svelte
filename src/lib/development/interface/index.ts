@@ -1,7 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ContractDevelopment } from './contract';
 export type {
-	ContentEditorStateProps,
 	RecipeAtomicPrinciples,
 	RecipeAtomicPrinciplesShowcase,
 	RecipeCodeBlock,
@@ -10,6 +8,7 @@ export type {
 	RecipeCodeViewer,
 	RecipeComponentLibraryStats,
 	RecipeComponentPreview,
+	RecipeContentEditorStateProps,
 	RecipeDebugConsole,
 	RecipeDesignTokens,
 	RecipeDevelopmentErrorBoundary,
@@ -20,12 +19,22 @@ export type {
 	RecipeLiveCodeSection,
 	RecipeMockDataSelector,
 	RecipeNpmBadge,
+	RecipePageBuilder,
 	RecipePrivacySettings,
 	RecipeStylist,
-	RecipeThemeSyntaxHighlightedCode
+	RecipeSyntaxHighlightedCode
 } from './recipe';
 export type {
+	DebugConsoleLogEntry,
 	DomainForEachOptions,
+	PageBuilderButtonAttributes,
+	PageBuilderElement,
+	PageBuilderHeadingAttributes,
+	PageBuilderImageAttributes,
+	PageBuilderTextAttributes,
 	SlotAiModel,
-	SlotMockDataSelectorStyleClasses
+	SlotComponentLibraryStats,
+	SlotMockDataSelectorSelection,
+	SlotMockDataSelectorStyleClasses,
+	StylistSelection
 } from './slot';

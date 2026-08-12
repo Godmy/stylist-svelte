@@ -1,4 +1,4 @@
-import type { SceneCamera } from '$stylist/architecture/type/object/scene-camera';
+import type { SceneCamera } from '$stylist/architecture/interface/slot/scene-camera';
 
 export const DEFAULT_FOUNDATION_CAMERA: SceneCamera = {
 	x: 0,

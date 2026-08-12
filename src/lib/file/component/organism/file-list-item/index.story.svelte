@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { FileItem } from '$stylist/file/type/object/file-list-item/file-item';
+	import type { SlotFileItem } from '$stylist/file/interface/slot/file-item';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 
 	import FileListItem from './index.svelte';
 
-	const item: FileItem = {
+	const item: SlotFileItem = {
 		id: 'file1',
 		name: 'document.pdf',
 		type: 'file',
@@ -45,13 +45,13 @@
 				enableSelection={args.enableSelection as boolean}
 				disabled={args.disabled as boolean}
 				variant={args.variant as 'default' | 'compact'}
-				onItemSelect={(selectedItem: FileItem) => {
+				onItemSelect={(selectedItem: SlotFileItem) => {
 					console.log('Selected item:', selectedItem.name);
 				}}
-				onItemDoubleClick={(selectedItem: FileItem) => {
+				onItemDoubleClick={(selectedItem: SlotFileItem) => {
 					console.log('Double clicked item:', selectedItem.name);
 				}}
-				onItemAction={(selectedItem: FileItem, action: string) => {
+				onItemAction={(selectedItem: SlotFileItem, action: string) => {
 					console.log('Item action:', { item: selectedItem.name, action });
 				}}
 			/>

@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeCodeEditor } from '$stylist/development/interface/recipe/code-editor';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createCodeEditorState(props: RecipeCodeEditor & { class?: string }) {
 	let internalCode = $state(props.code ?? '');
@@ -7,7 +7,7 @@ export function createCodeEditorState(props: RecipeCodeEditor & { class?: string
 		internalCode = props.code ?? '';
 	});
 
-	const containerClass = $derived(mergeClassNames('c-code-editor', props.class ?? ''));
+	const containerClass = $derived(ClassNamesManager.merge('c-code-editor', props.class ?? ''));
 
 	function handleCodeChange(newValue: string) {
 		internalCode = newValue;

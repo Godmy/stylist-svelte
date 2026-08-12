@@ -1,8 +1,8 @@
 <script lang="ts">
 	import createSliderTickState from './state.svelte';
-	import type { SliderTickComponentProps } from '$stylist/control/type/object/slider-tick-component-props';
+	import type { RecipeTick } from '$stylist/control/interface/recipe/tick';
 
-	let props: SliderTickComponentProps = $props();
+	let props: RecipeTick = $props();
 
 	const state = createSliderTickState(props);
 

@@ -1,7 +1,7 @@
-import { ObjectManagerColorPalette } from '$stylist/canvas/class/object-manager/color-palette';
-import type { RecipeCanvasColorPalette } from '$stylist/canvas/interface/recipe/color-palette';
+﻿import { ObjectManagerColorPalette } from '$stylist/canvas/class/object-manager/color-palette';
+import type { RecipeColorPalette } from '$stylist/canvas/interface/recipe/color-palette';
 
-export function createColorPaletteState(props: RecipeCanvasColorPalette) {
+export function createColorPaletteState(props: RecipeColorPalette) {
 	let isOpen = $state(false);
 	let internalValue = $state(ObjectManagerColorPalette.resolveValue(props.value));
 

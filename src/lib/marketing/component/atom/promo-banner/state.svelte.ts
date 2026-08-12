@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipePromoBanner } from '$stylist/marketing/interface/recipe/promo-banner';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createPromoBannerState(props: RecipePromoBanner) {
 	const title = $derived(props.title ?? '');
@@ -10,7 +10,7 @@ export function createPromoBannerState(props: RecipePromoBanner) {
 	const onCtaClick = $derived(props.onCtaClick ?? (() => {}));
 	const className = $derived(props.class ?? '');
 	const variantClasses = $derived(`pb-host--${variant}`);
-	const hostClasses = $derived(mergeClassNames('pb-host', variantClasses, className));
+	const hostClasses = $derived(ClassNamesManager.merge('pb-host', variantClasses, className));
 
 	return {
 		get title() {

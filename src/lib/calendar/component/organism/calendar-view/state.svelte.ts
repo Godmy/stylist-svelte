@@ -1,9 +1,9 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeCalendarView as CalendarViewContract } from '$stylist/calendar/interface/recipe/calendar-view';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';
 import { generateCalendarGrid, isToday as isTodayFn, isSameDay } from '$stylist/calendar/function/script/calendar-utils';
 import { formatMonthYear } from '$stylist/calendar/function/script/date-format';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createCalendarViewState(props: CalendarViewContract) {
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
@@ -17,8 +17,8 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	const eventClass = $derived(props.eventClass ?? '');
 	const headerClassProp = $derived(props.headerClass ?? '');
 
-	const wrapperClasses = $derived(mergeClassNames('c-calendar-view', className));
-	const headerClasses = $derived(mergeClassNames('c-calendar-view__header', headerClassProp));
+	const wrapperClasses = $derived(ClassNamesManager.merge('c-calendar-view', className));
+	const headerClasses = $derived(ClassNamesManager.merge('c-calendar-view__header', headerClassProp));
 	const gridClasses = $derived('c-calendar-view__grid');
 	const weekdayHeaderClasses = $derived('c-calendar-view__weekday');
 	const todayButtonClasses = $derived('c-calendar-view__today-btn');
@@ -87,14 +87,14 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	}
 
 	function getViewToggleButtonClasses(isActive: boolean): string {
-		return mergeClassNames(
+		return ClassNamesManager.merge(
 			'c-calendar-view__view-btn',
 			isActive && 'c-calendar-view__view-btn--active'
 		);
 	}
 
 	function getDayCellClasses(isTodayDate: boolean, isCurrentMonth: boolean): string {
-		return mergeClassNames(
+		return ClassNamesManager.merge(
 			'c-calendar-view__day',
 			isTodayDate && 'c-calendar-view__day--today',
 			!isCurrentMonth && 'c-calendar-view__day--other'
@@ -102,7 +102,7 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	}
 
 	function getDateNumberClasses(isTodayDate: boolean): string {
-		return mergeClassNames(
+		return ClassNamesManager.merge(
 			'c-calendar-view__date-num',
 			isTodayDate && 'c-calendar-view__date-num--today'
 		);

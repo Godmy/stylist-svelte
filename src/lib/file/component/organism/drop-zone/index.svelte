@@ -1,15 +1,15 @@
 <script lang="ts">
+	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import { createDropZoneState } from './state.svelte';
-	import { formatFileSize } from '$stylist/file/function/script/drop-zone-format-file-size';
+		import { createDropZoneState } from './state.svelte';
+	import { DropZoneManager } from '$stylist/file/class/manager/drop-zone';
 	import type { RecipeDropZone } from '$stylist/file/interface/recipe/drop-zone';
 
 	let props: RecipeDropZone = $props();
 	const state = createDropZoneState(props);
 	const rootClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-drop-zone',
 			state.isDragOver ? 'c-drop-zone--active' : '',
 			state.disabled ? 'c-drop-zone--disabled' : '',
@@ -79,7 +79,7 @@
 							</div>
 							<div class="dz-item-meta">
 								<p class="dz-item-name">{item.name}</p>
-								<p class="dz-item-desc">{item.type} • {formatFileSize(item.size || 0)}</p>
+								<p class="dz-item-desc">{item.type} • {DropZoneManager.formatFileSize(item.size || 0)}</p>
 							</div>
 						</div>
 

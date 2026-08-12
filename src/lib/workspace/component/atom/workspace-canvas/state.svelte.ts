@@ -1,4 +1,4 @@
-import type { Point2D } from '$stylist/architecture/type/object/point-2d';
+import type { Point2D } from '$stylist/architecture/interface/slot/point-2d';
 import { DEFAULT_WORKSPACE_CANVAS } from '$stylist/workspace/const/record/workspace-canvas';
 import type { RecipeWorkspaceCanvas } from '$stylist/workspace/interface/recipe/workspace-canvas';
 

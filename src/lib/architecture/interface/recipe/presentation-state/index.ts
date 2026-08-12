@@ -1,6 +1,6 @@
-import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { PresentationMode } from '$stylist/architecture/type/alias/presentation-mode/index';
-export interface PresentationState extends ComputeIntersectAll<[]> {
+export interface RecipePresentationState extends ComputeIntersectAll<[]> {
 	mode: PresentationMode;
 	currentFrameIndex: number;
 	frames: {

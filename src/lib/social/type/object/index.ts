@@ -5,8 +5,7 @@ export type {
 } from './friend-list';
 export type {
 	Activity,
-	ActivityType,
-	Props
+	ActivityType
 } from './social-activity-feed';
 export type { Post } from './social-feed';
 export type { Provider } from './social-login';

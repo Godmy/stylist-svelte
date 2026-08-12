@@ -3,7 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import UploadProgress from './index.svelte';
-	import type { SlotUploadFile as IUploadFile } from '$stylist/file/interface/slot/upload-file-upload-progress-2';
+	import type { SlotUploadFile as IUploadFile } from '$stylist/file/interface/slot/upload-file';
 	import type { UploadProgressVariant } from '$stylist/file/type/alias/upload-progress-variant';
 
 	// Моковые данные для файлов

@@ -1,2 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { DrawerManager } from './manager';
+export {
+	BreadcrumbsManager,
+	DialogConfirmManager,
+	DrawerManager,
+	SideBySideLayoutManager
+} from './manager';

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import createSceneState from './state.svelte';
-	import type { SceneProps } from '$stylist/graph/type/object/scene-props';
+	import type { RecipeScene } from '$stylist/graph/interface/recipe/scene';
 	import SceneCameraControl from '$stylist/graph/component/molecule/scene-camera-control/index.svelte';
 
-	let props: SceneProps = $props();
+	let props: RecipeScene = $props();
 	const state = createSceneState(props);
 	let canvasRef: HTMLCanvasElement | null = null;
 

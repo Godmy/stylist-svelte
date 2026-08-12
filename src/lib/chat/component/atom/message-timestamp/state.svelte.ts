@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { SlotMessageTimestamp as MessageTimestampProps } from '$stylist/chat/interface/slot/message-timestamp';
 import type { SlotMessageTimestamp as MessageTimestampContract } from '$stylist/chat/interface/slot/message-timestamp';
-import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createMessageTimestampState(
 	props: MessageTimestampProps | MessageTimestampContract
@@ -82,7 +82,7 @@ export function createMessageTimestampState(
 	};
 
 	// Merge classes with custom classes
-	const classes = $derived(joinClassNames(String(props.class ?? ''), styles.container));
+	const classes = $derived(ClassNamesManager.join(String(props.class ?? ''), styles.container));
 
 	return {
 		get timestamp() {

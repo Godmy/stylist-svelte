@@ -5,8 +5,8 @@ import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focus
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-export interface RecipeZoomToolbar
-	extends ComputeIntersectAll<
+
+export interface RecipeZoomToolbar extends ComputeIntersectAll<
 		[((Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
 zoomLevel?: number;
 	minZoom?: number;

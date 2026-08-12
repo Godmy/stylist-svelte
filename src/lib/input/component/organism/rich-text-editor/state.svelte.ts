@@ -1,7 +1,7 @@
-import type { RichTextEditorStateProps } from '$stylist/input/interface/recipe/rich-text-editor-state-props';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import type { RecipeRichTextEditorStateProps } from '$stylist/input/interface/recipe/rich-text-editor-state-props';
 
-export const createRichTextEditorState = (props: RichTextEditorStateProps) => {
+export const createRichTextEditorState = (props: RecipeRichTextEditorStateProps) => {
 	// SlotState
 	let editorRef: HTMLDivElement | null = $state(null);
 	let isFocused = $state(false);
@@ -77,14 +77,14 @@ export const createRichTextEditorState = (props: RichTextEditorStateProps) => {
 	}
 
 	// Computed classes
-	const rootClasses = $derived.by(() => mergeClassNames('rich-text-editor', props.class));
+	const rootClasses = $derived.by(() => ClassNamesManager.merge('rich-text-editor', props.class));
 
 	const toolbarClasses = $derived.by(() =>
-		mergeClassNames('rich-text-editor__toolbar', props.toolbarClass)
+		ClassNamesManager.merge('rich-text-editor__toolbar', props.toolbarClass)
 	);
 
 	const editorClasses = $derived.by(() =>
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'rich-text-editor__editor',
 			isFocused ? 'rich-text-editor__editor--focused' : '',
 			props.editorClass

@@ -1,5 +1,5 @@
-import type { DragContract } from '$stylist/layout/type/object/drag-contract';
-import type { GestureContract } from '$stylist/layout/type/object/gesture-contract';
+import type { DragContract } from '$stylist/layout/interface/slot/drag-contract';
+import type { GestureContract } from '$stylist/layout/interface/slot/gesture-contract';
 
 export class ObjectManagerGesture {
 	/**

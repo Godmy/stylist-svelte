@@ -1,8 +1,8 @@
 <script lang="ts">
 	import createCenteredLayoutState from './state.svelte';
-	import type { CenteredLayoutProps } from '$stylist/layout/interface/recipe/centered-layout';
+	import type { RecipeCenteredLayout } from '$stylist/layout/interface/recipe/centered-layout';
 
-	let props: CenteredLayoutProps = $props();
+	let props: RecipeCenteredLayout = $props();
 	const state = createCenteredLayoutState(props);
 
 	const horizontal = $derived(state.axis === 'both' || state.axis === 'horizontal');

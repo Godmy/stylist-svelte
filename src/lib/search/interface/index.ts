@@ -3,6 +3,7 @@ export type {
 	RecipeAutoComplete,
 	RecipeAutoSearch,
 	RecipeSearchBar,
+	RecipeSearchResults,
 	RecipeSearchSuggestion
 } from './recipe';
 export type {

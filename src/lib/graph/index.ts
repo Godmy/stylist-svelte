@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	Camera,
+	GraphScriptManager,
 	InstancedGraphManager,
 	Matrix4,
 	SceneObjectManager
@@ -24,68 +25,37 @@ export {
 	ZWICKY_DOMAIN_COLOR,
 	ZWICKY_LAYOUT_SCALE
 } from './const';
-export {
-	bindSceneAttributeBuffer,
-	buildInstancedEdgeBuffers,
-	buildInstancedNodeBuffers,
-	clampSceneRadius,
-	clampSceneVerticalAngle,
-	clampZwickyRadius,
-	compileSceneShader,
-	createDemoSceneGraph,
-	createSceneAtom,
-	createSceneAtomBuffers,
-	createSceneBoxGeometry,
-	createSceneBuffers,
-	createSceneCubeGeometry,
-	createSceneProgram,
-	destroySceneBuffers,
-	drawSceneBuffers,
-	getAtomBoundsRadius,
-	isWebGL2Context,
-	layoutZwickyNodes,
-	multiplyMatrixVector,
-	parseZwickyGraph,
-	pickSceneAtom,
-	pickZwickyNodeFromScreen,
-	projectPointToScreen,
-	projectWorldRadiusToPixels,
-	resolveSceneAtomBaseColor,
-	resolveSceneAtomModelMatrix,
-	resolveSceneAtomTint
-} from './function';
+export type {
+	SceneAtomKind,
+	SceneCameraPreset,
+	SceneMaterialKind,
+	ZwickyLevel
+} from './type';
 export type {
 	GraphBounds3D,
 	GraphConnection,
 	GraphJsonInput,
 	GraphNode,
 	GraphPosition3D,
+	RecipeFieldHighlighter,
+	RecipeScene,
+	RecipeSceneCameraControl,
+	RecipeZwickyScene,
 	SceneAtom,
 	SceneAtomGeometry,
-	SceneAtomKind,
 	SceneAtomMetadata,
 	SceneAtomMotion,
 	SceneAtomTransform,
 	SceneBufferSet,
-	SceneCameraPreset,
 	SceneDebugInfo,
 	SceneGeometry,
 	SceneGraph,
 	SceneMaterial,
-	SceneMaterialKind,
 	SceneMolecule,
-	SceneProps,
-	ZwickyFilterState,
-	ZwickyLevel,
-	ZwickyNode,
-	ZwickySceneProps
-} from './type';
-export type {
-	RecipeFieldHighlighter,
-	RecipeSceneCameraControl,
-	RecipeZwickyScene,
 	SlotFieldHighlighter,
 	SlotFieldHighlighterSelectedField,
 	SlotGraphEdge,
-	SlotGraphNode
+	SlotGraphNode,
+	ZwickyFilterState,
+	ZwickyNode
 } from './interface';

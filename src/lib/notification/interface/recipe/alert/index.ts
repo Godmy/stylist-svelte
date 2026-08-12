@@ -14,8 +14,8 @@ import type { BehaviorSized } from '$stylist/layout/interface/behavior/sized';
 import type { BehaviorSpaced } from '$stylist/layout/interface/behavior/spaced';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { HTMLAttributes } from 'svelte/elements';
-export interface RecipeAlert
-	extends ComputeIntersectAll<
+
+export interface RecipeAlert extends ComputeIntersectAll<
 		[
 			{
 				variant?: TokenColorTone;

@@ -1,11 +1,6 @@
+import { ZipViewerManager } from '$stylist/file/class/manager/zip-viewer';
 import type { RecipeZipViewer } from '$stylist/file/interface/recipe/zip-viewer';
-import type { SlotZipEntry } from '$stylist/file/type/object/zip-viewer/entry';
-import { handleDownload as handleDownloadFn } from '$stylist/file/function/script/zip-viewer-handle-download';
-import { handleEntryClick as handleEntryClickFn } from '$stylist/file/function/script/zip-viewer-handle-entry-click';
-import { handleExtract as handleExtractFn } from '$stylist/file/function/script/zip-viewer-handle-extract';
-import { handlePreview as handlePreviewFn } from '$stylist/file/function/script/zip-viewer-handle-preview';
-import { handleSearchInput as handleSearchInputFn } from '$stylist/file/function/script/zip-viewer';
-import { toggleFolder as toggleFolderFn } from '$stylist/file/function/script/zip-viewer-toggle-folder';
+import type { SlotZipEntry } from '$stylist/file/interface/slot/zip-entry';
 
 export function createZipViewerState(props: RecipeZipViewer) {
 	let searchQuery = $state('');
@@ -107,29 +102,29 @@ export function createZipViewerState(props: RecipeZipViewer) {
 	}
 
 	function handleSearchInput(event: Event): void {
-		handleSearchInputFn(event, (value) => {
+		ZipViewerManager.handleSearchInput(event, (value) => {
 			searchQuery = value;
 		});
 	}
 
 	function handleEntryClick(entry: SlotZipEntry): void {
-		handleEntryClickFn(entry, disabled, expandedFolders, setExpandedFolders, props.onEntryClick);
+		ZipViewerManager.handleEntryClick(entry, disabled, expandedFolders, setExpandedFolders, props.onEntryClick);
 	}
 
 	function handlePreview(entry: SlotZipEntry): void {
-		handlePreviewFn(entry, disabled, props.onEntryPreview);
+		ZipViewerManager.handlePreview(entry, disabled, props.onEntryPreview);
 	}
 
 	function handleDownload(entry: SlotZipEntry): void {
-		handleDownloadFn(entry, disabled, props.onEntryDownload);
+		ZipViewerManager.handleDownload(entry, disabled, props.onEntryDownload);
 	}
 
 	function handleExtract(entry: SlotZipEntry): void {
-		handleExtractFn(entry, disabled, props.onEntryExtract);
+		ZipViewerManager.handleExtract(entry, disabled, props.onEntryExtract);
 	}
 
 	function toggleFolder(entry: SlotZipEntry): void {
-		toggleFolderFn(entry, disabled, expandedFolders, setExpandedFolders);
+		ZipViewerManager.toggleFolder(entry, disabled, expandedFolders, setExpandedFolders);
 	}
 
 	return {

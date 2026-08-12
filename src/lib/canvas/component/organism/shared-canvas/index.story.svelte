@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AnyProperty } from '$stylist/layout/type/object/any-property';
+	import type { AnyProperty } from '$stylist/layout/type/record/any-property';
 	import type { CanvasObject } from '$stylist/canvas/type/object/canvas-object';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';

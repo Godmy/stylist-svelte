@@ -22,6 +22,7 @@ export {
 	warrantyInfoCoverageDetails,
 	warrantyInfoExclusions
 } from './array';
+export { createButtonFactoryInput } from './map';
 export {
 	returnPolicyPolicyData,
 	subscriptionManagerData,

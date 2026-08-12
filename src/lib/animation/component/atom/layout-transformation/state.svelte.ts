@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeLayoutTransformation as LayoutTransformationProps } from '$stylist/animation/interface/recipe/layout-transformation';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createLayoutTransformationState(props: LayoutTransformationProps) {
 	const scale = $derived(props.scale ?? 1);
@@ -21,7 +21,7 @@ export function createLayoutTransformationState(props: LayoutTransformationProps
 	const state = $state({ isHovered: false, isActive: false });
 
 	const classes = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-layout-transformation',
 			animateOnHover && !disabled && 'c-layout-transformation--hover',
 			animateOnClick && !disabled && 'c-layout-transformation--click',

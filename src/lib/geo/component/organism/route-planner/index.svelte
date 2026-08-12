@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { RoutePlannerStateProps } from '$stylist/geo/interface/recipe/route-planner';
+	import type { RecipeRoutePlanner } from '$stylist/geo/interface/recipe/route-planner';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import createRoutePlannerState from './state.svelte';
 
-	let props: RoutePlannerStateProps = $props();
+	let props: RecipeRoutePlanner = $props();
 	const state = createRoutePlannerState(props);
 </script>
 

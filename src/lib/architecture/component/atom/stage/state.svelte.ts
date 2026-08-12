@@ -1,6 +1,6 @@
-import type { StageProps } from '$stylist/architecture/type/object/stage/stage-props';
+import type { RecipeStage } from '$stylist/architecture/interface/recipe/stage';
 
-export function createStageState(props: StageProps) {
+export function createStageState(props: RecipeStage) {
 	const camera = $derived(props.camera);
 	const worldWidth = $derived(props.worldWidth ?? 10000);
 	const worldHeight = $derived(props.worldHeight ?? 10000);

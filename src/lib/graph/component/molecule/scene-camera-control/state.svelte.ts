@@ -1,10 +1,10 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeSceneCameraControl } from '$stylist/graph/interface/recipe/scene-camera-control';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createSceneCameraControlState(props: RecipeSceneCameraControl) {
 	const targetRange = 10;
 	const containerClass = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'scene-camera-control',
 			typeof props.class === 'string' ? props.class : undefined
 		)

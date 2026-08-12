@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 export function createSearchFormState(props: ((HTMLAttributes<HTMLFormElement> & {
 query?: string;
 	placeholder?: string;
@@ -10,7 +10,7 @@ rootClass: string;
 	inputClass: string;
 	submitButtonClass: string;
 }) {
-	const rootClass = $derived(mergeClassNames('c-search-form', props.class ?? ''));
+	const rootClass = $derived(ClassNamesManager.merge('c-search-form', props.class ?? ''));
 	const iconClass = $derived('c-search-form__icon');
 	const inputClass = $derived('c-search-form__input');
 	const submitButtonClass = $derived('c-search-form__submit');

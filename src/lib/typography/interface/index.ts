@@ -3,11 +3,11 @@ export type {
 	RecipeAbbr,
 	RecipeBlockquote,
 	RecipeHeading,
+	RecipeInlineCode,
+	RecipeKbd,
+	RecipeLink,
 	RecipeRichText,
-	RecipeText,
-	RecipeThemeInlineCode,
-	RecipeThemeKbd,
-	RecipeThemeLink
+	RecipeText
 } from './recipe';
 export type {
 	SlotLink,

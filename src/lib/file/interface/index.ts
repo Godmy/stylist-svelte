@@ -1,12 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorFileListItemEvents } from './behavior';
-export type {
-	ContractDragDropFile,
-	ContractFile,
-	ContractFileMetadata
-} from './contract';
 export type {
 	RecipeAttachmentPreview,
+	RecipeDataExporter,
 	RecipeDownloadCard,
 	RecipeDragDropFileUpload,
 	RecipeDropZone,
@@ -23,11 +18,19 @@ export type {
 } from './recipe';
 export type {
 	SlotAttachment,
+	SlotDataItem,
 	SlotDocumentPreview,
 	SlotDragDropFile,
+	SlotDragDropUploadFile,
+	SlotDropItem,
 	SlotDropZoneStyleClasses,
 	SlotExportPanelStyleClasses,
+	SlotFileItem,
+	SlotFileSystemItem,
+	SlotFolderItem,
+	SlotMediaItem,
 	SlotUploadFile,
 	SlotUploadProgress,
+	SlotZipEntry,
 	SlotZipViewerStyleClasses
 } from './slot';

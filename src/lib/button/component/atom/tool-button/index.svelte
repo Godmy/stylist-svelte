@@ -1,8 +1,8 @@
 <script lang="ts">
 	import createToolButtonState from './state.svelte';
-	import type { ToolButtonProps } from '$stylist/button/type/object/tool-button-props';
+	import type { RecipeToolButton } from '$stylist/button/interface/recipe/tool-button';
 
-	let props: ToolButtonProps = $props();
+	let props: RecipeToolButton = $props();
 	const state = createToolButtonState(props);
 </script>
 

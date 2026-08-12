@@ -1,8 +1,8 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import { useSemanticZoom } from '$stylist/presentation/function/script/use-semantic-zoom';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { PresenterNodeShellProps } from '$stylist/presentation/type/object/presenter-node-shell';
+import type { RecipePresenterNodeShell } from '$stylist/presentation/interface/recipe/presenter-node-shell';
 
-export function createPresenterNodeShellState(props: PresenterNodeShellProps) {
+export function createPresenterNodeShellState(props: RecipePresenterNodeShell) {
 	const zoom = useSemanticZoom({
 		node: props.node,
 		get cameraDepth() {
@@ -13,7 +13,7 @@ export function createPresenterNodeShellState(props: PresenterNodeShellProps) {
 	const presentation = $derived.by(() => zoom.presentation);
 	const projectedScale = $derived.by(() => presentation.scale * props.camera.zoom);
 	const hostClass = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'presenter-node-shell',
 			`presenter-node-shell--stage-${presentation.stage}`,
 			`presenter-node-shell--architecture-${presentation.architecture}`,

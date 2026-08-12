@@ -1,8 +1,8 @@
-import type { HorizontalLayoutProps } from '$stylist/layout/interface/recipe/horizontal-layout';
+import type { RecipeHorizontalLayout } from '$stylist/layout/interface/recipe/horizontal-layout';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenJustification } from '$stylist/layout/type/alias/justification';
 
-export function createHorizontalLayoutState(props: HorizontalLayoutProps) {
+export function createHorizontalLayoutState(props: RecipeHorizontalLayout) {
 	const gap = $derived(props.gap ?? 16);
 	const alignItems = $derived<TokenAlignment>(
 		(props.alignItems as TokenAlignment | undefined) ?? 'center'

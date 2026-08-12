@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AnyProperty } from '$stylist/layout/type/object/any-property';
+	import type { RecipeChatPreview } from '$stylist/chat/interface/recipe/chat-preview';
 	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createChatPreviewState from './state.svelte';
@@ -7,7 +7,7 @@
 	import { CHAT_PREVIEW_ICON_CHECK } from '$stylist/chat/const/value/chat-preview-icon-check';
 	import { CHAT_PREVIEW_ICON_CHECK_CHECK } from '$stylist/chat/const/value/chat-preview-icon-check-check';
 
-	let props: AnyProperty = $props();
+	let props: RecipeChatPreview = $props();
 
 	const state = createChatPreviewState(props);
 	const displayMessages = $derived(state.displayMessages as ChatPreviewMessage[]);

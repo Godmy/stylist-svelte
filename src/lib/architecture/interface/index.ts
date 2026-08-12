@@ -1,13 +1,36 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	FocusState,
-	PresentationState,
 	RecipeCss3dCube,
+	RecipeCubeControl,
+	RecipeFocusState,
 	RecipeGraph,
 	RecipeGraphEdge,
 	RecipeGraphNode,
 	RecipeGraphvizDirectedEdge,
+	RecipeMinimap,
+	RecipeOntologyEdgeComponent,
+	RecipeOntologyNodeComponent,
+	RecipePresentationState,
+	RecipeSelectionState,
+	RecipeStage,
 	RecipeStylistGraphWorkspace,
-	SelectionState
+	RecipeViewport
 } from './recipe';
-export type { PreziCamera } from './slot';
+export type {
+	ArchitectureScene,
+	GraphNode,
+	GraphNodeDraft,
+	GraphPortDimensions,
+	GraphWorkspaceBounds,
+	GraphWorkspaceConnection,
+	GraphWorkspaceNode,
+	MinimapBounds,
+	MinimapViewport,
+	ObjectPoint2DPath,
+	Point2D,
+	PreziCamera,
+	SceneCamera,
+	SceneNode,
+	SceneNodePoint,
+	SemanticZoomPresentation
+} from './slot';

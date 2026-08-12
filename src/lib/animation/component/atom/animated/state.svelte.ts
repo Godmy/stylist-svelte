@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import { ManagerMotion } from '$stylist/animation/class/manager/motion';
 import type { RecipeAnimated } from '$stylist/animation/interface/recipe/animated';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createAnimatedState = (props: RecipeAnimated) => {
 	// SlotState
@@ -12,7 +12,7 @@ export const createAnimatedState = (props: RecipeAnimated) => {
 
 	// Вычисляемые классы
 	const classes = $derived.by(() =>
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-animated',
 			isAnimating && 'c-animated--animating',
 			normalizedProps.infinite && 'c-animated--infinite',

@@ -1,7 +1,7 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { ChartSeries } from '$stylist/chart/type/object/chart-series';
+import type { ChartSeries } from '$stylist/chart/interface/slot/chart-series';
 export interface RecipeChart
 	extends ComputeIntersectAll<[SlotTheme, HTMLAttributes<SVGSVGElement>]> {
 	label?: string;

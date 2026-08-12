@@ -9,14 +9,14 @@ import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/la
 import type { BehaviorScrollable } from '$stylist/layout/interface/behavior/scrollable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
-import type { NavItem } from '$stylist/navigation/type/object/sidebar';
+import type { NavItem } from '$stylist/navigation/interface/slot/nav-item';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-export interface RecipeSidebar
-	extends ComputeIntersectAll<
+
+export interface RecipeSidebar extends ComputeIntersectAll<
 		[
 			LayoutHTMLAttributes<HTMLElement>,
 			HTMLAttributes<HTMLDivElement>,

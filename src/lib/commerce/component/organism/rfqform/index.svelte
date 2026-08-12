@@ -35,7 +35,7 @@
 
 	import TextArea from '$stylist/input/component/molecule/text-area/index.svelte';
 
-	import type { RFQFormProps } from '$stylist/commerce/type/object/rfqform-props';
+	import type { RecipeRfqForm } from '$stylist/commerce/interface/recipe/rfq-form';
 
 	import createRFQFormState from './state.svelte';
 
@@ -77,7 +77,7 @@
 		maxAttachments = 5,
 
 		...restProps
-	}: RFQFormProps = $props();
+	}: RecipeRfqForm = $props();
 
 	const state = createRFQFormState({
 		title,

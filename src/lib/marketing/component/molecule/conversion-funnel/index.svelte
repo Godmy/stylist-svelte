@@ -1,12 +1,12 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { ConversionFunnelProps } from '$stylist/marketing/type/object/conversion-funnel/conversionfunnel-props';
+	import type { RecipeConversionFunnel } from '$stylist/marketing/interface/recipe/conversion-funnel';
 	import createConversionFunnelState from './state.svelte';
 
 	const BarChart3 = 'bar-chart-3';
 	const ArrowRight = 'arrow-right';
 
-	let props: ConversionFunnelProps = $props();
+	let props: RecipeConversionFunnel = $props();
 	const state = createConversionFunnelState(props);
 </script>
 

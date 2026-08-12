@@ -1,7 +1,7 @@
 import type { SlotDragAndDropListItem as DragAndDropListItem } from '$stylist/list/interface/slot/drag-and-drop-list-item';
-import type { DragAndDropListProps } from '$stylist/list/interface/recipe/drag-and-drop-list';
+import type { RecipeDragAndDropList } from '$stylist/list/interface/recipe/drag-and-drop-list';
 
-export function createDragAndDropListState(props: DragAndDropListProps) {
+export function createDragAndDropListState(props: RecipeDragAndDropList) {
 	const items = $derived(props.items ?? []);
 	const disabled = $derived(props.disabled ?? false);
 	const variant = $derived(props.variant ?? 'card');

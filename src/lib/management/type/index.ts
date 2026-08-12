@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { createButtonFactoryInput } from './object';
 export type {
 	CardData,
 	PerformanceMonitorStatus,

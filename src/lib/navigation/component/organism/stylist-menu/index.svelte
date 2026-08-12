@@ -4,10 +4,10 @@
 	import { STYLIST_MENU_MENU_ITEMS } from '$stylist/navigation/const/record/stylist-menu-menu-items';
 	import { STYLIST_MENU_FUNCTIONAL_TAB_ITEMS } from '$stylist/navigation/const/record/stylist-menu-functional-tab-items';
 	import { STYLIST_MENU_ATOMIC_TAB_ITEMS } from '$stylist/navigation/const/record/stylist-menu-atomic-tab-items';
-	import type { StylistMenuProps } from '$stylist/navigation/type/object/stylist-menu-props';
+	import type { RecipeStylistMenu } from '$stylist/navigation/interface/recipe/stylist-menu';
 	import createStylistMenuState from './state.svelte';
 
-	let props: StylistMenuProps = $props();
+	let props: RecipeStylistMenu = $props();
 	const state = createStylistMenuState(props);
 </script>
 

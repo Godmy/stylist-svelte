@@ -1,5 +1,5 @@
-import type { CubeControlProps } from '$stylist/architecture/type/object/cube-control-props';
-import type { Point2D } from '$stylist/architecture/type/object/point-2d';
+import type { RecipeCubeControl } from '$stylist/architecture/interface/recipe/cube-control';
+import type { Point2D } from '$stylist/architecture/interface/slot/point-2d';
 import { TOKEN_CUBE_FACE_TITLE } from '$stylist/architecture/const/array/cube-face-title';
 import { TOKEN_CUBE_FACE_NAME } from '$stylist/architecture/const/array/cube-face-name';
 import { CUBE_FACE_NUMBERS_SNAPSHOT } from '$stylist/architecture/const/record/cube-face-numbers-snapshot';
@@ -7,7 +7,7 @@ import { CUBE_FACE_THEMES } from '$stylist/architecture/const/record/cube-face-t
 import { CUBE_HORIZONTAL_ICONS } from '$stylist/architecture/const/record/cube-horizontal-icon';
 import { CUBE_VERTICAL_ICONS } from '$stylist/architecture/const/record/cube-vertical-icon';
 
-export function createCubeControlState(props: CubeControlProps) {
+export function createCubeControlState(props: RecipeCubeControl) {
 	const size = $derived(props.size ?? 380);
 	const perspective = $derived(props.perspective ?? 700);
 	const autoRotate = $derived(props.autoRotate ?? true);

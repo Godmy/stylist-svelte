@@ -1,5 +1,5 @@
-import type { DialogConfirmProps } from '$stylist/navigation/type/object/dialog-confirm-props/dialogconfirm-props';
-import { handleConfirmCallback } from '$stylist/navigation/function/script/dialog-confirm';
+import type { RecipeDialogConfirm } from '$stylist/navigation/interface/recipe/dialog-confirm';
+import { DialogConfirmManager } from '$stylist/navigation/class/manager/dialog-confirm';
 
 const DIALOG_CONFIRM_ICON_NAMES = {
 	danger: 'alert-triangle',
@@ -7,7 +7,7 @@ const DIALOG_CONFIRM_ICON_NAMES = {
 	info: 'info'
 } as const;
 
-export function createDialogConfirmState(props: DialogConfirmProps) {
+export function createDialogConfirmState(props: RecipeDialogConfirm) {
 	const variantClasses = $derived(`dc-btn-confirm--${props.variant ?? 'danger'}`);
 	const iconColor = $derived(`dc-icon--${props.variant ?? 'danger'}`);
 	const confirmButtonClasses = $derived(variantClasses);
@@ -55,7 +55,7 @@ export function createDialogConfirmState(props: DialogConfirmProps) {
 			return isLoading;
 		},
 		handleConfirm() {
-			handleConfirmCallback(props.onConfirm);
+			DialogConfirmManager.handleConfirmCallback(props.onConfirm);
 		}
 	};
 }

@@ -1,4 +1,4 @@
-import type { TestResultsViewerProps } from '$stylist/marketing/type/object/test-results-viewer/testresultsviewer-props';
+import type { RecipeTestResultsViewer } from '$stylist/marketing/interface/recipe/test-results-viewer';
 import type { TestResult } from '$stylist/marketing/type/object/test-results-viewer/testresult';
 
 function getBestVariant(results: TestResult[]): TestResult | undefined {
@@ -8,7 +8,7 @@ function getBestVariant(results: TestResult[]): TestResult | undefined {
 	);
 }
 
-export function createTestResultsViewerState(props: TestResultsViewerProps) {
+export function createTestResultsViewerState(props: RecipeTestResultsViewer) {
 	const testResults = $derived(props.testResults ?? []);
 	const testOverview = $derived(props.testOverview);
 	const title = $derived(props.title ?? 'Test Results Viewer');

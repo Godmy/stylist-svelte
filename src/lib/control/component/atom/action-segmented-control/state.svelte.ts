@@ -1,6 +1,6 @@
-import type { RecipeActionSegmentedControlProps as RecipeActionSegmentedControlProps } from '$stylist/control/interface/recipe/action-segmented-control-props';
+import type { RecipeActionSegmentedControl } from '$stylist/control/interface/recipe/action-segmented-control';
 
-export function createActionSegmentedControlState(props: RecipeActionSegmentedControlProps) {
+export function createActionSegmentedControlState(props: RecipeActionSegmentedControl) {
 	const items = $derived(props.items);
 	const selectedIndex = $derived(props.selectedIndex ?? 0);
 	let localSelectedIndex = $state(props.selectedIndex ?? 0);

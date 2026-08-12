@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { DividerProps } from '$stylist/layout/interface/recipe/divider';
+	import type { RecipeDivider } from '$stylist/layout/interface/recipe/divider';
 	import createDividerState from './state.svelte';
 
-	let props: DividerProps = $props();
+	let props: RecipeDivider = $props();
 	const state = createDividerState(props);
 </script>
 

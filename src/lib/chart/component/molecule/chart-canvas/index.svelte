@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeChartCanvas as InformationChartCanvasRecipe } from '$stylist/chart/interface/recipe/chart-canvas';
-	import type { AnalyticsChartCanvasProps } from '$stylist/chart/type/object/analytics-chart-canvas-props';
-	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import createChartCanvasState from './state.svelte';
+	import type { RecipeAnalyticsChartCanvas } from '$stylist/chart/interface/recipe/analytics-chart-canvas';
+		import createChartCanvasState from './state.svelte';
 	import ChartAxisX from '$stylist/chart/component/atom/chart-axis-x/index.svelte';
 	import ChartAxisY from '$stylist/chart/component/atom/chart-axis-y/index.svelte';
 	import ChartAxisZ from '$stylist/chart/component/atom/chart-axis-z/index.svelte';
@@ -12,11 +12,11 @@
 	import ChartPolyline from '$stylist/chart/component/atom/chart-polyline/index.svelte';
 	import { ObjectManagerChartCanvas } from '$stylist/chart/class/object-manager/chart-canvas';
 
-	let props: AnalyticsChartCanvasProps & HTMLAttributes<HTMLDivElement> = $props();
+	let props: RecipeAnalyticsChartCanvas & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createChartCanvasState({
 		width: props.width,
 		height: props.height,
-		class: mergeClassNames(props.class)
+		class: ClassNamesManager.merge(props.class)
 	} as InformationChartCanvasRecipe & HTMLAttributes<HTMLDivElement>);
 
 	const width = $derived(state.width);

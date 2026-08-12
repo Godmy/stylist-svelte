@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeAnalyticsChart } from '$stylist/chart/interface/recipe/analytics-chart';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createAnalyticsChartState(props: RecipeAnalyticsChart) {
 	const classNameStr = $derived(typeof props.class === 'string' ? props.class : undefined);
@@ -10,13 +10,13 @@ export function createAnalyticsChartState(props: RecipeAnalyticsChart) {
 		typeof props.legendClass === 'string' ? props.legendClass : undefined
 	);
 
-	const containerClasses = $derived(mergeClassNames('c-analytics-chart', classNameStr));
+	const containerClasses = $derived(ClassNamesManager.merge('c-analytics-chart', classNameStr));
 	const headerClasses = $derived('c-analytics-chart__header');
 	const titleContainerClasses = $derived('c-analytics-chart__title-row');
 	const titleClasses = $derived('c-analytics-chart__title');
 	const subtitleClasses = $derived('c-analytics-chart__subtitle');
 	const trendContainerClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-analytics-chart__trend',
 			(props.trendValue ?? 0) >= 0
 				? 'c-analytics-chart__trend--positive'
@@ -24,10 +24,10 @@ export function createAnalyticsChartState(props: RecipeAnalyticsChart) {
 		)
 	);
 	const chartContainerClasses = $derived(
-		mergeClassNames('c-analytics-chart__chart', chartClassStr)
+		ClassNamesManager.merge('c-analytics-chart__chart', chartClassStr)
 	);
 	const legendContainerClasses = $derived(
-		mergeClassNames('c-analytics-chart__legend', legendClassStr)
+		ClassNamesManager.merge('c-analytics-chart__legend', legendClassStr)
 	);
 	const legendItemClasses = $derived('c-analytics-chart__legend-item');
 	const legendColorClasses = $derived('c-analytics-chart__legend-color');

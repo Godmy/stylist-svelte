@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import CubeControl from './index.svelte';
-	import type { Point2D } from '$stylist/architecture/type/object/point-2d';
+	import type { Point2D } from '$stylist/architecture/interface/slot/point-2d';
 
 	let currentRotation = $state<Point2D>({ x: -22, y: 32 });
 	let selectionState = $state<{

@@ -1,15 +1,15 @@
 <script lang="ts">
+	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import type { RecipeUploadProgress } from '$stylist/file/interface/recipe/upload-progress';
+		import type { RecipeUploadProgress } from '$stylist/file/interface/recipe/upload-progress';
 	import { createUploadProgressState } from './state.svelte';
-	import { formatFileSize } from '$stylist/file/function/script/upload-progress-format-file-size';
+	import { UploadProgressManager } from '$stylist/file/class/manager/upload-progress';
 
 	let props: RecipeUploadProgress = $props();
 	const state = createUploadProgressState(props);
 	const hostClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-upload-progress flex flex-col gap-3',
 			state.variant === 'compact'
 				? 'space-y-2'
@@ -36,7 +36,7 @@
 		>
 			{#each state.visibleFiles as file (file.id)}
 				<div
-					class={mergeClassNames(
+					class={ClassNamesManager.merge(
 						'up-item',
 						file.status === 'success' && 'up-item--success',
 						file.status === 'error' && 'up-item--error',
@@ -67,14 +67,14 @@
 
 						{#if state.showFileSize}
 							<p class="_c6">
-								{formatFileSize(file.size)}
+								{UploadProgressManager.formatFileSize(file.size)}
 							</p>
 						{/if}
 
 						{#if state.showProgress && file.status === 'uploading'}
 							<div class="up-progress-wrap">
 								<div
-									class={mergeClassNames(
+									class={ClassNamesManager.merge(
 										'up-bar',
 										file.progress < 30
 											? 'up-bar--low'
@@ -85,7 +85,7 @@
 									)}
 								>
 									<div
-										class={mergeClassNames(
+										class={ClassNamesManager.merge(
 											'up-fill',
 											file.progress < 30
 												? 'up-fill--low'

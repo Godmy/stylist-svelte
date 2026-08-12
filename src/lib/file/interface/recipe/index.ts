@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { RecipeAttachmentPreview } from './attachment-preview';
+export type { RecipeDataExporter } from './data-exporter';
 export type { RecipeDownloadCard } from './download-card';
 export type { RecipeDragDropFileUpload } from './drag-drop-file-upload';
 export type { RecipeDropZone } from './drop-zone';

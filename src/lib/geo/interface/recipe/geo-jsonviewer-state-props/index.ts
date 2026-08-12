@@ -6,7 +6,7 @@ import type { SlotGeoJsonFeatureCollection } from '$stylist/geo/interface/slot/g
 import type { SlotGeoJsonLayer } from '$stylist/geo/interface/slot/geo-json-layer';
 import type { SlotMapView } from '$stylist/geo/interface/slot/map-view';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface GeoJSONViewerStateProps extends ComputeIntersectAll<[((Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography & {
+export interface RecipeGeoJsonviewerStateProps extends ComputeIntersectAll<[((Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography & {
 geojsonData?: SlotGeoJsonFeatureCollection;
 	layers?: SlotGeoJsonLayer[];
 	class?: string;

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { TokenChipSetProps } from '$stylist/token/type/object/token-chip-set-props';
+	import type { RecipeTokenChipSet } from '$stylist/token/interface/recipe/token-chip-set';
 	import createTokenChipSetState from './state.svelte';
 
-	let props: TokenChipSetProps = $props();
+	let props: RecipeTokenChipSet = $props();
 	const state = createTokenChipSetState(props);
 
 	const restProps = $derived.by(() => {

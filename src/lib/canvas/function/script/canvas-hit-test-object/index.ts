@@ -1,5 +1,5 @@
 import { getCanvasObjectBounds } from '$stylist/canvas/function/script/canvas-get-object-bounds';
-import type { Point2D } from '$stylist/architecture/type/object/point-2d';
+import type { Point2D } from '$stylist/architecture/interface/slot/point-2d';
 import type { CanvasObject } from '$stylist/canvas/type/object/canvas-object';
 
 export function hitTestCanvasObject(

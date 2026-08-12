@@ -14,6 +14,7 @@ export {
 	PROMPT_VARIABLE_TYPE,
 	SENTIMENT_ANALYSIS_STATUS
 } from './const';
+export { createButtonFactoryInput } from './function';
 export type {
 	AiAssistantAIClientLike,
 	PlaygroundAiAssistantAIProviderId,

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { PageHeaderStateProps } from '$stylist/management/interface/recipe/page-header';
+	import type { RecipePageHeader } from '$stylist/management/interface/recipe/page-header';
 	import createPageHeaderState from './state.svelte';
 	import Link from '$stylist/typography/component/atom/link/index.svelte';
 
-	let props: PageHeaderStateProps = $props();
+	let props: RecipePageHeader = $props();
 	const state = createPageHeaderState(props);
 </script>
 

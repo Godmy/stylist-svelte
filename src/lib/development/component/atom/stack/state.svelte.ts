@@ -1,4 +1,4 @@
-import type { StackProps } from '$stylist/layout/interface/recipe/stack';
+import type { RecipeStack } from '$stylist/layout/interface/recipe/stack';
 import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenJustification } from '$stylist/layout/type/alias/justification';
@@ -21,7 +21,7 @@ function resolveGap(spacing: string | number): string {
 	}
 }
 
-export function createStackState(props: StackProps) {
+export function createStackState(props: RecipeStack) {
 	const direction = $derived<TokenOrientation>(
 		props.direction === 'row' ? 'horizontal' : 'vertical'
 	);

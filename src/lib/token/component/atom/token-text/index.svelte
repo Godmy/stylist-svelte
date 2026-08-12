@@ -1,9 +1,9 @@
 <script lang="ts">
 	import createTokenTextState from './state.svelte';
 	import TokenControlBase from '$stylist/token/component/atom/token-control-base/index.svelte';
-	import type { TokenTextControlProps } from '$stylist/token/type/object/token-text-control-props';
+	import type { RecipeTokenText } from '$stylist/token/interface/recipe/token-text';
 
-	let props: TokenTextControlProps = $props();
+	let props: RecipeTokenText = $props();
 	const state = createTokenTextState(props);
 </script>
 

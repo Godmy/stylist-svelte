@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { PresetCopyButton } from '$stylist/button/const/preset/copy-button';
 	import type { RecipeCopyButton } from '$stylist/button/interface/recipe/copy-button';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createCopyButtonState } from './state.svelte';
@@ -47,14 +46,14 @@
 	{#if props.showIcon}
 		{#if state.copied}
 			<BaseIcon
-				name={PresetCopyButton.Check}
+				name="check"
 				class={state.iconClasses}
 				style="width: 1rem; height: 1rem;"
 				aria-hidden="true"
 			/>
 		{:else}
 			<BaseIcon
-				name={PresetCopyButton.Copy}
+				name="copy"
 				class={state.iconClasses}
 				style="width: 1rem; height: 1rem;"
 				aria-hidden="true"

@@ -1,4 +1,4 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 
 type ContentType = string;
 type ContentElement = { [key: string]: any; id: string; type: ContentType; content: string };
@@ -89,18 +89,18 @@ export const createContentEditorState = (props: ContentEditorStateProps) => {
 	}
 
 	// Computed classes
-	const rootClasses = $derived.by(() => mergeClassNames('c-content-editor', props.class));
+	const rootClasses = $derived.by(() => ClassNamesManager.merge('c-content-editor', props.class));
 
 	const toolbarClasses = $derived.by(() =>
-		mergeClassNames('c-content-editor__toolbar', props.toolbarClass)
+		ClassNamesManager.merge('c-content-editor__toolbar', props.toolbarClass)
 	);
 
 	const editorClasses = $derived.by(() =>
-		mergeClassNames('c-content-editor__editor', props.editorClass)
+		ClassNamesManager.merge('c-content-editor__editor', props.editorClass)
 	);
 
 	const contentClasses = $derived.by(() =>
-		mergeClassNames('c-content-editor__content', props.contentClass)
+		ClassNamesManager.merge('c-content-editor__content', props.contentClass)
 	);
 
 	const activeElementClasses = $derived.by(() => 'c-content-editor__content--active');

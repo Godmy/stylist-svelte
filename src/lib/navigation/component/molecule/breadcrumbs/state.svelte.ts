@@ -1,10 +1,11 @@
-import type { BreadcrumbsProps } from '$stylist/navigation/type/object/breadcrumbs-props/breadcrumbs-props';
-import { getBreadcrumbDropdownItems } from '$stylist/navigation/function/script/get-breadcrumb-dropdown-items';
-import { getBreadcrumbItems } from '$stylist/navigation/function/script/get-breadcrumb-items';
+import type { RecipeBreadcrumbs } from '$stylist/navigation/interface/recipe/breadcrumbs';
+import { BreadcrumbsManager } from '$stylist/navigation/class/manager/breadcrumbs';
 
-export function createBreadcrumbsState(props: BreadcrumbsProps) {
+export function createBreadcrumbsState(props: RecipeBreadcrumbs) {
 	let hoveredId = $state<string | null>(null);
-	const visibleCrumbs = $derived(getBreadcrumbItems(props.crumbs ?? [], props.activeId));
+	const visibleCrumbs = $derived(
+		BreadcrumbsManager.getBreadcrumbItems(props.crumbs ?? [], props.activeId)
+	);
 	const totalCrumbs = $derived(visibleCrumbs.length);
 	const listClass = 'c-breadcrumbs';
 	const itemClass = 'c-breadcrumbs__item';
@@ -32,7 +33,7 @@ export function createBreadcrumbsState(props: BreadcrumbsProps) {
 	}
 
 	function getDropdownItems(id: string) {
-		return getBreadcrumbDropdownItems(props.crumbs ?? [], id);
+		return BreadcrumbsManager.getBreadcrumbDropdownItems(props.crumbs ?? [], id);
 	}
 
 	const restProps = $derived.by(() => {

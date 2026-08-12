@@ -1,18 +1,17 @@
 <script lang="ts">
+	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+	import { ZipViewerManager } from '$stylist/file/class/manager/zip-viewer';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import { createZipViewerState } from './state.svelte';
+		import { createZipViewerState } from './state.svelte';
 	import type { RecipeZipViewer } from '$stylist/file/interface/recipe/zip-viewer';
-	import { getEntryIcon } from '$stylist/file/function/script/zip-viewer-get-entry-icon';
-	import { formatFileSize } from '$stylist/file/function/script/zip-viewer-format-file-size';
 
 	let props: RecipeZipViewer = $props();
 	const state = createZipViewerState(props);
 </script>
 
-<div class={mergeClassNames('c-zip-viewer', state.classes)} {...state.restProps}>
-	<div class={mergeClassNames('zv-header', props.headerClass ?? '')}>
+<div class={ClassNamesManager.merge('c-zip-viewer', state.classes)} {...state.restProps}>
+	<div class={ClassNamesManager.merge('zv-header', props.headerClass ?? '')}>
 		<div class="zv-header-row">
 			<BaseIcon
 				name="archive"
@@ -52,9 +51,9 @@
 		{:else}
 			<div class="zv-entries">
 				{#each state.zipTree as entry}
-					{@const entryIcon = getEntryIcon(entry)}
+					{@const entryIcon = ZipViewerManager.getEntryIcon(entry)}
 					<div
-						class={mergeClassNames(
+						class={ClassNamesManager.merge(
 							'zv-entry',
 							entry.type === 'directory' && 'zv-entry--dir',
 							props.entryClass ?? ''
@@ -100,7 +99,7 @@
 							</div>
 							<div class="zv-entry-meta">
 								{#if entry.size !== undefined}
-									<span>{formatFileSize(entry.size)}</span>
+									<span>{ZipViewerManager.formatFileSize(entry.size)}</span>
 								{/if}
 								{#if entry.modified}
 									<span class="zv-sep">•</span>

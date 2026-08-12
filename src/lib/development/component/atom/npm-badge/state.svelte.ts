@@ -1,4 +1,4 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import { DEFAULT_BADGE_LABEL } from '$stylist/development/const/record/badge-label';
 import type { RecipeNpmBadge } from '$stylist/development/interface/recipe/npm-badge';
 
@@ -8,7 +8,7 @@ export function createNpmBadgeState(props: RecipeNpmBadge) {
 		props.label ?? DEFAULT_BADGE_LABEL[type as keyof typeof DEFAULT_BADGE_LABEL]
 	);
 	const classes = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'npm-badge',
 			`npm-badge--${type}`,
 			typeof props.class === 'string' ? props.class : undefined

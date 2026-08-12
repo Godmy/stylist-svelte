@@ -1,6 +1,6 @@
-import type { StepperProps } from '$stylist/navigation/type/object/stepper-props/stepper-props';
+import type { RecipeStepper } from '$stylist/navigation/interface/recipe/stepper';
 
-export function createStepperState(props: StepperProps) {
+export function createStepperState(props: RecipeStepper) {
 	const orientationClass = $derived(
 		props.orientation === 'vertical' ? 'stepper--col' : 'stepper--row'
 	);
@@ -17,7 +17,7 @@ export function createStepperState(props: StepperProps) {
 		return `stepper__description stepper__description--${status}`;
 	}
 
-	function getConnectorClass(steps: StepperProps['steps'], index: number): string {
+	function getConnectorClass(steps: RecipeStepper['steps'], index: number): string {
 		const nextStatus = steps[index + 1]?.status;
 		return nextStatus === 'completed' ? 'stepper__connector--completed' : '';
 	}

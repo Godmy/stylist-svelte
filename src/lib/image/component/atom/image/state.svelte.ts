@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeImage } from '$stylist/image/interface/recipe/image';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createImageState(props: RecipeImage) {
 	let isLoaded = $state(false);
@@ -13,12 +13,12 @@ export function createImageState(props: RecipeImage) {
 	const content = $derived(props.content);
 	const size = $derived(props.size ?? 'md');
 
-	const containerClass = $derived(mergeClassNames('c-image', props.class ?? ''));
+	const containerClass = $derived(ClassNamesManager.merge('c-image', props.class ?? ''));
 	const wrapperClass = $derived('c-image__placeholder');
 
 	const imageSource = $derived(hasError && imageFallback ? imageFallback : imageSrc);
 	const imageClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-image__img',
 			`c-image__img--${size}`,
 			isLoaded ? 'c-image__img--loaded' : '',

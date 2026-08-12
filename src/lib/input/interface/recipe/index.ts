@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { RecipeCharacterCount } from './characters-count';
+export type { RecipeCharactersCount } from './characters-count';
 export type { RecipeCheckboxGroup } from './checkbox-group';
 export type { RecipeInputAddon } from './input-addon';
 export type { RecipeInputDouble } from './input-double';
@@ -11,12 +11,12 @@ export type { RecipeInputHelper } from './input-helper';
 export type { RecipeInputLabel } from './input-label';
 export type { RecipeInputName } from './input-name';
 export type { RecipeInputPassword } from './input-password';
-export type { RecipePinInputDigit } from './input-pin-digit';
+export type { RecipeInputPinDigit } from './input-pin-digit';
 export type { RecipeInputText } from './input-text';
 export type { RecipeNumberInput } from './number-input';
 export type { RecipePhoneNumberInput } from './phone-number-input';
 export type { RecipeRadioButtonGroupProps } from './radio-button-group-props';
 export type { RecipeRadioGroup } from './radio-group';
-export type { RichTextEditorStateProps } from './rich-text-editor-state-props';
+export type { RecipeRichTextEditorStateProps } from './rich-text-editor-state-props';
 export type { RecipeTagInput } from './tag-input';
 export type { RecipeTextArea } from './text-area';

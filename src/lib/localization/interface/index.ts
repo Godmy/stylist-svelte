@@ -1,9 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { ContractCountryFlag } from './contract';
 export type {
-	LocaleSwitcherStateProps,
 	RecipeCountryFlag,
 	RecipeLanguageSelector,
+	RecipeLocaleSwitcher,
 	RecipeTranslationEditor
 } from './recipe';
 export type {

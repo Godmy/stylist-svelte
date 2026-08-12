@@ -1,7 +1,7 @@
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { AvatarGroupAvatar } from '$stylist/user/type/object/avatar-group/avatargroupavatar';
-import type { AvatarGroupProps } from '$stylist/user/interface/recipe/avatar-group-avatar-group-props';
+import type { RecipeAvatarGroupAvatarGroupProps } from '$stylist/user/interface/recipe/avatar-group-avatar-group-props';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
@@ -11,8 +11,8 @@ import type { SlotStatus } from '$stylist/information/interface/slot/status';
 import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
-export interface RecipeAvatarGroup
-	extends ComputeIntersectAll<
+
+export interface RecipeAvatarGroup extends ComputeIntersectAll<
 		[
 			({
 	avatars?: AvatarGroupAvatar[];
@@ -26,7 +26,7 @@ export interface RecipeAvatarGroup
 	overflowClass?: string;
 	tooltipClass?: string;
 } & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography),
-			AvatarGroupProps,
+			RecipeAvatarGroupAvatarGroupProps,
 			SlotTheme,
 			SlotImage,
 			SlotText,

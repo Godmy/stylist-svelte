@@ -1,4 +1,4 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { FormSelectionProps } from '$stylist/form/type/object/form-selection';
 import type { SlotFormSelectionState } from '$stylist/form/interface/slot/form-selection-state';
 
@@ -6,7 +6,7 @@ export function createFormSelectionState(props: FormSelectionProps): SlotFormSel
 	let isCollapsed = $state(props.initiallyCollapsed ?? false);
 
 	const sectionClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-form-selection',
 			props.border && 'c-form-selection--bordered',
 			props.padding && 'c-form-selection--padded',
@@ -22,7 +22,7 @@ export function createFormSelectionState(props: FormSelectionProps): SlotFormSel
 	const requiredMarkClass = $derived('c-form-selection__required');
 	const collapseButtonClass = $derived('c-form-selection__collapse-btn');
 	const iconClass = $derived(
-		mergeClassNames('c-form-selection__icon', isCollapsed && 'c-form-selection__icon--rotated')
+		ClassNamesManager.merge('c-form-selection__icon', isCollapsed && 'c-form-selection__icon--rotated')
 	);
 	const sectionDescriptionClass = $derived('c-form-selection__description');
 	const sectionContentClass = $derived('c-form-selection__content');

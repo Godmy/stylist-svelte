@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeMockDataSelector } from '$stylist/development/interface/recipe/mock-data-selector';
-import type { MockDataSelectorDataSelection } from '$stylist/development/type/object/mock-data-selector-data-selection';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { SlotMockDataSelectorSelection } from '$stylist/development/interface/slot/mock-data-selector-selection';
 
 export function createMockDataSelectorState(props: RecipeMockDataSelector) {
 	const Database = 'database';
@@ -10,7 +10,7 @@ export function createMockDataSelectorState(props: RecipeMockDataSelector) {
 	const Search = 'search';
 	const Filter = 'filter';
 
-	let selections = $state<MockDataSelectorDataSelection[]>(
+	let selections = $state<SlotMockDataSelectorSelection[]>(
 		props.initialSelections && props.initialSelections.length > 0 ? props.initialSelections : []
 	);
 	let searchQuery = $state('');
@@ -34,7 +34,7 @@ export function createMockDataSelectorState(props: RecipeMockDataSelector) {
 	const footerClass = $derived(props.footerClass ?? '');
 
 	const containerClass = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-mock-data-selector bg-[--color-background-primary] rounded-lg border border-[--color-border-primary] p-6',
 			className
 		)
@@ -59,7 +59,7 @@ export function createMockDataSelectorState(props: RecipeMockDataSelector) {
 
 	function addSelection(schemaId: string) {
 		const schema = schemas.find((s) => s.id === schemaId);
-		const newSelection: MockDataSelectorDataSelection = {
+		const newSelection: SlotMockDataSelectorSelection = {
 			schemaId,
 			count: 5,
 			selectedFields: allowFieldSelection

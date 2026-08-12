@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeNumberFlow as NumberFlowProps } from '$stylist/animation/interface/recipe/number-flow';
 import { formatNumberFlowValue } from '$stylist/animation/function/script/format-number-flow-value';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createNumberFlowState(props: NumberFlowProps) {
 	const value = $derived(props.value ?? 0);
@@ -9,7 +9,7 @@ export function createNumberFlowState(props: NumberFlowProps) {
 	const prefix = $derived(props.prefix ?? '');
 	const suffix = $derived(props.suffix ?? '');
 	const containerClass = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-animation-number-flow',
 			typeof props.class === 'string' ? props.class : undefined
 		)

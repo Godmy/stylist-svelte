@@ -1,11 +1,10 @@
 import type { TokenComponentType } from '$stylist/architecture/type/alias/component-type';
-import type { PageBuilderElement } from '$stylist/development/type/object/page-builder-element';
-import type { PageBuilderProps } from '$stylist/development/type/object/page-builder-props';
-import { pageBuilderGetDefaultAttributes } from '$stylist/development/function/script/page-builder-get-default-attributes';
-import { pageBuilderGetDefaultContent } from '$stylist/development/function/script/page-builder';
+import { PageBuilderManager } from '$stylist/development/class/manager/page-builder';
+import type { PageBuilderElement as SlotPageBuilderElement } from '$stylist/development/interface/slot/page-builder-element';
+import type { RecipePageBuilder } from '$stylist/development/interface/recipe/page-builder';
 
-export function createPageBuilderState(props: PageBuilderProps) {
-	let elements = $state<PageBuilderElement[]>(props.initialElements ?? []);
+export function createPageBuilderState(props: RecipePageBuilder) {
+	let elements = $state<SlotPageBuilderElement[]>(props.initialElements ?? []);
 	let selectedElementId = $state<string | null>(null);
 	let dragIndex = $state<number | null>(null);
 	let isPreviewMode = $state(false);
@@ -15,11 +14,11 @@ export function createPageBuilderState(props: PageBuilderProps) {
 	}
 
 	function addElement(type: TokenComponentType, index?: number): void {
-		const newElement: PageBuilderElement = {
+		const newElement: SlotPageBuilderElement = {
 			id: `element-${Date.now()}`,
 			type,
-			content: pageBuilderGetDefaultContent(type),
-			attributes: pageBuilderGetDefaultAttributes(type)
+			content: PageBuilderManager.getDefaultContent(type),
+			attributes: PageBuilderManager.getDefaultAttributes(type)
 		};
 		if (index === undefined) {
 			elements = [...elements, newElement];
@@ -29,7 +28,7 @@ export function createPageBuilderState(props: PageBuilderProps) {
 		selectedElementId = newElement.id;
 	}
 
-	function updateElement(id: string, updates: Partial<PageBuilderElement>): void {
+	function updateElement(id: string, updates: Partial<SlotPageBuilderElement>): void {
 		elements = elements.map((el) => (el.id === id ? { ...el, ...updates } : el));
 	}
 
@@ -89,7 +88,7 @@ export function createPageBuilderState(props: PageBuilderProps) {
 		get elements() {
 			return elements;
 		},
-		set elements(value: PageBuilderElement[]) {
+		set elements(value: SlotPageBuilderElement[]) {
 			elements = value;
 		},
 		get selectedElementId() {

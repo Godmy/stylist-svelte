@@ -1,17 +1,15 @@
-import { createAttachmentDispatch } from '$stylist/file/function/script/attachment-preview';
-import { handleDownload } from '$stylist/file/function/script/attachment-preview-handle-download';
-import { handleRemove } from '$stylist/file/function/script/attachment-preview-handle-remove';
+import { AttachmentPreviewManager } from '$stylist/file/class/manager/attachment-preview';
 import type { RecipeAttachmentPreview } from '$stylist/file/interface/recipe/attachment-preview';
 
 export function createAttachmentPreviewState(props: RecipeAttachmentPreview) {
-	const dispatch = createAttachmentDispatch();
+	const dispatch = AttachmentPreviewManager.createDispatch();
 
 	function download(): void {
-		handleDownload(dispatch, props.attachment);
+		AttachmentPreviewManager.handleDownload(dispatch, props.attachment);
 	}
 
 	function remove(): void {
-		handleRemove(dispatch, props.attachment);
+		AttachmentPreviewManager.handleRemove(dispatch, props.attachment);
 	}
 
 	return {

@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeBarChart } from '$stylist/chart/interface/recipe/bar-chart';
 import { ObjectManagerBarChart } from '$stylist/chart/class/object-manager/bar-chart';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createBarChartState(props: RecipeBarChart) {
 	let hoveredBar = $state<number | null>(null);
@@ -30,16 +30,16 @@ export function createBarChartState(props: RecipeBarChart) {
 	);
 	const yAxisValues = $derived(ObjectManagerBarChart.resolveYAxisValues(calculatedMaxValue));
 
-	const containerClasses = $derived(mergeClassNames('bar-chart', containerHostClass));
+	const containerClasses = $derived(ClassNamesManager.merge('bar-chart', containerHostClass));
 	const titleContainerClasses = $derived('bar-chart__title-row');
 	const titleClasses = $derived('bar-chart__title');
 	const infoIconClasses = $derived('bar-chart__info-icon');
 	const chartContainerClasses = $derived(
-		mergeClassNames('bar-chart__chart-container', props.chartClass)
+		ClassNamesManager.merge('bar-chart__chart-container', props.chartClass)
 	);
 	const svgClasses = $derived('bar-chart__svg');
 	const barClasses = $derived((isHovered: boolean) =>
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'bar-chart__bar',
 			isHovered ? 'bar-chart__bar--hovered' : 'bar-chart__bar--idle'
 		)

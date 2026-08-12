@@ -1,11 +1,11 @@
-import { resolveSemanticZoomNode } from '$stylist/architecture/function/script/resolve-semantic-zoom-node';
+import { SemanticZoomManager } from '$stylist/architecture/class/manager/semantic-zoom';
 import { RECORD_FRAME } from '$stylist/architecture/const/record/frame/index';
 import { FOCUS_DURATION_MS } from '$stylist/presentation/const/value/prezi-scene/index';
 import { resolvePresenterSceneLinks } from '$stylist/presentation/function/script/scene/presenter';
 import type { RecipePreziScene } from '$stylist/presentation/interface/recipe/prezi-scene';
-import type { SceneNode } from '$stylist/architecture/type/object/scene-node/scene-node';
+import type { SceneNode } from '$stylist/architecture/interface/slot/scene-node/scene-node';
 import type { PreziCamera } from '$stylist/architecture/interface/slot/prezi-camera/index';
-import type { PreziSceneState } from '$stylist/presentation/interface/recipe/prezi-scene-state/index';
+import type { RecipePreziSceneState } from '$stylist/presentation/interface/recipe/prezi-scene-state/index';
 import type { BehaviorPreziSceneMethods } from '$stylist/presentation/interface/behavior/prezi-scene-methods';
 
 /**
@@ -15,7 +15,7 @@ import type { BehaviorPreziSceneMethods } from '$stylist/presentation/interface/
  */
 export function usePreziState(
 	contract: RecipePreziScene
-): PreziSceneState & BehaviorPreziSceneMethods {
+): RecipePreziSceneState & BehaviorPreziSceneMethods {
 	const {
 		nodes = [],
 		initialCamera = { x: 0, y: 0, zoom: 1 },
@@ -282,7 +282,7 @@ export function usePreziState(
 		}
 	};
 
-	const getPresentation = (node: SceneNode) => resolveSemanticZoomNode(node, camera.depth);
+	const getPresentation = (node: SceneNode) => SemanticZoomManager.resolveNode(node, camera.depth);
 
 	return {
 		get camera() {

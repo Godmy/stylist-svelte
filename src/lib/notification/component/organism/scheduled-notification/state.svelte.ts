@@ -1,12 +1,12 @@
-﻿import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { RecipeScheduledNotification } from '$stylist/notification/interface/recipe/scheduled-notification';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+﻿import type { RecipeScheduledNotification } from '$stylist/notification/interface/recipe/scheduled-notification';
 
 export function createScheduledNotificationState(props: RecipeScheduledNotification) {
 	const notifications = $derived(props.notifications ?? []);
 	const className = $derived(props.class ?? '');
 
 	const containerClasses = $derived(
-		mergeClassNames('c-scheduled-notification border rounded-lg p-4', className)
+		ClassNamesManager.merge('c-scheduled-notification border rounded-lg p-4', className)
 	);
 
 	const restProps = $derived.by(() => {

@@ -1,13 +1,13 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { ChartLegendProps } from '$stylist/chart/interface/recipe/chart-legend';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { RecipeChartLegend } from '$stylist/chart/interface/recipe/chart-legend';
 
 function resolveClassName(className: unknown): string | undefined {
 	return typeof className === 'string' ? className : undefined;
 }
 
-export function createChartLegendState(props: ChartLegendProps & HTMLAttributes<HTMLDivElement>) {
-	const classes = $derived(mergeClassNames('c-chart-legend', resolveClassName(props.class)));
+export function createChartLegendState(props: RecipeChartLegend & HTMLAttributes<HTMLDivElement>) {
+	const classes = $derived(ClassNamesManager.merge('c-chart-legend', resolveClassName(props.class)));
 	const itemClasses = $derived('c-chart-legend__item');
 	const dotClasses = $derived('c-chart-legend__dot');
 

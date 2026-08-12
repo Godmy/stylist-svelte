@@ -1,5 +1,5 @@
 import type { RecipeChartCanvas } from '$stylist/chart/interface/recipe/chart-canvas';
-import type { ChartSeries } from '$stylist/chart/type/object/chart-series';
+import type { ChartSeries } from '$stylist/chart/interface/slot/chart-series';
 
 export class ObjectManagerChartCanvas {
 	static resolveSeries(series?: ChartSeries[]): ChartSeries[] {

@@ -1,7 +1,7 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import { derived, writable } from 'svelte/store';
 import type { SlotChatStatusIndicator as ChatStatusIndicatorProps } from '$stylist/chat/interface/slot/chat-status-indicator';
 import type { SlotChatStatusIndicator as ChatStatusIndicatorContract } from '$stylist/chat/interface/slot/chat-status-indicator';
-import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createChatStatusIndicatorState(
 	props: ChatStatusIndicatorProps | ChatStatusIndicatorContract
@@ -29,7 +29,7 @@ export function createChatStatusIndicatorState(
 
 	const styles = {
 		container: 'c-chat-status',
-		indicator: joinClassNames(
+		indicator: ClassNamesManager.join(
 			'c-chat-status__dot',
 			`c-chat-status__dot--${size}`,
 			`c-chat-status__dot--${status}`
@@ -40,7 +40,7 @@ export function createChatStatusIndicatorState(
 	// Merge classes with custom classes
 	const containerClasses = derived(
 		[writable(String(props.class ?? '')), writable(styles.container)],
-		([$class, $container]) => joinClassNames($container, $class)
+		([$class, $container]) => ClassNamesManager.join($container, $class)
 	);
 
 	return {

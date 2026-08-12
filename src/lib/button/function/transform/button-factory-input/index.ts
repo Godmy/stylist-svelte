@@ -1,10 +1,10 @@
-import type { HTMLButtonAttributes } from 'svelte/elements';
+﻿import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { RecipeButtonElement as SlotButtonElement } from '$stylist/button/interface/recipe/button-element';
-import type { ButtonFactoryInput } from '$stylist/button/interface/recipe/button-factory-input';
+import type { RecipeButtonFactoryInput } from '$stylist/button/interface/recipe/button-factory-input';
 
 export function createButtonFactoryInput(
 	props: SlotButtonElement & HTMLButtonAttributes
-): ButtonFactoryInput {
+): RecipeButtonFactoryInput {
 	const {
 		variant,
 		size,

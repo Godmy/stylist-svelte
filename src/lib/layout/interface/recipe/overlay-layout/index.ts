@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 import type { OverlayLayoutAlign } from '$stylist/layout/type/alias/overlay-layout-align';
-export interface OverlayLayoutProps extends LayoutHTMLAttributes<HTMLDivElement> {
+export interface RecipeOverlayLayout extends LayoutHTMLAttributes<HTMLDivElement> {
 	class?: string;
 	base: Snippet;
 	overlays?: {

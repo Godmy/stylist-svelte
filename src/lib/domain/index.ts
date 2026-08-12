@@ -45,6 +45,7 @@ export {
 	STYLIST_GRAPH_WORKSPACE_SEED,
 	TOKEN_CONTROLLER_TYPE
 } from './const';
+export { createButtonFactoryInput } from './data';
 export { serializeUnknownError } from './function';
 export type {
 	DeviceFrameViewport,

@@ -7,7 +7,7 @@ import type { BehaviorLegendable } from '$stylist/chart/interface/behavior/legen
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { BehaviorChartColorable } from '$stylist/chart/interface/behavior/chart-colorable';
 import type { BehaviorChartAxis } from '$stylist/chart/interface/behavior/chart-axis';
-import type { ScatterPlotDataPoint } from '$stylist/chart/type/object/scatter-plot-point';
+import type { ScatterPlotDataPoint } from '$stylist/chart/interface/slot/scatter-plot-point';
 export interface RecipeScatterPlot
 	extends ComputeIntersectAll<
 		[

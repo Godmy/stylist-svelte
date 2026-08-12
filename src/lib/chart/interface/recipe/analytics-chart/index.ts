@@ -5,7 +5,7 @@ import type { BehaviorDimensionable } from '$stylist/layout/interface/behavior/d
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { BehaviorLegendable } from '$stylist/chart/interface/behavior/legendable';
 import type { TokenCanvasChartType } from '$stylist/chart/type/alias/canvas-chart-type';
-import type { AnalyticsChartDataPoint } from '$stylist/chart/type/object/analytics-chart-data-point';
+import type { AnalyticsChartDataPoint } from '$stylist/chart/interface/slot/analytics-chart-data-point';
 export interface RecipeAnalyticsChart
 	extends ComputeIntersectAll<
 		[

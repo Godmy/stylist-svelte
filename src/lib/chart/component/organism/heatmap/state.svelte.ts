@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeHeatmap } from '$stylist/chart/interface/recipe/heatmap';
 import { ObjectManagerHeatmap } from '$stylist/chart/class/object-manager/heatmap';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createHeatmapState(props: RecipeHeatmap) {
 	let hoveredCell = $state<string | null>(null);
@@ -38,8 +38,8 @@ export function createHeatmapState(props: RecipeHeatmap) {
 		})
 	);
 
-	const containerClasses = $derived(mergeClassNames('c-heatmap', hostClass));
-	const chartContainerClasses = $derived(mergeClassNames('c-heatmap__chart-container', chartClass));
+	const containerClasses = $derived(ClassNamesManager.merge('c-heatmap', hostClass));
+	const chartContainerClasses = $derived(ClassNamesManager.merge('c-heatmap__chart-container', chartClass));
 	const titleClasses = $derived('c-heatmap__title');
 	const svgClasses = $derived('c-heatmap__svg');
 	const axisClasses = $derived('c-heatmap__axis');
@@ -50,7 +50,7 @@ export function createHeatmapState(props: RecipeHeatmap) {
 	const legendLabelsClasses = $derived('c-heatmap__legend-labels');
 	const tooltipButtonClasses = $derived('c-heatmap__tooltip-button');
 	const cellClasses = $derived((isHovered: boolean) =>
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-heatmap__cell',
 			isHovered ? 'c-heatmap__cell--hovered' : 'c-heatmap__cell--idle'
 		)

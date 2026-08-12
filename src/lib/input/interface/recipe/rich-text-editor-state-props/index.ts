@@ -1,5 +1,5 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface RichTextEditorStateProps extends ComputeIntersectAll<[]> {
+export interface RecipeRichTextEditorStateProps extends ComputeIntersectAll<[]> {
 	value?: string;
 	placeholder?: string;
 	onValueInput?: (content: string) => void;

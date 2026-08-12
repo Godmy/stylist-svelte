@@ -1,12 +1,9 @@
+import { DragDropFileUploadManager } from '$stylist/file/class/manager/drag-drop-file-upload';
 import type { RecipeDragDropFileUpload } from '$stylist/file/interface/recipe/drag-drop-file-upload';
-import type { FileType } from '$stylist/file/type/object/drag-drop-file-upload/file-type';
-import { formatFileSize } from '$stylist/file/function/script/drag-drop-file-upload-format-file-size';
-import { handleDrop as handleDropFn } from '$stylist/file/function/script/drag-drop-file-upload-handle-drop';
-import { handleFileSelect as handleFileSelectFn } from '$stylist/file/function/script/drag-drop-file-upload';
-import { removeFile as removeFileFn } from '$stylist/file/function/script/drag-drop-file-upload-remove-file';
+import type { SlotDragDropUploadFile } from '$stylist/file/interface/slot/drag-drop-upload-file';
 
 export function createDragDropFileUploadState(props: RecipeDragDropFileUpload) {
-	let files = $state<FileType[]>([]);
+	let files = $state<SlotDragDropUploadFile[]>([]);
 	let isDragging = $state(false);
 	let fileInputElement = $state<HTMLInputElement | null>(null);
 	const multiple = $derived(props.multiple ?? false);
@@ -35,7 +32,7 @@ export function createDragDropFileUploadState(props: RecipeDragDropFileUpload) {
 		return rest;
 	});
 
-	function updateFile(id: string, updates: Partial<FileType>): void {
+	function updateFile(id: string, updates: Partial<SlotDragDropUploadFile>): void {
 		files = files.map((file) => (file.id === id ? { ...file, ...updates } : file));
 	}
 
@@ -50,7 +47,7 @@ export function createDragDropFileUploadState(props: RecipeDragDropFileUpload) {
 				continue;
 			}
 
-			const newFile: FileType = {
+			const newFile: SlotDragDropUploadFile = {
 				id: Math.random().toString(36).substring(2, 9),
 				name: file.name,
 				size: file.size,
@@ -78,11 +75,11 @@ export function createDragDropFileUploadState(props: RecipeDragDropFileUpload) {
 	}
 
 	function handleFileSelect(event: Event): void {
-		handleFileSelectFn(event, processSelectedFiles);
+		DragDropFileUploadManager.handleFileSelect(event, processSelectedFiles);
 	}
 
 	function handleDrop(event: DragEvent): void {
-		handleDropFn(
+		DragDropFileUploadManager.handleDrop(
 			event,
 			(value) => {
 				isDragging = value;
@@ -101,7 +98,7 @@ export function createDragDropFileUploadState(props: RecipeDragDropFileUpload) {
 	}
 
 	function removeFile(id: string): void {
-		files = removeFileFn(id, files);
+		files = DragDropFileUploadManager.removeFile(id, files);
 	}
 
 	function triggerFileInput(): void {
@@ -144,7 +141,7 @@ export function createDragDropFileUploadState(props: RecipeDragDropFileUpload) {
 			fileInputElement = value;
 		},
 		get maxSizeLabel() {
-			return formatFileSize(maxSize);
+			return DragDropFileUploadManager.formatFileSize(maxSize);
 		},
 		handleFileSelect,
 		handleDrop,
@@ -154,4 +151,3 @@ export function createDragDropFileUploadState(props: RecipeDragDropFileUpload) {
 		triggerFileInput
 	};
 }
-

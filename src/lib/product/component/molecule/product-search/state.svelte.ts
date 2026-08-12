@@ -1,12 +1,12 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductSearch } from '$stylist/product/interface/recipe/product-search';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createProductSearchState(props: RecipeProductSearch & HTMLAttributes<HTMLDivElement>) {
 	let query = $state('');
 	let showSuggestions = $state(false);
 
-	const rootClasses = $derived(mergeClassNames('product-search', props.class));
+	const rootClasses = $derived(ClassNamesManager.merge('product-search', props.class));
 	const suggestionVisible = $derived(
 		showSuggestions && query.length > 0 && (props.suggestions?.length ?? 0) > 0
 	);

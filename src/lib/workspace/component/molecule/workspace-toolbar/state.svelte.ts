@@ -1,4 +1,4 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
 import type { RecipeWorkspaceToolbar } from '$stylist/workspace/interface/recipe/workspace-toolbar';
@@ -10,7 +10,7 @@ export function createWorkspaceToolbarState(props: RecipeWorkspaceToolbar) {
 	const compact = $derived(props.compact ?? false);
 	const showTooltips = $derived(props.showTooltips ?? true);
 	const classes = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'workspace-toolbar',
 			orientation === 'vertical' ? 'workspace-toolbar--vertical' : 'workspace-toolbar--horizontal',
 			compact && 'workspace-toolbar--compact',

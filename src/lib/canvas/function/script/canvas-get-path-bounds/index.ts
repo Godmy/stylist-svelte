@@ -1,5 +1,5 @@
 import type { SharedCanvasObjectBounds } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-object-bounds';
-import type { Point2D } from '$stylist/architecture/type/object/point-2d';
+import type { Point2D } from '$stylist/architecture/interface/slot/point-2d';
 
 export function getPathBounds(points: readonly Point2D[]): SharedCanvasObjectBounds {
 	const xs = points.map((point) => point.x);

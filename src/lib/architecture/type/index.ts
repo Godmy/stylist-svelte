@@ -22,29 +22,7 @@ export type {
 	TokenTrajectory
 } from './alias';
 export type {
-	ArchitectureScene,
-	CubeControlProps,
 	FoundationDepthThreshold,
-	GraphMinimapProps,
-	GraphNode,
-	GraphNodeDraft,
-	GraphPortDimensions,
-	GraphWorkspaceBounds,
-	GraphWorkspaceConnection,
-	GraphWorkspaceNode,
-	MinimapBounds,
-	MinimapProps,
-	MinimapViewport,
-	ObjectPoint2DPath,
-	OntologyEdgeComponentProps,
-	OntologyNodeComponentProps,
-	Point2D,
-	SceneCamera,
-	SceneNode,
-	SceneNodePoint,
-	SemanticZoomPresentation,
-	StageProps,
-	ViewportProps,
 	Zoom,
 	ZoomStep
-} from './object';
+} from './struct';

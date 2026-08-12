@@ -1,16 +1,16 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { BehaviorMarkerProto } from './behavior';
 export type {
-	GeoJSONViewerStateProps,
-	RecipeIMapSettings,
-	RecipeIRoute,
+	RecipeGeoJsonviewerStateProps,
 	RecipeLocationPicker,
 	RecipeLocationSelector,
 	RecipeMapMarker,
 	RecipeMapSelector,
+	RecipeMapSettings,
 	RecipeMapWithMarkers,
-	RecipeStoreLocator,
-	RoutePlannerStateProps
+	RecipeRoute,
+	RecipeRoutePlanner,
+	RecipeStoreLocator
 } from './recipe';
 export type {
 	SlotCoordinates,

@@ -1,6 +1,6 @@
-import type { TokenChipSetProps } from '$stylist/token/type/object/token-chip-set-props';
+import type { RecipeTokenChipSet } from '$stylist/token/interface/recipe/token-chip-set';
 
-export function createTokenChipSetState(props: TokenChipSetProps) {
+export function createTokenChipSetState(props: RecipeTokenChipSet) {
 	const displayTokens = $derived(
 		props.dedupe ? Array.from(new Set(props.tokens)) : [...props.tokens]
 	);

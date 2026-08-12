@@ -1,6 +1,6 @@
-import type { TimeSlotProps } from '$stylist/calendar/interface/recipe/time-slot';
+﻿import type { RecipeTimeSlot } from '$stylist/calendar/interface/recipe/time-slot';
 
-export function createTimeSlotState(props: TimeSlotProps) {
+export function createTimeSlotState(props: RecipeTimeSlot) {
 	const safeStart = $derived(
 		props.start instanceof Date
 			? props.start

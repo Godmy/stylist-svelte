@@ -1,8 +1,8 @@
 <script lang="ts">
 	import createDataExporterState from './state.svelte';
-	import type { Props } from '$stylist/file/type/object/data-exporter/props';
+	import type { RecipeDataExporter } from '$stylist/file/interface/recipe/data-exporter';
 
-	let props: Props = $props();
+	let props: RecipeDataExporter = $props();
 	const state = createDataExporterState(props);
 </script>
 

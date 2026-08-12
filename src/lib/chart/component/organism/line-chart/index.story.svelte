@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import LineChart from './index.svelte';
-	import type { LineChartData } from '$stylist/chart/type/object/line-chart-data';
+	import type { LineChartData } from '$stylist/chart/interface/slot/line-chart-data';
 	import { TOKEN_CONTROLLER_TYPE } from '$stylist/domain/const/map/controller-type';
 
 	// Define sample data for the chart

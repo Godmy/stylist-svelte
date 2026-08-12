@@ -5,7 +5,10 @@ export {
 	AnimatedBackground,
 	AnimatedNumber,
 	LayoutTransformation,
+	Loading,
 	NumberFlow,
+	Skeleton,
+	Spinner,
 	Transformable
 } from './component';
 export {
@@ -38,6 +41,9 @@ export type {
 	RecipeAnimatedBackground,
 	RecipeAnimatedNumber,
 	RecipeLayoutTransformation,
+	RecipeLoading,
 	RecipeNumberFlow,
+	RecipeSkeleton,
+	RecipeSpinner,
 	RecipeTransformable
 } from './interface';

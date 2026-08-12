@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { TokenControlBaseProps } from '$stylist/token/type/object/token-control-base-props';
+	import type { RecipeTokenControlBase } from '$stylist/token/interface/recipe/token-control-base';
 	import createTokenControlBaseState from './state.svelte';
 
-	let props: TokenControlBaseProps = $props();
+	let props: RecipeTokenControlBase = $props();
 	const state = createTokenControlBaseState(props);
 </script>
 

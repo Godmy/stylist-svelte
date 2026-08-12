@@ -4,12 +4,12 @@ export type {
 	ContractAvatarGroup
 } from './contract';
 export type {
-	AvatarGroupProps,
-	AvatarSelectorProps,
 	RecipeAccountSettings,
 	RecipeAccountSettingsForm,
 	RecipeAvatar,
 	RecipeAvatarGroup,
+	RecipeAvatarGroupAvatarGroupProps,
+	RecipeAvatarSelector,
 	RecipeUserProfileCard
 } from './recipe';
 export type { Avatar } from './slot';

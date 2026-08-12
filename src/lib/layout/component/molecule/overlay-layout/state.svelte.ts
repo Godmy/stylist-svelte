@@ -1,7 +1,7 @@
 import type { OverlayLayoutAlign } from '$stylist/layout/type/alias/overlay-layout-align';
-import type { OverlayLayoutProps } from '$stylist/layout/interface/recipe/overlay-layout';
+import type { RecipeOverlayLayout } from '$stylist/layout/interface/recipe/overlay-layout';
 
-export function createOverlayLayoutState(props: OverlayLayoutProps) {
+export function createOverlayLayoutState(props: RecipeOverlayLayout) {
 	const overlayAlign = $derived<OverlayLayoutAlign>(props.overlayAlign ?? 'fill');
 	const overlayZIndex = $derived(props.overlayZIndex ?? 10);
 	const overlayPointerEvents = $derived(props.overlayPointerEvents ?? false);

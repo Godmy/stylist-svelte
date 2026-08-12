@@ -1,8 +1,8 @@
 import { STYLIST_TAB_DEFAULT_ITEMS } from '$stylist/navigation/const/record/stylist-tab-default-items';
-import type { StylistTabItem } from '$stylist/navigation/type/object/stylist-tab-item';
-import type { StylistTabProps } from '$stylist/navigation/type/object/stylist-tab-props';
+import type { StylistTabItem } from '$stylist/navigation/interface/slot/stylist-tab-item';
+import type { RecipeStylistTab } from '$stylist/navigation/interface/recipe/stylist-tab';
 
-export function createStylistTabState(props: StylistTabProps) {
+export function createStylistTabState(props: RecipeStylistTab) {
 	let activeId = $state(props.selectedId ?? 'architecture');
 
 	$effect(() => {

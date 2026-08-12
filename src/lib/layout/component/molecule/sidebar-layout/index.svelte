@@ -1,8 +1,8 @@
 <script lang="ts">
 	import createSidebarLayoutState from './state.svelte';
-	import type { SidebarLayoutProps } from '$stylist/layout/interface/recipe/sidebar-layout';
+	import type { RecipeSidebarLayout } from '$stylist/layout/interface/recipe/sidebar-layout';
 
-	let props: SidebarLayoutProps = $props();
+	let props: RecipeSidebarLayout = $props();
 	const state = createSidebarLayoutState(props);
 
 	const GAP: Record<string, string> = {

@@ -117,9 +117,8 @@
 3. **Story `ImageCaption` показывает один компонент** и переключается между 4 предустановленными пресетами (select `preset`) вместо ручной раскладки «primary + 3 варианта».
 4. **Добавлена переиспользуемая инфраструктура для дальнейшего развития домена**:
    - `image/type/object/image-story-asset` — тип записи галереи (`id`/`label`/`src`).
-   - `image/const/value/story-gallery` — `IMAGE_STORY_GALLERY`: все PNG из `image/data/png/*.png` собираются через `import.meta.glob(...)` (по образцу уже существующего паттерна в `token/component/molecule/token-setting`) и превращаются в подписанный список ассетов — общий источник картинок для любых будущих story в этом домене.
-   - `image/const/preset/image-caption` — `IMAGE_CAPTION_STORY_PRESETS`: 4 именованных пресета (картинка + подпись + `rounded`/`bordered`/`shadow`), собранные поверх `IMAGE_STORY_GALLERY`.
-   - Тот же приём (галерея + `const/preset/<family>`) стоит повторить для `ImageGallery` и `CanvasImageEditor`, когда до них дойдут руки — они тоже сейчас изолированы и не показывают реальные ассеты домена.
+   - Story-галерея PNG и `IMAGE_CAPTION_STORY_PRESETS` живут локально в соответствующих `index.story.svelte`, чтобы демонстрационные данные не попадали в публичный `const` API.
+   - Тот же приём (локальные story presets поверх реальных ассетов) стоит повторить для `ImageGallery` и `CanvasImageEditor`, когда до них дойдут руки — они тоже сейчас изолированы и не показывают реальные ассеты домена.
 5. Проверено: `yarn check` (svelte-check) — 0 ошибок, 0 предупреждений; barrel `index.ts` регенерированы через `stylist/indexation/cli.py`.
 
 ### Исправлен size-токен `xl` в `Image` (баг)

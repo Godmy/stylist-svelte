@@ -1,4 +1,4 @@
-import type { GridLayoutProps } from '$stylist/layout/interface/recipe/grid-layout';
+import type { RecipeGridLayout } from '$stylist/layout/interface/recipe/grid-layout';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenJustification } from '$stylist/layout/type/alias/justification';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
@@ -12,7 +12,7 @@ const GAP_VALUES: Record<string, string> = {
 	'2xl': '3rem'
 };
 
-export function createGridLayoutState(props: GridLayoutProps) {
+export function createGridLayoutState(props: RecipeGridLayout) {
 	const cols = $derived(props.cols ?? 2);
 	const gap = $derived<TokenSize>((props.gap as TokenSize) ?? 'md');
 	const responsive = $derived(props.responsive ?? true);

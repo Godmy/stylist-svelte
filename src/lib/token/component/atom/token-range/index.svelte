@@ -1,9 +1,9 @@
 <script lang="ts">
 	import TokenControlBase from '$stylist/token/component/atom/token-control-base/index.svelte';
-	import type { TokenRangeControlProps } from '$stylist/token/type/object/token-range-control-props';
+	import type { RecipeTokenRange } from '$stylist/token/interface/recipe/token-range';
 	import createTokenRangeState from './state.svelte';
 
-	let props: TokenRangeControlProps = $props();
+	let props: RecipeTokenRange = $props();
 	const state = createTokenRangeState(props);
 </script>
 

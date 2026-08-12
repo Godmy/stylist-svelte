@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import RecipeQuoteRequest from './index.svelte';
-	import type { QuoteRequestValue } from '$stylist/commerce/type/object/quote-request-value';
+	import type { QuoteRequestValue } from '$stylist/commerce/interface/slot/quote-request-value';
 
 	type Props = {
 		title: string;

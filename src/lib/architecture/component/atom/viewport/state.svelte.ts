@@ -1,6 +1,6 @@
-import type { ViewportProps } from '$stylist/architecture/type/object/viewport/viewport-props';
+import type { RecipeViewport } from '$stylist/architecture/interface/recipe/viewport';
 
-export function createViewportState(props: ViewportProps) {
+export function createViewportState(props: RecipeViewport) {
 	let isDragging = $state(false);
 	let lastX = $state(0);
 	let lastY = $state(0);

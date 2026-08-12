@@ -1,5 +1,5 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface RecipeIMapSettings extends ComputeIntersectAll<[]> {
+export interface RecipeMapSettings extends ComputeIntersectAll<[]> {
 	center: {
 lat: number;
 	lng: number;

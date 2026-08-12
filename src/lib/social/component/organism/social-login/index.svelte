@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { Props } from '$stylist/social/type/object/social-login/-props';
+	import type { RecipeSocialLogin } from '$stylist/social/interface/recipe/social-login';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createSocialLoginState from './state.svelte';
 
-	let props: Props = $props();
+	let props: RecipeSocialLogin = $props();
 	const state = createSocialLoginState(props);
 </script>
 

@@ -1,6 +1,6 @@
-import type { RecipeButtonElement } from '$stylist/button/interface/recipe/button-element';
+﻿import type { RecipeButtonElement } from '$stylist/button/interface/recipe/button-element';
 import type { HTMLButtonAttributes } from 'svelte/elements';
-export interface ButtonFactoryInput {
+export interface RecipeButtonFactoryInput {
 	contract: ({
 variant?: RecipeButtonElement['variant'];
 	size?: RecipeButtonElement['size'];

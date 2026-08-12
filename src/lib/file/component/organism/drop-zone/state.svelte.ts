@@ -1,12 +1,6 @@
+import { DropZoneManager } from '$stylist/file/class/manager/drop-zone';
 import type { RecipeDropZone } from '$stylist/file/interface/recipe/drop-zone';
-import type { SlotDropItem } from '$stylist/file/type/object/drop-zone/item';
-import { clearAll } from '$stylist/file/function/script/drop-zone-clear-all';
-import { handleDragLeave as handleDragLeaveFn } from '$stylist/file/function/script/drop-zone-handle-drag-leave';
-import { handleDragOver as handleDragOverFn } from '$stylist/file/function/script/drop-zone';
-import { handleDrop as handleDropFn } from '$stylist/file/function/script/drop-zone-handle-drop';
-import { handleFileInput as handleFileInputFn } from '$stylist/file/function/script/drop-zone-handle-file-input';
-import { processFiles } from '$stylist/file/function/script/drop-zone-process-files';
-import { removeItem } from '$stylist/file/function/script/drop-zone-remove-item';
+import type { SlotDropItem } from '$stylist/file/interface/slot/drop-item';
 
 export function createDropZoneState(props: RecipeDropZone) {
 	let isDragOver = $state(false);
@@ -50,7 +44,7 @@ export function createDropZoneState(props: RecipeDropZone) {
 
 	function processSelectedFiles(fileList: FileList): void {
 		isProcessing = true;
-		items = processFiles(
+		items = DropZoneManager.processFiles(
 			fileList,
 			items,
 			accept || '*',
@@ -63,7 +57,7 @@ export function createDropZoneState(props: RecipeDropZone) {
 	}
 
 	function handleDragOver(event: DragEvent): void {
-		handleDragOverFn(
+		DropZoneManager.handleDragOver(
 			event,
 			(value) => {
 				isDragOver = value;
@@ -73,7 +67,7 @@ export function createDropZoneState(props: RecipeDropZone) {
 	}
 
 	function handleDragLeave(event: DragEvent): void {
-		handleDragLeaveFn(
+		DropZoneManager.handleDragLeave(
 			event,
 			(value) => {
 				isDragOver = value;
@@ -83,7 +77,7 @@ export function createDropZoneState(props: RecipeDropZone) {
 	}
 
 	function handleDrop(event: DragEvent): void {
-		handleDropFn(
+		DropZoneManager.handleDrop(
 			event,
 			(value) => {
 				isDragOver = value;
@@ -94,7 +88,7 @@ export function createDropZoneState(props: RecipeDropZone) {
 	}
 
 	function handleFileInput(event: Event): void {
-		handleFileInputFn(event, disabled, processSelectedFiles);
+		DropZoneManager.handleFileInput(event, disabled, processSelectedFiles);
 	}
 
 	function browse(): void {
@@ -104,11 +98,11 @@ export function createDropZoneState(props: RecipeDropZone) {
 	}
 
 	function clearItems(): void {
-		items = clearAll();
+		items = DropZoneManager.clearAll();
 	}
 
 	function removeDroppedItem(id: string): void {
-		items = removeItem(id, items, props.onItemRemoved);
+		items = DropZoneManager.removeItem(id, items, props.onItemRemoved);
 	}
 
 	return {

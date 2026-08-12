@@ -11,7 +11,7 @@
 
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BulkOrderFormModel from './state.svelte';
-	import type { BulkOrderFormProps } from '$stylist/commerce/type/object/bulk-order-form/bulk-order-form-props';
+	import type { RecipeBulkOrderForm } from '$stylist/commerce/interface/recipe/bulk-order-form';
 
 	let {
 		products = [],
@@ -31,7 +31,7 @@
 		currency = 'USD',
 		locale = 'en-US',
 		...restProps
-	}: BulkOrderFormProps & Omit<HTMLAttributes<HTMLElement>, 'class'> = $props();
+	}: RecipeBulkOrderForm & Omit<HTMLAttributes<HTMLElement>, 'class'> = $props();
 
 	const state = BulkOrderFormModel({
 		products,

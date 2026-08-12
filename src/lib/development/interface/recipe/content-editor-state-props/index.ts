@@ -1,6 +1,6 @@
 import type { ContentType } from '$stylist/development/type/alias/content-editor-content-type';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface ContentEditorStateProps extends ComputeIntersectAll<[]> {
+export interface RecipeContentEditorStateProps extends ComputeIntersectAll<[]> {
 	initialContent?: ({
 id: string;
 	type: ContentType;

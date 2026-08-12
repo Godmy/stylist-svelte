@@ -1,8 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { LocationSelectorLocation } from '$stylist/geo/type/object/location-selector/locationselectorlocation';
-export interface RecipeLocationSelector
-	extends ComputeIntersectAll<
+
+export interface RecipeLocationSelector extends ComputeIntersectAll<
 		[
 			Omit<HTMLAttributes<HTMLDivElement>, 'class'>,
 			{

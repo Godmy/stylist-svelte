@@ -1,16 +1,16 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { PageBuilderTextAttributes } from '$stylist/development/type/object/page-builder-text-attributes';
-	import type { PageBuilderHeadingAttributes } from '$stylist/development/type/object/page-builder-heading-attributes';
-	import type { PageBuilderButtonAttributes } from '$stylist/development/type/object/page-builder-button-attributes';
-	import type { PageBuilderImageAttributes } from '$stylist/development/type/object/page-builder-image-attributes';
+	import type { PageBuilderTextAttributes as SlotPageBuilderTextAttributes } from '$stylist/development/interface/slot/page-builder-text-attributes';
+	import type { PageBuilderHeadingAttributes as SlotPageBuilderHeadingAttributes } from '$stylist/development/interface/slot/page-builder-heading-attributes';
+	import type { PageBuilderButtonAttributes as SlotPageBuilderButtonAttributes } from '$stylist/development/interface/slot/page-builder-button-attributes';
+	import type { PageBuilderImageAttributes as SlotPageBuilderImageAttributes } from '$stylist/development/interface/slot/page-builder-image-attributes';
 	import { PAGE_BUILDER_TOOLBAR_ITEMS } from '$stylist/development/const/record/page-builder-toolbar-items';
 	import { PAGE_BUILDER_ICON } from '$stylist/development/const/map/page-builder-icons';
+	import { PageBuilderManager } from '$stylist/development/class/manager/page-builder';
 	import createPageBuilderState from './state.svelte';
-	import { pageBuilderRenderElement } from '$stylist/development/function/script/page-builder-render-element';
-	import type { PageBuilderProps } from '$stylist/development/type/object/page-builder-props';
+	import type { RecipePageBuilder } from '$stylist/development/interface/recipe/page-builder';
 
-	let props: PageBuilderProps = $props();
+	let props: RecipePageBuilder = $props();
 	const state = createPageBuilderState(props);
 </script>
 
@@ -63,7 +63,7 @@
 			{#if state.isPreviewMode || !state.editable}
 				<div class="c-page-builder__canvas-inner">
 					{#each state.elements as element}
-						<div>{@html pageBuilderRenderElement(element)}</div>
+						<div>{@html PageBuilderManager.renderElement(element)}</div>
 					{/each}
 				</div>
 			{:else}
@@ -104,21 +104,21 @@
 									</div>
 
 									{#if element.type === 'text'}
-										{@const attrs = element.attributes as PageBuilderTextAttributes | undefined}
+										{@const attrs = element.attributes as SlotPageBuilderTextAttributes | undefined}
 										<p
 											style={`font-size:${attrs?.FONT_SIZE ?? 'var(--font-size-4)'};color:${attrs?.color ?? 'var(--color-text-primary)'};`}
 										>
 											{element.content}
 										</p>
 									{:else if element.type === 'heading'}
-										{@const attrs = element.attributes as PageBuilderHeadingAttributes | undefined}
+										{@const attrs = element.attributes as SlotPageBuilderHeadingAttributes | undefined}
 										<h2
 											style={`font-size:${attrs?.FONT_SIZE ?? 'var(--font-size-8)'};color:${attrs?.color ?? 'var(--color-text-primary)'};`}
 										>
 											{element.content}
 										</h2>
 									{:else if element.type === 'button'}
-										{@const attrs = element.attributes as PageBuilderButtonAttributes | undefined}
+										{@const attrs = element.attributes as SlotPageBuilderButtonAttributes | undefined}
 										<button
 											style={`background-color:${attrs?.backgroundColor ?? 'var(--color-primary-500)'};color:${attrs?.color ?? 'var(--color-background-primary)'};padding:${attrs?.padding ?? 'var(--spacing-2) var(--spacing-4)'};`}
 											class="c-page-builder__btn-element"
@@ -128,7 +128,7 @@
 									{:else if element.type === 'divider'}
 										<hr class="c-page-builder__divider" />
 									{:else if element.type === 'image'}
-										{@const attrs = element.attributes as PageBuilderImageAttributes | undefined}
+										{@const attrs = element.attributes as SlotPageBuilderImageAttributes | undefined}
 										<div class="c-page-builder__img-placeholder">
 											<BaseIcon name={PAGE_BUILDER_ICON.IMAGE} style="width:2rem;height:2rem;" />
 											<span>Image: {attrs?.alt ?? 'Placeholder'}</span>
@@ -242,7 +242,7 @@
 							min="8"
 							max="72"
 							value={(
-								state.selectedElement?.attributes as PageBuilderTextAttributes | undefined
+								state.selectedElement?.attributes as SlotPageBuilderTextAttributes | undefined
 							)?.FONT_SIZE?.replace('px', '') ?? '16'}
 							oninput={(event) => {
 								const FONT_SIZE = `${(event.target as HTMLInputElement).value}px`;

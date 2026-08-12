@@ -1,13 +1,7 @@
+import { FileExplorerManager } from '$stylist/file/class/manager/file-explorer';
 import type { RecipeFileExplorer } from '$stylist/file/interface/recipe/file-explorer';
-import type { SlotFileSystemItem } from '$stylist/file/type/object/file-explorer/file-system-item';
+import type { SlotFileSystemItem } from '$stylist/file/interface/slot/file-system-item';
 import type { ViewMode } from '$stylist/file/type/alias/file-explorer-view-mode';
-import { handleDownload as handleDownloadFn } from '$stylist/file/function/script/file-explorer-handle-download';
-import { handleItemClick as handleItemClickFn } from '$stylist/file/function/script/file-explorer';
-import { handleItemDoubleClick as handleItemDoubleClickFn } from '$stylist/file/function/script/file-explorer-handle-item-double-click';
-import { handleItemKeyDown as handleItemKeyDownFn } from '$stylist/file/function/script/file-explorer-handle-item-key-down';
-import { handleSearchInput as handleSearchInputFn } from '$stylist/file/function/script/file-explorer-handle-search-input';
-import { handleUpload as handleUploadFn } from '$stylist/file/function/script/file-explorer-handle-upload';
-import { toggleViewMode as toggleViewModeFn } from '$stylist/file/function/script/file-explorer-toggle-view-mode';
 
 export function createFileExplorerState(props: RecipeFileExplorer) {
 	let selectedItems = $state<SlotFileSystemItem[]>([]);
@@ -68,7 +62,7 @@ export function createFileExplorerState(props: RecipeFileExplorer) {
 	}
 
 	function handleItemClick(item: SlotFileSystemItem): void {
-		handleItemClickFn(
+		FileExplorerManager.handleItemClick(
 			item,
 			enableSelection,
 			multiselect,
@@ -79,11 +73,11 @@ export function createFileExplorerState(props: RecipeFileExplorer) {
 	}
 
 	function handleItemDoubleClick(item: SlotFileSystemItem): void {
-		handleItemDoubleClickFn(item, props.onItemDoubleClick);
+		FileExplorerManager.handleItemDoubleClick(item, props.onItemDoubleClick);
 	}
 
 	function handleItemKeyDown(event: KeyboardEvent, item: SlotFileSystemItem): void {
-		handleItemKeyDownFn(
+		FileExplorerManager.handleItemKeyDown(
 			event,
 			item,
 			() => handleItemClick(item),
@@ -92,21 +86,21 @@ export function createFileExplorerState(props: RecipeFileExplorer) {
 	}
 
 	function handleSearchInput(event: Event): void {
-		handleSearchInputFn(event, (value) => {
+		FileExplorerManager.handleSearchInput(event, (value) => {
 			searchQuery = value;
 		});
 	}
 
 	function handleUpload(event: Event): void {
-		handleUploadFn(event, props.onUpload);
+		FileExplorerManager.handleUpload(event, props.onUpload);
 	}
 
 	function handleDownload(item: SlotFileSystemItem): void {
-		handleDownloadFn(item, props.onDownload);
+		FileExplorerManager.handleDownload(item, props.onDownload);
 	}
 
 	function toggleViewMode(): void {
-		toggleViewModeFn(currentViewMode, (mode) => {
+		FileExplorerManager.toggleViewMode(currentViewMode, (mode) => {
 			currentViewMode = mode;
 		});
 	}
@@ -176,4 +170,3 @@ export function createFileExplorerState(props: RecipeFileExplorer) {
 		openUploadDialog
 	};
 }
-

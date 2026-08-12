@@ -1,10 +1,10 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeComponentPreview } from '$stylist/development/interface/recipe/component-preview';
 
 export function createComponentPreviewState(props: RecipeComponentPreview) {
 	let activeTab = $state(props.showCode ? 'code' : 'preview');
 
-	const classes = $derived(mergeClassNames('c-component-preview', props.class ?? ''));
+	const classes = $derived(ClassNamesManager.merge('c-component-preview', props.class ?? ''));
 	const headerClasses = 'c-component-preview__header';
 	const titleClasses = 'c-component-preview__title';
 	const descriptionClasses = 'c-component-preview__description';
@@ -14,7 +14,7 @@ export function createComponentPreviewState(props: RecipeComponentPreview) {
 	const tabContainerClasses = 'c-component-preview__tabs';
 	const tabListClasses = 'c-component-preview__tab-list';
 	const tabButtonClasses = (isActive: boolean) =>
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-component-preview__tab',
 			isActive ? 'c-component-preview__tab--active' : 'c-component-preview__tab--inactive'
 		);

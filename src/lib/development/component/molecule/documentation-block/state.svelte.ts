@@ -1,13 +1,13 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeDocumentationBlock } from '$stylist/development/interface/recipe/documentation-block';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createDocumentationBlockState(props: RecipeDocumentationBlock) {
 	const variant = $derived(props.variant ?? 'default');
 	const containerClass = $derived(
-		mergeClassNames('c-documentation-block', `c-documentation-block--${variant}`, props.class)
+		ClassNamesManager.merge('c-documentation-block', `c-documentation-block--${variant}`, props.class)
 	);
 	const headerContainerClass = $derived(
-		mergeClassNames('c-documentation-block__header', `c-documentation-block__header--${variant}`)
+		ClassNamesManager.merge('c-documentation-block__header', `c-documentation-block__header--${variant}`)
 	);
 	const headerContentClass = 'c-documentation-block__header-content';
 	const titleClass = 'c-documentation-block__title';

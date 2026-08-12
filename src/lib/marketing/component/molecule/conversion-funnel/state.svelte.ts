@@ -1,4 +1,4 @@
-import type { ConversionFunnelProps } from '$stylist/marketing/type/object/conversion-funnel/conversionfunnel-props';
+import type { RecipeConversionFunnel } from '$stylist/marketing/interface/recipe/conversion-funnel';
 import type { FunnelStep } from '$stylist/marketing/type/object/conversion-funnel/funnelstep';
 function getConversionRate(steps: FunnelStep[], stepIndex: number): number {
 	if (stepIndex === 0 || steps.length <= stepIndex) return 100;
@@ -14,7 +14,7 @@ function getDropoff(steps: FunnelStep[], stepIndex: number): number {
 	return previous > 0 ? Math.round(((previous - current) / previous) * 100) : 0;
 }
 
-export function createConversionFunnelState(props: ConversionFunnelProps) {
+export function createConversionFunnelState(props: RecipeConversionFunnel) {
 	const title = $derived(props.title ?? 'Conversion Funnel');
 	const subtitle = $derived(props.subtitle);
 	const steps = $derived(props.steps ?? []);

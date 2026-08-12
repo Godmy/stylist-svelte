@@ -1,3 +1,4 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
@@ -5,7 +6,6 @@ import type { AvatarUserStatus } from '$stylist/user/type/alias/avatar-user-stat
 import type { RecipeAvatar } from '$stylist/user/interface/recipe/avatar';
 
 import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createAvatarState(props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography) {
 	const name = $derived(props.name ?? '');
@@ -14,7 +14,7 @@ export function createAvatarState(props: RecipeAvatar & HTMLAttributes<HTMLDivEl
 	const size = $derived((props.size ?? 'md') as (typeof TOKEN_SIZE)[number]);
 	const initials = $derived(name ? name.charAt(0).toUpperCase() : '?');
 	const avatarClasses = $derived(
-		mergeClassNames('c-avatar', `c-avatar--${size}`, props.class ?? '')
+		ClassNamesManager.merge('c-avatar', `c-avatar--${size}`, props.class ?? '')
 	);
 	const imageClasses = $derived('c-avatar__image');
 	const fallbackClasses = $derived('c-avatar__fallback');
@@ -30,7 +30,7 @@ export function createAvatarState(props: RecipeAvatar & HTMLAttributes<HTMLDivEl
 	const statusColor = $derived(getStatusClasses(status));
 	const statusSize = $derived(getStatusSizeClasses(size));
 	const statusIndicatorClasses = $derived(
-		mergeClassNames('c-avatar__status', statusColor, statusSize)
+		ClassNamesManager.merge('c-avatar__status', statusColor, statusSize)
 	);
 
 	const src = $derived(props.src);

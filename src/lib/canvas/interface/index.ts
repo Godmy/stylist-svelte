@@ -1,8 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	RecipeCanvasColorPalette,
 	RecipeCanvasImageEditor,
 	RecipeCollaborativeEditor,
+	RecipeColorPalette,
 	RecipeDrawingOverlay,
 	RecipeScreenshotSelector
 } from './recipe';

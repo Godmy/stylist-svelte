@@ -20,6 +20,7 @@ export {
 	MessageStatus,
 	MessageThread,
 	MessageTimestamp,
+	StatusIndicator,
 	UserStatus
 } from './component';
 export {
@@ -41,9 +42,11 @@ export type {
 	TokenMessageStatus
 } from './type';
 export type {
+	RecipeChatPreview,
 	RecipeIconPicker,
 	RecipeListWithAvatars,
 	RecipeMessageStatusProps,
+	RecipeStatusIndicator,
 	SlotChat,
 	SlotChatStatusIndicator,
 	SlotMessage,

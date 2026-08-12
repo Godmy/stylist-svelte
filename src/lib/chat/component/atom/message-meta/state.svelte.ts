@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 const Check = 'check';
 const CheckCheck = 'check-check';
@@ -33,7 +33,7 @@ export const createMessageMetaState = (props: {
 	);
 
 	const statusIconClasses = $derived(
-		mergeClassNames('message-meta__status-icon', displayStatus === 'read' && 'message-meta__status-icon--read')
+		ClassNamesManager.merge('message-meta__status-icon', displayStatus === 'read' && 'message-meta__status-icon--read')
 	);
 
 	const containerClasses = 'message-meta';

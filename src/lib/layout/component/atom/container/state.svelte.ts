@@ -1,7 +1,7 @@
-import type { ContainerProps } from '$stylist/layout/interface/recipe/container';
+import type { RecipeContainer } from '$stylist/layout/interface/recipe/container';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 
-export function createContainerState(props: ContainerProps) {
+export function createContainerState(props: RecipeContainer) {
 	const size = $derived<TokenSize>((props.size ?? 'full') as TokenSize);
 
 	const restProps = $derived.by(() => {

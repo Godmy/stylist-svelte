@@ -4,8 +4,8 @@ import type { TokenInteration } from '$stylist/workspace/type/alias/interaction'
 import type { TokenSeverity } from '$stylist/workspace/type/alias/sevetity';
 import type { TokenNodeType } from '$stylist/architecture/type/alias/node-type';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-import type { SemanticZoomPresentation } from '$stylist/architecture/type/object/semantic-zoom';
-import { resolveSemanticZoomPresentation } from '$stylist/architecture/function/script/semantic-zoom/index';
+import type { SemanticZoomPresentation } from '$stylist/architecture/interface/slot/semantic-zoom';
+import { SemanticZoomManager } from '$stylist/architecture/class/manager/semantic-zoom';
 
 export function createWorkspaceNodeState(props: RecipeWorkspaceNode) {
 	const id = $derived(props.id);
@@ -16,7 +16,7 @@ export function createWorkspaceNodeState(props: RecipeWorkspaceNode) {
 	let dragNodeStartX = $state(0);
 	let dragNodeStartY = $state(0);
 	const resolvedPresentation = $derived.by((): SemanticZoomPresentation => {
-		const fallback = resolveSemanticZoomPresentation(
+		const fallback = SemanticZoomManager.resolvePresentation(
 			props.worldDepth ?? 500,
 			props.cameraDepth ?? props.worldDepth ?? 500
 		);

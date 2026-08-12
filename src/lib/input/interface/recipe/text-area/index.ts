@@ -10,8 +10,8 @@ import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focus
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
-export interface RecipeTextArea
-	extends ComputeIntersectAll<
+
+export interface RecipeTextArea extends ComputeIntersectAll<
 		[
 			((SlotInputCore<TokenColorTone, TokenSize> & SlotInputWithLabel & SlotInputWithValidation & SlotInputWithHelper & Omit<HTMLTextareaAttributes, 'class' | 'disabled' | 'id' | 'autocomplete'> & {
 value?: string;

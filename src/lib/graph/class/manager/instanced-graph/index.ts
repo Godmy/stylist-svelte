@@ -1,12 +1,7 @@
+import { GraphScriptManager } from '$stylist/graph/class/manager/graph-script';
 import { Camera } from '$stylist/graph/class/manager/camera';
-import { clampZwickyRadius } from '$stylist/graph/function/script/clamp-zwicky-radius';
-import { clampSceneVerticalAngle } from '$stylist/graph/function/script/clamp-scene-vertical-angle';
-import { createSceneProgram } from '$stylist/graph/function/script/create-scene-program';
-import { buildInstancedNodeBuffers } from '$stylist/graph/function/script/build-instanced-node-buffers';
-import { buildInstancedEdgeBuffers } from '$stylist/graph/function/script/build-instanced-edge-buffers';
-import { pickZwickyNodeFromScreen } from '$stylist/graph/function/script/pick-zwicky-node-from-screen';
 import { ZWICKY_LAYOUT_SCALE } from '$stylist/graph/const/value/zwicky-layout-scale';
-import type { ZwickyNode } from '$stylist/graph/type/object/zwicky-node';
+import type { ZwickyNode } from '$stylist/graph/interface/slot/zwicky-node';
 import instancedVert from '$stylist/graph/data/shader/vertex/instanced.vert?raw';
 import instancedFrag from '$stylist/graph/data/shader/fragment/instanced.frag?raw';
 import edgeVert from '$stylist/graph/data/shader/vertex/edge.vert?raw';
@@ -89,8 +84,8 @@ export class InstancedGraphManager {
 		if (!gl) throw new Error('WebGL2 is required');
 		this.gl = gl;
 
-		this.nodeProgram = createSceneProgram(gl, instancedVert, instancedFrag);
-		this.edgeProgram = createSceneProgram(gl, edgeVert, edgeFrag);
+		this.nodeProgram = GraphScriptManager.createSceneProgram(gl, instancedVert, instancedFrag);
+		this.edgeProgram = GraphScriptManager.createSceneProgram(gl, edgeVert, edgeFrag);
 
 		this.uViewNode = gl.getUniformLocation(this.nodeProgram, 'uViewMatrix');
 		this.uProjNode = gl.getUniformLocation(this.nodeProgram, 'uProjectionMatrix');
@@ -199,7 +194,7 @@ export class InstancedGraphManager {
 	}
 
 	setCameraRadius(radius: number): void {
-		this.radius = clampZwickyRadius(radius);
+		this.radius = GraphScriptManager.clampZwickyRadius(radius);
 		this.camera?.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
 	}
 
@@ -301,7 +296,7 @@ export class InstancedGraphManager {
 		const gl = this.gl;
 		if (!gl) return;
 
-		const draw = buildInstancedNodeBuffers(this.nodes, this.hoveredId, this.selectedId, this.domainFilter, this.clusterFilter);
+		const draw = GraphScriptManager.buildInstancedNodeBuffers(this.nodes, this.hoveredId, this.selectedId, this.domainFilter, this.clusterFilter);
 		this.instanceCount = draw.count;
 
 		const upload = (vbo: WebGLBuffer | null, data: Float32Array) => {
@@ -339,7 +334,7 @@ export class InstancedGraphManager {
 		const gl = this.gl;
 		if (!gl) return;
 
-		const data = buildInstancedEdgeBuffers(this.nodes, this.edges, this.selectedId, this.domainFilter, this.clusterFilter);
+		const data = GraphScriptManager.buildInstancedEdgeBuffers(this.nodes, this.edges, this.selectedId, this.domainFilter, this.clusterFilter);
 		this.edgeVertexCount = data.length / 6;
 
 		gl.bindVertexArray(this.edgeVAO);
@@ -429,7 +424,7 @@ export class InstancedGraphManager {
 		const limiting = Math.min(halfH, halfW);
 		const bounds = ZWICKY_LAYOUT_SCALE.domainRadius + ZWICKY_LAYOUT_SCALE.familyMaxRadius + 5;
 
-		this.radius = clampZwickyRadius((bounds / limiting) * 1.15);
+		this.radius = GraphScriptManager.clampZwickyRadius((bounds / limiting) * 1.15);
 		this.camera.setTarget([0, 16, 0]);
 		this.camera.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
 		this.hasFitted = true;
@@ -449,7 +444,7 @@ export class InstancedGraphManager {
 			const dx = e.clientX - this.lastX;
 			const dy = e.clientY - this.lastY;
 			this.horizontalAngle += dx * 0.008;
-			this.verticalAngle = clampSceneVerticalAngle(this.verticalAngle + dy * 0.008);
+			this.verticalAngle = GraphScriptManager.clampSceneVerticalAngle(this.verticalAngle + dy * 0.008);
 			this.camera.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
 			this.lastX = e.clientX;
 			this.lastY = e.clientY;
@@ -462,7 +457,7 @@ export class InstancedGraphManager {
 		this.hoverX = e.clientX;
 		this.hoverY = e.clientY;
 
-		const hit = pickZwickyNodeFromScreen(this.nodes, this.camera, this.canvas, e.clientX, e.clientY);
+		const hit = GraphScriptManager.pickZwickyNodeFromScreen(this.nodes, this.camera, this.canvas, e.clientX, e.clientY);
 		const newId = hit?.id ?? null;
 		if (newId !== this.hoveredId) {
 			this.hoveredId = newId;
@@ -474,7 +469,7 @@ export class InstancedGraphManager {
 		const moved = Math.abs(e.clientX - this.downX) < 5 && Math.abs(e.clientY - this.downY) < 5;
 
 		if (moved) {
-			const hit = pickZwickyNodeFromScreen(this.nodes, this.camera, this.canvas, e.clientX, e.clientY);
+			const hit = GraphScriptManager.pickZwickyNodeFromScreen(this.nodes, this.camera, this.canvas, e.clientX, e.clientY);
 			this.setSelected(hit?.id ?? null);
 			if (hit) this.onSelect?.(hit);
 		}

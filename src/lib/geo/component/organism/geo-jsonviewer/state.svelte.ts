@@ -1,12 +1,12 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { SlotGeoJsonLayer as GeoJsonLayer } from '$stylist/geo/interface/slot/geo-json-layer';
 import type { SlotMapView as MapView } from '$stylist/geo/interface/slot/map-view';
 import type { SlotGeoJsonFeature as GeoJsonFeature } from '$stylist/geo/interface/slot/geo-json-feature';
 import type { SlotGeoJsonFeatureCollection as GeoJsonFeatureCollection } from '$stylist/geo/interface/slot/geo-json-feature-collection';
-import type { GeoJSONViewerStateProps } from '$stylist/geo/interface/recipe/geo-jsonviewer-state-props';
+import type { RecipeGeoJsonviewerStateProps } from '$stylist/geo/interface/recipe/geo-jsonviewer-state-props';
 import { untrack } from 'svelte';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
-export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
+export function createGeoJSONViewerState(props: RecipeGeoJsonviewerStateProps) {
 	// Props with defaults
 	const geojsonData = $derived(props.geojsonData);
 	const layers = $derived(props.layers ?? []);
@@ -75,9 +75,9 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 	});
 
 	// Computed
-	const hostClasses = $derived(mergeClassNames('c-geo-jsonviewer', props.class ?? ''));
+	const hostClasses = $derived(ClassNamesManager.merge('c-geo-jsonviewer', props.class ?? ''));
 	const mapContainerClasses = $derived(
-		mergeClassNames('c-geo-jsonviewer__map', props.mapClass ?? '')
+		ClassNamesManager.merge('c-geo-jsonviewer__map', props.mapClass ?? '')
 	);
 	const mapContainerStyles = $derived('');
 	const layersPanelClasses = $derived('c-geo-jsonviewer__layers-panel');

@@ -1,9 +1,7 @@
+import { UploadProgressManager } from '$stylist/file/class/manager/upload-progress';
 import type { SlotUploadFile as IUploadFile } from '$stylist/file/interface/slot/upload-file';
 import type { RecipeUploadProgress } from '$stylist/file/interface/recipe/upload-progress';
 
-import { handleCancel as handleCancelFn } from '$stylist/file/function/script/upload-progress-handle-cancel';
-import { handleRemove as handleRemoveFn } from '$stylist/file/function/script/upload-progress-handle-remove';
-import { handleRetry as handleRetryFn } from '$stylist/file/function/script/upload-progress';
 
 export function createUploadProgressState(props: RecipeUploadProgress) {
 	const files = $derived(props.files ?? []);
@@ -58,15 +56,15 @@ export function createUploadProgressState(props: RecipeUploadProgress) {
 	});
 
 	function handleRetry(file: IUploadFile): void {
-		handleRetryFn(file, onRetry);
+		UploadProgressManager.handleRetry(file, onRetry);
 	}
 
 	function handleCancel(file: IUploadFile): void {
-		handleCancelFn(file, onCancel);
+		UploadProgressManager.handleCancel(file, onCancel);
 	}
 
 	function handleRemove(file: IUploadFile): void {
-		handleRemoveFn(file, onRemove);
+		UploadProgressManager.handleRemove(file, onRemove);
 	}
 
 	return {

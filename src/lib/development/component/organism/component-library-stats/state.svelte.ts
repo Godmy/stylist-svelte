@@ -1,10 +1,10 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import { onMount } from 'svelte';
 import type { RecipeComponentLibraryStats } from '$stylist/development/interface/recipe/component-library-stats';
-import type { ComponentLibraryStatsComponentStats } from '$stylist/development/type/object/component-library-stats-component-stats';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { SlotComponentLibraryStats } from '$stylist/development/interface/slot/component-library-stats';
 
 export function createComponentLibraryStatsState(props: RecipeComponentLibraryStats) {
-	let animatedStats = $state<ComponentLibraryStatsComponentStats>({
+	let animatedStats = $state<SlotComponentLibraryStats>({
 		totalComponents: 0,
 		atoms: 0,
 		molecules: 0,
@@ -20,16 +20,16 @@ export function createComponentLibraryStatsState(props: RecipeComponentLibrarySt
 	const className = $derived(props.class == null ? '' : String(props.class));
 
 	const containerClass = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-component-library-stats',
 			className
 		)
 	);
 	const statsGridClass = $derived('c-component-library-stats__grid');
 	const getStatCardClass = (colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
-		mergeClassNames('c-component-library-stats__card', `c-component-library-stats__card--${colorTheme}`);
+		ClassNamesManager.merge('c-component-library-stats__card', `c-component-library-stats__card--${colorTheme}`);
 	const getStatValueClass = (colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
-		mergeClassNames('c-component-library-stats__value', `c-component-library-stats__value--${colorTheme}`);
+		ClassNamesManager.merge('c-component-library-stats__value', `c-component-library-stats__value--${colorTheme}`);
 	const getStatLabelClass = $derived('c-component-library-stats__label');
 
 	function animateStats() {

@@ -1,6 +1,6 @@
-import type { UserCardProps } from '$stylist/commerce/interface/recipe/user-card-props';
+﻿import type { RecipeUserCardProps } from '$stylist/commerce/interface/recipe/user-card-props';
 
-export function createUserCardState(props: UserCardProps) {
+export function createUserCardState(props: RecipeUserCardProps) {
 	const size = $derived(props.size ?? 'md');
 	const showEmail = $derived(props.showEmail ?? true);
 	const showRole = $derived(props.showRole ?? true);

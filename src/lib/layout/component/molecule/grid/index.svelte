@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { GridProps } from '$stylist/layout/interface/recipe/grid';
-	import stateFn from '$stylist/layout/function/state/grid/index.svelte';
+	import type { RecipeGrid } from '$stylist/layout/interface/recipe/grid';
+	import { GridManager } from '$stylist/layout/class/object-manager/grid';
 
-	let props: GridProps = $props();
-	const state = stateFn(props);
+	let props: RecipeGrid = $props();
+	const state = GridManager.createState(props);
 
 	const GAP: Record<string, string> = {
 		none: '0',

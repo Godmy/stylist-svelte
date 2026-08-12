@@ -1,8 +1,8 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { PreziCamera } from '$stylist/architecture/interface/slot/prezi-camera/index';
-import type { SceneNode } from '$stylist/architecture/type/object/scene-node/scene-node';
+import type { SceneNode } from '$stylist/architecture/interface/slot/scene-node/scene-node';
 import type { PresenterSceneLink } from '$stylist/presentation/type/object/presenter-scene-link';
-export interface PreziSceneState extends ComputeIntersectAll<[]> {
+export interface RecipePreziSceneState extends ComputeIntersectAll<[]> {
 	camera: PreziCamera;
 	nodeCamera: {
 		x: number;

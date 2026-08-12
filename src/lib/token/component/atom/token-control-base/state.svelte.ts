@@ -1,8 +1,8 @@
 import { TOKEN_ICON_PATHS } from '$stylist/token/const/map/token-icon-paths';
 import { getTokenIconKind } from '$stylist/token/function/script/get-token-icon-kind';
-import type { TokenControlBaseProps } from '$stylist/token/type/object/token-control-base-props';
+import type { RecipeTokenControlBase } from '$stylist/token/interface/recipe/token-control-base';
 
-export function createTokenControlBaseState(props: TokenControlBaseProps) {
+export function createTokenControlBaseState(props: RecipeTokenControlBase) {
 	const tokenCount = $derived.by(() => {
 		const definition = props.definition;
 		if (definition.controlKind === 'range') {
@@ -35,7 +35,7 @@ export function createTokenControlBaseState(props: TokenControlBaseProps) {
 			class: _class,
 			children: _children,
 			...rest
-		} = props as Record<string, unknown>;
+		} = props as unknown as Record<string, unknown>;
 		return rest as Record<string, unknown>;
 	});
 

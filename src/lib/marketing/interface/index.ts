@@ -2,7 +2,12 @@
 export type { ContractMarketing } from './contract';
 export type {
 	RecipeAnnouncementBanner,
-	RecipePromoBanner
+	RecipeConversionFunnel,
+	RecipeCtaBanner,
+	RecipePromoBanner,
+	RecipeTestResultsViewer,
+	RecipeTrafficAnalytics,
+	RecipeUserBehaviorMetrics
 } from './recipe';
 export type {
 	SlotABTest,

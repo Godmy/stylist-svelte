@@ -1,8 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import { createFileListItemState } from './state.svelte';
-	import { formatFileSize } from '$stylist/file/function/script/file-list-item-format-file-size';
+	import { FileListItemManager } from '$stylist/file/class/manager/file-list-item';
 	import type { RecipeFileListItem } from '$stylist/file/interface/recipe/file-list-item';
 
 	let props: RecipeFileListItem = $props();
@@ -50,7 +50,7 @@
 		{#if state.variant !== 'compact'}
 			<div class="fli-meta">
 				{#if state.showSize && state.item.size}
-					<span>{formatFileSize(state.item.size)}</span>
+					<span>{FileListItemManager.formatFileSize(state.item.size)}</span>
 				{/if}
 				{#if state.showModified && state.item.modified}
 					<span class="fli-sep">•</span>

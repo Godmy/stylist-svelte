@@ -5,5 +5,8 @@ export {
 	AnimatedNumber,
 	LayoutTransformation,
 	NumberFlow,
+	Skeleton,
+	Spinner,
 	Transformable
 } from './atom';
+export { Loading } from './molecule';

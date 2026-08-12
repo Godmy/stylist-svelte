@@ -1,7 +1,7 @@
-import type { PaymentMethod } from '$stylist/commerce/type/object/payment-method';
-import type { PaymentInfoProps } from '$stylist/commerce/interface/recipe/payment-info-props';
+﻿import type { PaymentMethod } from '$stylist/commerce/interface/slot/payment-method';
+import type { RecipePaymentInfoProps } from '$stylist/commerce/interface/recipe/payment-info-props';
 
-export function createPaymentInfoState(props: PaymentInfoProps) {
+export function createPaymentInfoState(props: RecipePaymentInfoProps) {
 	let selectedMethodId = $state(
 		(props.methods ?? []).find((m: PaymentMethod) => m.enabled !== false)?.id ?? ''
 	);

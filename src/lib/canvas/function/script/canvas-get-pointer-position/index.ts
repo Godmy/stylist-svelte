@@ -1,4 +1,4 @@
-import type { Point2D } from '$stylist/architecture/type/object/point-2d';
+import type { Point2D } from '$stylist/architecture/interface/slot/point-2d';
 
 export function getCanvasPointerPosition(
 	event: MouseEvent,

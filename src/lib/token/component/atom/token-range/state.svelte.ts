@@ -1,6 +1,6 @@
-import type { TokenRangeControlProps } from '$stylist/token/type/object/token-range-control-props';
+import type { RecipeTokenRange } from '$stylist/token/interface/recipe/token-range';
 
-export function createTokenRangeState(props: TokenRangeControlProps) {
+export function createTokenRangeState(props: RecipeTokenRange) {
 	const initialValue =
 		typeof props.value === 'number'
 			? props.value

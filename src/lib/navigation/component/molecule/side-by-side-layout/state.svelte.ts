@@ -1,9 +1,8 @@
-import type { SideBySideLayoutProps } from '$stylist/navigation/type/object/side-by-side-layout-props/sidebysidelayout-props';
-import { getSideBySideLayoutClasses } from '$stylist/navigation/function/script/get-side-by-side-layout-classes';
-import { getSideBySideSectionWidthClass } from '$stylist/navigation/function/script/get-side-by-side-section-width-class';
+import type { RecipeSideBySideLayout } from '$stylist/navigation/interface/recipe/side-by-side-layout';
+import { SideBySideLayoutManager } from '$stylist/navigation/class/manager/side-by-side-layout';
 
-export function createSideBySideLayoutState(props: SideBySideLayoutProps) {
-	const layoutClass = $derived(getSideBySideLayoutClasses(props));
+export function createSideBySideLayoutState(props: RecipeSideBySideLayout) {
+	const layoutClass = $derived(SideBySideLayoutManager.getLayoutClasses(props));
 	const restProps = $derived.by(() => {
 		const {
 			sections,
@@ -25,7 +24,7 @@ export function createSideBySideLayoutState(props: SideBySideLayoutProps) {
 			return restProps;
 		},
 		getSectionWidthClass(size: string) {
-			return getSideBySideSectionWidthClass(size, props.responsive ?? true);
+			return SideBySideLayoutManager.getSectionWidthClass(size, props.responsive ?? true);
 		}
 	};
 }

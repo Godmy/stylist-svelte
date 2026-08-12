@@ -1,6 +1,6 @@
-import type { SeparatorProps } from '$stylist/layout/interface/recipe/separator';
+import type { RecipeSeparator } from '$stylist/layout/interface/recipe/separator';
 
-export function createSeparatorState(props: SeparatorProps) {
+export function createSeparatorState(props: RecipeSeparator) {
 	const orientation = $derived(props.orientation ?? 'horizontal');
 	const decorative = $derived(props.decorative ?? false);
 

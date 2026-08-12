@@ -1,20 +1,19 @@
 <script lang="ts">
+	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+	import { DownloadCardManager } from '$stylist/file/class/manager/download-card';
 	import type { RecipeDownloadCard } from '$stylist/file/interface/recipe/download-card';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import { formatFileSize } from '$stylist/file/function/script/format-file-size';
-	import { handleFileDownload } from '$stylist/file/function/script/handle-file-download';
-	import { createDownloadCardState } from './state.svelte';
+		import { createDownloadCardState } from './state.svelte';
 
 	let props: RecipeDownloadCard = $props();
 	const state = createDownloadCardState(props as RecipeDownloadCard & Record<string, unknown>);
 
 	const containerClasses = $derived(
-		mergeClassNames('download-card', state.class)
+		ClassNamesManager.merge('download-card', state.class)
 	);
 	const iconContainerClasses = 'download-card__icon-container';
 	const iconClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'download-card__icon',
 			({
 				primary: 'download-card__icon--primary',
@@ -32,7 +31,7 @@
 	const metadataClasses = 'download-card__metadata';
 	const metadataItemClasses = 'download-card__metadata-item';
 	const downloadButtonClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'download-card__button',
 			({
 				primary: 'download-card__button--primary',
@@ -47,7 +46,7 @@
 	);
 
 	function handleDownload() {
-		if (state.downloadUrl) handleFileDownload(state.downloadUrl);
+		if (state.downloadUrl) DownloadCardManager.handleFileDownload(state.downloadUrl);
 	}
 </script>
 
@@ -72,9 +71,9 @@
 				{#if props.file.size}
 					<span
 						class={metadataItemClasses}
-						aria-label={`File size: ${formatFileSize(props.file.size)}`}
+						aria-label={`File size: ${DownloadCardManager.formatFileSize(props.file.size)}`}
 					>
-						{formatFileSize(props.file.size)}
+						{DownloadCardManager.formatFileSize(props.file.size)}
 					</span>
 				{/if}
 				{#if props.file.type}

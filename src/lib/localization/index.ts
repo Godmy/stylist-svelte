@@ -22,10 +22,10 @@ export type {
 } from './type';
 export type {
 	ContractCountryFlag,
-	LocaleSwitcherStateProps,
 	NumberFormatOptions,
 	RecipeCountryFlag,
 	RecipeLanguageSelector,
+	RecipeLocaleSwitcher,
 	RecipeTranslationEditor,
 	SlotExtendedTranslationEditor,
 	SlotLanguageSelectorStyleClasses,

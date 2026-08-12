@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { HorizontalLayoutProps } from '$stylist/layout/interface/recipe/horizontal-layout';
+	import type { RecipeHorizontalLayout } from '$stylist/layout/interface/recipe/horizontal-layout';
 	import createHorizontalLayoutState from './state.svelte';
 
-	let props: HorizontalLayoutProps = $props();
+	let props: RecipeHorizontalLayout = $props();
 	const state = createHorizontalLayoutState(props);
 
 	const ALIGN: Record<string, string> = {

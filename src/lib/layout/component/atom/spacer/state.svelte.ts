@@ -1,4 +1,4 @@
-import type { SpacerProps } from '$stylist/layout/interface/recipe/spacer';
+import type { RecipeSpacer } from '$stylist/layout/interface/recipe/spacer';
 import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
 
 function resolveSize(size?: string | number): string {
@@ -21,7 +21,7 @@ function resolveSize(size?: string | number): string {
 	}
 }
 
-export function createSpacerState(props: SpacerProps) {
+export function createSpacerState(props: RecipeSpacer) {
 	const axis = $derived<TokenOrientation | 'both'>(props.axis ?? 'vertical');
 	const sizeValue = $derived(resolveSize(props.size));
 

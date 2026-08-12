@@ -3,8 +3,8 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { StoreLocatorStore } from '$stylist/geo/type/object/store-locator/storelocatorstore';
-export interface RecipeStoreLocator
-	extends ComputeIntersectAll<
+
+export interface RecipeStoreLocator extends ComputeIntersectAll<
 		[
 			Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography,
 			{

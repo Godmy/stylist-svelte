@@ -1,4 +1,4 @@
-import type { OntologyNodeComponentProps } from '$stylist/architecture/type/object/ontology-node-component/ontologynodecomponent-props';
+import type { RecipeOntologyNodeComponent } from '$stylist/architecture/interface/recipe/ontology-node-component';
 
 const NODE_ICON_MAP: Record<string, string> = {
 	class: 'square',
@@ -9,7 +9,7 @@ const NODE_ICON_MAP: Record<string, string> = {
 	'equivalent-class': 'zap'
 };
 
-export function createOntologyNodeComponentState(props: OntologyNodeComponentProps) {
+export function createOntologyNodeComponentState(props: RecipeOntologyNodeComponent) {
 	const nodeType = $derived(props.node.type);
 	const baseClasses = $derived(
 		['ontology-node-component', `ontology-node-component--${nodeType}`, props.class ?? '']

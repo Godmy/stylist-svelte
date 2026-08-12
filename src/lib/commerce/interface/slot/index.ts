@@ -1,10 +1,20 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { Address } from './address';
 export type { SlotBulkOrderForm } from './bulk-order-form';
+export type { BulkOrderFormItem } from './bulk-order-form-item';
+export type { BulkOrderFormProduct } from './bulk-order-form-product';
 export type { SlotCurrency } from './currency';
 export type { SlotDiscountRule } from './discount-rule';
 export type { SlotExchangeRate } from './exchange-rate';
 export type { SlotFilterBarStyleClasses } from './filter-bar-style-classes';
 export type { SlotInventoryItem } from './inventory-item';
+export type { PaymentMethod } from './payment-method';
+export type { PaymentSummaryDiscount } from './payment-summary-discount';
+export type { PaymentSummaryItem } from './payment-summary-item';
+export type { PaymentSummaryTax } from './payment-summary-tax';
+export type { QuoteRequestValue } from './quote-request-value';
+export type { RFQFormData } from './rfq-form-data';
+export type { RFQProduct } from './rfq-product';
 export type { SlotShippingOption } from './shipping-option';
 export type { SlotShippingOptionInfo } from './shipping-option-info';
 export type { SlotUpsellProduct } from './upsell-product';

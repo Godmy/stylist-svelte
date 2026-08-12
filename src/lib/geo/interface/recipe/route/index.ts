@@ -1,5 +1,5 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface RecipeIRoute extends ComputeIntersectAll<[]> {
+export interface RecipeRoute extends ComputeIntersectAll<[]> {
 	start: {
 id: string;
 	name: string;

@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import { ManagerMotion } from '$stylist/animation/class/manager/motion';
 import type { RecipeTransformable as TransformProps } from '$stylist/animation/interface/recipe/transformable';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createTransformableState = (props: TransformProps) => {
 	// SlotState
@@ -12,7 +12,7 @@ export const createTransformableState = (props: TransformProps) => {
 
 	// Вычисляемые классы
 	const classes = $derived.by(() =>
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-transformable',
 			props.animateOnHover && 'c-transformable--hover',
 			typeof props.class === 'string' ? props.class : undefined

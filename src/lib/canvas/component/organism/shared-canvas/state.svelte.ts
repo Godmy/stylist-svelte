@@ -6,7 +6,7 @@ import { finalizeDraftCanvasObject } from '$stylist/canvas/function/script/canva
 import { hitTestCanvasObject } from '$stylist/canvas/function/script/canvas-hit-test-object';
 import { updateDraftCanvasObject } from '$stylist/canvas/function/script/canvas-update-draft-object';
 import type { CanvasObject } from '$stylist/canvas/type/object/canvas-object';
-import type { Point2D } from '$stylist/architecture/type/object/point-2d';
+import type { Point2D } from '$stylist/architecture/interface/slot/point-2d';
 import type { SharedCanvasTool } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-tool';
 import type { SharedCanvasContract } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-contract';
 

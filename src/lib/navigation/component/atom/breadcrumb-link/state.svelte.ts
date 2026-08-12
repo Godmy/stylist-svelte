@@ -1,11 +1,11 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeBreadcrumbLink } from '$stylist/navigation/interface/recipe/breadcrumb-link';
-import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createBreadcrumbLinkState(
 	props: RecipeBreadcrumbLink & { current?: boolean; href?: string; class?: string }
 ) {
 	const linkClass = $derived(
-		joinClassNames(
+		ClassNamesManager.join(
 			'c-breadcrumb-link',
 			props.current ? 'c-breadcrumb-link--current' : '',
 			props.class ?? ''

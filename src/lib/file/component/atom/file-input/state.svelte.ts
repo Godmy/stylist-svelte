@@ -1,7 +1,5 @@
-﻿import { untrack } from 'svelte';
-import { clearFile } from '$stylist/file/function/script/clear-file';
-import { resolveFileSelectionLabel } from '$stylist/file/function/script/resolve-file-selection-label';
-import { handleFileChange } from '$stylist/file/function/script/file-input';
+import { FileInputManager } from '$stylist/file/class/manager/file-input';
+import { untrack } from 'svelte';
 import type { RecipeFileInput } from '$stylist/file/interface/recipe/file-input';
 
 export function createFileInputState(props: RecipeFileInput) {
@@ -15,20 +13,20 @@ export function createFileInputState(props: RecipeFileInput) {
 
 	let inputElement = $state<HTMLInputElement | null>(null);
 	let internalValue = $state<File | File[] | null>(untrack(() => props.value ?? null));
-	const fileName = $derived(resolveFileSelectionLabel(internalValue));
+	const fileName = $derived(FileInputManager.resolveFileSelectionLabel(internalValue));
 
 	$effect(() => {
 		internalValue = props.value ?? null;
 	});
 
 	function handleChange(event: Event): void {
-		const result = handleFileChange(event, multiple, props.onFileChange);
+		const result = FileInputManager.handleFileChange(event, multiple, props.onFileChange);
 
 		internalValue = result.internalValue;
 	}
 
 	function clearSelection(): void {
-		clearFile(inputElement, props.onFileChange);
+		FileInputManager.clearFile(inputElement, props.onFileChange);
 		internalValue = null;
 	}
 

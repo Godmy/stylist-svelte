@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 export function createLoginFormState(props: ((HTMLAttributes<HTMLFormElement> & {
 email?: string;
 	rememberMe?: boolean;
@@ -10,7 +10,7 @@ rootClass: string;
 	checkboxLabelClass: string;
 	submitButtonClass: string;
 }) {
-	const rootClass = $derived(mergeClassNames('c-login-form', props.class ?? ''));
+	const rootClass = $derived(ClassNamesManager.merge('c-login-form', props.class ?? ''));
 	const inputClass = $derived('c-login-form__input');
 	const checkboxLabelClass = $derived('c-login-form__checkbox-label');
 	const submitButtonClass = $derived('c-login-form__submit');

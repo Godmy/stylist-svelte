@@ -1,5 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	CodeBlockManager,
+	ComponentPreviewManager,
+	PageBuilderManager
+} from './class';
+export {
 	AtomicPrinciplesShowcase,
 	CodeBlock,
 	CodeDiff,
@@ -42,38 +47,21 @@ export {
 	categories,
 	panelId
 } from './const';
-export {
-	buildComponentPreviewCode,
-	copyToClipboard,
-	pageBuilderGetDefaultAttributes,
-	pageBuilderGetDefaultContent,
-	pageBuilderRenderElement
-} from './function';
 export type {
-	CodeDiffProps,
-	ComponentLibraryStatsComponentStats,
 	ContentType,
-	DebugConsoleLogEntry,
 	DebugConsoleLogLevel,
-	DesignTokensProps,
-	MockDataSelectorDataSelection,
-	PageBuilderButtonAttributes,
-	PageBuilderContainerAttributes,
-	PageBuilderElement,
-	PageBuilderHeadingAttributes,
-	PageBuilderImageAttributes,
-	PageBuilderProps,
-	PageBuilderTextAttributes,
-	StylistProps,
-	StylistSelection,
 	TokenCodeLanguage,
 	TokenCodeView,
 	TokenSoftwareBadge
 } from './type';
 export type {
-	ContentEditorStateProps,
-	ContractDevelopment,
+	DebugConsoleLogEntry,
 	DomainForEachOptions,
+	PageBuilderButtonAttributes,
+	PageBuilderElement,
+	PageBuilderHeadingAttributes,
+	PageBuilderImageAttributes,
+	PageBuilderTextAttributes,
 	RecipeAtomicPrinciples,
 	RecipeAtomicPrinciplesShowcase,
 	RecipeCodeBlock,
@@ -82,6 +70,7 @@ export type {
 	RecipeCodeViewer,
 	RecipeComponentLibraryStats,
 	RecipeComponentPreview,
+	RecipeContentEditorStateProps,
 	RecipeDebugConsole,
 	RecipeDesignTokens,
 	RecipeDevelopmentErrorBoundary,
@@ -92,9 +81,13 @@ export type {
 	RecipeLiveCodeSection,
 	RecipeMockDataSelector,
 	RecipeNpmBadge,
+	RecipePageBuilder,
 	RecipePrivacySettings,
 	RecipeStylist,
-	RecipeThemeSyntaxHighlightedCode,
+	RecipeSyntaxHighlightedCode,
 	SlotAiModel,
-	SlotMockDataSelectorStyleClasses
+	SlotComponentLibraryStats,
+	SlotMockDataSelectorSelection,
+	SlotMockDataSelectorStyleClasses,
+	StylistSelection
 } from './interface';

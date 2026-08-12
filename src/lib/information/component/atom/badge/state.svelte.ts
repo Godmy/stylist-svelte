@@ -1,4 +1,4 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeBadge } from '$stylist/information/interface/recipe/badge';
 
 export function createBadgeState(props: RecipeBadge) {
@@ -7,7 +7,7 @@ export function createBadgeState(props: RecipeBadge) {
 	const className = $derived(typeof props.class === 'string' ? props.class : '');
 	const sizeClass = $derived(`badge--size-${String(size).replaceAll('/', '-')}`);
 	const classes = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'badge',
 			`badge--${variant}`,
 			sizeClass,

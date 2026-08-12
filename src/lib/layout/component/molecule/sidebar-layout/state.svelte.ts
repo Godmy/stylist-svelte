@@ -1,9 +1,9 @@
 import type { SplitLayoutGap } from '$stylist/layout/type/alias/split-layout-gap';
-import type { SidebarLayoutProps } from '$stylist/layout/interface/recipe/sidebar-layout';
+import type { RecipeSidebarLayout } from '$stylist/layout/interface/recipe/sidebar-layout';
 
 import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/array/alignment';
 import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
-export function createSidebarLayoutState(props: SidebarLayoutProps) {
+export function createSidebarLayoutState(props: RecipeSidebarLayout) {
 	const side = $derived<(typeof TOKEN_ALIGNMENT)[number]>(props.side ?? 'left');
 	const sidebarLabel = $derived(props.sidebarLabel ?? 'Sidebar');
 	const sidebarWidth = $derived<(typeof TOKEN_SIZE)[number]>(props.sidebarWidth ?? 'md');

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { CartSummaryProps } from '$stylist/commerce/interface/recipe/cart-summary-props';
+	import type { RecipeCartSummaryProps } from '$stylist/commerce/interface/recipe/cart-summary-props';
 	import createCartSummaryState from './state.svelte';
 
-	let props: CartSummaryProps = $props();
+	let props: RecipeCartSummaryProps = $props();
 	const state = createCartSummaryState(props);
 </script>
 

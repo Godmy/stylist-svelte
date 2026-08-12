@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { createButtonFactoryInput } from './behavior';
 export type {
 	RecipeAlert,
 	RecipeErrorMessage,
@@ -7,6 +8,7 @@ export type {
 	RecipeNotificationList,
 	RecipeNotificationOptions,
 	RecipeNotificationPreferences,
+	RecipeNotificationSettings,
 	RecipeScheduledNotification,
 	RecipeToast,
 	RecipeToastStack

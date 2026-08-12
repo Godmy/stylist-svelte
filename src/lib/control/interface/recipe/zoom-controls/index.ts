@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { ZoomSpecificProps } from '$stylist/control/interface/recipe/zoom-specific-props';
+import type { RecipeZoomSpecificProps } from '$stylist/control/interface/recipe/zoom-specific-props';
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorShapeable } from '$stylist/layout/interface/behavior/shapeable';
@@ -9,8 +9,8 @@ import type { BehaviorSpaced } from '$stylist/layout/interface/behavior/spaced';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-export interface RecipeZoomControls
-	extends ComputeIntersectAll<[((HTMLAttributes<HTMLDivElement> & {
+
+export interface RecipeZoomControls extends ComputeIntersectAll<[((HTMLAttributes<HTMLDivElement> & {
 /**
 	 * Initial zoom level percentage
 	 * @default 100
@@ -71,4 +71,4 @@ export interface RecipeZoomControls
 	 */
 	onChange?: (zoomLevel: number) => void;
 })), SlotText, SlotIcon, BehaviorClickable, BehaviorFocusable, BehaviorSized, BehaviorShapeable, BehaviorSpaced, SlotTheme]>,
-		ZoomSpecificProps {}
+		RecipeZoomSpecificProps {}

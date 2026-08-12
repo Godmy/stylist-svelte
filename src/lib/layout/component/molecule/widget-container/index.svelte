@@ -1,14 +1,14 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createWidgetContainerState from './state.svelte';
-	import type { WidgetContainerProps } from '$stylist/layout/interface/recipe/widget-container';
+	import type { RecipeWidgetContainer } from '$stylist/layout/interface/recipe/widget-container';
 
 	const GripVertical = 'grip-vertical';
 	const MoreHorizontal = 'more-horizontal';
 	const Minimize2 = 'minimize-2';
 	const Maximize2 = 'maximize-2';
 
-	let props: WidgetContainerProps = $props();
+	let props: RecipeWidgetContainer = $props();
 	const state = createWidgetContainerState(props);
 
 	const TITLE_SIZE: Record<string, string> = {

@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 type MessageStatus = 'sent' | 'delivered' | 'read';
 
@@ -25,14 +25,14 @@ export const createChatMessageState = (props: {
 	);
 
 	const statusIconClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-chat-message__status-icon',
 			props.status === 'read' && 'c-chat-message__status-icon--read'
 		)
 	);
 
 	const containerClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-chat-message',
 			props.isOwn && 'c-chat-message--own',
 			props.class ?? ''
@@ -40,19 +40,19 @@ export const createChatMessageState = (props: {
 	);
 
 	const contentClasses = $derived(
-		mergeClassNames('c-chat-message__content', props.contentClass ?? '')
+		ClassNamesManager.merge('c-chat-message__content', props.contentClass ?? '')
 	);
 
 	const headerClasses = $derived(
-		mergeClassNames('c-chat-message__header', props.headerClass ?? '')
+		ClassNamesManager.merge('c-chat-message__header', props.headerClass ?? '')
 	);
 
 	const footerClasses = $derived(
-		mergeClassNames('c-chat-message__footer', props.footerClass ?? '')
+		ClassNamesManager.merge('c-chat-message__footer', props.footerClass ?? '')
 	);
 
 	const bubbleClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-chat-message__bubble',
 			props.isOwn
 				? 'c-chat-message__bubble--own'

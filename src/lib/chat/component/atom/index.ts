@@ -5,3 +5,4 @@ export { MessageInput } from './message-input/index';
 export { MessageMeta } from './message-meta/index';
 export { MessageStatus } from './message-status/index';
 export { MessageTimestamp } from './message-timestamp/index';
+export { StatusIndicator } from './status-indicator/index';

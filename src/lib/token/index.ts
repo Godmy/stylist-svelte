@@ -49,24 +49,27 @@ export {
 	TOKEN_TABLE_SETTING,
 	TOKEN_THEME_SETTING,
 	TOKEN_TYPOGRAPHY_SETTING,
-	TOKEN_USER_SETTING
+	TOKEN_USER_SETTING,
+	createButtonFactoryInput
 } from './const';
 export { getTokenIconKind } from './function';
 export type {
-	TokenChipSetProps,
-	TokenControlBaseProps,
-	TokenControlComposerProps,
 	TokenControlDefinition,
 	TokenControlDefinitionData,
 	TokenControlOption,
 	TokenIconProps,
 	TokenRadioControlDefinition,
-	TokenRadioControlProps,
 	TokenRangeControlDefinition,
-	TokenRangeControlProps,
 	TokenSelectControlDefinition,
-	TokenSelectControlProps,
 	TokenTextControlDefinition,
-	TokenTextControlProps,
 	TokenTextStateProps
 } from './type';
+export type {
+	RecipeToken,
+	RecipeTokenChipSet,
+	RecipeTokenControlBase,
+	RecipeTokenRadio,
+	RecipeTokenRange,
+	RecipeTokenSelect,
+	RecipeTokenText
+} from './interface';

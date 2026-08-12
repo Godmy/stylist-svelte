@@ -1,5 +1,6 @@
 <script lang="ts">
-	import type { CheckoutFormProps as Props } from '$stylist/commerce/type/object/checkout-form-props';
+	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+	import type { RecipeCheckoutForm as Props } from '$stylist/commerce/interface/recipe/checkout-form';
 
 	import createCheckoutFormState from './state.svelte';
 
@@ -7,8 +8,7 @@
 
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 
-	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-
+	
 	const CreditCard = 'credit-card';
 
 	const MapPin = 'map-pin';
@@ -44,7 +44,7 @@
 	const state = createCheckoutFormState(props);
 </script>
 
-<div class={mergeClassNames('c-checkout-form', props.class ?? '')} {...props}>
+<div class={ClassNamesManager.merge('c-checkout-form', props.class ?? '')} {...props}>
 	{#if props.showProgress ?? true}
 		<!-- Progress indicator -->
 

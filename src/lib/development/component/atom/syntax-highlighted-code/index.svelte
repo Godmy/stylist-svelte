@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { RecipeThemeSyntaxHighlightedCode } from '$stylist/development/interface/recipe/syntax-highlighted-code';
+	import type { RecipeSyntaxHighlightedCode } from '$stylist/development/interface/recipe/syntax-highlighted-code';
 	import createSyntaxHighlightedCodeState from './state.svelte';
 	import Code from '$stylist/development/component/molecule/code-block/index.svelte';
 
-	let props: RecipeThemeSyntaxHighlightedCode = $props();
+	let props: RecipeSyntaxHighlightedCode = $props();
 
 	const state = createSyntaxHighlightedCodeState(props);
 </script>

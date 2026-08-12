@@ -1,5 +1,5 @@
-﻿import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { RecipeNotificationPreferences } from '$stylist/notification/interface/recipe/notification-preferences';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+﻿import type { RecipeNotificationPreferences } from '$stylist/notification/interface/recipe/notification-preferences';
 
 export function createNotificationPreferencesState(props: RecipeNotificationPreferences) {
 	const email = $derived(props.email ?? true);
@@ -8,7 +8,7 @@ export function createNotificationPreferencesState(props: RecipeNotificationPref
 	const className = $derived(props.class ?? '');
 
 	const containerClasses = $derived(
-		mergeClassNames('c-notification-preferences border rounded-lg p-4', className)
+		ClassNamesManager.merge('c-notification-preferences border rounded-lg p-4', className)
 	);
 
 	const restProps = $derived.by(() => {

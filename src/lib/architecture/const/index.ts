@@ -27,7 +27,7 @@ export {
 	TOKEN_TIER_CONTENT,
 	TOKEN_TRAJECTORY
 } from './array';
-export { TOKEN_ZOOM } from './preset';
+export { TOKEN_ZOOM } from './object';
 export {
 	CUBE_FACE_NUMBERS_SNAPSHOT,
 	CUBE_FACE_THEMES,

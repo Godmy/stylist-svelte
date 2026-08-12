@@ -1,6 +1,6 @@
-import type { ComparisonTableProps } from '$stylist/table/type/object/comparison-table-props';
+import type { RecipeComparisonTable } from '$stylist/table/interface/recipe/comparison-table';
 
-export function createComparisonTableState(props: ComparisonTableProps) {
+export function createComparisonTableState(props: RecipeComparisonTable) {
 	const containerClass = $derived(['c-comparison-table', props.class].filter(Boolean).join(' '));
 	const headerClass = $derived(
 		['c-comparison-table__head', props.headerClass, (props.showHeader ?? true) ? '' : 'sr-only']

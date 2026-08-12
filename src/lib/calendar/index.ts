@@ -18,7 +18,8 @@ export {
 	TOKEN_FLOW,
 	TOKEN_PRIORITY,
 	TOKEN_TIMESTAMP_FORMAT,
-	TOKEN_TIME_RANGE
+	TOKEN_TIME_RANGE,
+	createButtonFactoryInput
 } from './const';
 export {
 	formatDayLabel,
@@ -48,11 +49,11 @@ export type {
 	RecipeCalendarView,
 	RecipeMiniCalendar,
 	RecipeTimeGrid,
+	RecipeTimeSlot,
 	RecipeTimeline,
 	SlotCalendarDay,
 	SlotCalendarEvent,
 	SlotDatePicker,
 	SlotEventCalendar,
-	SlotTimePicker,
-	TimeSlotProps
+	SlotTimePicker
 } from './interface';

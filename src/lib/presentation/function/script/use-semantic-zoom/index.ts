@@ -1,5 +1,5 @@
-import type { SceneNode } from '$stylist/architecture/type/object/scene-node/scene-node';
-import { resolveSemanticZoomPresentation } from '$stylist/architecture/function/script/semantic-zoom';
+import type { SceneNode } from '$stylist/architecture/interface/slot/scene-node/scene-node';
+import { SemanticZoomManager } from '$stylist/architecture/class/manager/semantic-zoom';
 export function useSemanticZoom(params: | {
 			worldDepth: number;
 			cameraDepth: number;
@@ -10,10 +10,10 @@ export function useSemanticZoom(params: | {
 	  }) {
 	const readPresentation = () => {
 		if ('node' in params) {
-			return resolveSemanticZoomPresentation(params.node.depth, params.cameraDepth);
+			return SemanticZoomManager.resolvePresentation(params.node.depth, params.cameraDepth);
 		}
 
-		return resolveSemanticZoomPresentation(params.worldDepth, params.cameraDepth);
+		return SemanticZoomManager.resolvePresentation(params.worldDepth, params.cameraDepth);
 	};
 
 	return {

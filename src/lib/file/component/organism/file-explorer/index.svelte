@@ -1,21 +1,20 @@
 <script lang="ts">
+	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+	import { FileExplorerManager } from '$stylist/file/class/manager/file-explorer';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import { createFileExplorerState } from './state.svelte';
-	import type { SlotFileSystemItem } from '$stylist/file/type/object/file-explorer/file-system-item';
+		import { createFileExplorerState } from './state.svelte';
+	import type { SlotFileSystemItem } from '$stylist/file/interface/slot/file-system-item';
 	import type { RecipeFileExplorer } from '$stylist/file/interface/recipe/file-explorer';
-	import { getFileIcon } from '$stylist/file/function/script/file-explorer-get-file-icon';
-	import { formatFileSize } from '$stylist/file/function/script/file-explorer-format-file-size';
 
 	let props: RecipeFileExplorer = $props();
 	const state = createFileExplorerState(props);
 </script>
 
-<div class={mergeClassNames('c-file-explorer', state.classes)} {...state.restProps}>
-	<div class={mergeClassNames('fe-header', props.headerClass ?? '')}>
+<div class={ClassNamesManager.merge('c-file-explorer', state.classes)} {...state.restProps}>
+	<div class={ClassNamesManager.merge('fe-header', props.headerClass ?? '')}>
 		{#if state.showPath}
-			<div class={mergeClassNames('fe-path', props.pathClass ?? '')}>
+			<div class={ClassNamesManager.merge('fe-path', props.pathClass ?? '')}>
 				{#each state.pathParts as part, index}
 					<span>{part}</span>
 					{#if index < state.pathParts.length - 1}
@@ -25,7 +24,7 @@
 			</div>
 		{/if}
 
-		<div class={mergeClassNames('fe-toolbar', props.toolbarClass ?? '')}>
+		<div class={ClassNamesManager.merge('fe-toolbar', props.toolbarClass ?? '')}>
 			<div class="fe-toolbar-left">
 				{#if state.searchable}
 					<div class="fe-search-wrap">
@@ -37,7 +36,7 @@
 						</div>
 						<input
 							type="text"
-							class={mergeClassNames('fe-search-input', props.searchClass ?? '')}
+							class={ClassNamesManager.merge('fe-search-input', props.searchClass ?? '')}
 							placeholder="Search files..."
 							value={state.searchQuery}
 							oninput={state.handleSearchInput}
@@ -80,7 +79,7 @@
 		{#if state.currentViewMode === 'grid'}
 			<div class="fe-grid">
 				{#each state.filteredItems as item}
-					{@const itemIcon = getFileIcon(item)}
+					{@const itemIcon = FileExplorerManager.getFileIcon(item)}
 					<div
 						class={`fe-grid-item ${
 							state.selectedItems.some((c: SlotFileSystemItem) => c.id === item.id)
@@ -99,7 +98,7 @@
 						/>
 						<div class="fe-grid-name">{item.name}</div>
 						{#if item.type === 'file' && item.size}
-							<div class="fe-grid-size">{formatFileSize(item.size)}</div>
+							<div class="fe-grid-size">{FileExplorerManager.formatFileSize(item.size)}</div>
 						{/if}
 					</div>
 				{/each}
@@ -107,7 +106,7 @@
 		{:else}
 			<div class="fe-list">
 				{#each state.filteredItems as item}
-					{@const itemIcon = getFileIcon(item)}
+					{@const itemIcon = FileExplorerManager.getFileIcon(item)}
 					<div
 						class={`fe-list-item ${
 							state.selectedItems.some((c: SlotFileSystemItem) => c.id === item.id)
@@ -130,7 +129,7 @@
 								{#if item.type === 'folder'}
 									Folder
 								{:else}
-									{item.size ? formatFileSize(item.size) : 'File'} •
+									{item.size ? FileExplorerManager.formatFileSize(item.size) : 'File'} •
 									{item.modified ? item.modified.toLocaleDateString() : ''}
 								{/if}
 							</div>

@@ -26,20 +26,20 @@ export {
 } from './function';
 export type {
 	ABTestConfiguratorState,
-	ConversionFunnelProps,
-	CtaBannerProps,
 	FunnelStep,
 	IHeroCTA,
 	TestResult,
-	TestResultsViewerProps,
-	TokenTest,
-	TrafficAnalyticsProps,
-	UserBehaviorMetricsProps
+	TokenTest
 } from './type';
 export type {
 	ContractMarketing,
 	RecipeAnnouncementBanner,
+	RecipeConversionFunnel,
+	RecipeCtaBanner,
 	RecipePromoBanner,
+	RecipeTestResultsViewer,
+	RecipeTrafficAnalytics,
+	RecipeUserBehaviorMetrics,
 	SlotABTest,
 	SlotABTestConfigurator,
 	SlotABTestVariant,

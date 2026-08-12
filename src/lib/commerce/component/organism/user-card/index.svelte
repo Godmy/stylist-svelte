@@ -1,11 +1,11 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { UserCardProps } from '$stylist/commerce/interface/recipe/user-card-props';
+	import type { RecipeUserCardProps } from '$stylist/commerce/interface/recipe/user-card-props';
 	import createUserCardState from './state.svelte';
 
 	const MoreVertical = 'more-vertical';
 
-	let props: UserCardProps = $props();
+	let props: RecipeUserCardProps = $props();
 	const state = createUserCardState(props);
 </script>
 

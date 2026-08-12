@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { StackProps } from '$stylist/layout/interface/recipe/stack';
+	import type { RecipeStack } from '$stylist/layout/interface/recipe/stack';
 	import createStackState from './state.svelte';
 
-	let props: StackProps = $props();
+	let props: RecipeStack = $props();
 	const state = createStackState(props);
 </script>
 

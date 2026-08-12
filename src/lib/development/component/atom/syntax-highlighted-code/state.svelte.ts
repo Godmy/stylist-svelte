@@ -1,7 +1,7 @@
-import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { RecipeThemeSyntaxHighlightedCode } from '$stylist/development/interface/recipe/syntax-highlighted-code';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import type { RecipeSyntaxHighlightedCode } from '$stylist/development/interface/recipe/syntax-highlighted-code';
 
-export function createSyntaxHighlightedCodeState(props: RecipeThemeSyntaxHighlightedCode) {
+export function createSyntaxHighlightedCodeState(props: RecipeSyntaxHighlightedCode) {
 	const SIZE_CLASS: Record<string, string> = {
 		xs: 'shc--xs',
 		sm: 'shc--sm',
@@ -20,7 +20,7 @@ export function createSyntaxHighlightedCodeState(props: RecipeThemeSyntaxHighlig
 	};
 
 	const containerClasses = $derived(
-		joinClassNames(
+		ClassNamesManager.join(
 			'shc',
 			`shc--${props.variant ?? 'default'}`,
 			SIZE_CLASS[props.size ?? 'md'] ?? 'shc--md',

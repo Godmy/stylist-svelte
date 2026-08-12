@@ -1,5 +1,5 @@
-﻿import type { RecipeNodeConnection } from '$stylist/workspace/interface/recipe/node-connection';
-import type { ObjectPoint2DPath } from '$stylist/architecture/type/object/point-2d-path';
+import type { RecipeNodeConnection } from '$stylist/workspace/interface/recipe/node-connection';
+import type { ObjectPoint2DPath } from '$stylist/architecture/interface/slot/point-2d-path';
 import type { TokenTrajectory } from '$stylist/architecture/type/alias/trajectory';
 import type { TokenBorderStyle as LineStyleToken } from '$stylist/layout/type/alias/border-style';
 

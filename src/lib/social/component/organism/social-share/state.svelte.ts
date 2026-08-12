@@ -1,8 +1,8 @@
 import type { ShareOption } from '$stylist/social/type/object/social-share/shareoption';
 import type { SocialPlatform } from '$stylist/social/type/object/social-share/socialplatform';
-import type { Props } from '$stylist/social/type/object/social-share/-props';
+import type { RecipeSocialShare } from '$stylist/social/interface/recipe/social-share';
 
-export function createSocialShareState(props: Props) {
+export function createSocialShareState(props: RecipeSocialShare) {
 	let showDropdown = $state(false);
 	let copied = $state(false);
 	const requestedPlatforms = $derived((props.platforms ?? ['copy']) as SocialPlatform[]);

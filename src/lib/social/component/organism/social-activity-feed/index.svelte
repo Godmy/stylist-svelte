@@ -4,9 +4,9 @@
 	import { socialActivityFeedFormatTime } from '$stylist/social/function/script/social-activity-feed-format-time';
 	import { socialActivityFeedGetDescription } from '$stylist/social/function/script/social-activity-feed-get-description';
 	import createSocialActivityFeedState from './state.svelte';
-	import type { Props } from '$stylist/social/type/object/social-activity-feed/-props';
+	import type { RecipeSocialActivityFeed } from '$stylist/social/interface/recipe/social-activity-feed';
 
-	let props: Props = $props();
+	let props: RecipeSocialActivityFeed = $props();
 	const state = createSocialActivityFeedState(props);
 </script>
 

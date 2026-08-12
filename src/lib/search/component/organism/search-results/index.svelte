@@ -1,9 +1,9 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createSearchResultsState from './state.svelte';
-	import type { SearchResultsProps } from '$stylist/search/type/object/search-results-props';
+	import type { RecipeSearchResults } from '$stylist/search/interface/recipe/search-results';
 
-	let props: SearchResultsProps = $props();
+	let props: RecipeSearchResults = $props();
 	const state = createSearchResultsState(props);
 
 	const restProps = $derived.by(() => {

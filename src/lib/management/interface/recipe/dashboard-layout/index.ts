@@ -2,7 +2,7 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenDensity } from '$stylist/layout/type/alias/density';
-export interface DashboardLayoutProps
+export interface RecipeDashboardLayout
 	extends ComputeIntersectAll<[Omit<HTMLAttributes<HTMLDivElement>, 'class'>]> {
 	header?: Snippet;
 	sidebar?: Snippet;

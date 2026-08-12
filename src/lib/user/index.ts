@@ -17,13 +17,13 @@ export type {
 	TokenAvailability
 } from './type';
 export type {
-	AvatarGroupProps,
-	AvatarSelectorProps,
 	ContractAvatar,
 	ContractAvatarGroup,
 	RecipeAccountSettings,
 	RecipeAccountSettingsForm,
 	RecipeAvatar,
 	RecipeAvatarGroup,
+	RecipeAvatarGroupAvatarGroupProps,
+	RecipeAvatarSelector,
 	RecipeUserProfileCard
 } from './interface';

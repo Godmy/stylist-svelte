@@ -1,11 +1,10 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { GraphScriptManager } from '$stylist/graph/class/manager/graph-script';
 import { InstancedGraphManager } from '$stylist/graph/class/manager/instanced-graph';
-import { parseZwickyGraph } from '$stylist/graph/function/script/parse-zwicky-graph';
-import { layoutZwickyNodes } from '$stylist/graph/function/script/layout-zwicky-nodes';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { ZwickySceneProps } from '$stylist/graph/type/object/zwicky-scene-props';
-import type { ZwickyNode } from '$stylist/graph/type/object/zwicky-node';
+import type { RecipeZwickyScene } from '$stylist/graph/interface/recipe/zwicky-scene';
+import type { ZwickyNode } from '$stylist/graph/interface/slot/zwicky-node';
 
-export function createZwickySceneState(props: ZwickySceneProps) {
+export function createZwickySceneState(props: RecipeZwickyScene) {
 	const manager = new InstancedGraphManager();
 
 	let selectedNode = $state<ZwickyNode | null>(null);
@@ -19,12 +18,12 @@ export function createZwickySceneState(props: ZwickySceneProps) {
 	let containerWidth = $state(800);
 	let containerHeight = $state(600);
 
-	const containerClass = $derived(mergeClassNames('zwicky-scene', props.class?.toString() ?? ''));
+	const containerClass = $derived(ClassNamesManager.merge('zwicky-scene', props.class?.toString() ?? ''));
 	const canvasClass = $derived(
-		mergeClassNames('zwicky-scene__canvas', props.canvasClass?.toString() ?? '')
+		ClassNamesManager.merge('zwicky-scene__canvas', props.canvasClass?.toString() ?? '')
 	);
 	const overlayClass = $derived(
-		mergeClassNames('zwicky-scene__overlay', props.overlayClass?.toString() ?? '')
+		ClassNamesManager.merge('zwicky-scene__overlay', props.overlayClass?.toString() ?? '')
 	);
 	const title = $derived(props.title ?? 'Zwicky Graph');
 
@@ -48,8 +47,8 @@ export function createZwickySceneState(props: ZwickySceneProps) {
 		const input = props.data;
 		if (!input) return;
 
-		const { nodes, edges } = parseZwickyGraph(input);
-		layoutZwickyNodes(nodes);
+		const { nodes, edges } = GraphScriptManager.parseZwickyGraph(input);
+		GraphScriptManager.layoutZwickyNodes(nodes);
 		manager.setGraph(nodes, edges);
 		nodeCount = nodes.length;
 		edgeCount = edges.length;

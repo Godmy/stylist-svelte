@@ -30,3 +30,4 @@ export {
 	TOKEN_TYPOGRAPHY_SETTING,
 	TOKEN_USER_SETTING
 } from './object';
+export { createButtonFactoryInput } from './record';

@@ -11,6 +11,9 @@ export type {
 	RecipeAnimatedBackground,
 	RecipeAnimatedNumber,
 	RecipeLayoutTransformation,
+	RecipeLoading,
 	RecipeNumberFlow,
+	RecipeSkeleton,
+	RecipeSpinner,
 	RecipeTransformable
 } from './recipe';

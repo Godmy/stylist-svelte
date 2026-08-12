@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SideBySideLayoutProps } from '$stylist/navigation/type/object/side-by-side-layout-props/sidebysidelayout-props';
+	import type { RecipeSideBySideLayout } from '$stylist/navigation/interface/recipe/side-by-side-layout';
 	import createSideBySideLayoutState from './state.svelte';
 
-	let props: SideBySideLayoutProps = $props();
+	let props: RecipeSideBySideLayout = $props();
 	const state = createSideBySideLayoutState(props);
 </script>
 

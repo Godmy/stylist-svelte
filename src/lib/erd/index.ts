@@ -29,7 +29,7 @@ export type {
 	SchemaTablePosition
 } from './type';
 export type {
-	RecipeErdDepencency,
+	RecipeErdDependency,
 	RecipeErdTable,
 	RecipeErdTableField,
 	RecipeErdTableHeader,

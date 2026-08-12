@@ -1,4 +1,4 @@
-import type { AnyProperty } from '$stylist/layout/type/object/any-property';
+import type { RecipeNotificationSettings } from '$stylist/notification/interface/recipe/notification-settings';
 import type { TokenNotifictionChannel } from '$stylist/notification/type/alias/notification-channel';
 import { updateNotificationPreference } from '$stylist/notification/function/script/notification-settings';
 
@@ -8,7 +8,7 @@ const Smartphone = 'smartphone';
 const Monitor = 'monitor';
 const Settings = 'settings';
 
-export function createNotificationSettingsState(props: AnyProperty) {
+export function createNotificationSettingsState(props: RecipeNotificationSettings) {
 	// Props with defaults
 	const preferences = $derived(props.preferences ?? []);
 	const onPreferenceChange = $derived(props.onPreferenceChange);

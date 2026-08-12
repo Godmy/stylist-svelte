@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import type { SlotDocumentPreview as DocumentPreviewProps } from '$stylist/file/interface/slot/document-preview';
+	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+		import type { SlotDocumentPreview as DocumentPreviewProps } from '$stylist/file/interface/slot/document-preview';
 	import createDocumentPreviewState from './state.svelte';
 	let props: DocumentPreviewProps = $props();
 	const state = createDocumentPreviewState(props);
 	const { title: _title, content: _content, format: _format, class: _class, ...restProps } = props;
 </script>
 
-<div class={mergeClassNames('c-document-preview', state.classes)} {...restProps}>
+<div class={ClassNamesManager.merge('c-document-preview', state.classes)} {...restProps}>
 	<div class="dp-title">{props.title ?? 'Document Preview'}</div>
 	<div class="dp-format">Format: {props.format ?? 'text'}</div>
 	<pre class="dp-content">{props.content ?? 'No content'}</pre>

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { PaymentSummaryProps } from '$stylist/commerce/type/object/payment-summary-props';
+	import type { RecipePaymentSummary } from '$stylist/commerce/interface/recipe/payment-summary';
 	import createPaymentSummaryState from './state.svelte';
 
-	let props: PaymentSummaryProps = $props();
+	let props: RecipePaymentSummary = $props();
 	const state = createPaymentSummaryState(props);
 </script>
 

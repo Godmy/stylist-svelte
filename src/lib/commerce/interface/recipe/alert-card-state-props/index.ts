@@ -1,4 +1,4 @@
-export interface AlertCardStateProps {
+﻿export interface RecipeAlertCardStateProps {
 	variant?: string;
 	size?: string;
 	title?: string;

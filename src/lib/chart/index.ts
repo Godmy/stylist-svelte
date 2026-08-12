@@ -42,33 +42,30 @@ export {
 	TOKEN_CHART,
 	TOKEN_CHART_COLORS
 } from './const';
-export { resolveCanvasChartPreset } from './function';
+export type {
+	HeatmapAxisValue,
+	TokenCanvasChartType,
+	TokenChart
+} from './type';
 export type {
 	AnalyticsChartBarPoint,
-	AnalyticsChartCanvasProps,
 	AnalyticsChartDataPoint,
+	BehaviorChartAxis,
+	BehaviorChartColorable,
+	BehaviorLegendable,
+	BehaviorPointClickable,
+	BehaviorTooltipable,
 	CanvasChartPadding,
 	ChartFunctionPoint,
 	ChartLegendItem,
-	HeatmapAxisValue,
 	IChartDataPoint,
 	IHeatmapCell,
 	InformationPieChartSegment,
 	LineChartData,
 	LineChartPoint,
 	PieChartDataPoint,
-	ScatterPlotDataPoint,
-	TokenCanvasChartType,
-	TokenChart
-} from './type';
-export type {
-	BehaviorChartAxis,
-	BehaviorChartColorable,
-	BehaviorLegendable,
-	BehaviorPointClickable,
-	BehaviorTooltipable,
-	ChartLegendProps,
 	RecipeAnalyticsChart,
+	RecipeAnalyticsChartCanvas,
 	RecipeBarChart,
 	RecipeCanvasChart,
 	RecipeChart,
@@ -77,6 +74,7 @@ export type {
 	RecipeChartAxisZ,
 	RecipeChartBackground,
 	RecipeChartCanvas,
+	RecipeChartLegend,
 	RecipeChartName,
 	RecipeChartPolyline,
 	RecipeHeatmap,
@@ -87,5 +85,6 @@ export type {
 	RecipeRangeBarsChart,
 	RecipeScatterPlot,
 	RecipeVerticalBarsChart,
+	ScatterPlotDataPoint,
 	SlotChartAxis
 } from './interface';

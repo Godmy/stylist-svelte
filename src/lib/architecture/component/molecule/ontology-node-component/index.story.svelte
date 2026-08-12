@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { Point2D } from '$stylist/architecture/type/object/point-2d';
+	import type { Point2D } from '$stylist/architecture/interface/slot/point-2d';
 	import OntologyNodeComponent from './index.svelte';
 
 	type OntologyNode = {

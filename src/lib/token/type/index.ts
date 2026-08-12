@@ -2,19 +2,12 @@
 export type { TokenTextStateProps } from './alias';
 export type {
 	Token,
-	TokenChipSetProps,
-	TokenControlBaseProps,
-	TokenControlComposerProps,
 	TokenControlDefinition,
 	TokenControlDefinitionData,
 	TokenControlOption,
 	TokenIconProps,
 	TokenRadioControlDefinition,
-	TokenRadioControlProps,
 	TokenRangeControlDefinition,
-	TokenRangeControlProps,
 	TokenSelectControlDefinition,
-	TokenSelectControlProps,
-	TokenTextControlDefinition,
-	TokenTextControlProps
+	TokenTextControlDefinition
 } from './object';

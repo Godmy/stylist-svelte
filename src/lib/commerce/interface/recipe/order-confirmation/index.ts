@@ -3,8 +3,8 @@ import type { HtmlAttributesBase } from '$stylist/information/interface/slot/htm
 import type { TokenOrderStatus } from '$stylist/commerce/type/alias/order-status';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface RecipeOrderConfirmation
-	extends ComputeIntersectAll<[((HtmlAttributesBase<HTMLDivElement> & {
+
+export interface RecipeOrderConfirmation extends ComputeIntersectAll<[((HtmlAttributesBase<HTMLDivElement> & {
 onDownloadInvoice?: () => void;
 	onShareOrder?: () => void;
 	onContinueShopping?: () => void;

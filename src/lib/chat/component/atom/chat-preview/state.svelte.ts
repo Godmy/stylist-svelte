@@ -1,6 +1,6 @@
-import type { AnyProperty } from '$stylist/layout/type/object/any-property';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import type { RecipeChatPreview } from '$stylist/chat/interface/recipe/chat-preview';
 
-import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createChatPreviewState(props: {
 	title?: string;
@@ -11,7 +11,7 @@ export function createChatPreviewState(props: {
 	variant?: string;
 	size?: string;
 	class?: string;
-} | AnyProperty) {
+} | RecipeChatPreview) {
 	// Initialize props with defaults
 	const title = props.title ?? 'Chat';
 	const participants = props.participants ?? [];
@@ -28,7 +28,7 @@ export function createChatPreviewState(props: {
 	const validSize = ['sm', 'md', 'lg'].includes(size) ? size : 'md';
 
 	const styles = {
-		container: joinClassNames(
+		container: ClassNamesManager.join(
 			'c-chat-preview',
 			`c-chat-preview--${validVariant}`,
 			`c-chat-preview--${validSize}`
@@ -41,7 +41,7 @@ export function createChatPreviewState(props: {
 	};
 
 	// Merge classes with custom classes
-	const classes = $derived(joinClassNames(String(props.class ?? ''), styles.container));
+	const classes = $derived(ClassNamesManager.join(String(props.class ?? ''), styles.container));
 
 	return {
 		get title() {

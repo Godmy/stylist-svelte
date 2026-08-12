@@ -1,9 +1,8 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { SceneNode } from '$stylist/architecture/type/object/scene-node/scene-node';
-	import { resolveSemanticZoomNode } from '$stylist/architecture/function/script/resolve-semantic-zoom-node';
-	import { resolveSemanticZoomPresentation } from '$stylist/architecture/function/script/semantic-zoom';
+	import type { SceneNode } from '$stylist/architecture/interface/slot/scene-node/scene-node';
+	import { SemanticZoomManager } from '$stylist/architecture/class/manager/semantic-zoom';
 	import PreziScene from './index.svelte';
 
 	const VIEWPORT_WIDTH = 1320;
@@ -103,7 +102,7 @@
 		return Math.round((percent / 100) * VIEWPORT_HEIGHT);
 	}
 
-	function getWorldStyle(card: ReturnType<typeof resolveSemanticZoomNode>): string {
+	function getWorldStyle(card: ReturnType<typeof SemanticZoomManager.resolveNode>): string {
 		return [
 			`left:${worldX(card.node.position.x)}px`,
 			`top:${worldY(card.node.position.y)}px`,
@@ -114,7 +113,7 @@
 	}
 
 	function getLocalStyle(
-		card: ReturnType<typeof resolveSemanticZoomPresentation> & { node: SceneNode }
+		card: ReturnType<typeof SemanticZoomManager.resolvePresentation> & { node: SceneNode }
 	): string {
 		return [
 			`left:${Math.round(worldX(card.node.position.x) * 0.45)}px`,
@@ -134,7 +133,7 @@
 >
 	{#snippet children(values: any)}
 		{@const worldCards = sceneNodes.map((node) =>
-			resolveSemanticZoomNode(node, Number(values.cameraDepth))
+			SemanticZoomManager.resolveNode(node, Number(values.cameraDepth))
 		)}
 		{@const activeWorldCard = worldCards.reduce(
 			(best, current) => (current.distance < best.distance ? current : best),
@@ -142,7 +141,7 @@
 		)}
 		{@const localCards = (activeWorldCard?.node.children ?? []).map((child) => ({
 			node: child,
-			...resolveSemanticZoomPresentation(child.depth, Number(values.localDepth))
+			...SemanticZoomManager.resolvePresentation(child.depth, Number(values.localDepth))
 		}))}
 
 		<div class="prezi-story">

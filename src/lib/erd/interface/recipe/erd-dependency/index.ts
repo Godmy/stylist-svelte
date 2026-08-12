@@ -1,5 +1,5 @@
 import type { SchemaDependency } from '$stylist/erd/type/object/schema-dependency';
-export interface RecipeErdDepencency {
+export interface RecipeErdDependency {
 	dependency: SchemaDependency;
 	x1: number;
 	y1: number;

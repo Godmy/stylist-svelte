@@ -1,6 +1,6 @@
-import type { NodeDotProps } from '$stylist/layout/interface/recipe/node-dot';
+import type { RecipeNodeDot } from '$stylist/layout/interface/recipe/node-dot';
 
-export function createNodeDotState(props: NodeDotProps) {
+export function createNodeDotState(props: RecipeNodeDot) {
 	const accent = $derived(props.accent ?? 'var(--color-accent, #3498db)');
 	const size = $derived(props.size ?? 16);
 	const opacity = $derived(props.opacity ?? 0.8);

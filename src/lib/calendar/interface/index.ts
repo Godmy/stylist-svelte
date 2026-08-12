@@ -4,8 +4,8 @@ export type {
 	RecipeCalendarView,
 	RecipeMiniCalendar,
 	RecipeTimeGrid,
-	RecipeTimeline,
-	TimeSlotProps
+	RecipeTimeSlot,
+	RecipeTimeline
 } from './recipe';
 export type {
 	SlotCalendarDay,

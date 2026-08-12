@@ -11,8 +11,6 @@ export type {
 	ComboboxItem,
 	FilterChangePayload,
 	FilterPanelProps,
-	RecipeActionSegmentedControlProps,
-	SliderTickComponentProps,
 	ToggleGroupContext,
 	ToggleProps
 } from './object';

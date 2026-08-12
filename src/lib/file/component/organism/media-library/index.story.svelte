@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { MediaItem } from '$stylist/file/type/object/media-item';
+	import type { SlotMediaItem } from '$stylist/file/interface/slot/media-item';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
@@ -11,7 +11,7 @@
 		{ name: 'allowDelete', type: 'boolean', defaultValue: true }
 	];
 
-	const items: MediaItem[] = [
+	const items: SlotMediaItem[] = [
 		{
 			id: '1',
 			url: 'https://via.placeholder.com/150',
@@ -46,7 +46,7 @@
 				allowUpload={values.allowUpload as boolean}
 				allowDownload={values.allowDownload as boolean}
 				allowDelete={values.allowDelete as boolean}
-				onItemSelect={(item: MediaItem) => console.log('Item selected:', item)}
+				onItemSelect={(item: SlotMediaItem) => console.log('Item selected:', item)}
 				onItemDelete={(id: string) => console.log('Item deleted:', id)}
 				onItemDownload={(id: string) => console.log('Item downloaded:', id)}
 				onUpload={(files: FileList) => console.log('Files uploaded:', files.length)}

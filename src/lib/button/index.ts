@@ -11,9 +11,6 @@ export {
 } from './component';
 export {
 	CONTROL_BUTTON_ICON,
-	PresetCloseButton,
-	PresetCopyButton,
-	PresetFollowButton,
 	TOKEN_BUTTON_LOADER_CLASSES
 } from './const';
 export {
@@ -23,20 +20,20 @@ export {
 } from './function';
 export type {
 	ButtonPropsRecord,
-	SplitButtonButtonAttributes,
-	ToolButtonProps
+	SplitButtonButtonAttributes
 } from './type';
 export type { ButtonPreset } from './function';
 export type {
-	ButtonFactoryInput,
 	RecipeButton,
 	RecipeButtonComposed,
 	RecipeButtonElement,
+	RecipeButtonFactoryInput,
 	RecipeCloseButton,
 	RecipeCopyButton,
 	RecipeFollowButton,
 	RecipeIconButton,
 	RecipeSplitButton,
+	RecipeToolButton,
 	SlotButtonAttributesBase,
 	SlotButtonDom
 } from './interface';

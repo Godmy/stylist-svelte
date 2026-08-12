@@ -1,11 +1,11 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createSortableGridState from './state.svelte';
-	import type { SortableGridProps } from '$stylist/layout/interface/recipe/sortable-grid';
+	import type { RecipeSortableGrid } from '$stylist/layout/interface/recipe/sortable-grid';
 
 	const GripVertical = 'grip-vertical';
 
-	let props: SortableGridProps = $props();
+	let props: RecipeSortableGrid = $props();
 	const state = createSortableGridState(props);
 
 	const restProps = $derived.by(() => {

@@ -1,22 +1,9 @@
-
+import type { BulkOrderFormItem } from '$stylist/commerce/interface/slot/bulk-order-form-item';
+import type { BulkOrderFormProduct } from '$stylist/commerce/interface/slot/bulk-order-form-product';
 
 export interface SlotBulkOrderForm {
-	products: {
-	id: string;
-	name: string;
-	price: number;
-	originalPrice?: number;
-	thumbnail?: string;
-	minOrder?: number;
-	available?: number;
-}[];
-	initialItems?: {
-	id: string;
-	productId: string;
-	quantity: number;
-	price: number;
-	note?: string;
-}[];
+	products: BulkOrderFormProduct[];
+	initialItems?: BulkOrderFormItem[];
 	title?: string;
 	description?: string;
 	showTotal?: boolean;
@@ -27,20 +14,8 @@ export interface SlotBulkOrderForm {
 	formClass?: string;
 	itemClass?: string;
 	actionsClass?: string;
-	onOrderSubmit?: (items: {
-	id: string;
-	productId: string;
-	quantity: number;
-	price: number;
-	note?: string;
-}[]) => void;
-	onItemsChange?: (items: {
-	id: string;
-	productId: string;
-	quantity: number;
-	price: number;
-	note?: string;
-}[]) => void;
+	onOrderSubmit?: (items: BulkOrderFormItem[]) => void;
+	onItemsChange?: (items: BulkOrderFormItem[]) => void;
 	currency?: string;
 	locale?: string;
 }

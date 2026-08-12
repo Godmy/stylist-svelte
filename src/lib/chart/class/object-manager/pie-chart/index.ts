@@ -1,4 +1,4 @@
-import type { PieChartDataPoint } from '$stylist/chart/type/object/pie-chart';
+import type { PieChartDataPoint } from '$stylist/chart/interface/slot/pie-chart';
 import { TOKEN_CHART_COLORS } from '$stylist/chart/const/array/chart-colors';
 
 export class ObjectManagerPieChart {

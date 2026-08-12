@@ -7,7 +7,7 @@ export {
 export { LIST_ITEM_MARKER_TYPE } from './const';
 export type { ListItemMarkerType } from './type';
 export type {
-	DragAndDropListProps,
+	RecipeDragAndDropList,
 	RecipeListItemMarker,
 	SlotDragAndDropListItem,
 	SlotSortableList,

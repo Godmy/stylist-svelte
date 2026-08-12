@@ -1,8 +1,8 @@
-import type { ChartFunctionPoint } from '$stylist/chart/type/object/chart-point';
-import type { ChartSeries } from '$stylist/chart/type/object/chart-series';
+import type { ChartFunctionPoint } from '$stylist/chart/interface/slot/chart-point';
+import type { ChartSeries } from '$stylist/chart/interface/slot/chart-series';
 import type { RecipeChartAxisY } from '$stylist/chart/interface/recipe/chart-axis-y';
 import type { RecipeChartPolyline as ChartPolylineProps } from '$stylist/chart/interface/recipe/chart-polyline';
-import type { ChartLegendItem } from '$stylist/chart/type/object/chart-legend-item';
+import type { ChartLegendItem } from '$stylist/chart/interface/slot/chart-legend-item';
 export class ObjectManagerChart {
 	static resolveSeries(series?: ChartSeries[]): ChartSeries[] {
 		return series ?? [];

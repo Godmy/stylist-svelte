@@ -1,9 +1,9 @@
-import type { VerticalLayoutProps } from '$stylist/layout/interface/recipe/vertical-layout';
+import type { RecipeVerticalLayout } from '$stylist/layout/interface/recipe/vertical-layout';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenJustification } from '$stylist/layout/type/alias/justification';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 
-export function createVerticalLayoutState(props: VerticalLayoutProps) {
+export function createVerticalLayoutState(props: RecipeVerticalLayout) {
 	const gap = $derived<TokenSize>((props.gap as TokenSize | undefined) ?? 'md');
 	const alignItems = $derived<TokenAlignment | 'stretch' | 'baseline'>(
 		(props.alignItems as TokenAlignment | 'stretch' | 'baseline' | undefined) ?? 'stretch'

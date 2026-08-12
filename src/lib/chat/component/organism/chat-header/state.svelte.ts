@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { ChatHeaderOrganismProps } from '$stylist/chat/type/alias/chat-header-organism-props';
 
 export const createChatHeaderState = (props: ChatHeaderOrganismProps) => {
@@ -14,7 +14,7 @@ export const createChatHeaderState = (props: ChatHeaderOrganismProps) => {
 		!isGroupChat ? chat.participants.find((u: User) => u.id !== currentUser.id) : null
 	) as User | null;
 
-	const containerClasses = $derived(mergeClassNames('c-chat-header', className));
+	const containerClasses = $derived(ClassNamesManager.merge('c-chat-header', className));
 	const infoClasses = $derived('chat-info');
 	const detailsClasses = $derived('chat-details');
 	const nameClasses = $derived('chat-name');

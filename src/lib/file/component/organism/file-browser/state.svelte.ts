@@ -1,9 +1,6 @@
+import { FileBrowserManager } from '$stylist/file/class/manager/file-browser';
 import type { RecipeFileBrowser } from '$stylist/file/interface/recipe/file-browser';
-import type { SlotFolderItem } from '$stylist/file/type/object/file-browser/folder-item';
-import { handleAction as handleActionFn } from '$stylist/file/function/script/file-browser-handle-action';
-import { handleSelect as handleSelectFn } from '$stylist/file/function/script/file-browser-handle-select';
-import { isExpanded as isExpandedFn } from '$stylist/file/function/script/file-browser-is-expanded';
-import { toggleItem as toggleItemFn } from '$stylist/file/function/script/file-browser';
+import type { SlotFolderItem } from '$stylist/file/interface/slot/folder-item';
 
 export function createFileBrowserState(props: RecipeFileBrowser) {
 	const items = $derived(props.items ?? []);
@@ -65,19 +62,19 @@ export function createFileBrowserState(props: RecipeFileBrowser) {
 	}
 
 	function toggleItem(item: SlotFolderItem): void {
-		toggleItemFn(item, disabled, expandedItems, setExpandedItems, props.onItemToggle);
+		FileBrowserManager.toggleItem(item, disabled, expandedItems, setExpandedItems, props.onItemToggle);
 	}
 
 	function handleSelect(item: SlotFolderItem): void {
-		handleSelectFn(item, enableSelection, disabled, setSelectedItem, props.onItemSelect);
+		FileBrowserManager.handleSelect(item, enableSelection, disabled, setSelectedItem, props.onItemSelect);
 	}
 
 	function handleAction(item: SlotFolderItem, action: string): void {
-		handleActionFn(item, action, props.onItemAction);
+		FileBrowserManager.handleAction(item, action, props.onItemAction);
 	}
 
 	function isExpanded(id: string): boolean {
-		return isExpandedFn(id, expandedItems);
+		return FileBrowserManager.isExpanded(id, expandedItems);
 	}
 
 	return {

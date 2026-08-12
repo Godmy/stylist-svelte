@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createMessageItemState = (props: {
 	message: Message;
@@ -17,11 +17,11 @@ export const createMessageItemState = (props: {
 	const availableReactions = $state(['👍', '👎', '❤️', '😂', '😮', '😢']);
 
 	const messageContainerClasses = $derived(
-		mergeClassNames('message-container', isOwn ? 'message-container--own' : '')
+		ClassNamesManager.merge('message-container', isOwn ? 'message-container--own' : '')
 	);
 
 	const messageBubbleClasses = $derived(
-		mergeClassNames('message-bubble', isOwn ? 'message-bubble--own' : 'message-bubble--other')
+		ClassNamesManager.merge('message-bubble', isOwn ? 'message-bubble--own' : 'message-bubble--other')
 	);
 
 	const messageContentClasses = 'message-content';

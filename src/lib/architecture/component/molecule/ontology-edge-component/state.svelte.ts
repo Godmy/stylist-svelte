@@ -1,4 +1,4 @@
-import type { OntologyEdgeComponentProps } from '$stylist/architecture/type/object/ontology-edge-component/ontologyedgecomponent-props';
+import type { RecipeOntologyEdgeComponent } from '$stylist/architecture/interface/recipe/ontology-edge-component';
 
 const EDGE_COLOR_MAP: Record<string, string> = {
 	subClassOf: 'var(--color-info-500)',
@@ -16,7 +16,7 @@ const EDGE_DASH_MAP: Record<string, string> = {
 	subPropertyOf: '5,5'
 };
 
-export function createOntologyEdgeComponentState(props: OntologyEdgeComponentProps) {
+export function createOntologyEdgeComponentState(props: RecipeOntologyEdgeComponent) {
 	const startX = $derived(
 		(props.sourceNode.position?.x || 0) + (props.sourceNode.width || 120) / 2
 	);

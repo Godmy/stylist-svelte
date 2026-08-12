@@ -1,20 +1,10 @@
+import { GraphScriptManager } from '$stylist/graph/class/manager/graph-script';
 import { Camera } from '$stylist/graph/class/manager/camera';
-import { clampSceneRadius } from '$stylist/graph/function/script/clamp-scene-radius';
-import { clampSceneVerticalAngle } from '$stylist/graph/function/script/clamp-scene-vertical-angle';
-import { createSceneProgram } from '$stylist/graph/function/script/create-scene-program';
-import { destroySceneBuffers } from '$stylist/graph/function/script/destroy-scene-buffers';
-import { drawSceneBuffers } from '$stylist/graph/function/script/draw-scene-buffers';
-import { createSceneAtomBuffers } from '$stylist/graph/function/script/scene/atom/index';
-import { createDemoSceneGraph } from '$stylist/graph/function/script/scene/graph/index';
-import { resolveSceneAtomTint } from '$stylist/graph/function/script/resolve-scene-atom-tint';
-import { pickSceneAtom } from '$stylist/graph/function/script/scene/picking/index';
-import { getAtomBoundsRadius } from '$stylist/graph/function/script/get-atom-bounds-radius';
-import { resolveSceneAtomModelMatrix } from '$stylist/graph/function/script/resolve-scene-atom-model-matrix';
-import type { SceneBufferSet } from '$stylist/graph/type/object/scene-buffer-set';
-import type { SceneDebugInfo } from '$stylist/graph/type/object/scene-debug-info';
-import type { SceneAtom } from '$stylist/graph/type/object/scene-atom/scene-atom';
+import type { SceneBufferSet } from '$stylist/graph/interface/slot/scene-buffer-set';
+import type { SceneDebugInfo } from '$stylist/graph/interface/slot/scene-debug-info';
+import type { SceneAtom } from '$stylist/graph/interface/slot/scene-atom';
 import type { SceneCameraPreset } from '$stylist/graph/type/alias/scene-camera-preset';
-import type { SceneGraph } from '$stylist/graph/type/object/scene-graph/scene-graph';
+import type { SceneGraph } from '$stylist/graph/interface/slot/scene-graph';
 import vertexBasic from '$stylist/graph/data/shader/vertex/base.vert?raw';
 import fragmentBasic from '$stylist/graph/data/shader/fragment/base.frag?raw';
 
@@ -75,7 +65,7 @@ export class SceneObjectManager {
 		}
 
 		this.lastError = null;
-		this.program = createSceneProgram(this.gl, vertexBasic, fragmentBasic);
+		this.program = GraphScriptManager.createSceneProgram(this.gl, vertexBasic, fragmentBasic);
 		this.gl.useProgram(this.program);
 
 		this.modelLocation = this.gl.getUniformLocation(this.program, 'uModelMatrix');
@@ -84,10 +74,10 @@ export class SceneObjectManager {
 		this.tintColorLocation = this.gl.getUniformLocation(this.program, 'uTintColor');
 		this.tintStrengthLocation = this.gl.getUniformLocation(this.program, 'uTintStrength');
 
-		this.sceneGraph = createDemoSceneGraph();
+		this.sceneGraph = GraphScriptManager.createDemoSceneGraph();
 		this.sceneAtoms = this.sceneGraph.atoms;
 		this.atomBuffers = new Map(
-			this.sceneAtoms.map((atom) => [atom.id, createSceneAtomBuffers(this.gl!, atom)])
+			this.sceneAtoms.map((atom) => [atom.id, GraphScriptManager.createSceneAtomBuffers(this.gl!, atom)])
 		);
 		this.focusTarget = [
 			this.sceneGraph.focusTarget.x,
@@ -134,7 +124,7 @@ export class SceneObjectManager {
 
 		if (this.gl) {
 			for (const buffers of this.atomBuffers.values()) {
-				destroySceneBuffers(this.gl, buffers);
+				GraphScriptManager.destroySceneBuffers(this.gl, buffers);
 			}
 
 			if (this.program) {
@@ -182,7 +172,7 @@ export class SceneObjectManager {
 		const deltaY = event.clientY - this.lastMouseY;
 
 		this.horizontalAngle += deltaX * 0.01;
-		this.verticalAngle = clampSceneVerticalAngle(this.verticalAngle + deltaY * 0.01);
+		this.verticalAngle = GraphScriptManager.clampSceneVerticalAngle(this.verticalAngle + deltaY * 0.01);
 		this.camera.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
 
 		this.lastMouseX = event.clientX;
@@ -211,7 +201,7 @@ export class SceneObjectManager {
 		}
 
 		event.preventDefault();
-		this.radius = clampSceneRadius(this.radius + event.deltaY * 0.012);
+		this.radius = GraphScriptManager.clampSceneRadius(this.radius + event.deltaY * 0.012);
 		this.camera.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
 	};
 
@@ -246,7 +236,7 @@ export class SceneObjectManager {
 			return;
 		}
 
-		this.radius = clampSceneRadius(radius);
+		this.radius = GraphScriptManager.clampSceneRadius(radius);
 		this.camera.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
 	}
 
@@ -358,7 +348,7 @@ export class SceneObjectManager {
 		];
 		const width = this.canvas?.clientWidth ?? 1;
 		const height = this.canvas?.clientHeight ?? 1;
-		const bounds = getAtomBoundsRadius(atom);
+		const bounds = GraphScriptManager.getAtomBoundsRadius(atom);
 
 		this.radius = this.calculateFitRadius(bounds, width, height, 1.55);
 		this.applyCameraPreset(this.cameraPreset, target, this.radius);
@@ -375,7 +365,7 @@ export class SceneObjectManager {
 		const halfHorizontalFov = Math.atan(Math.tan(halfVerticalFov) * aspect);
 		const limitingHalfFov = Math.min(halfVerticalFov, halfHorizontalFov);
 
-		return clampSceneRadius((boundsRadius / Math.tan(limitingHalfFov)) * padding);
+		return GraphScriptManager.clampSceneRadius((boundsRadius / Math.tan(limitingHalfFov)) * padding);
 	}
 
 	private applyCameraPreset(
@@ -414,16 +404,16 @@ export class SceneObjectManager {
 				continue;
 			}
 
-			const tint = resolveSceneAtomTint(atom, {
+			const tint = GraphScriptManager.resolveSceneAtomTint(atom, {
 				hovered: this.hoveredAtomId === atom.id,
 				selected: this.selectedAtomId === atom.id
 			});
 
-			drawSceneBuffers(
+			GraphScriptManager.drawSceneBuffers(
 				this.gl,
 				buffers,
 				this.modelLocation,
-				resolveSceneAtomModelMatrix(atom, this.cubeRotation),
+				GraphScriptManager.resolveSceneAtomModelMatrix(atom, this.cubeRotation),
 				this.tintColorLocation,
 				this.tintStrengthLocation,
 				tint.color,
@@ -443,7 +433,7 @@ export class SceneObjectManager {
 	}
 
 	private pickAtom(clientX: number, clientY: number): SceneAtom | null {
-		return pickSceneAtom(this.sceneAtoms, this.camera, this.canvas, clientX, clientY);
+		return GraphScriptManager.pickSceneAtom(this.sceneAtoms, this.camera, this.canvas, clientX, clientY);
 	}
 
 	private getSelectedAtom(): SceneAtom | null {

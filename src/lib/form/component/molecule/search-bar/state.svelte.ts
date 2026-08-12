@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 type SearchBarStateProps = { [key: string]: any };
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { debounce } from '$stylist/control/function/script/debounce';
 
 export const createSearchBarState = (props: SearchBarStateProps) => {
@@ -53,7 +53,7 @@ export const createSearchBarState = (props: SearchBarStateProps) => {
 
 	// Computed classes
 	const containerClasses = $derived.by(() =>
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-search-bar',
 			props.disabled ? 'c-search-bar--disabled' : '',
 			props.class
@@ -63,7 +63,7 @@ export const createSearchBarState = (props: SearchBarStateProps) => {
 	const iconContainerClasses = $derived.by(() => 'c-search-bar__icon-wrap');
 
 	const inputClasses = $derived.by(() =>
-		mergeClassNames('c-search-bar__input', props.disabled ? 'c-search-bar__input--disabled' : '')
+		ClassNamesManager.merge('c-search-bar__input', props.disabled ? 'c-search-bar__input--disabled' : '')
 	);
 
 	const controlsContainerClasses = $derived.by(() => 'c-search-bar__controls');

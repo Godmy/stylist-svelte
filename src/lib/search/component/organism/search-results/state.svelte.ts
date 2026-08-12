@@ -1,12 +1,12 @@
 import type { SearchResultItem } from '$stylist/search/type/object/search-results-item';
-import type { SearchResultsProps } from '$stylist/search/type/object/search-results-props';
+import type { RecipeSearchResults } from '$stylist/search/interface/recipe/search-results';
 
 const Calendar = 'calendar';
 const MapPin = 'map-pin';
 const Search = 'search';
 const User = 'user';
 
-export function createSearchResultsState(props: SearchResultsProps) {
+export function createSearchResultsState(props: RecipeSearchResults) {
 	const results = $derived(props.results ?? []);
 	const query = $derived(props.query ?? '');
 	const loading = $derived(props.loading ?? false);

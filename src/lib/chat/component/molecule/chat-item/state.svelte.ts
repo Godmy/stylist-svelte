@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createChatItemState = (props: {
 	chat: Chat;
@@ -27,7 +27,7 @@ export const createChatItemState = (props: {
 		return content.length > 30 ? `${content.substring(0, 30)}...` : content;
 	});
 
-	const containerClasses = $derived(mergeClassNames('chat-item', props.class ?? ''));
+	const containerClasses = $derived(ClassNamesManager.merge('chat-item', props.class ?? ''));
 
 	const chatInfoClasses = 'chat-info';
 

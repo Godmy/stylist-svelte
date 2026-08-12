@@ -1,7 +1,7 @@
-import type { ChartSeries } from '$stylist/chart/type/object/chart-series';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import type { ChartSeries } from '$stylist/chart/interface/slot/chart-series';
 import type { RecipeChart } from '$stylist/chart/interface/recipe/chart';
 import { ObjectManagerChart } from '$stylist/chart/class/object-manager/chart';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 function resolveClassName(className: unknown): string | undefined {
 	return typeof className === 'string' ? className : undefined;
@@ -33,7 +33,7 @@ export function createChartState(props: RecipeChart) {
 	const showLegend = $derived(props.showLegend ?? true);
 	const showGrid = $derived(props.showGrid ?? true);
 	const showZAxis = $derived(props.showZAxis ?? false);
-	const containerClasses = $derived(mergeClassNames('c-chart', resolveClassName(props.class)));
+	const containerClasses = $derived(ClassNamesManager.merge('c-chart', resolveClassName(props.class)));
 	const series = $derived(ObjectManagerChart.resolveSeries(props.series));
 	const legendItems = $derived(ObjectManagerChart.resolveLegendItems(series));
 	const bounds = $derived(getChartBounds(series));

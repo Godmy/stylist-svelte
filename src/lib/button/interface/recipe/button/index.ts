@@ -7,10 +7,10 @@ import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { RecipeBorder } from '$stylist/layout/interface/recipe/border';
-import type { RecipeThemeBackground } from '$stylist/layout/interface/recipe/background';
+import type { RecipeBackground } from '$stylist/layout/interface/recipe/background';
 import type { BehaviorShapeable } from '$stylist/layout/interface/behavior/shapeable';
 import type { BehaviorSized } from '$stylist/layout/interface/behavior/sized';
-import type { ContainerProps } from '$stylist/layout/interface/recipe/container';
+import type { RecipeContainer } from '$stylist/layout/interface/recipe/container';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
@@ -34,8 +34,8 @@ variant?: TokenColorTone;
 			BehaviorFocusable,
 			BehaviorSized,
 			BehaviorShapeable,
-			ContainerProps,
-			RecipeThemeBackground,
+			RecipeContainer,
+			RecipeBackground,
 			RecipeBorder,
 			SlotTheme
 		]

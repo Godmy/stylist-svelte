@@ -1,7 +1,7 @@
-import type { ButtonFactoryInput } from '$stylist/button/interface/recipe/button-factory-input';
+﻿import type { RecipeButtonFactoryInput } from '$stylist/button/interface/recipe/button-factory-input';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 
-export function createIconButtonState(input: ButtonFactoryInput) {
+export function createIconButtonState(input: RecipeButtonFactoryInput) {
 	const variant = $derived((input.contract.variant ?? 'default') as string);
 	const size = $derived((input.contract.size ?? 'md') as string);
 	const disabled = $derived((input.contract.disabled ?? false) as boolean);

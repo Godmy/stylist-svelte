@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeCodeDiff } from '$stylist/development/interface/recipe/code-diff';
 
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createCodeDiffState(props: RecipeCodeDiff) {
 	function computeDiffLines(original: string, modified: string): {
@@ -44,20 +44,20 @@ export function createCodeDiffState(props: RecipeCodeDiff) {
 	}
 
 	const diffLines = $derived(computeDiffLines(props.original ?? '', props.modified ?? ''));
-	const containerClass = $derived(mergeClassNames('c-code-diff', props.class ?? ''));
+	const containerClass = $derived(ClassNamesManager.merge('c-code-diff', props.class ?? ''));
 	const headerClassComputed = $derived(
-		mergeClassNames('c-code-diff__header', props.headerClass ?? '')
+		ClassNamesManager.merge('c-code-diff__header', props.headerClass ?? '')
 	);
 	const mainContentClass = 'c-code-diff__main';
 	const lineNumbersContainerClass = 'c-code-diff__line-numbers';
 	const lineNumberItemClass = 'c-code-diff__line-number';
 	const contentContainerClass = $derived(
-		mergeClassNames('c-code-diff__content', props.contentClass ?? '')
+		ClassNamesManager.merge('c-code-diff__content', props.contentClass ?? '')
 	);
 	const diffLineClass = (type: string) =>
-		mergeClassNames('c-code-diff__line', `c-code-diff__line--${type}`);
+		ClassNamesManager.merge('c-code-diff__line', `c-code-diff__line--${type}`);
 	const diffSpanClass = (type: string) =>
-		mergeClassNames('c-code-diff__text', `c-code-diff__text--${type}`);
+		ClassNamesManager.merge('c-code-diff__text', `c-code-diff__text--${type}`);
 	const getDiffContentClass = 'c-code-diff__body';
 	const getChangedContainerClass = 'c-code-diff__changed';
 

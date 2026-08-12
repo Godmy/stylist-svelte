@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { ContentEditorStateProps } from '$stylist/development/interface/recipe/content-editor-state-props';
+	import type { RecipeContentEditorStateProps } from '$stylist/development/interface/recipe/content-editor-state-props';
 	import createContentEditorState from './state.svelte';
 
 	const Bold = 'bold';
@@ -17,7 +17,7 @@
 	const Save = 'save';
 	const Eye = 'eye';
 
-	let props: ContentEditorStateProps & HTMLAttributes<HTMLDivElement> = $props();
+	let props: RecipeContentEditorStateProps & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createContentEditorState(props);
 </script>
 

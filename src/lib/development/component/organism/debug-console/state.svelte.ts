@@ -1,7 +1,7 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeDebugConsole } from '$stylist/development/interface/recipe/debug-console';
 import type { DebugConsoleLogLevel } from '$stylist/development/type/alias/debug-console-log-level';
-import type { DebugConsoleLogEntry } from '$stylist/development/type/object/debug-console-log-entry';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { DebugConsoleLogEntry as SlotDebugConsoleLogEntry } from '$stylist/development/interface/slot/debug-console-log-entry';
 
 export function createDebugConsoleState(props: RecipeDebugConsole) {
 	const Terminal = 'terminal';
@@ -12,7 +12,7 @@ export function createDebugConsoleState(props: RecipeDebugConsole) {
 	const Search = 'search';
 	const Filter = 'filter';
 
-	let filteredLogs = $state<DebugConsoleLogEntry[]>(props.logs ?? []);
+	let filteredLogs = $state<SlotDebugConsoleLogEntry[]>(props.logs ?? []);
 	let logLevelFilter = $state<DebugConsoleLogLevel[]>(props.initialLogLevelFilter ?? []);
 	let searchQuery = $state('');
 	let isRunning = $state(false);
@@ -29,7 +29,7 @@ export function createDebugConsoleState(props: RecipeDebugConsole) {
 	const entryClass = $derived(props.entryClass ?? '');
 	const footerClass = $derived(props.footerClass ?? '');
 
-	const containerClass = $derived(mergeClassNames('dc-container', className));
+	const containerClass = $derived(ClassNamesManager.merge('dc-container', className));
 	const headerComputedClass = $derived(`dc-header ${headerClass}`.trim());
 	const footerComputedClass = $derived(`dc-footer ${footerClass}`.trim());
 
@@ -93,7 +93,7 @@ export function createDebugConsoleState(props: RecipeDebugConsole) {
 				'New connection established'
 			];
 
-			const log: DebugConsoleLogEntry = {
+			const log: SlotDebugConsoleLogEntry = {
 				id: `log-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
 				timestamp: new Date(),
 				level: levels[Math.floor(Math.random() * levels.length)],
@@ -241,4 +241,3 @@ export function createDebugConsoleState(props: RecipeDebugConsole) {
 		}
 	};
 }
-

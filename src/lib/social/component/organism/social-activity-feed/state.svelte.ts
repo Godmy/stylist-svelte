@@ -1,8 +1,8 @@
 import type { Activity } from '$stylist/social/type/object/social-activity-feed/activity';
 import type { ActivityType } from '$stylist/social/type/object/social-activity-feed/activitytype';
-import type { Props } from '$stylist/social/type/object/social-activity-feed/-props';
+import type { RecipeSocialActivityFeed } from '$stylist/social/interface/recipe/social-activity-feed';
 
-export function createSocialActivityFeedState(props: Props) {
+export function createSocialActivityFeedState(props: RecipeSocialActivityFeed) {
 	let activeFilter = $state<ActivityType | 'all'>('all');
 	const activities = $derived(props.activities ?? []);
 	const activityTypes = $derived(Array.from(new Set(activities.map((activity) => activity.type))));

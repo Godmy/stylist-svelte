@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { RecipeCollaborativeEditor } from '$stylist/canvas/interface/recipe/collaborative-editor';
 
 const Bold = 'bold';
@@ -23,18 +23,18 @@ export const createCollaborativeEditorState = (props: RecipeCollaborativeEditor)
 	const users = $derived(props.users ?? []);
 	const currentUser = $derived(props.currentUser);
 
-	const containerClasses = $derived(mergeClassNames('c-collaborative-editor', props.class ?? ''));
+	const containerClasses = $derived(ClassNamesManager.merge('c-collaborative-editor', props.class ?? ''));
 
 	const toolbarClasses = $derived(
-		mergeClassNames('c-collaborative-editor__toolbar', props.toolbarClass ?? '')
+		ClassNamesManager.merge('c-collaborative-editor__toolbar', props.toolbarClass ?? '')
 	);
 
 	const editorClasses = $derived(
-		mergeClassNames('c-collaborative-editor__editor', props.editorClass ?? '')
+		ClassNamesManager.merge('c-collaborative-editor__editor', props.editorClass ?? '')
 	);
 
 	const userListClasses = $derived(
-		mergeClassNames('c-collaborative-editor__user-list', props.userListClass ?? '')
+		ClassNamesManager.merge('c-collaborative-editor__user-list', props.userListClass ?? '')
 	);
 
 	const userListHeaderClasses = 'c-collaborative-editor__user-list-header';

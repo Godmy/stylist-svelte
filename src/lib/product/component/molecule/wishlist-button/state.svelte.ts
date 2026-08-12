@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeWishlistButton } from '$stylist/product/interface/recipe/wishlist-button';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createWishlistButtonState(props: RecipeWishlistButton & HTMLAttributes<HTMLButtonElement>) {
 	let isLoading = $state(false);
@@ -8,9 +8,9 @@ export function createWishlistButtonState(props: RecipeWishlistButton & HTMLAttr
 	let message = $state('');
 	let inWishlist = $state(props.inWishlist ?? false);
 
-	const containerClass = $derived(mergeClassNames('wishlist-button', props.class));
+	const containerClass = $derived(ClassNamesManager.merge('wishlist-button', props.class));
 	const buttonClass = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'wishlist-button__button',
 			inWishlist && 'wishlist-button__button--active',
 			props.buttonClass

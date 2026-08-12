@@ -6,10 +6,6 @@ export {
 	ImageCaption,
 	ImageGallery
 } from './component';
-export {
-	IMAGE_CAPTION_STORY_PRESETS,
-	IMAGE_STORY_GALLERY
-} from './const';
 export type {
 	RecipeCanvasImageEditor,
 	RecipeDividerHeadingImageText,

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ChartSeries } from '$stylist/chart/type/object/chart-series';
+	import type { ChartSeries } from '$stylist/chart/interface/slot/chart-series';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import Chart from './index.svelte';

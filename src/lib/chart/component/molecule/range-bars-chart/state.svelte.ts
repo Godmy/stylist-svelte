@@ -1,8 +1,8 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeRangeBarsChart } from '$stylist/chart/interface/recipe/range-bars-chart';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createRangeBarsChartState(props: RecipeRangeBarsChart) {
-	const className = $derived(mergeClassNames('range-bars-chart', props.class));
+	const className = $derived(ClassNamesManager.merge('range-bars-chart', props.class));
 	const items = $derived(props.items);
 	const labelWidth = $derived(props.labelWidth ?? '11rem');
 	const valueWidth = $derived(props.valueWidth ?? '8rem');

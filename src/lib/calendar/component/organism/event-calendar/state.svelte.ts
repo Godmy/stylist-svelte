@@ -1,9 +1,9 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { SlotEventCalendar as EventCalendarContract } from '$stylist/calendar/interface/slot/event-calendar';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';
 import type { TokenTimeMeasure } from '$stylist/calendar/type/alias/time-measure';
 import { generateCalendarGrid, isToday as isTodayFn, isSameDay, startOfWeek } from '$stylist/calendar/function/script/calendar-utils';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createEventCalendarState(props: EventCalendarContract) {
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
@@ -165,11 +165,11 @@ export function createEventCalendarState(props: EventCalendarContract) {
 	function getGridClasses(): string { return 'c-event-calendar__grid'; }
 
 	function getDateHeaderClasses(isTodayDate: boolean): string {
-		return mergeClassNames('c-event-calendar__date-header', isTodayDate && 'c-event-calendar__date-header--today');
+		return ClassNamesManager.merge('c-event-calendar__date-header', isTodayDate && 'c-event-calendar__date-header--today');
 	}
 
 	function getDayCellClasses(isTodayDate: boolean, isCurrentMonth: boolean): string {
-		return mergeClassNames(
+		return ClassNamesManager.merge(
 			'c-event-calendar__day',
 			isTodayDate && 'c-event-calendar__day--today',
 			!isCurrentMonth && 'c-event-calendar__day--other'
@@ -177,11 +177,11 @@ export function createEventCalendarState(props: EventCalendarContract) {
 	}
 
 	function getDateNumberClasses(isTodayDate: boolean): string {
-		return mergeClassNames('c-event-calendar__date-num', isTodayDate && 'c-event-calendar__date-num--today');
+		return ClassNamesManager.merge('c-event-calendar__date-num', isTodayDate && 'c-event-calendar__date-num--today');
 	}
 
 	function getEventClasses(hasColor = false, color?: string): string {
-		return mergeClassNames(
+		return ClassNamesManager.merge(
 			'c-event-calendar__event',
 			hasColor && color && 'c-event-calendar__event--custom'
 		);

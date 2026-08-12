@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { MinimapProps } from '$stylist/architecture/type/object/minimap-props';
+	import type { RecipeMinimap } from '$stylist/architecture/interface/recipe/minimap';
 	import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 	import IconButton from '$stylist/button/component/atom/icon-button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createMinimapState from './state.svelte';
 
 	const contract: LayoutHTMLAttributes<HTMLDivElement> &
-		MinimapProps & { class?: string } = $props();
+		RecipeMinimap & { class?: string } = $props();
 	const state = createMinimapState(contract);
 </script>
 

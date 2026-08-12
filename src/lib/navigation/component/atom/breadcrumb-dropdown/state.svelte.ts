@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeBreadcrumbDropdown } from '$stylist/navigation/interface/recipe/breadcrumb-dropdown';
-import type { BreadcrumbDropdownItem } from '$stylist/navigation/type/object/breadcrumbs-props/breadcrumb-dropdown-item';
-import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import type { BreadcrumbDropdownItem } from '$stylist/navigation/interface/slot/breadcrumb-dropdown-item';
 
 export function createBreadcrumbDropdownState(
 	props: RecipeBreadcrumbDropdown & {
@@ -13,7 +13,7 @@ export function createBreadcrumbDropdownState(
 	const open = $derived(props.open ?? false);
 	const items = $derived(props.items ?? []);
 	const dropdownClass = $derived(
-		joinClassNames('breadcrumb-dropdown', props.class ?? '')
+		ClassNamesManager.join('breadcrumb-dropdown', props.class ?? '')
 	);
 	const itemClass = $derived('breadcrumb-dropdown-item');
 	const itemLabelClass = $derived('breadcrumb-dropdown-item__label');

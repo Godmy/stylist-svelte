@@ -5,7 +5,6 @@ export type {
 	FRIEND_LIST_FRIEND,
 	FRIEND_LIST_PROPS,
 	Post,
-	Props,
 	Provider,
 	ShareOption,
 	SocialPlatform

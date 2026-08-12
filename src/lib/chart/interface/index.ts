@@ -7,8 +7,8 @@ export type {
 	BehaviorTooltipable
 } from './behavior';
 export type {
-	ChartLegendProps,
 	RecipeAnalyticsChart,
+	RecipeAnalyticsChartCanvas,
 	RecipeBarChart,
 	RecipeCanvasChart,
 	RecipeChart,
@@ -17,6 +17,7 @@ export type {
 	RecipeChartAxisZ,
 	RecipeChartBackground,
 	RecipeChartCanvas,
+	RecipeChartLegend,
 	RecipeChartName,
 	RecipeChartPolyline,
 	RecipeHeatmap,
@@ -28,4 +29,18 @@ export type {
 	RecipeScatterPlot,
 	RecipeVerticalBarsChart
 } from './recipe';
-export type { SlotChartAxis } from './slot';
+export type {
+	AnalyticsChartBarPoint,
+	AnalyticsChartDataPoint,
+	CanvasChartPadding,
+	ChartFunctionPoint,
+	ChartLegendItem,
+	IChartDataPoint,
+	IHeatmapCell,
+	InformationPieChartSegment,
+	LineChartData,
+	LineChartPoint,
+	PieChartDataPoint,
+	ScatterPlotDataPoint,
+	SlotChartAxis
+} from './slot';

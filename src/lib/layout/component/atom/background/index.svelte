@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { RecipeThemeBackground } from '$stylist/layout/interface/recipe/background';
+	import type { RecipeBackground } from '$stylist/layout/interface/recipe/background';
 	import createBackgroundState from './state.svelte';
 
-	let props: RecipeThemeBackground = $props();
+	let props: RecipeBackground = $props();
 	const state = createBackgroundState(props);
 </script>
 

@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 ﻿import type { RecipeDevelopmentErrorBoundary } from '$stylist/development/interface/recipe/development-error-boundary';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createDevelopmentErrorBoundaryState(props: RecipeDevelopmentErrorBoundary) {
 	const Bug = 'bug';

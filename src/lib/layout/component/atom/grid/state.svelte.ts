@@ -1,6 +1,6 @@
-import type { GridSvgProps } from '$stylist/layout/interface/recipe/grid-svg';
+import type { RecipeGridSvg } from '$stylist/layout/interface/recipe/grid-svg';
 
-export function stateFn(props: GridSvgProps) {
+export function stateFn(props: RecipeGridSvg) {
 	const gridSize = $derived(props.gridSize ?? 50);
 	const zoom = $derived(props.zoom ?? 1);
 	const visible = $derived(props.visible ?? true);

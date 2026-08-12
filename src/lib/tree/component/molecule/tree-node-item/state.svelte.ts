@@ -1,6 +1,6 @@
-import type { TreeNodeItemProps } from '$stylist/tree/type/alias/tree-node-item-props';
+import type { RecipeTreeNodeItem } from '$stylist/tree/interface/recipe/tree-node-item';
 
-export function createTreeNodeItemState(props: TreeNodeItemProps) {
+export function createTreeNodeItemState(props: RecipeTreeNodeItem) {
 	const ChevronRight = 'chevron-right';
 	const ChevronDown = 'chevron-down';
 

@@ -10,15 +10,3 @@ export type {
 	UploadStatus,
 	ViewMode
 } from './alias';
-export type {
-	DataItem,
-	DragDropFileStatus,
-	FileItem,
-	FileType,
-	MediaItem,
-	Props,
-	SlotDropItem,
-	SlotFileSystemItem,
-	SlotFolderItem,
-	SlotZipEntry
-} from './object';

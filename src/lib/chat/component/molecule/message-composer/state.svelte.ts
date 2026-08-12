@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { SlotMessageComposer as IMessageComposerProps } from '$stylist/chat/interface/slot/message-composer';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createMessageComposerState = (props: IMessageComposerProps) => {
 	let messageText = $state(props.value ?? '');
@@ -9,7 +9,7 @@ export const createMessageComposerState = (props: IMessageComposerProps) => {
 	});
 
 	const containerClasses = $derived(
-		mergeClassNames('message-composer', String(props.class ?? ''))
+		ClassNamesManager.merge('message-composer', String(props.class ?? ''))
 	);
 
 	const formClasses = $derived('message-composer__form');
@@ -19,15 +19,15 @@ export const createMessageComposerState = (props: IMessageComposerProps) => {
 	const inputContainerClasses = $derived('message-composer__field-wrap');
 
 	const inputClasses = $derived(
-		mergeClassNames('message-composer__field', props.inputClass ?? '')
+		ClassNamesManager.merge('message-composer__field', props.inputClass ?? '')
 	);
 
 	const sendButtonClasses = $derived(
-		mergeClassNames('message-composer__icon-btn', props.buttonClass ?? '')
+		ClassNamesManager.merge('message-composer__icon-btn', props.buttonClass ?? '')
 	);
 
 	const voiceButtonClasses = $derived(
-		mergeClassNames('message-composer__icon-btn', props.buttonClass ?? '')
+		ClassNamesManager.merge('message-composer__icon-btn', props.buttonClass ?? '')
 	);
 
 	const showSendButton = $derived(messageText.trim().length > 0);

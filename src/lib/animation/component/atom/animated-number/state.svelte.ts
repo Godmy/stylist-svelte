@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeAnimatedNumber } from '$stylist/animation/interface/recipe/animated-number';
 import { formatAnimatedValue } from '$stylist/animation/function/script/format-animated-value';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createAnimatedNumberState(props: RecipeAnimatedNumber) {
 	const value = $derived(props.value ?? 0);
@@ -9,7 +9,7 @@ export function createAnimatedNumberState(props: RecipeAnimatedNumber) {
 	const separator = $derived(props.separator ?? ',');
 	const decimals = $derived(props.decimals ?? 0);
 	const classes = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-animation-animated-number',
 			typeof props.class === 'string' ? props.class : undefined
 		)

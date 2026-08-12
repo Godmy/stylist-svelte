@@ -1,12 +1,12 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { SlotMessageBubble as IMessageBubbleProps } from '$stylist/chat/interface/slot/message-bubble';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createMessageBubbleState = (props: IMessageBubbleProps) => {
 	const isSecondary = $derived((props.variant ?? 'primary') === 'secondary');
 	const isRight = $derived((props.align ?? 'left') === 'right');
 
 	const containerClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'message-bubble-container',
 			isRight ? 'message-bubble-container--right' : 'message-bubble-container--left',
 			String(props.class ?? '')
@@ -14,7 +14,7 @@ export const createMessageBubbleState = (props: IMessageBubbleProps) => {
 	);
 
 	const wrapperClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'message-bubble-wrapper',
 			isSecondary
 				? 'message-bubble-wrapper--secondary'
@@ -25,7 +25,7 @@ export const createMessageBubbleState = (props: IMessageBubbleProps) => {
 	);
 
 	const authorClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'message-bubble-author',
 			isSecondary && 'message-bubble-author--secondary',
 			!isSecondary && isRight && 'message-bubble-author--right'
@@ -33,7 +33,7 @@ export const createMessageBubbleState = (props: IMessageBubbleProps) => {
 	);
 
 	const messageClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'message-bubble-text',
 			isSecondary && 'message-bubble-text--secondary',
 			!isSecondary && isRight && 'message-bubble-text--right'
@@ -41,7 +41,7 @@ export const createMessageBubbleState = (props: IMessageBubbleProps) => {
 	);
 
 	const timestampClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'message-bubble-timestamp',
 			isSecondary && 'message-bubble-timestamp--secondary',
 			!isSecondary && isRight && 'message-bubble-timestamp--right'
@@ -49,7 +49,7 @@ export const createMessageBubbleState = (props: IMessageBubbleProps) => {
 	);
 
 	const avatarContainerClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'message-bubble-avatar',
 			(props.align ?? 'left') === 'left'
 				? 'message-bubble-avatar--left'

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { RecipeErdDepencency } from '$stylist/erd/interface/recipe/erd-dependency';
+	import type { RecipeErdDependency } from '$stylist/erd/interface/recipe/erd-dependency';
 
-	let { dependency, x1, y1, x2, y2, active = false }: RecipeErdDepencency = $props();
+	let { dependency, x1, y1, x2, y2, active = false }: RecipeErdDependency = $props();
 </script>
 
 <g class={`schema-dependency ${active ? 'schema-dependency--active' : ''}`}>

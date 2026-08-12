@@ -1,10 +1,10 @@
 import { untrack } from 'svelte';
-import type { PaymentMethod } from '$stylist/commerce/type/object/payment-method';
-import type { Address } from '$stylist/commerce/type/object/address';
+import type { PaymentMethod } from '$stylist/commerce/interface/slot/payment-method';
+import type { Address } from '$stylist/commerce/interface/slot/address';
 
-import type { CheckoutStep } from '$stylist/commerce/type/object/checkout-step';
-import type { SlotShippingOption } from '$stylist/commerce/type/object/shipping-option';
-import type { CheckoutFormProps as Props } from '$stylist/commerce/type/object/checkout-form-props';
+import type { CheckoutStep } from '$stylist/commerce/type/alias/checkout-step';
+import type { SlotShippingOption } from '$stylist/commerce/interface/slot/shipping-option';
+import type { RecipeCheckoutForm as Props } from '$stylist/commerce/interface/recipe/checkout-form';
 
 function createAddressState(source?: Address): Address {
 	return {

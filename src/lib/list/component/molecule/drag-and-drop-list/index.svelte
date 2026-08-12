@@ -1,12 +1,12 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import BaseCard from '$stylist/information/component/molecule/base-card/index.svelte';
-	import type { DragAndDropListProps } from '$stylist/list/interface/recipe/drag-and-drop-list';
+	import type { RecipeDragAndDropList } from '$stylist/list/interface/recipe/drag-and-drop-list';
 	import createDragAndDropListState from './state.svelte';
 
 	const GripVertical = 'grip-vertical';
 
-	let props: DragAndDropListProps = $props();
+	let props: RecipeDragAndDropList = $props();
 	const state = createDragAndDropListState(props);
 
 	const restProps = $derived.by(() => {

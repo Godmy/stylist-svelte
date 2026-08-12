@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { PaymentSummaryItem } from '$stylist/commerce/type/object/payment-summary-item';
-	import type { PaymentSummaryDiscount } from '$stylist/commerce/type/object/payment-summary-discount';
-	import type { PaymentSummaryTax } from '$stylist/commerce/type/object/payment-summary-tax';
+	import type { PaymentSummaryItem } from '$stylist/commerce/interface/slot/payment-summary-item';
+	import type { PaymentSummaryDiscount } from '$stylist/commerce/interface/slot/payment-summary-discount';
+	import type { PaymentSummaryTax } from '$stylist/commerce/interface/slot/payment-summary-tax';
 	import PaymentSummary from './index.svelte';
 
 	type Props = {

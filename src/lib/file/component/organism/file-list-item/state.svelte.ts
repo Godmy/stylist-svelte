@@ -1,13 +1,10 @@
+import { FileListItemManager } from '$stylist/file/class/manager/file-list-item';
 import type { RecipeFileListItem } from '$stylist/file/interface/recipe/file-list-item';
-import type { FileItem } from '$stylist/file/type/object/file-list-item/file-item';
-import { getFileIcon } from '$stylist/file/function/script/file-list-item-get-file-icon';
-import { handleAction as handleActionFn } from '$stylist/file/function/script/file-list-item-handle-action';
-import { handleDoubleClick as handleDoubleClickFn } from '$stylist/file/function/script/file-list-item-handle-double-click';
-import { handleSelect as handleSelectFn } from '$stylist/file/function/script/file-list-item';
+import type { SlotFileItem } from '$stylist/file/interface/slot/file-item';
 
 export function createFileListItemState(props: RecipeFileListItem) {
 	const item = $derived(props.item);
-	const fileItem = $derived(item as FileItem);
+	const fileItem = $derived(item as SlotFileItem);
 	const showThumbnail = $derived(props.showThumbnail ?? false);
 	const showSize = $derived(props.showSize ?? true);
 	const showModified = $derived(props.showModified ?? true);
@@ -44,7 +41,7 @@ export function createFileListItemState(props: RecipeFileListItem) {
 	});
 
 	function handleSelect(): void {
-		handleSelectFn(
+		FileListItemManager.handleSelect(
 			fileItem,
 			disabled,
 			enableSelection,
@@ -61,7 +58,7 @@ export function createFileListItemState(props: RecipeFileListItem) {
 	}
 
 	function handleDoubleClick(): void {
-		handleDoubleClickFn(fileItem, disabled, (selectedItem) => {
+		FileListItemManager.handleDoubleClick(fileItem, disabled, (selectedItem) => {
 			props.onItemDoubleClick?.(
 				selectedItem as Parameters<NonNullable<typeof props.onItemDoubleClick>>[0]
 			);
@@ -69,7 +66,7 @@ export function createFileListItemState(props: RecipeFileListItem) {
 	}
 
 	function handleAction(action: string): void {
-		handleActionFn(fileItem, action, disabled, (selectedItem, actionName) => {
+		FileListItemManager.handleAction(fileItem, action, disabled, (selectedItem, actionName) => {
 			props.onItemAction?.(
 				selectedItem as Parameters<NonNullable<typeof props.onItemAction>>[0],
 				actionName
@@ -115,7 +112,7 @@ export function createFileListItemState(props: RecipeFileListItem) {
 			return restProps;
 		},
 		get iconName() {
-			return getFileIcon(fileItem);
+			return FileListItemManager.getFileIcon(fileItem);
 		},
 		handleSelect,
 		handleDoubleClick,

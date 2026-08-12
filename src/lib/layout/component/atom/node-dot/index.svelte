@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { NodeDotProps } from '$stylist/layout/interface/recipe/node-dot';
+	import type { RecipeNodeDot } from '$stylist/layout/interface/recipe/node-dot';
 	import createNodeDotState from './state.svelte';
 
-	let props: NodeDotProps = $props();
+	let props: RecipeNodeDot = $props();
 	const state = createNodeDotState(props);
 </script>
 

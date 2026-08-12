@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-export interface GridItem {
+export interface RecipeGridItem {
 	id: string;
 	content: Snippet | string;
 	colSpan?: number;

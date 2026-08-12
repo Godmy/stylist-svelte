@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { CubeControlProps } from '$stylist/architecture/type/object/cube-control-props';
+	import type { RecipeCubeControl } from '$stylist/architecture/interface/recipe/cube-control';
 	import createCubeControlState from './state.svelte';
 
 	const Atom = 'atom';
@@ -10,7 +10,7 @@
 	const Info = 'info';
 	const Radiation = 'radiation';
 
-	let props: CubeControlProps = $props();
+	let props: RecipeCubeControl = $props();
 	const state = createCubeControlState(props);
 
 	const restProps = $derived.by(() => {

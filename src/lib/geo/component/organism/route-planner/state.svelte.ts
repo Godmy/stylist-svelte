@@ -1,9 +1,9 @@
 import { untrack } from 'svelte';
 import type { RoutePlannerLocation } from '$stylist/geo/type/object/route-planner/routeplannerlocation';
 import type { RouteOption } from '$stylist/geo/type/object/route-planner/routeoption';
-import type { RoutePlannerStateProps } from '$stylist/geo/interface/recipe/route-planner';
+import type { RecipeRoutePlanner } from '$stylist/geo/interface/recipe/route-planner';
 
-export function createRoutePlannerState(props: RoutePlannerStateProps) {
+export function createRoutePlannerState(props: RecipeRoutePlanner) {
 	const startLocation = $derived(props.startLocation);
 	const endLocation = $derived(props.endLocation);
 	const waypoints = $derived(props.waypoints ?? []);

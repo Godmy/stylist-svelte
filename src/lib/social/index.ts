@@ -36,13 +36,13 @@ export {
 	socialActivityFeedGetDescription,
 	socialActivityFeedGetIcon
 } from './function';
+export { createButtonFactoryInput } from './interface';
 export type {
 	Activity,
 	ActivityType,
 	FRIEND_LIST_FRIEND,
 	FRIEND_LIST_PROPS,
 	Post,
-	Props,
 	Provider,
 	ShareOption,
 	SocialPlatform
@@ -53,6 +53,10 @@ export type {
 	RecipeRating,
 	RecipeReactionPicker,
 	RecipeRealTimePresence,
+	RecipeSocialActivityFeed,
+	RecipeSocialFeed,
+	RecipeSocialLogin,
+	RecipeSocialShare,
 	SlotCommentItem,
 	SlotCommentSystem,
 	SlotCommentThread,

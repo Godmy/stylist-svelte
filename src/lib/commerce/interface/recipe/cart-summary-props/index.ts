@@ -1,5 +1,5 @@
-import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface CartSummaryProps extends ComputeIntersectAll<[]> {
+﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+export interface RecipeCartSummaryProps extends ComputeIntersectAll<[]> {
 	items?: {
 	id: string;
 	name: string;

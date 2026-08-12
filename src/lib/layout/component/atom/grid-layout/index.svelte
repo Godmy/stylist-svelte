@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { GridLayoutProps } from '$stylist/layout/interface/recipe/grid-layout';
+	import type { RecipeGridLayout } from '$stylist/layout/interface/recipe/grid-layout';
 	import createGridLayoutState from './state.svelte';
 
-	let props: GridLayoutProps = $props();
+	let props: RecipeGridLayout = $props();
 	const state = createGridLayoutState(props);
 
 	const itemColSpanStyle = (colSpan?: number, rowSpan?: number): string => {

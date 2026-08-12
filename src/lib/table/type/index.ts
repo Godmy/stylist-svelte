@@ -8,7 +8,6 @@ export type {
 	ColumnSchema,
 	ComparisonTableFeature,
 	ComparisonTableProduct,
-	ComparisonTableProps,
 	ComponentStory,
 	FilterSchema,
 	FilterType,

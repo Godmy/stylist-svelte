@@ -1,9 +1,9 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 ﻿import type { RecipeAtomicPrinciplesShowcase } from '$stylist/development/interface/recipe/atomic-principles-showcase';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createAtomicPrinciplesShowcaseState(props: RecipeAtomicPrinciplesShowcase) {
 	const sectionClass = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-atomic-principles-showcase',
 			props.class == null ? undefined : String(props.class)
 		)

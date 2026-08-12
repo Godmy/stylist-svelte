@@ -1,4 +1,4 @@
-import type { GraphWorkspaceConnection } from '$stylist/architecture/type/object/graph-workspace-connection';
+import type { GraphWorkspaceConnection } from '$stylist/architecture/interface/slot/graph-workspace-connection';
 
 export type GraphWorkspaceConnectionInput =
 	| readonly [string, string]

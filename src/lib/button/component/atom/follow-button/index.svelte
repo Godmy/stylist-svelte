@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { PresetFollowButton } from '$stylist/button/const/preset/follow-button';
 	import type { RecipeFollowButton } from '$stylist/button/interface/recipe/follow-button';
 	import { createFollowButtonState } from './state.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
@@ -23,7 +22,7 @@
 	{#if state.isPending}
 		<div class="c-follow-button__inner">
 			<BaseIcon
-				name={PresetFollowButton.Loader2}
+				name="loader-2"
 				class="c-follow-button__loader"
 				style="width: 1rem; height: 1rem;"
 			/>
@@ -35,13 +34,13 @@
 		<div class="c-follow-button__inner">
 			{#if state.isFollowing}
 				<BaseIcon
-					name={PresetFollowButton.Check}
+					name="check"
 					class="c-follow-button__icon"
 					style="width: 1rem; height: 1rem;"
 				/>
 			{:else}
 				<BaseIcon
-					name={PresetFollowButton.UserPlus}
+					name="user-plus"
 					class="c-follow-button__icon"
 					style="width: 1rem; height: 1rem;"
 				/>

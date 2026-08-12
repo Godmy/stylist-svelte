@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 ﻿import type { RecipeAlert } from '$stylist/notification/interface/recipe/alert';
-import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createAlertState(props: RecipeAlert) {
 	const iconMap = {
@@ -17,16 +17,16 @@ export function createAlertState(props: RecipeAlert) {
 	const XIcon = 'x';
 
 	const alertClasses = $derived(
-		joinClassNames('alert-container', `variant-${variant}`, props.class ?? '')
+		ClassNamesManager.join('alert-container', `variant-${variant}`, props.class ?? '')
 	);
 	const iconContainerClasses = $derived('alert-icon-wrap');
-	const iconClasses = $derived(joinClassNames('alert-icon', `variant-${variant}`));
+	const iconClasses = $derived(ClassNamesManager.join('alert-icon', `variant-${variant}`));
 	const textContainerClasses = $derived('alert-text');
 	const titleClasses = $derived('alert-title');
 	const contentContainerClasses = $derived('alert-description');
 	const mainContainerClasses = $derived('alert-content');
 	const closeButtonContainerClasses = $derived('alert-close');
-	const closeButtonClasses = $derived(joinClassNames('alert-close-button', `variant-${variant}`));
+	const closeButtonClasses = $derived(ClassNamesManager.join('alert-close-button', `variant-${variant}`));
 
 	let open = $state(true);
 

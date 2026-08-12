@@ -1,4 +1,4 @@
-import type { VerticalLayoutProps } from '$stylist/layout/interface/recipe/vertical-layout';
-export interface HorizontalLayoutProps extends VerticalLayoutProps {
+import type { RecipeVerticalLayout } from '$stylist/layout/interface/recipe/vertical-layout';
+export interface RecipeHorizontalLayout extends RecipeVerticalLayout {
 	wrap?: boolean;
 }

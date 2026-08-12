@@ -1,7 +1,7 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import { SceneObjectManager } from '$stylist/graph/class/object-manager/scene/index';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { SceneProps } from '$stylist/graph/type/object/scene-props';
-import type { SceneDebugInfo } from '$stylist/graph/type/object/scene-debug-info';
+import type { RecipeScene } from '$stylist/graph/interface/recipe/scene';
+import type { SceneDebugInfo } from '$stylist/graph/interface/slot/scene-debug-info';
 
 const DEFAULT_SCENE_TITLE = 'WebGL Graph';
 const DEFAULT_SCENE_ROTATE_HINT = 'LMB + drag to orbit the camera';
@@ -18,7 +18,7 @@ const DEFAULT_CAMERA_CONTROL = {
 	verticalAngle: 0.42
 };
 
-export function createSceneState(props: SceneProps) {
+export function createSceneState(props: RecipeScene) {
 	const sceneManager = new SceneObjectManager();
 	let cameraControl = $state(DEFAULT_CAMERA_CONTROL);
 	let debugInfo = $state<SceneDebugInfo>({
@@ -56,12 +56,12 @@ export function createSceneState(props: SceneProps) {
 	const title = $derived(props.title ?? DEFAULT_SCENE_TITLE);
 	const rotateHint = $derived(props.rotateHint ?? DEFAULT_SCENE_ROTATE_HINT);
 	const zoomHint = $derived(props.zoomHint ?? DEFAULT_SCENE_ZOOM_HINT);
-	const containerClass = $derived(mergeClassNames('scene', props.class?.toString() ?? ''));
+	const containerClass = $derived(ClassNamesManager.merge('scene', props.class?.toString() ?? ''));
 	const canvasClass = $derived(
-		mergeClassNames('scene__canvas', props.canvasClass?.toString() ?? '')
+		ClassNamesManager.merge('scene__canvas', props.canvasClass?.toString() ?? '')
 	);
 	const overlayClass = $derived(
-		mergeClassNames('scene__overlay', props.overlayClass?.toString() ?? '')
+		ClassNamesManager.merge('scene__overlay', props.overlayClass?.toString() ?? '')
 	);
 	const restProps = $derived.by(() => {
 		const {

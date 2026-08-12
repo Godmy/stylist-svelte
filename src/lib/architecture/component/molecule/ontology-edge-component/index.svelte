@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { OntologyEdgeComponentProps } from '$stylist/architecture/type/object/ontology-edge-component/ontologyedgecomponent-props';
+	import type { RecipeOntologyEdgeComponent } from '$stylist/architecture/interface/recipe/ontology-edge-component';
 	import createOntologyEdgeComponentState from './state.svelte';
 
-	let props: OntologyEdgeComponentProps = $props();
+	let props: RecipeOntologyEdgeComponent = $props();
 	const state = createOntologyEdgeComponentState(props);
 </script>
 

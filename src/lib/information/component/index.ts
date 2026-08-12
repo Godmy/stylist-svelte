@@ -6,15 +6,11 @@ export {
 	Dot,
 	NodeIcon,
 	ProgressBar,
-	Skeleton,
-	Spinner,
-	StatusIndicator,
 	Tooltip
 } from './atom';
 export {
 	BadgeGroup,
-	BaseCard,
-	Loading
+	BaseCard
 } from './molecule';
 export {
 	MarkdownRenderer,

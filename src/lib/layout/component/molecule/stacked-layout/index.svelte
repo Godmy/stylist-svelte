@@ -1,8 +1,8 @@
 <script lang="ts">
 	import createStackedLayoutState from './state.svelte';
-	import type { StackedLayoutProps } from '$stylist/layout/interface/recipe/stacked-layout';
+	import type { RecipeStackedLayout } from '$stylist/layout/interface/recipe/stacked-layout';
 
-	let props: StackedLayoutProps = $props();
+	let props: RecipeStackedLayout = $props();
 	const state = createStackedLayoutState(props);
 
 	const GAP: Record<string, string> = {

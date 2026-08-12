@@ -1,6 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	RecipeCharacterCount,
+	RecipeCharactersCount,
 	RecipeCheckboxGroup,
 	RecipeInputAddon,
 	RecipeInputDouble,
@@ -12,15 +12,15 @@ export type {
 	RecipeInputLabel,
 	RecipeInputName,
 	RecipeInputPassword,
+	RecipeInputPinDigit,
 	RecipeInputText,
 	RecipeNumberInput,
 	RecipePhoneNumberInput,
-	RecipePinInputDigit,
 	RecipeRadioButtonGroupProps,
 	RecipeRadioGroup,
+	RecipeRichTextEditorStateProps,
 	RecipeTagInput,
-	RecipeTextArea,
-	RichTextEditorStateProps
+	RecipeTextArea
 } from './recipe';
 export type {
 	SlotInputBase,

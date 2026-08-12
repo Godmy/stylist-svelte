@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DashboardLayoutProps } from '$stylist/management/interface/recipe/dashboard-layout';
+	import type { RecipeDashboardLayout } from '$stylist/management/interface/recipe/dashboard-layout';
 
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
@@ -7,7 +7,7 @@
 
 	import createDashboardLayoutState from './state.svelte';
 
-	let props: DashboardLayoutProps = $props();
+	let props: RecipeDashboardLayout = $props();
 
 	const state = createDashboardLayoutState(props);
 </script>

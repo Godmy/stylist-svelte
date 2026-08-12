@@ -1,9 +1,45 @@
-import type { CanvasChartPadding } from '$stylist/chart/type/object/canvas-chart-padding';
+import type { CanvasChartPadding } from '$stylist/chart/interface/slot/canvas-chart-padding';
+import type { RecipeCanvasChart } from '$stylist/chart/interface/recipe/canvas-chart';
 import type { TokenCanvasChartType } from '$stylist/chart/type/alias/canvas-chart-type';
 import { TOKEN_CHART_COLORS } from '$stylist/chart/const/array/chart-colors';
 import { DEFAULT_CANVAS_CHART_PADDING } from '$stylist/chart/const/map/default-canvas-chart-padding';
+import { PRESET_CANVAS_CHART } from '$stylist/chart/const/preset/canvas-chart';
 
 export class ObjectManagerCanvasChart {
+	static resolvePreset(name: 'default' | 'minimal' | 'bold' | 'small' | 'large'): RecipeCanvasChart {
+		switch (name) {
+			case 'minimal':
+				return {
+					...PRESET_CANVAS_CHART,
+					variant: 'minimal',
+					showGrid: false
+				};
+			case 'bold':
+				return {
+					...PRESET_CANVAS_CHART,
+					variant: 'bold',
+					size: 'lg'
+				};
+			case 'small':
+				return {
+					...PRESET_CANVAS_CHART,
+					size: 'sm',
+					width: 400,
+					height: 300
+				};
+			case 'large':
+				return {
+					...PRESET_CANVAS_CHART,
+					size: 'lg',
+					width: 1200,
+					height: 800
+				};
+			case 'default':
+			default:
+				return PRESET_CANVAS_CHART;
+		}
+	}
+
 	static resolveColors(colors?: readonly string[]): string[] {
 		return colors && colors.length > 0 ? [...colors] : [...TOKEN_CHART_COLORS];
 	}

@@ -1,10 +1,7 @@
-import type { DrawerProps } from '$stylist/navigation/type/object/drawer-props/drawer-props';
-import { close } from '$stylist/navigation/function/script/close';
-import { handleBackdropClick } from '$stylist/navigation/function/script/handle-backdrop-click';
-import { handleBackdropKeyDown } from '$stylist/navigation/function/script/handle-backdrop-key-down';
-import { handleEscape } from '$stylist/navigation/function/script/handle-escape';
+import type { RecipeDrawer } from '$stylist/navigation/interface/recipe/drawer';
+import { DrawerManager } from '$stylist/navigation/class/manager/drawer';
 
-export function createDrawerState(props: DrawerProps) {
+export function createDrawerState(props: RecipeDrawer) {
 	let drawerEl = $state<HTMLElement | null>(null);
 	let backdropEl = $state<HTMLElement | null>(null);
 	const isOpen = $derived(props.open ?? false);
@@ -14,19 +11,19 @@ export function createDrawerState(props: DrawerProps) {
 	const showBackdrop = $derived(props.showBackdrop ?? true);
 
 	function closeFn() {
-		close(props, closable);
+		DrawerManager.close(props, closable);
 	}
 
 	function handleBackdropClickFn(e: MouseEvent) {
-		handleBackdropClick(e, backdropEl, closable, closeFn);
+		DrawerManager.handleBackdropClick(e, backdropEl, closable, closeFn);
 	}
 
 	function handleBackdropKeyDownFn(e: KeyboardEvent) {
-		handleBackdropKeyDown(e, backdropEl, closable, closeFn);
+		DrawerManager.handleBackdropKeyDown(e, backdropEl, closable, closeFn);
 	}
 
 	function handleEscapeFn(e: KeyboardEvent) {
-		handleEscape(e, closable, closeFn);
+		DrawerManager.handleEscape(e, closable, closeFn);
 	}
 
 	return {

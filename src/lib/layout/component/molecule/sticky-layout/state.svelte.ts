@@ -1,6 +1,6 @@
-import type { StickyLayoutProps } from '$stylist/layout/interface/recipe/sticky-layout';
+import type { RecipeStickyLayout } from '$stylist/layout/interface/recipe/sticky-layout';
 
-export function createStickyLayoutState(props: StickyLayoutProps) {
+export function createStickyLayoutState(props: RecipeStickyLayout) {
 	const fillHeight = $derived(props.fillHeight ?? true);
 	const headerShadow = $derived(props.headerShadow ?? true);
 	const footerShadow = $derived(props.footerShadow ?? true);

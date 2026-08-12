@@ -9,10 +9,10 @@
 	const Users = 'users';
 	const Activity = 'activity';
 
-	import type { TestResultsViewerProps } from '$stylist/marketing/type/object/test-results-viewer/testresultsviewer-props';
+	import type { RecipeTestResultsViewer } from '$stylist/marketing/interface/recipe/test-results-viewer';
 	import createTestResultsViewerState from './state.svelte';
 
-	let props: TestResultsViewerProps = $props();
+	let props: RecipeTestResultsViewer = $props();
 	const state = createTestResultsViewerState(props);
 </script>
 

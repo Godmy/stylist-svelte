@@ -1,12 +1,12 @@
 <script lang="ts">
 	import createAnimatedExpandableTableRowState from './state.svelte';
-	import type { AnimatedExpandableTableRowProps } from '$stylist/layout/interface/recipe/animated-expandable-table-row';
+	import type { RecipeAnimatedExpandableTableRow } from '$stylist/layout/interface/recipe/animated-expandable-table-row';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	const ChevronDown = 'chevron-down';
 	const ChevronUp = 'chevron-up';
 
-	let props: AnimatedExpandableTableRowProps = $props();
+	let props: RecipeAnimatedExpandableTableRow = $props();
 	const state = createAnimatedExpandableTableRowState(props);
 </script>
 

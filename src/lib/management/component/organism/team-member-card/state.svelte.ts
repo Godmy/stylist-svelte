@@ -1,6 +1,6 @@
-import type { TeamMemberCardStateProps } from '$stylist/management/interface/recipe/team-member-card';
+import type { RecipeTeamMemberCard } from '$stylist/management/interface/recipe/team-member-card';
 
-export function createTeamMemberCardState(props: TeamMemberCardStateProps) {
+export function createTeamMemberCardState(props: RecipeTeamMemberCard) {
 	// Props with defaults
 	const name = $derived(props.name);
 	const role = $derived(props.role);

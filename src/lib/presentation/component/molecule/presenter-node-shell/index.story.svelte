@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { SceneCamera } from '$stylist/architecture/type/object/scene-camera';
-	import type { SceneNode } from '$stylist/architecture/type/object/scene-node/scene-node';
+	import type { SceneCamera } from '$stylist/architecture/interface/slot/scene-camera';
+	import type { SceneNode } from '$stylist/architecture/interface/slot/scene-node/scene-node';
 
 	import PresenterNodeShell from './index.svelte';
 

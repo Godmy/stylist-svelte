@@ -14,10 +14,10 @@ export {
 export type {
 	ITreeNodeItemStyleClasses,
 	TreeNode,
-	TreeNodeItemNode,
-	TreeNodeItemProps
+	TreeNodeItemNode
 } from './type';
 export type {
 	RecipeTree,
-	TreeViewerProps
+	RecipeTreeNodeItem,
+	RecipeTreeViewer
 } from './interface';

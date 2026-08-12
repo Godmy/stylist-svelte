@@ -1,14 +1,14 @@
-import type { BulkOrderFormItem } from '$stylist/commerce/type/object/bulk-order-form/bulk-order-form-item';
-import type { BulkOrderFormProduct } from '$stylist/commerce/type/object/bulk-order-form/bulk-order-form-product';
-import type { BulkOrderFormProps } from '$stylist/commerce/type/object/bulk-order-form/bulk-order-form-props';
+import type { BulkOrderFormItem } from '$stylist/commerce/interface/slot/bulk-order-form-item';
+import type { BulkOrderFormProduct } from '$stylist/commerce/interface/slot/bulk-order-form-product';
+import type { RecipeBulkOrderForm } from '$stylist/commerce/interface/recipe/bulk-order-form';
 
-export function BulkOrderFormModel(props: BulkOrderFormProps) {
+export function BulkOrderFormModel(props: RecipeBulkOrderForm) {
 	let items = $state<BulkOrderFormItem[]>(props.initialItems ? [...props.initialItems] : []);
 	let selectedProduct = $state<string | null>(null);
 	let quantity = $state(1);
 	let note = $state('');
 
-	function updateFromProps(nextProps: BulkOrderFormProps) {
+	function updateFromProps(nextProps: RecipeBulkOrderForm) {
 		if (nextProps.initialItems && nextProps.initialItems.length > 0) {
 			items = [...nextProps.initialItems];
 		}

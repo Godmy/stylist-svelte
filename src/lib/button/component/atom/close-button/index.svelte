@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { PresetCloseButton } from '$stylist/button/const/preset/close-button';
 	import type { RecipeCloseButton } from '$stylist/button/interface/recipe/close-button';
 	import { createCloseButtonState } from './state.svelte';
 
@@ -37,14 +36,14 @@
 >
 	{#if state.loading}
 		<Icon
-			name={PresetCloseButton.Loader2}
+			name="loader-2"
 			class="c-close-button__loader"
 			style="width: 1rem; height: 1rem;"
 			aria-hidden="true"
 		/>
 		<span class="c-close-button__sr-only">{props.loadingLabel ?? 'Closing...'}</span>
 	{:else}
-		<Icon name={PresetCloseButton.X} style="width: 1rem; height: 1rem;" />
+		<Icon name="x" style="width: 1rem; height: 1rem;" />
 	{/if}
 </button>
 

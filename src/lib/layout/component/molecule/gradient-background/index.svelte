@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { RecipeThemeGradientBackground } from '$stylist/layout/interface/recipe/gradient-background';
+	import type { RecipeGradientBackground } from '$stylist/layout/interface/recipe/gradient-background';
 	import createGradientBackgroundState from './state.svelte';
 
-	let props: RecipeThemeGradientBackground = $props();
+	let props: RecipeGradientBackground = $props();
 	const state = createGradientBackgroundState(props);
 </script>
 

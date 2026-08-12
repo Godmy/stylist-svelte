@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeTimeGrid as TimeGridContract } from '$stylist/calendar/interface/recipe/time-grid';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { isToday, isWeekend } from '$stylist/calendar/function/script/calendar-utils';
 
 type TimeGridSlot = {
@@ -53,9 +53,9 @@ export function createTimeGridState(props: TimeGridContract) {
 	const headerClassProp = $derived(props.headerClass ?? '');
 
 	const wrapperClasses = $derived(
-		mergeClassNames('c-time-grid', variant === 'schedule' && 'c-time-grid--schedule', className)
+		ClassNamesManager.merge('c-time-grid', variant === 'schedule' && 'c-time-grid--schedule', className)
 	);
-	const headerClasses = $derived(mergeClassNames('c-time-grid__header', headerClassProp));
+	const headerClasses = $derived(ClassNamesManager.merge('c-time-grid__header', headerClassProp));
 	const timeGridClasses = $derived('c-time-grid__grid');
 
 	const timeGrid = $derived.by<DayColumn[]>(() => generateTimeGrid());
@@ -225,14 +225,14 @@ export function createTimeGridState(props: TimeGridContract) {
 	}
 
 	function getDayColumnClasses(date: Date): string {
-		return mergeClassNames(
+		return ClassNamesManager.merge(
 			'c-time-grid__day-col',
 			isWeekend(date) && 'c-time-grid__day-col--weekend'
 		);
 	}
 
 	function getDayHeaderClasses(date: Date): string {
-		return mergeClassNames(
+		return ClassNamesManager.merge(
 			'c-time-grid__day-header',
 			isToday(date) && 'c-time-grid__day-header--today',
 			headerClassProp
@@ -245,15 +245,15 @@ export function createTimeGridState(props: TimeGridContract) {
 
 	function getEventClasses(color?: string): string {
 		void color;
-		return mergeClassNames('c-time-grid__event', eventClass);
+		return ClassNamesManager.merge('c-time-grid__event', eventClass);
 	}
 
 	function getTimeSlotClasses(): string {
-		return mergeClassNames('c-time-grid__slot', slotClass);
+		return ClassNamesManager.merge('c-time-grid__slot', slotClass);
 	}
 
 	function getPriorityBadgeClasses(priority: string): string {
-		return mergeClassNames('c-time-grid__priority', `c-time-grid__priority--${priority}`);
+		return ClassNamesManager.merge('c-time-grid__priority', `c-time-grid__priority--${priority}`);
 	}
 
 	function isTodayDate(date: Date): boolean {

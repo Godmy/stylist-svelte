@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 ﻿import type { RecipePrivacySettings } from '$stylist/development/interface/recipe/privacy-settings';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createPrivacySettingsState(props: RecipePrivacySettings) {
 	let localSettings = $state([...(props.settings ?? [])]);
@@ -8,7 +8,7 @@ export function createPrivacySettingsState(props: RecipePrivacySettings) {
 	});
 
 	const containerClass = $derived(
-		mergeClassNames('c-privacy-settings', props.class ?? '')
+		ClassNamesManager.merge('c-privacy-settings', props.class ?? '')
 	);
 	const titleClass = $derived('c-privacy-settings__title');
 	const settingsContainerClass = $derived('c-privacy-settings__list');
@@ -19,12 +19,12 @@ export function createPrivacySettingsState(props: RecipePrivacySettings) {
 	const toggleContainerClass = $derived('c-privacy-settings__toggle');
 	const toggleInputClass = $derived('c-privacy-settings__toggle-input');
 	const toggleTrackClass = (isEnabled: boolean) =>
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-privacy-settings__toggle-track',
 			isEnabled ? 'c-privacy-settings__toggle-track--enabled' : ''
 		);
 	const toggleThumbClass = (isEnabled: boolean) =>
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-privacy-settings__toggle-thumb',
 			isEnabled ? 'c-privacy-settings__toggle-thumb--enabled' : ''
 		);

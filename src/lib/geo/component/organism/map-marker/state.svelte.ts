@@ -1,5 +1,5 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 ﻿import type { RecipeMapMarker } from '$stylist/geo/interface/recipe/map-marker';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createMapMarkerState(props: RecipeMapMarker) {
 	// Props with defaults
@@ -29,14 +29,14 @@ export function createMapMarkerState(props: RecipeMapMarker) {
 
 	// Classes
 	const hostClasses = $derived(
-		mergeClassNames('c-map-marker', selected && 'c-map-marker--selected', props.class ?? '')
+		ClassNamesManager.merge('c-map-marker', selected && 'c-map-marker--selected', props.class ?? '')
 	);
 	const markerContainerClasses = $derived(
-		mergeClassNames('c-map-marker__container', props.iconClass ?? '')
+		ClassNamesManager.merge('c-map-marker__container', props.iconClass ?? '')
 	);
 	const colorClass = $derived(getColorClass(color, type));
 	const pinStyleClasses = $derived(
-		mergeClassNames(
+		ClassNamesManager.merge(
 			'c-map-marker__pin',
 			`c-map-marker__pin--${size}`,
 			`c-map-marker__pin--${pinStyle}`,
@@ -44,7 +44,7 @@ export function createMapMarkerState(props: RecipeMapMarker) {
 		)
 	);
 	const distanceLabelClasses = $derived('c-map-marker__distance');
-	const popupClasses = $derived(mergeClassNames('c-map-marker__popup', props.popupClass ?? ''));
+	const popupClasses = $derived(ClassNamesManager.merge('c-map-marker__popup', props.popupClass ?? ''));
 	const titleClasses = $derived('c-map-marker__popup-title');
 	const descriptionClasses = $derived('c-map-marker__popup-description');
 	const ratingContainerClasses = $derived('c-map-marker__rating');
@@ -53,14 +53,14 @@ export function createMapMarkerState(props: RecipeMapMarker) {
 	const contactItemClasses = $derived('c-map-marker__contact-item');
 	const contactLinkClasses = $derived('c-map-marker__contact-link');
 	const customContentClasses = $derived(
-		mergeClassNames('c-map-marker__custom', props.contentClass ?? '')
+		ClassNamesManager.merge('c-map-marker__custom', props.contentClass ?? '')
 	);
 	const actionButtonsContainerClasses = $derived('c-map-marker__actions');
 	const flagClasses = $derived(
-		mergeClassNames('c-map-marker__flag-pole', `c-map-marker__flag-pole--${size}`)
+		ClassNamesManager.merge('c-map-marker__flag-pole', `c-map-marker__flag-pole--${size}`)
 	);
 	const flagTopClasses = $derived(
-		mergeClassNames('c-map-marker__flag-top', `c-map-marker__flag-top--${size}`)
+		ClassNamesManager.merge('c-map-marker__flag-top', `c-map-marker__flag-top--${size}`)
 	);
 
 	// Methods
@@ -87,7 +87,7 @@ export function createMapMarkerState(props: RecipeMapMarker) {
 	}
 
 	function getStarClasses(isFilled: boolean, isHalf: boolean = false): string {
-		return mergeClassNames('c-map-marker__star', isFilled && 'c-map-marker__star--filled');
+		return ClassNamesManager.merge('c-map-marker__star', isFilled && 'c-map-marker__star--filled');
 	}
 
 	function getColorClass(colorValue: string, markerType: string): string {

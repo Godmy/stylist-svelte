@@ -1,6 +1,6 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeLineChart } from '$stylist/chart/interface/recipe/line-chart';
 import { ObjectManagerLineChart } from '$stylist/chart/class/object-manager/line-chart';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createLineChartState(props: RecipeLineChart) {
 	const hostClass = $derived(typeof props.class === 'string' ? props.class : undefined);
@@ -10,11 +10,11 @@ export function createLineChartState(props: RecipeLineChart) {
 	);
 	let hoveredPoint = $state<{ seriesIndex: number; pointIndex: number } | null>(null);
 
-	const baseClasses = $derived(mergeClassNames('c-line-chart', hostClass));
+	const baseClasses = $derived(ClassNamesManager.merge('c-line-chart', hostClass));
 	const titleContainerClasses = $derived('c-line-chart__title-row');
 	const titleClasses = $derived('c-line-chart__title');
 	const chartContainerClasses = $derived(
-		mergeClassNames('c-line-chart__chart-container', chartClass)
+		ClassNamesManager.merge('c-line-chart__chart-container', chartClass)
 	);
 	const infoIconClasses = $derived('c-line-chart__info-icon');
 	const legendContainerClasses = $derived('c-line-chart__legend');

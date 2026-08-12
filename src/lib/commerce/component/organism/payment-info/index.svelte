@@ -1,11 +1,11 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	import createPaymentInfoState from './state.svelte';
 
-	import type { PaymentInfoProps } from '$stylist/commerce/interface/recipe/payment-info-props';
+	import type { RecipePaymentInfoProps } from '$stylist/commerce/interface/recipe/payment-info-props';
 
-	let props: PaymentInfoProps = $props();
+	let props: RecipePaymentInfoProps = $props();
 
 	const state = createPaymentInfoState(props);
 </script>

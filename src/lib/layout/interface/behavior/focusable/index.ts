@@ -1,4 +1,4 @@
-import type { GestureContract } from '$stylist/layout/type/object/gesture-contract';
+import type { GestureContract } from '$stylist/layout/interface/slot/gesture-contract';
 /**
  * Прото-интерфейс для focusable элементов
  */

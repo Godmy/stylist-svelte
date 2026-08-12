@@ -2,9 +2,9 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import createSocialShareState from './state.svelte';
-	import type { Props } from '$stylist/social/type/object/social-share/-props';
+	import type { RecipeSocialShare } from '$stylist/social/interface/recipe/social-share';
 
-	let props: Props = $props();
+	let props: RecipeSocialShare = $props();
 	const state = createSocialShareState(props);
 </script>
 

@@ -1,9 +1,9 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeMiniCalendar as MiniCalendarContract } from '$stylist/calendar/interface/recipe/mini-calendar';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';
 import { generateCalendarGrid, isToday as isTodayFn, isSameDay } from '$stylist/calendar/function/script/calendar-utils';
 import { formatShortMonthYear } from '$stylist/calendar/function/script/date-format';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createMiniCalendarState(props: MiniCalendarContract) {
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
@@ -19,11 +19,11 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 	const headerClassProp = $derived(props.headerClass ?? '');
 
 	const wrapperClasses = $derived(
-		mergeClassNames('c-mini-calendar', compact && 'c-mini-calendar--compact', className)
+		ClassNamesManager.merge('c-mini-calendar', compact && 'c-mini-calendar--compact', className)
 	);
-	const headerClasses = $derived(mergeClassNames('c-mini-calendar__header', headerClassProp));
+	const headerClasses = $derived(ClassNamesManager.merge('c-mini-calendar__header', headerClassProp));
 	const weekdayHeaderClasses = $derived(
-		mergeClassNames('c-mini-calendar__weekday', headerClassProp)
+		ClassNamesManager.merge('c-mini-calendar__weekday', headerClassProp)
 	);
 	const gridClasses = $derived('c-mini-calendar__grid');
 
@@ -86,7 +86,7 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 		isCurrentMonth: boolean,
 		hasEvent: boolean
 	): string {
-		return mergeClassNames(
+		return ClassNamesManager.merge(
 			'c-mini-calendar__day',
 			isTodayDate && 'c-mini-calendar__day--today',
 			!isCurrentMonth && 'c-mini-calendar__day--other',
@@ -101,7 +101,7 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 
 	function getEventIndicatorClasses(color?: string): string {
 		void color;
-		return mergeClassNames('c-mini-calendar__event-dot', eventClass);
+		return ClassNamesManager.merge('c-mini-calendar__event-dot', eventClass);
 	}
 
 	return {

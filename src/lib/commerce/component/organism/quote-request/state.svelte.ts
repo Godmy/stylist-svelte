@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeQuoteRequest } from '$stylist/commerce/interface/recipe/quote-request';
-import type { QuoteRequestValue } from '$stylist/commerce/type/object/quote-request-value';
+import type { QuoteRequestValue } from '$stylist/commerce/interface/slot/quote-request-value';
 
 export function createQuoteRequestState(props: RecipeQuoteRequest & HTMLAttributes<HTMLDivElement>) {
 	let request = $state<QuoteRequestValue>({

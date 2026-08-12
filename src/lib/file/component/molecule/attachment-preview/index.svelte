@@ -1,9 +1,8 @@
 <script lang="ts">
+	import { AttachmentPreviewManager } from '$stylist/file/class/manager/attachment-preview';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createAttachmentPreviewState } from './state.svelte';
-	import { getIconName } from '$stylist/file/function/script/attachment-preview-get-icon-name';
-	import { formatFileSize } from '$stylist/file/function/script/attachment-preview-format-file-size';
 	import type { RecipeAttachmentPreview } from '$stylist/file/interface/recipe/attachment-preview';
 
 	let props: RecipeAttachmentPreview = $props();
@@ -12,14 +11,14 @@
 
 <div class={`attachment-preview ${state.classes}`.trim()}>
 	<div class="attachment-icon">
-		<Icon name={getIconName(props.attachment.type)} size="lg" />
+		<Icon name={AttachmentPreviewManager.getIconName(props.attachment.type)} size="lg" />
 	</div>
 
 	<div class="attachment-details">
 		<div class="attachment-name">{props.attachment.name}</div>
 		<div class="attachment-info">
 			{#if props.attachment.size}
-				<span>{formatFileSize(props.attachment.size)}</span>
+				<span>{AttachmentPreviewManager.formatFileSize(props.attachment.size)}</span>
 			{/if}
 		</div>
 	</div>

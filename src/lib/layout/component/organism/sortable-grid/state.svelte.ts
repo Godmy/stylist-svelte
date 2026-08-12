@@ -1,7 +1,7 @@
 import type { SlotSortableGridItem as SortableGridItem } from '$stylist/layout/interface/slot/sortable-grid-item';
-import type { SortableGridProps } from '$stylist/layout/interface/recipe/sortable-grid';
+import type { RecipeSortableGrid } from '$stylist/layout/interface/recipe/sortable-grid';
 
-export function createSortableGridState(props: SortableGridProps) {
+export function createSortableGridState(props: RecipeSortableGrid) {
 	const items = $derived(props.items ?? []);
 	const className = $derived(props.class ?? '');
 	const itemClass = $derived(props.itemClass ?? '');

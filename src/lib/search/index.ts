@@ -11,13 +11,13 @@ export {
 export { SEARCH_ICON_NAME } from './const';
 export type {
 	AutoCompleteOption,
-	SearchResultItem,
-	SearchResultsProps
+	SearchResultItem
 } from './type';
 export type {
 	RecipeAutoComplete,
 	RecipeAutoSearch,
 	RecipeSearchBar,
+	RecipeSearchResults,
 	RecipeSearchSuggestion,
 	SlotAutoComplete,
 	SlotAutoSearch,

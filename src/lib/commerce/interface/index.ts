@@ -1,20 +1,14 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorOrderConfirmationEvents } from './behavior';
 export type {
-	ContractBillingItem,
-	ContractOrderConfirmationPaymentInfo,
-	ContractShippingAddress,
-	RecipeOrderItem
-} from './contract';
-export type {
-	AlertCardStateProps,
-	CartSummaryProps,
-	PaymentInfoProps,
 	RecipeAlertCard,
+	RecipeAlertCardStateProps,
 	RecipeArticleCard,
 	RecipeBillingSummary,
+	RecipeBulkOrderForm,
 	RecipeCardWithImage,
+	RecipeCartSummaryProps,
 	RecipeCategoryCard,
+	RecipeCheckoutForm,
 	RecipeCurrencyConverter,
 	RecipeDataDisplayCard,
 	RecipeDiscountApplier,
@@ -26,8 +20,14 @@ export type {
 	RecipeMetricCard,
 	RecipeOrderConfirmation,
 	RecipeOrderHistory,
+	RecipeOrderItemOrderConfirmation,
+	RecipeOrderItemOrderHistory,
 	RecipeOrderSort,
 	RecipeOrderTracking,
+	RecipePaymentInfoProps,
+	RecipePaymentMethodSelector,
+	RecipePaymentSelector,
+	RecipePaymentSummary,
 	RecipePriceAlert,
 	RecipePriceFilter,
 	RecipePriceHistory,
@@ -42,10 +42,20 @@ export type {
 	RecipeSubscriptionManager,
 	RecipeTaxCalculator,
 	RecipeUpsell,
-	RecipeWarrantyInfo,
-	UserCardProps
+	RecipeUserCardProps,
+	RecipeWarrantyInfo
 } from './recipe';
 export type {
+	Address,
+	BulkOrderFormItem,
+	BulkOrderFormProduct,
+	PaymentMethod,
+	PaymentSummaryDiscount,
+	PaymentSummaryItem,
+	PaymentSummaryTax,
+	QuoteRequestValue,
+	RFQFormData,
+	RFQProduct,
 	SlotBulkOrderForm,
 	SlotCurrency,
 	SlotDiscountRule,

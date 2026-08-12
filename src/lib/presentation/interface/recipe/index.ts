@@ -1,3 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { RecipePresenterNodeShell } from './presenter-node-shell';
 export type { RecipePreziScene } from './prezi-scene';
-export type { PreziSceneState } from './prezi-scene-state';
+export type { RecipePreziSceneState } from './prezi-scene-state';

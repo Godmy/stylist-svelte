@@ -3,8 +3,8 @@ import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface RecipeDocumentationBlock
-	extends ComputeIntersectAll<[((HTMLAttributes<HTMLElement> & SlotThemeBorder & SlotTypography & {
+
+export interface RecipeDocumentationBlock extends ComputeIntersectAll<[((HTMLAttributes<HTMLElement> & SlotThemeBorder & SlotTypography & {
 title?: string;
 	content: string;
 	variant?: TokenColorTone;

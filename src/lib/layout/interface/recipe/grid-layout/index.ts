@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
-export interface GridLayoutProps extends LayoutHTMLAttributes<HTMLDivElement> {
+export interface RecipeGridLayout extends LayoutHTMLAttributes<HTMLDivElement> {
 	class?: string;
 	children?: Snippet;
 	columns?: number;

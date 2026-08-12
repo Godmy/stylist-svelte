@@ -1,5 +1,5 @@
-import type { CtaBannerProps } from '$stylist/marketing/type/object/cta-banner/ctabanner-props';
-export function createCtaBannerState(props: CtaBannerProps) {
+import type { RecipeCtaBanner } from '$stylist/marketing/interface/recipe/cta-banner';
+export function createCtaBannerState(props: RecipeCtaBanner) {
 	const title = $derived(props.title);
 	const description = $derived(props.description);
 	const buttons = $derived(props.buttons ?? []);

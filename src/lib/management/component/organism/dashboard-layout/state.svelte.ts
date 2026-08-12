@@ -1,7 +1,7 @@
 import type { TOKEN_DENSITY } from '$stylist/layout/const/array/density';
-import type { DashboardLayoutProps } from '$stylist/management/interface/recipe/dashboard-layout';
+import type { RecipeDashboardLayout } from '$stylist/management/interface/recipe/dashboard-layout';
 
-export function createDashboardLayoutState(props: DashboardLayoutProps) {
+export function createDashboardLayoutState(props: RecipeDashboardLayout) {
 	// Props with defaults
 	const sidebarOpen = $derived(props.sidebarOpen ?? true);
 	const collapsibleSidebar = $derived(props.collapsibleSidebar ?? true);

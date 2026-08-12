@@ -27,13 +27,9 @@ export type {
 	TokenStackDirection,
 	TokenTrigger
 } from './alias';
+export type { Preset } from './preset';
 export type {
 	AnyProperty,
-	DragContract,
-	GestureContract,
-	Preset
-} from './object';
-export type {
 	GraphPortSizeMapDimensions,
 	RecordSizeMap
 } from './record';

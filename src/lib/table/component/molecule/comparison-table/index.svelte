@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { ComparisonTableProps } from '$stylist/table/type/object/comparison-table-props';
+	import type { RecipeComparisonTable } from '$stylist/table/interface/recipe/comparison-table';
 	import { createComparisonTableState } from './state.svelte';
 
-	let props: ComparisonTableProps = $props();
+	let props: RecipeComparisonTable = $props();
 	const state = createComparisonTableState(props);
 
 	const restProps = $derived.by(() => {

@@ -4,9 +4,9 @@
 	import GraphClusterFilter from '$stylist/graph/component/molecule/graph-cluster-filter/index.svelte';
 	import GraphLegend from '$stylist/graph/component/molecule/graph-legend/index.svelte';
 	import GraphTooltip from '$stylist/graph/component/atom/graph-tooltip/index.svelte';
-	import type { ZwickySceneProps } from '$stylist/graph/type/object/zwicky-scene-props';
+	import type { RecipeZwickyScene } from '$stylist/graph/interface/recipe/zwicky-scene';
 
-	let props: ZwickySceneProps = $props();
+	let props: RecipeZwickyScene = $props();
 	const state = createZwickySceneState(props);
 	let canvasRef: HTMLCanvasElement | null = null;
 

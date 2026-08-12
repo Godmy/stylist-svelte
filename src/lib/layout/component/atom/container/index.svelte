@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { ContainerProps } from '$stylist/layout/interface/recipe/container';
+	import type { RecipeContainer } from '$stylist/layout/interface/recipe/container';
 	import createContainerState from './state.svelte';
 
-	let props: ContainerProps = $props();
+	let props: RecipeContainer = $props();
 	const state = createContainerState(props);
 
 	const MAX_WIDTH: Record<string, string> = {

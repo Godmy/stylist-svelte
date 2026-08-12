@@ -8,11 +8,11 @@
 	const Calendar = 'calendar';
 	const Filter = 'filter';
 
-	import type { TrafficAnalyticsProps } from '$stylist/marketing/type/object/traffic-analytics/trafficanalytics-props';
+	import type { RecipeTrafficAnalytics } from '$stylist/marketing/interface/recipe/traffic-analytics';
 	import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
 	import createTrafficAnalyticsState from './state.svelte';
 
-	let props: TrafficAnalyticsProps = $props();
+	let props: RecipeTrafficAnalytics = $props();
 	const state = createTrafficAnalyticsState(props);
 </script>
 

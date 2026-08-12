@@ -23,6 +23,7 @@ export {
 	TagInput,
 	TextArea
 } from './component';
+export { createButtonFactoryInput } from './const';
 export {
 	createCharacterCountState,
 	createFieldClassState,
@@ -33,7 +34,7 @@ export {
 	resolveCharacterCountState
 } from './function';
 export type {
-	RecipeCharacterCount,
+	RecipeCharactersCount,
 	RecipeCheckboxGroup,
 	RecipeInputAddon,
 	RecipeInputDouble,
@@ -45,15 +46,15 @@ export type {
 	RecipeInputLabel,
 	RecipeInputName,
 	RecipeInputPassword,
+	RecipeInputPinDigit,
 	RecipeInputText,
 	RecipeNumberInput,
 	RecipePhoneNumberInput,
-	RecipePinInputDigit,
 	RecipeRadioButtonGroupProps,
 	RecipeRadioGroup,
+	RecipeRichTextEditorStateProps,
 	RecipeTagInput,
 	RecipeTextArea,
-	RichTextEditorStateProps,
 	SlotInputBase,
 	SlotInputCore,
 	SlotInputLabel,

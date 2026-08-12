@@ -4,9 +4,9 @@ import {
 	formatDateTime
 } from '$stylist/localization/function/format-date-time';
 import type { SlotLocaleSwitcherLocale as LocaleSwitcherLocale } from '$stylist/localization/interface/slot/locale-switcher-locale';
-import type { LocaleSwitcherStateProps } from '$stylist/localization/interface/recipe/locale-switcher';
+import type { RecipeLocaleSwitcher } from '$stylist/localization/interface/recipe/locale-switcher';
 
-export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
+export function createLocaleSwitcherState(props: RecipeLocaleSwitcher) {
 	const locales = props.locales ?? [];
 	const currentLocale = props.currentLocale;
 	const timezoneOptions = props.timezoneOptions ?? [];

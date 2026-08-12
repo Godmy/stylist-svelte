@@ -1,12 +1,12 @@
 import type { StatusItem } from '$stylist/management/type/object/status-item';
 import { STATUS_DASHBOARD_PRESENTATION } from '$stylist/management/const/record/status-dashboard-presentation';
-import type { StatusDashboardStateProps } from '$stylist/management/interface/recipe/status-dashboard-status-dashboard-state-props';
+import type { RecipeStatusDashboardStatusDashboardStateProps } from '$stylist/management/interface/recipe/status-dashboard-status-dashboard-state-props';
 
 function resolveStatusPresentation(status: StatusItem['status']) {
 	return STATUS_DASHBOARD_PRESENTATION[status] ?? STATUS_DASHBOARD_PRESENTATION.info;
 }
 
-export function createStatusDashboardState(props: StatusDashboardStateProps) {
+export function createStatusDashboardState(props: RecipeStatusDashboardStatusDashboardStateProps) {
 	const title = $derived(props.title);
 	const subtitle = $derived(props.subtitle);
 	const items = $derived(props.items ?? []);

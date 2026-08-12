@@ -1,5 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { DrawerManager } from './class';
+export {
+	BreadcrumbsManager,
+	DialogConfirmManager,
+	DrawerManager,
+	SideBySideLayoutManager
+} from './class';
 export {
 	Accordion,
 	AccordionGroup,
@@ -38,16 +43,8 @@ export {
 } from './component';
 export {
 	ACCORDION_CONTEXT_DEFAULT,
-	BREADCRUMB_TEMPLATE,
-	BURGER_MENU_ARIA_LABEL,
 	PresetDropdownMenu,
 	PresetPageButton,
-	SIDE_BY_SIDE_ALIGN_CLASSES,
-	SIDE_BY_SIDE_GAP_CLASSES,
-	SIDE_BY_SIDE_JUSTIFY_CLASSES,
-	SIDE_BY_SIDE_SECTION_WIDTH_MOBILE,
-	SIDE_BY_SIDE_SECTION_WIDTH_RESPONSIVE,
-	SLASH_ICON,
 	STYLIST_MENU_ATOMIC_TAB_ITEMS,
 	STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS,
 	STYLIST_MENU_FUNCTIONAL_TAB_ITEMS,
@@ -56,72 +53,45 @@ export {
 	TAB_CONTEXT,
 	TAB_PANEL_CONTEXT
 } from './const';
-export {
-	close,
-	createDrawerBackdropHandler,
-	createDrawerCloseHandler,
-	createDrawerEscapeHandler,
-	getBreadcrumbDropdownItems,
-	getBreadcrumbItems,
-	getSideBySideLayoutClasses,
-	getSideBySideSectionWidthClass,
-	handleBackdropClick,
-	handleBackdropKeyDown,
-	handleConfirmCallback,
-	handleEscape
-} from './function';
 export type { AccordionContext } from './const';
 export type {
 	BreadcrumbDropdownItem,
 	BreadcrumbItem,
-	BreadcrumbSeparatorProps,
-	BreadcrumbsProps,
-	DialogConfirmProps,
-	DrawerProps,
-	GeneralToolbarRecipe,
 	NavItem,
 	PrimaryMenuItem,
-	SideBySideLayoutProps,
-	StepperProps,
-	StylistMenuProps,
-	StylistTabItem,
-	StylistTabProps
-} from './type';
-export type {
-	LinkSpecificProps,
 	RecipeAppHeader,
-	RecipeBreadcrumb,
 	RecipeBreadcrumbDropdown,
 	RecipeBreadcrumbLink,
+	RecipeBreadcrumbSeparator,
 	RecipeBreadcrumbs,
 	RecipeBurgerMenu,
 	RecipeConfirmationDialog,
-	RecipeDialogControls,
+	RecipeDialogConfirm,
+	RecipeDrawer,
 	RecipeDropdownMenu,
-	RecipeLink,
+	RecipeGeneralToolbar,
+	RecipeLinkSpecificProps,
 	RecipeMenuItem,
 	RecipePageButton,
 	RecipePageEllipsis,
 	RecipePagination,
+	RecipeSideBySideLayout,
 	RecipeSidebar,
 	RecipeSimpleModal,
+	RecipeStepper,
+	RecipeStylistMenu,
+	RecipeStylistTab,
 	RecipeTabGroup,
 	RecipeTabs,
-	RecipeToolbar,
-	RecipeToolbarField,
-	RecipeToolbarGroup,
-	RecipeToolbarSeparator,
-	RecipeTooltipWithArrow,
 	SlotAccordion,
 	SlotAccordionGroup,
 	SlotAccordionLayout,
 	SlotConfirmationDialog,
 	SlotDialog,
-	SlotDropdownMenuStyleClasses,
 	SlotModal,
 	SlotTab,
 	SlotTabContainer,
 	SlotTabIndicator,
 	SlotTabPanel,
-	SlotTabStyleClasses
+	StylistTabItem
 } from './interface';

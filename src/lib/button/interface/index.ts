@@ -1,14 +1,15 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	ButtonFactoryInput,
 	RecipeButton,
 	RecipeButtonComposed,
 	RecipeButtonElement,
+	RecipeButtonFactoryInput,
 	RecipeCloseButton,
 	RecipeCopyButton,
 	RecipeFollowButton,
 	RecipeIconButton,
-	RecipeSplitButton
+	RecipeSplitButton,
+	RecipeToolButton
 } from './recipe';
 export type {
 	SlotButtonAttributesBase,

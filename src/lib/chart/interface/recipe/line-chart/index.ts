@@ -10,8 +10,8 @@ import type { BehaviorLegendable } from '$stylist/chart/interface/behavior/legen
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { BehaviorChartColorable } from '$stylist/chart/interface/behavior/chart-colorable';
 import type { BehaviorChartAxis } from '$stylist/chart/interface/behavior/chart-axis';
-import type { LineChartData } from '$stylist/chart/type/object/line-chart-data';
-import type { LineChartPoint } from '$stylist/chart/type/object/line-chart';
+import type { LineChartData } from '$stylist/chart/interface/slot/line-chart-data';
+import type { LineChartPoint } from '$stylist/chart/interface/slot/line-chart';
 export interface RecipeLineChart
 	extends ComputeIntersectAll<
 		[

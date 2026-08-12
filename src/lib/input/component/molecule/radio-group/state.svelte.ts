@@ -1,4 +1,4 @@
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeRadioGroup } from '$stylist/input/interface/recipe/radio-group';
 export function createRadioGroupState(props: RecipeRadioGroup): ({
 internalValue: string;
@@ -29,10 +29,10 @@ internalValue: string;
 	const requiredMarkClass = $derived('c-radio-group__required-mark');
 	const descriptionClass = $derived('c-radio-group__description');
 	const optionsContainerClass = $derived(
-		mergeClassNames('c-radio-group__options', `c-radio-group__options--${orientation}`)
+		ClassNamesManager.merge('c-radio-group__options', `c-radio-group__options--${orientation}`)
 	);
 	const optionLabelClass = $derived(
-		mergeClassNames('c-radio-group__option', props.disabled && 'c-radio-group__option--disabled')
+		ClassNamesManager.merge('c-radio-group__option', props.disabled && 'c-radio-group__option--disabled')
 	);
 	const optionTextClass = $derived('c-radio-group__option-label');
 	const optionDescriptionClass = $derived('c-radio-group__option-desc');

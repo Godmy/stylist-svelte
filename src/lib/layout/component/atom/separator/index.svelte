@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SeparatorProps } from '$stylist/layout/interface/recipe/separator';
+	import type { RecipeSeparator } from '$stylist/layout/interface/recipe/separator';
 	import createSeparatorState from './state.svelte';
 
-	let props: SeparatorProps = $props();
+	let props: RecipeSeparator = $props();
 	const state = createSeparatorState(props);
 
 	const restProps = $derived(

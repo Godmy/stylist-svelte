@@ -1,2 +1,0 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { IMAGE_CAPTION_STORY_PRESETS } from './image-caption';

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { StepperProps } from '$stylist/navigation/type/object/stepper-props/stepper-props';
+	import type { RecipeStepper } from '$stylist/navigation/interface/recipe/stepper';
 	import createStepperState from './state.svelte';
 
-	let props: StepperProps = $props();
+	let props: RecipeStepper = $props();
 	const state = createStepperState(props);
 </script>
 

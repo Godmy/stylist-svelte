@@ -1,5 +1,5 @@
-﻿import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { RecipeNotificationCenter } from '$stylist/notification/interface/recipe/notification-center';
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+﻿import type { RecipeNotificationCenter } from '$stylist/notification/interface/recipe/notification-center';
 
 export function createNotificationCenterState(props: RecipeNotificationCenter) {
 	const notifications = $derived(props.notifications ?? []);
@@ -8,7 +8,7 @@ export function createNotificationCenterState(props: RecipeNotificationCenter) {
 	const unread = $derived(notifications.filter((n: { read?: boolean }) => !n.read).length);
 
 	const containerClasses = $derived(
-		mergeClassNames('c-notification-center border rounded-lg p-4', className)
+		ClassNamesManager.merge('c-notification-center border rounded-lg p-4', className)
 	);
 
 	const restProps = $derived.by(() => {

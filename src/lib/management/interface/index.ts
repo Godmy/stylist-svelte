@@ -5,20 +5,20 @@ export type {
 } from './behavior';
 export type { ContractDashboardLayout } from './contract';
 export type {
-	DashboardLayoutProps,
-	PageHeaderStateProps,
-	PerformanceDashboardStateProps,
-	PermissionGateProps,
+	RecipeDashboardLayout,
 	RecipeKPIIndicator,
 	RecipeLegendItem,
+	RecipePageHeader,
 	RecipePerformanceDashboard,
+	RecipePerformanceDashboardPerformanceDashboardStateProps,
 	RecipePerformanceMonitor,
+	RecipePermissionGate,
 	RecipeProcessStep,
 	RecipeStatCard,
 	RecipeStatsCard,
 	RecipeStatusDashboard,
-	StatusDashboardStateProps,
-	TeamMemberCardStateProps
+	RecipeStatusDashboardStatusDashboardStateProps,
+	RecipeTeamMemberCard
 } from './recipe';
 export type {
 	CardData,

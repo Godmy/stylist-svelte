@@ -5,7 +5,8 @@ export {
 	MessageInput,
 	MessageMeta,
 	MessageStatus,
-	MessageTimestamp
+	MessageTimestamp,
+	StatusIndicator
 } from './atom';
 export {
 	ChatItem,

@@ -1,14 +1,14 @@
 <script lang="ts">
+	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import type { GeneralToolbarRecipe } from '$stylist/navigation/type/object/general-toolbar-props/generaltoolbarrecipe';
+	import type { RecipeGeneralToolbar } from '$stylist/navigation/interface/recipe/general-toolbar';
 	import createGeneralToolbarState from './state.svelte';
-	import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-
-	let props: GeneralToolbarRecipe = $props();
+	
+	let props: RecipeGeneralToolbar = $props();
 	const state = createGeneralToolbarState(props);
 </script>
 
-<div class={joinClassNames('toolbar', props.class)}>
+<div class={ClassNamesManager.join('toolbar', props.class)}>
 	{#each props.toolbarItems ?? [] as item}
 		<Button
 			variant="ghost"

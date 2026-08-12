@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { UserBehaviorMetricsProps } from '$stylist/marketing/type/object/user-behavior-metrics/userbehaviormetrics-props';
+	import type { RecipeUserBehaviorMetrics } from '$stylist/marketing/interface/recipe/user-behavior-metrics';
 	import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
 	import createUserBehaviorMetricsState from './state.svelte';
 
-	let props: UserBehaviorMetricsProps = $props();
+	let props: RecipeUserBehaviorMetrics = $props();
 	const state = createUserBehaviorMetricsState(props);
 </script>
 

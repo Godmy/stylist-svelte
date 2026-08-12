@@ -1,9 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { BehaviorSelectable } from './behavior';
 export type {
-	FeedbackSpecificProps,
 	RecipeAccessibilityToolbar,
-	RecipeActionSegmentedControlProps,
+	RecipeActionSegmentedControl,
 	RecipeAdvancedToggleProps,
 	RecipeAutocompleteDropdown,
 	RecipeCheckbox,
@@ -12,6 +11,7 @@ export type {
 	RecipeCombobox,
 	RecipeDragAndDrop,
 	RecipeFeedback,
+	RecipeFeedbackSpecificProps,
 	RecipeMultiSelect,
 	RecipeOverlay,
 	RecipeProgressBar,
@@ -24,20 +24,21 @@ export type {
 	RecipeSliderTick,
 	RecipeSwitch,
 	RecipeTag,
+	RecipeTick,
 	RecipeTimeSlot,
-	RecipeToggle,
 	RecipeToggleBaseProps,
 	RecipeToggleGroup,
 	RecipeToggleGroupItemProps,
 	RecipeToggleGroupRootProps,
 	RecipeToggleInputProps,
 	RecipeToggleProps,
+	RecipeToggleSpecificProps,
+	RecipeToggleToggle,
 	RecipeToggles,
 	RecipeTransformation,
 	RecipeZoomControls,
-	RecipeZoomToolbar,
-	ToggleSpecificProps,
-	ZoomSpecificProps
+	RecipeZoomSpecificProps,
+	RecipeZoomToolbar
 } from './recipe';
 export type {
 	SlotAutocompleteDropdown,

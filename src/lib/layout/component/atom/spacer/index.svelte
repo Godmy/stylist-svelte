@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SpacerProps } from '$stylist/layout/interface/recipe/spacer';
+	import type { RecipeSpacer } from '$stylist/layout/interface/recipe/spacer';
 	import createSpacerState from './state.svelte';
 
-	let props: SpacerProps = $props();
+	let props: RecipeSpacer = $props();
 	const state = createSpacerState(props);
 </script>
 

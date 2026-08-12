@@ -1,13 +1,7 @@
-import { resolveMinimapBounds } from '$stylist/architecture/function/script/minimap';
-import { resolveMinimapCanvasPoint } from '$stylist/architecture/function/script/resolve-minimap-canvas-point';
-import { resolveMinimapFitOffset } from '$stylist/architecture/function/script/resolve-minimap-fit-offset';
-import { resolveMinimapFitZoom } from '$stylist/architecture/function/script/resolve-minimap-fit-zoom';
-import { resolveMinimapNodeRect } from '$stylist/architecture/function/script/resolve-minimap-node-rect';
-import { resolveMinimapOffsetForPoint } from '$stylist/architecture/function/script/resolve-minimap-offset-for-point';
-import { resolveMinimapViewport } from '$stylist/architecture/function/script/resolve-minimap-viewport';
-import type { MinimapProps } from '$stylist/architecture/type/object/minimap-props';
+import { MinimapManager } from '$stylist/architecture/class/manager/minimap';
+import type { RecipeMinimap } from '$stylist/architecture/interface/recipe/minimap';
 
-export function createMinimapState(props: MinimapProps) {
+export function createMinimapState(props: RecipeMinimap) {
 	const nodes = $derived(props.nodes ?? []);
 	const zoom = $derived(props.zoom ?? 1);
 	const offset = $derived(props.offset ?? { x: 0, y: 0 });
@@ -47,14 +41,14 @@ export function createMinimapState(props: MinimapProps) {
 
 		return rest;
 	});
-	const bounds = $derived(resolveMinimapBounds(nodes));
-	const viewport = $derived(resolveMinimapViewport(offset, zoom, width, height, miniMapZoom));
+	const bounds = $derived(MinimapManager.resolveBounds(nodes));
+	const viewport = $derived(MinimapManager.resolveViewport(offset, zoom, width, height, miniMapZoom));
 
 	function handleMapClick(event: MouseEvent): void {
 		if (!props.onOffsetChange) return;
 
 		const rect = (event.currentTarget as SVGElement).getBoundingClientRect();
-		const canvasPoint = resolveMinimapCanvasPoint(
+		const canvasPoint = MinimapManager.resolveCanvasPoint(
 			{ x: event.clientX, y: event.clientY },
 			rect,
 			width,
@@ -62,7 +56,7 @@ export function createMinimapState(props: MinimapProps) {
 			bounds
 		);
 
-		props.onOffsetChange(resolveMinimapOffsetForPoint(canvasPoint, miniMapZoom));
+		props.onOffsetChange(MinimapManager.resolveOffsetForPoint(canvasPoint, miniMapZoom));
 		props.onMapClick?.(canvasPoint);
 	}
 
@@ -92,12 +86,12 @@ export function createMinimapState(props: MinimapProps) {
 	function handleZoomToFit(): void {
 		if (!props.onZoomChange || !props.onOffsetChange) return;
 
-		props.onZoomChange(resolveMinimapFitZoom(bounds, width, height));
-		props.onOffsetChange(resolveMinimapFitOffset(bounds));
+		props.onZoomChange(MinimapManager.resolveFitZoom(bounds, width, height));
+		props.onOffsetChange(MinimapManager.resolveFitOffset(bounds));
 	}
 
 	function getNodeRect(node: (typeof nodes)[number]) {
-		return resolveMinimapNodeRect(node, bounds, width, height);
+		return MinimapManager.resolveNodeRect(node, bounds, width, height);
 	}
 
 	return {

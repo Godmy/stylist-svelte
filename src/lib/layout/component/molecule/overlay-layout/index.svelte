@@ -1,8 +1,8 @@
 <script lang="ts">
 	import createOverlayLayoutState from './state.svelte';
-	import type { OverlayLayoutProps } from '$stylist/layout/interface/recipe/overlay-layout';
+	import type { RecipeOverlayLayout } from '$stylist/layout/interface/recipe/overlay-layout';
 
-	let props: OverlayLayoutProps = $props();
+	let props: RecipeOverlayLayout = $props();
 	const state = createOverlayLayoutState(props);
 
 	type OverlayAlign =

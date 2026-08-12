@@ -1,8 +1,8 @@
 <script lang="ts">
 	import createActionSegmentedControlState from './state.svelte';
-	import type { RecipeActionSegmentedControlProps } from '$stylist/control/type/object/action-segmented-control-props';
+	import type { RecipeActionSegmentedControl } from '$stylist/control/interface/recipe/action-segmented-control';
 
-	let props: RecipeActionSegmentedControlProps = $props();
+	let props: RecipeActionSegmentedControl = $props();
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,

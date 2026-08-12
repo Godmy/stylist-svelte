@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { StageProps } from '$stylist/architecture/type/object/stage/stage-props';
+	import type { RecipeStage } from '$stylist/architecture/interface/recipe/stage';
 	import createStageState from './state.svelte';
 
-	let props: StageProps = $props();
+	let props: RecipeStage = $props();
 	const state = createStageState(props);
 </script>
 

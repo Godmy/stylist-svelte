@@ -1,6 +1,6 @@
-import type { RecipeThemeInlineCode } from '$stylist/typography/interface/recipe/inline-code';
+import type { RecipeInlineCode } from '$stylist/typography/interface/recipe/inline-code';
 
-export function createInlineCodeState(props: RecipeThemeInlineCode) {
+export function createInlineCodeState(props: RecipeInlineCode) {
 	const classes = $derived(
 		[
 			'c-typography-inline-code',

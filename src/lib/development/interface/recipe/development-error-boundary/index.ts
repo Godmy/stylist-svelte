@@ -1,8 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface RecipeDevelopmentErrorBoundary
-	extends ComputeIntersectAll<[((HTMLAttributes<HTMLDivElement> & {
+
+export interface RecipeDevelopmentErrorBoundary extends ComputeIntersectAll<[((HTMLAttributes<HTMLDivElement> & {
 fallback?: (errorInfo: ({
 	error: Error;
 	errorInfo: { componentStack: string };

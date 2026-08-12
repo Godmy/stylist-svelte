@@ -1,11 +1,11 @@
-import type { RecipeButton } from '$stylist/button/interface/recipe/button';
-import type { ButtonFactoryInput } from '$stylist/button/interface/recipe/button-factory-input';
+﻿import type { RecipeButton } from '$stylist/button/interface/recipe/button';
+import type { RecipeButtonFactoryInput } from '$stylist/button/interface/recipe/button-factory-input';
 import { createButtonPreset } from '$stylist/button/function/script/create-button-preset';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 
-export function createButtonState(input: ButtonFactoryInput | RecipeButton) {
+export function createButtonState(input: RecipeButtonFactoryInput | RecipeButton) {
 	const preset = createButtonPreset<TokenColorTone, TokenSize>({
 		variant: 'primary',
 		size: 'md'

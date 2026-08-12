@@ -1,17 +1,9 @@
 import { createEventDispatcher } from 'svelte';
+import { DataExporterManager } from '$stylist/file/class/manager/data-exporter';
 import type { DataExporterFormat } from '$stylist/file/type/alias/data-exporter-format';
-import type { DataItem } from '$stylist/file/type/object/data-exporter/data-item';
-import { exportData as exportDataFn } from '$stylist/file/function/script/data-exporter';
+import type { RecipeDataExporter } from '$stylist/file/interface/recipe/data-exporter';
 
-export function createDataExporterState(
-	props: {
-		data?: DataItem[];
-		format?: DataExporterFormat;
-		disabled?: boolean;
-		fileName?: string;
-		class?: string;
-	} & Record<string, unknown>
-) {
+export function createDataExporterState(props: RecipeDataExporter) {
 	const disabled = $derived(props.disabled ?? false);
 	const format = $derived(props.format ?? 'csv');
 	const fileName = $derived(props.fileName ?? 'export');
@@ -29,11 +21,8 @@ export function createDataExporterState(
 	};
 
 	function exportData(): void {
-		if (disabled) {
-			return;
-		}
-
-		exportDataFn(data, selectedFormat, fileName, formats, dispatch);
+		if (disabled) return;
+		DataExporterManager.exportData(data, selectedFormat, fileName, formats, dispatch);
 	}
 
 	return {
@@ -63,5 +52,3 @@ export function createDataExporterState(
 }
 
 export default createDataExporterState;
-
-

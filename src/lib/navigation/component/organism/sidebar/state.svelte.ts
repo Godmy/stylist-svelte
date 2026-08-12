@@ -1,4 +1,4 @@
-import type { NavItem } from '$stylist/navigation/type/object/sidebar';
+import type { NavItem } from '$stylist/navigation/interface/slot/nav-item';
 import type { RecipeSidebar } from '$stylist/navigation/interface/recipe/sidebar';
 
 export function createSidebarState(props: RecipeSidebar) {

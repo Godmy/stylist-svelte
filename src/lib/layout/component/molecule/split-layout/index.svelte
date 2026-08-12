@@ -1,8 +1,8 @@
 <script lang="ts">
 	import createSplitLayoutState from './state.svelte';
-	import type { SplitLayoutProps } from '$stylist/layout/interface/recipe/split-layout';
+	import type { RecipeSplitLayout } from '$stylist/layout/interface/recipe/split-layout';
 
-	let props: SplitLayoutProps = $props();
+	let props: RecipeSplitLayout = $props();
 	const state = createSplitLayoutState(props);
 
 	const GAP: Record<string, string> = {

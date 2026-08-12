@@ -12,6 +12,7 @@ export {
 } from './component';
 export { TOKEN_NOTIFICATION_CHANNEL } from './const';
 export { updateNotificationPreference } from './function';
+export { createButtonFactoryInput } from './interface';
 export type {
 	INotificationSettingsPreference,
 	ScheduledNotificationItem,
@@ -25,6 +26,7 @@ export type {
 	RecipeNotificationList,
 	RecipeNotificationOptions,
 	RecipeNotificationPreferences,
+	RecipeNotificationSettings,
 	RecipeScheduledNotification,
 	RecipeToast,
 	RecipeToastStack

@@ -1,7 +1,7 @@
 import type { CanvasObject } from '$stylist/canvas/type/object/canvas-object';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
-import type { AnyProperty } from '$stylist/layout/type/object/any-property';
+import type { AnyProperty } from '$stylist/layout/type/record/any-property';
 
 export type SharedCanvasContract = (LayoutHTMLAttributes<HTMLDivElement> & {
 	width?: number;

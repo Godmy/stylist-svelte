@@ -1,6 +1,6 @@
-import type { Preset } from '$stylist/commerce/type/object/preset';
+import type { Preset } from '$stylist/commerce/type/preset/preset';
 import type { RecipeAlertCard } from '$stylist/commerce/interface/recipe/alert-card';
-import { buildPresetClassNames } from '$stylist/commerce/function/script/build-preset-class-names';
+import { AlertCardManager } from '$stylist/commerce/class/manager/alert-card';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 
 export function createAlertCardState<V extends string, S extends string>(
@@ -12,7 +12,7 @@ export function createAlertCardState<V extends string, S extends string>(
 	const disabled = $derived(props.disabled ?? preset.defaults.disabled);
 
 	const classes = $derived(
-		buildPresetClassNames(preset, {
+		AlertCardManager.buildPresetClassNames(preset, {
 			variant,
 			size,
 			disabled: typeof disabled === 'boolean' ? disabled : undefined,

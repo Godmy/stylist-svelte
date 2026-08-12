@@ -1,4 +1,4 @@
-import type { AnyProperty } from '$stylist/layout/type/object/any-property';
+import type { AnyProperty } from '$stylist/layout/type/record/any-property';
 import type { SlotCommentSystem } from '$stylist/social/interface/slot/comment-system';
 import type { SlotCommentThread } from '$stylist/social/interface/slot/comment-thread';
 export interface ContractSocial {

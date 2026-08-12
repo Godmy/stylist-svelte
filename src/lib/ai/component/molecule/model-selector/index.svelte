@@ -1,9 +1,9 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { RecipeModelSelector as ModelSelectorContract } from '$stylist/ai/interface/recipe/model-selector';
+	import type { RecipeModelSelector } from '$stylist/ai/interface/recipe/model-selector';
 	import createModelSelectorState from './state.svelte';
 
-	let props: ModelSelectorContract = $props();
+	let props: RecipeModelSelector = $props();
 	const state = createModelSelectorState(props);
 </script>
 

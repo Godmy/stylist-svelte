@@ -1,6 +1,7 @@
+import type { SlotMockDataSelectorSelection } from '$stylist/development/interface/slot/mock-data-selector-selection';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { MockDataSelectorDataSelection } from '$stylist/development/type/object/mock-data-selector-data-selection';
+
 export interface RecipeMockDataSelector extends ComputeIntersectAll<[SlotChildren]> {
 	class?: string;
 	options?: Array<{ value: string; label: string }>;
@@ -8,20 +9,20 @@ export interface RecipeMockDataSelector extends ComputeIntersectAll<[SlotChildre
 	placeholder?: string;
 	onValueInput?: (event: Event) => void;
 	onValueChange?: (event: Event) => void;
-	schemas?: ({
-	id: string;
-	name: string;
-	description: string;
-	fields: Array<{
+	schemas?: {
+		id: string;
 		name: string;
-		type: 'string' | 'number' | 'boolean' | 'date' | 'email' | 'id';
-		required: boolean;
-		example?: string;
-	}>;
-	sampleData: any[];
-	tags: string[];
-})[];
-	initialSelections?: MockDataSelectorDataSelection[];
+		description: string;
+		fields: Array<{
+			name: string;
+			type: 'string' | 'number' | 'boolean' | 'date' | 'email' | 'id';
+			required: boolean;
+			example?: string;
+		}>;
+		sampleData: unknown[];
+		tags: string[];
+	}[];
+	initialSelections?: SlotMockDataSelectorSelection[];
 	title?: string;
 	description?: string;
 	allowMultipleSelections?: boolean;
@@ -29,8 +30,8 @@ export interface RecipeMockDataSelector extends ComputeIntersectAll<[SlotChildre
 	allowCustomCount?: boolean;
 	showSearch?: boolean;
 	showTagsFilter?: boolean;
-	onSelectionChange?: (selections: MockDataSelectorDataSelection[]) => void;
-	onLoadMockData?: (selections: MockDataSelectorDataSelection[]) => void;
+	onSelectionChange?: (selections: SlotMockDataSelectorSelection[]) => void;
+	onLoadMockData?: (selections: SlotMockDataSelectorSelection[]) => void;
 	headerClass?: string;
 	selectorClass?: string;
 	previewClass?: string;
