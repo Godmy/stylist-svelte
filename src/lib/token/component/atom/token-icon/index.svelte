@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { TokenIconProps } from '$stylist/token/type/struct/token-icon-props';
+	import type { TokenIconProps } from '$stylist/token/type/object/token-icon-props';
 
 	let {
 		title = 'Icon',

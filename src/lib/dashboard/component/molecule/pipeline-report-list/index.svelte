@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DashboardReportSummary } from '$stylist/dashboard/type/struct/dashboard-report-summary';
+	import type { DashboardReportSummary } from '$stylist/dashboard/type/object/dashboard-report-summary';
 	import DashboardStatusPill from '$stylist/dashboard/component/atom/dashboard-status-pill/index.svelte';
 
 	let {

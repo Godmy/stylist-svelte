@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import TokenSelect from './index.svelte';
-	import type { TokenSelectControlDefinition } from '$stylist/token/type/struct/select-control-definition';
+	import type { TokenSelectControlDefinition } from '$stylist/token/type/object/select-control-definition';
 
 	const definition: TokenSelectControlDefinition = {
 		id: 'token-select-font-family',

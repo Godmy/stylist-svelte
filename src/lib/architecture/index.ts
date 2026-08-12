@@ -79,13 +79,18 @@ export type {
 	ArchitectureScene,
 	CubeControlProps,
 	FoundationAxis,
+	FoundationDepthThreshold,
 	FoundationSemanticZoomStage,
 	GraphGridMode,
 	GraphMinimapProps,
 	GraphNodeCategory,
+	GraphNodeDraft,
 	GraphPortDimensions,
 	GraphToolMode,
+	GraphWorkspaceBounds,
+	GraphWorkspaceConnection,
 	GraphWorkspaceConnectionInput,
+	GraphWorkspaceNode,
 	MinimapBounds,
 	MinimapProps,
 	MinimapViewport,
@@ -128,10 +133,3 @@ export type {
 	RecipeStylistGraphWorkspace,
 	SelectionState
 } from './interface';
-export type {
-	FoundationDepthThreshold,
-	GraphNodeDraft,
-	GraphWorkspaceBounds,
-	GraphWorkspaceConnection,
-	GraphWorkspaceNode
-} from './type';

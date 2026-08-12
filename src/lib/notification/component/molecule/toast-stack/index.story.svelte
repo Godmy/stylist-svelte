@@ -20,21 +20,21 @@
 	let toasts = $state<RecipeToast[]>([
 		{
 			id: '1',
-			title: 'Deployment complete',
+			text: 'Deployment complete',
 			message: 'The production environment is now running the latest version.',
 			type: 'success',
 			onDismiss: () => removeToast('1')
 		},
 		{
 			id: '2',
-			title: 'Review required',
+			text: 'Review required',
 			message: 'Three generated exports have warnings that need confirmation.',
 			type: 'warning',
 			onDismiss: () => removeToast('2')
 		},
 		{
 			id: '3',
-			title: 'Sync failed',
+			text: 'Sync failed',
 			message: 'The workspace could not reach the persistence service.',
 			type: 'error',
 			onDismiss: () => removeToast('3'),
@@ -60,9 +60,9 @@
 	function resetToasts() {
 		seed = 4;
 		toasts = [
-			{ id: '1', title: labels.success, message: 'The production environment is now running the latest version.', type: 'success', onDismiss: () => removeToast('1') },
-			{ id: '2', title: labels.warning, message: 'Three generated exports have warnings that need confirmation.', type: 'warning', onDismiss: () => removeToast('2') },
-			{ id: '3', title: labels.error, message: 'The workspace could not reach the persistence service.', type: 'error', onDismiss: () => removeToast('3') }
+			{ id: '1', text: labels.success, message: 'The production environment is now running the latest version.', type: 'success', onDismiss: () => removeToast('1') },
+			{ id: '2', text: labels.warning, message: 'Three generated exports have warnings that need confirmation.', type: 'warning', onDismiss: () => removeToast('2') },
+			{ id: '3', text: labels.error, message: 'The workspace could not reach the persistence service.', type: 'error', onDismiss: () => removeToast('3') }
 		];
 	}
 
@@ -73,7 +73,7 @@
 			...toasts,
 			{
 				id,
-				title: labels[type as keyof typeof labels] ?? 'New activity',
+				text: labels[type as keyof typeof labels] ?? 'New activity',
 				message: `Notification ${id} was queued for the current workspace.`,
 				type,
 				onDismiss: () => removeToast(id)

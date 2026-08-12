@@ -1,6 +1,6 @@
 <script lang="ts">
 	import SlotCheckbox from '$stylist/control/component/atom/checkbox/index.svelte';
-	import type { CheckboxGroupProps } from '$stylist/form/type/struct/checkbox-group-props';
+	import type { CheckboxGroupProps } from '$stylist/form/type/object/checkbox-group-props';
 	import createCheckboxGroupState from './state.svelte';
 
 	let {

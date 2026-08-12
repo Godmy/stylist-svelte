@@ -10,6 +10,7 @@ export {
 	DomainDiagnostics,
 	DomainEntity,
 	DomainExplorer,
+	DomainFileDiagnostics,
 	DomainFilePreview,
 	DomainList,
 	DomainListHeader,

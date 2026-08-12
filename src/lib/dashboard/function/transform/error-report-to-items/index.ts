@@ -1,4 +1,4 @@
-import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/struct/error-diagnostic-item';
+import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/object/error-diagnostic-item';
 
 export function transformErrorReportToItems(report: unknown): ErrorDiagnosticItem[] {
 	const payload = report as {

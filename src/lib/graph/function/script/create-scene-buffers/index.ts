@@ -1,7 +1,7 @@
 import { bindSceneAttributeBuffer } from '$stylist/graph/function/script/bind-scene-attribute-buffer';
 import { isWebGL2Context } from '$stylist/graph/function/script/is-webgl2-context';
-import type { SceneBufferSet } from '$stylist/graph/type/struct/scene-buffer-set';
-import type { SceneGeometry } from '$stylist/graph/type/struct/scene-geometry';
+import type { SceneBufferSet } from '$stylist/graph/type/object/scene-buffer-set';
+import type { SceneGeometry } from '$stylist/graph/type/object/scene-geometry';
 
 export function createSceneBuffers(
 	gl: WebGLRenderingContext | WebGL2RenderingContext,

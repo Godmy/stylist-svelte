@@ -8,4 +8,4 @@ export type {
 	RadioGroupProps,
 	ToggleButtonGroupProps,
 	ValidationErrors
-} from './struct';
+} from './object';

@@ -50,16 +50,16 @@
 	.control-panel {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-4);
-		padding: var(--spacing-4);
+		gap: 1rem;
+		padding: 1rem;
 		background-color: var(--color-background-secondary);
-		border-radius: var(--border-radius-lg);
+		border-radius: var(--layout-border-radius-lg, 0.5rem);
 		border: 1px solid var(--color-border-primary);
 	}
 
 	.panel-section {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-2);
+		gap: 0.5rem;
 	}
 </style>

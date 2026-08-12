@@ -1,4 +1,4 @@
-import type { BreadcrumbItem } from '$stylist/navigation/type/struct/breadcrumbs-props/breadcrumb-item';
+import type { BreadcrumbItem } from '$stylist/navigation/type/object/breadcrumbs-props/breadcrumb-item';
 
 export const BREADCRUMB_TEMPLATE: BreadcrumbItem[] = [
 	{

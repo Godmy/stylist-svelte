@@ -51,7 +51,7 @@
 		{
 			name: 'index.ts',
 			content:
-				"import type { TypeDomainFile } from '$stylist/domain/type/struct/domain-file';\n\nexport type TypeDomainEntity = {\n\tname: string;\n\tpath: string;\n\tfiles: TypeDomainFile[];\n};\n"
+				"import type { TypeDomainFile } from '$stylist/domain/type/object/domain-file';\n\nexport type TypeDomainEntity = {\n\tname: string;\n\tpath: string;\n\tfiles: TypeDomainFile[];\n};\n"
 		}
 	];
 </script>

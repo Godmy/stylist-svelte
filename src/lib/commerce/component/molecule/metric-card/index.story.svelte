@@ -4,7 +4,7 @@
 	import MetricCard from './index.svelte';
 
 	const controls: SlotStory[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Completion' },
+		{ name: 'title', type: 'text', defaultValue: 'Completion' },
 		{ name: 'value', type: 'text', defaultValue: '74%' },
 		{ name: 'percentage', type: 'number', defaultValue: 74, min: 0, max: 100, step: 1 },
 		{
@@ -25,7 +25,7 @@
 >
 	{#snippet children(values: any)}
 		<MetricCard
-			label={values.label}
+			title={values.title}
 			value={values.value}
 			max={100}
 			percentage={values.percentage}

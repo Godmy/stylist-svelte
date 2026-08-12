@@ -1,6 +1,6 @@
 import { ZWICKY_CLUSTER_COLOR } from '$stylist/graph/const/record/zwicky-cluster-color';
-import type { GraphJsonInput } from '$stylist/graph/type/struct/graph-json-input';
-import type { ZwickyNode } from '$stylist/graph/type/struct/zwicky-node';
+import type { GraphJsonInput } from '$stylist/graph/type/object/graph-json-input';
+import type { ZwickyNode } from '$stylist/graph/type/object/zwicky-node';
 
 export function parseZwickyGraph(input: GraphJsonInput): {
 	nodes: ZwickyNode[];

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeDocumentationBlock } from '$stylist/development/interface/recipe/documentation-block';
 	import { createDocumentationBlockState } from './state.svelte';
-	import CodeSection from '$stylist/development/component/molecule/code-section/index.svelte';
+	import Code from '$stylist/development/component/molecule/code-block/index.svelte';
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 	import Divider from '$stylist/layout/component/atom/divider/index.svelte';
 
@@ -54,10 +54,10 @@
 				{#if i > 0}
 					<Divider class={state.codeExampleDividerClass} />
 				{/if}
-				<CodeSection
+				<Code
 					title={example.title}
 					code={example.code}
-					language={example.language}
+					language={example.language as any}
 					showLineNumbers={example.showLineNumbers}
 				/>
 			{/each}

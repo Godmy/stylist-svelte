@@ -1,5 +1,4 @@
 import type { HTMLAttributes } from 'svelte/elements';
-
 export interface SlotSliderWithInput extends HTMLAttributes<HTMLDivElement> {
 	value?: number;
 	min?: number;

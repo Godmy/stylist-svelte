@@ -1,4 +1,4 @@
-import type { DialogConfirmProps } from '$stylist/navigation/type/struct/dialog-confirm-props/dialogconfirm-props';
+import type { DialogConfirmProps } from '$stylist/navigation/type/object/dialog-confirm-props/dialogconfirm-props';
 import { handleConfirmCallback } from '$stylist/navigation/function/script/dialog-confirm';
 
 const DIALOG_CONFIRM_ICON_NAMES = {

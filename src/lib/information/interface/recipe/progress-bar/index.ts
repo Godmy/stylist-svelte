@@ -1,6 +1,4 @@
-
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 export interface RecipeProgressBar
 	extends ComputeIntersectAll<[({
 label?: string;

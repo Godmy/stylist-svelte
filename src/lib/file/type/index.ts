@@ -21,4 +21,4 @@ export type {
 	SlotFileSystemItem,
 	SlotFolderItem,
 	SlotZipEntry
-} from './struct';
+} from './object';

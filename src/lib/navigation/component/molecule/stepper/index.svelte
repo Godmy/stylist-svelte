@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { StepperProps } from '$stylist/navigation/type/struct/stepper-props/stepper-props';
+	import type { StepperProps } from '$stylist/navigation/type/object/stepper-props/stepper-props';
 	import createStepperState from './state.svelte';
 
 	let props: StepperProps = $props();

@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
-
 import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 import type { Snippet } from 'svelte';
 export interface UserCardProps

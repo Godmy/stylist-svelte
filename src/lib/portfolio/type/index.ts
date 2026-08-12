@@ -5,4 +5,4 @@ export type {
 	KanbanBoardType,
 	KanbanCardType,
 	KanbanColumnType
-} from './struct';
+} from './object';

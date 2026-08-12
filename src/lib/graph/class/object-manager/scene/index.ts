@@ -10,11 +10,11 @@ import { resolveSceneAtomTint } from '$stylist/graph/function/script/resolve-sce
 import { pickSceneAtom } from '$stylist/graph/function/script/scene/picking/index';
 import { getAtomBoundsRadius } from '$stylist/graph/function/script/get-atom-bounds-radius';
 import { resolveSceneAtomModelMatrix } from '$stylist/graph/function/script/resolve-scene-atom-model-matrix';
-import type { SceneBufferSet } from '$stylist/graph/type/struct/scene-buffer-set';
-import type { SceneDebugInfo } from '$stylist/graph/type/struct/scene-debug-info';
-import type { SceneAtom } from '$stylist/graph/type/struct/scene-atom/scene-atom';
+import type { SceneBufferSet } from '$stylist/graph/type/object/scene-buffer-set';
+import type { SceneDebugInfo } from '$stylist/graph/type/object/scene-debug-info';
+import type { SceneAtom } from '$stylist/graph/type/object/scene-atom/scene-atom';
 import type { SceneCameraPreset } from '$stylist/graph/type/alias/scene-camera-preset';
-import type { SceneGraph } from '$stylist/graph/type/struct/scene-graph/scene-graph';
+import type { SceneGraph } from '$stylist/graph/type/object/scene-graph/scene-graph';
 import vertexBasic from '$stylist/graph/data/shader/vertex/base.vert?raw';
 import fragmentBasic from '$stylist/graph/data/shader/fragment/base.frag?raw';
 

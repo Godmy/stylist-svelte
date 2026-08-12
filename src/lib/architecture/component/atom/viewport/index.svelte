@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ViewportProps } from '$stylist/architecture/type/struct/viewport/viewport-props';
+	import type { ViewportProps } from '$stylist/architecture/type/object/viewport/viewport-props';
 	import createViewportState from './state.svelte';
 	import Stage from '$stylist/architecture/component/atom/stage/index.svelte';
 	import Grid from '$stylist/layout/component/atom/grid/index.svelte';

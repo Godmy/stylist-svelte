@@ -1,6 +1,5 @@
-import type { FileType } from '$stylist/file/type/struct/common/file-type';
+import type { FileType } from '$stylist/file/type/object/common/file-type';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 export interface RecipeFileListItem {
 	item: ({
 id: string;

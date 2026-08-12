@@ -1,5 +1,5 @@
-﻿import type { LineChartData } from '$stylist/chart/type/struct/line-chart-data';
-import type { LineChartPoint } from '$stylist/chart/type/struct/line-chart';
+import type { LineChartData } from '$stylist/chart/type/object/line-chart-data';
+import type { LineChartPoint } from '$stylist/chart/type/object/line-chart';
 import { LINE_CHART_COLOR_SCHEME } from '$stylist/chart/const/preset/line-chart-color-scheme';
 
 export class ObjectManagerLineChart {

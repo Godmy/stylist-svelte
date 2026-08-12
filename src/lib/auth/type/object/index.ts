@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AuthFormState } from './auth-form-state';
 export type { AuthResponse } from './auth-response';
 export type { AuthResult } from './auth-result';
 export type { AuthState } from './auth-state';

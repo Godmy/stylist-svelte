@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import type { KanbanColumnType } from '$stylist/portfolio/type/struct/kanban-column';
+<script lang="ts">
+	import type { KanbanColumnType } from '$stylist/portfolio/type/object/kanban-column';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 

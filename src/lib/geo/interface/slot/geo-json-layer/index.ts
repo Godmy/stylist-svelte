@@ -1,5 +1,4 @@
 import type { SlotGeoJsonFeatureCollection } from '$stylist/geo/interface/slot/geo-json-feature-collection';
-
 export interface SlotGeoJsonLayer {
 	id: string;
 	name: string;

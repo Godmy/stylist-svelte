@@ -1,8 +1,7 @@
 import type { FileItemType } from '$stylist/file/type/alias/file-item-type';
-import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
+import type { SlotFileSystemItem } from '$stylist/file/type/object/file-explorer/file-system-item';
 import type { ViewMode } from '$stylist/file/type/alias/file-explorer-view-mode';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 export interface RecipeFileExplorer
 	extends ComputeIntersectAll<[({
 items: ({

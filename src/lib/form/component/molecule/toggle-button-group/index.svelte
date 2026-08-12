@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ToggleButtonGroupProps } from '$stylist/form/type/struct/toggle-button-group-props';
+	import type { ToggleButtonGroupProps } from '$stylist/form/type/object/toggle-button-group-props';
 	import createToggleButtonGroupState from './state.svelte';
 
 	let {

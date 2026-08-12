@@ -1,7 +1,7 @@
-import type { SchemaDependency } from '$stylist/erd/type/struct/schema-dependency';
-import type { SchemaField } from '$stylist/erd/type/struct/schema-field';
-import type { SchemaParseResult } from '$stylist/erd/type/struct/schema-parse-result';
-import type { SchemaTable } from '$stylist/erd/type/struct/schema-table';
+import type { SchemaDependency } from '$stylist/erd/type/object/schema-dependency';
+import type { SchemaField } from '$stylist/erd/type/object/schema-field';
+import type { SchemaParseResult } from '$stylist/erd/type/object/schema-parse-result';
+import type { SchemaTable } from '$stylist/erd/type/object/schema-table';
 
 export function schemaTextToDocument(source: string): SchemaParseResult {
 	function normalizeId(value: string): string {

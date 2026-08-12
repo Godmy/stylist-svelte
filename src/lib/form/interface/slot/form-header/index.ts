@@ -1,6 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-
 export interface SlotFormHeader extends HTMLAttributes<HTMLDivElement> {
 	title: string;
 	subtitle?: string;

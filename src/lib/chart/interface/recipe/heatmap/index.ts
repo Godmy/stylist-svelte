@@ -1,18 +1,16 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { BehaviorDimensionable as IDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
-
-import type { BehaviorTooltipable as ITooltipable } from '$stylist/chart/interface/behavior/tooltipable';
-import type { BehaviorLegendable as ILegendable } from '$stylist/chart/interface/behavior/legendable';
-import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
-import type { BehaviorChartColorable as IChartColorable } from '$stylist/chart/interface/behavior/chart-colorable';
-import type { BehaviorChartAxis as IChartAxis } from '$stylist/chart/interface/behavior/chart-axis';
-import type { IHeatmapCell } from '$stylist/chart/type/struct/heatmap/cell';
-
+import type { BehaviorDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
+import type { BehaviorTooltipable } from '$stylist/chart/interface/behavior/tooltipable';
+import type { BehaviorLegendable } from '$stylist/chart/interface/behavior/legendable';
+import type { SlotText } from '$stylist/typography/interface/slot/text';
+import type { BehaviorChartColorable } from '$stylist/chart/interface/behavior/chart-colorable';
+import type { BehaviorChartAxis } from '$stylist/chart/interface/behavior/chart-axis';
+import type { IHeatmapCell } from '$stylist/chart/type/object/heatmap/cell';
 export interface RecipeHeatmap
 	extends ComputeIntersectAll<
-		[SlotTheme, IDimensionable, ILabelSlot, IChartAxis, ILegendable, ITooltipable, IChartColorable, HTMLAttributes<HTMLDivElement>]
+		[SlotTheme, BehaviorDimensionable, SlotText, BehaviorChartAxis, BehaviorLegendable, BehaviorTooltipable, BehaviorChartColorable, HTMLAttributes<HTMLDivElement>]
 	> {
 	onCellClick?: (item: IHeatmapCell) => void;
 

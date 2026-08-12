@@ -7,4 +7,4 @@ export type {
 	DashboardReportSummary,
 	ErrorDiagnosticItem,
 	IndexationRunSummary
-} from './struct';
+} from './object';

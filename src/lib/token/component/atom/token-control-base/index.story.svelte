@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import TokenControlBase from './index.svelte';
-	import type { TokenRadioControlDefinition } from '$stylist/token/type/struct/radio-control-definition';
+	import type { TokenRadioControlDefinition } from '$stylist/token/type/object/radio-control-definition';
 
 	const definition: TokenRadioControlDefinition = {
 		id: 'token-control-base-spacing',

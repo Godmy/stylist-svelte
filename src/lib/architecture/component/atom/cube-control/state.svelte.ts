@@ -1,5 +1,5 @@
-import type { CubeControlProps } from '$stylist/architecture/type/struct/cube-control-props';
-import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
+import type { CubeControlProps } from '$stylist/architecture/type/object/cube-control-props';
+import type { Point2D } from '$stylist/architecture/type/object/point-2d';
 import { TOKEN_CUBE_FACE_TITLE } from '$stylist/architecture/const/array/cube-face-title';
 import { TOKEN_CUBE_FACE_NAME } from '$stylist/architecture/const/array/cube-face-name';
 import { CUBE_FACE_NUMBERS_SNAPSHOT } from '$stylist/architecture/const/record/cube-face-numbers-snapshot';

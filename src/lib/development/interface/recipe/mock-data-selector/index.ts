@@ -1,9 +1,6 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
-
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
-import type { MockDataSelectorDataSelection } from '$stylist/development/type/struct/mock-data-selector-data-selection';
-import type { MockDataSelectorMockDataSchema } from '$stylist/development/type/struct/mock-data-selector-mock-data-schema';
+import type { MockDataSelectorDataSelection } from '$stylist/development/type/object/mock-data-selector-data-selection';
 export interface RecipeMockDataSelector extends ComputeIntersectAll<[SlotChildren]> {
 	class?: string;
 	options?: Array<{ value: string; label: string }>;
@@ -11,7 +8,19 @@ export interface RecipeMockDataSelector extends ComputeIntersectAll<[SlotChildre
 	placeholder?: string;
 	onValueInput?: (event: Event) => void;
 	onValueChange?: (event: Event) => void;
-	schemas?: MockDataSelectorMockDataSchema[];
+	schemas?: ({
+	id: string;
+	name: string;
+	description: string;
+	fields: Array<{
+		name: string;
+		type: 'string' | 'number' | 'boolean' | 'date' | 'email' | 'id';
+		required: boolean;
+		example?: string;
+	}>;
+	sampleData: any[];
+	tags: string[];
+})[];
 	initialSelections?: MockDataSelectorDataSelection[];
 	title?: string;
 	description?: string;

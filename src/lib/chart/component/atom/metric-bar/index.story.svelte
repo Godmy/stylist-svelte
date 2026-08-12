@@ -4,7 +4,7 @@
 	import MetricBar from './index.svelte';
 
 	const controls: SlotStory[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Completion' },
+		{ name: 'text', type: 'text', defaultValue: 'Completion' },
 		{ name: 'percentage', type: 'range', defaultValue: 68, min: 0, max: 100, step: 1 },
 		{ name: 'valueLabel', type: 'text', defaultValue: '68%' },
 		{ name: 'color', type: 'color', defaultValue: '#2563eb' },
@@ -30,7 +30,7 @@
 	{#snippet children(values: any)}
 		<div class="_c1">
 			<MetricBar
-				label={String(values.label || 'Completion')}
+				text={String(values.text || 'Completion')}
 				percentage={Number(values.percentage) || 0}
 				valueLabel={String(values.valueLabel || `${Number(values.percentage) || 0}%`)}
 				color={String(values.color || '#2563eb')}
@@ -40,7 +40,7 @@
 			<div class="_c2">
 				{#each examples as example}
 					<MetricBar
-						label={example.label}
+						text={example.label}
 						percentage={example.percentage}
 						valueLabel={example.valueLabel}
 						color={example.color}

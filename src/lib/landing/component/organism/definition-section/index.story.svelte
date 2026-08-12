@@ -13,7 +13,7 @@
 	component={DefinitionSection}
 	title="DefinitionSection"
 	category="Organisms/Landing"
-	description="Landing section that defines the offer with supporting media and statement."
+	description="Landing section that defines the offer with supporting media."
 	tags={['landing', 'definition', 'media']}
 >
 	{#snippet children()}
@@ -21,9 +21,8 @@
 			<DefinitionSection
 				ariaLabel="Definition"
 				eyebrow="Definition"
-				title="Expert consensus without pretending uncertainty disappeared"
+				text="Expert consensus without pretending uncertainty disappeared"
 				body="The section explains the concept in direct language, with enough detail to make the offer concrete."
-				statement="The output is not one decorative number; it is a decision range with assumptions attached."
 				{imageSrc}
 				imageAlt="Definition placeholder"
 			/>
@@ -34,7 +33,6 @@
 <style>
 	.preview {
 		--definition-section-border: var(--color-border-primary, #d1d5db);
-		--definition-section-accent: var(--color-primary-600, #2563eb);
 		--definition-section-heading: var(--color-text-primary, #111827);
 		--definition-section-text: var(--color-text-secondary, #4b5563);
 		--definition-section-media-bg: var(--color-background-secondary, #f9fafb);

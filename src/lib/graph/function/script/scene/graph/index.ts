@@ -1,9 +1,9 @@
 import { createSceneAtom } from '$stylist/graph/function/script/create-scene-atom';
-import type { SceneGraph } from '$stylist/graph/type/struct/scene-graph/scene-graph';
-import type { SceneAtom } from '$stylist/graph/type/struct/scene-atom/scene-atom';
-import type { SceneMolecule } from '$stylist/graph/type/struct/scene-molecule';
-import type { GraphConnection } from '$stylist/graph/type/struct/graph-connection';
-import type { GraphNode } from '$stylist/graph/type/struct/graph-node';
+import type { SceneGraph } from '$stylist/graph/type/object/scene-graph/scene-graph';
+import type { SceneAtom } from '$stylist/graph/type/object/scene-atom/scene-atom';
+import type { SceneMolecule } from '$stylist/graph/type/object/scene-molecule';
+import type { GraphConnection } from '$stylist/graph/type/object/graph-connection';
+import type { GraphNode } from '$stylist/graph/type/object/graph-node';
 
 export function createDemoSceneGraph(): SceneGraph {
 	const nodes: readonly GraphNode[] = [

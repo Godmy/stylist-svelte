@@ -1,6 +1,6 @@
 import { untrack } from 'svelte';
-import type { TrafficAnalyticsProps } from '$stylist/marketing/type/struct/traffic-analytics/trafficanalytics-props';
-import type { TimeRange } from '$stylist/marketing/type/alias/traffic-analytics-time-range';
+import type { TrafficAnalyticsProps } from '$stylist/marketing/type/object/traffic-analytics/trafficanalytics-props';
+import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
 
 export function createTrafficAnalyticsState(props: TrafficAnalyticsProps) {
 	const title = $derived(props.title ?? 'Traffic Analytics');
@@ -27,7 +27,7 @@ export function createTrafficAnalyticsState(props: TrafficAnalyticsProps) {
 		selectedTimeRange = timeRange;
 	});
 
-	function handleTimeRangeChange(range: TimeRange): void {
+	function handleTimeRangeChange(range: TokenTimeRange): void {
 		selectedTimeRange = range;
 		if (onTimeRangeChange) {
 			onTimeRangeChange(range);
@@ -82,7 +82,7 @@ export function createTrafficAnalyticsState(props: TrafficAnalyticsProps) {
 		get selectedTimeRange() {
 			return selectedTimeRange;
 		},
-		set selectedTimeRange(v: TimeRange) {
+		set selectedTimeRange(v: TokenTimeRange) {
 			selectedTimeRange = v;
 		},
 		get maxValue() {
@@ -111,4 +111,3 @@ export function createTrafficAnalyticsState(props: TrafficAnalyticsProps) {
 }
 
 export default createTrafficAnalyticsState;
-

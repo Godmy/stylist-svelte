@@ -1,4 +1,4 @@
-﻿import type { ComboboxItem } from '$stylist/control/type/struct/combobox/item';
+import type { ComboboxItem } from '$stylist/control/type/object/combobox/item';
 import type { RecipeCombobox } from '$stylist/control/interface/recipe/combobox';
 
 export function createComboboxState(props: RecipeCombobox) {
@@ -6,8 +6,8 @@ export function createComboboxState(props: RecipeCombobox) {
 	const disabled = $derived(props.disabled ?? false);
 	const clearable = $derived(props.clearable ?? true);
 	const loading = $derived(props.loading ?? false);
-	const placeholder = $derived(props.placeholder ?? 'РќР°С‡РЅРёС‚Рµ РІРІРѕРґРёС‚СЊ...');
-	const emptyText = $derived(props.emptyText ?? 'РќРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ');
+	const placeholder = $derived(props.placeholder ?? 'Начните вводить...');
+	const emptyText = $derived(props.emptyText ?? 'Ничего не найдено');
 	const className = $derived(props.class ?? '');
 
 	let query = $state('');

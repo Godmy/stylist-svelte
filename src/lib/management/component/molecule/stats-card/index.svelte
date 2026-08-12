@@ -11,7 +11,7 @@
 <article class={state.containerClasses}>
 	<div class={state.headerClasses}>
 		<div>
-			<p class={state.labelClasses}>{state.label}</p>
+			<p class={state.labelClasses}>{state.text}</p>
 			<p class={state.valueClasses}>{state.value}</p>
 		</div>
 

@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	FoundationAxis,
+	FoundationSemanticZoomStage,
 	GraphGridMode,
 	GraphNodeCategory,
 	GraphToolMode,
@@ -20,16 +21,21 @@ export type {
 	TokenSkeleton,
 	TokenTrajectory
 } from './alias';
-export type { ObjectPoint2DPath } from './object';
-export type { FoundationSemanticZoomStage } from './script';
 export type {
 	ArchitectureScene,
 	CubeControlProps,
+	FoundationDepthThreshold,
 	GraphMinimapProps,
+	GraphNode,
+	GraphNodeDraft,
 	GraphPortDimensions,
+	GraphWorkspaceBounds,
+	GraphWorkspaceConnection,
+	GraphWorkspaceNode,
 	MinimapBounds,
 	MinimapProps,
 	MinimapViewport,
+	ObjectPoint2DPath,
 	OntologyEdgeComponentProps,
 	OntologyNodeComponentProps,
 	Point2D,
@@ -41,12 +47,4 @@ export type {
 	ViewportProps,
 	Zoom,
 	ZoomStep
-} from './struct';
-export type { FoundationDepthThreshold } from './script';
-export type {
-	GraphNode,
-	GraphNodeDraft,
-	GraphWorkspaceBounds,
-	GraphWorkspaceConnection,
-	GraphWorkspaceNode
-} from './struct';
+} from './object';

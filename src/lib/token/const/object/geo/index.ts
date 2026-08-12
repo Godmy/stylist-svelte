@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { MAP_PROVIDER } from '$stylist/geo/const/array/map-provider';
 import { TOKEN_MAP_TYPE } from '$stylist/geo/const/array/map-type';
 import { TOKEN_PIN } from '$stylist/geo/const/array/pin';

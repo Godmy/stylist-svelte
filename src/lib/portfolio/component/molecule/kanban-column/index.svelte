@@ -4,7 +4,7 @@
 	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 	import { createKanbanColumnState } from './state.svelte';
 	import KanbanCard from '$stylist/portfolio/component/molecule/kanban-card/index.svelte';
-	import type { KanbanColumnType } from '$stylist/portfolio/type/struct/kanban-column';
+	import type { KanbanColumnType } from '$stylist/portfolio/type/object/kanban-column';
 	import type { Snippet } from 'svelte';
 
 	let {

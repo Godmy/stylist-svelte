@@ -41,7 +41,8 @@ export type { DatePickerValue } from './interface';
 export type {
 	TokenPriority,
 	TokenTimeFormat,
-	TokenTimeMeasure
+	TokenTimeMeasure,
+	TokenTimeRange
 } from './type';
 export type {
 	RecipeCalendarView,

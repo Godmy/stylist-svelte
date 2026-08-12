@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
-	import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/struct/error-diagnostic-item';
+	import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/object/error-diagnostic-item';
 	import ErrorDiagnosticList from './index.svelte';
 
 	const items: ErrorDiagnosticItem[] = [

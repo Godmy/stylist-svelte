@@ -1,7 +1,7 @@
 import { createCanvasObjectId } from '$stylist/canvas/function/script/canvas-create-object-id';
-import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
-import type { SharedCanvasTool } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-tool';
-import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
+import type { Point2D } from '$stylist/architecture/type/object/point-2d';
+import type { SharedCanvasTool } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-tool';
+import type { CanvasObject } from '$stylist/canvas/type/object/canvas-object';
 
 export function createDraftCanvasObject(
 	tool: SharedCanvasTool,

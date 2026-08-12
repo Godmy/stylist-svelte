@@ -2,6 +2,7 @@
 	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
 	import Text from '$stylist/typography/component/atom/text/index.svelte';
 	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
+	import Image from '$stylist/image/component/atom/image/index.svelte';
 
 	interface HeroMediaSectionProps {
 		eyebrow?: string;
@@ -10,6 +11,7 @@
 		level?: 1 | 2 | 3;
 		imageSrc: string;
 		imageAlt: string;
+		imageLoading?: 'eager' | 'lazy';
 		class?: string;
 	}
 
@@ -20,6 +22,7 @@
 		level = 1,
 		imageSrc,
 		imageAlt,
+		imageLoading = 'lazy',
 		class: className = ''
 	}: HeroMediaSectionProps = $props();
 </script>
@@ -40,7 +43,13 @@
 			<Heading {level} text={title} class="hero-media-section__title" />
 		</div>
 		<figure class="hero-media-section__media">
-			<img src={imageSrc} alt={imageAlt} />
+			<Image
+				imageSrc={imageSrc}
+				imageAlt={imageAlt}
+				size="xl"
+				imageLoading={imageLoading}
+				class="hero-media-section__image"
+			/>
 		</figure>
 	</div>
 	{#if lead}
@@ -101,11 +110,14 @@
 		box-shadow: var(--hero-media-section-shadow, none);
 	}
 
-	.hero-media-section__media img {
+	:global(.hero-media-section__image) {
 		display: block;
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
+		--image-width: 100%;
+		--image-height: 100%;
+		--image-radius: 0;
+		--image-background: transparent;
 	}
 
 	@container (max-width: 920px) {

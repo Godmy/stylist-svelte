@@ -102,7 +102,7 @@
 
 	.autocomplete-dropdown__listbox {
 		position: absolute;
-		z-index: var(--z-index-docked, 10);
+		z-index: var(--layout-z-index-docked, 10);
 		margin-top: 0.25rem;
 		width: 100%;
 		background-color: var(--color-background-primary);

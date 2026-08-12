@@ -4,10 +4,7 @@ import type { SlotCurrency } from '$stylist/commerce/interface/slot/currency';
 import type { SlotExchangeRate } from '$stylist/commerce/interface/slot/exchange-rate';
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 export interface RecipeCurrencyConverter
-	extends ComputeIntersectAll<[
-		SlotTheme,
-		BehaviorClickable
-	]> {
+	extends ComputeIntersectAll<[SlotTheme, BehaviorClickable]> {
 	onConvert?: (result: ({
 fromAmount: number;
 	fromCurrency: string;

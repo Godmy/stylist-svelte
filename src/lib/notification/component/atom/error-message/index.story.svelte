@@ -6,7 +6,7 @@
 	let retryCount = $state(0);
 
 	const controls: SlotStory[] = [
-		{ name: 'title', type: 'text', defaultValue: 'Could not load invoices' },
+		{ name: 'text', type: 'text', defaultValue: 'Could not load invoices' },
 		{ name: 'errorType', type: 'select', defaultValue: 'string', options: ['string', 'error', 'none'] },
 		{ name: 'showRetry', type: 'boolean', defaultValue: true }
 	];
@@ -24,7 +24,7 @@
 	{#snippet children(values: any)}
 		<div class="_c1">
 			<ErrorMessage
-				title={String(values.title || 'Could not load invoices')}
+				text={String(values.text || 'Could not load invoices')}
 				error={values.errorType === 'none'
 					? null
 					: values.errorType === 'error'

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { PaymentMethod } from '$stylist/commerce/type/struct/payment-method';
+	import type { PaymentMethod } from '$stylist/commerce/type/object/payment-method';
 	import PaymentInfo from './index.svelte';
 
 	const paymentMethods: PaymentMethod[] = [

@@ -1,4 +1,4 @@
-import type { TreeNode } from '$stylist/tree/type/struct/tree-node';
+import type { TreeNode } from '$stylist/tree/type/object/tree-node';
 
 export function createTreeExpansionState() {
 	let expanded = $state<Record<string, boolean>>({});

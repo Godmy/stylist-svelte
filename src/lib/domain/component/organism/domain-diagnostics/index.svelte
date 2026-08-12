@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
+	import DomainFileDiagnostics from '$stylist/domain/component/organism/domain-file-diagnostics/index.svelte';
 
 	interface DomainDiagnosticsProps {
 		compact?: boolean;
@@ -250,6 +251,8 @@
 </script>
 
 <div class="c-domain-diagnostics {compact ? 'c-domain-diagnostics--compact' : ''} {className}">
+	<DomainFileDiagnostics class="file-diagnostics" />
+
 	<header class="hero">
 		<div class="hero-copy">
 			<p class="eyebrow">Diagnostics</p>
@@ -668,5 +671,4 @@
 		}
 	}
 </style>
-
 

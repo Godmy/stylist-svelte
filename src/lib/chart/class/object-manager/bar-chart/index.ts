@@ -1,4 +1,4 @@
-import type { IChartDataPoint } from '$stylist/chart/type/struct/bar-chart';
+import type { IChartDataPoint } from '$stylist/chart/type/object/bar-chart';
 import type { TokenThemeScheme } from '$stylist/theme/type/alias/theme-scheme';
 import { BAR_CHART_COLOR_SCHEME } from '$stylist/chart/const/preset/bar-chart-color-scheme';
 

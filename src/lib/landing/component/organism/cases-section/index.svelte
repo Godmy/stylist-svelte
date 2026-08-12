@@ -4,6 +4,7 @@
 	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
 	import Text from '$stylist/typography/component/atom/text/index.svelte';
 	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
+	import Image from '$stylist/image/component/atom/image/index.svelte';
 
 	interface CaseItem {
 		kicker: string;
@@ -42,7 +43,7 @@
 				size="lg"
 			>
 				{#snippet media()}
-					<img src={item.image} alt={item.alt} loading="lazy" />
+					<Image imageSrc={item.image} imageAlt={item.alt} size="xl" class="cases-section__image" />
 				{/snippet}
 				<Text
 					text={item.kicker}
@@ -82,11 +83,14 @@
 		grid-column: span 3;
 	}
 
-	:global(.cases-section__card) img {
+	:global(.cases-section__image) {
 		display: block;
 		width: 100%;
 		aspect-ratio: 16 / 9;
-		object-fit: cover;
+		--image-width: 100%;
+		--image-height: 100%;
+		--image-radius: 0;
+		--image-background: transparent;
 		border-bottom: 1px solid var(--cases-section-border, currentColor);
 	}
 

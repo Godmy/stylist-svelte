@@ -1,5 +1,5 @@
-import type { DrawingSurfaceExposeMethodsEvent } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-expose-methods-event';
-import type { DrawingSurfaceProps } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-props';
+import type { DrawingSurfaceExposeMethodsEvent } from '$stylist/canvas/type/object/drawing-surface/drawing-surface-expose-methods-event';
+import type { DrawingSurfaceProps } from '$stylist/canvas/type/object/drawing-surface/drawing-surface-props';
 
 export function createDrawingSurfaceState(
 	props: DrawingSurfaceProps,

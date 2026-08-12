@@ -12,12 +12,12 @@ export {
 } from './const';
 export type {
 	AvatarGroupAvatar,
-	AvatarGroupProps,
 	AvatarProps,
 	AvatarUserStatus,
 	TokenAvailability
 } from './type';
 export type {
+	AvatarGroupProps,
 	AvatarSelectorProps,
 	ContractAvatar,
 	ContractAvatarGroup,

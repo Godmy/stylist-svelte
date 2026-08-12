@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeComponent } from '$stylist/table/interface/recipe/component';
-import type { ComponentStory } from '$stylist/table/type/struct/component-story';
+import type { ComponentStory } from '$stylist/table/type/object/component-story';
 const Search = 'search';
 const Filter = 'filter';
 const Grid = 'grid';

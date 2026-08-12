@@ -1,5 +1,5 @@
 import type { RecipeZipViewer } from '$stylist/file/interface/recipe/zip-viewer';
-import type { SlotZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
+import type { SlotZipEntry } from '$stylist/file/type/object/zip-viewer/entry';
 import { handleDownload as handleDownloadFn } from '$stylist/file/function/script/zip-viewer-handle-download';
 import { handleEntryClick as handleEntryClickFn } from '$stylist/file/function/script/zip-viewer-handle-entry-click';
 import { handleExtract as handleExtractFn } from '$stylist/file/function/script/zip-viewer-handle-extract';

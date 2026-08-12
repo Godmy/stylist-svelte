@@ -3,10 +3,10 @@ import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-import type { SlotImage as SlotMedia } from '$stylist/image/interface/slot/image';
+import type { SlotImage } from '$stylist/image/interface/slot/image';
 import type { SlotStatus } from '$stylist/information/interface/slot/status';
 export interface RecipeComparisonCard
-	extends ComputeIntersectAll<[SlotTheme, SlotText, SlotMedia, SlotBadge, SlotStatus]> {
+	extends ComputeIntersectAll<[SlotTheme, SlotText, SlotImage, SlotBadge, SlotStatus]> {
 	before: ({
 title: string;
 	items: SlotProductOption[];

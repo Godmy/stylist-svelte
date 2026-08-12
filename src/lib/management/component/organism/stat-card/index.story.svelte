@@ -6,14 +6,14 @@
 	import StatCard from './index.svelte';
 
 	const controls: SlotStory[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Total Components' },
+		{ name: 'text', type: 'text', defaultValue: 'Total Components' },
 		{ name: 'value', type: 'text', defaultValue: '429' },
 		{ name: 'trend', type: 'select', options: ['up', 'down', 'neutral'], defaultValue: 'up' }
 	];
 
 	const sampleStats: RecipeStatCard[] = [
 		{
-			label: 'Total Components',
+			text: 'Total Components',
 			value: '429',
 			icon: 'package',
 			trend: 'up',
@@ -21,7 +21,7 @@
 			description: 'Production-ready Svelte 5 components'
 		},
 		{
-			label: 'Test Coverage',
+			text: 'Test Coverage',
 			value: '94%',
 			icon: 'shield',
 			trend: 'neutral',
@@ -40,7 +40,7 @@
 		<section class="_c1">
 			{#each sampleStats as stat}
 				<StatCard
-					label={stat.label}
+					text={stat.text}
 					value={stat.value}
 					icon={stat.icon}
 					trend={stat.trend}
@@ -50,7 +50,7 @@
 				/>
 			{/each}
 			<StatCard
-				label={values.label as string}
+				text={values.text as string}
 				value={values.value as string}
 				trend={values.trend as 'up' | 'down' | 'neutral'}
 				icon="package"

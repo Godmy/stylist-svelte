@@ -1,5 +1,5 @@
 import type { RecipeScatterPlot } from '$stylist/chart/interface/recipe/scatter-plot';
-import type { ScatterPlotDataPoint } from '$stylist/chart/type/struct/scatter-plot-point';
+import type { ScatterPlotDataPoint } from '$stylist/chart/type/object/scatter-plot-point';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createScatterPlotState(props: RecipeScatterPlot) {

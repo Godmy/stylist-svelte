@@ -1,6 +1,5 @@
 import type { AuthResponse } from '$stylist/auth/type/object/auth-response';
 import type { Role } from '$stylist/auth/type/object/role';
-
 export interface IAuthStateManager {
 	setAuthenticated(user: AuthResponse): void;
 	setUnauthenticated(): void;

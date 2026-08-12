@@ -1,4 +1,4 @@
-import type { TokenSelectControlProps } from '$stylist/token/type/struct/token-select-control-props';
+import type { TokenSelectControlProps } from '$stylist/token/type/object/token-select-control-props';
 import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/alias/token-value';
 
 export function createTokenSelectState(props: TokenSelectControlProps) {

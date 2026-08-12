@@ -3,8 +3,8 @@
 	import Orbit from '$stylist/token/component/molecule/orbit/index.svelte';
 	import OrbitContractL5 from '$stylist/token/component/organism/orbit-contract-l5/index.svelte';
 	import { L6_TOKEN_DEFINITIONS } from '$stylist/token/const/object/orbit-control-definition';
-	import type { TypeDomainComponentDescriptor } from '$stylist/domain/type/struct/domain-component-descriptor';
-	import type { TypeDomainComponentProjection } from '$stylist/domain/type/struct/domain-component-projection';
+	import type { TypeDomainComponentDescriptor } from '$stylist/domain/type/object/domain-component-descriptor';
+	import type { TypeDomainComponentProjection } from '$stylist/domain/type/object/domain-component-projection';
 
 	type DescriptorMode = 'architecture' | 'information' | 'interaction' | 'controls' | 'contracts';
 

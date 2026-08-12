@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import AutoComplete from './index.svelte';
-	import type { AutoCompleteOption } from '$stylist/search/type/struct/auto-complete-option';
+	import type { AutoCompleteOption } from '$stylist/search/type/object/auto-complete-option';
 
 	const controls: SlotStory[] = [
 		{

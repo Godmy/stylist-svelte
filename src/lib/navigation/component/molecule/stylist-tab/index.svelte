@@ -2,7 +2,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { STYLIST_TAB_DEFAULT_ITEMS } from '$stylist/navigation/const/record/stylist-tab-default-items';
 	import createStylistTabState from './state.svelte';
-	import type { StylistTabProps } from '$stylist/navigation/type/struct/stylist-tab-props';
+	import type { StylistTabProps } from '$stylist/navigation/type/object/stylist-tab-props';
 
 	let {
 		class: className = '',

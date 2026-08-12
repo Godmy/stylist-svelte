@@ -71,7 +71,7 @@
 					<RecipeUpsell
 						{currentProduct}
 						{upsellProducts}
-						title="You might upgrade to"
+						text="You might upgrade to"
 						description="Consider these premium options"
 						showSavings={values.showSavings}
 						showReason={values.showReason}
@@ -93,7 +93,7 @@
 							<RecipeUpsell
 								{currentProduct}
 								upsellProducts={upsellProducts.slice(0, 1)}
-								title="Premium Upgrade"
+								text="Premium Upgrade"
 								description="Single recommendation for focused upsell"
 								showSavings={true}
 								showReason={false}
@@ -121,7 +121,7 @@
 										discountPercent: 25
 									}
 								]}
-								title="Upgrade Opportunity"
+								text="Upgrade Opportunity"
 								description="Save money with our premium package"
 								showSavings={true}
 								showReason={true}

@@ -1,10 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type {
-	ABTestConfiguratorState,
-	TimeRange
-} from './alias';
+export type { ABTestConfiguratorState } from './alias';
 export type { IHeroCTA } from './hero-cta';
-export type { TokenTest } from './record';
 export type {
 	ConversionFunnelProps,
 	CtaBannerProps,
@@ -13,4 +9,5 @@ export type {
 	TestResultsViewerProps,
 	TrafficAnalyticsProps,
 	UserBehaviorMetricsProps
-} from './struct';
+} from './object';
+export type { TokenTest } from './record';

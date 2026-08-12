@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { MinimapProps } from '$stylist/architecture/type/struct/minimap-props';
+	import type { MinimapProps } from '$stylist/architecture/type/object/minimap-props';
 	import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 	import IconButton from '$stylist/button/component/atom/icon-button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';

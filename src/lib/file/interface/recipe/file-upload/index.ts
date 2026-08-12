@@ -1,9 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
-
 import type { UploadStatus } from '$stylist/file/type/alias/upload-status';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 export interface RecipeFileUpload
 	extends ComputeIntersectAll<[({
 accept?: string;

@@ -8,7 +8,6 @@ export {
 	Idef0Outputs,
 	Idef0PortLabel
 } from './component';
-export type { Idef0Port } from './type';
 export type {
 	RecipeIdef0BlackBox,
 	RecipeIdef0Connector,

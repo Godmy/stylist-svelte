@@ -50,5 +50,6 @@ export type {
 } from './recipe';
 export type {
 	SlotComposite,
+	SlotDivider,
 	SlotSortableGridItem
 } from './slot';

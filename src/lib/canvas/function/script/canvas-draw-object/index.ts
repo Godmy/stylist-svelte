@@ -1,5 +1,5 @@
 import { getCanvasObjectBounds } from '$stylist/canvas/function/script/canvas-get-object-bounds';
-import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
+import type { CanvasObject } from '$stylist/canvas/type/object/canvas-object';
 
 export function drawCanvasObject(
 	ctx: CanvasRenderingContext2D,

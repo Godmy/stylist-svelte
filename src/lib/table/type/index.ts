@@ -6,15 +6,13 @@ export type {
 } from './alias';
 export type {
 	ColumnSchema,
-	FilterSchema,
-	FilterType,
-	TableSchema
-} from './object';
-export type { TokenSortDirection } from './record';
-export type {
 	ComparisonTableFeature,
 	ComparisonTableProduct,
 	ComparisonTableProps,
 	ComponentStory,
-	RowExpandableProps
-} from './struct';
+	FilterSchema,
+	FilterType,
+	RowExpandableProps,
+	TableSchema
+} from './object';
+export type { TokenSortDirection } from './record';

@@ -1,8 +1,7 @@
-﻿import type { SlotChildren } from '$stylist/theme/interface/slot/children';
+import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { ContractPromptVariable } from '$stylist/ai/interface/contract/prompt-variable';
 import type { ContractPromptTemplate } from '$stylist/ai/interface/contract/prompt-template';
-
 export interface RecipePromptBuilder extends ComputeIntersectAll<[SlotChildren]> {
 	templates?: ContractPromptTemplate[];
 	initialPrompt?: string;

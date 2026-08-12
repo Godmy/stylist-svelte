@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_AVAILABILITY } from '$stylist/user/const/array/availability';
 import { CONTENT_EDITOR_CONTENT_TYPE } from '$stylist/development/const/array/content-editor-content-type';
 import { TOKEN_FLOW } from '$stylist/calendar/const/array/flow';

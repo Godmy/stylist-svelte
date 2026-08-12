@@ -5,7 +5,6 @@ import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/worksp
 import type { SlotNodeConnection } from '$stylist/workspace/interface/slot/node-connection';
 import type { GraphGridMode } from '$stylist/architecture/type/alias/graph-grid-mode';
 import type { TOKEN_PAN_MODES } from '$stylist/architecture/const/array/pan-mode';
-
 export interface RecipeWorkspace extends ComputeIntersectAll<[SlotChildren]> {
 	nodes?: readonly SlotWorkspaceNode[];
 	connections?: readonly SlotNodeConnection[];

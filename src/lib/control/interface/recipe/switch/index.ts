@@ -1,7 +1,6 @@
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 export interface RecipeSwitch
 	extends ComputeIntersectAll<[((Omit<HTMLAttributes<HTMLInputElement>, 'size'> & {
 /** Whether the switch is checked */

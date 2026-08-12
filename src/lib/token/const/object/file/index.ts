@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { DATA_EXPORTER_FORMAT } from '$stylist/file/const/array/data-exporter-format';
 import { TOKEN_DOCUMENT_FORMAT } from '$stylist/file/const/array/document-format';
 import { FILE_EXPLORER_VIEW_MODE } from '$stylist/file/const/array/file-explorer-view-mode';

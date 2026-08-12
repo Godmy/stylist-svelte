@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DrawerProps } from '$stylist/navigation/type/struct/drawer-props/drawer-props';
+	import type { DrawerProps } from '$stylist/navigation/type/object/drawer-props/drawer-props';
 	import stateFn from './state.svelte';
 
 	let props: DrawerProps = $props();

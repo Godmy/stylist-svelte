@@ -1,6 +1,6 @@
-﻿import { untrack } from 'svelte';
-import type { KanbanBoardType } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardtype';
-import type { KanbanBoardAction } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardaction';
+import { untrack } from 'svelte';
+import type { KanbanBoardType } from '$stylist/portfolio/type/object/kanban-board/kanbanboardtype';
+import type { KanbanBoardAction } from '$stylist/portfolio/type/object/kanban-board/kanbanboardaction';
 import type { RecipeKanbanBoard } from '$stylist/portfolio/interface/recipe/kanban-board';
 import { addKanbanCard } from '$stylist/portfolio/function/script/kanban-board-add-card';
 import { addKanbanColumn } from '$stylist/portfolio/function/script/kanban-board-add-column';

@@ -1,5 +1,4 @@
-import type { DragDropFileStatus } from '$stylist/file/type/struct/drag-drop-file-status';
-
+import type { DragDropFileStatus } from '$stylist/file/type/object/drag-drop-file-status';
 export interface SlotDragDropFile {
 	id: string;
 	name: string;

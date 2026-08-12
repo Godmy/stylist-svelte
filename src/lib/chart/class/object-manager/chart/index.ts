@@ -1,5 +1,5 @@
-import type { ChartFunctionPoint } from '$stylist/chart/type/struct/chart-point';
-import type { ChartSeries } from '$stylist/chart/type/struct/chart-series';
+import type { ChartFunctionPoint } from '$stylist/chart/type/object/chart-point';
+import type { ChartSeries } from '$stylist/chart/type/object/chart-series';
 import type { RecipeChartAxisY } from '$stylist/chart/interface/recipe/chart-axis-y';
 import type { RecipeChartPolyline as ChartPolylineProps } from '$stylist/chart/interface/recipe/chart-polyline';
 import type { ChartLegendItem } from '$stylist/chart/type/object/chart-legend-item';

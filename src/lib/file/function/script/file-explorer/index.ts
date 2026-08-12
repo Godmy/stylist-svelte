@@ -1,4 +1,4 @@
-import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
+import type { SlotFileSystemItem } from '$stylist/file/type/object/file-explorer/file-system-item';
 
 export function handleItemClick(
 	item: SlotFileSystemItem,

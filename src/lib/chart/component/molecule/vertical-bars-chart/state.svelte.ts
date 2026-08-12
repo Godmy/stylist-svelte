@@ -3,7 +3,7 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 
 export function createVerticalBarsChartState(props: RecipeVerticalBarsChart) {
 	const className = $derived(mergeClassNames('vertical-bars-chart', props.class));
-	const title = $derived(props.title);
+	const text = $derived(props.text);
 	const items = $derived(props.items);
 	const height = $derived(props.height ?? '8rem');
 	const barWidth = $derived(props.barWidth ?? '1.75rem');
@@ -14,8 +14,8 @@ export function createVerticalBarsChartState(props: RecipeVerticalBarsChart) {
 		get className() {
 			return className;
 		},
-		get title() {
-			return title;
+		get text() {
+			return text;
 		},
 		get items() {
 			return items;

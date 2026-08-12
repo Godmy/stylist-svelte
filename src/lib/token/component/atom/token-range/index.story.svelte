@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import TokenRange from './index.svelte';
-	import type { TokenRangeControlDefinition } from '$stylist/token/type/struct/range-control-definition';
+	import type { TokenRangeControlDefinition } from '$stylist/token/type/object/range-control-definition';
 
 	const definition: TokenRangeControlDefinition = {
 		id: 'token-range-font-weight',

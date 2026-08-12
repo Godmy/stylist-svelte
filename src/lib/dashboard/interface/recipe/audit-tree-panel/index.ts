@@ -1,6 +1,5 @@
-import type { AuditTreeNode } from '$stylist/dashboard/type/struct/audit-tree-node';
-import type { DashboardReportSummary } from '$stylist/dashboard/type/struct/dashboard-report-summary';
-
+import type { AuditTreeNode } from '$stylist/dashboard/type/object/audit-tree-node';
+import type { DashboardReportSummary } from '$stylist/dashboard/type/object/dashboard-report-summary';
 export interface RecipeAuditTreePanel {
 	nodes: AuditTreeNode[];
 	summary: DashboardReportSummary;

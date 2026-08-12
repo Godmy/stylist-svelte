@@ -2,7 +2,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createFileBrowserState } from './state.svelte';
 	import { getItemCount } from '$stylist/file/function/script/file-browser-get-item-count';
-	import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
+	import type { SlotFolderItem } from '$stylist/file/type/object/file-browser/folder-item';
 	import type { RecipeFileBrowser } from '$stylist/file/interface/recipe/file-browser';
 
 	let props: RecipeFileBrowser = $props();

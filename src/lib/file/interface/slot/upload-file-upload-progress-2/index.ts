@@ -1,5 +1,4 @@
 import type { UploadStatus } from '$stylist/file/type/alias/upload-status';
-
 /** Тип для файла в процессе загрузки */
 export interface SlotUploadFile {
 	/** Уникальный идентификатор файла */

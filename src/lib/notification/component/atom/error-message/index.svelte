@@ -10,7 +10,7 @@
 		(() => {
 			const {
 				class: _class,
-				title: _title,
+				text: _text,
 				error: _error,
 				showRetry: _showRetry,
 				onRetry: _onRetry,
@@ -23,7 +23,7 @@
 
 {#if state.errorMessage}
 	<div class={state.containerClasses} {...restProps}>
-		<div class={state.titleClasses}>{state.title}</div>
+		<div class={state.titleClasses}>{state.text}</div>
 		<div class={state.textClasses}>{state.errorMessage}</div>
 		{#if state.showRetry && state.onRetry}
 			<div class={state.buttonContainerClasses}>

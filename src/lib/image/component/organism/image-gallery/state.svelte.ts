@@ -67,7 +67,9 @@ export function createImageGalleryState(props: RecipeImageGallery) {
 	}
 
 	const imageContainerClasses = 'image-gallery__image-container';
-	const imageClasses = 'image-gallery__image';
+	const imageClasses = $derived(
+		['image-gallery__image', images[currentIndex]?.imageClass].filter(Boolean).join(' ')
+	);
 	const navigationButtonClasses = 'image-gallery__nav-button';
 	const captionClasses = 'image-gallery__caption';
 	const fullscreenCaptionClasses = 'image-gallery__fullscreen-caption';
@@ -92,7 +94,6 @@ export function createImageGalleryState(props: RecipeImageGallery) {
 			autoPlay: _autoPlay,
 			autoPlayInterval: _autoPlayInterval,
 			showCaptions: _showCaptions,
-			imageClass: _imageClass,
 			thumbnailClass: _thumbnailClass,
 			navigationClass: _navigationClass,
 			captionClass: _captionClass,

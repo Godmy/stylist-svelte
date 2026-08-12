@@ -1,4 +1,4 @@
-import type { PaymentMethod } from '$stylist/commerce/type/struct/payment-method';
+import type { PaymentMethod } from '$stylist/commerce/type/object/payment-method';
 import type { PaymentInfoProps } from '$stylist/commerce/interface/recipe/payment-info-props';
 
 export function createPaymentInfoState(props: PaymentInfoProps) {

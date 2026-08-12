@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ComboboxItem } from '$stylist/control/type/struct/combobox/item';
+	import type { ComboboxItem } from '$stylist/control/type/object/combobox/item';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 

@@ -1,4 +1,4 @@
-import type { ToggleButtonGroupProps } from '$stylist/form/type/struct/toggle-button-group-props';
+import type { ToggleButtonGroupProps } from '$stylist/form/type/object/toggle-button-group-props';
 
 export function createToggleButtonGroupState(props: ToggleButtonGroupProps) {
 	let selectedValues = $state<string[]>(

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createDataExporterState from './state.svelte';
-	import type { Props } from '$stylist/file/type/struct/data-exporter/props';
+	import type { Props } from '$stylist/file/type/object/data-exporter/props';
 
 	let props: Props = $props();
 	const state = createDataExporterState(props);

@@ -1,5 +1,5 @@
-import type { PresenterSceneLink } from '$stylist/presentation/type/struct/presenter-scene-link';
-import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
+import type { PresenterSceneLink } from '$stylist/presentation/type/object/presenter-scene-link';
+import type { SceneNode } from '$stylist/architecture/type/object/scene-node/scene-node';
 
 export function resolvePresenterSceneLinks(nodes: readonly SceneNode[]): PresenterSceneLink[] {
 	const links: PresenterSceneLink[] = [];

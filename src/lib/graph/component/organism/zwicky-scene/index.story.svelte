@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ZwickyScene from '$stylist/graph/component/organism/zwicky-scene/index.svelte';
-	import type { GraphJsonInput } from '$stylist/graph/type/struct/graph-json-input';
+	import type { GraphJsonInput } from '$stylist/graph/type/object/graph-json-input';
 	import rawDeps from '$stylist/graph/data/json/step-2-dependencies.json';
 
 	const fullData = rawDeps as GraphJsonInput;

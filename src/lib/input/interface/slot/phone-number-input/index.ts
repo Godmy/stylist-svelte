@@ -1,8 +1,8 @@
+import type { HTMLInputAttributes } from 'svelte/elements';
 /**
  * PhoneNumberInput types and interfaces following SOLID principles
  */
 
-import type { HTMLInputAttributes } from 'svelte/elements';
 
 export interface SlotPhoneNumberInput extends HTMLInputAttributes {
 	value?: string;

@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';
 import { TOKEN_DIRECTION } from '$stylist/theme/const/array/direction';
 import { TOKEN_SHAPE } from '$stylist/theme/const/array/shape';

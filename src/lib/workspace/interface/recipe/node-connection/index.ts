@@ -3,7 +3,6 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { TokenBorderStyle } from '$stylist/layout/type/alias/border-style';
 import type { SlotNodeConnection } from '$stylist/workspace/interface/slot/node-connection';
-
 export interface RecipeNodeConnection
 	extends ComputeIntersectAll<[SlotNodeConnection, SlotTheme, HTMLAttributes<SVGPathElement>]> {
 	startX: number;

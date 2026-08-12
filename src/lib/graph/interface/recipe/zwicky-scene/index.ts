@@ -1,5 +1,4 @@
-import type { GraphJsonInput } from '$stylist/graph/type/struct/graph-json-input';
-
+import type { GraphJsonInput } from '$stylist/graph/type/object/graph-json-input';
 export interface RecipeZwickyScene {
 	title?: string;
 	data?: GraphJsonInput;

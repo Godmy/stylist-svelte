@@ -1,7 +1,7 @@
 import type { RecipeTranscriber } from '$stylist/audio/interface/recipe/transcriber';
-import type { TypeAudioRecording } from '$stylist/audio/type/struct/audio-recording';
+import type { TypeAudioRecording } from '$stylist/audio/type/object/audio-recording';
 import type { TypeTranscriberStatus } from '$stylist/audio/type/alias/transcriber-status';
-import type { TypeTranscriptionResult } from '$stylist/audio/type/struct/transcription-result';
+import type { TypeTranscriptionResult } from '$stylist/audio/type/object/transcription-result';
 
 export function createTranscriberState(props: RecipeTranscriber) {
 	let mediaRecorder = $state<MediaRecorder | null>(null);

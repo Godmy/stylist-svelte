@@ -7,8 +7,8 @@ import { RECORD_LAYER } from '$stylist/architecture/const/record/layer/index';
 import { RECORD_LEVEL } from '$stylist/architecture/const/record/level/index';
 import { RECORD_SHAPE } from '$stylist/architecture/const/record/shape/index';
 import { RECORD_SIZE } from '$stylist/architecture/const/record/size/index';
-import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom/index';
-import type { FoundationSemanticZoomStage } from '$stylist/architecture/type/script/foundation-semantic-zoom-stages';
+import type { SemanticZoomPresentation } from '$stylist/architecture/type/object/semantic-zoom/index';
+import type { FoundationSemanticZoomStage } from '$stylist/architecture/type/alias/foundation-semantic-zoom-stage';
 
 export function resolveSemanticZoomPresentation(
 	worldDepth: number,

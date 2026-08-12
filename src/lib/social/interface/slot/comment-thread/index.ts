@@ -1,6 +1,5 @@
 import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
 import type { SlotCommentThreadItem } from '$stylist/social/interface/slot/comment-thread-item';
-
 export interface SlotCommentThread extends HtmlAttributesBase<HTMLDivElement> {
 	title?: string;
 	comments: SlotCommentThreadItem[];

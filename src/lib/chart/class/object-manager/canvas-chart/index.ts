@@ -1,4 +1,4 @@
-import type { CanvasChartPadding } from '$stylist/chart/type/struct/canvas-chart-padding';
+import type { CanvasChartPadding } from '$stylist/chart/type/object/canvas-chart-padding';
 import type { TokenCanvasChartType } from '$stylist/chart/type/alias/canvas-chart-type';
 import { TOKEN_CHART_COLORS } from '$stylist/chart/const/array/chart-colors';
 import { DEFAULT_CANVAS_CHART_PADDING } from '$stylist/chart/const/map/default-canvas-chart-padding';

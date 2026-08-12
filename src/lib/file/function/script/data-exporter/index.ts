@@ -1,6 +1,6 @@
 import type { AnyProperty } from '$stylist/layout/type/object/any-property';
 import type { DataExporterFormat } from '$stylist/file/type/alias/data-exporter-format';
-import type { DataItem } from '$stylist/file/type/struct/data-exporter/data-item';
+import type { DataItem } from '$stylist/file/type/object/data-exporter/data-item';
 import { convertToCSV } from '$stylist/file/function/script/convert-to-csv';
 
 /**

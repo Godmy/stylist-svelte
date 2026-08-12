@@ -1,6 +1,6 @@
 import type { RecipeMediaLibrary } from '$stylist/file/interface/recipe/media-library';
 import type { MediaType } from '$stylist/file/type/alias/media-library-media-type';
-import type { MediaItem } from '$stylist/file/type/struct/media-item';
+import type { MediaItem } from '$stylist/file/type/object/media-item';
 import { formatMediaDate } from '$stylist/file/function/script/format-media-date';
 import { formatMediaFileSize } from '$stylist/file/function/script/format-media-file-size';
 

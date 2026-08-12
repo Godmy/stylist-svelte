@@ -1,8 +1,8 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
-	import type { FRIEND_LIST_FRIEND } from '$stylist/social/type/struct/friend-list/friend_list_friend';
-	import type { FRIEND_LIST_PROPS } from '$stylist/social/type/struct/friend-list/friend_list_-props';
+	import type { FRIEND_LIST_FRIEND } from '$stylist/social/type/object/friend-list/friend_list_friend';
+	import type { FRIEND_LIST_PROPS } from '$stylist/social/type/object/friend-list/friend_list_-props';
 	import { friendListFormatLastSeen as formatLastSeen } from '$stylist/social/function/script/friend-list-format-last-seen';
 	import { friendListGetStatusColor as getStatusColor } from '$stylist/social/function/script/friend-list-get-status-color';
 	import createFriendListState from './state.svelte';

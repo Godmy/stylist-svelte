@@ -10,6 +10,7 @@
 			const {
 				class: _class,
 				text: _text,
+				label: _label,
 				variant: _variant,
 				size: _size,
 				closable: _closable,
@@ -69,9 +70,9 @@
 		font-weight: 500;
 		gap: 0.25rem;
 		transition:
-			background var(--duration-120, 120ms) var(--animation-ease, ease),
-			color var(--duration-120, 120ms) var(--animation-ease, ease),
-			border-color var(--duration-120, 120ms) var(--animation-ease, ease);
+			background var(--motion-duration-120, 120ms) var(--motion-easing-ease, ease),
+			color var(--motion-duration-120, 120ms) var(--motion-easing-ease, ease),
+			border-color var(--motion-duration-120, 120ms) var(--motion-easing-ease, ease);
 	}
 
 	/* ── Sizes ─────────────────────────────────────────────────── */
@@ -262,8 +263,8 @@
 		cursor: pointer;
 		line-height: 1;
 		transition:
-			background var(--duration-120, 120ms) var(--animation-ease, ease),
-			color var(--duration-120, 120ms) var(--animation-ease, ease);
+			background var(--motion-duration-120, 120ms) var(--motion-easing-ease, ease),
+			color var(--motion-duration-120, 120ms) var(--motion-easing-ease, ease);
 	}
 	.c-tag__close:hover {
 		background: var(--color-background-tertiary);

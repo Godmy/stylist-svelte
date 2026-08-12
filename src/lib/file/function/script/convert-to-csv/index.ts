@@ -1,4 +1,4 @@
-import type { DataItem } from '$stylist/file/type/struct/data-exporter/data-item';
+import type { DataItem } from '$stylist/file/type/object/data-exporter/data-item';
 import { toCsvValue } from '$stylist/file/function/script/to-csv-value';
 
 /**

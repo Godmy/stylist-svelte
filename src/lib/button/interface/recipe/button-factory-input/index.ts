@@ -1,14 +1,14 @@
-import type { RecipeButtonElement as SlotButtonElement } from '$stylist/button/interface/recipe/button-element';
+import type { RecipeButtonElement } from '$stylist/button/interface/recipe/button-element';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 export interface ButtonFactoryInput {
 	contract: ({
-variant?: SlotButtonElement['variant'];
-	size?: SlotButtonElement['size'];
-	disabled?: SlotButtonElement['disabled'];
-	loading?: SlotButtonElement['loading'];
-	block?: SlotButtonElement['block'];
-	ariaLabel?: SlotButtonElement['ariaLabel'];
-	loadingLabel?: SlotButtonElement['loadingLabel'];
+variant?: RecipeButtonElement['variant'];
+	size?: RecipeButtonElement['size'];
+	disabled?: RecipeButtonElement['disabled'];
+	loading?: RecipeButtonElement['loading'];
+	block?: RecipeButtonElement['block'];
+	ariaLabel?: RecipeButtonElement['ariaLabel'];
+	loadingLabel?: RecipeButtonElement['loadingLabel'];
 });
 	html: ({
 class?: string;
@@ -27,6 +27,6 @@ class?: string;
 	>;
 });
 	slots: ({
-children?: SlotButtonElement['children'];
+children?: RecipeButtonElement['children'];
 });
 }

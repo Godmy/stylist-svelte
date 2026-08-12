@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createRadioGroupState from './state.svelte';
-	import type { RadioGroupProps } from '$stylist/form/type/struct/radio-group/radiogroup-props';
+	import type { RadioGroupProps } from '$stylist/form/type/object/radio-group/radiogroup-props';
 
 	const props: RadioGroupProps = $props();
 	const state = createRadioGroupState(props);

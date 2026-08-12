@@ -1,4 +1,4 @@
-import type { FilterPanelProps } from '$stylist/control/type/struct/filter-panel/filterpanel-props';
+import type { FilterPanelProps } from '$stylist/control/type/object/filter-panel/filterpanel-props';
 import type { FilterPanelLayout } from '$stylist/control/type/alias/filter-panel-layout';
 import type { SlotFilterPanelState } from '$stylist/control/interface/slot/filter-panel-state';
 

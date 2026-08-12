@@ -1,5 +1,10 @@
-import { ObjectManagerStatusDashboard } from '$stylist/management/class/object-manager/status-dashboard';
+import type { StatusItem } from '$stylist/management/type/object/status-item';
+import { STATUS_DASHBOARD_PRESENTATION } from '$stylist/management/const/record/status-dashboard-presentation';
 import type { StatusDashboardStateProps } from '$stylist/management/interface/recipe/status-dashboard-status-dashboard-state-props';
+
+function resolveStatusPresentation(status: StatusItem['status']) {
+	return STATUS_DASHBOARD_PRESENTATION[status] ?? STATUS_DASHBOARD_PRESENTATION.info;
+}
 
 export function createStatusDashboardState(props: StatusDashboardStateProps) {
 	const title = $derived(props.title);
@@ -116,9 +121,7 @@ export function createStatusDashboardState(props: StatusDashboardStateProps) {
 		get restProps() {
 			return restProps;
 		},
-		resolveStatusPresentation: ObjectManagerStatusDashboard.resolveStatusPresentation.bind(
-			ObjectManagerStatusDashboard
-		)
+		resolveStatusPresentation
 	};
 }
 

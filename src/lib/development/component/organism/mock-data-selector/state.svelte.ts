@@ -1,5 +1,5 @@
-﻿import type { RecipeMockDataSelector } from '$stylist/development/interface/recipe/mock-data-selector';
-import type { MockDataSelectorDataSelection } from '$stylist/development/type/struct/mock-data-selector-data-selection';
+import type { RecipeMockDataSelector } from '$stylist/development/interface/recipe/mock-data-selector';
+import type { MockDataSelectorDataSelection } from '$stylist/development/type/object/mock-data-selector-data-selection';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createMockDataSelectorState(props: RecipeMockDataSelector) {

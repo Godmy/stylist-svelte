@@ -1,6 +1,6 @@
 <script lang="ts">
 	import TokenControlBase from '$stylist/token/component/atom/token-control-base/index.svelte';
-	import type { TokenSelectControlProps } from '$stylist/token/type/struct/token-select-control-props';
+	import type { TokenSelectControlProps } from '$stylist/token/type/object/token-select-control-props';
 	import createTokenSelectState from './state.svelte';
 
 	let props: TokenSelectControlProps = $props();

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import OrbitTokenNode from '$stylist/token/component/atom/orbit-token-node/index.svelte';
-	import type { TokenControlDefinition } from '$stylist/token/type/struct/token-control-definition';
+	import type { TokenControlDefinition } from '$stylist/token/type/object/token-control-definition';
 
 	let {
 		opened = false,

@@ -15,4 +15,4 @@ export type {
 	SliderTickComponentProps,
 	ToggleGroupContext,
 	ToggleProps
-} from './struct';
+} from './object';

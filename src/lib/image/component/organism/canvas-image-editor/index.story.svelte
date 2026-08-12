@@ -5,13 +5,13 @@
 
 	const controls = [
 		{
-			name: 'width',
+			name: 'imageWidth',
 			type: TOKEN_CONTROLLER_TYPE.SELECT,
 			options: [600, 700, 800, 900],
 			defaultValue: 800
 		},
 		{
-			name: 'height',
+			name: 'imageHeight',
 			type: TOKEN_CONTROLLER_TYPE.SELECT,
 			options: [400, 500, 600, 700],
 			defaultValue: 600
@@ -49,11 +49,12 @@
 >
 	{#snippet children(values: any)}
 		<CanvasImageEditor
-			width={values.width}
-			height={values.height}
+			imageWidth={values.imageWidth}
+			imageHeight={values.imageHeight}
 			filter={values.filter}
 			cropEnabled={values.cropEnabled}
-			src="https://placehold.co/600x400"
+			imageSrc="https://placehold.co/600x400"
+			imageAlt="Canvas image editor preview"
 		/>
 	{/snippet}
 </Story>

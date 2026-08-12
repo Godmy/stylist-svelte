@@ -4,8 +4,8 @@
 	import CopyButton from './index.svelte';
 
 	const controls: SlotStory[] = [
-		{ name: 'text', type: 'text', defaultValue: 'npm install stylist-svelte' },
-		{ name: 'label', type: 'text', defaultValue: 'Copy command' },
+		{ name: 'copyText', type: 'text', defaultValue: 'npm install stylist-svelte' },
+		{ name: 'text', type: 'text', defaultValue: 'Copy command' },
 		{ name: 'showIcon', type: 'boolean', defaultValue: true },
 		{
 			name: 'variant',
@@ -27,10 +27,10 @@
 >
 	{#snippet children(values: any)}
 		<div class="_c1">
-			<pre class="_c2">{values.text as string}</pre>
+			<pre class="_c2">{values.copyText as string}</pre>
 			<CopyButton
+				copyText={values.copyText as string}
 				text={values.text as string}
-				label={values.label as string}
 				showIcon={values.showIcon as boolean}
 				variant={values.variant as any}
 				size={values.size as 'sm' | 'md' | 'lg'}

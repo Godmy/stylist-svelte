@@ -1,5 +1,5 @@
 import type { RecipeDragDropFileUpload } from '$stylist/file/interface/recipe/drag-drop-file-upload';
-import type { FileType } from '$stylist/file/type/struct/drag-drop-file-upload/file-type';
+import type { FileType } from '$stylist/file/type/object/drag-drop-file-upload/file-type';
 import { formatFileSize } from '$stylist/file/function/script/drag-drop-file-upload-format-file-size';
 import { handleDrop as handleDropFn } from '$stylist/file/function/script/drag-drop-file-upload-handle-drop';
 import { handleFileSelect as handleFileSelectFn } from '$stylist/file/function/script/drag-drop-file-upload';

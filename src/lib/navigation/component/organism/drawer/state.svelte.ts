@@ -1,4 +1,4 @@
-import type { DrawerProps } from '$stylist/navigation/type/struct/drawer-props/drawer-props';
+import type { DrawerProps } from '$stylist/navigation/type/object/drawer-props/drawer-props';
 import { close } from '$stylist/navigation/function/script/close';
 import { handleBackdropClick } from '$stylist/navigation/function/script/handle-backdrop-click';
 import { handleBackdropKeyDown } from '$stylist/navigation/function/script/handle-backdrop-key-down';

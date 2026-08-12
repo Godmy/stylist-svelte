@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import DomainDescriptorPanel from './index.svelte';
-	import type { TypeDomainComponentDescriptor } from '$stylist/domain/type/struct/domain-component-descriptor';
+	import type { TypeDomainComponentDescriptor } from '$stylist/domain/type/object/domain-component-descriptor';
 
 	const descriptor: TypeDomainComponentDescriptor = {
 		entityPath: 'commerce/component/molecule/price-tag',

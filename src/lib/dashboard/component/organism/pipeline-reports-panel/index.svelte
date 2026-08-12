@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DashboardReportSummary } from '$stylist/dashboard/type/struct/dashboard-report-summary';
+	import type { DashboardReportSummary } from '$stylist/dashboard/type/object/dashboard-report-summary';
 	import PipelineReportList from '$stylist/dashboard/component/molecule/pipeline-report-list/index.svelte';
 	import DashboardCountTile from '$stylist/dashboard/component/atom/dashboard-count-tile/index.svelte';
 	import DashboardStatusPill from '$stylist/dashboard/component/atom/dashboard-status-pill/index.svelte';
@@ -31,6 +31,9 @@
 	const selectedReport = $derived(reports.find((report) => report.id === localSelectedId) ?? reports[0]);
 	const totalErrors = $derived(reports.reduce((total, report) => total + report.errorCount, 0));
 	const totalWarnings = $derived(reports.reduce((total, report) => total + report.warningCount, 0));
+	const selectedIssueDensity = $derived(
+		selectedReport?.issueDensity === undefined ? 'unknown' : `${Math.round(selectedReport.issueDensity * 100)}%`
+	);
 	const statusBars = $derived(resolveStatusBars(reports));
 	const toolRows = $derived(
 		(['auditor', 'errors', 'indexation', 'di'] as const).map((tool) => summaryByTool?.[tool] ?? reports.find((report) => report.tool === tool))
@@ -71,7 +74,7 @@
 		<DashboardCountTile label="Runs" value={reports.length} status={reports.length > 0 ? 'ok' : 'unknown'} />
 		<DashboardCountTile label="Errors" value={totalErrors} status={totalErrors > 0 ? 'error' : 'ok'} />
 		<DashboardCountTile label="Warnings" value={totalWarnings} status={totalWarnings > 0 ? 'warning' : 'ok'} />
-		<MetricBarsCard label="Status distribution" total={`${reports.length} runs`} bars={statusBars} />
+		<MetricBarsCard title="Status distribution" total={`${reports.length} runs`} bars={statusBars} />
 	</div>
 
 	<div class="c-pipeline-reports-panel__toolbar">
@@ -102,9 +105,53 @@
 					<div><dt>Updated</dt><dd>{selectedReport.updatedAt ?? selectedReport.finishedAt ?? selectedReport.startedAt ?? 'unknown'}</dd></div>
 					<div><dt>Errors</dt><dd>{selectedReport.errorCount}</dd></div>
 					<div><dt>Warnings</dt><dd>{selectedReport.warningCount}</dd></div>
+					<div><dt>Files</dt><dd>{selectedReport.totalFiles}</dd></div>
+					<div><dt>Density</dt><dd>{selectedIssueDensity}</dd></div>
 					<div><dt>Output</dt><dd>{selectedReport.outputPath ?? 'server output path pending'}</dd></div>
 					<div><dt>README</dt><dd>{selectedReport.readmePath ?? 'not available'}</dd></div>
 				</dl>
+
+				{#if (selectedReport.topDomains?.length ?? 0) > 0}
+					<section class="c-pipeline-reports-panel__ranking" aria-label="Top affected domains">
+						<h4>Top affected domains</h4>
+						{#each selectedReport.topDomains ?? [] as row}
+							<div>
+								<span>{row.label}</span>
+								<strong>{row.value}</strong>
+								<small>{row.errorCount} errors / {row.warningCount} warnings</small>
+							</div>
+						{/each}
+					</section>
+				{/if}
+
+				{#if (selectedReport.topRules?.length ?? 0) > 0}
+					<section class="c-pipeline-reports-panel__ranking" aria-label="Top audit rules">
+						<h4>Top audit rules</h4>
+						{#each selectedReport.topRules ?? [] as row}
+							<div>
+								<span>{row.label}</span>
+								<strong>{row.value}</strong>
+								<small>{row.errorCount} errors / {row.warningCount} warnings</small>
+							</div>
+						{/each}
+					</section>
+				{/if}
+
+				{#each selectedReport.insightGroups ?? [] as group}
+					<section class="c-pipeline-reports-panel__ranking" aria-label={group.label}>
+						<h4>{group.label}</h4>
+						{#if group.description}
+							<p>{group.description}</p>
+						{/if}
+						{#each group.items as row}
+							<div>
+								<span>{row.label}</span>
+								<strong>{row.value}</strong>
+								<small>{row.detail ?? row.path ?? 'detail pending'}</small>
+							</div>
+						{/each}
+					</section>
+				{/each}
 			{:else}
 				<p class="c-pipeline-reports-panel__state">No report selected.</p>
 			{/if}
@@ -210,6 +257,58 @@
 		display: grid;
 		gap: 0.45rem;
 		margin: 0.75rem 0 0;
+	}
+
+	.c-pipeline-reports-panel__ranking {
+		display: grid;
+		gap: 0.4rem;
+		margin-top: 0.85rem;
+	}
+
+	.c-pipeline-reports-panel__ranking h4,
+	.c-pipeline-reports-panel__ranking p {
+		margin: 0;
+	}
+
+	.c-pipeline-reports-panel__ranking h4 {
+		font-size: 0.82rem;
+		line-height: 1.2;
+	}
+
+	.c-pipeline-reports-panel__ranking p {
+		color: var(--color-text-secondary);
+		font-size: 0.74rem;
+		line-height: 1.35;
+	}
+
+	.c-pipeline-reports-panel__ranking div {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 0.15rem 0.55rem;
+		min-width: 0;
+		padding: 0.45rem 0;
+		border-top: 1px solid color-mix(in srgb, var(--color-border-primary) 70%, transparent);
+	}
+
+	.c-pipeline-reports-panel__ranking span,
+	.c-pipeline-reports-panel__ranking small {
+		min-width: 0;
+		overflow-wrap: anywhere;
+	}
+
+	.c-pipeline-reports-panel__ranking span {
+		font-size: 0.78rem;
+		font-weight: 700;
+	}
+
+	.c-pipeline-reports-panel__ranking strong {
+		font-size: 0.8rem;
+	}
+
+	.c-pipeline-reports-panel__ranking small {
+		grid-column: 1 / -1;
+		color: var(--color-text-secondary);
+		font-size: 0.72rem;
 	}
 
 	.c-pipeline-reports-panel__properties div {

@@ -1,6 +1,6 @@
-﻿import { useSemanticZoom } from '$stylist/presentation/function/script/use-semantic-zoom';
+import { useSemanticZoom } from '$stylist/presentation/function/script/use-semantic-zoom';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { PresenterNodeShellProps } from '$stylist/presentation/type/struct/presenter-node-shell';
+import type { PresenterNodeShellProps } from '$stylist/presentation/type/object/presenter-node-shell';
 
 export function createPresenterNodeShellState(props: PresenterNodeShellProps) {
 	const zoom = useSemanticZoom({

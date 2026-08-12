@@ -1,8 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	RecipeCanvasImageEditor,
+	RecipeDividerHeadingImageText,
 	RecipeImage,
-	RecipeImageGallery,
-	RecipeImageWithCaption
+	RecipeImageCaption,
+	RecipeImageGallery
 } from './recipe';
 export type { SlotImage } from './slot';

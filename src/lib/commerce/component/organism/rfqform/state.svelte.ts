@@ -1,6 +1,6 @@
-import type { RFQProduct } from '$stylist/commerce/type/struct/rfq-product';
-import type { RFQFormData } from '$stylist/commerce/type/struct/rfq-form-data';
-import type { RFQFormProps } from '$stylist/commerce/type/struct/rfqform-props';
+import type { RFQProduct } from '$stylist/commerce/type/object/rfq-product';
+import type { RFQFormData } from '$stylist/commerce/type/object/rfq-form-data';
+import type { RFQFormProps } from '$stylist/commerce/type/object/rfqform-props';
 
 export function createRFQFormState(props: RFQFormProps) {
 	let rfqData = $state<RFQFormData>({

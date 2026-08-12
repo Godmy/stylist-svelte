@@ -102,7 +102,7 @@
 		width: 6rem;
 		padding: 0.25rem 0.5rem;
 		border: 1px solid var(--color-border-primary);
-		border-radius: var(--border-radius-base, 0.375rem);
+		border-radius: var(--layout-border-radius-base, 0.25rem);
 		background-color: var(--color-background-primary);
 	}
 </style>

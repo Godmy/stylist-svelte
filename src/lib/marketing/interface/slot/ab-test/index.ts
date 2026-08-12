@@ -1,6 +1,5 @@
-﻿import type { TokenTest } from '$stylist/marketing/type/record/test';
+import type { TokenTest } from '$stylist/marketing/type/record/test';
 import type { SlotABTestVariant } from '$stylist/marketing/interface/slot/ab-test-variant';
-
 export interface SlotABTest {
 	id: string;
 	name: string;

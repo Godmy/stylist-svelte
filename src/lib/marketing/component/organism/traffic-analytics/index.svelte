@@ -8,8 +8,8 @@
 	const Calendar = 'calendar';
 	const Filter = 'filter';
 
-	import type { TrafficAnalyticsProps } from '$stylist/marketing/type/struct/traffic-analytics/trafficanalytics-props';
-	import type { TimeRange } from '$stylist/marketing/type/alias/traffic-analytics-time-range';
+	import type { TrafficAnalyticsProps } from '$stylist/marketing/type/object/traffic-analytics/trafficanalytics-props';
+	import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
 	import createTrafficAnalyticsState from './state.svelte';
 
 	let props: TrafficAnalyticsProps = $props();
@@ -37,7 +37,7 @@
 					<select
 						class="ta-select"
 						bind:value={state.selectedTimeRange}
-						onchange={() => state.handleTimeRangeChange(state.selectedTimeRange as TimeRange)}
+						onchange={() => state.handleTimeRangeChange(state.selectedTimeRange as TokenTimeRange)}
 					>
 						<option value="1d">Last 24 hours</option>
 						<option value="7d">Last 7 days</option>
@@ -378,4 +378,3 @@
 		outline: none;
 	}
 </style>
-

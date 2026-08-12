@@ -355,7 +355,6 @@ export {
 	warrantyInfoExclusions
 } from './commerce';
 export {
-	AccessibilityCheckbox,
 	AccessibilityToolbar,
 	ActionSegmentedControl,
 	AutocompleteDropdown,
@@ -429,17 +428,12 @@ export {
 	CODE_WITH_COPY_DISPATCH,
 	CONTENT_EDITOR_CONTENT_TYPE,
 	CodeBlock,
-	CodeBlockWithLineNumbers,
 	CodeDiff,
 	CodeEditor,
-	CodeEditorLegacy,
-	CodeSection,
 	CodeViewer,
-	CodeWithCopy,
 	ComponentLibraryStats,
 	ComponentPreview,
 	ContentEditor,
-	CopyableCodeBlock,
 	DEBUG_CONSOLE_LOG_LEVEL,
 	DEFAULT_BADGE_LABEL,
 	DebugConsole,
@@ -461,7 +455,6 @@ export {
 	PresetCodeEditor,
 	PresetStylist,
 	PrivacySettings,
-	ResourceOptimizer,
 	Stack,
 	Stylist,
 	SyntaxHighlightedCode,
@@ -501,6 +494,7 @@ export {
 	DomainDiagnostics,
 	DomainEntity,
 	DomainExplorer,
+	DomainFileDiagnostics,
 	DomainFilePreview,
 	DomainList,
 	DomainListHeader,
@@ -705,9 +699,12 @@ export {
 } from './idef-zero';
 export {
 	CanvasImageEditor,
+	DividerHeadingImageText,
+	IMAGE_CAPTION_STORY_PRESETS,
+	IMAGE_STORY_GALLERY,
 	Image,
-	ImageGallery,
-	ImageWithCaption
+	ImageCaption,
+	ImageGallery
 } from './image';
 export {
 	Badge,
@@ -715,7 +712,6 @@ export {
 	BaseCard,
 	CountBadge,
 	Counter,
-	DEFAULT_BADGE,
 	Dot,
 	Loading,
 	MarkdownRenderer,
@@ -849,24 +845,12 @@ export {
 	formatDateTime
 } from './localization';
 export {
-	DEFAULT_PERFORMANCE_DASHBOARD_SIZE,
 	DashboardLayout,
 	DraggableCard,
-	FeatureToggle,
 	Kpiindicator,
 	LegendItem,
-	Notification,
-	NotificationCenter,
-	NotificationList,
-	NotificationPreferences,
-	NotificationSettings,
 	ObjectManagerDraggableCard,
 	ObjectManagerKPIIndicator,
-	ObjectManagerPerformanceDashboard,
-	ObjectManagerPerformanceMonitor,
-	ObjectManagerStatCard,
-	ObjectManagerStatsCard,
-	ObjectManagerStatusDashboard,
 	OperationsHistory,
 	PERFORMANCE_MONITOR_STATUS,
 	PERFORMANCE_MONITOR_STATUS_COLOR,
@@ -876,22 +860,16 @@ export {
 	PerformanceMonitor,
 	PermissionGate,
 	ProcessStep,
-	PushNotification,
 	STATS_CARD_TREND_CLASS,
 	STATS_CARD_TREND_ICON,
 	STATUS_DASHBOARD_PRESENTATION,
-	ScheduledNotification,
 	StatCard,
 	StatsCard,
 	StatusDashboard,
 	TOKEN_KPI,
-	TOKEN_NOTIFICATION_CHANNEL,
 	TOKEN_PERFORMANCE_BARS,
-	TOKEN_PERFORMANCE_RANGE,
 	TOKEN_TREND,
-	TeamMemberCard,
-	resolveDashboardLayoutPreset,
-	updateNotificationPreference
+	TeamMemberCard
 } from './management';
 export {
 	AbtestConfigurator,
@@ -906,7 +884,6 @@ export {
 	StylistLanding,
 	StylistMission,
 	TOKEN_TEST,
-	TRAFFIC_ANALYTICS_TIME_RANGE,
 	TestResultsViewer,
 	TrafficAnalytics,
 	UserBehaviorMetrics,
@@ -988,7 +965,14 @@ export {
 	Alert,
 	ErrorMessage,
 	NotificationBadge,
-	ToastStack
+	NotificationCenter,
+	NotificationList,
+	NotificationPreferences,
+	NotificationSettings,
+	ScheduledNotification,
+	TOKEN_NOTIFICATION_CHANNEL,
+	ToastStack,
+	updateNotificationPreference
 } from './notification';
 export {
 	BURN_DOWN_CHART_DEFAULT_MARGINS,
@@ -1604,7 +1588,6 @@ export {
 	ICON_RECORD,
 	ICON_REDO,
 	ICON_REPLY,
-	ICON_RESOURCE_OPTIMIZER,
 	ICON_RESPONSE_VIEWER,
 	ICON_RESTORE,
 	ICON_RETURN_POLICY,
@@ -2111,13 +2094,18 @@ export type {
 	ArchitectureScene,
 	CubeControlProps,
 	FoundationAxis,
+	FoundationDepthThreshold,
 	FoundationSemanticZoomStage,
 	GraphGridMode,
 	GraphMinimapProps,
 	GraphNodeCategory,
+	GraphNodeDraft,
 	GraphPortDimensions,
 	GraphToolMode,
+	GraphWorkspaceBounds,
+	GraphWorkspaceConnection,
 	GraphWorkspaceConnectionInput,
+	GraphWorkspaceNode,
 	MinimapBounds,
 	MinimapProps,
 	MinimapViewport,
@@ -2157,7 +2145,6 @@ export type {
 	TypeTranscriptionResult
 } from './audio';
 export type {
-	AuthFormState,
 	AuthGuardProps,
 	AuthResponse,
 	AuthResult,
@@ -2181,7 +2168,8 @@ export type {
 	DatePickerValue,
 	TokenPriority,
 	TokenTimeFormat,
-	TokenTimeMeasure
+	TokenTimeMeasure,
+	TokenTimeRange
 } from './calendar';
 export type {
 	CanvasObject,
@@ -2195,6 +2183,7 @@ export type {
 	SharedCanvasContract,
 	SharedCanvasObjectBounds,
 	SharedCanvasTool,
+	SharedCanvasToolDefinition,
 	ThemeGraphColors
 } from './canvas';
 export type {
@@ -2204,8 +2193,6 @@ export type {
 	CanvasChartPadding,
 	ChartFunctionPoint,
 	ChartLegendItem,
-	ChartScale,
-	ChartSeries,
 	HeatmapAxisValue,
 	IChartDataPoint,
 	IHeatmapCell,
@@ -2287,26 +2274,13 @@ export type {
 	IndexationRunSummary
 } from './dashboard';
 export type {
-	AtomicPrinciplesShowcaseAtomicPrinciplesStats,
-	AtomicPrinciplesShowcaseProps,
-	CodeBlockWithLineNumbersProps,
 	CodeDiffProps,
-	CodeEditorProps,
-	CodeSectionProps,
 	ComponentLibraryStatsComponentStats,
-	ComponentLibraryStatsProps,
 	ContentType,
-	CopyCode,
-	CopyableCodeBlockProps,
 	DebugConsoleLogEntry,
 	DebugConsoleLogLevel,
-	DebugConsoleProps,
 	DesignTokensProps,
-	DevelopmentErrorBoundaryErrorInfo,
-	DevelopmentErrorBoundaryProps,
 	MockDataSelectorDataSelection,
-	MockDataSelectorMockDataSchema,
-	MockDataSelectorProps,
 	PageBuilderButtonAttributes,
 	PageBuilderContainerAttributes,
 	PageBuilderElement,
@@ -2314,12 +2288,6 @@ export type {
 	PageBuilderImageAttributes,
 	PageBuilderProps,
 	PageBuilderTextAttributes,
-	PrivacySettingsProps,
-	PrivacySettingsSetting,
-	ResourceOptimizerOptimizationSuggestion,
-	ResourceOptimizerProps,
-	ResourceOptimizerResource,
-	ResourceOptimizerResourceType,
 	StylistProps,
 	StylistSelection,
 	TokenCodeLanguage,
@@ -2387,7 +2355,10 @@ export type {
 	TokenPin
 } from './geo';
 export type {
+	GraphBounds3D,
+	GraphConnection,
 	GraphJsonInput,
+	GraphPosition3D,
 	SceneAtom,
 	SceneAtomGeometry,
 	SceneAtomKind,
@@ -2408,7 +2379,6 @@ export type {
 	ZwickyNode,
 	ZwickySceneProps
 } from './graph';
-export type { Idef0Port } from './idef-zero';
 export type { StatusState } from './information';
 export type {
 	AnyProperty,
@@ -2452,16 +2422,10 @@ export type {
 } from './localization';
 export type {
 	CardData,
-	INotificationSettingsPreference,
-	NotificationData,
-	NotificationType,
 	PerformanceMonitorStatus,
-	ScheduledNotificationItem,
 	StatsCardData,
 	StatusItem,
 	TokenKPI,
-	TokenNotifictionChannel,
-	TokenTimeRange,
 	TokenTrend
 } from './management';
 export type {
@@ -2472,7 +2436,6 @@ export type {
 	IHeroCTA,
 	TestResult,
 	TestResultsViewerProps,
-	TimeRange,
 	TokenTest,
 	TrafficAnalyticsProps,
 	UserBehaviorMetricsProps
@@ -2495,6 +2458,11 @@ export type {
 	StylistTabProps
 } from './navigation';
 export type {
+	INotificationSettingsPreference,
+	ScheduledNotificationItem,
+	TokenNotifictionChannel
+} from './notification';
+export type {
 	KanbanBoardAction,
 	KanbanBoardType,
 	KanbanCardStateProps,
@@ -2506,7 +2474,6 @@ export type {
 	PresenterSceneLink,
 	PreziSceneContract
 } from './presentation';
-export type { SpectralLine } from './science';
 export type {
 	AutoCompleteOption,
 	SearchResultItem,
@@ -2588,7 +2555,6 @@ export type {
 } from './tree';
 export type {
 	AvatarGroupAvatar,
-	AvatarGroupProps,
 	AvatarProps,
 	AvatarUserStatus,
 	TokenAvailability
@@ -2596,15 +2562,12 @@ export type {
 export type {
 	StructWbdConsensusItem,
 	StructWbdDiscussionMessage,
-	StructWbdDiscussionNote,
 	StructWbdEstimate,
 	StructWbdExpertAnswer,
 	StructWbdExportOption,
 	StructWbdFinalReportSection,
-	StructWbdParticipant,
 	StructWbdPertResult,
 	StructWbdQuestion,
-	StructWbdRound,
 	StructWbdRoundSummary,
 	StructWbdSession,
 	StructWbdSessionLifecycleAction,
@@ -2645,11 +2608,6 @@ export type {
 } from './animation';
 export type {
 	FocusState,
-	FoundationDepthThreshold,
-	GraphNodeDraft,
-	GraphWorkspaceBounds,
-	GraphWorkspaceConnection,
-	GraphWorkspaceNode,
 	PresentationState,
 	PreziCamera,
 	RecipeCss3dCube,
@@ -2900,7 +2858,6 @@ export type {
 	RecipeMockDataSelector,
 	RecipeNpmBadge,
 	RecipePrivacySettings,
-	RecipeResourceOptimizer,
 	RecipeStylist,
 	RecipeThemeSyntaxHighlightedCode,
 	SlotAiModel,
@@ -2988,9 +2945,6 @@ export type {
 	SlotMapView
 } from './geo';
 export type {
-	GraphBounds3D,
-	GraphConnection,
-	GraphPosition3D,
 	RecipeFieldHighlighter,
 	RecipeSceneCameraControl,
 	RecipeZwickyScene,
@@ -3009,9 +2963,10 @@ export type {
 	SlotIdef0
 } from './idef-zero';
 export type {
+	RecipeDividerHeadingImageText,
 	RecipeImage,
+	RecipeImageCaption,
 	RecipeImageGallery,
-	RecipeImageWithCaption,
 	SlotImage
 } from './image';
 export type {
@@ -3109,6 +3064,7 @@ export type {
 	SeparatorProps,
 	SidebarLayoutProps,
 	SlotComposite,
+	SlotDivider,
 	SlotSortableGridItem,
 	SortableGridProps,
 	SpacerProps,
@@ -3142,29 +3098,20 @@ export type {
 	BehaviorOperationsHistoryEvents,
 	BehaviorTrendable,
 	ContractDashboardLayout,
-	ContractManagement,
 	DashboardLayoutProps,
 	DraggableCardProps,
-	NotificationStateProps,
 	PageHeaderStateProps,
 	PerformanceDashboardStateProps,
 	PermissionGateProps,
-	PushNotificationProps,
-	RecipeFeatureToggle,
 	RecipeKPIIndicator,
 	RecipeLegendItem,
-	RecipeNotificationCenter,
-	RecipeNotificationList,
-	RecipeNotificationPreferences,
 	RecipePerformanceDashboard,
 	RecipePerformanceMonitor,
 	RecipeProcessStep,
-	RecipeScheduledNotification,
 	RecipeStatCard,
 	RecipeStatsCard,
 	RecipeStatusDashboard,
 	SlotDraggableCard,
-	SlotFeatureToggle,
 	SlotOperationsHistory,
 	SlotPageHeader,
 	SlotProcessStep,
@@ -3223,7 +3170,11 @@ export type {
 	RecipeAlert,
 	RecipeErrorMessage,
 	RecipeNotificationBadge,
+	RecipeNotificationCenter,
+	RecipeNotificationList,
 	RecipeNotificationOptions,
+	RecipeNotificationPreferences,
+	RecipeScheduledNotification,
 	RecipeToast,
 	RecipeToastStack
 } from './notification';
@@ -3365,7 +3316,6 @@ export type {
 	RecipeHeading,
 	RecipeRichText,
 	RecipeText,
-	RecipeTextAreaControl,
 	RecipeThemeInlineCode,
 	RecipeThemeKbd,
 	RecipeThemeLink,
@@ -3374,6 +3324,7 @@ export type {
 	SlotText
 } from './typography';
 export type {
+	AvatarGroupProps,
 	AvatarSelectorProps,
 	ContractAvatar,
 	ContractAvatarGroup,

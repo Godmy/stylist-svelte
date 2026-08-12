@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import TokenControlComposer from '$stylist/token/component/molecule/token/index.svelte';
-	import type { TokenControlDefinition } from '$stylist/token/type/struct/token-control-definition';
+	import type { TokenControlDefinition } from '$stylist/token/type/object/token-control-definition';
 	import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/alias/token-value';
 
 	let {

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import SchemaDependency from '$stylist/erd/component/atom/schema-dependency/index.svelte';
 	import SchemaTable from '$stylist/erd/component/molecule/schema-table/index.svelte';
-	import type { SchemaDependency as SchemaDependencyData } from '$stylist/erd/type/struct/schema-dependency';
-	import type { SchemaTablePosition } from '$stylist/erd/type/struct/schema-table-position';
+	import type { SchemaDependency as SchemaDependencyData } from '$stylist/erd/type/object/schema-dependency';
+	import type { SchemaTablePosition } from '$stylist/erd/type/object/schema-table-position';
 	import type { SlotErdView } from '$stylist/erd/interface/slot/erd-view';
 
 	let {

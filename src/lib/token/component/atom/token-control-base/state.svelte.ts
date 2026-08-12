@@ -1,6 +1,6 @@
-﻿import { TOKEN_ICON_PATHS } from '$stylist/token/const/map/token-icon-paths';
+import { TOKEN_ICON_PATHS } from '$stylist/token/const/map/token-icon-paths';
 import { getTokenIconKind } from '$stylist/token/function/script/get-token-icon-kind';
-import type { TokenControlBaseProps } from '$stylist/token/type/struct/token-control-base-props';
+import type { TokenControlBaseProps } from '$stylist/token/type/object/token-control-base-props';
 
 export function createTokenControlBaseState(props: TokenControlBaseProps) {
 	const tokenCount = $derived.by(() => {

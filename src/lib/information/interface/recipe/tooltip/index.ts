@@ -10,7 +10,6 @@ import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenConnector } from '$stylist/architecture/type/alias/connector';
 import type { TokenTrigger } from '$stylist/layout/type/alias/trigger';
-
 export interface RecipeTooltip
 	extends ComputeIntersectAll<
 		[

@@ -2,7 +2,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 import { onMount } from 'svelte';
 import type { RecipeAiAssistant } from '$stylist/ai/interface/recipe/ai-assistant';
 
-import type { AiAssistantAIClientLike } from '$stylist/ai/type/struct/ai-assistant-ai-client-like';
+import type { AiAssistantAIClientLike } from '$stylist/ai/type/object/ai-assistant-ai-client-like';
 const fallbackCreateAIClient = (): AiAssistantAIClientLike => ({
 	chat: async () => {
 		throw new Error('AI client is not configured');

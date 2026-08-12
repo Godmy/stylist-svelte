@@ -1,2 +1,26 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { CubeControlProps } from './cube-control-props';
+export type { FoundationDepthThreshold } from './foundation-depth-threshold';
+export type { GraphMinimapProps } from './graph-minimap-props';
+export type { GraphNode } from './graph-node';
+export type { GraphNodeDraft } from './graph-node-draft';
+export type { GraphPortDimensions } from './graph-port-dimensions';
+export type { GraphWorkspaceBounds } from './graph-workspace-bounds';
+export type { GraphWorkspaceConnection } from './graph-workspace-connection';
+export type { GraphWorkspaceNode } from './graph-workspace-node';
+export type { MinimapBounds } from './minimap-bounds';
+export type { MinimapProps } from './minimap-props';
+export type { MinimapViewport } from './minimap-viewport';
+export type { OntologyEdgeComponentProps } from './ontology-edge-component';
+export type { OntologyNodeComponentProps } from './ontology-node-component';
+export type { Point2D } from './point-2d';
 export type { ObjectPoint2DPath } from './point-2d-path';
+export type { ArchitectureScene } from './scene';
+export type { SceneCamera } from './scene-camera';
+export type { SceneNode } from './scene-node';
+export type { SceneNodePoint } from './scene-node-point';
+export type { SemanticZoomPresentation } from './semantic-zoom';
+export type { StageProps } from './stage';
+export type { ViewportProps } from './viewport';
+export type { Zoom } from './zoom';
+export type { ZoomStep } from './zoom-step';

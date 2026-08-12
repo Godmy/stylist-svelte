@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PaymentSelectorProps } from '$stylist/commerce/type/struct/payment-selector-props';
+	import type { PaymentSelectorProps } from '$stylist/commerce/type/object/payment-selector-props';
 
 	import createPaymentSelectorState from './state.svelte';
 

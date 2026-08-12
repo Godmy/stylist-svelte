@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Coordinates } from '$stylist/geo/type/struct/location-picker/coordinates';
-	import type { MapMarker } from '$stylist/geo/type/struct/location-picker/mapmarker';
+	import type { Coordinates } from '$stylist/geo/type/object/location-picker/coordinates';
+	import type { MapMarker } from '$stylist/geo/type/object/location-picker/mapmarker';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 

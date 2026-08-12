@@ -1,5 +1,4 @@
-import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/struct/error-diagnostic-item';
-
+import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/object/error-diagnostic-item';
 export interface RecipeErrorListPanel {
 	items: ErrorDiagnosticItem[];
 	selectedId?: string;

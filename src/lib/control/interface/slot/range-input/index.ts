@@ -1,5 +1,4 @@
 import type { HTMLAttributes } from 'svelte/elements';
-
 export interface SlotRangeInput extends HTMLAttributes<HTMLInputElement> {
 	min?: number;
 	max?: number;

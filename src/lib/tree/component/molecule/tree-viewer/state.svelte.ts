@@ -1,4 +1,4 @@
-import type { TreeNodeItemNode } from '$stylist/tree/type/struct/tree-node-item-node';
+import type { TreeNodeItemNode } from '$stylist/tree/type/object/tree-node-item-node';
 import type { TreeViewerProps } from '$stylist/tree/interface/recipe/tree-viewer';
 
 export function createTreeViewerState(props: TreeViewerProps) {

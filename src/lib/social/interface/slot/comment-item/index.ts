@@ -1,5 +1,4 @@
 import type { SlotCommentUser } from '$stylist/social/interface/slot/comment-user';
-
 export interface SlotCommentItem {
 	id: string;
 	author: SlotCommentUser;

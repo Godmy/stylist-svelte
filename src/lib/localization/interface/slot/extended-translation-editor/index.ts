@@ -1,5 +1,4 @@
-import type { TranslatableText } from '$stylist/localization/type/struct/translatable-text';
-
+import type { TranslatableText } from '$stylist/localization/type/object/translatable-text';
 export interface SlotExtendedTranslationEditor {
 	texts?: TranslatableText[];
 	locales?: string[];

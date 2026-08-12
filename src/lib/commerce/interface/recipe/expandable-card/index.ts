@@ -1,13 +1,11 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotBadge as IBadgeSlot } from '$stylist/information/interface/slot/badge';
-import type { SlotText as ICaptionSlot } from '$stylist/typography/interface/slot/text';
-import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
-import type { SlotImage as IMediaSlot } from '$stylist/image/interface/slot/image';
+import type { SlotBadge } from '$stylist/information/interface/slot/badge';
+import type { SlotText } from '$stylist/typography/interface/slot/text';
+import type { SlotImage } from '$stylist/image/interface/slot/image';
 import type { Snippet } from 'svelte';
-
 export interface RecipeExpandableCard
-	extends ComputeIntersectAll<[SlotTheme, ILabelSlot, ICaptionSlot, IMediaSlot, IBadgeSlot]> {
+	extends ComputeIntersectAll<[SlotTheme, SlotText, SlotImage, SlotBadge]> {
 	title?: string;
 	subtitle?: string;
 	summary?: Snippet;

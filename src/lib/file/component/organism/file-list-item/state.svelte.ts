@@ -1,5 +1,5 @@
 import type { RecipeFileListItem } from '$stylist/file/interface/recipe/file-list-item';
-import type { FileItem } from '$stylist/file/type/struct/file-list-item/file-item';
+import type { FileItem } from '$stylist/file/type/object/file-list-item/file-item';
 import { getFileIcon } from '$stylist/file/function/script/file-list-item-get-file-icon';
 import { handleAction as handleActionFn } from '$stylist/file/function/script/file-list-item-handle-action';
 import { handleDoubleClick as handleDoubleClickFn } from '$stylist/file/function/script/file-list-item-handle-double-click';

@@ -2,7 +2,7 @@ import { DASHBOARD_SCREEN_AUDIT_TREE } from '$stylist/dashboard/const/value/dash
 import { DASHBOARD_SCREEN_ERROR_LIST } from '$stylist/dashboard/const/value/dashboard-screen-error-list';
 import { DASHBOARD_SCREEN_INDEXATION } from '$stylist/dashboard/const/value/dashboard-screen-indexation';
 import { DASHBOARD_SCREEN_PIPELINE_REPORTS } from '$stylist/dashboard/const/value/dashboard-screen-pipeline-reports';
-import type { DashboardNavigationItem } from '$stylist/dashboard/type/struct/dashboard-navigation-item';
+import type { DashboardNavigationItem } from '$stylist/dashboard/type/object/dashboard-navigation-item';
 
 export const DASHBOARD_NAVIGATION_ITEM = [
 	{

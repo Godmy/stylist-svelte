@@ -1,4 +1,4 @@
-import type { TreeNode } from '$stylist/tree/type/struct/tree-node';
+import type { TreeNode } from '$stylist/tree/type/object/tree-node';
 
 type PreviewMode = 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
 type StoryModule = { default: unknown };

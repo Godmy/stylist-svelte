@@ -10,11 +10,11 @@
 	class={state.containerClasses}
 	style={state.combinedStyle}
 	role="group"
-	aria-label={`Metric row: ${state.label}`}
+	aria-label={`Metric row: ${state.text}`}
 	{...state.restProps}
 >
 	<div class={state.headerClasses}>
-		<span class={state.labelClasses}>{state.label}</span>
+		<span class={state.labelClasses}>{state.text}</span>
 		<span class={state.valueClasses}>{state.valueLabel}</span>
 	</div>
 
@@ -24,7 +24,7 @@
 		aria-valuenow={state.percentage}
 		aria-valuemin="0"
 		aria-valuemax="100"
-		aria-label={`${state.label}: ${state.percentage}%`}
+		aria-label={`${state.text}: ${state.percentage}%`}
 	>
 		<div class={state.fillClasses} style={state.widthStyle} aria-hidden="true"></div>
 	</div>

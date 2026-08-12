@@ -2,5 +2,6 @@
 export type {
 	TokenPriority,
 	TokenTimeFormat,
-	TokenTimeMeasure
+	TokenTimeMeasure,
+	TokenTimeRange
 } from './alias';

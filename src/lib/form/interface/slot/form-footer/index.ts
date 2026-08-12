@@ -1,5 +1,4 @@
 import type { HTMLAttributes } from 'svelte/elements';
-
 export interface SlotFormFooter extends HTMLAttributes<HTMLDivElement> {
 	primaryButtonLabel?: string;
 	secondaryButtonLabel?: string;

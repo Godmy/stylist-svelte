@@ -1,7 +1,6 @@
-import type { TypeAudioRecording } from '$stylist/audio/type/struct/audio-recording';
-import type { TypeTranscriptionResult } from '$stylist/audio/type/struct/transcription-result';
+import type { TypeAudioRecording } from '$stylist/audio/type/object/audio-recording';
+import type { TypeTranscriptionResult } from '$stylist/audio/type/object/transcription-result';
 import type { HTMLAttributes } from 'svelte/elements';
-
 export interface RecipeTranscriber extends Omit<HTMLAttributes<HTMLElement>, 'class'> {
 	class?: string;
 	endpoint?: string;

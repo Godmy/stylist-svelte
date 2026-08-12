@@ -22,40 +22,40 @@
 
 	type ImageItem = {
 		id: string;
-		src: string;
-		alt: string;
+		imageSrc: string;
+		imageAlt: string;
 		caption: string;
 	};
 
 	const images: ImageItem[] = [
 		{
 			id: '1',
-			src: 'https://placehold.co/800x600/3b82f6/white?text=Image+1',
-			alt: 'First image',
+			imageSrc: 'https://placehold.co/800x600/3b82f6/white?text=Image+1',
+			imageAlt: 'First image',
 			caption: 'Beautiful landscape image'
 		},
 		{
 			id: '2',
-			src: 'https://placehold.co/800x600/ef4444/white?text=Image+2',
-			alt: 'Second image',
+			imageSrc: 'https://placehold.co/800x600/ef4444/white?text=Image+2',
+			imageAlt: 'Second image',
 			caption: 'Colorful sunset'
 		},
 		{
 			id: '3',
-			src: 'https://placehold.co/800x600/10b981/white?text=Image+3',
-			alt: 'Third image',
+			imageSrc: 'https://placehold.co/800x600/10b981/white?text=Image+3',
+			imageAlt: 'Third image',
 			caption: 'Mountain view'
 		},
 		{
 			id: '4',
-			src: 'https://placehold.co/800x600/f59e0b/white?text=Image+4',
-			alt: 'Fourth image',
+			imageSrc: 'https://placehold.co/800x600/f59e0b/white?text=Image+4',
+			imageAlt: 'Fourth image',
 			caption: 'Ocean waves'
 		},
 		{
 			id: '5',
-			src: 'https://placehold.co/800x600/8b5cf6/white?text=Image+5',
-			alt: 'Fifth image',
+			imageSrc: 'https://placehold.co/800x600/8b5cf6/white?text=Image+5',
+			imageAlt: 'Fifth image',
 			caption: 'Forest trail'
 		}
 	];

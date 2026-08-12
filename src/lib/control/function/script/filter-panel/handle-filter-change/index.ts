@@ -1,5 +1,5 @@
 import type { SlotFilterPanelState } from '$stylist/control/interface/slot/filter-panel-state';
-import type { FilterChangePayload } from '$stylist/control/type/struct/filter-panel/filterchangepayload';
+import type { FilterChangePayload } from '$stylist/control/type/object/filter-panel/filterchangepayload';
 
 export function handleFilterChange(
 	state: SlotFilterPanelState,

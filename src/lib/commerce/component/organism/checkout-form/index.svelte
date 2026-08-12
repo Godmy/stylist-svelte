@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { CheckoutFormProps as Props } from '$stylist/commerce/type/struct/checkout-form-props';
+	import type { CheckoutFormProps as Props } from '$stylist/commerce/type/object/checkout-form-props';
 
 	import createCheckoutFormState from './state.svelte';
 

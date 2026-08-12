@@ -2,7 +2,6 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { TOKEN_AVAILABILITY } from '$stylist/user/const/array/availability';
-
 import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 export interface ContractAvatar extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotThemeBorder, SlotTypography {
 	/** Avatar variant */

@@ -1,4 +1,4 @@
-import type { SceneGeometry } from '$stylist/graph/type/struct/scene-geometry';
+import type { SceneGeometry } from '$stylist/graph/type/object/scene-geometry';
 
 export function createSceneCubeGeometry(): SceneGeometry {
 	const positions = new Float32Array([

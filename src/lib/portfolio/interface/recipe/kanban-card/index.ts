@@ -1,7 +1,5 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
-
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 export interface RecipeKanbanCard extends ComputeIntersectAll<[SlotChildren]> {
 	card: Record<string, unknown>;
 	draggable?: boolean;

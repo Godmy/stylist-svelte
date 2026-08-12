@@ -1,5 +1,4 @@
 import type { SlotABTest } from '$stylist/marketing/interface/slot/ab-test';
-
 export interface SlotABTestConfigurator {
 	initialTest?: SlotABTest;
 	onSave?: (test: SlotABTest) => void;

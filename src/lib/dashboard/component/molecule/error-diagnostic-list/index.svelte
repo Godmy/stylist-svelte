@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/struct/error-diagnostic-item';
+	import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/object/error-diagnostic-item';
 	import DashboardStatusPill from '$stylist/dashboard/component/atom/dashboard-status-pill/index.svelte';
 
 	let {

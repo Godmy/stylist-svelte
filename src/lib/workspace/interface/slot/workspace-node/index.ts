@@ -1,5 +1,4 @@
 import type { Snippet } from 'svelte';
-
 export interface SlotWorkspaceNode {
 	id?: string;
 	name?: string;

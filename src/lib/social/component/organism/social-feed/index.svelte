@@ -2,7 +2,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import PostCard from '$stylist/social/component/molecule/post-card/index.svelte';
 	import createSocialFeedState from './state.svelte';
-	import type { Props } from '$stylist/social/type/struct/social-feed/-props';
+	import type { Props } from '$stylist/social/type/object/social-feed/-props';
 
 	let props: Props = $props();
 	const state = createSocialFeedState(props);

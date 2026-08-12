@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { CANVAS_TOOLBAR_DRAWING_TOOL } from '$stylist/canvas/const/array/canvas-toolbar-drawing-tool';
 
 export const TOKEN_CANVAS_SETTING = [

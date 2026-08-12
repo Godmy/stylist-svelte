@@ -4,4 +4,4 @@ export type {
 	ITreeNodeItemStyleClasses,
 	TreeNode,
 	TreeNodeItemNode
-} from './struct';
+} from './object';

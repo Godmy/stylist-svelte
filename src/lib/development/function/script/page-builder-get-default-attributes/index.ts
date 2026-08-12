@@ -1,9 +1,9 @@
 import type { TokenComponentType } from '$stylist/architecture/type/alias/component-type';
-import type { PageBuilderButtonAttributes } from '$stylist/development/type/struct/page-builder-button-attributes';
-import type { PageBuilderElement } from '$stylist/development/type/struct/page-builder-element';
-import type { PageBuilderHeadingAttributes } from '$stylist/development/type/struct/page-builder-heading-attributes';
-import type { PageBuilderImageAttributes } from '$stylist/development/type/struct/page-builder-image-attributes';
-import type { PageBuilderTextAttributes } from '$stylist/development/type/struct/page-builder-text-attributes';
+import type { PageBuilderButtonAttributes } from '$stylist/development/type/object/page-builder-button-attributes';
+import type { PageBuilderElement } from '$stylist/development/type/object/page-builder-element';
+import type { PageBuilderHeadingAttributes } from '$stylist/development/type/object/page-builder-heading-attributes';
+import type { PageBuilderImageAttributes } from '$stylist/development/type/object/page-builder-image-attributes';
+import type { PageBuilderTextAttributes } from '$stylist/development/type/object/page-builder-text-attributes';
 
 export function pageBuilderGetDefaultAttributes(
 	type: TokenComponentType

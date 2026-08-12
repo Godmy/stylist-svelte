@@ -1,7 +1,7 @@
 import { SceneObjectManager } from '$stylist/graph/class/object-manager/scene/index';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { SceneProps } from '$stylist/graph/type/struct/scene-props';
-import type { SceneDebugInfo } from '$stylist/graph/type/struct/scene-debug-info';
+import type { SceneProps } from '$stylist/graph/type/object/scene-props';
+import type { SceneDebugInfo } from '$stylist/graph/type/object/scene-debug-info';
 
 const DEFAULT_SCENE_TITLE = 'WebGL Graph';
 const DEFAULT_SCENE_ROTATE_HINT = 'LMB + drag to orbit the camera';

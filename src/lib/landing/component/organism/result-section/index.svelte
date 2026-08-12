@@ -2,6 +2,8 @@
 	import SectionHeading from '$stylist/landing/component/molecule/section-heading/index.svelte';
 	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
 	import Link from '$stylist/typography/component/atom/link/index.svelte';
+	import Image from '$stylist/image/component/atom/image/index.svelte';
+	import Divider from '$stylist/layout/component/atom/divider/index.svelte';
 
 	let {
 		ariaLabel,
@@ -27,24 +29,34 @@
 </script>
 
 <section class="result-section {className}" aria-label={ariaLabel}>
-	<figure class="result-section__media">
-		<img src={imageSrc} alt={imageAlt} loading="lazy" />
-	</figure>
-	<div class="result-section__copy">
-		<SectionHeading {eyebrow} {title} />
-		<Paragraph text={body} class="result-section__body" />
-		<Link href={ctaHref} class="result-section__cta">{cta}</Link>
+	<Divider class="result-section__divider" />
+	<div class="result-section__grid">
+		<figure class="result-section__media">
+			<Image imageSrc={imageSrc} imageAlt={imageAlt} size="xl" class="result-section__image" />
+		</figure>
+		<div class="result-section__copy">
+			<SectionHeading {eyebrow} {title} />
+			<Paragraph text={body} class="result-section__body" />
+			<Link href={ctaHref} class="result-section__cta">{cta}</Link>
+		</div>
 	</div>
 </section>
 
 <style>
 	.result-section {
+		padding: 0 0 6rem;
+	}
+
+	:global(.result-section__divider) {
+		margin-bottom: 5rem;
+		--color-border-secondary: var(--result-section-border, currentColor);
+	}
+
+	.result-section__grid {
 		display: grid;
 		grid-template-columns: minmax(0, 0.9fr) minmax(24rem, 1.1fr);
 		gap: 2rem;
 		align-items: center;
-		padding: 5rem 0 6rem;
-		border-top: 1px solid var(--result-section-border, currentColor);
 	}
 
 	.result-section__media {
@@ -57,11 +69,14 @@
 		aspect-ratio: 16 / 9;
 	}
 
-	.result-section__media img {
+	:global(.result-section__image) {
 		display: block;
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
+		--image-width: 100%;
+		--image-height: 100%;
+		--image-radius: 0;
+		--image-background: transparent;
 	}
 
 	.result-section__copy {
@@ -85,7 +100,7 @@
 	}
 
 	@container (max-width: 920px) {
-		.result-section {
+		.result-section__grid {
 			grid-template-columns: 1fr;
 		}
 	}

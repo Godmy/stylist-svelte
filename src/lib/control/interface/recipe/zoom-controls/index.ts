@@ -9,7 +9,6 @@ import type { BehaviorSpaced } from '$stylist/layout/interface/behavior/spaced';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-
 export interface RecipeZoomControls
 	extends ComputeIntersectAll<[((HTMLAttributes<HTMLDivElement> & {
 /**

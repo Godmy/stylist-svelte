@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { CubeControlProps } from '$stylist/architecture/type/struct/cube-control-props';
+	import type { CubeControlProps } from '$stylist/architecture/type/object/cube-control-props';
 	import createCubeControlState from './state.svelte';
 
 	const Atom = 'atom';

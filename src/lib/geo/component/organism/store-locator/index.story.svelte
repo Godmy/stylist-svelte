@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { StoreLocatorStore } from '$stylist/geo/type/struct/store-locator/storelocatorstore';
+	import type { StoreLocatorStore } from '$stylist/geo/type/object/store-locator/storelocatorstore';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 

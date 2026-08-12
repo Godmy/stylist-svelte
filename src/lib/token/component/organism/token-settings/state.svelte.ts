@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 
 export function createTokenSettingsState(props: { settings: readonly Token[] }) {
 	let search = $state('');

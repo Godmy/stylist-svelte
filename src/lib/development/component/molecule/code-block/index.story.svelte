@@ -17,6 +17,7 @@
 		},
 		{ name: 'showLineNumbers', type: 'boolean', defaultValue: false },
 		{ name: 'copyable', type: 'boolean', defaultValue: true },
+		{ name: 'copyOnHover', type: 'boolean', defaultValue: false },
 		{ name: 'title', type: 'text', defaultValue: 'Example snippet' }
 	];
 </script>
@@ -36,12 +37,16 @@
 				language={args.language}
 				showLineNumbers={args.showLineNumbers}
 				copyable={args.copyable}
+				copyOnHover={args.copyOnHover}
 				title={args.title}
 			/>
 			<Code
 				code={`const endpoint = '/api/orders';\nfetch(endpoint);`}
 				language="javascript"
 				title="Secondary preview"
+				tags={['api', 'fetch']}
+				copyable
+				copyOnHover
 			/>
 		</div>
 	{/snippet}

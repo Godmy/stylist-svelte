@@ -1,4 +1,4 @@
-import type { ClassValue } from '$stylist/layout/type/script/merge-class-names';
+import type { ClassValue } from '$stylist/layout/type/alias/class-value';
 
 function toClassString(value: ClassValue): string {
 	if (!value && value !== 0) return '';

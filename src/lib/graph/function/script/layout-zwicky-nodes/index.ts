@@ -1,6 +1,6 @@
 import { ZWICKY_LAYOUT_SCALE } from '$stylist/graph/const/value/zwicky-layout-scale';
 import { ZWICKY_CLUSTER_ORDER } from '$stylist/graph/const/array/zwicky-cluster-order';
-import type { ZwickyNode } from '$stylist/graph/type/struct/zwicky-node';
+import type { ZwickyNode } from '$stylist/graph/type/object/zwicky-node';
 
 // X position for each cluster lane — follows assembly direction left→right
 const CLUSTER_X: Record<string, number> = Object.fromEntries(

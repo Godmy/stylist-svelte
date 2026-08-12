@@ -4,4 +4,4 @@ export type {
 	PromptVariableType,
 	SentimentAnalysisStatus
 } from './alias';
-export type { AiAssistantAIClientLike } from './struct';
+export type { AiAssistantAIClientLike } from './object';

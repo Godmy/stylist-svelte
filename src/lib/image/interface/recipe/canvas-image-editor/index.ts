@@ -1,9 +1,10 @@
 import type { HTMLAttributes } from 'svelte/elements';
-
-export interface RecipeCanvasImageEditor extends Omit<HTMLAttributes<HTMLCanvasElement>, 'class'> {
-	width?: number;
-	height?: number;
-	src?: string;
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+import type { SlotImage } from '$stylist/image/interface/slot/image';
+export interface RecipeCanvasImageEditor
+	extends ComputeIntersectAll<
+		[SlotImage, Omit<HTMLAttributes<HTMLCanvasElement>, 'class' | 'width' | 'height'>]
+	> {
 	cropEnabled?: boolean;
 	filter?:
 		| 'none'

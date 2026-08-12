@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import ErrorListPanel from './index.svelte';
 	import fixture from '$stylist/dashboard/data/json/dashboard-fixture/index.json';
-	import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/struct/error-diagnostic-item';
+	import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/object/error-diagnostic-item';
 
 	const items = fixture.errors as ErrorDiagnosticItem[];
 </script>

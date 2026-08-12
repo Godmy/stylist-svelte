@@ -6,4 +6,4 @@ export type {
 	AudioVisualizerProps,
 	TypeAudioRecording,
 	TypeTranscriptionResult
-} from './struct';
+} from './object';

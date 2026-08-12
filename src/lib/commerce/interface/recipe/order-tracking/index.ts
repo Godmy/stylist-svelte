@@ -1,4 +1,4 @@
-import type { TrackingStatusType } from '$stylist/commerce/type/struct/tracking-status-type';
+import type { TrackingStatusType } from '$stylist/commerce/type/object/tracking-status-type';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 export interface RecipeOrderTracking

@@ -2,7 +2,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeButtonElement as SlotButtonElement } from '$stylist/button/interface/recipe/button-element';
 	import createSplitButtonState from './state.svelte';
-	import type { SplitButtonButtonAttributes } from '$stylist/button/type/struct/split-button-button-attributes';
+	import type { SplitButtonButtonAttributes } from '$stylist/button/type/object/split-button-button-attributes';
 
 	const ChevronDown = 'chevron-down';
 

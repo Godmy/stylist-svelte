@@ -2,8 +2,8 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import IndexationPanel from './index.svelte';
 	import fixture from '$stylist/dashboard/data/json/dashboard-fixture/index.json';
-	import type { DashboardReportSummary } from '$stylist/dashboard/type/struct/dashboard-report-summary';
-	import type { IndexationRunSummary } from '$stylist/dashboard/type/struct/indexation-run-summary';
+	import type { DashboardReportSummary } from '$stylist/dashboard/type/object/dashboard-report-summary';
+	import type { IndexationRunSummary } from '$stylist/dashboard/type/object/indexation-run-summary';
 
 	const summary = fixture.indexationSummary as IndexationRunSummary;
 	const steps = fixture.pipelineStatus.steps as DashboardReportSummary[];

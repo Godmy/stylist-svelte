@@ -4,8 +4,8 @@
 	import MetricBarsCard from './index.svelte';
 
 	const controls: SlotStory[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Sprint Health' },
-		{ name: 'caption', type: 'text', defaultValue: 'Distribution across current delivery lanes.' },
+		{ name: 'text', type: 'text', defaultValue: 'Sprint Health' },
+		{ name: 'description', type: 'text', defaultValue: 'Distribution across current delivery lanes.' },
 		{ name: 'total', type: 'text', defaultValue: '42 issues' },
 		{ name: 'color', type: 'color', defaultValue: '#2563eb' },
 		{ name: 'trackColor', type: 'color', defaultValue: '#e5e7eb' }
@@ -31,8 +31,8 @@
 	{#snippet children(values: any)}
 		<div class="_c1">
 			<MetricBarsCard
-				label={String(values.label || 'Sprint Health')}
-				caption={String(values.caption || '')}
+				text={String(values.text || 'Sprint Health')}
+				description={String(values.description || '')}
 				total={String(values.total || '')}
 				{bars}
 				color={String(values.color || '#2563eb')}

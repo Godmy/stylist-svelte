@@ -2,8 +2,8 @@ import { InstancedGraphManager } from '$stylist/graph/class/manager/instanced-gr
 import { parseZwickyGraph } from '$stylist/graph/function/script/parse-zwicky-graph';
 import { layoutZwickyNodes } from '$stylist/graph/function/script/layout-zwicky-nodes';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { ZwickySceneProps } from '$stylist/graph/type/struct/zwicky-scene-props';
-import type { ZwickyNode } from '$stylist/graph/type/struct/zwicky-node';
+import type { ZwickySceneProps } from '$stylist/graph/type/object/zwicky-scene-props';
+import type { ZwickyNode } from '$stylist/graph/type/object/zwicky-node';
 
 export function createZwickySceneState(props: ZwickySceneProps) {
 	const manager = new InstancedGraphManager();

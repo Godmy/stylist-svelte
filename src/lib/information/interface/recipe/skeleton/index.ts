@@ -1,6 +1,4 @@
-
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 import type { Snippet } from 'svelte';
 export interface RecipeSkeleton {
 	variant?: 'text' | 'circle' | 'rectangle';

@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_BUTTON_LOADER_CLASSES } from '$stylist/button/const/array/button-loader-classes';
 import { TOKEN_CUBE_FACE_NAME } from '$stylist/architecture/const/array/cube-face-name';
 import { TOKEN_CUBE_FACE_TITLE } from '$stylist/architecture/const/array/cube-face-title';

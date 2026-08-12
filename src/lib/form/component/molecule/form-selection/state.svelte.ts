@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { FormSelectionProps } from '$stylist/form/type/struct/form-selection';
+import type { FormSelectionProps } from '$stylist/form/type/object/form-selection';
 import type { SlotFormSelectionState } from '$stylist/form/interface/slot/form-selection-state';
 
 export function createFormSelectionState(props: FormSelectionProps): SlotFormSelectionState {

@@ -16,10 +16,7 @@ export {
 	StatusIndicator,
 	Tooltip
 } from './component';
-export {
-	DEFAULT_BADGE,
-	STATUS_STATE
-} from './const';
+export { STATUS_STATE } from './const';
 export type { StatusState } from './type';
 export type {
 	BehaviorMetricValue,

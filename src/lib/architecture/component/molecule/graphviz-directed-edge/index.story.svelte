@@ -17,7 +17,7 @@
 				sourceY={40}
 				targetX={190}
 				targetY={130}
-				label="Edge"
+				text="Edge"
 				style="dashed"
 				color="#2563eb"
 			/>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createActionSegmentedControlState from './state.svelte';
-	import type { RecipeActionSegmentedControlProps } from '$stylist/control/type/struct/action-segmented-control-props';
+	import type { RecipeActionSegmentedControlProps } from '$stylist/control/type/object/action-segmented-control-props';
 
 	let props: RecipeActionSegmentedControlProps = $props();
 	const restProps = $derived.by(() => {
@@ -53,8 +53,8 @@
 		border: none;
 		cursor: pointer;
 		transition:
-			background-color var(--duration-120, 120ms),
-			color var(--duration-120, 120ms);
+			background-color var(--motion-duration-120, 120ms),
+			color var(--motion-duration-120, 120ms);
 	}
 
 	.c-action-segmented__item:hover:not([data-disabled]) {

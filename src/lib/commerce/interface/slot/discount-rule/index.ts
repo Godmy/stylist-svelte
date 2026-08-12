@@ -1,5 +1,4 @@
 import type { DiscountType } from '$stylist/commerce/type/alias/discount-type';
-
 export interface SlotDiscountRule {
 	id: string;
 	code: string;

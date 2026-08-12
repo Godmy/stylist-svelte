@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import type { GeneralToolbarRecipe } from '$stylist/navigation/type/struct/general-toolbar-props/generaltoolbarrecipe';
+	import type { GeneralToolbarRecipe } from '$stylist/navigation/type/object/general-toolbar-props/generaltoolbarrecipe';
 	import createGeneralToolbarState from './state.svelte';
 	import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 

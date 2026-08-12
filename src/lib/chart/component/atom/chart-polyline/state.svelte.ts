@@ -1,4 +1,4 @@
-import type { ChartFunctionPoint } from '$stylist/chart/type/struct/chart-point';
+import type { ChartFunctionPoint } from '$stylist/chart/type/object/chart-point';
 import type { RecipeChartPolyline as ChartPolylineProps } from '$stylist/chart/interface/recipe/chart-polyline';
 import { ObjectManagerChart } from '$stylist/chart/class/object-manager/chart';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';

@@ -4,7 +4,7 @@ import type { TokenInteration } from '$stylist/workspace/type/alias/interaction'
 import type { TokenSeverity } from '$stylist/workspace/type/alias/sevetity';
 import type { TokenNodeType } from '$stylist/architecture/type/alias/node-type';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom';
+import type { SemanticZoomPresentation } from '$stylist/architecture/type/object/semantic-zoom';
 import { resolveSemanticZoomPresentation } from '$stylist/architecture/function/script/semantic-zoom/index';
 
 export function createWorkspaceNodeState(props: RecipeWorkspaceNode) {

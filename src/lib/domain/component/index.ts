@@ -25,6 +25,7 @@ export {
 	DomainBuilder,
 	DomainDiagnostics,
 	DomainExplorer,
+	DomainFileDiagnostics,
 	DomainFilePreview,
 	DomainSettings,
 	DomainSidebar

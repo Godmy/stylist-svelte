@@ -5,6 +5,7 @@ export { DomainBacklog } from './domain-backlog/index';
 export { DomainBuilder } from './domain-builder/index';
 export { DomainDiagnostics } from './domain-diagnostics/index';
 export { DomainExplorer } from './domain-explorer/index';
+export { DomainFileDiagnostics } from './domain-file-diagnostics/index';
 export { DomainFilePreview } from './domain-file-preview/index';
 export { DomainSettings } from './domain-settings/index';
 export { DomainSidebar } from './domain-sidebar/index';

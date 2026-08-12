@@ -1,5 +1,5 @@
-﻿import { untrack } from 'svelte';
-import type { LocationSelectorLocation } from '$stylist/geo/type/struct/location-selector/locationselectorlocation';
+import { untrack } from 'svelte';
+import type { LocationSelectorLocation } from '$stylist/geo/type/object/location-selector/locationselectorlocation';
 import type { RecipeLocationSelector } from '$stylist/geo/interface/recipe/location-selector';
 
 export function createLocationSelectorState(props: RecipeLocationSelector) {

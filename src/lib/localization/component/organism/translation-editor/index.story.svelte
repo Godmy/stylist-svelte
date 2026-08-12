@@ -2,8 +2,8 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import TranslationEditor from './index.svelte';
-	import type { TranslatableText } from '$stylist/localization/type/struct/translatable-text';
-	import type { TranslationLocale } from '$stylist/localization/type/struct/translation-locale';
+	import type { TranslatableText } from '$stylist/localization/type/object/translatable-text';
+	import type { TranslationLocale } from '$stylist/localization/type/object/translation-locale';
 
 	type Props = {
 		showKeyColumn: boolean;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import { DASHBOARD_PIPELINE_STEP } from '$stylist/dashboard/const/array/dashboard-pipeline-step';
-	import type { DashboardReportSummary } from '$stylist/dashboard/type/struct/dashboard-report-summary';
+	import type { DashboardReportSummary } from '$stylist/dashboard/type/object/dashboard-report-summary';
 	import PipelineReportList from './index.svelte';
 
 	const reports: DashboardReportSummary[] = DASHBOARD_PIPELINE_STEP.map((report, index) => ({

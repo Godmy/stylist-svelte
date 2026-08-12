@@ -9,7 +9,6 @@ import type { BehaviorMotionPreset } from '$stylist/animation/interface/behavior
 import type { BehaviorShapeable } from '$stylist/layout/interface/behavior/shapeable';
 import type { BehaviorSized } from '$stylist/layout/interface/behavior/sized';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-
 export interface RecipeFeedback
 	extends ComputeIntersectAll<[SlotText, SlotStatus, SlotIcon, BehaviorClickable, BehaviorFocusable, BehaviorSized, BehaviorShapeable, BehaviorMotionPreset, SlotTheme]>,
 		FeedbackSpecificProps {}

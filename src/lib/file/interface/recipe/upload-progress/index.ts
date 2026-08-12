@@ -1,5 +1,4 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 import type { SlotUploadFile } from '$stylist/file/interface/slot/upload-file';
 import type { UploadProgressVariant } from '$stylist/file/type/alias/upload-progress-variant';
 export interface RecipeUploadProgress {

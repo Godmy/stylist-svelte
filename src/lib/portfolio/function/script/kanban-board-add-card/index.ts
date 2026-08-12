@@ -1,5 +1,5 @@
-﻿import type { KanbanBoardType } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardtype';
-import type { KanbanCardType } from '$stylist/portfolio/type/struct/kanban-card/kanbancardtype';
+import type { KanbanBoardType } from '$stylist/portfolio/type/object/kanban-board/kanbanboardtype';
+import type { KanbanCardType } from '$stylist/portfolio/type/object/kanban-card/kanbancardtype';
 
 export function addKanbanCard(
 	boardState: KanbanBoardType,

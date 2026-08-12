@@ -1,4 +1,4 @@
-import type { ChartSeries } from '$stylist/chart/type/struct/chart-series';
+import type { ChartSeries } from '$stylist/chart/type/object/chart-series';
 import type { RecipeChart } from '$stylist/chart/interface/recipe/chart';
 import { ObjectManagerChart } from '$stylist/chart/class/object-manager/chart';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';

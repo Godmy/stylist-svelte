@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { CHAT_MESSAGE_STATUS } from '$stylist/chat/const/array/chat-message-status';
 import { TOKEN_MESSAGE_STATUS } from '$stylist/chat/const/array/message-status';
 

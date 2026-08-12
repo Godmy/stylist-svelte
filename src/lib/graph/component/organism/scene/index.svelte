@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import createSceneState from './state.svelte';
-	import type { SceneProps } from '$stylist/graph/type/struct/scene-props';
+	import type { SceneProps } from '$stylist/graph/type/object/scene-props';
 	import SceneCameraControl from '$stylist/graph/component/molecule/scene-camera-control/index.svelte';
 
 	let props: SceneProps = $props();

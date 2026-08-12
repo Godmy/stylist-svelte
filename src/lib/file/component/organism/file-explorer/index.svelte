@@ -3,7 +3,7 @@
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { createFileExplorerState } from './state.svelte';
-	import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
+	import type { SlotFileSystemItem } from '$stylist/file/type/object/file-explorer/file-system-item';
 	import type { RecipeFileExplorer } from '$stylist/file/interface/recipe/file-explorer';
 	import { getFileIcon } from '$stylist/file/function/script/file-explorer-get-file-icon';
 	import { formatFileSize } from '$stylist/file/function/script/file-explorer-format-file-size';

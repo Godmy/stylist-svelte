@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_CODE_LANGUAGE } from '$stylist/development/const/array/code-language';
 import { TOKEN_CODE_VIEW } from '$stylist/development/const/array/code-view';
 import { DEBUG_CONSOLE_LOG_LEVEL } from '$stylist/development/const/array/debug-console-log-level';

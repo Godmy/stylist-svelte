@@ -1,4 +1,4 @@
-import type { TokenTextControlDefinition } from '$stylist/token/type/struct/text-control-definition';
+import type { TokenTextControlDefinition } from '$stylist/token/type/object/text-control-definition';
 
 export type TokenTextStateProps = {
 	definition: TokenTextControlDefinition;

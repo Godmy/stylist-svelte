@@ -1,5 +1,5 @@
 import type { RecipeAudioRecordButton } from '$stylist/audio/interface/recipe/audio-record-button';
-import type { TypeAudioRecording } from '$stylist/audio/type/struct/audio-recording';
+import type { TypeAudioRecording } from '$stylist/audio/type/object/audio-recording';
 import { TOKEN_AUDIO_ICON } from '$stylist/audio/const/record/audio-icon';
 
 export function createAudioRecordButtonState(props: RecipeAudioRecordButton) {

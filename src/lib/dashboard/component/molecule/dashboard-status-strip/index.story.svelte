@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import { DASHBOARD_PIPELINE_STEP } from '$stylist/dashboard/const/array/dashboard-pipeline-step';
-	import type { DashboardPipelineStatus } from '$stylist/dashboard/type/struct/dashboard-pipeline-status';
+	import type { DashboardPipelineStatus } from '$stylist/dashboard/type/object/dashboard-pipeline-status';
 	import DashboardStatusStrip from './index.svelte';
 
 	const pipeline: DashboardPipelineStatus = {

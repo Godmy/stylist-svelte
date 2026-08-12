@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_CANVAS_CHART_TYPE } from '$stylist/chart/const/array/canvas-chart-type';
 import { TOKEN_CHART } from '$stylist/chart/const/array/chart';
 import { TOKEN_CHART_COLORS } from '$stylist/chart/const/array/chart-colors';

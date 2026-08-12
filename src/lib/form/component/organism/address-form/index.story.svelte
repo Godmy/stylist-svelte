@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { AddressData } from '$stylist/form/type/struct/forms/address-data';
+	import type { AddressData } from '$stylist/form/type/object/forms/address-data';
 	import AddressForm from './index.svelte';
 
 	type Props = {

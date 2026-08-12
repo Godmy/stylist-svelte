@@ -1,5 +1,5 @@
-import type { SchemaDocument } from '$stylist/erd/type/struct/schema-document';
-import type { SchemaParseResult } from '$stylist/erd/type/struct/schema-parse-result';
+import type { SchemaDocument } from '$stylist/erd/type/object/schema-document';
+import type { SchemaParseResult } from '$stylist/erd/type/object/schema-parse-result';
 
 export function mergeSchemaDocuments(
 	liveDocument: SchemaDocument,

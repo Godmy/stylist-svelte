@@ -6,7 +6,7 @@ export function createGraphvizDirectedEdgeState(props: RecipeGraphvizDirectedEdg
 	const sourceY = $derived(props.sourceY ?? 0);
 	const targetX = $derived(props.targetX ?? 100);
 	const targetY = $derived(props.targetY ?? 100);
-	const label = $derived(props.label ?? '');
+	const text = $derived(props.text ?? '');
 	const color = $derived(props.color ?? 'var(--color-text-primary)');
 	const width = $derived(props.width ?? 2);
 	const strokeStyle = $derived(props.style ?? 'solid');
@@ -37,8 +37,8 @@ export function createGraphvizDirectedEdgeState(props: RecipeGraphvizDirectedEdg
 		get targetY() {
 			return targetY;
 		},
-		get label() {
-			return label;
+		get text() {
+			return text;
 		},
 		get color() {
 			return color;

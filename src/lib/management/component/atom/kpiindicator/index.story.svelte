@@ -5,7 +5,7 @@
 
 	const controls: SlotStory[] = [
 		{
-			name: 'label',
+			name: 'title',
 			type: 'text',
 			defaultValue: 'Sales'
 		},
@@ -68,7 +68,7 @@
 			<div class="_c3">
 				<h2 class="_c4">Default KPI Indicator</h2>
 				<KPIIndicator
-					label={values.label}
+					title={values.title}
 					currentValue={parseInt(values.currentValue as string) || 750}
 					targetValue={parseInt(values.targetValue as string) || 1000}
 					unit={values.unit}
@@ -85,7 +85,7 @@
 					<div>
 						<h3 class="_c6">On Track</h3>
 						<KPIIndicator
-							label="Revenue"
+							title="Revenue"
 							currentValue={850}
 							targetValue={1000}
 							unit="$"
@@ -98,7 +98,7 @@
 					<div>
 						<h3 class="_c6">At Risk</h3>
 						<KPIIndicator
-							label="Users"
+							title="Users"
 							currentValue={250}
 							targetValue={1000}
 							unit=""
@@ -111,7 +111,7 @@
 					<div>
 						<h3 class="_c6">Exceeded</h3>
 						<KPIIndicator
-							label="Goals"
+							title="Goals"
 							currentValue={1200}
 							targetValue={1000}
 							unit=""
@@ -130,7 +130,7 @@
 					<div>
 						<h3 class="_c6">Small</h3>
 						<KPIIndicator
-							label="Small"
+							title="Small"
 							currentValue={50}
 							targetValue={100}
 							unit="%"
@@ -143,7 +143,7 @@
 					<div>
 						<h3 class="_c6">Medium</h3>
 						<KPIIndicator
-							label="Medium"
+							title="Medium"
 							currentValue={50}
 							targetValue={100}
 							unit="%"
@@ -156,7 +156,7 @@
 					<div>
 						<h3 class="_c6">Large</h3>
 						<KPIIndicator
-							label="Large"
+							title="Large"
 							currentValue={50}
 							targetValue={100}
 							unit="%"

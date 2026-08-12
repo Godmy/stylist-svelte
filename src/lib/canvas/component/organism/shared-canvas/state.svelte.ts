@@ -5,10 +5,10 @@ import { drawCanvasObjects } from '$stylist/canvas/function/script/canvas-draw-o
 import { finalizeDraftCanvasObject } from '$stylist/canvas/function/script/canvas-finalize-draft-object';
 import { hitTestCanvasObject } from '$stylist/canvas/function/script/canvas-hit-test-object';
 import { updateDraftCanvasObject } from '$stylist/canvas/function/script/canvas-update-draft-object';
-import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
-import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
-import type { SharedCanvasTool } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-tool';
-import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-contract';
+import type { CanvasObject } from '$stylist/canvas/type/object/canvas-object';
+import type { Point2D } from '$stylist/architecture/type/object/point-2d';
+import type { SharedCanvasTool } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-tool';
+import type { SharedCanvasContract } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-contract';
 
 export function createSharedCanvasState(contract: SharedCanvasContract) {
 	let selectedTool = $state<SharedCanvasTool>('select');

@@ -4,7 +4,7 @@
 	import FlatTree from '$stylist/tree/component/molecule/flat-tree/index.svelte';
 	import { ManagerStoryViewportContext } from '$stylist/theme/class/manager/story-viewport-context';
 	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
-	import type { TreeNode } from '$stylist/tree/type/struct/tree-node';
+	import type { TreeNode } from '$stylist/tree/type/object/tree-node';
 
 	interface DomainDependency {
 		key: string;

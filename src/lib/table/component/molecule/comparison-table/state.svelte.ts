@@ -1,4 +1,4 @@
-import type { ComparisonTableProps } from '$stylist/table/type/struct/comparison-table-props';
+import type { ComparisonTableProps } from '$stylist/table/type/object/comparison-table-props';
 
 export function createComparisonTableState(props: ComparisonTableProps) {
 	const containerClass = $derived(['c-comparison-table', props.class].filter(Boolean).join(' '));

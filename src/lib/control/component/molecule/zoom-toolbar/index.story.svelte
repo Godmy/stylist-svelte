@@ -40,7 +40,7 @@
 	let log: string[] = [];
 
 	function handleZoomChange(value: number) {
-		log = [`${new Date().toLocaleTimeString()} вЂ” РјР°СЃС€С‚Р°Р± ${value}%`, ...log].slice(0, 5);
+		log = [`${new Date().toLocaleTimeString()} — масштаб ${value}%`, ...log].slice(0, 5);
 	}
 </script>
 
@@ -64,7 +64,7 @@
 			</div>
 
 			<div class="_c3">
-				<h3 class="_c4">РСЃС‚РѕСЂРёСЏ</h3>
+				<h3 class="_c4">История</h3>
 				{#if log.length > 0}
 					<ul class="_c5">
 						{#each log as entry}
@@ -74,10 +74,7 @@
 						{/each}
 					</ul>
 				{:else}
-					<p class="_c7">
-						РСЃС‚РѕСЂРёСЏ РїРѕСЏРІРёС‚СЃСЏ РїРѕСЃР»Рµ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ СЃ
-						РїР°РЅРµР»СЊСЋ.
-					</p>
+					<p class="_c7">История появится после взаимодействия с панелью.</p>
 				{/if}
 			</div>
 		</div>

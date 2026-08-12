@@ -23,7 +23,6 @@ export {
 } from './const';
 export { resolveAuthGuardState } from './function';
 export type {
-	AuthFormState,
 	AuthGuardProps,
 	AuthResponse,
 	AuthResult,

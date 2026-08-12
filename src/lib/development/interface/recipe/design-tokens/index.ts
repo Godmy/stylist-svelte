@@ -1,5 +1,4 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 export interface RecipeDesignTokens {
 	theme?: 'light' | 'dark';
 	showTokens?: boolean;

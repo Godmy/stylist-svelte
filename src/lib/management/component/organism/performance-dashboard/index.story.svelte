@@ -66,7 +66,7 @@
 >
 	{#snippet children(values: any)}
 		<PerformanceDashboard
-			label="Performance Dashboard"
+			title="Performance Dashboard"
 			subtitle="Key business metrics for the selected time range"
 			metrics={sampleMetrics as any}
 			timeRange={values.timeRange}

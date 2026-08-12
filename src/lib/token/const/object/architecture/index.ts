@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_COMPONENT_TYPE } from '$stylist/architecture/const/array/component-type';
 import { TOKEN_CONNECTOR } from '$stylist/architecture/const/array/connector';
 import { TOKEN_FOUNDATION_AXES } from '$stylist/architecture/const/array/foundation-axes';

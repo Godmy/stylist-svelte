@@ -15,10 +15,7 @@ export {
 	TrafficAnalytics,
 	UserBehaviorMetrics
 } from './component';
-export {
-	TOKEN_TEST,
-	TRAFFIC_ANALYTICS_TIME_RANGE
-} from './const';
+export { TOKEN_TEST } from './const';
 export {
 	addABTestVariant,
 	calculateABTestTotalWeight,
@@ -35,7 +32,6 @@ export type {
 	IHeroCTA,
 	TestResult,
 	TestResultsViewerProps,
-	TimeRange,
 	TokenTest,
 	TrafficAnalyticsProps,
 	UserBehaviorMetricsProps

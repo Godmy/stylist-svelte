@@ -1,20 +1,13 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { DashboardLayoutProps } from './dashboard-layout';
-export type { RecipeFeatureToggle } from './feature-toggle';
 export type { RecipeKPIIndicator } from './kpi-indicator';
 export type { RecipeLegendItem } from './legend-item';
-export type { NotificationStateProps } from './notification';
-export type { RecipeNotificationCenter } from './notification-center';
-export type { RecipeNotificationList } from './notification-list';
-export type { RecipeNotificationPreferences } from './notification-preferences';
 export type { PageHeaderStateProps } from './page-header';
 export type { RecipePerformanceDashboard } from './performance-dashboard';
 export type { PerformanceDashboardStateProps } from './performance-dashboard-performance-dashboard-state-props';
 export type { RecipePerformanceMonitor } from './performance-monitor';
 export type { PermissionGateProps } from './permission-gate';
 export type { RecipeProcessStep } from './process-step';
-export type { PushNotificationProps } from './push-notification';
-export type { RecipeScheduledNotification } from './scheduled-notification';
 export type { RecipeStatCard } from './stat-card';
 export type { RecipeStatsCard } from './stats-card';
 export type { RecipeStatusDashboard } from './status-dashboard';

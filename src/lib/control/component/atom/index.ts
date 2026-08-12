@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AccessibilityCheckbox } from './accessibility-checkbox/index';
 export { ActionSegmentedControl } from './action-segmented-control/index';
 export { AutocompleteDropdown } from './autocomplete-dropdown/index';
 export { Checkbox } from './checkbox/index';

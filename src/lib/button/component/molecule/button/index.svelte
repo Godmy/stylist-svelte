@@ -33,8 +33,8 @@
 		<span class="c-button-m__text">{@render props.children()}</span>
 	{:else if state.loading}
 		<span class="c-button-m__text">{state.loadingLabel}</span>
-	{:else if props.label}
-		<span class="c-button-m__text">{props.label}</span>
+	{:else if props.text}
+		<span class="c-button-m__text">{props.text}</span>
 	{/if}
 </button>
 

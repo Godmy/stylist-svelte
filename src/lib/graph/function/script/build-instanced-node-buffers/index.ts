@@ -1,4 +1,4 @@
-import type { ZwickyNode } from '$stylist/graph/type/struct/zwicky-node';
+import type { ZwickyNode } from '$stylist/graph/type/object/zwicky-node';
 export function buildInstancedNodeBuffers(
 	nodes: readonly ZwickyNode[],
 	hoveredId: string | null,

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
+	import type { SlotFileSystemItem } from '$stylist/file/type/object/file-explorer/file-system-item';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 

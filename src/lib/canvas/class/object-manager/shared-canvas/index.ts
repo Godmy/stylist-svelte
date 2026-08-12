@@ -1,10 +1,10 @@
-import type { SHARED_CANVAS_TOOL_DEFINITIONS } from '$stylist/canvas/const/record/canvas-tool-definitions';
 import { SHARED_CANVAS_ACTION_ICONS } from '$stylist/canvas/const/map/canvas-action-icons';
 import { SHARED_CANVAS_TOOL_DEFINITIONS } from '$stylist/canvas/const/record/canvas-tool-definitions';
-import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-contract';
+import type { SharedCanvasToolDefinition } from '$stylist/canvas/type/object/shared-canvas-tool-definition';
+import type { SharedCanvasContract } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-contract';
 
 export class ObjectManagerSharedCanvas {
-	static readonly toolDefinitions: readonly ((typeof SHARED_CANVAS_TOOL_DEFINITIONS)[number])[] =
+	static readonly toolDefinitions: readonly SharedCanvasToolDefinition[] =
 		SHARED_CANVAS_TOOL_DEFINITIONS;
 
 	static readonly actionIcons = SHARED_CANVAS_ACTION_ICONS;

@@ -14,4 +14,4 @@ export type {
 	StylistMenuProps,
 	StylistTabItem,
 	StylistTabProps
-} from './struct';
+} from './object';

@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_FONT_SIZE } from '$stylist/theme/const/object/font-size';
 import { TOKEN_FONT_WEIGHT } from '$stylist/theme/const/object/font-weight';
 import { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';

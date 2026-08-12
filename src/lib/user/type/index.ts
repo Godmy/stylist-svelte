@@ -5,6 +5,5 @@ export type {
 } from './alias';
 export type {
 	AvatarGroupAvatar,
-	AvatarGroupProps,
 	AvatarProps
-} from './struct';
+} from './object';

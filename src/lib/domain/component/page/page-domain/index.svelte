@@ -12,9 +12,9 @@
 	import createDomainBacklogState from '$stylist/domain/component/organism/domain-backlog/state.svelte';
 	import createDomainLandingScreenState from './state.svelte';
 	import StylistLanding from '$stylist/marketing/component/organism/stylist-landing/index.svelte';
-	import type { TypeDomainComponentDescriptor } from '$stylist/domain/type/struct/domain-component-descriptor';
+	import type { TypeDomainComponentDescriptor } from '$stylist/domain/type/object/domain-component-descriptor';
 	import type { TypeDomainScreen } from '$stylist/domain/type/alias/domain-screen';
-	import type { TypeDomainTreeNode } from '$stylist/domain/type/struct/domain-tree-node';
+	import type { TypeDomainTreeNode } from '$stylist/domain/type/object/domain-tree-node';
 	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
 	import type { SlotNodeConnection } from '$stylist/workspace/interface/slot/node-connection';
 	import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';

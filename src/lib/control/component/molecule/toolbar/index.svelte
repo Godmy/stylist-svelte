@@ -77,23 +77,26 @@
 	.toolbar {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-2);
-		padding: var(--spacing-2);
+		gap: 0.5rem;
+		padding: 0.5rem;
 		background-color: white;
-		border-radius: var(--border-radius-lg);
+		border-radius: var(--layout-border-radius-lg, 0.5rem);
 		border: 1px solid var(--color-border-primary);
-		box-shadow: var(--shadow-custom40);
+		box-shadow: var(
+			--layout-box-shadow-custom40,
+			0 4px 6px color-mix(in srgb, var(--color-text-primary) 5%, transparent)
+		);
 	}
 
 	.toolbar-group {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-1);
+		gap: 0.25rem;
 	}
 
 	.toolbar-separator {
 		height: 1px;
 		background-color: var(--color-border-primary);
-		margin: var(--spacing-1) 0;
+		margin: 0.25rem 0;
 	}
 </style>

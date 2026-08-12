@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Props } from '$stylist/social/type/struct/social-login/-props';
+	import type { Props } from '$stylist/social/type/object/social-login/-props';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createSocialLoginState from './state.svelte';
 

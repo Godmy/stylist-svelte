@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ZwickyNode } from '$stylist/graph/type/struct/zwicky-node';
+	import type { ZwickyNode } from '$stylist/graph/type/object/zwicky-node';
 
 	type Props = {
 		node: ZwickyNode | null;

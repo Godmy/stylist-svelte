@@ -5,7 +5,7 @@ import { resolveMinimapFitZoom } from '$stylist/architecture/function/script/res
 import { resolveMinimapNodeRect } from '$stylist/architecture/function/script/resolve-minimap-node-rect';
 import { resolveMinimapOffsetForPoint } from '$stylist/architecture/function/script/resolve-minimap-offset-for-point';
 import { resolveMinimapViewport } from '$stylist/architecture/function/script/resolve-minimap-viewport';
-import type { MinimapProps } from '$stylist/architecture/type/struct/minimap-props';
+import type { MinimapProps } from '$stylist/architecture/type/object/minimap-props';
 
 export function createMinimapState(props: MinimapProps) {
 	const nodes = $derived(props.nodes ?? []);

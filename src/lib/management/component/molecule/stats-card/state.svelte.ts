@@ -1,11 +1,12 @@
 import type { HTMLAttributes } from 'svelte/elements';
-﻿import { ObjectManagerStatsCard } from '$stylist/management/class/object-manager/stats-card';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { RecipeStatsCard } from '$stylist/management/interface/recipe/stats-card';
+import { STATS_CARD_TREND_ICON } from '$stylist/management/const/record/stats-card-trend-icon';
+import { STATS_CARD_TREND_CLASS } from '$stylist/management/const/record/stats-card-trend-class';
 
 export function createStatsCardState(props: RecipeStatsCard & HTMLAttributes<HTMLDivElement>) {
 	// Props with defaults
-	const label = props.label;
+	const text = props.text;
 	const value = props.value;
 	const trend = props.trend ?? 'neutral';
 	const trendValue = props.trendValue;
@@ -14,17 +15,15 @@ export function createStatsCardState(props: RecipeStatsCard & HTMLAttributes<HTM
 	const propClassName = props.class ?? '';
 
 	// Classes
-	const trendClasses = $derived(ObjectManagerStatsCard.resolveTrendClass(trend));
-	const trendIconName = $derived(ObjectManagerStatsCard.resolveTrendIconName(trend));
+	const trendClasses = $derived(STATS_CARD_TREND_CLASS[trend]);
+	const trendIconName = $derived(STATS_CARD_TREND_ICON[trend]);
 	const containerClasses = $derived(mergeClassNames('c-stats-card', propClassName));
 	const headerClasses = $derived('c-stats-card__header');
 	const labelClasses = $derived('c-stats-card__label');
 	const valueClasses = $derived('c-stats-card__value');
 	const iconWrapperClasses = $derived('c-stats-card__icon-wrap');
 	const footerClasses = $derived('c-stats-card__footer');
-	const trendContainerClasses = $derived(
-		mergeClassNames('c-stats-card__trend', trendClasses)
-	);
+	const trendContainerClasses = $derived(mergeClassNames('c-stats-card__trend', trendClasses));
 	const trendIconClasses = $derived('c-stats-card__trend-icon');
 	const descriptionClasses = $derived('c-stats-card__description');
 
@@ -32,7 +31,7 @@ export function createStatsCardState(props: RecipeStatsCard & HTMLAttributes<HTM
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,
-			label: _label,
+			text: _text,
 			value: _value,
 			trend: _trend,
 			trendValue: _trendValue,
@@ -44,8 +43,8 @@ export function createStatsCardState(props: RecipeStatsCard & HTMLAttributes<HTM
 	});
 
 	return {
-		get label() {
-			return label;
+		get text() {
+			return text;
 		},
 		get value() {
 			return value;

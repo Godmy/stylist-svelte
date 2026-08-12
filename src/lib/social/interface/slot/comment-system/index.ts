@@ -1,7 +1,6 @@
 import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
 import type { SlotCommentUser } from '$stylist/social/interface/slot/comment-user';
 import type { SlotCommentItem } from '$stylist/social/interface/slot/comment-item';
-
 export interface SlotCommentSystem extends HtmlAttributesBase<HTMLDivElement> {
 	comments: SlotCommentItem[];
 	currentUser: SlotCommentUser;

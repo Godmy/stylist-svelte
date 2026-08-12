@@ -1,10 +1,14 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
-import type { ComponentLibraryStatsComponentStats } from '$stylist/development/type/struct/component-library-stats-component-stats';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 export interface RecipeComponentLibraryStats extends ComputeIntersectAll<[((Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography & {
-stats: ComponentLibraryStatsComponentStats;
+stats: ({
+	totalComponents: number;
+	atoms: number;
+	molecules: number;
+	organisms: number;
+});
 	sectionId?: string;
 	animateOnVisible?: boolean;
 	durationMs?: number;

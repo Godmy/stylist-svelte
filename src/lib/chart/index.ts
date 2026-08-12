@@ -50,8 +50,6 @@ export type {
 	CanvasChartPadding,
 	ChartFunctionPoint,
 	ChartLegendItem,
-	ChartScale,
-	ChartSeries,
 	HeatmapAxisValue,
 	IChartDataPoint,
 	IHeatmapCell,

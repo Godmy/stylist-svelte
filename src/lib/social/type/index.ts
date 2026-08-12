@@ -9,4 +9,4 @@ export type {
 	Provider,
 	ShareOption,
 	SocialPlatform
-} from './struct';
+} from './object';

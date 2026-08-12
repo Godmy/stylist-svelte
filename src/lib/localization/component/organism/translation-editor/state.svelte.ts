@@ -1,4 +1,4 @@
-import type { TranslatableText } from '$stylist/localization/type/struct/translatable-text';
+import type { TranslatableText } from '$stylist/localization/type/object/translatable-text';
 import type { RecipeTranslationEditor } from '$stylist/localization/interface/recipe/translation-editor';
 
 export function createTranslationEditorState(props: RecipeTranslationEditor) {

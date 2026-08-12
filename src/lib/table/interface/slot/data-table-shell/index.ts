@@ -1,6 +1,6 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TableSchema } from '$stylist/table/type/object/table';
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 
 export interface SlotDataTableShell<T extends Record<string, unknown>>
 	extends HTMLAttributes<HTMLDivElement> {

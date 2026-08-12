@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { MediaItem } from '$stylist/file/type/struct/media-item';
+	import type { MediaItem } from '$stylist/file/type/object/media-item';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 

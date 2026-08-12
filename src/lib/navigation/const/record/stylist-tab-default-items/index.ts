@@ -1,4 +1,4 @@
-import type { StylistTabItem } from '$stylist/navigation/type/struct/stylist-tab-item';
+import type { StylistTabItem } from '$stylist/navigation/type/object/stylist-tab-item';
 
 export const STYLIST_TAB_DEFAULT_ITEMS: StylistTabItem[] = [
 	{ id: 'architecture', label: 'Architecture', icon: 'grid-layout' },

@@ -2,7 +2,6 @@ import type { TokenTimeMeasure } from '$stylist/calendar/type/alias/time-measure
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';
 import type { Snippet } from 'svelte';
-
 export interface SlotEventCalendar {
 	events?: SlotCalendarEvent[];
 	initialDate?: Date;

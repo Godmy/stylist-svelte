@@ -5,13 +5,13 @@ import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { SlotBadge } from '$stylist/information/interface/slot/badge';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
-import type { SlotImage as SlotMedia } from '$stylist/image/interface/slot/image';
+import type { SlotImage } from '$stylist/image/interface/slot/image';
 export interface RecipePostCard
 	extends ComputeIntersectAll<
 		[
 			SlotTheme,
 			SlotText,
-			SlotMedia,
+			SlotImage,
 			SlotBadge,
 			SlotIcon,
 			SlotChildren,

@@ -17,6 +17,6 @@
 	description="Generic compact vertical bars renderer for domain-specific chart wrappers."
 >
 	{#snippet children()}
-		<VerticalBarsChart title="Distribution" {items} />
+		<VerticalBarsChart text="Distribution" {items} />
 	{/snippet}
 </Story>

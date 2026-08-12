@@ -14,12 +14,11 @@
 	{/if}
 
 	<img
-		{...state.restProps}
 		src={state.imageSource}
-		alt={props.alt ?? ''}
+		alt={props.imageAlt ?? ''}
 		loading={state.loadingProp}
-		width={state.width}
-		height={state.height}
+		width={state.imageWidth}
+		height={state.imageHeight}
 		class={state.imageClasses}
 		onerror={() => state.handleError()}
 		onload={() => state.handleLoad()}
@@ -31,8 +30,8 @@
 		position: relative;
 		display: inline-block;
 		overflow: hidden;
-		background-color: var(--color-background-secondary);
-		border-radius: 0.375rem;
+		background-color: var(--image-background, var(--color-background-secondary));
+		border-radius: var(--image-radius, 0.375rem);
 	}
 	.c-image__placeholder {
 		display: flex;
@@ -46,8 +45,9 @@
 	.c-image__img {
 		display: block;
 		max-width: 100%;
-		height: auto;
-		object-fit: cover;
+		width: var(--image-width, auto);
+		height: var(--image-height, auto);
+		object-fit: var(--image-object-fit, cover);
 		opacity: 0;
 		transition: opacity var(--duration-200, 200ms) var(--easing-smooth, ease-in-out);
 	}
@@ -64,6 +64,6 @@
 		max-width: 37.5rem;
 	}
 	.c-image__img--xl {
-		max-width: 100%;
+		max-width: none;
 	}
 </style>

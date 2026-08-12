@@ -22,7 +22,13 @@ export function createCodeBlockState(props: RecipeCodeBlock) {
 		mergeClassNames('c-code-block__content', props.contentClass ?? '')
 	);
 	const preClass = $derived(mergeClassNames('c-code-block__pre', props.codeClass ?? ''));
-	const copyButtonContainerClass = 'c-code-block__copy';
+	const headerContentClass = 'c-code-block__header-content';
+	const titleClass = 'c-code-block__title';
+	const tagsContainerClass = 'c-code-block__tags';
+	const tagClass = 'c-code-block__tag';
+	const copyButtonContainerClass = $derived(
+		mergeClassNames('c-code-block__copy', props.copyOnHover ? 'c-code-block__copy--on-hover' : '')
+	);
 	const iconClass = 'c-code-block__icon';
 	const getMainContentClass = 'c-code-block__main';
 
@@ -57,6 +63,18 @@ export function createCodeBlockState(props: RecipeCodeBlock) {
 		},
 		get preClass() {
 			return preClass;
+		},
+		get headerContentClass() {
+			return headerContentClass;
+		},
+		get titleClass() {
+			return titleClass;
+		},
+		get tagsContainerClass() {
+			return tagsContainerClass;
+		},
+		get tagClass() {
+			return tagClass;
 		},
 		get copyButtonContainerClass() {
 			return copyButtonContainerClass;

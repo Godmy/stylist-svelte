@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeZoomControls } from '$stylist/control/interface/recipe/zoom-controls';
 	import { createZoomControlsState } from './state.svelte';
 
@@ -62,9 +62,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 		display: flex;
 		align-items: center;
 		gap: 4px;
-		background: var(--color-surface-primary, #ffffff);
+		background: var(--color-background-primary, #ffffff);
 		border: 1px solid var(--color-border-primary, #e0e0e0);
-		border-radius: var(--radius-md, 8px);
+		border-radius: var(--layout-border-radius-md, 0.375rem);
 		padding: 4px;
 		box-shadow: var(--elevation-level1, 0 1px 3px rgba(0, 0, 0, 0.1));
 	}
@@ -78,17 +78,17 @@ import type { HTMLAttributes } from 'svelte/elements';
 		border: none;
 		background: transparent;
 		color: var(--color-text-primary, #333);
-		border-radius: var(--radius-sm, 4px);
+		border-radius: var(--layout-border-radius-sm, 0.125rem);
 		cursor: pointer;
-		transition: all 150ms var(--easing-standard, ease);
+		transition: all 150ms var(--motion-easing-ease, ease);
 	}
 
 	.zoom-button:hover {
-		background: var(--color-surface-secondary, #f5f5f5);
+		background: var(--color-background-secondary, #f5f5f5);
 	}
 
 	.zoom-button:active {
-		background: var(--color-surface-tertiary, #e0e0e0);
+		background: var(--color-background-tertiary, #e0e0e0);
 	}
 
 	.zoom-value {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/architecture/const/array/functional-taxonomy';
-	import type { StylistSelection } from '$stylist/development/type/struct/stylist-selection';
+	import type { StylistSelection } from '$stylist/development/type/object/stylist-selection';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 

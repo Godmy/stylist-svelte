@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { OntologyNodeComponentProps } from '$stylist/architecture/type/struct/ontology-node-component/ontologynodecomponent-props';
+	import type { OntologyNodeComponentProps } from '$stylist/architecture/type/object/ontology-node-component/ontologynodecomponent-props';
 	import createOntologyNodeComponentState from './state.svelte';
 
 	let props: OntologyNodeComponentProps = $props();

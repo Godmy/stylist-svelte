@@ -1,5 +1,4 @@
-﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 export interface RecipeOrderItem extends ComputeIntersectAll<[]> {
 	id: string;
 	name: string;

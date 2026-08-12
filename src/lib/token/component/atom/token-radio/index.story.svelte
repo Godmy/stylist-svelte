@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import TokenRadio from './index.svelte';
-	import type { TokenRadioControlDefinition } from '$stylist/token/type/struct/radio-control-definition';
+	import type { TokenRadioControlDefinition } from '$stylist/token/type/object/radio-control-definition';
 
 	const definition: TokenRadioControlDefinition = {
 		id: 'token-radio-alignment',

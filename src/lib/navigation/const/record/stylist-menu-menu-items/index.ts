@@ -1,4 +1,4 @@
-import type { PrimaryMenuItem } from '$stylist/navigation/type/struct/stylist-menu-primary-menu-item';
+import type { PrimaryMenuItem } from '$stylist/navigation/type/object/stylist-menu-primary-menu-item';
 
 export const STYLIST_MENU_MENU_ITEMS: PrimaryMenuItem[] = [
 	{ id: 'components', label: 'Components', icon: 'components' },

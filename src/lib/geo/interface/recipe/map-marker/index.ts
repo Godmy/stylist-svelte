@@ -7,7 +7,6 @@ import type { TokenPin } from '$stylist/geo/type/alias/pin';
 import type { TokenShape } from '$stylist/layout/type/alias/shape';
 import type { SlotCoordinates } from '$stylist/geo/interface/slot/coordinates';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 export interface RecipeMapMarker
 	extends ComputeIntersectAll<[((HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography & {
 coordinates: SlotCoordinates;

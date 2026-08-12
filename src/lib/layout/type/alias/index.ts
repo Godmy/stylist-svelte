@@ -5,6 +5,7 @@ export type { TokenBackground } from './background';
 export type { TokenBorderStyle } from './border-style';
 export type { TokenBreakpoint } from './breakpoint';
 export type { CenteredLayoutAxis } from './centered-layout-axis';
+export type { ClassValue } from './class-value';
 export type { TokenColumn } from './column';
 export type { ContainerQueryType } from './container-query-type';
 export type { TokenCursor } from './cursor';

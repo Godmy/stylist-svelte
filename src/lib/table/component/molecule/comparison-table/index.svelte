@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ComparisonTableProps } from '$stylist/table/type/struct/comparison-table-props';
+	import type { ComparisonTableProps } from '$stylist/table/type/object/comparison-table-props';
 	import { createComparisonTableState } from './state.svelte';
 
 	let props: ComparisonTableProps = $props();

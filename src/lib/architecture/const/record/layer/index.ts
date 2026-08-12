@@ -1,4 +1,4 @@
-import type { FoundationSemanticZoomStage } from '$stylist/architecture/type/script/foundation-semantic-zoom-stages';
+import type { FoundationSemanticZoomStage } from '$stylist/architecture/type/alias/foundation-semantic-zoom-stage';
 import type { TokenZIndex } from '$stylist/theme/type/alias/z-index';
 
 export const RECORD_LAYER: Record<FoundationSemanticZoomStage, TokenZIndex> = {

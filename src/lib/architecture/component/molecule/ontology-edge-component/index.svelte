@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { OntologyEdgeComponentProps } from '$stylist/architecture/type/struct/ontology-edge-component/ontologyedgecomponent-props';
+	import type { OntologyEdgeComponentProps } from '$stylist/architecture/type/object/ontology-edge-component/ontologyedgecomponent-props';
 	import createOntologyEdgeComponentState from './state.svelte';
 
 	let props: OntologyEdgeComponentProps = $props();

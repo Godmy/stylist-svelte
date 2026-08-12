@@ -1,7 +1,7 @@
 <script lang="ts">
 	const browser = typeof window !== 'undefined';
 	import { onDestroy } from 'svelte';
-	import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
+	import type { SceneCamera } from '$stylist/architecture/type/object/scene-camera';
 	import NodeConnection from '$stylist/workspace/component/atom/node-connection/index.svelte';
 	import NodeIcon from '$stylist/information/component/atom/node-icon/index.svelte';
 	import Viewport from '$stylist/architecture/component/atom/viewport/index.svelte';
@@ -9,11 +9,11 @@
 	import type { TOKEN_THEME_MODE } from '$stylist/theme/const/array/theme-mode';
 	import type { GraphToolMode } from '$stylist/architecture/type/alias/graph-tool-mode';
 	import type { GraphNodeCategory } from '$stylist/architecture/type/alias/graph-node-category';
-	import type { GraphWorkspaceNode } from '$stylist/architecture/type/struct/graph-workspace-node';
-	import type { GraphWorkspaceConnection } from '$stylist/architecture/type/struct/graph-workspace-connection';
-	import type { GraphWorkspaceBounds } from '$stylist/architecture/type/struct/graph-workspace-bounds';
+	import type { GraphWorkspaceNode } from '$stylist/architecture/type/object/graph-workspace-node';
+	import type { GraphWorkspaceConnection } from '$stylist/architecture/type/object/graph-workspace-connection';
+	import type { GraphWorkspaceBounds } from '$stylist/architecture/type/object/graph-workspace-bounds';
 	import type { GraphWorkspaceConnectionInput } from '$stylist/architecture/type/alias/graph-workspace-connection-input';
-	import type { GraphNodeDraft } from '$stylist/architecture/type/struct/graph-node-draft';
+	import type { GraphNodeDraft } from '$stylist/architecture/type/object/graph-node-draft';
 	import type { RecipeStylistGraphWorkspace } from '$stylist/architecture/interface/recipe/stylist-graph-workspace';
 
 	const THEME_OPTIONS: (typeof TOKEN_THEME_MODE)[number][] = ['default', 'light', 'dark'];

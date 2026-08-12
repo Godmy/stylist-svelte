@@ -1,5 +1,4 @@
 import type { DragContract } from '$stylist/layout/type/object/drag-contract';
-
 /**
  * Прото-интерфейс для draggable элементов
  * Расширяет DragContract дополнительными свойствами

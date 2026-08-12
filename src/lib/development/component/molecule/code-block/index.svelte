@@ -4,6 +4,7 @@
 	import { createCodeBlockState } from './state.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
+	import Badge from '$stylist/information/component/atom/badge/index.svelte';
 
 	let {
 		code = '',
@@ -11,7 +12,9 @@
 		showLineNumbers = false,
 		highlightLines = [],
 		title,
+		tags = [],
 		copyable = false,
+		copyOnHover = false,
 		class: hostClass = '',
 		contentClass = '',
 		lineNumberClass = '',
@@ -26,7 +29,9 @@
 		showLineNumbers,
 		highlightLines,
 		title,
+		tags,
 		copyable,
+		copyOnHover,
 		class: hostClass,
 		contentClass,
 		lineNumberClass,
@@ -36,9 +41,20 @@
 </script>
 
 <div class={state.containerClass} {...restProps}>
-	{#if title}
+	{#if title || tags.length > 0}
 		<div class={state.headerClassComputed}>
-			{title}
+			<div class={state.headerContentClass}>
+				{#if title}
+					<span class={state.titleClass}>{title}</span>
+				{/if}
+				{#if tags.length > 0}
+					<div class={state.tagsContainerClass}>
+						{#each tags as tag}
+							<Badge variant="default" class={state.tagClass}>{tag}</Badge>
+						{/each}
+					</div>
+				{/if}
+			</div>
 		</div>
 	{/if}
 
@@ -90,6 +106,29 @@
 		color: var(--color-text-primary);
 	}
 
+	.c-code-block__header-content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.75rem;
+	}
+
+	.c-code-block__title {
+		font-weight: 600;
+		color: var(--color-text-primary);
+	}
+
+	.c-code-block__tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	:global(.c-code-block__tag) {
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+	}
+
 	.c-code-block__main {
 		display: flex;
 	}
@@ -126,6 +165,16 @@
 		position: absolute;
 		top: 0.5rem;
 		right: 0.5rem;
+	}
+
+	.c-code-block__copy--on-hover {
+		opacity: 0;
+		transition: opacity var(--motion-duration-150, 150ms) var(--motion-easing-ease, ease);
+	}
+
+	.c-code-block:hover .c-code-block__copy--on-hover,
+	.c-code-block__copy--on-hover:focus-within {
+		opacity: 1;
 	}
 
 	.c-code-block__icon {

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { UserBehaviorMetricsProps } from '$stylist/marketing/type/struct/user-behavior-metrics/userbehaviormetrics-props';
-	import type { TimeRange } from '$stylist/marketing/type/alias/traffic-analytics-time-range';
+	import type { UserBehaviorMetricsProps } from '$stylist/marketing/type/object/user-behavior-metrics/userbehaviormetrics-props';
+	import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
 	import createUserBehaviorMetricsState from './state.svelte';
 
 	let props: UserBehaviorMetricsProps = $props();
@@ -26,7 +26,7 @@
 							type="button"
 							class="ubm-range-btn"
 							class:ubm-range-btn--active={state.selectedTimeRange === range}
-							onclick={() => state.handleTimeRangeChange(range as TimeRange)}
+							onclick={() => state.handleTimeRangeChange(range as TokenTimeRange)}
 						>
 							{range.toUpperCase()}
 						</button>
@@ -171,4 +171,3 @@
 		color: var(--color-text-primary);
 	}
 </style>
-

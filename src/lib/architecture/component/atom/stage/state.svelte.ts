@@ -1,4 +1,4 @@
-import type { StageProps } from '$stylist/architecture/type/struct/stage/stage-props';
+import type { StageProps } from '$stylist/architecture/type/object/stage/stage-props';
 
 export function createStageState(props: StageProps) {
 	const camera = $derived(props.camera);

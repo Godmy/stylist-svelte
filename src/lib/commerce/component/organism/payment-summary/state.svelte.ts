@@ -1,7 +1,7 @@
-import type { PaymentSummaryProps } from '$stylist/commerce/type/struct/payment-summary-props';
-import type { PaymentSummaryDiscount } from '$stylist/commerce/type/struct/payment-summary-discount';
-import type { PaymentSummaryItem } from '$stylist/commerce/type/struct/payment-summary-item';
-import type { PaymentSummaryTax } from '$stylist/commerce/type/struct/payment-summary-tax';
+import type { PaymentSummaryProps } from '$stylist/commerce/type/object/payment-summary-props';
+import type { PaymentSummaryDiscount } from '$stylist/commerce/type/object/payment-summary-discount';
+import type { PaymentSummaryItem } from '$stylist/commerce/type/object/payment-summary-item';
+import type { PaymentSummaryTax } from '$stylist/commerce/type/object/payment-summary-tax';
 
 export function createPaymentSummaryState(props: PaymentSummaryProps) {
 	const subtotal = $derived(

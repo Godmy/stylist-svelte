@@ -1,4 +1,4 @@
-import type { MinimapBounds } from '$stylist/architecture/type/struct/minimap-bounds';
+import type { MinimapBounds } from '$stylist/architecture/type/object/minimap-bounds';
 import type { RecipeWorkspaceNode } from '$stylist/workspace/interface/recipe/workspace-node';
 
 export function resolveMinimapNodeRect(

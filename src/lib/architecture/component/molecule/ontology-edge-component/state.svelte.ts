@@ -1,4 +1,4 @@
-import type { OntologyEdgeComponentProps } from '$stylist/architecture/type/struct/ontology-edge-component/ontologyedgecomponent-props';
+import type { OntologyEdgeComponentProps } from '$stylist/architecture/type/object/ontology-edge-component/ontologyedgecomponent-props';
 
 const EDGE_COLOR_MAP: Record<string, string> = {
 	subClassOf: 'var(--color-info-500)',

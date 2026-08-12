@@ -1,29 +1,28 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { BehaviorClickable as IClickable } from '$stylist/layout/interface/behavior/clickable';
-import type { BehaviorFocusable as IFocusable } from '$stylist/layout/interface/behavior/focusable';
-import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/behavior/shapeable';
-import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
+import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
+import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
+import type { BehaviorShapeable } from '$stylist/layout/interface/behavior/shapeable';
+import type { BehaviorSized } from '$stylist/layout/interface/behavior/sized';
 import type { ContainerProps } from '$stylist/layout/interface/recipe/container';
 import type { RecipeBorder } from '$stylist/layout/interface/recipe/border';
 import type { RecipeThemeBackground } from '$stylist/layout/interface/recipe/background';
-import type { SlotIcon as IIconSlot } from '$stylist/svg/interface/slot/icon';
-import type { SlotBadge as IBadgeSlot } from '$stylist/information/interface/slot/badge';
-import type { SlotText as ILabelSlot } from '$stylist/typography/interface/slot/text';
-
+import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
+import type { SlotBadge } from '$stylist/information/interface/slot/badge';
+import type { SlotText } from '$stylist/typography/interface/slot/text';
 export interface RecipeButtonComposed
 	extends ComputeIntersectAll<
 		[
 			ComputeIntersectAll<
 				[
-					ILabelSlot,
-					IIconSlot,
-					IBadgeSlot,
-					IClickable,
-					IFocusable,
-					ISized,
-					IShapeable,
+					SlotText,
+					SlotIcon,
+					SlotBadge,
+					BehaviorClickable,
+					BehaviorFocusable,
+					BehaviorSized,
+					BehaviorShapeable,
 					ContainerProps,
 					RecipeThemeBackground,
 					RecipeBorder,

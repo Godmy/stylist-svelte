@@ -3,4 +3,4 @@ export type {
 	AutoCompleteOption,
 	SearchResultItem,
 	SearchResultsProps
-} from './struct';
+} from './object';

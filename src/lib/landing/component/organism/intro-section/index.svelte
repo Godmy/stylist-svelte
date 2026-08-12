@@ -1,6 +1,7 @@
 <script lang="ts">
 	import HeroMediaSection from '$stylist/landing/component/molecule/hero-media-section/index.svelte';
 	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
+	import Divider from '$stylist/layout/component/atom/divider/index.svelte';
 
 	let {
 		ariaLabel,
@@ -22,6 +23,7 @@
 </script>
 
 <section class="intro-section {className}" aria-label={ariaLabel}>
+	<Divider class="intro-section__divider" />
 	<HeroMediaSection
 		class="intro-section__media"
 		level={2}
@@ -35,8 +37,12 @@
 
 <style>
 	.intro-section {
-		padding: 5rem 0;
-		border-top: 1px solid var(--intro-section-border, currentColor);
+		padding: 0 0 5rem;
+	}
+
+	:global(.intro-section__divider) {
+		margin-bottom: 5rem;
+		--color-border-secondary: var(--intro-section-border, currentColor);
 	}
 
 	:global(.intro-section__media) {

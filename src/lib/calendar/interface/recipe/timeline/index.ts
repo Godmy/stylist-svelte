@@ -3,7 +3,6 @@ import type { Snippet } from 'svelte';
 import type { SlotContent } from '$stylist/theme/interface/slot/content';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { HTMLAttributes } from 'svelte/elements';
-
 export interface RecipeTimeline extends ComputeIntersectAll<[HTMLAttributes<HTMLDivElement>]> {
 	items: (ComputeIntersectAll<[SlotContent]> & {
 		id: string;

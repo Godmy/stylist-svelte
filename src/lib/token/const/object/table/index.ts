@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { PLAYGROUND_COMPONENT_CATALOG_SORT_BY } from '$stylist/table/const/array/playground-component-catalog-sort-by';
 import { PLAYGROUND_COMPONENT_CATALOG_VIEW_MODE } from '$stylist/table/const/array/playground-component-catalog-view-mode';
 

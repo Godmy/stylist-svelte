@@ -1,8 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	Image,
-	ImageWithCaption
+	ImageCaption
 } from './atom';
+export { DividerHeadingImageText } from './molecule';
 export {
 	CanvasImageEditor,
 	ImageGallery

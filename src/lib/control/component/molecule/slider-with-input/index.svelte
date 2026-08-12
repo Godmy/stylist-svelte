@@ -50,7 +50,7 @@
 		width: 100%;
 		cursor: pointer;
 		appearance: none;
-		border-radius: var(--border-radius-full, 9999px);
+		border-radius: var(--layout-border-radius-full, 9999px);
 		background-color: var(--color-background-tertiary);
 	}
 
@@ -60,7 +60,7 @@
 	}
 
 	.slider-with-input__number {
-		border-radius: var(--border-radius-base, 0.375rem);
+		border-radius: var(--layout-border-radius-base, 0.25rem);
 		border: 1px solid var(--color-border-primary);
 		padding: 0.5rem 0.75rem;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);

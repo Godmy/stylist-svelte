@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_ALIGNMENT } from '$stylist/layout/const/array/alignment';
 import { TOKEN_BACKGROUND } from '$stylist/layout/const/array/background';
 import { TOKEN_BORDER_STYLE } from '$stylist/layout/const/array/border-style';

@@ -11,7 +11,7 @@
 
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BulkOrderFormModel from './state.svelte';
-	import type { BulkOrderFormProps } from '$stylist/commerce/type/struct/bulk-order-form/bulk-order-form-props';
+	import type { BulkOrderFormProps } from '$stylist/commerce/type/object/bulk-order-form/bulk-order-form-props';
 
 	let {
 		products = [],

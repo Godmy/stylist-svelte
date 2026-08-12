@@ -1,5 +1,4 @@
 import type { SlotDomainEntity } from '$stylist/domain/interface/slot/domain-entity';
-
 export interface RecipeDomainSidebar {
 	activeDomain?: string;
 	activeCluster?: string;

@@ -1,7 +1,6 @@
-import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
+import type { SlotFolderItem } from '$stylist/file/type/object/file-browser/folder-item';
 import type { Snippet } from 'svelte';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 export interface RecipeFileBrowser
 	extends ComputeIntersectAll<[({
 items: ({

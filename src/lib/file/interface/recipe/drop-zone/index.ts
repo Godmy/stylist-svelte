@@ -1,8 +1,6 @@
-import type { SlotDropItem } from '$stylist/file/type/struct/drop-zone/item';
+import type { SlotDropItem } from '$stylist/file/type/object/drop-zone/item';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
-
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 export interface RecipeDropZone
 	extends ComputeIntersectAll<[({
 class?: string;

@@ -1,9 +1,9 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { MapProvider } from '$stylist/geo/type/alias/map-provider';
-import type { MapSelectorLocation as IMapSelectorLocation } from '$stylist/geo/type/struct/map-selector/mapselectorlocation';
+import type { MapSelectorLocation } from '$stylist/geo/type/object/map-selector/mapselectorlocation';
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 
 export interface SlotMapSelector {
-	locations: IMapSelectorLocation[];
+	locations: MapSelectorLocation[];
 	initialCenter?: { lat: number; lng: number };
 	initialZoom?: number;
 	provider?: MapProvider;
@@ -19,9 +19,9 @@ export interface SlotMapSelector {
 	mapClass?: string;
 	searchClass?: string;
 	controlsClass?: string;
-	onLocationSelect?: (location: IMapSelectorLocation) => void;
+	onLocationSelect?: (location: MapSelectorLocation) => void;
 	onMapClick?: (coordinates: { lat: number; lng: number }) => void;
-	onMarkerClick?: (location: IMapSelectorLocation) => void;
+	onMarkerClick?: (location: MapSelectorLocation) => void;
 	height?: string;
 	width?: string;
 }

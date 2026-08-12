@@ -10,7 +10,9 @@ export function createSelectorState(props: RecipeSelector) {
 	const disabled = $derived(props.disabled ?? false);
 	const placeholder = $derived(props.placeholder);
 	const className = $derived(props.class ?? '');
-	const open = $derived(props.open ?? false);
+
+	let open = $state(props.open ?? false);
+	let highlightedIndex = $state(-1);
 
 	const labelId = $derived(`${id}-label`);
 	const triggerId = $derived(`${id}-trigger`);
@@ -36,9 +38,80 @@ export function createSelectorState(props: RecipeSelector) {
 	const errorClass = 'c-selector__error';
 	const valueClass = $derived(selectedOption ? 'c-selector__value' : 'c-selector__placeholder');
 
+	function open_() {
+		if (disabled || open) return;
+		open = true;
+		highlightedIndex = Math.max(
+			options.findIndex((option) => option.value === value),
+			0
+		);
+		props.onToggle?.();
+	}
+
+	function close() {
+		if (!open) return;
+		open = false;
+		highlightedIndex = -1;
+		props.onToggle?.();
+	}
+
 	function handleClick() {
-		if (props.onToggle && !disabled) {
-			props.onToggle();
+		if (disabled) return;
+		if (open) {
+			close();
+		} else {
+			open_();
+		}
+	}
+
+	function selectOption(option: { value: string; label: string }) {
+		if (disabled) return;
+		props.onSelect?.(option.value);
+		props.onChange?.(option.value);
+		close();
+	}
+
+	function optionClass(option: { value: string }, index: number) {
+		return [
+			'c-selector__option',
+			option.value === value ? 'is-selected' : '',
+			index === highlightedIndex ? 'is-highlighted' : ''
+		]
+			.filter(Boolean)
+			.join(' ');
+	}
+
+	function handleTriggerKeydown(event: KeyboardEvent) {
+		if (disabled) return;
+		if (!open) {
+			if (event.key === 'Enter' || event.key === ' ' || event.key === 'ArrowDown') {
+				event.preventDefault();
+				open_();
+			}
+			return;
+		}
+
+		if (event.key === 'ArrowDown') {
+			event.preventDefault();
+			highlightedIndex = Math.min(highlightedIndex + 1, options.length - 1);
+		} else if (event.key === 'ArrowUp') {
+			event.preventDefault();
+			highlightedIndex = Math.max(highlightedIndex - 1, 0);
+		} else if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			const option = options[highlightedIndex];
+			if (option) selectOption(option);
+		} else if (event.key === 'Escape') {
+			event.preventDefault();
+			close();
+		}
+	}
+
+	function handleFocusOut(event: FocusEvent) {
+		const related = event.relatedTarget as HTMLElement | null;
+		const current = event.currentTarget as HTMLElement;
+		if (!related || !current.contains(related)) {
+			close();
 		}
 	}
 
@@ -73,6 +146,9 @@ export function createSelectorState(props: RecipeSelector) {
 		get open() {
 			return open;
 		},
+		get highlightedIndex() {
+			return highlightedIndex;
+		},
 		get labelId() {
 			return labelId;
 		},
@@ -104,6 +180,11 @@ export function createSelectorState(props: RecipeSelector) {
 		get valueClass() {
 			return valueClass;
 		},
-		handleClick
+		handleClick,
+		selectOption,
+		optionClass,
+		handleTriggerKeydown,
+		handleFocusOut,
+		close
 	};
 }

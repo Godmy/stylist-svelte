@@ -5,7 +5,7 @@
 
 	const controls = [
 		{
-			name: 'label',
+			name: 'title',
 			type: 'text' as TokenControllerType,
 			defaultValue: 'CPU Usage',
 			description: 'Title of the performance monitor'
@@ -49,7 +49,7 @@
 	{#snippet children(controlValues: any)}
 		<div class="_c1">
 			<PerformanceMonitor
-				label={controlValues.label}
+				title={controlValues.title}
 				value={controlValues.value}
 				max={controlValues.max}
 				unit={controlValues.unit}

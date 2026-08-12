@@ -10,4 +10,4 @@ export type {
 	SchemaParseResult,
 	SchemaTable,
 	SchemaTablePosition
-} from './struct';
+} from './object';

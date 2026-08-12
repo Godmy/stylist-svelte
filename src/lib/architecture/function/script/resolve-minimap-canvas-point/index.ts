@@ -1,4 +1,4 @@
-import type { Point2D } from '$stylist/architecture/type/struct/point-2d';
+import type { Point2D } from '$stylist/architecture/type/object/point-2d';
 
 export function resolveMinimapCanvasPoint(
 	clientPoint: Point2D,

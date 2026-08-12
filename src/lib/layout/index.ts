@@ -141,6 +141,7 @@ export type {
 	SeparatorProps,
 	SidebarLayoutProps,
 	SlotComposite,
+	SlotDivider,
 	SlotSortableGridItem,
 	SortableGridProps,
 	SpacerProps,

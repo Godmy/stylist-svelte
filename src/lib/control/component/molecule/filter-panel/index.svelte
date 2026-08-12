@@ -2,11 +2,11 @@
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import SlotCheckbox from '$stylist/control/component/atom/checkbox/index.svelte';
 	import Select from '$stylist/control/component/molecule/selector/index.svelte';
-	import type { FilterPanelProps } from '$stylist/control/type/struct/filter-panel/filterpanel-props';
+	import type { FilterPanelProps } from '$stylist/control/type/object/filter-panel/filterpanel-props';
 	import createFilterPanelState from './state.svelte';
 	import { handleFilterChange } from '$stylist/control/function/script/filter-panel/handle-filter-change';
-	import { handleLayoutChange } from '$stylist/control/function/script/filter-panel/handle-layout-change';
 	import { handleReset } from '$stylist/control/function/script/filter-panel/handle-reset';
+	import type { FilterPanelLayout } from '$stylist/control/type/alias/filter-panel-layout';
 
 	const { onFilterChange, onReset, ...rest }: FilterPanelProps = $props();
 	const state = createFilterPanelState(rest);
@@ -92,7 +92,10 @@
 				id="layout-select"
 				label="Select Layout"
 				value={state.currentLayout}
-				oninput={(event: Event) => handleLayoutChange(event, state, onFilterChange)}
+				onSelect={(value: string | string[]) => {
+					state.currentLayout = (Array.isArray(value) ? value[0] : value) as FilterPanelLayout;
+					handleFilterChange(state, onFilterChange);
+				}}
 				options={[
 					{ value: 'force-directed', label: 'Force Directed' },
 					{ value: 'hierarchical', label: 'Hierarchical' },
@@ -107,7 +110,7 @@
 		variant="ghost"
 		size="sm"
 		class="reset-btn"
-		style="align-self: flex-start; margin-top: var(--spacing-2);"
+		style="align-self: flex-start; margin-top: 0.5rem;"
 		onclick={() => handleReset(state, onFilterChange, onReset)}
 	>
 		Reset Filters
@@ -118,42 +121,42 @@
 	.filter-panel {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-4);
-		padding: var(--spacing-4);
+		gap: 1rem;
+		padding: 1rem;
 		background-color: var(--color-background-secondary);
-		border-radius: var(--border-radius-lg);
+		border-radius: var(--layout-border-radius-lg, 0.5rem);
 		border: 1px solid var(--color-border-primary);
 	}
 
 	.filter-section {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-2);
+		gap: 0.5rem;
 	}
 
 	.filter-header {
-		font-weight: var(--font-weight-semibold);
-		font-size: var(--font-size-3);
+		font-weight: var(--typography-font-weight-semibold, 600);
+		font-size: var(--typography-font-size-3, 0.75rem);
 		color: var(--color-text-primary);
-		padding-bottom: var(--spacing-1);
+		padding-bottom: 0.25rem;
 		border-bottom: 1px solid var(--color-border-primary);
 	}
 
 	.filter-options {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-2);
+		gap: 0.5rem;
 	}
 
 	.filter-item {
 		display: flex;
 		align-items: center;
-		gap: var(--spacing-2);
+		gap: 0.5rem;
 	}
 
 	.layout-controls {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-2);
+		gap: 0.5rem;
 	}
 </style>

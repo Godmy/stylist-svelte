@@ -19,7 +19,7 @@
 			children,
 			class: classProp,
 			text,
-			label,
+			copyText,
 			successMessage,
 			showIcon,
 			onSuccess,
@@ -61,7 +61,7 @@
 			/>
 		{/if}
 	{/if}
-	<span class="c-copy-button__label">{state.copied ? 'Copied!' : (props.label ?? 'Copy')}</span>
+	<span class="c-copy-button__label">{state.copied ? 'Copied!' : (props.text ?? 'Copy')}</span>
 </button>
 
 <style>

@@ -1,5 +1,4 @@
 import type { SchemaLayout } from '$stylist/erd/type/alias/schema-layout';
-
 export interface SlotErdSettings {
 	title?: string;
 	value?: string;

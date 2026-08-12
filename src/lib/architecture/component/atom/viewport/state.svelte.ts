@@ -1,4 +1,4 @@
-import type { ViewportProps } from '$stylist/architecture/type/struct/viewport/viewport-props';
+import type { ViewportProps } from '$stylist/architecture/type/object/viewport/viewport-props';
 
 export function createViewportState(props: ViewportProps) {
 	let isDragging = $state(false);

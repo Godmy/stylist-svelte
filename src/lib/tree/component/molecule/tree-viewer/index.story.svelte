@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import TreeViewer from './index.svelte';
-	import type { TreeNodeItemNode } from '$stylist/tree/type/struct/tree-node-item-node';
+	import type { TreeNodeItemNode } from '$stylist/tree/type/object/tree-node-item-node';
 
 	// Create sample tree data
 	const createSampleTree = (): TreeNodeItemNode[] => [

@@ -8,4 +8,4 @@ export type {
 	TypeDomainComponentDescriptor,
 	TypeDomainComponentProjection,
 	TypeDomainTreeNode
-} from './struct';
+} from './object';

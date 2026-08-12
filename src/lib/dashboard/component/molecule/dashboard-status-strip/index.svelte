@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { DashboardPipelineStatus } from '$stylist/dashboard/type/struct/dashboard-pipeline-status';
-	import type { DashboardReportSummary } from '$stylist/dashboard/type/struct/dashboard-report-summary';
+	import type { DashboardPipelineStatus } from '$stylist/dashboard/type/object/dashboard-pipeline-status';
+	import type { DashboardReportSummary } from '$stylist/dashboard/type/object/dashboard-report-summary';
 	import DashboardStatusPill from '$stylist/dashboard/component/atom/dashboard-status-pill/index.svelte';
 	import DashboardCountTile from '$stylist/dashboard/component/atom/dashboard-count-tile/index.svelte';
 	import DashboardRunButton from '$stylist/dashboard/component/atom/dashboard-run-button/index.svelte';

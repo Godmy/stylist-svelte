@@ -7,24 +7,11 @@ export type {
 	TokenSoftwareBadge
 } from './alias';
 export type {
-	AtomicPrinciplesShowcaseAtomicPrinciplesStats,
-	AtomicPrinciplesShowcaseProps,
-	CodeBlockWithLineNumbersProps,
 	CodeDiffProps,
-	CodeEditorProps,
-	CodeSectionProps,
 	ComponentLibraryStatsComponentStats,
-	ComponentLibraryStatsProps,
-	CopyCode,
-	CopyableCodeBlockProps,
 	DebugConsoleLogEntry,
-	DebugConsoleProps,
 	DesignTokensProps,
-	DevelopmentErrorBoundaryErrorInfo,
-	DevelopmentErrorBoundaryProps,
 	MockDataSelectorDataSelection,
-	MockDataSelectorMockDataSchema,
-	MockDataSelectorProps,
 	PageBuilderButtonAttributes,
 	PageBuilderContainerAttributes,
 	PageBuilderElement,
@@ -32,12 +19,6 @@ export type {
 	PageBuilderImageAttributes,
 	PageBuilderProps,
 	PageBuilderTextAttributes,
-	PrivacySettingsProps,
-	PrivacySettingsSetting,
-	ResourceOptimizerOptimizationSuggestion,
-	ResourceOptimizerProps,
-	ResourceOptimizerResource,
-	ResourceOptimizerResourceType,
 	StylistProps,
 	StylistSelection
-} from './struct';
+} from './object';

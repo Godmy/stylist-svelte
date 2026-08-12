@@ -113,8 +113,8 @@
 		cursor: pointer;
 		color: var(--color-text-primary);
 		transition:
-			background-color var(--duration-120, 120ms),
-			color var(--duration-120, 120ms);
+			background-color var(--motion-duration-120, 120ms),
+			color var(--motion-duration-120, 120ms);
 	}
 
 	.c-a11y-toolbar__btn:hover {

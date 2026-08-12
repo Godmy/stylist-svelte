@@ -3,8 +3,10 @@
 	import StepList from '$stylist/landing/component/molecule/step-list/index.svelte';
 	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
 	import ComparisonTable from '$stylist/table/component/molecule/comparison-table/index.svelte';
-	import type { ComparisonTableFeature } from '$stylist/table/type/struct/comparison-table-feature';
-	import type { ComparisonTableProduct } from '$stylist/table/type/struct/comparison-table-product';
+	import Image from '$stylist/image/component/atom/image/index.svelte';
+	import Divider from '$stylist/layout/component/atom/divider/index.svelte';
+	import type { ComparisonTableFeature } from '$stylist/table/type/object/comparison-table-feature';
+	import type { ComparisonTableProduct } from '$stylist/table/type/object/comparison-table-product';
 
 	let {
 		id,
@@ -53,12 +55,13 @@
 </script>
 
 <section {id} class="workflow-section {className}" aria-label={ariaLabel}>
+	<Divider class="workflow-section__divider" />
 	<SectionHeading {eyebrow} {title} class="workflow-section__heading" />
 
 	<div class="workflow-section__pair">
 		<StepList {steps} class="workflow-section__steps" />
 		<figure class="workflow-section__media">
-			<img src={imageSrc} alt={imageAlt} loading="lazy" />
+			<Image imageSrc={imageSrc} imageAlt={imageAlt} size="xl" class="workflow-section__image" />
 		</figure>
 	</div>
 
@@ -70,8 +73,12 @@
 
 <style>
 	.workflow-section {
-		padding: 5rem 0;
-		border-top: 1px solid var(--workflow-section-border, currentColor);
+		padding: 0 0 5rem;
+	}
+
+	:global(.workflow-section__divider) {
+		margin-bottom: 5rem;
+		--color-border-secondary: var(--workflow-section-border, currentColor);
 	}
 
 	.workflow-section__pair {
@@ -92,11 +99,14 @@
 		aspect-ratio: 16 / 9;
 	}
 
-	.workflow-section__media img {
+	:global(.workflow-section__image) {
 		display: block;
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
+		--image-width: 100%;
+		--image-height: 100%;
+		--image-radius: 0;
+		--image-background: transparent;
 	}
 
 	:global(.workflow-section__steps) {

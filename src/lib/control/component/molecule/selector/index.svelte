@@ -20,6 +20,8 @@
 			placeholder: _placeholder,
 			open: _open,
 			onToggle: _onToggle,
+			onSelect: _onSelect,
+			onChange: _onChange,
 			...rest
 		} = props;
 		return rest;
@@ -36,7 +38,7 @@
 		</label>
 	{/if}
 
-	<div class={state.fieldWrapperClass}>
+	<div class={state.fieldWrapperClass} onfocusout={state.handleFocusOut}>
 		<button
 			id={state.triggerId}
 			type="button"
@@ -45,6 +47,7 @@
 			aria-expanded={state.open}
 			aria-labelledby={state.labelId}
 			onclick={state.handleClick}
+			onkeydown={state.handleTriggerKeydown}
 			disabled={state.disabled}
 		>
 			<span class={state.valueClass}>
@@ -62,6 +65,24 @@
 				/>
 			</span>
 		</button>
+
+		{#if state.open}
+			<ul class="c-selector__dropdown" role="listbox" aria-labelledby={state.labelId}>
+				{#each state.options as option, index}
+					<li>
+						<button
+							type="button"
+							role="option"
+							aria-selected={option.value === state.value}
+							class={state.optionClass(option, index)}
+							onclick={() => state.selectOption(option)}
+						>
+							{option.label}
+						</button>
+					</li>
+				{/each}
+			</ul>
+		{/if}
 
 		<!-- Native select for form integration -->
 		<select
@@ -151,9 +172,16 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		min-height: var(--size-2_875rem);
-		letter-spacing: var(--letter-spacing-narrow);
-		background-image: var(--gradient-custom12);
+		min-height: 2.875rem;
+		letter-spacing: var(--typography-letter-spacing-narrow, -0.01em);
+		background-image: var(
+			--gradients-types-custom12,
+			linear-gradient(
+				120deg,
+				color-mix(in srgb, var(--color-background-primary) 95%, transparent),
+				color-mix(in srgb, var(--color-background-secondary) 85%, transparent)
+			)
+		);
 		color-scheme: var(--theme, light);
 	}
 
@@ -207,24 +235,45 @@
 	}
 
 	.c-selector__dropdown {
+		position: absolute;
+		top: calc(100% + 0.25rem);
+		left: 0;
+		right: 0;
+		z-index: var(--layout-z-index-dropdown, 1000);
+		margin: 0;
+		padding: 0.25rem;
+		list-style: none;
+		max-height: 16rem;
+		overflow-y: auto;
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
+		box-shadow: var(--layout-box-shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1));
 		background: color-mix(in srgb, var(--color-background-primary) 98%, transparent);
 		backdrop-filter: blur(18px);
 		-webkit-backdrop-filter: blur(18px);
-		animation: select-dropdown-appear var(--duration-180) var(--easing-ease-entrance);
+		animation: select-dropdown-appear var(--motion-duration-180, 180ms)
+			var(--motion-easing-ease-out, ease-out);
 	}
 
 	.c-selector__option,
 	.c-selector__native option {
 		background-color: var(--select-option-bg);
 		color: var(--select-option-color);
-		font-weight: var(--font-weight-medium);
+		font-weight: var(--typography-font-weight-medium, 500);
 	}
 
 	.c-selector__option {
+		display: block;
+		width: 100%;
+		padding: 0.5rem 0.75rem;
+		text-align: left;
+		font: inherit;
+		border-radius: 0.375rem;
+		cursor: pointer;
 		transition:
-			background var(--duration-150) var(--animation-ease),
-			color var(--duration-150) var(--animation-ease),
-			transform var(--duration-150) var(--animation-ease);
+			background var(--motion-duration-150, 150ms) var(--motion-easing-ease, ease),
+			color var(--motion-duration-150, 150ms) var(--motion-easing-ease, ease),
+			transform var(--motion-duration-150, 150ms) var(--motion-easing-ease, ease);
 		border: 1px solid transparent;
 	}
 
@@ -243,7 +292,10 @@
 	.c-selector__option.is-selected {
 		background-color: var(--select-option-selected-bg);
 		color: var(--select-option-selected-color);
-		box-shadow: var(--shadow-custom23);
+		box-shadow: var(
+			--layout-box-shadow-custom23,
+			0 12px 20px color-mix(in srgb, var(--color-primary-500) 25%, transparent)
+		);
 	}
 
 	/* Native select fallback */

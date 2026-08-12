@@ -31,14 +31,14 @@
 		marker-end={`url(#arrowhead-${state.id})`}
 	/>
 
-	{#if state.label}
+	{#if state.text}
 		<text
 			x={state.labelX}
 			y={state.labelY}
 			text-anchor="middle"
 			fill={state.color}
 			font-size="12"
-			class="graphviz-directed-edge__label">{state.label}</text
+			class="graphviz-directed-edge__label">{state.text}</text
 		>
 	{/if}
 </svg>

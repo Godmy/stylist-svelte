@@ -20,7 +20,6 @@ export {
 	PERIODIC_ELEMENT_DETAIL,
 	PERIODIC_ELEMENT_LIGHT_INTERACTION
 } from './const';
-export type { SpectralLine } from './type';
 export type {
 	RecipeAbsorptionSpectrumBand,
 	RecipeChemicalProperty,

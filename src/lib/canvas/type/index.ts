@@ -11,5 +11,6 @@ export type {
 	SharedCanvasContract,
 	SharedCanvasObjectBounds,
 	SharedCanvasTool,
+	SharedCanvasToolDefinition,
 	ThemeGraphColors
-} from './struct';
+} from './object';

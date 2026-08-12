@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_BILLING_ITEM } from '$stylist/commerce/const/array/billing-item';
 import { TOKEN_BILLING_SUMMARY } from '$stylist/commerce/const/array/billing-summary';
 import { DISCOUNT_TYPE } from '$stylist/commerce/const/array/discount-type';

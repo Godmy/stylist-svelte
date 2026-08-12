@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/scene-node';
+	import type { SceneNode } from '$stylist/architecture/type/object/scene-node/scene-node';
 	import { resolveSemanticZoomNode } from '$stylist/architecture/function/script/resolve-semantic-zoom-node';
 	import { resolveSemanticZoomPresentation } from '$stylist/architecture/function/script/semantic-zoom';
 	import PreziScene from './index.svelte';

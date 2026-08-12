@@ -4,7 +4,6 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-
 export interface RecipeBadge
 	extends ComputeIntersectAll<[SlotTheme, SlotChildren, HTMLAttributes<HTMLSpanElement>]> {
 	variant?: TokenColorTone;

@@ -1,5 +1,5 @@
-import type { BreadcrumbDropdownItem } from '$stylist/navigation/type/struct/breadcrumbs-props/breadcrumb-dropdown-item';
-import type { BreadcrumbItem } from '$stylist/navigation/type/struct/breadcrumbs-props/breadcrumb-item';
+import type { BreadcrumbDropdownItem } from '$stylist/navigation/type/object/breadcrumbs-props/breadcrumb-dropdown-item';
+import type { BreadcrumbItem } from '$stylist/navigation/type/object/breadcrumbs-props/breadcrumb-item';
 
 export function getBreadcrumbDropdownItems(
 	items: BreadcrumbItem[],

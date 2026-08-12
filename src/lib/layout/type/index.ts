@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	CenteredLayoutAxis,
+	ClassValue,
 	ContainerQueryType,
 	GradientDirection,
 	GridMoleculeJustify,
@@ -36,4 +37,3 @@ export type {
 	GraphPortSizeMapDimensions,
 	RecordSizeMap
 } from './record';
-export type { ClassValue } from './script';

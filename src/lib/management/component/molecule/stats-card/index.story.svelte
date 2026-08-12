@@ -4,7 +4,7 @@
 	import StatsCard from './index.svelte';
 
 	const controls: SlotStory[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Active users' },
+		{ name: 'text', type: 'text', defaultValue: 'Active users' },
 		{ name: 'value', type: 'text', defaultValue: '12,480' },
 		{ name: 'trend', type: 'select', defaultValue: 'up', options: ['up', 'down', 'neutral'] },
 		{ name: 'trendValue', type: 'text', defaultValue: '+8.4%' },
@@ -20,7 +20,7 @@
 >
 	{#snippet children(values: any)}
 		<StatsCard
-			label={values.label}
+			text={values.text}
 			value={values.value}
 			trend={values.trend}
 			trendValue={values.trendValue}

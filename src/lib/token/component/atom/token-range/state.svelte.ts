@@ -1,4 +1,4 @@
-import type { TokenRangeControlProps } from '$stylist/token/type/struct/token-range-control-props';
+import type { TokenRangeControlProps } from '$stylist/token/type/object/token-range-control-props';
 
 export function createTokenRangeState(props: TokenRangeControlProps) {
 	const initialValue =

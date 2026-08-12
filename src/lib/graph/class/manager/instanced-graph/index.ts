@@ -6,7 +6,7 @@ import { buildInstancedNodeBuffers } from '$stylist/graph/function/script/build-
 import { buildInstancedEdgeBuffers } from '$stylist/graph/function/script/build-instanced-edge-buffers';
 import { pickZwickyNodeFromScreen } from '$stylist/graph/function/script/pick-zwicky-node-from-screen';
 import { ZWICKY_LAYOUT_SCALE } from '$stylist/graph/const/value/zwicky-layout-scale';
-import type { ZwickyNode } from '$stylist/graph/type/struct/zwicky-node';
+import type { ZwickyNode } from '$stylist/graph/type/object/zwicky-node';
 import instancedVert from '$stylist/graph/data/shader/vertex/instanced.vert?raw';
 import instancedFrag from '$stylist/graph/data/shader/fragment/instanced.frag?raw';
 import edgeVert from '$stylist/graph/data/shader/vertex/edge.vert?raw';

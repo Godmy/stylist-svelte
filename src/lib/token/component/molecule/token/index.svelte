@@ -3,7 +3,7 @@
 	import TokenRangeControl from '$stylist/token/component/atom/token-range/index.svelte';
 	import TokenSelectControl from '$stylist/token/component/atom/token-select/index.svelte';
 	import TokenTextControl from '$stylist/token/component/atom/token-text/index.svelte';
-	import type { TokenControlComposerProps } from '$stylist/token/type/struct/token-control-composer-props';
+	import type { TokenControlComposerProps } from '$stylist/token/type/object/token-control-composer-props';
 	import createTokenControlComposerState from './state.svelte';
 
 	let props: TokenControlComposerProps = $props();

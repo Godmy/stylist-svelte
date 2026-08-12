@@ -1,4 +1,4 @@
-import type { SceneAtom } from '$stylist/graph/type/struct/scene-atom/scene-atom';
+import type { SceneAtom } from '$stylist/graph/type/object/scene-atom/scene-atom';
 
 export function createSceneAtom(atom: SceneAtom): SceneAtom {
 	return {

@@ -1,4 +1,4 @@
-import type { DashboardReportSummary } from '$stylist/dashboard/type/struct/dashboard-report-summary';
+import type { DashboardReportSummary } from '$stylist/dashboard/type/object/dashboard-report-summary';
 
 export const DASHBOARD_PIPELINE_STEP = [
 	{

@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { AVATAR_USER_STATUS } from '$stylist/user/const/array/avatar-user-status';
 
 export const TOKEN_USER_SETTING = [

@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { SCENE_CAMERA_PRESET } from '$stylist/graph/const/array/scene-camera-preset';
 
 export const TOKEN_GRAPH_SETTING = [

@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AccountSettings } from './account-settings';
-export type { UserData } from './user-data';
+export type { AvatarProps } from './avatar';
+export type { AvatarGroupAvatar } from './avatar-group';

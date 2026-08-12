@@ -45,7 +45,13 @@
 		{brand}
 		{languageControl}
 	/>
-	<HeroMediaSection class="hero-section__media" {title} {imageSrc} {imageAlt} />
+	<HeroMediaSection
+		class="hero-section__media"
+		{title}
+		{imageSrc}
+		{imageAlt}
+		imageLoading="eager"
+	/>
 	<Paragraph text={lead} class="hero-section__lead" />
 </section>
 

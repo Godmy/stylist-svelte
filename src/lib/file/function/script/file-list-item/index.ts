@@ -1,4 +1,4 @@
-import type { FileItem } from '$stylist/file/type/struct/file-list-item/file-item';
+import type { FileItem } from '$stylist/file/type/object/file-list-item/file-item';
 
 export function handleSelect(
 	item: FileItem,

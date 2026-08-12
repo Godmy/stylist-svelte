@@ -72,7 +72,7 @@ export function createCopyButtonState(props: RecipeCopyButton & HTMLButtonAttrib
 		async handleCopy() {
 			if (props.disabled || props.loading) return;
 
-			const success = await copyTextToClipboard(props.text ?? '');
+			const success = await copyTextToClipboard(props.copyText ?? '');
 
 			if (success) {
 				copied = true;

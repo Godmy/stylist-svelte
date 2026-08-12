@@ -1,6 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
-
 export interface SlotClick extends HTMLAttributes<HTMLDivElement> {
 	/** Обработчик клика */
 	onClick?: (event: MouseEvent) => void;

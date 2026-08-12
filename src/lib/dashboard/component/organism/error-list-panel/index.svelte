@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeErrorListPanel } from '$stylist/dashboard/interface/recipe/error-list-panel';
-	import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/struct/error-diagnostic-item';
+	import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/object/error-diagnostic-item';
 	import ErrorDiagnosticList from '$stylist/dashboard/component/molecule/error-diagnostic-list/index.svelte';
 	import DashboardCountTile from '$stylist/dashboard/component/atom/dashboard-count-tile/index.svelte';
 	import DashboardStatusPill from '$stylist/dashboard/component/atom/dashboard-status-pill/index.svelte';
@@ -63,7 +63,7 @@
 		<DashboardCountTile label="Errors" value={errorCount} status={errorCount > 0 ? 'error' : 'ok'} />
 		<DashboardCountTile label="Warnings" value={warningCount} status={warningCount > 0 ? 'warning' : 'ok'} />
 		<DashboardCountTile label="New" value={visibleItems.filter((item) => item.isNew).length} status="unknown" />
-		<MetricBarsCard label="Severity distribution" total={`${visibleItems.length} items`} bars={severityBars} />
+		<MetricBarsCard title="Severity distribution" total={`${visibleItems.length} items`} bars={severityBars} />
 	</div>
 
 	<div class="c-error-list-panel__group-row">

@@ -1,4 +1,4 @@
-import type { AutoCompleteOption } from '$stylist/search/type/struct/auto-complete-option';
+import type { AutoCompleteOption } from '$stylist/search/type/object/auto-complete-option';
 import type { SlotAutoComplete as RecipeAutoComplete } from '$stylist/search/interface/slot/auto-complete';
 
 export const createAutoCompleteState = (props: RecipeAutoComplete) => {

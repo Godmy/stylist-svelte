@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { ConversionFunnelProps } from '$stylist/marketing/type/struct/conversion-funnel/conversionfunnel-props';
+	import type { ConversionFunnelProps } from '$stylist/marketing/type/object/conversion-funnel/conversionfunnel-props';
 	import createConversionFunnelState from './state.svelte';
 
 	const BarChart3 = 'bar-chart-3';

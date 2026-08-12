@@ -1,17 +1,14 @@
 import type { HTMLAttributes } from 'svelte/elements';
-export interface RecipeImageGallery extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
-	images: ({
-id: string;
-	src: string;
-	alt?: string;
-	caption?: string;
-})[];
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+import type { SlotImage } from '$stylist/image/interface/slot/image';
+export interface RecipeImageGallery
+	extends ComputeIntersectAll<[Omit<HTMLAttributes<HTMLDivElement>, 'class'>]> {
+	images: ComputeIntersectAll<[SlotImage, { id: string; caption?: string }]>[];
 	showThumbnails?: boolean;
 	autoPlay?: boolean;
 	autoPlayInterval?: number;
 	showCaptions?: boolean;
 	class?: string;
-	imageClass?: string;
 	thumbnailClass?: string;
 	navigationClass?: string;
 	captionClass?: string;

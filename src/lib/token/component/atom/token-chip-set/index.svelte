@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TokenChipSetProps } from '$stylist/token/type/struct/token-chip-set-props';
+	import type { TokenChipSetProps } from '$stylist/token/type/object/token-chip-set-props';
 	import createTokenChipSetState from './state.svelte';
 
 	let props: TokenChipSetProps = $props();

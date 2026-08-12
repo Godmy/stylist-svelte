@@ -1,4 +1,4 @@
-import type { CanvasChartPadding } from '$stylist/chart/type/struct/canvas-chart-padding';
+import type { CanvasChartPadding } from '$stylist/chart/type/object/canvas-chart-padding';
 
 export const DEFAULT_CANVAS_CHART_PADDING: CanvasChartPadding = {
 	top: 40,

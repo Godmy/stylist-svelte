@@ -1,5 +1,4 @@
 import type { UploadStatus } from '$stylist/file/type/alias/upload-status';
-
 export interface SlotUploadFile {
 	id: string;
 	name: string;

@@ -1,4 +1,4 @@
-import type { SceneMaterialKind } from '$stylist/graph/type/struct/scene-material-kind';
+import type { SceneMaterialKind } from '$stylist/graph/type/object/scene-material-kind';
 
 export const MATERIAL_PALETTE: Record<SceneMaterialKind, readonly [number, number, number]> = {
 	solid: [0.82, 0.86, 0.92],

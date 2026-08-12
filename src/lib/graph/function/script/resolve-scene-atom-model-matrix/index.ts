@@ -1,5 +1,5 @@
 import { Matrix4 } from '$stylist/graph/class/object-manager/matrix4';
-import type { SceneAtom } from '$stylist/graph/type/struct/scene-atom/scene-atom';
+import type { SceneAtom } from '$stylist/graph/type/object/scene-atom/scene-atom';
 
 export function resolveSceneAtomModelMatrix(atom: SceneAtom, animationTime = 0): Matrix4 {
 	const { position, rotation, scale } = atom.transform;

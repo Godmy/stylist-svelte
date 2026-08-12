@@ -10,7 +10,7 @@
 <article class={state.containerClasses} {...state.restProps}>
 	<div class={state.headerClasses}>
 		<div>
-			<h3 class={state.titleClasses}>{state.label}</h3>
+			<h3 class={state.titleClasses}>{state.text}</h3>
 			{#if state.caption}
 				<p class={state.captionClasses}>{state.caption}</p>
 			{/if}
@@ -24,7 +24,7 @@
 	<div class={state.barsClasses}>
 		{#each state.bars as bar}
 			<MetricBar
-				label={bar.label}
+				text={bar.label}
 				value={bar.value}
 				valueLabel={bar.valueLabel ?? bar.value}
 				percentage={bar.percentage}

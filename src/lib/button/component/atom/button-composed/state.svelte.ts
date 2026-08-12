@@ -14,7 +14,7 @@ export function createButtonComposedState(props: RecipeButtonComposed) {
 
 	const isLoading = $derived(props.loading ?? false);
 	const isDisabled = $derived(Boolean(props.disabled || clickable.disabled || isLoading));
-	const label = $derived(props.label ?? props.ariaLabel ?? props.title);
+	const text = $derived(props.text ?? props.ariaLabel);
 	const loadingLabel = $derived(props.loadingLabel ?? 'Loading...');
 	const badgeText = $derived.by(() => {
 		if (props.badge !== undefined) return String(props.badge);
@@ -49,9 +49,7 @@ export function createButtonComposedState(props: RecipeButtonComposed) {
 
 	const restProps = $derived.by(() => {
 		const {
-			label: _label,
-			placeholder: _placeholder,
-			title: _title,
+			text: _text,
 			ariaLabel: _ariaLabel,
 			icon: _icon,
 			iconLeft: _iconLeft,
@@ -152,8 +150,8 @@ export function createButtonComposedState(props: RecipeButtonComposed) {
 		get isDisabled() {
 			return isDisabled;
 		},
-		get label() {
-			return label;
+		get text() {
+			return text;
 		},
 		get loadingLabel() {
 			return loadingLabel;

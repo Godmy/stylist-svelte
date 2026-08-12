@@ -1,6 +1,5 @@
 import type { GestureContract } from '$stylist/layout/type/object/gesture-contract';
 import type { TokenCursor } from '$stylist/layout/type/alias/cursor';
-
 export interface BehaviorClickable extends Partial<GestureContract> {
 	/** Обработчик клика */
 	onClick?: (event: MouseEvent) => void;

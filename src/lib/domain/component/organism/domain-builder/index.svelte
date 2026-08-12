@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import DomainDescriptorPanel from '$stylist/domain/component/molecule/domain-descriptor-panel/index.svelte';
 	import DomainSidebar from '$stylist/domain/component/organism/domain-sidebar/index.svelte';
-	import type { TypeDomainComponentDescriptor } from '$stylist/domain/type/struct/domain-component-descriptor';
+	import type { TypeDomainComponentDescriptor } from '$stylist/domain/type/object/domain-component-descriptor';
 
 	type BuilderFile = {
 		name: string;

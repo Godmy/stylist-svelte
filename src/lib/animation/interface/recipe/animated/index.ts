@@ -1,8 +1,6 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorMotion } from '$stylist/animation/interface/behavior/motion';
-
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
-
 import type { Snippet } from 'svelte';
 import type { TokenAnimation } from '$stylist/animation/type/alias/animation';
 import type { TokenDuration } from '$stylist/animation/type/alias/duration';

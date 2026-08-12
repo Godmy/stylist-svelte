@@ -7,4 +7,3 @@ export type { RecipeThemeKbd } from './kbd';
 export type { RecipeThemeLink } from './link';
 export type { RecipeRichText } from './rich-text';
 export type { RecipeText } from './text';
-export type { RecipeTextAreaControl } from './text-area-control';

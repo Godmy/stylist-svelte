@@ -1,4 +1,4 @@
-import type { CheckboxGroupProps } from '$stylist/form/type/struct/checkbox-group-props';
+import type { CheckboxGroupProps } from '$stylist/form/type/object/checkbox-group-props';
 
 export function createCheckboxGroupState(props: CheckboxGroupProps) {
 	let selectedValues = $state<string[]>([...(props.value ?? [])]);

@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { RadioGroupProps } from '$stylist/form/type/struct/radio-group/radiogroup-props';
+import type { RadioGroupProps } from '$stylist/form/type/object/radio-group/radiogroup-props';
 export function createRadioGroupState(props: RadioGroupProps): ({
 internalValue: string;
 	layoutClass: string;

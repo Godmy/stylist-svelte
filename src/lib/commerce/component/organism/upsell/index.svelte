@@ -9,7 +9,7 @@
 <div class="upsell">
 	<header class="upsell__header">
 		<div>
-			<h3 class="upsell__title">{props.title ?? 'You May Also Like'}</h3>
+			<h3 class="upsell__title">{props.text ?? 'You May Also Like'}</h3>
 			{#if props.description}
 				<p class="upsell__description">{props.description}</p>
 			{/if}

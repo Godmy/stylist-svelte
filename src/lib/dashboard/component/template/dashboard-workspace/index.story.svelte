@@ -2,13 +2,13 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import DashboardWorkspace from './index.svelte';
 	import fixture from '$stylist/dashboard/data/json/dashboard-fixture/index.json';
-	import type { AuditTreeNode } from '$stylist/dashboard/type/struct/audit-tree-node';
-	import type { DashboardNavigationItem } from '$stylist/dashboard/type/struct/dashboard-navigation-item';
-	import type { DashboardPipelineStatus } from '$stylist/dashboard/type/struct/dashboard-pipeline-status';
-	import type { DashboardReportSummary } from '$stylist/dashboard/type/struct/dashboard-report-summary';
+	import type { AuditTreeNode } from '$stylist/dashboard/type/object/audit-tree-node';
+	import type { DashboardNavigationItem } from '$stylist/dashboard/type/object/dashboard-navigation-item';
+	import type { DashboardPipelineStatus } from '$stylist/dashboard/type/object/dashboard-pipeline-status';
+	import type { DashboardReportSummary } from '$stylist/dashboard/type/object/dashboard-report-summary';
 	import type { DashboardScreen } from '$stylist/dashboard/type/alias/dashboard-screen';
-	import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/struct/error-diagnostic-item';
-	import type { IndexationRunSummary } from '$stylist/dashboard/type/struct/indexation-run-summary';
+	import type { ErrorDiagnosticItem } from '$stylist/dashboard/type/object/error-diagnostic-item';
+	import type { IndexationRunSummary } from '$stylist/dashboard/type/object/indexation-run-summary';
 
 	const activeScreen = fixture.activeScreen as DashboardScreen;
 	const navigationItems = fixture.navigationItems as DashboardNavigationItem[];

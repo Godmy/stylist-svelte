@@ -1,6 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotSortableListItem } from '$stylist/list/interface/slot/sortable-list-item';
-
 export interface SlotSortableList extends HTMLAttributes<HTMLDivElement> {
 	items: SlotSortableListItem[];
 	class?: string;

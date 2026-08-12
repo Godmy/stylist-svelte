@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createPresenterNodeShellState from './state.svelte';
-	import type { PresenterNodeShellProps } from '$stylist/presentation/type/struct/presenter-node-shell';
+	import type { PresenterNodeShellProps } from '$stylist/presentation/type/object/presenter-node-shell';
 
 	let props: PresenterNodeShellProps = $props();
 	const state = createPresenterNodeShellState(props);

@@ -6,7 +6,6 @@ import type { BehaviorClickable } from '$stylist/layout/interface/behavior/click
 import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-
 export interface RecipeQuantitySelector
 	extends ComputeIntersectAll<
 		[((HTMLAttributes<HTMLDivElement> & {

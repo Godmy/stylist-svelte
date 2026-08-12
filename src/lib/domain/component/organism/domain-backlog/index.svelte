@@ -6,8 +6,8 @@
 	import KanbanBoard from '$stylist/portfolio/component/organism/kanban-board/index.svelte';
 	import ScrumBacklog from '$stylist/portfolio/component/molecule/scrum-backlog/index.svelte';
 	import BurnDownChart from '$stylist/portfolio/component/molecule/burn-down-chart/index.svelte';
-	import type { KanbanBoardAction } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardaction';
-	import type { KanbanBoardType } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardtype';
+	import type { KanbanBoardAction } from '$stylist/portfolio/type/object/kanban-board/kanbanboardaction';
+	import type { KanbanBoardType } from '$stylist/portfolio/type/object/kanban-board/kanbanboardtype';
 	import type { SlotBacklogData as BacklogData } from '$stylist/portfolio/interface/slot/backlog-data';
 	import type { SlotBacklogItem as BacklogItem } from '$stylist/portfolio/interface/slot/backlog-item';
 	import type { SlotBurnDownData as BurnDownData } from '$stylist/portfolio/interface/slot/burn-down-data';

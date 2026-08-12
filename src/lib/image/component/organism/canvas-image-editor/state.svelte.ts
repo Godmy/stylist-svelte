@@ -7,9 +7,9 @@ export function createCanvasImageEditorState(props: RecipeCanvasImageEditor & HT
 	let imageLoaded = $state(false);
 	const currentCropArea = $state({ x: 0, y: 0, width: 0, height: 0 });
 
-	const width = $derived(props.width ?? 800);
-	const height = $derived(props.height ?? 600);
-	const src = $derived(props.src);
+	const width = $derived(Number(props.imageWidth ?? 800));
+	const height = $derived(Number(props.imageHeight ?? 600));
+	const imageSrc = $derived(props.imageSrc);
 	const cropEnabled = $derived(props.cropEnabled ?? false);
 	const filter = $derived((props.filter ?? 'none') as string);
 	const brightness = $derived(props.brightness ?? 100);
@@ -19,14 +19,14 @@ export function createCanvasImageEditorState(props: RecipeCanvasImageEditor & HT
 
 	// Load image when src changes
 	$effect(() => {
-		if (src) {
+		if (imageSrc) {
 			const img = new Image();
 			img.onload = () => {
 				image = img;
 				imageLoaded = true;
 				drawImage();
 			};
-			img.src = src;
+			img.src = imageSrc;
 		}
 	});
 
@@ -125,9 +125,13 @@ export function createCanvasImageEditorState(props: RecipeCanvasImageEditor & HT
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,
-			width: _width,
-			height: _height,
-			src: _src,
+			imageSrc: _imageSrc,
+			imageAlt: _imageAlt,
+			imageLoading: _imageLoading,
+			imageFallback: _imageFallback,
+			imageClass: _imageClass,
+			imageWidth: _imageWidth,
+			imageHeight: _imageHeight,
 			cropEnabled: _cropEnabled,
 			filter: _filter,
 			brightness: _brightness,

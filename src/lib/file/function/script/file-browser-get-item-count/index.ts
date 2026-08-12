@@ -1,4 +1,4 @@
-import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
+import type { SlotFolderItem } from '$stylist/file/type/object/file-browser/folder-item';
 
 export function getItemCount(item: SlotFolderItem): number {
 	if (!item.children) return 0;

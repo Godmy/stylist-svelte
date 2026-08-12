@@ -1,6 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-
 export interface RecipeCanvasColorPalette
 	extends ComputeIntersectAll<[HTMLAttributes<HTMLDivElement>]> {
 	value?: string;

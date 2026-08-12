@@ -6,14 +6,9 @@ export {
 } from './atom';
 export {
 	CodeBlock,
-	CodeBlockWithLineNumbers,
 	CodeDiff,
 	CodeEditor,
-	CodeEditorLegacy,
-	CodeSection,
-	CodeWithCopy,
 	ComponentPreview,
-	CopyableCodeBlock,
 	DocumentationBlock,
 	PrivacySettings
 } from './molecule';
@@ -31,6 +26,5 @@ export {
 	LiveCodeSection,
 	MockDataSelector,
 	PageBuilder,
-	ResourceOptimizer,
 	Stylist
 } from './organism';

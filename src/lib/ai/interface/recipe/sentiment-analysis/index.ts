@@ -1,7 +1,6 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SentimentAnalysisStatus } from '$stylist/ai/type/alias/sentiment-analysis-status';
-
 export interface RecipeSentimentAnalysis extends ComputeIntersectAll<[SlotChildren]> {
 	text?: string;
 	result?: ({

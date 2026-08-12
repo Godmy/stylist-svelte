@@ -1,5 +1,5 @@
-import type { ConversionFunnelProps } from '$stylist/marketing/type/struct/conversion-funnel/conversionfunnel-props';
-import type { FunnelStep } from '$stylist/marketing/type/struct/conversion-funnel/funnelstep';
+import type { ConversionFunnelProps } from '$stylist/marketing/type/object/conversion-funnel/conversionfunnel-props';
+import type { FunnelStep } from '$stylist/marketing/type/object/conversion-funnel/funnelstep';
 function getConversionRate(steps: FunnelStep[], stepIndex: number): number {
 	if (stepIndex === 0 || steps.length <= stepIndex) return 100;
 	const current = steps[stepIndex].value;

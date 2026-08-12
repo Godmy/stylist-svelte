@@ -3,15 +3,9 @@ export type {
 	CardData,
 	PerformanceMonitorStatus,
 	TokenKPI,
-	TokenNotifictionChannel,
-	TokenTimeRange,
 	TokenTrend
 } from './alias';
 export type {
-	INotificationSettingsPreference,
-	NotificationData,
-	NotificationType,
-	ScheduledNotificationItem,
 	StatsCardData,
 	StatusItem
-} from './struct';
+} from './object';

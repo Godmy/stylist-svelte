@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import PipelineReportsPanel from './index.svelte';
 	import fixture from '$stylist/dashboard/data/json/dashboard-fixture/index.json';
-	import type { DashboardReportSummary } from '$stylist/dashboard/type/struct/dashboard-report-summary';
+	import type { DashboardReportSummary } from '$stylist/dashboard/type/object/dashboard-report-summary';
 
 	const reports = [...fixture.pipelineStatus.steps, ...fixture.reports] as DashboardReportSummary[];
 </script>

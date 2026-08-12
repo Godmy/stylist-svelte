@@ -27,8 +27,8 @@
 					</div>
 
 					<div class="toast-item__content">
-						{#if toast.title}
-							<h3 class="toast-item__title">{toast.title}</h3>
+						{#if toast.text}
+							<h3 class="toast-item__title">{toast.text}</h3>
 						{/if}
 						<p class="toast-item__message">{toast.message}</p>
 

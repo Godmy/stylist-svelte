@@ -1,4 +1,4 @@
-import type { SchemaDocument } from '$stylist/erd/type/struct/schema-document';
+import type { SchemaDocument } from '$stylist/erd/type/object/schema-document';
 
 function sanitizeTypeToken(type: string): string {
 	const trimmed = type.trim();

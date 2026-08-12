@@ -1,4 +1,4 @@
-import type { OntologyNodeComponentProps } from '$stylist/architecture/type/struct/ontology-node-component/ontologynodecomponent-props';
+import type { OntologyNodeComponentProps } from '$stylist/architecture/type/object/ontology-node-component/ontologynodecomponent-props';
 
 const NODE_ICON_MAP: Record<string, string> = {
 	class: 'square',

@@ -2,9 +2,8 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
-import type { MapWithMarkersMarker } from '$stylist/geo/type/struct/map-with-markers/mapwithmarkersmarker';
-import type { MapWithMarkersView } from '$stylist/geo/type/struct/map-with-markers/mapwithmarkersview';
-
+import type { MapWithMarkersMarker } from '$stylist/geo/type/object/map-with-markers/mapwithmarkersmarker';
+import type { MapWithMarkersView } from '$stylist/geo/type/object/map-with-markers/mapwithmarkersview';
 export interface RecipeMapWithMarkers
 	extends ComputeIntersectAll<
 		[

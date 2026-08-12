@@ -10,7 +10,6 @@ import type { RecipeFileInput } from '$stylist/file/interface/recipe/file-input'
 import type { RecipeFileListItem } from '$stylist/file/interface/recipe/file-list-item';
 import type { RecipeFileUpload } from '$stylist/file/interface/recipe/file-upload';
 import type { RecipeZipViewer } from '$stylist/file/interface/recipe/zip-viewer';
-
 export interface ContractFile {
 	RecipeAttachmentPreview: RecipeAttachmentPreview;
 	DownloadCard: RecipeDownloadCard;

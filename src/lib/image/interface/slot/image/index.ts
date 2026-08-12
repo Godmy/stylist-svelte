@@ -1,8 +1,9 @@
 export interface SlotImage {
-	src?: string;
-	alt?: string;
-	thumbnail?: string;
-	srcSet?: string;
-	fallback?: string;
-	loading?: 'eager' | 'lazy';
+	imageSrc?: string;
+	imageAlt?: string;
+	imageClass?: string;	
+	imageFallback?: string;
+	imageWidth?: number | string;
+	imageHeight?: number | string;
+	imageLoading?: 'eager' | 'lazy';	
 }

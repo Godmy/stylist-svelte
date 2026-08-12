@@ -4,7 +4,7 @@
 	import createPerformanceMonitorState from './state.svelte';
 
 	let {
-		label = '',
+		title = '',
 		value = 0,
 		max = 100,
 		unit = '%',
@@ -13,7 +13,7 @@
 	}: RecipePerformanceMonitor & HTMLAttributes<HTMLDivElement> = $props();
 
 	const state = createPerformanceMonitorState({
-		label,
+		title,
 		value,
 		max,
 		unit,

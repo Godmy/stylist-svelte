@@ -18,7 +18,7 @@
 	data-loading={state.isLoading || undefined}
 	data-block={props.block || undefined}
 	aria-busy={state.isLoading}
-	aria-label={props.ariaLabel ?? state.label}
+	aria-label={props.ariaLabel ?? state.text}
 	onclick={state.handleClick}
 	ondblclick={state.handleDblClick}
 	oncontextmenu={state.handleContextMenu}
@@ -43,8 +43,8 @@
 
 	{#if props.children}
 		{@render props.children()}
-	{:else if state.label}
-		<span>{state.label}</span>
+	{:else if state.text}
+		<span>{state.text}</span>
 	{/if}
 
 	{#if props.iconRight}

@@ -1,5 +1,5 @@
 import type { RecipeDropZone } from '$stylist/file/interface/recipe/drop-zone';
-import type { SlotDropItem } from '$stylist/file/type/struct/drop-zone/item';
+import type { SlotDropItem } from '$stylist/file/type/object/drop-zone/item';
 import { clearAll } from '$stylist/file/function/script/drop-zone-clear-all';
 import { handleDragLeave as handleDragLeaveFn } from '$stylist/file/function/script/drop-zone-handle-drag-leave';
 import { handleDragOver as handleDragOverFn } from '$stylist/file/function/script/drop-zone';

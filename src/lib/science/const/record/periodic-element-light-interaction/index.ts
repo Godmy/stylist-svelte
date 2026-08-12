@@ -1,4 +1,4 @@
-import type { PeriodicElementLightInteraction } from '$stylist/science/type/struct/periodic-element-light-interaction';
+import type { PeriodicElementLightInteraction } from '$stylist/science/type/object/periodic-element-light-interaction';
 
 export const PERIODIC_ELEMENT_LIGHT_INTERACTION: Record<string, PeriodicElementLightInteraction> = {
 	H: {

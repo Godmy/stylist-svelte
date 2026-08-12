@@ -1,8 +1,8 @@
 import type { RecipeMetricBarsCard } from '$stylist/chart/interface/recipe/metric-bars-card';
 
 export function createMetricBarsCardState(props: RecipeMetricBarsCard) {
-	const label = $derived(props.label ?? '');
-	const caption = $derived(props.caption);
+	const text = $derived(props.text ?? '');
+	const caption = $derived(props.description);
 	const total = $derived(props.total);
 	const bars = $derived(props.bars ?? []);
 	const color = $derived(props.color ?? 'var(--color-primary-500)');
@@ -20,8 +20,8 @@ export function createMetricBarsCardState(props: RecipeMetricBarsCard) {
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,
-			label: _label,
-			caption: _caption,
+			text: _text,
+			description: _description,
 			total: _total,
 			bars: _bars,
 			color: _color,
@@ -32,8 +32,8 @@ export function createMetricBarsCardState(props: RecipeMetricBarsCard) {
 	});
 
 	return {
-		get label() {
-			return label;
+		get text() {
+			return text;
 		},
 		get caption() {
 			return caption;

@@ -1,5 +1,5 @@
-import type { UserBehaviorMetricsProps } from '$stylist/marketing/type/struct/user-behavior-metrics/userbehaviormetrics-props';
-import type { TimeRange } from '$stylist/marketing/type/alias/traffic-analytics-time-range';
+import type { UserBehaviorMetricsProps } from '$stylist/marketing/type/object/user-behavior-metrics/userbehaviormetrics-props';
+import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
 import { untrack } from 'svelte';
 
 export function createUserBehaviorMetricsState(props: UserBehaviorMetricsProps) {
@@ -19,7 +19,7 @@ export function createUserBehaviorMetricsState(props: UserBehaviorMetricsProps) 
 		selectedTimeRange = timeRange;
 	});
 
-	function handleTimeRangeChange(range: TimeRange): void {
+	function handleTimeRangeChange(range: TokenTimeRange): void {
 		selectedTimeRange = range;
 		if (onTimeRangeChange) {
 			onTimeRangeChange(range);
@@ -55,7 +55,7 @@ export function createUserBehaviorMetricsState(props: UserBehaviorMetricsProps) 
 		get selectedTimeRange() {
 			return selectedTimeRange;
 		},
-		set selectedTimeRange(v: TimeRange) {
+		set selectedTimeRange(v: TokenTimeRange) {
 			selectedTimeRange = v;
 		},
 		get containerClasses() {
@@ -78,4 +78,3 @@ export function createUserBehaviorMetricsState(props: UserBehaviorMetricsProps) 
 }
 
 export default createUserBehaviorMetricsState;
-

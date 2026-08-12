@@ -1,4 +1,4 @@
-import type { SlotDropItem } from '$stylist/file/type/struct/drop-zone/item';
+import type { SlotDropItem } from '$stylist/file/type/object/drop-zone/item';
 
 export function removeItem(
 	id: string,

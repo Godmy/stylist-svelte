@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { LIST_ITEM_MARKER_TYPE } from '$stylist/list/const/array/list-item-marker-type';
 import { TOKEN_SOFTWARE_BADGE } from '$stylist/development/const/array/software-badge';
 import { STATUS_STATE } from '$stylist/information/const/array/status-state';

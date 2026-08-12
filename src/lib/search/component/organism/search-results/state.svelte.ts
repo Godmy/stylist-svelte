@@ -1,5 +1,5 @@
-import type { SearchResultItem } from '$stylist/search/type/struct/search-results-item';
-import type { SearchResultsProps } from '$stylist/search/type/struct/search-results-props';
+import type { SearchResultItem } from '$stylist/search/type/object/search-results-item';
+import type { SearchResultsProps } from '$stylist/search/type/object/search-results-props';
 
 const Calendar = 'calendar';
 const MapPin = 'map-pin';

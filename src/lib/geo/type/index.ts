@@ -15,4 +15,4 @@ export type {
 	RouteOption,
 	RoutePlannerLocation,
 	StoreLocatorStore
-} from './struct';
+} from './object';

@@ -1,6 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotDragAndDropListItem } from '$stylist/list/interface/slot/drag-and-drop-list-item';
-
 export interface DragAndDropListProps extends HTMLAttributes<HTMLDivElement> {
 	items: SlotDragAndDropListItem[];
 	class?: string;

@@ -1,6 +1,5 @@
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
-
 /**
  * @file MessageBubble Types
  * @description Type definitions for MessageBubble component following Atomic Design principles

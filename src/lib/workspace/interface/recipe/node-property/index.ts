@@ -5,7 +5,6 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { TokenPropertyType } from '$stylist/architecture/type/alias/property-type';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
-
 export interface RecipeNodeProperty
 	extends ComputeIntersectAll<[SlotWorkspaceNode, SlotTheme, Omit<HTMLAttributes<HTMLDivElement>, 'onchange'>]> {
 	id?: string;

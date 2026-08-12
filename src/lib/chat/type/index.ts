@@ -4,4 +4,4 @@ export type {
 	ChatRoomProps,
 	TokenMessageStatus
 } from './alias';
-export type { ChatPreviewMessage } from './struct';
+export type { ChatPreviewMessage } from './object';

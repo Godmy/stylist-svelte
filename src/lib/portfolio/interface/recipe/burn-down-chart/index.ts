@@ -1,8 +1,7 @@
-﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotBurnDownData as BurnDownData } from '$stylist/portfolio/interface/slot/burn-down-data';
-
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+import type { SlotBurnDownData } from '$stylist/portfolio/interface/slot/burn-down-data';
 export interface RecipeBurnDownChart extends ComputeIntersectAll<[]> {
-	data: BurnDownData;
+	data: SlotBurnDownData;
 	width?: number;
 	height?: number;
 	title?: string;

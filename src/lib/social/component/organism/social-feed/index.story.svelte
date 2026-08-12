@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Post } from '$stylist/social/type/struct/social-feed/post';
+	import type { Post } from '$stylist/social/type/object/social-feed/post';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 

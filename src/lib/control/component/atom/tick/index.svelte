@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createSliderTickState from './state.svelte';
-	import type { SliderTickComponentProps } from '$stylist/control/type/struct/slider-tick-component-props';
+	import type { SliderTickComponentProps } from '$stylist/control/type/object/slider-tick-component-props';
 
 	let props: SliderTickComponentProps = $props();
 

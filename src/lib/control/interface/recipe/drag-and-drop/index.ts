@@ -1,7 +1,6 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { BehaviorDraggable as IDraggable } from '$stylist/layout/interface/behavior/draggable';
-import type { BehaviorFocusable as IFocusable } from '$stylist/layout/interface/behavior/focusable';
-import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
-
+import type { BehaviorDraggable } from '$stylist/layout/interface/behavior/draggable';
+import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
+import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 export interface RecipeDragAndDrop
-	extends ComputeIntersectAll<[IDraggable, IFocusable, ISizable]> {}
+	extends ComputeIntersectAll<[BehaviorDraggable, BehaviorFocusable, BehaviorSizable]> {}

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import Heatmap from './index.svelte';
-	import type { IHeatmapCell } from '$stylist/chart/type/struct/heatmap/cell';
+	import type { IHeatmapCell } from '$stylist/chart/type/object/heatmap/cell';
 	import { TOKEN_CONTROLLER_TYPE } from '$stylist/domain/const/map/controller-type';
 
 	// Generate sample data for the heatmap

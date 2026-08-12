@@ -1,9 +1,17 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import { ObjectManagerStatCard } from '$stylist/management/class/object-manager/stat-card';
 import type { RecipeStatCard } from '$stylist/management/interface/recipe/stat-card';
 
+function resolveNumericValue(value: string | number): number | null {
+	if (typeof value === 'number') {
+		return value;
+	}
+
+	const parsedValue = parseFloat(value.replace(/[^\d.-]/g, ''));
+	return Number.isNaN(parsedValue) ? null : parsedValue;
+}
+
 export function createStatCardState(props: RecipeStatCard & HTMLAttributes<HTMLDivElement>) {
-	const label = $derived((props as any).label ?? '');
+	const text = $derived(props.text ?? '');
 	const value = $derived((props as any).value);
 	const icon = $derived((props as any).icon);
 	const trend = $derived((props as any).trend);
@@ -11,13 +19,13 @@ export function createStatCardState(props: RecipeStatCard & HTMLAttributes<HTMLD
 	const description = $derived((props as any).description);
 	const variant = $derived((props as any).variant ?? 'default');
 	const animated = $derived((props as any).animated ?? false);
-	const numericValue = $derived(ObjectManagerStatCard.resolveNumericValue(value));
+	const numericValue = $derived(resolveNumericValue(value));
 	const classNameStr = $derived(props.class == null ? undefined : String(props.class));
 	const classes = $derived(classNameStr);
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,
-			label: _label,
+			text: _text,
 			value: _value,
 			icon: _icon,
 			trend: _trend,
@@ -31,8 +39,8 @@ export function createStatCardState(props: RecipeStatCard & HTMLAttributes<HTMLD
 	});
 
 	return {
-		get label() {
-			return label;
+		get text() {
+			return text;
 		},
 		get value() {
 			return value;

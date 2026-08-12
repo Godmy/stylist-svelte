@@ -1,5 +1,5 @@
-import type { TreeNode } from '$stylist/tree/type/struct/tree-node';
-import type { TreeNodeItemNode } from '$stylist/tree/type/struct/tree-node-item-node';
+import type { TreeNode } from '$stylist/tree/type/object/tree-node';
+import type { TreeNodeItemNode } from '$stylist/tree/type/object/tree-node-item-node';
 
 export function normalizeTreeViewerNode(node: TreeNodeItemNode, index: number): TreeNode {
 	return {

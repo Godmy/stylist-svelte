@@ -42,7 +42,7 @@
 		<DashboardCountTile label="Generated indexes" value={summary?.generatedIndexCount ?? 0} status={(summary?.generatedIndexCount ?? 0) > 0 ? 'warning' : 'ok'} />
 		<DashboardCountTile label="Changed files" value={changedIndexes.length} status={changedIndexes.length > 0 ? 'warning' : 'ok'} />
 		<DashboardCountTile label="Domains" value={affectedDomains.length} status={affectedDomains.length > 0 ? 'warning' : 'ok'} />
-		<MetricBarsCard label="Processed file types" total={`${summary?.processedFileTypes.length ?? 0} types`} bars={fileTypeBars} />
+		<MetricBarsCard title="Processed file types" total={`${summary?.processedFileTypes.length ?? 0} types`} bars={fileTypeBars} />
 	</div>
 
 	<div class="c-indexation-panel__actions">

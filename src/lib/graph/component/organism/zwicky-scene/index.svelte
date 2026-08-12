@@ -4,7 +4,7 @@
 	import GraphClusterFilter from '$stylist/graph/component/molecule/graph-cluster-filter/index.svelte';
 	import GraphLegend from '$stylist/graph/component/molecule/graph-legend/index.svelte';
 	import GraphTooltip from '$stylist/graph/component/atom/graph-tooltip/index.svelte';
-	import type { ZwickySceneProps } from '$stylist/graph/type/struct/zwicky-scene-props';
+	import type { ZwickySceneProps } from '$stylist/graph/type/object/zwicky-scene-props';
 
 	let props: ZwickySceneProps = $props();
 	const state = createZwickySceneState(props);

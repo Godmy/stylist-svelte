@@ -4,4 +4,4 @@ export type {
 	CountryFlagProps,
 	TranslatableText,
 	TranslationLocale
-} from './struct';
+} from './object';

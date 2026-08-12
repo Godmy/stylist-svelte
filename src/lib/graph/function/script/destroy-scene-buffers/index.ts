@@ -1,5 +1,5 @@
 import { isWebGL2Context } from '$stylist/graph/function/script/is-webgl2-context';
-import type { SceneBufferSet } from '$stylist/graph/type/struct/scene-buffer-set';
+import type { SceneBufferSet } from '$stylist/graph/type/object/scene-buffer-set';
 
 export function destroySceneBuffers(
 	gl: WebGLRenderingContext | WebGL2RenderingContext,

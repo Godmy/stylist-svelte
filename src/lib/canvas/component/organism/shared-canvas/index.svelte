@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-contract';
+	import type { SharedCanvasContract } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-contract';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { ObjectManagerSharedCanvas } from '$stylist/canvas/class/object-manager/shared-canvas/index';
 	import createSharedCanvasState from './state.svelte';

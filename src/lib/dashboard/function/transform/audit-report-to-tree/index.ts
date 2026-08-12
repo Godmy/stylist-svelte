@@ -1,4 +1,4 @@
-import type { AuditTreeNode } from '$stylist/dashboard/type/struct/audit-tree-node';
+import type { AuditTreeNode } from '$stylist/dashboard/type/object/audit-tree-node';
 
 export function transformAuditReportToTree(report: unknown): AuditTreeNode[] {
 	const root = report as {

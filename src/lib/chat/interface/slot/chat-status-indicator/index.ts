@@ -1,6 +1,5 @@
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { TokenAvailability } from '$stylist/user/type/alias/availability';
-
 export interface SlotChatStatusIndicator {
 	/**
 	 * The status to display

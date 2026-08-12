@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import createToggleGroupItemState from './state.svelte';
 	import type { RecipeToggleGroupItemProps as RecipeToggleGroupItemProps } from '$stylist/control/interface/recipe/toggle-group-item-props';
-	import type { ToggleGroupContext } from '$stylist/control/type/struct/toggle-group-context';
+	import type { ToggleGroupContext } from '$stylist/control/type/object/toggle-group-context';
 
 	let props: RecipeToggleGroupItemProps = $props();
 
@@ -52,8 +52,8 @@
 		border: 1px solid transparent;
 		cursor: pointer;
 		transition:
-			background-color var(--duration-200, 200ms),
-			color var(--duration-200, 200ms);
+			background-color var(--motion-duration-200, 200ms),
+			color var(--motion-duration-200, 200ms);
 	}
 
 	.c-toggle-group-item:hover:not([data-disabled]) {

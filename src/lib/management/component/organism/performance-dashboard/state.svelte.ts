@@ -1,10 +1,11 @@
 import { untrack } from 'svelte';
-import type { TokenTimeRange } from '$stylist/management/type/alias/token-time-range';
-import { ObjectManagerPerformanceDashboard } from '$stylist/management/class/object-manager/performance-dashboard';
+import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
+import { TOKEN_TIME_RANGE } from '$stylist/calendar/const/array/token-time-range';
+import { TOKEN_PERFORMANCE_BARS } from '$stylist/management/const/array/performance-bars';
 import type { PerformanceDashboardStateProps } from '$stylist/management/interface/recipe/performance-dashboard-performance-dashboard-state-props';
 
 export function createPerformanceDashboardState(props: PerformanceDashboardStateProps) {
-	const label = $derived(props.label ?? 'Performance Dashboard');
+	const label = $derived(props.title ?? 'Performance Dashboard');
 	const subtitle = $derived(props.subtitle);
 	const metrics = $derived(props.metrics ?? []);
 	const timeRange = $derived(props.timeRange ?? '7d');
@@ -27,24 +28,35 @@ export function createPerformanceDashboardState(props: PerformanceDashboardState
 	const metricCardClassComputed = $derived(metricCardClassStr);
 
 	let selectedTimeRange = $state(untrack(() => timeRange));
-	const timeRanges = ObjectManagerPerformanceDashboard.resolveTimeRanges();
-	const chartBarHeights = ObjectManagerPerformanceDashboard.resolveChartBarHeights();
+	const timeRanges = TOKEN_TIME_RANGE;
+	const chartBarHeights = TOKEN_PERFORMANCE_BARS;
 
 	function handleTimeRangeChange(range: TokenTimeRange): void {
-		selectedTimeRange = ObjectManagerPerformanceDashboard.selectTimeRange(
-			range,
-			props.onTimeRangeChange
-		);
+		props.onTimeRangeChange?.(range);
+		selectedTimeRange = range;
 	}
 
 	function getTimeRangeLabel(range: TokenTimeRange): string {
-		return ObjectManagerPerformanceDashboard.resolveTimeRangeLabel(range);
+		switch (range) {
+			case '1d':
+				return '1D';
+			case '7d':
+				return '7D';
+			case '30d':
+				return '30D';
+			case '90d':
+				return '90D';
+			case '1y':
+				return '1Y';
+		}
+
+		return range;
 	}
 
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,
-			label: _label,
+			title: _title,
 			subtitle: _subtitle,
 			metrics: _metrics,
 			timeRange: _timeRange,
@@ -60,10 +72,14 @@ export function createPerformanceDashboardState(props: PerformanceDashboardState
 		return rest;
 	});
 
-	const containerClass = $derived(['performance-dashboard', classNameStr].filter(Boolean).join(' '));
+	const containerClass = $derived(
+		['performance-dashboard', classNameStr].filter(Boolean).join(' ')
+	);
 	const activeTimeRangeButtonClass = 'performance-dashboard__active-time-range-button';
 	const timeRangeButtonClass = 'performance-dashboard__time-range-button';
-	const metricsGridClass = $derived(['performance-dashboard__metrics-grid', metricsClassStr].filter(Boolean).join(' '));
+	const metricsGridClass = $derived(
+		['performance-dashboard__metrics-grid', metricsClassStr].filter(Boolean).join(' ')
+	);
 	const metricHeaderClass = 'performance-dashboard__metric-header';
 	const trendPositiveClass = 'performance-dashboard__trend-positive';
 	const trendNegativeClass = 'performance-dashboard__trend-negative';

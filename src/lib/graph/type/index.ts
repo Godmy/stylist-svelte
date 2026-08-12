@@ -4,7 +4,11 @@ export type {
 	ZwickyLevel
 } from './alias';
 export type {
+	GraphBounds3D,
+	GraphConnection,
 	GraphJsonInput,
+	GraphNode,
+	GraphPosition3D,
 	SceneAtom,
 	SceneAtomGeometry,
 	SceneAtomKind,
@@ -22,10 +26,4 @@ export type {
 	ZwickyFilterState,
 	ZwickyNode,
 	ZwickySceneProps
-} from './struct';
-export type {
-	GraphBounds3D,
-	GraphConnection,
-	GraphNode,
-	GraphPosition3D
-} from './struct';
+} from './object';

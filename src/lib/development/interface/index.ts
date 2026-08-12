@@ -21,7 +21,6 @@ export type {
 	RecipeMockDataSelector,
 	RecipeNpmBadge,
 	RecipePrivacySettings,
-	RecipeResourceOptimizer,
 	RecipeStylist,
 	RecipeThemeSyntaxHighlightedCode
 } from './recipe';

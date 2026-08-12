@@ -3,7 +3,7 @@
 	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createChatPreviewState from './state.svelte';
-	import type { ChatPreviewMessage } from '$stylist/chat/type/struct/chat-preview-message';
+	import type { ChatPreviewMessage } from '$stylist/chat/type/object/chat-preview-message';
 	import { CHAT_PREVIEW_ICON_CHECK } from '$stylist/chat/const/value/chat-preview-icon-check';
 	import { CHAT_PREVIEW_ICON_CHECK_CHECK } from '$stylist/chat/const/value/chat-preview-icon-check-check';
 

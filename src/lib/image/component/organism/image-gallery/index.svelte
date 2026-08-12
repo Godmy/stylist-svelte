@@ -20,8 +20,11 @@
 				tabindex="0"
 			>
 				<img
-					src={state.images[state.currentIndex].src}
-					alt={state.images[state.currentIndex].alt || `Gallery image ${state.currentIndex + 1}`}
+					src={state.images[state.currentIndex].imageSrc}
+					alt={state.images[state.currentIndex].imageAlt || `Gallery image ${state.currentIndex + 1}`}
+					loading={state.images[state.currentIndex].imageLoading ?? 'lazy'}
+					width={state.images[state.currentIndex].imageWidth}
+					height={state.images[state.currentIndex].imageHeight}
 					class={state.imageClasses}
 				/>
 
@@ -71,8 +74,11 @@
 							tabindex="0"
 						>
 							<img
-								src={img.src}
-								alt={img.alt || `Thumbnail ${index + 1}`}
+								src={img.imageSrc}
+								alt={img.imageAlt || `Thumbnail ${index + 1}`}
+								loading={img.imageLoading ?? 'lazy'}
+								width={img.imageWidth}
+								height={img.imageHeight}
 								class="image-gallery__thumbnail-image"
 							/>
 						</div>
@@ -105,8 +111,11 @@
 
 			<div class="image-gallery__fullscreen-image-container">
 				<img
-					src={state.images[state.currentIndex].src}
-					alt={state.images[state.currentIndex].alt || `Fullscreen image ${state.currentIndex + 1}`}
+					src={state.images[state.currentIndex].imageSrc}
+					alt={state.images[state.currentIndex].imageAlt || `Fullscreen image ${state.currentIndex + 1}`}
+					loading={state.images[state.currentIndex].imageLoading ?? 'lazy'}
+					width={state.images[state.currentIndex].imageWidth}
+					height={state.images[state.currentIndex].imageHeight}
 					class="image-gallery__fullscreen-image"
 				/>
 

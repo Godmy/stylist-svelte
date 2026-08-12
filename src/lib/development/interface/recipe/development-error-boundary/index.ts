@@ -1,10 +1,12 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { DevelopmentErrorBoundaryErrorInfo } from '$stylist/development/type/struct/development-error-boundary-error-info';
 import type { Snippet } from 'svelte';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 export interface RecipeDevelopmentErrorBoundary
 	extends ComputeIntersectAll<[((HTMLAttributes<HTMLDivElement> & {
-fallback?: (errorInfo: DevelopmentErrorBoundaryErrorInfo) => HTMLElement;
+fallback?: (errorInfo: ({
+	error: Error;
+	errorInfo: { componentStack: string };
+})) => HTMLElement;
 	onError?: (error: Error, errorInfo: { componentStack: string }) => void;
 	showDetails?: boolean;
 	showReload?: boolean;

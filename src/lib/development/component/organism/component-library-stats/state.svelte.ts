@@ -1,6 +1,6 @@
-﻿import { onMount } from 'svelte';
+import { onMount } from 'svelte';
 import type { RecipeComponentLibraryStats } from '$stylist/development/interface/recipe/component-library-stats';
-import type { ComponentLibraryStatsComponentStats } from '$stylist/development/type/struct/component-library-stats-component-stats';
+import type { ComponentLibraryStatsComponentStats } from '$stylist/development/type/object/component-library-stats-component-stats';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createComponentLibraryStatsState(props: RecipeComponentLibraryStats) {

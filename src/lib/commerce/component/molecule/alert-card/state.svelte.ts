@@ -1,4 +1,4 @@
-﻿import type { Preset } from '$stylist/commerce/type/struct/preset';
+import type { Preset } from '$stylist/commerce/type/object/preset';
 import type { RecipeAlertCard } from '$stylist/commerce/interface/recipe/alert-card';
 import { buildPresetClassNames } from '$stylist/commerce/function/script/build-preset-class-names';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';

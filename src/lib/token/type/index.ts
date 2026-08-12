@@ -17,4 +17,4 @@ export type {
 	TokenSelectControlProps,
 	TokenTextControlDefinition,
 	TokenTextControlProps
-} from './struct';
+} from './object';

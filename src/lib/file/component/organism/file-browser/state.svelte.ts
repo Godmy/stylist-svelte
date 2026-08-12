@@ -1,5 +1,5 @@
 import type { RecipeFileBrowser } from '$stylist/file/interface/recipe/file-browser';
-import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
+import type { SlotFolderItem } from '$stylist/file/type/object/file-browser/folder-item';
 import { handleAction as handleActionFn } from '$stylist/file/function/script/file-browser-handle-action';
 import { handleSelect as handleSelectFn } from '$stylist/file/function/script/file-browser-handle-select';
 import { isExpanded as isExpandedFn } from '$stylist/file/function/script/file-browser-is-expanded';

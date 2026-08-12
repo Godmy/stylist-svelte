@@ -1,4 +1,4 @@
-import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
+import type { CanvasObject } from '$stylist/canvas/type/object/canvas-object';
 
 export function cloneCanvasObjects(value: readonly CanvasObject[] = []): CanvasObject[] {
 	return value.map((object) => ({

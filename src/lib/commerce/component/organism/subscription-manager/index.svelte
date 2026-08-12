@@ -9,7 +9,7 @@
 <div class="subscription-manager">
 	<header class="subscription-manager__header">
 		<div>
-			<h3 class="subscription-manager__title">{props.title ?? 'SlotSubscription Manager'}</h3>
+			<h3 class="subscription-manager__title">{props.text ?? 'SlotSubscription Manager'}</h3>
 			{#if props.subtitle}
 				<p class="subscription-manager__subtitle">{props.subtitle}</p>
 			{/if}

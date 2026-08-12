@@ -1,6 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { MediaItem } from '$stylist/file/type/struct/media-item';
-
+import type { MediaItem } from '$stylist/file/type/object/media-item';
 export interface RecipeMediaLibrary extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
 	items: MediaItem[];
 	onItemSelect?: (item: MediaItem) => void;

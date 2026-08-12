@@ -3,7 +3,6 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorMotion } from '$stylist/animation/interface/behavior/motion';
 import type { BehaviorTransform } from '$stylist/animation/interface/behavior/transform';
-
 import type { Snippet } from 'svelte';
 import type { TokenAnimation } from '$stylist/animation/type/alias/animation';
 import type { TokenDuration } from '$stylist/animation/type/alias/duration';

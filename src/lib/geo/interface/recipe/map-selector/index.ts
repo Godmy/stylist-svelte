@@ -1,8 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { MapProvider } from '$stylist/geo/type/alias/map-provider';
-import type { MapSelectorLocation } from '$stylist/geo/type/struct/map-selector/mapselectorlocation';
-
+import type { MapSelectorLocation } from '$stylist/geo/type/object/map-selector/mapselectorlocation';
 export interface RecipeMapSelector
 	extends ComputeIntersectAll<
 		[

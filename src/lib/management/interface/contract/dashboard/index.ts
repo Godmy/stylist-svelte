@@ -1,6 +1,5 @@
 import type { Snippet } from 'svelte';
 import type { TokenDensity } from '$stylist/layout/type/alias/density';
-
 export interface ContractDashboardLayout {
 	header?: Snippet;
 	sidebar?: Snippet;

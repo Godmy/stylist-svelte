@@ -1,26 +1,37 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import { IMAGE_STORY_GALLERY } from '$stylist/image/const/value/story-gallery';
 
 	import Image from './index.svelte';
 
+	const DEFAULT_ASSET_ID = '2-section-about';
+	const BROKEN_SRC = 'https://invalid-url-for-testing.local/broken.png';
+	const SIZE_TOKENS = ['sm', 'md', 'lg', 'xl'] as const;
+
 	const controls: SlotStory[] = [
 		{
-			name: 'src',
-			type: 'text',
-			defaultValue: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=Main+Image'
+			name: 'assetId',
+			label: 'Preset image',
+			type: 'select',
+			options: IMAGE_STORY_GALLERY.map((asset) => asset.id),
+			defaultValue: DEFAULT_ASSET_ID
 		},
-		{ name: 'alt', type: 'text', defaultValue: 'Sample image' },
+		{ name: 'imageAlt', type: 'text', defaultValue: 'Landing section preview' },
+		{ name: 'size', type: 'select', options: SIZE_TOKENS, defaultValue: 'lg' },
+		{ name: 'imageLoading', type: 'select', options: ['lazy', 'eager'], defaultValue: 'lazy' },
 		{
-			name: 'fallback',
-			type: 'text',
-			defaultValue: 'https://via.placeholder.com/600x400/94a3b8/ffffff?text=Fallback+Image'
-		},
-		{ name: 'loading', type: 'select', options: ['lazy', 'eager'], defaultValue: 'lazy' },
-		{ name: 'size', type: 'select', options: ['sm', 'md', 'lg', 'xl'], defaultValue: 'md' },
-		{ name: 'width', type: 'text', defaultValue: '' },
-		{ name: 'height', type: 'text', defaultValue: '' }
+			name: 'simulateError',
+			label: 'Simulate broken src',
+			description: 'Points src at an unreachable URL to demonstrate the automatic fallback swap.',
+			type: 'boolean',
+			defaultValue: false
+		}
 	];
+
+	function findAsset(id: string) {
+		return IMAGE_STORY_GALLERY.find((asset) => asset.id === id) ?? IMAGE_STORY_GALLERY[0];
+	}
 </script>
 
 <Story
@@ -28,196 +39,109 @@
 	title="Image"
 	component={Image}
 	category="Atoms"
-	description="An image component with fallback and sizing options."
+	description="Изображение с состоянием загрузки (fade-in), автоматическим fallback при ошибке и токенами размера."
 	{controls}
 >
 	{#snippet children(values: any)}
-		<section class="_c1">
-			<div class="_c2">
-				<p class="_c3">Primary Image Example</p>
-				<p class="_c4">An image component with fallback and sizing options.</p>
+		{@const active = findAsset(values.assetId)}
+		<div class="image-story">
+			<figure class="image-story__preview">
+				<Image
+					imageSrc={values.simulateError ? BROKEN_SRC : active.src}
+					imageFallback={active.src}
+					imageAlt={values.imageAlt}
+					size={values.size}
+					imageLoading={values.imageLoading}
+				/>
+				<figcaption class="image-story__caption">
+					<span>{active.label}</span>
+					{#if values.simulateError}
+						<span class="image-story__badge">fallback active</span>
+					{/if}
+				</figcaption>
+			</figure>
 
-				<div class="_c5">
-					<Image
-						src={values.src}
-						alt={values.alt}
-						fallback={values.fallback}
-						loading={values.loading}
-						width={values.width || undefined}
-						height={values.height || undefined}
-						size={values.size}
-					/>
+			<div class="image-story__sizes">
+				<p class="image-story__sizes-title">Токены размера (`size`)</p>
+				<div class="image-story__sizes-row">
+					{#each SIZE_TOKENS as sizeToken (sizeToken)}
+						<div class="image-story__size-item">
+							<Image imageSrc={active.src} imageAlt={active.label} size={sizeToken} />
+							<span class="image-story__size-label">{sizeToken}</span>
+						</div>
+					{/each}
 				</div>
 			</div>
-
-			<div class="_c6">
-				<h3 class="_c7">Image Variations</h3>
-				<p class="_c8">Different image configurations with various properties.</p>
-
-				<div class="_c9">
-					<article class="_c10">
-						<p class="_c11">All Sizes</p>
-						<div class="_c12">
-							<div class="_c13">
-								<Image
-									src="https://via.placeholder.com/200x150/3b82f6/ffffff?text=SM"
-									size="sm"
-									alt="Small image"
-								/>
-								<span class="_c14">Small</span>
-							</div>
-							<div class="_c13">
-								<Image
-									src="https://via.placeholder.com/400x300/1d4ed8/ffffff?text=MD"
-									size="md"
-									alt="Medium image"
-								/>
-								<span class="_c14">Medium</span>
-							</div>
-							<div class="_c13">
-								<Image
-									src="https://via.placeholder.com/600x400/1e40af/ffffff?text=LG"
-									size="lg"
-									alt="Large image"
-								/>
-								<span class="_c14">Large</span>
-							</div>
-							<div class="_c13">
-								<Image
-									src="https://via.placeholder.com/800x600/1e3a8a/ffffff?text=XL"
-									size="xl"
-									alt="Extra Large image"
-								/>
-								<span class="_c14">Extra Large</span>
-							</div>
-						</div>
-					</article>
-
-					<article class="_c10">
-						<p class="_c11">Fallback Example</p>
-						<div class="_c15">
-							<div class="_c13">
-								<Image
-									src="https://invalid-url-for-testing.com/image.jpg"
-									fallback="https://via.placeholder.com/300x200/f59e0b/ffffff?text=Fallback"
-									size="md"
-									alt="Image with fallback"
-								/>
-								<span class="_c14">With Fallback</span>
-							</div>
-							<div class="_c13">
-								<Image
-									src="https://via.placeholder.com/300x200/10b981/ffffff?text=Normal"
-									size="md"
-									alt="Normal image"
-								/>
-								<span class="_c14">Normal</span>
-							</div>
-						</div>
-					</article>
-				</div>
-			</div>
-		</section>
+		</div>
 	{/snippet}
 </Story>
 
 <style>
-	._c1 {
+	.image-story {
 		display: grid;
-		width: 100%;
 		gap: 2rem;
+		width: 100%;
 	}
-	@media (min-width: 1024px) {
-		._c1 {
-			grid-template-columns: 1fr 1fr;
-		}
+
+	.image-story__preview {
+		display: grid;
+		justify-items: center;
+		gap: 0.75rem;
+		margin: 0;
 	}
-	._c10 {
-		border-radius: 1rem;
-		border-width: 1px;
-		border-style: dashed;
-		border-color: var(--color-border-primary);
-		background-color: var(--color-background-primary);
-		padding: 1rem;
+
+	.image-story__caption {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.85rem;
+		color: var(--color-text-secondary);
 	}
-	._c11 {
-		margin-bottom: 0.5rem;
-		font-size: 0.875rem;
-		line-height: 1.25rem;
+
+	.image-story__badge {
+		padding: 0.15rem 0.55rem;
+		border-radius: 999px;
+		background: color-mix(in srgb, var(--color-warning-500, orange) 20%, transparent);
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: var(--color-text-primary);
+	}
+
+	.image-story__sizes {
+		border-top: 1px solid color-mix(in srgb, var(--color-border-primary) 80%, transparent);
+		padding-top: 1.5rem;
+	}
+
+	.image-story__sizes-title {
+		margin: 0 0 1rem;
+		font-size: 0.85rem;
 		font-weight: 600;
 		color: var(--color-text-primary);
 	}
-	._c12 {
+
+	.image-story__sizes-row {
 		display: flex;
-		flex-direction: column;
-		gap: 1rem;
+		flex-wrap: nowrap;
+		align-items: flex-end;
+		gap: 1.5rem;
+		overflow-x: auto;
+		padding-bottom: 0.5rem;
 	}
-	._c13 {
+
+	.image-story__size-item {
 		display: flex;
+		flex: none;
 		flex-direction: column;
 		align-items: center;
+		gap: 0.4rem;
 	}
-	._c14 {
-		margin-top: 0.25rem;
+
+	.image-story__size-label {
 		font-size: 0.75rem;
-		line-height: 1rem;
-	}
-	._c15 {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-	}
-	._c2 {
-		border-radius: 2rem;
-		border-width: 1px;
-		border-style: solid;
-		border-color: var(--color-border-primary);
-		background-color: var(--color-background-primary);
-		padding: 1.5rem;
-		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-	}
-	._c3 {
-		font-size: 0.875rem;
-		line-height: 1.25rem;
-		font-weight: 600;
-		letter-spacing: 0.025em;
 		color: var(--color-text-secondary);
 		text-transform: uppercase;
-	}
-	._c4 {
-		margin-top: 0.25rem;
-		color: var(--color-text-primary);
-	}
-	._c5 {
-		margin-top: 1.5rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	._c6 {
-		border-radius: 2rem;
-		border-width: 1px;
-		border-style: solid;
-		border-color: var(--color-border-primary);
-		background-color: var(--color-background-secondary);
-		padding: 1.5rem;
-		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-	}
-	._c7 {
-		font-size: 1rem;
-		line-height: 1.5rem;
-		font-weight: 600;
-		color: var(--color-text-primary);
-	}
-	._c8 {
-		font-size: 0.875rem;
-		line-height: 1.25rem;
-		color: var(--color-text-secondary);
-	}
-	._c9 {
-		margin-top: 1.25rem;
-	}
-	._c9 > * + * {
-		margin-top: 1rem;
+		letter-spacing: 0.04em;
 	}
 </style>

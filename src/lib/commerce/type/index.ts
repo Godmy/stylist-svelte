@@ -40,4 +40,4 @@ export type {
 	TrackingStatusType,
 	UpsellStoryProps,
 	WarrantyInfoStoryProps
-} from './struct';
+} from './object';

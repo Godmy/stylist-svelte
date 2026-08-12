@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeAuditTreePanel } from '$stylist/dashboard/interface/recipe/audit-tree-panel';
-	import type { AuditTreeNode } from '$stylist/dashboard/type/struct/audit-tree-node';
-	import type { TreeNodeItemNode } from '$stylist/tree/type/struct/tree-node-item-node';
+	import type { AuditTreeNode } from '$stylist/dashboard/type/object/audit-tree-node';
+	import type { TreeNodeItemNode } from '$stylist/tree/type/object/tree-node-item-node';
 	import TreeViewer from '$stylist/tree/component/molecule/tree-viewer/index.svelte';
 	import DashboardCountTile from '$stylist/dashboard/component/atom/dashboard-count-tile/index.svelte';
 	import DashboardStatusPill from '$stylist/dashboard/component/atom/dashboard-status-pill/index.svelte';

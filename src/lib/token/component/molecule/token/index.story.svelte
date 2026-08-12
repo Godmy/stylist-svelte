@@ -1,10 +1,10 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import TokenControlComposer from './index.svelte';
-	import type { TokenRadioControlDefinition } from '$stylist/token/type/struct/radio-control-definition';
-	import type { TokenRangeControlDefinition } from '$stylist/token/type/struct/range-control-definition';
-	import type { TokenSelectControlDefinition } from '$stylist/token/type/struct/select-control-definition';
-	import type { TokenTextControlDefinition } from '$stylist/token/type/struct/text-control-definition';
+	import type { TokenRadioControlDefinition } from '$stylist/token/type/object/radio-control-definition';
+	import type { TokenRangeControlDefinition } from '$stylist/token/type/object/range-control-definition';
+	import type { TokenSelectControlDefinition } from '$stylist/token/type/object/select-control-definition';
+	import type { TokenTextControlDefinition } from '$stylist/token/type/object/text-control-definition';
 
 	const radioDefinition: TokenRadioControlDefinition = {
 		id: 'token-composer-alignment',

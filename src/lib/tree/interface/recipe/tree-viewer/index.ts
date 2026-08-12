@@ -1,6 +1,5 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { TreeNodeItemNode } from '$stylist/tree/type/struct/tree-node-item-node';
-
+import type { TreeNodeItemNode } from '$stylist/tree/type/object/tree-node-item-node';
 export interface TreeViewerProps extends ComputeIntersectAll<[]> {
 	tree?: TreeNodeItemNode[];
 	onSelect?: (detail: { node: TreeNodeItemNode }) => void;

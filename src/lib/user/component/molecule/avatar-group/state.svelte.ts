@@ -2,7 +2,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { RecipeAvatarGroup } from '$stylist/user/interface/recipe/avatar-group';
-import type { AvatarGroupAvatar } from '$stylist/user/type/struct/avatar-group/avatargroupavatar';
+import type { AvatarGroupAvatar } from '$stylist/user/type/object/avatar-group/avatargroupavatar';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 function statusDotClass(status?: AvatarGroupAvatar['status']): string {

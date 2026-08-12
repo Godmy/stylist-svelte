@@ -55,7 +55,11 @@ export {
 	resolveSceneAtomTint
 } from './function';
 export type {
+	GraphBounds3D,
+	GraphConnection,
 	GraphJsonInput,
+	GraphNode,
+	GraphPosition3D,
 	SceneAtom,
 	SceneAtomGeometry,
 	SceneAtomKind,
@@ -85,9 +89,3 @@ export type {
 	SlotGraphEdge,
 	SlotGraphNode
 } from './interface';
-export type {
-	GraphBounds3D,
-	GraphConnection,
-	GraphNode,
-	GraphPosition3D
-} from './type';

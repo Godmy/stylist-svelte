@@ -1,11 +1,10 @@
-﻿import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SlotBacklogData as BacklogData } from '$stylist/portfolio/interface/slot/backlog-data';
-import type { SlotBacklogItem as BacklogItem } from '$stylist/portfolio/interface/slot/backlog-item';
-
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+import type { SlotBacklogData } from '$stylist/portfolio/interface/slot/backlog-data';
+import type { SlotBacklogItem } from '$stylist/portfolio/interface/slot/backlog-item';
 export interface RecipeScrumBacklog extends ComputeIntersectAll<[]> {
-	data: BacklogData;
+	data: SlotBacklogData;
 	showFilters?: boolean;
-	onItemAdd?: (item: BacklogItem) => void;
-	onItemUpdate?: (item: BacklogItem) => void;
+	onItemAdd?: (item: SlotBacklogItem) => void;
+	onItemUpdate?: (item: SlotBacklogItem) => void;
 	onItemDelete?: (id: string) => void;
 }

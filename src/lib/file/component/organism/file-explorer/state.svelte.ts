@@ -1,5 +1,5 @@
 import type { RecipeFileExplorer } from '$stylist/file/interface/recipe/file-explorer';
-import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
+import type { SlotFileSystemItem } from '$stylist/file/type/object/file-explorer/file-system-item';
 import type { ViewMode } from '$stylist/file/type/alias/file-explorer-view-mode';
 import { handleDownload as handleDownloadFn } from '$stylist/file/function/script/file-explorer-handle-download';
 import { handleItemClick as handleItemClickFn } from '$stylist/file/function/script/file-explorer';

@@ -1,5 +1,5 @@
 import { drawCanvasObject } from '$stylist/canvas/function/script/canvas-draw-object';
-import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
+import type { CanvasObject } from '$stylist/canvas/type/object/canvas-object';
 
 export function drawCanvasObjects(
 	ctx: CanvasRenderingContext2D,

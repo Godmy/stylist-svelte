@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_TRANSLATION } from '$stylist/localization/const/array/translation';
 import { TOKEN_TRANSLATION_EDITOR_ICON } from '$stylist/localization/const/array/translation-editor-icon';
 

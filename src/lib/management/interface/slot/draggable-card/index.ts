@@ -1,5 +1,4 @@
 import type { CardData } from '$stylist/management/interface/slot/draggable-card-data';
-
 export interface SlotDraggableCard extends Record<string, unknown> {
 	data: CardData;
 	class?: string;

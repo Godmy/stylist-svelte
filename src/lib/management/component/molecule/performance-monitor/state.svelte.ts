@@ -1,10 +1,12 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipePerformanceMonitor } from '$stylist/management/interface/recipe/performance-monitor';
-import { ObjectManagerPerformanceMonitor } from '$stylist/management/class/object-manager/performance-monitor';
+import { PERFORMANCE_MONITOR_STATUS_COLOR } from '$stylist/management/const/map/performance-monitor-status-color';
 
-export function createPerformanceMonitorState(props: RecipePerformanceMonitor & HTMLAttributes<HTMLDivElement>) {
+export function createPerformanceMonitorState(
+	props: RecipePerformanceMonitor & HTMLAttributes<HTMLDivElement>
+) {
 	// Props with defaults
-	const label = $derived(props.label ?? '');
+	const label = $derived(props.title ?? '');
 	const value = $derived(props.value ?? 0);
 	const max = $derived(props.max ?? 100);
 	const unit = $derived(props.unit ?? '%');
@@ -16,11 +18,9 @@ export function createPerformanceMonitorState(props: RecipePerformanceMonitor & 
 	const numericValue = $derived(typeof value === 'number' ? value : Number(value) || 0);
 	const numericMax = $derived(typeof max === 'number' ? max : Number(max) || 100);
 
-	const percentage = $derived(
-		ObjectManagerPerformanceMonitor.resolvePercentage(numericValue, numericMax)
-	);
-	const progressWidth = $derived(ObjectManagerPerformanceMonitor.resolveProgressWidth(percentage));
-	const statusBarClass = $derived(ObjectManagerPerformanceMonitor.resolveStatusBarClass(status));
+	const percentage = $derived(numericMax === 0 ? 0 : Math.round((numericValue / numericMax) * 100));
+	const progressWidth = $derived(`${Math.min(100, Math.max(0, percentage))}%`);
+	const statusBarClass = $derived(PERFORMANCE_MONITOR_STATUS_COLOR[status]);
 
 	// CSS classes
 

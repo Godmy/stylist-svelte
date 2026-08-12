@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { StageProps } from '$stylist/architecture/type/struct/stage/stage-props';
+	import type { StageProps } from '$stylist/architecture/type/object/stage/stage-props';
 	import createStageState from './state.svelte';
 
 	let props: StageProps = $props();

@@ -1,10 +1,9 @@
 import type { AnyProperty } from '$stylist/layout/type/object/any-property';
-import type { SlotCommentSystem as CommentSystemContract } from '$stylist/social/interface/slot/comment-system';
-import type { SlotCommentThread as CommentThreadContract } from '$stylist/social/interface/slot/comment-thread';
-
+import type { SlotCommentSystem } from '$stylist/social/interface/slot/comment-system';
+import type { SlotCommentThread } from '$stylist/social/interface/slot/comment-thread';
 export interface ContractSocial {
-	CommentSystem: CommentSystemContract;
-	CommentThread: CommentThreadContract;
+	CommentSystem: SlotCommentSystem;
+	CommentThread: SlotCommentThread;
 	FriendList: AnyProperty;
 	SocialActivityFeed: AnyProperty;
 	SocialFeed: AnyProperty;

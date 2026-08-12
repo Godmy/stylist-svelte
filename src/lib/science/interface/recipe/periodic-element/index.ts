@@ -1,9 +1,26 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { PeriodicElement } from '$stylist/science/type/struct/periodic-element';
 export interface RecipePeriodicElement extends HTMLAttributes<HTMLButtonElement> {
-element: PeriodicElement;
+element: ({
+	atomicNumber: number;
+	symbol: string;
+	name: string;
+	atomicMass: string;
+	category: string;
+	group: number;
+	period: number;
+	state: 'solid' | 'liquid' | 'gas' | 'unknown';
+});
 	selected?: boolean;
 	highlighted?: boolean;
 	dimmed?: boolean;
-	onSelect?: (element: PeriodicElement) => void;
+	onSelect?: (element: ({
+	atomicNumber: number;
+	symbol: string;
+	name: string;
+	atomicMass: string;
+	category: string;
+	group: number;
+	period: number;
+	state: 'solid' | 'liquid' | 'gas' | 'unknown';
+})) => void;
 }

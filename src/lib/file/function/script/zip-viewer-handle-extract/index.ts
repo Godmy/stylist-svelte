@@ -1,4 +1,4 @@
-import type { SlotZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
+import type { SlotZipEntry } from '$stylist/file/type/object/zip-viewer/entry';
 
 export function handleExtract(
 	entry: SlotZipEntry,

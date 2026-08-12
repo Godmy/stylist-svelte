@@ -66,7 +66,7 @@ export function createButtonState(input: ButtonFactoryInput | RecipeButton) {
 			loadingLabel: restLoadingLabel,
 			children,
 			class: className,
-			label,
+			text,
 			icon,
 			iconLeft,
 			iconRight,

@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	AccessibilityCheckbox,
 	AccessibilityToolbar,
 	ActionSegmentedControl,
 	AutocompleteDropdown,

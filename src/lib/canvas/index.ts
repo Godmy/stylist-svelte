@@ -43,6 +43,7 @@ export type {
 	SharedCanvasContract,
 	SharedCanvasObjectBounds,
 	SharedCanvasTool,
+	SharedCanvasToolDefinition,
 	ThemeGraphColors
 } from './type';
 export type {

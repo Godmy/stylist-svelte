@@ -3,4 +3,4 @@ export type {
 	PresenterNodeShellProps,
 	PresenterSceneLink,
 	PreziSceneContract
-} from './struct';
+} from './object';

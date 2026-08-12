@@ -43,6 +43,7 @@
 	];
 
 	const id = `select-${Math.random().toString(36).substr(2, 9)}`;
+	let selected = $state('option1');
 </script>
 
 <Story
@@ -55,6 +56,10 @@
 			{id}
 			label={controlValues.label}
 			options={exampleOptions}
+			value={selected}
+			onSelect={(value: string | string[]) => {
+				selected = Array.isArray(value) ? value[0] : value;
+			}}
 			required={controlValues.required}
 			disabled={controlValues.disabled}
 			placeholder={controlValues.withPlaceholder ? 'Choose an option...' : undefined}

@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import TokenText from './index.svelte';
-	import type { TokenTextControlDefinition } from '$stylist/token/type/struct/text-control-definition';
+	import type { TokenTextControlDefinition } from '$stylist/token/type/object/text-control-definition';
 
 	const definition: TokenTextControlDefinition = {
 		id: 'token-text-line-height',

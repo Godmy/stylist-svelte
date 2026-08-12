@@ -1,9 +1,9 @@
 import type { SlotContent } from '$stylist/theme/interface/slot/content';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { KanbanBoardType } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardtype';
-import type { KanbanBoardAction } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardaction';
-import type { KanbanColumnType } from '$stylist/portfolio/type/struct/kanban-column';
-import type { KanbanCardType } from '$stylist/portfolio/type/struct/kanban-card/kanbancardtype';
+import type { KanbanBoardType } from '$stylist/portfolio/type/object/kanban-board/kanbanboardtype';
+import type { KanbanBoardAction } from '$stylist/portfolio/type/object/kanban-board/kanbanboardaction';
+import type { KanbanColumnType } from '$stylist/portfolio/type/object/kanban-column';
+import type { KanbanCardType } from '$stylist/portfolio/type/object/kanban-card/kanbancardtype';
 export interface RecipeKanbanBoard extends ComputeIntersectAll<[SlotContent]> {
 	board: KanbanBoardType;
 	controlled?: boolean;

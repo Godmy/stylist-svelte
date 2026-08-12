@@ -1,5 +1,13 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { PeriodicElement } from '$stylist/science/type/struct/periodic-element';
 export interface RecipePeriodicElementSummary extends HTMLAttributes<HTMLElement> {
-element?: PeriodicElement;
+element?: ({
+	atomicNumber: number;
+	symbol: string;
+	name: string;
+	atomicMass: string;
+	category: string;
+	group: number;
+	period: number;
+	state: 'solid' | 'liquid' | 'gas' | 'unknown';
+});
 }

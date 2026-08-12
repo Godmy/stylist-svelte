@@ -1,4 +1,4 @@
-import type { Token } from '$stylist/token/type/struct/token';
+import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_CALENDAR } from '$stylist/calendar/const/array/calendar-enum';
 import { TOKEN_PRIORITY } from '$stylist/calendar/const/array/priority';
 import { TOKEN_TIMESTAMP_FORMAT } from '$stylist/calendar/const/array/timestamp-format';

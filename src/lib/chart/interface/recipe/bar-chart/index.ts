@@ -7,8 +7,7 @@ import type { BehaviorLegendable } from '$stylist/chart/interface/behavior/legen
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { BehaviorChartColorable } from '$stylist/chart/interface/behavior/chart-colorable';
 import type { BehaviorChartAxis } from '$stylist/chart/interface/behavior/chart-axis';
-import type { IChartDataPoint } from '$stylist/chart/type/struct/bar-chart';
-
+import type { IChartDataPoint } from '$stylist/chart/type/object/bar-chart';
 export interface RecipeBarChart
 	extends ComputeIntersectAll<
 		[

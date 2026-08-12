@@ -7,8 +7,8 @@
 </script>
 
 <section class={state.className}>
-	{#if state.title}
-		<strong>{state.title}</strong>
+	{#if state.text}
+		<strong>{state.text}</strong>
 	{/if}
 	<div class="vertical-bars-chart__plot" style={`height: ${state.height}; gap: ${state.gap};`}>
 		{#each state.items as item (item.id)}

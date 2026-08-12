@@ -1,6 +1,6 @@
-﻿<script lang="ts">
-	import type { KanbanBoardAction } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardaction';
-	import type { KanbanBoardType } from '$stylist/portfolio/type/struct/kanban-board/kanbanboardtype';
+<script lang="ts">
+	import type { KanbanBoardAction } from '$stylist/portfolio/type/object/kanban-board/kanbanboardaction';
+	import type { KanbanBoardType } from '$stylist/portfolio/type/object/kanban-board/kanbanboardtype';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 

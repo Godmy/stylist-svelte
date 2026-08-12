@@ -35,7 +35,7 @@
 
 	import TextArea from '$stylist/input/component/molecule/text-area/index.svelte';
 
-	import type { RFQFormProps } from '$stylist/commerce/type/struct/rfqform-props';
+	import type { RFQFormProps } from '$stylist/commerce/type/object/rfqform-props';
 
 	import createRFQFormState from './state.svelte';
 

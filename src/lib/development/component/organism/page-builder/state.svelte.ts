@@ -1,6 +1,6 @@
 import type { TokenComponentType } from '$stylist/architecture/type/alias/component-type';
-import type { PageBuilderElement } from '$stylist/development/type/struct/page-builder-element';
-import type { PageBuilderProps } from '$stylist/development/type/struct/page-builder-props';
+import type { PageBuilderElement } from '$stylist/development/type/object/page-builder-element';
+import type { PageBuilderProps } from '$stylist/development/type/object/page-builder-props';
 import { pageBuilderGetDefaultAttributes } from '$stylist/development/function/script/page-builder-get-default-attributes';
 import { pageBuilderGetDefaultContent } from '$stylist/development/function/script/page-builder';
 

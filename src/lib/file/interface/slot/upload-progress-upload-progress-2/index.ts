@@ -1,6 +1,5 @@
 import type { SlotUploadFile } from '$stylist/file/interface/slot/upload-file';
 import type { UploadProgressVariant } from '$stylist/file/type/alias/upload-progress-variant';
-
 /** Основной интерфейс пропсов компонента */
 export interface SlotUploadProgress {
 /** Класс для корневого элемента */

@@ -4,7 +4,7 @@
 	import ButtonComposed from './index.svelte';
 
 	const controls: SlotStory[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Deploy changes' },
+		{ name: 'text', type: 'text', defaultValue: 'Deploy changes' },
 		{
 			name: 'variant',
 			type: 'select',
@@ -29,7 +29,7 @@
 	{#snippet children(values: any)}
 		<div class="_c1">
 			<ButtonComposed
-				label={values.label as string}
+				text={values.text as string}
 				variant={values.variant as any}
 				size={values.size as any}
 				loading={Boolean(values.loading)}

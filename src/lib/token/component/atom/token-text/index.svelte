@@ -1,7 +1,7 @@
 <script lang="ts">
 	import createTokenTextState from './state.svelte';
 	import TokenControlBase from '$stylist/token/component/atom/token-control-base/index.svelte';
-	import type { TokenTextControlProps } from '$stylist/token/type/struct/token-text-control-props';
+	import type { TokenTextControlProps } from '$stylist/token/type/object/token-text-control-props';
 
 	let props: TokenTextControlProps = $props();
 	const state = createTokenTextState(props);

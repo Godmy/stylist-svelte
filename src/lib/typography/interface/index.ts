@@ -5,7 +5,6 @@ export type {
 	RecipeHeading,
 	RecipeRichText,
 	RecipeText,
-	RecipeTextAreaControl,
 	RecipeThemeInlineCode,
 	RecipeThemeKbd,
 	RecipeThemeLink

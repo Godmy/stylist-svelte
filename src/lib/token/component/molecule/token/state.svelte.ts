@@ -1,8 +1,8 @@
-import type { TokenControlComposerProps } from '$stylist/token/type/struct/token-control-composer-props';
-import type { TokenRadioControlDefinition } from '$stylist/token/type/struct/radio-control-definition';
-import type { TokenRangeControlDefinition } from '$stylist/token/type/struct/range-control-definition';
-import type { TokenSelectControlDefinition } from '$stylist/token/type/struct/select-control-definition';
-import type { TokenTextControlDefinition } from '$stylist/token/type/struct/text-control-definition';
+import type { TokenControlComposerProps } from '$stylist/token/type/object/token-control-composer-props';
+import type { TokenRadioControlDefinition } from '$stylist/token/type/object/radio-control-definition';
+import type { TokenRangeControlDefinition } from '$stylist/token/type/object/range-control-definition';
+import type { TokenSelectControlDefinition } from '$stylist/token/type/object/select-control-definition';
+import type { TokenTextControlDefinition } from '$stylist/token/type/object/text-control-definition';
 
 export function createTokenControlComposerState(props: TokenControlComposerProps) {
 	const controlKind = $derived(props.definition.controlKind);

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { TypeAudioRecording } from '$stylist/audio/type/struct/audio-recording';
+	import type { TypeAudioRecording } from '$stylist/audio/type/object/audio-recording';
 
 	import AudioRecordButton from './index.svelte';
 

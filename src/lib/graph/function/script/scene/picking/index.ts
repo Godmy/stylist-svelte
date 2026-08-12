@@ -1,5 +1,5 @@
 import type { Camera } from '$stylist/graph/class/manager/camera';
-import type { SceneAtom } from '$stylist/graph/type/struct/scene-atom/scene-atom';
+import type { SceneAtom } from '$stylist/graph/type/object/scene-atom/scene-atom';
 import { getAtomBoundsRadius } from '$stylist/graph/function/script/get-atom-bounds-radius';
 import { projectPointToScreen } from '$stylist/graph/function/script/project-point-to-screen';
 import { projectWorldRadiusToPixels } from '$stylist/graph/function/script/project-world-radius-to-pixels';

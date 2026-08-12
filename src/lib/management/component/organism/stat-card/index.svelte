@@ -15,7 +15,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 		</div>
 	{/if}
 
-	<h3 class="stat-card__title">{state.label}</h3>
+	<h3 class="stat-card__title">{state.text}</h3>
 
 	<div class="stat-card__value">
 		{#if state.animated && typeof state.value === 'number'}

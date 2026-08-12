@@ -4,15 +4,13 @@ export type {
 	TokenCanvasChartType,
 	TokenChart
 } from './alias';
-export type { ChartLegendItem } from './object';
 export type {
 	AnalyticsChartBarPoint,
 	AnalyticsChartCanvasProps,
 	AnalyticsChartDataPoint,
 	CanvasChartPadding,
 	ChartFunctionPoint,
-	ChartScale,
-	ChartSeries,
+	ChartLegendItem,
 	IChartDataPoint,
 	IHeatmapCell,
 	InformationPieChartSegment,
@@ -20,4 +18,4 @@ export type {
 	LineChartPoint,
 	PieChartDataPoint,
 	ScatterPlotDataPoint
-} from './struct';
+} from './object';

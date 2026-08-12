@@ -1,5 +1,4 @@
 import type { TokenTimeFormat } from '$stylist/calendar/type/alias/time-format';
-
 export interface SlotMessageTimestamp {
 	/**
 	 * The timestamp to display

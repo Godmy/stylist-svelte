@@ -1,4 +1,4 @@
-import type { BreadcrumbItem } from '$stylist/navigation/type/struct/breadcrumbs-props/breadcrumb-item';
+import type { BreadcrumbItem } from '$stylist/navigation/type/object/breadcrumbs-props/breadcrumb-item';
 
 export function getBreadcrumbItems(items: BreadcrumbItem[], activeId?: string): BreadcrumbItem[] {
 	if (!items.length) {

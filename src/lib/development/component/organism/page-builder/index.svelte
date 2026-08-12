@@ -1,14 +1,14 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { PageBuilderTextAttributes } from '$stylist/development/type/struct/page-builder-text-attributes';
-	import type { PageBuilderHeadingAttributes } from '$stylist/development/type/struct/page-builder-heading-attributes';
-	import type { PageBuilderButtonAttributes } from '$stylist/development/type/struct/page-builder-button-attributes';
-	import type { PageBuilderImageAttributes } from '$stylist/development/type/struct/page-builder-image-attributes';
+	import type { PageBuilderTextAttributes } from '$stylist/development/type/object/page-builder-text-attributes';
+	import type { PageBuilderHeadingAttributes } from '$stylist/development/type/object/page-builder-heading-attributes';
+	import type { PageBuilderButtonAttributes } from '$stylist/development/type/object/page-builder-button-attributes';
+	import type { PageBuilderImageAttributes } from '$stylist/development/type/object/page-builder-image-attributes';
 	import { PAGE_BUILDER_TOOLBAR_ITEMS } from '$stylist/development/const/record/page-builder-toolbar-items';
 	import { PAGE_BUILDER_ICON } from '$stylist/development/const/map/page-builder-icons';
 	import createPageBuilderState from './state.svelte';
 	import { pageBuilderRenderElement } from '$stylist/development/function/script/page-builder-render-element';
-	import type { PageBuilderProps } from '$stylist/development/type/struct/page-builder-props';
+	import type { PageBuilderProps } from '$stylist/development/type/object/page-builder-props';
 
 	let props: PageBuilderProps = $props();
 	const state = createPageBuilderState(props);
