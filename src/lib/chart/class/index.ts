@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	ChartLegendBandManager,
+	ChartLegendBarManager
+} from './manager';
+export {
 	ObjectManagerAnalyticsChart,
 	ObjectManagerBarChart,
 	ObjectManagerCanvasChart,

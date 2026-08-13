@@ -1,6 +1,6 @@
-import type { SlotTab as TabProps } from '$stylist/navigation/interface/slot/tab-tabs';
+import type { RecipeTab } from '$stylist/navigation/interface/recipe/tab';
 
-export function createTabState(props: TabProps) {
+export function createTabState(props: RecipeTab) {
 	const variant = $derived(props.variant ?? 'primary');
 	const size = $derived(props.size ?? 'md');
 	const disabled = $derived(props.disabled ?? false);

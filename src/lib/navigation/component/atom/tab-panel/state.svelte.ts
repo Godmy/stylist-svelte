@@ -1,6 +1,6 @@
-import type { SlotTabPanel as TabPanelProps } from '$stylist/navigation/interface/slot/tab-panel';
+import type { RecipeTabPanel } from '$stylist/navigation/interface/recipe/tab-panel';
 
-export const createTabPanelState = (props: TabPanelProps, selected: () => boolean) => {
+export const createTabPanelState = (props: RecipeTabPanel, selected: () => boolean) => {
 	const isSelected = $derived.by(selected);
 	const disabled = $derived(props.disabled ?? false);
 

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { getContext, onDestroy, onMount } from 'svelte';
 	import { TAB_CONTEXT } from '$stylist/navigation/const/record/tab-context';
-	import type { SlotTab as TabProps } from '$stylist/navigation/interface/slot/tab-tabs';
+	import type { RecipeTab } from '$stylist/navigation/interface/recipe/tab';
 	import createTabState from './state.svelte';
 
-	let props: TabProps = $props();
+	let props: RecipeTab = $props();
 
 	const context = getContext<typeof TAB_CONTEXT>('tabs-context') ?? TAB_CONTEXT;
 

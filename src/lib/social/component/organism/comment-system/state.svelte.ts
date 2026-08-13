@@ -1,6 +1,6 @@
-import type { SlotCommentSystem } from '$stylist/social/interface/slot/comment-system';
+import type { RecipeCommentSystem } from '$stylist/social/interface/recipe/comment-system';
 
-export function createCommentSystemState(props: SlotCommentSystem) {
+export function createCommentSystemState(props: RecipeCommentSystem) {
 	let editCommentId = $state<string | null>(null);
 	let editContent = $state('');
 	let newComment = $state('');

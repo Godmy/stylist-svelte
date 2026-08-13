@@ -1,6 +1,6 @@
-import type { SlotFilterText } from '$stylist/table/interface/slot/filter-text';
+import type { RecipeFilterText } from '$stylist/table/interface/recipe/filter-text';
 
-export function createFilterTextState(props: SlotFilterText) {
+export function createFilterTextState(props: RecipeFilterText) {
 	let value = $state(props.value ?? '');
 
 	$effect(() => { value = props.value ?? ''; });

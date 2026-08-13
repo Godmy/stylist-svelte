@@ -1,7 +1,7 @@
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
-import type { SlotMessageComposer as IMessageComposerProps } from '$stylist/chat/interface/slot/message-composer';
+import type { RecipeMessageComposer } from '$stylist/chat/interface/recipe/message-composer';
 
-export const createMessageComposerState = (props: IMessageComposerProps) => {
+export const createMessageComposerState = (props: RecipeMessageComposer) => {
 	let messageText = $state(props.value ?? '');
 
 	$effect(() => {

@@ -1,6 +1,6 @@
-import type { SlotTabIndicator as TabIndicatorProps } from '$stylist/navigation/interface/slot/tab-indicator';
+import type { RecipeTabIndicator } from '$stylist/navigation/interface/recipe/tab-indicator';
 
-export const createTabIndicatorState = (props: TabIndicatorProps) => {
+export const createTabIndicatorState = (props: RecipeTabIndicator) => {
 	const color = $derived(props.color ?? 'primary');
 	const disabled = $derived(props.disabled ?? false);
 	const width = $derived(`${props.width ?? 0}px`);

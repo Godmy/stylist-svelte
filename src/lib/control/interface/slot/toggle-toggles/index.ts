@@ -1,5 +1,6 @@
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-import type { RecipeToggleInputProps } from '$stylist/control/interface/recipe/toggle-input-props';
-export interface SlotToggle extends RecipeToggleInputProps {
+import type { SlotToggleInput } from '$stylist/control/interface/slot/toggle-input';
+
+export interface SlotToggle extends SlotToggleInput {
 	toggleSize?: TokenSize;
 }

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotDialog as DialogProps } from '$stylist/navigation/interface/slot/dialog';
+	import type { RecipeDialog } from '$stylist/navigation/interface/recipe/dialog';
 	import createDialogState from './state.svelte';
 
-	let props: DialogProps = $props();
+	let props: RecipeDialog = $props();
 	const state = createDialogState(props);
 </script>
 

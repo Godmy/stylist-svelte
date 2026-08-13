@@ -4,12 +4,12 @@
 
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { SlotDatePicker as DateTimeRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-picker';
+	import type { RecipeDateTimeRangePicker } from '$stylist/calendar/interface/recipe/date-time-range-picker';
 	import createDateTimeRangePickerState from './state.svelte';
 
 	const X = 'x';
 
-	let props: DateTimeRangePickerComponentProps = $props();
+	let props: RecipeDateTimeRangePicker = $props();
 	const state = createDateTimeRangePickerState(props);
 
 	const fieldId = `dtrp-${uidCounter++}`;

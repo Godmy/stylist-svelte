@@ -1,6 +1,6 @@
-import type { SlotModal as ModalProps } from '$stylist/navigation/interface/slot/modal';
+import type { RecipeModal } from '$stylist/navigation/interface/recipe/modal';
 
-export function createModalState(props: ModalProps) {
+export function createModalState(props: RecipeModal) {
 	const dialogClasses = $derived(`nav-dialog ${props.class ?? ''}`.trim());
 
 	return {

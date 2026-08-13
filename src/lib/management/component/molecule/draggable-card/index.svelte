@@ -6,9 +6,9 @@
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseCard from '$stylist/information/component/molecule/base-card/index.svelte';
 	import createDraggableCardState from './state.svelte';
-	import type { SlotDraggableCard as DraggableCardProps } from '$stylist/management/interface/slot/draggable-card';
+	import type { RecipeDraggableCard } from '$stylist/management/interface/recipe/draggable-card';
 
-	let props: DraggableCardProps = $props();
+	let props: RecipeDraggableCard = $props();
 	const state = createDraggableCardState(props);
 </script>
 

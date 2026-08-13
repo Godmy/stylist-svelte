@@ -1,12 +1,12 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { SlotCommentThread as CommentThreadProps } from '$stylist/social/interface/slot/comment-thread';
+	import type { RecipeCommentThread } from '$stylist/social/interface/recipe/comment-thread';
 	import { commentThreadFormatDate } from '$stylist/social/function/script/comment-thread-format-date';
 	import { commentThreadHandleKeyDown } from '$stylist/social/function/script/comment-thread-handle-key-down';
 	import { commentThreadSubmitReply } from '$stylist/social/function/script/comment-thread-submit-reply';
 	import createCommentThreadState from './state.svelte';
 
-	let props: CommentThreadProps = $props();
+	let props: RecipeCommentThread = $props();
 	const state = createCommentThreadState(props);
 </script>
 

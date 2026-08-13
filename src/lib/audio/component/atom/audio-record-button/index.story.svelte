@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { TypeAudioRecording } from '$stylist/audio/type/object/audio-recording';
+	import type { SlotAudioRecording } from '$stylist/audio/interface/slot/audio-recording';
 
 	import AudioRecordButton from './index.svelte';
 
-	let recording = $state<TypeAudioRecording | null>(null);
+	let recording = $state<SlotAudioRecording | null>(null);
 	let eventLog = $state<string[]>([]);
 
 	const controls: SlotStory[] = [
@@ -20,7 +20,7 @@
 		eventLog = ['Recording started', ...eventLog].slice(0, 4);
 	}
 
-	function handleRecorded(nextRecording: TypeAudioRecording) {
+	function handleRecorded(nextRecording: SlotAudioRecording) {
 		if (recording?.url) URL.revokeObjectURL(recording.url);
 		recording = nextRecording;
 		eventLog = [

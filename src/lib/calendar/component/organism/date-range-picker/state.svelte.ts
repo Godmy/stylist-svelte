@@ -1,10 +1,10 @@
-import type { SlotDatePicker as DateRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-picker';
+import type { RecipeDateRangePicker } from '$stylist/calendar/interface/recipe/date-range-picker';
 import { generateCalendarGrid } from '$stylist/calendar/function/script/calendar-utils';
 import { formatDisplayDate } from '$stylist/calendar/function/script/date-format';
 
-export const createDateRangePickerState = (props: DateRangePickerComponentProps) => {
+export const createDateRangePickerState = (props: RecipeDateRangePicker) => {
 	const isRangeValue = (
-		value: DateRangePickerComponentProps['value']
+		value: RecipeDateRangePicker['value']
 	): value is { start: Date | null; end: Date | null } => {
 		return (
 			!!value &&
@@ -15,7 +15,7 @@ export const createDateRangePickerState = (props: DateRangePickerComponentProps)
 		);
 	};
 
-	const parseRange = (value: DateRangePickerComponentProps['value']) => ({
+	const parseRange = (value: RecipeDateRangePicker['value']) => ({
 		start: isRangeValue(value) && value.start ? new Date(value.start) : null,
 		end: isRangeValue(value) && value.end ? new Date(value.end) : null
 	});

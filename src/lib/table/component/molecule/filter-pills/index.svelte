@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotFilterPills } from '$stylist/table/interface/slot/filter-pills';
+	import type { RecipeFilterPills } from '$stylist/table/interface/recipe/filter-pills';
 	import { createFilterPillsState } from './state.svelte';
 
-	let props: SlotFilterPills = $props();
+	let props: RecipeFilterPills = $props();
 	const state = createFilterPillsState(props);
 </script>
 

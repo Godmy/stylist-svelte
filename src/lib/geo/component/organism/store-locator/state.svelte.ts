@@ -1,4 +1,4 @@
-import type { StoreLocatorStore } from '$stylist/geo/type/object/store-locator/storelocatorstore';
+import type { StoreLocatorStore } from '$stylist/geo/interface/slot/store-locator-store';
 import type { RecipeStoreLocator } from '$stylist/geo/interface/recipe/store-locator';
 
 export function createStoreLocatorState(props: RecipeStoreLocator) {

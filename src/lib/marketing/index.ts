@@ -32,10 +32,10 @@ export type {
 	TokenTest
 } from './type';
 export type {
-	ContractMarketing,
 	RecipeAnnouncementBanner,
 	RecipeConversionFunnel,
 	RecipeCtaBanner,
+	RecipeHero,
 	RecipePromoBanner,
 	RecipeTestResultsViewer,
 	RecipeTrafficAnalytics,

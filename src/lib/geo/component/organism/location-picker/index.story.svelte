@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { Coordinates } from '$stylist/geo/type/object/location-picker/coordinates';
-	import type { MapMarker } from '$stylist/geo/type/object/location-picker/mapmarker';
+	import type { SlotCoordinates } from '$stylist/geo/interface/slot/coordinates';
+	import type { MapMarker } from '$stylist/geo/interface/slot/map-marker';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import LocationPicker from './index.svelte';
 
-	let center: Coordinates = { lat: 37.7749, lng: -122.4194 };
+	let center: SlotCoordinates = { lat: 37.7749, lng: -122.4194 };
 	let zoom = 12;
 	const markers: MapMarker[] = [
 		{
@@ -72,14 +72,14 @@
 						disableInteraction={values.disableInteraction}
 						maxZoom={values.maxZoom}
 						minZoom={values.minZoom}
-						onLocationSelect={(coords: Coordinates) => {
+						onLocationSelect={(coords: SlotCoordinates) => {
 							console.log('Location selected:', coords);
 						}}
 						onMarkerClick={(marker: MapMarker) => {
 							selectedMarker = marker.id;
 							console.log('Marker clicked:', marker);
 						}}
-						onMapClick={(coords: Coordinates) => {
+						onMapClick={(coords: SlotCoordinates) => {
 							console.log('Map clicked:', coords);
 						}}
 					/>

@@ -7,17 +7,17 @@
 	 * - Single Responsibility: Only handles chat message display
 	 * - Open/Closed: Extensible through props without modifying source
 	 * - Liskov Substitution: Can substitute any message display
-	 * - Interface Segregation: Minimal interface via IMessageBubbleProps
+	 * - Interface Segregation: Minimal interface via RecipeMessageBubble
 	 * - Dependency Inversion: Depends on abstractions (props interface)
 	 *
 	 * Atomic Design: Atom - Basic UI element for chat message display
 	 */
 
-	import type { SlotMessageBubble as IMessageBubbleProps } from '$stylist/chat/interface/slot/message-bubble';
+	import type { RecipeMessageBubble } from '$stylist/chat/interface/recipe/message-bubble';
 	import createMessageBubbleState from './state.svelte';
 	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
 
-	let props: IMessageBubbleProps = $props();
+	let props: RecipeMessageBubble = $props();
 
 	const state = createMessageBubbleState(props);
 </script>

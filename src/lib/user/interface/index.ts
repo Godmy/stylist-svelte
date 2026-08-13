@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type {
-	ContractAvatar,
-	ContractAvatarGroup
-} from './contract';
+export type { ContractAvatar } from './contract';
 export type {
 	RecipeAccountSettings,
 	RecipeAccountSettingsForm,

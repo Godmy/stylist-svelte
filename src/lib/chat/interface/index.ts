@@ -1,9 +1,14 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	RecipeChatPreview,
+	RecipeChatStatusIndicator,
 	RecipeIconPicker,
 	RecipeListWithAvatars,
+	RecipeMessageBubble,
+	RecipeMessageComposer,
 	RecipeMessageStatusProps,
+	RecipeMessageThread,
+	RecipeMessageTimestamp,
 	RecipeStatusIndicator
 } from './recipe';
 export type {

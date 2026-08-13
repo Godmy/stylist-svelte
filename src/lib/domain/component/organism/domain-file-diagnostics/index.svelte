@@ -1,5 +1,8 @@
 <script lang="ts">
+	import LegendBarDiagram from '$stylist/chart/component/organism/legend-bar-diagram/index.svelte';
+	import LegendBandDiagram from '$stylist/chart/component/organism/legend-band-diagram/index.svelte';
 	import MetricBar from '$stylist/chart/component/atom/metric-bar/index.svelte';
+	import domainComponentIntervalsManifest from '$stylist/domain/data/json/domain-component-intervals/index.json';
 	import domainFilesManifest from '$stylist/domain/data/json/domain-files/index.json';
 
 	interface DomainFileJointMetric {
@@ -42,6 +45,35 @@
 		};
 	}
 
+	interface DomainComponentIntervalMetric {
+		name: string;
+		value: number;
+		atom: number;
+		molecule: number;
+		organism: number;
+		template: number;
+		page: number;
+		intervals: {
+			name: string;
+			value: number;
+			start: number;
+			end: number;
+		}[];
+	}
+
+	interface DomainComponentIntervalsManifest {
+		domains: DomainComponentIntervalMetric[];
+		totals: {
+			domains: number;
+			components: number;
+			atoms: number;
+			molecules: number;
+			organisms: number;
+			templates: number;
+			pages: number;
+		};
+	}
+
 	interface DomainFileDiagnosticsProps {
 		class?: string;
 	}
@@ -74,12 +106,27 @@
 	let { class: className = '' }: DomainFileDiagnosticsProps = $props();
 
 	const manifest = domainFilesManifest as DomainFilesManifest;
+	const componentIntervalsManifest =
+		domainComponentIntervalsManifest as DomainComponentIntervalsManifest;
 	const componentSources = import.meta.glob('/src/lib/**/component/**/index.svelte', {
 		query: '?raw',
 		import: 'default',
 		eager: true
 	}) as Record<string, string>;
 	const domains = manifest.domains ?? [];
+	const domainFileChartItems: [string, number][] = domains.map((domain) => [
+		domain.name,
+		domain.fileCount
+	]);
+	const domainComponentIntervalItems = componentIntervalsManifest.domains.map((domain) => ({
+		text: domain.name,
+		value: domain.value,
+		atom: domain.atom,
+		molecule: domain.molecule,
+		organism: domain.organism,
+		template: domain.template,
+		page: domain.page
+	}));
 	const maxDomainFiles = Math.max(1, ...domains.map((domain) => domain.fileCount));
 	const anomalyMetricLabels: Record<AnomalyMetricKey, string> = {
 		components: 'Components',
@@ -257,20 +304,37 @@
 				<p class="eyebrow">Files By Domain</p>
 				<h3>All domains</h3>
 			</div>
-			<strong>{manifest.totals.files}</strong>
+			<strong>{manifest.totals.domains} domains / {manifest.totals.files} files</strong>
 		</header>
 
-		<div class="overview-list">
-			{#each domains as domain (domain.name)}
-				<MetricBar
-					text={domain.name}
-					percentage={getPercentage(domain.fileCount, maxDomainFiles)}
-					valueLabel={domain.fileCount}
-					color="#2563eb"
-					trackColor="color-mix(in srgb, var(--color-border-primary, #cbd5e1) 60%, transparent)"
-				/>
-			{/each}
-		</div>
+		<LegendBarDiagram
+			items={domainFileChartItems}
+			width={1180}
+			plotHeight={230}
+			labelAreaHeight={170}
+			color="#2563eb"
+			ariaLabel="Files by domain bar chart"
+		/>
+
+	</article>
+
+	<article class="overview-card">
+		<header class="overview-card__header">
+			<div>
+				<p class="eyebrow">Component Intervals</p>
+				<h3>Component bands by domain</h3>
+			</div>
+			<strong>{componentIntervalsManifest.totals.components} components</strong>
+		</header>
+
+		<LegendBandDiagram
+			items={domainComponentIntervalItems}
+			width={1180}
+			plotHeight={230}
+			labelAreaHeight={170}
+			color="#2563eb"
+			ariaLabel="Component intervals by domain band chart"
+		/>
 	</article>
 
 	<article class="anomaly-card">
@@ -458,14 +522,18 @@
 	}
 
 	.summary {
-		display: flex;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
 		align-items: end;
-		justify-content: space-between;
 		gap: 1rem;
 		padding: 1rem;
 		border: 1px solid var(--color-border-primary, #cbd5e1);
 		border-radius: 8px;
 		background: var(--color-background-primary, #ffffff);
+	}
+
+	.summary > :first-child {
+		min-width: 0;
 	}
 
 	.overview-card {
@@ -508,12 +576,6 @@
 		font-size: 1.5rem;
 		line-height: 1;
 		font-variant-numeric: tabular-nums;
-	}
-
-	.overview-list {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-		gap: 0.85rem 1rem;
 	}
 
 	.import-summary {
@@ -734,7 +796,8 @@
 	.totals {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: flex-end;
+		grid-column: 2;
+		justify-content: center;
 		gap: 0.75rem;
 	}
 
@@ -830,10 +893,11 @@
 	@media (max-width: 720px) {
 		.summary {
 			align-items: start;
-			flex-direction: column;
+			grid-template-columns: 1fr;
 		}
 
 		.totals {
+			grid-column: 1;
 			justify-content: start;
 			width: 100%;
 		}

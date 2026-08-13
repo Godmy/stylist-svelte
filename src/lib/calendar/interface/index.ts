@@ -2,8 +2,15 @@
 export type { DatePickerValue } from './slot';
 export type {
 	RecipeCalendarView,
+	RecipeDatePicker,
+	RecipeDateRangePicker,
+	RecipeDateTimePicker,
+	RecipeDateTimeRangePicker,
+	RecipeEventCalendar,
+	RecipeFormDatePicker,
 	RecipeMiniCalendar,
 	RecipeTimeGrid,
+	RecipeTimePicker,
 	RecipeTimeSlot,
 	RecipeTimeline
 } from './recipe';

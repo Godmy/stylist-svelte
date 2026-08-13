@@ -91,6 +91,7 @@ export {
 export {
 	AudioPlayer,
 	AudioRecordButton,
+	AudioRecorderManager,
 	AudioSlider,
 	AudioVisualizer,
 	TOKEN_AUDIO_ICON,
@@ -204,12 +205,18 @@ export {
 	ChartBackground,
 	ChartCanvas,
 	ChartLegend,
+	ChartLegendBand,
+	ChartLegendBandManager,
+	ChartLegendBar,
+	ChartLegendBarManager,
 	ChartName,
 	ChartPolyline,
 	DEFAULT_CANVAS_CHART_PADDING,
 	HEATMAP_GRADIENT_BY_SCHEME,
 	Heatmap,
 	LINE_CHART_COLOR_SCHEME,
+	LegendBandDiagram,
+	LegendBarDiagram,
 	LineChart,
 	MetricBar,
 	MetricBarsCard,
@@ -290,7 +297,6 @@ export {
 	OrderConfirmation,
 	OrderHistory,
 	OrderTracking,
-	PRESET_BULK_ORDER,
 	PaymentInfo,
 	PaymentMethodSelector,
 	PaymentSelector,
@@ -322,21 +328,7 @@ export {
 	Upsell,
 	UserCard,
 	WARRANTY_PERIOD_TYPE,
-	WarrantyInfo,
-	returnPolicyPolicyData,
-	shippingCalculatorCountries,
-	shippingCalculatorOptions,
-	shippingCalculatorStates,
-	shippingInfoOptions,
-	shippingInfoRegions,
-	subscriptionManagerData,
-	taxCalculatorLocations,
-	taxCalculatorRates,
-	upsellCurrentProduct,
-	upsellProducts,
-	warrantyInfoClaims,
-	warrantyInfoCoverageDetails,
-	warrantyInfoExclusions
+	WarrantyInfo
 } from './commerce';
 export {
 	AccessibilityToolbar,
@@ -345,6 +337,7 @@ export {
 	Checkbox,
 	Chip,
 	Combobox,
+	ControlManager,
 	ControlPanel,
 	FILTER_PANEL_LAYOUT,
 	FilterPanel,
@@ -369,19 +362,7 @@ export {
 	ToggleGroupRoot,
 	Toolbar,
 	ZoomControls,
-	ZoomToolbar,
-	copyTextToClipboard,
-	detectClipboardSupport,
-	handleFilterChange,
-	handleLayoutChange,
-	handleReset,
-	toolbarHandleExport,
-	toolbarHandleFitView,
-	toolbarHandleLegendToggle,
-	toolbarHandleResetView,
-	toolbarHandleSearchToggle,
-	toolbarHandleZoomIn,
-	toolbarHandleZoomOut
+	ZoomToolbar
 } from './control';
 export {
 	AuditTreePanel,
@@ -574,6 +555,7 @@ export {
 } from './form';
 export {
 	GeoJsonviewer,
+	GeoManager,
 	LocationPicker,
 	LocationSelector,
 	MAP_PROVIDER,
@@ -583,10 +565,7 @@ export {
 	RoutePlanner,
 	StoreLocator,
 	TOKEN_MAP_TYPE,
-	TOKEN_PIN,
-	geoHandleKeyDown,
-	geoHandleKeyDownForLocation,
-	getCountryFlagEmoji
+	TOKEN_PIN
 } from './geo';
 export {
 	Camera,
@@ -2013,14 +1992,7 @@ export type {
 	Zoom,
 	ZoomStep
 } from './architecture';
-export type {
-	AudioPlayerProps,
-	AudioSliderProps,
-	AudioVisualizerProps,
-	TypeAudioRecording,
-	TypeTranscriberStatus,
-	TypeTranscriptionResult
-} from './audio';
+export type { TypeTranscriberStatus } from './audio';
 export type {
 	AuthGuardProps,
 	AuthResponse,
@@ -2088,14 +2060,9 @@ export type {
 	WarrantyPeriodType
 } from './commerce';
 export type {
-	ComboboxItem,
 	ControlPanelStateProps,
-	FilterChangePayload,
 	FilterPanelLayout,
-	FilterPanelProps,
-	ToggleGroupContext,
 	ToggleGroupItemStateProps,
-	ToggleProps,
 	TokenSelectionType,
 	TokenSelectorKind
 } from './control';
@@ -2152,16 +2119,7 @@ export type {
 	ValidationErrors
 } from './form';
 export type {
-	Coordinates,
-	LocationPickerProps,
-	LocationSelectorLocation,
 	MapProvider,
-	MapSelectorLocation,
-	MapWithMarkersMarker,
-	MapWithMarkersView,
-	RouteOption,
-	RoutePlannerLocation,
-	StoreLocatorStore,
 	TokenMapType,
 	TokenPin
 } from './geo';
@@ -2400,14 +2358,16 @@ export type {
 	SemanticZoomPresentation
 } from './architecture';
 export type {
-	ContractAudioPlayer,
-	ContractAudioSlider,
-	ContractAudioVisualizer,
 	RecipeAudioPlayer,
 	RecipeAudioRecordButton,
 	RecipeAudioSlider,
 	RecipeAudioVisualizer,
-	RecipeTranscriber
+	RecipeTranscriber,
+	SlotAudioPlayer,
+	SlotAudioRecording,
+	SlotAudioSlider,
+	SlotAudioVisualizer,
+	SlotTranscriptionResult
 } from './audio';
 export type {
 	IAuthProvider,
@@ -2444,8 +2404,15 @@ export type {
 } from './button';
 export type {
 	RecipeCalendarView,
+	RecipeDatePicker,
+	RecipeDateRangePicker,
+	RecipeDateTimePicker,
+	RecipeDateTimeRangePicker,
+	RecipeEventCalendar,
+	RecipeFormDatePicker,
 	RecipeMiniCalendar,
 	RecipeTimeGrid,
+	RecipeTimePicker,
 	RecipeTimeSlot,
 	RecipeTimeline,
 	SlotCalendarDay,
@@ -2490,9 +2457,13 @@ export type {
 	RecipeChartBackground,
 	RecipeChartCanvas,
 	RecipeChartLegend,
+	RecipeChartLegendBand,
+	RecipeChartLegendBar,
 	RecipeChartName,
 	RecipeChartPolyline,
 	RecipeHeatmap,
+	RecipeLegendBandDiagram,
+	RecipeLegendBarDiagram,
 	RecipeLineChart,
 	RecipeMetricBar,
 	RecipeMetricBarsCard,
@@ -2505,9 +2476,14 @@ export type {
 } from './chart';
 export type {
 	RecipeChatPreview,
+	RecipeChatStatusIndicator,
 	RecipeIconPicker,
 	RecipeListWithAvatars,
+	RecipeMessageBubble,
+	RecipeMessageComposer,
 	RecipeMessageStatusProps,
+	RecipeMessageThread,
+	RecipeMessageTimestamp,
 	RecipeStatusIndicator,
 	SlotChat,
 	SlotChatStatusIndicator,
@@ -2589,53 +2565,47 @@ export type {
 	BehaviorSelectable,
 	RecipeAccessibilityToolbar,
 	RecipeActionSegmentedControl,
-	RecipeAdvancedToggleProps,
 	RecipeAutocompleteDropdown,
 	RecipeCheckbox,
 	RecipeChip,
 	RecipeClick,
 	RecipeCombobox,
 	RecipeDragAndDrop,
-	RecipeFeedback,
-	RecipeFeedbackSpecificProps,
+	RecipeFilterPanel,
 	RecipeMultiSelect,
 	RecipeOverlay,
 	RecipeProgressBar,
 	RecipeRadio,
 	RecipeRangeInput,
+	RecipeRangeSlider,
 	RecipeSelect,
-	RecipeSelectControl,
 	RecipeSelector,
 	RecipeSlider,
-	RecipeSliderTick,
+	RecipeSliderWithInput,
 	RecipeSwitch,
 	RecipeTag,
 	RecipeTick,
-	RecipeToggleBaseProps,
-	RecipeToggleGroup,
-	RecipeToggleGroupItemProps,
-	RecipeToggleGroupRootProps,
-	RecipeToggleInputProps,
-	RecipeToggleProps,
-	RecipeToggleSpecificProps,
-	RecipeToggleToggle,
-	RecipeToggles,
-	RecipeTransformation,
+	RecipeToggleGroupItem,
+	RecipeToggleGroupRoot,
 	RecipeZoomControls,
-	RecipeZoomSpecificProps,
 	RecipeZoomToolbar,
 	SlotAutocompleteDropdown,
 	SlotAutocompleteDropdownOption,
 	SlotClick,
+	SlotComboboxItem,
 	SlotComboboxStyleClasses,
 	SlotDragAndDrop,
+	SlotFilterChangePayload,
 	SlotFilterPanelState,
 	SlotMultiSelectOption,
 	SlotRangeInput,
 	SlotRangeSlider,
 	SlotSelectStyleClasses,
 	SlotSliderWithInput,
-	SlotToggle
+	SlotToggle,
+	SlotToggleBase,
+	SlotToggleGroupContext,
+	SlotToggleInput
 } from './control';
 export type {
 	RecipeAuditTreePanel,
@@ -2706,6 +2676,7 @@ export type {
 export type {
 	RecipeAttachmentPreview,
 	RecipeDataExporter,
+	RecipeDocumentPreview,
 	RecipeDownloadCard,
 	RecipeDragDropFileUpload,
 	RecipeDropZone,
@@ -2752,6 +2723,10 @@ export type {
 } from './form';
 export type {
 	BehaviorMarkerProto,
+	LocationSelectorLocation,
+	MapSelectorLocation,
+	MapWithMarkersMarker,
+	MapWithMarkersView,
 	RecipeGeoJsonviewerStateProps,
 	RecipeLocationPicker,
 	RecipeLocationSelector,
@@ -2762,12 +2737,15 @@ export type {
 	RecipeRoute,
 	RecipeRoutePlanner,
 	RecipeStoreLocator,
+	RouteOption,
+	RoutePlannerLocation,
 	SlotCoordinates,
 	SlotGeoJsonFeature,
 	SlotGeoJsonFeatureCollection,
 	SlotGeoJsonLayer,
 	SlotMapSelector,
-	SlotMapView
+	SlotMapView,
+	StoreLocatorStore
 } from './geo';
 export type {
 	GraphBounds3D,
@@ -2924,7 +2902,6 @@ export type {
 	SlotSortableListItem
 } from './list';
 export type {
-	ContractCountryFlag,
 	NumberFormatOptions,
 	RecipeCountryFlag,
 	RecipeLanguageSelector,
@@ -2941,6 +2918,7 @@ export type {
 	ContractDashboardLayout,
 	DraggableCardProps,
 	RecipeDashboardLayout,
+	RecipeDraggableCard,
 	RecipeKPIIndicator,
 	RecipeLegendItem,
 	RecipePageHeader,
@@ -2961,10 +2939,10 @@ export type {
 	SlotTeamMemberCard
 } from './management';
 export type {
-	ContractMarketing,
 	RecipeAnnouncementBanner,
 	RecipeConversionFunnel,
 	RecipeCtaBanner,
+	RecipeHero,
 	RecipePromoBanner,
 	RecipeTestResultsViewer,
 	RecipeTrafficAnalytics,
@@ -2979,6 +2957,9 @@ export type {
 	BreadcrumbItem,
 	NavItem,
 	PrimaryMenuItem,
+	RecipeAccordion,
+	RecipeAccordionGroup,
+	RecipeAccordionLayout,
 	RecipeAppHeader,
 	RecipeBreadcrumbDropdown,
 	RecipeBreadcrumbLink,
@@ -2986,12 +2967,13 @@ export type {
 	RecipeBreadcrumbs,
 	RecipeBurgerMenu,
 	RecipeConfirmationDialog,
+	RecipeDialog,
 	RecipeDialogConfirm,
 	RecipeDrawer,
 	RecipeDropdownMenu,
 	RecipeGeneralToolbar,
-	RecipeLinkSpecificProps,
 	RecipeMenuItem,
+	RecipeModal,
 	RecipePageButton,
 	RecipePageEllipsis,
 	RecipePagination,
@@ -3001,7 +2983,12 @@ export type {
 	RecipeStepper,
 	RecipeStylistMenu,
 	RecipeStylistTab,
+	RecipeTab,
 	RecipeTabGroup,
+	RecipeTabIndicator,
+	RecipeTabList,
+	RecipeTabPanel,
+	RecipeTabPanels,
 	RecipeTabs,
 	SlotAccordion,
 	SlotAccordionGroup,
@@ -3090,7 +3077,8 @@ export type {
 	SlotSearchSuggestion
 } from './search';
 export type {
-	ContractSocial,
+	RecipeCommentSystem,
+	RecipeCommentThread,
 	RecipePostCard,
 	RecipeRating,
 	RecipeReactionPicker,
@@ -3123,6 +3111,8 @@ export type {
 	RecipeColumn,
 	RecipeComparisonTable,
 	RecipeComponent,
+	RecipeFilterPills,
+	RecipeFilterText,
 	RecipeRow,
 	RecipeTable,
 	RecipeTableListPanel,
@@ -3191,7 +3181,6 @@ export type {
 } from './typography';
 export type {
 	ContractAvatar,
-	ContractAvatarGroup,
 	RecipeAccountSettings,
 	RecipeAccountSettingsForm,
 	RecipeAvatar,

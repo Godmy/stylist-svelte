@@ -21,7 +21,6 @@ export type {
 	TranslationLocale
 } from './type';
 export type {
-	ContractCountryFlag,
 	NumberFormatOptions,
 	RecipeCountryFlag,
 	RecipeLanguageSelector,

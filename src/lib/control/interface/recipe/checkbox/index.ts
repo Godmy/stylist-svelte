@@ -1,7 +1,7 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { RecipeToggleInputProps } from '$stylist/control/interface/recipe/toggle-input-props';
+import type { SlotToggleInput } from '$stylist/control/interface/slot/toggle-input';
 export interface RecipeCheckbox
-	extends ComputeIntersectAll<[RecipeToggleInputProps]> {
+	extends ComputeIntersectAll<[SlotToggleInput]> {
 	id?: string;
 	label?: string;
 	description?: string;

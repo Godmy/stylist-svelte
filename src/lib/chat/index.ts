@@ -43,9 +43,14 @@ export type {
 } from './type';
 export type {
 	RecipeChatPreview,
+	RecipeChatStatusIndicator,
 	RecipeIconPicker,
 	RecipeListWithAvatars,
+	RecipeMessageBubble,
+	RecipeMessageComposer,
 	RecipeMessageStatusProps,
+	RecipeMessageThread,
+	RecipeMessageTimestamp,
 	RecipeStatusIndicator,
 	SlotChat,
 	SlotChatStatusIndicator,

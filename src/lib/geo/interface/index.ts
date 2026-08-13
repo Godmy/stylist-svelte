@@ -13,10 +13,18 @@ export type {
 	RecipeStoreLocator
 } from './recipe';
 export type {
+	LocationSelectorLocation,
+	MapMarker,
+	MapSelectorLocation,
+	MapWithMarkersMarker,
+	MapWithMarkersView,
+	RouteOption,
+	RoutePlannerLocation,
 	SlotCoordinates,
 	SlotGeoJsonFeature,
 	SlotGeoJsonFeatureCollection,
 	SlotGeoJsonLayer,
 	SlotMapSelector,
-	SlotMapView
+	SlotMapView,
+	StoreLocatorStore
 } from './slot';

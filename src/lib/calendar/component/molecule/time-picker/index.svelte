@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotTimePicker as ITimePickerProps } from '$stylist/calendar/interface/slot/time-picker';
+	import type { RecipeTimePicker } from '$stylist/calendar/interface/recipe/time-picker';
 	import createTimePickerState from './state.svelte';
 
-	let props: ITimePickerProps = $props();
+	let props: RecipeTimePicker = $props();
 	const state = createTimePickerState(props);
 </script>
 

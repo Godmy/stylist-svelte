@@ -1,11 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import { derived, writable } from 'svelte/store';
-import type { SlotChatStatusIndicator as ChatStatusIndicatorProps } from '$stylist/chat/interface/slot/chat-status-indicator';
-import type { SlotChatStatusIndicator as ChatStatusIndicatorContract } from '$stylist/chat/interface/slot/chat-status-indicator';
+import type { RecipeChatStatusIndicator } from '$stylist/chat/interface/recipe/chat-status-indicator';
 
-export function createChatStatusIndicatorState(
-	props: ChatStatusIndicatorProps | ChatStatusIndicatorContract
-) {
+export function createChatStatusIndicatorState(props: RecipeChatStatusIndicator) {
 	// Initialize props with defaults
 	const status = props.status ?? 'offline';
 	const size = props.size ?? 'sm';

@@ -1,6 +1,6 @@
-import type { SlotDragAndDrop as DragAndDropProps } from '$stylist/control/interface/slot/drag-and-drop';
+import type { RecipeDragAndDrop } from '$stylist/control/interface/recipe/drag-and-drop';
 
-export function createDragAndDropState(props: DragAndDropProps) {
+export function createDragAndDropState(props: RecipeDragAndDrop) {
 	const draggable = $derived(props.draggable ?? false);
 	const dropzone = $derived(props.dropzone ?? false);
 	const disabled = $derived(props.disabled ?? false);

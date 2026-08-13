@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { AudioRecorderManager } from './class';
 export {
 	AudioPlayer,
 	AudioRecordButton,
@@ -8,21 +9,16 @@ export {
 } from './component';
 export { TOKEN_AUDIO_ICON } from './const';
 export { formatAudioTime } from './function';
+export type { TypeTranscriberStatus } from './type';
 export type {
-	AudioPlayerProps,
-	AudioSliderProps,
-	AudioVisualizerProps,
-	TypeAudioRecording,
-	TypeTranscriberStatus,
-	TypeTranscriptionResult
-} from './type';
-export type {
-	ContractAudioPlayer,
-	ContractAudioSlider,
-	ContractAudioVisualizer,
 	RecipeAudioPlayer,
 	RecipeAudioRecordButton,
 	RecipeAudioSlider,
 	RecipeAudioVisualizer,
-	RecipeTranscriber
+	RecipeTranscriber,
+	SlotAudioPlayer,
+	SlotAudioRecording,
+	SlotAudioSlider,
+	SlotAudioVisualizer,
+	SlotTranscriptionResult
 } from './interface';

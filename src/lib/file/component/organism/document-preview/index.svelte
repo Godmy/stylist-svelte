@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
-		import type { SlotDocumentPreview as DocumentPreviewProps } from '$stylist/file/interface/slot/document-preview';
+		import type { RecipeDocumentPreview } from '$stylist/file/interface/recipe/document-preview';
 	import createDocumentPreviewState from './state.svelte';
-	let props: DocumentPreviewProps = $props();
+	let props: RecipeDocumentPreview = $props();
 	const state = createDocumentPreviewState(props);
 	const { title: _title, content: _content, format: _format, class: _class, ...restProps } = props;
 </script>

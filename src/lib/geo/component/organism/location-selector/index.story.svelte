@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { LocationSelectorLocation } from '$stylist/geo/type/object/location-selector/locationselectorlocation';
+	import type { LocationSelectorLocation } from '$stylist/geo/interface/slot/location-selector-location';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 

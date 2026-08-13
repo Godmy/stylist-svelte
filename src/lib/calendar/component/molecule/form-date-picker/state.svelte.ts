@@ -1,9 +1,9 @@
-import type { SlotDatePicker as IFormDatePickerProps } from '$stylist/calendar/interface/slot/date-picker';
+import type { RecipeFormDatePicker } from '$stylist/calendar/interface/recipe/form-date-picker';
 import { toInputDateString, fromInputDateString } from '$stylist/calendar/function/script/calendar-utils';
 import { formatDisplayDate } from '$stylist/calendar/function/script/date-format';
 
-export const createFormDatePickerState = (props: IFormDatePickerProps) => {
-	const toInputDate = (value: IFormDatePickerProps['value']): string => {
+export const createFormDatePickerState = (props: RecipeFormDatePicker) => {
+	const toInputDate = (value: RecipeFormDatePicker['value']): string => {
 		if (value instanceof Date) return toInputDateString(value);
 		if (typeof value === 'string') return value;
 		return '';

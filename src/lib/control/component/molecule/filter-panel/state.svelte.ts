@@ -1,8 +1,8 @@
-import type { FilterPanelProps } from '$stylist/control/type/object/filter-panel/filterpanel-props';
+import type { RecipeFilterPanel } from '$stylist/control/interface/recipe/filter-panel';
 import type { FilterPanelLayout } from '$stylist/control/type/alias/filter-panel-layout';
 import type { SlotFilterPanelState } from '$stylist/control/interface/slot/filter-panel-state';
 
-export function createFilterPanelState(props: FilterPanelProps): SlotFilterPanelState {
+export function createFilterPanelState(props: RecipeFilterPanel): SlotFilterPanelState {
 	let objectsVisible = $state(props.showObjects ?? true);
 	let interfacesVisible = $state(props.showInterfaces ?? true);
 	let unionsVisible = $state(props.showUnions ?? true);

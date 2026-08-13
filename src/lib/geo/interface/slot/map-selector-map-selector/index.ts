@@ -1,5 +1,5 @@
 import type { MapProvider } from '$stylist/geo/type/alias/map-provider';
-import type { MapSelectorLocation } from '$stylist/geo/type/object/map-selector/mapselectorlocation';
+import type { MapSelectorLocation } from '$stylist/geo/interface/slot/map-selector-location';
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 
 export interface SlotMapSelector {

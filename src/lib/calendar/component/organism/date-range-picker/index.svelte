@@ -1,13 +1,13 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { SlotDatePicker as DateRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-picker';
+	import type { RecipeDateRangePicker } from '$stylist/calendar/interface/recipe/date-range-picker';
 	import createDateRangePickerState from './state.svelte';
 
 	const ChevronLeft = 'chevron-left';
 	const ChevronRight = 'chevron-right';
 	const X = 'x';
 
-	let props: DateRangePickerComponentProps = $props();
+	let props: RecipeDateRangePicker = $props();
 	const state = createDateRangePickerState(props);
 </script>
 

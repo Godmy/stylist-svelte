@@ -1,9 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ContractMarketing } from './contract';
 export type {
 	RecipeAnnouncementBanner,
 	RecipeConversionFunnel,
 	RecipeCtaBanner,
+	RecipeHero,
 	RecipePromoBanner,
 	RecipeTestResultsViewer,
 	RecipeTrafficAnalytics,

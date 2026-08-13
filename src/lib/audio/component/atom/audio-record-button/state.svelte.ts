@@ -1,22 +1,16 @@
 import type { RecipeAudioRecordButton } from '$stylist/audio/interface/recipe/audio-record-button';
-import type { TypeAudioRecording } from '$stylist/audio/type/object/audio-recording';
+import type { SlotAudioRecording } from '$stylist/audio/interface/slot/audio-recording';
 import { TOKEN_AUDIO_ICON } from '$stylist/audio/const/record/audio-icon';
+import { AudioRecorderManager } from '$stylist/audio/class/manager/audio-recorder';
 
 export function createAudioRecordButtonState(props: RecipeAudioRecordButton) {
-	let mediaRecorder = $state<MediaRecorder | null>(null);
-	let stream = $state<MediaStream | null>(null);
-	let chunks = $state<BlobPart[]>([]);
-	let recording = $state<TypeAudioRecording | null>(null);
+	const recorder = new AudioRecorderManager();
+	let recording = $state<SlotAudioRecording | null>(null);
 	let isRecording = $state(false);
 	let isProcessing = $state(false);
 	let errorMessage = $state('');
-	let startedAt = $state(0);
 
-	const isSupported = $derived(
-		typeof navigator !== 'undefined' &&
-			Boolean(navigator.mediaDevices?.getUserMedia) &&
-			typeof MediaRecorder !== 'undefined'
-	);
+	const isSupported = $derived(AudioRecorderManager.isSupported());
 	const mimeType = $derived(props.mimeType ?? 'audio/webm');
 	const fileName = $derived(props.fileName ?? `audio-message-${Date.now()}.webm`);
 	const isDisabled = $derived(Boolean(props.disabled || isProcessing || !isSupported));
@@ -51,72 +45,44 @@ export function createAudioRecordButtonState(props: RecipeAudioRecordButton) {
 
 	function reportError(error: unknown) {
 		const nextError = error instanceof Error ? error : new Error(String(error));
+		isRecording = false;
+		isProcessing = false;
 		errorMessage = nextError.message;
 		props.onError?.(nextError);
 	}
 
-	function stopStream() {
-		stream?.getTracks().forEach((track) => track.stop());
-		stream = null;
-	}
-
-	async function finishRecording() {
+	async function handleRecorded(nextRecording: SlotAudioRecording) {
 		isProcessing = true;
 		try {
-			const blob = new Blob(chunks, { type: mediaRecorder?.mimeType || mimeType });
-			const url = URL.createObjectURL(blob);
-			const nextRecording = {
-				blob,
-				file: new File([blob], fileName, { type: blob.type }),
-				url,
-				mimeType: blob.type,
-				durationMs: Date.now() - startedAt,
-				fileName,
-				createdAt: new Date()
-			};
 			recording = nextRecording;
 			await props.onRecorded?.(nextRecording);
 		} catch (error) {
 			reportError(error);
 		} finally {
 			isProcessing = false;
-			stopStream();
 		}
 	}
 
 	async function startRecording() {
 		if (isDisabled || isRecording) return;
-		try {
-			errorMessage = '';
-			recording = null;
-			chunks = [];
-			stream = await navigator.mediaDevices.getUserMedia({
-				audio: props.audioConstraints ?? true
-			});
-			const options =
-				mimeType && MediaRecorder.isTypeSupported(mimeType) ? { mimeType } : undefined;
-			mediaRecorder = new MediaRecorder(stream, options);
-			mediaRecorder.ondataavailable = (event) => {
-				if (event.data.size > 0) chunks = [...chunks, event.data];
-			};
-			mediaRecorder.onstop = () => {
-				void finishRecording();
-			};
-			startedAt = Date.now();
-			isRecording = true;
-			mediaRecorder.start();
-			props.onRecordingStart?.();
-		} catch (error) {
-			isRecording = false;
-			stopStream();
-			reportError(error);
-		}
+		errorMessage = '';
+		recording = null;
+		await recorder.start({
+			mimeType,
+			fileName,
+			audioConstraints: props.audioConstraints,
+			onStart: () => {
+				isRecording = true;
+				props.onRecordingStart?.();
+			},
+			onRecorded: handleRecorded,
+			onError: reportError
+		});
 	}
 
 	function stopRecording() {
-		if (!mediaRecorder || !isRecording) return;
 		isRecording = false;
-		mediaRecorder.stop();
+		recorder.stop();
 	}
 
 	function toggleRecording() {

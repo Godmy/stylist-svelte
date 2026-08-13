@@ -1,6 +1,6 @@
-import type { SlotAccordion } from '$stylist/navigation/interface/slot/accordion';
+import type { RecipeAccordion } from '$stylist/navigation/interface/recipe/accordion';
 
-export function createAccordionState(props: SlotAccordion) {
+export function createAccordionState(props: RecipeAccordion) {
 	let activeValue = $state<string | null>(props.defaultValue ?? null);
 
 	function isPanelOpen(value: string): boolean {

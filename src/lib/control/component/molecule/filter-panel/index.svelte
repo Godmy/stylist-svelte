@@ -1,14 +1,13 @@
 <script lang="ts">
+	import { ControlManager } from '$stylist/control/class/manager/control';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import SlotCheckbox from '$stylist/control/component/atom/checkbox/index.svelte';
 	import Select from '$stylist/control/component/molecule/selector/index.svelte';
-	import type { FilterPanelProps } from '$stylist/control/type/object/filter-panel/filterpanel-props';
+	import type { RecipeFilterPanel } from '$stylist/control/interface/recipe/filter-panel';
 	import createFilterPanelState from './state.svelte';
-	import { handleFilterChange } from '$stylist/control/function/script/filter-panel/handle-filter-change';
-	import { handleReset } from '$stylist/control/function/script/filter-panel/handle-reset';
 	import type { FilterPanelLayout } from '$stylist/control/type/alias/filter-panel-layout';
 
-	const { onFilterChange, onReset, ...rest }: FilterPanelProps = $props();
+	const { onFilterChange, onReset, ...rest }: RecipeFilterPanel = $props();
 	const state = createFilterPanelState(rest);
 </script>
 
@@ -23,7 +22,7 @@
 					checked={state.objectsVisible}
 					onchange={(event) => {
 						state.objectsVisible = (event.target as HTMLInputElement).checked;
-						handleFilterChange(state, onFilterChange);
+						ControlManager.handleFilterChange(state, onFilterChange);
 					}}
 				/>
 			</div>
@@ -34,7 +33,7 @@
 					checked={state.interfacesVisible}
 					onchange={(event) => {
 						state.interfacesVisible = (event.target as HTMLInputElement).checked;
-						handleFilterChange(state, onFilterChange);
+						ControlManager.handleFilterChange(state, onFilterChange);
 					}}
 				/>
 			</div>
@@ -45,7 +44,7 @@
 					checked={state.unionsVisible}
 					onchange={(event) => {
 						state.unionsVisible = (event.target as HTMLInputElement).checked;
-						handleFilterChange(state, onFilterChange);
+						ControlManager.handleFilterChange(state, onFilterChange);
 					}}
 				/>
 			</div>
@@ -56,7 +55,7 @@
 					checked={state.enumsVisible}
 					onchange={(event) => {
 						state.enumsVisible = (event.target as HTMLInputElement).checked;
-						handleFilterChange(state, onFilterChange);
+						ControlManager.handleFilterChange(state, onFilterChange);
 					}}
 				/>
 			</div>
@@ -67,7 +66,7 @@
 					checked={state.scalarsVisible}
 					onchange={(event) => {
 						state.scalarsVisible = (event.target as HTMLInputElement).checked;
-						handleFilterChange(state, onFilterChange);
+						ControlManager.handleFilterChange(state, onFilterChange);
 					}}
 				/>
 			</div>
@@ -78,7 +77,7 @@
 					checked={state.inputsVisible}
 					onchange={(event) => {
 						state.inputsVisible = (event.target as HTMLInputElement).checked;
-						handleFilterChange(state, onFilterChange);
+						ControlManager.handleFilterChange(state, onFilterChange);
 					}}
 				/>
 			</div>
@@ -94,7 +93,7 @@
 				value={state.currentLayout}
 				onSelect={(value: string | string[]) => {
 					state.currentLayout = (Array.isArray(value) ? value[0] : value) as FilterPanelLayout;
-					handleFilterChange(state, onFilterChange);
+					ControlManager.handleFilterChange(state, onFilterChange);
 				}}
 				options={[
 					{ value: 'force-directed', label: 'Force Directed' },
@@ -111,7 +110,7 @@
 		size="sm"
 		class="reset-btn"
 		style="align-self: flex-start; margin-top: 0.5rem;"
-		onclick={() => handleReset(state, onFilterChange, onReset)}
+		onclick={() => ControlManager.handleReset(state, onFilterChange, onReset)}
 	>
 		Reset Filters
 	</Button>

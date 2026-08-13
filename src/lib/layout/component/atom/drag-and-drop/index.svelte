@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotDragAndDrop } from '$stylist/control/interface/slot/drag-and-drop';
+	import type { RecipeDragAndDrop } from '$stylist/control/interface/recipe/drag-and-drop';
 	import createDragAndDropState from './state.svelte';
 
-	let props: SlotDragAndDrop = $props();
+	let props: RecipeDragAndDrop = $props();
 	const state = createDragAndDropState(props);
 
 	const restProps = $derived(

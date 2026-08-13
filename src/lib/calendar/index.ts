@@ -47,8 +47,15 @@ export type {
 } from './type';
 export type {
 	RecipeCalendarView,
+	RecipeDatePicker,
+	RecipeDateRangePicker,
+	RecipeDateTimePicker,
+	RecipeDateTimeRangePicker,
+	RecipeEventCalendar,
+	RecipeFormDatePicker,
 	RecipeMiniCalendar,
 	RecipeTimeGrid,
+	RecipeTimePicker,
 	RecipeTimeSlot,
 	RecipeTimeline,
 	SlotCalendarDay,

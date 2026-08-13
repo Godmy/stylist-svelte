@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { ComboboxItem } from '$stylist/control/type/object/combobox/item';
+	import type { SlotComboboxItem } from '$stylist/control/interface/slot/combobox-item';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	import Combobox from './index.svelte';
 
-	const items: ComboboxItem[] = [
+	const items: SlotComboboxItem[] = [
 		{ id: '1', label: 'Apple', description: 'A sweet, edible fruit' },
 		{ id: '2', label: 'Banana', description: 'A yellow, curved fruit' },
 		{ id: '3', label: 'Cherry', description: 'A small, round stone fruit' }

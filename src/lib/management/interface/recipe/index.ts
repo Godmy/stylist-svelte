@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { RecipeDashboardLayout } from './dashboard-layout';
+export type { RecipeDraggableCard } from './draggable-card';
 export type { RecipeKPIIndicator } from './kpi-indicator';
 export type { RecipeLegendItem } from './legend-item';
 export type { RecipePageHeader } from './page-header';

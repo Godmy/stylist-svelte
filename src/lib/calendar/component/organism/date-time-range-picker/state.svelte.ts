@@ -1,8 +1,8 @@
-import type { SlotDatePicker as DateTimeRangePickerComponentProps } from '$stylist/calendar/interface/slot/date-picker';
+import type { RecipeDateTimeRangePicker } from '$stylist/calendar/interface/recipe/date-time-range-picker';
 
-export const createDateTimeRangePickerState = (props: DateTimeRangePickerComponentProps) => {
+export const createDateTimeRangePickerState = (props: RecipeDateTimeRangePicker) => {
 	const isRangeValue = (
-		value: DateTimeRangePickerComponentProps['value']
+		value: RecipeDateTimeRangePicker['value']
 	): value is { start: Date | null; end: Date | null } => {
 		return (
 			!!value &&
@@ -13,7 +13,7 @@ export const createDateTimeRangePickerState = (props: DateTimeRangePickerCompone
 		);
 	};
 
-	const parseRange = (value: DateTimeRangePickerComponentProps['value']) => ({
+	const parseRange = (value: RecipeDateTimeRangePicker['value']) => ({
 		start: isRangeValue(value) && value.start ? new Date(value.start) : null,
 		end: isRangeValue(value) && value.end ? new Date(value.end) : null
 	});

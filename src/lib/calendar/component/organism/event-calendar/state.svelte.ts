@@ -1,11 +1,11 @@
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
-import type { SlotEventCalendar as EventCalendarContract } from '$stylist/calendar/interface/slot/event-calendar';
+import type { RecipeEventCalendar } from '$stylist/calendar/interface/recipe/event-calendar';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';
 import type { TokenTimeMeasure } from '$stylist/calendar/type/alias/time-measure';
 import { generateCalendarGrid, isToday as isTodayFn, isSameDay, startOfWeek } from '$stylist/calendar/function/script/calendar-utils';
 
-export function createEventCalendarState(props: EventCalendarContract) {
+export function createEventCalendarState(props: RecipeEventCalendar) {
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
 	let selectedEvent: SlotCalendarEvent | null = $state(null);
 	let showEventActions = $state(false);

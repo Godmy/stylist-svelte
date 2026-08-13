@@ -56,6 +56,7 @@ export type {
 export type {
 	RecipeAttachmentPreview,
 	RecipeDataExporter,
+	RecipeDocumentPreview,
 	RecipeDownloadCard,
 	RecipeDragDropFileUpload,
 	RecipeDropZone,

@@ -1,6 +1,6 @@
-import type { SlotTimePicker as ITimePickerProps } from '$stylist/calendar/interface/slot/time-picker';
+import type { RecipeTimePicker } from '$stylist/calendar/interface/recipe/time-picker';
 
-export const createTimePickerState = (props: ITimePickerProps) => {
+export const createTimePickerState = (props: RecipeTimePicker) => {
 	let selectedTime = $state(props.value ?? '');
 
 	$effect(() => {

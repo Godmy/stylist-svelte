@@ -6,6 +6,7 @@ export type {
 export type { ContractDashboardLayout } from './contract';
 export type {
 	RecipeDashboardLayout,
+	RecipeDraggableCard,
 	RecipeKPIIndicator,
 	RecipeLegendItem,
 	RecipePageHeader,

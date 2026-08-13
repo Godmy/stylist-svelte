@@ -1,5 +1,6 @@
-import type { TypeAudioRecording } from '$stylist/audio/type/object/audio-recording';
 import type { HTMLButtonAttributes } from 'svelte/elements';
+import type { SlotAudioRecording } from '$stylist/audio/interface/slot/audio-recording';
+
 export interface RecipeAudioRecordButton extends Omit<HTMLButtonAttributes, 'class'> {
 	class?: string;
 	mimeType?: string;
@@ -10,6 +11,6 @@ export interface RecipeAudioRecordButton extends Omit<HTMLButtonAttributes, 'cla
 	stopLabel?: string;
 	saveLabel?: string;
 	onRecordingStart?: () => void;
-	onRecorded?: (recording: TypeAudioRecording) => void | Promise<void>;
+	onRecorded?: (recording: SlotAudioRecording) => void | Promise<void>;
 	onError?: (error: Error) => void;
 }

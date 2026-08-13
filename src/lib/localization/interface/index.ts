@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ContractCountryFlag } from './contract';
 export type {
 	RecipeCountryFlag,
 	RecipeLanguageSelector,

@@ -1,25 +1,20 @@
 import type { RecipeTranscriber } from '$stylist/audio/interface/recipe/transcriber';
-import type { TypeAudioRecording } from '$stylist/audio/type/object/audio-recording';
+import type { SlotAudioRecording } from '$stylist/audio/interface/slot/audio-recording';
 import type { TypeTranscriberStatus } from '$stylist/audio/type/alias/transcriber-status';
-import type { TypeTranscriptionResult } from '$stylist/audio/type/object/transcription-result';
+import type { SlotTranscriptionResult } from '$stylist/audio/interface/slot/transcription-result';
+import { AudioRecorderManager } from '$stylist/audio/class/manager/audio-recorder';
 
 export function createTranscriberState(props: RecipeTranscriber) {
-	let mediaRecorder = $state<MediaRecorder | null>(null);
-	let stream = $state<MediaStream | null>(null);
-	let chunks = $state<BlobPart[]>([]);
-	let recording = $state<TypeAudioRecording | null>(null);
-	let transcription = $state<TypeTranscriptionResult | null>(null);
+	const recorder = new AudioRecorderManager();
+	let recording = $state<SlotAudioRecording | null>(null);
+	let transcription = $state<SlotTranscriptionResult | null>(null);
 	let status = $state<TypeTranscriberStatus>('idle');
 	let progress = $state(0);
 	let errorMessage = $state('');
 	let copied = $state(false);
 	let startedAt = $state(0);
 
-	const isSupported = $derived(
-		typeof navigator !== 'undefined' &&
-			Boolean(navigator.mediaDevices?.getUserMedia) &&
-			typeof MediaRecorder !== 'undefined'
-	);
+	const isSupported = $derived(AudioRecorderManager.isSupported());
 	const endpoint = $derived(props.endpoint ?? '/api/transcription');
 	const model = $derived(props.model ?? 'faster-whisper-base');
 	const mimeType = $derived(props.mimeType ?? 'audio/webm');
@@ -76,25 +71,9 @@ export function createTranscriberState(props: RecipeTranscriber) {
 		props.onError?.(nextError);
 	}
 
-	function stopStream() {
-		stream?.getTracks().forEach((track) => track.stop());
-		stream = null;
-	}
-
-	async function createRecording() {
+	async function handleRecordingReady(nextRecording: SlotAudioRecording) {
 		status = 'processing';
 		progress = 25;
-		const blob = new Blob(chunks, { type: mediaRecorder?.mimeType || mimeType });
-		const url = URL.createObjectURL(blob);
-		const nextRecording = {
-			blob,
-			file: new File([blob], fileName, { type: blob.type }),
-			url,
-			mimeType: blob.type,
-			durationMs: Date.now() - startedAt,
-			fileName,
-			createdAt: new Date()
-		};
 		recording = nextRecording;
 		await props.onRecordingReady?.(nextRecording);
 		if (props.autoTranscribe ?? true) {
@@ -105,7 +84,7 @@ export function createTranscriberState(props: RecipeTranscriber) {
 		}
 	}
 
-	async function transcribeRecording(nextRecording: TypeAudioRecording) {
+	async function transcribeRecording(nextRecording: SlotAudioRecording) {
 		status = 'uploading';
 		progress = 45;
 		const body = new FormData();
@@ -141,37 +120,27 @@ export function createTranscriberState(props: RecipeTranscriber) {
 
 	async function startRecording() {
 		if (!canRecord || isRecording) return;
-		try {
-			errorMessage = '';
-			copied = false;
-			recording = null;
-			transcription = null;
-			chunks = [];
-			stream = await navigator.mediaDevices.getUserMedia({
-				audio: props.audioConstraints ?? true
-			});
-			const options =
-				mimeType && MediaRecorder.isTypeSupported(mimeType) ? { mimeType } : undefined;
-			mediaRecorder = new MediaRecorder(stream, options);
-			mediaRecorder.ondataavailable = (event) => {
-				if (event.data.size > 0) chunks = [...chunks, event.data];
-			};
-			mediaRecorder.onstop = () => {
-				void createRecording().catch(reportError).finally(stopStream);
-			};
-			startedAt = Date.now();
-			status = 'recording';
-			progress = 10;
-			mediaRecorder.start();
-		} catch (error) {
-			stopStream();
-			reportError(error);
-		}
+		errorMessage = '';
+		copied = false;
+		recording = null;
+		transcription = null;
+		await recorder.start({
+			mimeType,
+			fileName,
+			audioConstraints: props.audioConstraints,
+			onStart: () => {
+				status = 'recording';
+				progress = 10;
+				startedAt = Date.now();
+			},
+			onRecorded: handleRecordingReady,
+			onError: reportError
+		});
 	}
 
 	function stopRecording() {
-		if (!mediaRecorder || !isRecording) return;
-		mediaRecorder.stop();
+		if (!isRecording) return;
+		recorder.stop();
 	}
 
 	function toggleRecording() {

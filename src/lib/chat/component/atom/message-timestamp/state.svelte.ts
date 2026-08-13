@@ -1,10 +1,7 @@
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
-import type { SlotMessageTimestamp as MessageTimestampProps } from '$stylist/chat/interface/slot/message-timestamp';
-import type { SlotMessageTimestamp as MessageTimestampContract } from '$stylist/chat/interface/slot/message-timestamp';
+import type { RecipeMessageTimestamp } from '$stylist/chat/interface/recipe/message-timestamp';
 
-export function createMessageTimestampState(
-	props: MessageTimestampProps | MessageTimestampContract
-) {
+export function createMessageTimestampState(props: RecipeMessageTimestamp) {
 	// Initialize props with defaults
 	const parsedTimestamp = (() => {
 		if (props.timestamp instanceof Date) {

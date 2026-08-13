@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createLocationSelectorState } from './state.svelte';
-	import type { LocationSelectorLocation } from '$stylist/geo/type/object/location-selector/locationselectorlocation';
+	import type { LocationSelectorLocation } from '$stylist/geo/interface/slot/location-selector-location';
 
 	let props = $props();
 	const state = createLocationSelectorState(props);

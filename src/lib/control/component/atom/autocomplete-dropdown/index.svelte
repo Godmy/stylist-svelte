@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createAutocompleteDropdownState from './state.svelte';
-	import type { SlotAutocompleteDropdown as AutocompleteDropdownProps } from '$stylist/control/interface/slot/autocomplete-dropdown';
+	import type { RecipeAutocompleteDropdown } from '$stylist/control/interface/recipe/autocomplete-dropdown';
 
 	let {
 		options = [],
@@ -11,7 +11,7 @@
 		/** @deprecated use onValueInput/onValueChange */
 		onChange = (value: string) => {},
 		class: className = ''
-	}: AutocompleteDropdownProps = $props();
+	}: RecipeAutocompleteDropdown = $props();
 
 	const state = createAutocompleteDropdownState({
 		options,

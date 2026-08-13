@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotRangeSlider as RangeSliderProps } from '$stylist/control/interface/slot/range-slider';
+	import type { RecipeRangeSlider } from '$stylist/control/interface/recipe/range-slider';
 	import createRangeSliderState from './state.svelte';
 
-	let props: RangeSliderProps = $props();
+	let props: RecipeRangeSlider = $props();
 	const state = createRangeSliderState(props);
 
 	const restProps = $derived.by(() => {

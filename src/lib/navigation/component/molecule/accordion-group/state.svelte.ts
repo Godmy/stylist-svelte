@@ -1,6 +1,6 @@
-import type { SlotAccordionGroup } from '$stylist/navigation/interface/slot/accordion-group';
+import type { RecipeAccordionGroup } from '$stylist/navigation/interface/recipe/accordion-group';
 
-export function createAccordionGroupState(props: SlotAccordionGroup) {
+export function createAccordionGroupState(props: RecipeAccordionGroup) {
 	let openValues = $state<Set<string>>(new Set(props.defaultValues ?? []));
 
 	$effect(() => {

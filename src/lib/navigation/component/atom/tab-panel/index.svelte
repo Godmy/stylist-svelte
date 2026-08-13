@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { TAB_PANEL_CONTEXT } from '$stylist/navigation/const/record/tab-panel-context';
-	import type { SlotTabPanel as TabPanelProps } from '$stylist/navigation/interface/slot/tab-panel';
+	import type { RecipeTabPanel } from '$stylist/navigation/interface/recipe/tab-panel';
 	import createTabPanelState from './state.svelte';
 
-	let props: TabPanelProps = $props();
+	let props: RecipeTabPanel = $props();
 
 	const context = getContext<typeof TAB_PANEL_CONTEXT>('tabs-context') ?? TAB_PANEL_CONTEXT;
 

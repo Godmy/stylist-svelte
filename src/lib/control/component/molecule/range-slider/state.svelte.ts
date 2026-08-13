@@ -1,6 +1,6 @@
-import type { SlotRangeSlider as RangeSliderProps } from '$stylist/control/interface/slot/range-slider';
+import type { RecipeRangeSlider } from '$stylist/control/interface/recipe/range-slider';
 
-export function createRangeSliderState(props: RangeSliderProps) {
+export function createRangeSliderState(props: RecipeRangeSlider) {
 	const isRange = $derived(props.range ?? false);
 	const value = $derived(props.value ?? 0);
 	const min = $derived(props.min ?? 0);

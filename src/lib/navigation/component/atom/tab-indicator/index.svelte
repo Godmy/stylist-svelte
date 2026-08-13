@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotTabIndicator as TabIndicatorProps } from '$stylist/navigation/interface/slot/tab-indicator';
+	import type { RecipeTabIndicator } from '$stylist/navigation/interface/recipe/tab-indicator';
 	import createTabIndicatorState from './state.svelte';
 
-	let props: TabIndicatorProps = $props();
+	let props: RecipeTabIndicator = $props();
 
 	const state = createTabIndicatorState(props);
 

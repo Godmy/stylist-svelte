@@ -1,6 +1,6 @@
 import { untrack } from 'svelte';
-import type { Coordinates } from '$stylist/geo/type/object/location-picker/coordinates';
-import type { MapMarker } from '$stylist/geo/type/object/location-picker/mapmarker';
+import type { SlotCoordinates } from '$stylist/geo/interface/slot/coordinates';
+import type { MapMarker } from '$stylist/geo/interface/slot/map-marker';
 import type { RecipeLocationPicker } from '$stylist/geo/interface/recipe/location-picker';
 
 export function createLocationPickerState(props: RecipeLocationPicker) {
@@ -15,7 +15,7 @@ export function createLocationPickerState(props: RecipeLocationPicker) {
 	const maxZoom = $derived(props.maxZoom ?? 18);
 	const minZoom = $derived(props.minZoom ?? 1);
 
-	let currentCenter = $state<Coordinates>(untrack(() => ({ ...center })));
+	let currentCenter = $state<SlotCoordinates>(untrack(() => ({ ...center })));
 	let currentZoom = $state(untrack(() => zoom));
 	let searchQuery = $state('');
 	let mapDimensions = $state({ width: 600, height: 400 });
@@ -26,7 +26,7 @@ export function createLocationPickerState(props: RecipeLocationPicker) {
 	});
 
 	function coordsToPixel(
-		coords: Coordinates,
+		coords: SlotCoordinates,
 		containerWidth: number,
 		containerHeight: number
 	): { x: number; y: number } {
@@ -42,7 +42,7 @@ export function createLocationPickerState(props: RecipeLocationPicker) {
 		y: number,
 		containerWidth: number,
 		containerHeight: number
-	): Coordinates {
+	): SlotCoordinates {
 		const centerX = containerWidth / 2;
 		const centerY = containerHeight / 2;
 		const lng = currentCenter.lng + (x - centerX) / (1000 * Math.pow(2, currentZoom - 10));
@@ -177,7 +177,7 @@ export function createLocationPickerState(props: RecipeLocationPicker) {
 		pixelToCoords,
 		handleKeyDown,
 		handleMarkerKeyDown,
-		set currentCenter(value: Coordinates) {
+		set currentCenter(value: SlotCoordinates) {
 			currentCenter = value;
 		},
 		set currentZoom(value: number) {

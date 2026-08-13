@@ -2,9 +2,9 @@ import { commentThreadStartEditing } from '$stylist/social/function/script/comme
 import { commentThreadSubmitComment } from '$stylist/social/function/script/comment-thread';
 import { commentThreadSubmitEdit } from '$stylist/social/function/script/comment-thread-submit-edit';
 import { commentThreadSubmitReply } from '$stylist/social/function/script/comment-thread-submit-reply';
-import type { SlotCommentThread } from '$stylist/social/interface/slot/comment-thread';
+import type { RecipeCommentThread } from '$stylist/social/interface/recipe/comment-thread';
 
-export function createCommentThreadState(props: SlotCommentThread) {
+export function createCommentThreadState(props: RecipeCommentThread) {
 	let newComment = $state('');
 	let editingCommentId = $state<string | null>(null);
 	let editTexts = $state<Record<string, string>>({});

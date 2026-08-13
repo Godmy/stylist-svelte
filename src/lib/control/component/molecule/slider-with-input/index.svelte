@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotSliderWithInput as ISliderWithInputProps } from '$stylist/control/interface/slot/slider-with-input';
+	import type { RecipeSliderWithInput } from '$stylist/control/interface/recipe/slider-with-input';
 	import createSliderWithInputState from './state.svelte';
 
-	let props: ISliderWithInputProps = $props();
+	let props: RecipeSliderWithInput = $props();
 	const state = createSliderWithInputState(props);
 </script>
 

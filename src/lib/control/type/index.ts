@@ -7,10 +7,3 @@ export type {
 	TokenSelectionType,
 	TokenSelectorKind
 } from './alias';
-export type {
-	ComboboxItem,
-	FilterChangePayload,
-	FilterPanelProps,
-	ToggleGroupContext,
-	ToggleProps
-} from './object';

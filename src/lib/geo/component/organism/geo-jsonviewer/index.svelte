@@ -2,7 +2,7 @@
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createGeoJSONViewerState from './state.svelte';
-	import { geoHandleKeyDown } from '$stylist/geo/function/script/handle-key-down';
+	import { GeoManager } from '$stylist/geo/class/manager/geo';
 
 	const Globe = 'globe';
 	const Download = 'download';
@@ -81,7 +81,7 @@
 				role="button"
 				tabindex={0}
 				onkeydown={(e: KeyboardEvent) =>
-					geoHandleKeyDown(e, () => state.handleMapClick(e as unknown as MouseEvent))}
+					GeoManager.handleKeyDown(e, () => state.handleMapClick(e as unknown as MouseEvent))}
 			>
 				<svg width="100%" height="100%" class={state.svgClasses} viewBox="0 0 100 100">
 					<defs>

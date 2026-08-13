@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { GeoManager } from './class';
 export {
 	GeoJsonviewer,
 	LocationPicker,
@@ -14,27 +15,17 @@ export {
 	TOKEN_MAP_TYPE,
 	TOKEN_PIN
 } from './const';
-export {
-	geoHandleKeyDown,
-	geoHandleKeyDownForLocation,
-	getCountryFlagEmoji
-} from './function';
 export type {
-	Coordinates,
-	LocationPickerProps,
-	LocationSelectorLocation,
 	MapProvider,
-	MapSelectorLocation,
-	MapWithMarkersMarker,
-	MapWithMarkersView,
-	RouteOption,
-	RoutePlannerLocation,
-	StoreLocatorStore,
 	TokenMapType,
 	TokenPin
 } from './type';
 export type {
 	BehaviorMarkerProto,
+	LocationSelectorLocation,
+	MapSelectorLocation,
+	MapWithMarkersMarker,
+	MapWithMarkersView,
 	RecipeGeoJsonviewerStateProps,
 	RecipeLocationPicker,
 	RecipeLocationSelector,
@@ -45,10 +36,13 @@ export type {
 	RecipeRoute,
 	RecipeRoutePlanner,
 	RecipeStoreLocator,
+	RouteOption,
+	RoutePlannerLocation,
 	SlotCoordinates,
 	SlotGeoJsonFeature,
 	SlotGeoJsonFeatureCollection,
 	SlotGeoJsonLayer,
 	SlotMapSelector,
-	SlotMapView
+	SlotMapView,
+	StoreLocatorStore
 } from './interface';

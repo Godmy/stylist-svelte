@@ -2,7 +2,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
-import type { StoreLocatorStore } from '$stylist/geo/type/object/store-locator/storelocatorstore';
+import type { StoreLocatorStore } from '$stylist/geo/interface/slot/store-locator-store';
 
 export interface RecipeStoreLocator extends ComputeIntersectAll<
 		[

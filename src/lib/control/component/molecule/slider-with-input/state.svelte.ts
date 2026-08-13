@@ -1,6 +1,6 @@
-import type { SlotSliderWithInput as ISliderWithInputProps } from '$stylist/control/interface/slot/slider-with-input';
+import type { RecipeSliderWithInput } from '$stylist/control/interface/recipe/slider-with-input';
 
-export const createSliderWithInputState = (props: ISliderWithInputProps) => {
+export const createSliderWithInputState = (props: RecipeSliderWithInput) => {
 	let currentValue = $state(props.value ?? 0);
 
 	$effect(() => {

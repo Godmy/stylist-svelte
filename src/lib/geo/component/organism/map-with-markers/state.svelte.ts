@@ -1,6 +1,6 @@
 import { untrack } from 'svelte';
-import type { MapWithMarkersMarker } from '$stylist/geo/type/object/map-with-markers/mapwithmarkersmarker';
-import type { MapWithMarkersView } from '$stylist/geo/type/object/map-with-markers/mapwithmarkersview';
+import type { MapWithMarkersMarker } from '$stylist/geo/interface/slot/map-with-markers-marker';
+import type { MapWithMarkersView } from '$stylist/geo/interface/slot/map-with-markers-view';
 import type { RecipeMapWithMarkers } from '$stylist/geo/interface/recipe/map-with-markers';
 
 export function createMapWithMarkersState(props: RecipeMapWithMarkers) {

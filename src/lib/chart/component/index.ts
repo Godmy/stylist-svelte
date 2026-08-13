@@ -12,6 +12,8 @@ export {
 	BarChart,
 	ChartCanvas,
 	ChartLegend,
+	ChartLegendBand,
+	ChartLegendBar,
 	MetricBarsCard,
 	PieChart,
 	RangeBarsChart,
@@ -22,6 +24,8 @@ export {
 	CanvasChart,
 	Chart,
 	Heatmap,
+	LegendBandDiagram,
+	LegendBarDiagram,
 	LineChart,
 	ScatterPlot
 } from './organism';

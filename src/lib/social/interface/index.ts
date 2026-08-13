@@ -1,7 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { createButtonFactoryInput } from './behavior';
-export type { ContractSocial } from './contract';
 export type {
+	RecipeCommentSystem,
+	RecipeCommentThread,
 	RecipePostCard,
 	RecipeRating,
 	RecipeReactionPicker,

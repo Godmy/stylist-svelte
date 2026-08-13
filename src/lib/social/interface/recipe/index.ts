@@ -1,4 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { RecipeCommentSystem } from './comment-system';
+export type { RecipeCommentThread } from './comment-thread';
 export type { RecipePostCard } from './post-card';
 export type { RecipeRating } from './rating';
 export type { RecipeReactionPicker } from './reaction-picker';

@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	RecipeAccordion,
+	RecipeAccordionGroup,
+	RecipeAccordionLayout,
 	RecipeAppHeader,
 	RecipeBreadcrumbDropdown,
 	RecipeBreadcrumbLink,
@@ -7,12 +10,13 @@ export type {
 	RecipeBreadcrumbs,
 	RecipeBurgerMenu,
 	RecipeConfirmationDialog,
+	RecipeDialog,
 	RecipeDialogConfirm,
 	RecipeDrawer,
 	RecipeDropdownMenu,
 	RecipeGeneralToolbar,
-	RecipeLinkSpecificProps,
 	RecipeMenuItem,
+	RecipeModal,
 	RecipePageButton,
 	RecipePageEllipsis,
 	RecipePagination,
@@ -22,7 +26,12 @@ export type {
 	RecipeStepper,
 	RecipeStylistMenu,
 	RecipeStylistTab,
+	RecipeTab,
 	RecipeTabGroup,
+	RecipeTabIndicator,
+	RecipeTabList,
+	RecipeTabPanel,
+	RecipeTabPanels,
 	RecipeTabs
 } from './recipe';
 export type {

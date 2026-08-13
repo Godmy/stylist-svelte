@@ -1,8 +1,8 @@
 <script lang="ts">
 	import createChatStatusIndicatorState from './state.svelte';
-	import type { SlotChatStatusIndicator as ChatStatusIndicatorContract } from '$stylist/chat/interface/slot/chat-status-indicator';
+	import type { RecipeChatStatusIndicator } from '$stylist/chat/interface/recipe/chat-status-indicator';
 
-	let props: ChatStatusIndicatorContract = $props();
+	let props: RecipeChatStatusIndicator = $props();
 
 	const state = createChatStatusIndicatorState(props);
 </script>

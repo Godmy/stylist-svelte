@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotClick } from '$stylist/control/interface/slot/click';
+	import type { RecipeClick } from '$stylist/control/interface/recipe/click';
 	import createClickState from './state.svelte';
 
-	let props: SlotClick = $props();
+	let props: RecipeClick = $props();
 	const state = createClickState(props);
 
 	const restProps = $derived(

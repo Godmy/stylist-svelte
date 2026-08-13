@@ -1,6 +1,6 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { RouteOption } from '$stylist/geo/type/object/route-planner/routeoption';
-import type { RoutePlannerLocation } from '$stylist/geo/type/object/route-planner/routeplannerlocation';
+import type { RouteOption } from '$stylist/geo/interface/slot/route-option';
+import type { RoutePlannerLocation } from '$stylist/geo/interface/slot/route-planner-location';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';

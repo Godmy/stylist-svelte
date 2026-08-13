@@ -1,4 +1,4 @@
-﻿import type { RecipeProcessStep } from '$stylist/management/interface/recipe/process-step';
+import type { RecipeProcessStep } from '$stylist/management/interface/recipe/process-step';
 
 export function createProcessStepState(props: RecipeProcessStep) {
 	const number = $derived(props.number);

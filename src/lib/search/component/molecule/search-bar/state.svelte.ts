@@ -1,6 +1,6 @@
+import { ControlManager } from '$stylist/control/class/manager/control';
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 type SearchBarStateProps = { [key: string]: any };
-import { debounce } from '$stylist/control/function/script/debounce';
 
 export const createSearchBarState = (props: SearchBarStateProps) => {
 	// SlotState
@@ -14,7 +14,7 @@ export const createSearchBarState = (props: SearchBarStateProps) => {
 	});
 
 	// Debounced search
-	const debouncedSearch = debounce((query: string) => {
+	const debouncedSearch = ControlManager.debounce((query: string) => {
 		props.onSearch?.(query);
 	}, props.debounceMs ?? 300);
 

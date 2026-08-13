@@ -1,5 +1,5 @@
 import type { RecipeDomainAiAgent } from '$stylist/domain/interface/recipe/domain-ai-agent';
-import type { TypeTranscriptionResult } from '$stylist/audio/type/object/transcription-result';
+import type { SlotTranscriptionResult } from '$stylist/audio/interface/slot/transcription-result';
 
 const OWN_FILE_NAMES = ['index.svelte', 'index.story.svelte', 'index.ts'];
 const DEPENDENCY_ATTACH_LIMIT = 20;
@@ -33,7 +33,7 @@ export function createDomainAiAgentState(props: RecipeDomainAiAgent) {
 			: ''
 	);
 
-	function handleTranscribed(result: TypeTranscriptionResult) {
+	function handleTranscribed(result: SlotTranscriptionResult) {
 		const text = result.text.trim();
 		if (!text) return;
 		draftText = draftText.trim() ? `${draftText}\n${text}` : text;

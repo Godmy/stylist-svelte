@@ -5,9 +5,9 @@
 		ACCORDION_CONTEXT_DEFAULT,
 		type AccordionContext
 	} from '$stylist/navigation/const/record/accordion-context';
-	import type { SlotAccordionLayout } from '$stylist/navigation/interface/slot/accordion-layout';
+	import type { RecipeAccordionLayout } from '$stylist/navigation/interface/recipe/accordion-layout';
 
-	let props: SlotAccordionLayout = $props();
+	let props: RecipeAccordionLayout = $props();
 
 	const ctx = getContext<AccordionContext>('accordion-context') ?? ACCORDION_CONTEXT_DEFAULT;
 	const open = $derived(ctx.isPanelOpen(props.value));

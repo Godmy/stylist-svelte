@@ -1,6 +1,6 @@
-import type { SlotClick } from '$stylist/control/interface/slot/click';
+import type { RecipeClick } from '$stylist/control/interface/recipe/click';
 
-export function createClickState(props: SlotClick) {
+export function createClickState(props: RecipeClick) {
 	const disabled = $derived(props.disabled ?? false);
 	const variant = $derived(props.variant ?? 'default');
 	const pressEffect = $derived(props.pressEffect ?? true);

@@ -4,15 +4,3 @@ export type {
 	TokenMapType,
 	TokenPin
 } from './alias';
-export type {
-	Coordinates,
-	LocationPickerProps,
-	LocationSelectorLocation,
-	MapMarker,
-	MapSelectorLocation,
-	MapWithMarkersMarker,
-	MapWithMarkersView,
-	RouteOption,
-	RoutePlannerLocation,
-	StoreLocatorStore
-} from './object';

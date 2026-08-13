@@ -2,7 +2,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import { createLocationPickerState } from './state.svelte';
-	import { geoHandleKeyDown } from '$stylist/geo/function/script/handle-key-down';
+	import { GeoManager } from '$stylist/geo/class/manager/geo';
 	import type { RecipeLocationPicker } from '$stylist/geo/interface/recipe/location-picker';
 
 	let props: RecipeLocationPicker = $props();
@@ -36,7 +36,7 @@
 			role="button"
 			tabindex={0}
 			onkeydown={(e: KeyboardEvent) =>
-				geoHandleKeyDown(e, () => state.handleMapClick(e as unknown as MouseEvent))}
+				GeoManager.handleKeyDown(e, () => state.handleMapClick(e as unknown as MouseEvent))}
 		>
 			<div class="c-location-picker__map-bg">
 				{#each state.markers as marker}

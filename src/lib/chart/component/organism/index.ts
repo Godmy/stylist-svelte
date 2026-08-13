@@ -3,5 +3,7 @@ export { AnalyticsChart } from './analytics-chart/index';
 export { CanvasChart } from './canvas-chart/index';
 export { Chart } from './chart/index';
 export { Heatmap } from './heatmap/index';
+export { LegendBandDiagram } from './legend-band-diagram/index';
+export { LegendBarDiagram } from './legend-bar-diagram/index';
 export { LineChart } from './line-chart/index';
 export { ScatterPlot } from './scatter-plot/index';

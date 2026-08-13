@@ -7,16 +7,16 @@
 	 * - Single Responsibility: Only handles process step display
 	 * - Open/Closed: Extensible through props without modifying source
 	 * - Liskov Substitution: Can substitute any process step
-	 * - Interface Segregation: Minimal interface via IProcessStepProps
+	 * - Interface Segregation: Minimal interface via RecipeProcessStep
 	 * - Dependency Inversion: Depends on abstractions (props interface)
 	 *
 	 * Atomic Design: Molecule - Composes atoms into a meaningful process unit
 	 */
 
-	import type { SlotProcessStep as IProcessStepProps } from '$stylist/management/interface/slot/process-step';
+	import type { RecipeProcessStep } from '$stylist/management/interface/recipe/process-step';
 	import { createProcessStepState } from './state.svelte';
 
-	let props: IProcessStepProps = $props();
+	let props: RecipeProcessStep = $props();
 	const state = createProcessStepState(props);
 </script>
 

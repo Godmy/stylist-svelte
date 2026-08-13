@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { MapMarker } from '$stylist/geo/type/object/location-picker/mapmarker';
+import type { MapMarker } from '$stylist/geo/interface/slot/map-marker';
 import type { SlotCoordinates } from '$stylist/geo/interface/slot/coordinates';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 

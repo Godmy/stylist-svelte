@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { SlotDatePicker as IFormDatePickerProps } from '$stylist/calendar/interface/slot/date-picker';
+	import type { RecipeFormDatePicker } from '$stylist/calendar/interface/recipe/form-date-picker';
 	import createFormDatePickerState from './state.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	const Calendar = 'calendar';
 
-	let props: IFormDatePickerProps = $props();
+	let props: RecipeFormDatePicker = $props();
 	const state = createFormDatePickerState(props);
 </script>
 

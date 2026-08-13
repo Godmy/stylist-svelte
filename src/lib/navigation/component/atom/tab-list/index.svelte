@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotTabContainer as TabContainerProps } from '$stylist/navigation/interface/slot/tab-container';
+	import type { RecipeTabList } from '$stylist/navigation/interface/recipe/tab-list';
 	import createTabListState from './state.svelte';
 
-	let props: TabContainerProps = $props();
+	let props: RecipeTabList = $props();
 
 	const state = createTabListState(props);
 

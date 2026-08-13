@@ -1,13 +1,7 @@
 <script lang="ts">
+	import { ControlManager } from '$stylist/control/class/manager/control';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import createToolbarState from './state.svelte';
-	import { toolbarHandleExport } from '$stylist/control/function/script/toolbar-handle-export';
-	import { toolbarHandleFitView } from '$stylist/control/function/script/toolbar-handle-fit-view';
-	import { toolbarHandleLegendToggle } from '$stylist/control/function/script/toolbar-handle-legend-toggle';
-	import { toolbarHandleResetView } from '$stylist/control/function/script/toolbar-handle-reset-view';
-	import { toolbarHandleSearchToggle } from '$stylist/control/function/script/toolbar-handle-search-toggle';
-	import { toolbarHandleZoomOut } from '$stylist/control/function/script/toolbar-handle-zoom-out';
-	import { toolbarHandleZoomIn } from '$stylist/control/function/script/toolbar';
 	import type { ExportFormat } from '$stylist/file/type/alias/export-format';
 
 	let props = $props<{
@@ -25,16 +19,16 @@
 
 <div class="toolbar">
 	<div class="toolbar-group">
-		<Button size="sm" onclick={() => toolbarHandleZoomIn(props.onZoomIn)}>
+		<Button size="sm" onclick={() => ControlManager.toolbarHandleZoomIn(props.onZoomIn)}>
 			<span>+</span> <span>Zoom In</span>
 		</Button>
-		<Button size="sm" onclick={() => toolbarHandleZoomOut(props.onZoomOut)}>
+		<Button size="sm" onclick={() => ControlManager.toolbarHandleZoomOut(props.onZoomOut)}>
 			<span>-</span> <span>Zoom Out</span>
 		</Button>
-		<Button size="sm" onclick={() => toolbarHandleFitView(props.onFitView)}>
+		<Button size="sm" onclick={() => ControlManager.toolbarHandleFitView(props.onFitView)}>
 			<span> Fit View</span>
 		</Button>
-		<Button size="sm" onclick={() => toolbarHandleResetView(props.onResetView)}>
+		<Button size="sm" onclick={() => ControlManager.toolbarHandleResetView(props.onResetView)}>
 			<span> Reset View</span>
 		</Button>
 	</div>
@@ -42,13 +36,13 @@
 	<div class="toolbar-separator"></div>
 
 	<div class="toolbar-group">
-		<Button size="sm" onclick={() => toolbarHandleExport('png', props.onExportImage)}>
+		<Button size="sm" onclick={() => ControlManager.toolbarHandleExport('png', props.onExportImage)}>
 			<span> PNG</span>
 		</Button>
-		<Button size="sm" onclick={() => toolbarHandleExport('jpeg', props.onExportImage)}>
+		<Button size="sm" onclick={() => ControlManager.toolbarHandleExport('jpeg', props.onExportImage)}>
 			<span> JPEG</span>
 		</Button>
-		<Button size="sm" onclick={() => toolbarHandleExport('svg', props.onExportImage)}>
+		<Button size="sm" onclick={() => ControlManager.toolbarHandleExport('svg', props.onExportImage)}>
 			<span> SVG</span>
 		</Button>
 	</div>
@@ -59,14 +53,14 @@
 		<Button
 			size="sm"
 			variant={state.isLegendVisible ? 'primary' : 'secondary'}
-			onclick={() => toolbarHandleLegendToggle(state.isLegendVisible, props.onToggleLegend)}
+			onclick={() => ControlManager.toolbarHandleLegendToggle(state.isLegendVisible, props.onToggleLegend)}
 		>
 			<span> Legend</span>
 		</Button>
 		<Button
 			size="sm"
 			variant={state.isSearchVisible ? 'primary' : 'secondary'}
-			onclick={() => toolbarHandleSearchToggle(state.isSearchVisible, props.onToggleSearch)}
+			onclick={() => ControlManager.toolbarHandleSearchToggle(state.isSearchVisible, props.onToggleSearch)}
 		>
 			<span> Search</span>
 		</Button>

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { SlotModal as ModalProps } from '$stylist/navigation/interface/slot/modal';
+	import type { RecipeModal } from '$stylist/navigation/interface/recipe/modal';
 	import createModalState from './state.svelte';
 
-	let props: ModalProps = $props();
+	let props: RecipeModal = $props();
 	const state = createModalState(props);
 </script>
 

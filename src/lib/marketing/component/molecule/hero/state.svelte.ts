@@ -1,7 +1,7 @@
-import type { SlotHero as IHeroProps } from '$stylist/marketing/interface/slot/hero';
+import type { RecipeHero } from '$stylist/marketing/interface/recipe/hero';
 import type { TokenBackground } from '$stylist/layout/type/alias/background';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-export function createHeroState(props: IHeroProps) {
+export function createHeroState(props: RecipeHero) {
 	const hostClass = $derived(props.class == null ? undefined : String(props.class));
 	const title = $derived(props.title);
 	const subtitle = $derived(props.subtitle);

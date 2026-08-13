@@ -1,7 +1,5 @@
-import type {
-	DatePickerValue,
-	SlotDatePicker as IDateTimePickerProps
-} from '$stylist/calendar/interface/slot/date-picker';
+import type { RecipeDateTimePicker as IDateTimePickerProps } from '$stylist/calendar/interface/recipe/date-time-picker';
+import type { DatePickerValue } from '$stylist/calendar/interface/slot/date-picker';
 
 export const createDateTimePickerState = (props: IDateTimePickerProps) => {
 	const toDate = (value: Date | string | { start: Date | null; end: Date | null } | undefined) => {

@@ -1,6 +1,6 @@
 import { untrack } from 'svelte';
-import type { RoutePlannerLocation } from '$stylist/geo/type/object/route-planner/routeplannerlocation';
-import type { RouteOption } from '$stylist/geo/type/object/route-planner/routeoption';
+import type { RoutePlannerLocation } from '$stylist/geo/interface/slot/route-planner-location';
+import type { RouteOption } from '$stylist/geo/interface/slot/route-option';
 import type { RecipeRoutePlanner } from '$stylist/geo/interface/recipe/route-planner';
 
 export function createRoutePlannerState(props: RecipeRoutePlanner) {

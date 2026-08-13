@@ -1,11 +1,11 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import type { SlotCommentSystem as CommentSystemProps } from '$stylist/social/interface/slot/comment-system';
+	import type { RecipeCommentSystem } from '$stylist/social/interface/recipe/comment-system';
 	import type { SlotCommentItem as CommentItem } from '$stylist/social/interface/slot/comment-item';
 	import createCommentSystemState from './state.svelte';
 
-	let props: CommentSystemProps = $props();
+	let props: RecipeCommentSystem = $props();
 	const state = createCommentSystemState(props);
 </script>
 

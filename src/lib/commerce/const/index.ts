@@ -9,27 +9,10 @@ export {
 	TOKEN_ORDER_STATUS,
 	TOKEN_PAYMENT_METHOD,
 	TOKEN_PAYMENT_STATUS,
-	WARRANTY_PERIOD_TYPE,
-	shippingCalculatorCountries,
-	shippingCalculatorOptions,
-	shippingCalculatorStates,
-	shippingInfoOptions,
-	shippingInfoRegions,
-	taxCalculatorLocations,
-	taxCalculatorRates,
-	upsellProducts,
-	warrantyInfoClaims,
-	warrantyInfoCoverageDetails,
-	warrantyInfoExclusions
+	WARRANTY_PERIOD_TYPE
 } from './array';
 export { createButtonFactoryInput } from './map';
 export {
-	returnPolicyPolicyData,
-	subscriptionManagerData,
-	upsellCurrentProduct
-} from './object';
-export {
-	PRESET_BULK_ORDER,
 	PresetAlertCard,
 	PresetBillingSummary,
 	PresetOrderConfirmation,

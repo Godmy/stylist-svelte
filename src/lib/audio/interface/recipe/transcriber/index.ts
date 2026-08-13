@@ -1,6 +1,7 @@
-import type { TypeAudioRecording } from '$stylist/audio/type/object/audio-recording';
-import type { TypeTranscriptionResult } from '$stylist/audio/type/object/transcription-result';
 import type { HTMLAttributes } from 'svelte/elements';
+import type { SlotAudioRecording } from '$stylist/audio/interface/slot/audio-recording';
+import type { SlotTranscriptionResult } from '$stylist/audio/interface/slot/transcription-result';
+
 export interface RecipeTranscriber extends Omit<HTMLAttributes<HTMLElement>, 'class'> {
 	class?: string;
 	endpoint?: string;
@@ -16,7 +17,7 @@ export interface RecipeTranscriber extends Omit<HTMLAttributes<HTMLElement>, 'cl
 	stopLabel?: string;
 	copyLabel?: string;
 	copiedLabel?: string;
-	onRecordingReady?: (recording: TypeAudioRecording) => void | Promise<void>;
-	onTranscribed?: (result: TypeTranscriptionResult) => void | Promise<void>;
+	onRecordingReady?: (recording: SlotAudioRecording) => void | Promise<void>;
+	onTranscribed?: (result: SlotTranscriptionResult) => void | Promise<void>;
 	onError?: (error: Error) => void;
 }

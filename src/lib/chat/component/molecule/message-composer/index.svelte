@@ -6,7 +6,7 @@
 
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 
-	import type { SlotMessageComposer as IMessageComposerProps } from '$stylist/chat/interface/slot/message-composer';
+	import type { RecipeMessageComposer } from '$stylist/chat/interface/recipe/message-composer';
 	import createMessageComposerState from './state.svelte';
 
 	/**
@@ -32,7 +32,7 @@
 	 * @param onVoiceClick - Callback when voice button is clicked
 	 * @returns An accessible, styled message composer component
 	 */
-	let props: IMessageComposerProps = $props();
+	let props: RecipeMessageComposer = $props();
 
 	const state = createMessageComposerState(props);
 </script>

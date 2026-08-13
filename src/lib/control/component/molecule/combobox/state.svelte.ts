@@ -1,4 +1,4 @@
-import type { ComboboxItem } from '$stylist/control/type/object/combobox/item';
+import type { SlotComboboxItem } from '$stylist/control/interface/slot/combobox-item';
 import type { RecipeCombobox } from '$stylist/control/interface/recipe/combobox';
 
 export function createComboboxState(props: RecipeCombobox) {
@@ -94,7 +94,7 @@ export function createComboboxState(props: RecipeCombobox) {
 		}
 	}
 
-	function selectItem(item: ComboboxItem) {
+	function selectItem(item: SlotComboboxItem) {
 		if (item.disabled) return;
 		props.value = item.id;
 		query = item.label;

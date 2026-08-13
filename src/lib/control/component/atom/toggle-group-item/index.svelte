@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import createToggleGroupItemState from './state.svelte';
-	import type { RecipeToggleGroupItemProps as RecipeToggleGroupItemProps } from '$stylist/control/interface/recipe/toggle-group-item-props';
-	import type { ToggleGroupContext } from '$stylist/control/type/object/toggle-group-context';
+	import type { RecipeToggleGroupItem as RecipeToggleGroupItem } from '$stylist/control/interface/recipe/toggle-group-item';
+	import type { SlotToggleGroupContext } from '$stylist/control/interface/slot/toggle-group-context';
 
-	let props: RecipeToggleGroupItemProps = $props();
+	let props: RecipeToggleGroupItem = $props();
 
-	const context = getContext<ToggleGroupContext>('toggleGroup') ?? {
+	const context = getContext<SlotToggleGroupContext>('toggleGroup') ?? {
 		updateValue: () => {},
 		value: null,
 		disabled: false

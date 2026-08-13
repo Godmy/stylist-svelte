@@ -45,6 +45,7 @@ export type {
 	ContractDashboardLayout,
 	DraggableCardProps,
 	RecipeDashboardLayout,
+	RecipeDraggableCard,
 	RecipeKPIIndicator,
 	RecipeLegendItem,
 	RecipePageHeader,

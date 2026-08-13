@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { SlotFilterBar } from '$stylist/table/interface/slot/filter-bar';
+	import type { RecipeFilterBar } from '$stylist/table/interface/recipe/filter-bar';
 	import { createFilterBarState } from './state.svelte';
 	import FilterText from '$stylist/table/component/molecule/filter-text/index.svelte';
 	import FilterPills from '$stylist/table/component/molecule/filter-pills/index.svelte';
 
-	let props: SlotFilterBar = $props();
+	let props: RecipeFilterBar = $props();
 	const state = createFilterBarState(props);
 </script>
 

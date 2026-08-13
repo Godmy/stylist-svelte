@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { createAccordionState } from './state.svelte';
-	import type { SlotAccordion } from '$stylist/navigation/interface/slot/accordion';
+	import type { RecipeAccordion } from '$stylist/navigation/interface/recipe/accordion';
 
-	let props: SlotAccordion = $props();
+	let props: RecipeAccordion = $props();
 	const state = createAccordionState(props);
 
 	setContext('accordion-context', {

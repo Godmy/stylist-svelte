@@ -49,7 +49,6 @@ export {
 export {
 	DISCOUNT_TYPE,
 	INVENTORY_ITEM_STATUS,
-	PRESET_BULK_ORDER,
 	PresetAlertCard,
 	PresetBillingSummary,
 	PresetOrderConfirmation,
@@ -63,21 +62,7 @@ export {
 	TOKEN_PAYMENT_METHOD,
 	TOKEN_PAYMENT_STATUS,
 	WARRANTY_PERIOD_TYPE,
-	createButtonFactoryInput,
-	returnPolicyPolicyData,
-	shippingCalculatorCountries,
-	shippingCalculatorOptions,
-	shippingCalculatorStates,
-	shippingInfoOptions,
-	shippingInfoRegions,
-	subscriptionManagerData,
-	taxCalculatorLocations,
-	taxCalculatorRates,
-	upsellCurrentProduct,
-	upsellProducts,
-	warrantyInfoClaims,
-	warrantyInfoCoverageDetails,
-	warrantyInfoExclusions
+	createButtonFactoryInput
 } from './const';
 export type {
 	CheckoutStep,

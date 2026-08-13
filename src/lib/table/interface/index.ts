@@ -8,6 +8,9 @@ export type {
 	RecipeColumn,
 	RecipeComparisonTable,
 	RecipeComponent,
+	RecipeFilterBar,
+	RecipeFilterPills,
+	RecipeFilterText,
 	RecipeRow,
 	RecipeTable,
 	RecipeTableListPanel

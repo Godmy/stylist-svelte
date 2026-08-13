@@ -18,7 +18,6 @@ export type {
 } from './type';
 export type {
 	ContractAvatar,
-	ContractAvatarGroup,
 	RecipeAccountSettings,
 	RecipeAccountSettingsForm,
 	RecipeAvatar,

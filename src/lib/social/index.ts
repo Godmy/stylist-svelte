@@ -48,7 +48,8 @@ export type {
 	SocialPlatform
 } from './type';
 export type {
-	ContractSocial,
+	RecipeCommentSystem,
+	RecipeCommentThread,
 	RecipePostCard,
 	RecipeRating,
 	RecipeReactionPicker,

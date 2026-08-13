@@ -1,6 +1,6 @@
-import type { SlotDialog as DialogProps } from '$stylist/navigation/interface/slot/dialog';
+import type { RecipeDialog } from '$stylist/navigation/interface/recipe/dialog';
 
-export function createDialogState(props: DialogProps) {
+export function createDialogState(props: RecipeDialog) {
 	const dialogClasses = $derived(`nav-dialog ${props.class ?? ''}`.trim());
 
 	return {
