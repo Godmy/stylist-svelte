@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { FormManager } from './class';
 export {
 	AddressForm,
 	CheckboxGroup,
@@ -20,28 +21,25 @@ export {
 	SEARCH_ICON_NAME,
 	createButtonFactoryInput
 } from './const';
-export { toggleCollapsed } from './function';
-export type {
-	AddressData,
-	CheckboxGroupProps,
-	FormData,
-	FormSelectionProps,
-	LoginCredentials,
-	RadioGroupProps,
-	ToggleButtonGroupProps,
-	ValidationErrors
-} from './type';
 export type {
 	RecipeAccountForms,
+	RecipeCheckboxGroup,
 	RecipeFormFooter,
 	RecipeFormHeader,
+	RecipeFormSelection,
 	RecipeInteractionForms,
-	RecipeRadioButtonGroupProps,
+	RecipeRadioButtonGroup,
+	RecipeRadioGroup,
 	RecipeSchemaFormDialog,
 	RecipeSearchBar,
+	RecipeToggleButtonGroup,
+	SlotAddressData,
+	SlotFormData,
 	SlotFormFooter,
 	SlotFormHeader,
 	SlotFormSelectionState,
+	SlotLoginCredentials,
 	SlotSearchBar,
-	SlotSearchBarEvents
+	SlotSearchBarEvents,
+	SlotValidationErrors
 } from './interface';

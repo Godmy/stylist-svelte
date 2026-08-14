@@ -3,5 +3,6 @@ export { Css3dCube } from './css-3d-cube/index';
 export { CubeControl } from './cube-control/index';
 export { GraphEdge } from './graph-edge/index';
 export { GraphNode } from './graph-node/index';
+export { NodeIcon } from './node-icon/index';
 export { Stage } from './stage/index';
 export { Viewport } from './viewport/index';

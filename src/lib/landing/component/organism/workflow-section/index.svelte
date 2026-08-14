@@ -55,8 +55,8 @@
 </script>
 
 <section {id} class="workflow-section {className}" aria-label={ariaLabel}>
-	<Divider class="workflow-section__divider" />
-	<SectionHeading {eyebrow} {title} class="workflow-section__heading" />
+	<Divider label={eyebrow} align="left" class="workflow-section__divider" />
+	<SectionHeading {title} class="workflow-section__heading" />
 
 	<div class="workflow-section__pair">
 		<StepList {steps} class="workflow-section__steps" />
@@ -66,8 +66,12 @@
 	</div>
 
 	<div class="workflow-section__comparison">
-		<Heading level={3} text={comparisonTitle} class="workflow-section__comparison-title" />
-		<ComparisonTable {features} {products} featureColumnLabel="" showHeader />
+		<div class="workflow-section__comparison-title-wrap">
+			<Heading level={3} text={comparisonTitle} class="workflow-section__comparison-title" />
+		</div>
+		<div class="workflow-section__comparison-table">
+			<ComparisonTable {features} {products} featureColumnLabel="" showHeader />
+		</div>
 	</div>
 </section>
 
@@ -79,6 +83,10 @@
 	:global(.workflow-section__divider) {
 		margin-bottom: 5rem;
 		--color-border-secondary: var(--workflow-section-border, currentColor);
+	}
+
+	:global(.workflow-section__heading) {
+		--section-heading-max-width: 100%;
 	}
 
 	.workflow-section__pair {
@@ -119,9 +127,17 @@
 		margin-top: 2.5rem;
 	}
 
+	.workflow-section__comparison-title-wrap {
+		margin-bottom: 2.25rem;
+	}
+
+	.workflow-section__comparison-table {
+		position: relative;
+	}
+
 	:global(.workflow-section__comparison-title) {
-		max-width: 42rem;
-		margin: 0 0 1rem;
+		max-width: 100%;
+		--typography-line-height: 1.18;
 		--typography-color: var(--workflow-section-heading, currentColor);
 	}
 

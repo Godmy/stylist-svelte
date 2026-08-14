@@ -1,9 +1,19 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	RecipeCanvasImageEditor,
+	RecipeCanvasToolbar,
 	RecipeCollaborativeEditor,
 	RecipeColorPalette,
 	RecipeDrawingOverlay,
-	RecipeScreenshotSelector
+	RecipeDrawingSurface,
+	RecipeScreenshotSelector,
+	RecipeSharedCanvas
 } from './recipe';
-export type { CanvasToolbarDrawingOptions } from './slot';
+export type {
+	SlotCanvasObject,
+	SlotCanvasToolbarDrawingOptions,
+	SlotCollaborativeEditEvent,
+	SlotDrawingSurfaceCanvasClearedEvent,
+	SlotDrawingSurfaceExposeMethodsEvent,
+	SlotSharedCanvasObjectBounds
+} from './slot';

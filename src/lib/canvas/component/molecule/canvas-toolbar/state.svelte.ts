@@ -1,16 +1,16 @@
-import type { CanvasToolbarDrawingOptions } from '$stylist/canvas/interface/slot/canvas-toolbar-drawing-options';
+import type { SlotCanvasToolbarDrawingOptions } from '$stylist/canvas/interface/slot/canvas-toolbar-drawing-options';
 import type { CanvasToolbarDrawingTool } from '$stylist/canvas/type/alias/canvas-toolbar-drawing-tool';
-import type { CanvasToolbarProps } from '$stylist/canvas/type/object/canvas-toolbar/canvas-toolbar-props';
+import type { RecipeCanvasToolbar } from '$stylist/canvas/interface/recipe/canvas-toolbar';
 
 export function createCanvasToolbarState(
-	props: CanvasToolbarProps,
+	props: RecipeCanvasToolbar,
 	dispatch: (
 		type: 'tool-change' | 'clear-canvas' | 'undo' | 'redo' | 'save',
 		detail?: unknown
 	) => void
 ) {
 	let currentTool = $state<CanvasToolbarDrawingTool>(props.selectedTool ?? 'pen');
-	let currentOptions = $state<CanvasToolbarDrawingOptions>({
+	let currentOptions = $state<SlotCanvasToolbarDrawingOptions>({
 		lineWidth: props.drawingOptions?.lineWidth ?? 2,
 		strokeColor: props.drawingOptions?.strokeColor ?? 'black',
 		tool: props.drawingOptions?.tool ?? props.selectedTool ?? 'pen',
@@ -36,7 +36,7 @@ export function createCanvasToolbarState(
 		dispatch('tool-change', { tool: currentTool, options: currentOptions });
 	}
 
-	function handleOptionsUpdate(options: CanvasToolbarDrawingOptions): void {
+	function handleOptionsUpdate(options: SlotCanvasToolbarDrawingOptions): void {
 		currentOptions = { ...options };
 		dispatch('tool-change', { tool: currentTool, options: currentOptions });
 	}

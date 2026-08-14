@@ -2,7 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
-	import TestResultsViewer from './index.svelte';
+	import SlotTestResultsViewer from './index.svelte';
 
 	let {
 		id = '',
@@ -20,7 +20,7 @@
 		controls?: SlotStory[];
 	}>();
 
-	type TestResult = {
+	type SlotTestResult = {
 		id: string;
 		testName: string;
 		variantName: string;
@@ -32,7 +32,7 @@
 		status: 'winning' | 'losing' | 'inconclusive';
 	};
 
-	const testResults: TestResult[] = [
+	const testResults: SlotTestResult[] = [
 		{
 			id: '1',
 			testName: 'CTA Test',
@@ -63,12 +63,12 @@
 		averageImprovement: 0
 	} as any;
 
-	function handleExport(results: TestResult[]) {
+	function handleExport(results: SlotTestResult[]) {
 		console.log('Exported:', results);
 	}
 </script>
 
-<Story {id} {title} {description} component={TestResultsViewer} category="Organisms" {controls}>
+<Story {id} {title} {description} component={SlotTestResultsViewer} category="Organisms" {controls}>
 	{#snippet children(values: any)}
 		<section class="sb-organisms-test-results-viewer _c1">
 			<div class="_c2">
@@ -76,7 +76,7 @@
 				<p class="_c4">Interactive test results viewer with customizable options.</p>
 
 				<div class="_c5">
-					<TestResultsViewer {testResults} {testOverview} showCharts={values.showCharts} />
+					<SlotTestResultsViewer {testResults} {testOverview} showCharts={values.showCharts} />
 				</div>
 			</div>
 
@@ -88,14 +88,14 @@
 					<article class="_c10">
 						<p class="_c11">Without Charts</p>
 						<div>
-							<TestResultsViewer {testResults} {testOverview} showCharts={false} />
+							<SlotTestResultsViewer {testResults} {testOverview} showCharts={false} />
 						</div>
 					</article>
 
 					<article class="_c10">
 						<p class="_c11">Minimal View</p>
 						<div>
-							<TestResultsViewer {testResults} {testOverview} />
+							<SlotTestResultsViewer {testResults} {testOverview} />
 						</div>
 					</article>
 				</div>

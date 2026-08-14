@@ -19,8 +19,11 @@
 		imageAlt,
 		imageLoading = 'lazy',
 		body,
+		paragraphs,
 		class: className = ''
 	}: RecipeDividerHeadingImageText = $props();
+
+	const resolvedParagraphs = $derived(paragraphs?.length ? paragraphs : [body]);
 </script>
 
 <section {id} class="divider-heading-image-text {className}" aria-label={ariaLabel}>
@@ -45,7 +48,13 @@
 		</figure>
 	</div>
 
-	<Paragraph text={body} class="divider-heading-image-text__text" />
+	<div class="divider-heading-image-text__content">
+		<div class="divider-heading-image-text__paragraphs">
+			{#each resolvedParagraphs as paragraph}
+				<Paragraph text={paragraph} class="divider-heading-image-text__text" />
+			{/each}
+		</div>
+	</div>
 </section>
 
 <style>
@@ -95,9 +104,19 @@
 		--image-background: transparent;
 	}
 
+	.divider-heading-image-text__content {
+		display: grid;
+		gap: 2rem;
+		max-width: var(--divider-heading-image-text-text-max-width, 54rem);
+	}
+
+	.divider-heading-image-text__paragraphs {
+		display: grid;
+		gap: 1.125rem;
+	}
+
 	:global(.divider-heading-image-text__text) {
 		margin: 0;
-		max-width: var(--divider-heading-image-text-text-max-width, 54rem);
 		--typography-color: var(--divider-heading-image-text-text, currentColor);
 	}
 

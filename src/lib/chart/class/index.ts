@@ -1,7 +1,14 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	ChartLegendBandManager,
-	ChartLegendBarManager
+	ChartLegendBarManager,
+	CriticalPathTimelineManager,
+	ExchangeOracleForecastManager,
+	ExpertAgreementRadarManager,
+	ExpertSpreadMatrixManager,
+	OutlierConstellationManager,
+	RiskImpactMapManager,
+	WidebandDelphiDiagramManager
 } from './manager';
 export {
 	ObjectManagerAnalyticsChart,

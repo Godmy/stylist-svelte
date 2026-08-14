@@ -7,5 +7,6 @@ export interface RecipeDividerHeadingImageText
 	id?: string;
 	level?: 2 | 3;
 	body: string;
+	paragraphs?: string[];
 	class?: string;
 }

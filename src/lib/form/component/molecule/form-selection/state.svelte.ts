@@ -1,8 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
-import type { FormSelectionProps } from '$stylist/form/type/object/form-selection';
+import type { RecipeFormSelection } from '$stylist/form/interface/recipe/form-selection';
 import type { SlotFormSelectionState } from '$stylist/form/interface/slot/form-selection-state';
 
-export function createFormSelectionState(props: FormSelectionProps): SlotFormSelectionState {
+export function createFormSelectionState(props: RecipeFormSelection): SlotFormSelectionState {
 	let isCollapsed = $state(props.initiallyCollapsed ?? false);
 
 	const sectionClasses = $derived(

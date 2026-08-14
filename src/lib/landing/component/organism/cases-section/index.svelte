@@ -33,14 +33,14 @@
 </script>
 
 <section {id} class="cases-section {className}" aria-label={ariaLabel}>
-	<SectionHeading {eyebrow} {title} />
+	<SectionHeading {eyebrow} {title} class="cases-section__heading" />
 
 	<div class="cases-section__grid">
 		{#each items as item, index}
 			<Card
 				class="cases-section__card {index < 2 ? 'cases-section__card--wide' : ''}"
 				shape="rounded"
-				size="lg"
+				size="xl"
 			>
 				{#snippet media()}
 					<Image imageSrc={item.image} imageAlt={item.alt} size="xl" class="cases-section__image" />
@@ -66,17 +66,25 @@
 		padding: 4rem 0 5rem;
 	}
 
+	:global(.cases-section__heading) {
+		--section-heading-max-width: 100%;
+	}
+
 	.cases-section__grid {
 		display: grid;
 		grid-template-columns: repeat(6, minmax(0, 1fr));
-		gap: 1rem;
-		margin-top: 2rem;
+		gap: 1.5rem;
+		margin-top: 2.75rem;
 	}
 
 	:global(.cases-section__card) {
 		grid-column: span 2;
 		border-color: var(--cases-section-border, currentColor);
 		background: var(--cases-section-panel-bg, transparent);
+	}
+
+	:global(.cases-section__card .layout-card__body) {
+		gap: 0.85rem;
 	}
 
 	:global(.cases-section__card--wide) {
@@ -104,12 +112,13 @@
 	}
 
 	:global(.cases-section__body) {
+		margin-top: 0.25rem;
 		--typography-color: var(--cases-section-text, currentColor);
 	}
 
 	:global(.cases-section__result) {
 		display: block;
-		margin-top: 0.25rem;
+		margin-top: 0.75rem;
 		--typography-color: var(--cases-section-result, currentColor);
 		--typography-font-weight: 700;
 		font-size: 0.93rem;

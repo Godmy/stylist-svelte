@@ -24,6 +24,7 @@ export {
 	JointTabButtons,
 	JointToolbar,
 	JsonTreeViewer,
+	MarkdownRenderer,
 	PageDomain,
 	TaxonomyBreadcrumbs
 } from './component';
@@ -61,5 +62,6 @@ export type {
 	RecipeDomainList,
 	RecipeDomainSidebar,
 	RecipeDomainToolbar,
+	RecipeMarkdownRenderer,
 	SlotDomainEntity
 } from './interface';

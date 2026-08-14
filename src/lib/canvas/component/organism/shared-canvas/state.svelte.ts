@@ -1,16 +1,11 @@
+import { CanvasManager } from '$stylist/canvas/class/manager/canvas';
 import { ObjectManagerSharedCanvas } from '$stylist/canvas/class/object-manager/shared-canvas';
-import { cloneCanvasObjects } from '$stylist/canvas/function/script/canvas/share/index';
-import { createDraftCanvasObject } from '$stylist/canvas/function/script/canvas-create-draft-object';
-import { drawCanvasObjects } from '$stylist/canvas/function/script/canvas-draw-objects';
-import { finalizeDraftCanvasObject } from '$stylist/canvas/function/script/canvas-finalize-draft-object';
-import { hitTestCanvasObject } from '$stylist/canvas/function/script/canvas-hit-test-object';
-import { updateDraftCanvasObject } from '$stylist/canvas/function/script/canvas-update-draft-object';
-import type { CanvasObject } from '$stylist/canvas/type/object/canvas-object';
+import type { SlotCanvasObject } from '$stylist/canvas/interface/slot/canvas-object';
 import type { Point2D } from '$stylist/architecture/interface/slot/point-2d';
-import type { SharedCanvasTool } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-tool';
-import type { SharedCanvasContract } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-contract';
+import type { SharedCanvasTool } from '$stylist/canvas/type/alias/shared-canvas-tool';
+import type { RecipeSharedCanvas } from '$stylist/canvas/interface/recipe/shared-canvas';
 
-export function createSharedCanvasState(contract: SharedCanvasContract) {
+export function createSharedCanvasState(contract: RecipeSharedCanvas) {
 	let selectedTool = $state<SharedCanvasTool>('select');
 	let selectedColor = $state(
 		contract.users?.find((u) => u.id === contract.currentUserId)?.color ??
@@ -19,11 +14,11 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 	let isDrawing = $state(false);
 	let startPoint = $state<Point2D>({ x: 0, y: 0 });
 	let currentPoint = $state<Point2D>({ x: 0, y: 0 });
-	let currentObject = $state<CanvasObject | null>(null);
+	let currentObject = $state<SlotCanvasObject | null>(null);
 	let selectedObjectId = $state<string | null>(null);
-	let localObjects = $state<CanvasObject[]>(cloneCanvasObjects(contract.objects ?? []));
-	let undoStack = $state<CanvasObject[][]>([]);
-	let redoStack = $state<CanvasObject[][]>([]);
+	let localObjects = $state<SlotCanvasObject[]>(CanvasManager.cloneCanvasObjects(contract.objects ?? []));
+	let undoStack = $state<SlotCanvasObject[][]>([]);
+	let redoStack = $state<SlotCanvasObject[][]>([]);
 
 	const width = $derived(contract.width ?? 800);
 	const height = $derived(contract.height ?? 600);
@@ -74,8 +69,8 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 	const actionButtonClass = $derived('c-shared-canvas__action-btn');
 	const actionIcons = $derived(ObjectManagerSharedCanvas.actionIcons);
 
-	function syncFromProps(nextObjects: readonly CanvasObject[] = []): void {
-		localObjects = cloneCanvasObjects(nextObjects);
+	function syncFromProps(nextObjects: readonly SlotCanvasObject[] = []): void {
+		localObjects = CanvasManager.cloneCanvasObjects(nextObjects);
 		undoStack = [];
 		redoStack = [];
 		selectedObjectId = null;
@@ -89,7 +84,7 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 		if (!ctx || !canvas) return;
 
 		const objects = currentObject ? [...localObjects, currentObject] : localObjects;
-		drawCanvasObjects(ctx, canvas, objects, selectedObjectId);
+		CanvasManager.drawCanvasObjects(ctx, canvas, objects, selectedObjectId);
 	}
 
 	function selectTool(tool: SharedCanvasTool): void {
@@ -105,11 +100,11 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 		currentPoint = point;
 
 		if (selectedTool === 'select') {
-			selectedObjectId = hitTestCanvasObject(localObjects, point)?.id ?? null;
+			selectedObjectId = CanvasManager.hitTestCanvasObject(localObjects, point)?.id ?? null;
 			return;
 		}
 
-		const draft = createDraftCanvasObject(
+		const draft = CanvasManager.createDraftCanvasObject(
 			selectedTool,
 			point,
 			selectedColor,
@@ -126,13 +121,13 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 		if (!isDrawing || !currentObject) return;
 
 		currentPoint = point;
-		currentObject = updateDraftCanvasObject(currentObject, selectedTool, startPoint, point);
+		currentObject = CanvasManager.updateDraftCanvasObject(currentObject, selectedTool, startPoint, point);
 	}
 
 	function endDrawing(): void {
 		if (!isDrawing || !currentObject) return;
 
-		const nextObject = finalizeDraftCanvasObject(
+		const nextObject = CanvasManager.finalizeDraftCanvasObject(
 			currentObject,
 			selectedTool,
 			startPoint,
@@ -146,13 +141,13 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 	}
 
 	function commitObjects(
-		nextObjects: CanvasObject[],
+		nextObjects: SlotCanvasObject[],
 		change: 'add' | 'update' | 'delete',
-		payload?: CanvasObject | string
+		payload?: SlotCanvasObject | string
 	): void {
-		undoStack = [...undoStack, cloneCanvasObjects(localObjects)];
+		undoStack = [...undoStack, CanvasManager.cloneCanvasObjects(localObjects)];
 		redoStack = [];
-		localObjects = cloneCanvasObjects(nextObjects);
+		localObjects = CanvasManager.cloneCanvasObjects(nextObjects);
 
 		if (change === 'add' && payload && typeof payload !== 'string') {
 			contract.onObjectAdd?.(payload);
@@ -179,9 +174,9 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 		const previous = undoStack[undoStack.length - 1];
 		if (!previous) return;
 
-		redoStack = [...redoStack, cloneCanvasObjects(localObjects)];
+		redoStack = [...redoStack, CanvasManager.cloneCanvasObjects(localObjects)];
 		undoStack = undoStack.slice(0, -1);
-		localObjects = cloneCanvasObjects(previous);
+		localObjects = CanvasManager.cloneCanvasObjects(previous);
 		selectedObjectId = null;
 	}
 
@@ -189,9 +184,9 @@ export function createSharedCanvasState(contract: SharedCanvasContract) {
 		const next = redoStack[redoStack.length - 1];
 		if (!next) return;
 
-		undoStack = [...undoStack, cloneCanvasObjects(localObjects)];
+		undoStack = [...undoStack, CanvasManager.cloneCanvasObjects(localObjects)];
 		redoStack = redoStack.slice(0, -1);
-		localObjects = cloneCanvasObjects(next);
+		localObjects = CanvasManager.cloneCanvasObjects(next);
 		selectedObjectId = null;
 	}
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MarkdownRenderer from '$stylist/information/component/organism/markdown-renderer/index.svelte';
+	import MarkdownRenderer from '$stylist/domain/component/organism/markdown-renderer/index.svelte';
 	import JsonTreeViewer from '$stylist/domain/component/molecule/json-tree-viewer/index.svelte';
 	import FlatTree from '$stylist/tree/component/molecule/flat-tree/index.svelte';
 	import { ManagerStoryViewportContext } from '$stylist/theme/class/manager/story-viewport-context';

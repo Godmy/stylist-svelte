@@ -7,6 +7,7 @@ export {
 	NumberFlow,
 	Skeleton,
 	Spinner,
+	Tooltip,
 	Transformable
 } from './atom';
 export { Loading } from './molecule';

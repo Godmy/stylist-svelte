@@ -1,12 +1,11 @@
 <script lang="ts">
-	import type { SharedCanvasContract } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-contract';
+	import { CanvasManager } from '$stylist/canvas/class/manager/canvas';
+	import type { RecipeSharedCanvas } from '$stylist/canvas/interface/recipe/shared-canvas';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { ObjectManagerSharedCanvas } from '$stylist/canvas/class/object-manager/shared-canvas/index';
 	import createSharedCanvasState from './state.svelte';
-	import { exportCanvasImage } from '$stylist/canvas/function/script/canvas/export-image';
-	import { getCanvasPointerPosition } from '$stylist/canvas/function/script/canvas-get-pointer-position';
-
-	const contract: SharedCanvasContract = $props();
+		
+	const contract: RecipeSharedCanvas = $props();
 	const state = createSharedCanvasState(contract);
 
 	let canvasRef: HTMLCanvasElement | null = null;
@@ -28,13 +27,13 @@
 
 	function handleMouseDown(event: MouseEvent): void {
 		if (!canvasRef) return;
-		state.beginDrawing(getCanvasPointerPosition(event, canvasRef));
+		state.beginDrawing(CanvasManager.getCanvasPointerPosition(event, canvasRef));
 		state.redrawCanvas(ctx, canvasRef);
 	}
 
 	function handleMouseMove(event: MouseEvent): void {
 		if (!canvasRef) return;
-		state.updateDrawing(getCanvasPointerPosition(event, canvasRef));
+		state.updateDrawing(CanvasManager.getCanvasPointerPosition(event, canvasRef));
 		state.redrawCanvas(ctx, canvasRef);
 	}
 
@@ -114,7 +113,7 @@
 				<button
 					type="button"
 					class={state.actionButtonClass}
-					onclick={() => exportCanvasImage(canvasRef, ObjectManagerSharedCanvas.exportFilename)}
+					onclick={() => CanvasManager.exportCanvasImage(canvasRef, ObjectManagerSharedCanvas.exportFilename)}
 					title="Export Canvas"
 					aria-label="Export Canvas"
 				>

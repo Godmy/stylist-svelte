@@ -21,7 +21,7 @@
 				<div class="toast-item__body">
 					<div class="toast-item__icon-wrap">
 						<Icon
-							name={state.getToastIcon(toast.type)}
+							svg={state.getToastIcon(toast.type)}
 							class={state.getToastIconColor(toast.type)}
 						/>
 					</div>

@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { MarketingManager } from './class';
 export {
 	AbtestConfigurator,
 	AnnouncementBanner,
@@ -16,21 +17,7 @@ export {
 	UserBehaviorMetrics
 } from './component';
 export { TOKEN_TEST } from './const';
-export {
-	addABTestVariant,
-	calculateABTestTotalWeight,
-	removeABTestVariant,
-	toggleABTestVariantStatus,
-	updateABTestVariantWeight,
-	validateABTest
-} from './function';
-export type {
-	ABTestConfiguratorState,
-	FunnelStep,
-	IHeroCTA,
-	TestResult,
-	TokenTest
-} from './type';
+export type { TokenTest } from './type';
 export type {
 	RecipeAnnouncementBanner,
 	RecipeConversionFunnel,
@@ -43,5 +30,8 @@ export type {
 	SlotABTest,
 	SlotABTestConfigurator,
 	SlotABTestVariant,
-	SlotHero
+	SlotFunnelStep,
+	SlotHero,
+	SlotHeroCta,
+	SlotTestResult
 } from './interface';

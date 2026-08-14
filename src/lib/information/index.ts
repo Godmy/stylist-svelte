@@ -2,15 +2,11 @@
 export {
 	Badge,
 	BadgeGroup,
-	BaseCard,
 	CountBadge,
 	Counter,
 	Dot,
-	MarkdownRenderer,
-	NodeIcon,
 	ProgressBar,
-	ShortcutsPanel,
-	Tooltip
+	ShortcutsPanel
 } from './component';
 export {
 	STATUS_STATE,
@@ -23,20 +19,16 @@ export type {
 	RecipeAccessibilityCheckbox,
 	RecipeBadge,
 	RecipeBadgeGroup,
-	RecipeBaseCard,
 	RecipeCountBadge,
 	RecipeCounter,
 	RecipeDot,
 	RecipeIconCanvasImageEditor,
-	RecipeMarkdownRenderer,
 	RecipeMetricCard,
-	RecipeNodeIcon,
 	RecipeProgressBar,
 	RecipeSearchResults,
 	RecipeShortcutsPanel,
 	RecipeSort,
 	RecipeSortableGrid,
-	RecipeTooltip,
 	SlotBadge,
 	SlotStatus
 } from './interface';

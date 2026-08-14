@@ -4,7 +4,6 @@ export {
 	DefinitionSection,
 	HeroMediaSection,
 	HeroSection,
-	IntroSection,
 	NameHeroMediaItems,
 	NavBar,
 	ResultSection,

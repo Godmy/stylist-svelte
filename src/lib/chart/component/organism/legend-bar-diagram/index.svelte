@@ -1,11 +1,12 @@
 <script lang="ts">
 	import ChartLegendBar from '$stylist/chart/component/molecule/chart-legend-bar/index.svelte';
 	import createLegendBarDiagramState from './state.svelte';
+	import { writable } from 'svelte/store';
 	import type { RecipeLegendBarDiagram } from '$stylist/chart/interface/recipe/legend-bar-diagram';
 
 	let props: RecipeLegendBarDiagram = $props();
 	const state = createLegendBarDiagramState(props);
-	let activeItemId: string | null = $state(null);
+	const activeItemId = writable<string | null>(null);
 	const hoverColor = '#f59e0b';
 </script>
 
@@ -42,27 +43,21 @@
 			/>
 			{#each state.layout.items as item (item.id)}
 				<path
-					class={`legend-bar-diagram__connector ${activeItemId === item.id ? 'legend-bar-diagram__connector--active' : ''}`}
+					class={`legend-bar-diagram__connector ${$activeItemId === item.id ? 'legend-bar-diagram__connector--active' : ''}`}
 					d={`M ${item.connectorX} ${item.connectorY1} V ${item.connectorY2}`}
-					stroke={activeItemId === item.id ? hoverColor : item.color}
-					stroke-width={activeItemId === item.id ? 3 : item.connectorWidth}
+					stroke={$activeItemId === item.id ? hoverColor : item.color}
+					stroke-width={$activeItemId === item.id ? 3 : item.connectorWidth}
 					onpointerenter={() => {
-						activeItemId = item.id;
-					}}
-					onpointerleave={() => {
-						activeItemId = null;
+						activeItemId.set(item.id);
 					}}
 				/>
 			{/each}
 			{#each state.layout.items as item (item.id)}
 				<g
-					class={`legend-bar-diagram__item ${activeItemId === item.id ? 'legend-bar-diagram__item--active' : ''}`}
+					class={`legend-bar-diagram__item ${$activeItemId === item.id ? 'legend-bar-diagram__item--active' : ''}`}
 					style={`--legend-bar-hover-color: ${hoverColor};`}
 					onpointerenter={() => {
-						activeItemId = item.id;
-					}}
-					onpointerleave={() => {
-						activeItemId = null;
+						activeItemId.set(item.id);
 					}}
 				>
 					<ChartLegendBar {...item} connectorVisible={false} />
@@ -70,6 +65,14 @@
 			{/each}
 		</svg>
 	</div>
+	{#if state.layout.items.length > 0}
+		{@const selectedItem =
+			state.layout.items.find((item) => item.id === $activeItemId) ?? state.layout.items[0]}
+		<div class="legend-bar-diagram__selection" aria-label="Selected domain">
+			<span>{selectedItem.text}</span>
+			<strong>{selectedItem.valueLabel}</strong>
+		</div>
+	{/if}
 </section>
 
 <style>
@@ -132,8 +135,33 @@
 			stroke-width 0.16s ease;
 	}
 
-	.legend-bar-diagram__item:hover .legend-bar-diagram__connector {
+	.legend-bar-diagram__connector:hover,
+	.legend-bar-diagram__connector--active {
 		stroke: var(--legend-bar-hover-color, #f59e0b);
 		stroke-width: 3;
+	}
+
+	.legend-bar-diagram__selection {
+		justify-self: start;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.65rem;
+		max-width: 100%;
+		padding: 0.45rem 0.7rem;
+		border: 2px solid #f59e0b;
+		border-left-width: 5px;
+		border-radius: 6px;
+		background: color-mix(in srgb, #f59e0b 10%, white 90%);
+	}
+
+	.legend-bar-diagram__selection span {
+		font-size: 0.78rem;
+		font-weight: 800;
+	}
+
+	.legend-bar-diagram__selection strong {
+		color: #92400e;
+		font-size: 0.78rem;
+		font-variant-numeric: tabular-nums;
 	}
 </style>

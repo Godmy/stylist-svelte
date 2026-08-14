@@ -1,7 +1,6 @@
 <script lang="ts">
 	import SectionHeading from '$stylist/landing/component/molecule/section-heading/index.svelte';
 	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
-	import Link from '$stylist/typography/component/atom/link/index.svelte';
 	import Image from '$stylist/image/component/atom/image/index.svelte';
 	import Divider from '$stylist/layout/component/atom/divider/index.svelte';
 
@@ -10,8 +9,6 @@
 		eyebrow,
 		title,
 		body,
-		cta,
-		ctaHref,
 		imageSrc,
 		imageAlt,
 		class: className = ''
@@ -20,8 +17,6 @@
 		eyebrow: string;
 		title: string;
 		body: string;
-		cta: string;
-		ctaHref: string;
 		imageSrc: string;
 		imageAlt: string;
 		class?: string;
@@ -29,16 +24,15 @@
 </script>
 
 <section class="result-section {className}" aria-label={ariaLabel}>
-	<Divider class="result-section__divider" />
+	<Divider label={eyebrow} align="left" class="result-section__divider" />
 	<div class="result-section__grid">
 		<figure class="result-section__media">
 			<Image imageSrc={imageSrc} imageAlt={imageAlt} size="xl" class="result-section__image" />
 		</figure>
 		<div class="result-section__copy">
-			<SectionHeading {eyebrow} {title} />
-			<Paragraph text={body} class="result-section__body" />
-			<Link href={ctaHref} class="result-section__cta">{cta}</Link>
+			<SectionHeading {title} />
 		</div>
+		<Paragraph text={body} class="result-section__body" />
 	</div>
 </section>
 
@@ -80,23 +74,17 @@
 	}
 
 	.result-section__copy {
-		max-width: 34rem;
+		max-width: 100%;
+	}
+
+	:global(.result-section__copy .section-heading) {
+		--section-heading-max-width: 100%;
 	}
 
 	:global(.result-section__body) {
+		grid-column: 1 / -1;
+		max-width: 100%;
 		--typography-color: var(--result-section-text, currentColor);
-	}
-
-	:global(.result-section__cta) {
-		margin-top: 1rem;
-		min-height: 2.875rem;
-		padding: 0 1rem;
-		border-radius: 0.375rem;
-		font-size: 0.925rem;
-		font-weight: 750;
-		background: var(--result-section-cta-bg, currentColor);
-		--typography-link-color: var(--result-section-cta-text, currentColor);
-		--typography-link-hover-color: var(--result-section-cta-text, currentColor);
 	}
 
 	@container (max-width: 920px) {

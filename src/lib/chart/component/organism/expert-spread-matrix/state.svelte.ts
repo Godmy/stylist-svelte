@@ -1,0 +1,24 @@
+import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ExpertSpreadMatrixManager } from '$stylist/chart/class/manager/expert-spread-matrix';
+import type { RecipeExpertSpreadMatrix } from '$stylist/chart/interface/recipe/expert-spread-matrix';
+
+export default function createExpertSpreadMatrixState(props: RecipeExpertSpreadMatrix) {
+	const className = $derived(ClassNamesManager.merge('expert-spread-matrix', props.class));
+	const layout = $derived.by(() =>
+		ExpertSpreadMatrixManager.createLayout(props.experts, props.periods, props.values, {
+			width: props.width,
+			cellSize: props.cellSize,
+			minValue: props.minValue,
+			maxValue: props.maxValue
+		})
+	);
+
+	return {
+		get className() {
+			return className;
+		},
+		get layout() {
+			return layout;
+		}
+	};
+}

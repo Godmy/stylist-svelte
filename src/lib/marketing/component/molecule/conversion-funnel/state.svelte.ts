@@ -1,13 +1,13 @@
 import type { RecipeConversionFunnel } from '$stylist/marketing/interface/recipe/conversion-funnel';
-import type { FunnelStep } from '$stylist/marketing/type/object/conversion-funnel/funnelstep';
-function getConversionRate(steps: FunnelStep[], stepIndex: number): number {
+import type { SlotFunnelStep } from '$stylist/marketing/interface/slot/funnel-step';
+function getConversionRate(steps: SlotFunnelStep[], stepIndex: number): number {
 	if (stepIndex === 0 || steps.length <= stepIndex) return 100;
 	const current = steps[stepIndex].value;
 	const previous = steps[stepIndex - 1].value;
 	return previous > 0 ? Math.round((current / previous) * 100) : 0;
 }
 
-function getDropoff(steps: FunnelStep[], stepIndex: number): number {
+function getDropoff(steps: SlotFunnelStep[], stepIndex: number): number {
 	if (stepIndex === 0 || steps.length <= stepIndex) return 0;
 	const current = steps[stepIndex].value;
 	const previous = steps[stepIndex - 1].value;

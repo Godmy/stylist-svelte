@@ -1,6 +1,6 @@
-import type { ToggleButtonGroupProps } from '$stylist/form/type/object/toggle-button-group-props';
+import type { RecipeToggleButtonGroup } from '$stylist/form/interface/recipe/toggle-button-group';
 
-export function createToggleButtonGroupState(props: ToggleButtonGroupProps) {
+export function createToggleButtonGroupState(props: RecipeToggleButtonGroup) {
 	let selectedValues = $state<string[]>(
 		Array.isArray(props.value) ? props.value : props.value ? [props.value] : []
 	);

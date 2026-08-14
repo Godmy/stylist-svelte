@@ -10,7 +10,6 @@ export {
 	CasesSection,
 	DefinitionSection,
 	HeroSection,
-	IntroSection,
 	ResultSection,
 	WorkflowSection
 } from './organism';

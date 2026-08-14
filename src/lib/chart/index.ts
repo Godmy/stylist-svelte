@@ -2,6 +2,10 @@
 export {
 	ChartLegendBandManager,
 	ChartLegendBarManager,
+	CriticalPathTimelineManager,
+	ExchangeOracleForecastManager,
+	ExpertAgreementRadarManager,
+	ExpertSpreadMatrixManager,
 	ObjectManagerAnalyticsChart,
 	ObjectManagerBarChart,
 	ObjectManagerCanvasChart,
@@ -10,7 +14,10 @@ export {
 	ObjectManagerHeatmap,
 	ObjectManagerLineChart,
 	ObjectManagerMetricBar,
-	ObjectManagerPieChart
+	ObjectManagerPieChart,
+	OutlierConstellationManager,
+	RiskImpactMapManager,
+	WidebandDelphiDiagramManager
 } from './class';
 export {
 	AnalyticsChart,
@@ -27,16 +34,23 @@ export {
 	ChartLegendBar,
 	ChartName,
 	ChartPolyline,
+	CriticalPathTimeline,
+	ExchangeOracleForecast,
+	ExpertAgreementRadar,
+	ExpertSpreadMatrix,
 	Heatmap,
 	LegendBandDiagram,
 	LegendBarDiagram,
 	LineChart,
 	MetricBar,
 	MetricBarsCard,
+	OutlierConstellation,
 	PieChart,
 	RangeBarsChart,
+	RiskImpactMap,
 	ScatterPlot,
-	VerticalBarsChart
+	VerticalBarsChart,
+	WidebandDelphiDiagram
 } from './component';
 export {
 	BAR_CHART_COLOR_SCHEME,
@@ -85,16 +99,23 @@ export type {
 	RecipeChartLegendBar,
 	RecipeChartName,
 	RecipeChartPolyline,
+	RecipeCriticalPathTimeline,
+	RecipeExchangeOracleForecast,
+	RecipeExpertAgreementRadar,
+	RecipeExpertSpreadMatrix,
 	RecipeHeatmap,
 	RecipeLegendBandDiagram,
 	RecipeLegendBarDiagram,
 	RecipeLineChart,
 	RecipeMetricBar,
 	RecipeMetricBarsCard,
+	RecipeOutlierConstellation,
 	RecipePieChart,
 	RecipeRangeBarsChart,
+	RecipeRiskImpactMap,
 	RecipeScatterPlot,
 	RecipeVerticalBarsChart,
+	RecipeWidebandDelphiDiagram,
 	ScatterPlotDataPoint,
 	SlotChartAxis
 } from './interface';

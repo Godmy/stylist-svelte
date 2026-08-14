@@ -13,8 +13,8 @@
 	component={ResultSection}
 	title="ResultSection"
 	category="Organisms/Landing"
-	description="Landing result section with media, copy, and CTA."
-	tags={['landing', 'result', 'cta']}
+	description="Landing result section with media and copy below the image."
+	tags={['landing', 'result']}
 >
 	{#snippet children()}
 		<div class="preview">
@@ -23,8 +23,6 @@
 				eyebrow="Output"
 				title="A decision packet people can inspect"
 				body="The final artifact shows ranges, disagreement, assumptions, and the next review trigger in one place."
-				cta="Open workspace"
-				ctaHref="/workspace"
 				{imageSrc}
 				imageAlt="Result placeholder"
 			/>
@@ -37,8 +35,6 @@
 		--result-section-border: var(--color-border-primary, #d1d5db);
 		--result-section-media-bg: var(--color-background-secondary, #f9fafb);
 		--result-section-text: var(--color-text-secondary, #4b5563);
-		--result-section-cta-bg: var(--color-primary-600, #2563eb);
-		--result-section-cta-text: #ffffff;
 		--section-heading-eyebrow-color: var(--color-primary-600, #2563eb);
 		--section-heading-title-color: var(--color-text-primary, #111827);
 		container-type: inline-size;

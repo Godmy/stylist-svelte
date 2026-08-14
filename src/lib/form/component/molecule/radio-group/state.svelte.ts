@@ -1,6 +1,6 @@
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
-import type { RadioGroupProps } from '$stylist/form/type/object/radio-group/radiogroup-props';
-export function createRadioGroupState(props: RadioGroupProps): ({
+import type { RecipeRadioGroup } from '$stylist/form/interface/recipe/radio-group';
+export function createRadioGroupState(props: RecipeRadioGroup): ({
 internalValue: string;
 	layoutClass: string;
 	rootClass: string;

@@ -2,13 +2,16 @@
 export type { RecipeAnimatedExpandableTableRow } from './animated-expandable-table-row';
 export type { RecipeAspectRatio } from './aspect-ratio';
 export type { RecipeBackground } from './background';
+export type { RecipeBaseCard } from './base-card';
 export type { RecipeBorder } from './border';
 export type { RecipeCard } from './card';
 export type { RecipeCenteredLayout } from './centered-layout';
+export type { RecipeClick } from './click';
 export type { RecipeClickable } from './clickable';
 export type { RecipeContainer } from './container';
 export type { RecipeContainerQuery } from './container-query';
 export type { RecipeDivider } from './divider';
+export type { RecipeDragAndDrop } from './drag-and-drop';
 export type { RecipeDraggable } from './draggable';
 export type { RecipeFocusable } from './focusable';
 export type { RecipeGradientBackground } from './gradient-background';

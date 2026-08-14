@@ -4,6 +4,7 @@ export {
 	CubeControl,
 	GraphEdge,
 	GraphNode,
+	NodeIcon,
 	Stage,
 	Viewport
 } from './atom';

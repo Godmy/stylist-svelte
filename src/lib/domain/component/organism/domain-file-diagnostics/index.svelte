@@ -324,7 +324,14 @@
 				<p class="eyebrow">Component Intervals</p>
 				<h3>Component bands by domain</h3>
 			</div>
-			<strong>{componentIntervalsManifest.totals.components} components</strong>
+			<strong>
+				{componentIntervalsManifest.totals.atoms} atoms,
+				{componentIntervalsManifest.totals.molecules} molecules,
+				{componentIntervalsManifest.totals.organisms} organisms,
+				{componentIntervalsManifest.totals.templates} templates,
+				{componentIntervalsManifest.totals.pages} pages,
+				{componentIntervalsManifest.totals.components} components
+			</strong>
 		</header>
 
 		<LegendBandDiagram

@@ -17,13 +17,16 @@ export type {
 	RecipeAnimatedExpandableTableRow,
 	RecipeAspectRatio,
 	RecipeBackground,
+	RecipeBaseCard,
 	RecipeBorder,
 	RecipeCard,
 	RecipeCenteredLayout,
+	RecipeClick,
 	RecipeClickable,
 	RecipeContainer,
 	RecipeContainerQuery,
 	RecipeDivider,
+	RecipeDragAndDrop,
 	RecipeDraggable,
 	RecipeFocusable,
 	RecipeGradientBackground,
@@ -51,7 +54,9 @@ export type {
 export type {
 	DragContract,
 	GestureContract,
+	SlotClick,
 	SlotComposite,
 	SlotDivider,
+	SlotDragAndDrop,
 	SlotSortableGridItem
 } from './slot';

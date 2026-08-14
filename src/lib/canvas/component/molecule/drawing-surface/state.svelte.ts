@@ -1,11 +1,11 @@
-import type { DrawingSurfaceExposeMethodsEvent } from '$stylist/canvas/type/object/drawing-surface/drawing-surface-expose-methods-event';
-import type { DrawingSurfaceProps } from '$stylist/canvas/type/object/drawing-surface/drawing-surface-props';
+import type { SlotDrawingSurfaceExposeMethodsEvent } from '$stylist/canvas/interface/slot/drawing-surface-expose-methods-event';
+import type { RecipeDrawingSurface } from '$stylist/canvas/interface/recipe/drawing-surface';
 
 export function createDrawingSurfaceState(
-	props: DrawingSurfaceProps,
+	props: RecipeDrawingSurface,
 	dispatch: (
 		type: 'canvas-cleared' | 'expose-methods',
-		detail: {} | DrawingSurfaceExposeMethodsEvent
+		detail: {} | SlotDrawingSurfaceExposeMethodsEvent
 	) => void
 ) {
 	let isDrawing = $state(false);

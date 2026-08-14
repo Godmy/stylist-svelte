@@ -7,4 +7,5 @@ export type { RecipeLoading } from './loading';
 export type { RecipeNumberFlow } from './number-flow';
 export type { RecipeSkeleton } from './skeleton';
 export type { RecipeSpinner } from './spinner';
+export type { RecipeTooltip } from './tooltip';
 export type { RecipeTransformable } from './transformable';

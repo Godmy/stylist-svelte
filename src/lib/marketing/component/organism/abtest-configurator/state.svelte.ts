@@ -1,12 +1,7 @@
 import { untrack } from 'svelte';
+import { MarketingManager } from '$stylist/marketing/class/manager/marketing';
 import type { SlotABTestConfigurator as IABTestConfiguratorProps } from '$stylist/marketing/interface/slot/ab-test-configurator';
 import type { SlotABTest as ABTest } from '$stylist/marketing/interface/slot/ab-test';
-import { validateABTest } from '$stylist/marketing/function/script/validate-ab-test';
-import { calculateABTestTotalWeight } from '$stylist/marketing/function/script/calculate-ab-test-total-weight';
-import { addABTestVariant } from '$stylist/marketing/function/script/add-ab-test-variant';
-import { removeABTestVariant } from '$stylist/marketing/function/script/remove-ab-test-variant';
-import { updateABTestVariantWeight } from '$stylist/marketing/function/script/update-ab-test-variant-weight';
-import { toggleABTestVariantStatus } from '$stylist/marketing/function/script/toggle-ab-test-variant-status';
 export function createABTestConfiguratorState(
 	props: IABTestConfiguratorProps & {
 		class?: string;
@@ -69,10 +64,10 @@ export function createABTestConfiguratorState(
 	let newVariantWeight = $state(0);
 	let errors = $state<Record<string, string>>({});
 
-	const totalWeight = $derived(calculateABTestTotalWeight(test.variants));
+	const totalWeight = $derived(MarketingManager.calculateABTestTotalWeight(test.variants));
 
 	function saveTest(): void {
-		const validationErrors = validateABTest(test);
+		const validationErrors = MarketingManager.validateABTest(test);
 		errors = validationErrors;
 		if (Object.keys(validationErrors).length === 0 && onSave) {
 			onSave(test);
@@ -86,26 +81,26 @@ export function createABTestConfiguratorState(
 		} else {
 			errors.newVariant = '';
 		}
-		test = addABTestVariant(test, newVariantName, newVariantDescription, newVariantWeight);
+		test = MarketingManager.addABTestVariant(test, newVariantName, newVariantDescription, newVariantWeight);
 		newVariantName = '';
 		newVariantDescription = '';
 		newVariantWeight = 0;
 	}
 
 	function handleRemoveVariant(id: string): void {
-		test = removeABTestVariant(test, id);
+		test = MarketingManager.removeABTestVariant(test, id);
 	}
 
 	function handleUpdateWeight(id: string, weight: number): void {
-		test = updateABTestVariantWeight(test, id, weight);
+		test = MarketingManager.updateABTestVariantWeight(test, id, weight);
 	}
 
 	function handleToggleStatus(id: string): void {
-		test = toggleABTestVariantStatus(test, id);
+		test = MarketingManager.toggleABTestVariantStatus(test, id);
 	}
 
 	function startTest(): void {
-		const validationErrors = validateABTest(test);
+		const validationErrors = MarketingManager.validateABTest(test);
 		errors = validationErrors;
 		if (Object.keys(validationErrors).length === 0 && onStart) {
 			test.status = 'running';

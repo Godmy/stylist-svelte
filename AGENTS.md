@@ -29,12 +29,13 @@
 - Treat directories in the form `src/lib/<domain>/<cluster>/<joint>/...` as strict logical typing of entities.
 - Inside clusters, use only the allowed joint subfolders:
   - `const`: `enum`, `value`, `map`, `record`, `struct`, `preset`, `set`, `array`, `object`
-  - `type`: `enum`, `alias`, `map`, `record`, `struct`, `preset`, `set`, `object`
+  - `type`: `enum`, `alias`, `map`, `record`, `struct`, `preset`, `set`, `object`, `compute`
   - `interface`: `behavior`, `slot`, `recipe`, `contract`
   - `class`: `manager`, `object-manager`, `style-manager`
-  - `function`: `script`, `state`, `hook`, `transform`, `test`, `async`, `merge`, `check`, `count`
-  - `component`: `atom`, `molecule`, `organism`
+  - `function`: `script`, `state`, `hook`, `transform`, `test`, `async`, `async-get`, `async-post`, `merge`, `check`, `count`, `create`, `resolve`, `serialize`
+  - `component`: `atom`, `molecule`, `organism`, `template`, `page`
   - `data`: `json`, `shader`, `svg`, `md`, `yaml`
+- To validate actual joint usage, run `python -u "D:\2026\projects\vibe-management.pro\packages\stylist\di\reader\library\pipeline.py"` and inspect `stylist\di\output\step-16-joints.md`; the "Unknown Joints" section lists joints that are not allowed for their cluster.
 
 ### DSIAP: Domain-Specific Interface Assembly Pattern (Mandatory for `interface/`)
 
@@ -53,10 +54,11 @@
 
 ## File Structure And Naming Policy (Mandatory)
 
-- In `atom`, `molecule`, and `organism` folders, allow only:
+- In `atom`, `molecule`, `organism`, `template`, and `page` folders, allow only:
   - `index.ts`
   - `index.svelte`
   - optionally `index.story.svelte`
+  - optionally `readme.md`  
 - In `state` folders, allow only:
   - `index.svelte.ts`
   - `index.ts`

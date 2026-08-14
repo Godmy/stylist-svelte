@@ -15,5 +15,6 @@ export type {
 	RecipeNumberFlow,
 	RecipeSkeleton,
 	RecipeSpinner,
+	RecipeTooltip,
 	RecipeTransformable
 } from './recipe';

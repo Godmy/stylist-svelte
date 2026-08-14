@@ -1,4 +1,4 @@
-import type { RecipeClick } from '$stylist/control/interface/recipe/click';
+import type { RecipeClick } from '$stylist/layout/interface/recipe/click';
 
 export function createClickState(props: RecipeClick) {
 	const disabled = $derived(props.disabled ?? false);

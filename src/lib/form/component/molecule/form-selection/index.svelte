@@ -1,10 +1,10 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createFormSelectionState from './state.svelte';
-	import { toggleCollapsed } from '$stylist/form/function/script/form-selection/toggle-collapsed';
-	import type { FormSelectionProps } from '$stylist/form/type/object/form-selection';
+	import { FormManager } from '$stylist/form/class/manager/form';
+	import type { RecipeFormSelection } from '$stylist/form/interface/recipe/form-selection';
 
-	const props: FormSelectionProps = $props();
+	const props: RecipeFormSelection = $props();
 	const state = createFormSelectionState(props);
 	const ChevronDown = 'chevron-down';
 </script>
@@ -13,7 +13,7 @@
 	{#if state.showHeader}
 		<header
 			class="section-header {props.collapsible ? 'section-header--collapsible' : ''}"
-			onclick={() => toggleCollapsed(state, props.collapsible ?? false)}
+			onclick={() => FormManager.toggleCollapsed(state, props.collapsible ?? false)}
 			role={props.collapsible ? 'button' : undefined}
 			aria-expanded={props.collapsible ? !state.isCollapsed : undefined}
 		>
@@ -34,7 +34,7 @@
 						: `Collapse ${props.title} section`}
 					onclick={(e) => {
 						e.stopPropagation();
-						toggleCollapsed(state, true);
+						FormManager.toggleCollapsed(state, true);
 					}}
 				>
 					<BaseIcon name={ChevronDown} class={state.iconClass} />

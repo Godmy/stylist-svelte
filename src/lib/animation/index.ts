@@ -9,6 +9,7 @@ export {
 	NumberFlow,
 	Skeleton,
 	Spinner,
+	Tooltip,
 	Transformable
 } from './component';
 export {
@@ -45,5 +46,6 @@ export type {
 	RecipeNumberFlow,
 	RecipeSkeleton,
 	RecipeSpinner,
+	RecipeTooltip,
 	RecipeTransformable
 } from './interface';

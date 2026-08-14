@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RecipeClick } from '$stylist/control/interface/recipe/click';
+	import type { RecipeClick } from '$stylist/layout/interface/recipe/click';
 	import createClickState from './state.svelte';
 
 	let props: RecipeClick = $props();

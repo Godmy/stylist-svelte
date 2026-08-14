@@ -9,3 +9,4 @@ export { DomainFileDiagnostics } from './domain-file-diagnostics/index';
 export { DomainFilePreview } from './domain-file-preview/index';
 export { DomainSettings } from './domain-settings/index';
 export { DomainSidebar } from './domain-sidebar/index';
+export { MarkdownRenderer } from './markdown-renderer/index';

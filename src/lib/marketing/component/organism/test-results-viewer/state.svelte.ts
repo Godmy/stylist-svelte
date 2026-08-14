@@ -1,7 +1,7 @@
 import type { RecipeTestResultsViewer } from '$stylist/marketing/interface/recipe/test-results-viewer';
-import type { TestResult } from '$stylist/marketing/type/object/test-results-viewer/testresult';
+import type { SlotTestResult } from '$stylist/marketing/interface/slot/test-result';
 
-function getBestVariant(results: TestResult[]): TestResult | undefined {
+function getBestVariant(results: SlotTestResult[]): SlotTestResult | undefined {
 	if (results.length === 0) return undefined;
 	return results.reduce((best, current) =>
 		current.conversionRate > best.conversionRate ? current : best

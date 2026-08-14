@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ToggleButtonGroupProps } from '$stylist/form/type/object/toggle-button-group-props';
+	import type { RecipeToggleButtonGroup } from '$stylist/form/interface/recipe/toggle-button-group';
 	import createToggleButtonGroupState from './state.svelte';
 
 	let {
@@ -17,7 +17,7 @@
 		onInput,
 		onChange,
 		...restProps
-	}: ToggleButtonGroupProps = $props();
+	}: RecipeToggleButtonGroup = $props();
 	const state = createToggleButtonGroupState({
 		options,
 		value,

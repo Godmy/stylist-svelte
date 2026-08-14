@@ -28,6 +28,7 @@ export {
 	DomainFileDiagnostics,
 	DomainFilePreview,
 	DomainSettings,
-	DomainSidebar
+	DomainSidebar,
+	MarkdownRenderer
 } from './organism';
 export { PageDomain } from './page';

@@ -1,19 +1,19 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import type { CanvasToolbarDrawingOptions } from '$stylist/canvas/interface/slot/canvas-toolbar-drawing-options';
+	import type { SlotCanvasToolbarDrawingOptions } from '$stylist/canvas/interface/slot/canvas-toolbar-drawing-options';
 	import type { CanvasToolbarDrawingTool } from '$stylist/canvas/type/alias/canvas-toolbar-drawing-tool';
-	import type { CanvasToolbarProps } from '$stylist/canvas/type/object/canvas-toolbar/canvas-toolbar-props';
+	import type { RecipeCanvasToolbar } from '$stylist/canvas/interface/recipe/canvas-toolbar';
 	import createCanvasToolbarState from './state.svelte';
 
 	let dispatch = createEventDispatcher<{
-		'tool-change': { tool: CanvasToolbarDrawingTool; options: CanvasToolbarDrawingOptions };
+		'tool-change': { tool: CanvasToolbarDrawingTool; options: SlotCanvasToolbarDrawingOptions };
 		'clear-canvas': undefined;
 		undo: undefined;
 		redo: undefined;
 		save: undefined;
 	}>();
 
-	let props: CanvasToolbarProps = $props();
+	let props: RecipeCanvasToolbar = $props();
 	const state = createCanvasToolbarState(props, (type, detail) =>
 		dispatch(type as never, detail as never)
 	);

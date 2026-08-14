@@ -7,6 +7,7 @@ export type { RecipeGraphEdge } from './graph-edge';
 export type { RecipeGraphNode } from './graph-node';
 export type { RecipeGraphvizDirectedEdge } from './graphviz-directed-edge';
 export type { RecipeMinimap } from './minimap';
+export type { RecipeNodeIcon } from './node-icon';
 export type { RecipeOntologyEdgeComponent } from './ontology-edge-component';
 export type { RecipeOntologyNodeComponent } from './ontology-node-component';
 export type { RecipePresentationState } from './presentation-state';

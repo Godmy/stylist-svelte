@@ -13,7 +13,9 @@ export function createImageState(props: RecipeImage) {
 	const content = $derived(props.content);
 	const size = $derived(props.size ?? 'md');
 
-	const containerClass = $derived(ClassNamesManager.merge('c-image', props.class ?? ''));
+	const containerClass = $derived(
+		ClassNamesManager.merge('c-image', !isLoaded && !hasError ? 'c-image--loading' : '', props.class ?? '')
+	);
 	const wrapperClass = $derived('c-image__placeholder');
 
 	const imageSource = $derived(hasError && imageFallback ? imageFallback : imageSrc);

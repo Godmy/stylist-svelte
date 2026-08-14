@@ -1,6 +1,6 @@
-import type { CheckboxGroupProps } from '$stylist/form/type/object/checkbox-group-props';
+import type { RecipeCheckboxGroup } from '$stylist/form/interface/recipe/checkbox-group';
 
-export function createCheckboxGroupState(props: CheckboxGroupProps) {
+export function createCheckboxGroupState(props: RecipeCheckboxGroup) {
 	let selectedValues = $state<string[]>([...(props.value ?? [])]);
 
 	$effect(() => {

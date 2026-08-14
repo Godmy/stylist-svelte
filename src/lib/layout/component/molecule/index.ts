@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AnimatedExpandableTableRow } from './animated-expandable-table-row/index';
+export { BaseCard } from './base-card/index';
 export { Card } from './card/index';
 export { CenteredLayout } from './centered-layout/index';
 export { ContainerQuery } from './container-query/index';

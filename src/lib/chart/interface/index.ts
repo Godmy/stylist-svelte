@@ -22,16 +22,23 @@ export type {
 	RecipeChartLegendBar,
 	RecipeChartName,
 	RecipeChartPolyline,
+	RecipeCriticalPathTimeline,
+	RecipeExchangeOracleForecast,
+	RecipeExpertAgreementRadar,
+	RecipeExpertSpreadMatrix,
 	RecipeHeatmap,
 	RecipeLegendBandDiagram,
 	RecipeLegendBarDiagram,
 	RecipeLineChart,
 	RecipeMetricBar,
 	RecipeMetricBarsCard,
+	RecipeOutlierConstellation,
 	RecipePieChart,
 	RecipeRangeBarsChart,
+	RecipeRiskImpactMap,
 	RecipeScatterPlot,
-	RecipeVerticalBarsChart
+	RecipeVerticalBarsChart,
+	RecipeWidebandDelphiDiagram
 } from './recipe';
 export type {
 	AnalyticsChartBarPoint,

@@ -26,6 +26,7 @@ export {
 	Skeleton,
 	Spinner,
 	TOKEN_LOADING,
+	Tooltip,
 	Transformable,
 	animateValue,
 	formatAnimatedValue,
@@ -53,6 +54,7 @@ export {
 	Minimap,
 	MinimapManager,
 	NODE_TITLE_VARIANT,
+	NodeIcon,
 	OntologyEdgeComponent,
 	OntologyNodeComponent,
 	PRESENTATION_MODE,
@@ -169,6 +171,7 @@ export {
 } from './calendar';
 export {
 	CANVAS_TOOLBAR_DRAWING_TOOL,
+	CanvasManager,
 	CanvasToolbar,
 	CollaborativeEditor,
 	ColorPalette,
@@ -179,19 +182,7 @@ export {
 	SHARED_CANVAS_ACTION_ICONS,
 	SHARED_CANVAS_TOOL_DEFINITIONS,
 	ScreenshotSelector,
-	SharedCanvas,
-	cloneCanvasObjects,
-	createCanvasObjectId,
-	createDraftCanvasObject,
-	drawCanvasObject,
-	drawCanvasObjects,
-	exportCanvasImage,
-	finalizeDraftCanvasObject,
-	getCanvasObjectBounds,
-	getCanvasPointerPosition,
-	getPathBounds,
-	hitTestCanvasObject,
-	updateDraftCanvasObject
+	SharedCanvas
 } from './canvas';
 export {
 	AnalyticsChart,
@@ -211,7 +202,15 @@ export {
 	ChartLegendBarManager,
 	ChartName,
 	ChartPolyline,
+	CriticalPathTimeline,
+	CriticalPathTimelineManager,
 	DEFAULT_CANVAS_CHART_PADDING,
+	ExchangeOracleForecast,
+	ExchangeOracleForecastManager,
+	ExpertAgreementRadar,
+	ExpertAgreementRadarManager,
+	ExpertSpreadMatrix,
+	ExpertSpreadMatrixManager,
 	HEATMAP_GRADIENT_BY_SCHEME,
 	Heatmap,
 	LINE_CHART_COLOR_SCHEME,
@@ -229,14 +228,20 @@ export {
 	ObjectManagerLineChart,
 	ObjectManagerMetricBar,
 	ObjectManagerPieChart,
+	OutlierConstellation,
+	OutlierConstellationManager,
 	PRESET_CANVAS_CHART,
 	PieChart,
 	RangeBarsChart,
+	RiskImpactMap,
+	RiskImpactMapManager,
 	ScatterPlot,
 	TOKEN_CANVAS_CHART_TYPE,
 	TOKEN_CHART,
 	TOKEN_CHART_COLORS,
-	VerticalBarsChart
+	VerticalBarsChart,
+	WidebandDelphiDiagram,
+	WidebandDelphiDiagramManager
 } from './chart';
 export {
 	CHAT_MESSAGE_STATUS,
@@ -472,6 +477,7 @@ export {
 	JointTabButtons,
 	JointToolbar,
 	JsonTreeViewer,
+	MarkdownRenderer,
 	PageDomain,
 	STYLIST_GRAPH_WORKSPACE_SEED,
 	TOKEN_CONTROLLER_TYPE,
@@ -539,6 +545,7 @@ export {
 	CheckboxGroup,
 	FormFooter,
 	FormHeader,
+	FormManager,
 	FormSelection,
 	FormWithValidation,
 	LoginForm,
@@ -550,8 +557,7 @@ export {
 	SearchBar,
 	SearchForm,
 	ToggleButtonGroup,
-	Validation,
-	toggleCollapsed
+	Validation
 } from './form';
 export {
 	GeoJsonviewer,
@@ -608,16 +614,12 @@ export {
 export {
 	Badge,
 	BadgeGroup,
-	BaseCard,
 	CountBadge,
 	Counter,
 	Dot,
-	MarkdownRenderer,
-	NodeIcon,
 	ProgressBar,
 	STATUS_STATE,
-	ShortcutsPanel,
-	Tooltip
+	ShortcutsPanel
 } from './information';
 export {
 	CharactersCount,
@@ -652,7 +654,6 @@ export {
 	DefinitionSection,
 	HeroMediaSection,
 	HeroSection,
-	IntroSection,
 	NameHeroMediaItems,
 	NavBar,
 	ResultSection,
@@ -664,6 +665,7 @@ export {
 	AnimatedExpandableTableRow,
 	AspectRatio,
 	Background,
+	BaseCard,
 	Border,
 	CENTERED_LAYOUT_AXIS,
 	CONTAINER_QUERY_TYPE,
@@ -773,6 +775,7 @@ export {
 	CtaButtons,
 	FeatureGrid,
 	Hero,
+	MarketingManager,
 	PromoBanner,
 	StylistHero,
 	StylistLanding,
@@ -780,13 +783,7 @@ export {
 	TOKEN_TEST,
 	TestResultsViewer,
 	TrafficAnalytics,
-	UserBehaviorMetrics,
-	addABTestVariant,
-	calculateABTestTotalWeight,
-	removeABTestVariant,
-	toggleABTestVariantStatus,
-	updateABTestVariantWeight,
-	validateABTest
+	UserBehaviorMetrics
 } from './marketing';
 export {
 	ACCORDION_CONTEXT_DEFAULT,
@@ -1857,6 +1854,7 @@ export {
 export { VideoPlayer } from './video';
 export {
 	AdminSidebar,
+	ApplicationCtaSection,
 	AuditLogPanel,
 	ConfidenceDistributionChart,
 	ConfidenceRangeBar,
@@ -1891,6 +1889,7 @@ export {
 	ParticipantRosterList,
 	PermissionDeniedPanel,
 	PertResultChip,
+	PublicPollsSection,
 	QuestionBulkEditor,
 	QuestionConsensusMatrix,
 	QuestionDiscussionPanel,
@@ -2020,19 +2019,9 @@ export type {
 	TokenTimeRange
 } from './calendar';
 export type {
-	CanvasObject,
 	CanvasToolbarDrawingTool,
-	CanvasToolbarProps,
-	CollaborativeEditEvent,
-	DrawingSurfaceCanvasClearedEvent,
-	DrawingSurfaceContract,
-	DrawingSurfaceExposeMethodsEvent,
-	DrawingSurfaceProps,
-	SharedCanvasContract,
-	SharedCanvasObjectBounds,
 	SharedCanvasTool,
-	SharedCanvasToolDefinition,
-	ThemeGraphColors
+	SharedCanvasToolDefinition
 } from './canvas';
 export type {
 	HeatmapAxisValue,
@@ -2110,15 +2099,6 @@ export type {
 	ViewMode
 } from './file';
 export type {
-	AddressData,
-	CheckboxGroupProps,
-	FormData,
-	FormSelectionProps,
-	RadioGroupProps,
-	ToggleButtonGroupProps,
-	ValidationErrors
-} from './form';
-export type {
 	MapProvider,
 	TokenMapType,
 	TokenPin
@@ -2176,13 +2156,7 @@ export type {
 	TokenKPI,
 	TokenTrend
 } from './management';
-export type {
-	ABTestConfiguratorState,
-	FunnelStep,
-	IHeroCTA,
-	TestResult,
-	TokenTest
-} from './marketing';
+export type { TokenTest } from './marketing';
 export type { AccordionContext } from './navigation';
 export type {
 	INotificationSettingsPreference,
@@ -2276,6 +2250,7 @@ export type {
 	TokenAvailability
 } from './user';
 export type {
+	StructWbdApplicationRequestOption,
 	StructWbdConsensusItem,
 	StructWbdDiscussionMessage,
 	StructWbdEstimate,
@@ -2283,6 +2258,7 @@ export type {
 	StructWbdExportOption,
 	StructWbdFinalReportSection,
 	StructWbdPertResult,
+	StructWbdPublicPoll,
 	StructWbdQuestion,
 	StructWbdRoundSummary,
 	StructWbdSession,
@@ -2323,6 +2299,7 @@ export type {
 	RecipeNumberFlow,
 	RecipeSkeleton,
 	RecipeSpinner,
+	RecipeTooltip,
 	RecipeTransformable
 } from './animation';
 export type {
@@ -2345,6 +2322,7 @@ export type {
 	RecipeGraphNode,
 	RecipeGraphvizDirectedEdge,
 	RecipeMinimap,
+	RecipeNodeIcon,
 	RecipeOntologyEdgeComponent,
 	RecipeOntologyNodeComponent,
 	RecipePresentationState,
@@ -2422,12 +2400,20 @@ export type {
 	SlotTimePicker
 } from './calendar';
 export type {
-	CanvasToolbarDrawingOptions,
 	RecipeCanvasImageEditor,
+	RecipeCanvasToolbar,
 	RecipeCollaborativeEditor,
 	RecipeColorPalette,
 	RecipeDrawingOverlay,
-	RecipeScreenshotSelector
+	RecipeDrawingSurface,
+	RecipeScreenshotSelector,
+	RecipeSharedCanvas,
+	SlotCanvasObject,
+	SlotCanvasToolbarDrawingOptions,
+	SlotCollaborativeEditEvent,
+	SlotDrawingSurfaceCanvasClearedEvent,
+	SlotDrawingSurfaceExposeMethodsEvent,
+	SlotSharedCanvasObjectBounds
 } from './canvas';
 export type {
 	AnalyticsChartBarPoint,
@@ -2461,16 +2447,23 @@ export type {
 	RecipeChartLegendBar,
 	RecipeChartName,
 	RecipeChartPolyline,
+	RecipeCriticalPathTimeline,
+	RecipeExchangeOracleForecast,
+	RecipeExpertAgreementRadar,
+	RecipeExpertSpreadMatrix,
 	RecipeHeatmap,
 	RecipeLegendBandDiagram,
 	RecipeLegendBarDiagram,
 	RecipeLineChart,
 	RecipeMetricBar,
 	RecipeMetricBarsCard,
+	RecipeOutlierConstellation,
 	RecipePieChart,
 	RecipeRangeBarsChart,
+	RecipeRiskImpactMap,
 	RecipeScatterPlot,
 	RecipeVerticalBarsChart,
+	RecipeWidebandDelphiDiagram,
 	ScatterPlotDataPoint,
 	SlotChartAxis
 } from './chart';
@@ -2568,9 +2561,7 @@ export type {
 	RecipeAutocompleteDropdown,
 	RecipeCheckbox,
 	RecipeChip,
-	RecipeClick,
 	RecipeCombobox,
-	RecipeDragAndDrop,
 	RecipeFilterPanel,
 	RecipeMultiSelect,
 	RecipeOverlay,
@@ -2591,10 +2582,8 @@ export type {
 	RecipeZoomToolbar,
 	SlotAutocompleteDropdown,
 	SlotAutocompleteDropdownOption,
-	SlotClick,
 	SlotComboboxItem,
 	SlotComboboxStyleClasses,
-	SlotDragAndDrop,
 	SlotFilterChangePayload,
 	SlotFilterPanelState,
 	SlotMultiSelectOption,
@@ -2660,6 +2649,7 @@ export type {
 	RecipeDomainList,
 	RecipeDomainSidebar,
 	RecipeDomainToolbar,
+	RecipeMarkdownRenderer,
 	SlotDomainEntity
 } from './domain';
 export type {
@@ -2709,17 +2699,25 @@ export type {
 } from './file';
 export type {
 	RecipeAccountForms,
+	RecipeCheckboxGroup,
 	RecipeFormFooter,
 	RecipeFormHeader,
+	RecipeFormSelection,
 	RecipeInteractionForms,
-	RecipeRadioButtonGroupProps,
+	RecipeRadioButtonGroup,
+	RecipeRadioGroup,
 	RecipeSchemaFormDialog,
 	RecipeSearchBar,
+	RecipeToggleButtonGroup,
+	SlotAddressData,
+	SlotFormData,
 	SlotFormFooter,
 	SlotFormHeader,
 	SlotFormSelectionState,
+	SlotLoginCredentials,
 	SlotSearchBar,
-	SlotSearchBarEvents
+	SlotSearchBarEvents,
+	SlotValidationErrors
 } from './form';
 export type {
 	BehaviorMarkerProto,
@@ -2796,24 +2794,19 @@ export type {
 	RecipeAccessibilityCheckbox,
 	RecipeBadge,
 	RecipeBadgeGroup,
-	RecipeBaseCard,
 	RecipeCountBadge,
 	RecipeCounter,
 	RecipeDot,
 	RecipeIconCanvasImageEditor,
-	RecipeMarkdownRenderer,
-	RecipeNodeIcon,
 	RecipeSearchResults,
 	RecipeShortcutsPanel,
 	RecipeSort,
 	RecipeSortableGrid,
-	RecipeTooltip,
 	SlotBadge,
 	SlotStatus
 } from './information';
 export type {
 	RecipeCharactersCount,
-	RecipeCheckboxGroup,
 	RecipeInputAddon,
 	RecipeInputDouble,
 	RecipeInputEmail,
@@ -2828,7 +2821,7 @@ export type {
 	RecipeInputText,
 	RecipeNumberInput,
 	RecipePhoneNumberInput,
-	RecipeRadioGroup,
+	RecipeRadioButtonGroupProps,
 	RecipeRichTextEditorStateProps,
 	RecipeTagInput,
 	RecipeTextArea,
@@ -2861,13 +2854,16 @@ export type {
 	RecipeAnimatedExpandableTableRow,
 	RecipeAspectRatio,
 	RecipeBackground,
+	RecipeBaseCard,
 	RecipeBorder,
 	RecipeCard,
 	RecipeCenteredLayout,
+	RecipeClick,
 	RecipeClickable,
 	RecipeContainer,
 	RecipeContainerQuery,
 	RecipeDivider,
+	RecipeDragAndDrop,
 	RecipeDraggable,
 	RecipeFocusable,
 	RecipeGradientBackground,
@@ -2890,8 +2886,10 @@ export type {
 	RecipeStickyLayout,
 	RecipeVerticalLayout,
 	RecipeWidgetContainer,
+	SlotClick,
 	SlotComposite,
 	SlotDivider,
+	SlotDragAndDrop,
 	SlotSortableGridItem
 } from './layout';
 export type {
@@ -2950,7 +2948,10 @@ export type {
 	SlotABTest,
 	SlotABTestConfigurator,
 	SlotABTestVariant,
-	SlotHero
+	SlotFunnelStep,
+	SlotHero,
+	SlotHeroCta,
+	SlotTestResult
 } from './marketing';
 export type {
 	BreadcrumbDropdownItem,
@@ -3196,6 +3197,7 @@ export type {
 	BehaviorWbdEstimateSubmit,
 	BehaviorWbdTaskSelect,
 	RecipeAdminSidebar,
+	RecipeApplicationCtaSection,
 	RecipeAuditLogPanel,
 	RecipeConfidenceDistributionChart,
 	RecipeConfidenceRangeBar,
@@ -3231,6 +3233,7 @@ export type {
 	RecipeParticipantRosterList,
 	RecipePermissionDeniedPanel,
 	RecipePertResultChip,
+	RecipePublicPollsSection,
 	RecipeQuestionBulkEditor,
 	RecipeQuestionConsensusMatrix,
 	RecipeQuestionDiscussionPanel,

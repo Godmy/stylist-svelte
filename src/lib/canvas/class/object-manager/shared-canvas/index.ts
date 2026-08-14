@@ -1,7 +1,7 @@
 import { SHARED_CANVAS_ACTION_ICONS } from '$stylist/canvas/const/map/canvas-action-icons';
 import { SHARED_CANVAS_TOOL_DEFINITIONS } from '$stylist/canvas/const/record/canvas-tool-definitions';
-import type { SharedCanvasToolDefinition } from '$stylist/canvas/type/object/shared-canvas-tool-definition';
-import type { SharedCanvasContract } from '$stylist/canvas/type/object/shared-canvas/shared-canvas-contract';
+import type { SharedCanvasToolDefinition } from '$stylist/canvas/type/alias/shared-canvas-tool-definition';
+import type { RecipeSharedCanvas } from '$stylist/canvas/interface/recipe/shared-canvas';
 
 export class ObjectManagerSharedCanvas {
 	static readonly toolDefinitions: readonly SharedCanvasToolDefinition[] =
@@ -11,7 +11,7 @@ export class ObjectManagerSharedCanvas {
 
 	static readonly exportFilename = 'shared-canvas.png';
 
-	static getRestProps(contract: SharedCanvasContract) {
+	static getRestProps(contract: RecipeSharedCanvas) {
 		const {
 			width: _width,
 			height: _height,

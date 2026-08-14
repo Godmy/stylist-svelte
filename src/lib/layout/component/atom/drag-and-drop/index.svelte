@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RecipeDragAndDrop } from '$stylist/control/interface/recipe/drag-and-drop';
+	import type { RecipeDragAndDrop } from '$stylist/layout/interface/recipe/drag-and-drop';
 	import createDragAndDropState from './state.svelte';
 
 	let props: RecipeDragAndDrop = $props();

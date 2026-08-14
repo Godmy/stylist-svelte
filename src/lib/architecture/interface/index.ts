@@ -8,6 +8,7 @@ export type {
 	RecipeGraphNode,
 	RecipeGraphvizDirectedEdge,
 	RecipeMinimap,
+	RecipeNodeIcon,
 	RecipeOntologyEdgeComponent,
 	RecipeOntologyNodeComponent,
 	RecipePresentationState,

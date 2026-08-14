@@ -7,6 +7,7 @@
 		eyebrow,
 		text,
 		body,
+		paragraphs,
 		imageSrc,
 		imageAlt,
 		class: className = ''
@@ -16,6 +17,7 @@
 		eyebrow: string;
 		text: string;
 		body: string;
+		paragraphs?: string[];
 		imageSrc: string;
 		imageAlt: string;
 		class?: string;
@@ -28,6 +30,7 @@
 	dividerLabel={eyebrow}
 	{text}
 	{body}
+	{paragraphs}
 	{imageSrc}
 	{imageAlt}
 	class="definition-section {className}"
@@ -41,5 +44,6 @@
 		--divider-heading-image-text-media-bg: var(--definition-section-media-bg, transparent);
 		--divider-heading-image-text-media-shadow: var(--definition-section-media-shadow, none);
 		--divider-heading-image-text-text: var(--definition-section-text, currentColor);
+		--divider-heading-image-text-text-max-width: 100%;
 	}
 </style>

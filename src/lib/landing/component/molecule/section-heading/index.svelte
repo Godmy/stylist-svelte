@@ -7,21 +7,23 @@
 		title,
 		class: className = ''
 	}: {
-		eyebrow: string;
+		eyebrow?: string;
 		title: string;
 		class?: string;
 	} = $props();
 </script>
 
 <div class="section-heading {className}">
-	<Text
-		text={eyebrow}
-		class="section-heading__eyebrow"
-		fontSize="3"
-		fontWeight="extrabold"
-		textTransform="uppercase"
-		block
-	/>
+	{#if eyebrow}
+		<Text
+			text={eyebrow}
+			class="section-heading__eyebrow"
+			fontSize="3"
+			fontWeight="extrabold"
+			textTransform="uppercase"
+			block
+		/>
+	{/if}
 	<Heading level={2} text={title} class="section-heading__title" />
 </div>
 

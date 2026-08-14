@@ -1,6 +1,6 @@
-import type { RecipeRadioButtonGroupProps as RecipeRadioButtonGroupProps } from '$stylist/form/interface/recipe/radio-button-group-props';
+import type { RecipeRadioButtonGroup as RecipeRadioButtonGroup } from '$stylist/form/interface/recipe/radio-button-group';
 
-export const createRadioButtonGroupState = (props: RecipeRadioButtonGroupProps) => {
+export const createRadioButtonGroupState = (props: RecipeRadioButtonGroup) => {
 	const containerClass = $derived(['c-radio-group', props.class].filter(Boolean).join(' '));
 	const options = $derived(props.options ?? []);
 	const name = $derived(props.name ?? '');

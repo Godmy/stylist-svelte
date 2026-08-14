@@ -2,10 +2,10 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 
-import type { TestResult } from '$stylist/marketing/type/object/test-results-viewer/testresult';
+import type { SlotTestResult } from '$stylist/marketing/interface/slot/test-result';
 
 export interface RecipeTestResultsViewer extends HTMLAttributes<HTMLDivElement>, SlotThemeBorder, SlotTypography {
-testResults: TestResult[];
+testResults: SlotTestResult[];
 	testOverview: {
 	testName: string;
 	startDate: Date;

@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	CanvasManager,
 	ObjectManagerColorPalette,
 	ObjectManagerSharedCanvas
 } from './class';
@@ -17,40 +18,24 @@ export {
 	SHARED_CANVAS_ACTION_ICONS,
 	SHARED_CANVAS_TOOL_DEFINITIONS
 } from './const';
-export {
-	cloneCanvasObjects,
-	createCanvasObjectId,
-	createDraftCanvasObject,
-	drawCanvasObject,
-	drawCanvasObjects,
-	exportCanvasImage,
-	finalizeDraftCanvasObject,
-	getCanvasObjectBounds,
-	getCanvasPointerPosition,
-	getPathBounds,
-	hitTestCanvasObject,
-	updateDraftCanvasObject
-} from './function';
 export type {
-	CanvasObject,
 	CanvasToolbarDrawingTool,
-	CanvasToolbarProps,
-	CollaborativeEditEvent,
-	DrawingSurfaceCanvasClearedEvent,
-	DrawingSurfaceContract,
-	DrawingSurfaceExposeMethodsEvent,
-	DrawingSurfaceProps,
-	SharedCanvasContract,
-	SharedCanvasObjectBounds,
 	SharedCanvasTool,
-	SharedCanvasToolDefinition,
-	ThemeGraphColors
+	SharedCanvasToolDefinition
 } from './type';
 export type {
-	CanvasToolbarDrawingOptions,
 	RecipeCanvasImageEditor,
+	RecipeCanvasToolbar,
 	RecipeCollaborativeEditor,
 	RecipeColorPalette,
 	RecipeDrawingOverlay,
-	RecipeScreenshotSelector
+	RecipeDrawingSurface,
+	RecipeScreenshotSelector,
+	RecipeSharedCanvas,
+	SlotCanvasObject,
+	SlotCanvasToolbarDrawingOptions,
+	SlotCollaborativeEditEvent,
+	SlotDrawingSurfaceCanvasClearedEvent,
+	SlotDrawingSurfaceExposeMethodsEvent,
+	SlotSharedCanvasObjectBounds
 } from './interface';

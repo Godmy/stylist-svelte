@@ -29,37 +29,6 @@
 			</rect>
 		{/if}
 	{/each}
-	<line
-		class="chart-legend-band__ruler"
-		x1={props.connectorX}
-		y1={props.y}
-		x2={props.connectorX}
-		y2={props.y + props.height}
-		stroke={props.color}
-		stroke-width={props.connectorWidth}
-	/>
-	{#each props.segments as segment (segment.id)}
-		{#if segment.height > 0}
-			<line
-				class="chart-legend-band__notch"
-				x1={props.connectorX - Math.max(4, props.width * 0.34)}
-				y1={segment.y}
-				x2={props.connectorX + Math.max(4, props.width * 0.34)}
-				y2={segment.y}
-				stroke={props.color}
-				stroke-width={props.connectorWidth}
-			/>
-			<line
-				class="chart-legend-band__notch"
-				x1={props.connectorX - Math.max(4, props.width * 0.34)}
-				y1={segment.y + segment.height}
-				x2={props.connectorX + Math.max(4, props.width * 0.34)}
-				y2={segment.y + segment.height}
-				stroke={props.color}
-				stroke-width={props.connectorWidth}
-			/>
-		{/if}
-	{/each}
 	{#if props.connectorVisible ?? true}
 		<path
 			class="chart-legend-band__connector"
@@ -93,22 +62,70 @@
 
 	.chart-legend-band__segment {
 		shape-rendering: crispEdges;
+		transition: opacity 0.16s ease;
 	}
 
-	.chart-legend-band__connector,
-	.chart-legend-band__ruler,
-	.chart-legend-band__notch {
+	.chart-legend-band__connector {
 		fill: none;
 		stroke-linecap: round;
+		transition:
+			stroke 0.16s ease,
+			stroke-width 0.16s ease;
 	}
 
 	.chart-legend-band__label-box {
 		fill: var(--color-background-primary, #ffffff);
+		transition:
+			fill 0.16s ease,
+			stroke 0.16s ease,
+			stroke-width 0.16s ease;
 	}
 
 	.chart-legend-band__label {
 		fill: var(--color-text-primary, #0f172a);
 		font-size: 0.68rem;
 		font-weight: 750;
+		transition: fill 0.16s ease;
+	}
+
+	:global(.legend-band-diagram__item:hover) .chart-legend-band__segment,
+	:global(.legend-band-diagram__item--active) .chart-legend-band__segment {
+		opacity: 0.88;
+	}
+
+	:global(.legend-band-diagram__item:hover) .chart-legend-band__segment:nth-of-type(1),
+	:global(.legend-band-diagram__item--active) .chart-legend-band__segment:nth-of-type(1) {
+		fill: #f59e0b;
+	}
+
+	:global(.legend-band-diagram__item:hover) .chart-legend-band__segment:nth-of-type(2),
+	:global(.legend-band-diagram__item--active) .chart-legend-band__segment:nth-of-type(2) {
+		fill: #fef3c7;
+	}
+
+	:global(.legend-band-diagram__item:hover) .chart-legend-band__segment:nth-of-type(3),
+	:global(.legend-band-diagram__item--active) .chart-legend-band__segment:nth-of-type(3) {
+		fill: #b45309;
+	}
+
+	:global(.legend-band-diagram__item:hover) .chart-legend-band__segment:nth-of-type(4),
+	:global(.legend-band-diagram__item--active) .chart-legend-band__segment:nth-of-type(4) {
+		fill: #fef3c7;
+	}
+
+	:global(.legend-band-diagram__item:hover) .chart-legend-band__segment:nth-of-type(5),
+	:global(.legend-band-diagram__item--active) .chart-legend-band__segment:nth-of-type(5) {
+		fill: #f59e0b;
+	}
+
+	:global(.legend-band-diagram__item:hover) .chart-legend-band__label-box,
+	:global(.legend-band-diagram__item--active) .chart-legend-band__label-box {
+		fill: color-mix(in srgb, var(--legend-band-hover-color, #f59e0b) 10%, white 90%);
+		stroke: var(--legend-band-hover-color, #f59e0b);
+		stroke-width: 3;
+	}
+
+	:global(.legend-band-diagram__item:hover) .chart-legend-band__label {
+		fill: #92400e;
 	}
 </style>

@@ -2,7 +2,7 @@
 	import type { RecipeStylist } from '$stylist/development/interface/recipe/stylist';
 	import { PresetStylist } from '$stylist/development/const/preset/stylist';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Tooltip from '$stylist/information/component/atom/tooltip/index.svelte';
+	import Tooltip from '$stylist/animation/component/atom/tooltip/index.svelte';
 	import { categories } from '$stylist/development/const/record/stylist-categories';
 	import { createStylistState } from './state.svelte';
 	import { panelId } from '$stylist/development/const/value/panel-id';

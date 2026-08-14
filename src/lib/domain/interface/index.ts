@@ -4,6 +4,7 @@ export type {
 	RecipeDomainAiAgent,
 	RecipeDomainList,
 	RecipeDomainSidebar,
-	RecipeDomainToolbar
+	RecipeDomainToolbar,
+	RecipeMarkdownRenderer
 } from './recipe';
 export type { SlotDomainEntity } from './slot';

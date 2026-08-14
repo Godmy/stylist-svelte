@@ -23,9 +23,16 @@ export {
 	AnalyticsChart,
 	CanvasChart,
 	Chart,
+	CriticalPathTimeline,
+	ExchangeOracleForecast,
+	ExpertAgreementRadar,
+	ExpertSpreadMatrix,
 	Heatmap,
 	LegendBandDiagram,
 	LegendBarDiagram,
 	LineChart,
-	ScatterPlot
+	OutlierConstellation,
+	RiskImpactMap,
+	ScatterPlot,
+	WidebandDelphiDiagram
 } from './organism';

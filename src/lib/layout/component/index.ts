@@ -20,6 +20,7 @@ export {
 } from './atom';
 export {
 	AnimatedExpandableTableRow,
+	BaseCard,
 	Card,
 	CenteredLayout,
 	ContainerQuery,

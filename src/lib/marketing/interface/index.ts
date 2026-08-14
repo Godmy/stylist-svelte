@@ -13,5 +13,8 @@ export type {
 	SlotABTest,
 	SlotABTestConfigurator,
 	SlotABTestVariant,
-	SlotHero
+	SlotFunnelStep,
+	SlotHero,
+	SlotHeroCta,
+	SlotTestResult
 } from './slot';

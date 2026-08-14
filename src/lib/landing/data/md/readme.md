@@ -61,12 +61,8 @@
     [`HeroMediaSection`](../../component/molecule/hero-media-section/index.svelte) — заголовок + картинка (без eyebrow/lead, level по умолчанию 1), передаёт `imageLoading="eager"` — единственное место, где картинка загружается не лениво, так как это контент над фолдом (LCP)
     [`Paragraph`](../../../typography/component/molecule/paragraph/index.svelte) — лид-текст
 
-### 4. IntroSection
-Вводная секция, почти идентична `DefinitionSection`, но без второго (statement) параграфа — только `HeroMediaSection` + один body-параграф.
-[`IntroSection`](../../component/organism/intro-section/index.svelte)
-    [`HeroMediaSection`](../../component/molecule/hero-media-section/index.svelte) — level 2, с eyebrow
-    [`Paragraph`](../../../typography/component/molecule/paragraph/index.svelte) — body
-    [`Divider`](../../../layout/component/atom/divider/index.svelte) — верхний разделитель секции
+### 4. Intro Block
+Вводный блок больше не имеет отдельного landing-organism. Потребители используют [`DividerHeadingImageText`](../../../image/component/molecule/divider-heading-image-text/index.svelte) напрямую.
 
 Заметка: структурно дублирует `DefinitionSection` (различие только в наличии `statement`) — кандидат на объединение при доработке.
 
@@ -101,7 +97,7 @@
    - Добавлены CSS custom properties `--image-width`, `--image-height`, `--image-object-fit`, `--image-radius`, `--image-background` с фолбэками, совпадающими со старым хардкодом (визуальной регрессии для существующих потребителей нет).
    - Файлы: `image/component/atom/image/index.svelte`, `image/component/atom/image/state.svelte.ts`.
 2. **Раздутые `<img>` в landing заменены на `Image`**: `HeroMediaSection`, `CasesSection`, `ResultSection`, `WorkflowSection`. Каждый компонент передаёт `class="{component}__image"` и через `:global()` задаёт `--image-width: 100%; --image-height: 100%; --image-radius: 0;`, чтобы `Image` заполнял уже существующий обрамляющий `<figure>`/`Card`-media блок без визуальных отличий от прежнего поведения.
-3. **`border-top`-разделители заменены на `Divider`** (layout-домен) в `DefinitionSection`, `IntroSection`, `ResultSection`, `WorkflowSection`. Цвет линии по-прежнему настраивается через прежние CSS-переменные секции (`--{section}-border`) — проброшены в локальный `--color-border-secondary` на самом `Divider`.
+3. **`border-top`-разделители заменены на `Divider`** (layout-домен) в `DefinitionSection`, `ResultSection`, `WorkflowSection` и прямом intro-блоке на `DividerHeadingImageText`. Цвет линии по-прежнему настраивается через CSS-переменные секции — проброшены в локальный `--color-border-secondary` на самом `Divider`.
 4. `ResultSection` получил дополнительную grid-обёртку `.result-section__grid`, так как `Divider` не может быть третьим элементом в исходной 2-колоночной сетке секции без поломки раскладки.
 5. `HeroMediaSection` получил новый проп `imageLoading` (`'eager' | 'lazy'`, по умолчанию `'lazy'`) — раньше сырой `<img>` не указывал `loading` вовсе (браузер грузил eager), а переход на `Image`-атом сделал бы hero-картинку тоже ленивой по умолчанию, что вредно для LCP. `HeroSection` явно передаёт `imageLoading="eager"`.
 6. Проверено: `yarn check` (svelte-check) — 0 ошибок, 0 предупреждений. Barrel `index.ts` регенерированы через `stylist/indexation/cli.py` — изменений не потребовалось (публичные экспорты не менялись).
@@ -130,6 +126,6 @@
 
 - **`image/component/molecule/divider-heading-image-text`** (+ `image/interface/recipe/divider-heading-image-text`) — новый molecule в домене `image`. Состав: `Divider` (layout/atom, с опциональным `label`) → `.{...}__block-one` (grid `2fr 1fr`: `Text`+`Heading` слева, `Image` справа) → `.{...}__block-two` (полноширинный `Paragraph` body + опциональный `Paragraph` statement). Не зависит от `landing` (собран напрямую из `image`/`layout`/`typography` атомов и молекул — раньше через `HeroMediaSection` была бы обратная зависимость `image → landing`).
 - **`DefinitionSection`** (`landing/component/organism/definition-section`) стал тонкой обёрткой: рендерит `DividerHeadingImageText` с `class="definition-section"`, пробрасывает старые CSS-переменные `--definition-section-*` во внутренние `--divider-heading-image-text-*`, добавляет только page-level `padding`. Публичный проп-интерфейс и `index.story.svelte` не менялись — `dividerLabel` = `eyebrow` (в этой секции у разделителя нет отдельного текста, кроме имени секции).
-- `IntroSection` пока НЕ переведён на новый molecule (не запрашивалось) — он всё ещё держит собственные `Divider`+`HeroMediaSection`+`Paragraph`. Дублирование с `DefinitionSection`, отмеченное выше, теперь можно закрыть, переведя и его на `DividerHeadingImageText` (у него просто `statement` не передаётся).
+- `IntroSection` удалён. Intro-блок в `wbd/component/template/wbd-landing-page` использует `DividerHeadingImageText` напрямую.
 - У нового molecule своя story: `image/component/molecule/divider-heading-image-text/index.story.svelte` — переиспользует `IMAGE_STORY_GALLERY` для выбора картинки и повторяет пример «Definition» из старой `definition-section`-стори.
 - Barrel `index.ts` регенерированы через `stylist/indexation/cli.py` (потребовалось два прохода — при первом новый `component/molecule` кластер не подхватился в родительском `image/component/index.ts`, второй проход досчитал). `yarn check` — 0 ошибок.

@@ -79,7 +79,7 @@ export class ChartLegendBandManager {
 		const plotHeight = options.plotHeight ?? 220;
 		const labelAreaHeight = options.labelAreaHeight ?? 150;
 		const height = options.height ?? plotHeight + labelAreaHeight + 38;
-		const paddingLeft = options.paddingLeft ?? 54;
+		const paddingLeft = options.paddingLeft ?? 28;
 		const paddingRight = options.paddingRight ?? 28;
 		const paddingTop = options.paddingTop ?? 18;
 		const plotX = paddingLeft;
@@ -105,11 +105,11 @@ export class ChartLegendBandManager {
 			`color-mix(in srgb, ${defaultColor} 24%, white 76%)`
 		];
 		const componentColors = {
-			atom: '#d97706',
-			molecule: '#fde68a',
-			organism: '#b45309',
-			template: '#fef3c7',
-			page: '#f59e0b'
+			atom: defaultColor,
+			molecule: `color-mix(in srgb, ${defaultColor} 42%, white 58%)`,
+			organism: `color-mix(in srgb, ${defaultColor} 70%, #020617 30%)`,
+			template: `color-mix(in srgb, ${defaultColor} 42%, white 58%)`,
+			page: defaultColor
 		};
 		const preparedItems = items.map((item) => {
 			const atom = item.atom ?? item.atoms ?? 0;
@@ -218,9 +218,9 @@ export class ChartLegendBandManager {
 						text: section.text,
 						value: section.value,
 						color: section.color,
-						x: centerX - bandWidth / 2 + 2,
+						x: centerX - bandWidth / 2,
 						y: segmentY,
-						width: Math.max(1, bandWidth - 4),
+						width: Math.max(1, bandWidth),
 						height: Math.max(0, sectionHeight)
 					};
 				});

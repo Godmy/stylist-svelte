@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { AddressData } from '$stylist/form/type/object/forms/address-data';
+	import type { SlotAddressData } from '$stylist/form/interface/slot/address-data';
 	import AddressForm from './index.svelte';
 
 	type Props = {
@@ -26,7 +26,7 @@
 		{ name: 'requireAll', type: 'boolean', defaultValue: false }
 	];
 
-	function handleSubmit(address: AddressData) {
+	function handleSubmit(address: SlotAddressData) {
 		console.log('Address submitted:', address);
 		alert('Address submitted successfully!');
 	}

@@ -19,6 +19,11 @@ export function createComparisonTableState(props: RecipeComparisonTable) {
 	const primaryProductClass = $derived(
 		['c-comparison-table__product--primary', props.primaryProductClass].filter(Boolean).join(' ')
 	);
+	const features = $derived(props.features ?? []);
+	const products = $derived(props.products ?? []);
+	const featureColumnLabel = $derived(props.featureColumnLabel ?? 'Features');
+	const showHeader = $derived(props.showHeader ?? true);
+	const showDescription = $derived(props.showDescription ?? false);
 
 	return {
 		get containerClass() {
@@ -39,10 +44,20 @@ export function createComparisonTableState(props: RecipeComparisonTable) {
 		get primaryProductClass() {
 			return primaryProductClass;
 		},
-		features: props.features ?? [],
-		products: props.products ?? [],
-		featureColumnLabel: props.featureColumnLabel ?? 'Features',
-		showHeader: props.showHeader ?? true,
-		showDescription: props.showDescription ?? false
+		get features() {
+			return features;
+		},
+		get products() {
+			return products;
+		},
+		get featureColumnLabel() {
+			return featureColumnLabel;
+		},
+		get showHeader() {
+			return showHeader;
+		},
+		get showDescription() {
+			return showDescription;
+		}
 	};
 }

@@ -123,8 +123,12 @@
 	}
 
 	.c-comparison-table__th--primary {
-		background: var(--color-primary-50, var(--color-background-secondary));
-		color: var(--color-primary-700, var(--color-text-primary));
+		background: color-mix(
+			in srgb,
+			var(--color-primary-500, currentColor) 18%,
+			var(--color-background-secondary, transparent)
+		);
+		color: var(--color-text-primary, currentColor);
 		outline: 2px solid var(--color-primary-500);
 		outline-offset: -2px;
 	}
@@ -176,7 +180,12 @@
 	}
 
 	.c-comparison-table__value-cell--primary {
-		background: var(--color-primary-50, transparent);
+		background: color-mix(
+			in srgb,
+			var(--color-primary-500, currentColor) 12%,
+			var(--color-background-primary, transparent)
+		);
+		color: var(--color-text-primary, currentColor);
 	}
 
 	.c-comparison-table__badge {
