@@ -13,3 +13,6 @@
 [submodule "src/lib/wbd"]
 	path = src/lib/wbd
 	url = https://github.com/Godmy/stylist-svelte-wbd.git
+[submodule "src/lib/geo"]
+	path = src/lib/geo
+	url = https://github.com/Godmy/stylist-svelte-geo.git
