@@ -30,7 +30,6 @@ export {
 	TOKEN_PERFORMANCE_BARS,
 	TOKEN_TREND
 } from './const';
-export { createButtonFactoryInput } from './type';
 export type {
 	CardData,
 	PerformanceMonitorStatus,

@@ -1,7 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	FoundationAxis,
-	FoundationSemanticZoomStage,
 	GraphGridMode,
 	GraphNodeCategory,
 	GraphToolMode,
@@ -22,7 +21,6 @@ export type {
 	TokenTrajectory
 } from './alias';
 export type {
-	FoundationDepthThreshold,
 	Zoom,
 	ZoomStep
 } from './struct';

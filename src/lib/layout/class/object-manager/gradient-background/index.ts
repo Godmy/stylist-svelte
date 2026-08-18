@@ -44,13 +44,13 @@ export class ObjectManagerGradientBackground {
 	static resolveBackgroundImage(direction: GradientDirection): string {
 		switch (direction) {
 			case 'horizontal':
-				return 'var(--gradient-directional-horizontal)';
+				return 'var(--gradients-directional-horizontal)';
 			case 'vertical':
-				return 'var(--gradient-directional-vertical)';
+				return 'var(--gradients-directional-vertical)';
 			case 'reverseDiagonal':
-				return 'var(--gradient-directional-reverse-diagonal)';
+				return 'var(--gradients-directional-reverse-diagonal)';
 			default:
-				return 'var(--gradient-directional-diagonal)';
+				return 'var(--gradients-directional-diagonal)';
 		}
 	}
 

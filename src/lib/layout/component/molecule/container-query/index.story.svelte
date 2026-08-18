@@ -42,7 +42,7 @@
 </Story>
 
 <style>
-	._c1 {
+	:global(._c1) {
 		width: 100%;
 		border-radius: 0.5rem;
 		border-width: 1px;
@@ -77,5 +77,21 @@
 		padding: 0.5rem;
 		font-size: 0.75rem;
 		line-height: 1rem;
+	}
+
+	@container (min-width: 640px) {
+		._c2 {
+			color: var(--color-primary-600);
+			font-weight: 600;
+		}
+		._c3 {
+			display: flex;
+			gap: 0.75rem;
+		}
+		._c4,
+		._c5 {
+			margin-bottom: 0;
+			flex: 1;
+		}
 	}
 </style>

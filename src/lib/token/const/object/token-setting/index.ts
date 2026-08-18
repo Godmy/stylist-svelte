@@ -12,7 +12,6 @@ import { TOKEN_DEVICE_FRAME_SETTING } from '$stylist/token/const/object/device-f
 import { TOKEN_FILE_SETTING } from '$stylist/token/const/object/file';
 import { TOKEN_GEO_SETTING } from '$stylist/token/const/object/geo';
 import { TOKEN_GRAPH_SETTING } from '$stylist/token/const/object/graph';
-import { TOKEN_INFORMATION_SETTING } from '$stylist/token/const/object/information';
 import { TOKEN_INTERACTION_SETTING } from '$stylist/token/const/object/interaction';
 import { TOKEN_LAYOUT_SETTING } from '$stylist/token/const/object/layout';
 import { TOKEN_LOCALIZATION_SETTING } from '$stylist/token/const/object/localization';
@@ -40,7 +39,6 @@ export const TOKEN_SETTING = [
 	...TOKEN_FILE_SETTING,
 	...TOKEN_GEO_SETTING,
 	...TOKEN_GRAPH_SETTING,
-	...TOKEN_INFORMATION_SETTING,
 	...TOKEN_INTERACTION_SETTING,
 	...TOKEN_LAYOUT_SETTING,
 	...TOKEN_LOCALIZATION_SETTING,

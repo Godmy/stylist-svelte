@@ -2,9 +2,14 @@
 	import type { RecipeChemicalProperty } from '$stylist/science/interface/recipe/chemical-property';
 
 	let props: RecipeChemicalProperty = $props();
+
+	const restProps = $derived.by(() => {
+		const { chemicalProperty: _chemicalProperty, class: _class, ...rest } = props;
+		return rest;
+	});
 </script>
 
-<div class="c-chemical-property {props.class ?? ''}">
+<div {...restProps} class="c-chemical-property {props.class ?? ''}">
 	<span>{props.chemicalProperty.label}</span>
 	<strong>{props.chemicalProperty.value ?? 'n/a'}</strong>
 </div>

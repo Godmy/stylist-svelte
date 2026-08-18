@@ -10,8 +10,8 @@ export {
 	PredictionResult,
 	PromptBuilder,
 	SENTIMENT_ANALYSIS_STATUS,
-	SentimentAnalysis,
-	createButtonFactoryInput
+	STATUS_STATE,
+	SentimentAnalysis
 } from './ai';
 export {
 	Animated,
@@ -23,6 +23,7 @@ export {
 	Loading,
 	ManagerMotion,
 	NumberFlow,
+	ProgressBar,
 	Skeleton,
 	Spinner,
 	TOKEN_LOADING,
@@ -40,11 +41,6 @@ export {
 	CUBE_VERTICAL_ICONS,
 	Css3dCube,
 	CubeControl,
-	DEFAULT_FOUNDATION_CAMERA,
-	FOUNDATION_DEPTH_RANGE,
-	FOUNDATION_DEPTH_THRESHOLDS,
-	FOUNDATION_SEMANTIC_ZOOM_STAGES,
-	FoundationManager,
 	GRAPH_GRID_MODE,
 	GRAPH_NODE_CATEGORY,
 	GRAPH_TOOL_MODE,
@@ -58,14 +54,7 @@ export {
 	OntologyEdgeComponent,
 	OntologyNodeComponent,
 	PRESENTATION_MODE,
-	RECORD_DENSITY,
-	RECORD_FRAME,
-	RECORD_LAYER,
-	RECORD_LEVEL,
-	RECORD_SHAPE,
-	RECORD_SIZE,
 	SELECTION_MODE,
-	SemanticZoomManager,
 	Stage,
 	StylistGraphWorkspace,
 	TOKEN_ARCHITECTURE_SHADER_FRAGMENT,
@@ -132,6 +121,8 @@ export {
 	SplitButton,
 	TOKEN_BUTTON_LOADER_CLASSES,
 	ToolButton,
+	copyTextToClipboard,
+	createButtonFactoryInput,
 	createButtonPreset,
 	createButtonState
 } from './button';
@@ -197,51 +188,51 @@ export {
 	ChartCanvas,
 	ChartLegend,
 	ChartLegendBand,
-	ChartLegendBandManager,
 	ChartLegendBar,
-	ChartLegendBarManager,
 	ChartName,
 	ChartPolyline,
 	CriticalPathTimeline,
-	CriticalPathTimelineManager,
 	DEFAULT_CANVAS_CHART_PADDING,
 	ExchangeOracleForecast,
-	ExchangeOracleForecastManager,
 	ExpertAgreementRadar,
-	ExpertAgreementRadarManager,
 	ExpertSpreadMatrix,
-	ExpertSpreadMatrixManager,
 	HEATMAP_GRADIENT_BY_SCHEME,
 	Heatmap,
 	LINE_CHART_COLOR_SCHEME,
 	LegendBandDiagram,
 	LegendBarDiagram,
 	LineChart,
+	ManagerAnalyticsChart,
+	ManagerBarChart,
+	ManagerCanvasChart,
+	ManagerChart,
+	ManagerChartCanvas,
+	ManagerChartLegendBand,
+	ManagerChartLegendBar,
+	ManagerCriticalPathTimeline,
+	ManagerExchangeOracleForecast,
+	ManagerExpertAgreementRadar,
+	ManagerExpertSpreadMatrix,
+	ManagerHeatmap,
+	ManagerLineChart,
+	ManagerMetricBar,
+	ManagerOutlierConstellation,
+	ManagerPieChart,
+	ManagerRiskImpactMap,
+	ManagerWidebandDelphiDiagram,
 	MetricBar,
 	MetricBarsCard,
-	ObjectManagerAnalyticsChart,
-	ObjectManagerBarChart,
-	ObjectManagerCanvasChart,
-	ObjectManagerChart,
-	ObjectManagerChartCanvas,
-	ObjectManagerHeatmap,
-	ObjectManagerLineChart,
-	ObjectManagerMetricBar,
-	ObjectManagerPieChart,
 	OutlierConstellation,
-	OutlierConstellationManager,
 	PRESET_CANVAS_CHART,
 	PieChart,
 	RangeBarsChart,
 	RiskImpactMap,
-	RiskImpactMapManager,
 	ScatterPlot,
 	TOKEN_CANVAS_CHART_TYPE,
 	TOKEN_CHART,
 	TOKEN_CHART_COLORS,
 	VerticalBarsChart,
-	WidebandDelphiDiagram,
-	WidebandDelphiDiagramManager
+	WidebandDelphiDiagram
 } from './chart';
 export {
 	CHAT_MESSAGE_STATUS,
@@ -256,6 +247,7 @@ export {
 	ChatStatusIndicator,
 	ChatWindow,
 	ChatWorkbench,
+	Dot,
 	IconPicker,
 	ListWithAvatars,
 	MessageBubble,
@@ -357,6 +349,7 @@ export {
 	RangeInput,
 	RangeSlider,
 	Selector,
+	ShortcutsPanel,
 	SliderWithInput,
 	Switch,
 	TOKEN_SELECTION_TYPE,
@@ -445,14 +438,8 @@ export {
 	DOMAIN_COMPONENT_DEBUG_ERROR,
 	DOMAIN_COUNT,
 	DOMAIN_MENU_ICONS,
-	DOMAIN_SCREEN_BACKLOG,
-	DOMAIN_SCREEN_BUILDER,
-	DOMAIN_SCREEN_DASHBOARD,
-	DOMAIN_SCREEN_DIAGNOSTICS,
-	DOMAIN_SCREEN_DOMAIN,
-	DOMAIN_SCREEN_LANDING,
+	DOMAIN_SCREEN,
 	DOMAIN_SCREEN_VALUES,
-	DOMAIN_SCREEN_WORKSPACE,
 	DeviceFrame,
 	DeviceViewport,
 	DomainAiAgent,
@@ -464,9 +451,11 @@ export {
 	DomainExplorer,
 	DomainFileDiagnostics,
 	DomainFilePreview,
+	DomainLanding,
 	DomainList,
 	DomainListHeader,
 	DomainMenu,
+	DomainPlayground,
 	DomainSearch,
 	DomainSearchField,
 	DomainSearchToggle,
@@ -478,7 +467,6 @@ export {
 	JointToolbar,
 	JsonTreeViewer,
 	MarkdownRenderer,
-	PageDomain,
 	STYLIST_GRAPH_WORKSPACE_SEED,
 	TOKEN_CONTROLLER_TYPE,
 	TaxonomyBreadcrumbs,
@@ -606,21 +594,12 @@ export {
 } from './idef-zero';
 export {
 	CanvasImageEditor,
+	Card,
 	DividerHeadingImageText,
 	Image,
 	ImageCaption,
 	ImageGallery
 } from './image';
-export {
-	Badge,
-	BadgeGroup,
-	CountBadge,
-	Counter,
-	Dot,
-	ProgressBar,
-	STATUS_STATE,
-	ShortcutsPanel
-} from './information';
 export {
 	CharactersCount,
 	InputAddon,
@@ -665,14 +644,11 @@ export {
 	AnimatedExpandableTableRow,
 	AspectRatio,
 	Background,
-	BaseCard,
 	Border,
 	CENTERED_LAYOUT_AXIS,
 	CONTAINER_QUERY_TYPE,
-	Card,
 	CenteredLayout,
 	ClassNamesManager,
-	Click,
 	Clickable,
 	Container,
 	ContainerQuery,
@@ -700,11 +676,9 @@ export {
 	SIDEBAR_COLLAPSED_WIDTH,
 	SPLIT_LAYOUT_GAP,
 	Separator,
-	SidebarLayout,
 	SortableGrid,
 	Spacer,
 	SplitLayout,
-	StackedLayout,
 	StickyLayout,
 	TOKEN_ALIGNMENT,
 	TOKEN_ASPECT_RATIO,
@@ -725,6 +699,7 @@ export {
 	WidgetContainer
 } from './layout';
 export {
+	BaseCard,
 	DragAndDropList,
 	LIST_ITEM_MARKER_TYPE,
 	ListItemMarker,
@@ -837,6 +812,8 @@ export {
 } from './navigation';
 export {
 	Alert,
+	CountBadge,
+	Counter,
 	ErrorMessage,
 	NotificationBadge,
 	NotificationCenter,
@@ -886,11 +863,24 @@ export {
 	renameKanbanColumn
 } from './portfolio';
 export {
+	DEFAULT_FOUNDATION_CAMERA,
 	FOCUS_DURATION_MS,
+	FOUNDATION_DEPTH_RANGE,
+	FOUNDATION_DEPTH_THRESHOLDS,
+	FOUNDATION_SEMANTIC_ZOOM_STAGES,
+	FoundationManager,
+	PresentationWorkplace,
 	PresentationWorkspace,
 	PresenterNodeShell,
 	PreziScene,
+	RECORD_DENSITY,
+	RECORD_FRAME,
+	RECORD_LAYER,
+	RECORD_LEVEL,
+	RECORD_SHAPE,
+	RECORD_SIZE,
 	SceneInspector,
+	SemanticZoomManager,
 	resolvePresenterSceneLinks,
 	useSemanticZoom
 } from './presentation';
@@ -1792,7 +1782,6 @@ export {
 	TOKEN_GEO_SETTING,
 	TOKEN_GRAPH_SETTING,
 	TOKEN_ICON_PATHS,
-	TOKEN_INFORMATION_SETTING,
 	TOKEN_INTERACTION_SETTING,
 	TOKEN_LAYOUT_SETTING,
 	TOKEN_LOCALIZATION_SETTING,
@@ -1829,6 +1818,8 @@ export {
 } from './tree';
 export {
 	Abbr,
+	Badge,
+	BadgeGroup,
 	Blockquote,
 	Heading,
 	InlineCode,
@@ -1870,19 +1861,26 @@ export {
 	EmptyStatePanel,
 	ErrorStatePanel,
 	EstimateInputRow,
+	EstimateMetricsSummary,
+	EstimateOverviewPage,
+	EstimateOverviewTable,
 	EstimateRangeChart,
 	EstimateThreePointInput,
 	EstimatorBadge,
 	ExpertAnswerCard,
 	ExpertInviteLanding,
+	ExpertInviteLinkList,
+	ExpertManagementPage,
 	ExpertQuestionNavigator,
 	ExpertQuestionnaire,
 	ExpertSessionBriefing,
+	ExpertSummaryStats,
 	ExportResultsPanel,
 	FacilitatorControlPanel,
 	FinalEstimateReport,
 	FinalReportBuilder,
 	InviteEmailPreview,
+	InviteLinkCopyButton,
 	LoadingStatePanel,
 	MedianTrendChart,
 	MutationStatusToast,
@@ -1911,16 +1909,21 @@ export {
 	SessionLifecycleToolbar,
 	SessionList,
 	SessionQuestionEditor,
+	SessionSelectorField,
 	SessionSetupWizard,
+	SessionToolbar,
 	TOKEN_WBD_PARTICIPANT_ROLE,
 	TOKEN_WBD_ROUND_STATUS,
 	UserManagementTable,
 	WbdEditSession,
 	WbdLandingPage,
+	WbdQuestionnairePage,
 	WbsTaskRow,
 	WbsTree,
 	calculateWbdPert,
 	calculateWbdSpread,
+	summarizeWbdEstimateOverview,
+	summarizeWbdExpertInvites,
 	validateWbdEstimate
 } from './wbd';
 export {
@@ -1955,21 +1958,17 @@ export type {
 	AiAssistantAIClientLike,
 	PlaygroundAiAssistantAIProviderId,
 	PromptVariableType,
-	SentimentAnalysisStatus
+	SentimentAnalysisStatus,
+	StatusState
 } from './ai';
 export type {
 	EasingFunction,
 	InteractionFeedback,
-	TokenAnimation,
-	TokenDuration,
-	TokenEasing,
 	TokenLoading,
 	TokenTransition
 } from './animation';
 export type {
 	FoundationAxis,
-	FoundationDepthThreshold,
-	FoundationSemanticZoomStage,
 	GraphGridMode,
 	GraphNodeCategory,
 	GraphToolMode,
@@ -2109,7 +2108,6 @@ export type {
 	SceneMaterialKind,
 	ZwickyLevel
 } from './graph';
-export type { StatusState } from './information';
 export type {
 	AnyProperty,
 	CenteredLayoutAxis,
@@ -2124,7 +2122,6 @@ export type {
 	OverlayLayoutAlign,
 	RecordSizeMap,
 	SplitLayoutGap,
-	StackedLayoutJustifyContent,
 	ThemeGradientBackgroundDirection,
 	TokenAlignment,
 	TokenAspectRatio,
@@ -2171,6 +2168,8 @@ export type {
 	KanbanColumnType
 } from './portfolio';
 export type {
+	FoundationDepthThreshold,
+	FoundationSemanticZoomStage,
 	PresenterSceneLink,
 	PreziSceneContract
 } from './presentation';
@@ -2208,9 +2207,12 @@ export type {
 	Theme,
 	ThemeSchemeDefinition,
 	ThemeStorageContract,
+	TokenAnimation,
 	TokenColor,
 	TokenColorTone,
 	TokenDirection,
+	TokenDuration,
+	TokenEasing,
 	TokenFontFamily,
 	TokenFontSize,
 	TokenFontWeight,
@@ -2254,7 +2256,10 @@ export type {
 	StructWbdConsensusItem,
 	StructWbdDiscussionMessage,
 	StructWbdEstimate,
+	StructWbdEstimateOverviewRow,
+	StructWbdEstimateOverviewSummary,
 	StructWbdExpertAnswer,
+	StructWbdExpertInviteSummary,
 	StructWbdExportOption,
 	StructWbdFinalReportSection,
 	StructWbdPertResult,
@@ -2283,7 +2288,8 @@ export type {
 	RecipePredictionResult,
 	RecipePromptBuilder,
 	RecipeSentimentAnalysis,
-	SlotModelOption
+	SlotModelOption,
+	SlotStatus
 } from './ai';
 export type {
 	BehaviorAnimate,
@@ -2297,6 +2303,7 @@ export type {
 	RecipeLayoutTransformation,
 	RecipeLoading,
 	RecipeNumberFlow,
+	RecipeProgressBar,
 	RecipeSkeleton,
 	RecipeSpinner,
 	RecipeTooltip,
@@ -2313,7 +2320,6 @@ export type {
 	MinimapViewport,
 	ObjectPoint2DPath,
 	Point2D,
-	PreziCamera,
 	RecipeCss3dCube,
 	RecipeCubeControl,
 	RecipeFocusState,
@@ -2325,15 +2331,11 @@ export type {
 	RecipeNodeIcon,
 	RecipeOntologyEdgeComponent,
 	RecipeOntologyNodeComponent,
-	RecipePresentationState,
 	RecipeSelectionState,
 	RecipeStage,
 	RecipeStylistGraphWorkspace,
 	RecipeViewport,
-	SceneCamera,
-	SceneNode,
-	SceneNodePoint,
-	SemanticZoomPresentation
+	SceneCamera
 } from './architecture';
 export type {
 	RecipeAudioPlayer,
@@ -2421,6 +2423,7 @@ export type {
 	BehaviorChartAxis,
 	BehaviorChartColorable,
 	BehaviorLegendable,
+	BehaviorMetricValue,
 	BehaviorPointClickable,
 	BehaviorTooltipable,
 	CanvasChartPadding,
@@ -2470,6 +2473,7 @@ export type {
 export type {
 	RecipeChatPreview,
 	RecipeChatStatusIndicator,
+	RecipeDot,
 	RecipeIconPicker,
 	RecipeListWithAvatars,
 	RecipeMessageBubble,
@@ -2565,12 +2569,12 @@ export type {
 	RecipeFilterPanel,
 	RecipeMultiSelect,
 	RecipeOverlay,
-	RecipeProgressBar,
 	RecipeRadio,
 	RecipeRangeInput,
 	RecipeRangeSlider,
 	RecipeSelect,
 	RecipeSelector,
+	RecipeShortcutsPanel,
 	RecipeSlider,
 	RecipeSliderWithInput,
 	RecipeSwitch,
@@ -2782,29 +2786,13 @@ export type {
 	SlotIdef0
 } from './idef-zero';
 export type {
+	RecipeCard,
 	RecipeDividerHeadingImageText,
 	RecipeImage,
 	RecipeImageCaption,
 	RecipeImageGallery,
 	SlotImage
 } from './image';
-export type {
-	BehaviorMetricValue,
-	HtmlAttributesBase,
-	RecipeAccessibilityCheckbox,
-	RecipeBadge,
-	RecipeBadgeGroup,
-	RecipeCountBadge,
-	RecipeCounter,
-	RecipeDot,
-	RecipeIconCanvasImageEditor,
-	RecipeSearchResults,
-	RecipeShortcutsPanel,
-	RecipeSort,
-	RecipeSortableGrid,
-	SlotBadge,
-	SlotStatus
-} from './information';
 export type {
 	RecipeCharactersCount,
 	RecipeInputAddon,
@@ -2854,11 +2842,8 @@ export type {
 	RecipeAnimatedExpandableTableRow,
 	RecipeAspectRatio,
 	RecipeBackground,
-	RecipeBaseCard,
 	RecipeBorder,
-	RecipeCard,
 	RecipeCenteredLayout,
-	RecipeClick,
 	RecipeClickable,
 	RecipeContainer,
 	RecipeContainerQuery,
@@ -2878,21 +2863,21 @@ export type {
 	RecipeOverlayLayout,
 	RecipePopover,
 	RecipeSeparator,
-	RecipeSidebarLayout,
+	RecipeSortableGrid,
 	RecipeSpacer,
 	RecipeSplitLayout,
 	RecipeStack,
-	RecipeStackedLayout,
 	RecipeStickyLayout,
 	RecipeVerticalLayout,
 	RecipeWidgetContainer,
-	SlotClick,
+	SlotBadge,
 	SlotComposite,
 	SlotDivider,
 	SlotDragAndDrop,
 	SlotSortableGridItem
 } from './layout';
 export type {
+	RecipeBaseCard,
 	RecipeDragAndDropList,
 	RecipeListItemMarker,
 	SlotDragAndDropListItem,
@@ -3005,6 +2990,8 @@ export type {
 } from './navigation';
 export type {
 	RecipeAlert,
+	RecipeCountBadge,
+	RecipeCounter,
 	RecipeErrorMessage,
 	RecipeNotificationBadge,
 	RecipeNotificationCenter,
@@ -3035,9 +3022,14 @@ export type {
 } from './portfolio';
 export type {
 	BehaviorPreziSceneMethods,
+	PreziCamera,
+	RecipePresentationState,
 	RecipePresenterNodeShell,
 	RecipePreziScene,
-	RecipePreziSceneState
+	RecipePreziSceneState,
+	SceneNode,
+	SceneNodePoint,
+	SemanticZoomPresentation
 } from './presentation';
 export type {
 	RecipeComparisonCard,
@@ -3072,6 +3064,7 @@ export type {
 export type {
 	RecipeAutoComplete,
 	RecipeAutoSearch,
+	RecipeSearchResults,
 	RecipeSearchSuggestion,
 	SlotAutoComplete,
 	SlotAutoSearch,
@@ -3169,6 +3162,8 @@ export type {
 } from './tree';
 export type {
 	RecipeAbbr,
+	RecipeBadge,
+	RecipeBadgeGroup,
 	RecipeBlockquote,
 	RecipeHeading,
 	RecipeInlineCode,
@@ -3213,19 +3208,26 @@ export type {
 	RecipeEmptyStatePanel,
 	RecipeErrorStatePanel,
 	RecipeEstimateInputRow,
+	RecipeEstimateMetricsSummary,
+	RecipeEstimateOverviewPage,
+	RecipeEstimateOverviewTable,
 	RecipeEstimateRangeChart,
 	RecipeEstimateThreePointInput,
 	RecipeEstimatorBadge,
 	RecipeExpertAnswerCard,
 	RecipeExpertInviteLanding,
+	RecipeExpertInviteLinkList,
+	RecipeExpertManagementPage,
 	RecipeExpertQuestionNavigator,
 	RecipeExpertQuestionnaire,
 	RecipeExpertSessionBriefing,
+	RecipeExpertSummaryStats,
 	RecipeExportResultsPanel,
 	RecipeFacilitatorControlPanel,
 	RecipeFinalEstimateReport,
 	RecipeFinalReportBuilder,
 	RecipeInviteEmailPreview,
+	RecipeInviteLinkCopyButton,
 	RecipeLandingPage,
 	RecipeLoadingStatePanel,
 	RecipeMedianTrendChart,
@@ -3255,9 +3257,12 @@ export type {
 	RecipeSessionLifecycleToolbar,
 	RecipeSessionList,
 	RecipeSessionQuestionEditor,
+	RecipeSessionSelectorField,
 	RecipeSessionSetupWizard,
+	RecipeSessionToolbar,
 	RecipeUserManagementTable,
 	RecipeWbdEditSession,
+	RecipeWbdQuestionnairePage,
 	RecipeWbsTaskRow,
 	RecipeWbsTree
 } from './wbd';

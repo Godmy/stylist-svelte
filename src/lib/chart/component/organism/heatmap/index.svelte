@@ -3,7 +3,7 @@
 	import type { RecipeHeatmap } from '$stylist/chart/interface/recipe/heatmap';
 	import Tooltip from '$stylist/animation/component/atom/tooltip/index.svelte';
 	import createHeatmapState from './state.svelte';
-	import { ObjectManagerHeatmap } from '$stylist/chart/class/object-manager/heatmap';
+	import { ManagerHeatmap } from '$stylist/chart/class/manager/heatmap';
 
 	let props: RecipeHeatmap = $props();
 	const state = createHeatmapState(props);
@@ -62,7 +62,7 @@
 						fill="var(--color-text-secondary)"
 						class={state.axisTextClasses}
 					>
-						{ObjectManagerHeatmap.resolveAxisLabel(col)}
+						{ManagerHeatmap.resolveAxisLabel(col)}
 					</text>
 				{/each}
 
@@ -77,7 +77,7 @@
 						dominant-baseline="middle"
 						class={state.axisTextClasses}
 					>
-						{ObjectManagerHeatmap.resolveAxisLabel(row)}
+						{ManagerHeatmap.resolveAxisLabel(row)}
 					</text>
 				{/each}
 			{/if}
@@ -134,7 +134,7 @@
 			<div class={state.legendLabelsClasses}>
 				<span>{props.minValue ?? 0}</span>
 				<span
-					>{ObjectManagerHeatmap.resolveLegendMidpoint(
+					>{ManagerHeatmap.resolveLegendMidpoint(
 						props.minValue ?? 0,
 						state.calculatedMaxValue
 					)}</span
@@ -143,10 +143,10 @@
 			</div>
 			<div
 				class={state.legendGradientClasses}
-				style={`background-image: ${ObjectManagerHeatmap.resolveLegendGradient(state.resolvedColorScheme)}`}
+				style={`background-image: ${ManagerHeatmap.resolveLegendGradient(state.resolvedColorScheme)}`}
 			></div>
 			<div class={state.legendTitleClasses}>
-				{ObjectManagerHeatmap.resolveLegendTitle(state.resolvedColorScheme)}
+				{ManagerHeatmap.resolveLegendTitle(state.resolvedColorScheme)}
 			</div>
 		</div>
 	{/if}

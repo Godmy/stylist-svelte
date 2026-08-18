@@ -16,6 +16,7 @@ export type {
 	RecipeRangeSlider,
 	RecipeSelect,
 	RecipeSelector,
+	RecipeShortcutsPanel,
 	RecipeSlider,
 	RecipeSliderWithInput,
 	RecipeSwitch,

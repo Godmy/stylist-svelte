@@ -1,5 +1,5 @@
 import type { SceneCamera } from '$stylist/architecture/interface/slot/scene-camera';
-import type { SceneNode } from '$stylist/architecture/interface/slot/scene-node/scene-node';
+import type { SceneNode } from '$stylist/presentation/interface/slot/scene-node';
 
 export interface RecipePresenterNodeShell {
 node: SceneNode;

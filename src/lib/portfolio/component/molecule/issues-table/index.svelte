@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import Switch from '$stylist/control/component/atom/switch/index.svelte';
-	import Badge from '$stylist/information/component/atom/badge/index.svelte';
+	import Badge from '$stylist/typography/component/atom/badge/index.svelte';
 	import { createIssuesTableState } from './state.svelte';
 	import type { SlotIssueMessage as IssueMessage } from '$stylist/portfolio/interface/slot/issue-message';
 

@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	BaseCard,
 	DragAndDropList,
 	ListItemMarker,
 	SortableList
@@ -7,6 +8,7 @@ export {
 export { LIST_ITEM_MARKER_TYPE } from './const';
 export type { ListItemMarkerType } from './type';
 export type {
+	RecipeBaseCard,
 	RecipeDragAndDropList,
 	RecipeListItemMarker,
 	SlotDragAndDropListItem,

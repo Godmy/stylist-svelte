@@ -13,7 +13,6 @@ export { TOKEN_DEVICE_FRAME_SETTING } from './device-frame';
 export { TOKEN_FILE_SETTING } from './file';
 export { TOKEN_GEO_SETTING } from './geo';
 export { TOKEN_GRAPH_SETTING } from './graph';
-export { TOKEN_INFORMATION_SETTING } from './information';
 export { TOKEN_INTERACTION_SETTING } from './interaction';
 export { TOKEN_LAYOUT_SETTING } from './layout';
 export { TOKEN_LOCALIZATION_SETTING } from './localization';

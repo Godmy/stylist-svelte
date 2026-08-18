@@ -8,7 +8,9 @@
 		{ name: 'subtitle', type: 'text', defaultValue: 'Region: us-east-1' },
 		{ name: 'collapsible', type: 'boolean', defaultValue: true },
 		{ name: 'initiallyCollapsed', type: 'boolean', defaultValue: false },
-		{ name: 'maximizable', type: 'boolean', defaultValue: true }
+		{ name: 'draggable', type: 'boolean', defaultValue: true },
+		{ name: 'maximizable', type: 'boolean', defaultValue: true },
+		{ name: 'resizable', type: 'boolean', defaultValue: false }
 	];
 </script>
 
@@ -24,7 +26,9 @@
 			subtitle={values.subtitle}
 			collapsible={values.collapsible}
 			initiallyCollapsed={values.initiallyCollapsed}
+			draggable={values.draggable}
 			maximizable={values.maximizable}
+			resizable={values.resizable}
 		>
 			{#snippet content()}
 				<div class="_c1">No incidents detected in the last 24 hours.</div>

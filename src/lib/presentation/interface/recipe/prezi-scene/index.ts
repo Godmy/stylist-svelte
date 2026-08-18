@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
-import type { SceneNode } from '$stylist/architecture/interface/slot/scene-node/scene-node';
+import type { SceneNode } from '$stylist/presentation/interface/slot/scene-node';
 export interface RecipePreziScene
 	extends ComputeIntersectAll<[LayoutHTMLAttributes<HTMLDivElement>]> {
 	nodes?: readonly SceneNode[];

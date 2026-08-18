@@ -2,7 +2,7 @@
 	import type { RecipeTeamMemberCard } from '$stylist/management/interface/recipe/team-member-card';
 	import createTeamMemberCardState from './state.svelte';
 	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
-	import Badge from '$stylist/information/component/atom/badge/index.svelte';
+	import Badge from '$stylist/typography/component/atom/badge/index.svelte';
 
 	let props: RecipeTeamMemberCard = $props();
 	const state = createTeamMemberCardState(props);

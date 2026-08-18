@@ -1,6 +1,6 @@
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeLineChart } from '$stylist/chart/interface/recipe/line-chart';
-import { ObjectManagerLineChart } from '$stylist/chart/class/object-manager/line-chart';
+import { ManagerLineChart } from '$stylist/chart/class/manager/line-chart';
 
 export function createLineChartState(props: RecipeLineChart) {
 	const hostClass = $derived(typeof props.class === 'string' ? props.class : undefined);
@@ -22,17 +22,17 @@ export function createLineChartState(props: RecipeLineChart) {
 	const legendLabelClasses = $derived('c-line-chart__legend-label');
 
 	const calculatedMaxValue = $derived(
-		ObjectManagerLineChart.resolveMaxValue(props.data ?? [], props.maxValue)
+		ManagerLineChart.resolveMaxValue(props.data ?? [], props.maxValue)
 	);
 	const chartWidth = $derived(
-		ObjectManagerLineChart.resolveChartWidth(props.width ?? 600, props.showAxis ?? true)
+		ManagerLineChart.resolveChartWidth(props.width ?? 600, props.showAxis ?? true)
 	);
 	const chartHeight = $derived(
-		ObjectManagerLineChart.resolveChartHeight(props.height ?? 400, props.showAxis ?? true)
+		ManagerLineChart.resolveChartHeight(props.height ?? 400, props.showAxis ?? true)
 	);
-	const yAxisValues = $derived(ObjectManagerLineChart.resolveYAxisValues(calculatedMaxValue));
+	const yAxisValues = $derived(ManagerLineChart.resolveYAxisValues(calculatedMaxValue));
 	const linePaths = $derived(
-		ObjectManagerLineChart.resolveLinePaths({
+		ManagerLineChart.resolveLinePaths({
 			data: props.data ?? [],
 			chartWidth,
 			chartHeight,

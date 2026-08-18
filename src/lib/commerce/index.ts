@@ -61,8 +61,7 @@ export {
 	TOKEN_ORDER_STATUS,
 	TOKEN_PAYMENT_METHOD,
 	TOKEN_PAYMENT_STATUS,
-	WARRANTY_PERIOD_TYPE,
-	createButtonFactoryInput
+	WARRANTY_PERIOD_TYPE
 } from './const';
 export type {
 	CheckoutStep,

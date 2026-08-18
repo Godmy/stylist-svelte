@@ -40,7 +40,18 @@
 		{
 			name: 'variant',
 			type: 'select',
-			options: ['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'error', 'info'],
+			options: [
+				'default',
+				'neutral',
+				'primary',
+				'secondary',
+				'tertiary',
+				'success',
+				'info',
+				'warning',
+				'danger',
+				'error'
+			],
 			defaultValue: 'default'
 		}
 	];
@@ -61,10 +72,10 @@
 							Background type: <strong>{values.background || 'default'}</strong>
 						</p>
 						{#if values.gradient}
-							<p class="text-muted _c5">Gradient: {values.gradient.substring(0, 50)}...</p>
+							<p class="_c5 _c5-muted">Gradient: {values.gradient.substring(0, 50)}...</p>
 						{/if}
 						{#if values.backgroundImage}
-							<p class="text-muted _c5">
+							<p class="_c5 _c5-muted">
 								Image: {values.backgroundImage.substring(0, 50)}...
 							</p>
 						{/if}
@@ -96,5 +107,8 @@
 		margin-top: 0.25rem;
 		font-size: 0.875rem;
 		line-height: 1.25rem;
+	}
+	._c5-muted {
+		color: var(--color-text-secondary);
 	}
 </style>

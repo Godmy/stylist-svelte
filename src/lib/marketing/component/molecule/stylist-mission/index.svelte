@@ -11,8 +11,33 @@
 		primaryHref = '/',
 		secondaryLabel = 'Browse Components',
 		secondaryHref = '/components',
+		onPrimaryOpen,
+		onSecondaryOpen,
 		class: className = ''
+	}: {
+		badgeText?: string;
+		title?: string;
+		description?: string;
+		primaryLabel?: string;
+		primaryHref?: string;
+		secondaryLabel?: string;
+		secondaryHref?: string;
+		onPrimaryOpen?: () => void;
+		onSecondaryOpen?: () => void;
+		class?: string;
 	} = $props();
+
+	function handlePrimaryClick(event: MouseEvent) {
+		if (!onPrimaryOpen) return;
+		event.preventDefault();
+		onPrimaryOpen();
+	}
+
+	function handleSecondaryClick(event: MouseEvent) {
+		if (!onSecondaryOpen) return;
+		event.preventDefault();
+		onSecondaryOpen();
+	}
 </script>
 
 <section class={`c-stylist-mission ${className}`}>
@@ -26,8 +51,12 @@
 		<p class="sm-description">{description}</p>
 
 		<div class="sm-actions">
-			<a href={primaryHref} class="sm-btn sm-btn--primary">{primaryLabel}</a>
-			<a href={secondaryHref} class="sm-btn sm-btn--secondary">{secondaryLabel}</a>
+			<a href={primaryHref} class="sm-btn sm-btn--primary" onclick={handlePrimaryClick}>
+				{primaryLabel}
+			</a>
+			<a href={secondaryHref} class="sm-btn sm-btn--secondary" onclick={handleSecondaryClick}>
+				{secondaryLabel}
+			</a>
 		</div>
 	</div>
 </section>

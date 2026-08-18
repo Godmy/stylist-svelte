@@ -3,12 +3,12 @@
 
 	let {
 		title = 'Why Stylist?',
-		subtitle = 'A marketing layer for the library itself, not just for demo pages.',
+		subtitle = 'A readable operating surface for a component library that is organized by architecture, not by screenshots alone.',
 		features = [
 			{
-				title: 'Atomic structure',
+				title: 'Atomic Design architecture',
 				description:
-					'Components stay grouped by domain, cluster, joint and family, even when the landing page gets richer.',
+					'Atoms, molecules, organisms and templates stay visible inside their domain context, so composition rules remain easy to inspect.',
 				palette: 'fg-palette-orange',
 				iconBg: 'fg-icon-orange',
 				icon: 'git-branch'
@@ -16,7 +16,7 @@
 			{
 				title: 'Readable navigation',
 				description:
-					'The homepage can explain the system while the workspace keeps direct access to implementation details.',
+					'The workspace exposes domains, clusters, joints and families as navigation primitives instead of flattening the library into one long list.',
 				palette: 'fg-palette-sky',
 				iconBg: 'fg-icon-sky',
 				icon: 'navigation'
@@ -24,7 +24,7 @@
 			{
 				title: 'Story-first review',
 				description:
-					'Visual review, markdown notes, JSON structure and debug issue capture stay connected in one flow.',
+					'Stories sit next to source files, markdown notes and JSON structure, so review starts from the component and keeps its implementation context nearby.',
 				palette: 'fg-palette-violet',
 				iconBg: 'fg-icon-violet',
 				icon: 'sparkles'
@@ -32,7 +32,7 @@
 			{
 				title: 'Domain diagnostics',
 				description:
-					'The same surface can sell the library and still lead straight into diagnostics and backlog maintenance.',
+					'Diagnostics, backlog signals and generated manifests give the library a maintenance loop, not just a showcase page.',
 				palette: 'fg-palette-emerald',
 				iconBg: 'fg-icon-emerald',
 				icon: 'diagnostics'

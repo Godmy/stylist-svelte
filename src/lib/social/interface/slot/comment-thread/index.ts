@@ -1,6 +1,6 @@
-import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
+import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotCommentThreadItem } from '$stylist/social/interface/slot/comment-thread-item';
-export interface SlotCommentThread extends HtmlAttributesBase<HTMLDivElement> {
+export interface SlotCommentThread extends HTMLAttributes<HTMLDivElement> {
 	title?: string;
 	comments: SlotCommentThreadItem[];
 	currentUserId?: string;

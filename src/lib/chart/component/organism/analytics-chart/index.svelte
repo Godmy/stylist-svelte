@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ObjectManagerAnalyticsChart } from '$stylist/chart/class/object-manager/analytics-chart';
+	import { ManagerAnalyticsChart } from '$stylist/chart/class/manager/analytics-chart';
 	import type { RecipeAnalyticsChart } from '$stylist/chart/interface/recipe/analytics-chart';
 	import createAnalyticsChartState from './state.svelte';
 	import BarChart from '$stylist/chart/component/molecule/bar-chart/index.svelte';
@@ -9,13 +9,13 @@
 	let props: RecipeAnalyticsChart = $props();
 	const state = createAnalyticsChartState(props);
 
-	const maxValue = $derived(ObjectManagerAnalyticsChart.resolveMaxValue(props.data ?? []));
-	const chartPoints = $derived(ObjectManagerAnalyticsChart.buildBarChartPoints(props.data ?? []));
+	const maxValue = $derived(ManagerAnalyticsChart.resolveMaxValue(props.data ?? []));
+	const chartPoints = $derived(ManagerAnalyticsChart.buildBarChartPoints(props.data ?? []));
 	const pieChartPoints = $derived(
-		ObjectManagerAnalyticsChart.buildPieChartPoints(props.data ?? [])
+		ManagerAnalyticsChart.buildPieChartPoints(props.data ?? [])
 	);
 	const lineSeries = $derived(
-		ObjectManagerAnalyticsChart.buildLineSeries(props.data ?? [], props.title ?? '')
+		ManagerAnalyticsChart.buildLineSeries(props.data ?? [], props.title ?? '')
 	);
 </script>
 
@@ -68,7 +68,7 @@
 					<div class={state.legendItemClasses}>
 						<div
 							class={state.legendColorClasses}
-							style={`background-color: ${ObjectManagerAnalyticsChart.resolveLegendColor(item.color)};`}
+							style={`background-color: ${ManagerAnalyticsChart.resolveLegendColor(item.color)};`}
 						></div>
 						<span class={state.legendLabelClasses}>{item.label}</span>
 						<span class={state.legendValueClasses}>({item.value})</span>

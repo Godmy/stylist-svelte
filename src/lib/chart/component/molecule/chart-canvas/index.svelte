@@ -10,7 +10,7 @@
 	import ChartBackground from '$stylist/chart/component/atom/chart-background/index.svelte';
 	import ChartName from '$stylist/chart/component/atom/chart-name/index.svelte';
 	import ChartPolyline from '$stylist/chart/component/atom/chart-polyline/index.svelte';
-	import { ObjectManagerChartCanvas } from '$stylist/chart/class/object-manager/chart-canvas';
+	import { ManagerChartCanvas } from '$stylist/chart/class/manager/chart-canvas';
 
 	let props: RecipeAnalyticsChartCanvas & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createChartCanvasState({
@@ -22,28 +22,28 @@
 	const width = $derived(state.width);
 	const height = $derived(state.height);
 	const padding = $derived(state.padding);
-	const series = $derived(ObjectManagerChartCanvas.resolveSeries(props.series));
-	const xTickCount = $derived(ObjectManagerChartCanvas.resolveTickCount(props.xTickCount, 1));
-	const yTickCount = $derived(ObjectManagerChartCanvas.resolveTickCount(props.yTickCount, 1));
-	const zTickCount = $derived(ObjectManagerChartCanvas.resolveTickCount(props.zTickCount, 0));
+	const series = $derived(ManagerChartCanvas.resolveSeries(props.series));
+	const xTickCount = $derived(ManagerChartCanvas.resolveTickCount(props.xTickCount, 1));
+	const yTickCount = $derived(ManagerChartCanvas.resolveTickCount(props.yTickCount, 1));
+	const zTickCount = $derived(ManagerChartCanvas.resolveTickCount(props.zTickCount, 0));
 	const showAxisArrows = $derived(props.showAxisArrows ?? true);
 
-	const bounds = $derived(ObjectManagerChartCanvas.resolveBounds(series));
+	const bounds = $derived(ManagerChartCanvas.resolveBounds(series));
 	const xScale = $derived(
-		ObjectManagerChartCanvas.resolveScale(props.xScale, bounds.minX, bounds.maxX)
+		ManagerChartCanvas.resolveScale(props.xScale, bounds.minX, bounds.maxX)
 	);
 	const yScale = $derived(
-		ObjectManagerChartCanvas.resolveScale(props.yScale, bounds.minY, bounds.maxY)
+		ManagerChartCanvas.resolveScale(props.yScale, bounds.minY, bounds.maxY)
 	);
 	const xTicks = $derived(
-		ObjectManagerChartCanvas.resolveTickPositions(width, padding, xTickCount)
+		ManagerChartCanvas.resolveTickPositions(width, padding, xTickCount)
 	);
 	const yTicks = $derived(
-		ObjectManagerChartCanvas.resolveVerticalTickPositions(height, padding, yTickCount)
+		ManagerChartCanvas.resolveVerticalTickPositions(height, padding, yTickCount)
 	);
-	const xTickLabels = $derived(ObjectManagerChartCanvas.resolveTickLabels(xScale, xTickCount));
+	const xTickLabels = $derived(ManagerChartCanvas.resolveTickLabels(xScale, xTickCount));
 	const yTickLabels = $derived(
-		ObjectManagerChartCanvas.resolveVerticalTickLabels(yScale, yTickCount)
+		ManagerChartCanvas.resolveVerticalTickLabels(yScale, yTickCount)
 	);
 </script>
 

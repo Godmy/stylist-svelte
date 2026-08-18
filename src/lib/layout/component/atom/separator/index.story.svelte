@@ -60,12 +60,12 @@
 			<!-- Decorative vs semantic -->
 			<div class="_c11">
 				<h3 class="_c12">Semantic Separator</h3>
-				<p>Uses <code>&lt;hr&gt;</code> element</p>
+				<p>role="separator" — announced by screen readers</p>
 				<Separator orientation="horizontal" decorative={false} />
 				<p>After semantic separator</p>
 
 				<h3 class="_c13">Decorative Separator</h3>
-				<p>Uses <code>&lt;div&gt;</code> element</p>
+				<p>role="presentation" — hidden from assistive tech</p>
 				<Separator orientation="horizontal" decorative={true} />
 				<p>After decorative separator</p>
 			</div>

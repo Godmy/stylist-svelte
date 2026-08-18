@@ -1,4 +1,4 @@
-export class ExchangeOracleForecastManager {
+export class ManagerExchangeOracleForecast {
 	static createLayout(
 		history: { time: string; value: number }[],
 		forecast: { time: string; min: number; low: number; consensus: number; high: number; max: number }[],

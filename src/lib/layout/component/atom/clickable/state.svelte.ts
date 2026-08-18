@@ -13,7 +13,6 @@ export const createClickableState = (props: ClickProps) => {
 
 		return [
 			'c-clickable',
-			variant !== 'default' && `c-clickable--${variant}`,
 			pressEffect && 'c-clickable--press',
 			hoverEffect && 'c-clickable--hover',
 			className
@@ -28,6 +27,10 @@ export const createClickableState = (props: ClickProps) => {
 			onClick,
 			onDblClick,
 			onContextMenu,
+			onMouseDown,
+			onMouseUp,
+			onMouseEnter,
+			onMouseLeave,
 			disabled,
 			variant,
 			pressEffect,
@@ -52,9 +55,31 @@ export const createClickableState = (props: ClickProps) => {
 			props.onContextMenu(event);
 	}
 
+	function handleMouseDown(event: MouseEvent) {
+		if (!normalizedProps.disabled && !props.loading && props.onMouseDown) props.onMouseDown(event);
+	}
+
+	function handleMouseUp(event: MouseEvent) {
+		if (!normalizedProps.disabled && !props.loading && props.onMouseUp) props.onMouseUp(event);
+	}
+
+	function handleMouseEnter(event: MouseEvent) {
+		if (!normalizedProps.disabled && !props.loading && props.onMouseEnter) props.onMouseEnter(event);
+	}
+
+	function handleMouseLeave(event: MouseEvent) {
+		if (!normalizedProps.disabled && !props.loading && props.onMouseLeave) props.onMouseLeave(event);
+	}
+
 	return {
 		get disabled() {
 			return normalizedProps.disabled || props.loading;
+		},
+		get variant() {
+			return props.variant ?? 'default';
+		},
+		get hoverEffect() {
+			return normalizedProps.hoverEffect;
 		},
 		get cursor() {
 			return normalizedProps.cursor;
@@ -67,7 +92,11 @@ export const createClickableState = (props: ClickProps) => {
 		},
 		handleClick,
 		handleDblClick,
-		handleContextMenu
+		handleContextMenu,
+		handleMouseDown,
+		handleMouseUp,
+		handleMouseEnter,
+		handleMouseLeave
 	};
 };
 

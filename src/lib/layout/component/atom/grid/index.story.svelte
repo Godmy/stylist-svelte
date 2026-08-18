@@ -68,7 +68,7 @@
 		border-color: var(--color-border-primary);
 		background-color: var(--color-background-secondary);
 	}
-	._c2 {
+	:global(._c2) {
 		position: absolute;
 		inset: 0;
 		height: 100%;

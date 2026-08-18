@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-export interface RecipePeriodicElementDetailCard extends HTMLAttributes<HTMLDivElement> {
+export interface RecipePeriodicElementDetailCard extends HTMLAttributes<HTMLElement> {
 element?: ({
 	atomicNumber: number;
 	symbol: string;

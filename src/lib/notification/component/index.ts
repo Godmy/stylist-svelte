@@ -1,6 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	Alert,
+	CountBadge,
+	Counter,
 	ErrorMessage,
 	NotificationBadge
 } from './atom';

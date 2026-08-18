@@ -3,9 +3,14 @@
 	import ChemicalProperty from '$stylist/science/component/atom/chemical-property/index.svelte';
 
 	let props: RecipePeriodicElementPropertyGrid = $props();
+
+	const restProps = $derived.by(() => {
+		const { properties: _properties, class: _class, ...rest } = props;
+		return rest;
+	});
 </script>
 
-<div class="c-periodic-element-property-grid {props.class ?? ''}">
+<div {...restProps} class="c-periodic-element-property-grid {props.class ?? ''}">
 	{#each props.properties as property}
 		<ChemicalProperty chemicalProperty={property} />
 	{/each}

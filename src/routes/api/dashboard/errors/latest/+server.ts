@@ -1,3 +1,3 @@
-import { getDashboardErrorsLatestResponse } from '$stylist/server/function/async/get-dashboard-errors-latest-response';
+import { DashboardManager } from '$stylist/server/class/manager/dashboard';
 
-export const GET = getDashboardErrorsLatestResponse;
+export const GET = DashboardManager.getDashboardErrorsLatestResponse;

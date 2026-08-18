@@ -1,6 +1,6 @@
 <script lang="ts">
 	import SectionHeading from '$stylist/landing/component/molecule/section-heading/index.svelte';
-	import Card from '$stylist/layout/component/molecule/card/index.svelte';
+	import Card from '$stylist/image/component/molecule/card/index.svelte';
 	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
 	import Text from '$stylist/typography/component/atom/text/index.svelte';
 	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';

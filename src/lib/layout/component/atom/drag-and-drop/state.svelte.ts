@@ -6,6 +6,7 @@ export function createDragAndDropState(props: RecipeDragAndDrop) {
 	const disabled = $derived(props.disabled ?? false);
 	const variant = $derived(props.variant ?? 'default');
 	const showDragHandle = $derived(props.showDragHandle ?? false);
+	const dragCursor = $derived(props.dragCursor ?? 'grab');
 
 	const state = $state({
 		isDragging: false,
@@ -21,7 +22,6 @@ export function createDragAndDropState(props: RecipeDragAndDrop) {
 			state.isOverDropZone ? 'c-drag-and-drop--drop-active' : '',
 			state.isDragging ? 'c-drag-and-drop--dragging' : '',
 			disabled ? 'c-drag-and-drop--disabled' : '',
-			variant !== 'default' ? `c-drag-and-drop--${variant}` : '',
 			props.class ?? ''
 		]
 			.filter(Boolean)
@@ -54,8 +54,16 @@ export function createDragAndDropState(props: RecipeDragAndDrop) {
 		get disabled() {
 			return disabled;
 		},
+		get variant() {
+			return variant;
+		},
 		get showDragHandle() {
 			return showDragHandle;
+		},
+		get cursor() {
+			if (disabled) return 'not-allowed';
+			if (draggable) return state.isDragging ? 'grabbing' : dragCursor;
+			return undefined;
 		},
 		get classes() {
 			return classes;

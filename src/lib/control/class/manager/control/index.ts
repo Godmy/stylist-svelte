@@ -4,41 +4,6 @@ import type { SlotFilterChangePayload } from '$stylist/control/interface/slot/fi
 import type { SlotFilterPanelState } from '$stylist/control/interface/slot/filter-panel-state';
 
 export class ControlManager {
-	static detectClipboardSupport(): boolean {
-		return typeof navigator !== 'undefined' && 'clipboard' in navigator;
-	}
-
-	static copyTextToClipboard(text: string): Promise<boolean> {
-		return (async () => {
-			if (!ControlManager.detectClipboardSupport()) {
-				console.error('Clipboard API is not supported in this browser');
-				return false;
-			}
-
-			try {
-				await navigator.clipboard.writeText(text);
-				return true;
-			} catch (error) {
-				const textarea = document.createElement('textarea');
-				textarea.value = text;
-				textarea.style.position = 'fixed';
-				textarea.style.opacity = '0';
-				document.body.appendChild(textarea);
-				textarea.select();
-
-				try {
-					document.execCommand('copy');
-					return true;
-				} catch (execError) {
-					console.error('Failed to copy to clipboard', execError);
-					return false;
-				} finally {
-					document.body.removeChild(textarea);
-				}
-			}
-		})();
-	}
-
 	static debounce<T extends (...args: any[]) => any>(fn: T, delay: number): T {
 		let timeoutId: number | null = null;
 

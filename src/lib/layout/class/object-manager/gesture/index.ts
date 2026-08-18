@@ -24,16 +24,28 @@ export class ObjectManagerGesture {
 	onClick?: (event: MouseEvent) => void;
 	onDblClick?: (event: MouseEvent) => void;
 	onContextMenu?: (event: MouseEvent) => void;
+	onMouseDown?: (event: MouseEvent) => void;
+	onMouseUp?: (event: MouseEvent) => void;
+	onMouseEnter?: (event: MouseEvent) => void;
+	onMouseLeave?: (event: MouseEvent) => void;
 })>): (GestureContract & {
 	onClick?: (event: MouseEvent) => void;
 	onDblClick?: (event: MouseEvent) => void;
 	onContextMenu?: (event: MouseEvent) => void;
+	onMouseDown?: (event: MouseEvent) => void;
+	onMouseUp?: (event: MouseEvent) => void;
+	onMouseEnter?: (event: MouseEvent) => void;
+	onMouseLeave?: (event: MouseEvent) => void;
 }) {
 		return {
 			...this.normalizeGestureContract(contract),
 			onClick: contract.onClick,
 			onDblClick: contract.onDblClick,
-			onContextMenu: contract.onContextMenu
+			onContextMenu: contract.onContextMenu,
+			onMouseDown: contract.onMouseDown,
+			onMouseUp: contract.onMouseUp,
+			onMouseEnter: contract.onMouseEnter,
+			onMouseLeave: contract.onMouseLeave
 		};
 	}
 

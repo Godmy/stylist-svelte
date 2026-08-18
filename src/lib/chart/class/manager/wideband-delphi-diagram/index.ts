@@ -1,4 +1,4 @@
-export class WidebandDelphiDiagramManager {
+export class ManagerWidebandDelphiDiagram {
 	static createLayout(
 		points: {
 			time: string;

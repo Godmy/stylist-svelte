@@ -13,4 +13,7 @@ export type {
 	RecipePromptBuilder,
 	RecipeSentimentAnalysis
 } from './recipe';
-export type { SlotModelOption } from './slot';
+export type {
+	SlotModelOption,
+	SlotStatus
+} from './slot';

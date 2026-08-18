@@ -9,6 +9,7 @@ export {
 	ChatStatusIndicator,
 	ChatWindow,
 	ChatWorkbench,
+	Dot,
 	IconPicker,
 	ListWithAvatars,
 	MessageBubble,
@@ -44,6 +45,7 @@ export type {
 export type {
 	RecipeChatPreview,
 	RecipeChatStatusIndicator,
+	RecipeDot,
 	RecipeIconPicker,
 	RecipeListWithAvatars,
 	RecipeMessageBubble,

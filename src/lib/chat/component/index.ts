@@ -2,6 +2,7 @@
 export {
 	ChatPreview,
 	ChatStatusIndicator,
+	Dot,
 	MessageInput,
 	MessageMeta,
 	MessageStatus,

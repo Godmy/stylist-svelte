@@ -11,7 +11,6 @@ export {
 	TOKEN_PAYMENT_STATUS,
 	WARRANTY_PERIOD_TYPE
 } from './array';
-export { createButtonFactoryInput } from './map';
 export {
 	PresetAlertCard,
 	PresetBillingSummary,

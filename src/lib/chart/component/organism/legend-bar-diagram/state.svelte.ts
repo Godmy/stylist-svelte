@@ -1,11 +1,11 @@
-import { ChartLegendBarManager } from '$stylist/chart/class/manager/chart-legend-bar';
+import { ManagerChartLegendBar } from '$stylist/chart/class/manager/chart-legend-bar';
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeLegendBarDiagram } from '$stylist/chart/interface/recipe/legend-bar-diagram';
 
 export function createLegendBarDiagramState(props: RecipeLegendBarDiagram) {
 	const className = $derived(ClassNamesManager.merge('legend-bar-diagram', props.class));
 	const layout = $derived.by(() =>
-		ChartLegendBarManager.createLayout(
+		ManagerChartLegendBar.createLayout(
 			props.items.map(([text, value]) => ({ text, value })),
 			{
 				width: props.width,

@@ -13,6 +13,7 @@ export type {
 	RecipeLayoutTransformation,
 	RecipeLoading,
 	RecipeNumberFlow,
+	RecipeProgressBar,
 	RecipeSkeleton,
 	RecipeSpinner,
 	RecipeTooltip,

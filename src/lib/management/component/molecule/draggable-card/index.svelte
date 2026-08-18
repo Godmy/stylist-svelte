@@ -4,7 +4,7 @@
 	const MoreHorizontal = 'more-horizontal';
 
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-	import BaseCard from '$stylist/layout/component/molecule/base-card/index.svelte';
+	import BaseCard from '$stylist/list/component/molecule/base-card/index.svelte';
 	import createDraggableCardState from './state.svelte';
 	import type { RecipeDraggableCard } from '$stylist/management/interface/recipe/draggable-card';
 

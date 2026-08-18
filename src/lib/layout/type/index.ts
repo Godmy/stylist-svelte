@@ -10,7 +10,6 @@ export type {
 	LayoutShape,
 	OverlayLayoutAlign,
 	SplitLayoutGap,
-	StackedLayoutJustifyContent,
 	ThemeGradientBackgroundDirection,
 	TokenAlignment,
 	TokenAspectRatio,

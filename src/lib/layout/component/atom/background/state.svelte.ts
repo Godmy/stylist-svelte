@@ -10,6 +10,7 @@ export function createBackgroundState(props: RecipeBackground) {
 	const backgroundRepeat = $derived(ObjectManagerBackground.resolveBackgroundRepeat(props));
 	const gradient = $derived(ObjectManagerBackground.resolveGradient(props));
 	const opacity = $derived(ObjectManagerBackground.resolveOpacity(props));
+	const variant = $derived(ObjectManagerBackground.resolveVariant(props));
 
 	const styles = $derived(
 		ObjectManagerBackground.createInlineStyles({
@@ -59,6 +60,9 @@ export function createBackgroundState(props: RecipeBackground) {
 		},
 		get restProps() {
 			return restProps;
+		},
+		get variant() {
+			return variant;
 		}
 	};
 }

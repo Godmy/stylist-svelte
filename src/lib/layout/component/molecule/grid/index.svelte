@@ -3,7 +3,7 @@
 	import { GridManager } from '$stylist/layout/class/object-manager/grid';
 
 	let props: RecipeGrid = $props();
-	const state = GridManager.createState(props);
+	const restProps = $derived.by(() => GridManager.filterRestProps(props));
 
 	const GAP: Record<string, string> = {
 		none: '0',
@@ -44,7 +44,7 @@
 	style:--gap={gap}
 	style:--align={align}
 	style:--justify={justify}
-	{...state.restProps}
+	{...restProps}
 >
 	{#if props.children}{@render props.children()}{/if}
 </div>

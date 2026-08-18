@@ -24,9 +24,10 @@ function resolveSize(size?: string | number): string {
 export function createSpacerState(props: RecipeSpacer) {
 	const axis = $derived<TokenOrientation | 'both'>(props.axis ?? 'vertical');
 	const sizeValue = $derived(resolveSize(props.size));
+	const inline = $derived(props.inline ?? false);
 
 	const restProps = $derived.by(() => {
-		const { class: _class, axis: _axis, size: _size, ...rest } = props;
+		const { class: _class, axis: _axis, size: _size, inline: _inline, ...rest } = props;
 		return rest;
 	});
 
@@ -36,6 +37,9 @@ export function createSpacerState(props: RecipeSpacer) {
 		},
 		get sizeValue() {
 			return sizeValue;
+		},
+		get inline() {
+			return inline;
 		},
 		get restProps() {
 			return restProps;

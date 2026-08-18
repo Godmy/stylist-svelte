@@ -44,9 +44,15 @@
 		{ label: 'Boiling point', value: detail.boilingPoint },
 		{ label: 'Discovery', value: detail.discovery }
 	]);
+
+	const restProps = $derived.by(() => {
+		const { element: _element, class: _class, ...rest } = props;
+		return rest;
+	});
 </script>
 
 <section
+	{...restProps}
 	class="c-periodic-element-detail-card {props.class ?? ''}"
 	style:--periodic-element-detail-accent={accent}
 >

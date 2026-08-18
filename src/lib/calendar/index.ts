@@ -18,8 +18,7 @@ export {
 	TOKEN_FLOW,
 	TOKEN_PRIORITY,
 	TOKEN_TIMESTAMP_FORMAT,
-	TOKEN_TIME_RANGE,
-	createButtonFactoryInput
+	TOKEN_TIME_RANGE
 } from './const';
 export {
 	formatDayLabel,

@@ -1,10 +1,10 @@
-import { ObjectManagerMetricBar } from '$stylist/chart/class/object-manager/metric-bar';
+import { ManagerMetricBar } from '$stylist/chart/class/manager/metric-bar';
 import type { RecipeMetricBar } from '$stylist/chart/interface/recipe/metric-bar';
 
 export function createMetricBarState(props: RecipeMetricBar) {
 	const text = $derived(props.text ?? '');
-	const percentage = $derived(ObjectManagerMetricBar.resolvePercentage(props));
-	const valueLabel = $derived(ObjectManagerMetricBar.resolveValueLabel(props));
+	const percentage = $derived(ManagerMetricBar.resolvePercentage(props));
+	const valueLabel = $derived(ManagerMetricBar.resolveValueLabel(props));
 	const color = $derived(props.color ?? 'var(--color-primary-500)');
 	const trackColor = $derived(props.trackColor ?? 'var(--color-neutral-200)');
 	const containerClasses = $derived(

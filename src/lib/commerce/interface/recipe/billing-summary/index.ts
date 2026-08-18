@@ -1,11 +1,10 @@
 import type { TokenBillingItem } from '$stylist/commerce/type/alias/billing-item';
-import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
 import type { TokenBillingSummary } from '$stylist/commerce/type/alias/billing-summary';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 
-export interface RecipeBillingSummary extends ComputeIntersectAll<[((HtmlAttributesBase<HTMLDivElement> & {
+export interface RecipeBillingSummary extends ComputeIntersectAll<[(({
 title?: string;
 	subtitle?: string;
 	totalAmount?: number;

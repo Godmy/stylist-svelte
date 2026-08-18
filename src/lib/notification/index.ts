@@ -1,6 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	Alert,
+	CountBadge,
+	Counter,
 	ErrorMessage,
 	NotificationBadge,
 	NotificationCenter,
@@ -12,7 +14,6 @@ export {
 } from './component';
 export { TOKEN_NOTIFICATION_CHANNEL } from './const';
 export { updateNotificationPreference } from './function';
-export { createButtonFactoryInput } from './interface';
 export type {
 	INotificationSettingsPreference,
 	ScheduledNotificationItem,
@@ -20,6 +21,8 @@ export type {
 } from './type';
 export type {
 	RecipeAlert,
+	RecipeCountBadge,
+	RecipeCounter,
 	RecipeErrorMessage,
 	RecipeNotificationBadge,
 	RecipeNotificationCenter,

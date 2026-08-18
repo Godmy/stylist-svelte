@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Badge from '$stylist/information/component/atom/badge/index.svelte';
+	import Badge from '$stylist/typography/component/atom/badge/index.svelte';
 	import createOperationsHistoryState from './state.svelte';
 	import type { BehaviorOperationsHistoryEvents } from '$stylist/management/interface/behavior/operations-history-events';
 	import type { SlotOperationsHistory as OperationsHistoryProps } from '$stylist/management/interface/slot/operations-history';

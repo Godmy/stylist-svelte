@@ -1,6 +1,6 @@
-import { ChartLegendBarManager } from '$stylist/chart/class/manager/chart-legend-bar';
+import { ManagerChartLegendBar } from '$stylist/chart/class/manager/chart-legend-bar';
 
-export class ChartLegendBandManager {
+export class ManagerChartLegendBand {
 	static createLayout(
 		items: {
 			text: string;
@@ -159,7 +159,7 @@ export class ChartLegendBandManager {
 				const centerX = plotX + step * index + step / 2;
 				const valueRatio = (item.value - minValue) / (maxValue - minValue);
 				const bandHeight = Math.max(minBandHeight, Math.max(0, valueRatio) * (plotHeight - 12));
-				const rawLabelWidth = ChartLegendBarManager.measureTextWidth(item.text, fontSize) + labelPaddingX;
+				const rawLabelWidth = ManagerChartLegendBar.measureTextWidth(item.text, fontSize) + labelPaddingX;
 				const labelWidth = Math.max(54, Math.min(150, rawLabelWidth));
 				const baseLabelX = Math.max(4, Math.min(width - labelWidth - 4, centerX - labelWidth / 2));
 				const leftmostConnectorX = Math.max(4, centerX - labelWidth + connectorInset);

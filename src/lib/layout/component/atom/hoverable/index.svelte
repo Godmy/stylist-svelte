@@ -12,9 +12,7 @@
 	onmouseenter={state.handleMouseEnter}
 	onmouseleave={state.handleMouseLeave}
 >
-	{#if props.children}
-		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
-	{/if}
+	{#if props.children}{@render props.children()}{/if}
 </div>
 
 <style>

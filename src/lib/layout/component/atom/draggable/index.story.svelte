@@ -35,7 +35,7 @@
 					}}
 				>
 					{#snippet children()}
-						<div class="_c4 content-center">Drag this card</div>
+						<div class="_c4">Drag this card</div>
 					{/snippet}
 				</Draggable>
 
@@ -51,7 +51,7 @@
 					}}
 				>
 					{#snippet children()}
-						<div class="_c6 content-center">Drop target</div>
+						<div class="_c6">Drop target</div>
 					{/snippet}
 				</Draggable>
 			</div>
@@ -65,7 +65,7 @@
 		display: grid;
 		gap: 1rem;
 		border-radius: 1.5rem;
-		background-color: #f8fafc;
+		background-color: var(--color-background-secondary);
 		padding: 1.5rem;
 	}
 	._c2 {
@@ -81,33 +81,39 @@
 		border-radius: 1rem;
 		border-width: 1px;
 		border-style: solid;
-		border-color: #e2e8f0;
-		background-color: #ffffff;
+		border-color: var(--color-border-primary);
+		background-color: var(--color-background-primary);
 		padding: 1.25rem;
-		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+		box-shadow: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
 	}
 	._c4 {
+		display: flex;
 		min-height: 7rem;
+		align-items: center;
+		justify-content: center;
 		text-align: center;
 		font-weight: 500;
-		color: #0f172a;
+		color: var(--color-text-primary);
 	}
 	._c5 {
 		border-radius: 1rem;
 		border-width: 1px;
 		border-style: dashed;
-		border-color: #cbd5e1;
-		background-color: #ffffff;
+		border-color: var(--color-border-secondary);
+		background-color: var(--color-background-primary);
 		padding: 1.25rem;
 	}
 	._c6 {
+		display: flex;
 		min-height: 7rem;
+		align-items: center;
+		justify-content: center;
 		text-align: center;
-		color: #64748b;
+		color: var(--color-text-secondary);
 	}
 	._c7 {
 		font-size: 0.875rem;
 		line-height: 1.25rem;
-		color: #64748b;
+		color: var(--color-text-secondary);
 	}
 </style>

@@ -9,14 +9,18 @@
 <div
 	class={state.classes}
 	style="cursor: {state.cursor};"
+	data-variant={state.variant}
+	data-hover-effect={state.hoverEffect || undefined}
 	{...state.restProps}
 	onclick={state.handleClick}
 	ondblclick={state.handleDblClick}
 	oncontextmenu={state.handleContextMenu}
+	onmousedown={state.handleMouseDown}
+	onmouseup={state.handleMouseUp}
+	onmouseenter={state.handleMouseEnter}
+	onmouseleave={state.handleMouseLeave}
 >
-	{#if props.children}
-		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
-	{/if}
+	{#if props.children}{@render props.children()}{/if}
 </div>
 
 <style>
@@ -39,34 +43,44 @@
 		pointer-events: none;
 	}
 
-	.c-clickable--primary {
-		background: var(--color-primary-500);
-		color: white;
+	.c-clickable[data-hover-effect][data-variant='neutral']:hover {
+		background: var(--color-neutral-100);
+		opacity: 1;
 	}
 
-	.c-clickable--primary:hover {
-		background: var(--color-primary-600);
+	.c-clickable[data-hover-effect][data-variant='primary']:hover {
+		background: var(--color-primary-50);
+		opacity: 1;
 	}
 
-	.c-clickable--secondary {
-		background: var(--color-secondary-500, var(--color-neutral-500));
-		color: white;
+	.c-clickable[data-hover-effect][data-variant='secondary']:hover {
+		background: var(--color-secondary-50);
+		opacity: 1;
 	}
 
-	.c-clickable--ghost {
-		background: transparent;
+	.c-clickable[data-hover-effect][data-variant='tertiary']:hover {
+		background: var(--color-background-tertiary);
+		opacity: 1;
 	}
 
-	.c-clickable--ghost:hover {
-		background: var(--color-background-secondary);
+	.c-clickable[data-hover-effect][data-variant='success']:hover {
+		background: var(--color-success-50);
+		opacity: 1;
 	}
 
-	.c-clickable--link {
-		color: var(--color-primary-500);
-		text-decoration: underline;
+	.c-clickable[data-hover-effect][data-variant='info']:hover {
+		background: var(--color-info-50);
+		opacity: 1;
 	}
 
-	.c-clickable--link:hover {
-		color: var(--color-primary-600);
+	.c-clickable[data-hover-effect][data-variant='warning']:hover {
+		background: var(--color-warning-50);
+		opacity: 1;
+	}
+
+	.c-clickable[data-hover-effect][data-variant='danger']:hover,
+	.c-clickable[data-hover-effect][data-variant='error']:hover {
+		background: var(--color-danger-50);
+		opacity: 1;
 	}
 </style>

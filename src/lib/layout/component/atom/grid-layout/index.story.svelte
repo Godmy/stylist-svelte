@@ -6,14 +6,42 @@
 
 	const controls: SlotStory[] = [
 		{
+			name: 'cols',
+			type: 'range',
+			min: 1,
+			max: 6,
+			step: 1,
+			defaultValue: 2
+		},
+		{
+			name: 'responsive',
+			type: 'boolean',
+			defaultValue: true,
+			description: 'Ignored once "columns" overrides the track list below'
+		},
+		{
 			name: 'columns',
 			type: 'text',
-			defaultValue: 'repeat(auto-fit, minmax(250px, 1fr))'
+			defaultValue: '',
+			description: 'Raw grid-template-columns override, e.g. repeat(auto-fit, minmax(250px, 1fr))'
 		},
 		{
 			name: 'gap',
-			type: 'text',
-			defaultValue: '1rem'
+			type: 'select',
+			options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+			defaultValue: 'md'
+		},
+		{
+			name: 'alignItems',
+			type: 'select',
+			options: ['start', 'center', 'end', 'stretch'],
+			defaultValue: 'center'
+		},
+		{
+			name: 'justifyContent',
+			type: 'select',
+			options: ['start', 'center', 'end', 'space-between', 'space-around', 'space-evenly', 'stretch'],
+			defaultValue: 'stretch'
 		}
 	];
 

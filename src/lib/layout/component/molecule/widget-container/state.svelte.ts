@@ -3,6 +3,9 @@ import type { RecipeWidgetContainer } from '$stylist/layout/interface/recipe/wid
 export function createWidgetContainerState(props: RecipeWidgetContainer) {
 	let isCollapsed = $state(props.initiallyCollapsed ?? false);
 	let isMaximized = $state(false);
+	let isDragging = $state(false);
+	let dragOffset = $state({ x: 0, y: 0 });
+	let dragOrigin = { pointerX: 0, pointerY: 0, offsetX: 0, offsetY: 0 };
 
 	const title = $derived(props.title);
 	const subtitle = $derived(props.subtitle);
@@ -11,6 +14,7 @@ export function createWidgetContainerState(props: RecipeWidgetContainer) {
 	const collapsible = $derived(props.collapsible ?? true);
 	const draggable = $derived(props.draggable ?? true);
 	const maximizable = $derived(props.maximizable ?? true);
+	const resizable = $derived(props.resizable ?? false);
 	const size = $derived(props.size ?? 'md');
 
 	const restProps = $derived.by(() => {
@@ -39,6 +43,48 @@ export function createWidgetContainerState(props: RecipeWidgetContainer) {
 
 	function toggleMaximize(): void {
 		isMaximized = !isMaximized;
+		if (isMaximized) dragOffset = { x: 0, y: 0 };
+	}
+
+	function handleDragPointerDown(event: PointerEvent): void {
+		if (!draggable || isMaximized) return;
+		isDragging = true;
+		dragOrigin = {
+			pointerX: event.clientX,
+			pointerY: event.clientY,
+			offsetX: dragOffset.x,
+			offsetY: dragOffset.y
+		};
+		(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
+	}
+
+	function handleDragPointerMove(event: PointerEvent): void {
+		if (!isDragging) return;
+		dragOffset = {
+			x: dragOrigin.offsetX + (event.clientX - dragOrigin.pointerX),
+			y: dragOrigin.offsetY + (event.clientY - dragOrigin.pointerY)
+		};
+	}
+
+	function handleDragPointerUp(event: PointerEvent): void {
+		if (!isDragging) return;
+		isDragging = false;
+		(event.currentTarget as HTMLElement).releasePointerCapture(event.pointerId);
+	}
+
+	function handleDragKeyDown(event: KeyboardEvent): void {
+		if (!draggable || isMaximized) return;
+		const step = event.shiftKey ? 24 : 8;
+		const moves: Record<string, [number, number]> = {
+			ArrowUp: [0, -step],
+			ArrowDown: [0, step],
+			ArrowLeft: [-step, 0],
+			ArrowRight: [step, 0]
+		};
+		const move = moves[event.key];
+		if (!move) return;
+		event.preventDefault();
+		dragOffset = { x: dragOffset.x + move[0], y: dragOffset.y + move[1] };
 	}
 
 	return {
@@ -63,6 +109,9 @@ export function createWidgetContainerState(props: RecipeWidgetContainer) {
 		get maximizable() {
 			return maximizable;
 		},
+		get resizable() {
+			return resizable;
+		},
 		get size() {
 			return size;
 		},
@@ -72,11 +121,21 @@ export function createWidgetContainerState(props: RecipeWidgetContainer) {
 		get isMaximized() {
 			return isMaximized;
 		},
+		get isDragging() {
+			return isDragging;
+		},
+		get dragOffset() {
+			return dragOffset;
+		},
 		get restProps() {
 			return restProps;
 		},
 		toggleCollapse,
-		toggleMaximize
+		toggleMaximize,
+		handleDragPointerDown,
+		handleDragPointerMove,
+		handleDragPointerUp,
+		handleDragKeyDown
 	};
 }
 

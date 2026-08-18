@@ -6,7 +6,7 @@
 	const controls: SlotStory[] = [
 		{ name: 'size', type: 'number', defaultValue: 16 },
 		{ name: 'accent', type: 'color', defaultValue: '#3498db' },
-		{ name: 'opacity', type: 'number', defaultValue: 1 }
+		{ name: 'opacity', type: 'number', defaultValue: 0.8 }
 	];
 </script>
 
@@ -18,10 +18,23 @@
 	description="Simple dot indicator component"
 >
 	{#snippet children(values: any)}
-		<NodeDot
-			size={values.size as number}
-			accent={values.accent as string}
-			opacity={values.opacity as number}
-		/>
+		<div class="_c1">
+			<NodeDot
+				size={values.size as number}
+				accent={values.accent as string}
+				opacity={values.opacity as number}
+			/>
+		</div>
 	{/snippet}
 </Story>
+
+<style>
+	._c1 {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0.5rem;
+		background-color: var(--color-background-secondary);
+		padding: 2rem;
+	}
+</style>

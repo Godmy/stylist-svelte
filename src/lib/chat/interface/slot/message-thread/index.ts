@@ -1,8 +1,8 @@
 import type { TokenMessageStatus } from '$stylist/chat/type/alias/message-status';
 import type { TokenDensity } from '$stylist/layout/type/alias/density';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
-import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
-export interface SlotMessageThread extends HtmlAttributesBase<HTMLDivElement> {
+import type { HTMLAttributes } from 'svelte/elements';
+export interface SlotMessageThread extends HTMLAttributes<HTMLDivElement> {
 	title?: string;
 	messages?: ({
 id: string;

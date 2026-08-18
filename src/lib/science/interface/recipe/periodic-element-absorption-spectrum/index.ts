@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-export interface RecipePeriodicElementAbsorptionSpectrum extends HTMLAttributes<HTMLDivElement> {
+export interface RecipePeriodicElementAbsorptionSpectrum extends HTMLAttributes<HTMLElement> {
 element?: ({
 	atomicNumber: number;
 	symbol: string;

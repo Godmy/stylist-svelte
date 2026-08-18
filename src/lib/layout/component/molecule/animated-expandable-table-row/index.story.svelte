@@ -17,7 +17,7 @@
 	{controls}
 >
 	{#snippet children(values: any)}
-		<table class="_c1 border-collapse">
+		<table class="_c1">
 			<tbody>
 				<AnimatedExpandableTableRow
 					expanded={values.expanded}
@@ -40,6 +40,7 @@
 <style>
 	._c1 {
 		width: 100%;
+		border-collapse: collapse;
 		border-radius: 0.75rem;
 		border-width: 1px;
 		border-style: solid;

@@ -3,7 +3,6 @@ export {
 	AspectRatio,
 	Background,
 	Border,
-	Click,
 	Clickable,
 	Container,
 	Divider,
@@ -20,16 +19,12 @@ export {
 } from './atom';
 export {
 	AnimatedExpandableTableRow,
-	BaseCard,
-	Card,
 	CenteredLayout,
 	ContainerQuery,
 	GradientBackground,
 	OverlayLayout,
 	Popover,
-	SidebarLayout,
 	SplitLayout,
-	StackedLayout,
 	StickyLayout,
 	VerticalLayout,
 	WidgetContainer

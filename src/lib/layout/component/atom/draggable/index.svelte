@@ -30,9 +30,7 @@
 			</svg>
 		</div>
 	{/if}
-	{#if props.children}
-		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
-	{/if}
+	{#if props.children}{@render props.children()}{/if}
 </div>
 
 <style>
@@ -47,6 +45,10 @@
 
 	.c-draggable--grab:active {
 		cursor: grabbing;
+	}
+
+	.c-draggable--handle {
+		padding-right: 1.75rem;
 	}
 
 	.c-draggable--dragging {

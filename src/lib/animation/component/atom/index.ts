@@ -4,6 +4,7 @@ export { AnimatedNumber } from './animated-number/index';
 export { Animated } from './animated/index';
 export { LayoutTransformation } from './layout-transformation/index';
 export { NumberFlow } from './number-flow/index';
+export { ProgressBar } from './progress-bar/index';
 export { Skeleton } from './skeleton/index';
 export { Spinner } from './spinner/index';
 export { Tooltip } from './tooltip/index';

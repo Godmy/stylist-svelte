@@ -14,6 +14,7 @@ export type { RecipeRangeInput } from './range-input';
 export type { RecipeRangeSlider } from './range-slider';
 export type { RecipeSelect } from './select';
 export type { RecipeSelector } from './selector';
+export type { RecipeShortcutsPanel } from './shortcuts-panel';
 export type { RecipeSlider } from './slider';
 export type { RecipeSliderWithInput } from './slider-with-input';
 export type { RecipeSwitch } from './switch';

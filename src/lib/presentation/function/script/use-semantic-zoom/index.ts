@@ -1,5 +1,5 @@
-import type { SceneNode } from '$stylist/architecture/interface/slot/scene-node/scene-node';
-import { SemanticZoomManager } from '$stylist/architecture/class/manager/semantic-zoom';
+import type { SceneNode } from '$stylist/presentation/interface/slot/scene-node';
+import { SemanticZoomManager } from '$stylist/presentation/class/manager/semantic-zoom';
 export function useSemanticZoom(params: | {
 			worldDepth: number;
 			cameraDepth: number;

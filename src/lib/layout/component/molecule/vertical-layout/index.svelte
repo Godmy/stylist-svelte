@@ -6,6 +6,7 @@
 	const state = createVerticalLayoutState(props);
 
 	const GAP: Record<string, string> = {
+		none: '0',
 		xs: '0.25rem',
 		sm: '0.5rem',
 		md: '1rem',
@@ -47,7 +48,10 @@
 		end: 'flex-end'
 	};
 
-	const gap = $derived(GAP[state.gap] ?? '1rem');
+	const gap = $derived.by(() => {
+		if (typeof state.gap === 'number') return `${state.gap}px`;
+		return GAP[state.gap] ?? state.gap ?? '1rem';
+	});
 	const align = $derived(ALIGN[state.alignItems] ?? 'stretch');
 	const justify = $derived(JUSTIFY[state.justifyContent] ?? 'center');
 </script>

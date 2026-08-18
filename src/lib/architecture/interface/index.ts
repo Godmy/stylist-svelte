@@ -11,7 +11,6 @@ export type {
 	RecipeNodeIcon,
 	RecipeOntologyEdgeComponent,
 	RecipeOntologyNodeComponent,
-	RecipePresentationState,
 	RecipeSelectionState,
 	RecipeStage,
 	RecipeStylistGraphWorkspace,
@@ -29,9 +28,5 @@ export type {
 	MinimapViewport,
 	ObjectPoint2DPath,
 	Point2D,
-	PreziCamera,
-	SceneCamera,
-	SceneNode,
-	SceneNodePoint,
-	SemanticZoomPresentation
+	SceneCamera
 } from './slot';

@@ -5,9 +5,23 @@
 	let props: RecipePeriodicElement = $props();
 
 	const accent = $derived(PERIODIC_ELEMENT_CATEGORY_ACCENT[props.element.category] ?? '#777');
+
+	const restProps = $derived.by(() => {
+		const {
+			element: _element,
+			selected: _selected,
+			highlighted: _highlighted,
+			dimmed: _dimmed,
+			onSelect: _onSelect,
+			class: _class,
+			...rest
+		} = props;
+		return rest;
+	});
 </script>
 
 <button
+	{...restProps}
 	type="button"
 	class="c-periodic-element {props.class ?? ''}"
 	class:is-selected={props.selected}

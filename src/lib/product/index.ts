@@ -17,7 +17,6 @@ export {
 	ProductWishlist,
 	WishlistButton
 } from './component';
-export { createButtonFactoryInput } from './interface';
 export type {
 	RecipeComparisonCard,
 	RecipeProductAvailability,

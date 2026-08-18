@@ -1,3 +1,3 @@
-import { getDashboardIndexationLatestResponse } from '$stylist/server/function/async/get-dashboard-indexation-latest-response';
+import { DashboardManager } from '$stylist/server/class/manager/dashboard';
 
-export const GET = getDashboardIndexationLatestResponse;
+export const GET = DashboardManager.getDashboardIndexationLatestResponse;

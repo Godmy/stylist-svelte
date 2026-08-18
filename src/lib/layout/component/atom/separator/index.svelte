@@ -37,7 +37,9 @@
 	.layout-separator--vertical {
 		border-top: 0;
 		border-left: 1px solid var(--color-border-secondary);
+		align-self: stretch;
 		height: 100%;
+		min-height: 1.5rem;
 		width: auto;
 	}
 </style>

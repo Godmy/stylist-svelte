@@ -3,7 +3,7 @@ import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focus
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
-import type { SlotStatus } from '$stylist/information/interface/slot/status';
+import type { SlotStatus } from '$stylist/ai/interface/slot/status';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotInputBase } from '$stylist/input/interface/slot/input-base';
 

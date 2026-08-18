@@ -7,7 +7,21 @@
 </script>
 
 <div class={['layout-popover', props.class].filter(Boolean).join(' ')}>
-	<div bind:this={state.triggerElement} class="layout-popover__trigger">
+	<div
+		bind:this={state.triggerElement}
+		class="layout-popover__trigger"
+		role="button"
+		tabindex="0"
+		aria-expanded={state.isVisible}
+		aria-haspopup="dialog"
+		onclick={state.toggleOpen}
+		onkeydown={(event) => {
+			if (event.key === 'Enter' || event.key === ' ') {
+				event.preventDefault();
+				state.toggleOpen();
+			}
+		}}
+	>
 		{@render props.trigger()}
 	</div>
 

@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { SlotClick } from './click';
+export type { SlotBadge } from './badge';
 export type { SlotComposite } from './composite';
 export type { SlotDivider } from './divider';
 export type { SlotDragAndDrop } from './drag-and-drop';

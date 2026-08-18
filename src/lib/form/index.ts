@@ -17,10 +17,7 @@ export {
 	ToggleButtonGroup,
 	Validation
 } from './component';
-export {
-	SEARCH_ICON_NAME,
-	createButtonFactoryInput
-} from './const';
+export { SEARCH_ICON_NAME } from './const';
 export type {
 	RecipeAccountForms,
 	RecipeCheckboxGroup,

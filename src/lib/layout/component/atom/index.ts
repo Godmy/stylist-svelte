@@ -2,7 +2,6 @@
 export { AspectRatio } from './aspect-ratio/index';
 export { Background } from './background/index';
 export { Border } from './border/index';
-export { Click } from './click/index';
 export { Clickable } from './clickable/index';
 export { Container } from './container/index';
 export { Divider } from './divider/index';

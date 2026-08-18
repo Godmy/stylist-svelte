@@ -1,17 +1,11 @@
-import { DOMAIN_SCREEN_BACKLOG } from '$stylist/domain/const/value/domain-screen-backlog';
-import { DOMAIN_SCREEN_BUILDER } from '$stylist/domain/const/value/domain-screen-builder';
-import { DOMAIN_SCREEN_DIAGNOSTICS } from '$stylist/domain/const/value/domain-screen-diagnostics';
-import { DOMAIN_SCREEN_DOMAIN } from '$stylist/domain/const/value/domain-screen-domain';
-import { DOMAIN_SCREEN_LANDING } from '$stylist/domain/const/value/domain-screen-landing';
-import { DOMAIN_SCREEN_WORKSPACE } from '$stylist/domain/const/value/domain-screen-workspace';
-import { DOMAIN_SCREEN_DASHBOARD } from '$stylist/domain/const/value/domain-screen-dashboard';
+import { DOMAIN_SCREEN } from '$stylist/domain/const/value/domain-screen';
 
 export const DOMAIN_SCREEN_VALUES = [
-	DOMAIN_SCREEN_LANDING,
-	DOMAIN_SCREEN_DOMAIN,
-	DOMAIN_SCREEN_WORKSPACE,
-	DOMAIN_SCREEN_BUILDER,
-	DOMAIN_SCREEN_BACKLOG,
-	DOMAIN_SCREEN_DASHBOARD,
-	DOMAIN_SCREEN_DIAGNOSTICS
+	DOMAIN_SCREEN.LANDING,
+	DOMAIN_SCREEN.DOMAIN,
+	DOMAIN_SCREEN.WORKSPACE,
+	DOMAIN_SCREEN.BUILDER,
+	DOMAIN_SCREEN.BACKLOG,
+	DOMAIN_SCREEN.DASHBOARD,
+	DOMAIN_SCREEN.DIAGNOSTICS
 ] as const;

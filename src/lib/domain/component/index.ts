@@ -31,4 +31,7 @@ export {
 	DomainSidebar,
 	MarkdownRenderer
 } from './organism';
-export { PageDomain } from './page';
+export {
+	DomainLanding,
+	DomainPlayground
+} from './page';

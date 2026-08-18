@@ -7,7 +7,9 @@ export function createSortableGridState(props: RecipeSortableGrid) {
 	const itemClass = $derived(props.itemClass ?? '');
 	const cols = $derived(typeof props.cols === 'number' ? props.cols : 3);
 	const gap = $derived((props.gap ?? 'md') as 'none' | 'sm' | 'md' | 'lg');
-	const draggable = $derived(props.draggable ?? true);
+	const disabled = $derived(props.disabled ?? false);
+	const draggable = $derived((props.draggable ?? true) && !disabled);
+	const variant = $derived((props.variant ?? 'card') as 'card' | 'minimal');
 
 	const containerClass = $derived(['c-sortable-grid', props.class].filter(Boolean).join(' '));
 
@@ -15,11 +17,13 @@ export function createSortableGridState(props: RecipeSortableGrid) {
 	let draggedOverIndex = $state<number | null>(null);
 
 	function handleDragStart(e: DragEvent, item: SortableGridItem, index: number) {
+		if (disabled) return;
 		draggedItem = item;
 		e.dataTransfer?.setData('text/plain', item.id);
 	}
 
 	function handleDragOver(e: DragEvent, index: number) {
+		if (disabled) return;
 		e.preventDefault();
 		draggedOverIndex = index;
 	}
@@ -29,6 +33,7 @@ export function createSortableGridState(props: RecipeSortableGrid) {
 	}
 
 	function handleDrop(e: DragEvent, dropIndex: number) {
+		if (disabled) return;
 		e.preventDefault();
 		draggedOverIndex = null;
 
@@ -69,6 +74,12 @@ export function createSortableGridState(props: RecipeSortableGrid) {
 		},
 		get draggable() {
 			return draggable;
+		},
+		get disabled() {
+			return disabled;
+		},
+		get variant() {
+			return variant;
 		},
 		get containerClass() {
 			return containerClass;

@@ -1,6 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	Abbr,
+	Badge,
+	BadgeGroup,
 	Blockquote,
 	Heading,
 	InlineCode,
@@ -18,6 +20,8 @@ export {
 } from './function';
 export type {
 	RecipeAbbr,
+	RecipeBadge,
+	RecipeBadgeGroup,
 	RecipeBlockquote,
 	RecipeHeading,
 	RecipeInlineCode,

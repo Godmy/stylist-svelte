@@ -2,9 +2,22 @@
 	import type { RecipePeriodicElementType } from '$stylist/science/interface/recipe/periodic-element-type';
 
 	let props: RecipePeriodicElementType = $props();
+
+	const restProps = $derived.by(() => {
+		const {
+			category: _category,
+			selected: _selected,
+			accent: _accent,
+			onSelect: _onSelect,
+			class: _class,
+			...rest
+		} = props;
+		return rest;
+	});
 </script>
 
 <button
+	{...restProps}
 	type="button"
 	class="c-periodic-element-type {props.class ?? ''}"
 	class:is-selected={props.selected}

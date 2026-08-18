@@ -92,6 +92,8 @@
 
 <div
 	class={state.classes}
+	data-variant={state.variant}
+	style:cursor={state.cursor}
 	{...restProps}
 	draggable={getDraggableAttr()}
 	ondragstart={handleDragStart}
@@ -114,23 +116,41 @@
 			</svg>
 		</div>
 	{/if}
-	{#if props.children}
-		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
-	{/if}
+	{#if props.children}{@render props.children()}{/if}
 </div>
 
 <style>
 	.c-drag-and-drop {
+		--dnd-accent: var(--color-primary-500);
 		position: relative;
 		transition: all var(--duration-200, 200ms) var(--easing-smooth, ease-in-out);
 	}
 
-	.c-drag-and-drop--draggable {
-		cursor: grab;
+	.c-drag-and-drop[data-variant='neutral'] {
+		--dnd-accent: var(--color-neutral-500);
+	}
+	.c-drag-and-drop[data-variant='secondary'] {
+		--dnd-accent: var(--color-secondary-500);
+	}
+	.c-drag-and-drop[data-variant='tertiary'] {
+		--dnd-accent: var(--color-neutral-400);
+	}
+	.c-drag-and-drop[data-variant='success'] {
+		--dnd-accent: var(--color-success-500);
+	}
+	.c-drag-and-drop[data-variant='info'] {
+		--dnd-accent: var(--color-info-500);
+	}
+	.c-drag-and-drop[data-variant='warning'] {
+		--dnd-accent: var(--color-warning-500);
+	}
+	.c-drag-and-drop[data-variant='danger'],
+	.c-drag-and-drop[data-variant='error'] {
+		--dnd-accent: var(--color-danger-500);
 	}
 
-	.c-drag-and-drop--draggable:active {
-		cursor: grabbing;
+	.c-drag-and-drop--handle {
+		padding-right: 1.75rem;
 	}
 
 	.c-drag-and-drop--dragging {
@@ -138,13 +158,12 @@
 	}
 
 	.c-drag-and-drop--dropzone.c-drag-and-drop--drop-active {
-		box-shadow: 0 0 0 2px var(--color-primary-500);
-		background: color-mix(in srgb, var(--color-primary-500) 5%, transparent);
+		box-shadow: 0 0 0 2px var(--dnd-accent);
+		background: color-mix(in srgb, var(--dnd-accent) 5%, transparent);
 	}
 
 	.c-drag-and-drop--disabled {
 		opacity: 0.5;
-		cursor: not-allowed;
 		pointer-events: none;
 	}
 

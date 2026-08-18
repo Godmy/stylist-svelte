@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { createButtonFactoryInput } from './behavior';
 export type {
 	RecipeComparisonCard,
 	RecipeProductAvailability,

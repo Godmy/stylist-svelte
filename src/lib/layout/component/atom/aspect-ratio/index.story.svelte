@@ -23,7 +23,7 @@
 		<div class="_c1">
 			<AspectRatio ratio={Number(values.ratio) || 1}>
 				{#snippet children()}
-					<div class="_c2 [background-image:var(--gradient-ocean)]">
+					<div class="_c2">
 						ratio: {values.ratio}
 					</div>
 				{/snippet}
@@ -48,9 +48,10 @@
 		align-items: center;
 		justify-content: center;
 		border-radius: 0.25rem;
+		background-image: linear-gradient(135deg, var(--color-primary-500), var(--color-info-500));
 		font-size: 0.875rem;
 		line-height: 1.25rem;
 		font-weight: 600;
-		color: var(--color-text-primary);
+		color: var(--color-text-inverse);
 	}
 </style>

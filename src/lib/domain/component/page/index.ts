@@ -1,2 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { PageDomain } from './page-domain/index';
+export { DomainLanding } from './domain-landing/index';
+export { DomainPlayground } from './domain-playground/index';

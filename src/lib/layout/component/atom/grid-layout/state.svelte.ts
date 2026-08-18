@@ -1,7 +1,4 @@
 import type { RecipeGridLayout } from '$stylist/layout/interface/recipe/grid-layout';
-import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
-import type { TokenJustification } from '$stylist/layout/type/alias/justification';
-import type { TokenSize } from '$stylist/theme/type/alias/size';
 
 const GAP_VALUES: Record<string, string> = {
 	xs: '0.25rem',
@@ -12,27 +9,43 @@ const GAP_VALUES: Record<string, string> = {
 	'2xl': '3rem'
 };
 
+function resolveColumns(
+	columns: RecipeGridLayout['columns'],
+	cols: number,
+	responsive: boolean
+): string {
+	if (typeof columns === 'number') return `repeat(${columns}, 1fr)`;
+	if (typeof columns === 'string' && columns.trim()) return columns;
+	if (responsive) return 'repeat(auto-fit, minmax(250px, 1fr))';
+	return `repeat(${cols}, 1fr)`;
+}
+
 export function createGridLayoutState(props: RecipeGridLayout) {
 	const cols = $derived(props.cols ?? 2);
-	const gap = $derived<TokenSize>((props.gap as TokenSize) ?? 'md');
+	const rows = $derived(props.rows);
+	const gap = $derived(props.gap ?? 'md');
 	const responsive = $derived(props.responsive ?? true);
-	const alignItems = $derived<TokenAlignment>(
-		(props.alignItems as TokenAlignment | undefined) ?? 'center'
-	);
-	const justifyContent = $derived<TokenJustification>(
-		(props.justifyContent as TokenJustification | undefined) ?? 'justify'
-	);
+	const alignItems = $derived(props.alignItems ?? 'center');
+	const justifyContent = $derived(props.justifyContent ?? 'stretch');
 
 	const items = $derived(props.items ?? []);
-	const layoutStyle = $derived(
-		`grid-template-columns: ${String(props.columns ?? 'repeat(auto-fit, minmax(250px, 1fr))')}; gap: ${GAP_VALUES[gap] ?? '1rem'};`
-	);
+	const layoutStyle = $derived.by(() => {
+		const parts = [
+			`grid-template-columns: ${resolveColumns(props.columns, cols, responsive)}`,
+			`gap: ${GAP_VALUES[gap] ?? gap}`,
+			`align-items: ${alignItems}`,
+			`justify-content: ${justifyContent}`
+		];
+		if (rows) parts.push(`grid-template-rows: repeat(${rows}, 1fr)`);
+		return parts.join('; ') + ';';
+	});
 
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,
 			items: _items,
 			columns: _columns,
+			rows: _rows,
 			gap: _gap,
 			itemClass: _itemClass,
 			cols: _cols,

@@ -7,6 +7,7 @@ export {
 	LayoutTransformation,
 	Loading,
 	NumberFlow,
+	ProgressBar,
 	Skeleton,
 	Spinner,
 	Tooltip,
@@ -26,9 +27,6 @@ export {
 export type {
 	EasingFunction,
 	InteractionFeedback,
-	TokenAnimation,
-	TokenDuration,
-	TokenEasing,
 	TokenLoading,
 	TokenTransition
 } from './type';
@@ -44,6 +42,7 @@ export type {
 	RecipeLayoutTransformation,
 	RecipeLoading,
 	RecipeNumberFlow,
+	RecipeProgressBar,
 	RecipeSkeleton,
 	RecipeSpinner,
 	RecipeTooltip,

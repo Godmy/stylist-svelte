@@ -1,10 +1,10 @@
-import { SemanticZoomManager } from '$stylist/architecture/class/manager/semantic-zoom';
-import { RECORD_FRAME } from '$stylist/architecture/const/record/frame/index';
+import { SemanticZoomManager } from '$stylist/presentation/class/manager/semantic-zoom';
+import { RECORD_FRAME } from '$stylist/presentation/const/record/frame/index';
 import { FOCUS_DURATION_MS } from '$stylist/presentation/const/value/prezi-scene/index';
 import { resolvePresenterSceneLinks } from '$stylist/presentation/function/script/scene/presenter';
 import type { RecipePreziScene } from '$stylist/presentation/interface/recipe/prezi-scene';
-import type { SceneNode } from '$stylist/architecture/interface/slot/scene-node/scene-node';
-import type { PreziCamera } from '$stylist/architecture/interface/slot/prezi-camera/index';
+import type { SceneNode } from '$stylist/presentation/interface/slot/scene-node';
+import type { PreziCamera } from '$stylist/presentation/interface/slot/prezi-camera/index';
 import type { RecipePreziSceneState } from '$stylist/presentation/interface/recipe/prezi-scene-state/index';
 import type { BehaviorPreziSceneMethods } from '$stylist/presentation/interface/behavior/prezi-scene-methods';
 

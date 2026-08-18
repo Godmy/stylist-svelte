@@ -3,7 +3,7 @@ import type { SlotButtonAttributesBase } from '$stylist/button/interface/slot/bu
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
-import type { SlotBadge } from '$stylist/information/interface/slot/badge';
+import type { SlotBadge } from '$stylist/layout/interface/slot/badge';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 export interface RecipeFollowButton
 	extends ComputeIntersectAll<

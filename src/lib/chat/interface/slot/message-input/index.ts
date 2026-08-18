@@ -1,5 +1,4 @@
-import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
-export interface SlotMessageInput extends HtmlAttributesBase<HTMLDivElement> {
+export interface SlotMessageInput {
 	disabled?: boolean;
 	placeholder?: string;
 	showAttachment?: boolean;

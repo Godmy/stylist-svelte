@@ -2,7 +2,6 @@
 export type { FoundationAxis } from './axis';
 export type { TokenComponentType } from './component-type';
 export type { TokenConnector } from './connector';
-export type { FoundationSemanticZoomStage } from './foundation-semantic-zoom-stage';
 export type { TokenFunctionalTaxonomy } from './functional-taxonomy';
 export type { GraphGridMode } from './graph-grid-mode';
 export type { GraphNodeCategory } from './graph-node-category';

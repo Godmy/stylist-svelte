@@ -36,7 +36,6 @@ export {
 	socialActivityFeedGetDescription,
 	socialActivityFeedGetIcon
 } from './function';
-export { createButtonFactoryInput } from './interface';
 export type {
 	Activity,
 	ActivityType,

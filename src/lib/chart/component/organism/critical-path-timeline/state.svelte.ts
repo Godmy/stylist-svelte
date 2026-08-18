@@ -1,11 +1,11 @@
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
-import { CriticalPathTimelineManager } from '$stylist/chart/class/manager/critical-path-timeline';
+import { ManagerCriticalPathTimeline } from '$stylist/chart/class/manager/critical-path-timeline';
 import type { RecipeCriticalPathTimeline } from '$stylist/chart/interface/recipe/critical-path-timeline';
 
 export default function createCriticalPathTimelineState(props: RecipeCriticalPathTimeline) {
 	const className = $derived(ClassNamesManager.merge('critical-path-timeline', props.class));
 	const layout = $derived.by(() =>
-		CriticalPathTimelineManager.createLayout(props.tasks, {
+		ManagerCriticalPathTimeline.createLayout(props.tasks, {
 			width: props.width,
 			rowHeight: props.rowHeight,
 			dayWidth: props.dayWidth,

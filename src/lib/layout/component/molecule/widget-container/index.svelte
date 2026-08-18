@@ -24,15 +24,30 @@
 		'layout-widget',
 		state.isMaximized && 'layout-widget--maximized',
 		state.isCollapsed && 'layout-widget--collapsed',
+		state.resizable && !state.isMaximized && 'layout-widget--resizable',
+		state.isDragging && 'layout-widget--dragging',
 		props.class
 	]
 		.filter(Boolean)
 		.join(' ')}
 	{...state.restProps}
+	style:transform={!state.isMaximized && (state.dragOffset.x || state.dragOffset.y)
+		? `translate(${state.dragOffset.x}px, ${state.dragOffset.y}px)`
+		: undefined}
 >
 	<div class={['layout-widget__header', props.headerClass].filter(Boolean).join(' ')}>
 		{#if state.draggable}
-			<div class="layout-widget__handle">
+			<div
+				class="layout-widget__handle"
+				role="button"
+				tabindex="0"
+				aria-label="Drag to move widget"
+				onpointerdown={state.handleDragPointerDown}
+				onpointermove={state.handleDragPointerMove}
+				onpointerup={state.handleDragPointerUp}
+				onpointercancel={state.handleDragPointerUp}
+				onkeydown={state.handleDragKeyDown}
+			>
 				<BaseIcon name={GripVertical} class="layout-widget__icon" />
 			</div>
 		{/if}
@@ -123,6 +138,18 @@
 		z-index: var(--z-index-modal, 100);
 	}
 
+	.layout-widget--resizable {
+		resize: both;
+		overflow: auto;
+		min-width: 12rem;
+		min-height: 8rem;
+	}
+
+	.layout-widget--dragging {
+		box-shadow: var(--shadow-lg, 0 10px 25px rgba(0, 0, 0, 0.15));
+		user-select: none;
+	}
+
 	.layout-widget__header {
 		display: flex;
 		align-items: center;
@@ -132,9 +159,20 @@
 	}
 
 	.layout-widget__handle {
-		cursor: move;
+		cursor: grab;
+		touch-action: none;
 		color: var(--color-text-tertiary);
 		margin-right: 0.5rem;
+	}
+
+	.layout-widget__handle:active {
+		cursor: grabbing;
+	}
+
+	.layout-widget__handle:focus-visible {
+		outline: 2px solid var(--color-primary-500);
+		outline-offset: 2px;
+		border-radius: 0.25rem;
 	}
 
 	.layout-widget__title-group {

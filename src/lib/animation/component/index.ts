@@ -5,6 +5,7 @@ export {
 	AnimatedNumber,
 	LayoutTransformation,
 	NumberFlow,
+	ProgressBar,
 	Skeleton,
 	Spinner,
 	Tooltip,

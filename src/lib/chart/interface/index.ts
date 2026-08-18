@@ -3,6 +3,7 @@ export type {
 	BehaviorChartAxis,
 	BehaviorChartColorable,
 	BehaviorLegendable,
+	BehaviorMetricValue,
 	BehaviorPointClickable,
 	BehaviorTooltipable
 } from './behavior';

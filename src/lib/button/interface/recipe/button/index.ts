@@ -3,7 +3,7 @@ import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotButtonAttributesBase } from '$stylist/button/interface/slot/button-attributes-base';
-import type { SlotBadge } from '$stylist/information/interface/slot/badge';
+import type { SlotBadge } from '$stylist/layout/interface/slot/badge';
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { RecipeBorder } from '$stylist/layout/interface/recipe/border';

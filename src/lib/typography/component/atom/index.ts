@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { Abbr } from './abbr/index';
+export { Badge } from './badge/index';
 export { Blockquote } from './blockquote/index';
 export { Heading } from './heading/index';
 export { InlineCode } from './inline-code/index';

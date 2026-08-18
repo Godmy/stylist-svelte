@@ -4,7 +4,21 @@
 	import StylistHero from '$stylist/marketing/component/molecule/stylist-hero/index.svelte';
 	import StylistMission from '$stylist/marketing/component/molecule/stylist-mission/index.svelte';
 
-	let { rootDomainCount = 0, storyModuleCount = 0, class: className = '' } = $props();
+	let {
+		rootDomainCount = 0,
+		storyModuleCount = 0,
+		onBrowseComponents,
+		onOpenPlayground,
+		onOpenWorkspace,
+		class: className = ''
+	}: {
+		rootDomainCount?: number;
+		storyModuleCount?: number;
+		onBrowseComponents?: () => void;
+		onOpenPlayground?: () => void;
+		onOpenWorkspace?: () => void;
+		class?: string;
+	} = $props();
 </script>
 
 <section class={`c-stylist-landing ${className}`} aria-label="Stylist landing">
@@ -13,7 +27,11 @@
 
 		<div class="content-band content-band--cta">
 			<div class="content-shell content-shell--narrow">
-				<CtaButtons totalComponents={storyModuleCount} />
+				<CtaButtons
+					totalComponents={storyModuleCount}
+					onComponentsOpen={onBrowseComponents}
+					onPlaygroundOpen={onOpenPlayground}
+				/>
 			</div>
 		</div>
 
@@ -25,7 +43,10 @@
 
 		<div class="content-band">
 			<div class="content-shell">
-				<StylistMission />
+				<StylistMission
+					onPrimaryOpen={onOpenWorkspace}
+					onSecondaryOpen={onBrowseComponents}
+				/>
 			</div>
 		</div>
 	</div>

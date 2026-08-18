@@ -1,7 +1,7 @@
-import type { HtmlAttributesBase } from '$stylist/information/interface/slot/html-attributes-base';
+import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotCommentUser } from '$stylist/social/interface/slot/comment-user';
 import type { SlotCommentItem } from '$stylist/social/interface/slot/comment-item';
-export interface SlotCommentSystem extends HtmlAttributesBase<HTMLDivElement> {
+export interface SlotCommentSystem extends HTMLAttributes<HTMLDivElement> {
 	comments: SlotCommentItem[];
 	currentUser: SlotCommentUser;
 	showReply?: boolean;

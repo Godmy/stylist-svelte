@@ -10,7 +10,6 @@ export type { RecipeMinimap } from './minimap';
 export type { RecipeNodeIcon } from './node-icon';
 export type { RecipeOntologyEdgeComponent } from './ontology-edge-component';
 export type { RecipeOntologyNodeComponent } from './ontology-node-component';
-export type { RecipePresentationState } from './presentation-state';
 export type { RecipeSelectionState } from './selection-state';
 export type { RecipeStage } from './stage';
 export type { RecipeStylistGraphWorkspace } from './stylist-graph-workspace';

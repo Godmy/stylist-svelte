@@ -42,7 +42,7 @@
 <style>
 	._c1 {
 		border-radius: 1.5rem;
-		background-color: #f8fafc;
+		background-color: var(--color-background-secondary);
 		padding: 1.5rem;
 	}
 	._c2 {
@@ -50,26 +50,26 @@
 		border-radius: 1rem;
 		border-width: 1px;
 		border-style: solid;
-		border-color: #e2e8f0;
-		background-color: #ffffff;
+		border-color: var(--color-border-primary);
+		background-color: var(--color-background-primary);
 		padding: 0.5rem;
 	}
 	._c3 {
 		width: 100%;
 		border-radius: 0.75rem;
-		background-color: var(--color-amber-50);
+		background-color: var(--color-warning-50);
 		padding-left: 1rem;
 		padding-right: 1rem;
 		padding-top: 1.25rem;
 		padding-bottom: 1.25rem;
 		text-align: left;
 		font-weight: 500;
-		color: var(--color-amber-900, #amber-900);
+		color: var(--color-warning-900);
 	}
 	._c4 {
 		margin-top: 1rem;
 		font-size: 0.875rem;
 		line-height: 1.25rem;
-		color: #64748b;
+		color: var(--color-text-secondary);
 	}
 </style>

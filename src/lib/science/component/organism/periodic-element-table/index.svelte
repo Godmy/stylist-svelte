@@ -25,9 +25,20 @@
 	function selectCategory(category: string) {
 		selectedCategory = selectedCategory === category ? '' : category;
 	}
+
+	const restProps = $derived.by(() => {
+		const {
+			elements: _elements,
+			selectedSymbol: _selectedSymbol,
+			onElementSelect: _onElementSelect,
+			class: _class,
+			...rest
+		} = props;
+		return rest;
+	});
 </script>
 
-<div class="c-periodic-element-table {className}">
+<div {...restProps} class="c-periodic-element-table {className}">
 	<div class="c-periodic-element-table__header">
 		<div>
 			<p class="c-periodic-element-table__eyebrow">science</p>

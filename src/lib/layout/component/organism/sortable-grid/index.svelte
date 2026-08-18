@@ -16,6 +16,8 @@
 			onItemsChange: _onItemsChange,
 			cols: _cols,
 			gap: _gap,
+			variant: _variant,
+			disabled: _disabled,
 			...rest
 		} = props;
 		return rest;
@@ -26,6 +28,8 @@
 	class={state.containerClass}
 	data-cols={state.cols}
 	data-gap={state.gap ?? 'md'}
+	data-variant={state.variant}
+	data-disabled={state.disabled || undefined}
 	{...restProps}
 >
 	<div class="c-sortable-grid__grid">
@@ -108,6 +112,17 @@
 	}
 	.c-sortable-grid__item[data-over] {
 		border-color: var(--color-primary-500);
+	}
+	.c-sortable-grid[data-variant='minimal'] .c-sortable-grid__item {
+		border-color: transparent;
+		border-radius: 0;
+	}
+	.c-sortable-grid[data-variant='minimal'] .c-sortable-grid__item-content {
+		padding: 0.5rem 0;
+	}
+	.c-sortable-grid[data-disabled] .c-sortable-grid__item {
+		cursor: not-allowed;
+		opacity: var(--opacity-60, 0.6);
 	}
 	.c-sortable-grid__item-content {
 		display: flex;

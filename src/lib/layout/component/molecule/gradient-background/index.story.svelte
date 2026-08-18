@@ -28,7 +28,9 @@
 
 		{ name: 'speed', type: 'number', defaultValue: 20, min: 5, max: 60, step: 1 },
 
-		{ name: 'intensity', type: 'number', defaultValue: 50, min: 10, max: 100, step: 1 }
+		{ name: 'intensity', type: 'number', defaultValue: 50, min: 10, max: 100, step: 1 },
+
+		{ name: 'animated', type: 'boolean', defaultValue: true }
 	];
 </script>
 
@@ -44,6 +46,7 @@
 			direction={values.direction}
 			speed={values.speed}
 			intensity={values.intensity}
+			animated={values.animated}
 			class="_c1"
 		>
 			{#snippet children()}
@@ -58,10 +61,14 @@
 </Story>
 
 <style>
-	._c1 {
+	:global(._c1) {
+		position: relative;
+
 		min-height: 13rem;
 
 		border-radius: 1rem;
+
+		overflow: hidden;
 	}
 
 	._c2 {

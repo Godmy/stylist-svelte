@@ -1,9 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	InteractionFeedback,
-	TokenAnimation,
-	TokenDuration,
-	TokenEasing,
 	TokenLoading,
 	TokenTransition
 } from './alias';

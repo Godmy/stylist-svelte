@@ -26,16 +26,15 @@
 	{#snippet children(values: any)}
 		<div class="_c1">
 			<PinInputDigit
-				id="pin-1"
 				value={values.value}
 				focused={values.focused}
 				invalid={values.invalid}
 				size={values.size}
 				variant={values.variant}
 			/>
-			<PinInputDigit id="pin-2" value="" size={values.size} variant={values.variant} />
-			<PinInputDigit id="pin-3" value="" size={values.size} variant={values.variant} />
-			<PinInputDigit id="pin-4" value="" size={values.size} variant={values.variant} />
+			<PinInputDigit value="" size={values.size} variant={values.variant} />
+			<PinInputDigit value="" size={values.size} variant={values.variant} />
+			<PinInputDigit value="" size={values.size} variant={values.variant} />
 		</div>
 	{/snippet}
 </Story>

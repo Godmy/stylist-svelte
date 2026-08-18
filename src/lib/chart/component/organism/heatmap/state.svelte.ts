@@ -1,6 +1,6 @@
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeHeatmap } from '$stylist/chart/interface/recipe/heatmap';
-import { ObjectManagerHeatmap } from '$stylist/chart/class/object-manager/heatmap';
+import { ManagerHeatmap } from '$stylist/chart/class/manager/heatmap';
 
 export function createHeatmapState(props: RecipeHeatmap) {
 	let hoveredCell = $state<string | null>(null);
@@ -10,21 +10,21 @@ export function createHeatmapState(props: RecipeHeatmap) {
 		(props.colorScheme ?? 'minimal') as 'minimal' | 'ocean' | 'forest' | 'sunset'
 	);
 
-	const rows = $derived(ObjectManagerHeatmap.resolveRows(props.data ?? []));
-	const columns = $derived(ObjectManagerHeatmap.resolveColumns(props.data ?? []));
+	const rows = $derived(ManagerHeatmap.resolveRows(props.data ?? []));
+	const columns = $derived(ManagerHeatmap.resolveColumns(props.data ?? []));
 	const calculatedMaxValue = $derived(
-		ObjectManagerHeatmap.resolveMaxValue(props.data ?? [], props.maxValue)
+		ManagerHeatmap.resolveMaxValue(props.data ?? [], props.maxValue)
 	);
 	const chartWidth = $derived(
-		ObjectManagerHeatmap.resolveChartWidth(props.width ?? 600, props.showAxis ?? true)
+		ManagerHeatmap.resolveChartWidth(props.width ?? 600, props.showAxis ?? true)
 	);
 	const chartHeight = $derived(
-		ObjectManagerHeatmap.resolveChartHeight(props.height ?? 400, props.showAxis ?? true)
+		ManagerHeatmap.resolveChartHeight(props.height ?? 400, props.showAxis ?? true)
 	);
-	const cellWidth = $derived(ObjectManagerHeatmap.resolveCellSize(chartWidth, columns.length));
-	const cellHeight = $derived(ObjectManagerHeatmap.resolveCellSize(chartHeight, rows.length));
+	const cellWidth = $derived(ManagerHeatmap.resolveCellSize(chartWidth, columns.length));
+	const cellHeight = $derived(ManagerHeatmap.resolveCellSize(chartHeight, rows.length));
 	const heatmapCells = $derived(
-		ObjectManagerHeatmap.resolveHeatmapCells({
+		ManagerHeatmap.resolveHeatmapCells({
 			data: props.data ?? [],
 			rows,
 			columns,

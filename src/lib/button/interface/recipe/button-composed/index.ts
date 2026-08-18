@@ -9,7 +9,7 @@ import type { RecipeContainer } from '$stylist/layout/interface/recipe/container
 import type { RecipeBorder } from '$stylist/layout/interface/recipe/border';
 import type { RecipeBackground } from '$stylist/layout/interface/recipe/background';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
-import type { SlotBadge } from '$stylist/information/interface/slot/badge';
+import type { SlotBadge } from '$stylist/layout/interface/slot/badge';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 export interface RecipeButtonComposed
 	extends ComputeIntersectAll<

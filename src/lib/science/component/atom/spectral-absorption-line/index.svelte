@@ -9,9 +9,15 @@
 	const position = $derived(((props.line.wavelength - minWavelength) / span) * 100);
 	const width = $derived(Math.max(1, Math.round(props.line.intensity * 5)));
 	const opacity = $derived(Math.min(Math.max(0.35 + props.line.intensity * 0.55, 0.35), 0.95));
+
+	const restProps = $derived.by(() => {
+		const { line: _line, minWavelength: _minWavelength, maxWavelength: _maxWavelength, class: _class, ...rest } = props;
+		return rest;
+	});
 </script>
 
 <span
+	{...restProps}
 	class="c-spectral-absorption-line {props.class ?? ''}"
 	style:left={`${position}%`}
 	style:width={`${width}px`}

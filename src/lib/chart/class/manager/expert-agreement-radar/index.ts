@@ -1,4 +1,4 @@
-export class ExpertAgreementRadarManager {
+export class ManagerExpertAgreementRadar {
 	static createLayout(
 		axes: { text: string; value: number; target?: number }[],
 		options: { width?: number; height?: number; maxValue?: number } = {}

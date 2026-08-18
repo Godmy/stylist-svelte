@@ -12,9 +12,11 @@ export {
 	DomainExplorer,
 	DomainFileDiagnostics,
 	DomainFilePreview,
+	DomainLanding,
 	DomainList,
 	DomainListHeader,
 	DomainMenu,
+	DomainPlayground,
 	DomainSearch,
 	DomainSearchField,
 	DomainSearchToggle,
@@ -25,7 +27,6 @@ export {
 	JointToolbar,
 	JsonTreeViewer,
 	MarkdownRenderer,
-	PageDomain,
 	TaxonomyBreadcrumbs
 } from './component';
 export {
@@ -34,19 +35,12 @@ export {
 	DOMAIN_COMPONENT_DEBUG_ERROR,
 	DOMAIN_COUNT,
 	DOMAIN_MENU_ICONS,
-	DOMAIN_SCREEN_BACKLOG,
-	DOMAIN_SCREEN_BUILDER,
-	DOMAIN_SCREEN_DASHBOARD,
-	DOMAIN_SCREEN_DIAGNOSTICS,
-	DOMAIN_SCREEN_DOMAIN,
-	DOMAIN_SCREEN_LANDING,
+	DOMAIN_SCREEN,
 	DOMAIN_SCREEN_VALUES,
-	DOMAIN_SCREEN_WORKSPACE,
 	JOINT_TOOLBAR_ITEMS,
 	STYLIST_GRAPH_WORKSPACE_SEED,
 	TOKEN_CONTROLLER_TYPE
 } from './const';
-export { createButtonFactoryInput } from './data';
 export { serializeUnknownError } from './function';
 export type {
 	DeviceFrameViewport,

@@ -1,6 +1,6 @@
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
 import type { RecipeBarChart } from '$stylist/chart/interface/recipe/bar-chart';
-import { ObjectManagerBarChart } from '$stylist/chart/class/object-manager/bar-chart';
+import { ManagerBarChart } from '$stylist/chart/class/manager/bar-chart';
 
 export function createBarChartState(props: RecipeBarChart) {
 	let hoveredBar = $state<number | null>(null);
@@ -9,16 +9,16 @@ export function createBarChartState(props: RecipeBarChart) {
 		(props.colorScheme ?? 'minimal') as 'minimal' | 'ocean' | 'forest' | 'sunset'
 	);
 	const calculatedMaxValue = $derived(
-		ObjectManagerBarChart.resolveMaxValue(props.data ?? [], props.maxValue)
+		ManagerBarChart.resolveMaxValue(props.data ?? [], props.maxValue)
 	);
 	const chartWidth = $derived(
-		ObjectManagerBarChart.resolveChartWidth(props.width ?? 600, props.showAxis ?? true)
+		ManagerBarChart.resolveChartWidth(props.width ?? 600, props.showAxis ?? true)
 	);
 	const chartHeight = $derived(
-		ObjectManagerBarChart.resolveChartHeight(props.height ?? 400, props.showAxis ?? true)
+		ManagerBarChart.resolveChartHeight(props.height ?? 400, props.showAxis ?? true)
 	);
 	const barPositions = $derived(
-		ObjectManagerBarChart.resolveBarPositions({
+		ManagerBarChart.resolveBarPositions({
 			data: props.data ?? [],
 			barWidth: props.barWidth ?? 30,
 			barGap: props.barGap ?? 10,
@@ -28,7 +28,7 @@ export function createBarChartState(props: RecipeBarChart) {
 			colorScheme: resolvedColorScheme
 		})
 	);
-	const yAxisValues = $derived(ObjectManagerBarChart.resolveYAxisValues(calculatedMaxValue));
+	const yAxisValues = $derived(ManagerBarChart.resolveYAxisValues(calculatedMaxValue));
 
 	const containerClasses = $derived(ClassNamesManager.merge('bar-chart', containerHostClass));
 	const titleContainerClasses = $derived('bar-chart__title-row');

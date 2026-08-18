@@ -1,5 +1,5 @@
 import type { HandleServerError } from '@sveltejs/kit';
-import { appendErrorLog } from '$stylist/server/function/script/append-error-log';
+import { DiagnosticManager } from '$stylist/server/class/manager/diagnostic';
 import { serializeUnknownError } from '$stylist/domain/function/serialize/unknown-error';
 
 export const handleError: HandleServerError = ({ error, event, status, message }) => {
@@ -12,7 +12,7 @@ export const handleError: HandleServerError = ({ error, event, status, message }
 		clientAddress = null;
 	}
 
-	appendErrorLog({
+	DiagnosticManager.appendErrorLog({
 		timestamp: new Date().toISOString(),
 		source: 'server',
 		routeId: event.route.id ?? null,

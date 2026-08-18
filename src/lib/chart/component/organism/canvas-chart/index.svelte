@@ -1,19 +1,19 @@
 <script lang="ts">
 	import type { RecipeCanvasChart } from '$stylist/chart/interface/recipe/canvas-chart';
 	import createCanvasChartState from './state.svelte';
-	import { ObjectManagerCanvasChart } from '$stylist/chart/class/object-manager/canvas-chart';
+	import { ManagerCanvasChart } from '$stylist/chart/class/manager/canvas-chart';
 
 	let props: RecipeCanvasChart = $props();
 	const state = createCanvasChartState(props);
 
 	let canvasRef: HTMLCanvasElement | null = null;
-	const resolvedColors = $derived(ObjectManagerCanvasChart.resolveColors(state.colors));
+	const resolvedColors = $derived(ManagerCanvasChart.resolveColors(state.colors));
 	const resolvedData = $derived(state.data as any[]);
 	const resolvedType = $derived(state.type);
 
 	$effect(() => {
-		if (ObjectManagerCanvasChart.shouldDrawChart(canvasRef, resolvedData)) {
-			ObjectManagerCanvasChart.drawChart({
+		if (ManagerCanvasChart.shouldDrawChart(canvasRef, resolvedData)) {
+			ManagerCanvasChart.drawChart({
 				canvas: canvasRef,
 				data: resolvedData,
 				type: resolvedType,

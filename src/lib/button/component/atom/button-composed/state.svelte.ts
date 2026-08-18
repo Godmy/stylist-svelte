@@ -25,24 +25,13 @@ export function createButtonComposedState(props: RecipeButtonComposed) {
 	const showDot = $derived(Boolean(props.dot && !badgeText));
 
 	const classes = $derived.by(() => {
-		const classList = [
-			'c-button-composed',
-			border.classes,
-			clickable.classes,
-			focusable.classes,
-			props.class
-		];
+		const classList = ['c-button-composed', clickable.classes, focusable.classes, props.class];
 
 		return classList.filter(Boolean).join(' ');
 	});
 
 	const inlineStyle = $derived.by(() => {
-		const styleParts = [
-			background.inlineStyle,
-			Object.entries(border.styles)
-				.map(([key, value]) => `${key}: ${value}`)
-				.join('; ')
-		].filter(Boolean);
+		const styleParts = [background.inlineStyle, border.inlineStyle].filter(Boolean);
 
 		return styleParts.length ? styleParts.join('; ') : undefined;
 	});

@@ -40,14 +40,13 @@
 		end: 'flex-end'
 	};
 
-	const gapValue = $derived(typeof state.gap === 'number' ? `${state.gap}px` : '1rem');
 	const alignValue = $derived(ALIGN[state.alignItems] ?? 'center');
 	const justifyValue = $derived(JUSTIFY[state.justifyContent] ?? 'center');
 </script>
 
 <div
 	class={['layout-h', props.class].filter(Boolean).join(' ')}
-	style:--gap={gapValue}
+	style:--gap={state.gapValue}
 	style:--align={alignValue}
 	style:--justify={justifyValue}
 	style:--wrap={state.wrap ? 'wrap' : 'nowrap'}

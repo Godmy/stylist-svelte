@@ -3,7 +3,7 @@ import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/la
 export interface RecipeGridLayout extends LayoutHTMLAttributes<HTMLDivElement> {
 	class?: string;
 	children?: Snippet;
-	columns?: number;
+	columns?: number | string;
 	cols?: number;
 	rows?: number;
 	gap?: string;

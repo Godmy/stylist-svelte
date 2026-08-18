@@ -1,6 +1,6 @@
-import { ControlManager } from '$stylist/control/class/manager/control';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { RecipeCopyButton } from '$stylist/button/interface/recipe/copy-button';
+import { copyTextToClipboard } from '$stylist/button/function/async/copy-text-to-clipboard';
 import { createButtonPreset } from '$stylist/button/function/script/create-button-preset';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 
@@ -72,7 +72,7 @@ export function createCopyButtonState(props: RecipeCopyButton & HTMLButtonAttrib
 		async handleCopy() {
 			if (props.disabled || props.loading) return;
 
-			const success = await ControlManager.copyTextToClipboard(props.copyText ?? '');
+			const success = await copyTextToClipboard(props.copyText ?? '');
 
 			if (success) {
 				copied = true;

@@ -1,80 +1,53 @@
-# Domain — дерево компонентов
+# Domain component workspace
 
-Точка входа приложения: `stylist-svelte/src/routes/+page.svelte` рендерит только
-`component/page/page-domain` (бывший `organism/domain-workspace-shell`) — это
-единственный компонент домена, подключённый напрямую к route. Всё остальное
-подключается уже из него (напрямую или лениво, через `import()`).
+`domain/component/page/domain-playground` is the root shell used by the app route. It owns the screen state and keeps the domain menu, viewport controls, settings panel and AI panel above the current workspace surface.
 
-## Дерево вложенности
+`domain/component/page/domain-landing` is the landing surface for this domain. It explains why the workspace exists and routes people into the component playground instead of treating the library as a flat component dump.
 
-```
-component/page/page-domain                — корневой shell приложения, держит состояние экрана
-├─ molecule/domain-menu                    — плавающая панель переключения экранов (всегда видна) + кнопка AI
-├─ molecule/device-viewport                — mobile/tablet/desktop/fullscreen, видна левее domain-menu во время playground-превью
-├─ organism/domain-explorer                — экран "Domain" (каталог сущностей)
-│  ├─ organism/domain-sidebar              — левый сайдбар навигации по таксономии
-│  │  ├─ molecule/domain-toolbar           — переключатель верхнеуровневого домена
-│  │  ├─ molecule/cluster-toolbar          — переключатель кластера домена
-│  │  ├─ molecule/joint-toolbar            — переключатель joint (atom/molecule/organism/template/page/const/data/md/…)
-│  │  └─ molecule/domain-list              — список сущностей текущего кластера/joint
-│  │     ├─ atom/domain-list-header        — заголовок списка (метка + счётчик)
-│  │     └─ atom/domain-entity             — строка одной сущности (кликабельная, drag&drop)
-│  ├─ molecule/taxonomy-breadcrumbs        — хлебные крошки domain / cluster / joint / family
-│  ├─ molecule/domain-search               — оверлей быстрого поиска + кнопка копирования пути сущности
-│  │  ├─ atom/domain-search-toggle         — кнопка открытия/закрытия поиска
-│  │  ├─ atom/domain-search-field          — поле ввода поискового запроса
-│  │  └─ molecule/taxonomy-breadcrumbs     — крошки у каждого результата поиска
-│  ├─ molecule/joint-tab-buttons           — вкладки файлов сущности (markdown/story/json/…); 
-│  └─ organism/domain-file-preview         — предпросмотр содержимого выбранного файла
-│     └─ molecule/json-tree-viewer         — раскрывающийся просмотрщик JSON
-├─ organism/domain-builder                 — экран "Builder" (drag&drop-конструктор страниц)
-│  ├─ organism/domain-sidebar              — тот же сайдбар, источник сущностей для drag&drop
-│  └─ molecule/domain-descriptor-panel     — orbit-панель дескриптора выбранного компонента
-├─ organism/domain-backlog                 — экран "Backlog" (issues/kanban/burn-down; компоненты домена portfolio, вне этого дерева)
-├─ organism/domain-diagnostics             — экран "Diagnostics" (прогон всех *.story.svelte)
-├─ organism/domain-settings                — модальная панель настроек темы (по флагу isSettingsOpen)
-└─ organism/domain-ai-agent                — модальная панель для работы с ИИ-агентом (по флагу isAiOpen, пока placeholder)
+## Screen Structure
 
+```text
+component/page/domain-playground          - root shell and screen switcher
+├─ component/page/domain-landing          - landing page for the domain workspace
+├─ molecule/domain-menu                   - persistent menu for landing, components, workspace, builder, backlog, dashboard, AI, settings and diagnostics
+├─ molecule/device-viewport               - story viewport control for component preview
+├─ organism/domain-explorer               - component browser for domains, clusters, joints and families
+│  ├─ organism/domain-sidebar             - taxonomy navigation
+│  ├─ molecule/domain-toolbar             - domain selector
+│  ├─ molecule/cluster-toolbar            - cluster selector
+│  ├─ molecule/joint-toolbar              - joint selector
+│  ├─ molecule/domain-list                - entity list
+│  ├─ molecule/domain-search              - quick entity search
+│  ├─ molecule/taxonomy-breadcrumbs       - selected path display
+│  ├─ molecule/joint-tab-buttons          - file/story/json/markdown tabs
+│  └─ organism/domain-file-preview        - selected file and story preview
+├─ organism/domain-builder                - drag and drop template builder
+├─ organism/domain-backlog                - backlog and sprint surface
+├─ template/dashboard-workspace           - dashboard workspace screen
+├─ organism/domain-diagnostics            - story and domain health runner
+├─ organism/domain-settings               - theme settings panel
+└─ organism/domain-ai-agent               - AI assistant panel placeholder
 ```
 
-## Назначение компонентов
+## Purpose
 
-### Atom
-- **domain-entity** — кликабельная/перетаскиваемая строка одной сущности домена (имя, путь, счётчик файлов, активное состояние).
-- **domain-list-header** — заголовок списка сущностей с меткой и счётчиком.
-- **domain-search-field** — текстовое поле поиска с биндингом значения и обработкой Escape.
-- **domain-search-toggle** — круглая кнопка-переключатель открытия/закрытия панели поиска.
+The domain workspace makes the component library readable before it becomes gigantic. It compresses the architecture into a navigable shape: domains describe subject areas, clusters describe language-level entity types, joints describe logical roles, and families keep related implementation files together.
 
-### Molecule
-- **cluster-toolbar** — переключатель кластера домена (обёртка над `IconToolbar`).
-- **device-viewport** — иконки-кнопки mobile/tablet/desktop/fullscreen в стиле domain-menu; управляют шириной превью playground-компонента через `theme`-контекст (см. примечание про Story ниже), сам `device-frame` больше не оборачивает playground.
-- **domain-descriptor-panel** — orbit-панель с вкладками (Architecture/Information/Interaction/Controls/Contracts) для дескриптора компонента, данные тянет с `/api/descriptor`.
-- **domain-list** — вертикальный список `domain-entity` с заголовком, поддерживает drag&drop и выбор сущности.
-- **domain-menu** — плавающая панель навигации по экранам (landing/domain/workspace/builder/backlog/diagnostics/settings/ai) с переключателем темы.
-- **domain-search** — оверлей быстрого поиска: поле + список результатов с хлебными крошками, кнопка открытия поиска и кнопка копирования пути `<domain>\<cluster>\<joint>\<family>\<file>` текущей сущности в буфер обмена (иконки чистые inline SVG, не из общего icon-registry — там были графические дефекты).
-- **domain-toolbar** — переключатель верхнеуровневого домена (обёртка над `IconToolbar`).
-- **joint-tab-buttons** — вкладки файлов сущности (markdown/story/json-tree/файлы) + меню отладочных действий.
-- **joint-toolbar** — переключатель joint (atom/molecule/organism/const/type/interface/data и т.д., включая `md`) с фильтром доступных вариантов.
-- **json-tree-viewer** — раскрывающийся/сворачиваемый просмотрщик JSON-дерева.
-- **taxonomy-breadcrumbs** — хлебные крошки domain / cluster / joint / family (+ опционально файл).
+The landing page should introduce that model and point users toward the interactive component browser. It is not a marketing wrapper around demos; it is the front door to the system's structure.
 
-### Organism
-- **device-frame** — декоративная рамка устройства (mobile/tablet/desktop) с notch/кнопками; в живом приложении сейчас нигде не подключена (playground-превью её больше не использует), остаётся только в собственной story.
-- **domain-ai-agent** — модальная панель для работы с ИИ-агентом; пока placeholder без реальной интеграции, открывается кнопкой AI в `domain-menu`.
-- **domain-backlog** — экран бэклога/спринта с метриками и переключением видов (issues, kanban, burn-down, scrum); использует компоненты домена `portfolio`.
-- **domain-builder** — визуальный конструктор страниц: drag&drop сущностей (atom/molecule/organism) в колонки, live-рендер, сохранение черновика layout на `/api/builder`, перестановка секций местами (Section up/down). Плюс реальный экспорт: панель "Export as template" (домен + family) шлёт текущие sections/instances на `POST /api/template-export`, который кодогенерит настоящий `component/template/<family>/index.svelte` (импорты + разметка по секциям/колонкам + CSS-грид) и пишет его на диск через `writeLibTextFile` — то есть визуальная сборка становится реальным исходником template, а не только черновиком. После экспорта нужно вручную прогнать индексацию, чтобы обновились barrel-экспорты. Загрузка уже существующего template обратно в конструктор (reverse-parse) не реализована — только генерация "с нуля"/перезапись.
-- **domain-diagnostics** — "Library Story Runner": находит все `*.story.svelte`, монтирует их по очереди, замеряет время и перехватывает ошибки, выводит результат таблицей.
-- **domain-explorer** — основной экран-каталог домена: сайдбар слева, крошки/поиск/вкладки файлов/предпросмотр справа.
-- **domain-file-preview** — предпросмотр содержимого файла сущности: markdown, JSON-дерево, SVG, сырой текст/код или интерактивная сторис (`index.story.svelte` рендерится напрямую; viewport из `device-viewport` прокидывается в `theme`-контекст, а не через `device-frame`).
-- **domain-settings** — плавающая панель настроек темы (обёртка над `ThemeSettings`).
-- **domain-sidebar** — левый сайдбар навигации по таксономии (toolbar-ы + список сущностей).
+## Landing Copy
 
-### Page
-- **page-domain** (было `organism/domain-workspace-shell`, теперь `component/page/page-domain`) — корневой shell-контейнер приложения, переключает экраны и держит поверх всего `domain-menu`/`device-viewport`/`domain-settings`/`domain-ai-agent`.
+- **Hero**: presents Stylist Svelte as a domain-shaped workspace for reading, reviewing and growing the component system.
+- **CTA buttons**: both Browse Components and Interactive Playground open the component playground.
+- **Why Stylist?**: explains the practical value of the workspace.
+- **Atomic Design architecture**: states how atom, molecule, organism and template composition remains visible inside domain context.
+- **Readable navigation**: explains why the library is navigated by domain, cluster, joint and family.
+- **Story-first review**: connects stories with implementation files, markdown and JSON context.
+- **Domain diagnostics**: keeps diagnostics, backlog signals and manifests part of the maintenance loop.
+- **Our Mission**: make the component library readable before it becomes gigantic.
 
-## Примечания
-- `molecule/functional-taxonomy`, `molecule/domain-table` и `organism/domain-dashboard` удалены — нигде не подключались (только barrel-экспорты).
-- `molecule/token-settings` перенесён в `token/component/molecule/token-setting` (единственное число). Переименован при переносе: в `token/component/organism/token-settings` уже существовал другой компонент (панель-грид из многих токенов) с тем же именем экспорта `TokenSettings` — оставить оба как `TokenSettings` означало бы конфликт в общем barrel `token/component/index.ts`.
-- при переключении сущности, домена, кластера или joint'а по умолчанию открывает playground, если у выбранной сущности есть index.story.svelte
-- у всех atom/molecule/organism/page в `domain/component/**` (включая `page-domain`) есть `index.story.svelte`
-- **viewport playground-компонента не трогает шапку истории.** Раньше `domain-file-preview` оборачивал весь `index.story.svelte` (заголовок + описание + controls-panel + сам компонент) в `organism/device-frame`, поэтому переключение mobile/tablet/desktop/fullscreen двигало вообще всё, включая текст и панель настроек. Теперь `device-viewport` пишет выбранный viewport в `storyDevice`, `domain-file-preview` кладёт его в Svelte context (`theme/class/manager/story-viewport-context` → `ManagerStoryViewportContext`, ключ `theme/const/value/story-viewport-context`), а `theme/component/molecule/story` сам читает контекст и ограничивает шириной только свой `.component-preview` — заголовок, описание и панель контролов остаются на всю ширину. `device-frame` при этом всё ещё существует как самостоятельный organism (демо в собственной story), но в реальном приложении его никто не рендерит.
+## Notes
+
+- Selecting a domain, cluster, joint or family opens the component playground when a story preview exists.
+- Component stories live next to their component source as `index.story.svelte`.
+- Generated barrel `index.ts` files are maintained by the indexation workflow.

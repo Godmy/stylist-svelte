@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { getDomainPageData } from '$stylist/server/function/async-get/domain-page-data';
+import { DomainManager } from '$stylist/server/class/manager/domain';
 import { LIB_DIRECTORY_PATH } from '$stylist/server/const/value/lib-directory-path';
 
-type DomainPageData = ReturnType<typeof getDomainPageData>;
+type DomainPageData = ReturnType<typeof DomainManager.getDomainPageData>;
 
 const MANIFEST_PATH = path.join(
 	LIB_DIRECTORY_PATH,
@@ -27,7 +27,7 @@ let cachedPageData: DomainPageData | null = null;
 
 export const load = () => {
 	if (!cachedPageData) {
-		cachedPageData = readManifest() ?? getDomainPageData();
+		cachedPageData = readManifest() ?? DomainManager.getDomainPageData();
 	}
 	return cachedPageData;
 };

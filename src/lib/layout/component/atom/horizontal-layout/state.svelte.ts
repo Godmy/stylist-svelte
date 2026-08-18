@@ -2,8 +2,22 @@ import type { RecipeHorizontalLayout } from '$stylist/layout/interface/recipe/ho
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 import type { TokenJustification } from '$stylist/layout/type/alias/justification';
 
+const GAP_VALUES: Record<string, string> = {
+	none: '0',
+	xs: '0.25rem',
+	sm: '0.5rem',
+	md: '1rem',
+	lg: '1.5rem',
+	xl: '2rem',
+	'2xl': '3rem'
+};
+
 export function createHorizontalLayoutState(props: RecipeHorizontalLayout) {
 	const gap = $derived(props.gap ?? 16);
+	const gapValue = $derived.by(() => {
+		if (typeof gap === 'number') return `${gap}px`;
+		return GAP_VALUES[gap] ?? gap;
+	});
 	const alignItems = $derived<TokenAlignment>(
 		(props.alignItems as TokenAlignment | undefined) ?? 'center'
 	);
@@ -28,6 +42,9 @@ export function createHorizontalLayoutState(props: RecipeHorizontalLayout) {
 	return {
 		get gap() {
 			return gap;
+		},
+		get gapValue() {
+			return gapValue;
 		},
 		get alignItems() {
 			return alignItems;

@@ -5,8 +5,6 @@ export { TOKEN_CUBE_FACE_NAME } from './cube-face-name';
 export { TOKEN_CUBE_FACE_TITLE } from './cube-face-title';
 export { TOKEN_FOUNDATION_AXES } from './foundation-axes';
 export { TOKEN_FOUNDATION_AXIS_DIRECTIONS } from './foundation-axis-directions';
-export { FOUNDATION_DEPTH_THRESHOLDS } from './foundation-depth-thresholds';
-export { FOUNDATION_SEMANTIC_ZOOM_STAGES } from './foundation-semantic-zoom-stages';
 export { TOKEN_FUNCTIONAL_TAXONOMY } from './functional-taxonomy';
 export { GRAPH_GRID_MODE } from './graph-grid-mode';
 export { GRAPH_NODE_CATEGORY } from './graph-node-category';

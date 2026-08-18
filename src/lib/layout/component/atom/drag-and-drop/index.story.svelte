@@ -73,7 +73,7 @@
 					{#snippet children()}
 						<div class="_c4">
 							<p class="_c5">📦 Перетащи меня</p>
-							<p class="text-muted _c6">Drag me to the drop zone</p>
+							<p class="_c6 _c-muted">Drag me to the drop zone</p>
 						</div>
 					{/snippet}
 				</DragAndDrop>
@@ -96,7 +96,7 @@
 						<div class="_c4">
 							<p class="_c5">📥 Зона сброса</p>
 							{#if droppedData}
-								<p class="text-muted _c8">
+								<p class="_c8 _c-muted">
 									Последние данные: {JSON.stringify(droppedData)}
 								</p>
 							{/if}
@@ -108,7 +108,7 @@
 			<!-- Event log -->
 			<div class="_c9">
 				<p class="_c10">События:</p>
-				<ul class="text-muted _c11">
+				<ul class="_c11 _c-muted">
 					{#each dragEvents as event}
 						<li>{event}</li>
 					{/each}
@@ -163,6 +163,7 @@
 		border-radius: 0.5rem;
 		border-width: 2px;
 		border-style: dashed;
+		border-color: var(--color-border-secondary);
 		background-color: var(--color-background-tertiary);
 		padding: 1.5rem;
 	}
@@ -176,5 +177,8 @@
 		border-radius: 0.5rem;
 		background-color: var(--color-background-tertiary);
 		padding: 1rem;
+	}
+	._c-muted {
+		color: var(--color-text-secondary);
 	}
 </style>

@@ -1,4 +1,4 @@
-export class CriticalPathTimelineManager {
+export class ManagerCriticalPathTimeline {
 	private static parseDate(value: string): Date {
 		const date = new Date(`${value}T00:00:00`);
 		return Number.isNaN(date.getTime()) ? new Date('2026-01-01T00:00:00') : date;
@@ -72,8 +72,8 @@ export class CriticalPathTimelineManager {
 		const timeLabelStep = Math.max(1, options.timeLabelStep ?? 7);
 		const parsedTasks = tasks.map((task) => ({
 			...task,
-			startDate: CriticalPathTimelineManager.parseDate(task.start),
-			endDate: CriticalPathTimelineManager.parseDate(task.end)
+			startDate: ManagerCriticalPathTimeline.parseDate(task.start),
+			endDate: ManagerCriticalPathTimeline.parseDate(task.end)
 		}));
 		const minDate = parsedTasks.reduce(
 			(minimum, task) => (task.startDate < minimum ? task.startDate : minimum),
@@ -83,13 +83,13 @@ export class CriticalPathTimelineManager {
 			(maximum, task) => (task.endDate > maximum ? task.endDate : maximum),
 			parsedTasks[0]?.endDate ?? new Date('2026-01-01T00:00:00')
 		);
-		const totalDays = Math.max(1, CriticalPathTimelineManager.diffDays(minDate, maxDate) + 1);
+		const totalDays = Math.max(1, ManagerCriticalPathTimeline.diffDays(minDate, maxDate) + 1);
 		const plotWidth = Math.max(width - plotX - 32, totalDays * dayWidth);
 		const scaleX = (date: Date) =>
-			plotX + (CriticalPathTimelineManager.diffDays(minDate, date) / totalDays) * plotWidth;
+			plotX + (ManagerCriticalPathTimeline.diffDays(minDate, date) / totalDays) * plotWidth;
 		const layoutTasks = parsedTasks.map((task, index) => {
 			const taskX = scaleX(task.startDate);
-			const taskEndX = scaleX(CriticalPathTimelineManager.addDays(task.endDate, 1));
+			const taskEndX = scaleX(ManagerCriticalPathTimeline.addDays(task.endDate, 1));
 			return {
 				id: task.id,
 				text: task.text,
@@ -123,11 +123,11 @@ export class CriticalPathTimelineManager {
 			})
 		);
 		const ticks = Array.from({ length: totalDays + 1 }, (_, index) => {
-			const date = CriticalPathTimelineManager.addDays(minDate, index);
+			const date = ManagerCriticalPathTimeline.addDays(minDate, index);
 			return {
 				id: `tick-${index}`,
 				x: plotX + (plotWidth * index) / totalDays,
-				label: CriticalPathTimelineManager.formatTick(date),
+				label: ManagerCriticalPathTimeline.formatTick(date),
 				showLabel: index % timeLabelStep === 0 || index === totalDays
 			};
 		});

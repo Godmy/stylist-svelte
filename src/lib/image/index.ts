@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	CanvasImageEditor,
+	Card,
 	DividerHeadingImageText,
 	Image,
 	ImageCaption,
@@ -8,6 +9,7 @@ export {
 } from './component';
 export type {
 	RecipeCanvasImageEditor,
+	RecipeCard,
 	RecipeDividerHeadingImageText,
 	RecipeImage,
 	RecipeImageCaption,

@@ -4,9 +4,20 @@
 	import PeriodicElementType from '$stylist/science/component/atom/periodic-element-type/index.svelte';
 
 	let props: RecipePeriodicElementLegend = $props();
+
+	const restProps = $derived.by(() => {
+		const {
+			categories: _categories,
+			selectedCategory: _selectedCategory,
+			onCategorySelect: _onCategorySelect,
+			class: _class,
+			...rest
+		} = props;
+		return rest;
+	});
 </script>
 
-<div class="c-periodic-element-legend {props.class ?? ''}" aria-label="Element categories">
+<div {...restProps} class="c-periodic-element-legend {props.class ?? ''}" aria-label="Element categories">
 	{#each props.categories as category}
 		<PeriodicElementType
 			{category}

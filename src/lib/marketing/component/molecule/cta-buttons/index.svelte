@@ -12,14 +12,39 @@
 		componentsTitle = 'Browse Components',
 		componentsDescriptionPrefix = 'Explore',
 		playgroundTitle = 'Interactive Playground',
-		playgroundDescription = 'Test components with live controls and code generation',
+		playgroundDescription = 'Open the same component explorer with stories, files, markdown and structured context.',
+		onComponentsOpen,
+		onPlaygroundOpen,
 		class: className = '',
 		...restProps
+	}: {
+		totalComponents?: number;
+		componentsHref?: string;
+		playgroundHref?: string;
+		componentsTitle?: string;
+		componentsDescriptionPrefix?: string;
+		playgroundTitle?: string;
+		playgroundDescription?: string;
+		onComponentsOpen?: () => void;
+		onPlaygroundOpen?: () => void;
+		class?: string;
 	} = $props();
+
+	function handleComponentsClick(event: MouseEvent) {
+		if (!onComponentsOpen) return;
+		event.preventDefault();
+		onComponentsOpen();
+	}
+
+	function handlePlaygroundClick(event: MouseEvent) {
+		if (!onPlaygroundOpen) return;
+		event.preventDefault();
+		onPlaygroundOpen();
+	}
 </script>
 
 <div class={`c-marketing-cta-buttons ${className}`} {...restProps}>
-	<a href={componentsHref} class="cta-card cta-card--orange">
+	<a href={componentsHref} class="cta-card cta-card--orange" onclick={handleComponentsClick}>
 		<div class="cta-card-shimmer"></div>
 		<div class="cta-card-top">
 			<BaseIcon
@@ -35,7 +60,7 @@
 		</p>
 	</a>
 
-	<a href={playgroundHref} class="cta-card cta-card--blue">
+	<a href={playgroundHref} class="cta-card cta-card--blue" onclick={handlePlaygroundClick}>
 		<div class="cta-card-shimmer"></div>
 		<div class="cta-card-top">
 			<BaseIcon

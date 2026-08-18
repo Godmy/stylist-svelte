@@ -7,7 +7,7 @@
 		label,
 		value,
 		unit,
-		status = 'unknown',
+		status,
 		delta,
 		caption,
 		href,
@@ -34,7 +34,7 @@
 	<a class="c-dashboard-count-tile {className}" class:c-dashboard-count-tile--interactive={interactive} {href}>
 		<span class="c-dashboard-count-tile__header">
 			<span class="c-dashboard-count-tile__label">{label}</span>
-			<DashboardStatusPill {status} label={status} compact />
+			{#if status}<DashboardStatusPill {status} label={status} compact />{/if}
 		</span>
 		<span class="c-dashboard-count-tile__value" class:c-dashboard-count-tile__value--loading={loading}>
 			{#if loading}...{:else}{value}{/if}
@@ -55,7 +55,7 @@
 	>
 		<span class="c-dashboard-count-tile__header">
 			<span class="c-dashboard-count-tile__label">{label}</span>
-			<DashboardStatusPill {status} label={status} compact />
+			{#if status}<DashboardStatusPill {status} label={status} compact />{/if}
 		</span>
 		<span class="c-dashboard-count-tile__value" class:c-dashboard-count-tile__value--loading={loading}>
 			{#if loading}...{:else}{value}{/if}

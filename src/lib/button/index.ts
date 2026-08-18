@@ -14,6 +14,7 @@ export {
 	TOKEN_BUTTON_LOADER_CLASSES
 } from './const';
 export {
+	copyTextToClipboard,
 	createButtonFactoryInput,
 	createButtonPreset,
 	createButtonState

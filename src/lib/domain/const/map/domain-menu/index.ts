@@ -20,7 +20,6 @@ import { ICON_FORM }         from '$stylist/svg/const/value/form';
 import { ICON_GEO }          from '$stylist/svg/const/value/geo';
 import { ICON_GRAPH }        from '$stylist/svg/const/value/graph';
 import { ICON_IMAGE }        from '$stylist/svg/const/value/image';
-import { ICON_INFORMATION }  from '$stylist/svg/const/value/information';
 import { ICON_INPUT }        from '$stylist/svg/const/value/input';
 import { ICON_IDEF_ZERO }    from '$stylist/svg/const/value/idef-zero';
 import { ICON_LANDING }      from '$stylist/svg/const/value/landing';
@@ -72,7 +71,6 @@ export const DOMAIN_MENU_ICONS = [
 	{ name: 'graph',        svg: ICON_GRAPH },
 	{ name: 'idef-zero',    svg: ICON_IDEF_ZERO },
 	{ name: 'image',        svg: ICON_IMAGE },
-	{ name: 'information',  svg: ICON_INFORMATION },
 	{ name: 'input',        svg: ICON_INPUT },
 	{ name: 'landing',      svg: ICON_LANDING },
 	{ name: 'layout',       svg: ICON_LAYOUT },

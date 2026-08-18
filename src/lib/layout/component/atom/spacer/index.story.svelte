@@ -8,14 +8,19 @@
 		{
 			name: 'size',
 			type: 'select',
-			options: ['xs', 'sm', 'md', 'lg', 'xl', '16px'],
+			options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '16px'],
 			defaultValue: 'md'
 		},
 		{
 			name: 'axis',
 			type: 'select',
-			options: ['vertical', 'horizontal'],
+			options: ['vertical', 'horizontal', 'both'],
 			defaultValue: 'vertical'
+		},
+		{
+			name: 'inline',
+			type: 'boolean',
+			defaultValue: false
 		}
 	];
 </script>

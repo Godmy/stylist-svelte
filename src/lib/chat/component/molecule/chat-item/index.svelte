@@ -2,7 +2,7 @@
 	import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 	import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 	import Avatar from '$stylist/user/component/atom/avatar/index.svelte';
-	import Badge from '$stylist/information/component/atom/badge/index.svelte';
+	import Badge from '$stylist/typography/component/atom/badge/index.svelte';
 	import MessageTimestamp from '$stylist/chat/component/atom/message-timestamp/index.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import createChatItemState from './state.svelte';

@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { RecipeChatPreview } from './chat-preview';
 export type { RecipeChatStatusIndicator } from './chat-status-indicator';
+export type { RecipeDot } from './dot';
 export type { RecipeIconPicker } from './icon-picker';
 export type { RecipeListWithAvatars } from './list-with-avatars';
 export type { RecipeMessageBubble } from './message-bubble';

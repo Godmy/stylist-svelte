@@ -6,4 +6,3 @@ export {
 	TOKEN_TIMESTAMP_FORMAT,
 	TOKEN_TIME_RANGE
 } from './array';
-export { createButtonFactoryInput } from './map';

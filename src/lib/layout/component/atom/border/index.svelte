@@ -3,73 +3,15 @@
 	import type { RecipeBorder } from '$stylist/layout/interface/recipe/border';
 
 	let props: RecipeBorder = $props();
-
-	const BORDER_STYLE_MAP: Record<string, string> = {
-		solid: 'solid',
-		dashed: 'dashed',
-		dotted: 'dotted',
-		double: 'double',
-		none: 'none',
-		invisible: 'none',
-		bold: 'solid',
-		tapered: 'solid'
-	};
-
-	const borderStyle = $derived(props.borderStyle ?? 'solid');
-	const borderWidth = $derived(borderStyle === 'bold' ? '2px' : (props.borderWidth ?? '1px'));
-	const borderColor = $derived(props.borderColor || 'var(--color-border-primary)');
-	const borderRadius = $derived(props.borderRadius || '0');
-	const animated = $derived(props.animated ?? false);
-
-	const inlineStyle = $derived.by(() => {
-		const cssBorderStyle = BORDER_STYLE_MAP[borderStyle] ?? 'solid';
-		const parts: string[] = [`--border-color: ${borderColor}`, `border-radius: ${borderRadius}`];
-
-		if (borderStyle === 'none' || borderStyle === 'invisible') {
-			parts.push('border: none');
-		} else if (props.borderTop || props.borderBottom || props.borderLeft || props.borderRight) {
-			if (props.borderTop)
-				parts.push(`border-top: ${borderWidth} ${cssBorderStyle} ${borderColor}`);
-			if (props.borderBottom)
-				parts.push(`border-bottom: ${borderWidth} ${cssBorderStyle} ${borderColor}`);
-			if (props.borderLeft)
-				parts.push(`border-left: ${borderWidth} ${cssBorderStyle} ${borderColor}`);
-			if (props.borderRight)
-				parts.push(`border-right: ${borderWidth} ${cssBorderStyle} ${borderColor}`);
-		} else {
-			parts.push(`border: ${borderWidth} ${cssBorderStyle} ${borderColor}`);
-		}
-
-		return parts.join('; ');
-	});
-
-	const restProps = $derived(
-		(() => {
-			const {
-				class: _class,
-				borderStyle: _bs,
-				borderWidth: _bw,
-				borderColor: _bc,
-				borderRadius: _br,
-				borderTop: _bt,
-				borderBottom: _bb,
-				borderLeft: _bl,
-				borderRight: _r,
-				animated: _a,
-				children: _ch,
-				...rest
-			} = props;
-			return rest;
-		})()
-	);
+	const state = createBorderState(props);
 </script>
 
 <div
-	class={['layout-border', animated && 'layout-border--animated', props.class]
+	class={['layout-border', state.animated && 'layout-border--animated', props.class]
 		.filter(Boolean)
 		.join(' ')}
-	style={inlineStyle}
-	{...restProps}
+	style={state.inlineStyle}
+	{...state.restProps}
 >
 	{#if props.children}
 		{@render props.children()}

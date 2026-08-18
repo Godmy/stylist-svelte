@@ -1,8 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	FoundationManager,
 	MinimapManager,
-	SemanticZoomManager,
 	ZoomManager
 } from './class';
 export {
@@ -24,21 +22,11 @@ export {
 	CUBE_FACE_THEMES,
 	CUBE_HORIZONTAL_ICONS,
 	CUBE_VERTICAL_ICONS,
-	DEFAULT_FOUNDATION_CAMERA,
-	FOUNDATION_DEPTH_RANGE,
-	FOUNDATION_DEPTH_THRESHOLDS,
-	FOUNDATION_SEMANTIC_ZOOM_STAGES,
 	GRAPH_GRID_MODE,
 	GRAPH_NODE_CATEGORY,
 	GRAPH_TOOL_MODE,
 	NODE_TITLE_VARIANT,
 	PRESENTATION_MODE,
-	RECORD_DENSITY,
-	RECORD_FRAME,
-	RECORD_LAYER,
-	RECORD_LEVEL,
-	RECORD_SHAPE,
-	RECORD_SIZE,
 	SELECTION_MODE,
 	TOKEN_ARCHITECTURE_SHADER_FRAGMENT,
 	TOKEN_ARCHITECTURE_SHADER_VERTEX,
@@ -62,8 +50,6 @@ export {
 } from './const';
 export type {
 	FoundationAxis,
-	FoundationDepthThreshold,
-	FoundationSemanticZoomStage,
 	GraphGridMode,
 	GraphNodeCategory,
 	GraphToolMode,
@@ -96,7 +82,6 @@ export type {
 	MinimapViewport,
 	ObjectPoint2DPath,
 	Point2D,
-	PreziCamera,
 	RecipeCss3dCube,
 	RecipeCubeControl,
 	RecipeFocusState,
@@ -108,13 +93,9 @@ export type {
 	RecipeNodeIcon,
 	RecipeOntologyEdgeComponent,
 	RecipeOntologyNodeComponent,
-	RecipePresentationState,
 	RecipeSelectionState,
 	RecipeStage,
 	RecipeStylistGraphWorkspace,
 	RecipeViewport,
-	SceneCamera,
-	SceneNode,
-	SceneNodePoint,
-	SemanticZoomPresentation
+	SceneCamera
 } from './interface';

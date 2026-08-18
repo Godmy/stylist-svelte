@@ -9,8 +9,8 @@
 
 	let {
 		title = 'Stylist Svelte',
-		subtitle = 'A navigable design-system workspace with marketing-grade entry points.',
-		description = 'The landing surface should explain what the system is, why it exists and where to go next, without pretending the underlying library is just a flat component dump.',
+		subtitle = 'A domain-shaped workspace for reading, reviewing and growing the component system.',
+		description = 'Stylist Svelte presents the library as an architecture: domains, clusters, stories, documentation and diagnostics stay connected so the workspace remains understandable as the component surface expands.',
 		badgeLabel = 'AI-curated component system',
 		badgeHref = 'https://www.npmjs.com/package/stylist-svelte',
 		poweredByLabel = 'Crafted with multiple model perspectives',

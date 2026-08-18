@@ -72,10 +72,10 @@
 							Border style: <strong>{values.borderStyle || 'solid'}</strong>
 						</p>
 						{#if values.borderColor}
-							<p class="text-muted _c5">Color: {values.borderColor}</p>
+							<p class="_c5 _c5-muted">Color: {values.borderColor}</p>
 						{/if}
 						{#if values.borderRadius && values.borderRadius !== 'none'}
-							<p class="text-muted _c5">Radius: {values.borderRadius}</p>
+							<p class="_c5 _c5-muted">Radius: {values.borderRadius}</p>
 						{/if}
 					</div>
 				{/snippet}
@@ -105,5 +105,8 @@
 		margin-top: 0.25rem;
 		font-size: 0.875rem;
 		line-height: 1.25rem;
+	}
+	._c5-muted {
+		color: var(--color-text-secondary);
 	}
 </style>

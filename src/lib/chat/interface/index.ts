@@ -2,6 +2,7 @@
 export type {
 	RecipeChatPreview,
 	RecipeChatStatusIndicator,
+	RecipeDot,
 	RecipeIconPicker,
 	RecipeListWithAvatars,
 	RecipeMessageBubble,

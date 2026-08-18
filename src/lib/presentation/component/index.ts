@@ -7,3 +7,4 @@ export {
 	PresentationWorkspace,
 	PreziScene
 } from './organism';
+export { PresentationWorkplace } from './page';

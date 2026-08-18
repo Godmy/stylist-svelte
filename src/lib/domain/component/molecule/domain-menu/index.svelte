@@ -68,8 +68,8 @@
 		class="menu-button menu-button--icon"
 		onclick={onDomainToggle}
 		aria-pressed={domainVisible}
-		aria-label="Show domain"
-		title="Show domain"
+		aria-label="Show components"
+		title="Show components"
 	>
 		<Icon name="domain" size={18} />
 	</button>

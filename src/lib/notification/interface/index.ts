@@ -1,7 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { createButtonFactoryInput } from './behavior';
 export type {
 	RecipeAlert,
+	RecipeCountBadge,
+	RecipeCounter,
 	RecipeErrorMessage,
 	RecipeNotificationBadge,
 	RecipeNotificationCenter,

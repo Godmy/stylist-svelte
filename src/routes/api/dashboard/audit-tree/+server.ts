@@ -1,3 +1,3 @@
-import { getDashboardAuditTreeResponse } from '$stylist/server/function/async/get-dashboard-audit-tree-response';
+import { DashboardManager } from '$stylist/server/class/manager/dashboard';
 
-export const GET = getDashboardAuditTreeResponse;
+export const GET = DashboardManager.getDashboardAuditTreeResponse;

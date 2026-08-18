@@ -7,6 +7,7 @@ export function createGradientBackgroundState(props: RecipeGradientBackground) {
 	const speed = $derived(ObjectManagerGradientBackground.resolveSpeed(props.speed));
 	const intensity = $derived(ObjectManagerGradientBackground.resolveIntensity(props.intensity));
 	const direction = $derived(ObjectManagerGradientBackground.resolveDirection(props.direction));
+	const animated = $derived(props.animated ?? true);
 
 	const gradientStyle = $derived(
 		ObjectManagerGradientBackground.createStyle(variant, direction, colors, speed)
@@ -23,7 +24,8 @@ export function createGradientBackgroundState(props: RecipeGradientBackground) {
 			`opacity: ${opacity}`,
 			gradientStyle.animationDuration
 				? `animation-duration: ${gradientStyle.animationDuration}`
-				: null
+				: null,
+			`animation-play-state: ${animated ? 'running' : 'paused'}`
 		]
 			.filter(Boolean)
 			.join('; ');
@@ -36,6 +38,7 @@ export function createGradientBackgroundState(props: RecipeGradientBackground) {
 			speed: _speed,
 			intensity: _intensity,
 			direction: _direction,
+			animated: _animated,
 			class: _class,
 			children: _children,
 			...rest
@@ -46,6 +49,9 @@ export function createGradientBackgroundState(props: RecipeGradientBackground) {
 	return {
 		get variant() {
 			return variant;
+		},
+		get animated() {
+			return animated;
 		},
 		get inlineStyle() {
 			return inlineStyle;

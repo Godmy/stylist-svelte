@@ -4,9 +4,9 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { BehaviorMotion } from '$stylist/animation/interface/behavior/motion';
 import type { BehaviorTransform } from '$stylist/animation/interface/behavior/transform';
 import type { Snippet } from 'svelte';
-import type { TokenAnimation } from '$stylist/animation/type/alias/animation';
-import type { TokenDuration } from '$stylist/animation/type/alias/duration';
-import type { TokenEasing } from '$stylist/animation/type/alias/easing';
+import type { TokenAnimation } from '$stylist/theme/type/alias/animation';
+import type { TokenDuration } from '$stylist/theme/type/alias/duration';
+import type { TokenEasing } from '$stylist/theme/type/alias/easing';
 export interface RecipeTransformable
 	extends ComputeIntersectAll<
 		[SlotTheme, BehaviorMotion, BehaviorTransform, HTMLAttributes<HTMLDivElement>]

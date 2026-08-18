@@ -48,7 +48,7 @@
 </Story>
 
 <style>
-	._c1 {
+	:global(._c1) {
 		height: 12rem;
 		width: 100%;
 	}
@@ -67,6 +67,6 @@
 		padding-bottom: 0.25rem;
 		font-size: 0.75rem;
 		line-height: 1rem;
-		color: #ffffff;
+		color: var(--color-text-inverse);
 	}
 </style>

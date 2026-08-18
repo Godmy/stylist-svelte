@@ -1,23 +1,21 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	ChartLegendBandManager,
-	ChartLegendBarManager,
-	CriticalPathTimelineManager,
-	ExchangeOracleForecastManager,
-	ExpertAgreementRadarManager,
-	ExpertSpreadMatrixManager,
-	OutlierConstellationManager,
-	RiskImpactMapManager,
-	WidebandDelphiDiagramManager
+	ManagerAnalyticsChart,
+	ManagerBarChart,
+	ManagerCanvasChart,
+	ManagerChart,
+	ManagerChartCanvas,
+	ManagerChartLegendBand,
+	ManagerChartLegendBar,
+	ManagerCriticalPathTimeline,
+	ManagerExchangeOracleForecast,
+	ManagerExpertAgreementRadar,
+	ManagerExpertSpreadMatrix,
+	ManagerHeatmap,
+	ManagerLineChart,
+	ManagerMetricBar,
+	ManagerOutlierConstellation,
+	ManagerPieChart,
+	ManagerRiskImpactMap,
+	ManagerWidebandDelphiDiagram
 } from './manager';
-export {
-	ObjectManagerAnalyticsChart,
-	ObjectManagerBarChart,
-	ObjectManagerCanvasChart,
-	ObjectManagerChart,
-	ObjectManagerChartCanvas,
-	ObjectManagerHeatmap,
-	ObjectManagerLineChart,
-	ObjectManagerMetricBar,
-	ObjectManagerPieChart
-} from './object-manager';

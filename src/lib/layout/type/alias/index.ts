@@ -23,5 +23,4 @@ export type { OverlayLayoutAlign } from './overlay-layout-align';
 export type { TokenShape } from './shape';
 export type { SplitLayoutGap } from './split-layout-gap';
 export type { TokenStackDirection } from './stack-direction';
-export type { StackedLayoutJustifyContent } from './stacked-layout-justify-content';
 export type { TokenTrigger } from './trigger';

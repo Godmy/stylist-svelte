@@ -7,7 +7,14 @@
 </script>
 
 <div
-	class={['layout-spacer', `layout-spacer--${state.axis}`, props.class].filter(Boolean).join(' ')}
+	class={[
+		'layout-spacer',
+		`layout-spacer--${state.axis}`,
+		state.inline && 'layout-spacer--inline',
+		props.class
+	]
+		.filter(Boolean)
+		.join(' ')}
 	style:--spacer-size={state.sizeValue}
 	aria-hidden="true"
 	{...state.restProps}
@@ -33,5 +40,9 @@
 	.layout-spacer--both {
 		width: var(--spacer-size, 1rem);
 		height: var(--spacer-size, 1rem);
+	}
+
+	.layout-spacer--vertical.layout-spacer--inline {
+		display: inline-block;
 	}
 </style>

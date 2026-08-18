@@ -23,7 +23,6 @@ export {
 	TagInput,
 	TextArea
 } from './component';
-export { createButtonFactoryInput } from './const';
 export {
 	createCharacterCountState,
 	createFieldClassState,

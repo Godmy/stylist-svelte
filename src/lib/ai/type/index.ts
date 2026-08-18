@@ -2,6 +2,7 @@
 export type {
 	PlaygroundAiAssistantAIProviderId,
 	PromptVariableType,
-	SentimentAnalysisStatus
+	SentimentAnalysisStatus,
+	StatusState
 } from './alias';
 export type { AiAssistantAIClientLike } from './object';

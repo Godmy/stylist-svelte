@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import Badge from '$stylist/information/component/atom/badge/index.svelte';
+	import Badge from '$stylist/typography/component/atom/badge/index.svelte';
 	import { createKanbanColumnState } from './state.svelte';
 	import KanbanCard from '$stylist/portfolio/component/molecule/kanban-card/index.svelte';
 	import type { KanbanColumnType } from '$stylist/portfolio/type/object/kanban-column';

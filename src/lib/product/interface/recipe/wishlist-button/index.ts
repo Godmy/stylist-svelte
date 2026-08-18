@@ -1,4 +1,4 @@
-import type { SlotBadge } from '$stylist/information/interface/slot/badge';
+import type { SlotBadge } from '$stylist/layout/interface/slot/badge';
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';

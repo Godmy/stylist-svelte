@@ -36,7 +36,7 @@
 </Story>
 
 <style>
-	._c1 {
+	:global(._c1) {
 		height: 12rem;
 		border-radius: 0.5rem;
 		border-width: 1px;

@@ -26,5 +26,6 @@ export {
 } from './molecule';
 export {
 	AccessibilityToolbar,
-	MultiSelect
+	MultiSelect,
+	ShortcutsPanel
 } from './organism';

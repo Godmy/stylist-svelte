@@ -1,4 +1,4 @@
-export class ExpertSpreadMatrixManager {
+export class ManagerExpertSpreadMatrix {
 	static createLayout(
 		experts: string[],
 		periods: string[],

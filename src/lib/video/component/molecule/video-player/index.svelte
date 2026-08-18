@@ -28,7 +28,7 @@
 	{#if state.showControls}
 		<div
 			class={`vp-controls ${state.controlsClass}`}
-			style="--gradient-start: transparent; --gradient-end: color-mix(in srgb, var(--color-text-primary) 80%, transparent); background-image: var(--gradient-directional-vertical);"
+			style="--gradient-start: transparent; --gradient-end: color-mix(in srgb, var(--color-text-primary) 80%, transparent); background-image: var(--gradients-directional-vertical);"
 		>
 			<div class="vp-controls-top">
 				<div class="vp-controls-left">

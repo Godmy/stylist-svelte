@@ -1,4 +1,4 @@
-export class ChartLegendBarManager {
+export class ManagerChartLegendBar {
 	static measureTextWidth(text: string, fontSize = 11): number {
 		return Array.from(text).reduce((width, char) => {
 			if (/[A-Z0-9]/.test(char)) return width + fontSize * 0.64;
@@ -107,7 +107,7 @@ export class ChartLegendBarManager {
 			items: items.map((item, index) => {
 				const centerX = connectorCenters[index];
 				const barHeight = Math.max(minBarHeight, (item.value / maxValue) * (plotHeight - 18));
-				const rawLabelWidth = ChartLegendBarManager.measureTextWidth(item.text, fontSize) + labelPaddingX;
+				const rawLabelWidth = ManagerChartLegendBar.measureTextWidth(item.text, fontSize) + labelPaddingX;
 				const labelWidth = Math.max(54, Math.min(150, rawLabelWidth));
 				const baseLabelX = Math.max(4, Math.min(width - labelWidth - 4, centerX - labelWidth / 2));
 				const leftmostConnectorX = Math.max(4, centerX - labelWidth + connectorInset);
@@ -156,7 +156,7 @@ export class ChartLegendBarManager {
 							centerX <= candidateX + labelWidth - connectorInset;
 						if (!containsConnector) continue;
 
-						const intersections = ChartLegendBarManager.countLineLabelIntersections(
+						const intersections = ManagerChartLegendBar.countLineLabelIntersections(
 							centerX,
 							axisY,
 							labelY,

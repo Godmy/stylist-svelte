@@ -3,7 +3,7 @@
 	import Tooltip from '$stylist/animation/component/atom/tooltip/index.svelte';
 	import type { RecipeLineChart } from '$stylist/chart/interface/recipe/line-chart';
 	import createLineChartState from './state.svelte';
-	import { ObjectManagerLineChart } from '$stylist/chart/class/object-manager/line-chart';
+	import { ManagerLineChart } from '$stylist/chart/class/manager/line-chart';
 
 	let props: RecipeLineChart = $props();
 	const state = createLineChartState(props);
@@ -94,14 +94,14 @@
 					d={state.linePaths[seriesIndex]}
 					fill="none"
 					stroke={series.color ??
-						ObjectManagerLineChart.resolveDefaultColor(seriesIndex, state.resolvedColorScheme)}
+						ManagerLineChart.resolveDefaultColor(seriesIndex, state.resolvedColorScheme)}
 					stroke-width={props.strokeWidth ?? 2}
 					class="lc-line"
 				/>
 
 				<!-- Points -->
 				{#each series.data as point, pointIndex}
-					{@const pointPosition = ObjectManagerLineChart.resolvePointPosition({
+					{@const pointPosition = ManagerLineChart.resolvePointPosition({
 						pointIndex,
 						seriesLength: series.data.length,
 						chartWidth: state.chartWidth,
@@ -115,7 +115,7 @@
 						cy={pointPosition.y}
 						r={state.isPointHovered(seriesIndex, pointIndex) ? 6 : 4}
 						fill={series.color ??
-							ObjectManagerLineChart.resolveDefaultColor(seriesIndex, state.resolvedColorScheme)}
+							ManagerLineChart.resolveDefaultColor(seriesIndex, state.resolvedColorScheme)}
 						class="lc-point"
 						onclick={() => props.onPointClick?.(point, series)}
 						onkeydown={(e) => {
@@ -128,7 +128,7 @@
 						onblur={state.clearFocusedPoint}
 						role="button"
 						tabindex="0"
-						aria-label={ObjectManagerLineChart.resolveAriaLabel(point)}
+						aria-label={ManagerLineChart.resolveAriaLabel(point)}
 					/>
 				{/each}
 			{/each}
@@ -141,7 +141,7 @@
 				<div class={state.legendItemClasses}>
 					<div
 						class="lc-legend-line"
-						style={`background-color: ${series.color ?? ObjectManagerLineChart.resolveDefaultColor(i, state.resolvedColorScheme)}`}
+						style={`background-color: ${series.color ?? ManagerLineChart.resolveDefaultColor(i, state.resolvedColorScheme)}`}
 					></div>
 					<span class={state.legendLabelClasses}>{series.label}</span>
 				</div>

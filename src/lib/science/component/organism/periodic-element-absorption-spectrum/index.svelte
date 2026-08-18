@@ -30,9 +30,14 @@
 	const lines = $derived(
 		ELEMENT_ABSORPTION_SPECTRAL_LINES[element.symbol as keyof typeof ELEMENT_ABSORPTION_SPECTRAL_LINES] ?? fallbackLines
 	);
+
+	const restProps = $derived.by(() => {
+		const { element: _element, minWavelength: _minWavelength, maxWavelength: _maxWavelength, class: _class, ...rest } = props;
+		return rest;
+	});
 </script>
 
-<section class="c-periodic-element-absorption-spectrum {props.class ?? ''}">
+<section {...restProps} class="c-periodic-element-absorption-spectrum {props.class ?? ''}">
 	<header class="c-periodic-element-absorption-spectrum__header">
 		<div>
 			<p class="c-periodic-element-absorption-spectrum__eyebrow">absorption</p>

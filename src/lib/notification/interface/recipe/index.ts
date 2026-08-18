@@ -1,5 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { RecipeAlert } from './alert';
+export type { RecipeCountBadge } from './count-badge';
+export type { RecipeCounter } from './counter';
 export type { RecipeErrorMessage } from './error-message';
 export type { RecipeNotificationBadge } from './notification-badge';
 export type { RecipeNotificationCenter } from './notification-center';

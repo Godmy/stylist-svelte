@@ -1,5 +1,5 @@
 import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
-import { ObjectManagerPieChart } from '$stylist/chart/class/object-manager/pie-chart';
+import { ManagerPieChart } from '$stylist/chart/class/manager/pie-chart';
 import type { RecipePieChart } from '$stylist/chart/interface/recipe/pie-chart';
 
 export function createPieChartState(props: RecipePieChart) {
@@ -8,9 +8,9 @@ export function createPieChartState(props: RecipePieChart) {
 	const height = $derived((props as any).height ?? 200);
 	const colors = $derived((props as any).colors);
 	const classNameStr = $derived(props.class == null ? undefined : String(props.class));
-	const resolvedColors = $derived(ObjectManagerPieChart.resolveColors(colors));
-	const total = $derived(ObjectManagerPieChart.resolveTotal(data));
-	const segments = $derived(ObjectManagerPieChart.resolveSegments(data, total, resolvedColors));
+	const resolvedColors = $derived(ManagerPieChart.resolveColors(colors));
+	const total = $derived(ManagerPieChart.resolveTotal(data));
+	const segments = $derived(ManagerPieChart.resolveSegments(data, total, resolvedColors));
 	const containerClasses = $derived(ClassNamesManager.merge('c-pie-chart', classNameStr));
 	const legendClasses = $derived('c-pie-chart__legend');
 	const legendItemClasses = $derived('c-pie-chart__legend-item');

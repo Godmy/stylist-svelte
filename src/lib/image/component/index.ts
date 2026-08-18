@@ -3,7 +3,10 @@ export {
 	Image,
 	ImageCaption
 } from './atom';
-export { DividerHeadingImageText } from './molecule';
+export {
+	Card,
+	DividerHeadingImageText
+} from './molecule';
 export {
 	CanvasImageEditor,
 	ImageGallery
