@@ -27,7 +27,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-package && publint",
-		"build:site": "vite build",
+		"build:site": "vite build && node scripts/write-cloudflare-assets-ignore.mjs",
 		"ci:pipeline": "yarn lint && yarn test:unit && yarn build",
 		"preview": "vite preview",
 		"package": "svelte-package",

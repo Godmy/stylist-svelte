@@ -11,6 +11,7 @@ node_modules/
 dist/
 build/
 .svelte-kit/
+.wrangler/
 package/
 json/
 *.tsbuildinfo
