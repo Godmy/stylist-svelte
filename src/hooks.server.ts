@@ -1,5 +1,5 @@
 import type { HandleServerError } from '@sveltejs/kit';
-import { DiagnosticManager } from '$stylist/server/class/manager/diagnostic';
+import { DiagnosticManager } from '$stylist/server/class/manager/diagnostic/index';
 import { serializeUnknownError } from '$stylist/domain/function/serialize/unknown-error';
 
 export const handleError: HandleServerError = ({ error, event, status, message }) => {
