@@ -183,8 +183,8 @@
 		align-items: center;
 		gap: 0.75rem;
 		border-radius: 9999px;
-		border: 1px solid rgba(253, 186, 116, 0.7);
-		background-color: rgba(255, 255, 255, 0.7);
+		border: 1px solid color-mix(in srgb, var(--color-warning-500) 45%, transparent);
+		background-color: color-mix(in srgb, var(--color-background-primary) 75%, transparent);
 		padding: 0.75rem 1.25rem;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 		backdrop-filter: blur(4px);
@@ -196,13 +196,13 @@
 
 	.sh-badge:hover {
 		transform: translateY(-2px);
-		border-color: #f97316;
+		border-color: var(--color-warning-500);
 	}
 
 	:global(.sh-badge-sparkles) {
 		width: 1.25rem;
 		height: 1.25rem;
-		color: #ea580c;
+		color: var(--color-warning-500);
 		transition: transform 0.2s;
 	}
 
@@ -213,13 +213,13 @@
 	.sh-badge-label {
 		font-size: 0.875rem;
 		font-weight: 700;
-		color: #7c2d12;
+		color: var(--color-warning-500);
 	}
 
 	:global(.sh-badge-link) {
 		width: 1rem;
 		height: 1rem;
-		color: #ea580c;
+		color: var(--color-warning-500);
 		opacity: 0;
 		transition: opacity 0.2s;
 	}
@@ -235,7 +235,7 @@
 		line-height: 0.9;
 		font-weight: 900;
 		letter-spacing: -0.05em;
-		color: #030712;
+		color: var(--color-text-primary);
 	}
 
 	@media (min-width: 640px) {
@@ -254,7 +254,7 @@
 		max-width: 48rem;
 		font-size: 1.5rem;
 		font-weight: 700;
-		color: #111827;
+		color: var(--color-text-primary);
 	}
 
 	.sh-description {
@@ -262,7 +262,7 @@
 		max-width: 48rem;
 		font-size: 1rem;
 		line-height: 2;
-		color: #4b5563;
+		color: var(--color-text-secondary);
 	}
 
 	.sh-heart {
@@ -280,8 +280,8 @@
 
 	.sh-stat-card {
 		border-radius: 1rem;
-		border: 1px solid rgba(255, 255, 255, 0.6);
-		background-color: rgba(255, 255, 255, 0.8);
+		border: 1px solid var(--color-border-primary);
+		background-color: color-mix(in srgb, var(--color-background-primary) 80%, transparent);
 		padding: 0.75rem 1rem;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 		backdrop-filter: blur(4px);
@@ -292,21 +292,21 @@
 		font-weight: 600;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #6b7280;
+		color: var(--color-text-secondary);
 	}
 
 	.sh-stat-value {
 		margin-top: 0.25rem;
 		font-size: 1.875rem;
 		font-weight: 900;
-		color: #030712;
+		color: var(--color-text-primary);
 	}
 
 	.sh-aside {
 		display: none;
 		border-radius: 28px;
-		border: 1px solid rgba(255, 255, 255, 0.6);
-		background-color: rgba(255, 255, 255, 0.82);
+		border: 1px solid var(--color-border-primary);
+		background-color: color-mix(in srgb, var(--color-background-primary) 82%, transparent);
 		padding: 1.25rem;
 		box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 		backdrop-filter: blur(4px);
@@ -323,7 +323,7 @@
 		font-weight: 600;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #6b7280;
+		color: var(--color-text-secondary);
 	}
 
 	.sh-models {
@@ -337,8 +337,8 @@
 		align-items: center;
 		gap: 1rem;
 		border-radius: 1rem;
-		border: 1px solid #e5e7eb;
-		background-color: rgba(255, 255, 255, 0.8);
+		border: 1px solid var(--color-border-primary);
+		background-color: color-mix(in srgb, var(--color-background-primary) 80%, transparent);
 		padding: 0.75rem 1rem;
 		text-decoration: none;
 		transition:
@@ -384,13 +384,13 @@
 	.sh-model-name {
 		font-size: 1.125rem;
 		font-weight: 700;
-		color: #111827;
+		color: var(--color-text-primary);
 	}
 
 	:global(.sh-model-arrow) {
 		width: 1rem;
 		height: 1rem;
-		color: #f97316;
+		color: var(--color-warning-500);
 		opacity: 0;
 		transition:
 			transform 0.2s,
@@ -404,7 +404,7 @@
 
 	.sh-model-desc {
 		font-size: 0.875rem;
-		color: #6b7280;
+		color: var(--color-text-secondary);
 	}
 
 	.sh-logo-orange {

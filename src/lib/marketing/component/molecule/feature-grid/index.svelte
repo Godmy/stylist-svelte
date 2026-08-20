@@ -75,7 +75,7 @@
 		margin-bottom: 0.75rem;
 		font-size: 2.25rem;
 		font-weight: 900;
-		color: #111827;
+		color: var(--color-text-primary);
 	}
 
 	.fg-subtitle {
@@ -83,7 +83,7 @@
 		margin-right: auto;
 		max-width: 48rem;
 		font-size: 1.125rem;
-		color: #4b5563;
+		color: var(--color-text-secondary);
 	}
 
 	.fg-grid {
@@ -104,23 +104,39 @@
 	}
 
 	.fg-palette-orange {
-		background: linear-gradient(to bottom right, #fff7ed, #fef2f2);
-		border-color: #fed7aa;
+		background: linear-gradient(
+			to bottom right,
+			color-mix(in srgb, #fff7ed 55%, var(--color-background-primary) 45%),
+			color-mix(in srgb, #fef2f2 55%, var(--color-background-primary) 45%)
+		);
+		border-color: color-mix(in srgb, #fed7aa 55%, var(--color-border-primary) 45%);
 	}
 
 	.fg-palette-sky {
-		background: linear-gradient(to bottom right, #f0f9ff, #ecfeff);
-		border-color: #bae6fd;
+		background: linear-gradient(
+			to bottom right,
+			color-mix(in srgb, #f0f9ff 55%, var(--color-background-primary) 45%),
+			color-mix(in srgb, #ecfeff 55%, var(--color-background-primary) 45%)
+		);
+		border-color: color-mix(in srgb, #bae6fd 55%, var(--color-border-primary) 45%);
 	}
 
 	.fg-palette-violet {
-		background: linear-gradient(to bottom right, #f5f3ff, #fdf4ff);
-		border-color: #ddd6fe;
+		background: linear-gradient(
+			to bottom right,
+			color-mix(in srgb, #f5f3ff 55%, var(--color-background-primary) 45%),
+			color-mix(in srgb, #fdf4ff 55%, var(--color-background-primary) 45%)
+		);
+		border-color: color-mix(in srgb, #ddd6fe 55%, var(--color-border-primary) 45%);
 	}
 
 	.fg-palette-emerald {
-		background: linear-gradient(to bottom right, #ecfdf5, #f0fdf4);
-		border-color: #a7f3d0;
+		background: linear-gradient(
+			to bottom right,
+			color-mix(in srgb, #ecfdf5 55%, var(--color-background-primary) 45%),
+			color-mix(in srgb, #f0fdf4 55%, var(--color-background-primary) 45%)
+		);
+		border-color: color-mix(in srgb, #a7f3d0 55%, var(--color-border-primary) 45%);
 	}
 
 	.fg-icon-box {
@@ -150,10 +166,10 @@
 		margin-bottom: 0.75rem;
 		font-size: 1.5rem;
 		font-weight: 700;
-		color: #111827;
+		color: var(--color-text-primary);
 	}
 
 	.fg-card-desc {
-		color: #4b5563;
+		color: var(--color-text-secondary);
 	}
 </style>
