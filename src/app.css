@@ -32,6 +32,7 @@ body {
 	color: var(--ink);
 	font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
 	margin: 0;
+	overflow-x: hidden;
 	overflow-y: scroll;
 	scrollbar-gutter: stable;
 }

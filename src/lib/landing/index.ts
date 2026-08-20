@@ -4,6 +4,7 @@ export {
 	DefinitionSection,
 	HeroMediaSection,
 	HeroSection,
+	MobileNavigationDrawer,
 	NameHeroMediaItems,
 	NavBar,
 	ResultSection,

@@ -1,10 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	Animated,
 	AnimatedBackground,
-	AnimatedNumber,
+	AnimatedDigit,
 	LayoutTransformation,
-	NumberFlow,
 	ProgressBar,
 	Skeleton,
 	Spinner,

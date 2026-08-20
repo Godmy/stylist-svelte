@@ -9,7 +9,7 @@
 			name: 'variant',
 			type: 'select',
 			defaultValue: 'ghost',
-			options: ['solid', 'outline', 'ghost']
+			options: ['default', 'ghost']
 		},
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
 		{ name: 'loading', type: 'boolean', defaultValue: false }
@@ -26,7 +26,7 @@
 	{#snippet children(values: any)}
 		<CloseButton
 			size={values.size as 'sm' | 'md' | 'lg'}
-			variant={values.variant as 'solid' | 'outline' | 'ghost'}
+			variant={values.variant as 'default' | 'ghost'}
 			disabled={values.disabled as boolean}
 			loading={values.loading as boolean}
 			aria-label="Close"

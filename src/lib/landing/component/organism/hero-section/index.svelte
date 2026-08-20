@@ -2,6 +2,7 @@
 	import type { Snippet } from 'svelte';
 	import NavBar from '$stylist/landing/component/molecule/nav-bar/index.svelte';
 	import HeroMediaSection from '$stylist/landing/component/molecule/hero-media-section/index.svelte';
+	import MobileNavigationDrawer from '$stylist/landing/component/organism/mobile-navigation-drawer/index.svelte';
 	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
 
 	interface NavBarLink {
@@ -34,6 +35,16 @@
 		languageControl?: Snippet;
 		class?: string;
 	} = $props();
+
+	let mobileMenuOpen = $state(false);
+
+	function openMobileMenu() {
+		mobileMenuOpen = true;
+	}
+
+	function closeMobileMenu() {
+		mobileMenuOpen = false;
+	}
 </script>
 
 <section class="hero-section {className}">
@@ -44,6 +55,15 @@
 		{signInLabel}
 		{brand}
 		{languageControl}
+		mobileMenuOpen={mobileMenuOpen}
+		onMobileMenuOpen={openMobileMenu}
+	/>
+	<MobileNavigationDrawer
+		ariaLabel={navAriaLabel}
+		open={mobileMenuOpen}
+		links={sectionLinks}
+		{brand}
+		onClose={closeMobileMenu}
 	/>
 	<HeroMediaSection
 		class="hero-section__media"

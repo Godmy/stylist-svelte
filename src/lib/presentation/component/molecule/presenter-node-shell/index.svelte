@@ -56,7 +56,9 @@
 		color: var(--color-text-primary);
 		transform-origin: center center;
 		transition:
-			transform var(--duration-240) var(--animation-ease),
+			transform var(--prezi-animation-duration, 600ms) cubic-bezier(0.16, 1, 0.3, 1),
+			width var(--prezi-animation-duration, 600ms) cubic-bezier(0.16, 1, 0.3, 1),
+			min-height var(--prezi-animation-duration, 600ms) cubic-bezier(0.16, 1, 0.3, 1),
 			box-shadow var(--duration-160) var(--animation-ease),
 			background-color var(--duration-160) var(--animation-ease);
 		cursor: pointer;

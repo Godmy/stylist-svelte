@@ -9,7 +9,7 @@
 ```text
 component/page/domain-playground          - root shell and screen switcher
 ├─ component/page/domain-landing          - landing page for the domain workspace
-├─ molecule/domain-menu                   - persistent menu for landing, components, workspace, builder, backlog, dashboard, AI, settings and diagnostics
+├─ molecule/domain-menu                   - persistent menu for landing, components, workspace, builder, backlog, AI, diagnostics and settings
 ├─ molecule/device-viewport               - story viewport control for component preview
 ├─ organism/domain-explorer               - component browser for domains, clusters, joints and families
 │  ├─ organism/domain-sidebar             - taxonomy navigation
@@ -23,7 +23,6 @@ component/page/domain-playground          - root shell and screen switcher
 │  └─ organism/domain-file-preview        - selected file and story preview
 ├─ organism/domain-builder                - drag and drop template builder
 ├─ organism/domain-backlog                - backlog and sprint surface
-├─ template/dashboard-workspace           - dashboard workspace screen
 ├─ organism/domain-diagnostics            - story and domain health runner
 ├─ organism/domain-settings               - theme settings panel
 └─ organism/domain-ai-agent               - AI assistant panel placeholder

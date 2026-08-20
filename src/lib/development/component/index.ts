@@ -1,7 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	NpmBadge,
-	Stack,
 	SyntaxHighlightedCode
 } from './atom';
 export {

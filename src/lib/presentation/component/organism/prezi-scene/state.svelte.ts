@@ -1,3 +1,5 @@
+import { Tween } from 'svelte/motion';
+import { cubicOut } from 'svelte/easing';
 import { SemanticZoomManager } from '$stylist/presentation/class/manager/semantic-zoom';
 import { RECORD_FRAME } from '$stylist/presentation/const/record/frame/index';
 import { FOCUS_DURATION_MS } from '$stylist/presentation/const/value/prezi-scene/index';
@@ -12,32 +14,39 @@ import type { BehaviorPreziSceneMethods } from '$stylist/presentation/interface/
  * Hook для управления состоянием PreziScene.
  * Coordinate system: CSS-translate — transform: translate(x, y) scale(zoom) с origin 0 0.
  * Nodes внутри world-div используют raw position (не трансформированные).
+ *
+ * `getProps` вместо обычного объекта: пропсы читаются лениво на каждый вызов,
+ * поэтому производные/эффекты ниже видят живые значения и сцена может
+ * оставаться смонтированной между шагами презентации, плавно анимируя
+ * камеру, а не пересоздаваться (что раньше требовалось родителю через
+ * `{#key}`, потому что обычная деструктуризация объекта — это снимок один раз).
  */
 export function usePreziState(
-	contract: RecipePreziScene
+	getProps: () => RecipePreziScene
 ): RecipePreziSceneState & BehaviorPreziSceneMethods {
-	const {
-		nodes = [],
-		initialCamera = { x: 0, y: 0, zoom: 1 },
-		initialDepth = 0,
-		showGrid: showGridProp = true,
-		showMinimap: showMinimapProp = true,
-		showInspector: showInspectorProp = true,
-		showHeader: showHeaderProp = true,
-		showLinks: showLinksProp = false,
-		title,
-		subtitle,
-		panMode = 'drag',
-		zoomEnabled = true,
-		panEnabled = true,
-		minZoom = 0.1,
-		maxZoom = 5,
-		animationDurationMs = FOCUS_DURATION_MS,
-		selectedNodeId: controlledSelectedNodeId,
-		onNodeSelect,
-		onCameraChange,
-		onDepthChange
-	} = contract;
+	const initialProps = getProps();
+	const initialCamera = initialProps.initialCamera ?? { x: 0, y: 0, zoom: 1 };
+	const initialDepth = initialProps.initialDepth ?? 0;
+
+	const nodes = $derived(getProps().nodes ?? []);
+	const title = $derived(getProps().title);
+	const subtitle = $derived(getProps().subtitle);
+	const panMode = $derived(getProps().panMode ?? 'drag');
+	const zoomEnabled = $derived(getProps().zoomEnabled ?? true);
+	const panEnabled = $derived(getProps().panEnabled ?? true);
+	const minZoom = $derived(getProps().minZoom ?? 0.1);
+	const maxZoom = $derived(getProps().maxZoom ?? 5);
+	const animationDurationMs = $derived(getProps().animationDurationMs ?? FOCUS_DURATION_MS);
+	const showGridProp = $derived(getProps().showGrid ?? true);
+	const showMinimapProp = $derived(getProps().showMinimap ?? true);
+	const showInspectorProp = $derived(getProps().showInspector ?? true);
+	const showHeaderProp = $derived(getProps().showHeader ?? true);
+	const showLinksProp = $derived(getProps().showLinks ?? false);
+	const controlledSelectedNodeId = $derived(getProps().selectedNodeId);
+	const targetCamera = $derived(getProps().targetCamera);
+	const onNodeSelect = initialProps.onNodeSelect;
+	const onCameraChange = initialProps.onCameraChange;
+	const onDepthChange = initialProps.onDepthChange;
 
 	let camera = $state<PreziCamera>({
 		x: initialCamera.x,
@@ -45,6 +54,13 @@ export function usePreziState(
 		zoom: initialCamera.zoom,
 		depth: initialDepth
 	});
+
+	// Depth drives per-node semantic-zoom stage (dot -> ... -> screen). Unlike
+	// x/y/zoom (animated for free by the CSS transition on `worldStyle`), depth
+	// is read synchronously by every node shell, so it needs its own tween —
+	// otherwise every node's size/detail snaps instantly instead of growing
+	// into view together with the camera flight ("diving into" a node).
+	const depthTween = new Tween(initialDepth, { duration: animationDurationMs, easing: cubicOut });
 
 	let viewportWidth = $state(800);
 	let viewportHeight = $state(600);
@@ -59,6 +75,8 @@ export function usePreziState(
 	let showInspector = $state(showInspectorProp);
 
 	let animationTimer: ReturnType<typeof setTimeout> | null = null;
+	let activeTransitionDurationMs = $state(animationDurationMs);
+	let flightToken = 0;
 
 	// Sync toggle state when props change externally (e.g. workspace checkbox)
 	$effect(() => {
@@ -76,13 +94,13 @@ export function usePreziState(
 		x: 0,
 		y: 0,
 		zoom: 1,
-		depth: camera.depth,
+		depth: depthTween.current,
 		viewportWidth,
 		viewportHeight
 	});
 	const worldStyle = $derived.by(
 		() =>
-			`transform: translate(${camera.x}px, ${camera.y}px) scale(${camera.zoom}); --prezi-animation-duration: ${animationDurationMs}ms;`
+			`transform: translate(${camera.x}px, ${camera.y}px) scale(${camera.zoom}); --prezi-animation-duration: ${activeTransitionDurationMs}ms;`
 	);
 	const sceneLinks = $derived(resolvePresenterSceneLinks(nodes));
 
@@ -100,8 +118,39 @@ export function usePreziState(
 		}
 	});
 
-	const setCamera = (next: Partial<PreziCamera>) => {
+	let lastAppliedTargetCamera: { x: number; y: number; zoom: number; depth: number } | null = null;
+
+	$effect(() => {
+		const next = targetCamera;
+		if (!next) return;
+
+		const previous = lastAppliedTargetCamera;
+		const isUnchanged =
+			previous !== null &&
+			previous.x === next.x &&
+			previous.y === next.y &&
+			previous.zoom === next.zoom &&
+			previous.depth === next.depth;
+
+		if (isUnchanged) return;
+
+		const isFirstApplication = previous === null;
+		lastAppliedTargetCamera = next;
+
+		if (isFirstApplication) {
+			setCamera({ x: next.x, y: next.y, zoom: next.zoom, depth: next.depth });
+		} else {
+			void flyTo(next, previous);
+		}
+
+		onDepthChange?.(next.depth);
+	});
+
+	const setCamera = (next: Partial<PreziCamera>, durationMs = animationDurationMs) => {
 		camera = { ...camera, ...next };
+		if (next.depth !== undefined) {
+			void depthTween.set(next.depth, { duration: durationMs, easing: cubicOut });
+		}
 		onCameraChange?.({ x: camera.x, y: camera.y, zoom: camera.zoom });
 	};
 
@@ -136,25 +185,85 @@ export function usePreziState(
 		onNodeSelect?.(node);
 	};
 
-	const startAnimation = () => {
+	const startAnimation = (durationMs = animationDurationMs) => {
 		if (animationTimer !== null) clearTimeout(animationTimer);
+		activeTransitionDurationMs = durationMs;
 		isAnimating = true;
 		animationTimer = setTimeout(() => {
 			isAnimating = false;
 			animationTimer = null;
-		}, animationDurationMs);
+		}, durationMs);
+	};
+
+	const toWorldPoint = (point: { x: number; y: number; zoom: number }) => ({
+		x: (viewportWidth / 2 - point.x) / point.zoom,
+		y: (viewportHeight / 2 - point.y) / point.zoom
+	});
+
+	/**
+	 * Prezi-style flight between two arbitrary camera states.
+	 *
+	 * A direct linear tween of x/y/zoom feels wrong for long jumps: at a high
+	 * zoom the camera would slide sideways across mostly-empty canvas instead
+	 * of the classic Prezi "pull back to see the map, glide, dive back in".
+	 * When the two targets are far apart in world space, this pulls back to a
+	 * zoomed-out midpoint first, then dives into the destination — otherwise
+	 * (adjacent nodes, same branch) it flies straight there.
+	 */
+	const flyTo = async (
+		next: { x: number; y: number; zoom: number; depth: number },
+		previous: { x: number; y: number; zoom: number; depth: number }
+	) => {
+		const token = ++flightToken;
+		const totalDuration = animationDurationMs;
+
+		const from = toWorldPoint(previous);
+		const to = toWorldPoint(next);
+		const worldDistance = Math.hypot(to.x - from.x, to.y - from.y);
+		const isZoomedIn = Math.min(previous.zoom, next.zoom) > clampZoom(0.6);
+		const isFarJump = worldDistance > 480;
+
+		if (!isFarJump || !isZoomedIn) {
+			startAnimation(totalDuration);
+			setCamera({ x: next.x, y: next.y, zoom: next.zoom, depth: next.depth }, totalDuration);
+			return;
+		}
+
+		const midWorld = { x: (from.x + to.x) / 2, y: (from.y + to.y) / 2 };
+		const padding = 220;
+		const boundsWidth = Math.max(Math.abs(to.x - from.x) + padding * 2, 1);
+		const boundsHeight = Math.max(Math.abs(to.y - from.y) + padding * 2, 1);
+		const fitZoom = Math.min(viewportWidth / boundsWidth, viewportHeight / boundsHeight);
+		const pullBackZoom = clampZoom(Math.min(fitZoom, Math.min(previous.zoom, next.zoom) * 0.6));
+		const midCamera = {
+			x: viewportWidth / 2 - midWorld.x * pullBackZoom,
+			y: viewportHeight / 2 - midWorld.y * pullBackZoom,
+			zoom: pullBackZoom
+		};
+
+		const outDuration = Math.round(totalDuration * 0.45);
+		const inDuration = Math.max(1, totalDuration - outDuration);
+
+		startAnimation(outDuration);
+		setCamera({ x: midCamera.x, y: midCamera.y, zoom: midCamera.zoom }, outDuration);
+
+		await new Promise((resolve) => setTimeout(resolve, outDuration));
+		if (token !== flightToken) return;
+
+		startAnimation(inDuration);
+		setCamera({ x: next.x, y: next.y, zoom: next.zoom, depth: next.depth }, inDuration);
 	};
 
 	/**
-	 * Prezi-zoom: центрируем ноду и зумируем так, чтобы она занимала ~65% вьюпорта.
+	 * Prezi-zoom: центрируем ноду и зумируем так, чтобы она занимала ~88% вьюпорта.
 	 * screen-frame (520×320) — максимальная детализация при distance=0.
 	 */
 	const focusNode = (node: SceneNode) => {
 		const screenFrame = RECORD_FRAME['screen'];
 		const targetZoom = clampZoom(
 			Math.min(
-				(viewportWidth * 0.65) / screenFrame.width,
-				(viewportHeight * 0.65) / screenFrame.height
+				(viewportWidth * 0.88) / screenFrame.width,
+				(viewportHeight * 0.88) / screenFrame.height
 			)
 		);
 
@@ -282,7 +391,8 @@ export function usePreziState(
 		}
 	};
 
-	const getPresentation = (node: SceneNode) => SemanticZoomManager.resolveNode(node, camera.depth);
+	const getPresentation = (node: SceneNode) =>
+		SemanticZoomManager.resolveNode(node, depthTween.current);
 
 	return {
 		get camera() {

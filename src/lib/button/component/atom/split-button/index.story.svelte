@@ -14,7 +14,7 @@
 			name: 'variant',
 			type: 'select',
 			defaultValue: 'primary',
-			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'outline', 'ghost', 'link']
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'outline', 'ghost']
 		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },

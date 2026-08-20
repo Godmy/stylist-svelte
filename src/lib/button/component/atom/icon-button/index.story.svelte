@@ -8,7 +8,7 @@
 			name: 'variant',
 			type: 'select',
 			defaultValue: 'ghost',
-			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link']
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost']
 		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },

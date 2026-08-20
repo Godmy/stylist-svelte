@@ -1,12 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { ManagerMotion } from './class';
 export {
-	Animated,
 	AnimatedBackground,
-	AnimatedNumber,
+	AnimatedDigit,
 	LayoutTransformation,
 	Loading,
-	NumberFlow,
 	ProgressBar,
 	Skeleton,
 	Spinner,
@@ -20,8 +18,6 @@ export {
 } from './const';
 export {
 	animateValue,
-	formatAnimatedValue,
-	formatNumberFlowValue,
 	getEasingFunction
 } from './function';
 export type {
@@ -36,12 +32,10 @@ export type {
 	BehaviorMotionPreset,
 	BehaviorTransform,
 	BehaviorTransformable,
-	RecipeAnimated,
 	RecipeAnimatedBackground,
-	RecipeAnimatedNumber,
+	RecipeAnimatedDigit,
 	RecipeLayoutTransformation,
 	RecipeLoading,
-	RecipeNumberFlow,
 	RecipeProgressBar,
 	RecipeSkeleton,
 	RecipeSpinner,

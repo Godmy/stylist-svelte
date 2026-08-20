@@ -11,6 +11,12 @@ export interface RecipePreziScene
 		zoom: number;
 	};
 	initialDepth?: number;
+	targetCamera?: {
+		x: number;
+		y: number;
+		zoom: number;
+		depth: number;
+	} | null;
 	showGrid?: boolean;
 	showMinimap?: boolean;
 	showInspector?: boolean;

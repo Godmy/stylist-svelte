@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeStatCard } from '$stylist/management/interface/recipe/stat-card';
 	import createStatCardState from './state.svelte';
-	import AnimatedNumber from '$stylist/animation/component/atom/animated-number/index.svelte';
+	import AnimatedDigit from '$stylist/animation/component/atom/animated-digit/index.svelte';
 
 	let props: RecipeStatCard & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createStatCardState(props);
@@ -19,9 +19,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 
 	<div class="stat-card__value">
 		{#if state.animated && typeof state.value === 'number'}
-			<AnimatedNumber value={state.value} />
+			<AnimatedDigit to={state.value} format={(v) => Math.round(v).toLocaleString()} />
 		{:else if state.animated && typeof state.value === 'string' && state.numericValue !== null}
-			<AnimatedNumber value={state.numericValue} />
+			<AnimatedDigit to={state.numericValue} format={(v) => Math.round(v).toLocaleString()} />
 		{:else}
 			{state.value}
 		{/if}

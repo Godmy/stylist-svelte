@@ -25,7 +25,6 @@ export {
 	NpmBadge,
 	PageBuilder,
 	PrivacySettings,
-	Stack,
 	Stylist,
 	SyntaxHighlightedCode
 } from './component';

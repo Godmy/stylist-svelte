@@ -129,8 +129,6 @@
 		import('$stylist/domain/component/organism/domain-builder/index.svelte');
 	const loadDomainBacklog = () =>
 		import('$stylist/domain/component/organism/domain-backlog/index.svelte');
-	const loadDashboardWorkspace = () =>
-		import('$stylist/dashboard/component/template/dashboard-workspace/index.svelte');
 	const loadDomainDiagnostics = () =>
 		import('$stylist/domain/component/organism/domain-diagnostics/index.svelte');
 	const loadDomainSettings = () =>
@@ -316,11 +314,6 @@
 				onBoardChange={backlogState.handleBoardChange}
 			/>
 		{/await}
-	{:else if screenState.currentScreen === DOMAIN_SCREEN.DASHBOARD}
-		{#await loadDashboardWorkspace() then module}
-			{@const DashboardWorkspace = module.default}
-			<DashboardWorkspace />
-		{/await}
 	{:else if screenState.currentScreen === DOMAIN_SCREEN.DIAGNOSTICS}
 		{#await loadDomainDiagnostics() then module}
 			{@const DomainDiagnostics = module.default}
@@ -347,7 +340,6 @@
 			workspaceOpen={screenState.currentScreen === DOMAIN_SCREEN.WORKSPACE}
 			builderOpen={screenState.currentScreen === DOMAIN_SCREEN.BUILDER}
 			backlogOpen={screenState.currentScreen === DOMAIN_SCREEN.BACKLOG}
-			dashboardOpen={screenState.currentScreen === DOMAIN_SCREEN.DASHBOARD}
 			diagnosticsOpen={screenState.currentScreen === DOMAIN_SCREEN.DIAGNOSTICS}
 			settingsOpen={screenState.isSettingsOpen}
 			aiOpen={screenState.isAiOpen}
@@ -356,7 +348,6 @@
 			onWorkspaceToggle={screenState.handleWorkspaceToggle}
 			onBuilderToggle={screenState.handleBuilderToggle}
 			onBacklogToggle={() => void backlogState.handleBacklogToggle()}
-			onDashboardToggle={screenState.handleDashboardToggle}
 			onDiagnosticsToggle={screenState.handleDiagnosticsToggle}
 			onSettingsToggle={screenState.handleSettingsToggle}
 			onAiToggle={screenState.handleAiToggle}
@@ -399,12 +390,14 @@
 
 	.menu-shell {
 		position: fixed;
-		top: 0.75rem;
-		right: 0.75rem;
-		z-index: 20;
+		inset: 0.75rem 0.75rem auto auto;
+		z-index: 1000;
 		display: flex;
 		align-items: flex-start;
+		justify-content: flex-end;
 		gap: 0.55rem;
+		width: max-content;
+		max-width: calc(100vw - 1.5rem);
 	}
 
 	.workspace-screen {
@@ -425,9 +418,8 @@
 		}
 
 		.menu-shell {
-			top: calc(env(safe-area-inset-top, 0px) + 0.75rem);
-			left: 0.75rem;
-			right: 0.75rem;
+			inset: calc(env(safe-area-inset-top, 0px) + 0.75rem) 0.75rem auto 0.75rem;
+			width: auto;
 			flex-wrap: wrap;
 			justify-content: flex-end;
 		}

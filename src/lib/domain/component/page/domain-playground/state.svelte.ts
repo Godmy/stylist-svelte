@@ -24,10 +24,6 @@ export function createDomainPlaygroundState(
 		currentScreen = DOMAIN_SCREEN.DIAGNOSTICS;
 	}
 
-	function handleDashboardToggle() {
-		currentScreen = DOMAIN_SCREEN.DASHBOARD;
-	}
-
 	function handleBuilderToggle() {
 		currentScreen = DOMAIN_SCREEN.BUILDER;
 	}
@@ -66,7 +62,6 @@ export function createDomainPlaygroundState(
 		handleWorkspaceToggle,
 		handleLandingToggle,
 		handleDiagnosticsToggle,
-		handleDashboardToggle,
 		handleBuilderToggle,
 		openBacklogScreen,
 		handleSettingsToggle,

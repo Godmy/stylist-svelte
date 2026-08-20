@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { RecipeHero } from '$stylist/marketing/interface/recipe/hero';
 	import createHeroState from './state.svelte';
-	import AnimatedNumber from '$stylist/animation/component/atom/animated-number/index.svelte';
+	import AnimatedDigit from '$stylist/animation/component/atom/animated-digit/index.svelte';
 
 	let props: RecipeHero = $props();
 	const state = createHeroState(props);
@@ -39,7 +39,7 @@
 					<div class="hero__stat-item" aria-label={`${stat.label}: ${stat.value}`}>
 						<div class="hero__stat-value">
 							{#if typeof stat.value === 'number'}
-								<AnimatedNumber value={stat.value} />
+								<AnimatedDigit to={stat.value} format={(v) => Math.round(v).toLocaleString()} />
 							{:else}
 								{stat.value}
 							{/if}

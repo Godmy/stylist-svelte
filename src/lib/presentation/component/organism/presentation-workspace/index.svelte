@@ -42,7 +42,7 @@
 
 	const DETAIL_FRAME_WIDTH = 520;
 	const DETAIL_FRAME_HEIGHT = 320;
-	const STORAGE_KEY = 'prezi-demo-ui-v3';
+	const STORAGE_KEY = 'prezi-demo-ui-v4';
 
 	const sceneNodes: readonly SceneNode[] = [
 		{
@@ -50,71 +50,306 @@
 			title: 'Presentation Board',
 			label: 'Overview',
 			description: 'Top-level canvas that frames the full deck structure.',
-			iconText: 'O',
-			position: { x: 160, y: 130, z: 180, space: 'world' },
-			depth: 180,
+			iconText: 'OV',
+			position: { x: 200, y: 150, z: 140, space: 'world' },
+			depth: 140,
 			accent: '#0f766e'
 		},
+
 		{
-			id: 'section-hub',
-			title: 'Section Hub',
-			label: 'Sections',
-			description: 'Primary branch for navigating grouped presentation sections.',
-			iconText: 'S',
-			position: { x: 620, y: 260, z: 480, space: 'world' },
-			depth: 480,
-			accent: '#2563eb',
-			children: [
-				{
-					id: 'intro-slide',
-					title: 'Intro Slide',
-					label: 'Intro',
-					description: 'Opening frame for context and orientation.',
-					iconText: 'I',
-					position: { x: 540, y: 180, z: 150, space: 'world' },
-					depth: 150,
-					accent: '#2563eb'
-				},
-				{
-					id: 'detail-slide',
-					title: 'Detail Slide',
-					label: 'Detail',
-					description: 'Focused branch for one detailed talking point.',
-					iconText: 'D',
-					position: { x: 760, y: 320, z: 420, space: 'world' },
-					depth: 420,
-					accent: '#7c3aed'
-				},
-				{
-					id: 'summary-slide',
-					title: 'Summary Slide',
-					label: 'Summary',
-					description: 'Closing frame for recap and handoff.',
-					iconText: 'C',
-					position: { x: 920, y: 210, z: 760, space: 'world' },
-					depth: 760,
-					accent: '#dc2626'
-				}
-			]
+			id: 'product-tour-hub',
+			title: 'Product Tour',
+			label: 'Tour',
+			description: 'Branch that walks through the core product surfaces.',
+			iconText: 'PT',
+			position: { x: 1000, y: 200, z: 200, space: 'world' },
+			depth: 200,
+			accent: '#2563eb'
 		},
 		{
-			id: 'media-cluster',
-			title: 'Media Cluster',
-			label: 'Media',
-			description: 'Area for visual assets, embeds and supporting content.',
-			iconText: 'M',
-			position: { x: 340, y: 560, z: 760, space: 'world' },
-			depth: 760,
+			id: 'tour-onboarding',
+			title: 'Onboarding Flow',
+			label: 'Onboarding',
+			description: 'First-run experience from signup to first value.',
+			iconText: 'ON',
+			position: { x: 760, y: 120, z: 340, space: 'world' },
+			depth: 340,
+			accent: '#2563eb'
+		},
+		{
+			id: 'tour-dashboard',
+			title: 'Workspace Dashboard',
+			label: 'Dashboard',
+			description: 'Daily-driver view aggregating the user’s active work.',
+			iconText: 'DB',
+			position: { x: 1240, y: 120, z: 520, space: 'world' },
+			depth: 520,
+			accent: '#2563eb'
+		},
+		{
+			id: 'tour-integrations',
+			title: 'Integrations Gallery',
+			label: 'Integrations',
+			description: 'Catalog of third-party connectors and webhooks.',
+			iconText: 'IG',
+			position: { x: 760, y: 320, z: 700, space: 'world' },
+			depth: 700,
+			accent: '#2563eb'
+		},
+		{
+			id: 'tour-mobile',
+			title: 'Mobile Companion',
+			label: 'Mobile',
+			description: 'Companion app for on-the-go review and approvals.',
+			iconText: 'MB',
+			position: { x: 1240, y: 320, z: 880, space: 'world' },
+			depth: 880,
+			accent: '#2563eb'
+		},
+
+		{
+			id: 'architecture-hub',
+			title: 'Architecture Deep-Dive',
+			label: 'Architecture',
+			description: 'Branch that opens up the technical system design.',
+			iconText: 'AR',
+			position: { x: 1900, y: 250, z: 220, space: 'world' },
+			depth: 220,
+			accent: '#7c3aed'
+		},
+		{
+			id: 'arch-frontend',
+			title: 'Frontend Layer',
+			label: 'Frontend',
+			description: 'Component library, routing and rendering strategy.',
+			iconText: 'FE',
+			position: { x: 1650, y: 150, z: 360, space: 'world' },
+			depth: 360,
+			accent: '#7c3aed'
+		},
+		{
+			id: 'arch-backend',
+			title: 'Backend Services',
+			label: 'Backend',
+			description: 'API boundaries, service ownership and data contracts.',
+			iconText: 'BE',
+			position: { x: 2150, y: 150, z: 540, space: 'world' },
+			depth: 540,
+			accent: '#7c3aed'
+		},
+		{
+			id: 'arch-data-pipeline',
+			title: 'Data Pipeline',
+			label: 'Data',
+			description: 'Ingestion, transformation and warehousing flow.',
+			iconText: 'DP',
+			position: { x: 1650, y: 380, z: 720, space: 'world' },
+			depth: 720,
+			accent: '#7c3aed'
+		},
+		{
+			id: 'arch-infra',
+			title: 'Infrastructure',
+			label: 'Infra',
+			description: 'Deployment topology, scaling and observability.',
+			iconText: 'IN',
+			position: { x: 2150, y: 380, z: 900, space: 'world' },
+			depth: 900,
+			accent: '#7c3aed'
+		},
+
+		{
+			id: 'metrics-hub',
+			title: 'Metrics & Analytics',
+			label: 'Metrics',
+			description: 'Branch that surfaces how the product is performing.',
+			iconText: 'MX',
+			position: { x: 400, y: 750, z: 240, space: 'world' },
+			depth: 240,
 			accent: '#d97706'
 		},
+		{
+			id: 'metrics-engagement',
+			title: 'Engagement Trends',
+			label: 'Engagement',
+			description: 'Daily and weekly active usage across cohorts.',
+			iconText: 'EN',
+			position: { x: 150, y: 650, z: 380, space: 'world' },
+			depth: 380,
+			accent: '#d97706'
+		},
+		{
+			id: 'metrics-retention',
+			title: 'Retention Curves',
+			label: 'Retention',
+			description: 'Cohort retention broken down by signup channel.',
+			iconText: 'RT',
+			position: { x: 650, y: 650, z: 560, space: 'world' },
+			depth: 560,
+			accent: '#d97706'
+		},
+		{
+			id: 'metrics-revenue',
+			title: 'Revenue Breakdown',
+			label: 'Revenue',
+			description: 'Plan mix, expansion revenue and churn impact.',
+			iconText: 'RV',
+			position: { x: 150, y: 880, z: 740, space: 'world' },
+			depth: 740,
+			accent: '#d97706'
+		},
+		{
+			id: 'metrics-performance',
+			title: 'Performance Budget',
+			label: 'Performance',
+			description: 'Load time, latency and error-rate budgets.',
+			iconText: 'PF',
+			position: { x: 650, y: 880, z: 920, space: 'world' },
+			depth: 920,
+			accent: '#d97706'
+		},
+
+		{
+			id: 'stories-hub',
+			title: 'Customer Stories',
+			label: 'Stories',
+			description: 'Branch that carries proof points from real customers.',
+			iconText: 'CS',
+			position: { x: 1200, y: 800, z: 260, space: 'world' },
+			depth: 260,
+			accent: '#db2777'
+		},
+		{
+			id: 'story-enterprise',
+			title: 'Enterprise Rollout',
+			label: 'Enterprise',
+			description: 'Multi-team rollout across a large organization.',
+			iconText: 'EP',
+			position: { x: 980, y: 700, z: 420, space: 'world' },
+			depth: 420,
+			accent: '#db2777'
+		},
+		{
+			id: 'story-startup',
+			title: 'Startup Speed-Run',
+			label: 'Startup',
+			description: 'Small team shipping fast with minimal setup.',
+			iconText: 'SU',
+			position: { x: 1420, y: 700, z: 600, space: 'world' },
+			depth: 600,
+			accent: '#db2777'
+		},
+		{
+			id: 'story-nonprofit',
+			title: 'Nonprofit Impact',
+			label: 'Nonprofit',
+			description: 'Volunteer-run team standardizing on the tool.',
+			iconText: 'NP',
+			position: { x: 1200, y: 980, z: 780, space: 'world' },
+			depth: 780,
+			accent: '#db2777'
+		},
+
+		{
+			id: 'roadmap-hub',
+			title: 'Roadmap',
+			label: 'Roadmap',
+			description: 'Branch that lays out what ships next and when.',
+			iconText: 'RM',
+			position: { x: 2000, y: 800, z: 200, space: 'world' },
+			depth: 200,
+			accent: '#0891b2'
+		},
+		{
+			id: 'roadmap-q1',
+			title: 'Q1 Commitments',
+			label: 'Q1',
+			description: 'Near-term commitments already in development.',
+			iconText: 'Q1',
+			position: { x: 1780, y: 700, z: 340, space: 'world' },
+			depth: 340,
+			accent: '#0891b2'
+		},
+		{
+			id: 'roadmap-q2',
+			title: 'Q2 Bets',
+			label: 'Q2',
+			description: 'Larger bets pending discovery and validation.',
+			iconText: 'Q2',
+			position: { x: 2220, y: 700, z: 460, space: 'world' },
+			depth: 460,
+			accent: '#0891b2'
+		},
+		{
+			id: 'roadmap-q3',
+			title: 'Q3 Exploration',
+			label: 'Q3',
+			description: 'Early exploration items without a committed date.',
+			iconText: 'Q3',
+			position: { x: 1780, y: 940, z: 600, space: 'world' },
+			depth: 600,
+			accent: '#0891b2'
+		},
+		{
+			id: 'roadmap-q4',
+			title: 'Q4 Vision',
+			label: 'Q4',
+			description: 'Directional vision items still being scoped.',
+			iconText: 'Q4',
+			position: { x: 2220, y: 940, z: 760, space: 'world' },
+			depth: 760,
+			accent: '#0891b2'
+		},
+
+		{
+			id: 'team-hub',
+			title: 'Team & Culture',
+			label: 'Team',
+			description: 'Branch that introduces the people behind the product.',
+			iconText: 'TM',
+			position: { x: 900, y: 1150, z: 220, space: 'world' },
+			depth: 220,
+			accent: '#16a34a'
+		},
+		{
+			id: 'team-leadership',
+			title: 'Leadership',
+			label: 'Leadership',
+			description: 'Founding team and their functional ownership.',
+			iconText: 'LD',
+			position: { x: 680, y: 1080, z: 380, space: 'world' },
+			depth: 380,
+			accent: '#16a34a'
+		},
+		{
+			id: 'team-engineering',
+			title: 'Engineering',
+			label: 'Engineering',
+			description: 'How engineering is organized around the product.',
+			iconText: 'EG',
+			position: { x: 1120, y: 1080, z: 540, space: 'world' },
+			depth: 540,
+			accent: '#16a34a'
+		},
+		{
+			id: 'team-design',
+			title: 'Design',
+			label: 'Design',
+			description: 'Design principles and how the craft is practiced.',
+			iconText: 'DS',
+			position: { x: 900, y: 1300, z: 700, space: 'world' },
+			depth: 700,
+			accent: '#16a34a'
+		},
+
 		{
 			id: 'qna-zone',
 			title: 'Q&A Zone',
 			label: 'Q&A',
 			description: 'Final frame for questions, notes and discussion prompts.',
-			iconText: 'Q',
-			position: { x: 860, y: 600, z: 920, space: 'world' },
-			depth: 920,
+			iconText: 'QA',
+			position: { x: 1500, y: 1200, z: 950, space: 'world' },
+			depth: 950,
 			accent: '#be123c'
 		}
 	];
@@ -128,41 +363,118 @@
 			nodeId: null,
 			checklist: [
 				'Confirm the audience can read the whole layout.',
-				'Explain how major branches are organized.',
+				'Explain how the seven branches are organized around the board.',
 				'Set the expected navigation order for the demo.'
 			],
 			note: 'Use this step as the neutral opening state for any presentation.'
 		},
 		{
-			id: 'sections',
+			id: 'tour-hub',
 			label: '02',
-			title: 'Focus the section hub',
-			summary: 'Move to the main branching node that controls the internal structure of the deck.',
-			nodeId: 'section-hub',
+			title: 'Open the product tour branch',
+			summary: 'Move to the hub node that controls the product-tour section of the deck.',
+			nodeId: 'product-tour-hub',
 			checklist: [
-				'Show how one node can represent a full section.',
-				'Use the inspector as a simple presenter-side metadata panel.',
-				'Explain that child nodes can stand in for nested slides.'
+				'Show how one hub node can represent a full section.',
+				'Preview the four detail nodes reachable from here.',
+				'Use the inspector as a simple presenter-side metadata panel.'
 			],
-			note: 'This is the most useful step for demonstrating semantic zoom as navigation.'
+			note: 'Good opening branch: it stays close in depth to the overview board.'
 		},
 		{
-			id: 'media',
+			id: 'tour-dashboard',
 			label: '03',
-			title: 'Switch to a supporting content area',
-			summary:
-				'Demonstrate that the canvas can jump sideways to a different content mode without losing context.',
-			nodeId: 'media-cluster',
+			title: 'Drill into the workspace dashboard',
+			summary: 'Zoom past the hub into one concrete detail node inside the same branch.',
+			nodeId: 'tour-dashboard',
 			checklist: [
-				'Show a non-linear move to another area of the deck.',
-				'Keep the minimap visible to preserve orientation.',
-				'Use this state to talk about embeds, assets or examples.'
+				'Demonstrate a two-level drill: hub, then a specific detail node.',
+				'Point out how sibling nodes recede into lower semantic-zoom stages.',
+				'Use this as the template drill for every other branch.'
 			],
-			note: 'This step is useful when you want to show lateral navigation instead of strict slide order.'
+			note: 'This is the clearest demonstration of semantic zoom as a focus mechanism.'
+		},
+		{
+			id: 'architecture-hub',
+			label: '04',
+			title: 'Jump to the architecture branch',
+			summary: 'Move laterally across the canvas into the technical deep-dive section.',
+			nodeId: 'architecture-hub',
+			checklist: [
+				'Show a non-linear move to a distant area of the deck.',
+				'Keep the minimap visible to preserve orientation during the jump.',
+				'Set up the audience for a more technical block of content.'
+			],
+			note: 'Useful for showing lateral navigation instead of strict slide order.'
+		},
+		{
+			id: 'architecture-backend',
+			label: '05',
+			title: 'Inspect backend services',
+			summary: 'Focus one of the four architecture detail nodes for a concrete talking point.',
+			nodeId: 'arch-backend',
+			checklist: [
+				'Discuss API boundaries and service ownership.',
+				'Reference frontend, data-pipeline and infra as siblings still in view.',
+				'Use the presenter note field for backend-specific talking points.'
+			],
+			note: 'Good step for showing how a cluster keeps related nodes nearby in world space.'
+		},
+		{
+			id: 'metrics-revenue',
+			label: '06',
+			title: 'Break down revenue',
+			summary: 'Jump straight into one metrics detail node for the business-facing part of the audience.',
+			nodeId: 'metrics-revenue',
+			checklist: [
+				'Cover plan mix, expansion revenue and churn impact.',
+				'Use the checklist field to keep the numbers consistent across runs.',
+				'Bridge from data into customer proof points next.'
+			],
+			note: 'A direct jump straight to a detail node, skipping its hub, to vary the pacing.'
+		},
+		{
+			id: 'stories-enterprise',
+			label: '07',
+			title: 'Tell the enterprise rollout story',
+			summary: 'Focus one customer story to make the previous metrics feel concrete.',
+			nodeId: 'story-enterprise',
+			checklist: [
+				'Describe the multi-team rollout timeline.',
+				'Connect back to the retention and engagement metrics if asked.',
+				'Keep this step short; it is a supporting beat, not the finale.'
+			],
+			note: 'Swap the focused story per audience without touching the rest of the deck.'
+		},
+		{
+			id: 'roadmap-q3',
+			label: '08',
+			title: 'Zoom into Q3 exploration',
+			summary: 'Move into the forward-looking section and focus a mid-horizon roadmap node.',
+			nodeId: 'roadmap-q3',
+			checklist: [
+				'Be explicit about what is committed versus exploratory.',
+				'Mention Q1 and Q2 as anchors for what already shipped or is in flight.',
+				'Invite questions before moving to the closing branch.'
+			],
+			note: 'Good spot to pause for audience questions before the closing block.'
+		},
+		{
+			id: 'team-hub',
+			label: '09',
+			title: 'Introduce the team',
+			summary: 'Move to the people-and-culture branch before the closing frame.',
+			nodeId: 'team-hub',
+			checklist: [
+				'Put a human face on the roadmap that was just presented.',
+				'Preview leadership, engineering and design as the three groups.',
+				'Keep this step brief; it sets up trust, not new information.'
+			],
+			note: 'Placed right before Q&A so the audience knows who they are talking to.'
 		},
 		{
 			id: 'qna',
-			label: '04',
+			label: '10',
 			title: 'Finish on a closing frame',
 			summary:
 				'End in a stable state that can support recap, discussion or transition to questions.',
@@ -228,8 +540,8 @@
 	function getNodePreset(node: SceneNode, viewportWidth: number, viewportHeight: number): SceneCameraPreset {
 		const zoom = clampZoom(
 			Math.min(
-				(viewportWidth * 0.65) / DETAIL_FRAME_WIDTH,
-				(viewportHeight * 0.65) / DETAIL_FRAME_HEIGHT
+				(viewportWidth * 0.88) / DETAIL_FRAME_WIDTH,
+				(viewportHeight * 0.88) / DETAIL_FRAME_HEIGHT
 			)
 		);
 
@@ -926,33 +1238,32 @@
 				bind:clientWidth={stageFrameWidth}
 				bind:clientHeight={stageFrameHeight}
 			>
-				{#key `${stageVersion}-${currentStep?.id ?? 'empty'}`}
-					<PreziScene
-						nodes={sceneNodes}
-						title="Presentation scene"
-						subtitle={currentStep?.summary ?? 'Scene preview'}
-						initialCamera={{
-							x: currentPreset.x,
-							y: currentPreset.y,
-							zoom: currentPreset.zoom
-						}}
-						initialDepth={currentPreset.depth}
-						selectedNodeId={currentPreset.selectedNodeId}
-						{animationDurationMs}
-						showHeader={true}
-						{showGrid}
-						{showMinimap}
-						{showInspector}
-						onNodeSelect={handleNodeSelect}
-					>
-						{#snippet inspector(node)}
-							<SceneInspector
-								{node}
-								onclose={() => handleNodeSelect(null)}
-							/>
-						{/snippet}
-					</PreziScene>
-				{/key}
+				<PreziScene
+					nodes={sceneNodes}
+					title="Presentation scene"
+					subtitle={currentStep?.summary ?? 'Scene preview'}
+					initialCamera={{
+						x: currentPreset.x,
+						y: currentPreset.y,
+						zoom: currentPreset.zoom
+					}}
+					initialDepth={currentPreset.depth}
+					targetCamera={currentPreset}
+					selectedNodeId={currentPreset.selectedNodeId}
+					{animationDurationMs}
+					showHeader={true}
+					{showGrid}
+					{showMinimap}
+					{showInspector}
+					onNodeSelect={handleNodeSelect}
+				>
+					{#snippet inspector(node)}
+						<SceneInspector
+							{node}
+							onclose={() => handleNodeSelect(null)}
+						/>
+					{/snippet}
+				</PreziScene>
 			</div>
 		</section>
 

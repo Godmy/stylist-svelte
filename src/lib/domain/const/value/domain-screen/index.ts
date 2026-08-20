@@ -4,6 +4,5 @@ export const DOMAIN_SCREEN = {
 	WORKSPACE: 'workspace',
 	BUILDER: 'builder',
 	BACKLOG: 'backlog',
-	DASHBOARD: 'dashboard',
 	DIAGNOSTICS: 'diagnostics'
 } as const;

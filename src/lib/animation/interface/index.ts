@@ -7,12 +7,10 @@ export type {
 	BehaviorTransformable
 } from './behavior';
 export type {
-	RecipeAnimated,
 	RecipeAnimatedBackground,
-	RecipeAnimatedNumber,
+	RecipeAnimatedDigit,
 	RecipeLayoutTransformation,
 	RecipeLoading,
-	RecipeNumberFlow,
 	RecipeProgressBar,
 	RecipeSkeleton,
 	RecipeSpinner,

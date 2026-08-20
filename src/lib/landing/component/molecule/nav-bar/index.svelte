@@ -8,6 +8,18 @@
 		label: string;
 	}
 
+	interface NavBarProps {
+		ariaLabel: string;
+		sectionLinks: NavBarLink[];
+		signInHref: string;
+		signInLabel: string;
+		brand?: Snippet;
+		languageControl?: Snippet;
+		onMobileMenuOpen?: () => void;
+		mobileMenuOpen?: boolean;
+		class?: string;
+	}
+
 	let {
 		ariaLabel,
 		sectionLinks,
@@ -15,35 +27,11 @@
 		signInLabel,
 		brand,
 		languageControl,
+		onMobileMenuOpen,
+		mobileMenuOpen = false,
 		class: className = ''
-	}: {
-		ariaLabel: string;
-		sectionLinks: NavBarLink[];
-		signInHref: string;
-		signInLabel: string;
-		brand?: Snippet;
-		languageControl?: Snippet;
-		class?: string;
-	} = $props();
-
-	let mobileMenuOpen = $state(false);
-
-	function openMobileMenu() {
-		mobileMenuOpen = true;
-	}
-
-	function closeMobileMenu() {
-		mobileMenuOpen = false;
-	}
-
-	function handleWindowKeydown(event: KeyboardEvent) {
-		if (event.key === 'Escape') {
-			closeMobileMenu();
-		}
-	}
+	}: NavBarProps = $props();
 </script>
-
-<svelte:window onkeydown={handleWindowKeydown} />
 
 <nav class="nav-bar {className}" aria-label={ariaLabel}>
 	<div class="nav-bar__brand">{#if brand}{@render brand()}{/if}</div>
@@ -61,7 +49,7 @@
 			class="nav-bar__menu-button"
 			aria-label="Open navigation menu"
 			aria-expanded={mobileMenuOpen}
-			onclick={openMobileMenu}
+			onclick={onMobileMenuOpen}
 		>
 			<span class="nav-bar__menu-line"></span>
 			<span class="nav-bar__menu-line"></span>
@@ -69,38 +57,6 @@
 		</button>
 	</div>
 </nav>
-
-{#if mobileMenuOpen}
-	<div class="nav-bar__mobile-layer">
-		<button
-			type="button"
-			class="nav-bar__mobile-backdrop"
-			aria-label="Close navigation menu"
-			onclick={closeMobileMenu}
-		></button>
-		<aside class="nav-bar__mobile-panel" role="dialog" aria-modal="true" aria-label={ariaLabel}>
-			<header class="nav-bar__mobile-header">
-				<div class="nav-bar__mobile-brand">{#if brand}{@render brand()}{/if}</div>
-				<button
-					type="button"
-					class="nav-bar__mobile-close"
-					aria-label="Close navigation menu"
-					onclick={closeMobileMenu}
-				>
-					<span class="nav-bar__mobile-close-line"></span>
-					<span class="nav-bar__mobile-close-line"></span>
-				</button>
-			</header>
-			<div class="nav-bar__mobile-links">
-				{#each sectionLinks as link (link.href)}
-					<Link href={link.href} class="nav-bar__mobile-link" onclick={closeMobileMenu}>
-						{link.label}
-					</Link>
-				{/each}
-			</div>
-		</aside>
-	</div>
-{/if}
 
 <style>
 	.nav-bar {
@@ -136,17 +92,17 @@
 	}
 
 	:global(.nav-bar__section-link),
-	:global(.nav-bar__link),
-	:global(.nav-bar__mobile-link) {
+	:global(.nav-bar__link) {
 		--typography-link-color: var(--nav-bar-link-color, currentColor);
 		--typography-link-hover-color: var(--nav-bar-link-hover-color, currentColor);
 	}
 
-	.nav-bar__menu-button,
-	.nav-bar__mobile-close {
+	.nav-bar__menu-button {
 		display: none;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		gap: 0.25rem;
 		width: 2.5rem;
 		height: 2.5rem;
 		border: 1px solid var(--nav-bar-control-border, rgba(237, 245, 239, 0.22));
@@ -156,92 +112,12 @@
 		cursor: pointer;
 	}
 
-	.nav-bar__menu-button {
-		flex-direction: column;
-		gap: 0.25rem;
-	}
-
-	.nav-bar__menu-line,
-	.nav-bar__mobile-close-line {
+	.nav-bar__menu-line {
 		display: block;
 		width: 1rem;
 		height: 2px;
 		border-radius: 999px;
 		background: currentColor;
-	}
-
-	.nav-bar__mobile-layer {
-		position: fixed;
-		inset: 0;
-		z-index: var(--z-index-modal, 1000);
-	}
-
-	.nav-bar__mobile-backdrop {
-		position: absolute;
-		inset: 0;
-		border: 0;
-		background: rgba(0, 0, 0, 0.44);
-		cursor: pointer;
-	}
-
-	.nav-bar__mobile-panel {
-		position: relative;
-		width: min(19rem, calc(100vw - 3rem));
-		min-height: 100%;
-		padding: 1rem;
-		border-right: 1px solid var(--nav-bar-mobile-border, rgba(151, 181, 164, 0.24));
-		background: var(--nav-bar-mobile-bg, #091016);
-		color: var(--nav-bar-mobile-text, #edf5ef);
-		box-shadow: 1.25rem 0 3rem rgba(0, 0, 0, 0.28);
-	}
-
-	.nav-bar__mobile-header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1rem;
-		padding-bottom: 1rem;
-		border-bottom: 1px solid var(--nav-bar-mobile-border, rgba(151, 181, 164, 0.24));
-	}
-
-	.nav-bar__mobile-brand {
-		min-width: 0;
-	}
-
-	.nav-bar__mobile-close {
-		position: relative;
-		display: inline-flex;
-		flex: 0 0 auto;
-	}
-
-	.nav-bar__mobile-close-line {
-		position: absolute;
-	}
-
-	.nav-bar__mobile-close-line:first-child {
-		transform: rotate(45deg);
-	}
-
-	.nav-bar__mobile-close-line:last-child {
-		transform: rotate(-45deg);
-	}
-
-	.nav-bar__mobile-links {
-		display: grid;
-		gap: 0.25rem;
-		padding-top: 1rem;
-	}
-
-	:global(.nav-bar__mobile-link) {
-		width: 100%;
-		padding: 0.875rem 0.75rem;
-		border-radius: 0.5rem;
-		font-size: 1rem;
-		font-weight: 650;
-	}
-
-	:global(.nav-bar__mobile-link:hover) {
-		background: var(--nav-bar-mobile-link-hover-bg, rgba(237, 245, 239, 0.08));
 	}
 
 	@container (max-width: 920px) {
@@ -275,19 +151,6 @@
 
 		:global(.nav-bar__link) {
 			font-size: 0.75rem;
-		}
-	}
-
-	:global(html.light) .nav-bar__mobile-panel {
-		--nav-bar-mobile-bg: #f6f4ed;
-		--nav-bar-mobile-text: #102018;
-		--nav-bar-mobile-border: rgba(39, 104, 74, 0.2);
-		--nav-bar-mobile-link-hover-bg: rgba(39, 104, 74, 0.08);
-	}
-
-	@container (min-width: 921px) {
-		.nav-bar__mobile-layer {
-			display: none;
 		}
 	}
 </style>

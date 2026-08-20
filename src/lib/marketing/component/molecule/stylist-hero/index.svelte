@@ -119,7 +119,7 @@
 </AnimatedBackground>
 
 <style>
-	.c-stylist-hero {
+	:global(.c-stylist-hero) {
 		position: relative;
 		overflow: hidden;
 		border-radius: 36px;
@@ -163,6 +163,7 @@
 
 	.sh-grid {
 		display: grid;
+		grid-template-columns: minmax(0, 1fr);
 		gap: 2rem;
 	}
 
@@ -302,12 +303,19 @@
 	}
 
 	.sh-aside {
+		display: none;
 		border-radius: 28px;
 		border: 1px solid rgba(255, 255, 255, 0.6);
 		background-color: rgba(255, 255, 255, 0.82);
 		padding: 1.25rem;
 		box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 		backdrop-filter: blur(4px);
+	}
+
+	@media (min-width: 1024px) {
+		.sh-aside {
+			display: block;
+		}
 	}
 
 	.sh-aside-label {

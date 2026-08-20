@@ -11,7 +11,7 @@
 	type Props = RecipePreziScene & { inspector?: Snippet<[SceneNode]> };
 
 	let { inspector, ...stateProps }: Props = $props();
-	const state = usePreziState(stateProps as RecipePreziScene);
+	const state = usePreziState(() => stateProps as RecipePreziScene);
 </script>
 
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->

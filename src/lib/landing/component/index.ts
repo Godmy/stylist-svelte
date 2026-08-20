@@ -10,6 +10,7 @@ export {
 	CasesSection,
 	DefinitionSection,
 	HeroSection,
+	MobileNavigationDrawer,
 	ResultSection,
 	WorkflowSection
 } from './organism';

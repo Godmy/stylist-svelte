@@ -8,7 +8,6 @@
 		| 'workspace'
 		| 'builder'
 		| 'backlog'
-		| 'dashboard'
 		| 'diagnostics';
 
 	let screen = $state<Screen>('domain');
@@ -29,7 +28,6 @@
 				workspaceOpen={screen === 'workspace'}
 				builderOpen={screen === 'builder'}
 				backlogOpen={screen === 'backlog'}
-				dashboardOpen={screen === 'dashboard'}
 				diagnosticsOpen={screen === 'diagnostics'}
 				{settingsOpen}
 				{aiOpen}
@@ -38,7 +36,6 @@
 				onWorkspaceToggle={() => (screen = 'workspace')}
 				onBuilderToggle={() => (screen = 'builder')}
 				onBacklogToggle={() => (screen = 'backlog')}
-				onDashboardToggle={() => (screen = 'dashboard')}
 				onDiagnosticsToggle={() => (screen = 'diagnostics')}
 				onSettingsToggle={() => (settingsOpen = !settingsOpen)}
 				onAiToggle={() => (aiOpen = !aiOpen)}
