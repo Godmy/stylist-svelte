@@ -10,6 +10,14 @@ const testRoot = path.resolve(__dirname, './src/test');
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: vitePreprocess(),
+	onwarn(warning, defaultHandler) {
+		const filename = warning.filename?.replace(/\\/g, '/') ?? '';
+		if (warning.code === 'css_unused_selector' && filename.endsWith('.story.svelte')) {
+			return;
+		}
+
+		defaultHandler(warning);
+	},
 
 	kit: {
 		adapter: adapter(),

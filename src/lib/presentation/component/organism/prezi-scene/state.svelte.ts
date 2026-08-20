@@ -60,22 +60,25 @@ export function usePreziState(
 	// is read synchronously by every node shell, so it needs its own tween —
 	// otherwise every node's size/detail snaps instantly instead of growing
 	// into view together with the camera flight ("diving into" a node).
-	const depthTween = new Tween(initialDepth, { duration: animationDurationMs, easing: cubicOut });
+	const depthTween = new Tween(initialDepth, {
+		duration: initialProps.animationDurationMs ?? FOCUS_DURATION_MS,
+		easing: cubicOut
+	});
 
 	let viewportWidth = $state(800);
 	let viewportHeight = $state(600);
 	let selectedNode = $state<SceneNode | null>(null);
-	let selectedNodeId = $state<string | null>(controlledSelectedNodeId ?? null);
+	let selectedNodeId = $state<string | null>(initialProps.selectedNodeId ?? null);
 	let isPanning = $state(false);
 	let isAnimating = $state(false);
 	let lastPointerX = 0;
 	let lastPointerY = 0;
-	let showGrid = $state(showGridProp);
-	let showMinimap = $state(showMinimapProp);
-	let showInspector = $state(showInspectorProp);
+	let showGrid = $state(initialProps.showGrid ?? true);
+	let showMinimap = $state(initialProps.showMinimap ?? true);
+	let showInspector = $state(initialProps.showInspector ?? true);
 
 	let animationTimer: ReturnType<typeof setTimeout> | null = null;
-	let activeTransitionDurationMs = $state(animationDurationMs);
+	let activeTransitionDurationMs = $state(initialProps.animationDurationMs ?? FOCUS_DURATION_MS);
 	let flightToken = 0;
 
 	// Sync toggle state when props change externally (e.g. workspace checkbox)

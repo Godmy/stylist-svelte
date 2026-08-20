@@ -36,6 +36,15 @@ import type { HTMLAttributes } from 'svelte/elements';
 			return rest;
 		})()
 	);
+
+	function handleAsChildKeydown(event: KeyboardEvent) {
+		if (state.trigger !== 'click') return;
+		if (event.key !== 'Enter' && event.key !== ' ') return;
+
+		event.preventDefault();
+		event.stopPropagation();
+		state.toggleTooltip();
+	}
 </script>
 
 <span class={state.containerClass} data-disabled={state.disabled || undefined} {...restProps}>
@@ -43,16 +52,22 @@ import type { HTMLAttributes } from 'svelte/elements';
 		<span
 			bind:this={state.referenceRef}
 			class="c-tooltip__trigger"
+			role="button"
+			tabindex={state.disabled ? undefined : 0}
 			onmouseenter={() => state.trigger === 'hover' && state.showTooltip()}
 			onmouseleave={() => state.trigger === 'hover' && state.hideTooltip()}
 			onfocusin={() => state.trigger === 'focus' && state.showTooltip()}
 			onfocusout={() => state.trigger === 'focus' && state.hideTooltip()}
+			onkeydown={handleAsChildKeydown}
 			onclick={(e) => {
 				if (state.trigger === 'click') {
 					e.stopPropagation();
 					state.toggleTooltip();
 				}
 			}}
+			aria-haspopup="true"
+			aria-expanded={state.trigger === 'click' ? state.isVisible : undefined}
+			aria-disabled={state.disabled ? true : undefined}
 		>
 			{#if props.children}
 				{@render props.children()}

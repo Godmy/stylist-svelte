@@ -46,7 +46,7 @@
 			aria-label="Close navigation menu"
 			onclick={close}
 		></button>
-		<aside
+		<div
 			class="mobile-navigation-drawer__panel"
 			role="dialog"
 			aria-modal="true"
@@ -71,7 +71,7 @@
 					</Link>
 				{/each}
 			</div>
-		</aside>
+		</div>
 	</div>
 {/if}
 
