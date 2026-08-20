@@ -1,4 +1,4 @@
-import adapterNode from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -12,7 +12,7 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapterNode(),
+		adapter: adapter(),
 		alias: {
 			$stylist: libRoot,
 			'stylist-test': testRoot
