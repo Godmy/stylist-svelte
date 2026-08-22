@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import type { RecipeTree } from '$stylist/tree/interface/recipe/tree';
 	import type { TreeNode } from '$stylist/tree/type/object/tree-node';
 	import createTreeExpansionState from '$stylist/tree/function/state/tree-expansion/index.svelte';
@@ -6,9 +7,14 @@
 		nodes = [],
 		selectedId = '',
 		onSelect,
+		onToggle,
+		node: nodeContent,
 		class: className = '',
 		...restProps
-	}: RecipeTree = $props();
+	}: RecipeTree & {
+		onToggle?: (node: TreeNode, expanded: boolean) => void;
+		node?: Snippet<[TreeNode, number, boolean]>;
+	} = $props();
 	const state = createTreeExpansionState();
 	const rootClass = $derived(['c-flat-tree', className].filter(Boolean).join(' '));
 
@@ -16,7 +22,9 @@
 		if (node.disabled) return;
 		onSelect?.(node);
 		if (node.children?.length) {
+			const expanded = !state.isOpen(node);
 			state.toggle(node.id);
+			onToggle?.(node, expanded);
 		}
 	}
 </script>
@@ -33,7 +41,13 @@
 			onclick={() => handleNodeClick(node)}
 		>
 			<span class="c-tree__toggle">{node.children?.length ? (state.isOpen(node) ? '-' : '+') : ''}</span>
-			<span class="c-tree__label">{node.label}</span>
+			<span class="c-tree__label">
+				{#if nodeContent}
+					{@render nodeContent(node, depth, node.id === selectedId)}
+				{:else}
+					{node.label}
+				{/if}
+			</span>
 		</button>
 		{#if node.children?.length && state.isOpen(node)}
 			<ul class="c-tree__children">

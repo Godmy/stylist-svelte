@@ -1,11 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
-	AdvancedVirtualTree,
 	FlatTree,
-	FolderTree,
 	TreeNodeItem,
-	TreeViewer,
-	VirtualTree
+	TreeViewer
 } from './component';
 export {
 	createTreeExpansionState,

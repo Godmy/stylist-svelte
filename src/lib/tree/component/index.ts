@@ -4,8 +4,3 @@ export {
 	TreeNodeItem,
 	TreeViewer
 } from './molecule';
-export {
-	AdvancedVirtualTree,
-	FolderTree,
-	VirtualTree
-} from './organism';

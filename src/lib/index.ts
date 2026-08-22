@@ -370,7 +370,31 @@ export {
 	categories,
 	panelId
 } from './development';
-export { ComponentInfoCard } from './dialog';
+export {
+	Accordion,
+	AccordionGroup,
+	AccordionLayout,
+	BreadcrumbDropdown,
+	BreadcrumbLink,
+	BreadcrumbSeparator,
+	Breadcrumbs,
+	ComponentInfoCard,
+	ConfirmationDialog,
+	Dialog,
+	DialogConfirm,
+	DropdownMenu,
+	GeneralToolbar,
+	Modal,
+	SimpleModal,
+	Stepper,
+	StylistTab,
+	Tab,
+	TabList,
+	TabPanel,
+	TabPanels,
+	Tabs,
+	TextInputDialog
+} from './dialog';
 export {
 	ClusterToolbar,
 	DEVICE_FRAME_VIEWPORT,
@@ -714,54 +738,21 @@ export {
 	UserBehaviorMetrics
 } from './marketing';
 export {
-	ACCORDION_CONTEXT_DEFAULT,
-	Accordion,
-	AccordionGroup,
-	AccordionLayout,
 	AppHeader,
-	BreadcrumbDropdown,
-	BreadcrumbLink,
-	BreadcrumbSeparator,
-	Breadcrumbs,
-	BreadcrumbsManager,
 	BurgerMenu,
-	ConfirmationDialog,
-	Dialog,
-	DialogConfirm,
-	DialogConfirmManager,
 	Drawer,
 	DrawerManager,
-	DropdownMenu,
-	GeneralToolbar,
 	MenuItem,
-	Modal,
 	PageButton,
 	PageEllipsis,
 	Pagination,
-	PresetDropdownMenu,
 	PresetPageButton,
 	STYLIST_MENU_ATOMIC_TAB_ITEMS,
 	STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS,
 	STYLIST_MENU_FUNCTIONAL_TAB_ITEMS,
 	STYLIST_MENU_MENU_ITEMS,
-	STYLIST_TAB_DEFAULT_ITEMS,
-	SideBySideLayout,
-	SideBySideLayoutManager,
 	Sidebar,
-	SimpleModal,
-	Stepper,
-	StylistMenu,
-	StylistTab,
-	TAB_CONTEXT,
-	TAB_PANEL_CONTEXT,
-	Tab,
-	TabGroup,
-	TabIndicator,
-	TabList,
-	TabPanel,
-	TabPanels,
-	Tabs,
-	TextInputDialog
+	StylistMenu
 } from './navigation';
 export {
 	Alert,
@@ -1106,12 +1097,9 @@ export {
 	getTokenIconKind
 } from './token';
 export {
-	AdvancedVirtualTree,
 	FlatTree,
-	FolderTree,
 	TreeNodeItem,
 	TreeViewer,
-	VirtualTree,
 	createTreeExpansionState,
 	normalizeTreeViewerNode
 } from './tree';
@@ -1460,7 +1448,6 @@ export type {
 	TokenTrend
 } from './management';
 export type { TokenTest } from './marketing';
-export type { AccordionContext } from './navigation';
 export type {
 	INotificationSettingsPreference,
 	ScheduledNotificationItem,
@@ -1933,7 +1920,42 @@ export type {
 	SlotMockDataSelectorStyleClasses,
 	StylistSelection
 } from './development';
-export type { RecipeComponentInfoCard } from './dialog';
+export type {
+	BreadcrumbDropdownItem,
+	BreadcrumbItem,
+	RecipeAccordion,
+	RecipeAccordionGroup,
+	RecipeAccordionLayout,
+	RecipeBreadcrumbDropdown,
+	RecipeBreadcrumbLink,
+	RecipeBreadcrumbSeparator,
+	RecipeBreadcrumbs,
+	RecipeComponentInfoCard,
+	RecipeConfirmationDialog,
+	RecipeDialog,
+	RecipeDialogConfirm,
+	RecipeDropdownMenu,
+	RecipeGeneralToolbar,
+	RecipeModal,
+	RecipeSimpleModal,
+	RecipeStepper,
+	RecipeStylistTab,
+	RecipeTab,
+	RecipeTabList,
+	RecipeTabPanel,
+	RecipeTabPanels,
+	RecipeTabs,
+	SlotAccordion,
+	SlotAccordionGroup,
+	SlotAccordionLayout,
+	SlotConfirmationDialog,
+	SlotDialog,
+	SlotModal,
+	SlotTab,
+	SlotTabContainer,
+	SlotTabPanel,
+	StylistTabItem
+} from './dialog';
 export type {
 	RecipeDeviceFrame,
 	RecipeDomainAiAgent,
@@ -2235,54 +2257,17 @@ export type {
 	SlotTestResult
 } from './marketing';
 export type {
-	BreadcrumbDropdownItem,
-	BreadcrumbItem,
 	NavItem,
 	PrimaryMenuItem,
-	RecipeAccordion,
-	RecipeAccordionGroup,
-	RecipeAccordionLayout,
 	RecipeAppHeader,
-	RecipeBreadcrumbDropdown,
-	RecipeBreadcrumbLink,
-	RecipeBreadcrumbSeparator,
-	RecipeBreadcrumbs,
 	RecipeBurgerMenu,
-	RecipeConfirmationDialog,
-	RecipeDialog,
-	RecipeDialogConfirm,
 	RecipeDrawer,
-	RecipeDropdownMenu,
-	RecipeGeneralToolbar,
 	RecipeMenuItem,
-	RecipeModal,
 	RecipePageButton,
 	RecipePageEllipsis,
 	RecipePagination,
-	RecipeSideBySideLayout,
 	RecipeSidebar,
-	RecipeSimpleModal,
-	RecipeStepper,
-	RecipeStylistMenu,
-	RecipeStylistTab,
-	RecipeTab,
-	RecipeTabGroup,
-	RecipeTabIndicator,
-	RecipeTabList,
-	RecipeTabPanel,
-	RecipeTabPanels,
-	RecipeTabs,
-	SlotAccordion,
-	SlotAccordionGroup,
-	SlotAccordionLayout,
-	SlotConfirmationDialog,
-	SlotDialog,
-	SlotModal,
-	SlotTab,
-	SlotTabContainer,
-	SlotTabIndicator,
-	SlotTabPanel,
-	StylistTabItem
+	RecipeStylistMenu
 } from './navigation';
 export type {
 	RecipeAlert,

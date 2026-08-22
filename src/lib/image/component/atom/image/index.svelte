@@ -89,7 +89,7 @@
 		max-width: 37.5rem;
 	}
 	.c-image__img--xl {
-		max-width: none;
+		max-width: 100%;
 	}
 
 	@keyframes c-image-skeleton-shimmer {

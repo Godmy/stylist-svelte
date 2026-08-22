@@ -8,21 +8,33 @@ export function createTreeViewerState(props: RecipeTreeViewer) {
 	const bufferSize = $derived(props.bufferSize ?? 5);
 	const className = $derived(props.class ?? '');
 
-	const handleSelect = (e: CustomEvent<{ node: TreeNodeItemNode }>) => {
-		props.onSelect?.(e.detail);
-		props.onSelectCallback?.(e.detail.node.key);
+	const handleNodeSelect = (node: TreeNodeItemNode) => {
+		props.onSelect?.({ node });
+		props.onSelectCallback?.(node.key);
 	};
 
-	const handleToggle = (key: string | undefined) => {
-		if (key) props.onToggleCallback?.(key);
+	function findNodeByKey(nodes: TreeNodeItemNode[], key: string): TreeNodeItemNode | undefined {
+		for (const node of nodes) {
+			if (node.key === key) return node;
+			const child = findNodeByKey(node.child ?? [], key);
+			if (child) return child;
+		}
+	}
+
+	const handleTreeNodeSelect = (id: string) => {
+		const node = findNodeByKey(tree, id);
+		if (node) handleNodeSelect(node);
 	};
 
-	const handleExpand = (e: CustomEvent<{ node: TreeNodeItemNode }>) => {
-		props.onExpand?.(e.detail);
-	};
-
-	const handleCollapse = (e: CustomEvent<{ node: TreeNodeItemNode }>) => {
-		props.onCollapse?.(e.detail);
+	const handleTreeNodeToggle = (id: string, expanded: boolean) => {
+		const node = findNodeByKey(tree, id);
+		if (!node) return;
+		props.onToggleCallback?.(node.key);
+		if (expanded) {
+			props.onExpand?.({ node });
+		} else {
+			props.onCollapse?.({ node });
+		}
 	};
 
 	return {
@@ -41,10 +53,9 @@ export function createTreeViewerState(props: RecipeTreeViewer) {
 		get className() {
 			return className;
 		},
-		handleSelect,
-		handleToggle,
-		handleExpand,
-		handleCollapse
+		handleNodeSelect,
+		handleTreeNodeSelect,
+		handleTreeNodeToggle
 	};
 }
 

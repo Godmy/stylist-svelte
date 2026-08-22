@@ -470,6 +470,31 @@
       ]
     },
     {
+      "path": "dialog/component/atom/breadcrumbs/index.svelte",
+      "domain": "dialog",
+      "joint": "atom",
+      "family": "breadcrumbs",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBreadcrumbs",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte",
+        "svelte/elements"
+      ]
+    },
+    {
+      "path": "dialog/component/organism/text-input-dialog/index.svelte",
+      "domain": "dialog",
+      "joint": "organism",
+      "family": "text-input-dialog",
+      "status": "none",
+      "expectedRecipe": "RecipeTextInputDialog",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
       "path": "domain/component/atom/domain-entity/index.svelte",
       "domain": "domain",
       "joint": "atom",
@@ -739,7 +764,7 @@
         "$stylist/domain/component/molecule/joint-tab-buttons/index.svelte",
         "$stylist/domain/component/molecule/taxonomy-breadcrumbs/index.svelte",
         "./state.svelte",
-        "$stylist/navigation/component/organism/text-input-dialog/index.svelte",
+        "$stylist/dialog/component/organism/text-input-dialog/index.svelte",
         "$stylist/domain/type/alias/device-frame-viewport"
       ]
     },
@@ -1664,31 +1689,6 @@
       ]
     },
     {
-      "path": "navigation/component/atom/breadcrumbs/index.svelte",
-      "domain": "navigation",
-      "joint": "atom",
-      "family": "breadcrumbs",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeBreadcrumbs",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "svelte",
-        "svelte/elements"
-      ]
-    },
-    {
-      "path": "navigation/component/organism/text-input-dialog/index.svelte",
-      "domain": "navigation",
-      "joint": "organism",
-      "family": "text-input-dialog",
-      "status": "none",
-      "expectedRecipe": "RecipeTextInputDialog",
-      "importCount": 0,
-      "recipeImports": [],
-      "otherImports": []
-    },
-    {
       "path": "portfolio/component/atom/portfolio-cell/index.svelte",
       "domain": "portfolio",
       "joint": "atom",
@@ -2391,11 +2391,12 @@
       "family": "flat-tree",
       "status": "missing-recipe",
       "expectedRecipe": "RecipeFlatTree",
-      "importCount": 3,
+      "importCount": 4,
       "recipeImports": [
         "$stylist/tree/interface/recipe/tree"
       ],
       "otherImports": [
+        "svelte",
         "$stylist/tree/type/object/tree-node",
         "$stylist/tree/function/state/tree-expansion/index.svelte"
       ]
@@ -2411,54 +2412,9 @@
       "recipeImports": [],
       "otherImports": [
         "$stylist/tree/type/object/tree-node-item-node",
-        "$stylist/tree/component/organism/advanced-virtual-tree/index.svelte",
+        "$stylist/tree/component/molecule/flat-tree/index.svelte",
         "$stylist/tree/function/script/normalize-tree-viewer-node",
         "./state.svelte"
-      ]
-    },
-    {
-      "path": "tree/component/organism/advanced-virtual-tree/index.svelte",
-      "domain": "tree",
-      "joint": "organism",
-      "family": "advanced-virtual-tree",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeAdvancedVirtualTree",
-      "importCount": 2,
-      "recipeImports": [
-        "$stylist/tree/interface/recipe/tree"
-      ],
-      "otherImports": [
-        "$stylist/tree/function/state/tree-expansion/index.svelte"
-      ]
-    },
-    {
-      "path": "tree/component/organism/folder-tree/index.svelte",
-      "domain": "tree",
-      "joint": "organism",
-      "family": "folder-tree",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeFolderTree",
-      "importCount": 2,
-      "recipeImports": [
-        "$stylist/tree/interface/recipe/tree"
-      ],
-      "otherImports": [
-        "$stylist/tree/function/state/tree-expansion/index.svelte"
-      ]
-    },
-    {
-      "path": "tree/component/organism/virtual-tree/index.svelte",
-      "domain": "tree",
-      "joint": "organism",
-      "family": "virtual-tree",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeVirtualTree",
-      "importCount": 2,
-      "recipeImports": [
-        "$stylist/tree/interface/recipe/tree"
-      ],
-      "otherImports": [
-        "$stylist/tree/function/state/tree-expansion/index.svelte"
       ]
     },
     {
@@ -2561,10 +2517,10 @@
     }
   ],
   "summary": {
-    "total": 168,
+    "total": 165,
     "none": 18,
-    "missingRecipe": 150,
-    "valid": 531,
-    "scanned": 699
+    "missingRecipe": 147,
+    "valid": 528,
+    "scanned": 693
   }
 }

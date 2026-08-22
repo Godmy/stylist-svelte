@@ -56,7 +56,15 @@
 			<div class="_c3">
 				<h2 class="_c4">Interactive FlatTree</h2>
 				<div class="_c5">
-					<TreeView {nodes} />
+					<TreeView {nodes}>
+						{#snippet node(node, depth, selected)}
+							<span class="_c6" class:_c7={selected}>
+								<span class="_c8">{node.children?.length ? 'group' : 'leaf'}</span>
+								<span>{node.label}</span>
+								<span class="_c9">depth {depth}</span>
+							</span>
+						{/snippet}
+					</TreeView>
 				</div>
 			</div>
 		</div>
@@ -88,5 +96,22 @@
 	}
 	._c5 {
 		max-width: 28rem;
+	}
+	._c6 {
+		display: inline-flex;
+		min-width: 0;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	._c7 {
+		font-weight: 600;
+	}
+	._c8,
+	._c9 {
+		border-radius: 0.25rem;
+		background: var(--color-background-secondary);
+		padding: 0.0625rem 0.375rem;
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
 	}
 </style>

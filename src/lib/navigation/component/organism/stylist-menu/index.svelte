@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import StylistTab from '$stylist/navigation/component/molecule/stylist-tab/index.svelte';
+	import StylistTab from '$stylist/dialog/component/molecule/stylist-tab/index.svelte';
 	import { STYLIST_MENU_MENU_ITEMS } from '$stylist/navigation/const/record/stylist-menu-menu-items';
 	import { STYLIST_MENU_FUNCTIONAL_TAB_ITEMS } from '$stylist/navigation/const/record/stylist-menu-functional-tab-items';
 	import { STYLIST_MENU_ATOMIC_TAB_ITEMS } from '$stylist/navigation/const/record/stylist-menu-atomic-tab-items';

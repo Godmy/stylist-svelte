@@ -1,16 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { PresetPageButton } from './preset';
 export {
-	PresetDropdownMenu,
-	PresetPageButton
-} from './preset';
-export {
-	ACCORDION_CONTEXT_DEFAULT,
 	STYLIST_MENU_ATOMIC_TAB_ITEMS,
 	STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS,
 	STYLIST_MENU_FUNCTIONAL_TAB_ITEMS,
-	STYLIST_MENU_MENU_ITEMS,
-	STYLIST_TAB_DEFAULT_ITEMS,
-	TAB_CONTEXT,
-	TAB_PANEL_CONTEXT
+	STYLIST_MENU_MENU_ITEMS
 } from './record';
-export type { AccordionContext } from './record';

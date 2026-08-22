@@ -1,10 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AppHeader } from './app-header/index';
-export { Dialog } from './dialog/index';
 export { Drawer } from './drawer/index';
-export { Modal } from './modal/index';
 export { Pagination } from './pagination/index';
 export { Sidebar } from './sidebar/index';
-export { SimpleModal } from './simple-modal/index';
 export { StylistMenu } from './stylist-menu/index';
-export { TextInputDialog } from './text-input-dialog/index';
