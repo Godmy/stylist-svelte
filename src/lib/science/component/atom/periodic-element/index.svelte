@@ -46,9 +46,14 @@
 		min-width: 0;
 		min-height: 0;
 		padding: 0.3rem;
-		border: 1px solid color-mix(in srgb, var(--color-border-primary) 70%, var(--periodic-element-accent));
+		border: 1px solid
+			color-mix(in srgb, var(--color-border-primary) 70%, var(--periodic-element-accent));
 		border-radius: 0.25rem;
-		background: color-mix(in srgb, var(--color-background-primary) 84%, var(--periodic-element-accent));
+		background: color-mix(
+			in srgb,
+			var(--color-background-primary) 84%,
+			var(--periodic-element-accent)
+		);
 		color: inherit;
 		text-align: left;
 		cursor: pointer;
@@ -63,12 +68,17 @@
 	.c-periodic-element:focus-visible,
 	.c-periodic-element.is-selected,
 	.c-periodic-element.is-highlighted {
-		outline: 2px solid color-mix(in srgb, var(--color-text-primary) 44%, var(--periodic-element-accent));
+		outline: 2px solid
+			color-mix(in srgb, var(--color-text-primary) 44%, var(--periodic-element-accent));
 		outline-offset: 1px;
 	}
 
 	.c-periodic-element.is-highlighted {
-		background: color-mix(in srgb, var(--color-background-primary) 70%, var(--periodic-element-accent));
+		background: color-mix(
+			in srgb,
+			var(--color-background-primary) 70%,
+			var(--periodic-element-accent)
+		);
 		transform: translateY(-1px);
 	}
 

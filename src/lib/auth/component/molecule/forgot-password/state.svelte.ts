@@ -58,4 +58,3 @@ export const createForgotPasswordState = (props: RecipeForgotPassword) => {
 };
 
 export default createForgotPasswordState;
-

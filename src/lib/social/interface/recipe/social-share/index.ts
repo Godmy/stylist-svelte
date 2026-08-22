@@ -4,8 +4,11 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 
-export interface RecipeSocialShare extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotThemeBorder, SlotTypography {
-title?: string;
+export interface RecipeSocialShare
+	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>,
+		SlotThemeBorder,
+		SlotTypography {
+	title?: string;
 	url?: string;
 	description?: string;
 	platforms?: SocialPlatform[];

@@ -3,7 +3,7 @@ import type { ComparisonTableFeature } from '$stylist/table/type/object/comparis
 import type { ComparisonTableProduct } from '$stylist/table/type/object/comparison-table-product';
 
 export interface RecipeComparisonTable extends HTMLAttributes<HTMLDivElement> {
-features: ComparisonTableFeature[];
+	features: ComparisonTableFeature[];
 	products: ComparisonTableProduct[];
 	featureColumnLabel?: string;
 	showHeader?: boolean;

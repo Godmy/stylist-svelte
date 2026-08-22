@@ -9,7 +9,10 @@
 
 	let { activeClusters, onClusterClick }: Props = $props();
 
-	const hex = (v: number) => Math.round(v * 255).toString(16).padStart(2, '0');
+	const hex = (v: number) =>
+		Math.round(v * 255)
+			.toString(16)
+			.padStart(2, '0');
 	function toHex(c: readonly [number, number, number]) {
 		return `#${hex(c[0])}${hex(c[1])}${hex(c[2])}`;
 	}

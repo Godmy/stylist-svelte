@@ -8,7 +8,14 @@ import type { BehaviorMetricValue } from '$stylist/chart/interface/behavior/metr
 import type { BehaviorTrendable } from '$stylist/management/interface/behavior/trendable';
 export interface RecipeKPIIndicator
 	extends ComputeIntersectAll<
-		[SlotTheme, SlotText, BehaviorMetricValue, BehaviorTrendable, BehaviorSizable, HTMLAttributes<HTMLDivElement>]
+		[
+			SlotTheme,
+			SlotText,
+			BehaviorMetricValue,
+			BehaviorTrendable,
+			BehaviorSizable,
+			HTMLAttributes<HTMLDivElement>
+		]
 	> {
 	status?: TokenKPI;
 	titleClass?: string;

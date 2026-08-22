@@ -36,7 +36,8 @@ export async function POST(event: RequestEvent): Promise<Response> {
 	}
 
 	if (!response) {
-		const message = gatewayError instanceof Error ? gatewayError.message : 'Whisper gateway unavailable.';
+		const message =
+			gatewayError instanceof Error ? gatewayError.message : 'Whisper gateway unavailable.';
 		return json({ error: message }, { status: 502 });
 	}
 

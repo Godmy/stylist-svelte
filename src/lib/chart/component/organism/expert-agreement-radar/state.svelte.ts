@@ -4,6 +4,19 @@ import type { RecipeExpertAgreementRadar } from '$stylist/chart/interface/recipe
 
 export default function createExpertAgreementRadarState(props: RecipeExpertAgreementRadar) {
 	const className = $derived(ClassNamesManager.merge('expert-agreement-radar', props.class));
-	const layout = $derived.by(() => ManagerExpertAgreementRadar.createLayout(props.axes, { width: props.width, height: props.height, maxValue: props.maxValue }));
-	return { get className() { return className; }, get layout() { return layout; } };
+	const layout = $derived.by(() =>
+		ManagerExpertAgreementRadar.createLayout(props.axes, {
+			width: props.width,
+			height: props.height,
+			maxValue: props.maxValue
+		})
+	);
+	return {
+		get className() {
+			return className;
+		},
+		get layout() {
+			return layout;
+		}
+	};
 }

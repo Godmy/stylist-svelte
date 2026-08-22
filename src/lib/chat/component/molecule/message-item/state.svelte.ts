@@ -21,7 +21,10 @@ export const createMessageItemState = (props: {
 	);
 
 	const messageBubbleClasses = $derived(
-		ClassNamesManager.merge('message-bubble', isOwn ? 'message-bubble--own' : 'message-bubble--other')
+		ClassNamesManager.merge(
+			'message-bubble',
+			isOwn ? 'message-bubble--own' : 'message-bubble--other'
+		)
 	);
 
 	const messageContentClasses = 'message-content';

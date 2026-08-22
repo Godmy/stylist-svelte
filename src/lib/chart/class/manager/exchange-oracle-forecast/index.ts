@@ -1,7 +1,14 @@
 export class ManagerExchangeOracleForecast {
 	static createLayout(
 		history: { time: string; value: number }[],
-		forecast: { time: string; min: number; low: number; consensus: number; high: number; max: number }[],
+		forecast: {
+			time: string;
+			min: number;
+			low: number;
+			consensus: number;
+			high: number;
+			max: number;
+		}[],
 		options: { width?: number; height?: number; currency?: string; timeLabelStep?: number } = {}
 	) {
 		const width = options.width ?? 1120;
@@ -53,13 +60,19 @@ export class ManagerExchangeOracleForecast {
 		const linePath = (points: { x: number; y: number }[]) =>
 			points.map((point, index) => `${index === 0 ? 'M' : 'L'} ${point.x} ${point.y}`).join(' ');
 		const forecastLinePath = (selector: (point: (typeof forecastPoints)[number]) => number) =>
-			forecastPoints.map((point, index) => `${index === 0 ? 'M' : 'L'} ${point.x} ${selector(point)}`).join(' ');
+			forecastPoints
+				.map((point, index) => `${index === 0 ? 'M' : 'L'} ${point.x} ${selector(point)}`)
+				.join(' ');
 		const bandPath = (
 			topSelector: (point: (typeof forecastPoints)[number]) => number,
 			bottomSelector: (point: (typeof forecastPoints)[number]) => number
 		) => {
-			const top = forecastPoints.map((point, index) => `${index === 0 ? 'M' : 'L'} ${point.x} ${topSelector(point)}`);
-			const bottom = [...forecastPoints].reverse().map((point) => `L ${point.x} ${bottomSelector(point)}`);
+			const top = forecastPoints.map(
+				(point, index) => `${index === 0 ? 'M' : 'L'} ${point.x} ${topSelector(point)}`
+			);
+			const bottom = [...forecastPoints]
+				.reverse()
+				.map((point) => `L ${point.x} ${bottomSelector(point)}`);
 			return `${top.join(' ')} ${bottom.join(' ')} Z`;
 		};
 		const ticks = Array.from({ length: 6 }, (_, index) => {
@@ -87,8 +100,14 @@ export class ManagerExchangeOracleForecast {
 			historyPoints,
 			forecastPoints,
 			historyPath: linePath(historyPoints),
-			outerBandPath: bandPath((point) => point.maxY, (point) => point.minY),
-			coreBandPath: bandPath((point) => point.highY, (point) => point.lowY),
+			outerBandPath: bandPath(
+				(point) => point.maxY,
+				(point) => point.minY
+			),
+			coreBandPath: bandPath(
+				(point) => point.highY,
+				(point) => point.lowY
+			),
 			consensusPath: forecastLinePath((point) => point.consensusY),
 			lastHistoryPoint
 		};

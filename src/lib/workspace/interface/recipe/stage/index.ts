@@ -1,7 +1,7 @@
 import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 
 export interface RecipeStage extends LayoutHTMLAttributes<HTMLDivElement> {
-class?: string;
+	class?: string;
 	camera: {
 		x: number;
 		y: number;

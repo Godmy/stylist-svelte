@@ -1,5 +1,5 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
-﻿import type { RecipeNotificationPreferences } from '$stylist/notification/interface/recipe/notification-preferences';
+import type { RecipeNotificationPreferences } from '$stylist/notification/interface/recipe/notification-preferences';
 
 export function createNotificationPreferencesState(props: RecipeNotificationPreferences) {
 	const email = $derived(props.email ?? true);

@@ -11,8 +11,4 @@ export type {
 	RecipeRichText,
 	RecipeText
 } from './recipe';
-export type {
-	SlotLink,
-	SlotRichText,
-	SlotText
-} from './slot';
+export type { SlotLink, SlotRichText, SlotText } from './slot';

@@ -11,4 +11,3 @@ export interface RecipeListItemMarker
 	color?: TokenColorTone;
 	size?: TokenSize;
 }
-

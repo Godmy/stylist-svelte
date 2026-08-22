@@ -18,7 +18,9 @@ export const createTextareaState = (
 	const variant = $derived(
 		resolveAllowedOption(props.variant as TokenColorTone | undefined, TOKEN_COLOR_TONE, 'default')
 	);
-	const size = $derived(resolveAllowedOption(props.size as TokenSize | undefined, TOKEN_SIZE, 'md'));
+	const size = $derived(
+		resolveAllowedOption(props.size as TokenSize | undefined, TOKEN_SIZE, 'md')
+	);
 	const disabled = $derived(!!props.disabled);
 	const hasError = $derived(!!props.error);
 	const errorId = $derived(props.id ? `${String(props.id)}-error` : undefined);

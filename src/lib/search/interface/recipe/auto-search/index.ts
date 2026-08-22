@@ -7,5 +7,13 @@ import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 export interface RecipeAutoSearch
 	extends ComputeIntersectAll<
-		[SlotText, SlotText, SlotIcon, BehaviorSelectable<string>, BehaviorFocusable, BehaviorSizable, BehaviorScrollable]
+		[
+			SlotText,
+			SlotText,
+			SlotIcon,
+			BehaviorSelectable<string>,
+			BehaviorFocusable,
+			BehaviorSizable,
+			BehaviorScrollable
+		]
 	> {}

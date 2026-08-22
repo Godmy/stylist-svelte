@@ -3,8 +3,22 @@
 	import RangeBarsChart from './index.svelte';
 
 	const items = [
-		{ id: 'a', label: 'Integration', startPercent: 10, markerPercent: 42, endPercent: 75, valueLabel: '10-42-75d' },
-		{ id: 'b', label: 'Migration', startPercent: 25, markerPercent: 54, endPercent: 90, valueLabel: '25-54-90d' }
+		{
+			id: 'a',
+			label: 'Integration',
+			startPercent: 10,
+			markerPercent: 42,
+			endPercent: 75,
+			valueLabel: '10-42-75d'
+		},
+		{
+			id: 'b',
+			label: 'Migration',
+			startPercent: 25,
+			markerPercent: 54,
+			endPercent: 90,
+			valueLabel: '25-54-90d'
+		}
 	];
 </script>
 

@@ -14,11 +14,7 @@ export function createImageCaptionState(props: RecipeImageCaption) {
 	);
 
 	const imageClasses = $derived(
-		[
-			'c-image-caption__image',
-			props.imageClass,
-			props.rounded && 'c-image-caption__image--rounded'
-		]
+		['c-image-caption__image', props.imageClass, props.rounded && 'c-image-caption__image--rounded']
 			.filter(Boolean)
 			.join(' ')
 	);

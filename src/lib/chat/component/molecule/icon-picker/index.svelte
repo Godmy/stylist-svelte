@@ -31,7 +31,10 @@
 		{/if}
 	</div>
 
-	<div class={state.gridClass} style={`grid-template-columns: repeat(${state.columns}, minmax(0, 1fr))`}>
+	<div
+		class={state.gridClass}
+		style={`grid-template-columns: repeat(${state.columns}, minmax(0, 1fr))`}
+	>
 		{#each state.filteredIcons as icon}
 			<button
 				type="button"

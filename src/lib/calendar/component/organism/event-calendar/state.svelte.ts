@@ -3,7 +3,12 @@ import type { RecipeEventCalendar } from '$stylist/calendar/interface/recipe/eve
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';
 import type { TokenTimeMeasure } from '$stylist/calendar/type/alias/time-measure';
-import { generateCalendarGrid, isToday as isTodayFn, isSameDay, startOfWeek } from '$stylist/calendar/function/script/calendar-utils';
+import {
+	generateCalendarGrid,
+	isToday as isTodayFn,
+	isSameDay,
+	startOfWeek
+} from '$stylist/calendar/function/script/calendar-utils';
 
 export function createEventCalendarState(props: RecipeEventCalendar) {
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
@@ -47,13 +52,15 @@ export function createEventCalendarState(props: RecipeEventCalendar) {
 				};
 			});
 		}
-		return [{
-			date: currentDate,
-			isCurrentMonth: true,
-			isToday: isTodayFn(currentDate),
-			isSelected: true,
-			events: events.filter((e) => isSameDay(new Date(e.start), currentDate))
-		}];
+		return [
+			{
+				date: currentDate,
+				isCurrentMonth: true,
+				isToday: isTodayFn(currentDate),
+				isSelected: true,
+				events: events.filter((e) => isSameDay(new Date(e.start), currentDate))
+			}
+		];
 	});
 
 	const weekdays = $derived(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']);
@@ -144,7 +151,10 @@ export function createEventCalendarState(props: RecipeEventCalendar) {
 		switch (mode) {
 			case 'day':
 				return date.toLocaleDateString('en-US', {
-					weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+					weekday: 'long',
+					month: 'long',
+					day: 'numeric',
+					year: 'numeric'
 				});
 			case 'week': {
 				const endOfWeek = new Date(date);
@@ -161,11 +171,18 @@ export function createEventCalendarState(props: RecipeEventCalendar) {
 		return `${fmt(start)} - ${fmt(end)}`;
 	}
 
-	function getWeekdayHeaderClasses(): string { return 'c-event-calendar__weekday'; }
-	function getGridClasses(): string { return 'c-event-calendar__grid'; }
+	function getWeekdayHeaderClasses(): string {
+		return 'c-event-calendar__weekday';
+	}
+	function getGridClasses(): string {
+		return 'c-event-calendar__grid';
+	}
 
 	function getDateHeaderClasses(isTodayDate: boolean): string {
-		return ClassNamesManager.merge('c-event-calendar__date-header', isTodayDate && 'c-event-calendar__date-header--today');
+		return ClassNamesManager.merge(
+			'c-event-calendar__date-header',
+			isTodayDate && 'c-event-calendar__date-header--today'
+		);
 	}
 
 	function getDayCellClasses(isTodayDate: boolean, isCurrentMonth: boolean): string {
@@ -177,7 +194,10 @@ export function createEventCalendarState(props: RecipeEventCalendar) {
 	}
 
 	function getDateNumberClasses(isTodayDate: boolean): string {
-		return ClassNamesManager.merge('c-event-calendar__date-num', isTodayDate && 'c-event-calendar__date-num--today');
+		return ClassNamesManager.merge(
+			'c-event-calendar__date-num',
+			isTodayDate && 'c-event-calendar__date-num--today'
+		);
 	}
 
 	function getEventClasses(hasColor = false, color?: string): string {
@@ -186,29 +206,71 @@ export function createEventCalendarState(props: RecipeEventCalendar) {
 			hasColor && color && 'c-event-calendar__event--custom'
 		);
 	}
-	function getModalOverlayClasses(): string { return 'c-event-calendar__modal-overlay'; }
-	function getModalContentClasses(): string { return 'c-event-calendar__modal'; }
-	function getModalHeaderClasses(): string { return 'c-event-calendar__modal-header'; }
-	function getModalFooterClasses(): string { return 'c-event-calendar__modal-footer'; }
+	function getModalOverlayClasses(): string {
+		return 'c-event-calendar__modal-overlay';
+	}
+	function getModalContentClasses(): string {
+		return 'c-event-calendar__modal';
+	}
+	function getModalHeaderClasses(): string {
+		return 'c-event-calendar__modal-header';
+	}
+	function getModalFooterClasses(): string {
+		return 'c-event-calendar__modal-footer';
+	}
 
 	return {
-		get currentDate() { return currentDate; },
-		get currentViewMode() { return currentViewMode; },
-		get selectedEvent() { return selectedEvent; },
-		get showEventActions() { return showEventActions; },
-		get days() { return days; },
-		get weekdays() { return weekdays; },
-		get displayTitle() { return displayTitle; },
-		get events() { return events; },
-		get className() { return className; },
-		get dayClass() { return dayClass; },
-		get eventClass() { return eventClass; },
-		get headerClassProp() { return headerClassProp; },
-		get showAllDayEvents() { return showAllDayEvents; },
-		get showEventDuration() { return showEventDuration; },
-		get wrapperClasses() { return wrapperClasses; },
-		get headerClasses() { return headerClasses; },
-		get restProps() { return restProps; },
+		get currentDate() {
+			return currentDate;
+		},
+		get currentViewMode() {
+			return currentViewMode;
+		},
+		get selectedEvent() {
+			return selectedEvent;
+		},
+		get showEventActions() {
+			return showEventActions;
+		},
+		get days() {
+			return days;
+		},
+		get weekdays() {
+			return weekdays;
+		},
+		get displayTitle() {
+			return displayTitle;
+		},
+		get events() {
+			return events;
+		},
+		get className() {
+			return className;
+		},
+		get dayClass() {
+			return dayClass;
+		},
+		get eventClass() {
+			return eventClass;
+		},
+		get headerClassProp() {
+			return headerClassProp;
+		},
+		get showAllDayEvents() {
+			return showAllDayEvents;
+		},
+		get showEventDuration() {
+			return showEventDuration;
+		},
+		get wrapperClasses() {
+			return wrapperClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get restProps() {
+			return restProps;
+		},
 		navigateCurrent,
 		navigateToToday,
 		changeViewMode,

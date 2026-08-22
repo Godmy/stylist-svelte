@@ -11,8 +11,7 @@ import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
  *   BehaviorSizable              (architecture) — size
  *   ThemeAttributes       (theme)       — variant (tone)
  */
-export interface SlotConfirmationDialog
-	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
+export interface SlotConfirmationDialog extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
 	open?: boolean;
 	title?: string;
 	message?: string;

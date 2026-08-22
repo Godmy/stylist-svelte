@@ -47,7 +47,8 @@ export function createBorderState(props: RecipeBorder) {
 		if (borderStyle === 'none' || borderStyle === 'invisible') {
 			parts.push('border: none');
 		} else if (props.borderTop || props.borderBottom || props.borderLeft || props.borderRight) {
-			if (props.borderTop) parts.push(`border-top: ${borderWidth} ${cssBorderStyle} ${borderColor}`);
+			if (props.borderTop)
+				parts.push(`border-top: ${borderWidth} ${cssBorderStyle} ${borderColor}`);
 			if (props.borderBottom)
 				parts.push(`border-bottom: ${borderWidth} ${cssBorderStyle} ${borderColor}`);
 			if (props.borderLeft)

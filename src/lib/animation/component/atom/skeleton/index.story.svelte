@@ -4,7 +4,12 @@
 	import Skeleton from './index.svelte';
 
 	const controls: SlotStory[] = [
-		{ name: 'variant', type: 'select', defaultValue: 'text', options: ['text', 'rectangle', 'circle'] },
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'text',
+			options: ['text', 'rectangle', 'circle']
+		},
 		{ name: 'lines', type: 'range', defaultValue: 3, min: 1, max: 6, step: 1 },
 		{ name: 'animated', type: 'boolean', defaultValue: true }
 	];

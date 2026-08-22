@@ -23,10 +23,14 @@
 	];
 </script>
 
-<Story title="LegendBarDiagram" description="Domain file totals with displaced label cards." {controls}>
+<Story
+	title="LegendBarDiagram"
+	description="Domain file totals with displaced label cards."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<LegendBarDiagram
-			items={items}
+			{items}
 			width={values.width}
 			plotHeight={values.plotHeight}
 			labelAreaHeight={values.labelAreaHeight}

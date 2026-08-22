@@ -2,7 +2,7 @@
 	import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
-		import { createDropZoneState } from './state.svelte';
+	import { createDropZoneState } from './state.svelte';
 	import { DropZoneManager } from '$stylist/file/class/manager/drop-zone';
 	import type { RecipeDropZone } from '$stylist/file/interface/recipe/drop-zone';
 
@@ -79,7 +79,9 @@
 							</div>
 							<div class="dz-item-meta">
 								<p class="dz-item-name">{item.name}</p>
-								<p class="dz-item-desc">{item.type} • {DropZoneManager.formatFileSize(item.size || 0)}</p>
+								<p class="dz-item-desc">
+									{item.type} • {DropZoneManager.formatFileSize(item.size || 0)}
+								</p>
 							</div>
 						</div>
 
@@ -113,7 +115,8 @@
 		padding: 1.5rem;
 		text-align: center;
 		cursor: pointer;
-		transition: border-color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out),
+		transition:
+			border-color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out),
 			background-color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out);
 	}
 	.c-drop-zone:hover {

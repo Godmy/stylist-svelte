@@ -11,7 +11,8 @@ export class MinimapManager {
 		return {
 			minX: nodes.length === 0 ? 0 : Math.min(...nodes.map((node) => node.x)),
 			minY: nodes.length === 0 ? 0 : Math.min(...nodes.map((node) => node.y)),
-			maxX: nodes.length === 0 ? 800 : Math.max(...nodes.map((node) => node.x + (node.width ?? 200))),
+			maxX:
+				nodes.length === 0 ? 800 : Math.max(...nodes.map((node) => node.x + (node.width ?? 200))),
 			maxY:
 				nodes.length === 0
 					? 600

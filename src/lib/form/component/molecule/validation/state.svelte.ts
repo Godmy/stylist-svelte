@@ -1,21 +1,22 @@
-
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 
-export function createValidationState(props: (HTMLAttributes<HTMLDivElement> & {
-	label?: string;
-	description?: string;
-	required?: boolean;
-	error?: string;
-	hint?: string;
-	disabled?: boolean;
-	orientation?: (typeof TOKEN_ORIENTATION)[number];
-	class?: string;
-	id?: string;
-	children: Snippet;
-})): ({
-containerClasses: string;
+export function createValidationState(
+	props: HTMLAttributes<HTMLDivElement> & {
+		label?: string;
+		description?: string;
+		required?: boolean;
+		error?: string;
+		hint?: string;
+		disabled?: boolean;
+		orientation?: (typeof TOKEN_ORIENTATION)[number];
+		class?: string;
+		id?: string;
+		children: Snippet;
+	}
+): {
+	containerClasses: string;
 	hasError: boolean;
 	rootClass: string;
 	labelClass: string;
@@ -24,7 +25,7 @@ containerClasses: string;
 	descriptionClass: string;
 	errorClass: string;
 	hintClass: string;
-}) {
+} {
 	const containerClasses = $derived(
 		`field-group ${props.orientation === 'horizontal' ? 'horizontal' : 'vertical'} ${props.disabled ? 'field-group--disabled' : ''} ${props.class ?? ''}`
 	);

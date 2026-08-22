@@ -20,11 +20,7 @@
 			{/if}
 		</div>
 
-		<Register
-			formState={props.formState}
-			onSubmit={props.onSubmit}
-			class={props.class}
-		/>
+		<Register formState={props.formState} onSubmit={props.onSubmit} class={props.class} />
 
 		{#if props.loginHref}
 			<div class="c-register-page__footer">
@@ -91,4 +87,3 @@
 		gap: 0.25rem;
 	}
 </style>
-

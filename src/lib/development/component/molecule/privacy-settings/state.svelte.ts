@@ -1,5 +1,5 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
-﻿import type { RecipePrivacySettings } from '$stylist/development/interface/recipe/privacy-settings';
+import type { RecipePrivacySettings } from '$stylist/development/interface/recipe/privacy-settings';
 
 export function createPrivacySettingsState(props: RecipePrivacySettings) {
 	let localSettings = $state([...(props.settings ?? [])]);
@@ -7,9 +7,7 @@ export function createPrivacySettingsState(props: RecipePrivacySettings) {
 		localSettings = [...(props.settings ?? [])];
 	});
 
-	const containerClass = $derived(
-		ClassNamesManager.merge('c-privacy-settings', props.class ?? '')
-	);
+	const containerClass = $derived(ClassNamesManager.merge('c-privacy-settings', props.class ?? ''));
 	const titleClass = $derived('c-privacy-settings__title');
 	const settingsContainerClass = $derived('c-privacy-settings__list');
 	const settingItemClass = $derived('c-privacy-settings__item');

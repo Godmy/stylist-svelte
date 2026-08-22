@@ -44,7 +44,10 @@
 	let editParseResult = $derived(schemaTextToDocument(editSource));
 	let scienceDomainParseResult = $derived(schemaTextToDocument(scienceDomainSource));
 	let migrateParseResult = $derived.by(() => {
-		const merged = mergeSchemaDocuments(liveParseResult.document, scienceDomainParseResult.document);
+		const merged = mergeSchemaDocuments(
+			liveParseResult.document,
+			scienceDomainParseResult.document
+		);
 
 		return {
 			document: merged.document,

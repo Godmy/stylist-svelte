@@ -42,10 +42,7 @@ export {
 	STYLIST_GRAPH_WORKSPACE_SEED,
 	TOKEN_CONTROLLER_TYPE
 } from './const';
-export {
-	createClusterToolbarItems,
-	serializeUnknownError
-} from './function';
+export { createClusterToolbarItems, serializeUnknownError } from './function';
 export type {
 	DeviceFrameViewport,
 	TokenControllerType,

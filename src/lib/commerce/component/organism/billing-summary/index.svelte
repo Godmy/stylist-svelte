@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeBillingSummary } from '$stylist/commerce/interface/recipe/billing-summary';
 	import { PresetBillingSummary } from '$stylist/commerce/const/preset/billing-summary';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';

@@ -36,7 +36,8 @@
 		gap: 0.35rem;
 		min-height: 1.75rem;
 		padding: 0.22rem 0.45rem;
-		border: 1px solid color-mix(in srgb, var(--color-border-primary) 70%, var(--periodic-element-type-accent));
+		border: 1px solid
+			color-mix(in srgb, var(--color-border-primary) 70%, var(--periodic-element-type-accent));
 		border-radius: 999px;
 		background: var(--color-background-primary);
 		color: var(--color-text-secondary);
@@ -47,9 +48,14 @@
 	.c-periodic-element-type:hover,
 	.c-periodic-element-type:focus-visible,
 	.c-periodic-element-type.is-selected {
-		background: color-mix(in srgb, var(--color-background-primary) 78%, var(--periodic-element-type-accent));
+		background: color-mix(
+			in srgb,
+			var(--color-background-primary) 78%,
+			var(--periodic-element-type-accent)
+		);
 		color: var(--color-text-primary);
-		outline: 2px solid color-mix(in srgb, var(--color-text-primary) 40%, var(--periodic-element-type-accent));
+		outline: 2px solid
+			color-mix(in srgb, var(--color-text-primary) 40%, var(--periodic-element-type-accent));
 		outline-offset: 1px;
 	}
 

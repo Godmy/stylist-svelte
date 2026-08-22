@@ -2,7 +2,11 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeMiniCalendar as MiniCalendarContract } from '$stylist/calendar/interface/recipe/mini-calendar';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';
-import { generateCalendarGrid, isToday as isTodayFn, isSameDay } from '$stylist/calendar/function/script/calendar-utils';
+import {
+	generateCalendarGrid,
+	isToday as isTodayFn,
+	isSameDay
+} from '$stylist/calendar/function/script/calendar-utils';
 import { formatShortMonthYear } from '$stylist/calendar/function/script/date-format';
 
 export function createMiniCalendarState(props: MiniCalendarContract) {
@@ -21,7 +25,9 @@ export function createMiniCalendarState(props: MiniCalendarContract) {
 	const wrapperClasses = $derived(
 		ClassNamesManager.merge('c-mini-calendar', compact && 'c-mini-calendar--compact', className)
 	);
-	const headerClasses = $derived(ClassNamesManager.merge('c-mini-calendar__header', headerClassProp));
+	const headerClasses = $derived(
+		ClassNamesManager.merge('c-mini-calendar__header', headerClassProp)
+	);
 	const weekdayHeaderClasses = $derived(
 		ClassNamesManager.merge('c-mini-calendar__weekday', headerClassProp)
 	);

@@ -10,7 +10,15 @@ import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { HTMLAttributes } from 'svelte/elements';
 export interface RecipePriceAlert
 	extends ComputeIntersectAll<
-		[Omit<HTMLAttributes<HTMLDivElement>, 'variant' | 'size' | 'onclick'>, SlotTheme, BehaviorSizable, BehaviorClickable, SlotThemeBorder, SlotTypography, SlotChildren]
+		[
+			Omit<HTMLAttributes<HTMLDivElement>, 'variant' | 'size' | 'onclick'>,
+			SlotTheme,
+			BehaviorSizable,
+			BehaviorClickable,
+			SlotThemeBorder,
+			SlotTypography,
+			SlotChildren
+		]
 	> {
 	class?: string;
 	onclick?: ((event: MouseEvent) => void) | undefined;

@@ -10,7 +10,16 @@ import type { BehaviorChartAxis } from '$stylist/chart/interface/behavior/chart-
 import type { IHeatmapCell } from '$stylist/chart/interface/slot/heatmap/cell';
 export interface RecipeHeatmap
 	extends ComputeIntersectAll<
-		[SlotTheme, SlotDimensionable, SlotText, BehaviorChartAxis, BehaviorLegendable, BehaviorTooltipable, BehaviorChartColorable, HTMLAttributes<HTMLDivElement>]
+		[
+			SlotTheme,
+			SlotDimensionable,
+			SlotText,
+			BehaviorChartAxis,
+			BehaviorLegendable,
+			BehaviorTooltipable,
+			BehaviorChartColorable,
+			HTMLAttributes<HTMLDivElement>
+		]
 	> {
 	onCellClick?: (item: IHeatmapCell) => void;
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeLink } from '$stylist/typography/interface/recipe/link';
 	import createLinkState from './state.svelte';
 

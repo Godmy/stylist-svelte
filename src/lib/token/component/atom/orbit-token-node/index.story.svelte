@@ -4,9 +4,7 @@
 	import OrbitTokenNode from './index.svelte';
 	import { L6_TOKEN_DEFINITIONS } from '$stylist/token/const/object/orbit-control-definition';
 
-	const controls: SlotStory[] = [
-		{ name: 'opened', type: 'boolean', defaultValue: true }
-	];
+	const controls: SlotStory[] = [{ name: 'opened', type: 'boolean', defaultValue: true }];
 </script>
 
 <Story

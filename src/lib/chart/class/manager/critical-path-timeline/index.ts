@@ -115,11 +115,13 @@ export class ManagerCriticalPathTimeline {
 				const endX = toTask.x;
 				const endY = toTask.y + toTask.height / 2;
 				const elbowX = Math.max(startX + 16, (startX + endX) / 2);
-				return [{
-					id: `${dependencyId}-${task.id}`,
-					path: `M ${startX} ${startY} H ${elbowX} V ${endY} H ${endX}`,
-					critical: Boolean(fromTask.critical && toTask.critical)
-				}];
+				return [
+					{
+						id: `${dependencyId}-${task.id}`,
+						path: `M ${startX} ${startY} H ${elbowX} V ${endY} H ${endX}`,
+						critical: Boolean(fromTask.critical && toTask.critical)
+					}
+				];
 			})
 		);
 		const ticks = Array.from({ length: totalDays + 1 }, (_, index) => {
@@ -142,7 +144,10 @@ export class ManagerCriticalPathTimeline {
 			ticks,
 			tasks: layoutTasks,
 			links,
-			criticalPathLabel: layoutTasks.filter((task) => task.critical).map((task) => task.text).join(' -> ')
+			criticalPathLabel: layoutTasks
+				.filter((task) => task.critical)
+				.map((task) => task.text)
+				.join(' -> ')
 		};
 	}
 }

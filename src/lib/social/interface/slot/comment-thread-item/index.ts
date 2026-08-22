@@ -1,11 +1,11 @@
 export interface SlotCommentThreadItem {
 	id: string;
 	author: {
-id: string;
-	name: string;
-	avatar?: string;
-	role?: string;
-};
+		id: string;
+		name: string;
+		avatar?: string;
+		role?: string;
+	};
 	content: string;
 	timestamp: Date;
 	replies?: SlotCommentThreadItem[];

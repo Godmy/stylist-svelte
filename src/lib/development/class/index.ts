@@ -1,6 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	CodeBlockManager,
-	ComponentPreviewManager,
-	PageBuilderManager
-} from './manager';
+export { CodeBlockManager, ComponentPreviewManager, PageBuilderManager } from './manager';

@@ -110,7 +110,11 @@
 	}
 	.workspace-toolbar__select:disabled,
 	.workspace-toolbar__input:disabled {
-		background: color-mix(in srgb, var(--color-background-primary) 85%, var(--color-background-secondary) 15%);
+		background: color-mix(
+			in srgb,
+			var(--color-background-primary) 85%,
+			var(--color-background-secondary) 15%
+		);
 		color: var(--color-text-tertiary);
 		cursor: not-allowed;
 	}

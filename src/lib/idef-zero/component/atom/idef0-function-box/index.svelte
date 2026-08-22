@@ -18,21 +18,11 @@
 		ry="10"
 		stroke-width="1.5"
 	/>
-	<text
-		class={state.titleClasses}
-		x={state.centerX}
-		y={state.titleY}
-		text-anchor="middle"
-	>
+	<text class={state.titleClasses} x={state.centerX} y={state.titleY} text-anchor="middle">
 		{props.title}
 	</text>
 	{#if props.subtitle}
-		<text
-			class={state.subtitleClasses}
-			x={state.centerX}
-			y={state.subtitleY}
-			text-anchor="middle"
-		>
+		<text class={state.subtitleClasses} x={state.centerX} y={state.subtitleY} text-anchor="middle">
 			{props.subtitle}
 		</text>
 	{/if}

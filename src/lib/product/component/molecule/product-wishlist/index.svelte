@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 	import { createProductWishlistState } from './state.svelte';
 

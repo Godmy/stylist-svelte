@@ -36,22 +36,32 @@
 	});
 
 	const state = createDataTableState({
-		get data() { return data; },
-		get schema() { return schema; },
-		get striped() { return striped; },
-		get hoverable() { return hoverable; },
-		get maxHeight() { return maxHeight; },
-		get onRowClick() { return onRowClick; },
-		get class() { return className; }
+		get data() {
+			return data;
+		},
+		get schema() {
+			return schema;
+		},
+		get striped() {
+			return striped;
+		},
+		get hoverable() {
+			return hoverable;
+		},
+		get maxHeight() {
+			return maxHeight;
+		},
+		get onRowClick() {
+			return onRowClick;
+		},
+		get class() {
+			return className;
+		}
 	});
 </script>
 
-<div
-	class="c-data-table {className}"
-	style={state.containerStyle || undefined}
-	{...restProps}
->
-	<Table striped={striped} hoverable={hoverable}>
+<div class="c-data-table {className}" style={state.containerStyle || undefined} {...restProps}>
+	<Table {striped} {hoverable}>
 		{#snippet content()}
 			<thead>
 				<tr>
@@ -74,16 +84,23 @@
 					</tr>
 				{:else}
 					{#each state.sortedData as row, i}
-						<Row striped={striped && i % 2 === 1} hoverable={hoverable} onclick={() => onRowClick?.(row)}>
+						<Row striped={striped && i % 2 === 1} {hoverable} onclick={() => onRowClick?.(row)}>
 							{#snippet content()}
 								{#each state.visibleSchema as col}
 									{#if col.cell === 'icon'}
-										<CellIcon icon={String(ObjectManagerTableControls.getCellValue(row, col) ?? '')} />
+										<CellIcon
+											icon={String(ObjectManagerTableControls.getCellValue(row, col) ?? '')}
+										/>
 									{:else if col.cell === 'pill'}
-										<CellPill value={String(ObjectManagerTableControls.getCellValue(row, col) ?? '')} />
+										<CellPill
+											value={String(ObjectManagerTableControls.getCellValue(row, col) ?? '')}
+										/>
 									{:else}
 										<CellText
-											value={ObjectManagerTableControls.getCellValue(row, col) as string | number | null}
+											value={ObjectManagerTableControls.getCellValue(row, col) as
+												| string
+												| number
+												| null}
 											align={col.cell === 'number' ? 'right' : 'left'}
 										/>
 									{/if}

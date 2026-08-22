@@ -102,9 +102,7 @@ export class CanvasManager {
 		};
 	}
 
-	static getCanvasObjectBounds(
-		object: SlotCanvasObject
-	): SlotSharedCanvasObjectBounds | null {
+	static getCanvasObjectBounds(object: SlotCanvasObject): SlotSharedCanvasObjectBounds | null {
 		switch (object.type) {
 			case 'rectangle':
 				if (object.width == null || object.height == null) return null;

@@ -37,7 +37,9 @@
 		return declarations.length > 0 ? `${declarations.join('; ')};` : undefined;
 	}
 
-	function createSegmentRel(segment: NonNullable<SlotRichText['segments']>[number]): string | undefined {
+	function createSegmentRel(
+		segment: NonNullable<SlotRichText['segments']>[number]
+	): string | undefined {
 		if (segment.rel) {
 			return segment.rel;
 		}

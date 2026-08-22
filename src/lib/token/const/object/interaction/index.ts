@@ -12,15 +12,69 @@ import { TOKEN_TRIGGER } from '$stylist/layout/const/array/trigger';
 import { TOKEN_COLOR_TONE } from '$stylist/theme/const/array/color-tone';
 
 export const TOKEN_INTERACTION_SETTING = [
-	{ key: 'appearance', label: 'Appearance', domain: 'theme', controlKind: 'radio', values: TOKEN_COLOR_TONE },
-	{ key: 'availability', label: 'Availability', domain: 'user', controlKind: 'radio', values: TOKEN_AVAILABILITY },
-	{ key: 'content-editor-content-type', label: 'Content Editor Content Type', domain: 'development', controlKind: 'radio', values: CONTENT_EDITOR_CONTENT_TYPE },
+	{
+		key: 'appearance',
+		label: 'Appearance',
+		domain: 'theme',
+		controlKind: 'radio',
+		values: TOKEN_COLOR_TONE
+	},
+	{
+		key: 'availability',
+		label: 'Availability',
+		domain: 'user',
+		controlKind: 'radio',
+		values: TOKEN_AVAILABILITY
+	},
+	{
+		key: 'content-editor-content-type',
+		label: 'Content Editor Content Type',
+		domain: 'development',
+		controlKind: 'radio',
+		values: CONTENT_EDITOR_CONTENT_TYPE
+	},
 	{ key: 'flow', label: 'Flow', domain: 'calendar', controlKind: 'radio', values: TOKEN_FLOW },
-	{ key: 'interaction', label: 'Interaction', domain: 'workspace', controlKind: 'radio', values: TOKEN_INTERACTION },
-	{ key: 'interaction-feedback', label: 'Interaction Feedback', domain: 'animation', controlKind: 'radio', values: INTERACTION_FEEDBACK },
-	{ key: 'loading', label: 'Loading', domain: 'animation', controlKind: 'radio', values: TOKEN_LOADING },
-	{ key: 'sevetity', label: 'Sevetity', domain: 'workspace', controlKind: 'radio', values: TOKEN_SEVERITY },
-	{ key: 'sort-direction', label: 'Sort Direction', domain: 'table', controlKind: 'radio', values: TOKEN_SORT_DIRECTION },
+	{
+		key: 'interaction',
+		label: 'Interaction',
+		domain: 'workspace',
+		controlKind: 'radio',
+		values: TOKEN_INTERACTION
+	},
+	{
+		key: 'interaction-feedback',
+		label: 'Interaction Feedback',
+		domain: 'animation',
+		controlKind: 'radio',
+		values: INTERACTION_FEEDBACK
+	},
+	{
+		key: 'loading',
+		label: 'Loading',
+		domain: 'animation',
+		controlKind: 'radio',
+		values: TOKEN_LOADING
+	},
+	{
+		key: 'sevetity',
+		label: 'Sevetity',
+		domain: 'workspace',
+		controlKind: 'radio',
+		values: TOKEN_SEVERITY
+	},
+	{
+		key: 'sort-direction',
+		label: 'Sort Direction',
+		domain: 'table',
+		controlKind: 'radio',
+		values: TOKEN_SORT_DIRECTION
+	},
 	{ key: 'test', label: 'Test', domain: 'marketing', controlKind: 'radio', values: TOKEN_TEST },
-	{ key: 'trigger', label: 'Trigger', domain: 'layout', controlKind: 'radio', values: TOKEN_TRIGGER }
+	{
+		key: 'trigger',
+		label: 'Trigger',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_TRIGGER
+	}
 ] satisfies readonly Token[];

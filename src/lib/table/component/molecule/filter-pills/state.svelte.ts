@@ -5,8 +5,12 @@ export function createFilterPillsState(props: RecipeFilterPills) {
 	const toggle = (value: string) => props.onToggle?.(props.columnKey, value);
 
 	return {
-		get options() { return props.options; },
-		get label() { return props.label ?? props.columnKey; },
+		get options() {
+			return props.options;
+		},
+		get label() {
+			return props.label ?? props.columnKey;
+		},
 		isActive,
 		toggle
 	};

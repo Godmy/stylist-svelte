@@ -28,4 +28,3 @@ export function resolveAuthGuardState(input: {
 		loadingStatus: TOKEN_LOADING[2]
 	};
 }
-

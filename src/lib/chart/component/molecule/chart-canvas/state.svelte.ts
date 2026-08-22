@@ -10,7 +10,9 @@ export function createChartCanvasState(props: ChartCanvasProps & HTMLAttributes<
 	const width = $derived(props.width ?? 640);
 	const height = $derived(props.height ?? 380);
 	const padding = $derived(36);
-	const wrapperClasses = $derived(ClassNamesManager.merge('c-chart-canvas', resolveClassName(props.class)));
+	const wrapperClasses = $derived(
+		ClassNamesManager.merge('c-chart-canvas', resolveClassName(props.class))
+	);
 	const svgClasses = $derived('c-chart-canvas__svg');
 
 	return {

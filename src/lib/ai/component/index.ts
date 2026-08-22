@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	AiResultCard,
-	ModelSelector
-} from './molecule';
+export { AiResultCard, ModelSelector } from './molecule';
 export {
 	AiAssistant,
 	AiChat,

@@ -33,17 +33,17 @@ export interface SlotTeamMemberCard {
 	/**
 	 * Array of achievements
 	 */
-	achievements: ({
-/**
-	 * Title of the achievement
-	 */
-	title: string;
+	achievements: {
+		/**
+		 * Title of the achievement
+		 */
+		title: string;
 
-	/**
-	 * Description of the achievement
-	 */
-	description: string;
-})[];
+		/**
+		 * Description of the achievement
+		 */
+		description: string;
+	}[];
 
 	/**
 	 * Visual variant of the team member card

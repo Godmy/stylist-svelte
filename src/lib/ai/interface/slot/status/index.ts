@@ -5,4 +5,3 @@ export interface SlotStatus {
 	severity?: TokenColorTone;
 	state?: StatusState;
 }
-

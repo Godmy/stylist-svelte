@@ -6,7 +6,11 @@ export function createCellIconState(props: RecipeCellIcon & HTMLAttributes<HTMLT
 	const label = $derived(props.label ?? '');
 
 	return {
-		get icon() { return icon; },
-		get label() { return label; }
+		get icon() {
+			return icon;
+		},
+		get label() {
+			return label;
+		}
 	};
 }

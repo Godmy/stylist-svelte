@@ -31,13 +31,23 @@
 	{#if state.isOpen}
 		<div class={`c-drp__panel ${state.calendarClass}`}>
 			<div class="c-drp__nav">
-				<button type="button" class="c-drp__nav-btn" onclick={state.previousMonth} aria-label="Previous month">
+				<button
+					type="button"
+					class="c-drp__nav-btn"
+					onclick={state.previousMonth}
+					aria-label="Previous month"
+				>
 					<BaseIcon name={ChevronLeft} style="width: 1rem; height: 1rem;" />
 				</button>
 				<span class="c-drp__month-label">
 					{state.currentDateView.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
 				</span>
-				<button type="button" class="c-drp__nav-btn" onclick={state.nextMonth} aria-label="Next month">
+				<button
+					type="button"
+					class="c-drp__nav-btn"
+					onclick={state.nextMonth}
+					aria-label="Next month"
+				>
 					<BaseIcon name={ChevronRight} style="width: 1rem; height: 1rem;" />
 				</button>
 			</div>

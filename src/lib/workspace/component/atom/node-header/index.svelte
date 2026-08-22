@@ -94,7 +94,9 @@
 		cursor: grab;
 		user-select: none;
 	}
-	.node-header:active { cursor: grabbing; }
+	.node-header:active {
+		cursor: grabbing;
+	}
 	.node-header__title-button {
 		flex: 1 1 auto;
 		display: flex;
@@ -105,7 +107,9 @@
 		color: inherit;
 		text-align: left;
 	}
-	.node-header__title-button:not(:disabled) { cursor: pointer; }
+	.node-header__title-button:not(:disabled) {
+		cursor: pointer;
+	}
 	.node-header__title-button:not(:disabled):hover {
 		background: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
 		border-radius: 0.25rem;
@@ -169,12 +173,28 @@
 	.node-header--selected {
 		box-shadow: 0 0 0 2px var(--color-primary-400);
 	}
-	.node-header--size-xs { padding: 0.25rem 0.5rem; }
-	.node-header--size-xs .node-header__title { font-size: 0.75rem; }
-	.node-header--size-sm { padding: 0.5rem; }
-	.node-header--size-sm .node-header__title { font-size: 0.75rem; }
-	.node-header--size-md { padding: 0.5rem 0.75rem; }
-	.node-header--size-md .node-header__title { font-size: 0.75rem; }
-	.node-header--size-lg { padding: 0.5rem 0.75rem; }
-	.node-header--size-lg .node-header__title { font-size: 0.75rem; }
+	.node-header--size-xs {
+		padding: 0.25rem 0.5rem;
+	}
+	.node-header--size-xs .node-header__title {
+		font-size: 0.75rem;
+	}
+	.node-header--size-sm {
+		padding: 0.5rem;
+	}
+	.node-header--size-sm .node-header__title {
+		font-size: 0.75rem;
+	}
+	.node-header--size-md {
+		padding: 0.5rem 0.75rem;
+	}
+	.node-header--size-md .node-header__title {
+		font-size: 0.75rem;
+	}
+	.node-header--size-lg {
+		padding: 0.5rem 0.75rem;
+	}
+	.node-header--size-lg .node-header__title {
+		font-size: 0.75rem;
+	}
 </style>

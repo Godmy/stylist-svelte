@@ -8,7 +8,9 @@ export function createStylistState(props: RecipeStylist) {
 	const onSelectionChange = $derived(props.onSelectionChange);
 
 	let isOpen = $state(false);
-	let selectedCategoryId = $state<(typeof TOKEN_FUNCTIONAL_TAXONOMY)[number]>(untrack(() => initialCategory));
+	let selectedCategoryId = $state<(typeof TOKEN_FUNCTIONAL_TAXONOMY)[number]>(
+		untrack(() => initialCategory)
+	);
 	let selections = $state<Record<(typeof TOKEN_FUNCTIONAL_TAXONOMY)[number], string>>({
 		architecture: 'size',
 		information: 'color',

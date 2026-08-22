@@ -77,14 +77,14 @@ export class ManagerHeatmap {
 		calculatedMaxValue: number;
 		colorScheme: TokenThemeScheme;
 	}): (IHeatmapCell & {
-	id: string;
-	x: number;
-	y: number;
-	width: number;
-	height: number;
-	color: string;
-	intensity: number;
-})[] {
+		id: string;
+		x: number;
+		y: number;
+		width: number;
+		height: number;
+		color: string;
+		intensity: number;
+	})[] {
 		const {
 			data,
 			rows,

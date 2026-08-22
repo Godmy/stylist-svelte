@@ -9,7 +9,9 @@
 </script>
 
 <table
-	class="c-table {props.striped ? 'c-table--striped' : ''} {props.bordered ? 'c-table--bordered' : ''} {props.hoverable ? 'c-table--hoverable' : ''} {props.class ?? ''}"
+	class="c-table {props.striped ? 'c-table--striped' : ''} {props.bordered
+		? 'c-table--bordered'
+		: ''} {props.hoverable ? 'c-table--hoverable' : ''} {props.class ?? ''}"
 	{...restProps}
 >
 	{#if content}{@render content()}{/if}

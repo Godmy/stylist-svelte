@@ -137,7 +137,11 @@
 		background: var(--color-background-primary);
 		border: 1px solid var(--color-border-primary);
 		border-radius: var(--node-radius, 0.5rem);
-		box-shadow: var(--layout-box-shadow-custom39, 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1));
+		box-shadow: var(
+			--layout-box-shadow-custom39,
+			0 1px 3px 0 rgb(0 0 0 / 0.1),
+			0 1px 2px -1px rgb(0 0 0 / 0.1)
+		);
 		transition:
 			box-shadow 120ms ease,
 			border-color 120ms ease;
@@ -162,8 +166,12 @@
 		justify-content: space-between;
 		gap: 0.5rem;
 	}
-	.workspace-node__ports > :first-child { flex: 1 1 0; }
-	.workspace-node__ports > :last-child { flex: 1 1 0; }
+	.workspace-node__ports > :first-child {
+		flex: 1 1 0;
+	}
+	.workspace-node__ports > :last-child {
+		flex: 1 1 0;
+	}
 	.workspace-node__properties {
 		display: flex;
 		flex-direction: column;
@@ -198,7 +206,9 @@
 		font-size: 0.92rem;
 		flex: 0 0 auto;
 	}
-	.workspace-node__semantic-copy { min-width: 0; }
+	.workspace-node__semantic-copy {
+		min-width: 0;
+	}
 	.workspace-node__semantic-title {
 		font-size: 0.92rem;
 		font-weight: 700;

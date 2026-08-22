@@ -6,10 +6,12 @@ export function createAiChatState(props: RecipeAiChat & HTMLAttributes<HTMLDivEl
 	const Send = 'send';
 
 	let inputMessage = $state('');
-	const messages = $state<{
-	role: 'user' | 'assistant';
-	content: string;
-}[]>([
+	const messages = $state<
+		{
+			role: 'user' | 'assistant';
+			content: string;
+		}[]
+	>([
 		{
 			role: 'assistant',
 			content:
@@ -23,8 +25,7 @@ export function createAiChatState(props: RecipeAiChat & HTMLAttributes<HTMLDivEl
 	const messagesContainerClass = $derived('ai-chat__messages');
 	const inputContainerClass = $derived('ai-chat__input');
 
-	const messageClass = (role: 'user' | 'assistant') =>
-		`ai-chat__message ai-chat__message--${role}`;
+	const messageClass = (role: 'user' | 'assistant') => `ai-chat__message ai-chat__message--${role}`;
 
 	function sendMessage() {
 		if (!inputMessage.trim()) return;

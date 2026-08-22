@@ -64,11 +64,13 @@ export const createClickableState = (props: ClickProps) => {
 	}
 
 	function handleMouseEnter(event: MouseEvent) {
-		if (!normalizedProps.disabled && !props.loading && props.onMouseEnter) props.onMouseEnter(event);
+		if (!normalizedProps.disabled && !props.loading && props.onMouseEnter)
+			props.onMouseEnter(event);
 	}
 
 	function handleMouseLeave(event: MouseEvent) {
-		if (!normalizedProps.disabled && !props.loading && props.onMouseLeave) props.onMouseLeave(event);
+		if (!normalizedProps.disabled && !props.loading && props.onMouseLeave)
+			props.onMouseLeave(event);
 	}
 
 	return {

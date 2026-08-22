@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeShortcutsPanel } from '$stylist/control/interface/recipe/shortcuts-panel';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createShortcutsPanelState } from './state.svelte';
@@ -48,7 +48,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 
 					<div class="sp-items">
 						{#each categoryShortcuts as shortcut, index}
-							<div class="shortcut-item group sp-item" style="animation-delay: {index * 30}ms">
+							<div class="shortcut-item sp-item group" style="animation-delay: {index * 30}ms">
 								<div class="sp-item-inner">
 									<div class="sp-item-left">
 										{#if shortcut.icon}

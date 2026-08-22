@@ -3,9 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import ToolButton from './index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Tool' }
-	];
+	const controls: SlotStory[] = [{ name: 'label', type: 'text', defaultValue: 'Tool' }];
 
 	const tools = ['select', 'pan', 'frame', 'connect', 'text'];
 	let activeTool = $state('select');

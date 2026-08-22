@@ -3,9 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Idef0PortLabel from './index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'text', type: 'text', defaultValue: 'Customer request' }
-	];
+	const controls: SlotStory[] = [{ name: 'text', type: 'text', defaultValue: 'Customer request' }];
 </script>
 
 <Story

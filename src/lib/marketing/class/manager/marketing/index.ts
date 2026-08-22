@@ -41,7 +41,8 @@ export class MarketingManager {
 			const activeVariantsCount = updatedTest.variants.filter(
 				(variant: SlotABTestVariant) => variant.isActive
 			).length;
-			const remainingWeight = 100 - MarketingManager.calculateABTestTotalWeight(updatedTest.variants);
+			const remainingWeight =
+				100 - MarketingManager.calculateABTestTotalWeight(updatedTest.variants);
 			newVariantWeight = Math.round(remainingWeight / (activeVariantsCount + 1));
 		}
 

@@ -27,9 +27,7 @@ export class ObjectManagerGradientBackground {
 		return intensity ?? 50;
 	}
 
-	static resolveDirection(
-		direction?: RecipeGradientBackground['direction']
-	): GradientDirection {
+	static resolveDirection(direction?: RecipeGradientBackground['direction']): GradientDirection {
 		switch (direction) {
 			case 'horizontal':
 			case 'vertical':

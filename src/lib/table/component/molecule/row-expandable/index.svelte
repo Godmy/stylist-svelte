@@ -26,11 +26,7 @@
 	});
 </script>
 
-<tr
-	class="c-row-expandable {hostClass}"
-	data-expanded={state.expanded || undefined}
-	{...restProps}
->
+<tr class="c-row-expandable {hostClass}" data-expanded={state.expanded || undefined} {...restProps}>
 	<td class="c-row-expandable__toggle {headerCellClass}">
 		<button
 			type="button"
@@ -38,7 +34,10 @@
 			onclick={() => state.toggleExpanded()}
 			aria-expanded={state.expanded}
 		>
-			<Icon name={state.expanded ? 'chevron-down' : 'chevron-right'} class="c-row-expandable__icon" />
+			<Icon
+				name={state.expanded ? 'chevron-down' : 'chevron-right'}
+				class="c-row-expandable__icon"
+			/>
 		</button>
 	</td>
 	{@render rowContent()}

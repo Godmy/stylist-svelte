@@ -77,12 +77,11 @@
 	._c2 {
 		padding: 0.625rem 1rem;
 		color: var(--color-text-primary);
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
-				color-mix(in srgb, var(--color-background-secondary) 82%, transparent)
-			);
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
+			color-mix(in srgb, var(--color-background-secondary) 82%, transparent)
+		);
 		border: 1px solid var(--color-border-primary);
 		border-radius: 0.5rem;
 		box-shadow: 0 0.75rem 1.75rem color-mix(in srgb, var(--color-text-primary) 10%, transparent);

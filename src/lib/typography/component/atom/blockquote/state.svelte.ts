@@ -68,4 +68,3 @@ export function createBlockquoteState(props: RecipeBlockquote & HTMLAttributes<H
 }
 
 export default createBlockquoteState;
-

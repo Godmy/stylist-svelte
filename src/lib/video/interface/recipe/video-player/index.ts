@@ -3,8 +3,9 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SlotClass } from '$stylist/theme/interface/slot/class';
 import type { SlotDimensionable } from '$stylist/layout/interface/slot/dimensionable';
 export interface RecipeVideoPlayer
-	extends ComputeIntersectAll<[SlotClass, Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotDimensionable]> {
-
+	extends ComputeIntersectAll<
+		[SlotClass, Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotDimensionable]
+	> {
 	src?: string;
 	poster?: string;
 	title?: string;

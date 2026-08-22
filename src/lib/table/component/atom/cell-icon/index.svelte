@@ -9,7 +9,12 @@
 </script>
 
 <td class="c-cell-icon {props.class ?? ''}" title={state.label || undefined}>
-	<Icon name={state.icon} size={16} aria-label={state.label || undefined} class="c-cell-icon__svg" />
+	<Icon
+		name={state.icon}
+		size={16}
+		aria-label={state.label || undefined}
+		class="c-cell-icon__svg"
+	/>
 </td>
 
 <style>

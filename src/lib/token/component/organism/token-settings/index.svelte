@@ -25,7 +25,12 @@
 
 	function taxonomyFor(domain: string) {
 		if (domain === 'interaction') return 'interaction';
-		if (domain === 'architecture' || domain === 'canvas' || domain === 'graph' || domain === 'layout') {
+		if (
+			domain === 'architecture' ||
+			domain === 'canvas' ||
+			domain === 'graph' ||
+			domain === 'layout'
+		) {
 			return 'architecture';
 		}
 		return 'information';
@@ -210,7 +215,11 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		border-radius: 0.25rem;
-		background: color-mix(in srgb, var(--token-settings-bg-muted) 82%, var(--token-settings-accent) 18%);
+		background: color-mix(
+			in srgb,
+			var(--token-settings-bg-muted) 82%,
+			var(--token-settings-accent) 18%
+		);
 		color: var(--token-settings-text);
 		padding: 0.15rem 0.35rem;
 		font-size: 0.75rem;

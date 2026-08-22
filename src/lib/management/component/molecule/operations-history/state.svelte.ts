@@ -4,50 +4,52 @@ import type { BehaviorOperationsHistoryEvents } from '$stylist/management/interf
 export function createOperationsHistoryState(
 	props: OperationsHistoryProps & BehaviorOperationsHistoryEvents
 ) {
-	const operations = $derived((props.operations ?? []) as unknown as ({
-id: string;
-	name: string;
-	query: string;
-	timestamp: Date;
-	status: 'success' | 'error' | 'pending';
-	executionTime?: number;
-})[]);
+	const operations = $derived(
+		(props.operations ?? []) as unknown as {
+			id: string;
+			name: string;
+			query: string;
+			timestamp: Date;
+			status: 'success' | 'error' | 'pending';
+			executionTime?: number;
+		}[]
+	);
 	const className = $derived(props.class ?? '');
 
 	let searchQuery = $state('');
-	let selectedOperation: ({
-id: string;
-	name: string;
-	query: string;
-	timestamp: Date;
-	status: 'success' | 'error' | 'pending';
-	executionTime?: number;
-}) | null = $state(null);
+	let selectedOperation: {
+		id: string;
+		name: string;
+		query: string;
+		timestamp: Date;
+		status: 'success' | 'error' | 'pending';
+		executionTime?: number;
+	} | null = $state(null);
 
 	const filteredOperations = $derived(
 		operations.filter(
-			(op: ({
-id: string;
-	name: string;
-	query: string;
-	timestamp: Date;
-	status: 'success' | 'error' | 'pending';
-	executionTime?: number;
-})) =>
+			(op: {
+				id: string;
+				name: string;
+				query: string;
+				timestamp: Date;
+				status: 'success' | 'error' | 'pending';
+				executionTime?: number;
+			}) =>
 				!searchQuery ||
 				op.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
 				op.query.toLowerCase().includes(searchQuery.toLowerCase())
 		)
 	);
 
-	function handleSelect(op: ({
-id: string;
-	name: string;
-	query: string;
-	timestamp: Date;
-	status: 'success' | 'error' | 'pending';
-	executionTime?: number;
-})): void {
+	function handleSelect(op: {
+		id: string;
+		name: string;
+		query: string;
+		timestamp: Date;
+		status: 'success' | 'error' | 'pending';
+		executionTime?: number;
+	}): void {
 		selectedOperation = op;
 		props.onSelect?.(op);
 	}
@@ -62,14 +64,14 @@ id: string;
 	}
 
 	function getStatusVariant(
-		status: ({
-id: string;
-	name: string;
-	query: string;
-	timestamp: Date;
-	status: 'success' | 'error' | 'pending';
-	executionTime?: number;
-})['status']
+		status: {
+			id: string;
+			name: string;
+			query: string;
+			timestamp: Date;
+			status: 'success' | 'error' | 'pending';
+			executionTime?: number;
+		}['status']
 	): 'success' | 'danger' | 'warning' | 'default' {
 		switch (status) {
 			case 'success':
@@ -83,14 +85,16 @@ id: string;
 		}
 	}
 
-	function getStatusText(status: ({
-id: string;
-	name: string;
-	query: string;
-	timestamp: Date;
-	status: 'success' | 'error' | 'pending';
-	executionTime?: number;
-})['status']): string {
+	function getStatusText(
+		status: {
+			id: string;
+			name: string;
+			query: string;
+			timestamp: Date;
+			status: 'success' | 'error' | 'pending';
+			executionTime?: number;
+		}['status']
+	): string {
 		switch (status) {
 			case 'success':
 				return 'Success';

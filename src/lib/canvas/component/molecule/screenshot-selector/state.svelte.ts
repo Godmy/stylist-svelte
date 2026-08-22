@@ -1,6 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeScreenshotSelector } from '$stylist/canvas/interface/recipe/screenshot-selector';
-export function createScreenshotSelectorState(props: RecipeScreenshotSelector & HTMLAttributes<HTMLDivElement>) {
+export function createScreenshotSelectorState(
+	props: RecipeScreenshotSelector & HTMLAttributes<HTMLDivElement>
+) {
 	const drawingMode = $derived(props.drawingMode ?? false);
 	const drawColor = $derived(props.drawColor ?? 'var(--color-error-500)');
 

@@ -22,7 +22,10 @@ export function createFormSelectionState(props: RecipeFormSelection): SlotFormSe
 	const requiredMarkClass = $derived('c-form-selection__required');
 	const collapseButtonClass = $derived('c-form-selection__collapse-btn');
 	const iconClass = $derived(
-		ClassNamesManager.merge('c-form-selection__icon', isCollapsed && 'c-form-selection__icon--rotated')
+		ClassNamesManager.merge(
+			'c-form-selection__icon',
+			isCollapsed && 'c-form-selection__icon--rotated'
+		)
 	);
 	const sectionDescriptionClass = $derived('c-form-selection__description');
 	const sectionContentClass = $derived('c-form-selection__content');

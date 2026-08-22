@@ -9,8 +9,7 @@ import edgeFrag from '$stylist/graph/data/shader/fragment/edge.frag?raw';
 
 // Billboard quad: 2 triangles covering [-0.5, 0.5] in XY
 const QUAD_VERTICES = new Float32Array([
-	-0.5, -0.5, 0.5, -0.5, 0.5, 0.5,
-	-0.5, -0.5, 0.5, 0.5, -0.5, 0.5
+	-0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5
 ]);
 
 export class InstancedGraphManager {
@@ -296,7 +295,13 @@ export class InstancedGraphManager {
 		const gl = this.gl;
 		if (!gl) return;
 
-		const draw = GraphScriptManager.buildInstancedNodeBuffers(this.nodes, this.hoveredId, this.selectedId, this.domainFilter, this.clusterFilter);
+		const draw = GraphScriptManager.buildInstancedNodeBuffers(
+			this.nodes,
+			this.hoveredId,
+			this.selectedId,
+			this.domainFilter,
+			this.clusterFilter
+		);
 		this.instanceCount = draw.count;
 
 		const upload = (vbo: WebGLBuffer | null, data: Float32Array) => {
@@ -334,7 +339,13 @@ export class InstancedGraphManager {
 		const gl = this.gl;
 		if (!gl) return;
 
-		const data = GraphScriptManager.buildInstancedEdgeBuffers(this.nodes, this.edges, this.selectedId, this.domainFilter, this.clusterFilter);
+		const data = GraphScriptManager.buildInstancedEdgeBuffers(
+			this.nodes,
+			this.edges,
+			this.selectedId,
+			this.domainFilter,
+			this.clusterFilter
+		);
 		this.edgeVertexCount = data.length / 6;
 
 		gl.bindVertexArray(this.edgeVAO);
@@ -444,7 +455,9 @@ export class InstancedGraphManager {
 			const dx = e.clientX - this.lastX;
 			const dy = e.clientY - this.lastY;
 			this.horizontalAngle += dx * 0.008;
-			this.verticalAngle = GraphScriptManager.clampSceneVerticalAngle(this.verticalAngle + dy * 0.008);
+			this.verticalAngle = GraphScriptManager.clampSceneVerticalAngle(
+				this.verticalAngle + dy * 0.008
+			);
 			this.camera.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
 			this.lastX = e.clientX;
 			this.lastY = e.clientY;
@@ -457,7 +470,13 @@ export class InstancedGraphManager {
 		this.hoverX = e.clientX;
 		this.hoverY = e.clientY;
 
-		const hit = GraphScriptManager.pickZwickyNodeFromScreen(this.nodes, this.camera, this.canvas, e.clientX, e.clientY);
+		const hit = GraphScriptManager.pickZwickyNodeFromScreen(
+			this.nodes,
+			this.camera,
+			this.canvas,
+			e.clientX,
+			e.clientY
+		);
 		const newId = hit?.id ?? null;
 		if (newId !== this.hoveredId) {
 			this.hoveredId = newId;
@@ -469,7 +488,13 @@ export class InstancedGraphManager {
 		const moved = Math.abs(e.clientX - this.downX) < 5 && Math.abs(e.clientY - this.downY) < 5;
 
 		if (moved) {
-			const hit = GraphScriptManager.pickZwickyNodeFromScreen(this.nodes, this.camera, this.canvas, e.clientX, e.clientY);
+			const hit = GraphScriptManager.pickZwickyNodeFromScreen(
+				this.nodes,
+				this.camera,
+				this.canvas,
+				e.clientX,
+				e.clientY
+			);
 			this.setSelected(hit?.id ?? null);
 			if (hit) this.onSelect?.(hit);
 		}

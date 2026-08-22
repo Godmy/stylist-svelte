@@ -5,17 +5,22 @@ import type { PaymentSummaryItem } from '$stylist/commerce/interface/slot/paymen
 import type { PaymentSummaryDiscount } from '$stylist/commerce/interface/slot/payment-summary-discount';
 import type { PaymentSummaryTax } from '$stylist/commerce/interface/slot/payment-summary-tax';
 
-export interface RecipePaymentSummary extends ComputeIntersectAll<[HTMLAttributes<HTMLDivElement> & {
-	title?: string;
-	subtitle?: string;
-	items: PaymentSummaryItem[];
-	discounts?: PaymentSummaryDiscount[];
-	taxes?: PaymentSummaryTax[];
-	total: number;
-	currency?: string;
-	paymentMethod?: string;
-	transactionId?: string;
-	date?: Date;
-	status?: TokenPaymentStatus;
-	class?: string;
-}]> {}
+export interface RecipePaymentSummary
+	extends ComputeIntersectAll<
+		[
+			HTMLAttributes<HTMLDivElement> & {
+				title?: string;
+				subtitle?: string;
+				items: PaymentSummaryItem[];
+				discounts?: PaymentSummaryDiscount[];
+				taxes?: PaymentSummaryTax[];
+				total: number;
+				currency?: string;
+				paymentMethod?: string;
+				transactionId?: string;
+				date?: Date;
+				status?: TokenPaymentStatus;
+				class?: string;
+			}
+		]
+	> {}

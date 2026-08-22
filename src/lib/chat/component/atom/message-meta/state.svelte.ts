@@ -33,7 +33,10 @@ export const createMessageMetaState = (props: {
 	);
 
 	const statusIconClasses = $derived(
-		ClassNamesManager.merge('message-meta__status-icon', displayStatus === 'read' && 'message-meta__status-icon--read')
+		ClassNamesManager.merge(
+			'message-meta__status-icon',
+			displayStatus === 'read' && 'message-meta__status-icon--read'
+		)
 	);
 
 	const containerClasses = 'message-meta';

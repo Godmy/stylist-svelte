@@ -28,11 +28,19 @@
 		}
 	]);
 	const lines = $derived(
-		ELEMENT_ABSORPTION_SPECTRAL_LINES[element.symbol as keyof typeof ELEMENT_ABSORPTION_SPECTRAL_LINES] ?? fallbackLines
+		ELEMENT_ABSORPTION_SPECTRAL_LINES[
+			element.symbol as keyof typeof ELEMENT_ABSORPTION_SPECTRAL_LINES
+		] ?? fallbackLines
 	);
 
 	const restProps = $derived.by(() => {
-		const { element: _element, minWavelength: _minWavelength, maxWavelength: _maxWavelength, class: _class, ...rest } = props;
+		const {
+			element: _element,
+			minWavelength: _minWavelength,
+			maxWavelength: _maxWavelength,
+			class: _class,
+			...rest
+		} = props;
 		return rest;
 	});
 </script>

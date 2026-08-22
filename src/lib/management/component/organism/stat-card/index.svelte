@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeStatCard } from '$stylist/management/interface/recipe/stat-card';
 	import createStatCardState from './state.svelte';
 	import AnimatedDigit from '$stylist/animation/component/atom/animated-digit/index.svelte';

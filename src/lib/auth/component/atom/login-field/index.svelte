@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLInputAttributes } from 'svelte/elements';
+	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { RecipeLoginField } from '$stylist/auth/interface/recipe/login-field';
 	import createLoginFieldState from './state.svelte';
 
@@ -47,7 +47,9 @@ import type { HTMLInputAttributes } from 'svelte/elements';
 		color: var(--color-text-primary, #111827);
 		font-size: 1rem;
 		outline: none;
-		transition: border-color 0.15s, box-shadow 0.15s;
+		transition:
+			border-color 0.15s,
+			box-shadow 0.15s;
 		box-sizing: border-box;
 	}
 
@@ -75,4 +77,3 @@ import type { HTMLInputAttributes } from 'svelte/elements';
 		color: #ef4444;
 	}
 </style>
-

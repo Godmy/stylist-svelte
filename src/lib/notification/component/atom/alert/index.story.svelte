@@ -4,16 +4,33 @@
 	import Alert from './index.svelte';
 
 	const controls: SlotStory[] = [
-		{ name: 'variant', type: 'select', options: ['info', 'success', 'warning', 'error'], defaultValue: 'info' },
+		{
+			name: 'variant',
+			type: 'select',
+			options: ['info', 'success', 'warning', 'error'],
+			defaultValue: 'info'
+		},
 		{ name: 'title', type: 'text', defaultValue: 'Workspace synced' },
 		{ name: 'showIcon', type: 'boolean', defaultValue: true },
 		{ name: 'closable', type: 'boolean', defaultValue: false }
 	];
 
 	const examples = [
-		{ variant: 'success', title: 'Deployment complete', text: 'The production bundle was published and all checks passed.' },
-		{ variant: 'warning', title: 'Usage approaching limit', text: 'Storage is at 82%. Review large generated assets before the next export.' },
-		{ variant: 'error', title: 'Sync failed', text: 'The latest workspace changes could not be saved. Retry after checking connectivity.' }
+		{
+			variant: 'success',
+			title: 'Deployment complete',
+			text: 'The production bundle was published and all checks passed.'
+		},
+		{
+			variant: 'warning',
+			title: 'Usage approaching limit',
+			text: 'Storage is at 82%. Review large generated assets before the next export.'
+		},
+		{
+			variant: 'error',
+			title: 'Sync failed',
+			text: 'The latest workspace changes could not be saved. Retry after checking connectivity.'
+		}
 	] as const;
 </script>
 

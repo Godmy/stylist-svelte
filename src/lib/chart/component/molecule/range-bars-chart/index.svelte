@@ -16,7 +16,12 @@
 	</div>
 	<div class="range-bars-chart__rows">
 		{#each state.items as item (item.id)}
-			<button type="button" class="range-bars-chart__row" onclick={() => state.selectItem(item.id)} aria-label={item.ariaLabel}>
+			<button
+				type="button"
+				class="range-bars-chart__row"
+				onclick={() => state.selectItem(item.id)}
+				aria-label={item.ariaLabel}
+			>
 				<span class="range-bars-chart__label" title={item.label}>{item.label}</span>
 				<span class="range-bars-chart__track">
 					<span

@@ -32,10 +32,7 @@ export class DragDropFileUploadManager {
 		simulateUpload?: (
 			fileId: string,
 			file: File,
-			updateProgress: (
-				id: string,
-				updates: Partial<SlotDragDropUploadFile>
-			) => void,
+			updateProgress: (id: string, updates: Partial<SlotDragDropUploadFile>) => void,
 			onFileUpload?: (file: File) => void
 		) => void,
 		onFileUpload?: (file: File) => void
@@ -59,10 +56,7 @@ export class DragDropFileUploadManager {
 		return newFiles;
 	}
 
-	static removeFile(
-		id: string,
-		files: SlotDragDropUploadFile[]
-	): SlotDragDropUploadFile[] {
+	static removeFile(id: string, files: SlotDragDropUploadFile[]): SlotDragDropUploadFile[] {
 		return files.filter((file) => file.id !== id);
 	}
 

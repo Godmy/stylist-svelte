@@ -6,7 +6,9 @@ import { DEFAULT_CANVAS_CHART_PADDING } from '$stylist/chart/const/map/default-c
 import { PRESET_CANVAS_CHART } from '$stylist/chart/const/preset/canvas-chart';
 
 export class ManagerCanvasChart {
-	static resolvePreset(name: 'default' | 'minimal' | 'bold' | 'small' | 'large'): RecipeCanvasChart {
+	static resolvePreset(
+		name: 'default' | 'minimal' | 'bold' | 'small' | 'large'
+	): RecipeCanvasChart {
 		switch (name) {
 			case 'minimal':
 				return {
@@ -50,22 +52,22 @@ export class ManagerCanvasChart {
 
 	static shouldDrawChart(
 		canvasRef: HTMLCanvasElement | null,
-		data: readonly ({
-	x: number | string;
-	y: number;
-	label?: string;
-})[]
+		data: readonly {
+			x: number | string;
+			y: number;
+			label?: string;
+		}[]
 	): canvasRef is HTMLCanvasElement {
 		return canvasRef !== null && data.length > 0;
 	}
 
 	static drawChart(params: {
 		canvas: HTMLCanvasElement;
-		data: readonly ({
-	x: number | string;
-	y: number;
-	label?: string;
-})[];
+		data: readonly {
+			x: number | string;
+			y: number;
+			label?: string;
+		}[];
 		type: TokenCanvasChartType;
 		title: string;
 		xAxisLabel: string;
@@ -145,11 +147,11 @@ export class ManagerCanvasChart {
 		context: CanvasRenderingContext2D,
 		canvas: HTMLCanvasElement,
 		padding: CanvasChartPadding,
-		data: readonly ({
-	x: number | string;
-	y: number;
-	label?: string;
-})[]
+		data: readonly {
+			x: number | string;
+			y: number;
+			label?: string;
+		}[]
 	): void {
 		const chartWidth = canvas.width - padding.left - padding.right;
 		const chartHeight = canvas.height - padding.top - padding.bottom;
@@ -174,11 +176,13 @@ export class ManagerCanvasChart {
 		}
 	}
 
-	private static resolveYStats(data: readonly ({
-	x: number | string;
-	y: number;
-	label?: string;
-})[]) {
+	private static resolveYStats(
+		data: readonly {
+			x: number | string;
+			y: number;
+			label?: string;
+		}[]
+	) {
 		const yValues = data.map((point) => point.y);
 		const minY = Math.min(...yValues);
 		const maxY = Math.max(...yValues);
@@ -190,11 +194,11 @@ export class ManagerCanvasChart {
 	private static drawLineChart(
 		context: CanvasRenderingContext2D,
 		canvas: HTMLCanvasElement,
-		data: readonly ({
-	x: number | string;
-	y: number;
-	label?: string;
-})[],
+		data: readonly {
+			x: number | string;
+			y: number;
+			label?: string;
+		}[],
 		padding: CanvasChartPadding,
 		colors: string[]
 	): void {
@@ -250,11 +254,11 @@ export class ManagerCanvasChart {
 	private static drawBarChart(
 		context: CanvasRenderingContext2D,
 		canvas: HTMLCanvasElement,
-		data: readonly ({
-	x: number | string;
-	y: number;
-	label?: string;
-})[],
+		data: readonly {
+			x: number | string;
+			y: number;
+			label?: string;
+		}[],
 		padding: CanvasChartPadding,
 		colors: string[]
 	): void {
@@ -293,11 +297,11 @@ export class ManagerCanvasChart {
 	private static drawCartesianLabels(
 		context: CanvasRenderingContext2D,
 		canvas: HTMLCanvasElement,
-		data: readonly ({
-	x: number | string;
-	y: number;
-	label?: string;
-})[],
+		data: readonly {
+			x: number | string;
+			y: number;
+			label?: string;
+		}[],
 		padding: CanvasChartPadding,
 		minY: number,
 		yRange: number,
@@ -327,11 +331,11 @@ export class ManagerCanvasChart {
 	private static drawPieChart(
 		context: CanvasRenderingContext2D,
 		canvas: HTMLCanvasElement,
-		data: readonly ({
-	x: number | string;
-	y: number;
-	label?: string;
-})[],
+		data: readonly {
+			x: number | string;
+			y: number;
+			label?: string;
+		}[],
 		colors: string[]
 	): void {
 		if (data.length === 0) {

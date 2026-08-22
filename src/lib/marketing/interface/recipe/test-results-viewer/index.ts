@@ -4,16 +4,19 @@ import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 
 import type { SlotTestResult } from '$stylist/marketing/interface/slot/test-result';
 
-export interface RecipeTestResultsViewer extends HTMLAttributes<HTMLDivElement>, SlotThemeBorder, SlotTypography {
-testResults: SlotTestResult[];
+export interface RecipeTestResultsViewer
+	extends HTMLAttributes<HTMLDivElement>,
+		SlotThemeBorder,
+		SlotTypography {
+	testResults: SlotTestResult[];
 	testOverview: {
-	testName: string;
-	startDate: Date;
-	endDate?: Date;
-	status: 'running' | 'completed' | 'paused';
-	winningVariant?: string;
-	confidence: number;
-};
+		testName: string;
+		startDate: Date;
+		endDate?: Date;
+		status: 'running' | 'completed' | 'paused';
+		winningVariant?: string;
+		confidence: number;
+	};
 	title?: string;
 	description?: string;
 	showCharts?: boolean;

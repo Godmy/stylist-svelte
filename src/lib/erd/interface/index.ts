@@ -5,10 +5,4 @@ export type {
 	RecipeErdTableField,
 	RecipeErdTableHeader
 } from './recipe';
-export type {
-	SlotErdHeader,
-	SlotErdSettings,
-	SlotErdText,
-	SlotErdTool,
-	SlotErdView
-} from './slot';
+export type { SlotErdHeader, SlotErdSettings, SlotErdText, SlotErdTool, SlotErdView } from './slot';

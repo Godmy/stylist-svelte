@@ -6,12 +6,5 @@ import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 export interface RecipeAutoComplete
 	extends ComputeIntersectAll<
-		[
-			SlotAutoComplete,
-			SlotTheme,
-			SlotText,
-			SlotText,
-			SlotIcon,
-			HTMLAttributes<HTMLInputElement>
-		]
+		[SlotAutoComplete, SlotTheme, SlotText, SlotText, SlotIcon, HTMLAttributes<HTMLInputElement>]
 	> {}

@@ -39,10 +39,10 @@
 		<Heading {level} {text} class="divider-heading-image-text__title" />
 		<figure class="divider-heading-image-text__media">
 			<Image
-				imageSrc={imageSrc}
-				imageAlt={imageAlt}
+				{imageSrc}
+				{imageAlt}
 				size="xl"
-				imageLoading={imageLoading}
+				{imageLoading}
 				class="divider-heading-image-text__image"
 			/>
 		</figure>
@@ -77,10 +77,7 @@
 	:global(.divider-heading-image-text__title) {
 		margin: 0;
 		--typography-color: var(--divider-heading-image-text-heading, currentColor);
-		--typography-font-size: var(
-			--divider-heading-image-text-title-size,
-			clamp(2rem, 4cqw, 3.5rem)
-		);
+		--typography-font-size: var(--divider-heading-image-text-title-size, clamp(2rem, 4cqw, 3.5rem));
 		--typography-line-height: 1.05;
 	}
 

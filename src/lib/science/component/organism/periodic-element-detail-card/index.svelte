@@ -23,9 +23,12 @@
 	const lightInteraction = $derived(
 		PERIODIC_ELEMENT_LIGHT_INTERACTION[element.symbol] ?? {
 			spectralSignature: `${element.name} has element-specific electronic transitions that can appear as absorption or emission lines under suitable conditions.`,
-			absorptionBehavior: 'Absorption occurs when photon energy matches an available electronic transition.',
-			activationBehavior: 'Activation can be produced by heat, electrical discharge, plasma, laser excitation, or chemical environment.',
-			photoresponse: 'The observed response depends on atomic state, ionization, pressure, temperature, and surrounding compounds.',
+			absorptionBehavior:
+				'Absorption occurs when photon energy matches an available electronic transition.',
+			activationBehavior:
+				'Activation can be produced by heat, electrical discharge, plasma, laser excitation, or chemical environment.',
+			photoresponse:
+				'The observed response depends on atomic state, ionization, pressure, temperature, and surrounding compounds.',
 			diagnosticLines: ['No curated lines'],
 			applications: ['Spectroscopy', 'Material identification', 'Reference classification']
 		}
@@ -90,10 +93,19 @@
 		display: grid;
 		gap: 1rem;
 		padding: 1rem;
-		border: 1px solid color-mix(in srgb, var(--color-border-primary) 70%, var(--periodic-element-detail-accent));
+		border: 1px solid
+			color-mix(in srgb, var(--color-border-primary) 70%, var(--periodic-element-detail-accent));
 		border-radius: 0.5rem;
 		background:
-			linear-gradient(135deg, color-mix(in srgb, var(--color-background-primary) 84%, var(--periodic-element-detail-accent)), transparent 38%),
+			linear-gradient(
+				135deg,
+				color-mix(
+					in srgb,
+					var(--color-background-primary) 84%,
+					var(--periodic-element-detail-accent)
+				),
+				transparent 38%
+			),
 			var(--color-background-primary);
 		color: var(--color-text-primary);
 	}
@@ -169,9 +181,14 @@
 
 	.c-periodic-element-detail-card__uses span {
 		padding: 0.24rem 0.5rem;
-		border: 1px solid color-mix(in srgb, var(--color-border-primary) 70%, var(--periodic-element-detail-accent));
+		border: 1px solid
+			color-mix(in srgb, var(--color-border-primary) 70%, var(--periodic-element-detail-accent));
 		border-radius: 999px;
-		background: color-mix(in srgb, var(--color-background-primary) 88%, var(--periodic-element-detail-accent));
+		background: color-mix(
+			in srgb,
+			var(--color-background-primary) 88%,
+			var(--periodic-element-detail-accent)
+		);
 		color: var(--color-text-secondary);
 		font-size: 0.74rem;
 	}

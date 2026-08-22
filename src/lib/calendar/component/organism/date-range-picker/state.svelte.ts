@@ -88,7 +88,7 @@ export const createDateRangePickerState = (props: RecipeDateRangePicker) => {
 			? selectedRange.end
 				? `${fmt(selectedRange.start)} — ${fmt(selectedRange.end)}`
 				: fmt(selectedRange.start)
-			: props.placeholder ?? 'Select date range'
+			: (props.placeholder ?? 'Select date range')
 	);
 
 	return {

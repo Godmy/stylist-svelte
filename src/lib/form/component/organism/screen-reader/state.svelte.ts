@@ -1,15 +1,17 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
-export function createScreenReaderState(props: ((HTMLAttributes<HTMLDivElement> & {
-title?: string;
-	content?: string;
-	class?: string;
-}))): ({
-rootClass: string;
+export function createScreenReaderState(
+	props: HTMLAttributes<HTMLDivElement> & {
+		title?: string;
+		content?: string;
+		class?: string;
+	}
+): {
+	rootClass: string;
 	titleClass: string;
 	contentClass: string;
 	actionButtonClass: string;
-}) {
+} {
 	const rootClass = $derived(ClassNamesManager.merge('c-screen-reader', props.class ?? ''));
 	const titleClass = $derived('c-screen-reader__title');
 	const contentClass = $derived('c-screen-reader__content');

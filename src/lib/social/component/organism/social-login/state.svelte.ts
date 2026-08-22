@@ -8,14 +8,17 @@ export function createSocialLoginState(props: RecipeSocialLogin) {
 	let password = $state('');
 	let rememberMe = $state(false);
 
-	const providerConfigs: Record<Provider, {
-	id: Provider;
-	name: string;
-	icon: any;
-	color: string;
-	textColor: string;
-	borderColor: string;
-}> = {
+	const providerConfigs: Record<
+		Provider,
+		{
+			id: Provider;
+			name: string;
+			icon: any;
+			color: string;
+			textColor: string;
+			borderColor: string;
+		}
+	> = {
 		google: {
 			id: 'google',
 			name: 'Google',

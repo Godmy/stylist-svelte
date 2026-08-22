@@ -58,7 +58,7 @@
   - `index.ts`
   - `index.svelte`
   - optionally `index.story.svelte`
-  - optionally `readme.md`  
+  - optionally `readme.md`
 - In `state` folders, allow only:
   - `index.svelte.ts`
   - `index.ts`

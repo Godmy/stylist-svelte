@@ -11,7 +11,14 @@
 			name: 'position',
 			type: 'select',
 			defaultValue: 'top-right',
-			options: ['top-left', 'top-right', 'bottom-left', 'bottom-right', 'top-center', 'bottom-center']
+			options: [
+				'top-left',
+				'top-right',
+				'bottom-left',
+				'bottom-right',
+				'top-center',
+				'bottom-center'
+			]
 		},
 		{ name: 'maxToasts', type: 'range', defaultValue: 4, min: 1, max: 6, step: 1 }
 	];
@@ -60,9 +67,27 @@
 	function resetToasts() {
 		seed = 4;
 		toasts = [
-			{ id: '1', text: labels.success, message: 'The production environment is now running the latest version.', type: 'success', onDismiss: () => removeToast('1') },
-			{ id: '2', text: labels.warning, message: 'Three generated exports have warnings that need confirmation.', type: 'warning', onDismiss: () => removeToast('2') },
-			{ id: '3', text: labels.error, message: 'The workspace could not reach the persistence service.', type: 'error', onDismiss: () => removeToast('3') }
+			{
+				id: '1',
+				text: labels.success,
+				message: 'The production environment is now running the latest version.',
+				type: 'success',
+				onDismiss: () => removeToast('1')
+			},
+			{
+				id: '2',
+				text: labels.warning,
+				message: 'Three generated exports have warnings that need confirmation.',
+				type: 'warning',
+				onDismiss: () => removeToast('2')
+			},
+			{
+				id: '3',
+				text: labels.error,
+				message: 'The workspace could not reach the persistence service.',
+				type: 'error',
+				onDismiss: () => removeToast('3')
+			}
 		];
 	}
 

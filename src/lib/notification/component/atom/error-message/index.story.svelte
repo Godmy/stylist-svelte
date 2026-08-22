@@ -7,7 +7,12 @@
 
 	const controls: SlotStory[] = [
 		{ name: 'text', type: 'text', defaultValue: 'Could not load invoices' },
-		{ name: 'errorType', type: 'select', defaultValue: 'string', options: ['string', 'error', 'none'] },
+		{
+			name: 'errorType',
+			type: 'select',
+			defaultValue: 'string',
+			options: ['string', 'error', 'none']
+		},
 		{ name: 'showRetry', type: 'boolean', defaultValue: true }
 	];
 </script>

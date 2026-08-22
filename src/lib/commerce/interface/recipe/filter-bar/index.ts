@@ -6,28 +6,35 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 export interface RecipeFilterBar
 	extends ComputeIntersectAll<
-		[SlotChildren, SlotText, SlotText, BehaviorSelectable<string[]>, BehaviorFocusable, BehaviorSizable]
+		[
+			SlotChildren,
+			SlotText,
+			SlotText,
+			BehaviorSelectable<string[]>,
+			BehaviorFocusable,
+			BehaviorSizable
+		]
 	> {
 	toggles?: {
-	id: string;
-	label: string;
-	description?: string;
-	checked?: boolean;
-}[];
+		id: string;
+		label: string;
+		description?: string;
+		checked?: boolean;
+	}[];
 	tags?: {
-	id: string;
-	label: string;
-	active?: boolean;
-}[];
+		id: string;
+		label: string;
+		active?: boolean;
+	}[];
 	range?: {
-	id: string;
-	label: string;
-	min: number;
-	max: number;
-	step?: number;
-	value?: number;
-	unit?: string;
-};
+		id: string;
+		label: string;
+		min: number;
+		max: number;
+		step?: number;
+		value?: number;
+		unit?: string;
+	};
 	onClear?: () => void;
 	class?: string;
 }

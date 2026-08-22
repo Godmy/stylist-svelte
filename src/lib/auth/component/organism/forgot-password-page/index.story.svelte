@@ -6,7 +6,11 @@
 
 	const controls: SlotStory[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Forgot password?' },
-		{ name: 'subtitle', type: 'text', defaultValue: 'No worries, reset instructions will arrive by email.' },
+		{
+			name: 'subtitle',
+			type: 'text',
+			defaultValue: 'No worries, reset instructions will arrive by email.'
+		},
 		{ name: 'isLoading', type: 'boolean', defaultValue: false },
 		{ name: 'success', type: 'boolean', defaultValue: false },
 		{ name: 'error', type: 'text', defaultValue: '' }

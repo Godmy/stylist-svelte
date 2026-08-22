@@ -48,4 +48,3 @@ export function createSplitLayoutState(props: RecipeSplitLayout) {
 }
 
 export default createSplitLayoutState;
-

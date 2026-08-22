@@ -2,7 +2,8 @@ import type { SlotFileSystemItem } from '$stylist/file/interface/slot/file-syste
 import type { ViewMode } from '$stylist/file/type/alias/file-explorer-view-mode';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeFileExplorer extends ComputeIntersectAll<
+export interface RecipeFileExplorer
+	extends ComputeIntersectAll<
 		[
 			{
 				items: SlotFileSystemItem[];

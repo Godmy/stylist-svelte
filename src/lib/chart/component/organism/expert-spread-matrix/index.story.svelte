@@ -12,20 +12,28 @@
 		periods.map((period, periodIndex) => ({
 			expert,
 			period,
-			value: 920 + expertIndex * 18 + periodIndex * 24 + (expertIndex === 3 && periodIndex === 4 ? 120 : 0),
+			value:
+				920 +
+				expertIndex * 18 +
+				periodIndex * 24 +
+				(expertIndex === 3 && periodIndex === 4 ? 120 : 0),
 			outlier: expertIndex === 3 && periodIndex === 4
 		}))
 	);
 </script>
 
-<Story title="ExpertSpreadMatrix" description="Expert estimates across forecast periods with outlier highlighting." {controls}>
+<Story
+	title="ExpertSpreadMatrix"
+	description="Expert estimates across forecast periods with outlier highlighting."
+	{controls}
+>
 	{#snippet children(valuesControl: any)}
 		<ExpertSpreadMatrix
 			text="Expert spread matrix"
 			description="Forecast values by expert and period."
 			{experts}
 			{periods}
-			values={values}
+			{values}
 			cellSize={valuesControl.cellSize}
 		/>
 	{/snippet}

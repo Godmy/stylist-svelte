@@ -1,5 +1,5 @@
 export interface RecipeToolButton {
-active?: boolean;
+	active?: boolean;
 	tool?: string;
 	icon?: string;
 	label?: string;

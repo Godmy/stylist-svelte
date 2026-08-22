@@ -18,14 +18,14 @@ export interface RecipeButton
 	extends ComputeIntersectAll<
 		[
 			SlotButtonAttributesBase,
-			((SlotButtonAttributesBase & {
-variant?: TokenColorTone;
-	size?: TokenSize;
-	disabled?: boolean;
-	loading?: boolean;
-	block?: boolean;
-	onClick?: () => void;
-})),
+			SlotButtonAttributesBase & {
+				variant?: TokenColorTone;
+				size?: TokenSize;
+				disabled?: boolean;
+				loading?: boolean;
+				block?: boolean;
+				onClick?: () => void;
+			},
 			SlotChildren,
 			SlotText,
 			SlotIcon,

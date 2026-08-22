@@ -5,13 +5,22 @@ import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 export interface RecipeWishlistButton
-	extends ComputeIntersectAll<[{
-inWishlist?: boolean;
+	extends ComputeIntersectAll<
+		[
+			{
+				inWishlist?: boolean;
 
-	showLabel?: boolean;
+				showLabel?: boolean;
 
-	buttonClass?: string;
-}, SlotTheme, SlotText, SlotIcon, SlotBadge, BehaviorClickable]> {
+				buttonClass?: string;
+			},
+			SlotTheme,
+			SlotText,
+			SlotIcon,
+			SlotBadge,
+			BehaviorClickable
+		]
+	> {
 	onToggle?: (inWishlist: boolean) => void;
 	onSuccess?: () => void;
 	onError?: (error: string) => void;

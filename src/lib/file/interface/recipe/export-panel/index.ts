@@ -6,7 +6,14 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 export interface RecipeExportPanel
 	extends ComputeIntersectAll<
-		[SlotChildren, SlotText, SlotText, BehaviorSelectable<string>, BehaviorFocusable, BehaviorSizable]
+		[
+			SlotChildren,
+			SlotText,
+			SlotText,
+			BehaviorSelectable<string>,
+			BehaviorFocusable,
+			BehaviorSizable
+		]
 	> {
 	class?: string;
 	onexport?: (

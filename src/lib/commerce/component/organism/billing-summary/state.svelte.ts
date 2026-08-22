@@ -3,7 +3,9 @@ import type { RecipeBillingSummary } from '$stylist/commerce/interface/recipe/bi
 import type { TokenBillingItem } from '$stylist/commerce/type/alias/billing-item';
 import type { TokenBillingSummary } from '$stylist/commerce/type/alias/billing-summary';
 
-export function createBillingSummaryState(props: RecipeBillingSummary & HTMLAttributes<HTMLDivElement>) {
+export function createBillingSummaryState(
+	props: RecipeBillingSummary & HTMLAttributes<HTMLDivElement>
+) {
 	const total = $derived((props.items ?? []).reduce((sum, item) => sum + item.amount, 0));
 	const invoiceId = `#INV-${Math.floor(Math.random() * 900000) + 100000}`;
 	const generatedDate = new Date().toLocaleDateString();

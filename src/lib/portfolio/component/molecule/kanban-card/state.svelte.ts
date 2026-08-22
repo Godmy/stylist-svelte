@@ -78,9 +78,7 @@ export function createKanbanCardState(props: KanbanCardStateProps) {
 		return priorityAccentClasses[priority] ?? 'c-kanban-card--accent-high';
 	}
 
-	const containerClasses = $derived(
-		`c-kanban-card ${getPriorityAccentClass(card.priority)}`
-	);
+	const containerClasses = $derived(`c-kanban-card ${getPriorityAccentClass(card.priority)}`);
 
 	return {
 		get card() {

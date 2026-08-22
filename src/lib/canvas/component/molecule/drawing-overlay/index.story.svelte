@@ -3,9 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import RecipeDrawingOverlay from './index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'drawColor', type: 'color', defaultValue: '#ff0000' }
-	];
+	const controls: SlotStory[] = [{ name: 'drawColor', type: 'color', defaultValue: '#ff0000' }];
 </script>
 
 <Story

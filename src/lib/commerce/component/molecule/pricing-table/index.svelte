@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipePricingTable } from '$stylist/commerce/interface/recipe/pricing-table';
 	import { createPricingTableState } from './state.svelte';
 

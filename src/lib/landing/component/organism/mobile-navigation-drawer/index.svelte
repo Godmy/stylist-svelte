@@ -53,7 +53,9 @@
 			aria-label={ariaLabel}
 		>
 			<header class="mobile-navigation-drawer__header">
-				<div class="mobile-navigation-drawer__brand">{#if brand}{@render brand()}{/if}</div>
+				<div class="mobile-navigation-drawer__brand">
+					{#if brand}{@render brand()}{/if}
+				</div>
 				<button
 					type="button"
 					class="mobile-navigation-drawer__close"

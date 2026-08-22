@@ -24,22 +24,46 @@
 	}: SlotDataTableShell<RowData> = $props();
 
 	const state = createDataTableShellState({
-		get data() { return data; },
-		get schema() { return schema; },
-		get title() { return title; },
-		get searchPlaceholder() { return searchPlaceholder; },
-		get showSearch() { return showSearch; },
-		get showColumnManager() { return showColumnManager; },
-		get pageSizeOptions() { return pageSizeOptions; },
-		get defaultPageSize() { return defaultPageSize; },
-		get loading() { return loading; },
-		get onExport() { return onExport; },
-		get onRowClick() { return onRowClick; },
-		get class() { return className; }
+		get data() {
+			return data;
+		},
+		get schema() {
+			return schema;
+		},
+		get title() {
+			return title;
+		},
+		get searchPlaceholder() {
+			return searchPlaceholder;
+		},
+		get showSearch() {
+			return showSearch;
+		},
+		get showColumnManager() {
+			return showColumnManager;
+		},
+		get pageSizeOptions() {
+			return pageSizeOptions;
+		},
+		get defaultPageSize() {
+			return defaultPageSize;
+		},
+		get loading() {
+			return loading;
+		},
+		get onExport() {
+			return onExport;
+		},
+		get onRowClick() {
+			return onRowClick;
+		},
+		get class() {
+			return className;
+		}
 	});
 
 	const columnManagerColumns = $derived(
-		schema.map(col => ({
+		schema.map((col) => ({
 			key: String(col.key),
 			header: col.header,
 			visible: state.columnVisibility[String(col.key)] !== false
@@ -74,7 +98,9 @@
 				<ColumnManager
 					columns={columnManagerColumns}
 					onColumnsChange={(cols) => {
-						state.setColumnVisibility(Object.fromEntries(cols.map((column) => [column.key, column.visible])));
+						state.setColumnVisibility(
+							Object.fromEntries(cols.map((column) => [column.key, column.visible]))
+						);
 					}}
 				/>
 			</aside>
@@ -87,7 +113,7 @@
 					{searchPlaceholder}
 					pillGroups={Object.entries(state.pillOptions).map(([key, options]) => ({
 						columnKey: key,
-						label: schema.find(c => String(c.key) === key)?.header ?? key,
+						label: schema.find((c) => String(c.key) === key)?.header ?? key,
 						options,
 						active: state.pillFilters[key] ?? []
 					}))}
@@ -99,11 +125,7 @@
 			{#if loading}
 				<div class="c-data-table-shell__loading">Loading…</div>
 			{:else}
-				<DataTable
-					data={state.pageData}
-					schema={state.visibleSchema}
-					{onRowClick}
-				/>
+				<DataTable data={state.pageData} schema={state.visibleSchema} {onRowClick} />
 
 				{#if state.totalPages > 1}
 					<div class="c-data-table-shell__pagination">
@@ -111,8 +133,8 @@
 							type="button"
 							class="c-data-table-shell__btn"
 							onclick={state.goPrev}
-							disabled={state.currentPage <= 1}
-						>‹ Prev</button>
+							disabled={state.currentPage <= 1}>‹ Prev</button
+						>
 						<span class="c-data-table-shell__page-info">
 							{state.currentPage} / {state.totalPages}
 						</span>
@@ -120,8 +142,8 @@
 							type="button"
 							class="c-data-table-shell__btn"
 							onclick={state.goNext}
-							disabled={state.currentPage >= state.totalPages}
-						>Next ›</button>
+							disabled={state.currentPage >= state.totalPages}>Next ›</button
+						>
 					</div>
 				{/if}
 			{/if}

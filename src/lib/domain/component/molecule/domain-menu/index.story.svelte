@@ -2,13 +2,7 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import DomainMenu from './index.svelte';
 
-	type Screen =
-		| 'landing'
-		| 'domain'
-		| 'workspace'
-		| 'builder'
-		| 'backlog'
-		| 'diagnostics';
+	type Screen = 'landing' | 'domain' | 'workspace' | 'builder' | 'backlog' | 'diagnostics';
 
 	let screen = $state<Screen>('domain');
 	let settingsOpen = $state(false);

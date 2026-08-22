@@ -37,12 +37,12 @@ export class ManagerBarChart {
 		calculatedMaxValue: number;
 		colorScheme?: TokenThemeScheme;
 	}): {
-	x: number;
-	y: number;
-	width: number;
-	height: number;
-	color: string;
-}[] {
+		x: number;
+		y: number;
+		width: number;
+		height: number;
+		color: string;
+	}[] {
 		const { data, barWidth, barGap, chartHeight, showAxis, calculatedMaxValue, colorScheme } =
 			params;
 		const startX = showAxis ? 50 : 5;

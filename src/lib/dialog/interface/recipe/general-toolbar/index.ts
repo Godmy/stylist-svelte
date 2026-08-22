@@ -1,7 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeGeneralToolbar extends ComputeIntersectAll<
+export interface RecipeGeneralToolbar
+	extends ComputeIntersectAll<
 		[
 			HTMLAttributes<HTMLDivElement> & {
 				toolbarItems?: {

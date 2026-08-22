@@ -8,15 +8,7 @@ import type { SlotImage } from '$stylist/image/interface/slot/image';
 import type { Snippet } from 'svelte';
 export interface RecipeCardWithImage
 	extends ComputeIntersectAll<
-		[
-			SlotTheme,
-			SlotText,
-			SlotText,
-			SlotImage,
-			SlotBadge,
-			SlotIcon,
-			HTMLAttributes<HTMLDivElement>
-		]
+		[SlotTheme, SlotText, SlotText, SlotImage, SlotBadge, SlotIcon, HTMLAttributes<HTMLDivElement>]
 	> {
 	title?: string;
 	subtitle?: string;

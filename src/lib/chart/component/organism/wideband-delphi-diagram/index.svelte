@@ -6,7 +6,10 @@
 	const state = createWidebandDelphiDiagramState(props);
 </script>
 
-<section class={state.className} aria-label={props.ariaLabel ?? props.text ?? 'Wideband Delphi diagram'}>
+<section
+	class={state.className}
+	aria-label={props.ariaLabel ?? props.text ?? 'Wideband Delphi diagram'}
+>
 	{#if props.text}
 		<header class="wideband-delphi-diagram__header">
 			<h3>{props.text}</h3>
@@ -38,7 +41,12 @@
 					x2={state.layout.plotX + state.layout.plotWidth}
 					y2={tick.y}
 				/>
-				<text class="wideband-delphi-diagram__tick" x={state.layout.plotX - 12} y={tick.y + 4} text-anchor="end">
+				<text
+					class="wideband-delphi-diagram__tick"
+					x={state.layout.plotX - 12}
+					y={tick.y + 4}
+					text-anchor="end"
+				>
 					{tick.label}
 				</text>
 			{/each}
@@ -85,11 +93,24 @@
 	</div>
 
 	<div class="wideband-delphi-diagram__legend" aria-label="Forecast indicators">
-		<span><i class="wideband-delphi-diagram__swatch wideband-delphi-diagram__swatch--outer"></i> Delphi wideband</span>
-		<span><i class="wideband-delphi-diagram__swatch wideband-delphi-diagram__swatch--core"></i> Expert core range</span>
-		<span><i class="wideband-delphi-diagram__line wideband-delphi-diagram__line--consensus"></i> Consensus</span>
-		<span><i class="wideband-delphi-diagram__line wideband-delphi-diagram__line--market"></i> Market signal</span>
-		<span><i class="wideband-delphi-diagram__line wideband-delphi-diagram__line--procurement"></i> Procurement target</span>
+		<span
+			><i class="wideband-delphi-diagram__swatch wideband-delphi-diagram__swatch--outer"></i> Delphi
+			wideband</span
+		>
+		<span
+			><i class="wideband-delphi-diagram__swatch wideband-delphi-diagram__swatch--core"></i> Expert core
+			range</span
+		>
+		<span
+			><i class="wideband-delphi-diagram__line wideband-delphi-diagram__line--consensus"></i> Consensus</span
+		>
+		<span
+			><i class="wideband-delphi-diagram__line wideband-delphi-diagram__line--market"></i> Market signal</span
+		>
+		<span
+			><i class="wideband-delphi-diagram__line wideband-delphi-diagram__line--procurement"></i> Procurement
+			target</span
+		>
 	</div>
 </section>
 

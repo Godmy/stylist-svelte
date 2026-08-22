@@ -17,7 +17,11 @@
 	});
 </script>
 
-<div {...restProps} class="c-periodic-element-legend {props.class ?? ''}" aria-label="Element categories">
+<div
+	{...restProps}
+	class="c-periodic-element-legend {props.class ?? ''}"
+	aria-label="Element categories"
+>
 	{#each props.categories as category}
 		<PeriodicElementType
 			{category}

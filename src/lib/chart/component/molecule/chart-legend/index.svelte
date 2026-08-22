@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeChartLegend } from '$stylist/chart/interface/recipe/chart-legend';
-		import createChartLegendState from './state.svelte';
+	import createChartLegendState from './state.svelte';
 
 	let props: RecipeChartLegend & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createChartLegendState({ ...props, class: ClassNamesManager.merge(props.class) });

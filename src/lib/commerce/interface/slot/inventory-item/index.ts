@@ -14,4 +14,3 @@ export interface SlotInventoryItem {
 	status: InventoryItemStatus;
 	thumbnail?: string;
 }
-

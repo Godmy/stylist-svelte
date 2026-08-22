@@ -35,12 +35,7 @@
 	aria-label={state.ariaLabel || undefined}
 >
 	{#if state.loading}
-		<Icon
-			name="loader-2"
-			class="c-close-button__loader"
-			size={16}
-			aria-hidden="true"
-		/>
+		<Icon name="loader-2" class="c-close-button__loader" size={16} aria-hidden="true" />
 		<span class="c-close-button__sr-only">{props.loadingLabel ?? 'Closing...'}</span>
 	{:else}
 		<Icon name="x" size={16} />

@@ -12,8 +12,8 @@ export interface RecipeChart
 	showLegend?: boolean;
 	showGrid?: boolean;
 	showZAxis?: boolean;
-	xScale?: ([number, number]);
-	yScale?: ([number, number]);
+	xScale?: [number, number];
+	yScale?: [number, number];
 	xTickCount?: number;
 	yTickCount?: number;
 	zTickCount?: number;

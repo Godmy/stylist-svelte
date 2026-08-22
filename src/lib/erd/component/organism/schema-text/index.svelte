@@ -3,10 +3,8 @@
 	import { schemaTextToDocument } from '$stylist/erd/function/transform/schema-text-to-document';
 	import type { SlotErdText } from '$stylist/erd/interface/slot/erd-text';
 
-	let {
-		value = $bindable(DEFAULT_SCHEMA_TEXT),
-		placeholder = DEFAULT_SCHEMA_TEXT
-	}: SlotErdText = $props();
+	let { value = $bindable(DEFAULT_SCHEMA_TEXT), placeholder = DEFAULT_SCHEMA_TEXT }: SlotErdText =
+		$props();
 	let result = $derived(schemaTextToDocument(value));
 
 	function handleInput(event: Event): void {
@@ -15,12 +13,7 @@
 </script>
 
 <section class="schema-text">
-	<textarea
-		spellcheck="false"
-		{placeholder}
-		{value}
-		oninput={handleInput}
-	></textarea>
+	<textarea spellcheck="false" {placeholder} {value} oninput={handleInput}></textarea>
 	{#if result.errors.length > 0}
 		<ul class="schema-text__errors">
 			{#each result.errors as error}
@@ -54,7 +47,13 @@
 		border-radius: 0.5rem;
 		background: var(--color-background-secondary, #f9fafb);
 		color: var(--color-text-primary, #111827);
-		font: 0.86rem/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+		font:
+			0.86rem/1.55 ui-monospace,
+			SFMono-Regular,
+			Menlo,
+			Monaco,
+			Consolas,
+			monospace;
 		tab-size: 2;
 	}
 

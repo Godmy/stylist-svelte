@@ -35,7 +35,14 @@
 		{ name: 'hasLabel', type: TOKEN_CONTROLLER_TYPE.BOOLEAN, defaultValue: true },
 		{ name: 'hasDescription', type: TOKEN_CONTROLLER_TYPE.BOOLEAN, defaultValue: true },
 		{ name: 'hasChildren', type: TOKEN_CONTROLLER_TYPE.BOOLEAN, defaultValue: true },
-		{ name: 'depth', type: TOKEN_CONTROLLER_TYPE.RANGE, min: 0, max: 1000, step: 20, defaultValue: 480 },
+		{
+			name: 'depth',
+			type: TOKEN_CONTROLLER_TYPE.RANGE,
+			min: 0,
+			max: 1000,
+			step: 20,
+			defaultValue: 480
+		},
 		{ name: 'showClose', type: TOKEN_CONTROLLER_TYPE.BOOLEAN, defaultValue: true }
 	];
 </script>
@@ -48,7 +55,9 @@
 	tags={['inspector', 'scene', 'node', 'panel']}
 >
 	{#snippet children(values: any)}
-		<div style="padding: 2rem; display: flex; justify-content: center; background: var(--color-background-secondary, #f9fafb); min-height: 16rem; align-items: flex-start;">
+		<div
+			style="padding: 2rem; display: flex; justify-content: center; background: var(--color-background-secondary, #f9fafb); min-height: 16rem; align-items: flex-start;"
+		>
 			<SceneInspector
 				node={{
 					...sampleNode,

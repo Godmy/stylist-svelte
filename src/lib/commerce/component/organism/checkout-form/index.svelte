@@ -8,7 +8,6 @@
 
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 
-	
 	const CreditCard = 'credit-card';
 
 	const MapPin = 'map-pin';

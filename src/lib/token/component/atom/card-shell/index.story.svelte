@@ -10,11 +10,7 @@
 	];
 </script>
 
-<Story
-	{controls}
-	title="CardShell"
-	description="Expandable shell used by the orbit tooling panel."
->
+<Story {controls} title="CardShell" description="Expandable shell used by the orbit tooling panel.">
 	{#snippet children(values: any)}
 		<div class="token-story-stage">
 			<div class="token-story-card-position">

@@ -1,7 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	AUTH_STRATEGIES,
-	PERMISSION_SCOPES,
-	STORAGE_KEYS
-} from './object';
+export { AUTH_STRATEGIES, PERMISSION_SCOPES, STORAGE_KEYS } from './object';
 export { TOKEN_TYPE } from './value';

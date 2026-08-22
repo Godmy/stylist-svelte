@@ -1,16 +1,16 @@
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
 export const createChatWindowState = (props: {
-	chat: ({
-id: string;
-	name?: string;
-	participants: User[];
-	isGroup: boolean;
-	lastMessage?: Message | string;
-	lastMessageTime?: Date;
-	unreadCount?: number;
-	avatar?: string;
-});
+	chat: {
+		id: string;
+		name?: string;
+		participants: User[];
+		isGroup: boolean;
+		lastMessage?: Message | string;
+		lastMessageTime?: Date;
+		unreadCount?: number;
+		avatar?: string;
+	};
 	currentUser: User;
 	messages: Message[];
 }) => {

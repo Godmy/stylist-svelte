@@ -4,7 +4,9 @@ import { TOKEN_TIME_RANGE } from '$stylist/calendar/const/array/token-time-range
 import { TOKEN_PERFORMANCE_BARS } from '$stylist/management/const/array/performance-bars';
 import type { RecipePerformanceDashboardPerformanceDashboardStateProps } from '$stylist/management/interface/recipe/performance-dashboard-performance-dashboard-state-props';
 
-export function createPerformanceDashboardState(props: RecipePerformanceDashboardPerformanceDashboardStateProps) {
+export function createPerformanceDashboardState(
+	props: RecipePerformanceDashboardPerformanceDashboardStateProps
+) {
 	const label = $derived(props.title ?? 'Performance Dashboard');
 	const subtitle = $derived(props.subtitle);
 	const metrics = $derived(props.metrics ?? []);

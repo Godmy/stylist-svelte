@@ -25,4 +25,3 @@ export interface RecipeAnalyticsChart
 	chartClass?: string;
 	legendClass?: string;
 }
-

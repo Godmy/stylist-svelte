@@ -43,7 +43,9 @@
 					disabled={!state.canAttachComponent || state.isAttachingComponent}
 					onclick={() => void state.attachComponent()}
 				>
-					{state.isAttachingComponent ? 'Attaching…' : `Attach component${state.entityLabel ? `: ${state.entityLabel}` : ''}`}
+					{state.isAttachingComponent
+						? 'Attaching…'
+						: `Attach component${state.entityLabel ? `: ${state.entityLabel}` : ''}`}
 				</Button>
 				<Button
 					variant="outline"

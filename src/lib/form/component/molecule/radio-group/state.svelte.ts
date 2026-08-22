@@ -1,7 +1,7 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeRadioGroup } from '$stylist/form/interface/recipe/radio-group';
-export function createRadioGroupState(props: RecipeRadioGroup): ({
-internalValue: string;
+export function createRadioGroupState(props: RecipeRadioGroup): {
+	internalValue: string;
 	layoutClass: string;
 	rootClass: string;
 	labelClass: string;
@@ -14,7 +14,7 @@ internalValue: string;
 	inputClass: string;
 	indicatorClass: string;
 	errorClass: string;
-}) {
+} {
 	let internalValue = $state(props.value ?? '');
 
 	$effect(() => {
@@ -32,7 +32,10 @@ internalValue: string;
 		ClassNamesManager.merge('c-radio-group__options', `c-radio-group__options--${orientation}`)
 	);
 	const optionLabelClass = $derived(
-		ClassNamesManager.merge('c-radio-group__option', props.disabled && 'c-radio-group__option--disabled')
+		ClassNamesManager.merge(
+			'c-radio-group__option',
+			props.disabled && 'c-radio-group__option--disabled'
+		)
 	);
 	const optionTextClass = $derived('c-radio-group__option-label');
 	const optionDescriptionClass = $derived('c-radio-group__option-desc');

@@ -10,10 +10,7 @@
 	<SchemaTableHeader {table} {active} />
 	<div class="schema-table__fields">
 		{#each table.fields as field (field.id)}
-			<SchemaTableField
-				{field}
-				related={relatedFieldIds.includes(field.id)}
-			/>
+			<SchemaTableField {field} related={relatedFieldIds.includes(field.id)} />
 		{/each}
 	</div>
 </article>

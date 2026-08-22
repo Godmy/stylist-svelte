@@ -6,7 +6,11 @@ export class ClassNamesManager {
 		if (typeof value === 'string') return value;
 		if (typeof value === 'number') return String(value);
 		if (typeof value === 'bigint') return String(value);
-		if (Array.isArray(value)) return value.map((item) => ClassNamesManager.toClassString(item)).filter(Boolean).join(' ');
+		if (Array.isArray(value))
+			return value
+				.map((item) => ClassNamesManager.toClassString(item))
+				.filter(Boolean)
+				.join(' ');
 		if (typeof value === 'object') {
 			return Object.entries(value)
 				.filter(([, v]) => Boolean(v))
@@ -21,6 +25,9 @@ export class ClassNamesManager {
 	}
 
 	static merge(...inputs: ClassValue[]): string {
-		return inputs.map((input) => ClassNamesManager.toClassString(input)).filter(Boolean).join(' ');
+		return inputs
+			.map((input) => ClassNamesManager.toClassString(input))
+			.filter(Boolean)
+			.join(' ');
 	}
 }

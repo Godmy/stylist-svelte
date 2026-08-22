@@ -22,7 +22,9 @@ export class FoundationManager {
 	}
 
 	static getDepthDistance(worldDepth: number, cameraDepth: number): number {
-		return Math.abs(FoundationManager.clampDepth(worldDepth) - FoundationManager.clampDepth(cameraDepth));
+		return Math.abs(
+			FoundationManager.clampDepth(worldDepth) - FoundationManager.clampDepth(cameraDepth)
+		);
 	}
 
 	static getCameraDistance(camera: SceneCamera, worldDepth: number): number {

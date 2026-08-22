@@ -3,9 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import BreadcrumbDropdown from './index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'open', type: 'boolean', defaultValue: true }
-	];
+	const controls: SlotStory[] = [{ name: 'open', type: 'boolean', defaultValue: true }];
 
 	const items = [
 		{

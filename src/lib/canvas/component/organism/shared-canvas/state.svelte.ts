@@ -16,7 +16,9 @@ export function createSharedCanvasState(contract: RecipeSharedCanvas) {
 	let currentPoint = $state<Point2D>({ x: 0, y: 0 });
 	let currentObject = $state<SlotCanvasObject | null>(null);
 	let selectedObjectId = $state<string | null>(null);
-	let localObjects = $state<SlotCanvasObject[]>(CanvasManager.cloneCanvasObjects(contract.objects ?? []));
+	let localObjects = $state<SlotCanvasObject[]>(
+		CanvasManager.cloneCanvasObjects(contract.objects ?? [])
+	);
 	let undoStack = $state<SlotCanvasObject[][]>([]);
 	let redoStack = $state<SlotCanvasObject[][]>([]);
 
@@ -121,7 +123,12 @@ export function createSharedCanvasState(contract: RecipeSharedCanvas) {
 		if (!isDrawing || !currentObject) return;
 
 		currentPoint = point;
-		currentObject = CanvasManager.updateDraftCanvasObject(currentObject, selectedTool, startPoint, point);
+		currentObject = CanvasManager.updateDraftCanvasObject(
+			currentObject,
+			selectedTool,
+			startPoint,
+			point
+		);
 	}
 
 	function endDrawing(): void {

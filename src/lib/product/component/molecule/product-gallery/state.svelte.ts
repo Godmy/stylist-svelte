@@ -1,7 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductGallery } from '$stylist/product/interface/recipe/product-gallery';
 
-export function createProductGalleryState(props: RecipeProductGallery & HTMLAttributes<HTMLDivElement>) {
+export function createProductGalleryState(
+	props: RecipeProductGallery & HTMLAttributes<HTMLDivElement>
+) {
 	let currentImage = $state(props.mainImage || props.images?.[0] || '');
 
 	$effect(() => {

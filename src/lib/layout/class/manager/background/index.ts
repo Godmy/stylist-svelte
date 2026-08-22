@@ -1,9 +1,7 @@
 import type { RecipeBackground } from '$stylist/layout/interface/recipe/background';
 
 export class ObjectManagerBackground {
-	static resolveBackground(
-		props: RecipeBackground
-	): NonNullable<RecipeBackground['background']> {
+	static resolveBackground(props: RecipeBackground): NonNullable<RecipeBackground['background']> {
 		return props.background ?? 'default';
 	}
 
@@ -41,9 +39,7 @@ export class ObjectManagerBackground {
 		return props.opacity ?? 1;
 	}
 
-	static resolveVariant(
-		props: RecipeBackground
-	): NonNullable<RecipeBackground['variant']> {
+	static resolveVariant(props: RecipeBackground): NonNullable<RecipeBackground['variant']> {
 		return props.variant ?? 'default';
 	}
 

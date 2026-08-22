@@ -11,14 +11,15 @@ import type { IChartDataPoint } from '$stylist/chart/interface/slot/bar-chart';
 export interface RecipeBarChart
 	extends ComputeIntersectAll<
 		[
-			SlotTheme, 
-			SlotDimensionable, 
-			SlotText, 
-			BehaviorChartAxis, 
-			BehaviorLegendable, 
-			BehaviorTooltipable, 
-			BehaviorChartColorable, 
-			HTMLAttributes<HTMLDivElement>]
+			SlotTheme,
+			SlotDimensionable,
+			SlotText,
+			BehaviorChartAxis,
+			BehaviorLegendable,
+			BehaviorTooltipable,
+			BehaviorChartColorable,
+			HTMLAttributes<HTMLDivElement>
+		]
 	> {
 	onBarClick?: (item: IChartDataPoint) => void;
 	data: IChartDataPoint[];

@@ -3,9 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import CardClose from './index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'expanded', type: 'boolean', defaultValue: true }
-	];
+	const controls: SlotStory[] = [{ name: 'expanded', type: 'boolean', defaultValue: true }];
 
 	let clicks = $state(0);
 </script>

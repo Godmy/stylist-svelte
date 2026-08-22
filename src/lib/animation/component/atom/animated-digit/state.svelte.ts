@@ -21,14 +21,13 @@ export const createAnimatedDigitState = (props: RecipeAnimatedDigit) => {
 	);
 
 	// Вычисляемые inline стили
-	const inlineStyle = $derived.by(
-		() =>
-			[
-				`animation: ${normalizedProps.animation} ${normalizedProps.duration} ${normalizedProps.easing} ${normalizedProps.delay}ms${normalizedProps.infinite ? ' infinite' : ''};`,
-				typeof props.style === 'string' ? props.style : ''
-			]
-				.filter(Boolean)
-				.join(' ')
+	const inlineStyle = $derived.by(() =>
+		[
+			`animation: ${normalizedProps.animation} ${normalizedProps.duration} ${normalizedProps.easing} ${normalizedProps.delay}ms${normalizedProps.infinite ? ' infinite' : ''};`,
+			typeof props.style === 'string' ? props.style : ''
+		]
+			.filter(Boolean)
+			.join(' ')
 	);
 
 	// Форматирование значения

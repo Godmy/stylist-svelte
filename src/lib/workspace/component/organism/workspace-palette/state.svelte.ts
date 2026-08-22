@@ -16,7 +16,9 @@ export function createWorkspacePaletteState(props: WorkspacePaletteProps) {
 	);
 
 	const categories = $derived(ObjectManagerWorkspacePalette.getCategories(props.categories));
-	const rootClass = $derived(props.class ? `workspace-palette ${props.class}` : 'workspace-palette');
+	const rootClass = $derived(
+		props.class ? `workspace-palette ${props.class}` : 'workspace-palette'
+	);
 	const paletteStyle = $derived(
 		`--palette-x: ${props.x ?? 0}px; --palette-y: ${props.y ?? 0}px; --palette-width: ${props.width ?? 320}px; --palette-height: ${props.height ?? 480}px;`
 	);
@@ -34,7 +36,9 @@ export function createWorkspacePaletteState(props: WorkspacePaletteProps) {
 	};
 
 	const handleViewModeToggle = () => {
-		props.onViewModeChange?.(ObjectManagerWorkspacePalette.toggleViewMode(props.viewMode ?? 'list'));
+		props.onViewModeChange?.(
+			ObjectManagerWorkspacePalette.toggleViewMode(props.viewMode ?? 'list')
+		);
 	};
 
 	const handleCategorySelect = (category: string) => {

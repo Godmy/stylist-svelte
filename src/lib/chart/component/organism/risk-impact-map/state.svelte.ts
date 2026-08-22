@@ -4,6 +4,15 @@ import type { RecipeRiskImpactMap } from '$stylist/chart/interface/recipe/risk-i
 
 export default function createRiskImpactMapState(props: RecipeRiskImpactMap) {
 	const className = $derived(ClassNamesManager.merge('risk-impact-map', props.class));
-	const layout = $derived.by(() => ManagerRiskImpactMap.createLayout(props.risks, { width: props.width, height: props.height }));
-	return { get className() { return className; }, get layout() { return layout; } };
+	const layout = $derived.by(() =>
+		ManagerRiskImpactMap.createLayout(props.risks, { width: props.width, height: props.height })
+	);
+	return {
+		get className() {
+			return className;
+		},
+		get layout() {
+			return layout;
+		}
+	};
 }

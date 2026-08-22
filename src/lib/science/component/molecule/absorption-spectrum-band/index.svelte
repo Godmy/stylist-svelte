@@ -8,13 +8,23 @@
 	const maxWavelength = $derived(props.maxWavelength ?? 700);
 
 	const restProps = $derived.by(() => {
-		const { lines: _lines, minWavelength: _minWavelength, maxWavelength: _maxWavelength, class: _class, ...rest } = props;
+		const {
+			lines: _lines,
+			minWavelength: _minWavelength,
+			maxWavelength: _maxWavelength,
+			class: _class,
+			...rest
+		} = props;
 		return rest;
 	});
 </script>
 
 <div {...restProps} class="c-absorption-spectrum-band {props.class ?? ''}">
-	<div class="c-absorption-spectrum-band__track" role="img" aria-label="Visible absorption spectrum">
+	<div
+		class="c-absorption-spectrum-band__track"
+		role="img"
+		aria-label="Visible absorption spectrum"
+	>
 		{#each props.lines as line}
 			<SpectralAbsorptionLine {line} {minWavelength} {maxWavelength} />
 		{/each}

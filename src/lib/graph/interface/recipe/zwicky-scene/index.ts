@@ -2,7 +2,8 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { GraphJsonInput } from '$stylist/graph/interface/slot/graph-json-input';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeZwickyScene extends ComputeIntersectAll<
+export interface RecipeZwickyScene
+	extends ComputeIntersectAll<
 		[
 			HTMLAttributes<HTMLDivElement> & {
 				title?: string;

@@ -11,9 +11,7 @@
 
 	const maxValue = $derived(ManagerAnalyticsChart.resolveMaxValue(props.data ?? []));
 	const chartPoints = $derived(ManagerAnalyticsChart.buildBarChartPoints(props.data ?? []));
-	const pieChartPoints = $derived(
-		ManagerAnalyticsChart.buildPieChartPoints(props.data ?? [])
-	);
+	const pieChartPoints = $derived(ManagerAnalyticsChart.buildPieChartPoints(props.data ?? []));
 	const lineSeries = $derived(
 		ManagerAnalyticsChart.buildLineSeries(props.data ?? [], props.title ?? '')
 	);

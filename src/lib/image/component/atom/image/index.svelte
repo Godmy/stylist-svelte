@@ -50,7 +50,10 @@
 				color-mix(in srgb, var(--image-skeleton-highlight, #ffffff) 32%, transparent),
 				transparent
 			),
-			var(--image-skeleton-background, color-mix(in srgb, var(--color-text-primary, #ffffff) 10%, transparent));
+			var(
+				--image-skeleton-background,
+				color-mix(in srgb, var(--color-text-primary, #ffffff) 10%, transparent)
+			);
 		background-size: 220% 100%;
 		animation: c-image-skeleton-shimmer 1.35s ease-in-out infinite;
 	}

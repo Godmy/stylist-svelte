@@ -75,7 +75,12 @@ export class ManagerChartLegendBar {
 		const paddingLeft = options.paddingLeft ?? 28;
 		const paddingRight = options.paddingRight ?? 28;
 		const paddingTop = options.paddingTop ?? 18;
-		const barWidth = options.barWidth ?? Math.max(9, Math.min(24, (width - paddingLeft - paddingRight) / Math.max(1, items.length) * 0.42));
+		const barWidth =
+			options.barWidth ??
+			Math.max(
+				9,
+				Math.min(24, ((width - paddingLeft - paddingRight) / Math.max(1, items.length)) * 0.42)
+			);
 		const minBarHeight = options.minBarHeight ?? 8;
 		const fontSize = options.fontSize ?? 11;
 		const axisY = paddingTop + plotHeight;
@@ -96,7 +101,8 @@ export class ManagerChartLegendBar {
 			`color-mix(in srgb, ${defaultColor} 24%, white 76%)`
 		];
 		const laneRightEdges: number[] = [];
-		const placedLabels: { x: number; y: number; width: number; height: number; lane: number }[] = [];
+		const placedLabels: { x: number; y: number; width: number; height: number; lane: number }[] =
+			[];
 
 		return {
 			width,
@@ -107,7 +113,8 @@ export class ManagerChartLegendBar {
 			items: items.map((item, index) => {
 				const centerX = connectorCenters[index];
 				const barHeight = Math.max(minBarHeight, (item.value / maxValue) * (plotHeight - 18));
-				const rawLabelWidth = ManagerChartLegendBar.measureTextWidth(item.text, fontSize) + labelPaddingX;
+				const rawLabelWidth =
+					ManagerChartLegendBar.measureTextWidth(item.text, fontSize) + labelPaddingX;
 				const labelWidth = Math.max(54, Math.min(150, rawLabelWidth));
 				const baseLabelX = Math.max(4, Math.min(width - labelWidth - 4, centerX - labelWidth / 2));
 				const leftmostConnectorX = Math.max(4, centerX - labelWidth + connectorInset);
@@ -125,7 +132,10 @@ export class ManagerChartLegendBar {
 					...leftCandidates.sort((left, right) => left - right),
 					baseLabelX,
 					...rightCandidates.sort((left, right) => left - right)
-				].filter((candidateX, candidateIndex, candidates) => candidates.indexOf(candidateX) === candidateIndex);
+				].filter(
+					(candidateX, candidateIndex, candidates) =>
+						candidates.indexOf(candidateX) === candidateIndex
+				);
 				let selected = {
 					labelX: baseLabelX,
 					labelY: axisY + connectorGap,

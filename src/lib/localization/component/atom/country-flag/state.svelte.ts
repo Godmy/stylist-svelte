@@ -15,7 +15,9 @@ export function createCountryFlagState(props: RecipeCountryFlag) {
 	const emoji = $derived(isValid ? countryCodeToEmoji(countryCode) : '');
 	const classes = $derived('media__country-flag');
 	const style = $derived(`font-size: ${size}px; line-height: 1;`);
-	const fallbackStyle = $derived(`width: ${size}px; height: ${size}px; font-size: ${size * 0.5}px;`);
+	const fallbackStyle = $derived(
+		`width: ${size}px; height: ${size}px; font-size: ${size * 0.5}px;`
+	);
 	const fallbackClasses = $derived('media__country-flag-fallback');
 
 	// Rest props

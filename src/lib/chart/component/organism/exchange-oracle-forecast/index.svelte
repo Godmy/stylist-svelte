@@ -6,7 +6,10 @@
 	const state = createExchangeOracleForecastState(props);
 </script>
 
-<section class={state.className} aria-label={props.ariaLabel ?? props.text ?? 'Exchange oracle forecast'}>
+<section
+	class={state.className}
+	aria-label={props.ariaLabel ?? props.text ?? 'Exchange oracle forecast'}
+>
 	{#if props.text}
 		<header class="exchange-oracle-forecast__header">
 			<h3>{props.text}</h3>
@@ -46,7 +49,12 @@
 					x2={state.layout.plotX + state.layout.plotWidth}
 					y2={tick.y}
 				/>
-				<text class="exchange-oracle-forecast__tick" x={state.layout.plotX - 12} y={tick.y + 4} text-anchor="end">
+				<text
+					class="exchange-oracle-forecast__tick"
+					x={state.layout.plotX - 12}
+					y={tick.y + 4}
+					text-anchor="end"
+				>
 					{tick.label}
 				</text>
 			{/each}
@@ -108,7 +116,12 @@
 					x2={point.x}
 					y2={state.layout.plotY + state.layout.plotHeight}
 				/>
-				<circle class="exchange-oracle-forecast__forecast-point" cx={point.x} cy={point.consensusY} r="3.5" />
+				<circle
+					class="exchange-oracle-forecast__forecast-point"
+					cx={point.x}
+					cy={point.consensusY}
+					r="3.5"
+				/>
 				{#if point.showLabel}
 					<text
 						class="exchange-oracle-forecast__time"
@@ -138,10 +151,21 @@
 	</div>
 
 	<div class="exchange-oracle-forecast__legend">
-		<span><i class="exchange-oracle-forecast__line exchange-oracle-forecast__line--history"></i> Exchange quote</span>
-		<span><i class="exchange-oracle-forecast__swatch exchange-oracle-forecast__swatch--outer"></i> Oracle corridor</span>
-		<span><i class="exchange-oracle-forecast__swatch exchange-oracle-forecast__swatch--core"></i> Core variants</span>
-		<span><i class="exchange-oracle-forecast__line exchange-oracle-forecast__line--consensus"></i> Expert consensus</span>
+		<span
+			><i class="exchange-oracle-forecast__line exchange-oracle-forecast__line--history"></i> Exchange
+			quote</span
+		>
+		<span
+			><i class="exchange-oracle-forecast__swatch exchange-oracle-forecast__swatch--outer"></i> Oracle
+			corridor</span
+		>
+		<span
+			><i class="exchange-oracle-forecast__swatch exchange-oracle-forecast__swatch--core"></i> Core variants</span
+		>
+		<span
+			><i class="exchange-oracle-forecast__line exchange-oracle-forecast__line--consensus"></i> Expert
+			consensus</span
+		>
 	</div>
 </section>
 

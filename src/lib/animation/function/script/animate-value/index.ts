@@ -10,7 +10,7 @@ export function animateValue({
 	onUpdate,
 	onFinish
 }: {
-from: number;
+	from: number;
 	to: number;
 	duration: TokenDuration;
 	delay: number;

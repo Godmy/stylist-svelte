@@ -4,12 +4,12 @@ export interface RecipeRadioGroup
 	extends Omit<HTMLInputAttributes, 'type' | 'value' | 'name' | 'checked'> {
 	name: string;
 	value?: string;
-	options: ({
-value: string;
-	label: string;
-	description?: string;
-	disabled?: boolean;
-})[];
+	options: {
+		value: string;
+		label: string;
+		description?: string;
+		disabled?: boolean;
+	}[];
 	label?: string;
 	description?: string;
 	orientation?: (typeof TOKEN_ORIENTATION)[number];

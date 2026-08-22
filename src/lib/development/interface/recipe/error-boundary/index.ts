@@ -3,9 +3,7 @@ import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { ComponentType, Snippet } from 'svelte';
 export interface RecipeErrorBoundary
-	extends ComputeIntersectAll<
-		[SlotThemeBorder, SlotTypography]
-	> {
+	extends ComputeIntersectAll<[SlotThemeBorder, SlotTypography]> {
 	component: ComponentType | null | undefined;
 	props?: Record<string, any>;
 	children?: Snippet;

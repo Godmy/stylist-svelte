@@ -2,7 +2,7 @@ import type { TokenControlDefinition } from '$stylist/token/type/object/token-co
 import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/alias/token-value';
 
 export interface RecipeToken {
-definition: TokenControlDefinition;
+	definition: TokenControlDefinition;
 	value?: TokenValue;
 	onChange?: (value: TokenValue) => void;
 }

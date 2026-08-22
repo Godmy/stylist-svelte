@@ -7,5 +7,13 @@ import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 export interface RecipeReactionPicker
 	extends ComputeIntersectAll<
-		[SlotReactionPicker, SlotReactionPicker, SlotText, SlotIcon, BehaviorSelectable<string>, BehaviorFocusable, BehaviorSizable]
+		[
+			SlotReactionPicker,
+			SlotReactionPicker,
+			SlotText,
+			SlotIcon,
+			BehaviorSelectable<string>,
+			BehaviorFocusable,
+			BehaviorSizable
+		]
 	> {}

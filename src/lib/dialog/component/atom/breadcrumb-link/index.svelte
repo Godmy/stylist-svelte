@@ -46,7 +46,8 @@
 		font-size: 0.875rem;
 		color: var(--color-text-secondary);
 		text-decoration: none;
-		transition: color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out),
+		transition:
+			color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out),
 			background-color var(--duration-150, 150ms) var(--easing-smooth, ease-in-out);
 	}
 	.c-breadcrumb-link:hover {

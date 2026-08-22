@@ -7,4 +7,3 @@ export interface RecipeSelectionState extends ComputeIntersectAll<[]> {
 	marqueeStart: { x: number; y: number } | null;
 	marqueeCurrent: { x: number; y: number } | null;
 }
-

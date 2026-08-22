@@ -5,7 +5,8 @@
 	import type { RecipeAvatar } from '$stylist/user/interface/recipe/avatar';
 	import { createAvatarState } from './state.svelte';
 
-	let props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography = $props();
+	let props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography =
+		$props();
 	const state = createAvatarState(props);
 </script>
 

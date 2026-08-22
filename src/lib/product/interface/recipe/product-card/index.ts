@@ -8,13 +8,7 @@ import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotProductDescription } from '$stylist/product/interface/slot/product-description';
 export interface RecipeProductCard
 	extends ComputeIntersectAll<
-		[
-			SlotTheme,
-			Partial<SlotProductDescription>,
-			SlotText,
-			SlotBadge,
-			SlotImage
-		]
+		[SlotTheme, Partial<SlotProductDescription>, SlotText, SlotBadge, SlotImage]
 	> {
 	variant?: TierContent;
 	reviewCount?: number;

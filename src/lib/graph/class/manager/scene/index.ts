@@ -77,7 +77,10 @@ export class SceneObjectManager {
 		this.sceneGraph = GraphScriptManager.createDemoSceneGraph();
 		this.sceneAtoms = this.sceneGraph.atoms;
 		this.atomBuffers = new Map(
-			this.sceneAtoms.map((atom) => [atom.id, GraphScriptManager.createSceneAtomBuffers(this.gl!, atom)])
+			this.sceneAtoms.map((atom) => [
+				atom.id,
+				GraphScriptManager.createSceneAtomBuffers(this.gl!, atom)
+			])
 		);
 		this.focusTarget = [
 			this.sceneGraph.focusTarget.x,
@@ -172,7 +175,9 @@ export class SceneObjectManager {
 		const deltaY = event.clientY - this.lastMouseY;
 
 		this.horizontalAngle += deltaX * 0.01;
-		this.verticalAngle = GraphScriptManager.clampSceneVerticalAngle(this.verticalAngle + deltaY * 0.01);
+		this.verticalAngle = GraphScriptManager.clampSceneVerticalAngle(
+			this.verticalAngle + deltaY * 0.01
+		);
 		this.camera.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
 
 		this.lastMouseX = event.clientX;
@@ -365,7 +370,9 @@ export class SceneObjectManager {
 		const halfHorizontalFov = Math.atan(Math.tan(halfVerticalFov) * aspect);
 		const limitingHalfFov = Math.min(halfVerticalFov, halfHorizontalFov);
 
-		return GraphScriptManager.clampSceneRadius((boundsRadius / Math.tan(limitingHalfFov)) * padding);
+		return GraphScriptManager.clampSceneRadius(
+			(boundsRadius / Math.tan(limitingHalfFov)) * padding
+		);
 	}
 
 	private applyCameraPreset(
@@ -433,7 +440,13 @@ export class SceneObjectManager {
 	}
 
 	private pickAtom(clientX: number, clientY: number): SceneAtom | null {
-		return GraphScriptManager.pickSceneAtom(this.sceneAtoms, this.camera, this.canvas, clientX, clientY);
+		return GraphScriptManager.pickSceneAtom(
+			this.sceneAtoms,
+			this.camera,
+			this.canvas,
+			clientX,
+			clientY
+		);
 	}
 
 	private getSelectedAtom(): SceneAtom | null {
@@ -512,4 +525,3 @@ export class SceneObjectManager {
 		};
 	}
 }
-

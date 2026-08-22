@@ -3,8 +3,16 @@
 	import type { RecipeSchemaFormDialog } from '$stylist/form/interface/recipe/schema-form-dialog';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 
-	let { isOpen, mode, title, subtitle, fields, initialData, onClose, onSave }: RecipeSchemaFormDialog =
-		$props();
+	let {
+		isOpen,
+		mode,
+		title,
+		subtitle,
+		fields,
+		initialData,
+		onClose,
+		onSave
+	}: RecipeSchemaFormDialog = $props();
 
 	let formData = $state<Record<string, any>>({});
 	let isSaving = $state(false);
@@ -41,7 +49,8 @@
 
 	function getInputType(fieldType: string): string {
 		const type = fieldType.toLowerCase();
-		if (type.includes('int') || type.includes('numeric') || type.includes('decimal')) return 'number';
+		if (type.includes('int') || type.includes('numeric') || type.includes('decimal'))
+			return 'number';
 		if (type.includes('bool')) return 'checkbox';
 		if (type.includes('date') && !type.includes('timestamp')) return 'date';
 		if (type.includes('timestamp') || type.includes('datetime')) return 'datetime-local';
@@ -119,7 +128,17 @@
 					disabled={isSaving}
 					aria-label="Close"
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg
+					>
 				</button>
 			</div>
 
@@ -245,7 +264,9 @@
 		background: transparent;
 		color: var(--color-text-tertiary, #9ca3af);
 		cursor: pointer;
-		transition: background 0.12s, color 0.12s;
+		transition:
+			background 0.12s,
+			color 0.12s;
 	}
 	.c-schema-form-dialog__close:hover {
 		background: var(--color-background-secondary, #f3f4f6);

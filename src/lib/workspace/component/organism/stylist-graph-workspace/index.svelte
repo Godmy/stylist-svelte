@@ -363,10 +363,7 @@
 		};
 	}
 
-	function updateNode(
-		nodeId: string,
-		updater: (node: GraphWorkspaceNode) => GraphWorkspaceNode
-	) {
+	function updateNode(nodeId: string, updater: (node: GraphWorkspaceNode) => GraphWorkspaceNode) {
 		nodeLayouts = nodeLayouts.map((node) => (node.id === nodeId ? updater(node) : node));
 	}
 
@@ -790,7 +787,8 @@
 							<select
 								value={selectedTheme}
 								onchange={(event) => {
-									selectedTheme = (event.target as HTMLSelectElement).value as (typeof TOKEN_THEME_MODE)[number];
+									selectedTheme = (event.target as HTMLSelectElement)
+										.value as (typeof TOKEN_THEME_MODE)[number];
 								}}
 							>
 								{#each THEME_OPTIONS as theme}
@@ -1631,4 +1629,3 @@
 		}
 	}
 </style>
-

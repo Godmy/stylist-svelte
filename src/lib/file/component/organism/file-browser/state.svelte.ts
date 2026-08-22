@@ -62,11 +62,23 @@ export function createFileBrowserState(props: RecipeFileBrowser) {
 	}
 
 	function toggleItem(item: SlotFolderItem): void {
-		FileBrowserManager.toggleItem(item, disabled, expandedItems, setExpandedItems, props.onItemToggle);
+		FileBrowserManager.toggleItem(
+			item,
+			disabled,
+			expandedItems,
+			setExpandedItems,
+			props.onItemToggle
+		);
 	}
 
 	function handleSelect(item: SlotFolderItem): void {
-		FileBrowserManager.handleSelect(item, enableSelection, disabled, setSelectedItem, props.onItemSelect);
+		FileBrowserManager.handleSelect(
+			item,
+			enableSelection,
+			disabled,
+			setSelectedItem,
+			props.onItemSelect
+		);
 	}
 
 	function handleAction(item: SlotFolderItem, action: string): void {

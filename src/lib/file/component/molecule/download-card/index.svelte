@@ -3,27 +3,27 @@
 	import { DownloadCardManager } from '$stylist/file/class/manager/download-card';
 	import type { RecipeDownloadCard } from '$stylist/file/interface/recipe/download-card';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-		import { createDownloadCardState } from './state.svelte';
+	import { createDownloadCardState } from './state.svelte';
 
 	let props: RecipeDownloadCard = $props();
 	const state = createDownloadCardState(props as RecipeDownloadCard & Record<string, unknown>);
 
-	const containerClasses = $derived(
-		ClassNamesManager.merge('download-card', state.class)
-	);
+	const containerClasses = $derived(ClassNamesManager.merge('download-card', state.class));
 	const iconContainerClasses = 'download-card__icon-container';
 	const iconClasses = $derived(
 		ClassNamesManager.merge(
 			'download-card__icon',
-			({
-				primary: 'download-card__icon--primary',
-				secondary: 'download-card__icon--secondary',
-				success: 'download-card__icon--success',
-				warning: 'download-card__icon--warning',
-				danger: 'download-card__icon--danger',
-				error: 'download-card__icon--danger',
-				info: 'download-card__icon--info'
-			} as Record<string, string>)[state.variant] ?? 'download-card__icon--primary'
+			(
+				{
+					primary: 'download-card__icon--primary',
+					secondary: 'download-card__icon--secondary',
+					success: 'download-card__icon--success',
+					warning: 'download-card__icon--warning',
+					danger: 'download-card__icon--danger',
+					error: 'download-card__icon--danger',
+					info: 'download-card__icon--info'
+				} as Record<string, string>
+			)[state.variant] ?? 'download-card__icon--primary'
 		)
 	);
 	const infoContainerClasses = 'download-card__info';
@@ -33,15 +33,17 @@
 	const downloadButtonClasses = $derived(
 		ClassNamesManager.merge(
 			'download-card__button',
-			({
-				primary: 'download-card__button--primary',
-				secondary: 'download-card__button--secondary',
-				success: 'download-card__button--success',
-				warning: 'download-card__button--warning',
-				danger: 'download-card__button--danger',
-				error: 'download-card__button--danger',
-				info: 'download-card__button--info'
-			} as Record<string, string>)[state.variant] ?? 'download-card__button--primary'
+			(
+				{
+					primary: 'download-card__button--primary',
+					secondary: 'download-card__button--secondary',
+					success: 'download-card__button--success',
+					warning: 'download-card__button--warning',
+					danger: 'download-card__button--danger',
+					error: 'download-card__button--danger',
+					info: 'download-card__button--info'
+				} as Record<string, string>
+			)[state.variant] ?? 'download-card__button--primary'
 		)
 	);
 

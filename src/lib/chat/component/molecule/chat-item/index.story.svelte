@@ -35,9 +35,7 @@
 		unreadCount: 0
 	};
 
-	const controls: SlotStory[] = [
-		{ name: 'isActive', type: 'boolean', defaultValue: false }
-	];
+	const controls: SlotStory[] = [{ name: 'isActive', type: 'boolean', defaultValue: false }];
 
 	function handleSelect() {
 		console.log('Chat selected');

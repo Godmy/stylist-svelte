@@ -47,10 +47,7 @@
 
 		<div class="scene-inspector__field">
 			<span class="scene-inspector__key">Accent</span>
-			<span
-				class="scene-inspector__swatch"
-				style="background: {node.accent};"
-				aria-hidden="true"
+			<span class="scene-inspector__swatch" style="background: {node.accent};" aria-hidden="true"
 			></span>
 		</div>
 

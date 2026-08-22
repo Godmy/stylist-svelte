@@ -2,7 +2,8 @@ import type { SlotZipEntry } from '$stylist/file/interface/slot/zip-entry';
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeZipViewer extends ComputeIntersectAll<
+export interface RecipeZipViewer
+	extends ComputeIntersectAll<
 		[
 			{
 				entries: SlotZipEntry[];

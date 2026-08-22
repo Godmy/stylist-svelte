@@ -1,7 +1,6 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface RecipeReturnPolicy
-	extends ComputeIntersectAll<[SlotTheme]> {
+export interface RecipeReturnPolicy extends ComputeIntersectAll<[SlotTheme]> {
 	onPolicyClick?: () => void;
 	onReturnInitiate?: () => void;
 
@@ -9,20 +8,20 @@ export interface RecipeReturnPolicy
 
 	policyDescription?: string;
 
-	conditions?: ({
-id: string;
-	title: string;
-	description: string;
-	appliesTo: string[];
-	exceptions?: string[];
-})[];
+	conditions?: {
+		id: string;
+		title: string;
+		description: string;
+		appliesTo: string[];
+		exceptions?: string[];
+	}[];
 
-	returnSteps?: ({
-id: string;
-	title: string;
-	description: string;
-	icon: any;
-})[];
+	returnSteps?: {
+		id: string;
+		title: string;
+		description: string;
+		icon: any;
+	}[];
 
 	eligibleProducts?: string[];
 
@@ -32,10 +31,10 @@ id: string;
 
 	restockingFee?: number;
 
-	faqs?: ({
-question: string;
-	answer: string;
-})[];
+	faqs?: {
+		question: string;
+		answer: string;
+	}[];
 
 	policyEffectiveDate?: Date;
 

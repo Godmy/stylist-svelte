@@ -42,7 +42,12 @@
 	] as const;
 
 	const informationNodes = [
-		{ id: 'variants', icon: 'variants', label: 'Variants', definition: L6_TOKEN_DEFINITIONS.variants },
+		{
+			id: 'variants',
+			icon: 'variants',
+			label: 'Variants',
+			definition: L6_TOKEN_DEFINITIONS.variants
+		},
 		{
 			id: 'text-element',
 			icon: 'text-element',
@@ -52,8 +57,18 @@
 	] as const;
 
 	const interactionNodes = [
-		{ id: 'animations', icon: 'animations', label: 'Animations', definition: L6_TOKEN_DEFINITIONS.animations },
-		{ id: 'controls', icon: 'controls', label: 'Controls', definition: L6_TOKEN_DEFINITIONS.controls },
+		{
+			id: 'animations',
+			icon: 'animations',
+			label: 'Animations',
+			definition: L6_TOKEN_DEFINITIONS.animations
+		},
+		{
+			id: 'controls',
+			icon: 'controls',
+			label: 'Controls',
+			definition: L6_TOKEN_DEFINITIONS.controls
+		},
 		{ id: 'state', icon: 'state', label: 'State', definition: L6_TOKEN_DEFINITIONS.state }
 	] as const;
 

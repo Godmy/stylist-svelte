@@ -1,7 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 
-export function createProductCarouselState(props: RecipeProductCollection & HTMLAttributes<HTMLDivElement>) {
+export function createProductCarouselState(
+	props: RecipeProductCollection & HTMLAttributes<HTMLDivElement>
+) {
 	let currentIndex = $state(0);
 
 	function nextSlide() {

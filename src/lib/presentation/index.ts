@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	FoundationManager,
-	SemanticZoomManager
-} from './class';
+export { FoundationManager, SemanticZoomManager } from './class';
 export {
 	PresentationWorkplace,
 	PresentationWorkspace,
@@ -27,10 +24,7 @@ export {
 	TOKEN_FOUNDATION_AXIS_DIRECTIONS,
 	TOKEN_TIER_CONTENT
 } from './const';
-export {
-	resolvePresenterSceneLinks,
-	useSemanticZoom
-} from './function';
+export { resolvePresenterSceneLinks, useSemanticZoom } from './function';
 export type {
 	FoundationAxis,
 	FoundationDepthThreshold,

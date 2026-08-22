@@ -4,4 +4,3 @@ export interface SlotIdef0 {
 	width?: number;
 	height?: number;
 }
-

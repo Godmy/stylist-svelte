@@ -32,7 +32,11 @@
 	];
 </script>
 
-<Story title="ExchangeOracleForecast" description="Exchange quote history stops, then wideband oracle forecast continues." {controls}>
+<Story
+	title="ExchangeOracleForecast"
+	description="Exchange quote history stops, then wideband oracle forecast continues."
+	{controls}
+>
 	{#snippet children(values: any)}
 		<ExchangeOracleForecast
 			text="Exchange quote to wideband oracle"

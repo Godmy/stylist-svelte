@@ -43,13 +43,7 @@
 			<Heading {level} text={title} class="hero-media-section__title" />
 		</div>
 		<figure class="hero-media-section__media">
-			<Image
-				imageSrc={imageSrc}
-				imageAlt={imageAlt}
-				size="xl"
-				imageLoading={imageLoading}
-				class="hero-media-section__image"
-			/>
+			<Image {imageSrc} {imageAlt} size="xl" {imageLoading} class="hero-media-section__image" />
 		</figure>
 	</div>
 	{#if lead}

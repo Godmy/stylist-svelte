@@ -3,9 +3,13 @@ import type { SlotButtonDom } from '$stylist/button/interface/slot/button-dom';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 export interface RecipeButtonElement
 	extends ComputeIntersectAll<
-		[({
-class?: string;
-}), SlotButtonDom, SlotChildren]
+		[
+			{
+				class?: string;
+			},
+			SlotButtonDom,
+			SlotChildren
+		]
 	> {
 	[prop: string]: unknown;
 }

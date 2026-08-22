@@ -111,14 +111,18 @@
 											{element.content}
 										</p>
 									{:else if element.type === 'heading'}
-										{@const attrs = element.attributes as SlotPageBuilderHeadingAttributes | undefined}
+										{@const attrs = element.attributes as
+											| SlotPageBuilderHeadingAttributes
+											| undefined}
 										<h2
 											style={`font-size:${attrs?.FONT_SIZE ?? 'var(--font-size-8)'};color:${attrs?.color ?? 'var(--color-text-primary)'};`}
 										>
 											{element.content}
 										</h2>
 									{:else if element.type === 'button'}
-										{@const attrs = element.attributes as SlotPageBuilderButtonAttributes | undefined}
+										{@const attrs = element.attributes as
+											| SlotPageBuilderButtonAttributes
+											| undefined}
 										<button
 											style={`background-color:${attrs?.backgroundColor ?? 'var(--color-primary-500)'};color:${attrs?.color ?? 'var(--color-background-primary)'};padding:${attrs?.padding ?? 'var(--spacing-2) var(--spacing-4)'};`}
 											class="c-page-builder__btn-element"
@@ -128,7 +132,9 @@
 									{:else if element.type === 'divider'}
 										<hr class="c-page-builder__divider" />
 									{:else if element.type === 'image'}
-										{@const attrs = element.attributes as SlotPageBuilderImageAttributes | undefined}
+										{@const attrs = element.attributes as
+											| SlotPageBuilderImageAttributes
+											| undefined}
 										<div class="c-page-builder__img-placeholder">
 											<BaseIcon name={PAGE_BUILDER_ICON.IMAGE} style="width:2rem;height:2rem;" />
 											<span>Image: {attrs?.alt ?? 'Placeholder'}</span>

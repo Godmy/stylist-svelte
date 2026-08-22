@@ -10,4 +10,3 @@ export interface GraphNodeDraft {
 	height: number;
 	details: string;
 }
-

@@ -21,7 +21,8 @@
 			>
 				<img
 					src={state.images[state.currentIndex].imageSrc}
-					alt={state.images[state.currentIndex].imageAlt || `Gallery image ${state.currentIndex + 1}`}
+					alt={state.images[state.currentIndex].imageAlt ||
+						`Gallery image ${state.currentIndex + 1}`}
 					loading={state.images[state.currentIndex].imageLoading ?? 'lazy'}
 					width={state.images[state.currentIndex].imageWidth}
 					height={state.images[state.currentIndex].imageHeight}
@@ -112,7 +113,8 @@
 			<div class="image-gallery__fullscreen-image-container">
 				<img
 					src={state.images[state.currentIndex].imageSrc}
-					alt={state.images[state.currentIndex].imageAlt || `Fullscreen image ${state.currentIndex + 1}`}
+					alt={state.images[state.currentIndex].imageAlt ||
+						`Fullscreen image ${state.currentIndex + 1}`}
 					loading={state.images[state.currentIndex].imageLoading ?? 'lazy'}
 					width={state.images[state.currentIndex].imageWidth}
 					height={state.images[state.currentIndex].imageHeight}

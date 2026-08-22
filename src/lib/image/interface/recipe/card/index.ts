@@ -14,7 +14,17 @@ import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { TokenOpacity } from '$stylist/theme/type/alias/opacity';
 export interface RecipeCard
 	extends ComputeIntersectAll<
-		[SlotText, SlotImage, SlotStatus, BehaviorClickable, BehaviorSized, BehaviorShapeable, BehaviorSpaced, SlotTheme, HTMLAttributes<HTMLDivElement>]
+		[
+			SlotText,
+			SlotImage,
+			SlotStatus,
+			BehaviorClickable,
+			BehaviorSized,
+			BehaviorShapeable,
+			BehaviorSpaced,
+			SlotTheme,
+			HTMLAttributes<HTMLDivElement>
+		]
 	> {
 	/** Уровень поднятия над поверхностью (0–13) */
 	layoutElevation?: number;

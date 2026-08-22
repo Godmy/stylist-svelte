@@ -17,7 +17,9 @@ export function createWorkspaceCanvasState(props: RecipeWorkspaceCanvas) {
 		(props.gridMode ?? 'dot') as 'dot' | 'number' | 'x' | 'letter' | 'check'
 	);
 	const gridColor = $derived(props.gridColor ?? DEFAULT_WORKSPACE_CANVAS.gridColor);
-	const backgroundColor = $derived(props.backgroundColor ?? DEFAULT_WORKSPACE_CANVAS.backgroundColor);
+	const backgroundColor = $derived(
+		props.backgroundColor ?? DEFAULT_WORKSPACE_CANVAS.backgroundColor
+	);
 	const snapToGrid = $derived(props.snapToGrid ?? false);
 
 	const containerClass = $derived(
@@ -34,12 +36,12 @@ export function createWorkspaceCanvasState(props: RecipeWorkspaceCanvas) {
 		`transform: translate(${offsetX}px, ${offsetY}px) scale(${zoom}); transform-origin: 0 0;`
 	);
 
-	const viewport = $derived<({
-position: Point2D;
-	zoom: number;
-	width: number;
-	height: number;
-})>({
+	const viewport = $derived<{
+		position: Point2D;
+		zoom: number;
+		width: number;
+		height: number;
+	}>({
 		position: { x: offsetX, y: offsetY },
 		zoom,
 		width,

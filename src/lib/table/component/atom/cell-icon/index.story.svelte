@@ -5,10 +5,14 @@
 
 <Story component={CellIcon} title="CellIcon" description="Table cell displaying an SVG icon.">
 	{#snippet children()}
-		<table><tbody><tr>
-			<CellIcon icon="user" label="User" />
-			<CellIcon icon="check-circle" label="Active" />
-			<CellIcon icon="x-circle" label="Inactive" />
-		</tr></tbody></table>
+		<table>
+			<tbody
+				><tr>
+					<CellIcon icon="user" label="User" />
+					<CellIcon icon="check-circle" label="Active" />
+					<CellIcon icon="x-circle" label="Inactive" />
+				</tr></tbody
+			>
+		</table>
 	{/snippet}
 </Story>

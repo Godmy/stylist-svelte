@@ -40,7 +40,9 @@
 		border-radius: 0.5rem;
 		border: 1px solid var(--color-border-primary);
 		background-color: var(--color-background-primary);
-		transition: border-color var(--duration-120, 120ms), box-shadow var(--duration-120, 120ms);
+		transition:
+			border-color var(--duration-120, 120ms),
+			box-shadow var(--duration-120, 120ms);
 	}
 	.base-card[data-variant='primary'] {
 		border-color: var(--color-primary-200);

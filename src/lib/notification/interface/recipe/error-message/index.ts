@@ -4,7 +4,8 @@ import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotStatus } from '$stylist/ai/interface/slot/status';
 
-export interface RecipeErrorMessage extends ComputeIntersectAll<
+export interface RecipeErrorMessage
+	extends ComputeIntersectAll<
 		[
 			{
 				error: string | Error | null;

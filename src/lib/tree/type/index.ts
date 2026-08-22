@@ -1,6 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type {
-	ITreeNodeItemStyleClasses,
-	TreeNode,
-	TreeNodeItemNode
-} from './object';
+export type { ITreeNodeItemStyleClasses, TreeNode, TreeNodeItemNode } from './object';

@@ -4,7 +4,9 @@ export function createStageState(props: RecipeStage) {
 	const camera = $derived(props.camera);
 	const worldWidth = $derived(props.worldWidth ?? 10000);
 	const worldHeight = $derived(props.worldHeight ?? 10000);
-	const classes = $derived(['stage', typeof props.class === 'string' ? props.class : ''].filter(Boolean).join(' '));
+	const classes = $derived(
+		['stage', typeof props.class === 'string' ? props.class : ''].filter(Boolean).join(' ')
+	);
 	const worldClass = $derived('world');
 	const worldStyle = $derived(`--world-width: ${worldWidth}px; --world-height: ${worldHeight}px;`);
 	const transformStyle = $derived(

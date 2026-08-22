@@ -19,8 +19,7 @@ export function createTokenControlBaseState(props: RecipeTokenControlBase) {
 	});
 
 	const iconPath = $derived(
-		TOKEN_ICON_PATHS[getTokenIconKind(props.definition.tokenName)] ??
-			'M4 7h16M4 12h16M4 17h16'
+		TOKEN_ICON_PATHS[getTokenIconKind(props.definition.tokenName)] ?? 'M4 7h16M4 12h16M4 17h16'
 	);
 	const className = $derived(props.class ?? '');
 	const layout = $derived(props.layout ?? 'stack');

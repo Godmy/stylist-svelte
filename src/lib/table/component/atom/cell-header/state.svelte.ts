@@ -2,7 +2,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeCellHeader } from '$stylist/table/interface/recipe/cell-header';
 import { PresetCellHeader } from '$stylist/table/const/preset/cell-header';
 
-export function createCellHeaderState(props: RecipeCellHeader & HTMLAttributes<HTMLTableHeaderCellElement>) {
+export function createCellHeaderState(
+	props: RecipeCellHeader & HTMLAttributes<HTMLTableHeaderCellElement>
+) {
 	const isCurrentSort = $derived(
 		props.sortKey !== undefined && props.currentSortKey === props.sortKey
 	);
@@ -21,9 +23,15 @@ export function createCellHeaderState(props: RecipeCellHeader & HTMLAttributes<H
 	}
 
 	return {
-		get isCurrentSort() { return isCurrentSort; },
-		get sortDirection() { return sortDirection; },
-		get sortIcon() { return sortIcon; },
+		get isCurrentSort() {
+			return isCurrentSort;
+		},
+		get sortDirection() {
+			return sortDirection;
+		},
+		get sortIcon() {
+			return sortIcon;
+		},
 		handleClick
 	};
 }

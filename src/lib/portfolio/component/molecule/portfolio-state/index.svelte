@@ -57,7 +57,11 @@
 	}
 
 	.c-portfolio-state:hover {
-		background: color-mix(in srgb, var(--color-primary-50, var(--color-background-secondary)) 40%, transparent);
+		background: color-mix(
+			in srgb,
+			var(--color-primary-50, var(--color-background-secondary)) 40%,
+			transparent
+		);
 	}
 
 	.c-portfolio-state:nth-child(even) {
@@ -65,7 +69,11 @@
 	}
 
 	.c-portfolio-state:nth-child(even):hover {
-		background: color-mix(in srgb, var(--color-primary-50, var(--color-background-secondary)) 60%, transparent);
+		background: color-mix(
+			in srgb,
+			var(--color-primary-50, var(--color-background-secondary)) 60%,
+			transparent
+		);
 	}
 
 	._td {

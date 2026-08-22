@@ -8,12 +8,7 @@ export {
 	Viewport,
 	WorkspaceCanvas
 } from './atom';
-export {
-	GraphNodeCard,
-	NodePortGroup,
-	NodeProperties,
-	WorkspaceToolbar
-} from './molecule';
+export { GraphNodeCard, NodePortGroup, NodeProperties, WorkspaceToolbar } from './molecule';
 export {
 	Minimap,
 	StylistGraphWorkspace,

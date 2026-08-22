@@ -3,7 +3,6 @@ import type { HTMLAttributes } from 'svelte/elements';
  * MessageComposer types and interfaces following SOLID principles
  */
 
-
 export interface SlotMessageComposer extends HTMLAttributes<HTMLDivElement> {
 	value?: string;
 	placeholder?: string;

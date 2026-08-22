@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeCodeViewer } from '$stylist/development/interface/recipe/code-viewer';
 	import { onMount } from 'svelte';
 	import { createCodeViewerState } from './state.svelte';

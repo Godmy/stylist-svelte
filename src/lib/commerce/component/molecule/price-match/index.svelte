@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipePriceMatch } from '$stylist/commerce/interface/recipe/price-match';
 	import { createPriceMatchState } from './state.svelte';
 

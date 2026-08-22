@@ -12,20 +12,23 @@ import type { SlotBadge } from '$stylist/layout/interface/slot/badge';
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 
-export interface RecipeAvatarGroup extends ComputeIntersectAll<
+export interface RecipeAvatarGroup
+	extends ComputeIntersectAll<
 		[
-			({
-	avatars?: AvatarGroupAvatar[];
-	maxVisible?: number;
-	size?: 'sm' | 'md' | 'lg';
-	stackDirection?: 'horizontal' | 'vertical';
-	showStatus?: boolean;
-	showTooltip?: boolean;
-	class?: string;
-	avatarClass?: string;
-	overflowClass?: string;
-	tooltipClass?: string;
-} & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography),
+			{
+				avatars?: AvatarGroupAvatar[];
+				maxVisible?: number;
+				size?: 'sm' | 'md' | 'lg';
+				stackDirection?: 'horizontal' | 'vertical';
+				showStatus?: boolean;
+				showTooltip?: boolean;
+				class?: string;
+				avatarClass?: string;
+				overflowClass?: string;
+				tooltipClass?: string;
+			} & HTMLAttributes<HTMLDivElement> &
+				SlotThemeBorder &
+				SlotTypography,
 			RecipeAvatarGroupAvatarGroupProps,
 			SlotTheme,
 			SlotImage,

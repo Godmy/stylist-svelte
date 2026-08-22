@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeEnhancedExportPanel } from '$stylist/development/interface/recipe/enhanced-export-panel';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createEnhancedExportPanelState } from './state.svelte';

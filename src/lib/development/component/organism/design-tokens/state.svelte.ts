@@ -3,7 +3,7 @@ import { THEME_MODE_LIGHT } from '$stylist/theme/const/record/theme-mode-light';
 import type { RecipeDesignTokens } from '$stylist/development/interface/recipe/design-tokens';
 
 export function createDesignTokensState(props: RecipeDesignTokens) {
-	let currentTheme = $state<(typeof THEME_MODE_LIGHT)>(
+	let currentTheme = $state<typeof THEME_MODE_LIGHT>(
 		props.theme === 'light' ? THEME_MODE_LIGHT : THEME_MODE_DARK
 	);
 	const layoutTokens = $derived((currentTheme as any).layout ?? {});

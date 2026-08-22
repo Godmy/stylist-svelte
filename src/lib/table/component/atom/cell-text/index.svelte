@@ -7,7 +7,11 @@
 	const state = createCellTextState(props);
 </script>
 
-<td class="c-cell-text {state.alignClass} {props.truncate ? 'c-cell-text--truncate' : ''} {props.class ?? ''}">
+<td
+	class="c-cell-text {state.alignClass} {props.truncate
+		? 'c-cell-text--truncate'
+		: ''} {props.class ?? ''}"
+>
 	{state.displayValue}
 </td>
 

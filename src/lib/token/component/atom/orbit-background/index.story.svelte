@@ -3,9 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import OrbitBackground from './index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'opened', type: 'boolean', defaultValue: true }
-	];
+	const controls: SlotStory[] = [{ name: 'opened', type: 'boolean', defaultValue: true }];
 </script>
 
 <Story

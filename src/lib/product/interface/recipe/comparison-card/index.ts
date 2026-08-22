@@ -7,12 +7,12 @@ import type { SlotImage } from '$stylist/image/interface/slot/image';
 import type { SlotStatus } from '$stylist/ai/interface/slot/status';
 export interface RecipeComparisonCard
 	extends ComputeIntersectAll<[SlotTheme, SlotText, SlotImage, SlotBadge, SlotStatus]> {
-	before: ({
-title: string;
-	items: SlotProductOption[];
-});
-	after: ({
-title: string;
-	items: SlotProductOption[];
-});
+	before: {
+		title: string;
+		items: SlotProductOption[];
+	};
+	after: {
+		title: string;
+		items: SlotProductOption[];
+	};
 }

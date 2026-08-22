@@ -33,4 +33,3 @@ export const createLoginFieldState = (props: RecipeLoginField & HTMLInputAttribu
 };
 
 export default createLoginFieldState;
-

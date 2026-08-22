@@ -61,7 +61,9 @@
 					>
 				</div>
 				<div class="_c2">
-					<p class="inventory-tracker__stock-level">{item.currentStock} / {item.maxStock ?? 'в€ћ'}</p>
+					<p class="inventory-tracker__stock-level">
+						{item.currentStock} / {item.maxStock ?? 'в€ћ'}
+					</p>
 					{#if item.maxStock}
 						<div class="inventory-tracker__progress-bar">
 							<div class="_c3" style="width: {state.getStockProgress(item)}%"></div>

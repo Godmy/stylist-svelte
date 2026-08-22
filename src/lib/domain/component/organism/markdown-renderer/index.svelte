@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeMarkdownRenderer } from '$stylist/domain/interface/recipe/markdown-renderer';
 	import { marked } from 'marked';
 	import { createMarkdownRendererState } from './state.svelte';

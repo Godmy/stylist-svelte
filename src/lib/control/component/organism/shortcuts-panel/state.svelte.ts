@@ -12,12 +12,12 @@ const Moon = 'moon';
 const Code = 'code';
 const Copy = 'copy';
 
-const shortcuts: ({
-keys: string[];
+const shortcuts: {
+	keys: string[];
 	description: string;
 	category: string;
 	icon?: string;
-})[] = [
+}[] = [
 	{
 		keys: ['Ctrl', '/'],
 		description: 'Toggle Sidebar',
@@ -68,14 +68,19 @@ keys: string[];
 	{ keys: ['Esc'], description: 'Close Modals/Panels', category: 'Misc', icon: Keyboard }
 ];
 
-export function createShortcutsPanelState(_props: RecipeShortcutsPanel & HTMLAttributes<HTMLDivElement>) {
+export function createShortcutsPanelState(
+	_props: RecipeShortcutsPanel & HTMLAttributes<HTMLDivElement>
+) {
 	const groupedShortcuts = $derived.by(() => {
-		const groups = new Map<string, ({
-keys: string[];
-	description: string;
-	category: string;
-	icon?: string;
-})[]>();
+		const groups = new Map<
+			string,
+			{
+				keys: string[];
+				description: string;
+				category: string;
+				icon?: string;
+			}[]
+		>();
 		shortcuts.forEach((shortcut) => {
 			if (!groups.has(shortcut.category)) {
 				groups.set(shortcut.category, []);

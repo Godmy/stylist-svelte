@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { PresetQuoteRequest } from '$stylist/commerce/const/preset/quote-request';
 	import type { RecipeQuoteRequest } from '$stylist/commerce/interface/recipe/quote-request';

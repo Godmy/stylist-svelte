@@ -40,7 +40,9 @@
 			disabled={node.disabled}
 			onclick={() => handleNodeClick(node)}
 		>
-			<span class="c-tree__toggle">{node.children?.length ? (state.isOpen(node) ? '-' : '+') : ''}</span>
+			<span class="c-tree__toggle"
+				>{node.children?.length ? (state.isOpen(node) ? '-' : '+') : ''}</span
+			>
 			<span class="c-tree__label">
 				{#if nodeContent}
 					{@render nodeContent(node, depth, node.id === selectedId)}

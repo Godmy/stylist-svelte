@@ -5,9 +5,7 @@ import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 export interface RecipeHeading
-	extends ComputeIntersectAll<
-		[SlotTheme, SlotTypography, SlotChildren, SlotText]
-	> {
+	extends ComputeIntersectAll<[SlotTheme, SlotTypography, SlotChildren, SlotText]> {
 	level?: 1 | 2 | 3 | 4 | 5 | 6;
 	tone?: TokenColorTone;
 	disabled?: boolean;

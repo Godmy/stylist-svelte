@@ -78,9 +78,7 @@
 		}
 	];
 
-	const controls: SlotStory[] = [
-		{ name: 'activeChatId', type: 'text', defaultValue: '1' }
-	];
+	const controls: SlotStory[] = [{ name: 'activeChatId', type: 'text', defaultValue: '1' }];
 
 	function handleChatSelect(chat: Chat) {
 		console.log('Chat selected:', chat.id);

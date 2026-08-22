@@ -6,7 +6,11 @@
 
 	const controls: SlotStory[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Create account' },
-		{ name: 'subtitle', type: 'text', defaultValue: 'Start with a reusable auth form from the library.' },
+		{
+			name: 'subtitle',
+			type: 'text',
+			defaultValue: 'Start with a reusable auth form from the library.'
+		},
 		{ name: 'isLoading', type: 'boolean', defaultValue: false },
 		{ name: 'error', type: 'text', defaultValue: '' }
 	];

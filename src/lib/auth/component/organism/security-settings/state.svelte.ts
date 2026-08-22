@@ -29,4 +29,3 @@ export function createSecuritySettingsState(props: RecipeSecuritySettings) {
 		}
 	};
 }
-

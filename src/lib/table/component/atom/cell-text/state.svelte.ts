@@ -4,10 +4,16 @@ import { TABLE_ALIGNMENT_CLASSES } from '$stylist/table/const/record/table-align
 
 export function createCellTextState(props: RecipeCellText & HTMLAttributes<HTMLTableCellElement>) {
 	const displayValue = $derived(props.value != null ? String(props.value) : '—');
-	const alignClass = $derived((TABLE_ALIGNMENT_CLASSES[props.align ?? 'left'] ?? TABLE_ALIGNMENT_CLASSES['left'])[0] ?? '');
+	const alignClass = $derived(
+		(TABLE_ALIGNMENT_CLASSES[props.align ?? 'left'] ?? TABLE_ALIGNMENT_CLASSES['left'])[0] ?? ''
+	);
 
 	return {
-		get displayValue() { return displayValue; },
-		get alignClass() { return alignClass; }
+		get displayValue() {
+			return displayValue;
+		},
+		get alignClass() {
+			return alignClass;
+		}
 	};
 }

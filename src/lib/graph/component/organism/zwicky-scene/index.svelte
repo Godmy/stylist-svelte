@@ -73,10 +73,7 @@
 
 		<!-- Domain legend (secondary) -->
 		<div class="zwicky-scene__panel">
-			<GraphLegend
-				activeDomains={state.domainFilter}
-				onDomainClick={state.toggleDomain}
-			/>
+			<GraphLegend activeDomains={state.domainFilter} onDomainClick={state.toggleDomain} />
 		</div>
 
 		{#if hasFilter}
@@ -123,7 +120,12 @@
 		box-shadow:
 			0 0 0 1px rgb(255 255 255 / 4%),
 			0 2rem 5rem rgb(0 0 0 / 42%);
-		font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+		font-family:
+			Inter,
+			ui-sans-serif,
+			system-ui,
+			-apple-system,
+			sans-serif;
 		font-size: 0.85rem;
 		backdrop-filter: blur(20px);
 		display: flex;
@@ -267,7 +269,13 @@
 	}
 
 	@media (max-width: 640px) {
-		.zwicky-scene { min-height: 520px; }
-		.zwicky-scene__overlay { right: 0.75rem; left: 0.75rem; width: auto; }
+		.zwicky-scene {
+			min-height: 520px;
+		}
+		.zwicky-scene__overlay {
+			right: 0.75rem;
+			left: 0.75rem;
+			width: auto;
+		}
 	}
 </style>

@@ -55,7 +55,7 @@
 		{signInLabel}
 		{brand}
 		{languageControl}
-		mobileMenuOpen={mobileMenuOpen}
+		{mobileMenuOpen}
 		onMobileMenuOpen={openMobileMenu}
 	/>
 	<MobileNavigationDrawer

@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
 export interface RecipeCubeControl extends HTMLAttributes<HTMLDivElement> {
-size?: number;
+	size?: number;
 	perspective?: number;
 	autoRotate?: boolean;
 	rotationDuration?: number;

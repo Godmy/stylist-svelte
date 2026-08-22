@@ -14,33 +14,36 @@ import type { SlotBadge } from '$stylist/layout/interface/slot/badge';
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 
-export interface RecipeAvatar extends ComputeIntersectAll<
+export interface RecipeAvatar
+	extends ComputeIntersectAll<
 		[
-			({
-	avatars?: AvatarGroupAvatar[];
-	maxVisible?: number;
-	size?: 'sm' | 'md' | 'lg';
-	stackDirection?: 'horizontal' | 'vertical';
-	showStatus?: boolean;
-	showTooltip?: boolean;
-	class?: string;
-	avatarClass?: string;
-	overflowClass?: string;
-	tooltipClass?: string;
-} & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography),
+			{
+				avatars?: AvatarGroupAvatar[];
+				maxVisible?: number;
+				size?: 'sm' | 'md' | 'lg';
+				stackDirection?: 'horizontal' | 'vertical';
+				showStatus?: boolean;
+				showTooltip?: boolean;
+				class?: string;
+				avatarClass?: string;
+				overflowClass?: string;
+				tooltipClass?: string;
+			} & HTMLAttributes<HTMLDivElement> &
+				SlotThemeBorder &
+				SlotTypography,
 			RecipeAvatarGroupAvatarGroupProps,
 			ComputeIntersectAll<[]> & {
-variant?: 'default';
-	size?: (typeof TOKEN_SIZE)[number];
-	src?: string;
-	alt?: string;
-	id?: string;
-	name?: string;
-	status?: AvatarUserStatus;
-	showStatus?: boolean;
-	children?: any;
-	class?: string;
-},
+				variant?: 'default';
+				size?: (typeof TOKEN_SIZE)[number];
+				src?: string;
+				alt?: string;
+				id?: string;
+				name?: string;
+				status?: AvatarUserStatus;
+				showStatus?: boolean;
+				children?: any;
+				class?: string;
+			},
 			SlotTheme,
 			SlotImage,
 			SlotText,

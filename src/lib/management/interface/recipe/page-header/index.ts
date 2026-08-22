@@ -3,10 +3,10 @@ import type { SlotPageHeader } from '$stylist/management/interface/slot/page-hea
 import type { Snippet } from 'svelte';
 export interface RecipePageHeader extends ComputeIntersectAll<[SlotPageHeader]> {
 	description?: string;
-	breadcrumbs?: ({
-label: string;
-	href?: string;
-})[];
+	breadcrumbs?: {
+		label: string;
+		href?: string;
+	}[];
 	actions?: Snippet;
 	class?: string;
 }

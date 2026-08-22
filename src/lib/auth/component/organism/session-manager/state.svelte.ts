@@ -34,4 +34,3 @@ export function createSessionManagerState(props: RecipeSessionManager) {
 		}
 	};
 }
-

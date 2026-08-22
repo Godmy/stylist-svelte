@@ -18,11 +18,7 @@
 			<p class="c-forgot-password__success-text">
 				We sent reset instructions to <strong>{state.submittedEmail}</strong>
 			</p>
-			<button
-				type="button"
-				class="c-forgot-password__retry"
-				onclick={state.handleTryAgain}
-			>
+			<button type="button" class="c-forgot-password__retry" onclick={state.handleTryAgain}>
 				Didn't receive it? Try again
 			</button>
 		</div>
@@ -42,11 +38,7 @@
 			{#if state.hasError}
 				<AuthError message={state.error} />
 			{/if}
-			<SubmitButton
-				isLoading={state.isLoading}
-				label="Send reset link"
-				loadingLabel="Sending..."
-			/>
+			<SubmitButton isLoading={state.isLoading} label="Send reset link" loadingLabel="Sending..." />
 			{#if props.loginHref}
 				<div class="c-forgot-password__back">
 					<AuthLink href={props.loginHref}>в†ђ Back to sign in</AuthLink>
@@ -120,4 +112,3 @@
 		color: var(--color-primary-700, #4338ca);
 	}
 </style>
-

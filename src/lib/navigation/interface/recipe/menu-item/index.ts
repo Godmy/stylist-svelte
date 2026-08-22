@@ -9,7 +9,15 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 export interface RecipeMenuItem
 	extends ComputeIntersectAll<
-		[HTMLAttributes<HTMLElement>, SlotChildren, SlotText, SlotIcon, BehaviorClickable, BehaviorFocusable, BehaviorSizable]
+		[
+			HTMLAttributes<HTMLElement>,
+			SlotChildren,
+			SlotText,
+			SlotIcon,
+			BehaviorClickable,
+			BehaviorFocusable,
+			BehaviorSizable
+		]
 	> {
 	/**
 	 * Whether the menu item is active

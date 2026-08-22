@@ -10,7 +10,7 @@ export function createLoadingState(props: RecipeLoading & HTMLAttributes<HTMLDiv
 		ClassNamesManager.merge(
 			'information-loading',
 			`information-loading--${size}`,
-			props.centered ?? true ? 'information-loading--centered' : '',
+			(props.centered ?? true) ? 'information-loading--centered' : '',
 			props.class == null ? '' : String(props.class)
 		)
 	);

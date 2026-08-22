@@ -19,7 +19,14 @@ export class ObjectManagerTable {
 	}
 
 	static getRowRestProps(props: RecipeRow & HTMLAttributes<HTMLTableRowElement>) {
-		const { class: _class, content: _content, striped: _striped, active: _active, hoverable: _hoverable, ...rest } = props;
+		const {
+			class: _class,
+			content: _content,
+			striped: _striped,
+			active: _active,
+			hoverable: _hoverable,
+			...rest
+		} = props;
 		return rest;
 	}
 

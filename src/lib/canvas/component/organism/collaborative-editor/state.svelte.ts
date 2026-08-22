@@ -23,7 +23,9 @@ export const createCollaborativeEditorState = (props: RecipeCollaborativeEditor)
 	const users = $derived(props.users ?? []);
 	const currentUser = $derived(props.currentUser);
 
-	const containerClasses = $derived(ClassNamesManager.merge('c-collaborative-editor', props.class ?? ''));
+	const containerClasses = $derived(
+		ClassNamesManager.merge('c-collaborative-editor', props.class ?? '')
+	);
 
 	const toolbarClasses = $derived(
 		ClassNamesManager.merge('c-collaborative-editor__toolbar', props.toolbarClass ?? '')

@@ -5,7 +5,12 @@
 
 	const controls: SlotStory[] = [
 		{ name: 'label', type: 'text', defaultValue: 'Email' },
-		{ name: 'fieldType', type: 'select', options: ['email', 'password', 'text'], defaultValue: 'email' },
+		{
+			name: 'fieldType',
+			type: 'select',
+			options: ['email', 'password', 'text'],
+			defaultValue: 'email'
+		},
 		{ name: 'placeholder', type: 'text', defaultValue: 'you@example.com' },
 		{ name: 'value', type: 'text', defaultValue: '' },
 		{ name: 'fieldError', type: 'text', defaultValue: '' },

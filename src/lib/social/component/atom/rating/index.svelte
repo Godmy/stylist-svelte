@@ -42,10 +42,7 @@
 			aria-label={`Рейтинг ${i + 1} из ${max}`}
 			aria-pressed={i < rating}
 		>
-			<BaseIcon
-				name="star"
-				class={state.starIconClasses(i)}
-			/>
+			<BaseIcon name="star" class={state.starIconClasses(i)} />
 		</button>
 	{/each}
 

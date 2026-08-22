@@ -114,4 +114,3 @@
 		background: var(--color-primary-700, #4338ca);
 	}
 </style>
-

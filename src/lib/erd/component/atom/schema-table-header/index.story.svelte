@@ -22,8 +22,24 @@
 					id: 'user-account',
 					name: String(values.tableName ?? 'UserAccount'),
 					fields: [
-						{ id: 'user-account.id', name: 'id', type: 'uuid', required: true, primary: true, unique: true, notes: [] },
-						{ id: 'user-account.email', name: 'email', type: 'varchar', required: true, primary: false, unique: true, notes: [] }
+						{
+							id: 'user-account.id',
+							name: 'id',
+							type: 'uuid',
+							required: true,
+							primary: true,
+							unique: true,
+							notes: []
+						},
+						{
+							id: 'user-account.email',
+							name: 'email',
+							type: 'varchar',
+							required: true,
+							primary: false,
+							unique: true,
+							notes: []
+						}
 					]
 				}}
 				active={Boolean(values.active)}

@@ -50,9 +50,7 @@ export function createFileListItemState(props: RecipeFileListItem) {
 				isSelected = value;
 			},
 			(selectedItem) => {
-				props.onItemSelect?.(
-					selectedItem as Parameters<NonNullable<typeof props.onItemSelect>>[0]
-				);
+				props.onItemSelect?.(selectedItem as Parameters<NonNullable<typeof props.onItemSelect>>[0]);
 			}
 		);
 	}

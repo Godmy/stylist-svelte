@@ -40,4 +40,3 @@ export function createCenteredLayoutState(props: RecipeCenteredLayout) {
 }
 
 export default createCenteredLayoutState;
-

@@ -6,7 +6,9 @@ import type { TokenBackground } from '$stylist/layout/type/alias/background';
 import type { BehaviorMetricValue } from '$stylist/chart/interface/behavior/metric-value';
 import type { BehaviorTrendable } from '$stylist/management/interface/behavior/trendable';
 export interface RecipeStatCard
-	extends ComputeIntersectAll<[SlotTheme, SlotText, SlotIcon, BehaviorMetricValue, BehaviorTrendable]> {
+	extends ComputeIntersectAll<
+		[SlotTheme, SlotText, SlotIcon, BehaviorMetricValue, BehaviorTrendable]
+	> {
 	variant?: TokenBackground;
 	animated?: boolean;
 }

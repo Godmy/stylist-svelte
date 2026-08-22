@@ -19,17 +19,18 @@ export function createComponentLibraryStatsState(props: RecipeComponentLibrarySt
 	const stats = $derived(props.stats);
 	const className = $derived(props.class == null ? '' : String(props.class));
 
-	const containerClass = $derived(
-		ClassNamesManager.merge(
-			'c-component-library-stats',
-			className
-		)
-	);
+	const containerClass = $derived(ClassNamesManager.merge('c-component-library-stats', className));
 	const statsGridClass = $derived('c-component-library-stats__grid');
 	const getStatCardClass = (colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
-		ClassNamesManager.merge('c-component-library-stats__card', `c-component-library-stats__card--${colorTheme}`);
+		ClassNamesManager.merge(
+			'c-component-library-stats__card',
+			`c-component-library-stats__card--${colorTheme}`
+		);
 	const getStatValueClass = (colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
-		ClassNamesManager.merge('c-component-library-stats__value', `c-component-library-stats__value--${colorTheme}`);
+		ClassNamesManager.merge(
+			'c-component-library-stats__value',
+			`c-component-library-stats__value--${colorTheme}`
+		);
 	const getStatLabelClass = $derived('c-component-library-stats__label');
 
 	function animateStats() {

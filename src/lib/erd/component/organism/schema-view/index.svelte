@@ -63,7 +63,8 @@
 			return;
 		}
 
-		positions = layout === activeLayout ? mergePositions() : createPositions(document.tables.length);
+		positions =
+			layout === activeLayout ? mergePositions() : createPositions(document.tables.length);
 		documentLayoutKey = nextLayoutKey;
 		activeLayout = layout;
 		draggedTableId = null;
@@ -112,8 +113,7 @@
 					const a = result[i];
 					const b = result[j];
 
-					const overlapX =
-						Math.min(a.x + a.width + gap, b.x + b.width + gap) - Math.max(a.x, b.x);
+					const overlapX = Math.min(a.x + a.width + gap, b.x + b.width + gap) - Math.max(a.x, b.x);
 					const overlapY =
 						Math.min(a.y + a.height + gap, b.y + b.height + gap) - Math.max(a.y, b.y);
 
@@ -241,8 +241,7 @@
 		ringAssignments.forEach((indices, ring) => {
 			const maxHeightInRing = Math.max(...indices.map((index) => heights[index]));
 			const arcRequiredRadius = ((tableWidth + arcGap) * indices.length) / (2 * Math.PI);
-			const clearanceRadius =
-				ring === 0 ? 0 : previousOuterEdge + maxHeightInRing / 2 + ringGap;
+			const clearanceRadius = ring === 0 ? 0 : previousOuterEdge + maxHeightInRing / 2 + ringGap;
 			const radius = Math.max(arcRequiredRadius, clearanceRadius, minRadius);
 
 			ringRadius.push(radius);
@@ -343,11 +342,15 @@
 
 		const sourceFieldIndex = Math.max(
 			0,
-			sourceTable.fields.findIndex((field) => field.id === `${dependency.sourceTable}.${dependency.sourceField}`)
+			sourceTable.fields.findIndex(
+				(field) => field.id === `${dependency.sourceTable}.${dependency.sourceField}`
+			)
 		);
 		const targetFieldIndex = Math.max(
 			0,
-			targetTable.fields.findIndex((field) => field.id === `${dependency.targetTable}.${dependency.targetField}`)
+			targetTable.fields.findIndex(
+				(field) => field.id === `${dependency.targetTable}.${dependency.targetField}`
+			)
 		);
 		const sourceCenterX = source.x + source.width / 2;
 		const targetCenterX = target.x + target.width / 2;

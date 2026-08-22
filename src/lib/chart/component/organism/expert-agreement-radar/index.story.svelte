@@ -17,8 +17,18 @@
 	];
 </script>
 
-<Story title="ExpertAgreementRadar" description="Agreement strength across expert criteria." {controls}>
+<Story
+	title="ExpertAgreementRadar"
+	description="Agreement strength across expert criteria."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<ExpertAgreementRadar text="Expert agreement radar" description="Blue shows agreement, amber shows target threshold." {axes} width={values.width} height={values.height} />
+		<ExpertAgreementRadar
+			text="Expert agreement radar"
+			description="Blue shows agreement, amber shows target threshold."
+			{axes}
+			width={values.width}
+			height={values.height}
+		/>
 	{/snippet}
 </Story>

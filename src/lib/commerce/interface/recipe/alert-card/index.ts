@@ -27,8 +27,8 @@ export interface RecipeAlertCard
 	variant?: string;
 	disabled?: boolean;
 	icon?: string;
-	actions?: ({
-label: string;
-	onClick?: () => void;
-})[];
+	actions?: {
+		label: string;
+		onClick?: () => void;
+	}[];
 }

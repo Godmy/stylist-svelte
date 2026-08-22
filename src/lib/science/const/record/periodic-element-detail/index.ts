@@ -1,15 +1,19 @@
-export const PERIODIC_ELEMENT_DETAIL: Record<string, ({
-	description: string;
-	electronConfiguration: string;
-	electronegativity?: string;
-	density?: string;
-	meltingPoint?: string;
-	boilingPoint?: string;
-	discovery: string;
-	uses: readonly string[];
-})> = {
+export const PERIODIC_ELEMENT_DETAIL: Record<
+	string,
+	{
+		description: string;
+		electronConfiguration: string;
+		electronegativity?: string;
+		density?: string;
+		meltingPoint?: string;
+		boilingPoint?: string;
+		discovery: string;
+		uses: readonly string[];
+	}
+> = {
 	H: {
-		description: 'The lightest element and the most abundant chemical substance in the observable universe.',
+		description:
+			'The lightest element and the most abundant chemical substance in the observable universe.',
 		electronConfiguration: '1s1',
 		electronegativity: '2.20',
 		density: '0.00008988 g/cm3',
@@ -19,7 +23,8 @@ export const PERIODIC_ELEMENT_DETAIL: Record<string, ({
 		uses: ['Fuel cells', 'Ammonia production', 'Hydrogenation', 'Rocket propellant']
 	},
 	He: {
-		description: 'A noble gas with very low reactivity and the lowest boiling point of all elements.',
+		description:
+			'A noble gas with very low reactivity and the lowest boiling point of all elements.',
 		electronConfiguration: '1s2',
 		density: '0.0001785 g/cm3',
 		meltingPoint: '0.95 K',
@@ -28,7 +33,8 @@ export const PERIODIC_ELEMENT_DETAIL: Record<string, ({
 		uses: ['Cryogenics', 'Leak detection', 'Shielding gas', 'Balloons']
 	},
 	C: {
-		description: 'The structural basis of organic chemistry, forming stable chains and diverse compounds.',
+		description:
+			'The structural basis of organic chemistry, forming stable chains and diverse compounds.',
 		electronConfiguration: '[He] 2s2 2p2',
 		electronegativity: '2.55',
 		density: '2.267 g/cm3',
@@ -38,7 +44,8 @@ export const PERIODIC_ELEMENT_DETAIL: Record<string, ({
 		uses: ['Steelmaking', 'Graphite electrodes', 'Carbon fiber', 'Organic materials']
 	},
 	O: {
-		description: 'A reactive nonmetal essential for respiration, combustion, and many oxide minerals.',
+		description:
+			'A reactive nonmetal essential for respiration, combustion, and many oxide minerals.',
 		electronConfiguration: '[He] 2s2 2p4',
 		electronegativity: '3.44',
 		density: '0.001429 g/cm3',
@@ -58,7 +65,8 @@ export const PERIODIC_ELEMENT_DETAIL: Record<string, ({
 		uses: ['Sodium vapor lamps', 'Heat transfer', 'Chemical synthesis', 'Table salt compounds']
 	},
 	Mg: {
-		description: 'A lightweight alkaline earth metal used where low mass and high brightness matter.',
+		description:
+			'A lightweight alkaline earth metal used where low mass and high brightness matter.',
 		electronConfiguration: '[Ne] 3s2',
 		electronegativity: '1.31',
 		density: '1.738 g/cm3',
@@ -68,7 +76,8 @@ export const PERIODIC_ELEMENT_DETAIL: Record<string, ({
 		uses: ['Light alloys', 'Flares', 'Fireworks', 'Grignard reagents']
 	},
 	Ca: {
-		description: 'An alkaline earth metal important in minerals, bones, limestone, and cement chemistry.',
+		description:
+			'An alkaline earth metal important in minerals, bones, limestone, and cement chemistry.',
 		electronConfiguration: '[Ar] 4s2',
 		electronegativity: '1.00',
 		density: '1.54 g/cm3',
@@ -78,7 +87,8 @@ export const PERIODIC_ELEMENT_DETAIL: Record<string, ({
 		uses: ['Cement', 'Metallurgy', 'Calcium supplements', 'Deoxidizers']
 	},
 	Fe: {
-		description: 'A transition metal central to steel, machinery, construction, and biological oxygen transport.',
+		description:
+			'A transition metal central to steel, machinery, construction, and biological oxygen transport.',
 		electronConfiguration: '[Ar] 3d6 4s2',
 		electronegativity: '1.83',
 		density: '7.874 g/cm3',
@@ -98,7 +108,8 @@ export const PERIODIC_ELEMENT_DETAIL: Record<string, ({
 		uses: ['Scientific instruments', 'Switches', 'Fluorescent lamps', 'Reference electrodes']
 	},
 	U: {
-		description: 'A heavy actinide used as nuclear fuel and known for several naturally occurring isotopes.',
+		description:
+			'A heavy actinide used as nuclear fuel and known for several naturally occurring isotopes.',
 		electronConfiguration: '[Rn] 5f3 6d1 7s2',
 		electronegativity: '1.38',
 		density: '19.1 g/cm3',

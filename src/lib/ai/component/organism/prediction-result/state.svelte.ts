@@ -202,4 +202,3 @@ export function createPredictionResultState(props: PredictionResultContract) {
 }
 
 export default createPredictionResultState;
-

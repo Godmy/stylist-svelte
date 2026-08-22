@@ -62,7 +62,10 @@
 				transparent 1px
 			),
 			var(--color-background-secondary);
-		background-size: 2rem 2rem, 2rem 2rem, auto;
+		background-size:
+			2rem 2rem,
+			2rem 2rem,
+			auto;
 		border: 1px solid var(--color-border-primary);
 		border-radius: 0.5rem;
 	}
@@ -72,7 +75,11 @@
 		max-width: 18rem;
 		padding: 1.5rem;
 		background:
-			linear-gradient(135deg, color-mix(in srgb, var(--color-primary-600) 12%, transparent), transparent 48%),
+			linear-gradient(
+				135deg,
+				color-mix(in srgb, var(--color-primary-600) 12%, transparent),
+				transparent 48%
+			),
 			var(--color-background-primary);
 		border: 1px solid color-mix(in srgb, var(--color-primary-600) 26%, var(--color-border-primary));
 		border-radius: 0.5rem;

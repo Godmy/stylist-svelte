@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeAudioVisualizer } from '$stylist/audio/interface/recipe/audio-visualizer';
 	import { createAudioVisualizerState } from './state.svelte';
 

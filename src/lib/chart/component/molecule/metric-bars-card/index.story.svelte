@@ -5,7 +5,11 @@
 
 	const controls: SlotStory[] = [
 		{ name: 'text', type: 'text', defaultValue: 'Sprint Health' },
-		{ name: 'description', type: 'text', defaultValue: 'Distribution across current delivery lanes.' },
+		{
+			name: 'description',
+			type: 'text',
+			defaultValue: 'Distribution across current delivery lanes.'
+		},
 		{ name: 'total', type: 'text', defaultValue: '42 issues' },
 		{ name: 'color', type: 'color', defaultValue: '#2563eb' },
 		{ name: 'trackColor', type: 'color', defaultValue: '#e5e7eb' }

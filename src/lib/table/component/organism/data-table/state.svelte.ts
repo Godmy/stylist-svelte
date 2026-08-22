@@ -16,20 +16,34 @@ export function createDataTableState(props: SlotDataTable<Row>) {
 		sortDirection = 'asc';
 	};
 
-	const visibleSchema = $derived(props.schema.filter(col => !col.hidden));
-	const sortedData = $derived(ObjectManagerTableControls.sortData(props.data, sortKey, sortDirection));
+	const visibleSchema = $derived(props.schema.filter((col) => !col.hidden));
+	const sortedData = $derived(
+		ObjectManagerTableControls.sortData(props.data, sortKey, sortDirection)
+	);
 	const rootClass = $derived(['c-data-table', props.class].filter(Boolean).join(' '));
 	const containerStyle = $derived(
 		props.maxHeight && props.maxHeight !== 'none' ? `max-height:${props.maxHeight}` : ''
 	);
 
 	return {
-		get sortKey() { return sortKey; },
-		get sortDirection() { return sortDirection; },
-		get sortedData() { return sortedData; },
-		get visibleSchema() { return visibleSchema; },
-		get rootClass() { return rootClass; },
-		get containerStyle() { return containerStyle; },
+		get sortKey() {
+			return sortKey;
+		},
+		get sortDirection() {
+			return sortDirection;
+		},
+		get sortedData() {
+			return sortedData;
+		},
+		get visibleSchema() {
+			return visibleSchema;
+		},
+		get rootClass() {
+			return rootClass;
+		},
+		get containerStyle() {
+			return containerStyle;
+		},
 		sort
 	};
 }

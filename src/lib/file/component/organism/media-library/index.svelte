@@ -35,10 +35,7 @@
 						class="ml-btn ml-btn--primary"
 						onclick={() => state.triggerFileInput()}
 					>
-						<BaseIcon
-							name="upload"
-							style="width:1rem;height:1rem;margin-right:0.25rem"
-						/>
+						<BaseIcon name="upload" style="width:1rem;height:1rem;margin-right:0.25rem" />
 						Upload
 					</button>
 				{/if}
@@ -84,19 +81,13 @@
 			<div class="ml-toolbar-actions">
 				{#if state.allowDownload}
 					<button type="button" class="ml-btn ml-btn--secondary">
-						<BaseIcon
-							name="download"
-							style="width:1rem;height:1rem;margin-right:0.25rem"
-						/>
+						<BaseIcon name="download" style="width:1rem;height:1rem;margin-right:0.25rem" />
 						Download
 					</button>
 				{/if}
 				{#if state.allowDelete}
 					<button type="button" class="ml-btn ml-btn--danger">
-						<BaseIcon
-							name="trash-2"
-							style="width:1rem;height:1rem;margin-right:0.25rem"
-						/>
+						<BaseIcon name="trash-2" style="width:1rem;height:1rem;margin-right:0.25rem" />
 						Delete
 					</button>
 				{/if}

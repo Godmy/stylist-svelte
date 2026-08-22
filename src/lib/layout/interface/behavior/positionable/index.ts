@@ -5,4 +5,3 @@ export interface BehaviorPositionable {
 	layoutGravity?: LayoutGravity;
 	layoutAnchor?: string;
 }
-

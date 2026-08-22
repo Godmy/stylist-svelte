@@ -9,7 +9,9 @@
 </script>
 
 <th
-	class="c-cell-header {props.sortKey ? 'c-cell-header--sortable' : ''} {state.isCurrentSort ? 'c-cell-header--sorted' : ''} {props.class ?? ''}"
+	class="c-cell-header {props.sortKey ? 'c-cell-header--sortable' : ''} {state.isCurrentSort
+		? 'c-cell-header--sorted'
+		: ''} {props.class ?? ''}"
 	data-sort={state.sortDirection ?? undefined}
 	onclick={state.handleClick}
 >

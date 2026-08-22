@@ -27,7 +27,10 @@ export function createCodeBlockState(props: RecipeCodeBlock) {
 	const tagsContainerClass = 'c-code-block__tags';
 	const tagClass = 'c-code-block__tag';
 	const copyButtonContainerClass = $derived(
-		ClassNamesManager.merge('c-code-block__copy', props.copyOnHover ? 'c-code-block__copy--on-hover' : '')
+		ClassNamesManager.merge(
+			'c-code-block__copy',
+			props.copyOnHover ? 'c-code-block__copy--on-hover' : ''
+		)
 	);
 	const iconClass = 'c-code-block__icon';
 	const getMainContentClass = 'c-code-block__main';

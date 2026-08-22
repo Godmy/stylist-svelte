@@ -1,7 +1,8 @@
 import type { SlotFolderItem } from '$stylist/file/interface/slot/folder-item';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeFileBrowser extends ComputeIntersectAll<
+export interface RecipeFileBrowser
+	extends ComputeIntersectAll<
 		[
 			{
 				items: SlotFolderItem[];

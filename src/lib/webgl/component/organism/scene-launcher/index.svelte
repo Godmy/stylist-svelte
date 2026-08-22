@@ -39,7 +39,8 @@
 	{:else}
 		<div class="scene-launcher__buttons">
 			<Button variant="primary" size="lg" onclick={() => open('circle')}>Open circle</Button>
-			<Button variant="primary" size="lg" onclick={() => open('hyperspace')}>Open hyperspace</Button>
+			<Button variant="primary" size="lg" onclick={() => open('hyperspace')}>Open hyperspace</Button
+			>
 		</div>
 	{/if}
 </div>

@@ -90,9 +90,14 @@
 		line-height: 1;
 		font-weight: 700;
 		color: var(--token-control-text);
-		border: 1px solid color-mix(in srgb, var(--token-control-accent) 24%, var(--token-control-border) 76%);
+		border: 1px solid
+			color-mix(in srgb, var(--token-control-accent) 24%, var(--token-control-border) 76%);
 		border-radius: 999px;
-		background: color-mix(in srgb, var(--token-control-bg-muted) 84%, var(--token-control-accent) 16%);
+		background: color-mix(
+			in srgb,
+			var(--token-control-bg-muted) 84%,
+			var(--token-control-accent) 16%
+		);
 		padding: 0.15rem 0.35rem;
 	}
 

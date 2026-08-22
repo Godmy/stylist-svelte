@@ -11,7 +11,4 @@ export type {
 	RecipeSplitButton,
 	RecipeToolButton
 } from './recipe';
-export type {
-	SlotButtonAttributesBase,
-	SlotButtonDom
-} from './slot';
+export type { SlotButtonAttributesBase, SlotButtonDom } from './slot';

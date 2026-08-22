@@ -45,19 +45,9 @@
 >
 	{#if props.showIcon}
 		{#if state.copied}
-			<BaseIcon
-				name="check"
-				class={state.iconClasses}
-				size={16}
-				aria-hidden="true"
-			/>
+			<BaseIcon name="check" class={state.iconClasses} size={16} aria-hidden="true" />
 		{:else}
-			<BaseIcon
-				name="copy"
-				class={state.iconClasses}
-				size={16}
-				aria-hidden="true"
-			/>
+			<BaseIcon name="copy" class={state.iconClasses} size={16} aria-hidden="true" />
 		{/if}
 	{/if}
 	<span class="c-copy-button__label">{state.copied ? 'Copied!' : (props.text ?? 'Copy')}</span>

@@ -4,7 +4,9 @@
 	let { field, active = false, related = false }: RecipeErdTableField = $props();
 </script>
 
-<div class={`schema-table-field ${active ? 'schema-table-field--active' : ''} ${related ? 'schema-table-field--related' : ''}`}>
+<div
+	class={`schema-table-field ${active ? 'schema-table-field--active' : ''} ${related ? 'schema-table-field--related' : ''}`}
+>
 	<div class="schema-table-field__main">
 		<span class="schema-table-field__name">{field.name}</span>
 		<span class="schema-table-field__type">{field.type}</span>

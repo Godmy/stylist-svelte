@@ -43,7 +43,11 @@
 >
 	{#snippet children(values: any)}
 		<div class="schema-form-dialog-story">
-			<button class="schema-form-dialog-story__trigger" type="button" onclick={() => (isOpen = true)}>
+			<button
+				class="schema-form-dialog-story__trigger"
+				type="button"
+				onclick={() => (isOpen = true)}
+			>
 				Open dialog
 			</button>
 

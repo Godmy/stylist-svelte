@@ -1,7 +1,9 @@
 import type { RecipeDatePicker } from '$stylist/calendar/interface/recipe/date-picker';
 
 export const createDatePickerState = (props: RecipeDatePicker) => {
-	const toInputDate = (value: Date | string | { start: Date | null; end: Date | null } | undefined) => {
+	const toInputDate = (
+		value: Date | string | { start: Date | null; end: Date | null } | undefined
+	) => {
 		if (value instanceof Date) return value.toISOString().split('T')[0];
 		if (typeof value === 'string') return value;
 		return undefined;

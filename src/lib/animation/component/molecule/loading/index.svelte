@@ -31,7 +31,11 @@
 		padding: 0.875rem 1rem;
 		color: var(--color-text-primary);
 		background:
-			linear-gradient(135deg, color-mix(in srgb, var(--color-primary-600) 10%, transparent), transparent 42%),
+			linear-gradient(
+				135deg,
+				color-mix(in srgb, var(--color-primary-600) 10%, transparent),
+				transparent 42%
+			),
 			var(--color-background-secondary, var(--color-background-primary));
 		border: 1px solid color-mix(in srgb, var(--color-primary-600) 18%, var(--color-border-primary));
 		border-radius: 0.5rem;

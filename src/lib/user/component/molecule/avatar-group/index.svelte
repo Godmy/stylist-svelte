@@ -5,7 +5,8 @@
 	import type { RecipeAvatarGroup } from '$stylist/user/interface/recipe/avatar-group';
 	import { createAvatarGroupState } from './state.svelte';
 
-	let props: RecipeAvatarGroup & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography = $props();
+	let props: RecipeAvatarGroup & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography =
+		$props();
 	const state = createAvatarGroupState(props);
 </script>
 
@@ -73,7 +74,9 @@
 	{/each}
 
 	{#if state.overflowCount > 0}
-		<div class={`ag-overflow ${state.itemDirectionClass} ${state.sizeClasses} ${state.overflowClass}`}>
+		<div
+			class={`ag-overflow ${state.itemDirectionClass} ${state.sizeClasses} ${state.overflowClass}`}
+		>
 			+{state.overflowCount}
 		</div>
 	{/if}

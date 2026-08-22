@@ -15,10 +15,10 @@ export class ManagerPieChart {
 		total: number,
 		colors: string[]
 	): (PieChartDataPoint & {
-	startAngle: number;
-	endAngle: number;
-	color: string;
-})[] {
+		startAngle: number;
+		endAngle: number;
+		color: string;
+	})[] {
 		let startAngle = 0;
 
 		return data.map((item, index) => {

@@ -3,7 +3,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeChartCanvas as InformationChartCanvasRecipe } from '$stylist/chart/interface/recipe/chart-canvas';
 	import type { RecipeAnalyticsChartCanvas } from '$stylist/chart/interface/recipe/analytics-chart-canvas';
-		import createChartCanvasState from './state.svelte';
+	import createChartCanvasState from './state.svelte';
 	import ChartAxisX from '$stylist/chart/component/atom/chart-axis-x/index.svelte';
 	import ChartAxisY from '$stylist/chart/component/atom/chart-axis-y/index.svelte';
 	import ChartAxisZ from '$stylist/chart/component/atom/chart-axis-z/index.svelte';
@@ -29,22 +29,14 @@
 	const showAxisArrows = $derived(props.showAxisArrows ?? true);
 
 	const bounds = $derived(ManagerChartCanvas.resolveBounds(series));
-	const xScale = $derived(
-		ManagerChartCanvas.resolveScale(props.xScale, bounds.minX, bounds.maxX)
-	);
-	const yScale = $derived(
-		ManagerChartCanvas.resolveScale(props.yScale, bounds.minY, bounds.maxY)
-	);
-	const xTicks = $derived(
-		ManagerChartCanvas.resolveTickPositions(width, padding, xTickCount)
-	);
+	const xScale = $derived(ManagerChartCanvas.resolveScale(props.xScale, bounds.minX, bounds.maxX));
+	const yScale = $derived(ManagerChartCanvas.resolveScale(props.yScale, bounds.minY, bounds.maxY));
+	const xTicks = $derived(ManagerChartCanvas.resolveTickPositions(width, padding, xTickCount));
 	const yTicks = $derived(
 		ManagerChartCanvas.resolveVerticalTickPositions(height, padding, yTickCount)
 	);
 	const xTickLabels = $derived(ManagerChartCanvas.resolveTickLabels(xScale, xTickCount));
-	const yTickLabels = $derived(
-		ManagerChartCanvas.resolveVerticalTickLabels(yScale, yTickCount)
-	);
+	const yTickLabels = $derived(ManagerChartCanvas.resolveVerticalTickLabels(yScale, yTickCount));
 </script>
 
 <div class={state.wrapperClasses}>

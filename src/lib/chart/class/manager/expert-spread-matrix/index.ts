@@ -32,6 +32,17 @@ export class ManagerExpertSpreadMatrix {
 			})
 		);
 
-		return { width, height, cellSize, labelWidth, labelHeight, experts, periods, cells, minValue, maxValue };
+		return {
+			width,
+			height,
+			cellSize,
+			labelWidth,
+			labelHeight,
+			experts,
+			periods,
+			cells,
+			minValue,
+			maxValue
+		};
 	}
 }

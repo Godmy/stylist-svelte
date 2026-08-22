@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { createProgressBarState } from './state.svelte';
 	import type { RecipeProgressBar } from '$stylist/animation/interface/recipe/progress-bar';
 

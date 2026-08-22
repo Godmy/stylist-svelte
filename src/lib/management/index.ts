@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	ObjectManagerDraggableCard,
-	ObjectManagerKPIIndicator
-} from './class';
+export { ObjectManagerDraggableCard, ObjectManagerKPIIndicator } from './class';
 export {
 	DashboardLayout,
 	DraggableCard,

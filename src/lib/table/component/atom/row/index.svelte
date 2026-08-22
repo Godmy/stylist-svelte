@@ -10,7 +10,9 @@
 </script>
 
 <tr
-	class="c-row {state.striped ? 'c-row--striped' : ''} {state.active ? 'c-row--active' : ''} {state.hoverable ? 'c-row--hoverable' : ''} {props.class ?? ''}"
+	class="c-row {state.striped ? 'c-row--striped' : ''} {state.active
+		? 'c-row--active'
+		: ''} {state.hoverable ? 'c-row--hoverable' : ''} {props.class ?? ''}"
 	{...state.restProps}
 >
 	{#if content}{@render content()}{/if}

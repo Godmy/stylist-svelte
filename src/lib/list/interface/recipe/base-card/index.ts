@@ -12,13 +12,7 @@ export interface RecipeBaseCard
 		[
 			SlotTheme,
 			ComputeIntersectAll<
-				[
-					SlotText,
-					SlotText,
-					SlotImage,
-					SlotBadge,
-					HTMLAttributes<HTMLDivElement>
-				]
+				[SlotText, SlotText, SlotImage, SlotBadge, HTMLAttributes<HTMLDivElement>]
 			>,
 			SlotChildren
 		]

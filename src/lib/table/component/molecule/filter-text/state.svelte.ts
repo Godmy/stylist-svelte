@@ -3,7 +3,9 @@ import type { RecipeFilterText } from '$stylist/table/interface/recipe/filter-te
 export function createFilterTextState(props: RecipeFilterText) {
 	let value = $state(props.value ?? '');
 
-	$effect(() => { value = props.value ?? ''; });
+	$effect(() => {
+		value = props.value ?? '';
+	});
 
 	const handleInput = (e: Event) => {
 		value = (e.target as HTMLInputElement).value;
@@ -11,7 +13,9 @@ export function createFilterTextState(props: RecipeFilterText) {
 	};
 
 	return {
-		get value() { return value; },
+		get value() {
+			return value;
+		},
 		handleInput
 	};
 }

@@ -9,4 +9,3 @@ export interface RecipeDeviceFrame
 	orientation?: 'portrait' | 'landscape';
 	class?: string;
 }
-

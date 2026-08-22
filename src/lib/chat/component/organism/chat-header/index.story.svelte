@@ -7,9 +7,7 @@
 
 	export let primaryScenario: { chat: Chat; currentUser: User };
 	export let variantScenarios: { chat: Chat; currentUser: User }[] = [];
-	export let controls: SlotStory[] = [
-		{ name: 'showActions', type: 'boolean', defaultValue: true }
-	];
+	export let controls: SlotStory[] = [{ name: 'showActions', type: 'boolean', defaultValue: true }];
 
 	// Sample data for scenarios
 	const sampleUser1: User = {

@@ -7,16 +7,16 @@ export interface SlotMessage {
 	type?: 'text' | 'image' | 'file' | string;
 	status?: TokenMessageStatus | string;
 	replyTo?: string;
-	attachments?: ({
-id?: string;
-	name?: string;
-	url?: string;
-	type?: string;
-	size?: number | string;
-})[];
-	reactions?: ({
-emoji: string;
-	count?: number;
-	users?: string[];
-})[];
+	attachments?: {
+		id?: string;
+		name?: string;
+		url?: string;
+		type?: string;
+		size?: number | string;
+	}[];
+	reactions?: {
+		emoji: string;
+		count?: number;
+		users?: string[];
+	}[];
 }

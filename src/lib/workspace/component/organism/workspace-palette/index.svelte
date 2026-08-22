@@ -82,7 +82,9 @@
 					size="sm"
 					aria-label="List view"
 					title="List view"
-					onclick={() => { if (viewMode !== 'list') state.handleViewModeToggle(); }}
+					onclick={() => {
+						if (viewMode !== 'list') state.handleViewModeToggle();
+					}}
 				>
 					<Icon name="list" size={16} />
 				</IconButton>
@@ -91,7 +93,9 @@
 					size="sm"
 					aria-label="Grid view"
 					title="Grid view"
-					onclick={() => { if (viewMode !== 'grid') state.handleViewModeToggle(); }}
+					onclick={() => {
+						if (viewMode !== 'grid') state.handleViewModeToggle();
+					}}
 				>
 					<Icon name="grid-3x3" size={16} />
 				</IconButton>
@@ -207,8 +211,13 @@
 		font-weight: 600;
 		color: var(--color-text-primary);
 	}
-	.workspace-palette__search { flex: 1 1 auto; }
-	.workspace-palette__actions { display: flex; gap: 0.25rem; }
+	.workspace-palette__search {
+		flex: 1 1 auto;
+	}
+	.workspace-palette__actions {
+		display: flex;
+		gap: 0.25rem;
+	}
 	.workspace-palette__categories {
 		display: flex;
 		gap: 0.25rem;
@@ -255,8 +264,12 @@
 		color: var(--color-text-tertiary);
 		text-align: center;
 	}
-	.workspace-palette__group { margin-bottom: 1rem; }
-	.workspace-palette__group:last-child { margin-bottom: 0; }
+	.workspace-palette__group {
+		margin-bottom: 1rem;
+	}
+	.workspace-palette__group:last-child {
+		margin-bottom: 0;
+	}
 	.workspace-palette__group-title {
 		margin: 0 0 0.5rem 0;
 		font-size: 0.75rem;
@@ -279,7 +292,9 @@
 		width: 100%;
 		text-align: left;
 	}
-	.workspace-palette__item:last-child { margin-bottom: 0; }
+	.workspace-palette__item:last-child {
+		margin-bottom: 0;
+	}
 	.workspace-palette__item:hover {
 		background: var(--color-background-secondary);
 		border-color: var(--color-border-primary);
@@ -354,14 +369,22 @@
 		text-overflow: ellipsis;
 		width: 100%;
 	}
-	.workspace-palette__content::-webkit-scrollbar { width: 0.5rem; }
-	.workspace-palette__content::-webkit-scrollbar-track { background: var(--color-background-primary); }
+	.workspace-palette__content::-webkit-scrollbar {
+		width: 0.5rem;
+	}
+	.workspace-palette__content::-webkit-scrollbar-track {
+		background: var(--color-background-primary);
+	}
 	.workspace-palette__content::-webkit-scrollbar-thumb {
 		background: var(--color-border-secondary);
 		border-radius: 0.25rem;
 	}
-	.workspace-palette__content::-webkit-scrollbar-thumb:hover { background: var(--color-text-tertiary); }
-	.workspace-palette__categories::-webkit-scrollbar { height: 0.5rem; }
+	.workspace-palette__content::-webkit-scrollbar-thumb:hover {
+		background: var(--color-text-tertiary);
+	}
+	.workspace-palette__categories::-webkit-scrollbar {
+		height: 0.5rem;
+	}
 	.workspace-palette__categories::-webkit-scrollbar-thumb {
 		background: var(--color-border-secondary);
 		border-radius: 0.125rem;

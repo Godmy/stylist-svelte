@@ -11,9 +11,7 @@ export const createPhoneNumberInputState = (props: IPhoneNumberInputProps) => {
 			.filter(Boolean)
 			.join(' ')
 	);
-	const helpTextClass = $derived(
-		error ? 'input-field-error-text' : 'input-field-helper-text'
-	);
+	const helpTextClass = $derived(error ? 'input-field-error-text' : 'input-field-helper-text');
 	const formattedValue = $derived(formatPhoneNumber(props.value ?? ''));
 
 	function handleInput(event: Event) {

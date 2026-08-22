@@ -62,11 +62,10 @@
 	category="Organisms/Graph"
 >
 	{#snippet children()}
-		<div style="height: 500px; border: 1px solid var(--color-border-primary); border-radius: var(--border-radius-xl); overflow: hidden; background: var(--color-background-primary);">
-			<StylistGraphWorkspace
-				{initialNodes}
-				{initialConnections}
-			/>
+		<div
+			style="height: 500px; border: 1px solid var(--color-border-primary); border-radius: var(--border-radius-xl); overflow: hidden; background: var(--color-background-primary);"
+		>
+			<StylistGraphWorkspace {initialNodes} {initialConnections} />
 		</div>
 	{/snippet}
 </Story>

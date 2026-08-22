@@ -15,13 +15,5 @@ export {
 	PresetCodeEditor,
 	PresetStylist
 } from './preset';
-export {
-	DEFAULT_BADGE_LABEL,
-	PAGE_BUILDER_TOOLBAR_ITEMS,
-	categories
-} from './record';
-export {
-	CODE_WITH_COPY_DISPATCH,
-	PARTICLE_COUNT,
-	panelId
-} from './value';
+export { DEFAULT_BADGE_LABEL, PAGE_BUILDER_TOOLBAR_ITEMS, categories } from './record';
+export { CODE_WITH_COPY_DISPATCH, PARTICLE_COUNT, panelId } from './value';

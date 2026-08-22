@@ -2,7 +2,9 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeWishlistButton } from '$stylist/product/interface/recipe/wishlist-button';
 
-export function createWishlistButtonState(props: RecipeWishlistButton & HTMLAttributes<HTMLButtonElement>) {
+export function createWishlistButtonState(
+	props: RecipeWishlistButton & HTMLAttributes<HTMLButtonElement>
+) {
 	let isLoading = $state(false);
 	let showMessage = $state(false);
 	let message = $state('');

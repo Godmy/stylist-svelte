@@ -1,1 +1,6 @@
-﻿export const GRADIENT_DIRECTION = ['horizontal', 'vertical', 'diagonal', 'reverseDiagonal'] as const;
+﻿export const GRADIENT_DIRECTION = [
+	'horizontal',
+	'vertical',
+	'diagonal',
+	'reverseDiagonal'
+] as const;

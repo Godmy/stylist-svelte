@@ -11,9 +11,7 @@ export function createAccountSettingsFormState(props: RecipeAccountSettingsForm)
 	const localeId = 'account-settings-locale';
 
 	const containerClasses = $derived(
-		['c-account-settings-form border rounded-lg p-4 space-y-3', className]
-			.filter(Boolean)
-			.join(' ')
+		['c-account-settings-form border rounded-lg p-4 space-y-3', className].filter(Boolean).join(' ')
 	);
 
 	const restProps = $derived.by(() => {
@@ -48,4 +46,3 @@ export function createAccountSettingsFormState(props: RecipeAccountSettingsForm)
 		}
 	};
 }
-

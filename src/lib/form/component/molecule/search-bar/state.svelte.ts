@@ -63,7 +63,10 @@ export const createSearchBarState = (props: SearchBarStateProps) => {
 	const iconContainerClasses = $derived.by(() => 'c-search-bar__icon-wrap');
 
 	const inputClasses = $derived.by(() =>
-		ClassNamesManager.merge('c-search-bar__input', props.disabled ? 'c-search-bar__input--disabled' : '')
+		ClassNamesManager.merge(
+			'c-search-bar__input',
+			props.disabled ? 'c-search-bar__input--disabled' : ''
+		)
 	);
 
 	const controlsContainerClasses = $derived.by(() => 'c-search-bar__controls');

@@ -51,7 +51,9 @@
 			showClaimsHistory={values.showClaimsHistory as boolean}
 			showFileDownload={true}
 			showClaimForm={true}
-			onClaimSubmit={(claim: Parameters<NonNullable<RecipeWarrantyInfoProps['onClaimSubmit']>>[0]) => {
+			onClaimSubmit={(
+				claim: Parameters<NonNullable<RecipeWarrantyInfoProps['onClaimSubmit']>>[0]
+			) => {
 				console.log('Submitting warranty claim:', claim);
 			}}
 			onTermsClick={() => {

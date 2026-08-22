@@ -3,7 +3,8 @@ import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/development/const/array
 import type { PrimaryMenuItem } from '$stylist/navigation/interface/slot/primary-menu-item';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeStylistMenu extends ComputeIntersectAll<
+export interface RecipeStylistMenu
+	extends ComputeIntersectAll<
 		[
 			Omit<HTMLAttributes<HTMLElement>, 'class'> & {
 				class?: string;

@@ -9,12 +9,10 @@
 
 	const Smile = 'smile';
 
-	let props: IReactionPickerProps & Omit<HTMLAttributes<HTMLDivElement>, 'class'> =
-		$props();
+	let props: IReactionPickerProps & Omit<HTMLAttributes<HTMLDivElement>, 'class'> = $props();
 
 	const state = createReactionPickerState(props);
 </script>
-
 
 <div
 	class={`reaction-picker ${state.hostClass}`}

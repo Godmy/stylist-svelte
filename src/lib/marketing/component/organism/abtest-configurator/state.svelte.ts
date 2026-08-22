@@ -81,7 +81,12 @@ export function createABTestConfiguratorState(
 		} else {
 			errors.newVariant = '';
 		}
-		test = MarketingManager.addABTestVariant(test, newVariantName, newVariantDescription, newVariantWeight);
+		test = MarketingManager.addABTestVariant(
+			test,
+			newVariantName,
+			newVariantDescription,
+			newVariantWeight
+		);
 		newVariantName = '';
 		newVariantDescription = '';
 		newVariantWeight = 0;

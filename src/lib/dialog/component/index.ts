@@ -21,10 +21,4 @@ export {
 	StylistTab,
 	Tabs
 } from './molecule';
-export {
-	ComponentInfoCard,
-	Dialog,
-	Modal,
-	SimpleModal,
-	TextInputDialog
-} from './organism';
+export { ComponentInfoCard, Dialog, Modal, SimpleModal, TextInputDialog } from './organism';

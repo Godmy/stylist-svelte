@@ -15,12 +15,7 @@ export {
 	SessionManager,
 	SubmitButton
 } from './component';
-export {
-	AUTH_STRATEGIES,
-	PERMISSION_SCOPES,
-	STORAGE_KEYS,
-	TOKEN_TYPE
-} from './const';
+export { AUTH_STRATEGIES, PERMISSION_SCOPES, STORAGE_KEYS, TOKEN_TYPE } from './const';
 export { resolveAuthGuardState } from './function';
 export type {
 	AuthGuardProps,

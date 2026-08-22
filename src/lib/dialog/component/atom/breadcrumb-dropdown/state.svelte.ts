@@ -12,9 +12,7 @@ export function createBreadcrumbDropdownState(
 ) {
 	const open = $derived(props.open ?? false);
 	const items = $derived(props.items ?? []);
-	const dropdownClass = $derived(
-		ClassNamesManager.join('breadcrumb-dropdown', props.class ?? '')
-	);
+	const dropdownClass = $derived(ClassNamesManager.join('breadcrumb-dropdown', props.class ?? ''));
 	const itemClass = $derived('breadcrumb-dropdown-item');
 	const itemLabelClass = $derived('breadcrumb-dropdown-item__label');
 	const itemDescriptionClass = $derived('breadcrumb-dropdown-item__description');

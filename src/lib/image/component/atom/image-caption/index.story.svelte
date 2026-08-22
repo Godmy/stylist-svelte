@@ -23,7 +23,9 @@
 		{
 			id: 'consensus-rounded',
 			label: 'Consensus - rounded',
-			src: IMAGE_STORY_GALLERY.find((asset) => asset.id === '1-hero-consensus-decision-room')?.src ?? '',
+			src:
+				IMAGE_STORY_GALLERY.find((asset) => asset.id === '1-hero-consensus-decision-room')?.src ??
+				'',
 			alt: 'Facilitators aligning the room before a consensus vote',
 			caption: 'Consensus decision room - rounded, bordered, with shadow',
 			rounded: true,
@@ -43,9 +45,7 @@
 		{
 			id: 'wideband-delphi-bordered',
 			label: 'Wideband Delphi - bordered',
-			src:
-				IMAGE_STORY_GALLERY.find((asset) => asset.id === '3-section-wideband-delphi')?.src ??
-				'',
+			src: IMAGE_STORY_GALLERY.find((asset) => asset.id === '3-section-wideband-delphi')?.src ?? '',
 			alt: 'Wideband Delphi estimation session',
 			caption: 'Wideband Delphi - square corners, bordered, no shadow',
 			rounded: false,

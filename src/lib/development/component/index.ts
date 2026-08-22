@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	NpmBadge,
-	SyntaxHighlightedCode
-} from './atom';
+export { NpmBadge, SyntaxHighlightedCode } from './atom';
 export {
 	CodeBlock,
 	CodeDiff,

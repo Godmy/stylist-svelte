@@ -93,8 +93,8 @@
 		border-radius: 999px;
 		filter: blur(56px);
 		opacity: var(--animated-background-shape-opacity, 0.45);
-		animation: ambient-float var(--animated-background-shape-duration, 16s) ease-in-out
-			infinite alternate;
+		animation: ambient-float var(--animated-background-shape-duration, 16s) ease-in-out infinite
+			alternate;
 	}
 
 	.ambient-bg__shape.s1 {

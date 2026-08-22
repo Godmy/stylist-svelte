@@ -27,11 +27,13 @@ export function createAiAssistantState(props: RecipeAiAssistant & HTMLAttributes
 
 	// SlotState
 	let inputMessage = $state('');
-	let messages = $state<{
-	role: 'user' | 'assistant';
-	content: string;
-	timestamp: number;
-}[]>([]);
+	let messages = $state<
+		{
+			role: 'user' | 'assistant';
+			content: string;
+			timestamp: number;
+		}[]
+	>([]);
 	let isLoading = $state(false);
 	let error = $state<string | null>(null);
 	let messagesContainer: HTMLDivElement | undefined = $state(undefined);
@@ -57,10 +59,10 @@ export function createAiAssistantState(props: RecipeAiAssistant & HTMLAttributes
 		if (!inputMessage.trim() || isLoading) return;
 
 		const userMessage: {
-	role: 'user' | 'assistant';
-	content: string;
-	timestamp: number;
-} = {
+			role: 'user' | 'assistant';
+			content: string;
+			timestamp: number;
+		} = {
 			role: 'user',
 			content: inputMessage.trim(),
 			timestamp: Date.now()
@@ -82,10 +84,10 @@ export function createAiAssistantState(props: RecipeAiAssistant & HTMLAttributes
 			});
 
 			const assistantMessage: {
-	role: 'user' | 'assistant';
-	content: string;
-	timestamp: number;
-} = {
+				role: 'user' | 'assistant';
+				content: string;
+				timestamp: number;
+			} = {
 				role: 'assistant',
 				content: response.text || '(empty response)',
 				timestamp: Date.now()

@@ -1,6 +1,7 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeDialogConfirm extends ComputeIntersectAll<
+export interface RecipeDialogConfirm
+	extends ComputeIntersectAll<
 		[
 			{
 				isOpen: boolean;

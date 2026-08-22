@@ -45,7 +45,11 @@
 
 			<div class="_c3">
 				{#each examples as example}
-					<Badge label={example.label} variant={example.variant} size={(values as BadgeStoryProps).size} />
+					<Badge
+						label={example.label}
+						variant={example.variant}
+						size={(values as BadgeStoryProps).size}
+					/>
 				{/each}
 			</div>
 

@@ -73,8 +73,7 @@ export class ManagerWidebandDelphiDiagram {
 		const maxValue = Math.ceil((rawMaxValue + valuePadding) / 10) * 10;
 		const scaleY = (value: number) =>
 			plotY + plotHeight - ((value - minValue) / Math.max(1, maxValue - minValue)) * plotHeight;
-		const scaleX = (index: number) =>
-			plotX + (plotWidth * index) / Math.max(1, points.length - 1);
+		const scaleX = (index: number) => plotX + (plotWidth * index) / Math.max(1, points.length - 1);
 		const layoutPoints = points.map((point, index) => ({
 			id: `${point.time}-${index}`,
 			time: point.time,
@@ -99,7 +98,9 @@ export class ManagerWidebandDelphiDiagram {
 			topSelector: (point: (typeof layoutPoints)[number]) => number,
 			bottomSelector: (point: (typeof layoutPoints)[number]) => number
 		) => {
-			const top = layoutPoints.map((point, index) => `${index === 0 ? 'M' : 'L'} ${point.x} ${topSelector(point)}`);
+			const top = layoutPoints.map(
+				(point, index) => `${index === 0 ? 'M' : 'L'} ${point.x} ${topSelector(point)}`
+			);
 			const bottom = [...layoutPoints]
 				.reverse()
 				.map((point) => `L ${point.x} ${bottomSelector(point)}`);
@@ -128,8 +129,14 @@ export class ManagerWidebandDelphiDiagram {
 			currency,
 			ticks,
 			points: layoutPoints,
-			outerBandPath: bandPath((point) => point.maxY, (point) => point.minY),
-			coreBandPath: bandPath((point) => point.highY, (point) => point.lowY),
+			outerBandPath: bandPath(
+				(point) => point.maxY,
+				(point) => point.minY
+			),
+			coreBandPath: bandPath(
+				(point) => point.highY,
+				(point) => point.lowY
+			),
 			consensusPath: linePath((point) => point.consensusY),
 			marketPath: linePath((point) => point.marketY),
 			procurementPath: linePath((point) => point.procurementY)

@@ -1,5 +1,3 @@
-
-
 export interface QuoteRequestValue {
 	requesterName: string;
 	requesterEmail: string;
@@ -8,12 +6,12 @@ export interface QuoteRequestValue {
 	companyAddress?: string;
 	shippingAddress?: string;
 	products: {
-	id: string;
-	name: string;
-	quantity: number;
-	unitPrice?: number;
-	notes?: string;
-}[];
+		id: string;
+		name: string;
+		quantity: number;
+		unitPrice?: number;
+		notes?: string;
+	}[];
 	message: string;
 	urgent?: boolean;
 	validUntil?: Date;

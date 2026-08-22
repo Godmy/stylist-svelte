@@ -27,7 +27,11 @@
 		height: 100%;
 		background:
 			radial-gradient(farthest-side, currentColor 94%, transparent) top / 0.25rem 0.25rem no-repeat,
-			conic-gradient(transparent 18%, color-mix(in srgb, currentColor 36%, transparent), currentColor);
+			conic-gradient(
+				transparent 18%,
+				color-mix(in srgb, currentColor 36%, transparent),
+				currentColor
+			);
 		border-radius: 999px;
 		-webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 0.1875rem), #000 0);
 		mask: radial-gradient(farthest-side, transparent calc(100% - 0.1875rem), #000 0);

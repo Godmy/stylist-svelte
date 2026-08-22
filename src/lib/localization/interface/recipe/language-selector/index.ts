@@ -4,11 +4,11 @@ import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 export interface RecipeLanguageSelector extends ComputeIntersectAll<[SlotChildren]> {
 	languages: {
-	code: string;
-	name: string;
-	nativeName?: string;
-	flag?: string; // Emoji or flag representation
-}[];
+		code: string;
+		name: string;
+		nativeName?: string;
+		flag?: string; // Emoji or flag representation
+	}[];
 	currentLanguage?: string;
 	onLanguageChange?: (code: string) => void;
 	showFlags?: boolean;

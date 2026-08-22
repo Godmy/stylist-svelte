@@ -22,7 +22,10 @@ export class PageBuilderManager {
 	static getDefaultAttributes(type: TokenComponentType): SlotPageBuilderElement['attributes'] {
 		switch (type) {
 			case 'text':
-				return { FONT_SIZE: '16px', color: 'var(--color-text-primary)' } as SlotPageBuilderTextAttributes;
+				return {
+					FONT_SIZE: '16px',
+					color: 'var(--color-text-primary)'
+				} as SlotPageBuilderTextAttributes;
 			case 'heading':
 				return {
 					level: 2,

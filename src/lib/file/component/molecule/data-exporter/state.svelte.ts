@@ -9,7 +9,9 @@ export function createDataExporterState(props: RecipeDataExporter) {
 	const fileName = $derived(props.fileName ?? 'export');
 	const data = $derived(props.data ?? []);
 	let selectedFormat = $state<DataExporterFormat>(props.format ?? 'csv');
-	const dispatch = createEventDispatcher<{ export: { format: DataExporterFormat; fileName: string } }>();
+	const dispatch = createEventDispatcher<{
+		export: { format: DataExporterFormat; fileName: string };
+	}>();
 
 	const formats: Record<DataExporterFormat, { ext: string; mime: string }> = {
 		csv: { ext: 'csv', mime: 'text/csv' },

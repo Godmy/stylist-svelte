@@ -64,10 +64,6 @@ export class ObjectManagerPortfolio {
 	}
 
 	static isEmpty(cell: PortfolioCell): boolean {
-		return (
-			cell.current === null &&
-			!cell.added &&
-			!cell.removed
-		);
+		return cell.current === null && !cell.added && !cell.removed;
 	}
 }

@@ -1,8 +1,7 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotDiscountRule } from '$stylist/commerce/interface/slot/discount-rule';
-export interface RecipeDiscountApplier
-	extends ComputeIntersectAll<[SlotTheme]> {
+export interface RecipeDiscountApplier extends ComputeIntersectAll<[SlotTheme]> {
 	onApplyCode?: (code: string) => void;
 	onApplyRule?: (rule: SlotDiscountRule) => void;
 	onRemoveRule?: (ruleId: string) => void;
@@ -10,13 +9,13 @@ export interface RecipeDiscountApplier
 
 	rules: SlotDiscountRule[];
 
-	cartItems: ({
-id: string;
-	name: string;
-	price: number;
-	quantity: number;
-	category?: string;
-})[];
+	cartItems: {
+		id: string;
+		name: string;
+		price: number;
+		quantity: number;
+		category?: string;
+	}[];
 
 	cartTotal: number;
 

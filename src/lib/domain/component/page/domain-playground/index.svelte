@@ -58,7 +58,9 @@
 			x: 120,
 			y: 110,
 			color: 'var(--color-success-500)',
-			outputs: [{ id: 'workspace-source-output', direction: 'output', dataType: 'object', label: 'Data' }],
+			outputs: [
+				{ id: 'workspace-source-output', direction: 'output', dataType: 'object', label: 'Data' }
+			],
 			properties: [
 				{ id: 'source-url', name: 'url', type: 'string', value: '/api/source', label: 'URL' },
 				{ id: 'source-cache', name: 'cache', type: 'boolean', value: true, label: 'Cache' }
@@ -71,10 +73,26 @@
 			x: 440,
 			y: 170,
 			color: 'var(--color-secondary-500)',
-			inputs: [{ id: 'workspace-processor-input', direction: 'input', dataType: 'object', label: 'Input' }],
-			outputs: [{ id: 'workspace-processor-output', direction: 'output', dataType: 'object', label: 'Result' }],
+			inputs: [
+				{ id: 'workspace-processor-input', direction: 'input', dataType: 'object', label: 'Input' }
+			],
+			outputs: [
+				{
+					id: 'workspace-processor-output',
+					direction: 'output',
+					dataType: 'object',
+					label: 'Result'
+				}
+			],
 			properties: [
-				{ id: 'processor-mode', name: 'mode', type: 'enum', value: 'merge', label: 'Mode', options: ['merge', 'filter', 'map'] },
+				{
+					id: 'processor-mode',
+					name: 'mode',
+					type: 'enum',
+					value: 'merge',
+					label: 'Mode',
+					options: ['merge', 'filter', 'map']
+				},
 				{ id: 'processor-limit', name: 'limit', type: 'number', value: 100, label: 'Limit' }
 			]
 		},
@@ -85,8 +103,12 @@
 			x: 760,
 			y: 110,
 			color: 'var(--color-warning-500)',
-			inputs: [{ id: 'workspace-output-input', direction: 'input', dataType: 'object', label: 'Result' }],
-			properties: [{ id: 'output-format', name: 'format', type: 'string', value: 'json', label: 'Format' }]
+			inputs: [
+				{ id: 'workspace-output-input', direction: 'input', dataType: 'object', label: 'Result' }
+			],
+			properties: [
+				{ id: 'output-format', name: 'format', type: 'string', value: 'json', label: 'Format' }
+			]
 		}
 	]);
 	let workspaceConnections = $state<SlotNodeConnection[]>([
@@ -237,7 +259,6 @@
 				: node
 		);
 	}
-
 </script>
 
 <div class="c-domain-playground {className}">
@@ -423,6 +444,5 @@
 			flex-wrap: wrap;
 			justify-content: flex-end;
 		}
-
 	}
 </style>

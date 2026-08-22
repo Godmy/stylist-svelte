@@ -6,7 +6,10 @@
 	const state = createCriticalPathTimelineState(props);
 </script>
 
-<section class={state.className} aria-label={props.ariaLabel ?? props.text ?? 'Critical path timeline'}>
+<section
+	class={state.className}
+	aria-label={props.ariaLabel ?? props.text ?? 'Critical path timeline'}
+>
 	{#if props.text}
 		<header class="critical-path-timeline__header">
 			<h3>{props.text}</h3>
@@ -39,7 +42,12 @@
 					y2={state.layout.height - 22}
 				/>
 				{#if tick.showLabel}
-					<text class="critical-path-timeline__time" x={tick.x} y={state.layout.plotY - 28} text-anchor="middle">
+					<text
+						class="critical-path-timeline__time"
+						x={tick.x}
+						y={state.layout.plotY - 28}
+						text-anchor="middle"
+					>
 						{tick.label}
 					</text>
 				{/if}
@@ -52,7 +60,12 @@
 					x2={state.layout.plotX + state.layout.plotWidth}
 					y2={task.y + task.height / 2}
 				/>
-				<text class="critical-path-timeline__task-label" x={state.layout.plotX - 14} y={task.y + 13} text-anchor="end">
+				<text
+					class="critical-path-timeline__task-label"
+					x={state.layout.plotX - 14}
+					y={task.y + 13}
+					text-anchor="end"
+				>
 					{task.text}
 				</text>
 			{/each}
@@ -63,7 +76,9 @@
 				/>
 			{/each}
 			{#each state.layout.tasks as task (task.id)}
-				<g class={`critical-path-timeline__task ${task.critical ? 'critical-path-timeline__task--critical' : ''}`}>
+				<g
+					class={`critical-path-timeline__task ${task.critical ? 'critical-path-timeline__task--critical' : ''}`}
+				>
 					<rect
 						class="critical-path-timeline__task-bar"
 						x={task.x}
@@ -87,7 +102,10 @@
 	</div>
 
 	<div class="critical-path-timeline__summary">
-		<span><i class="critical-path-timeline__marker critical-path-timeline__marker--critical"></i> Critical path</span>
+		<span
+			><i class="critical-path-timeline__marker critical-path-timeline__marker--critical"></i> Critical
+			path</span
+		>
 		<strong>{state.layout.criticalPathLabel}</strong>
 	</div>
 </section>

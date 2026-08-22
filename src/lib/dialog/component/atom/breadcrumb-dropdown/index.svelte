@@ -43,7 +43,9 @@
 		border: 1px solid var(--color-border-secondary);
 		background-color: var(--color-background-primary);
 		padding: 0.5rem;
-		box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+		box-shadow:
+			0 20px 25px -5px rgba(15, 23, 42, 0.15),
+			0 8px 10px -6px rgba(15, 23, 42, 0.1);
 	}
 	.breadcrumb-dropdown-item {
 		display: flex;

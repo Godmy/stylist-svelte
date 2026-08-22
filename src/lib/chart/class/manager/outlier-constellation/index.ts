@@ -1,6 +1,13 @@
 export class ManagerOutlierConstellation {
 	static createLayout(
-		points: { id: string; text: string; x: number; y: number; confidence: number; outlier?: boolean }[],
+		points: {
+			id: string;
+			text: string;
+			x: number;
+			y: number;
+			confidence: number;
+			outlier?: boolean;
+		}[],
 		options: { width?: number; height?: number } = {}
 	) {
 		const width = options.width ?? 760;

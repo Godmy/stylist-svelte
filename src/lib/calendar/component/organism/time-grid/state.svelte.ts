@@ -53,7 +53,11 @@ export function createTimeGridState(props: TimeGridContract) {
 	const headerClassProp = $derived(props.headerClass ?? '');
 
 	const wrapperClasses = $derived(
-		ClassNamesManager.merge('c-time-grid', variant === 'schedule' && 'c-time-grid--schedule', className)
+		ClassNamesManager.merge(
+			'c-time-grid',
+			variant === 'schedule' && 'c-time-grid--schedule',
+			className
+		)
 	);
 	const headerClasses = $derived(ClassNamesManager.merge('c-time-grid__header', headerClassProp));
 	const timeGridClasses = $derived('c-time-grid__grid');
@@ -129,9 +133,7 @@ export function createTimeGridState(props: TimeGridContract) {
 				const slotEvents: SlotCalendarEvent[] = dayEvents.filter((event) => {
 					const es = new Date(event.start);
 					const ee = new Date(event.end);
-					return (
-						(es < slotEnd && ee > slotStart) || es.getTime() === slotStart.getTime()
-					);
+					return (es < slotEnd && ee > slotStart) || es.getTime() === slotStart.getTime();
 				});
 
 				slots.push({
@@ -269,23 +271,57 @@ export function createTimeGridState(props: TimeGridContract) {
 	}
 
 	return {
-		get viewStartDate() { return viewStartDate; },
-		get viewEndDate() { return viewEndDate; },
-		get timeGrid() { return timeGrid; },
-		get timeGutterSlots() { return timeGutterSlots; },
-		get showHeader() { return showHeader; },
-		get showCurrentTimeIndicator() { return showCurrentTimeIndicator; },
-		get showAllDayEvents() { return showAllDayEvents; },
-		get showTimeGutter() { return showTimeGutter; },
-		get timeSlotHeight() { return timeSlotHeight; },
-		get variant() { return variant; },
-		get currentViewMode() { return currentViewMode; },
-		get slotClass() { return slotClass; },
-		get eventClass() { return eventClass; },
-		get wrapperClasses() { return wrapperClasses; },
-		get headerClasses() { return headerClasses; },
-		get timeGridClasses() { return timeGridClasses; },
-		get restProps() { return restProps; },
+		get viewStartDate() {
+			return viewStartDate;
+		},
+		get viewEndDate() {
+			return viewEndDate;
+		},
+		get timeGrid() {
+			return timeGrid;
+		},
+		get timeGutterSlots() {
+			return timeGutterSlots;
+		},
+		get showHeader() {
+			return showHeader;
+		},
+		get showCurrentTimeIndicator() {
+			return showCurrentTimeIndicator;
+		},
+		get showAllDayEvents() {
+			return showAllDayEvents;
+		},
+		get showTimeGutter() {
+			return showTimeGutter;
+		},
+		get timeSlotHeight() {
+			return timeSlotHeight;
+		},
+		get variant() {
+			return variant;
+		},
+		get currentViewMode() {
+			return currentViewMode;
+		},
+		get slotClass() {
+			return slotClass;
+		},
+		get eventClass() {
+			return eventClass;
+		},
+		get wrapperClasses() {
+			return wrapperClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get timeGridClasses() {
+			return timeGridClasses;
+		},
+		get restProps() {
+			return restProps;
+		},
 		handleEventClick,
 		handleSlotClick,
 		navigateWeek,

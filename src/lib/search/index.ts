@@ -9,10 +9,7 @@ export {
 	SearchSuggestion
 } from './component';
 export { SEARCH_ICON_NAME } from './const';
-export type {
-	AutoCompleteOption,
-	SearchResultItem
-} from './type';
+export type { AutoCompleteOption, SearchResultItem } from './type';
 export type {
 	RecipeAutoComplete,
 	RecipeAutoSearch,

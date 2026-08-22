@@ -2,7 +2,9 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductSearch } from '$stylist/product/interface/recipe/product-search';
 
-export function createProductSearchState(props: RecipeProductSearch & HTMLAttributes<HTMLDivElement>) {
+export function createProductSearchState(
+	props: RecipeProductSearch & HTMLAttributes<HTMLDivElement>
+) {
 	let query = $state('');
 	let showSuggestions = $state(false);
 

@@ -7,9 +7,9 @@ export interface SlotHero extends LayoutHTMLAttributes<HTMLDivElement>, SlotChil
 	title: string;
 	subtitle?: string;
 	stats?: {
-	label: string;
-	value: string | number;
-}[];
+		label: string;
+		value: string | number;
+	}[];
 	primaryCTA?: SlotHeroCta;
 	secondaryCTA?: SlotHeroCta;
 	backgroundVariant?: TokenBackground;

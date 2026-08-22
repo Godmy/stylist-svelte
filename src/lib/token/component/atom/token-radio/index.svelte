@@ -53,11 +53,7 @@
 	}
 
 	.token-radio__option:hover:not([data-disabled]) {
-		background: color-mix(
-			in srgb,
-			var(--token-radio-accent) 12%,
-			var(--token-radio-bg) 88%
-		);
+		background: color-mix(in srgb, var(--token-radio-accent) 12%, var(--token-radio-bg) 88%);
 	}
 
 	.token-radio__option:focus-visible {
@@ -70,5 +66,4 @@
 		background: color-mix(in srgb, var(--token-radio-accent) 22%, var(--token-radio-bg) 78%);
 		color: var(--token-radio-text);
 	}
-
 </style>

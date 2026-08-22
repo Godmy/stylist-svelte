@@ -8,4 +8,3 @@ export interface ContractPromptVariable {
 	defaultValue?: string | number | boolean;
 	options?: Array<{ value: string; label: string }>;
 }
-

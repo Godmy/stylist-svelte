@@ -5,7 +5,9 @@ import type { TOKEN_AVAILABILITY } from '$stylist/user/const/array/availability'
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
-export type FRIEND_LIST_PROPS = (Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography) & {
+export type FRIEND_LIST_PROPS = (Omit<HTMLAttributes<HTMLDivElement>, 'class'> &
+	SlotThemeBorder &
+	SlotTypography) & {
 	friends: FRIEND_LIST_FRIEND[];
 	showStatus?: boolean;
 	showLastSeen?: boolean;

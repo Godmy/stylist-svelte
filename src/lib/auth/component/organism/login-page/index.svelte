@@ -20,11 +20,7 @@
 			{/if}
 		</div>
 
-		<Login
-			formState={props.formState}
-			onSubmit={props.onSubmit}
-			class={props.class}
-		/>
+		<Login formState={props.formState} onSubmit={props.onSubmit} class={props.class} />
 
 		{#if props.forgotPasswordHref || props.registerHref}
 			<div class="c-login-page__footer">
@@ -98,4 +94,3 @@
 		gap: 0.25rem;
 	}
 </style>
-

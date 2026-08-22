@@ -20,13 +20,13 @@
 		createColumn<RowData>('email', { cell: 'text', header: 'Email', sortable: true })
 	];
 
-	const names   = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'];
-	const roles   = ['Admin', 'Editor', 'Viewer'];
+	const names = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'];
+	const roles = ['Admin', 'Editor', 'Viewer'];
 	const data: RowData[] = Array.from({ length: 30 }, (_, i) => ({
-		name:   names[i % names.length],
-		role:   roles[i % roles.length],
+		name: names[i % names.length],
+		role: roles[i % roles.length],
 		status: i % 4 === 0 ? 'Inactive' : 'Active',
-		email:  `user${i}@example.com`,
+		email: `user${i}@example.com`
 	}));
 </script>
 

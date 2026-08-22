@@ -5,14 +5,14 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 export interface RecipeBadgeGroup
 	extends ComputeIntersectAll<[SlotTheme, HTMLAttributes<HTMLDivElement>]> {
-	badges?: ({
-id: string | number;
-	label?: string;
-	variant?: TokenColorTone;
-	size?: TokenSize;
-	disabled?: boolean;
-	onClick?: () => void;
-})[];
+	badges?: {
+		id: string | number;
+		label?: string;
+		variant?: TokenColorTone;
+		size?: TokenSize;
+		disabled?: boolean;
+		onClick?: () => void;
+	}[];
 	maxVisible?: number;
 	showOverflow?: boolean;
 	badgeClass?: string;

@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeComponent } from '$stylist/table/interface/recipe/component';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createComponentState } from './state.svelte';
@@ -1021,4 +1021,3 @@ import type { HTMLAttributes } from 'svelte/elements';
 		border-style: solid;
 	}
 </style>
-

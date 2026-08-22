@@ -36,16 +36,11 @@
 	}
 
 	.token-select__input:hover {
-		background: color-mix(
-			in srgb,
-			var(--token-select-accent) 10%,
-			var(--token-select-bg) 90%
-		);
+		background: color-mix(in srgb, var(--token-select-accent) 10%, var(--token-select-bg) 90%);
 	}
 
 	.token-select__input:focus {
 		outline: 2px solid var(--token-select-accent);
 		outline-offset: 2px;
 	}
-
 </style>

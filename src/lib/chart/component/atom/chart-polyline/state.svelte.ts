@@ -29,7 +29,9 @@ function mapPointsToViewBox(
 }
 
 export function createChartPolylineState(props: ChartPolylineProps) {
-	const classes = $derived(ClassNamesManager.merge('c-chart-polyline', resolveClassName(props.class)));
+	const classes = $derived(
+		ClassNamesManager.merge('c-chart-polyline', resolveClassName(props.class))
+	);
 	const padding = $derived(36);
 	const bounds = $derived(ManagerChart.getBounds(props));
 	const polylinePoints = $derived(

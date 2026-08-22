@@ -1,6 +1,6 @@
 import type { SlotBurnDownPoint as BurnDownPoint } from '$stylist/portfolio/interface/slot/burn-down-point';
 export function getBurnDownMinMaxValues(points: BurnDownPoint[]): {
-minActual: number;
+	minActual: number;
 	maxActual: number;
 	minIdeal: number;
 	maxIdeal: number;

@@ -4,12 +4,14 @@ export class ZoomManager {
 	static getStep<TValue>(
 		scale: Zoom<TValue>,
 		stepId: number
-	): {
-		id: number;
-		value: TValue;
-		label: string;
-		preview?: string;
-	} | undefined {
+	):
+		| {
+				id: number;
+				value: TValue;
+				label: string;
+				preview?: string;
+		  }
+		| undefined {
 		return scale.steps.find((step) => step.id === stepId);
 	}
 

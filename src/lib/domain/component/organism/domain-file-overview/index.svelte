@@ -87,7 +87,13 @@
 				<span>files</span>
 			</div>
 			<div>
-				<strong>{manifest.totals.atoms + manifest.totals.molecules + manifest.totals.organisms + manifest.totals.templates + manifest.totals.pages}</strong>
+				<strong
+					>{manifest.totals.atoms +
+						manifest.totals.molecules +
+						manifest.totals.organisms +
+						manifest.totals.templates +
+						manifest.totals.pages}</strong
+				>
 				<span>components</span>
 			</div>
 		</div>

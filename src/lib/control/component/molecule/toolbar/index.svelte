@@ -36,13 +36,22 @@
 	<div class="toolbar-separator"></div>
 
 	<div class="toolbar-group">
-		<Button size="sm" onclick={() => ControlManager.toolbarHandleExport('png', props.onExportImage)}>
+		<Button
+			size="sm"
+			onclick={() => ControlManager.toolbarHandleExport('png', props.onExportImage)}
+		>
 			<span> PNG</span>
 		</Button>
-		<Button size="sm" onclick={() => ControlManager.toolbarHandleExport('jpeg', props.onExportImage)}>
+		<Button
+			size="sm"
+			onclick={() => ControlManager.toolbarHandleExport('jpeg', props.onExportImage)}
+		>
 			<span> JPEG</span>
 		</Button>
-		<Button size="sm" onclick={() => ControlManager.toolbarHandleExport('svg', props.onExportImage)}>
+		<Button
+			size="sm"
+			onclick={() => ControlManager.toolbarHandleExport('svg', props.onExportImage)}
+		>
 			<span> SVG</span>
 		</Button>
 	</div>
@@ -53,14 +62,16 @@
 		<Button
 			size="sm"
 			variant={state.isLegendVisible ? 'primary' : 'secondary'}
-			onclick={() => ControlManager.toolbarHandleLegendToggle(state.isLegendVisible, props.onToggleLegend)}
+			onclick={() =>
+				ControlManager.toolbarHandleLegendToggle(state.isLegendVisible, props.onToggleLegend)}
 		>
 			<span> Legend</span>
 		</Button>
 		<Button
 			size="sm"
 			variant={state.isSearchVisible ? 'primary' : 'secondary'}
-			onclick={() => ControlManager.toolbarHandleSearchToggle(state.isSearchVisible, props.onToggleSearch)}
+			onclick={() =>
+				ControlManager.toolbarHandleSearchToggle(state.isSearchVisible, props.onToggleSearch)}
 		>
 			<span> Search</span>
 		</Button>

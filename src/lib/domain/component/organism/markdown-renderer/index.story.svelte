@@ -3,9 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import RecipeMarkdownRenderer from './index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'className', type: 'text', defaultValue: '' }
-	];
+	const controls: SlotStory[] = [{ name: 'className', type: 'text', defaultValue: '' }];
 
 	const sampleMarkdown = `# Release Notes
 

@@ -286,5 +286,4 @@
 		font-weight: 500;
 		color: var(--color-text-primary);
 	}
-
 </style>

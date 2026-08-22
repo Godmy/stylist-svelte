@@ -1,4 +1,3 @@
-
 export type DatePickerValue = Date | string | { start: Date | null; end: Date | null } | undefined;
 
 export interface SlotDatePicker {

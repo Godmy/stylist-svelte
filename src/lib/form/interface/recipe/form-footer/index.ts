@@ -4,4 +4,6 @@ import type { BehaviorClickable } from '$stylist/layout/interface/behavior/click
 import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 export interface RecipeFormFooter
-	extends ComputeIntersectAll<[SlotFormFooter, BehaviorClickable, BehaviorFocusable, BehaviorSizable]> {}
+	extends ComputeIntersectAll<
+		[SlotFormFooter, BehaviorClickable, BehaviorFocusable, BehaviorSizable]
+	> {}

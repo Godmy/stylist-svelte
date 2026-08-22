@@ -5,8 +5,7 @@ import type { Snippet } from 'svelte';
 import type { TokenAnimation } from '$stylist/theme/type/alias/animation';
 import type { TokenDuration } from '$stylist/theme/type/alias/duration';
 import type { TokenEasing } from '$stylist/theme/type/alias/easing';
-export interface RecipeAnimatedDigit
-	extends ComputeIntersectAll<[BehaviorMotion, SlotTheme]> {
+export interface RecipeAnimatedDigit extends ComputeIntersectAll<[BehaviorMotion, SlotTheme]> {
 	animation?: TokenAnimation;
 	duration?: TokenDuration;
 	easing?: TokenEasing;

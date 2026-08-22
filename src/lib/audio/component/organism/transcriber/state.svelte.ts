@@ -20,14 +20,18 @@ export function createTranscriberState(props: RecipeTranscriber) {
 	const mimeType = $derived(props.mimeType ?? 'audio/webm');
 	const fileName = $derived(props.fileName ?? `transcriber-${Date.now()}.webm`);
 	const isRecording = $derived(status === 'recording');
-	const isBusy = $derived(status === 'processing' || status === 'uploading' || status === 'transcribing');
+	const isBusy = $derived(
+		status === 'processing' || status === 'uploading' || status === 'transcribing'
+	);
 	const canRecord = $derived(Boolean(isSupported && !props.disabled && !isBusy));
 	const canCopy = $derived(Boolean(transcription?.text && status === 'done'));
 	const className = $derived(props.class ?? '');
 	const actionLabel = $derived(
 		isRecording ? (props.stopLabel ?? 'Stop') : (props.recordLabel ?? 'Record')
 	);
-	const copyLabel = $derived(copied ? (props.copiedLabel ?? 'Copied') : (props.copyLabel ?? 'Copy'));
+	const copyLabel = $derived(
+		copied ? (props.copiedLabel ?? 'Copied') : (props.copyLabel ?? 'Copy')
+	);
 	const statusLabel = $derived.by(() => {
 		if (!isSupported) return 'Recording is not supported in this browser';
 		if (status === 'recording') return 'Recording audio';

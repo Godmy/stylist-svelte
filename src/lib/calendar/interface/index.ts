@@ -14,8 +14,4 @@ export type {
 	RecipeTimeSlot,
 	RecipeTimeline
 } from './recipe';
-export type {
-	SlotCalendarDay,
-	SlotCalendarEvent,
-	SlotDatePicker
-} from './slot';
+export type { SlotCalendarDay, SlotCalendarEvent, SlotDatePicker } from './slot';

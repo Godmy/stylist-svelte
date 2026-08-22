@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	AnnouncementBanner,
-	PromoBanner
-} from './atom';
+export { AnnouncementBanner, PromoBanner } from './atom';
 export {
 	ConversionFunnel,
 	CtaBanner,

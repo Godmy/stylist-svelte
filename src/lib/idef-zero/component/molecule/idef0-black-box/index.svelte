@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeIdef0BlackBox } from '$stylist/idef-zero/interface/recipe/idef0-black-box';
 	import createIdef0BlackBoxState from './state.svelte';
 	import Idef0FunctionBox from '$stylist/idef-zero/component/atom/idef0-function-box/index.svelte';

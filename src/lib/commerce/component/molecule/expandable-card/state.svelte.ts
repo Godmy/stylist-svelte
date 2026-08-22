@@ -2,7 +2,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeExpandableCard as RecipeExpandableCard } from '$stylist/commerce/interface/recipe/expandable-card';
 import { ObjectManagerExpandableCard } from '$stylist/commerce/class/manager/expandable-card';
 
-export function createExpandableCardState(props: RecipeExpandableCard & HTMLAttributes<HTMLDivElement>) {
+export function createExpandableCardState(
+	props: RecipeExpandableCard & HTMLAttributes<HTMLDivElement>
+) {
 	let isExpanded = $state(props.defaultExpanded ?? false);
 	const baseClasses = $derived('expandable-card__base');
 	const themedClasses = $derived('expandable-card__themed');

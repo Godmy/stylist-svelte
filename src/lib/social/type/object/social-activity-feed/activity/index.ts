@@ -4,19 +4,19 @@ export type Activity = {
 	id: string;
 	type: ActivityType;
 	actor: {
-	id: string;
-	name: string;
-	username?: string;
-	avatar?: string;
-	isVerified?: boolean;
-};
+		id: string;
+		name: string;
+		username?: string;
+		avatar?: string;
+		isVerified?: boolean;
+	};
 	target?: {
-	id: string;
-	name: string;
-	username?: string;
-	avatar?: string;
-	isVerified?: boolean;
-};
+		id: string;
+		name: string;
+		username?: string;
+		avatar?: string;
+		isVerified?: boolean;
+	};
 	subject?: string;
 	content?: string;
 	timestamp: Date;

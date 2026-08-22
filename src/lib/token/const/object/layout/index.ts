@@ -24,27 +24,147 @@ import { SPLIT_LAYOUT_GAP } from '$stylist/layout/const/array/split-layout-gap';
 import { TOKEN_STACK_DIRECTION } from '$stylist/layout/const/array/stack-direction';
 
 export const TOKEN_LAYOUT_SETTING = [
-	{ key: 'alignment', label: 'Alignment', domain: 'layout', controlKind: 'radio', values: TOKEN_ALIGNMENT },
-	{ key: 'background', label: 'Background', domain: 'layout', controlKind: 'radio', values: TOKEN_BACKGROUND },
-	{ key: 'border-style', label: 'Border Style', domain: 'layout', controlKind: 'radio', values: TOKEN_BORDER_STYLE },
-	{ key: 'breakpoint', label: 'Breakpoint', domain: 'layout', controlKind: 'radio', values: TOKEN_BREAKPOINT },
-	{ key: 'centered-layout-axis', label: 'Centered Layout Axis', domain: 'layout', controlKind: 'radio', values: CENTERED_LAYOUT_AXIS },
+	{
+		key: 'alignment',
+		label: 'Alignment',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_ALIGNMENT
+	},
+	{
+		key: 'background',
+		label: 'Background',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_BACKGROUND
+	},
+	{
+		key: 'border-style',
+		label: 'Border Style',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_BORDER_STYLE
+	},
+	{
+		key: 'breakpoint',
+		label: 'Breakpoint',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_BREAKPOINT
+	},
+	{
+		key: 'centered-layout-axis',
+		label: 'Centered Layout Axis',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: CENTERED_LAYOUT_AXIS
+	},
 	{ key: 'column', label: 'Column', domain: 'layout', controlKind: 'radio', values: TOKEN_COLUMN },
-	{ key: 'container-query-type', label: 'Container Query Type', domain: 'layout', controlKind: 'radio', values: CONTAINER_QUERY_TYPE },
-	{ key: 'density', label: 'Density', domain: 'layout', controlKind: 'radio', values: TOKEN_DENSITY },
-	{ key: 'gradient-direction', label: 'Gradient Direction', domain: 'layout', controlKind: 'radio', values: GRADIENT_DIRECTION },
-	{ key: 'gradient-mode', label: 'Gradient Mode', domain: 'layout', controlKind: 'radio', values: TOKEN_GRADIENT },
-	{ key: 'grid-molecule-justify', label: 'Grid Molecule Justify', domain: 'layout', controlKind: 'radio', values: GRID_MOLECULE_JUSTIFY },
-	{ key: 'image-filter', label: 'Image Filter', domain: 'layout', controlKind: 'radio', values: TOKEN_IMAGE_FILTER },
-	{ key: 'item-layout-gravity', label: 'Item Layout Gravity', domain: 'layout', controlKind: 'radio', values: ITEM_LAYOUT_GRAVITY },
-	{ key: 'item-layout-level', label: 'Item Layout Level', domain: 'layout', controlKind: 'radio', values: ITEM_LAYOUT_LEVEL },
-	{ key: 'item-layout-shape', label: 'Item Layout Shape', domain: 'layout', controlKind: 'radio', values: ITEM_LAYOUT_SHAPE },
-	{ key: 'justification', label: 'Justification', domain: 'layout', controlKind: 'radio', values: TOKEN_JUSTIFICATION },
-	{ key: 'orientation', label: 'Orientation', domain: 'layout', controlKind: 'radio', values: TOKEN_ORIENTATION },
+	{
+		key: 'container-query-type',
+		label: 'Container Query Type',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: CONTAINER_QUERY_TYPE
+	},
+	{
+		key: 'density',
+		label: 'Density',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_DENSITY
+	},
+	{
+		key: 'gradient-direction',
+		label: 'Gradient Direction',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: GRADIENT_DIRECTION
+	},
+	{
+		key: 'gradient-mode',
+		label: 'Gradient Mode',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_GRADIENT
+	},
+	{
+		key: 'grid-molecule-justify',
+		label: 'Grid Molecule Justify',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: GRID_MOLECULE_JUSTIFY
+	},
+	{
+		key: 'image-filter',
+		label: 'Image Filter',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_IMAGE_FILTER
+	},
+	{
+		key: 'item-layout-gravity',
+		label: 'Item Layout Gravity',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: ITEM_LAYOUT_GRAVITY
+	},
+	{
+		key: 'item-layout-level',
+		label: 'Item Layout Level',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: ITEM_LAYOUT_LEVEL
+	},
+	{
+		key: 'item-layout-shape',
+		label: 'Item Layout Shape',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: ITEM_LAYOUT_SHAPE
+	},
+	{
+		key: 'justification',
+		label: 'Justification',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_JUSTIFICATION
+	},
+	{
+		key: 'orientation',
+		label: 'Orientation',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_ORIENTATION
+	},
 	{ key: 'shape', label: 'Shape', domain: 'layout', controlKind: 'radio', values: TOKEN_SHAPE },
 	{ key: 'size', label: 'Size', domain: 'layout', controlKind: 'radio', values: TOKEN_SIZE },
-	{ key: 'size-px', label: 'Size Px', domain: 'layout', controlKind: 'radio', values: TOKEN_SIZE_PX },
-	{ key: 'size-rem', label: 'Size Rem', domain: 'layout', controlKind: 'radio', values: TOKEN_SIZE_REM },
-	{ key: 'split-layout-gap', label: 'Split Layout Gap', domain: 'layout', controlKind: 'radio', values: SPLIT_LAYOUT_GAP },
-	{ key: 'stack-direction', label: 'Stack Direction', domain: 'layout', controlKind: 'radio', values: TOKEN_STACK_DIRECTION }
+	{
+		key: 'size-px',
+		label: 'Size Px',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_SIZE_PX
+	},
+	{
+		key: 'size-rem',
+		label: 'Size Rem',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_SIZE_REM
+	},
+	{
+		key: 'split-layout-gap',
+		label: 'Split Layout Gap',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: SPLIT_LAYOUT_GAP
+	},
+	{
+		key: 'stack-direction',
+		label: 'Stack Direction',
+		domain: 'layout',
+		controlKind: 'radio',
+		values: TOKEN_STACK_DIRECTION
+	}
 ] satisfies readonly Token[];

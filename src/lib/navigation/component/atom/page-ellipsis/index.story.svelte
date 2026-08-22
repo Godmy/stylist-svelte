@@ -3,9 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import PageEllipsis from './index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'class', type: 'text', defaultValue: '' }
-	];
+	const controls: SlotStory[] = [{ name: 'class', type: 'text', defaultValue: '' }];
 </script>
 
 <Story

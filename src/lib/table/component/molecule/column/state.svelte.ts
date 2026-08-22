@@ -3,9 +3,7 @@ import { PresetCellHeader } from '$stylist/table/const/preset/cell-header';
 
 export function createColumnState(props: RecipeColumn) {
 	const key = $derived(String(props.schema.key));
-	const isCurrentSort = $derived(
-		props.schema.sortable === true && props.currentSortKey === key
-	);
+	const isCurrentSort = $derived(props.schema.sortable === true && props.currentSortKey === key);
 	const sortDirection = $derived(isCurrentSort ? (props.currentSortDirection ?? 'none') : 'none');
 	const sortIcon = $derived(
 		isCurrentSort && sortDirection !== 'none'
@@ -20,10 +18,18 @@ export function createColumnState(props: RecipeColumn) {
 	}
 
 	return {
-		get key() { return key; },
-		get isCurrentSort() { return isCurrentSort; },
-		get sortDirection() { return sortDirection; },
-		get sortIcon() { return sortIcon; },
+		get key() {
+			return key;
+		},
+		get isCurrentSort() {
+			return isCurrentSort;
+		},
+		get sortDirection() {
+			return sortDirection;
+		},
+		get sortIcon() {
+			return sortIcon;
+		},
 		handleSort
 	};
 }

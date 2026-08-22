@@ -23,7 +23,9 @@ export function createStatsCardState(props: RecipeStatsCard & HTMLAttributes<HTM
 	const valueClasses = $derived('c-stats-card__value');
 	const iconWrapperClasses = $derived('c-stats-card__icon-wrap');
 	const footerClasses = $derived('c-stats-card__footer');
-	const trendContainerClasses = $derived(ClassNamesManager.merge('c-stats-card__trend', trendClasses));
+	const trendContainerClasses = $derived(
+		ClassNamesManager.merge('c-stats-card__trend', trendClasses)
+	);
 	const trendIconClasses = $derived('c-stats-card__trend-icon');
 	const descriptionClasses = $derived('c-stats-card__description');
 

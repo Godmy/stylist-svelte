@@ -315,5 +315,4 @@
 		outline-offset: 2px;
 		box-shadow: 0 0 0 3px var(--color-primary-500);
 	}
-
 </style>

@@ -3,9 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import RecipeEnhancedExportPanel from './index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'componentName', type: 'text', defaultValue: 'Button' }
-	];
+	const controls: SlotStory[] = [{ name: 'componentName', type: 'text', defaultValue: 'Button' }];
 </script>
 
 <Story

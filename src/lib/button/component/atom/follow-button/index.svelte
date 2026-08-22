@@ -21,11 +21,7 @@
 >
 	{#if state.isPending}
 		<div class="c-follow-button__inner">
-			<BaseIcon
-				name="loader-2"
-				class="c-follow-button__loader"
-				size={16}
-			/>
+			<BaseIcon name="loader-2" class="c-follow-button__loader" size={16} />
 			{#if state.showText}
 				<span>{state.isFollowing ? 'Unfollowing...' : 'Following...'}</span>
 			{/if}
@@ -33,17 +29,9 @@
 	{:else}
 		<div class="c-follow-button__inner">
 			{#if state.isFollowing}
-				<BaseIcon
-					name="check"
-					class="c-follow-button__icon"
-					size={16}
-				/>
+				<BaseIcon name="check" class="c-follow-button__icon" size={16} />
 			{:else}
-				<BaseIcon
-					name="user-plus"
-					class="c-follow-button__icon"
-					size={16}
-				/>
+				<BaseIcon name="user-plus" class="c-follow-button__icon" size={16} />
 			{/if}
 			{#if state.showText}
 				<span>{state.text}</span>

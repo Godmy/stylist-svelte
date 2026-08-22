@@ -22,7 +22,6 @@ export interface RecipeTooltip
 			SlotTheme
 		]
 	> {
-
 	content: string | Snippet;
 	placement?: TokenAlignment;
 	trigger?: TokenTrigger;

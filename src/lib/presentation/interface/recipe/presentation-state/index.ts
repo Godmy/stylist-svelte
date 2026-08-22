@@ -13,4 +13,3 @@ export interface RecipePresentationState extends ComputeIntersectAll<[]> {
 	}[];
 	isPlaying: boolean;
 }
-

@@ -6,14 +6,14 @@ export function createAiPanelState(props: RecipeAiPanel & HTMLAttributes<HTMLDiv
 	const ChevronDown = 'chevron-down';
 
 	const aiProviders: {
-	id: string;
-	name: string;
-	options: {
-	id: string;
-	label: string;
-	action?: () => void;
-}[];
-}[] = [
+		id: string;
+		name: string;
+		options: {
+			id: string;
+			label: string;
+			action?: () => void;
+		}[];
+	}[] = [
 		{
 			id: 'claude',
 			name: 'CLAUDE',

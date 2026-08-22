@@ -33,4 +33,3 @@ export function createDeviceFrameState(props: RecipeDeviceFrame & HTMLAttributes
 		}
 	};
 }
-

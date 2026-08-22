@@ -6,12 +6,5 @@ import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotSearchBar } from '$stylist/search/interface/slot/search-bar';
 export interface RecipeSearchBar
 	extends ComputeIntersectAll<
-		[
-			SlotSearchBar,
-			SlotText,
-			SlotText,
-			SlotIcon,
-			BehaviorFocusable,
-			BehaviorSizable
-		]
+		[SlotSearchBar, SlotText, SlotText, SlotIcon, BehaviorFocusable, BehaviorSizable]
 	> {}

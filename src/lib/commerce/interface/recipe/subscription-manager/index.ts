@@ -2,8 +2,7 @@ import type { SubscriptionStatus } from '$stylist/commerce/type/alias/subscripti
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-export interface RecipeSubscriptionManager
-	extends ComputeIntersectAll<[SlotTheme, SlotText]> {
+export interface RecipeSubscriptionManager extends ComputeIntersectAll<[SlotTheme, SlotText]> {
 	onUpgrade?: () => void;
 	onDowngrade?: () => void;
 	onCancel?: () => void;
@@ -12,24 +11,24 @@ export interface RecipeSubscriptionManager
 	onBillingChange?: () => void;
 	onPaymentMethodChange?: () => void;
 
-	subscription: ({
-id: string;
-	plan: ({
-id: string;
-	name: string;
-	description: string;
-	price: number;
-	period: string;
-	currency: string;
-	features: string[];
-});
-	startDate: Date;
-	endDate?: Date;
-	nextBillingDate?: Date;
-	status: SubscriptionStatus;
-	paymentMethod?: string;
-	autoRenew: boolean;
-});
+	subscription: {
+		id: string;
+		plan: {
+			id: string;
+			name: string;
+			description: string;
+			price: number;
+			period: string;
+			currency: string;
+			features: string[];
+		};
+		startDate: Date;
+		endDate?: Date;
+		nextBillingDate?: Date;
+		status: SubscriptionStatus;
+		paymentMethod?: string;
+		autoRenew: boolean;
+	};
 
 	showActions?: boolean;
 

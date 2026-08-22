@@ -78,11 +78,11 @@ export function createCheckoutFormState(props: Props) {
 		type: 'credit_card'
 	});
 	let cardInfo = $state<{
-	number: string;
-	expiry: string;
-	cvv: string;
-	name: string;
-}>({
+		number: string;
+		expiry: string;
+		cvv: string;
+		name: string;
+	}>({
 		number: '',
 		expiry: '',
 		cvv: '',
@@ -199,12 +199,15 @@ export function createCheckoutFormState(props: Props) {
 		}
 	}
 
-	function handleCardChange(field: keyof {
-	number: string;
-	expiry: string;
-	cvv: string;
-	name: string;
-}, value: string): void {
+	function handleCardChange(
+		field: keyof {
+			number: string;
+			expiry: string;
+			cvv: string;
+			name: string;
+		},
+		value: string
+	): void {
 		cardInfo = { ...cardInfo, [field]: value };
 	}
 

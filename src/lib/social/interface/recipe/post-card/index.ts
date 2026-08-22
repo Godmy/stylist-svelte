@@ -8,15 +8,7 @@ import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotImage } from '$stylist/image/interface/slot/image';
 export interface RecipePostCard
 	extends ComputeIntersectAll<
-		[
-			SlotTheme,
-			SlotText,
-			SlotImage,
-			SlotBadge,
-			SlotIcon,
-			SlotChildren,
-			HTMLAttributes<HTMLElement>
-		]
+		[SlotTheme, SlotText, SlotImage, SlotBadge, SlotIcon, SlotChildren, HTMLAttributes<HTMLElement>]
 	> {
 	title?: string;
 	subtitle?: string;
@@ -26,7 +18,7 @@ export interface RecipePostCard
 	author?: string;
 	tags?: string[];
 	actions?: {
-label: string;
-	onClick?: () => void;
-}[];
+		label: string;
+		onClick?: () => void;
+	}[];
 }

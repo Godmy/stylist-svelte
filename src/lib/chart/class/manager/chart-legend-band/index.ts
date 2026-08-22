@@ -88,7 +88,8 @@ export class ManagerChartLegendBand {
 		const plotWidth = Math.max(1, plotRight - plotX);
 		const step = plotWidth / Math.max(1, items.length);
 		const bandWidth =
-			options.bandWidth ?? Math.max(14, Math.min(32, (plotWidth / Math.max(1, items.length)) * 0.58));
+			options.bandWidth ??
+			Math.max(14, Math.min(32, (plotWidth / Math.max(1, items.length)) * 0.58));
 		const minBandHeight = options.minBandHeight ?? 8;
 		const fontSize = options.fontSize ?? 11;
 		const labelHeight = 24;
@@ -132,7 +133,10 @@ export class ManagerChartLegendBand {
 			};
 		});
 		const minValue = options.minValue ?? 0;
-		const maxValue = Math.max(minValue + 1, options.maxValue ?? Math.max(1, ...preparedItems.map((item) => item.value)));
+		const maxValue = Math.max(
+			minValue + 1,
+			options.maxValue ?? Math.max(1, ...preparedItems.map((item) => item.value))
+		);
 		const ticks = Array.from({ length: tickCount + 1 }, (_, index) => {
 			const ratio = index / tickCount;
 			const value = minValue + (maxValue - minValue) * ratio;
@@ -159,7 +163,8 @@ export class ManagerChartLegendBand {
 				const centerX = plotX + step * index + step / 2;
 				const valueRatio = (item.value - minValue) / (maxValue - minValue);
 				const bandHeight = Math.max(minBandHeight, Math.max(0, valueRatio) * (plotHeight - 12));
-				const rawLabelWidth = ManagerChartLegendBar.measureTextWidth(item.text, fontSize) + labelPaddingX;
+				const rawLabelWidth =
+					ManagerChartLegendBar.measureTextWidth(item.text, fontSize) + labelPaddingX;
 				const labelWidth = Math.max(54, Math.min(150, rawLabelWidth));
 				const baseLabelX = Math.max(4, Math.min(width - labelWidth - 4, centerX - labelWidth / 2));
 				const leftmostConnectorX = Math.max(4, centerX - labelWidth + connectorInset);
@@ -169,13 +174,20 @@ export class ManagerChartLegendBand {
 					...Array.from(
 						{ length: Math.max(1, Math.floor((baseLabelX - leftmostConnectorX) / shiftStep) + 1) },
 						(_, candidateIndex) => baseLabelX - (candidateIndex + 1) * shiftStep
-					).filter((candidateX) => candidateX >= leftmostConnectorX).sort((left, right) => left - right),
+					)
+						.filter((candidateX) => candidateX >= leftmostConnectorX)
+						.sort((left, right) => left - right),
 					baseLabelX,
 					...Array.from(
 						{ length: Math.max(1, Math.floor((rightmostConnectorX - baseLabelX) / shiftStep) + 1) },
 						(_, candidateIndex) => baseLabelX + (candidateIndex + 1) * shiftStep
-					).filter((candidateX) => candidateX <= rightmostConnectorX).sort((left, right) => left - right)
-				].filter((candidateX, candidateIndex, allCandidates) => allCandidates.indexOf(candidateX) === candidateIndex);
+					)
+						.filter((candidateX) => candidateX <= rightmostConnectorX)
+						.sort((left, right) => left - right)
+				].filter(
+					(candidateX, candidateIndex, allCandidates) =>
+						allCandidates.indexOf(candidateX) === candidateIndex
+				);
 				let selected = {
 					labelX: baseLabelX,
 					labelY: axisY + connectorGap,
@@ -191,7 +203,11 @@ export class ManagerChartLegendBand {
 							laneRightEdges[lane] !== undefined && candidateX < laneRightEdges[lane] + 8;
 
 						if (overlapsLane) continue;
-						if (centerX < candidateX + connectorInset || centerX > candidateX + labelWidth - connectorInset) continue;
+						if (
+							centerX < candidateX + connectorInset ||
+							centerX > candidateX + labelWidth - connectorInset
+						)
+							continue;
 
 						const score = lane * 80 + (candidateX > baseLabelX ? 500 : 0) + candidateX * 0.01;
 

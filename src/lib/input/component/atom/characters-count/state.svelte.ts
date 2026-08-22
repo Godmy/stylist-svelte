@@ -24,7 +24,11 @@ export const createCharactersCountState = (props: ICharacterCountProps) => {
 			return message;
 		},
 		get classes() {
-			return ['characters-count', state.colorClass, typeof props.class === 'string' ? props.class : '']
+			return [
+				'characters-count',
+				state.colorClass,
+				typeof props.class === 'string' ? props.class : ''
+			]
 				.filter(Boolean)
 				.join(' ');
 		}

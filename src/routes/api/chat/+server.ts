@@ -4,9 +4,11 @@ import type { RequestHandler } from './$types';
 // SSR-only: dev-стенд stylist-svelte бьёт в Ollama напрямую,
 // т.к. gateway-local не проброшен на хост (только gateway-whisper и ollama проброшены).
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'qwen2.5-coder:1.5b';
-const OLLAMA_URLS = [process.env.OLLAMA_URL, 'http://ollama:11434', 'http://localhost:11434'].filter(
-	(url): url is string => Boolean(url)
-);
+const OLLAMA_URLS = [
+	process.env.OLLAMA_URL,
+	'http://ollama:11434',
+	'http://localhost:11434'
+].filter((url): url is string => Boolean(url));
 
 export const POST: RequestHandler = async ({ request }) => {
 	const { text, systemMessage, context } = await request.json();

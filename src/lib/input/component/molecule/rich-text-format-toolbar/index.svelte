@@ -137,7 +137,10 @@
 			onclick={() => onFormatText?.('bold')}
 			title="Bold"
 		>
-			<BaseIcon name="bold" class={`${iconClass ? `${iconClass} ` : ''}rich-text-format-toolbar__icon`} />
+			<BaseIcon
+				name="bold"
+				class={`${iconClass ? `${iconClass} ` : ''}rich-text-format-toolbar__icon`}
+			/>
 		</button>
 		<button
 			type="button"
@@ -234,7 +237,10 @@
 			onclick={() => onFormatText?.('insertUnorderedList')}
 			title="Bullet list"
 		>
-			<BaseIcon name="list" class={`${iconClass ? `${iconClass} ` : ''}rich-text-format-toolbar__icon`} />
+			<BaseIcon
+				name="list"
+				class={`${iconClass ? `${iconClass} ` : ''}rich-text-format-toolbar__icon`}
+			/>
 		</button>
 		<button
 			type="button"
@@ -264,7 +270,10 @@
 			onclick={() => onToggleLinkInput?.()}
 			title="Link"
 		>
-			<BaseIcon name="link" class={`${iconClass ? `${iconClass} ` : ''}rich-text-format-toolbar__icon`} />
+			<BaseIcon
+				name="link"
+				class={`${iconClass ? `${iconClass} ` : ''}rich-text-format-toolbar__icon`}
+			/>
 		</button>
 		<button
 			type="button"
@@ -280,7 +289,9 @@
 	</div>
 
 	{#if showLinkInput}
-		<div class={`${linkInputClass ? `${linkInputClass} ` : ''}rich-text-format-toolbar__link-popover`}>
+		<div
+			class={`${linkInputClass ? `${linkInputClass} ` : ''}rich-text-format-toolbar__link-popover`}
+		>
 			<input
 				type="text"
 				class={`${linkInputFieldClass ? `${linkInputFieldClass} ` : ''}rich-text-format-toolbar__link-input`}

@@ -3,4 +3,4 @@ import type { FoundationSemanticZoomStage } from '$stylist/presentation/type/ali
 export type FoundationDepthThreshold = {
 	stage: FoundationSemanticZoomStage;
 	maxDistance: number;
-}
+};

@@ -19,8 +19,8 @@ export interface RecipeArticleCard
 	title?: string;
 	subtitle?: string;
 	image?: string;
-	actions?: ({
-label: string;
-	onClick?: () => void;
-})[];
+	actions?: {
+		label: string;
+		onClick?: () => void;
+	}[];
 }

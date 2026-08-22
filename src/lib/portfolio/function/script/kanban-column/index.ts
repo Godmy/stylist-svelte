@@ -7,9 +7,9 @@ export function parseDragPayload(e: DragEvent): {
 
 	try {
 		const payload = JSON.parse(raw) as Partial<{
-	cardId: string;
-	fromColumnId: string;
-}>;
+			cardId: string;
+			fromColumnId: string;
+		}>;
 		if (!payload.cardId || !payload.fromColumnId) return null;
 		return { cardId: payload.cardId, fromColumnId: payload.fromColumnId };
 	} catch {

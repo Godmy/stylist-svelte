@@ -6,7 +6,9 @@ function resolveClassName(className: unknown): string | undefined {
 }
 
 export function createChartAxisZState(props: RecipeChartAxisZ) {
-	const axisClasses = $derived(ClassNamesManager.merge('c-chart-axis', resolveClassName(props.class)));
+	const axisClasses = $derived(
+		ClassNamesManager.merge('c-chart-axis', resolveClassName(props.class))
+	);
 	const gridClasses = $derived('c-chart-axis__grid');
 	const labelClasses = $derived('c-chart-axis__label');
 

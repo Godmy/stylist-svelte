@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeComparisonCard } from '$stylist/product/interface/recipe/comparison-card';
 	import { createComparisonCardState } from './state.svelte';
 

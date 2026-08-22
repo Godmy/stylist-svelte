@@ -24,7 +24,7 @@
 <Story title="LegendBandDiagram" description="Component composition bands by domain." {controls}>
 	{#snippet children(values: any)}
 		<LegendBandDiagram
-			items={items}
+			{items}
 			width={values.width}
 			plotHeight={values.plotHeight}
 			labelAreaHeight={values.labelAreaHeight}

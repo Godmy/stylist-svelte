@@ -95,7 +95,10 @@
 	}
 	.node-port:hover .node-port__hit-area {
 		opacity: 0.1;
-		background: var(--color-graph-port-state-hovered, var(--node-port-color, var(--color-border-secondary)));
+		background: var(
+			--color-graph-port-state-hovered,
+			var(--node-port-color, var(--color-border-secondary))
+		);
 	}
 	.node-port__circle {
 		position: relative;
@@ -126,8 +129,15 @@
 		animation: node-port-pulse 1500ms ease-in-out infinite;
 	}
 	@keyframes node-port-pulse {
-		0%, 100% { transform: scale(1); opacity: 1; }
-		50% { transform: scale(1.3); opacity: 0.8; }
+		0%,
+		100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+		50% {
+			transform: scale(1.3);
+			opacity: 0.8;
+		}
 	}
 	.node-port__label {
 		position: relative;
@@ -138,8 +148,12 @@
 		pointer-events: none;
 		z-index: 1;
 	}
-	.node-port[data-port-direction='input'] .node-port__label { margin-left: 0.75rem; }
-	.node-port[data-port-direction='output'] .node-port__label { margin-right: 0.75rem; }
+	.node-port[data-port-direction='input'] .node-port__label {
+		margin-left: 0.75rem;
+	}
+	.node-port[data-port-direction='output'] .node-port__label {
+		margin-right: 0.75rem;
+	}
 	.node-port__icon {
 		display: inline-flex;
 		align-items: center;
@@ -147,12 +161,34 @@
 		color: inherit;
 		z-index: 1;
 	}
-	.node-port--xs { --port-size: 8px; --hit-area-size: 16px; }
-	.node-port--sm { --port-size: 10px; --hit-area-size: 20px; }
-	.node-port--md { --port-size: 12px; --hit-area-size: 24px; }
-	.node-port--lg { --port-size: 16px; --hit-area-size: 32px; }
-	.node-port[data-port-direction='input'] { left: -6px; transform: translate(-100%, -50%); }
-	.node-port[data-port-direction='output'] { right: -6px; transform: translate(100%, -50%); }
-	.node-port[data-port-direction='input']:hover { transform: translate(-100%, -50%) scale(1.1); }
-	.node-port[data-port-direction='output']:hover { transform: translate(100%, -50%) scale(1.1); }
+	.node-port--xs {
+		--port-size: 8px;
+		--hit-area-size: 16px;
+	}
+	.node-port--sm {
+		--port-size: 10px;
+		--hit-area-size: 20px;
+	}
+	.node-port--md {
+		--port-size: 12px;
+		--hit-area-size: 24px;
+	}
+	.node-port--lg {
+		--port-size: 16px;
+		--hit-area-size: 32px;
+	}
+	.node-port[data-port-direction='input'] {
+		left: -6px;
+		transform: translate(-100%, -50%);
+	}
+	.node-port[data-port-direction='output'] {
+		right: -6px;
+		transform: translate(100%, -50%);
+	}
+	.node-port[data-port-direction='input']:hover {
+		transform: translate(-100%, -50%) scale(1.1);
+	}
+	.node-port[data-port-direction='output']:hover {
+		transform: translate(100%, -50%) scale(1.1);
+	}
 </style>

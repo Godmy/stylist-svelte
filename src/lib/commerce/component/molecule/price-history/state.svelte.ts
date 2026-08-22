@@ -1,7 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipePriceHistory } from '$stylist/commerce/interface/recipe/price-history';
 
-export function createPriceHistoryState(props: RecipePriceHistory & HTMLAttributes<HTMLDivElement>) {
+export function createPriceHistoryState(
+	props: RecipePriceHistory & HTMLAttributes<HTMLDivElement>
+) {
 	const chartHeight = 200;
 	const chartWidth = 400;
 

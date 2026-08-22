@@ -3,7 +3,8 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { TOKEN_ALIGNMENT } from '$stylist/layout/const/array/alignment';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeDrawer extends ComputeIntersectAll<
+export interface RecipeDrawer
+	extends ComputeIntersectAll<
 		[
 			HTMLAttributes<HTMLDivElement> & {
 				open?: boolean;

@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipePriceHistory } from '$stylist/commerce/interface/recipe/price-history';
 	import { createPriceHistoryState } from './state.svelte';
 

@@ -6,4 +6,3 @@ export interface SlotCanvasToolbarDrawingOptions {
 	tool: CanvasToolbarDrawingTool;
 	mode: 'draw' | 'erase';
 }
-

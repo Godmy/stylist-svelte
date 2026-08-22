@@ -3,8 +3,11 @@ import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
 
-export interface RecipeTrafficAnalytics extends HTMLAttributes<HTMLDivElement>, SlotThemeBorder, SlotTypography {
-title?: string;
+export interface RecipeTrafficAnalytics
+	extends HTMLAttributes<HTMLDivElement>,
+		SlotThemeBorder,
+		SlotTypography {
+	title?: string;
 	subtitle?: string;
 	totalVisitors: number;
 	uniqueVisitors: number;
@@ -12,16 +15,16 @@ title?: string;
 	timeOnPage: string;
 	bounceRate: number;
 	trafficSources: {
-	id: string;
-	name: string;
-	value: number;
-	percentage: number;
-	color: string;
-}[];
+		id: string;
+		name: string;
+		value: number;
+		percentage: number;
+		color: string;
+	}[];
 	trafficData: {
-	date: Date;
-	value: number;
-}[];
+		date: Date;
+		value: number;
+	}[];
 	timeRange?: TokenTimeRange;
 	onTimeRangeChange?: (range: TokenTimeRange) => void;
 	class?: string;

@@ -42,7 +42,9 @@ export function createMinimapState(props: RecipeMinimap) {
 		return rest;
 	});
 	const bounds = $derived(MinimapManager.resolveBounds(nodes));
-	const viewport = $derived(MinimapManager.resolveViewport(offset, zoom, width, height, miniMapZoom));
+	const viewport = $derived(
+		MinimapManager.resolveViewport(offset, zoom, width, height, miniMapZoom)
+	);
 
 	function handleMapClick(event: MouseEvent): void {
 		if (!props.onOffsetChange) return;

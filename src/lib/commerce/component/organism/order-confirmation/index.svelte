@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeOrderConfirmation } from '$stylist/commerce/interface/recipe/order-confirmation';
 	import { PresetOrderConfirmation } from '$stylist/commerce/const/preset/order-confirmation';
 	import { createOrderConfirmationState } from './state.svelte';

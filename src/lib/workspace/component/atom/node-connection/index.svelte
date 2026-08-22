@@ -32,7 +32,7 @@
 		stroke={state.styles.stroke}
 		stroke-width={state.styles['stroke-width']}
 		stroke-linecap="round"
-		{...(state.showArrow ? { 'marker-end': `url(#arrow-${props.id})` } : {})}
+		{...state.showArrow ? { 'marker-end': `url(#arrow-${props.id})` } : {}}
 	>
 		{#if state.animated}
 			<animate

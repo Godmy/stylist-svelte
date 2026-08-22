@@ -8,7 +8,9 @@
 </script>
 
 <th
-	class="c-column {props.schema.sortable ? 'c-column--sortable' : ''} {state.isCurrentSort ? 'c-column--sorted' : ''}"
+	class="c-column {props.schema.sortable ? 'c-column--sortable' : ''} {state.isCurrentSort
+		? 'c-column--sorted'
+		: ''}"
 	style={props.schema.width ? `width:${props.schema.width}px` : undefined}
 	data-sort={state.sortDirection !== 'none' ? state.sortDirection : undefined}
 	onclick={state.handleSort}

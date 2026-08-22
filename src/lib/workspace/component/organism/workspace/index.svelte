@@ -24,124 +24,130 @@
 
 <div bind:this={state.editorRef} class={`workspace ${props.class ?? ''}`} {...state.restProps}>
 	<div class="workspace__body">
-	<div class="workspace__main">
-		{#if props.showToolbar ?? true}
-			<div class="workspace__toolbar">
-				<WorkspaceToolbar
-					id="workspace-toolbar"
-					items={state.toolbarItems}
-					orientation="horizontal"
-					size="sm"
-					onItemClick={state.handleToolbarItemClick}
-				>
-					{#if props.toolbarContent}
-						{@render props.toolbarContent()}
-					{/if}
-				</WorkspaceToolbar>
-			</div>
-		{/if}
-
-		<div class="workspace__canvas-container" bind:this={state.canvasHostRef}>
-			<WorkspaceCanvas
-				width={state.canvasSize.width}
-				height={state.canvasSize.height}
-				zoom={state.internalZoom}
-				minZoom={0.1}
-				maxZoom={3}
-				offsetX={state.internalOffset.x}
-				offsetY={state.internalOffset.y}
-				gridMode={state.effectiveGridMode}
-				gridColor={state.isGridVisible ? undefined : 'transparent'}
-				panMode={state.effectivePanMode}
-				snapToGrid={true}
-				onzoomchange={state.updateZoom}
-				onoffsetchange={state.updateOffset}
-				oncanvasclick={state.handleCanvasClick}
-				class="workspace__canvas"
-			>
-				<svg class="workspace__connections" style="overflow: visible;">
-					{#each props.connections ?? [] as connection}
-						<NodeConnection
-							id={connection.id}
-							startX={connection.startX ?? 0}
-							startY={connection.startY ?? 0}
-							endX={connection.endX ?? 0}
-							endY={connection.endY ?? 0}
-							type={connection.type}
-							color={connection.color}
-							active={connection.active}
-							onclick={connection.onclick}
-						/>
-					{/each}
-					{#if state.isConnecting && state.connectionStartPosition && state.connectionCurrentPosition}
-						<NodeConnection
-							id="connection-dragging"
-							startX={state.connectionStartPosition.x}
-							startY={state.connectionStartPosition.y}
-							endX={state.connectionCurrentPosition.x}
-							endY={state.connectionCurrentPosition.y}
-							type="bezier"
-							color="var(--color-primary-500)"
-							active={true}
-							showArrow={false}
-							animated={true}
-						/>
-					{/if}
-				</svg>
-
-				{#each props.nodes ?? [] as node}
-					<WorkspaceNode
-						id={node.id}
-						title={node.title}
-						type={node.type as 'default' | 'custom' | 'source' | 'processor' | 'output' | 'gateway'}
-						x={node.x ?? 0}
-						y={node.y ?? 0}
-						canvasZoom={state.internalZoom}
-						color={node.color}
-						selected={(props.selectedNodeIds ?? []).includes(node.id ?? '')}
-						inputs={node.inputs ? [...node.inputs] : undefined}
-						outputs={node.outputs ? [...node.outputs] : undefined}
-						properties={node.properties ? [...node.properties] : undefined}
-						draggable={true}
-						selectable={true}
-						deletable={props.allowDeleteNodes ?? true}
-						duplicable={props.allowDuplicateNodes ?? true}
-						onNodeSelect={(nodeId) => state.handleNodeSelect(nodeId ?? '')}
-						onNodeDrag={(nodeId, position) => state.handleNodeDrag(nodeId ?? '', position)}
-						ondelete={(nodeId) => state.handleNodeDelete(nodeId ?? '')}
-						onduplicate={(nodeId) => state.handleNodeDuplicate(nodeId ?? '')}
-						onConnectionStart={state.handlePortConnectionStart}
-						onConnectionEnd={state.handlePortConnectionEnd}
-					/>
-				{/each}
-
-				{#if props.children}{@render props.children()}{/if}
-			</WorkspaceCanvas>
-
-			{#if props.showMiniMap ?? false}
-				<div class="workspace__minimap" style="width: 220px; height: 150px;">
-					<Minimap />
+		<div class="workspace__main">
+			{#if props.showToolbar ?? true}
+				<div class="workspace__toolbar">
+					<WorkspaceToolbar
+						id="workspace-toolbar"
+						items={state.toolbarItems}
+						orientation="horizontal"
+						size="sm"
+						onItemClick={state.handleToolbarItemClick}
+					>
+						{#if props.toolbarContent}
+							{@render props.toolbarContent()}
+						{/if}
+					</WorkspaceToolbar>
 				</div>
 			{/if}
-		</div>
-	</div>
 
-	{#if (props.showPropertiesPanel ?? true) && state.isPropertiesPanelOpen && state.selectedNode}
-		<aside class="workspace__properties">
-			<NodeProperties
-				id="properties-panel"
-				nodeId={state.selectedNode.id}
-				title="Node Properties"
-				properties={state.selectedNode.properties ?? []}
-				size="md"
-				editable={true}
-				showHeader={true}
-				showClose={true}
-				onPropertyChange={state.handlePropertyChange}
-				onclose={() => (state.isPropertiesPanelOpen = false)}
-			/>
-		</aside>
-	{/if}
+			<div class="workspace__canvas-container" bind:this={state.canvasHostRef}>
+				<WorkspaceCanvas
+					width={state.canvasSize.width}
+					height={state.canvasSize.height}
+					zoom={state.internalZoom}
+					minZoom={0.1}
+					maxZoom={3}
+					offsetX={state.internalOffset.x}
+					offsetY={state.internalOffset.y}
+					gridMode={state.effectiveGridMode}
+					gridColor={state.isGridVisible ? undefined : 'transparent'}
+					panMode={state.effectivePanMode}
+					snapToGrid={true}
+					onzoomchange={state.updateZoom}
+					onoffsetchange={state.updateOffset}
+					oncanvasclick={state.handleCanvasClick}
+					class="workspace__canvas"
+				>
+					<svg class="workspace__connections" style="overflow: visible;">
+						{#each props.connections ?? [] as connection}
+							<NodeConnection
+								id={connection.id}
+								startX={connection.startX ?? 0}
+								startY={connection.startY ?? 0}
+								endX={connection.endX ?? 0}
+								endY={connection.endY ?? 0}
+								type={connection.type}
+								color={connection.color}
+								active={connection.active}
+								onclick={connection.onclick}
+							/>
+						{/each}
+						{#if state.isConnecting && state.connectionStartPosition && state.connectionCurrentPosition}
+							<NodeConnection
+								id="connection-dragging"
+								startX={state.connectionStartPosition.x}
+								startY={state.connectionStartPosition.y}
+								endX={state.connectionCurrentPosition.x}
+								endY={state.connectionCurrentPosition.y}
+								type="bezier"
+								color="var(--color-primary-500)"
+								active={true}
+								showArrow={false}
+								animated={true}
+							/>
+						{/if}
+					</svg>
+
+					{#each props.nodes ?? [] as node}
+						<WorkspaceNode
+							id={node.id}
+							title={node.title}
+							type={node.type as
+								| 'default'
+								| 'custom'
+								| 'source'
+								| 'processor'
+								| 'output'
+								| 'gateway'}
+							x={node.x ?? 0}
+							y={node.y ?? 0}
+							canvasZoom={state.internalZoom}
+							color={node.color}
+							selected={(props.selectedNodeIds ?? []).includes(node.id ?? '')}
+							inputs={node.inputs ? [...node.inputs] : undefined}
+							outputs={node.outputs ? [...node.outputs] : undefined}
+							properties={node.properties ? [...node.properties] : undefined}
+							draggable={true}
+							selectable={true}
+							deletable={props.allowDeleteNodes ?? true}
+							duplicable={props.allowDuplicateNodes ?? true}
+							onNodeSelect={(nodeId) => state.handleNodeSelect(nodeId ?? '')}
+							onNodeDrag={(nodeId, position) => state.handleNodeDrag(nodeId ?? '', position)}
+							ondelete={(nodeId) => state.handleNodeDelete(nodeId ?? '')}
+							onduplicate={(nodeId) => state.handleNodeDuplicate(nodeId ?? '')}
+							onConnectionStart={state.handlePortConnectionStart}
+							onConnectionEnd={state.handlePortConnectionEnd}
+						/>
+					{/each}
+
+					{#if props.children}{@render props.children()}{/if}
+				</WorkspaceCanvas>
+
+				{#if props.showMiniMap ?? false}
+					<div class="workspace__minimap" style="width: 220px; height: 150px;">
+						<Minimap />
+					</div>
+				{/if}
+			</div>
+		</div>
+
+		{#if (props.showPropertiesPanel ?? true) && state.isPropertiesPanelOpen && state.selectedNode}
+			<aside class="workspace__properties">
+				<NodeProperties
+					id="properties-panel"
+					nodeId={state.selectedNode.id}
+					title="Node Properties"
+					properties={state.selectedNode.properties ?? []}
+					size="md"
+					editable={true}
+					showHeader={true}
+					showClose={true}
+					onPropertyChange={state.handlePropertyChange}
+					onclose={() => (state.isPropertiesPanelOpen = false)}
+				/>
+			</aside>
+		{/if}
 	</div>
 
 	{#if props.showWorkspacePalette ?? true}
@@ -224,7 +230,11 @@
 		display: flex;
 		align-items: center;
 		padding: 0.75rem;
-		background: color-mix(in srgb, var(--color-background-primary) 90%, var(--color-background-secondary) 10%);
+		background: color-mix(
+			in srgb,
+			var(--color-background-primary) 90%,
+			var(--color-background-secondary) 10%
+		);
 		border-bottom: 1px solid var(--color-border-primary);
 	}
 	.workspace__canvas-container {

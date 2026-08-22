@@ -5,9 +5,19 @@
 	let value = $state('');
 </script>
 
-<Story component={FilterText} title="FilterText" description="Text search input for table filtering.">
+<Story
+	component={FilterText}
+	title="FilterText"
+	description="Text search input for table filtering."
+>
 	{#snippet children()}
-		<FilterText placeholder="Search users..." {value} onSearch={(v) => { value = v; }} />
+		<FilterText
+			placeholder="Search users..."
+			{value}
+			onSearch={(v) => {
+				value = v;
+			}}
+		/>
 		<p style="margin-top:.5rem;font-size:12px;color:gray">Value: {value}</p>
 	{/snippet}
 </Story>

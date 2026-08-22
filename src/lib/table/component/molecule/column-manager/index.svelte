@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { SlotColumnManager } from '$stylist/table/interface/slot/column-manager';
 	import { createColumnManagerState } from './state.svelte';
 

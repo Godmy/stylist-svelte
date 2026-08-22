@@ -16,9 +16,6 @@
 	{controls}
 >
 	{#snippet children(values: any)}
-		<RecipeScreenshotSelector
-			drawingMode={values.drawingMode}
-			drawColor={values.drawColor}
-		/>
+		<RecipeScreenshotSelector drawingMode={values.drawingMode} drawColor={values.drawColor} />
 	{/snippet}
 </Story>

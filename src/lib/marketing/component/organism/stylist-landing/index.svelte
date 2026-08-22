@@ -43,10 +43,7 @@
 
 		<div class="content-band">
 			<div class="content-shell">
-				<StylistMission
-					onPrimaryOpen={onOpenWorkspace}
-					onSecondaryOpen={onBrowseComponents}
-				/>
+				<StylistMission onPrimaryOpen={onOpenWorkspace} onSecondaryOpen={onBrowseComponents} />
 			</div>
 		</div>
 	</div>

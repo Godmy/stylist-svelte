@@ -5,7 +5,11 @@
 	let active = $state<string[]>([]);
 </script>
 
-<Story component={FilterPills} title="FilterPills" description="Pill group filter for enum/category columns.">
+<Story
+	component={FilterPills}
+	title="FilterPills"
+	description="Pill group filter for enum/category columns."
+>
 	{#snippet children()}
 		<FilterPills
 			columnKey="role"
@@ -13,7 +17,7 @@
 			options={['Admin', 'Editor', 'Viewer', 'Guest']}
 			{active}
 			onToggle={(_, v) => {
-				active = active.includes(v) ? active.filter(x => x !== v) : [...active, v];
+				active = active.includes(v) ? active.filter((x) => x !== v) : [...active, v];
 			}}
 		/>
 		<p style="margin-top:.5rem;font-size:12px;color:gray">Active: {active.join(', ') || '—'}</p>

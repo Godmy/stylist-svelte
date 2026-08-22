@@ -1,12 +1,12 @@
 import type { HTMLAttributes } from 'svelte/elements';
 export interface RecipeCheckboxGroup extends Omit<HTMLAttributes<HTMLFieldSetElement>, 'class'> {
-	options: ({
-id: string;
-	label: string;
-	value: string;
-	disabled?: boolean;
-	description?: string;
-})[];
+	options: {
+		id: string;
+		label: string;
+		value: string;
+		disabled?: boolean;
+		description?: string;
+	}[];
 	value?: string[];
 	label?: string;
 	description?: string;

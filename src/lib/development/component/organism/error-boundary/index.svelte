@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeErrorBoundary } from '$stylist/development/interface/recipe/error-boundary';
 	import { onMount } from 'svelte';
 	import { createErrorBoundaryState } from './state.svelte';

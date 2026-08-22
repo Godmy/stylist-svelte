@@ -1,13 +1,16 @@
 import type { SceneNode } from '$stylist/presentation/interface/slot/scene-node';
 import { SemanticZoomManager } from '$stylist/presentation/class/manager/semantic-zoom';
-export function useSemanticZoom(params: | {
-			worldDepth: number;
-			cameraDepth: number;
-	  }
-	| {
-			node: SceneNode;
-			cameraDepth: number;
-	  }) {
+export function useSemanticZoom(
+	params:
+		| {
+				worldDepth: number;
+				cameraDepth: number;
+		  }
+		| {
+				node: SceneNode;
+				cameraDepth: number;
+		  }
+) {
 	const readPresentation = () => {
 		if ('node' in params) {
 			return SemanticZoomManager.resolvePresentation(params.node.depth, params.cameraDepth);

@@ -21,8 +21,8 @@
 <StylistLanding
 	{rootDomainCount}
 	{storyModuleCount}
-	onBrowseComponents={onBrowseComponents}
-	onOpenPlayground={onOpenPlayground}
-	onOpenWorkspace={onOpenWorkspace}
+	{onBrowseComponents}
+	{onOpenPlayground}
+	{onOpenWorkspace}
 	class={className}
 />

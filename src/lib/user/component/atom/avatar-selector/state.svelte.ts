@@ -31,4 +31,3 @@ export function createAvatarSelectorState(props: RecipeAvatarSelector) {
 }
 
 export default createAvatarSelectorState;
-

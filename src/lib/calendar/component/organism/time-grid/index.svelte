@@ -16,7 +16,12 @@
 				<Button variant="ghost" size="sm" onclick={() => state.navigateWeek(-1)}>
 					<Icon name="chevron-down" direction="left" size="md" />
 				</Button>
-				<Button variant="ghost" size="sm" onclick={state.navigateToToday} class="c-time-grid__today-btn">
+				<Button
+					variant="ghost"
+					size="sm"
+					onclick={state.navigateToToday}
+					class="c-time-grid__today-btn"
+				>
 					Today
 				</Button>
 				<Button variant="ghost" size="sm" onclick={() => state.navigateWeek(1)}>
@@ -82,7 +87,10 @@
 								style={event.color ? `border-left: 3px solid ${event.color};` : ''}
 								role="button"
 								tabindex="0"
-								onclick={(e) => { e.stopPropagation(); state.handleEventClick(event); }}
+								onclick={(e) => {
+									e.stopPropagation();
+									state.handleEventClick(event);
+								}}
 								onkeydown={(e) => {
 									if (e.key === 'Enter' || e.key === ' ') {
 										e.preventDefault();
@@ -164,7 +172,10 @@
 										style={`top: ${slotIndex * state.getSlotHeight()}px; height: ${state.getSlotHeight()}px;${event.color ? ` background-color: ${event.color};` : ''}`}
 										role="button"
 										tabindex="0"
-										onclick={(e) => { e.stopPropagation(); state.handleEventClick(event); }}
+										onclick={(e) => {
+											e.stopPropagation();
+											state.handleEventClick(event);
+										}}
 										onkeydown={(e) => {
 											if (e.key === 'Enter' || e.key === ' ') {
 												e.preventDefault();

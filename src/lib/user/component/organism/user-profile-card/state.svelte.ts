@@ -38,4 +38,3 @@ export function createUserProfileCardState(props: RecipeUserProfileCard) {
 		}
 	};
 }
-

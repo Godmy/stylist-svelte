@@ -61,7 +61,7 @@
 	<div class="workflow-section__pair">
 		<StepList {steps} class="workflow-section__steps" />
 		<figure class="workflow-section__media">
-			<Image imageSrc={imageSrc} imageAlt={imageAlt} size="xl" class="workflow-section__image" />
+			<Image {imageSrc} {imageAlt} size="xl" class="workflow-section__image" />
 		</figure>
 	</div>
 

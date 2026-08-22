@@ -1,5 +1,8 @@
 import type { RecipeFormDatePicker } from '$stylist/calendar/interface/recipe/form-date-picker';
-import { toInputDateString, fromInputDateString } from '$stylist/calendar/function/script/calendar-utils';
+import {
+	toInputDateString,
+	fromInputDateString
+} from '$stylist/calendar/function/script/calendar-utils';
 import { formatDisplayDate } from '$stylist/calendar/function/script/date-format';
 
 export const createFormDatePickerState = (props: RecipeFormDatePicker) => {

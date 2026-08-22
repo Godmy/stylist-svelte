@@ -8,4 +8,3 @@ export type AuthGuardProps = RecipeAuthGuard & {
 	children?: Snippet;
 	onAuthChange?: (isAuthorized: boolean) => void;
 };
-

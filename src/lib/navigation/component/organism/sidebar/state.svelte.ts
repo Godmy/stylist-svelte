@@ -15,9 +15,7 @@ export function createSidebarState(props: RecipeSidebar) {
 	const width = $derived(props.width ?? '280px');
 	const mobileWidth = $derived(props.mobileWidth ?? '280px');
 	const disabled = $derived(props.disabled ?? false);
-	const hostClass = $derived(
-		`sidebar__host ${props.class ?? ''}`.trim()
-	);
+	const hostClass = $derived(`sidebar__host ${props.class ?? ''}`.trim());
 	const mobileButtonClass = $derived('sidebar__mobile-button');
 	const overlayClass = $derived('sidebar__overlay');
 	const sidebarClass = $derived('sidebar__sidebar');

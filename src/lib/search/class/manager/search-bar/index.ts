@@ -25,19 +25,19 @@ export class ObjectManagerSearchBar {
 	 */
 	static filterSuggestions(
 		suggestions: {
-text: string;
-	icon?: string;
-	count?: number;
-	category?: string;
-}[],
+			text: string;
+			icon?: string;
+			count?: number;
+			category?: string;
+		}[],
 		query: string,
 		maxResults?: number
 	): {
-text: string;
-	icon?: string;
-	count?: number;
-	category?: string;
-}[] {
+		text: string;
+		icon?: string;
+		count?: number;
+		category?: string;
+	}[] {
 		const normalizedQuery = this.normalizeQuery(query);
 		if (!normalizedQuery) return suggestions.slice(0, maxResults);
 
@@ -51,17 +51,20 @@ text: string;
 	/**
 	 * Сортирует подсказки по релевантности
 	 */
-	static sortSuggestions(suggestions: {
-text: string;
-	icon?: string;
-	count?: number;
-	category?: string;
-}[], query: string): {
-text: string;
-	icon?: string;
-	count?: number;
-	category?: string;
-}[] {
+	static sortSuggestions(
+		suggestions: {
+			text: string;
+			icon?: string;
+			count?: number;
+			category?: string;
+		}[],
+		query: string
+	): {
+		text: string;
+		icon?: string;
+		count?: number;
+		category?: string;
+	}[] {
 		const normalizedQuery = this.normalizeQuery(query);
 		if (!normalizedQuery) return suggestions;
 
@@ -86,23 +89,31 @@ text: string;
 	 */
 	static groupSuggestionsByCategory(
 		suggestions: {
-text: string;
-	icon?: string;
-	count?: number;
-	category?: string;
-}[]
-	): Record<string, {
-text: string;
-	icon?: string;
-	count?: number;
-	category?: string;
-}[]> {
-		return suggestions.reduce<Record<string, {
-text: string;
-	icon?: string;
-	count?: number;
-	category?: string;
-}[]>>((groups, suggestion) => {
+			text: string;
+			icon?: string;
+			count?: number;
+			category?: string;
+		}[]
+	): Record<
+		string,
+		{
+			text: string;
+			icon?: string;
+			count?: number;
+			category?: string;
+		}[]
+	> {
+		return suggestions.reduce<
+			Record<
+				string,
+				{
+					text: string;
+					icon?: string;
+					count?: number;
+					category?: string;
+				}[]
+			>
+		>((groups, suggestion) => {
 			const category = suggestion.category ?? 'default';
 			if (!groups[category]) {
 				groups[category] = [];

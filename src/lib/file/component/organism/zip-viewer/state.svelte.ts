@@ -108,7 +108,13 @@ export function createZipViewerState(props: RecipeZipViewer) {
 	}
 
 	function handleEntryClick(entry: SlotZipEntry): void {
-		ZipViewerManager.handleEntryClick(entry, disabled, expandedFolders, setExpandedFolders, props.onEntryClick);
+		ZipViewerManager.handleEntryClick(
+			entry,
+			disabled,
+			expandedFolders,
+			setExpandedFolders,
+			props.onEntryClick
+		);
 	}
 
 	function handlePreview(entry: SlotZipEntry): void {

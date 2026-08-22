@@ -1,5 +1,5 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
-﻿import type { RecipeScheduledNotification } from '$stylist/notification/interface/recipe/scheduled-notification';
+import type { RecipeScheduledNotification } from '$stylist/notification/interface/recipe/scheduled-notification';
 
 export function createScheduledNotificationState(props: RecipeScheduledNotification) {
 	const notifications = $derived(props.notifications ?? []);

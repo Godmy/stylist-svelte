@@ -1,8 +1,7 @@
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface RecipeCodeViewer
-	extends ComputeIntersectAll<[SlotThemeBorder, SlotTypography]> {
+export interface RecipeCodeViewer extends ComputeIntersectAll<[SlotThemeBorder, SlotTypography]> {
 	componentName?: string;
 	props?: Record<string, any>;
 	theme?: 'light' | 'dark' | 'github-light' | 'github-dark';

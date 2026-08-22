@@ -1,7 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 
-export function createProductComparisonTableState(props: RecipeProductCollection & HTMLAttributes<HTMLDivElement>) {
+export function createProductComparisonTableState(
+	props: RecipeProductCollection & HTMLAttributes<HTMLDivElement>
+) {
 	return {
 		get containerClass() {
 			return ['product-comparison-table', props.class].filter(Boolean).join(' ');

@@ -5,7 +5,8 @@
 	import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 	import type { RecipeNpmBadge } from '$stylist/development/interface/recipe/npm-badge';
 
-	let props: RecipeNpmBadge & HTMLAttributes<HTMLElement> & SlotThemeBorder & SlotTypography = $props();
+	let props: RecipeNpmBadge & HTMLAttributes<HTMLElement> & SlotThemeBorder & SlotTypography =
+		$props();
 
 	const state = createNpmBadgeState(props);
 	const value = $derived(props.value);

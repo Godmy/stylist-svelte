@@ -1,6 +1,13 @@
 export class ManagerRiskImpactMap {
 	static createLayout(
-		risks: { id: string; text: string; probability: number; impact: number; exposure: number; critical?: boolean }[],
+		risks: {
+			id: string;
+			text: string;
+			probability: number;
+			impact: number;
+			exposure: number;
+			critical?: boolean;
+		}[],
 		options: { width?: number; height?: number } = {}
 	) {
 		const width = options.width ?? 760;

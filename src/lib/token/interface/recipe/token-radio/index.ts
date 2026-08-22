@@ -2,7 +2,7 @@ import type { TokenRadioControlDefinition } from '$stylist/token/type/object/rad
 import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/alias/token-value';
 
 export interface RecipeTokenRadio {
-definition: TokenRadioControlDefinition;
+	definition: TokenRadioControlDefinition;
 	value?: TokenValue;
 	onChange?: (value: TokenValue) => void;
 }

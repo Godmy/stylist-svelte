@@ -4,8 +4,7 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { PlaygroundComponentCatalogViewMode } from '$stylist/table/type/alias/playground-component-catalog-view-mode';
 import type { PlaygroundComponentCatalogSortBy } from '$stylist/table/type/alias/playground-component-catalog-sort-by';
 import type { ComponentStory } from '$stylist/table/type/object/component-story';
-export interface RecipeComponent
-	extends ComputeIntersectAll<[SlotThemeBorder, SlotTypography]> {
+export interface RecipeComponent extends ComputeIntersectAll<[SlotThemeBorder, SlotTypography]> {
 	stories: ComponentStory[];
 	categories: string[];
 	categoryCounts: Record<string, number>;
@@ -17,9 +16,9 @@ export interface RecipeComponent
 	sortBy: PlaygroundComponentCatalogSortBy;
 	showFilters: boolean;
 	stats: {
-	total: number;
-	filtered: number;
-};
+		total: number;
+		filtered: number;
+	};
 	onSearchQueryChange: (value: string) => void;
 	onToggleCategory: (category: string) => void;
 	onToggleTag: (tag: string) => void;

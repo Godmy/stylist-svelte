@@ -155,14 +155,20 @@
 		background-color: color-mix(in srgb, var(--color-background-primary) 95%, transparent);
 		padding: 1rem;
 		cursor: pointer;
-		transition: transform var(--duration-200, 200ms) var(--easing-smooth, ease-in-out),
+		transition:
+			transform var(--duration-200, 200ms) var(--easing-smooth, ease-in-out),
 			border-color var(--duration-200, 200ms) var(--easing-smooth, ease-in-out),
 			box-shadow var(--duration-200, 200ms) var(--easing-smooth, ease-in-out);
 	}
 	.c-kanban-card:hover {
 		transform: translateY(-1px);
-		border-color: color-mix(in srgb, var(--color-primary-500) 38%, var(--color-border-secondary) 62%);
-		box-shadow: 0 14px 26px -18px color-mix(in srgb, var(--color-info-600, var(--color-primary-600)) 55%, transparent);
+		border-color: color-mix(
+			in srgb,
+			var(--color-primary-500) 38%,
+			var(--color-border-secondary) 62%
+		);
+		box-shadow: 0 14px 26px -18px
+			color-mix(in srgb, var(--color-info-600, var(--color-primary-600)) 55%, transparent);
 	}
 	.c-kanban-card::before {
 		content: '';

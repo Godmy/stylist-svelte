@@ -4,9 +4,7 @@
 	import AccordionGroup from './index.svelte';
 	import AccordionLayout from '$stylist/dialog/component/atom/accordion-layout/index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'defaultValues', type: 'text', defaultValue: '' }
-	];
+	const controls: SlotStory[] = [{ name: 'defaultValues', type: 'text', defaultValue: '' }];
 </script>
 
 <Story

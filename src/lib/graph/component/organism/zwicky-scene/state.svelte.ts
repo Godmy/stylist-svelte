@@ -18,7 +18,9 @@ export function createZwickySceneState(props: RecipeZwickyScene) {
 	let containerWidth = $state(800);
 	let containerHeight = $state(600);
 
-	const containerClass = $derived(ClassNamesManager.merge('zwicky-scene', props.class?.toString() ?? ''));
+	const containerClass = $derived(
+		ClassNamesManager.merge('zwicky-scene', props.class?.toString() ?? '')
+	);
 	const canvasClass = $derived(
 		ClassNamesManager.merge('zwicky-scene__canvas', props.canvasClass?.toString() ?? '')
 	);
@@ -29,8 +31,12 @@ export function createZwickySceneState(props: RecipeZwickyScene) {
 
 	const restProps = $derived.by(() => {
 		const {
-			title: _t, data: _d, canvasClass: _cc,
-			overlayClass: _oc, class: _c, onNodeSelect: _ns,
+			title: _t,
+			data: _d,
+			canvasClass: _cc,
+			overlayClass: _oc,
+			class: _c,
+			onNodeSelect: _ns,
 			...rest
 		} = props;
 		return rest;
@@ -106,21 +112,51 @@ export function createZwickySceneState(props: RecipeZwickyScene) {
 	}
 
 	return {
-		get containerClass() { return containerClass; },
-		get canvasClass() { return canvasClass; },
-		get overlayClass() { return overlayClass; },
-		get title() { return title; },
-		get restProps() { return restProps; },
-		get selectedNode() { return selectedNode; },
-		get hoveredNode() { return hoveredNode; },
-		get hoverPos() { return hoverPos; },
-		get nodeCount() { return nodeCount; },
-		get edgeCount() { return edgeCount; },
-		get isLoaded() { return isLoaded; },
-		get domainFilter() { return domainFilter; },
-		get clusterFilter() { return clusterFilter; },
-		get containerWidth() { return containerWidth; },
-		get containerHeight() { return containerHeight; },
+		get containerClass() {
+			return containerClass;
+		},
+		get canvasClass() {
+			return canvasClass;
+		},
+		get overlayClass() {
+			return overlayClass;
+		},
+		get title() {
+			return title;
+		},
+		get restProps() {
+			return restProps;
+		},
+		get selectedNode() {
+			return selectedNode;
+		},
+		get hoveredNode() {
+			return hoveredNode;
+		},
+		get hoverPos() {
+			return hoverPos;
+		},
+		get nodeCount() {
+			return nodeCount;
+		},
+		get edgeCount() {
+			return edgeCount;
+		},
+		get isLoaded() {
+			return isLoaded;
+		},
+		get domainFilter() {
+			return domainFilter;
+		},
+		get clusterFilter() {
+			return clusterFilter;
+		},
+		get containerWidth() {
+			return containerWidth;
+		},
+		get containerHeight() {
+			return containerHeight;
+		},
 		toggleDomain,
 		toggleCluster,
 		clearFilter,

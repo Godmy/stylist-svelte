@@ -15,4 +15,3 @@ export interface SlotDiscountRule {
 	appliesTo?: 'all' | 'specific_products' | 'specific_categories';
 	applicableItems?: string[];
 }
-

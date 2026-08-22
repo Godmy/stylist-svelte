@@ -3,10 +3,10 @@ export interface SlotLocaleSwitcher {
 	locales: SlotLocaleSwitcherLocale[];
 	currentLocale: string;
 	onLocaleChange?: (localeCode: string) => void;
-	timezoneOptions?: ({
-value: string;
-	label: string;
-})[];
+	timezoneOptions?: {
+		value: string;
+		label: string;
+	}[];
 	currentTimezone?: string;
 	onTimezoneChange?: (timezone: string) => void;
 	showRegional?: boolean;

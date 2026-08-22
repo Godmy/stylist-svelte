@@ -101,7 +101,9 @@ export function createDomainAiAgentState(props: RecipeDomainAiAgent) {
 		isAttachingDependencies = true;
 		errorMessage = '';
 		try {
-			const listResponse = await fetch(`/api/di?component=${encodeURIComponent(entity.entityPath)}`);
+			const listResponse = await fetch(
+				`/api/di?component=${encodeURIComponent(entity.entityPath)}`
+			);
 			const listPayload = await listResponse.json();
 			if (!listResponse.ok) {
 				throw new Error(listPayload.error ?? 'DI request failed');
@@ -155,7 +157,9 @@ export function createDomainAiAgentState(props: RecipeDomainAiAgent) {
 		isSending = true;
 
 		const context = attachments.length
-			? attachments.map((attachment) => `## ${attachment.label}\n\n${attachment.content}`).join('\n\n---\n\n')
+			? attachments
+					.map((attachment) => `## ${attachment.label}\n\n${attachment.content}`)
+					.join('\n\n---\n\n')
 			: undefined;
 
 		try {

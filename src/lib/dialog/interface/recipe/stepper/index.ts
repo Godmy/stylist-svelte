@@ -1,7 +1,8 @@
 import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/layout-html-attributes';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeStepper extends ComputeIntersectAll<
+export interface RecipeStepper
+	extends ComputeIntersectAll<
 		[
 			LayoutHTMLAttributes<HTMLDivElement> & {
 				steps: {

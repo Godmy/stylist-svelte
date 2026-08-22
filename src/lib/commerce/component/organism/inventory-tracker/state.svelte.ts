@@ -43,4 +43,3 @@ export function createInventoryTrackerState(props: InventoryTrackerContract) {
 }
 
 export default createInventoryTrackerState;
-

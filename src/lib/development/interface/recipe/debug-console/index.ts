@@ -3,7 +3,8 @@ import type { DebugConsoleLogLevel } from '$stylist/development/type/alias/debug
 import type { DebugConsoleLogEntry as SlotDebugConsoleLogEntry } from '$stylist/development/interface/slot/debug-console-log-entry';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeDebugConsole extends ComputeIntersectAll<
+export interface RecipeDebugConsole
+	extends ComputeIntersectAll<
 		[
 			HTMLAttributes<HTMLDivElement> & {
 				logs?: SlotDebugConsoleLogEntry[];

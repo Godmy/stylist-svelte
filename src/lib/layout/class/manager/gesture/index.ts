@@ -20,23 +20,27 @@ export class ObjectManagerGesture {
 	/**
 	 * Нормализует клик контракт
 	 */
-	static normalizeClickContract(contract: Partial<(GestureContract & {
-	onClick?: (event: MouseEvent) => void;
-	onDblClick?: (event: MouseEvent) => void;
-	onContextMenu?: (event: MouseEvent) => void;
-	onMouseDown?: (event: MouseEvent) => void;
-	onMouseUp?: (event: MouseEvent) => void;
-	onMouseEnter?: (event: MouseEvent) => void;
-	onMouseLeave?: (event: MouseEvent) => void;
-})>): (GestureContract & {
-	onClick?: (event: MouseEvent) => void;
-	onDblClick?: (event: MouseEvent) => void;
-	onContextMenu?: (event: MouseEvent) => void;
-	onMouseDown?: (event: MouseEvent) => void;
-	onMouseUp?: (event: MouseEvent) => void;
-	onMouseEnter?: (event: MouseEvent) => void;
-	onMouseLeave?: (event: MouseEvent) => void;
-}) {
+	static normalizeClickContract(
+		contract: Partial<
+			GestureContract & {
+				onClick?: (event: MouseEvent) => void;
+				onDblClick?: (event: MouseEvent) => void;
+				onContextMenu?: (event: MouseEvent) => void;
+				onMouseDown?: (event: MouseEvent) => void;
+				onMouseUp?: (event: MouseEvent) => void;
+				onMouseEnter?: (event: MouseEvent) => void;
+				onMouseLeave?: (event: MouseEvent) => void;
+			}
+		>
+	): GestureContract & {
+		onClick?: (event: MouseEvent) => void;
+		onDblClick?: (event: MouseEvent) => void;
+		onContextMenu?: (event: MouseEvent) => void;
+		onMouseDown?: (event: MouseEvent) => void;
+		onMouseUp?: (event: MouseEvent) => void;
+		onMouseEnter?: (event: MouseEvent) => void;
+		onMouseLeave?: (event: MouseEvent) => void;
+	} {
 		return {
 			...this.normalizeGestureContract(contract),
 			onClick: contract.onClick,

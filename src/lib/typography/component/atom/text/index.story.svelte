@@ -202,8 +202,8 @@
 				<div class="_c15">
 					<h3 class="_c12">Inline In Context</h3>
 					<p class="_c16">
-						Use <Text tone="info" fontWeight="semibold">Text</Text> inside richer layouts when you
-						need token-driven emphasis without promoting the content to a paragraph or a heading.
+						Use <Text tone="info" fontWeight="semibold">Text</Text> inside richer layouts when you need
+						token-driven emphasis without promoting the content to a paragraph or a heading.
 					</p>
 				</div>
 			</div>

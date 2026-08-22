@@ -45,11 +45,7 @@ export type {
 	KanbanCardType,
 	KanbanColumnType
 } from './type';
-export type {
-	PortfolioData,
-	PortfolioEntry,
-	PortfolioSummaryData
-} from './class';
+export type { PortfolioData, PortfolioEntry, PortfolioSummaryData } from './class';
 export type {
 	BurnDownChartMargins,
 	BurnDownLabel,

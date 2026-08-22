@@ -14,7 +14,9 @@ export function createAudioRecordButtonState(props: RecipeAudioRecordButton) {
 	const mimeType = $derived(props.mimeType ?? 'audio/webm');
 	const fileName = $derived(props.fileName ?? `audio-message-${Date.now()}.webm`);
 	const isDisabled = $derived(Boolean(props.disabled || isProcessing || !isSupported));
-	const buttonLabel = $derived(isRecording ? (props.stopLabel ?? 'Stop') : (props.startLabel ?? 'Record'));
+	const buttonLabel = $derived(
+		isRecording ? (props.stopLabel ?? 'Stop') : (props.startLabel ?? 'Record')
+	);
 	const statusLabel = $derived(
 		isRecording
 			? (props.saveLabel ?? 'Recording')

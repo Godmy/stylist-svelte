@@ -5,9 +5,24 @@
 
 	const controls: SlotStory[] = [
 		{ name: 'count', type: 'range', defaultValue: 12, min: 0, max: 140, step: 1 },
-		{ name: 'marker', type: 'select', defaultValue: 'number', options: ['number', 'dot', 'check', 'x'] },
-		{ name: 'appearance', type: 'select', defaultValue: 'danger', options: ['danger', 'success', 'info', 'warning', 'neutral'] },
-		{ name: 'position', type: 'select', defaultValue: 'top-end', options: ['top-end', 'top-start', 'bottom-end', 'bottom-start'] },
+		{
+			name: 'marker',
+			type: 'select',
+			defaultValue: 'number',
+			options: ['number', 'dot', 'check', 'x']
+		},
+		{
+			name: 'appearance',
+			type: 'select',
+			defaultValue: 'danger',
+			options: ['danger', 'success', 'info', 'warning', 'neutral']
+		},
+		{
+			name: 'position',
+			type: 'select',
+			defaultValue: 'top-end',
+			options: ['top-end', 'top-start', 'bottom-end', 'bottom-start']
+		},
 		{ name: 'showZero', type: 'boolean', defaultValue: false }
 	];
 </script>

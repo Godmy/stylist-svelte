@@ -8,20 +8,31 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 export interface RecipeListWithAvatars
-	extends ComputeIntersectAll<[HTMLAttributes<HTMLDivElement>, SlotChildren, SlotText, SlotText, BehaviorSelectable<string>, BehaviorFocusable, BehaviorSizable, BehaviorScrollable]> {
+	extends ComputeIntersectAll<
+		[
+			HTMLAttributes<HTMLDivElement>,
+			SlotChildren,
+			SlotText,
+			SlotText,
+			BehaviorSelectable<string>,
+			BehaviorFocusable,
+			BehaviorSizable,
+			BehaviorScrollable
+		]
+	> {
 	items: {
-	id: string;
-	title: string;
-	subtitle?: string;
-	avatar?: string;
-	status?: 'online' | 'offline' | 'away' | 'busy';
-	description?: string;
-	actions?: Array<{
-		label: string;
-		onClick: () => void;
-		variant?: 'primary' | 'secondary' | 'danger';
-	}>;
-}[];
+		id: string;
+		title: string;
+		subtitle?: string;
+		avatar?: string;
+		status?: 'online' | 'offline' | 'away' | 'busy';
+		description?: string;
+		actions?: Array<{
+			label: string;
+			onClick: () => void;
+			variant?: 'primary' | 'secondary' | 'danger';
+		}>;
+	}[];
 	showAvatar?: boolean;
 	showStatus?: boolean;
 	showSubtitle?: boolean;

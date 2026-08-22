@@ -23,10 +23,16 @@ export function createLocaleSwitcherState(props: RecipeLocaleSwitcher) {
 	);
 
 	const rootClass = $derived(['c-locale-switcher', props.class].filter(Boolean).join(' '));
-	const headerClass = $derived(['c-locale-switcher__header', props.headerClass].filter(Boolean).join(' '));
-	const contentClass = $derived(['c-locale-switcher__content', props.contentClass].filter(Boolean).join(' '));
+	const headerClass = $derived(
+		['c-locale-switcher__header', props.headerClass].filter(Boolean).join(' ')
+	);
+	const contentClass = $derived(
+		['c-locale-switcher__content', props.contentClass].filter(Boolean).join(' ')
+	);
 	const timezoneSelectClass = $derived('c-locale-switcher__timezone-select');
-	const footerClass = $derived(['c-locale-switcher__footer', props.footerClass].filter(Boolean).join(' '));
+	const footerClass = $derived(
+		['c-locale-switcher__footer', props.footerClass].filter(Boolean).join(' ')
+	);
 
 	const restProps = $derived.by(() => {
 		const {

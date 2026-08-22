@@ -7,12 +7,5 @@ import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotLink } from '$stylist/typography/interface/slot/link';
 export interface RecipeBreadcrumbLink
 	extends ComputeIntersectAll<
-		[
-			SlotLink,
-			SlotText,
-			SlotIcon,
-			BehaviorClickable,
-			BehaviorFocusable,
-			BehaviorSizable
-		]
+		[SlotLink, SlotText, SlotIcon, BehaviorClickable, BehaviorFocusable, BehaviorSizable]
 	> {}

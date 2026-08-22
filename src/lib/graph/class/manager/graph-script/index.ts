@@ -66,7 +66,11 @@ export class GraphScriptManager {
 		fragmentSource: string
 	): WebGLProgram {
 		const vertexShader = GraphScriptManager.compileSceneShader(gl, vertexSource, gl.VERTEX_SHADER);
-		const fragmentShader = GraphScriptManager.compileSceneShader(gl, fragmentSource, gl.FRAGMENT_SHADER);
+		const fragmentShader = GraphScriptManager.compileSceneShader(
+			gl,
+			fragmentSource,
+			gl.FRAGMENT_SHADER
+		);
 		const program = gl.createProgram();
 
 		if (!program) {
@@ -320,10 +324,22 @@ export class GraphScriptManager {
 		vector: readonly [number, number, number, number]
 	): [number, number, number, number] {
 		return [
-			matrix[0] * vector[0] + matrix[4] * vector[1] + matrix[8] * vector[2] + matrix[12] * vector[3],
-			matrix[1] * vector[0] + matrix[5] * vector[1] + matrix[9] * vector[2] + matrix[13] * vector[3],
-			matrix[2] * vector[0] + matrix[6] * vector[1] + matrix[10] * vector[2] + matrix[14] * vector[3],
-			matrix[3] * vector[0] + matrix[7] * vector[1] + matrix[11] * vector[2] + matrix[15] * vector[3]
+			matrix[0] * vector[0] +
+				matrix[4] * vector[1] +
+				matrix[8] * vector[2] +
+				matrix[12] * vector[3],
+			matrix[1] * vector[0] +
+				matrix[5] * vector[1] +
+				matrix[9] * vector[2] +
+				matrix[13] * vector[3],
+			matrix[2] * vector[0] +
+				matrix[6] * vector[1] +
+				matrix[10] * vector[2] +
+				matrix[14] * vector[3],
+			matrix[3] * vector[0] +
+				matrix[7] * vector[1] +
+				matrix[11] * vector[2] +
+				matrix[15] * vector[3]
 		];
 	}
 
@@ -335,7 +351,12 @@ export class GraphScriptManager {
 		const view = camera.getViewMatrix().toArray();
 		const projection = camera.getProjectionMatrix().toArray();
 		const cameraPosition = camera.getPosition();
-		const viewPosition = GraphScriptManager.multiplyMatrixVector(view, [point.x, point.y, point.z, 1]);
+		const viewPosition = GraphScriptManager.multiplyMatrixVector(view, [
+			point.x,
+			point.y,
+			point.z,
+			1
+		]);
 		const clipPosition = GraphScriptManager.multiplyMatrixVector(projection, viewPosition);
 
 		if (clipPosition[3] <= 0) {
@@ -387,9 +408,9 @@ export class GraphScriptManager {
 	static resolveSceneAtomTint(
 		atom: SceneAtom,
 		interaction: {
-		hovered: boolean;
-		selected: boolean;
-	}
+			hovered: boolean;
+			selected: boolean;
+		}
 	): { color: readonly [number, number, number]; strength: number } {
 		if (interaction.selected) {
 			return {
@@ -410,23 +431,26 @@ export class GraphScriptManager {
 
 	static resolveSceneAtomBaseColor(atom: SceneAtom): readonly [number, number, number] {
 		return (
-			atom.material?.color ?? atom.geometry.color ?? MATERIAL_PALETTE[atom.material?.kind ?? 'solid']
+			atom.material?.color ??
+			atom.geometry.color ??
+			MATERIAL_PALETTE[atom.material?.kind ?? 'solid']
 		);
 	}
 
 	static createSceneCubeGeometry(): SceneGeometry {
 		const positions = new Float32Array([
-			-1, -1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, -1, 1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1,
-			-1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, -1, -1, -1,
-			-1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, 1, -1, 1, 1, 1, 1, -1,
-			-1, 1, 1, 1, 1, -1, 1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, 1, -1
+			-1, -1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, -1, 1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1,
+			-1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, -1,
+			-1, -1, -1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, 1, -1, 1, 1,
+			1, 1, -1, -1, 1, 1, 1, 1, -1, 1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, 1,
+			-1
 		]);
 
 		const colors = new Float32Array([
-			1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1,
-			0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1,
-			1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1,
-			1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1
+			1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0,
+			1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1,
+			0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1,
+			1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1
 		]);
 
 		return { positions, colors, vertexCount: 36 };
@@ -445,7 +469,10 @@ export class GraphScriptManager {
 		atom: SceneAtom
 	): SceneBufferSet {
 		if (atom.geometry.type === 'cube') {
-			return GraphScriptManager.createSceneBuffers(gl, GraphScriptManager.createSceneCubeGeometry());
+			return GraphScriptManager.createSceneBuffers(
+				gl,
+				GraphScriptManager.createSceneCubeGeometry()
+			);
 		}
 
 		return GraphScriptManager.createSceneBuffers(
@@ -568,7 +595,13 @@ export class GraphScriptManager {
 			GraphScriptManager.createSceneAtom({
 				id: 'graph-floor',
 				kind: 'surface',
-				geometry: { type: 'box', width: 13.8, height: 0.08, depth: 10.8, color: [0.055, 0.07, 0.105] },
+				geometry: {
+					type: 'box',
+					width: 13.8,
+					height: 0.08,
+					depth: 10.8,
+					color: [0.055, 0.07, 0.105]
+				},
 				material: { kind: 'surface' },
 				transform: { position: { x: 0, y: -0.72, z: 1.65 } },
 				selectable: false,
@@ -716,7 +749,11 @@ export class GraphScriptManager {
 				continue;
 			}
 
-			const projection = GraphScriptManager.projectPointToScreen(camera, canvas, atom.transform.position);
+			const projection = GraphScriptManager.projectPointToScreen(
+				camera,
+				canvas,
+				atom.transform.position
+			);
 
 			if (!projection) {
 				continue;
@@ -757,7 +794,10 @@ export class GraphScriptManager {
 	}
 
 	static clampZwickyRadius(radius: number): number {
-		return Math.max(ZWICKY_LAYOUT_SCALE.cameraMinRadius, Math.min(ZWICKY_LAYOUT_SCALE.cameraMaxRadius, radius));
+		return Math.max(
+			ZWICKY_LAYOUT_SCALE.cameraMinRadius,
+			Math.min(ZWICKY_LAYOUT_SCALE.cameraMaxRadius, radius)
+		);
 	}
 
 	static buildInstancedNodeBuffers(
@@ -804,7 +844,7 @@ export class GraphScriptManager {
 				instanceHighlights[i] = isSelected ? 1.0 : isHovered ? 0.6 : 0.0;
 			} else {
 				instanceColors[base3] = 0.18;
-				instanceColors[base3 + 1] = 0.20;
+				instanceColors[base3 + 1] = 0.2;
 				instanceColors[base3 + 2] = 0.26;
 				instanceSizes[i] = node.size * 0.22;
 				instanceHighlights[i] = 0.0;
@@ -843,16 +883,24 @@ export class GraphScriptManager {
 			if (!fromDomainOk || !toDomainOk || !fromClusterOk || !toClusterOk) continue;
 
 			const isActive = selectedId !== null && (fromId === selectedId || toId === selectedId);
-			const brightness = isActive ? 1.0 : 0.20;
+			const brightness = isActive ? 1.0 : 0.2;
 			const r = from.color[0] * brightness;
 			const g = from.color[1] * brightness;
 			const b = from.color[2] * brightness;
 
 			const base = written * 12;
-			data[base]     = from.x; data[base + 1] = from.y; data[base + 2] = from.z;
-			data[base + 3] = r;      data[base + 4] = g;      data[base + 5] = b;
-			data[base + 6] = to.x;  data[base + 7] = to.y;   data[base + 8] = to.z;
-			data[base + 9] = r;      data[base + 10] = g;     data[base + 11] = b;
+			data[base] = from.x;
+			data[base + 1] = from.y;
+			data[base + 2] = from.z;
+			data[base + 3] = r;
+			data[base + 4] = g;
+			data[base + 5] = b;
+			data[base + 6] = to.x;
+			data[base + 7] = to.y;
+			data[base + 8] = to.z;
+			data[base + 9] = r;
+			data[base + 10] = g;
+			data[base + 11] = b;
 			written++;
 		}
 
@@ -861,11 +909,15 @@ export class GraphScriptManager {
 
 	// X position for each cluster lane — follows assembly direction left→right
 	private static readonly CLUSTER_X: Record<string, number> = Object.fromEntries(
-		ZWICKY_CLUSTER_ORDER.map((c, i) => [c, ZWICKY_LAYOUT_SCALE.clusterXFirst + i * ZWICKY_LAYOUT_SCALE.clusterXSpacing])
+		ZWICKY_CLUSTER_ORDER.map((c, i) => [
+			c,
+			ZWICKY_LAYOUT_SCALE.clusterXFirst + i * ZWICKY_LAYOUT_SCALE.clusterXSpacing
+		])
 	);
 
 	static layoutZwickyNodes(nodes: ZwickyNode[]): void {
-		const { domainZStep, laneScatterX, laneScatterY, laneScatterZ, goldenAngle } = ZWICKY_LAYOUT_SCALE;
+		const { domainZStep, laneScatterX, laneScatterY, laneScatterZ, goldenAngle } =
+			ZWICKY_LAYOUT_SCALE;
 
 		// Group: cluster → domain → [nodes]
 		const clusterMap = new Map<string, Map<string, ZwickyNode[]>>();
@@ -882,9 +934,7 @@ export class GraphScriptManager {
 		const domains = Array.from(domainSet).sort();
 		const nDomains = domains.length;
 		// Center domains along Z axis
-		const domainZ = new Map(
-			domains.map((d, i) => [d, (i - (nDomains - 1) / 2) * domainZStep])
-		);
+		const domainZ = new Map(domains.map((d, i) => [d, (i - (nDomains - 1) / 2) * domainZStep]));
 
 		for (const [cluster, domMap] of clusterMap) {
 			const baseX = GraphScriptManager.CLUSTER_X[cluster] ?? 0;
@@ -1036,39 +1086,158 @@ export class GraphScriptManager {
 
 	private static invertMat4(m: number[]): number[] | null {
 		const det =
-			m[0] * (m[5] * m[10] * m[15] + m[9] * m[14] * m[7] + m[13] * m[6] * m[11]
-				- m[13] * m[10] * m[7] - m[9] * m[6] * m[15] - m[5] * m[14] * m[11])
-			- m[4] * (m[1] * m[10] * m[15] + m[9] * m[14] * m[3] + m[13] * m[2] * m[11]
-				- m[13] * m[10] * m[3] - m[9] * m[2] * m[15] - m[1] * m[14] * m[11])
-			+ m[8] * (m[1] * m[6] * m[15] + m[5] * m[14] * m[3] + m[13] * m[2] * m[7]
-				- m[13] * m[6] * m[3] - m[5] * m[2] * m[15] - m[1] * m[14] * m[7])
-			- m[12] * (m[1] * m[6] * m[11] + m[5] * m[10] * m[3] + m[9] * m[2] * m[7]
-				- m[9] * m[6] * m[3] - m[5] * m[2] * m[11] - m[1] * m[10] * m[7]);
+			m[0] *
+				(m[5] * m[10] * m[15] +
+					m[9] * m[14] * m[7] +
+					m[13] * m[6] * m[11] -
+					m[13] * m[10] * m[7] -
+					m[9] * m[6] * m[15] -
+					m[5] * m[14] * m[11]) -
+			m[4] *
+				(m[1] * m[10] * m[15] +
+					m[9] * m[14] * m[3] +
+					m[13] * m[2] * m[11] -
+					m[13] * m[10] * m[3] -
+					m[9] * m[2] * m[15] -
+					m[1] * m[14] * m[11]) +
+			m[8] *
+				(m[1] * m[6] * m[15] +
+					m[5] * m[14] * m[3] +
+					m[13] * m[2] * m[7] -
+					m[13] * m[6] * m[3] -
+					m[5] * m[2] * m[15] -
+					m[1] * m[14] * m[7]) -
+			m[12] *
+				(m[1] * m[6] * m[11] +
+					m[5] * m[10] * m[3] +
+					m[9] * m[2] * m[7] -
+					m[9] * m[6] * m[3] -
+					m[5] * m[2] * m[11] -
+					m[1] * m[10] * m[7]);
 
 		if (Math.abs(det) < 1e-8) return null;
 
 		const inv = 1 / det;
 		return [
-			inv * (m[5] * m[10] * m[15] - m[5] * m[14] * m[11] - m[9] * m[6] * m[15] + m[9] * m[14] * m[7] + m[13] * m[6] * m[11] - m[13] * m[10] * m[7]),
-			inv * (-m[1] * m[10] * m[15] + m[1] * m[14] * m[11] + m[9] * m[2] * m[15] - m[9] * m[14] * m[3] - m[13] * m[2] * m[11] + m[13] * m[10] * m[3]),
-			inv * (m[1] * m[6] * m[15] - m[1] * m[14] * m[7] - m[5] * m[2] * m[15] + m[5] * m[14] * m[3] + m[13] * m[2] * m[7] - m[13] * m[6] * m[3]),
-			inv * (-m[1] * m[6] * m[11] + m[1] * m[10] * m[7] + m[5] * m[2] * m[11] - m[5] * m[10] * m[3] - m[9] * m[2] * m[7] + m[9] * m[6] * m[3]),
-			inv * (-m[4] * m[10] * m[15] + m[4] * m[14] * m[11] + m[8] * m[6] * m[15] - m[8] * m[14] * m[7] - m[12] * m[6] * m[11] + m[12] * m[10] * m[7]),
-			inv * (m[0] * m[10] * m[15] - m[0] * m[14] * m[11] - m[8] * m[2] * m[15] + m[8] * m[14] * m[3] + m[12] * m[2] * m[11] - m[12] * m[10] * m[3]),
-			inv * (-m[0] * m[6] * m[15] + m[0] * m[14] * m[7] + m[4] * m[2] * m[15] - m[4] * m[14] * m[3] - m[12] * m[2] * m[7] + m[12] * m[6] * m[3]),
-			inv * (m[0] * m[6] * m[11] - m[0] * m[10] * m[7] - m[4] * m[2] * m[11] + m[4] * m[10] * m[3] + m[8] * m[2] * m[7] - m[8] * m[6] * m[3]),
-			inv * (m[4] * m[9] * m[15] - m[4] * m[13] * m[11] - m[8] * m[5] * m[15] + m[8] * m[13] * m[7] + m[12] * m[5] * m[11] - m[12] * m[9] * m[7]),
-			inv * (-m[0] * m[9] * m[15] + m[0] * m[13] * m[11] + m[8] * m[1] * m[15] - m[8] * m[13] * m[3] - m[12] * m[1] * m[11] + m[12] * m[9] * m[3]),
-			inv * (m[0] * m[5] * m[15] - m[0] * m[13] * m[7] - m[4] * m[1] * m[15] + m[4] * m[13] * m[3] + m[12] * m[1] * m[7] - m[12] * m[5] * m[3]),
-			inv * (-m[0] * m[5] * m[11] + m[0] * m[9] * m[7] + m[4] * m[1] * m[11] - m[4] * m[9] * m[3] - m[8] * m[1] * m[7] + m[8] * m[5] * m[3]),
-			inv * (-m[4] * m[9] * m[14] + m[4] * m[13] * m[10] + m[8] * m[5] * m[14] - m[8] * m[13] * m[6] - m[12] * m[5] * m[10] + m[12] * m[9] * m[6]),
-			inv * (m[0] * m[9] * m[14] - m[0] * m[13] * m[10] - m[8] * m[1] * m[14] + m[8] * m[13] * m[2] + m[12] * m[1] * m[10] - m[12] * m[9] * m[2]),
-			inv * (-m[0] * m[5] * m[14] + m[0] * m[13] * m[6] + m[4] * m[1] * m[14] - m[4] * m[13] * m[2] - m[12] * m[1] * m[6] + m[12] * m[5] * m[2]),
-			inv * (m[0] * m[5] * m[10] - m[0] * m[9] * m[6] - m[4] * m[1] * m[10] + m[4] * m[9] * m[2] + m[8] * m[1] * m[6] - m[8] * m[5] * m[2])
+			inv *
+				(m[5] * m[10] * m[15] -
+					m[5] * m[14] * m[11] -
+					m[9] * m[6] * m[15] +
+					m[9] * m[14] * m[7] +
+					m[13] * m[6] * m[11] -
+					m[13] * m[10] * m[7]),
+			inv *
+				(-m[1] * m[10] * m[15] +
+					m[1] * m[14] * m[11] +
+					m[9] * m[2] * m[15] -
+					m[9] * m[14] * m[3] -
+					m[13] * m[2] * m[11] +
+					m[13] * m[10] * m[3]),
+			inv *
+				(m[1] * m[6] * m[15] -
+					m[1] * m[14] * m[7] -
+					m[5] * m[2] * m[15] +
+					m[5] * m[14] * m[3] +
+					m[13] * m[2] * m[7] -
+					m[13] * m[6] * m[3]),
+			inv *
+				(-m[1] * m[6] * m[11] +
+					m[1] * m[10] * m[7] +
+					m[5] * m[2] * m[11] -
+					m[5] * m[10] * m[3] -
+					m[9] * m[2] * m[7] +
+					m[9] * m[6] * m[3]),
+			inv *
+				(-m[4] * m[10] * m[15] +
+					m[4] * m[14] * m[11] +
+					m[8] * m[6] * m[15] -
+					m[8] * m[14] * m[7] -
+					m[12] * m[6] * m[11] +
+					m[12] * m[10] * m[7]),
+			inv *
+				(m[0] * m[10] * m[15] -
+					m[0] * m[14] * m[11] -
+					m[8] * m[2] * m[15] +
+					m[8] * m[14] * m[3] +
+					m[12] * m[2] * m[11] -
+					m[12] * m[10] * m[3]),
+			inv *
+				(-m[0] * m[6] * m[15] +
+					m[0] * m[14] * m[7] +
+					m[4] * m[2] * m[15] -
+					m[4] * m[14] * m[3] -
+					m[12] * m[2] * m[7] +
+					m[12] * m[6] * m[3]),
+			inv *
+				(m[0] * m[6] * m[11] -
+					m[0] * m[10] * m[7] -
+					m[4] * m[2] * m[11] +
+					m[4] * m[10] * m[3] +
+					m[8] * m[2] * m[7] -
+					m[8] * m[6] * m[3]),
+			inv *
+				(m[4] * m[9] * m[15] -
+					m[4] * m[13] * m[11] -
+					m[8] * m[5] * m[15] +
+					m[8] * m[13] * m[7] +
+					m[12] * m[5] * m[11] -
+					m[12] * m[9] * m[7]),
+			inv *
+				(-m[0] * m[9] * m[15] +
+					m[0] * m[13] * m[11] +
+					m[8] * m[1] * m[15] -
+					m[8] * m[13] * m[3] -
+					m[12] * m[1] * m[11] +
+					m[12] * m[9] * m[3]),
+			inv *
+				(m[0] * m[5] * m[15] -
+					m[0] * m[13] * m[7] -
+					m[4] * m[1] * m[15] +
+					m[4] * m[13] * m[3] +
+					m[12] * m[1] * m[7] -
+					m[12] * m[5] * m[3]),
+			inv *
+				(-m[0] * m[5] * m[11] +
+					m[0] * m[9] * m[7] +
+					m[4] * m[1] * m[11] -
+					m[4] * m[9] * m[3] -
+					m[8] * m[1] * m[7] +
+					m[8] * m[5] * m[3]),
+			inv *
+				(-m[4] * m[9] * m[14] +
+					m[4] * m[13] * m[10] +
+					m[8] * m[5] * m[14] -
+					m[8] * m[13] * m[6] -
+					m[12] * m[5] * m[10] +
+					m[12] * m[9] * m[6]),
+			inv *
+				(m[0] * m[9] * m[14] -
+					m[0] * m[13] * m[10] -
+					m[8] * m[1] * m[14] +
+					m[8] * m[13] * m[2] +
+					m[12] * m[1] * m[10] -
+					m[12] * m[9] * m[2]),
+			inv *
+				(-m[0] * m[5] * m[14] +
+					m[0] * m[13] * m[6] +
+					m[4] * m[1] * m[14] -
+					m[4] * m[13] * m[2] -
+					m[12] * m[1] * m[6] +
+					m[12] * m[5] * m[2]),
+			inv *
+				(m[0] * m[5] * m[10] -
+					m[0] * m[9] * m[6] -
+					m[4] * m[1] * m[10] +
+					m[4] * m[9] * m[2] +
+					m[8] * m[1] * m[6] -
+					m[8] * m[5] * m[2])
 		];
 	}
 
-	private static transformVec4(m: number[], v: readonly [number, number, number, number]): [number, number, number, number] {
+	private static transformVec4(
+		m: number[],
+		v: readonly [number, number, number, number]
+	): [number, number, number, number] {
 		return [
 			m[0] * v[0] + m[4] * v[1] + m[8] * v[2] + m[12] * v[3],
 			m[1] * v[0] + m[5] * v[1] + m[9] * v[2] + m[13] * v[3],

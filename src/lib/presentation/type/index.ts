@@ -5,8 +5,5 @@ export type {
 	PresentationMode,
 	TierContent
 } from './alias';
-export type {
-	PresenterSceneLink,
-	PreziSceneContract
-} from './object';
+export type { PresenterSceneLink, PreziSceneContract } from './object';
 export type { FoundationDepthThreshold } from './struct';

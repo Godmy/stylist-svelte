@@ -6,7 +6,11 @@ export function createCellPillState(props: RecipeCellPill & HTMLAttributes<HTMLT
 	const variant = $derived(props.variant ?? 'default');
 
 	return {
-		get value() { return value; },
-		get variant() { return variant; }
+		get value() {
+			return value;
+		},
+		get variant() {
+			return variant;
+		}
 	};
 }

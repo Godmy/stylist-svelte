@@ -118,12 +118,7 @@
 					<h3 class="_c12">Tone Rail</h3>
 					<div class="_c13">
 						{#each toneOptions as tone}
-							<Link
-								href="#"
-								tone={tone}
-								underline={tone !== 'default'}
-								text={`tone: ${tone}`}
-							/>
+							<Link href="#" {tone} underline={tone !== 'default'} text={`tone: ${tone}`} />
 						{/each}
 					</div>
 				</div>
@@ -132,7 +127,7 @@
 					<h3 class="_c12">Font Size Rail</h3>
 					<div class="_c15">
 						{#each fontSizeOptions as fontSize}
-							<Link href="#" fontSize={fontSize} tone="primary" text={`font-size: ${fontSize}`} />
+							<Link href="#" {fontSize} tone="primary" text={`font-size: ${fontSize}`} />
 						{/each}
 					</div>
 				</div>

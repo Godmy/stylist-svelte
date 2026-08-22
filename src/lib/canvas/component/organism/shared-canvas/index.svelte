@@ -4,7 +4,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { ObjectManagerSharedCanvas } from '$stylist/canvas/class/manager/shared-canvas/index';
 	import createSharedCanvasState from './state.svelte';
-		
+
 	const contract: RecipeSharedCanvas = $props();
 	const state = createSharedCanvasState(contract);
 
@@ -113,7 +113,8 @@
 				<button
 					type="button"
 					class={state.actionButtonClass}
-					onclick={() => CanvasManager.exportCanvasImage(canvasRef, ObjectManagerSharedCanvas.exportFilename)}
+					onclick={() =>
+						CanvasManager.exportCanvasImage(canvasRef, ObjectManagerSharedCanvas.exportFilename)}
 					title="Export Canvas"
 					aria-label="Export Canvas"
 				>

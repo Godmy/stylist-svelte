@@ -1,9 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export {
-	PortfolioCell,
-	PortfolioDigit,
-	PortfolioProject
-} from './atom';
+export { PortfolioCell, PortfolioDigit, PortfolioProject } from './atom';
 export {
 	BacklogViewTabs,
 	BurnDownChart,
@@ -15,7 +11,4 @@ export {
 	PortfolioSummary,
 	ScrumBacklog
 } from './molecule';
-export {
-	KanbanBoard,
-	Portfolio
-} from './organism';
+export { KanbanBoard, Portfolio } from './organism';

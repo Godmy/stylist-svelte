@@ -1,17 +1,20 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeChatPreview } from '$stylist/chat/interface/recipe/chat-preview';
 
-
-export function createChatPreviewState(props: {
-	title?: string;
-	participants?: string[];
-	messages?: Array<{ author: string; text: string; timestamp: string }>;
-	maxMessages?: number;
-	showAvatars?: boolean;
-	variant?: string;
-	size?: string;
-	class?: string;
-} | RecipeChatPreview) {
+export function createChatPreviewState(
+	props:
+		| {
+				title?: string;
+				participants?: string[];
+				messages?: Array<{ author: string; text: string; timestamp: string }>;
+				maxMessages?: number;
+				showAvatars?: boolean;
+				variant?: string;
+				size?: string;
+				class?: string;
+		  }
+		| RecipeChatPreview
+) {
 	// Initialize props with defaults
 	const title = props.title ?? 'Chat';
 	const participants = props.participants ?? [];

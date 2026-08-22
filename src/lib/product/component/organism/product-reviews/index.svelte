@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeProductReviews } from '$stylist/product/interface/recipe/product-reviews';
 	import { createProductReviewsState } from './state.svelte';
 

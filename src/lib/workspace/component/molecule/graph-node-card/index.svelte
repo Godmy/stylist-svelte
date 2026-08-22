@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeGraphNodeCard } from '$stylist/workspace/interface/recipe/graph-node-card';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
@@ -92,9 +92,15 @@ import type { HTMLAttributes } from 'svelte/elements';
 		background-color: var(--color-background-primary);
 		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 	}
-	.graph-node-card--selected { box-shadow: 0 0 0 2px var(--color-primary-500); }
-	.graph-node-card--highlight { border-color: var(--color-primary-400); }
-	.graph-node-card--default { border-color: var(--color-border-primary); }
+	.graph-node-card--selected {
+		box-shadow: 0 0 0 2px var(--color-primary-500);
+	}
+	.graph-node-card--highlight {
+		border-color: var(--color-primary-400);
+	}
+	.graph-node-card--default {
+		border-color: var(--color-border-primary);
+	}
 	.graph-node-card__header {
 		display: flex;
 		cursor: pointer;
@@ -103,7 +109,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 		border-bottom: 1px solid var(--color-border-primary);
 		padding: 0.75rem 1rem;
 	}
-	.graph-node-card__icon { margin-right: 0.5rem; }
+	.graph-node-card__icon {
+		margin-right: 0.5rem;
+	}
 	.graph-node-card__title {
 		flex: 1;
 		font-size: 0.875rem;
@@ -123,8 +131,15 @@ import type { HTMLAttributes } from 'svelte/elements';
 		flex-direction: column;
 		gap: 0.75rem;
 	}
-	.graph-node-card__description { font-size: 0.875rem; color: var(--color-text-secondary); }
-	.graph-node-card__fields { display: flex; flex-direction: column; gap: 0.5rem; }
+	.graph-node-card__description {
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+	.graph-node-card__fields {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
 	.graph-node-card__field-item {
 		display: flex;
 		cursor: pointer;
@@ -134,9 +149,24 @@ import type { HTMLAttributes } from 'svelte/elements';
 		border: 1px solid var(--color-border-primary);
 		padding: 0.5rem 0.75rem;
 	}
-	.graph-node-card__field-item:hover { background-color: var(--color-background-secondary); }
-	.graph-node-card__field-name { font-size: 0.875rem; color: var(--color-text-primary); }
-	.graph-node-card__field-type { font-size: 0.75rem; color: var(--color-text-secondary); }
-	.graph-node-card__field-required { margin-left: 0.125rem; color: var(--color-danger-500); }
-	.graph-node-card__actions { display: flex; gap: 0.5rem; padding-top: 0.5rem; }
+	.graph-node-card__field-item:hover {
+		background-color: var(--color-background-secondary);
+	}
+	.graph-node-card__field-name {
+		font-size: 0.875rem;
+		color: var(--color-text-primary);
+	}
+	.graph-node-card__field-type {
+		font-size: 0.75rem;
+		color: var(--color-text-secondary);
+	}
+	.graph-node-card__field-required {
+		margin-left: 0.125rem;
+		color: var(--color-danger-500);
+	}
+	.graph-node-card__actions {
+		display: flex;
+		gap: 0.5rem;
+		padding-top: 0.5rem;
+	}
 </style>

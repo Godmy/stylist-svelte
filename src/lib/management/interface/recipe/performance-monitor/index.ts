@@ -7,4 +7,3 @@ export interface RecipePerformanceMonitor
 	extends ComputeIntersectAll<[SlotTheme, SlotText, BehaviorMetricValue]> {
 	status?: PerformanceMonitorStatus;
 }
-

@@ -5,8 +5,4 @@ export {
 	resolveAllowedOption,
 	resolveCharacterCountState
 } from './script';
-export {
-	createCharacterCountState,
-	formatPhoneNumber,
-	normalizePhoneInputValue
-} from './state';
+export { createCharacterCountState, formatPhoneNumber, normalizePhoneInputValue } from './state';

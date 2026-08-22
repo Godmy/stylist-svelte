@@ -9,9 +9,17 @@ export function createRowState(props: RecipeRow & HTMLAttributes<HTMLTableRowEle
 	const restProps = $derived(ObjectManagerTable.getRowRestProps(props));
 
 	return {
-		get striped() { return striped; },
-		get active() { return active; },
-		get hoverable() { return hoverable; },
-		get restProps() { return restProps; }
+		get striped() {
+			return striped;
+		},
+		get active() {
+			return active;
+		},
+		get hoverable() {
+			return hoverable;
+		},
+		get restProps() {
+			return restProps;
+		}
 	};
 }

@@ -16,7 +16,11 @@
 	{controls}
 >
 	{#snippet children(values: any)}
-		<svg class="schema-dependency-story" viewBox="0 0 520 180" aria-label="Schema dependency preview">
+		<svg
+			class="schema-dependency-story"
+			viewBox="0 0 520 180"
+			aria-label="Schema dependency preview"
+		>
 			<rect x="28" y="44" width="160" height="88" rx="8" />
 			<rect x="332" y={44 + Number(values.targetOffset ?? 40)} width="160" height="88" rx="8" />
 			<SchemaDependency

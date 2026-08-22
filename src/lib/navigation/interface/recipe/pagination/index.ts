@@ -8,7 +8,8 @@ import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipePagination extends ComputeIntersectAll<
+export interface RecipePagination
+	extends ComputeIntersectAll<
 		[
 			HTMLAttributes<HTMLDivElement>,
 			{

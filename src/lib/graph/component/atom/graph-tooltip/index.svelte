@@ -15,35 +15,27 @@
 	const TOOLTIP_H = 200;
 
 	// Keep tooltip inside container
-	const left = $derived(
-		x + TOOLTIP_W + 16 > containerWidth ? x - TOOLTIP_W - 12 : x + 16
-	);
-	const top = $derived(
-		y + TOOLTIP_H + 8 > containerHeight ? y - TOOLTIP_H : y + 8
-	);
+	const left = $derived(x + TOOLTIP_W + 16 > containerWidth ? x - TOOLTIP_W - 12 : x + 16);
+	const top = $derived(y + TOOLTIP_H + 8 > containerHeight ? y - TOOLTIP_H : y + 8);
 
 	const maxDeps = 6;
 	const shownDeps = $derived(node?.dependencyIds.slice(0, maxDeps) ?? []);
 	const extraDeps = $derived((node?.dependencyIds.length ?? 0) - maxDeps);
 
-	const hex = (v: number) => Math.round(v * 255).toString(16).padStart(2, '0');
+	const hex = (v: number) =>
+		Math.round(v * 255)
+			.toString(16)
+			.padStart(2, '0');
 	const dotColor = $derived(
 		node ? `#${hex(node.color[0])}${hex(node.color[1])}${hex(node.color[2])}` : '#888'
 	);
 </script>
 
 {#if node}
-	<div
-		class="graph-tooltip"
-		style="left:{left}px;top:{top}px"
-		role="tooltip"
-		aria-live="polite"
-	>
+	<div class="graph-tooltip" style="left:{left}px;top:{top}px" role="tooltip" aria-live="polite">
 		<!-- Header -->
 		<div class="graph-tooltip__header">
-			<span
-				class="graph-tooltip__dot"
-				style="background:{dotColor};box-shadow:0 0 8px {dotColor}88"
+			<span class="graph-tooltip__dot" style="background:{dotColor};box-shadow:0 0 8px {dotColor}88"
 			></span>
 			<span class="graph-tooltip__family">{node.family || node.joint || node.domain}</span>
 		</div>
@@ -95,7 +87,12 @@
 			0 0 0 1px rgb(255 255 255 / 4%),
 			0 1.5rem 3rem rgb(0 0 0 / 55%);
 		backdrop-filter: blur(16px);
-		font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+		font-family:
+			Inter,
+			ui-sans-serif,
+			system-ui,
+			-apple-system,
+			sans-serif;
 		font-size: 0.8rem;
 		color: rgb(210 225 242);
 		display: flex;
@@ -105,8 +102,14 @@
 	}
 
 	@keyframes tooltip-in {
-		from { opacity: 0; transform: translateY(4px) scale(0.97); }
-		to   { opacity: 1; transform: translateY(0) scale(1); }
+		from {
+			opacity: 0;
+			transform: translateY(4px) scale(0.97);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
 	}
 
 	.graph-tooltip__header {

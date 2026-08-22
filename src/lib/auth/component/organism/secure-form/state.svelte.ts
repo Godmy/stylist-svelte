@@ -25,4 +25,3 @@ export function createSecureFormState(props: RecipeSecureForm) {
 		}
 	};
 }
-

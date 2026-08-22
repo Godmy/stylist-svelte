@@ -14,10 +14,12 @@
 	}: RecipeDomainToolbar = $props();
 
 	const items = $derived.by<SlotSvgName[]>(() =>
-		[...domains].sort((a, b) => a.localeCompare(b)).map((name) => ({
-			name,
-			svg: TOKEN_ICON_REGISTRY[name] ?? TOKEN_ICON_REGISTRY['domain']
-		}))
+		[...domains]
+			.sort((a, b) => a.localeCompare(b))
+			.map((name) => ({
+				name,
+				svg: TOKEN_ICON_REGISTRY[name] ?? TOKEN_ICON_REGISTRY['domain']
+			}))
 	);
 </script>
 

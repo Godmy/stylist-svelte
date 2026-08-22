@@ -34,7 +34,9 @@
 </script>
 
 <nav class="nav-bar {className}" aria-label={ariaLabel}>
-	<div class="nav-bar__brand">{#if brand}{@render brand()}{/if}</div>
+	<div class="nav-bar__brand">
+		{#if brand}{@render brand()}{/if}
+	</div>
 	<div class="nav-bar__desktop-links">
 		{#each sectionLinks as link (link.href)}
 			<Link href={link.href} class="nav-bar__section-link">{link.label}</Link>

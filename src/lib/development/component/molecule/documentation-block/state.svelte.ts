@@ -4,10 +4,17 @@ import type { RecipeDocumentationBlock } from '$stylist/development/interface/re
 export function createDocumentationBlockState(props: RecipeDocumentationBlock) {
 	const variant = $derived(props.variant ?? 'default');
 	const containerClass = $derived(
-		ClassNamesManager.merge('c-documentation-block', `c-documentation-block--${variant}`, props.class)
+		ClassNamesManager.merge(
+			'c-documentation-block',
+			`c-documentation-block--${variant}`,
+			props.class
+		)
 	);
 	const headerContainerClass = $derived(
-		ClassNamesManager.merge('c-documentation-block__header', `c-documentation-block__header--${variant}`)
+		ClassNamesManager.merge(
+			'c-documentation-block__header',
+			`c-documentation-block__header--${variant}`
+		)
 	);
 	const headerContentClass = 'c-documentation-block__header-content';
 	const titleClass = 'c-documentation-block__title';

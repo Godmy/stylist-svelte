@@ -99,6 +99,7 @@ atom/molecule/organism для сборки CSS-классов. Это чужой
 (все `organism/*`, плюс самостоятельные `molecule/*`, не обёрнутые ни одним organism'ом).
 
 ### organism/chart
+
 ```
 organism/chart
 ├─ interface/recipe/chart
@@ -117,6 +118,7 @@ organism/chart
 ```
 
 ### organism/canvas-chart
+
 ```
 organism/canvas-chart
 ├─ interface/recipe/canvas-chart
@@ -127,6 +129,7 @@ organism/canvas-chart
 ```
 
 ### organism/analytics-chart
+
 ```
 organism/analytics-chart
 ├─ interface/recipe/analytics-chart
@@ -143,6 +146,7 @@ organism/analytics-chart
 ```
 
 ### organism/line-chart
+
 ```
 organism/line-chart
 ├─ interface/recipe/line-chart
@@ -154,6 +158,7 @@ organism/line-chart
 ```
 
 ### organism/heatmap
+
 ```
 organism/heatmap
 ├─ interface/recipe/heatmap
@@ -165,6 +170,7 @@ organism/heatmap
 ```
 
 ### organism/scatter-plot
+
 ```
 organism/scatter-plot
 ├─ interface/recipe/scatter-plot
@@ -173,6 +179,7 @@ organism/scatter-plot
 ```
 
 ### organism/legend-bar-diagram
+
 ```
 organism/legend-bar-diagram
 ├─ interface/recipe/legend-bar-diagram
@@ -183,6 +190,7 @@ organism/legend-bar-diagram
 ```
 
 ### organism/legend-band-diagram
+
 ```
 organism/legend-band-diagram
 ├─ interface/recipe/legend-band-diagram
@@ -193,6 +201,7 @@ organism/legend-band-diagram
 ```
 
 ### organism/critical-path-timeline
+
 ```
 organism/critical-path-timeline
 ├─ interface/recipe/critical-path-timeline
@@ -200,6 +209,7 @@ organism/critical-path-timeline
 ```
 
 ### organism/exchange-oracle-forecast
+
 ```
 organism/exchange-oracle-forecast
 ├─ interface/recipe/exchange-oracle-forecast
@@ -207,6 +217,7 @@ organism/exchange-oracle-forecast
 ```
 
 ### organism/expert-agreement-radar
+
 ```
 organism/expert-agreement-radar
 ├─ interface/recipe/expert-agreement-radar
@@ -214,6 +225,7 @@ organism/expert-agreement-radar
 ```
 
 ### organism/expert-spread-matrix
+
 ```
 organism/expert-spread-matrix
 ├─ interface/recipe/expert-spread-matrix
@@ -221,6 +233,7 @@ organism/expert-spread-matrix
 ```
 
 ### organism/outlier-constellation
+
 ```
 organism/outlier-constellation
 ├─ interface/recipe/outlier-constellation
@@ -228,6 +241,7 @@ organism/outlier-constellation
 ```
 
 ### organism/risk-impact-map
+
 ```
 organism/risk-impact-map
 ├─ interface/recipe/risk-impact-map
@@ -235,6 +249,7 @@ organism/risk-impact-map
 ```
 
 ### organism/wideband-delphi-diagram
+
 ```
 organism/wideband-delphi-diagram
 ├─ interface/recipe/wideband-delphi-diagram
@@ -242,6 +257,7 @@ organism/wideband-delphi-diagram
 ```
 
 ### molecule/vertical-bars-chart (самостоятельный, не обёрнут ни одним organism)
+
 ```
 molecule/vertical-bars-chart
 └─ interface/recipe/vertical-bars-chart
@@ -249,6 +265,7 @@ molecule/vertical-bars-chart
 ```
 
 ### molecule/range-bars-chart (самостоятельный)
+
 ```
 molecule/range-bars-chart
 └─ interface/recipe/range-bars-chart
@@ -256,6 +273,7 @@ molecule/range-bars-chart
 ```
 
 ### molecule/metric-bars-card (самостоятельный)
+
 ```
 molecule/metric-bars-card
 ├─ interface/recipe/metric-bars-card
@@ -265,6 +283,7 @@ molecule/metric-bars-card
 ```
 
 ## Примечания
+
 - **`organism/analytics-chart` зависит от `organism/line-chart`** — единственное место в
   домене, где organism использует другой organism напрямую (а не molecule/atom). Формально
   это не нарушает `Assembly Direction Policy` (там запрещено только обратное направление

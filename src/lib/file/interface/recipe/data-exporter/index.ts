@@ -2,7 +2,8 @@ import type { DataExporterFormat } from '$stylist/file/type/alias/data-exporter-
 import type { SlotDataItem } from '$stylist/file/interface/slot/data-item';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeDataExporter extends ComputeIntersectAll<
+export interface RecipeDataExporter
+	extends ComputeIntersectAll<
 		[
 			{
 				data?: SlotDataItem[];

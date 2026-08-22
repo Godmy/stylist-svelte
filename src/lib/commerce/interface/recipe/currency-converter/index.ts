@@ -5,14 +5,14 @@ import type { SlotExchangeRate } from '$stylist/commerce/interface/slot/exchange
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 export interface RecipeCurrencyConverter
 	extends ComputeIntersectAll<[SlotTheme, BehaviorClickable]> {
-	onConvert?: (result: ({
-fromAmount: number;
-	fromCurrency: string;
-	toAmount: number;
-	toCurrency: string;
-	exchangeRate: number;
-	feeAmount?: number;
-})) => void;
+	onConvert?: (result: {
+		fromAmount: number;
+		fromCurrency: string;
+		toAmount: number;
+		toCurrency: string;
+		exchangeRate: number;
+		feeAmount?: number;
+	}) => void;
 	onCurrencyChange?: (from: string, to: string) => void;
 	amount: number;
 	fromCurrency: string;

@@ -41,13 +41,13 @@ export interface RecipeWorkspaceNode
 	canvasZoom?: number;
 	worldDepth?: number;
 	cameraDepth?: number;
-	presentation?: (Partial<SemanticZoomPresentation> & {
-	stage?: SemanticZoomPresentation['stage'];
-	size?: TokenSize;
-	width?: number;
-	height?: number | 'auto';
-	showChildren?: boolean;
-});
+	presentation?: Partial<SemanticZoomPresentation> & {
+		stage?: SemanticZoomPresentation['stage'];
+		size?: TokenSize;
+		width?: number;
+		height?: number | 'auto';
+		showChildren?: boolean;
+	};
 	properties?: SlotWorkspaceNode[];
 	inputs?: SlotWorkspaceNode[];
 	outputs?: SlotWorkspaceNode[];

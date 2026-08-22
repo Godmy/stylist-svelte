@@ -10,7 +10,10 @@
 	const hoverColor = '#f59e0b';
 </script>
 
-<section class={state.className} aria-label={props.ariaLabel ?? props.text ?? 'Legend band diagram'}>
+<section
+	class={state.className}
+	aria-label={props.ariaLabel ?? props.text ?? 'Legend band diagram'}
+>
 	{#if props.text}
 		<header class="legend-band-diagram__header">
 			<h3>{props.text}</h3>
@@ -42,7 +45,12 @@
 					x2={state.layout.plotRight}
 					y2={tick.y}
 				/>
-				<text class="legend-band-diagram__tick-label" x={state.layout.plotX - 10} y={tick.y + 4} text-anchor="end">
+				<text
+					class="legend-band-diagram__tick-label"
+					x={state.layout.plotX - 10}
+					y={tick.y + 4}
+					text-anchor="end"
+				>
 					{tick.value}
 				</text>
 			{/each}

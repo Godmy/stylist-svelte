@@ -14,4 +14,3 @@ export interface GraphNode {
 	details: readonly string[];
 	shape: 'rounded' | 'pill' | 'circle';
 }
-

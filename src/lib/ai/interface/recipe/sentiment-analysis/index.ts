@@ -3,16 +3,16 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SentimentAnalysisStatus } from '$stylist/ai/type/alias/sentiment-analysis-status';
 export interface RecipeSentimentAnalysis extends ComputeIntersectAll<[SlotChildren]> {
 	text?: string;
-	result?: ({
-score: number;
-	label: 'very negative' | 'negative' | 'neutral' | 'positive' | 'very positive';
-	confidence: number;
-	breakdown?: {
-		positive: number;
-		neutral: number;
-		negative: number;
+	result?: {
+		score: number;
+		label: 'very negative' | 'negative' | 'neutral' | 'positive' | 'very positive';
+		confidence: number;
+		breakdown?: {
+			positive: number;
+			neutral: number;
+			negative: number;
+		};
 	};
-});
 	onAnalyze?: (text: string) => void;
 	status?: SentimentAnalysisStatus;
 	errorMessage?: string;
@@ -23,4 +23,3 @@ score: number;
 	resultClass?: string;
 	footerClass?: string;
 }
-

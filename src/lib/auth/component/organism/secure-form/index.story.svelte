@@ -3,9 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import SecureForm from './index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'token', type: 'text', defaultValue: 'csrf-demo-token' }
-	];
+	const controls: SlotStory[] = [{ name: 'token', type: 'text', defaultValue: 'csrf-demo-token' }];
 </script>
 
 <Story

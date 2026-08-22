@@ -2,7 +2,8 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { SlotMediaItem } from '$stylist/file/interface/slot/media-item';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeMediaLibrary extends ComputeIntersectAll<
+export interface RecipeMediaLibrary
+	extends ComputeIntersectAll<
 		[
 			Omit<HTMLAttributes<HTMLDivElement>, 'class'>,
 			{

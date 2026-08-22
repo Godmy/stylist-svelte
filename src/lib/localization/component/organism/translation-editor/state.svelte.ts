@@ -33,10 +33,18 @@ export function createTranslationEditorState(props: RecipeTranslationEditor) {
 
 	const rootClass = $derived(['c-translation-editor', props.class].filter(Boolean).join(' '));
 	const panelClass = $derived('c-translation-editor__panel');
-	const headerClass = $derived(['c-translation-editor__header', props.headerClass].filter(Boolean).join(' '));
-	const tableClass = $derived(['c-translation-editor__table', props.tableClass].filter(Boolean).join(' '));
-	const rowClass = $derived(['c-translation-editor__row', props.rowClass].filter(Boolean).join(' '));
-	const editorClass = $derived(['c-translation-editor__editor', props.editorClass].filter(Boolean).join(' '));
+	const headerClass = $derived(
+		['c-translation-editor__header', props.headerClass].filter(Boolean).join(' ')
+	);
+	const tableClass = $derived(
+		['c-translation-editor__table', props.tableClass].filter(Boolean).join(' ')
+	);
+	const rowClass = $derived(
+		['c-translation-editor__row', props.rowClass].filter(Boolean).join(' ')
+	);
+	const editorClass = $derived(
+		['c-translation-editor__editor', props.editorClass].filter(Boolean).join(' ')
+	);
 
 	const restProps = $derived.by(() => {
 		const {

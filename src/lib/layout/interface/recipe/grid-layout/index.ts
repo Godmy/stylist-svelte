@@ -11,10 +11,10 @@ export interface RecipeGridLayout extends LayoutHTMLAttributes<HTMLDivElement> {
 	alignItems?: string;
 	justifyContent?: string;
 	itemClass?: string;
-	items?: ({
-class?: string;
-	colSpan?: number;
-	rowSpan?: number;
-	content: string | Snippet;
-})[];
+	items?: {
+		class?: string;
+		colSpan?: number;
+		rowSpan?: number;
+		content: string | Snippet;
+	}[];
 }

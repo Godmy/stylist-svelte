@@ -9,4 +9,3 @@ export interface SlotUploadFile {
 	uploadedAt?: Date;
 	data?: unknown;
 }
-

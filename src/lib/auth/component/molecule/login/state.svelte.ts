@@ -57,4 +57,3 @@ export const createLoginState = (props: RecipeLogin) => {
 };
 
 export default createLoginState;
-

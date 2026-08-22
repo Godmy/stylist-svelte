@@ -14,4 +14,3 @@ export interface GraphWorkspaceNode {
 	details: readonly string[];
 	shape: 'rounded' | 'pill' | 'circle';
 }
-

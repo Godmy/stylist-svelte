@@ -28,9 +28,24 @@
 		white-space: nowrap;
 	}
 
-	.c-cell-pill__badge--default { background: var(--color-background-secondary); color: var(--color-text-secondary); }
-	.c-cell-pill__badge--primary { background: var(--color-primary-100); color: var(--color-primary-700); }
-	.c-cell-pill__badge--success { background: #dcfce7; color: #15803d; }
-	.c-cell-pill__badge--warning { background: #fef9c3; color: #a16207; }
-	.c-cell-pill__badge--danger  { background: #fee2e2; color: #b91c1c; }
+	.c-cell-pill__badge--default {
+		background: var(--color-background-secondary);
+		color: var(--color-text-secondary);
+	}
+	.c-cell-pill__badge--primary {
+		background: var(--color-primary-100);
+		color: var(--color-primary-700);
+	}
+	.c-cell-pill__badge--success {
+		background: #dcfce7;
+		color: #15803d;
+	}
+	.c-cell-pill__badge--warning {
+		background: #fef9c3;
+		color: #a16207;
+	}
+	.c-cell-pill__badge--danger {
+		background: #fee2e2;
+		color: #b91c1c;
+	}
 </style>

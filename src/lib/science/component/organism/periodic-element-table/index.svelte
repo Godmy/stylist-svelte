@@ -50,7 +50,12 @@
 
 	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 	<!-- scrollable region (overflow: auto): tabindex=0 is the WAI-ARIA pattern for keyboard scroll access -->
-	<div class="c-periodic-element-table__viewport" role="region" aria-label="Periodic table of chemical elements" tabindex="0">
+	<div
+		class="c-periodic-element-table__viewport"
+		role="region"
+		aria-label="Periodic table of chemical elements"
+		tabindex="0"
+	>
 		<div class="c-periodic-element-table__grid">
 			{#each elements as element}
 				<PeriodicElement
@@ -64,11 +69,7 @@
 		</div>
 	</div>
 
-	<PeriodicElementLegend
-		{categories}
-		{selectedCategory}
-		onCategorySelect={selectCategory}
-	/>
+	<PeriodicElementLegend {categories} {selectedCategory} onCategorySelect={selectCategory} />
 </div>
 
 <style>
@@ -120,6 +121,5 @@
 			align-items: stretch;
 			flex-direction: column;
 		}
-
 	}
 </style>

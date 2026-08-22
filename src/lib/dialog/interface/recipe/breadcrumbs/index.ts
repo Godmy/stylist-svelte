@@ -5,7 +5,8 @@ import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { BreadcrumbItem } from '$stylist/dialog/interface/slot/breadcrumb-item';
 
-export interface RecipeBreadcrumbs extends ComputeIntersectAll<
+export interface RecipeBreadcrumbs
+	extends ComputeIntersectAll<
 		[
 			SlotTheme,
 			SlotText,

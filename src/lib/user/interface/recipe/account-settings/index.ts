@@ -8,11 +8,6 @@ export interface RecipeAccountSettings
 	showTwoFactor?: boolean;
 	loading?: boolean;
 	class?: string;
-	onSubmit?: (settings: ({
-	email?: string;
-	password?: string;
-	twoFactorEnabled?: boolean;
-})) => void;
+	onSubmit?: (settings: { email?: string; password?: string; twoFactorEnabled?: boolean }) => void;
 	onDeleteAccount?: () => void;
 }
-

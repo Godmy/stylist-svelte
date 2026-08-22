@@ -23,9 +23,7 @@
 
 	type Props = { showLabel: boolean };
 
-	const controls: SlotStory[] = [
-		{ name: 'showLabel', type: 'boolean', defaultValue: true }
-	];
+	const controls: SlotStory[] = [{ name: 'showLabel', type: 'boolean', defaultValue: true }];
 
 	const accountNode: OntologyNode = {
 		id: 'account',

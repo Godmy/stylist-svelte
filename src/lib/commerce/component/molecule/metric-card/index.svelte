@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeMetricCard } from '$stylist/commerce/interface/recipe/metric-card';
 	import { createMetricCardState } from './state.svelte';
 

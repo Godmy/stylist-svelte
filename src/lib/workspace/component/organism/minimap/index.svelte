@@ -5,8 +5,8 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createMinimapState from './state.svelte';
 
-	const contract: LayoutHTMLAttributes<HTMLDivElement> &
-		RecipeMinimap & { class?: string } = $props();
+	const contract: LayoutHTMLAttributes<HTMLDivElement> & RecipeMinimap & { class?: string } =
+		$props();
 	const state = createMinimapState(contract);
 </script>
 

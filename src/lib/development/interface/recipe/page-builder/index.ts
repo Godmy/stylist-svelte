@@ -1,7 +1,8 @@
 import type { PageBuilderElement as SlotPageBuilderElement } from '$stylist/development/interface/slot/page-builder-element';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipePageBuilder extends ComputeIntersectAll<
+export interface RecipePageBuilder
+	extends ComputeIntersectAll<
 		[
 			{
 				initialElements?: SlotPageBuilderElement[];

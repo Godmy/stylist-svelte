@@ -25,11 +25,7 @@
 		class?: string;
 	}
 
-	let {
-		rows,
-		summary,
-		class: className = ''
-	}: DomainComponentImportDiagnosticsProps = $props();
+	let { rows, summary, class: className = '' }: DomainComponentImportDiagnosticsProps = $props();
 
 	function formatDomainName(value: string): string {
 		return value
@@ -186,7 +182,8 @@
 	th,
 	td {
 		padding: 0.65rem;
-		border-bottom: 1px solid color-mix(in srgb, var(--color-border-primary, #cbd5e1) 58%, transparent);
+		border-bottom: 1px solid
+			color-mix(in srgb, var(--color-border-primary, #cbd5e1) 58%, transparent);
 		text-align: left;
 		vertical-align: top;
 	}

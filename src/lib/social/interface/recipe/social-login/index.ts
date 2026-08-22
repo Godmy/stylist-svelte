@@ -3,8 +3,11 @@ import type { Provider } from '$stylist/social/type/object/social-login/provider
 import type { SlotThemeBorder } from '$stylist/theme/interface/slot/theme-border';
 import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 
-export interface RecipeSocialLogin extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>, SlotThemeBorder, SlotTypography {
-providers?: Provider[];
+export interface RecipeSocialLogin
+	extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>,
+		SlotThemeBorder,
+		SlotTypography {
+	providers?: Provider[];
 	showEmailForm?: boolean;
 	showPasswordForm?: boolean;
 	showSignUp?: boolean;

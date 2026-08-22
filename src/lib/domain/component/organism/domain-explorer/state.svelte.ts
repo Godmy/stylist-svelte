@@ -625,5 +625,3 @@ export function createDomainPageState(input: DomainPageInput) {
 }
 
 export default createDomainPageState;
-
-

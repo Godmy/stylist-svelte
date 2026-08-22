@@ -2,10 +2,7 @@ import type { RecipeInlineCode } from '$stylist/typography/interface/recipe/inli
 
 export function createInlineCodeState(props: RecipeInlineCode) {
 	const classes = $derived(
-		[
-			'c-typography-inline-code',
-			typeof props.class === 'string' ? props.class : undefined
-		]
+		['c-typography-inline-code', typeof props.class === 'string' ? props.class : undefined]
 			.filter(Boolean)
 			.join(' ')
 	);

@@ -17,14 +17,14 @@ export class ManagerChart {
 	}
 
 	static getAxisYMetrics(props: RecipeChartAxisY): {
-	x: number;
-	startY: number;
-	endY: number;
-	tickCount: number;
-	tickSize: number;
-	showArrow: boolean;
-	ticks: number[];
-} {
+		x: number;
+		startY: number;
+		endY: number;
+		tickCount: number;
+		tickSize: number;
+		showArrow: boolean;
+		ticks: number[];
+	} {
 		const x = props.x ?? 0;
 		const startY = props.startY ?? 0;
 		const endY = props.endY ?? 100;
@@ -62,11 +62,11 @@ export class ManagerChart {
 	}
 
 	static getBounds(props: ChartPolylineProps): {
-	minX: number;
-	maxX: number;
-	minY: number;
-	maxY: number;
-} {
+		minX: number;
+		maxX: number;
+		minY: number;
+		maxY: number;
+	} {
 		if (props.xDomain && props.yDomain) {
 			return {
 				minX: props.xDomain[0],

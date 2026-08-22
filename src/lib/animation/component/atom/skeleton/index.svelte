@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { createSkeletonState } from './state.svelte';
 	import type { RecipeSkeleton } from '$stylist/animation/interface/recipe/skeleton';
 

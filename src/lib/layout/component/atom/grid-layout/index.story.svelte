@@ -40,7 +40,15 @@
 		{
 			name: 'justifyContent',
 			type: 'select',
-			options: ['start', 'center', 'end', 'space-between', 'space-around', 'space-evenly', 'stretch'],
+			options: [
+				'start',
+				'center',
+				'end',
+				'space-between',
+				'space-around',
+				'space-evenly',
+				'stretch'
+			],
 			defaultValue: 'stretch'
 		}
 	];

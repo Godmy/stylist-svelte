@@ -3,9 +3,7 @@
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import DomainDiagnostics from './index.svelte';
 
-	const controls: SlotStory[] = [
-		{ name: 'compact', type: 'boolean', defaultValue: true }
-	];
+	const controls: SlotStory[] = [{ name: 'compact', type: 'boolean', defaultValue: true }];
 </script>
 
 <Story

@@ -1,7 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeScene extends ComputeIntersectAll<
+export interface RecipeScene
+	extends ComputeIntersectAll<
 		[
 			HTMLAttributes<HTMLDivElement> & {
 				title?: string;

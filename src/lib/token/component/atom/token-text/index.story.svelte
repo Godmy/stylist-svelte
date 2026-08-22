@@ -15,9 +15,7 @@
 		placeholder: 'For example: 1.5'
 	};
 
-	const controls: SlotStory[] = [
-		{ name: 'value', type: 'text', defaultValue: '1.5' }
-	];
+	const controls: SlotStory[] = [{ name: 'value', type: 'text', defaultValue: '1.5' }];
 </script>
 
 <Story

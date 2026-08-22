@@ -27,7 +27,7 @@
 	<Divider label={eyebrow} align="left" class="result-section__divider" />
 	<div class="result-section__grid">
 		<figure class="result-section__media">
-			<Image imageSrc={imageSrc} imageAlt={imageAlt} size="xl" class="result-section__image" />
+			<Image {imageSrc} {imageAlt} size="xl" class="result-section__image" />
 		</figure>
 		<div class="result-section__copy">
 			<SectionHeading {title} />

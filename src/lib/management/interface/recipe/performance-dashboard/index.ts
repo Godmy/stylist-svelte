@@ -13,14 +13,14 @@ export interface RecipePerformanceDashboard
 	onTimeRangeChange?: (range: TokenTimeRange) => void;
 
 	metrics: {
-	id: string;
-	title: string;
-	value: string | number;
-	change: number; // Percentage change
-	changeType: 'positive' | 'negative';
-	icon: any;
-	color: string;
-}[];
+		id: string;
+		title: string;
+		value: string | number;
+		change: number; // Percentage change
+		changeType: 'positive' | 'negative';
+		icon: any;
+		color: string;
+	}[];
 	headerClass?: string;
 	metricsClass?: string;
 	metricCardClass?: string;

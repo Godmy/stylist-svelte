@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { RecipeScreenshotSelector } from '$stylist/canvas/interface/recipe/screenshot-selector';
 	import { createScreenshotSelectorState } from './state.svelte';
 	let props: RecipeScreenshotSelector & HTMLAttributes<HTMLDivElement> = $props();

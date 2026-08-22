@@ -7,7 +7,9 @@ import type { RecipeAvatar } from '$stylist/user/interface/recipe/avatar';
 
 import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
 
-export function createAvatarState(props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography) {
+export function createAvatarState(
+	props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography
+) {
 	const name = $derived(props.name ?? '');
 	const status = $derived(props.status);
 	const showStatus = $derived(props.showStatus ?? false);

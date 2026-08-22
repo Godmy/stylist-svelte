@@ -6,14 +6,14 @@ import type { Snippet } from 'svelte';
 export interface RecipeUserCardProps
 	extends ComputeIntersectAll<[LayoutHTMLAttributes<HTMLDivElement>]> {
 	user?: {
-	id: string;
-	name: string;
-	email?: string;
-	avatar?: string;
-	role?: string;
-	title?: string;
-	actions?: Snippet;
-};
+		id: string;
+		name: string;
+		email?: string;
+		avatar?: string;
+		role?: string;
+		title?: string;
+		actions?: Snippet;
+	};
 	size?: (typeof TOKEN_SIZE)[number];
 	showEmail?: boolean;
 	showRole?: boolean;

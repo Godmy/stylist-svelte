@@ -1,5 +1,5 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
-﻿import type { RecipeAlert } from '$stylist/notification/interface/recipe/alert';
+import type { RecipeAlert } from '$stylist/notification/interface/recipe/alert';
 
 export function createAlertState(props: RecipeAlert) {
 	const iconMap = {
@@ -26,7 +26,9 @@ export function createAlertState(props: RecipeAlert) {
 	const contentContainerClasses = $derived('alert-description');
 	const mainContainerClasses = $derived('alert-content');
 	const closeButtonContainerClasses = $derived('alert-close');
-	const closeButtonClasses = $derived(ClassNamesManager.join('alert-close-button', `variant-${variant}`));
+	const closeButtonClasses = $derived(
+		ClassNamesManager.join('alert-close-button', `variant-${variant}`)
+	);
 
 	let open = $state(true);
 

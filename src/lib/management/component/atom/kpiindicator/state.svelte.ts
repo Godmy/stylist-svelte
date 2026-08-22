@@ -37,9 +37,11 @@ export function createKPIIndicatorState(props: RecipeKPIIndicator) {
 	const titleClasses = 'kpi-indicator__title';
 	const valueClasses = 'kpi-indicator__value';
 	const trendColorClasses = $derived(
-		trend === 'up' ? 'kpi-indicator__trend--positive' :
-		trend === 'down' ? 'kpi-indicator__trend--negative' :
-		'kpi-indicator__trend--neutral'
+		trend === 'up'
+			? 'kpi-indicator__trend--positive'
+			: trend === 'down'
+				? 'kpi-indicator__trend--negative'
+				: 'kpi-indicator__trend--neutral'
 	);
 	const progressTrackClasses = 'kpi-indicator__progress-track';
 	const progressFillClasses = $derived(

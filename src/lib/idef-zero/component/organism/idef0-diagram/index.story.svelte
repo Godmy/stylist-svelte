@@ -27,11 +27,6 @@
 	description="IDEF0 black-box diagram for inputs and outputs."
 >
 	{#snippet children(values: any)}
-		<Idef0Diagram
-			title={values.functionTitle}
-			{subtitle}
-			{inputs}
-			{outputs}
-		/>
+		<Idef0Diagram title={values.functionTitle} {subtitle} {inputs} {outputs} />
 	{/snippet}
 </Story>

@@ -1,5 +1,5 @@
 export interface RecipeTokenChipSet {
-title: string;
+	title: string;
 	tokens: readonly string[];
 	value?: string;
 	class?: string;

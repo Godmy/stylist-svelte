@@ -39,7 +39,9 @@ export function createHeatmapState(props: RecipeHeatmap) {
 	);
 
 	const containerClasses = $derived(ClassNamesManager.merge('c-heatmap', hostClass));
-	const chartContainerClasses = $derived(ClassNamesManager.merge('c-heatmap__chart-container', chartClass));
+	const chartContainerClasses = $derived(
+		ClassNamesManager.merge('c-heatmap__chart-container', chartClass)
+	);
 	const titleClasses = $derived('c-heatmap__title');
 	const svgClasses = $derived('c-heatmap__svg');
 	const axisClasses = $derived('c-heatmap__axis');

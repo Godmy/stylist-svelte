@@ -2,7 +2,11 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeCalendarView as CalendarViewContract } from '$stylist/calendar/interface/recipe/calendar-view';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';
-import { generateCalendarGrid, isToday as isTodayFn, isSameDay } from '$stylist/calendar/function/script/calendar-utils';
+import {
+	generateCalendarGrid,
+	isToday as isTodayFn,
+	isSameDay
+} from '$stylist/calendar/function/script/calendar-utils';
 import { formatMonthYear } from '$stylist/calendar/function/script/date-format';
 
 export function createCalendarViewState(props: CalendarViewContract) {
@@ -18,7 +22,9 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	const headerClassProp = $derived(props.headerClass ?? '');
 
 	const wrapperClasses = $derived(ClassNamesManager.merge('c-calendar-view', className));
-	const headerClasses = $derived(ClassNamesManager.merge('c-calendar-view__header', headerClassProp));
+	const headerClasses = $derived(
+		ClassNamesManager.merge('c-calendar-view__header', headerClassProp)
+	);
 	const gridClasses = $derived('c-calendar-view__grid');
 	const weekdayHeaderClasses = $derived('c-calendar-view__weekday');
 	const todayButtonClasses = $derived('c-calendar-view__today-btn');
@@ -27,8 +33,15 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	const days = $derived.by<SlotCalendarDay[]>(() => {
 		const month = currentDate.getMonth();
 		return generateCalendarGrid(currentDate).map((date) => {
-			const dayEvents = events.filter((event: SlotCalendarEvent) => isSameDay(new Date(event.start), date));
-			return { date, isCurrentMonth: date.getMonth() === month, isToday: isTodayFn(date), events: dayEvents };
+			const dayEvents = events.filter((event: SlotCalendarEvent) =>
+				isSameDay(new Date(event.start), date)
+			);
+			return {
+				date,
+				isCurrentMonth: date.getMonth() === month,
+				isToday: isTodayFn(date),
+				events: dayEvents
+			};
 		});
 	});
 
@@ -56,7 +69,8 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	});
 
 	function navigateMonth(direction: number): void {
-		const step = currentViewMode === 'day' ? direction : currentViewMode === 'week' ? direction * 7 : 0;
+		const step =
+			currentViewMode === 'day' ? direction : currentViewMode === 'week' ? direction * 7 : 0;
 		if (currentViewMode === 'month') {
 			currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + direction, 1);
 			return;
@@ -122,22 +136,54 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	}
 
 	return {
-		get currentDate() { return currentDate; },
-		get events() { return events; },
-		get viewMode() { return viewMode; },
-		get showWeekNumbers() { return showWeekNumbers; },
-		get dayClass() { return dayClass; },
-		get eventClass() { return eventClass; },
-		get days() { return days; },
-		get weekdays() { return weekdays; },
-		get monthYear() { return monthYear; },
-		get wrapperClasses() { return wrapperClasses; },
-		get headerClasses() { return headerClasses; },
-		get gridClasses() { return gridClasses; },
-		get weekdayHeaderClasses() { return weekdayHeaderClasses; },
-		get todayButtonClasses() { return todayButtonClasses; },
-		get navigationButtonClasses() { return navigationButtonClasses; },
-		get restProps() { return restProps; },
+		get currentDate() {
+			return currentDate;
+		},
+		get events() {
+			return events;
+		},
+		get viewMode() {
+			return viewMode;
+		},
+		get showWeekNumbers() {
+			return showWeekNumbers;
+		},
+		get dayClass() {
+			return dayClass;
+		},
+		get eventClass() {
+			return eventClass;
+		},
+		get days() {
+			return days;
+		},
+		get weekdays() {
+			return weekdays;
+		},
+		get monthYear() {
+			return monthYear;
+		},
+		get wrapperClasses() {
+			return wrapperClasses;
+		},
+		get headerClasses() {
+			return headerClasses;
+		},
+		get gridClasses() {
+			return gridClasses;
+		},
+		get weekdayHeaderClasses() {
+			return weekdayHeaderClasses;
+		},
+		get todayButtonClasses() {
+			return todayButtonClasses;
+		},
+		get navigationButtonClasses() {
+			return navigationButtonClasses;
+		},
+		get restProps() {
+			return restProps;
+		},
 		navigateMonth,
 		navigateToToday,
 		handleDayClick,

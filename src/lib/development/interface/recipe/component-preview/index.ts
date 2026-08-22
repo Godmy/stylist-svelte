@@ -4,12 +4,19 @@ import type { SlotTypography } from '$stylist/theme/interface/slot/typography';
 import type { Snippet } from 'svelte';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeComponentPreview extends ComputeIntersectAll<[((Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography & {
-title: string;
-	description?: string;
-	code: string;
-	language?: string;
-	componentDemo: Snippet;
-	showCode?: boolean;
-	class?: string;
-}))]> {}
+export interface RecipeComponentPreview
+	extends ComputeIntersectAll<
+		[
+			Omit<HTMLAttributes<HTMLDivElement>, 'class'> &
+				SlotThemeBorder &
+				SlotTypography & {
+					title: string;
+					description?: string;
+					code: string;
+					language?: string;
+					componentDemo: Snippet;
+					showCode?: boolean;
+					class?: string;
+				}
+		]
+	> {}

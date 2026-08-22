@@ -6,5 +6,13 @@ import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 export interface RecipeRangeInput
 	extends ComputeIntersectAll<
-		[SlotRangeInput, SlotRangeInput, SlotText, SlotText, BehaviorSelectable<number>, BehaviorFocusable, BehaviorSizable]
+		[
+			SlotRangeInput,
+			SlotRangeInput,
+			SlotText,
+			SlotText,
+			BehaviorSelectable<number>,
+			BehaviorFocusable,
+			BehaviorSizable
+		]
 	> {}

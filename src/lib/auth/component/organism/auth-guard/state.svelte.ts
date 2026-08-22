@@ -63,4 +63,3 @@ export const createAuthGuardState = (props: AuthGuardProps) => {
 };
 
 export default createAuthGuardState;
-

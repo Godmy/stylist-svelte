@@ -23,10 +23,43 @@
 					id: 'invoice',
 					name: String(values.tableName ?? 'Invoice'),
 					fields: [
-						{ id: 'invoice.id', name: 'id', type: 'uuid', required: true, primary: true, unique: true, notes: [] },
-						{ id: 'invoice.customer_id', name: 'customer_id', type: 'uuid', required: true, primary: false, unique: false, reference: 'Customer.id', notes: ['required'] },
-						{ id: 'invoice.total', name: 'total', type: 'decimal', required: true, primary: false, unique: false, notes: ['required'] },
-						{ id: 'invoice.status', name: 'status', type: 'varchar', required: true, primary: false, unique: false, notes: ['required'] }
+						{
+							id: 'invoice.id',
+							name: 'id',
+							type: 'uuid',
+							required: true,
+							primary: true,
+							unique: true,
+							notes: []
+						},
+						{
+							id: 'invoice.customer_id',
+							name: 'customer_id',
+							type: 'uuid',
+							required: true,
+							primary: false,
+							unique: false,
+							reference: 'Customer.id',
+							notes: ['required']
+						},
+						{
+							id: 'invoice.total',
+							name: 'total',
+							type: 'decimal',
+							required: true,
+							primary: false,
+							unique: false,
+							notes: ['required']
+						},
+						{
+							id: 'invoice.status',
+							name: 'status',
+							type: 'varchar',
+							required: true,
+							primary: false,
+							unique: false,
+							notes: ['required']
+						}
 					]
 				}}
 				active={Boolean(values.active)}

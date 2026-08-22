@@ -6,7 +6,9 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { TokenGradient } from '$stylist/layout/type/alias/gradient-mode';
 import type { ThemeGradientBackgroundDirection } from '$stylist/layout/type/alias/gradient-background-direction';
 export interface RecipeGradientBackground
-	extends ComputeIntersectAll<[HTMLAttributes<HTMLDivElement>, SlotThemeBorder, SlotTypography, SlotChildren]> {
+	extends ComputeIntersectAll<
+		[HTMLAttributes<HTMLDivElement>, SlotThemeBorder, SlotTypography, SlotChildren]
+	> {
 	variant?: TokenGradient;
 	colors?: string[];
 	speed?: number;

@@ -11,10 +11,7 @@
 	<div class="c-social-login__card">
 		<div class="c-social-login__hero">
 			<div class="c-social-login__hero-icon-wrap">
-				<BaseIcon
-					name="user-round-plus"
-					class="c-social-login__hero-icon"
-				/>
+				<BaseIcon name="user-round-plus" class="c-social-login__hero-icon" />
 			</div>
 			<h2 class="c-social-login__title">{props.title ?? 'Sign in to your account'}</h2>
 			{#if props.description}
@@ -68,10 +65,7 @@
 						<label for="email" class="c-social-login__label">Email address</label>
 						<div class="c-social-login__input-wrap">
 							<div class="c-social-login__input-icon-wrap">
-								<BaseIcon
-									name="mail"
-									class="c-social-login__input-icon"
-								/>
+								<BaseIcon name="mail" class="c-social-login__input-icon" />
 							</div>
 							<input
 								id="email"
@@ -92,10 +86,7 @@
 							<label for="password" class="c-social-login__label">Password</label>
 							<div class="c-social-login__input-wrap">
 								<div class="c-social-login__input-icon-wrap">
-									<BaseIcon
-										name="lock"
-										class="c-social-login__input-icon"
-									/>
+									<BaseIcon name="lock" class="c-social-login__input-icon" />
 								</div>
 								<input
 									id="password"
@@ -143,10 +134,7 @@
 						disabled={state.isLoading}
 					>
 						{#if state.isLoading}
-							<BaseIcon
-								name="loader-2"
-								class="c-social-login__loader-icon"
-							/>
+							<BaseIcon name="loader-2" class="c-social-login__loader-icon" />
 							Signing in...
 						{:else}
 							Sign in

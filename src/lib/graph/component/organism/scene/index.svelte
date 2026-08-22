@@ -90,7 +90,13 @@
 		border-radius: 0.5rem;
 		box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 34%);
 		font-family:
-			Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+			Inter,
+			ui-sans-serif,
+			system-ui,
+			-apple-system,
+			BlinkMacSystemFont,
+			'Segoe UI',
+			sans-serif;
 		font-size: 0.875rem;
 		pointer-events: none;
 		backdrop-filter: blur(18px);

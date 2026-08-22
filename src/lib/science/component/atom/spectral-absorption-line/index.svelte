@@ -11,7 +11,13 @@
 	const opacity = $derived(Math.min(Math.max(0.35 + props.line.intensity * 0.55, 0.35), 0.95));
 
 	const restProps = $derived.by(() => {
-		const { line: _line, minWavelength: _minWavelength, maxWavelength: _maxWavelength, class: _class, ...rest } = props;
+		const {
+			line: _line,
+			minWavelength: _minWavelength,
+			maxWavelength: _maxWavelength,
+			class: _class,
+			...rest
+		} = props;
 		return rest;
 	});
 </script>
@@ -21,7 +27,7 @@
 	class="c-spectral-absorption-line {props.class ?? ''}"
 	style:left={`${position}%`}
 	style:width={`${width}px`}
-	style:opacity={opacity}
+	style:opacity
 	title={`${props.line.label}: ${props.line.wavelength} nm`}
 	aria-label={`${props.line.label}, ${props.line.wavelength} nanometers`}
 ></span>

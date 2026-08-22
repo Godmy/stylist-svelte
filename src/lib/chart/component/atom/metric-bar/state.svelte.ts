@@ -8,9 +8,7 @@ export function createMetricBarState(props: RecipeMetricBar) {
 	const color = $derived(props.color ?? 'var(--color-primary-500)');
 	const trackColor = $derived(props.trackColor ?? 'var(--color-neutral-200)');
 	const containerClasses = $derived(
-		['metric-bar', typeof props.class === 'string' ? props.class : '']
-			.filter(Boolean)
-			.join(' ')
+		['metric-bar', typeof props.class === 'string' ? props.class : ''].filter(Boolean).join(' ')
 	);
 	const headerClasses = $derived('metric-bar__header');
 	const labelClasses = $derived('metric-bar__label');

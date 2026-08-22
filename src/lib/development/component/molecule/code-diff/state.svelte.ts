@@ -1,22 +1,24 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeCodeDiff } from '$stylist/development/interface/recipe/code-diff';
 
-
 export function createCodeDiffState(props: RecipeCodeDiff) {
-	function computeDiffLines(original: string, modified: string): {
-	type: 'unchanged' | 'added' | 'removed' | 'changed';
-	original: string | null;
-	modified: string | null;
-	lineNumber: number;
-}[] {
+	function computeDiffLines(
+		original: string,
+		modified: string
+	): {
+		type: 'unchanged' | 'added' | 'removed' | 'changed';
+		original: string | null;
+		modified: string | null;
+		lineNumber: number;
+	}[] {
 		const originalLines = original.split('\n');
 		const modifiedLines = modified.split('\n');
 		const lines: {
-	type: 'unchanged' | 'added' | 'removed' | 'changed';
-	original: string | null;
-	modified: string | null;
-	lineNumber: number;
-}[] = [];
+			type: 'unchanged' | 'added' | 'removed' | 'changed';
+			original: string | null;
+			modified: string | null;
+			lineNumber: number;
+		}[] = [];
 		const maxLines = Math.max(originalLines.length, modifiedLines.length);
 
 		for (let index = 0; index < maxLines; index++) {

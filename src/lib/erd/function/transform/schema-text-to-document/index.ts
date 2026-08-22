@@ -61,7 +61,9 @@ export function schemaTextToDocument(source: string): SchemaParseResult {
 	}
 
 	function uniqueDependencies(dependencies: readonly SchemaDependency[]): SchemaDependency[] {
-		return Array.from(new Map(dependencies.map((dependency) => [dependency.id, dependency])).values());
+		return Array.from(
+			new Map(dependencies.map((dependency) => [dependency.id, dependency])).values()
+		);
 	}
 
 	function stripSqlComments(value: string): string {
@@ -239,9 +241,7 @@ export function schemaTextToDocument(source: string): SchemaParseResult {
 					continue;
 				}
 
-				if (
-					/^(constraint|primary\s+key|unique\s+key|key|index|check)\b/i.test(normalizedEntry)
-				) {
+				if (/^(constraint|primary\s+key|unique\s+key|key|index|check)\b/i.test(normalizedEntry)) {
 					continue;
 				}
 
@@ -360,4 +360,3 @@ export function schemaTextToDocument(source: string): SchemaParseResult {
 		errors
 	};
 }
-

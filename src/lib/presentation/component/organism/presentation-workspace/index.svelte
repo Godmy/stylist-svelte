@@ -424,7 +424,8 @@
 			id: 'metrics-revenue',
 			label: '06',
 			title: 'Break down revenue',
-			summary: 'Jump straight into one metrics detail node for the business-facing part of the audience.',
+			summary:
+				'Jump straight into one metrics detail node for the business-facing part of the audience.',
 			nodeId: 'metrics-revenue',
 			checklist: [
 				'Cover plan mix, expansion revenue and churn impact.',
@@ -537,7 +538,11 @@
 		};
 	}
 
-	function getNodePreset(node: SceneNode, viewportWidth: number, viewportHeight: number): SceneCameraPreset {
+	function getNodePreset(
+		node: SceneNode,
+		viewportWidth: number,
+		viewportHeight: number
+	): SceneCameraPreset {
 		const zoom = clampZoom(
 			Math.min(
 				(viewportWidth * 0.88) / DETAIL_FRAME_WIDTH,
@@ -554,13 +559,19 @@
 		};
 	}
 
-	function getPresetForStep(step: DemoStep | undefined, viewportWidth: number, viewportHeight: number): SceneCameraPreset {
+	function getPresetForStep(
+		step: DemoStep | undefined,
+		viewportWidth: number,
+		viewportHeight: number
+	): SceneCameraPreset {
 		if (!step || step.nodeId === null) {
 			return getOverviewPreset(viewportWidth, viewportHeight);
 		}
 
 		const node = nodeById.get(step.nodeId);
-		return node ? getNodePreset(node, viewportWidth, viewportHeight) : getOverviewPreset(viewportWidth, viewportHeight);
+		return node
+			? getNodePreset(node, viewportWidth, viewportHeight)
+			: getOverviewPreset(viewportWidth, viewportHeight);
 	}
 
 	function parseChecklist(value: string): string[] {
@@ -606,9 +617,7 @@
 	let stageFrameHeight = $state(720);
 
 	const currentStep = $derived(stepsState[stepIndex]);
-	const currentPreset = $derived(
-		getPresetForStep(currentStep, stageFrameWidth, stageFrameHeight)
-	);
+	const currentPreset = $derived(getPresetForStep(currentStep, stageFrameWidth, stageFrameHeight));
 	const selectedNode = $derived(selectedNodeId ? (nodeById.get(selectedNodeId) ?? null) : null);
 	const currentStepNoteDraft = $derived(currentStep ? (notesByStep[currentStep.id] ?? '') : '');
 	const completionPercent = $derived(
@@ -1258,10 +1267,7 @@
 					onNodeSelect={handleNodeSelect}
 				>
 					{#snippet inspector(node)}
-						<SceneInspector
-							{node}
-							onclose={() => handleNodeSelect(null)}
-						/>
+						<SceneInspector {node} onclose={() => handleNodeSelect(null)} />
 					{/snippet}
 				</PreziScene>
 			</div>

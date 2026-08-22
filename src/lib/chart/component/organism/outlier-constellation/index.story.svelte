@@ -17,8 +17,18 @@
 	];
 </script>
 
-<Story title="OutlierConstellation" description="Expert estimates around consensus with outliers emphasized." {controls}>
+<Story
+	title="OutlierConstellation"
+	description="Expert estimates around consensus with outliers emphasized."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<OutlierConstellation text="Outlier constellation" description="Distance from center shows deviation from consensus." points={points} width={values.width} height={values.height} />
+		<OutlierConstellation
+			text="Outlier constellation"
+			description="Distance from center shows deviation from consensus."
+			{points}
+			width={values.width}
+			height={values.height}
+		/>
 	{/snippet}
 </Story>

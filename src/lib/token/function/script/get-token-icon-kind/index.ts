@@ -1,4 +1,7 @@
-export function getTokenIconKind(tokenName: string): | 'layout'
+export function getTokenIconKind(
+	tokenName: string
+):
+	| 'layout'
 	| 'shape'
 	| 'size'
 	| 'SPACING'
