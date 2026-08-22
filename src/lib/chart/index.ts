@@ -63,7 +63,12 @@ export {
 	TOKEN_CHART_COLORS,
 	TOKEN_LINE_TYPE
 } from './const';
-export type { HeatmapAxisValue, TokenCanvasChartType, TokenChart, TokenLineType } from './type';
+export type {
+	HeatmapAxisValue,
+	TokenCanvasChartType,
+	TokenChart,
+	TokenLineType
+} from './type';
 export type {
 	AnalyticsChartBarPoint,
 	AnalyticsChartDataPoint,

@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerTable, ObjectManagerTableControls } from './class';
+export {
+	ObjectManagerTable,
+	ObjectManagerTableControls
+} from './class';
 export {
 	Cell,
 	CellHeader,
@@ -27,7 +30,10 @@ export {
 	TABLE_ALIGNMENT_CLASSES,
 	TOKEN_SORT_DIRECTION
 } from './const';
-export { createColumn, createTable } from './function';
+export {
+	createColumn,
+	createTable
+} from './function';
 export type {
 	CellType,
 	ColumnSchema,

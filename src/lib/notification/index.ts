@@ -12,7 +12,10 @@ export {
 	ScheduledNotification,
 	ToastStack
 } from './component';
-export { TOKEN_MARKER, TOKEN_NOTIFICATION_CHANNEL } from './const';
+export {
+	TOKEN_MARKER,
+	TOKEN_NOTIFICATION_CHANNEL
+} from './const';
 export { updateNotificationPreference } from './function';
 export type {
 	INotificationSettingsPreference,

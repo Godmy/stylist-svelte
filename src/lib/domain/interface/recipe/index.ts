@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { RecipeDeviceFrame } from './device-frame';
-export type { RecipeDomainAiAgent } from './domain-ai-agent';
 export type { RecipeDomainList } from './domain-list';
 export type { RecipeDomainSidebar } from './domain-sidebar';
 export type { RecipeDomainToolbar } from './domain-toolbar';

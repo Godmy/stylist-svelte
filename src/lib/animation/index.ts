@@ -11,8 +11,16 @@ export {
 	Tooltip,
 	Transformable
 } from './component';
-export { BASE_EASING, INTERACTION_FEEDBACK, TOKEN_CONNECTOR, TOKEN_LOADING } from './const';
-export { animateValue, getEasingFunction } from './function';
+export {
+	BASE_EASING,
+	INTERACTION_FEEDBACK,
+	TOKEN_CONNECTOR,
+	TOKEN_LOADING
+} from './const';
+export {
+	animateValue,
+	getEasingFunction
+} from './function';
 export type {
 	EasingFunction,
 	InteractionFeedback,

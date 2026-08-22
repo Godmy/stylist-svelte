@@ -1,5 +1,13 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Cell, CellHeader, CellIcon, CellPill, CellText, Row, Table } from './atom';
+export {
+	Cell,
+	CellHeader,
+	CellIcon,
+	CellPill,
+	CellText,
+	Row,
+	Table
+} from './atom';
 export {
 	Column,
 	ColumnManager,
@@ -9,4 +17,9 @@ export {
 	FilterText,
 	RowExpandable
 } from './molecule';
-export { Component, DataTable, DataTableShell, TableListPanel } from './organism';
+export {
+	Component,
+	DataTable,
+	DataTableShell,
+	TableListPanel
+} from './organism';

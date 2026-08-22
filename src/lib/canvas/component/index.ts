@@ -6,4 +6,7 @@ export {
 	DrawingSurface,
 	ScreenshotSelector
 } from './molecule';
-export { CollaborativeEditor, SharedCanvas } from './organism';
+export {
+	CollaborativeEditor,
+	SharedCanvas
+} from './organism';

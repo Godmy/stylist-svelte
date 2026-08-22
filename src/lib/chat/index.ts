@@ -30,7 +30,12 @@ export {
 	CHAT_PREVIEW_ICON_CHECK_CHECK,
 	TOKEN_MESSAGE_STATUS
 } from './const';
-export { handleAttachFn, handleEmojiFn, handleInputFn, handleKeydownFn } from './function';
+export {
+	handleAttachFn,
+	handleEmojiFn,
+	handleInputFn,
+	handleKeydownFn
+} from './function';
 export type {
 	ChatHeaderOrganismProps,
 	ChatPreviewMessage,

@@ -13,5 +13,14 @@ export {
 	TokenSelect,
 	TokenText
 } from './atom';
-export { Orbit, RibbonMenu, Token, TokenSetting } from './molecule';
-export { OrbitContractL5, PrismaticOrbitL6, TokenSettings } from './organism';
+export {
+	Orbit,
+	RibbonMenu,
+	Token,
+	TokenSetting
+} from './molecule';
+export {
+	OrbitContractL5,
+	PrismaticOrbitL6,
+	TokenSettings
+} from './organism';

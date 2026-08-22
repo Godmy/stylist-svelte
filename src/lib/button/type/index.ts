@@ -1,2 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ButtonPropsRecord, SplitButtonButtonAttributes } from './object';
+export type {
+	ButtonPropsRecord,
+	SplitButtonButtonAttributes
+} from './object';

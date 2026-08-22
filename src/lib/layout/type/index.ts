@@ -28,4 +28,8 @@ export type {
 	TokenTrigger
 } from './alias';
 export type { Preset } from './preset';
-export type { AnyProperty, GraphPortSizeMapDimensions, RecordSizeMap } from './record';
+export type {
+	AnyProperty,
+	GraphPortSizeMapDimensions,
+	RecordSizeMap
+} from './record';

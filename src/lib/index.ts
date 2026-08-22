@@ -38,7 +38,6 @@ export {
 	AudioSlider,
 	AudioVisualizer,
 	TOKEN_AUDIO_ICON,
-	Transcriber,
 	formatAudioTime
 } from './audio';
 export {
@@ -371,6 +370,7 @@ export {
 	panelId
 } from './development';
 export {
+	ACCORDION_CONTEXT_DEFAULT,
 	Accordion,
 	AccordionGroup,
 	AccordionLayout,
@@ -378,16 +378,22 @@ export {
 	BreadcrumbLink,
 	BreadcrumbSeparator,
 	Breadcrumbs,
+	BreadcrumbsManager,
 	ComponentInfoCard,
 	ConfirmationDialog,
 	Dialog,
 	DialogConfirm,
+	DialogConfirmManager,
 	DropdownMenu,
 	GeneralToolbar,
 	Modal,
+	PresetDropdownMenu,
+	STYLIST_TAB_DEFAULT_ITEMS,
 	SimpleModal,
 	Stepper,
 	StylistTab,
+	TAB_CONTEXT,
+	TAB_PANEL_CONTEXT,
 	Tab,
 	TabList,
 	TabPanel,
@@ -403,9 +409,6 @@ export {
 	DOMAIN_SCREEN,
 	DeviceFrame,
 	DeviceViewport,
-	DomainAiAgent,
-	DomainBacklog,
-	DomainBuilder,
 	DomainClusterBalance,
 	DomainComponentImportDiagnostics,
 	DomainDescriptorPanel,
@@ -1264,7 +1267,6 @@ export {
 	TOKEN_TRAJECTORY,
 	Viewport,
 	WORKSPACE_ICONS,
-	Workspace,
 	WorkspaceCanvas,
 	WorkspaceNode,
 	WorkspacePalette,
@@ -1284,7 +1286,6 @@ export type {
 	TokenLoading,
 	TokenTransition
 } from './animation';
-export type { TypeTranscriberStatus } from './audio';
 export type {
 	AuthGuardProps,
 	AuthResponse,
@@ -1300,7 +1301,10 @@ export type {
 	Session,
 	User
 } from './auth';
-export type { ButtonPropsRecord, SplitButtonButtonAttributes } from './button';
+export type {
+	ButtonPropsRecord,
+	SplitButtonButtonAttributes
+} from './button';
 export type {
 	DatePickerValue,
 	TokenPriority,
@@ -1313,7 +1317,12 @@ export type {
 	SharedCanvasTool,
 	SharedCanvasToolDefinition
 } from './canvas';
-export type { HeatmapAxisValue, TokenCanvasChartType, TokenChart, TokenLineType } from './chart';
+export type {
+	HeatmapAxisValue,
+	TokenCanvasChartType,
+	TokenChart,
+	TokenLineType
+} from './chart';
 export type {
 	ChatHeaderOrganismProps,
 	ChatPreviewMessage,
@@ -1352,6 +1361,7 @@ export type {
 	TokenFunctionalTaxonomy,
 	TokenSoftwareBadge
 } from './development';
+export type { AccordionContext } from './dialog';
 export type {
 	DeviceFrameViewport,
 	TokenControllerType,
@@ -1379,7 +1389,11 @@ export type {
 	UploadStatus,
 	ViewMode
 } from './file';
-export type { MapProvider, TokenMapType, TokenPin } from './geo';
+export type {
+	MapProvider,
+	TokenMapType,
+	TokenPin
+} from './geo';
 export type {
 	GraphGridMode,
 	GraphNodeCategory,
@@ -1458,7 +1472,10 @@ export type {
 	PreziSceneContract,
 	TierContent
 } from './presentation';
-export type { AutoCompleteOption, SearchResultItem } from './search';
+export type {
+	AutoCompleteOption,
+	SearchResultItem
+} from './search';
 export type {
 	Activity,
 	ActivityType,
@@ -1522,8 +1539,17 @@ export type {
 	TokenTextControlDefinition,
 	TokenTextStateProps
 } from './token';
-export type { ITreeNodeItemStyleClasses, TreeNode, TreeNodeItemNode } from './tree';
-export type { AvatarGroupAvatar, AvatarProps, AvatarUserStatus, TokenAvailability } from './user';
+export type {
+	ITreeNodeItemStyleClasses,
+	TreeNode,
+	TreeNodeItemNode
+} from './tree';
+export type {
+	AvatarGroupAvatar,
+	AvatarProps,
+	AvatarUserStatus,
+	TokenAvailability
+} from './user';
 export type {
 	StructWbdAnalyticsOverview,
 	StructWbdApplicationRequestOption,
@@ -1596,7 +1622,6 @@ export type {
 	RecipeAudioRecordButton,
 	RecipeAudioSlider,
 	RecipeAudioVisualizer,
-	RecipeTranscriber,
 	SlotAudioPlayer,
 	SlotAudioRecording,
 	SlotAudioSlider,
@@ -1934,7 +1959,6 @@ export type {
 } from './dialog';
 export type {
 	RecipeDeviceFrame,
-	RecipeDomainAiAgent,
 	RecipeDomainList,
 	RecipeDomainSidebar,
 	RecipeDomainToolbar,
@@ -2347,7 +2371,12 @@ export type {
 	SlotReactionPicker,
 	SlotRealTimePresenceStyleClasses
 } from './social';
-export type { RecipeIcon, RecipeSvg, SlotIcon, SlotSvgName } from './svg';
+export type {
+	RecipeIcon,
+	RecipeSvg,
+	SlotIcon,
+	SlotSvgName
+} from './svg';
 export type {
 	RecipeCell,
 	RecipeCellHeader,
@@ -2407,7 +2436,11 @@ export type {
 	RecipeTokenSelect,
 	RecipeTokenText
 } from './token';
-export type { RecipeTree, RecipeTreeNodeItem, RecipeTreeViewer } from './tree';
+export type {
+	RecipeTree,
+	RecipeTreeNodeItem,
+	RecipeTreeViewer
+} from './tree';
 export type {
 	RecipeAbbr,
 	RecipeBadge,

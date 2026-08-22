@@ -1,7 +1,19 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { CountryFlag, LanguageSelector, LocaleSwitcher, TranslationEditor } from './component';
-export { TOKEN_TRANSLATION, TOKEN_TRANSLATION_EDITOR_ICON } from './const';
-export { formatDate, formatDateTime, formatTime } from './function';
+export {
+	CountryFlag,
+	LanguageSelector,
+	LocaleSwitcher,
+	TranslationEditor
+} from './component';
+export {
+	TOKEN_TRANSLATION,
+	TOKEN_TRANSLATION_EDITOR_ICON
+} from './const';
+export {
+	formatDate,
+	formatDateTime,
+	formatTime
+} from './function';
 export type {
 	CountryFlagProps,
 	TokenTranslation,

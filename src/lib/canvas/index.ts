@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { CanvasManager, ObjectManagerColorPalette, ObjectManagerSharedCanvas } from './class';
+export {
+	CanvasManager,
+	ObjectManagerColorPalette,
+	ObjectManagerSharedCanvas
+} from './class';
 export {
 	CanvasToolbar,
 	CollaborativeEditor,

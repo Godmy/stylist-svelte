@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { FormFooter, FormHeader } from './atom';
+export {
+	FormFooter,
+	FormHeader
+} from './atom';
 export {
 	CheckboxGroup,
 	FormSelection,

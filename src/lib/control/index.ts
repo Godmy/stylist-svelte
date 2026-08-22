@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ControlManager, ZoomManager } from './class';
+export {
+	ControlManager,
+	ZoomManager
+} from './class';
 export {
 	AccessibilityToolbar,
 	ActionSegmentedControl,

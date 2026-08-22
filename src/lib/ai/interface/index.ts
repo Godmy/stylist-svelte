@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ContractPromptTemplate, ContractPromptVariable } from './contract';
+export type {
+	ContractPromptTemplate,
+	ContractPromptVariable
+} from './contract';
 export type {
 	RecipeAiAssistant,
 	RecipeAiChat,
@@ -10,4 +13,7 @@ export type {
 	RecipePromptBuilder,
 	RecipeSentimentAnalysis
 } from './recipe';
-export type { SlotModelOption, SlotStatus } from './slot';
+export type {
+	SlotModelOption,
+	SlotStatus
+} from './slot';

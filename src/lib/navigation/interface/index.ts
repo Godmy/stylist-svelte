@@ -10,4 +10,7 @@ export type {
 	RecipeSidebar,
 	RecipeStylistMenu
 } from './recipe';
-export type { NavItem, PrimaryMenuItem } from './slot';
+export type {
+	NavItem,
+	PrimaryMenuItem
+} from './slot';

@@ -1,8 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { DeviceFrame } from './device-frame/index';
-export { DomainAiAgent } from './domain-ai-agent/index';
-export { DomainBacklog } from './domain-backlog/index';
-export { DomainBuilder } from './domain-builder/index';
 export { DomainClusterBalance } from './domain-cluster-balance/index';
 export { DomainComponentImportDiagnostics } from './domain-component-import-diagnostics/index';
 export { DomainDiagnostics } from './domain-diagnostics/index';

@@ -3,8 +3,7 @@ export type {
 	RecipeAudioPlayer,
 	RecipeAudioRecordButton,
 	RecipeAudioSlider,
-	RecipeAudioVisualizer,
-	RecipeTranscriber
+	RecipeAudioVisualizer
 } from './recipe';
 export type {
 	SlotAudioPlayer,

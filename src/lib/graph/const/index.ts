@@ -6,5 +6,12 @@ export {
 	SCENE_CAMERA_PRESET,
 	ZWICKY_CLUSTER_ORDER
 } from './array';
-export { MATERIAL_PALETTE, ZWICKY_CLUSTER_COLOR, ZWICKY_DOMAIN_COLOR } from './record';
-export { INSTANCED_MAX_COUNT, ZWICKY_LAYOUT_SCALE } from './value';
+export {
+	MATERIAL_PALETTE,
+	ZWICKY_CLUSTER_COLOR,
+	ZWICKY_DOMAIN_COLOR
+} from './record';
+export {
+	INSTANCED_MAX_COUNT,
+	ZWICKY_LAYOUT_SCALE
+} from './value';

@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Kpiindicator, PermissionGate, ProcessStep } from './atom';
+export {
+	Kpiindicator,
+	PermissionGate,
+	ProcessStep
+} from './atom';
 export {
 	DraggableCard,
 	LegendItem,

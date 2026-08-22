@@ -23,4 +23,8 @@ export {
 	MessageThread,
 	UserStatus
 } from './molecule';
-export { ChatHeader, ChatWorkbench, ListWithAvatars } from './organism';
+export {
+	ChatHeader,
+	ChatWorkbench,
+	ListWithAvatars
+} from './organism';

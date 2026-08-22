@@ -9,14 +9,20 @@ export {
 	SplitButton,
 	ToolButton
 } from './component';
-export { CONTROL_BUTTON_ICON, TOKEN_BUTTON_LOADER_CLASSES } from './const';
+export {
+	CONTROL_BUTTON_ICON,
+	TOKEN_BUTTON_LOADER_CLASSES
+} from './const';
 export {
 	copyTextToClipboard,
 	createButtonFactoryInput,
 	createButtonPreset,
 	createButtonState
 } from './function';
-export type { ButtonPropsRecord, SplitButtonButtonAttributes } from './type';
+export type {
+	ButtonPropsRecord,
+	SplitButtonButtonAttributes
+} from './type';
 export type { ButtonPreset } from './function';
 export type {
 	RecipeButton,

@@ -10,4 +10,7 @@ export {
 	TOKEN_SEVERITY,
 	TOKEN_TRAJECTORY
 } from './array';
-export { DEFAULT_WORKSPACE_CANVAS, WORKSPACE_ICONS } from './record';
+export {
+	DEFAULT_WORKSPACE_CANVAS,
+	WORKSPACE_ICONS
+} from './record';

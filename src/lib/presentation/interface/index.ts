@@ -6,4 +6,9 @@ export type {
 	RecipePreziScene,
 	RecipePreziSceneState
 } from './recipe';
-export type { PreziCamera, SceneNode, SceneNodePoint, SemanticZoomPresentation } from './slot';
+export type {
+	PreziCamera,
+	SceneNode,
+	SceneNodePoint,
+	SemanticZoomPresentation
+} from './slot';

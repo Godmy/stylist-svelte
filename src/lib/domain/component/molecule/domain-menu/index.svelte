@@ -1,45 +1,28 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { TOKEN_ICON_REGISTRY } from '$stylist/svg/const/record/icon-registry';
 	import ThemeModeToggle from '$stylist/theme/component/atom/theme-mode-toggle/index.svelte';
 
 	interface DomainMenuProps {
 		landingVisible?: boolean;
 		domainVisible?: boolean;
-		workspaceOpen?: boolean;
-		builderOpen?: boolean;
-		backlogOpen?: boolean;
 		diagnosticsOpen?: boolean;
 		settingsOpen?: boolean;
-		aiOpen?: boolean;
 		onLandingToggle?: () => void;
 		onDomainToggle?: () => void;
-		onWorkspaceToggle?: () => void;
-		onBuilderToggle?: () => void;
-		onBacklogToggle?: () => void;
 		onDiagnosticsToggle?: () => void;
 		onSettingsToggle?: () => void;
-		onAiToggle?: () => void;
 		class?: string;
 	}
 
 	let {
 		landingVisible = false,
 		domainVisible = true,
-		workspaceOpen = false,
-		builderOpen = false,
-		backlogOpen = false,
 		diagnosticsOpen = false,
 		settingsOpen = false,
-		aiOpen = false,
 		onLandingToggle,
 		onDomainToggle,
-		onWorkspaceToggle,
-		onBuilderToggle,
-		onBacklogToggle,
 		onDiagnosticsToggle,
 		onSettingsToggle,
-		onAiToggle,
 		class: className = ''
 	}: DomainMenuProps = $props();
 </script>
@@ -67,54 +50,6 @@
 		title="Show components"
 	>
 		<Icon name="domain" size={18} />
-	</button>
-
-	<button
-		type="button"
-		class:active={workspaceOpen}
-		class="menu-button menu-button--icon"
-		onclick={onWorkspaceToggle}
-		aria-pressed={workspaceOpen}
-		aria-label="Show workspace"
-		title="Show workspace"
-	>
-		<Icon svg={TOKEN_ICON_REGISTRY['workspace']} size={18} />
-	</button>
-
-	<button
-		type="button"
-		class:active={builderOpen}
-		class="menu-button menu-button--icon"
-		onclick={onBuilderToggle}
-		aria-pressed={builderOpen}
-		aria-label="Constructor"
-		title="Constructor"
-	>
-		<Icon name="page-builder" size={18} />
-	</button>
-
-	<button
-		type="button"
-		class:active={backlogOpen}
-		class="menu-button menu-button--icon"
-		onclick={onBacklogToggle}
-		aria-pressed={backlogOpen}
-		aria-label="Backlog"
-		title="Backlog"
-	>
-		<Icon name="backlog" size={18} />
-	</button>
-
-	<button
-		type="button"
-		class:active={aiOpen}
-		class="menu-button menu-button--icon"
-		onclick={onAiToggle}
-		aria-pressed={aiOpen}
-		aria-label="AI agent"
-		title="AI agent"
-	>
-		<Icon name="ai" size={18} />
 	</button>
 
 	<button

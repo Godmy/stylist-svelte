@@ -26,4 +26,8 @@ export {
 	Toolbar,
 	ZoomToolbar
 } from './molecule';
-export { AccessibilityToolbar, MultiSelect, ShortcutsPanel } from './organism';
+export {
+	AccessibilityToolbar,
+	MultiSelect,
+	ShortcutsPanel
+} from './organism';

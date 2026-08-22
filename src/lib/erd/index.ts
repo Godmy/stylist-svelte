@@ -15,7 +15,11 @@ export {
 	EDIT_CANDIDATE_SCHEMA_TEXT,
 	SCIENCE_DOMAIN_SCHEMA_TEXT
 } from './const';
-export { mergeSchemaDocuments, schemaDocumentToText, schemaTextToDocument } from './function';
+export {
+	mergeSchemaDocuments,
+	schemaDocumentToText,
+	schemaTextToDocument
+} from './function';
 export type {
 	SchemaDocument,
 	SchemaField,

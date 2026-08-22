@@ -6,8 +6,16 @@ export {
 	AvatarSelector,
 	UserProfileCard
 } from './component';
-export { AVATAR_USER_STATUS, TOKEN_AVAILABILITY } from './const';
-export type { AvatarGroupAvatar, AvatarProps, AvatarUserStatus, TokenAvailability } from './type';
+export {
+	AVATAR_USER_STATUS,
+	TOKEN_AVAILABILITY
+} from './const';
+export type {
+	AvatarGroupAvatar,
+	AvatarProps,
+	AvatarUserStatus,
+	TokenAvailability
+} from './type';
 export type {
 	ContractAvatar,
 	RecipeAccountSettings,

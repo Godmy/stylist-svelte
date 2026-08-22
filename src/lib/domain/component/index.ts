@@ -1,5 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { DomainEntity, DomainListHeader, DomainSearchField, DomainSearchToggle } from './atom';
+export {
+	DomainEntity,
+	DomainListHeader,
+	DomainSearchField,
+	DomainSearchToggle
+} from './atom';
 export {
 	ClusterToolbar,
 	DeviceViewport,
@@ -15,9 +20,6 @@ export {
 } from './molecule';
 export {
 	DeviceFrame,
-	DomainAiAgent,
-	DomainBacklog,
-	DomainBuilder,
 	DomainClusterBalance,
 	DomainComponentImportDiagnostics,
 	DomainDiagnostics,
@@ -30,4 +32,7 @@ export {
 	DomainSidebar,
 	MarkdownRenderer
 } from './organism';
-export { DomainLanding, DomainPlayground } from './page';
+export {
+	DomainLanding,
+	DomainPlayground
+} from './page';

@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	BreadcrumbsManager,
+	DialogConfirmManager
+} from './class';
+export {
 	Accordion,
 	AccordionGroup,
 	AccordionLayout,
@@ -24,6 +28,14 @@ export {
 	Tabs,
 	TextInputDialog
 } from './component';
+export {
+	ACCORDION_CONTEXT_DEFAULT,
+	PresetDropdownMenu,
+	STYLIST_TAB_DEFAULT_ITEMS,
+	TAB_CONTEXT,
+	TAB_PANEL_CONTEXT
+} from './const';
+export type { AccordionContext } from './const';
 export type {
 	BreadcrumbDropdownItem,
 	BreadcrumbItem,

@@ -1,2 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { resolvePresenterSceneLinks, useSemanticZoom } from './script';
+export {
+	resolvePresenterSceneLinks,
+	useSemanticZoom
+} from './script';

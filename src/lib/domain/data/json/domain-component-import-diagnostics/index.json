@@ -593,11 +593,10 @@
       "family": "domain-menu",
       "status": "missing-recipe",
       "expectedRecipe": "RecipeDomainMenu",
-      "importCount": 3,
+      "importCount": 2,
       "recipeImports": [],
       "otherImports": [
         "$stylist/svg/component/atom/icon/index.svelte",
-        "$stylist/svg/const/record/icon-registry",
         "$stylist/theme/component/atom/theme-mode-toggle/index.svelte"
       ]
     },
@@ -666,47 +665,6 @@
       "importCount": 0,
       "recipeImports": [],
       "otherImports": []
-    },
-    {
-      "path": "domain/component/organism/domain-backlog/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "domain-backlog",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainBacklog",
-      "importCount": 13,
-      "recipeImports": [],
-      "otherImports": [
-        "./state.svelte",
-        "$stylist/svg/component/atom/icon/index.svelte",
-        "$stylist/portfolio/component/molecule/backlog-view-tabs/index.svelte",
-        "$stylist/portfolio/component/molecule/issues-table/index.svelte",
-        "$stylist/portfolio/component/organism/kanban-board/index.svelte",
-        "$stylist/portfolio/component/molecule/scrum-backlog/index.svelte",
-        "$stylist/portfolio/component/molecule/burn-down-chart/index.svelte",
-        "$stylist/portfolio/type/object/kanban-board/kanbanboardaction",
-        "$stylist/portfolio/type/object/kanban-board/kanbanboardtype",
-        "$stylist/portfolio/interface/slot/backlog-data",
-        "$stylist/portfolio/interface/slot/backlog-item",
-        "$stylist/portfolio/interface/slot/burn-down-data",
-        "$stylist/portfolio/interface/slot/issue-message"
-      ]
-    },
-    {
-      "path": "domain/component/organism/domain-builder/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "domain-builder",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainBuilder",
-      "importCount": 4,
-      "recipeImports": [],
-      "otherImports": [
-        "svelte",
-        "$stylist/domain/component/molecule/domain-descriptor-panel/index.svelte",
-        "$stylist/domain/component/organism/domain-sidebar/index.svelte",
-        "$stylist/domain/type/object/domain-component-descriptor"
-      ]
     },
     {
       "path": "domain/component/organism/domain-cluster-balance/index.svelte",
@@ -866,22 +824,18 @@
       "family": "domain-playground",
       "status": "missing-recipe",
       "expectedRecipe": "RecipeDomainPlayground",
-      "importCount": 13,
+      "importCount": 9,
       "recipeImports": [],
       "otherImports": [
         "$stylist/domain/const/value/domain-screen",
         "$stylist/domain/component/molecule/domain-menu/index.svelte",
         "$stylist/domain/component/molecule/device-viewport/index.svelte",
-        "$stylist/workspace/component/organism/workspace/index.svelte",
-        "$stylist/domain/component/organism/domain-backlog/state.svelte",
         "./state.svelte",
         "$stylist/domain/component/page/domain-landing/index.svelte",
         "$stylist/domain/type/object/domain-component-descriptor",
         "$stylist/domain/type/alias/domain-screen",
         "$stylist/domain/type/object/domain-tree-node",
-        "$stylist/domain/type/alias/device-frame-viewport",
-        "$stylist/workspace/interface/slot/node-connection",
-        "$stylist/workspace/interface/slot/workspace-node"
+        "$stylist/domain/type/alias/device-frame-viewport"
       ]
     },
     {
@@ -2517,10 +2471,10 @@
     }
   ],
   "summary": {
-    "total": 165,
+    "total": 163,
     "none": 18,
-    "missingRecipe": 147,
-    "valid": 528,
-    "scanned": 693
+    "missingRecipe": 145,
+    "valid": 525,
+    "scanned": 688
   }
 }

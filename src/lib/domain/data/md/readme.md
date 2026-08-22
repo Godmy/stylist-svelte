@@ -1,6 +1,6 @@
 # Domain component workspace
 
-`domain/component/page/domain-playground` is the root shell used by the app route. It owns the screen state and keeps the domain menu, viewport controls, settings panel and AI panel above the current workspace surface.
+`domain/component/page/domain-playground` is the root shell used by the app route. It owns the screen state and keeps the domain menu, viewport controls and settings panel above the current workspace surface.
 
 `domain/component/page/domain-landing` is the landing surface for this domain. It explains why the workspace exists and routes people into the component playground instead of treating the library as a flat component dump.
 
@@ -9,7 +9,7 @@
 ```text
 component/page/domain-playground          - root shell and screen switcher
 ├─ component/page/domain-landing          - landing page for the domain workspace
-├─ molecule/domain-menu                   - persistent menu for landing, components, workspace, builder, backlog, AI, diagnostics and settings
+├─ molecule/domain-menu                   - persistent menu for landing, components, diagnostics and settings
 ├─ molecule/device-viewport               - story viewport control for component preview
 ├─ organism/domain-explorer               - component browser for domains, clusters, joints and families
 │  ├─ organism/domain-sidebar             - taxonomy navigation
@@ -21,12 +21,11 @@ component/page/domain-playground          - root shell and screen switcher
 │  ├─ molecule/taxonomy-breadcrumbs       - selected path display
 │  ├─ molecule/joint-tab-buttons          - file/story/json/markdown tabs
 │  └─ organism/domain-file-preview        - selected file and story preview
-├─ organism/domain-builder                - drag and drop template builder
-├─ organism/domain-backlog                - backlog and sprint surface
 ├─ organism/domain-diagnostics            - story and domain health runner
-├─ organism/domain-settings               - theme settings panel
-└─ organism/domain-ai-agent               - AI assistant panel placeholder
+└─ organism/domain-settings               - theme settings panel
 ```
+
+The workspace node-editor demo, the drag-and-drop template builder (`domain-builder`), the backlog/sprint surface (`domain-backlog`) and the AI assistant panel (`domain-ai-agent`, with its `audio/component/organism/transcriber` dependency) were extracted out of this library into `stylist-svelte-domains` (sibling package, same `<domain>/<cluster>/<joint>/<family>` shape) — kept for reuse elsewhere, not wired into this app.
 
 ## Purpose
 
@@ -42,7 +41,7 @@ The landing page should introduce that model and point users toward the interact
 - **Atomic Design architecture**: states how atom, molecule, organism and template composition remains visible inside domain context.
 - **Readable navigation**: explains why the library is navigated by domain, cluster, joint and family.
 - **Story-first review**: connects stories with implementation files, markdown and JSON context.
-- **Domain diagnostics**: keeps diagnostics, backlog signals and manifests part of the maintenance loop.
+- **Domain diagnostics**: keeps diagnostics and manifests part of the maintenance loop.
 - **Our Mission**: make the component library readable before it becomes gigantic.
 
 ## Notes

@@ -23,5 +23,8 @@ export {
 	TOKEN_STACK_DIRECTION,
 	TOKEN_TRIGGER
 } from './array';
-export { TOKEN_ASPECT_RATIO, TOKEN_CURSOR } from './map';
+export {
+	TOKEN_ASPECT_RATIO,
+	TOKEN_CURSOR
+} from './map';
 export { SIDEBAR_COLLAPSED_WIDTH } from './value';

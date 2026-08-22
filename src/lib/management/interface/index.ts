@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { BehaviorOperationsHistoryEvents, BehaviorTrendable } from './behavior';
+export type {
+	BehaviorOperationsHistoryEvents,
+	BehaviorTrendable
+} from './behavior';
 export type { ContractDashboardLayout } from './contract';
 export type {
 	RecipeDashboardLayout,

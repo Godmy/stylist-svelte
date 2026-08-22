@@ -6,14 +6,9 @@ export function createDomainPlaygroundState(
 ) {
 	let currentScreen = $state<TypeDomainScreen>(initialScreen);
 	let isSettingsOpen = $state(false);
-	let isAiOpen = $state(false);
 
 	function handleDomainToggle() {
 		currentScreen = DOMAIN_SCREEN.DOMAIN;
-	}
-
-	function handleWorkspaceToggle() {
-		currentScreen = DOMAIN_SCREEN.WORKSPACE;
 	}
 
 	function handleLandingToggle() {
@@ -24,28 +19,12 @@ export function createDomainPlaygroundState(
 		currentScreen = DOMAIN_SCREEN.DIAGNOSTICS;
 	}
 
-	function handleBuilderToggle() {
-		currentScreen = DOMAIN_SCREEN.BUILDER;
-	}
-
-	function openBacklogScreen() {
-		currentScreen = DOMAIN_SCREEN.BACKLOG;
-	}
-
 	function handleSettingsToggle() {
 		isSettingsOpen = !isSettingsOpen;
 	}
 
 	function closeSettings() {
 		isSettingsOpen = false;
-	}
-
-	function handleAiToggle() {
-		isAiOpen = !isAiOpen;
-	}
-
-	function closeAi() {
-		isAiOpen = false;
 	}
 
 	return {
@@ -55,19 +34,11 @@ export function createDomainPlaygroundState(
 		get isSettingsOpen() {
 			return isSettingsOpen;
 		},
-		get isAiOpen() {
-			return isAiOpen;
-		},
 		handleDomainToggle,
-		handleWorkspaceToggle,
 		handleLandingToggle,
 		handleDiagnosticsToggle,
-		handleBuilderToggle,
-		openBacklogScreen,
 		handleSettingsToggle,
-		closeSettings,
-		handleAiToggle,
-		closeAi
+		closeSettings
 	};
 }
 

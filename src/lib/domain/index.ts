@@ -3,9 +3,6 @@ export {
 	ClusterToolbar,
 	DeviceFrame,
 	DeviceViewport,
-	DomainAiAgent,
-	DomainBacklog,
-	DomainBuilder,
 	DomainClusterBalance,
 	DomainComponentImportDiagnostics,
 	DomainDescriptorPanel,
@@ -42,7 +39,10 @@ export {
 	STYLIST_GRAPH_WORKSPACE_SEED,
 	TOKEN_CONTROLLER_TYPE
 } from './const';
-export { createClusterToolbarItems, serializeUnknownError } from './function';
+export {
+	createClusterToolbarItems,
+	serializeUnknownError
+} from './function';
 export type {
 	DeviceFrameViewport,
 	TokenControllerType,
@@ -53,7 +53,6 @@ export type {
 } from './type';
 export type {
 	RecipeDeviceFrame,
-	RecipeDomainAiAgent,
 	RecipeDomainList,
 	RecipeDomainSidebar,
 	RecipeDomainToolbar,

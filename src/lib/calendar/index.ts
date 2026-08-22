@@ -38,7 +38,12 @@ export {
 	toInputDateString
 } from './function';
 export type { DatePickerValue } from './interface';
-export type { TokenPriority, TokenTimeFormat, TokenTimeMeasure, TokenTimeRange } from './type';
+export type {
+	TokenPriority,
+	TokenTimeFormat,
+	TokenTimeMeasure,
+	TokenTimeRange
+} from './type';
 export type {
 	RecipeCalendarView,
 	RecipeDatePicker,

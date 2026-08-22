@@ -80,7 +80,7 @@ Build notes:
 
 - `yarn build` runs SVG data generation before `svelte-package`
 - `yarn validate` runs linting, TypeScript, and `svelte-check`
-- generated `src/lib/**/index.ts` files are managed by the existing scripts in `scripts/`
+- generated `src/lib/**/index.ts` files are managed by the workspace indexation workflow
 
 ## Documentation
 

@@ -23,4 +23,7 @@ export {
 	RichTextFormatToolbar,
 	TextArea
 } from './molecule';
-export { RichTextEditor, TagInput } from './organism';
+export {
+	RichTextEditor,
+	TagInput
+} from './organism';
