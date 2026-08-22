@@ -535,10 +535,10 @@
     },
     {
       "name": "domain",
-      "value": 29,
+      "value": 33,
       "atom": 4,
       "molecule": 11,
-      "organism": 12,
+      "organism": 16,
       "template": 0,
       "page": 2,
       "intervals": [
@@ -556,21 +556,21 @@
         },
         {
           "name": "organism",
-          "value": 12,
+          "value": 16,
           "start": 15,
-          "end": 27
+          "end": 31
         },
         {
           "name": "template",
           "value": 0,
-          "start": 27,
-          "end": 27
+          "start": 31,
+          "end": 31
         },
         {
           "name": "page",
           "value": 2,
-          "start": 27,
-          "end": 29
+          "start": 31,
+          "end": 33
         }
       ]
     },
@@ -1971,10 +1971,10 @@
   ],
   "totals": {
     "domains": 48,
-    "components": 697,
+    "components": 701,
     "atoms": 180,
     "molecules": 241,
-    "organisms": 262,
+    "organisms": 266,
     "templates": 11,
     "pages": 3
   }

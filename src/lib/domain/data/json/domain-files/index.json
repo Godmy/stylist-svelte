@@ -1170,18 +1170,18 @@
     },
     {
       "name": "domain",
-      "fileCount": 137,
+      "fileCount": 145,
       "components": {
         "atoms": 4,
         "molecules": 11,
-        "organisms": 12,
+        "organisms": 16,
         "templates": 0,
         "pages": 2
       },
       "clusters": [
         {
           "name": "component",
-          "fileCount": 96,
+          "fileCount": 104,
           "joints": [
             {
               "name": "atom",
@@ -1195,8 +1195,8 @@
             },
             {
               "name": "organism",
-              "entityCount": 12,
-              "fileCount": 40
+              "entityCount": 16,
+              "fileCount": 48
             },
             {
               "name": "page",
@@ -4141,10 +4141,10 @@
   ],
   "totals": {
     "domains": 48,
-    "files": 5713,
+    "files": 5721,
     "atoms": 180,
     "molecules": 241,
-    "organisms": 262,
+    "organisms": 266,
     "templates": 11,
     "pages": 3
   }
