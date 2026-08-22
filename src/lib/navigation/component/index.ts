@@ -9,6 +9,5 @@ export {
 	AppHeader,
 	Drawer,
 	Pagination,
-	Sidebar,
-	StylistMenu
+	Sidebar
 } from './organism';

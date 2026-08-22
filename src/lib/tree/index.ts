@@ -9,7 +9,6 @@ export {
 	normalizeTreeViewerNode
 } from './function';
 export type {
-	ITreeNodeItemStyleClasses,
 	TreeNode,
 	TreeNodeItemNode
 } from './type';

@@ -8,8 +8,6 @@ export type {
 	RecipeChip,
 	RecipeCombobox,
 	RecipeCss3dCube,
-	RecipeCubeControl,
-	RecipeFilterPanel,
 	RecipeFocusState,
 	RecipeMultiSelect,
 	RecipeOverlay,
@@ -29,16 +27,13 @@ export type {
 	RecipeTimeSlot,
 	RecipeToggleGroupItem,
 	RecipeToggleGroupRoot,
-	RecipeZoomControls,
-	RecipeZoomToolbar
+	RecipeZoomControls
 } from './recipe';
 export type {
 	SlotAutocompleteDropdown,
 	SlotAutocompleteDropdownOption,
 	SlotComboboxItem,
 	SlotComboboxStyleClasses,
-	SlotFilterChangePayload,
-	SlotFilterPanelState,
 	SlotMultiSelectOption,
 	SlotRangeInput,
 	SlotRangeSlider,

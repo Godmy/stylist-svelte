@@ -4,7 +4,6 @@ export {
 	DOMAIN_CLUSTER
 } from './array';
 export { TOKEN_CONTROLLER_TYPE } from './map';
-export { DOMAIN_COMPONENT_DEBUG_ERROR } from './object';
 export {
 	DOMAIN_SCREEN,
 	JOINT_TOOLBAR_ITEMS,

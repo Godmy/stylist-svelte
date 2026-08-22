@@ -1,83 +1,6 @@
 {
   "domains": [
     {
-      "name": "ai",
-      "fileCount": 66,
-      "components": {
-        "atoms": 0,
-        "molecules": 2,
-        "organisms": 6,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "component",
-          "fileCount": 35,
-          "joints": [
-            {
-              "name": "molecule",
-              "entityCount": 2,
-              "fileCount": 9
-            },
-            {
-              "name": "organism",
-              "entityCount": 6,
-              "fileCount": 25
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 6,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 4,
-              "fileCount": 5
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 16,
-          "joints": [
-            {
-              "name": "contract",
-              "entityCount": 2,
-              "fileCount": 3
-            },
-            {
-              "name": "recipe",
-              "entityCount": 8,
-              "fileCount": 9
-            },
-            {
-              "name": "slot",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 8,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 4,
-              "fileCount": 5
-            },
-            {
-              "name": "object",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "animation",
       "fileCount": 79,
       "components": {
@@ -177,188 +100,6 @@
       ]
     },
     {
-      "name": "audio",
-      "fileCount": 43,
-      "components": {
-        "atoms": 3,
-        "molecules": 0,
-        "organisms": 1,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 19,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 3,
-              "fileCount": 13
-            },
-            {
-              "name": "organism",
-              "entityCount": 1,
-              "fileCount": 5
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "record",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "function",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "script",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 12,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 4,
-              "fileCount": 5
-            },
-            {
-              "name": "slot",
-              "entityCount": 5,
-              "fileCount": 6
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 2,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 0,
-              "fileCount": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "auth",
-      "fileCount": 100,
-      "components": {
-        "atoms": 4,
-        "molecules": 3,
-        "organisms": 7,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "component",
-          "fileCount": 54,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 4,
-              "fileCount": 14
-            },
-            {
-              "name": "molecule",
-              "entityCount": 3,
-              "fileCount": 13
-            },
-            {
-              "name": "organism",
-              "entityCount": 7,
-              "fileCount": 26
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 7,
-          "joints": [
-            {
-              "name": "object",
-              "entityCount": 3,
-              "fileCount": 4
-            },
-            {
-              "name": "value",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "function",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "script",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 19,
-          "joints": [
-            {
-              "name": "contract",
-              "entityCount": 8,
-              "fileCount": 9
-            },
-            {
-              "name": "recipe",
-              "entityCount": 8,
-              "fileCount": 9
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 16,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "object",
-              "entityCount": 12,
-              "fileCount": 13
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "button",
       "fileCount": 70,
       "components": {
@@ -446,177 +187,6 @@
               "name": "object",
               "entityCount": 2,
               "fileCount": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "calendar",
-      "fileCount": 88,
-      "components": {
-        "atoms": 1,
-        "molecules": 5,
-        "organisms": 6,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "component",
-          "fileCount": 52,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 1,
-              "fileCount": 5
-            },
-            {
-              "name": "molecule",
-              "entityCount": 5,
-              "fileCount": 21
-            },
-            {
-              "name": "organism",
-              "entityCount": 6,
-              "fileCount": 25
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 7,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 5,
-              "fileCount": 6
-            }
-          ]
-        },
-        {
-          "name": "function",
-          "fileCount": 4,
-          "joints": [
-            {
-              "name": "script",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 18,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 12,
-              "fileCount": 13
-            },
-            {
-              "name": "slot",
-              "entityCount": 3,
-              "fileCount": 4
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 6,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 4,
-              "fileCount": 5
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "canvas",
-      "fileCount": 68,
-      "components": {
-        "atoms": 0,
-        "molecules": 5,
-        "organisms": 2,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 5,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 3,
-              "fileCount": 4
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 31,
-          "joints": [
-            {
-              "name": "molecule",
-              "entityCount": 5,
-              "fileCount": 21
-            },
-            {
-              "name": "organism",
-              "entityCount": 2,
-              "fileCount": 9
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 7,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "map",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "record",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 19,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 8,
-              "fileCount": 9
-            },
-            {
-              "name": "slot",
-              "entityCount": 8,
-              "fileCount": 9
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 5,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 3,
-              "fileCount": 4
             }
           ]
         }
@@ -737,197 +307,11 @@
       ]
     },
     {
-      "name": "chat",
-      "fileCount": 140,
-      "components": {
-        "atoms": 8,
-        "molecules": 12,
-        "organisms": 3,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "component",
-          "fileCount": 95,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 8,
-              "fileCount": 33
-            },
-            {
-              "name": "molecule",
-              "entityCount": 12,
-              "fileCount": 49
-            },
-            {
-              "name": "organism",
-              "entityCount": 3,
-              "fileCount": 12
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 7,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 2,
-              "fileCount": 3
-            },
-            {
-              "name": "value",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "function",
-          "fileCount": 6,
-          "joints": [
-            {
-              "name": "script",
-              "entityCount": 4,
-              "fileCount": 5
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 24,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 11,
-              "fileCount": 12
-            },
-            {
-              "name": "slot",
-              "entityCount": 10,
-              "fileCount": 11
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 7,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 3,
-              "fileCount": 4
-            },
-            {
-              "name": "object",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "commerce",
-      "fileCount": 263,
-      "components": {
-        "atoms": 0,
-        "molecules": 14,
-        "organisms": 25,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 7,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 5,
-              "fileCount": 6
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 155,
-          "joints": [
-            {
-              "name": "molecule",
-              "entityCount": 14,
-              "fileCount": 53
-            },
-            {
-              "name": "organism",
-              "entityCount": 25,
-              "fileCount": 101
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 19,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 10,
-              "fileCount": 11
-            },
-            {
-              "name": "object",
-              "entityCount": 0,
-              "fileCount": 1
-            },
-            {
-              "name": "preset",
-              "entityCount": 5,
-              "fileCount": 6
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 66,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 44,
-              "fileCount": 45
-            },
-            {
-              "name": "slot",
-              "entityCount": 19,
-              "fileCount": 20
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 15,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 11,
-              "fileCount": 12
-            },
-            {
-              "name": "preset",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "control",
-      "fileCount": 194,
+      "fileCount": 160,
       "components": {
-        "atoms": 13,
-        "molecules": 10,
+        "atoms": 12,
+        "molecules": 6,
         "organisms": 3,
         "templates": 0,
         "pages": 0
@@ -946,17 +330,17 @@
         },
         {
           "name": "component",
-          "fileCount": 107,
+          "fileCount": 87,
           "joints": [
             {
               "name": "atom",
-              "entityCount": 13,
-              "fileCount": 53
+              "entityCount": 12,
+              "fileCount": 49
             },
             {
               "name": "molecule",
-              "entityCount": 10,
-              "fileCount": 40
+              "entityCount": 6,
+              "fileCount": 24
             },
             {
               "name": "organism",
@@ -967,12 +351,12 @@
         },
         {
           "name": "const",
-          "fileCount": 20,
+          "fileCount": 12,
           "joints": [
             {
               "name": "array",
-              "entityCount": 5,
-              "fileCount": 6
+              "entityCount": 3,
+              "fileCount": 4
             },
             {
               "name": "object",
@@ -981,11 +365,6 @@
             },
             {
               "name": "preset",
-              "entityCount": 5,
-              "fileCount": 6
-            },
-            {
-              "name": "record",
               "entityCount": 4,
               "fileCount": 5
             }
@@ -993,7 +372,7 @@
         },
         {
           "name": "interface",
-          "fileCount": 50,
+          "fileCount": 45,
           "joints": [
             {
               "name": "behavior",
@@ -1002,24 +381,24 @@
             },
             {
               "name": "recipe",
-              "entityCount": 30,
-              "fileCount": 31
+              "entityCount": 27,
+              "fileCount": 28
             },
             {
               "name": "slot",
-              "entityCount": 15,
-              "fileCount": 16
+              "entityCount": 13,
+              "fileCount": 14
             }
           ]
         },
         {
           "name": "type",
-          "fileCount": 12,
+          "fileCount": 11,
           "joints": [
             {
               "name": "alias",
-              "entityCount": 6,
-              "fileCount": 7
+              "entityCount": 5,
+              "fileCount": 6
             },
             {
               "name": "struct",
@@ -1031,191 +410,11 @@
       ]
     },
     {
-      "name": "development",
-      "fileCount": 169,
-      "components": {
-        "atoms": 2,
-        "molecules": 6,
-        "organisms": 14,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 5,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 3,
-              "fileCount": 4
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 92,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 2,
-              "fileCount": 9
-            },
-            {
-              "name": "molecule",
-              "entityCount": 6,
-              "fileCount": 25
-            },
-            {
-              "name": "organism",
-              "entityCount": 14,
-              "fileCount": 57
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 24,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 7,
-              "fileCount": 8
-            },
-            {
-              "name": "map",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "preset",
-              "entityCount": 4,
-              "fileCount": 5
-            },
-            {
-              "name": "record",
-              "entityCount": 3,
-              "fileCount": 4
-            },
-            {
-              "name": "value",
-              "entityCount": 3,
-              "fileCount": 4
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 38,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 23,
-              "fileCount": 24
-            },
-            {
-              "name": "slot",
-              "entityCount": 12,
-              "fileCount": 13
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 9,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 7,
-              "fileCount": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "dialog",
-      "fileCount": 147,
-      "components": {
-        "atoms": 9,
-        "molecules": 10,
-        "organisms": 5,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 4,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 97,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 9,
-              "fileCount": 35
-            },
-            {
-              "name": "molecule",
-              "entityCount": 10,
-              "fileCount": 41
-            },
-            {
-              "name": "organism",
-              "entityCount": 5,
-              "fileCount": 20
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 8,
-          "joints": [
-            {
-              "name": "preset",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "record",
-              "entityCount": 4,
-              "fileCount": 5
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 37,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 22,
-              "fileCount": 23
-            },
-            {
-              "name": "slot",
-              "entityCount": 12,
-              "fileCount": 13
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "domain",
-      "fileCount": 136,
+      "fileCount": 139,
       "components": {
         "atoms": 4,
-        "molecules": 11,
+        "molecules": 14,
         "organisms": 13,
         "templates": 0,
         "pages": 2
@@ -1223,7 +422,7 @@
       "clusters": [
         {
           "name": "component",
-          "fileCount": 97,
+          "fileCount": 104,
           "joints": [
             {
               "name": "atom",
@@ -1232,13 +431,13 @@
             },
             {
               "name": "molecule",
-              "entityCount": 11,
-              "fileCount": 34
+              "entityCount": 14,
+              "fileCount": 39
             },
             {
               "name": "organism",
               "entityCount": 13,
-              "fileCount": 41
+              "fileCount": 43
             },
             {
               "name": "page",
@@ -1249,7 +448,7 @@
         },
         {
           "name": "const",
-          "fileCount": 13,
+          "fileCount": 10,
           "joints": [
             {
               "name": "array",
@@ -1262,16 +461,6 @@
               "fileCount": 2
             },
             {
-              "name": "object",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "record",
-              "entityCount": 0,
-              "fileCount": 1
-            },
-            {
               "name": "value",
               "entityCount": 3,
               "fileCount": 4
@@ -1280,7 +469,7 @@
         },
         {
           "name": "data",
-          "fileCount": 2,
+          "fileCount": 1,
           "joints": [
             {
               "name": "md",
@@ -1444,353 +633,6 @@
       ]
     },
     {
-      "name": "file",
-      "fileCount": 141,
-      "components": {
-        "atoms": 1,
-        "molecules": 5,
-        "organisms": 10,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 14,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 12,
-              "fileCount": 13
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 68,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 1,
-              "fileCount": 5
-            },
-            {
-              "name": "molecule",
-              "entityCount": 5,
-              "fileCount": 21
-            },
-            {
-              "name": "organism",
-              "entityCount": 10,
-              "fileCount": 41
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 12,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 8,
-              "fileCount": 9
-            },
-            {
-              "name": "preset",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 35,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 16,
-              "fileCount": 17
-            },
-            {
-              "name": "slot",
-              "entityCount": 16,
-              "fileCount": 17
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 11,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 9,
-              "fileCount": 10
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "form",
-      "fileCount": 93,
-      "components": {
-        "atoms": 2,
-        "molecules": 7,
-        "organisms": 6,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 63,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 2,
-              "fileCount": 9
-            },
-            {
-              "name": "molecule",
-              "entityCount": 7,
-              "fileCount": 29
-            },
-            {
-              "name": "organism",
-              "entityCount": 6,
-              "fileCount": 24
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "value",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 23,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 11,
-              "fileCount": 12
-            },
-            {
-              "name": "slot",
-              "entityCount": 9,
-              "fileCount": 10
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "geo",
-      "fileCount": 79,
-      "components": {
-        "atoms": 0,
-        "molecules": 0,
-        "organisms": 8,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 34,
-          "joints": [
-            {
-              "name": "organism",
-              "entityCount": 8,
-              "fileCount": 33
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 5,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 3,
-              "fileCount": 4
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 29,
-          "joints": [
-            {
-              "name": "behavior",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "recipe",
-              "entityCount": 10,
-              "fileCount": 11
-            },
-            {
-              "name": "slot",
-              "entityCount": 14,
-              "fileCount": 15
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 5,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 3,
-              "fileCount": 4
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "graph",
-      "fileCount": 133,
-      "components": {
-        "atoms": 5,
-        "molecules": 7,
-        "organisms": 2,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 7,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 5,
-              "fileCount": 6
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 52,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 5,
-              "fileCount": 17
-            },
-            {
-              "name": "molecule",
-              "entityCount": 7,
-              "fileCount": 25
-            },
-            {
-              "name": "organism",
-              "entityCount": 2,
-              "fileCount": 9
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 14,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 5,
-              "fileCount": 6
-            },
-            {
-              "name": "record",
-              "entityCount": 3,
-              "fileCount": 4
-            },
-            {
-              "name": "value",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "data",
-          "fileCount": 11,
-          "joints": [
-            {
-              "name": "json",
-              "entityCount": 0,
-              "fileCount": 1
-            },
-            {
-              "name": "shader",
-              "entityCount": 2,
-              "fileCount": 10
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 39,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 11,
-              "fileCount": 12
-            },
-            {
-              "name": "slot",
-              "entityCount": 24,
-              "fileCount": 26
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 9,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 7,
-              "fileCount": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "idef-zero",
       "fileCount": 43,
       "components": {
@@ -1842,7 +684,7 @@
     },
     {
       "name": "image",
-      "fileCount": 45,
+      "fileCount": 42,
       "components": {
         "atoms": 2,
         "molecules": 2,
@@ -1869,22 +711,6 @@
               "name": "organism",
               "entityCount": 2,
               "fileCount": 9
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "preset",
-              "entityCount": 0,
-              "fileCount": 1
-            },
-            {
-              "name": "value",
-              "entityCount": 0,
-              "fileCount": 1
             }
           ]
         },
@@ -2216,7 +1042,7 @@
     },
     {
       "name": "localization",
-      "fileCount": 46,
+      "fileCount": 45,
       "components": {
         "atoms": 1,
         "molecules": 0,
@@ -2265,13 +1091,8 @@
         },
         {
           "name": "interface",
-          "fileCount": 13,
+          "fileCount": 12,
           "joints": [
-            {
-              "name": "contract",
-              "entityCount": 0,
-              "fileCount": 1
-            },
             {
               "name": "recipe",
               "entityCount": 4,
@@ -2303,213 +1124,12 @@
       ]
     },
     {
-      "name": "management",
-      "fileCount": 118,
-      "components": {
-        "atoms": 3,
-        "molecules": 6,
-        "organisms": 5,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 4,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 60,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 3,
-              "fileCount": 13
-            },
-            {
-              "name": "molecule",
-              "entityCount": 6,
-              "fileCount": 25
-            },
-            {
-              "name": "organism",
-              "entityCount": 5,
-              "fileCount": 21
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 14,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 4,
-              "fileCount": 5
-            },
-            {
-              "name": "map",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "preset",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "record",
-              "entityCount": 3,
-              "fileCount": 4
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 30,
-          "joints": [
-            {
-              "name": "behavior",
-              "entityCount": 2,
-              "fileCount": 3
-            },
-            {
-              "name": "contract",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "recipe",
-              "entityCount": 15,
-              "fileCount": 16
-            },
-            {
-              "name": "slot",
-              "entityCount": 7,
-              "fileCount": 8
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 9,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 4,
-              "fileCount": 5
-            },
-            {
-              "name": "object",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "marketing",
-      "fileCount": 79,
-      "components": {
-        "atoms": 2,
-        "molecules": 7,
-        "organisms": 5,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 50,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 2,
-              "fileCount": 9
-            },
-            {
-              "name": "molecule",
-              "entityCount": 7,
-              "fileCount": 21
-            },
-            {
-              "name": "organism",
-              "entityCount": 5,
-              "fileCount": 19
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 18,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 8,
-              "fileCount": 9
-            },
-            {
-              "name": "slot",
-              "entityCount": 7,
-              "fileCount": 8
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 4,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 0,
-              "fileCount": 1
-            },
-            {
-              "name": "record",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "navigation",
-      "fileCount": 64,
+      "fileCount": 53,
       "components": {
         "atoms": 4,
         "molecules": 0,
-        "organisms": 5,
+        "organisms": 4,
         "templates": 0,
         "pages": 0
       },
@@ -2527,7 +1147,7 @@
         },
         {
           "name": "component",
-          "fileCount": 38,
+          "fileCount": 34,
           "joints": [
             {
               "name": "atom",
@@ -2536,40 +1156,35 @@
             },
             {
               "name": "organism",
-              "entityCount": 5,
-              "fileCount": 20
+              "entityCount": 4,
+              "fileCount": 16
             }
           ]
         },
         {
           "name": "const",
-          "fileCount": 8,
+          "fileCount": 3,
           "joints": [
             {
               "name": "preset",
               "entityCount": 1,
               "fileCount": 2
-            },
-            {
-              "name": "record",
-              "entityCount": 4,
-              "fileCount": 5
             }
           ]
         },
         {
           "name": "interface",
-          "fileCount": 14,
+          "fileCount": 12,
           "joints": [
             {
               "name": "recipe",
-              "entityCount": 9,
-              "fileCount": 10
+              "entityCount": 8,
+              "fileCount": 9
             },
             {
               "name": "slot",
-              "entityCount": 2,
-              "fileCount": 3
+              "entityCount": 1,
+              "fileCount": 2
             }
           ]
         }
@@ -2653,346 +1268,6 @@
               "name": "object",
               "entityCount": 2,
               "fileCount": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "portfolio",
-      "fileCount": 97,
-      "components": {
-        "atoms": 3,
-        "molecules": 9,
-        "organisms": 2,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 44,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 3,
-              "fileCount": 7
-            },
-            {
-              "name": "molecule",
-              "entityCount": 9,
-              "fileCount": 28
-            },
-            {
-              "name": "organism",
-              "entityCount": 2,
-              "fileCount": 8
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "map",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "function",
-          "fileCount": 21,
-          "joints": [
-            {
-              "name": "script",
-              "entityCount": 19,
-              "fileCount": 20
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 15,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 5,
-              "fileCount": 6
-            },
-            {
-              "name": "slot",
-              "entityCount": 7,
-              "fileCount": 8
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 10,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "object",
-              "entityCount": 3,
-              "fileCount": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "presentation",
-      "fileCount": 74,
-      "components": {
-        "atoms": 0,
-        "molecules": 2,
-        "organisms": 2,
-        "templates": 0,
-        "pages": 1
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 4,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 21,
-          "joints": [
-            {
-              "name": "molecule",
-              "entityCount": 2,
-              "fileCount": 8
-            },
-            {
-              "name": "organism",
-              "entityCount": 2,
-              "fileCount": 8
-            },
-            {
-              "name": "page",
-              "entityCount": 1,
-              "fileCount": 4
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 19,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 6,
-              "fileCount": 7
-            },
-            {
-              "name": "record",
-              "entityCount": 6,
-              "fileCount": 7
-            },
-            {
-              "name": "value",
-              "entityCount": 3,
-              "fileCount": 4
-            }
-          ]
-        },
-        {
-          "name": "function",
-          "fileCount": 5,
-          "joints": [
-            {
-              "name": "script",
-              "entityCount": 2,
-              "fileCount": 4
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 13,
-          "joints": [
-            {
-              "name": "behavior",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "recipe",
-              "entityCount": 4,
-              "fileCount": 5
-            },
-            {
-              "name": "slot",
-              "entityCount": 4,
-              "fileCount": 5
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 11,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 4,
-              "fileCount": 5
-            },
-            {
-              "name": "object",
-              "entityCount": 2,
-              "fileCount": 3
-            },
-            {
-              "name": "struct",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "product",
-      "fileCount": 86,
-      "components": {
-        "atoms": 1,
-        "molecules": 10,
-        "organisms": 5,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "component",
-          "fileCount": 68,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 1,
-              "fileCount": 5
-            },
-            {
-              "name": "molecule",
-              "entityCount": 10,
-              "fileCount": 41
-            },
-            {
-              "name": "organism",
-              "entityCount": 5,
-              "fileCount": 21
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 17,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 11,
-              "fileCount": 12
-            },
-            {
-              "name": "slot",
-              "entityCount": 3,
-              "fileCount": 4
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "science",
-      "fileCount": 57,
-      "components": {
-        "atoms": 4,
-        "molecules": 5,
-        "organisms": 3,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "component",
-          "fileCount": 31,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 4,
-              "fileCount": 9
-            },
-            {
-              "name": "molecule",
-              "entityCount": 5,
-              "fileCount": 11
-            },
-            {
-              "name": "organism",
-              "entityCount": 3,
-              "fileCount": 10
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 8,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "record",
-              "entityCount": 4,
-              "fileCount": 5
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 14,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 12,
-              "fileCount": 13
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "object",
-              "entityCount": 1,
-              "fileCount": 2
             }
           ]
         }
@@ -3083,7 +1358,7 @@
     },
     {
       "name": "server",
-      "fileCount": 21,
+      "fileCount": 20,
       "components": {
         "atoms": 0,
         "molecules": 0,
@@ -3127,105 +1402,12 @@
         },
         {
           "name": "type",
-          "fileCount": 4,
-          "joints": [
-            {
-              "name": "object",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "struct",
-              "entityCount": 0,
-              "fileCount": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "social",
-      "fileCount": 111,
-      "components": {
-        "atoms": 1,
-        "molecules": 2,
-        "organisms": 8,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "component",
-          "fileCount": 47,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 1,
-              "fileCount": 5
-            },
-            {
-              "name": "molecule",
-              "entityCount": 2,
-              "fileCount": 8
-            },
-            {
-              "name": "organism",
-              "entityCount": 8,
-              "fileCount": 33
-            }
-          ]
-        },
-        {
-          "name": "const",
           "fileCount": 3,
           "joints": [
             {
-              "name": "array",
+              "name": "object",
               "entityCount": 1,
               "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "function",
-          "fileCount": 23,
-          "joints": [
-            {
-              "name": "script",
-              "entityCount": 21,
-              "fileCount": 22
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 22,
-          "joints": [
-            {
-              "name": "contract",
-              "entityCount": 0,
-              "fileCount": 1
-            },
-            {
-              "name": "recipe",
-              "entityCount": 10,
-              "fileCount": 11
-            },
-            {
-              "name": "slot",
-              "entityCount": 8,
-              "fileCount": 9
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 15,
-          "joints": [
-            {
-              "name": "object",
-              "entityCount": 5,
-              "fileCount": 14
             }
           ]
         }
@@ -3558,96 +1740,8 @@
       ]
     },
     {
-      "name": "token",
-      "fileCount": 126,
-      "components": {
-        "atoms": 12,
-        "molecules": 4,
-        "organisms": 3,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "component",
-          "fileCount": 69,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 12,
-              "fileCount": 43
-            },
-            {
-              "name": "molecule",
-              "entityCount": 4,
-              "fileCount": 14
-            },
-            {
-              "name": "organism",
-              "entityCount": 3,
-              "fileCount": 11
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 31,
-          "joints": [
-            {
-              "name": "map",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "object",
-              "entityCount": 27,
-              "fileCount": 28
-            }
-          ]
-        },
-        {
-          "name": "function",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "script",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 9,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 7,
-              "fileCount": 8
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 13,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "object",
-              "entityCount": 9,
-              "fileCount": 10
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "tree",
-      "fileCount": 30,
+      "fileCount": 29,
       "components": {
         "atoms": 0,
         "molecules": 3,
@@ -3696,12 +1790,12 @@
         },
         {
           "name": "type",
-          "fileCount": 5,
+          "fileCount": 4,
           "joints": [
             {
               "name": "object",
-              "entityCount": 3,
-              "fileCount": 4
+              "entityCount": 2,
+              "fileCount": 3
             }
           ]
         }
@@ -3764,88 +1858,6 @@
       ]
     },
     {
-      "name": "user",
-      "fileCount": 48,
-      "components": {
-        "atoms": 2,
-        "molecules": 1,
-        "organisms": 2,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "component",
-          "fileCount": 22,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 2,
-              "fileCount": 9
-            },
-            {
-              "name": "molecule",
-              "entityCount": 1,
-              "fileCount": 5
-            },
-            {
-              "name": "organism",
-              "entityCount": 2,
-              "fileCount": 7
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 4,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 13,
-          "joints": [
-            {
-              "name": "contract",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "recipe",
-              "entityCount": 7,
-              "fileCount": 8
-            },
-            {
-              "name": "slot",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 8,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 2,
-              "fileCount": 3
-            },
-            {
-              "name": "object",
-              "entityCount": 2,
-              "fileCount": 4
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "video",
       "fileCount": 13,
       "components": {
@@ -3890,278 +1902,15 @@
           ]
         }
       ]
-    },
-    {
-      "name": "wbd",
-      "fileCount": 477,
-      "components": {
-        "atoms": 3,
-        "molecules": 20,
-        "organisms": 53,
-        "templates": 11,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "component",
-          "fileCount": 337,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 3,
-              "fileCount": 13
-            },
-            {
-              "name": "molecule",
-              "entityCount": 20,
-              "fileCount": 80
-            },
-            {
-              "name": "organism",
-              "entityCount": 53,
-              "fileCount": 209
-            },
-            {
-              "name": "template",
-              "entityCount": 11,
-              "fileCount": 34
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 7,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 2,
-              "fileCount": 3
-            },
-            {
-              "name": "record",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "function",
-          "fileCount": 8,
-          "joints": [
-            {
-              "name": "check",
-              "entityCount": 1,
-              "fileCount": 2
-            },
-            {
-              "name": "transform",
-              "entityCount": 4,
-              "fileCount": 5
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 96,
-          "joints": [
-            {
-              "name": "behavior",
-              "entityCount": 4,
-              "fileCount": 5
-            },
-            {
-              "name": "recipe",
-              "entityCount": 87,
-              "fileCount": 88
-            },
-            {
-              "name": "slot",
-              "entityCount": 1,
-              "fileCount": 2
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 27,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 2,
-              "fileCount": 3
-            },
-            {
-              "name": "object",
-              "entityCount": 22,
-              "fileCount": 23
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "webgl",
-      "fileCount": 28,
-      "components": {
-        "atoms": 1,
-        "molecules": 2,
-        "organisms": 1,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "component",
-          "fileCount": 16,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 1,
-              "fileCount": 4
-            },
-            {
-              "name": "molecule",
-              "entityCount": 2,
-              "fileCount": 7
-            },
-            {
-              "name": "organism",
-              "entityCount": 1,
-              "fileCount": 4
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 4,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "data",
-          "fileCount": 3,
-          "joints": [
-            {
-              "name": "shader",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "function",
-          "fileCount": 4,
-          "joints": [
-            {
-              "name": "script",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "workspace",
-      "fileCount": 121,
-      "components": {
-        "atoms": 7,
-        "molecules": 4,
-        "organisms": 4,
-        "templates": 0,
-        "pages": 0
-      },
-      "clusters": [
-        {
-          "name": "class",
-          "fileCount": 5,
-          "joints": [
-            {
-              "name": "manager",
-              "entityCount": 3,
-              "fileCount": 4
-            }
-          ]
-        },
-        {
-          "name": "component",
-          "fileCount": 61,
-          "joints": [
-            {
-              "name": "atom",
-              "entityCount": 7,
-              "fileCount": 27
-            },
-            {
-              "name": "molecule",
-              "entityCount": 4,
-              "fileCount": 17
-            },
-            {
-              "name": "organism",
-              "entityCount": 4,
-              "fileCount": 16
-            }
-          ]
-        },
-        {
-          "name": "const",
-          "fileCount": 14,
-          "joints": [
-            {
-              "name": "array",
-              "entityCount": 9,
-              "fileCount": 10
-            },
-            {
-              "name": "record",
-              "entityCount": 2,
-              "fileCount": 3
-            }
-          ]
-        },
-        {
-          "name": "interface",
-          "fileCount": 29,
-          "joints": [
-            {
-              "name": "recipe",
-              "entityCount": 16,
-              "fileCount": 17
-            },
-            {
-              "name": "slot",
-              "entityCount": 10,
-              "fileCount": 11
-            }
-          ]
-        },
-        {
-          "name": "type",
-          "fileCount": 11,
-          "joints": [
-            {
-              "name": "alias",
-              "entityCount": 9,
-              "fileCount": 10
-            }
-          ]
-        }
-      ]
     }
   ],
   "totals": {
-    "domains": 48,
-    "files": 5674,
-    "atoms": 179,
-    "molecules": 239,
-    "organisms": 258,
-    "templates": 11,
-    "pages": 3
+    "domains": 23,
+    "files": 2674,
+    "atoms": 104,
+    "molecules": 90,
+    "organisms": 69,
+    "templates": 0,
+    "pages": 2
   }
 }

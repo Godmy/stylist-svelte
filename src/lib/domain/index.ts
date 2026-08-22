@@ -1,11 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	ClusterToolbar,
+	CtaButtons,
 	DeviceFrame,
 	DeviceViewport,
 	DomainClusterBalance,
 	DomainComponentImportDiagnostics,
-	DomainDescriptorPanel,
 	DomainDiagnostics,
 	DomainEntity,
 	DomainExplorer,
@@ -24,16 +24,19 @@ export {
 	DomainSettings,
 	DomainSidebar,
 	DomainToolbar,
+	FeatureGrid,
 	JointTabButtons,
 	JointToolbar,
 	JsonTreeViewer,
 	MarkdownRenderer,
+	StylistHero,
+	StylistHeroIntro,
+	StylistMission,
 	TaxonomyBreadcrumbs
 } from './component';
 export {
 	DEVICE_FRAME_VIEWPORT,
 	DOMAIN_CLUSTER,
-	DOMAIN_COMPONENT_DEBUG_ERROR,
 	DOMAIN_SCREEN,
 	JOINT_TOOLBAR_ITEMS,
 	STYLIST_GRAPH_WORKSPACE_SEED,

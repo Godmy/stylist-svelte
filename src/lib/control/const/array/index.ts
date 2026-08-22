@@ -1,6 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TOKEN_CUBE_FACE_NAME } from './cube-face-name';
-export { TOKEN_CUBE_FACE_TITLE } from './cube-face-title';
-export { FILTER_PANEL_LAYOUT } from './filter-panel-layout';
 export { TOKEN_SELECTOR_KIND } from './selection-kind';
+export { SELECTION_MODE } from './selection-mode';
 export { TOKEN_SELECTION_TYPE } from './selection-type';

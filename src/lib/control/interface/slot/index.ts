@@ -3,8 +3,6 @@ export type { SlotAutocompleteDropdown } from './autocomplete-dropdown';
 export type { SlotAutocompleteDropdownOption } from './autocomplete-dropdown-option';
 export type { SlotComboboxItem } from './combobox-item';
 export type { SlotComboboxStyleClasses } from './combobox-style-classes';
-export type { SlotFilterChangePayload } from './filter-change-payload';
-export type { SlotFilterPanelState } from './filter-panel-state';
 export type { SlotMultiSelectOption } from './multi-select-option';
 export type { SlotRangeInput } from './range-input';
 export type { SlotRangeSlider } from './range-slider';

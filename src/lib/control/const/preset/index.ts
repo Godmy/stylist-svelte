@@ -3,4 +3,3 @@ export { PresetAccessibilityToolbar } from './accessibility-toolbar';
 export { PresetCombobox } from './combobox';
 export { PresetMultiSelect } from './multi-select';
 export { PresetSelector } from './selector';
-export { PresetZoomToolbar } from './zoom-toolbar';

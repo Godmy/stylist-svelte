@@ -7,10 +7,6 @@ export type {
 	RecipePageButton,
 	RecipePageEllipsis,
 	RecipePagination,
-	RecipeSidebar,
-	RecipeStylistMenu
+	RecipeSidebar
 } from './recipe';
-export type {
-	NavItem,
-	PrimaryMenuItem
-} from './slot';
+export type { NavItem } from './slot';

@@ -3,4 +3,3 @@ export { AppHeader } from './app-header/index';
 export { Drawer } from './drawer/index';
 export { Pagination } from './pagination/index';
 export { Sidebar } from './sidebar/index';
-export { StylistMenu } from './stylist-menu/index';

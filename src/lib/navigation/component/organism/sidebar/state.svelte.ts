@@ -99,7 +99,6 @@ export function createSidebarState(props: RecipeSidebar) {
 			mobileBreakpoint: _mobileBreakpoint,
 			width: _width,
 			mobileWidth: _mobileWidth,
-			variant: _variant,
 			position: _position,
 			disabled: _disabled,
 			navClass: _navClass,

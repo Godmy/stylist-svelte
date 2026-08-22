@@ -1,8 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
-	ControlPanelStateProps,
-	FilterPanelLayout,
 	Row,
+	SelectionMode,
 	ToggleGroupItemStateProps,
 	TokenSelectionType,
 	TokenSelectorKind

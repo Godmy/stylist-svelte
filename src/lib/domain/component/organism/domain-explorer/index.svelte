@@ -1,23 +1,14 @@
 <script lang="ts">
 	import DomainFilePreview from '$stylist/domain/component/organism/domain-file-preview/index.svelte';
 	import DomainSearch from '$stylist/domain/component/molecule/domain-search/index.svelte';
-	import { DOMAIN_COMPONENT_DEBUG_ERROR } from '$stylist/domain/const/object/error';
 	import DomainSidebar from '$stylist/domain/component/organism/domain-sidebar/index.svelte';
 	import JointTabButtons from '$stylist/domain/component/molecule/joint-tab-buttons/index.svelte';
 	import TaxonomyBreadcrumbs from '$stylist/domain/component/molecule/taxonomy-breadcrumbs/index.svelte';
 	import createDomainPageState from './state.svelte';
-	import TextInputDialog from '$stylist/dialog/component/organism/text-input-dialog/index.svelte';
 	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
 
 	type StoryModule = { default: unknown };
 	type DomainTree = Parameters<typeof createDomainPageState>[0]['tree'];
-
-	type DebugMenuItem = {
-		id: string;
-		label: string;
-		disabled?: boolean;
-		onSelect?: () => void;
-	};
 
 	interface DomainExplorerProps {
 		tree: DomainTree;
@@ -79,120 +70,6 @@
 		deviceViewportVisible = s.previewMode === 'story' && !!s.storyPreviewComponent;
 	});
 
-	const isComponentJoint = $derived.by(
-		() =>
-			s.activeCluster === 'component' &&
-			(s.activeJoint === 'atom' ||
-				s.activeJoint === 'molecule' ||
-				s.activeJoint === 'organism' ||
-				s.activeJoint === 'template')
-	);
-
-	function buildIssueText(baseText: string): string {
-		const family = s.activeFamily || 'component';
-		return baseText ? `${baseText} for ${family}` : `review ${family}`;
-	}
-
-	function openBacklogNote(title: string, issue: string): void {
-		s.openIssueDialog({
-			title,
-			text: s.createIssueText(buildIssueText(issue))
-		});
-	}
-
-	const debugMenuItems = $derived.by<DebugMenuItem[]>(() => {
-		if (!s.activeEntity) {
-			return [];
-		}
-
-		const items: DebugMenuItem[] = [];
-
-		if (isComponentJoint && !s.storyFile) {
-			items.push({
-				id: 'add-component-story',
-				label: 'Add component story',
-				onSelect: () =>
-					openBacklogNote(
-						DOMAIN_COMPONENT_DEBUG_ERROR.addComponentStory.title,
-						DOMAIN_COMPONENT_DEBUG_ERROR.addComponentStory.text
-					)
-			});
-		}
-
-		if (isComponentJoint && s.storyFile) {
-			items.push(
-				{
-					id: 'story-hangs',
-					label: 'Story hangs on open',
-					onSelect: () =>
-						openBacklogNote(
-							DOMAIN_COMPONENT_DEBUG_ERROR.storyHangsOnOpen.title,
-							DOMAIN_COMPONENT_DEBUG_ERROR.storyHangsOnOpen.text
-						)
-				},
-				{
-					id: 'story-visual',
-					label: 'Story looks wrong',
-					onSelect: () =>
-						openBacklogNote(
-							DOMAIN_COMPONENT_DEBUG_ERROR.storyLooksWrong.title,
-							DOMAIN_COMPONENT_DEBUG_ERROR.storyLooksWrong.text
-						)
-				},
-				{
-					id: 'settings-visual',
-					label: 'Settings look wrong',
-					onSelect: () =>
-						openBacklogNote(
-							DOMAIN_COMPONENT_DEBUG_ERROR.settingsLookWrong.title,
-							DOMAIN_COMPONENT_DEBUG_ERROR.settingsLookWrong.text
-						)
-				},
-				{
-					id: 'missing-functionality',
-					label: 'Functionality is missing',
-					onSelect: () =>
-						openBacklogNote(
-							DOMAIN_COMPONENT_DEBUG_ERROR.functionalityMissing.title,
-							DOMAIN_COMPONENT_DEBUG_ERROR.functionalityMissing.text
-						)
-				},
-				{
-					id: 'theme-support',
-					label: 'Theme support is broken',
-					onSelect: () =>
-						openBacklogNote(
-							DOMAIN_COMPONENT_DEBUG_ERROR.themeSupportBroken.title,
-							DOMAIN_COMPONENT_DEBUG_ERROR.themeSupportBroken.text
-						)
-				}
-			);
-		}
-
-		if (isComponentJoint) {
-			items.push({
-				id: 'component-behavior',
-				label: 'Component works incorrectly',
-				onSelect: () =>
-					openBacklogNote(
-						DOMAIN_COMPONENT_DEBUG_ERROR.componentWorksIncorrectly.title,
-						DOMAIN_COMPONENT_DEBUG_ERROR.componentWorksIncorrectly.text
-					)
-			});
-		}
-
-		items.push({
-			id: 'custom-note',
-			label: 'Add custom note',
-			onSelect: () =>
-				openBacklogNote(
-					DOMAIN_COMPONENT_DEBUG_ERROR.customNote.title,
-					DOMAIN_COMPONENT_DEBUG_ERROR.customNote.text
-				)
-		});
-
-		return items;
-	});
 </script>
 
 <main class="c-domain-explorer {className}">
@@ -246,7 +123,6 @@
 					previewKind={s.previewKind}
 					activeJoint={s.activeJoint}
 					hasDependencyPreview={s.hasDependencyPreview}
-					{debugMenuItems}
 					onFileSelect={s.handleFileSelect}
 					onMarkdownSelect={s.handleMarkdownSelect}
 					onStorySelect={s.handleStorySelect}
@@ -276,19 +152,6 @@
 		</div>
 	</section>
 </main>
-
-<TextInputDialog
-	open={s.backlogDialogOpen}
-	title={s.backlogDialogTitle}
-	path={s.backlogPath}
-	bind:value={s.backlogDraft}
-	loading={s.backlogLoading}
-	saving={s.backlogSaving}
-	error={s.backlogError}
-	placeholder={s.backlogDialogPlaceholder}
-	onClose={s.closeIssueDialog}
-	onSave={() => void s.saveIssue()}
-/>
 
 <style>
 	.c-domain-explorer {

@@ -5,7 +5,6 @@ export {
 	Checkbox,
 	Chip,
 	Css3dCube,
-	CubeControl,
 	Radio,
 	Switch,
 	Tag,
@@ -16,15 +15,11 @@ export {
 } from './atom';
 export {
 	Combobox,
-	ControlPanel,
-	FilterPanel,
 	IconToolbar,
 	RangeInput,
 	RangeSlider,
 	Selector,
-	SliderWithInput,
-	Toolbar,
-	ZoomToolbar
+	SliderWithInput
 } from './molecule';
 export {
 	AccessibilityToolbar,

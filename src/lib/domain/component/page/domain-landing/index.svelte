@@ -1,5 +1,5 @@
 <script lang="ts">
-	import StylistLanding from '$stylist/marketing/component/organism/stylist-landing/index.svelte';
+	import StylistLanding from '$stylist/domain/component/organism/stylist-hero/index.svelte';
 
 	let {
 		rootDomainCount = 0,

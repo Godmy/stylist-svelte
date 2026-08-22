@@ -7,15 +7,18 @@ export {
 } from './atom';
 export {
 	ClusterToolbar,
+	CtaButtons,
 	DeviceViewport,
-	DomainDescriptorPanel,
 	DomainList,
 	DomainMenu,
 	DomainSearch,
 	DomainToolbar,
+	FeatureGrid,
 	JointTabButtons,
 	JointToolbar,
 	JsonTreeViewer,
+	StylistHeroIntro,
+	StylistMission,
 	TaxonomyBreadcrumbs
 } from './molecule';
 export {
@@ -30,7 +33,8 @@ export {
 	DomainFilePreview,
 	DomainSettings,
 	DomainSidebar,
-	MarkdownRenderer
+	MarkdownRenderer,
+	StylistHero
 } from './organism';
 export {
 	DomainLanding,

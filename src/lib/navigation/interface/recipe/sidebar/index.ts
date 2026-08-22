@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { BehaviorTransformable } from '$stylist/animation/interface/behavior/transformable';
-import type { TierContent } from '$stylist/presentation/type/alias/tier';
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorDraggable } from '$stylist/layout/interface/behavior/draggable';
 import type { BehaviorFocusable } from '$stylist/layout/interface/behavior/focusable';
@@ -31,7 +30,6 @@ export interface RecipeSidebar
 				mobileBreakpoint?: number;
 				width?: number;
 				mobileWidth?: string;
-				variant?: TierContent;
 				position?: TokenAlignment;
 				disabled?: boolean;
 				navClass?: string;

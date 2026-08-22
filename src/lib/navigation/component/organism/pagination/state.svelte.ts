@@ -85,7 +85,6 @@ export function createPaginationState(props: RecipePagination) {
 			showPrevNext: _showPrevNext,
 			showDots: _showDots,
 			maxVisible: _maxVisible,
-			variant: _variant,
 			size: _size,
 			disabled: _disabled,
 			buttonClass: _buttonClass,

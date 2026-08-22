@@ -1,5 +1,5 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { SelectionMode } from '$stylist/workspace/type/alias/selection-mode/index';
+import type { SelectionMode } from '$stylist/control/type/alias/selection-mode/index';
 export interface RecipeSelectionState extends ComputeIntersectAll<[]> {
 	selectedIds: Set<string>;
 	mode: SelectionMode;

@@ -7,13 +7,6 @@
 		path: string;
 	}
 
-	interface DebugMenuItem {
-		id: string;
-		label: string;
-		disabled?: boolean;
-		onSelect?: () => void;
-	}
-
 	interface JointTabButtonsProps {
 		files?: TabFile[];
 		markdownFile?: TabFile | null;
@@ -24,7 +17,6 @@
 		previewKind?: 'svg' | 'json' | 'text';
 		activeJoint?: string;
 		hasDependencyPreview?: boolean;
-		debugMenuItems?: DebugMenuItem[];
 		onFileSelect?: (path: string) => void;
 		onMarkdownSelect?: () => void;
 		onStorySelect?: () => void;
@@ -43,7 +35,6 @@
 		previewKind = 'text',
 		activeJoint = '',
 		hasDependencyPreview = false,
-		debugMenuItems = [],
 		onFileSelect,
 		onMarkdownSelect,
 		onStorySelect,
@@ -51,8 +42,6 @@
 		onDependencySelect,
 		class: className = ''
 	}: JointTabButtonsProps = $props();
-
-	let dropdownOpen = $state(false);
 
 	const NOT_FOUND_ICON_NAME = 'alert-circle';
 
@@ -101,11 +90,6 @@
 	});
 
 	const hasResolvedIcon = $derived(resolvedIconName !== NOT_FOUND_ICON_NAME);
-
-	function handleAction(action?: () => void) {
-		dropdownOpen = false;
-		action?.();
-	}
 </script>
 
 <div class="c-joint-tab-buttons {className}" aria-label="Files">
@@ -119,44 +103,9 @@
 			aria-label={hasResolvedIcon
 				? `Resolved icon ${resolvedIconName}`
 				: `Icon not found for ${selectedEntityName || 'entity'}`}
-		>
+			>
 			<Icon name={resolvedIconName} size="sm" />
 		</div>
-
-		<button
-			type="button"
-			class="tab tab--action"
-			title="Debug actions"
-			aria-label="Debug actions"
-			aria-expanded={dropdownOpen}
-			onclick={() => (dropdownOpen = !dropdownOpen)}
-		>
-			<span class="tab-icon" aria-hidden="true">{@html TOKEN_ICON_REGISTRY['debug']}</span>
-			<span class="action-label">debug</span>
-			<span class:chevron-open={dropdownOpen} class="chevron" aria-hidden="true">v</span>
-		</button>
-
-		{#if dropdownOpen}
-			<div
-				class="dropdown-overlay"
-				role="presentation"
-				onclick={() => (dropdownOpen = false)}
-			></div>
-			<div class="dropdown-menu" role="menu">
-				{#each debugMenuItems as item (item.id)}
-					<button
-						type="button"
-						class="dropdown-item"
-						class:dropdown-item--disabled={!!item.disabled}
-						role="menuitem"
-						disabled={!!item.disabled}
-						onclick={() => handleAction(item.onSelect)}
-					>
-						{item.label}
-					</button>
-				{/each}
-			</div>
-		{/if}
 	</div>
 
 	<div class="tabs-scroll">
@@ -262,67 +211,6 @@
 		color: var(--color-text-secondary);
 	}
 
-	.chevron {
-		font-size: 10px;
-		line-height: 1;
-		transition: transform 140ms ease;
-	}
-
-	.chevron-open {
-		transform: rotate(180deg);
-	}
-
-	.dropdown-overlay {
-		position: fixed;
-		inset: 0;
-		z-index: 999;
-	}
-
-	.dropdown-menu {
-		position: absolute;
-		top: calc(100% + 4px);
-		left: 0;
-		z-index: 1000;
-		min-width: 180px;
-		display: flex;
-		flex-direction: column;
-		padding: 0.25rem;
-		border: 1px solid var(--color-border-primary);
-		border-radius: 10px;
-		background: var(--color-background-primary);
-		box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
-	}
-
-	.dropdown-item {
-		display: block;
-		width: 100%;
-		padding: 0.45rem 0.65rem;
-		border: none;
-		border-radius: 7px;
-		background: transparent;
-		color: var(--color-text-primary);
-		font: inherit;
-		font-size: 12px;
-		text-align: left;
-		cursor: pointer;
-		white-space: nowrap;
-	}
-
-	.dropdown-item:hover {
-		background: var(--color-background-secondary);
-	}
-
-	.dropdown-item--disabled {
-		color: var(--color-text-secondary);
-		cursor: not-allowed;
-	}
-
-	.dropdown-sep {
-		margin: 0.25rem 0;
-		border: none;
-		border-top: 1px solid var(--color-border-primary);
-	}
-
 	.tab {
 		flex: 0 0 auto;
 		border: 1px solid var(--color-border-primary);
@@ -350,33 +238,5 @@
 		width: 36px;
 		padding-inline: 0;
 		padding-block: 0.42rem;
-	}
-
-	.tab--action {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.45rem;
-		min-width: 0;
-		padding-inline: 0.55rem 0.65rem;
-	}
-
-	.tab-icon {
-		display: inline-grid;
-		place-items: center;
-		width: 16px;
-		height: 16px;
-		flex-shrink: 0;
-	}
-
-	.tab-icon :global(svg) {
-		width: 16px;
-		height: 16px;
-	}
-
-	.action-label {
-		max-width: 11rem;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 	}
 </style>

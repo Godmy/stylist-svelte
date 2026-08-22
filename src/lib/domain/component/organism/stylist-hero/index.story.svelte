@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import StylistLanding from '$stylist/marketing/component/organism/stylist-landing/index.svelte';
+	import StylistLanding from './index.svelte';
 
 	let {
 		id = 'organisms-domain-stylist-hero',
