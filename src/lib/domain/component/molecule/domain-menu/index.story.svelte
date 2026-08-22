@@ -2,43 +2,30 @@
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import DomainMenu from './index.svelte';
 
-	type Screen = 'landing' | 'domain' | 'workspace' | 'builder' | 'backlog' | 'diagnostics';
+	type Screen = 'landing' | 'domain' | 'diagnostics';
 
 	let screen = $state<Screen>('domain');
 	let settingsOpen = $state(false);
-	let aiOpen = $state(false);
 </script>
 
 <Story
 	component={DomainMenu}
 	title="DomainMenu"
-	description="Floating navigation pill that switches between app screens, opens settings, and toggles the AI agent panel."
+	description="Floating navigation pill that switches between app screens and opens settings."
 >
 	{#snippet children()}
 		<div class="_c1">
 			<DomainMenu
 				landingVisible={screen === 'landing'}
 				domainVisible={screen === 'domain'}
-				workspaceOpen={screen === 'workspace'}
-				builderOpen={screen === 'builder'}
-				backlogOpen={screen === 'backlog'}
 				diagnosticsOpen={screen === 'diagnostics'}
 				{settingsOpen}
-				{aiOpen}
 				onLandingToggle={() => (screen = 'landing')}
 				onDomainToggle={() => (screen = 'domain')}
-				onWorkspaceToggle={() => (screen = 'workspace')}
-				onBuilderToggle={() => (screen = 'builder')}
-				onBacklogToggle={() => (screen = 'backlog')}
 				onDiagnosticsToggle={() => (screen = 'diagnostics')}
 				onSettingsToggle={() => (settingsOpen = !settingsOpen)}
-				onAiToggle={() => (aiOpen = !aiOpen)}
 			/>
-			<p class="_c2">
-				Screen: {screen} · Settings: {settingsOpen ? 'open' : 'closed'} · AI: {aiOpen
-					? 'open'
-					: 'closed'}
-			</p>
+			<p class="_c2">Screen: {screen} · Settings: {settingsOpen ? 'open' : 'closed'}</p>
 		</div>
 	{/snippet}
 </Story>
