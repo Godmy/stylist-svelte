@@ -17,8 +17,8 @@ export function createSkeletonState(props: RecipeSkeleton & HTMLAttributes<HTMLD
 	const style = $derived(
 		[
 			props.style,
-			props.width ? `--information-skeleton-width: ${props.width};` : '',
-			props.height ? `--information-skeleton-height: ${props.height};` : ''
+			props.width ? `--information-skeleton-width: ${props.width}px;` : '',
+			props.height ? `--information-skeleton-height: ${props.height}px;` : ''
 		]
 			.filter(Boolean)
 			.join(' ')

@@ -6,13 +6,13 @@
 	const colorOptions = ['primary', 'secondary', 'success', 'warning', 'danger', 'neutral'] as const;
 
 	type Props = {
-		width: string;
+		width: number;
 		left: string;
 		color: (typeof colorOptions)[number];
 	};
 
 	const controls: SlotStory[] = [
-		{ name: 'width', type: 'text', defaultValue: '7rem' },
+		{ name: 'width', type: 'number', defaultValue: 112 },
 		{ name: 'left', type: 'text', defaultValue: '8rem' },
 		{ name: 'color', type: 'select', defaultValue: 'primary', options: [...colorOptions] }
 	];
@@ -20,9 +20,9 @@
 	let activeTab = $state(0);
 
 	const tabs = [
-		{ label: 'Overview', width: '6.5rem', left: '0rem' },
-		{ label: 'Reviews', width: '6.5rem', left: '7rem' },
-		{ label: 'Deploys', width: '6.5rem', left: '14rem' }
+		{ label: 'Overview', width: 104, left: '0rem' },
+		{ label: 'Reviews', width: 104, left: '7rem' },
+		{ label: 'Deploys', width: 104, left: '14rem' }
 	];
 
 	function handleClick(index: number) {
@@ -41,7 +41,7 @@
 	{#snippet children(values: any)}
 		{@const storyProps = values as Partial<Props>}
 		{@const color = storyProps.color ?? 'primary'}
-		{@const width = typeof storyProps.width === 'string' ? storyProps.width : '50px'}
+		{@const width = typeof storyProps.width === 'number' ? storyProps.width : 50}
 		{@const left = typeof storyProps.left === 'string' ? storyProps.left : '0px'}
 
 		<div class="_surface">

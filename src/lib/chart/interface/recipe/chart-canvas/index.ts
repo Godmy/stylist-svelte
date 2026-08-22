@@ -1,10 +1,9 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { ChartSeries } from '$stylist/chart/interface/slot/chart-series';
+import type { SlotDimensionable } from '$stylist/layout/interface/slot/dimensionable';
 export interface RecipeChartCanvas
-	extends ComputeIntersectAll<[SlotTheme]> {
-	width?: number;
-	height?: number;
+	extends ComputeIntersectAll<[SlotTheme, SlotDimensionable]> {
 	padding?: number;
 	series?: ChartSeries[];
 	xScale?: ([number, number]);

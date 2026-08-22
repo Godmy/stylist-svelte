@@ -1170,7 +1170,7 @@
     },
     {
       "name": "domain",
-      "fileCount": 145,
+      "fileCount": 149,
       "components": {
         "atoms": 4,
         "molecules": 11,
@@ -1181,7 +1181,7 @@
       "clusters": [
         {
           "name": "component",
-          "fileCount": 104,
+          "fileCount": 108,
           "joints": [
             {
               "name": "atom",
@@ -1196,7 +1196,7 @@
             {
               "name": "organism",
               "entityCount": 16,
-              "fileCount": 48
+              "fileCount": 52
             },
             {
               "name": "page",
@@ -2067,8 +2067,8 @@
           "joints": [
             {
               "name": "behavior",
-              "entityCount": 12,
-              "fileCount": 13
+              "entityCount": 11,
+              "fileCount": 12
             },
             {
               "name": "recipe",
@@ -2077,8 +2077,8 @@
             },
             {
               "name": "slot",
-              "entityCount": 7,
-              "fileCount": 8
+              "entityCount": 8,
+              "fileCount": 9
             }
           ]
         },
@@ -3882,7 +3882,7 @@
     },
     {
       "name": "wbd",
-      "fileCount": 475,
+      "fileCount": 477,
       "components": {
         "atoms": 3,
         "molecules": 20,
@@ -3951,7 +3951,7 @@
         },
         {
           "name": "interface",
-          "fileCount": 94,
+          "fileCount": 96,
           "joints": [
             {
               "name": "behavior",
@@ -3962,6 +3962,11 @@
               "name": "recipe",
               "entityCount": 87,
               "fileCount": 88
+            },
+            {
+              "name": "slot",
+              "entityCount": 1,
+              "fileCount": 2
             }
           ]
         },
@@ -4141,7 +4146,7 @@
   ],
   "totals": {
     "domains": 48,
-    "files": 5721,
+    "files": 5727,
     "atoms": 180,
     "molecules": 241,
     "organisms": 266,

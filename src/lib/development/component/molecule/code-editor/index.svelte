@@ -8,8 +8,8 @@
 	let {
 		code = '',
 		language = 'javascript',
-		height = '300px',
-		width = '100%',
+		height = 300,
+		width,
 		readOnly = false,
 		showLineNumbers = true,
 		FONT_SIZE = 14,
@@ -60,7 +60,7 @@
 	</div>
 	<textarea
 		class="ce-textarea"
-		style={`height:${height};width:${width};font-size:${FONT_SIZE}px;${showLineNumbers ? 'padding-left: var(--spacing-10);' : ''}`}
+		style={`height:${height}px;${width == null ? 'width:100%;' : `width:${width}px;`}font-size:${FONT_SIZE}px;${showLineNumbers ? 'padding-left: var(--spacing-10);' : ''}`}
 		bind:value={state.internalCode}
 		oninput={(e) => state.handleCodeChange((e.target as HTMLTextAreaElement).value)}
 		readonly={readOnly}

@@ -3,10 +3,9 @@ import type { LayoutHTMLAttributes } from '$stylist/layout/interface/behavior/la
 import type { AnyProperty } from '$stylist/layout/type/record/any-property';
 import type { SlotCanvasObject } from '$stylist/canvas/interface/slot/canvas-object';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
+import type { SlotDimensionable } from '$stylist/layout/interface/slot/dimensionable';
 
-export interface RecipeSharedCanvas extends ComputeIntersectAll<[LayoutHTMLAttributes<HTMLDivElement>]> {
-	width?: number;
-	height?: number;
+export interface RecipeSharedCanvas extends ComputeIntersectAll<[LayoutHTMLAttributes<HTMLDivElement>, SlotDimensionable]> {
 	objects?: SlotCanvasObject[];
 	users?: AnyProperty[];
 	currentUserId?: string;

@@ -1,7 +1,7 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { BehaviorDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
+import type { SlotDimensionable } from '$stylist/layout/interface/slot/dimensionable';
 import type { BehaviorPointClickable } from '$stylist/chart/interface/behavior/point-clickable';
 import type { BehaviorLegendable } from '$stylist/chart/interface/behavior/legendable';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
@@ -12,7 +12,7 @@ export interface RecipeScatterPlot
 	extends ComputeIntersectAll<
 		[
 			SlotTheme,
-			BehaviorDimensionable,
+			SlotDimensionable,
 			SlotText,
 			BehaviorChartAxis,
 			BehaviorLegendable,

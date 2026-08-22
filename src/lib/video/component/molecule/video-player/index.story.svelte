@@ -18,8 +18,8 @@
 			{ name: 'autoPlay', type: 'boolean', defaultValue: false },
 			{ name: 'showControls', type: 'boolean', defaultValue: true },
 			{ name: 'muted', type: 'boolean', defaultValue: false },
-			{ name: 'width', type: 'text', defaultValue: '100%' },
-			{ name: 'height', type: 'text', defaultValue: '400px' }
+			{ name: 'width', type: 'number', defaultValue: 640 },
+			{ name: 'height', type: 'number', defaultValue: 400 }
 		]
 	} = $props<{
 		id?: string;
@@ -61,8 +61,7 @@
 								autoPlay={true}
 								showControls={true}
 								muted={true}
-								width="100%"
-								height="200px"
+								height={200}
 							/>
 						</div>
 					</article>
@@ -75,8 +74,7 @@
 								autoPlay={false}
 								showControls={false}
 								muted={false}
-								width="100%"
-								height="200px"
+								height={200}
 							/>
 						</div>
 					</article>

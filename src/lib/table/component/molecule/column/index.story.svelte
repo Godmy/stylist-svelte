@@ -16,7 +16,7 @@
 				onSort={(k) => { sortKey = k; sortDir = sortDir === 'asc' ? 'desc' : 'asc'; }}
 			/>
 			<Column schema={{ key: 'role', header: 'Role', cell: 'pill', filterable: 'pills' }} />
-			<Column schema={{ key: 'avatar', header: '', cell: 'icon', width: '40px' }} />
+			<Column schema={{ key: 'avatar', header: '', cell: 'icon', width: 40 }} />
 		</tr></thead></table>
 	{/snippet}
 </Story>

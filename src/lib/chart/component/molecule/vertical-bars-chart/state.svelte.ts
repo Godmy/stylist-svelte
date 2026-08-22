@@ -5,7 +5,7 @@ export function createVerticalBarsChartState(props: RecipeVerticalBarsChart) {
 	const className = $derived(ClassNamesManager.merge('vertical-bars-chart', props.class));
 	const text = $derived(props.text);
 	const items = $derived(props.items);
-	const height = $derived(props.height ?? '8rem');
+	const height = $derived(`${props.height ?? 128}px`);
 	const barWidth = $derived(props.barWidth ?? '1.75rem');
 	const gap = $derived(props.gap ?? '0.75rem');
 	const color = $derived(props.color ?? 'var(--color-primary-500, #3b82f6)');

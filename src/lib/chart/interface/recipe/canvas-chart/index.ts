@@ -1,8 +1,7 @@
 import type { SlotChildren } from '$stylist/theme/interface/slot/children';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-export interface RecipeCanvasChart extends ComputeIntersectAll<[SlotChildren]> {
-	width?: number;
-	height?: number;
+import type { SlotDimensionable } from '$stylist/layout/interface/slot/dimensionable';
+export interface RecipeCanvasChart extends ComputeIntersectAll<[SlotChildren, SlotDimensionable]> {
 	data?: Array<Record<string, unknown>>;
 	type?: 'line' | 'bar' | 'scatter' | 'area';
 	variant?: 'default' | 'minimal' | 'bold' | 'small' | 'large';

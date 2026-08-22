@@ -4,5 +4,5 @@ export interface SlotColumnConfig {
 	visible: boolean;
 	sortable?: boolean;
 	filterable?: boolean;
-	width?: string;
+	width?: number;
 }

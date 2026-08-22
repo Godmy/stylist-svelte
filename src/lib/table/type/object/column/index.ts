@@ -5,7 +5,7 @@ export type ColumnSchema<T, K extends keyof T = keyof T> = {
 	key: K;
 	header: string;
 	cell: CellType;
-	width?: string;
+	width?: number;
 	sortable?: boolean;
 	filterable?: 'text' | 'pills';
 	hidden?: boolean;

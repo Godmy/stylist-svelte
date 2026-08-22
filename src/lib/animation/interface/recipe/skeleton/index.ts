@@ -1,9 +1,8 @@
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { Snippet } from 'svelte';
-export interface RecipeSkeleton {
+import type { SlotDimensionable } from '$stylist/layout/interface/slot/dimensionable';
+export interface RecipeSkeleton extends ComputeIntersectAll<[SlotDimensionable]> {
 	variant?: 'text' | 'circle' | 'rectangle';
-	width?: string;
-	height?: string;
 	lines?: number;
 	animated?: boolean;
 	children?: Snippet;

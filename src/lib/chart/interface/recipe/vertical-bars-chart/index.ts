@@ -10,7 +10,7 @@ export interface RecipeVerticalBarsChart extends ComputeIntersectAll<[SlotText]>
 		minHeightPercent?: number;
 		ariaLabel?: string;
 	}[];
-	height?: string;
+	height?: number;
 	barWidth?: string;
 	gap?: string;
 	color?: string;

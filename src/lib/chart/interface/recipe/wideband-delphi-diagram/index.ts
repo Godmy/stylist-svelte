@@ -1,6 +1,8 @@
 import type { SlotText } from '$stylist/typography/interface/slot/text';
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
+import type { SlotDimensionable } from '$stylist/layout/interface/slot/dimensionable';
 
-export interface RecipeWidebandDelphiDiagram extends SlotText {
+export interface RecipeWidebandDelphiDiagram extends ComputeIntersectAll<[SlotText, SlotDimensionable]> {
 	points: {
 		time: string;
 		min: number;
@@ -11,8 +13,6 @@ export interface RecipeWidebandDelphiDiagram extends SlotText {
 		market?: number;
 		procurement?: number;
 	}[];
-	width?: number;
-	height?: number;
 	minValue?: number;
 	maxValue?: number;
 	timeLabelStep?: number;

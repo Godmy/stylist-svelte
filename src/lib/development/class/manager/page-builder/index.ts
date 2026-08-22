@@ -39,8 +39,8 @@ export class PageBuilderManager {
 				return {
 					src: '',
 					alt: 'Image',
-					width: '100%',
-					height: 'auto'
+					width: 640,
+					height: 360
 				} as SlotPageBuilderImageAttributes;
 			case 'divider':
 				return { color: 'var(--color-border-primary)' } as SlotPageBuilderElement['attributes'];
@@ -75,7 +75,7 @@ export class PageBuilderManager {
 				return '<hr style="border:0;border-top:1px solid var(--color-border-primary);margin: var(--spacing-4) 0;" />';
 			case 'image': {
 				const attrs = element.attributes as SlotPageBuilderImageAttributes | undefined;
-				return `<img src="${attrs?.src ?? ''}" alt="${attrs?.alt ?? 'Image'}" style="width:${attrs?.width ?? '100%'};height:${attrs?.height ?? 'auto'};" />`;
+				return `<img src="${attrs?.src ?? ''}" alt="${attrs?.alt ?? 'Image'}" style="width:${attrs?.width == null ? '100%' : `${attrs.width}px`};height:${attrs?.height == null ? 'auto' : `${attrs.height}px`};" />`;
 			}
 			default:
 				return `<div>${element.content ?? ''}</div>`;

@@ -2,7 +2,6 @@
 export type {
 	BehaviorClickable,
 	BehaviorComponentState,
-	BehaviorDimensionable,
 	BehaviorDraggable,
 	BehaviorFocusable,
 	BehaviorPositionable,
@@ -51,6 +50,7 @@ export type {
 	GestureContract,
 	SlotBadge,
 	SlotComposite,
+	SlotDimensionable,
 	SlotDivider,
 	SlotDragAndDrop,
 	SlotSortableGridItem

@@ -2123,7 +2123,6 @@ export type {
 export type {
 	BehaviorClickable,
 	BehaviorComponentState,
-	BehaviorDimensionable,
 	BehaviorDraggable,
 	BehaviorFocusable,
 	BehaviorPositionable,
@@ -2168,6 +2167,7 @@ export type {
 	RecipeWidgetContainer,
 	SlotBadge,
 	SlotComposite,
+	SlotDimensionable,
 	SlotDivider,
 	SlotDragAndDrop,
 	SlotSortableGridItem
@@ -2573,7 +2573,8 @@ export type {
 	RecipeWbdEditSession,
 	RecipeWbdQuestionnairePage,
 	RecipeWbsTaskRow,
-	RecipeWbsTree
+	RecipeWbsTree,
+	SlotWbdDiscussionNote
 } from './wbd';
 export type {
 	GraphNodeDraft,

@@ -27,7 +27,7 @@
 				animated={Boolean(values.animated)}
 			/>
 			<Skeleton variant="circle" />
-			<Skeleton variant="rectangle" height="4rem" />
+			<Skeleton variant="rectangle" height={64} />
 		</div>
 	{/snippet}
 </Story>

@@ -1,7 +1,7 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { BehaviorDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
+import type { SlotDimensionable } from '$stylist/layout/interface/slot/dimensionable';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { BehaviorLegendable } from '$stylist/chart/interface/behavior/legendable';
 import type { TokenCanvasChartType } from '$stylist/chart/type/alias/canvas-chart-type';
@@ -10,7 +10,7 @@ export interface RecipeAnalyticsChart
 	extends ComputeIntersectAll<
 		[
 			SlotTheme,
-			BehaviorDimensionable,
+			SlotDimensionable,
 			SlotText,
 			SlotText,
 			BehaviorLegendable,

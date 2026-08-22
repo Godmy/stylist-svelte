@@ -15,7 +15,6 @@ export interface RecipeTooltip
 		[
 			SlotChildren,
 			SlotText,
-			SlotText,
 			BehaviorFocusable,
 			BehaviorSized,
 			BehaviorShapeable,

@@ -5,7 +5,7 @@ key: string;
 	visible: boolean;
 	sortable?: boolean;
 	filterable?: boolean;
-	width?: string;
+	width?: number;
 })[];
 	onColumnsChange?: (columns: ({
 key: string;
@@ -13,7 +13,7 @@ key: string;
 	visible: boolean;
 	sortable?: boolean;
 	filterable?: boolean;
-	width?: string;
+	width?: number;
 })[]) => void;
 	class?: string;
 }

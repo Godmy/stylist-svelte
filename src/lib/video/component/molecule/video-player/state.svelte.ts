@@ -17,8 +17,8 @@ export function createVideoPlayerState(props: RecipeVideoPlayer) {
 	const src = $derived(props.src);
 	const poster = $derived(props.poster);
 	const title = $derived(props.title);
-	const width = $derived(props.width ?? '100%');
-	const height = $derived(props.height ?? 'auto');
+	const width = $derived(props.width);
+	const height = $derived(props.height);
 	const showControls = $derived(props.showControls ?? true);
 	const autoPlay = $derived(props.autoPlay ?? false);
 	const loop = $derived(props.loop ?? false);
@@ -27,7 +27,9 @@ export function createVideoPlayerState(props: RecipeVideoPlayer) {
 	const controlsClass = $derived(props.controlsClass ?? '');
 
 	const hostClasses = $derived(`video-player ${hostClass}`.trim());
-	const hostStyle = $derived(`width: ${width}; height: ${height};`);
+	const hostStyle = $derived(
+		`${width == null ? 'width: 100%;' : `width: ${width}px;`}${height == null ? '' : ` height: ${height}px;`}`
+	);
 
 	const restProps = $derived.by(() => {
 		const {

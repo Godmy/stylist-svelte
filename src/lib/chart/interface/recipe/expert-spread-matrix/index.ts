@@ -1,6 +1,7 @@
 import type { SlotText } from '$stylist/typography/interface/slot/text';
+import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 
-export interface RecipeExpertSpreadMatrix extends SlotText {
+export interface RecipeExpertSpreadMatrix extends ComputeIntersectAll<[SlotText]> {
 	experts: string[];
 	periods: string[];
 	values: {

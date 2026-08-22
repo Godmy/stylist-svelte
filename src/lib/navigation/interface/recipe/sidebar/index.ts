@@ -28,7 +28,7 @@ export interface RecipeSidebar extends ComputeIntersectAll<
 				collapsed?: boolean;
 				collapsible?: boolean;
 				mobileBreakpoint?: number;
-				width?: string;
+				width?: number;
 				mobileWidth?: string;
 				variant?: TierContent;
 				position?: TokenAlignment;

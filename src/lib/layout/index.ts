@@ -97,7 +97,6 @@ export type {
 export type {
 	BehaviorClickable,
 	BehaviorComponentState,
-	BehaviorDimensionable,
 	BehaviorDraggable,
 	BehaviorFocusable,
 	BehaviorPositionable,
@@ -142,6 +141,7 @@ export type {
 	RecipeWidgetContainer,
 	SlotBadge,
 	SlotComposite,
+	SlotDimensionable,
 	SlotDivider,
 	SlotDragAndDrop,
 	SlotSortableGridItem
