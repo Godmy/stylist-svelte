@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeEventCalendar } from '$stylist/calendar/interface/recipe/event-calendar';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-day';

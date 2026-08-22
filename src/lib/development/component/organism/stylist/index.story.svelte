@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/architecture/const/array/functional-taxonomy';
+	import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/development/const/array/functional-taxonomy';
 	import type { StylistSelection as SlotStylistSelection } from '$stylist/development/interface/slot/stylist-selection';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';

@@ -24,7 +24,8 @@
 	{controls}
 	component={ButtonComposed}
 	title="ButtonComposed"
-	description="Composed control button with icon, badge, focus, and click behaviors."
+	category="Atoms/Interaction/Controls/Buttons"
+	description="Decorated variant of Button: adds left/right icons, a badge/dot indicator, and dedicated focus/blur/double-click/context-menu handlers. Use plain Button for simple text actions; use ButtonComposed when the action needs an icon, a status badge, or those extra interaction hooks."
 >
 	{#snippet children(values: any)}
 		<div class="_c1">

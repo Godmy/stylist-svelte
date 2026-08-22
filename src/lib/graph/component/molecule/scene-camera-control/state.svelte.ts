@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeSceneCameraControl } from '$stylist/graph/interface/recipe/scene-camera-control';
 
 export function createSceneCameraControlState(props: RecipeSceneCameraControl) {

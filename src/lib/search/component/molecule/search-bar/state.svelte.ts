@@ -1,5 +1,5 @@
 import { ControlManager } from '$stylist/control/class/manager/control';
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 type SearchBarStateProps = { [key: string]: any };
 
 export const createSearchBarState = (props: SearchBarStateProps) => {

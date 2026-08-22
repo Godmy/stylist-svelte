@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import { ObjectManagerMetricCard } from '$stylist/commerce/class/object-manager/metric-card';
+import { ObjectManagerMetricCard } from '$stylist/commerce/class/manager/metric-card';
 import type { RecipeMetricCard } from '$stylist/commerce/interface/recipe/metric-card';
 
 export function createMetricCardState(props: RecipeMetricCard & HTMLAttributes<HTMLDivElement>) {

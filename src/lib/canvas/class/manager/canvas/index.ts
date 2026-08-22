@@ -1,4 +1,4 @@
-import type { Point2D } from '$stylist/architecture/interface/slot/point-2d';
+import type { Point2D } from '$stylist/canvas/interface/slot/point-2d';
 import type { SlotCanvasObject } from '$stylist/canvas/interface/slot/canvas-object';
 import type { SlotSharedCanvasObjectBounds } from '$stylist/canvas/interface/slot/shared-canvas-object-bounds';
 import type { SharedCanvasTool } from '$stylist/canvas/type/alias/shared-canvas-tool';

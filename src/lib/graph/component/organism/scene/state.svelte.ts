@@ -1,5 +1,5 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
-import { SceneObjectManager } from '$stylist/graph/class/object-manager/scene/index';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
+import { SceneObjectManager } from '$stylist/graph/class/manager/scene/index';
 import type { RecipeScene } from '$stylist/graph/interface/recipe/scene';
 import type { SceneDebugInfo } from '$stylist/graph/interface/slot/scene-debug-info';
 

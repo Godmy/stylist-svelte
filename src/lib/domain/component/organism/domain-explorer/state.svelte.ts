@@ -99,6 +99,9 @@ export function createDomainPageState(input: DomainPageInput) {
 	let issueError = $state('');
 
 	const activeDomainNode = $derived(tree.find((d) => d.name === activeDomain));
+	const availableDomainNames = $derived(
+		tree.map((domainNode) => domainNode.name).sort((a, b) => a.localeCompare(b))
+	);
 	const activeClusterNode = $derived(
 		activeDomainNode?.clusters.find((c) => c.name === activeCluster)
 	);
@@ -171,6 +174,11 @@ export function createDomainPageState(input: DomainPageInput) {
 			)
 		)
 	);
+
+	$effect(() => {
+		if (activeDomainNode) return;
+		activeDomain = availableDomainNames[0] ?? '';
+	});
 
 	$effect(() => {
 		if (!activeDomainNode) return;
@@ -558,6 +566,9 @@ export function createDomainPageState(input: DomainPageInput) {
 		},
 		get availableJointNames() {
 			return availableJointNames;
+		},
+		get availableDomainNames() {
+			return availableDomainNames;
 		},
 		get entities() {
 			return entities;

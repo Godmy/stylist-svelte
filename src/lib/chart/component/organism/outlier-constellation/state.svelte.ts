@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { ManagerOutlierConstellation } from '$stylist/chart/class/manager/outlier-constellation';
 import type { RecipeOutlierConstellation } from '$stylist/chart/interface/recipe/outlier-constellation';
 

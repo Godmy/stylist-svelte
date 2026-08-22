@@ -1,9 +1,10 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeAnimatedBackground } from '$stylist/animation/interface/recipe/animated-background';
 
 export function createAnimatedBackgroundState(props: RecipeAnimatedBackground) {
 	const particleIndices = Array.from({ length: 12 }, (_, index) => index + 1);
 	const children = $derived(props.children);
+	const inlineStyle = $derived(typeof props.style === 'string' ? props.style : undefined);
 	const containerClasses = $derived(
 		ClassNamesManager.merge(
 			'c-animated-background',
@@ -18,6 +19,9 @@ export function createAnimatedBackgroundState(props: RecipeAnimatedBackground) {
 		},
 		get containerClasses() {
 			return containerClasses;
+		},
+		get inlineStyle() {
+			return inlineStyle;
 		},
 		get particleIndices() {
 			return particleIndices;

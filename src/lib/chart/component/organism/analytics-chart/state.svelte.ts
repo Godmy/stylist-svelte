@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeAnalyticsChart } from '$stylist/chart/interface/recipe/analytics-chart';
 
 export function createAnalyticsChartState(props: RecipeAnalyticsChart) {

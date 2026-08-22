@@ -2,9 +2,7 @@
 export {
 	Camera,
 	GraphScriptManager,
-	InstancedGraphManager
-} from './manager';
-export {
+	InstancedGraphManager,
 	Matrix4,
 	SceneObjectManager
-} from './object-manager';
+} from './manager';

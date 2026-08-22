@@ -1,5 +1,12 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
+	GraphWorkspaceConnectionInput,
+	NodeTitleVariant,
+	SelectionMode,
 	TokenInteration,
-	TokenSeverity
+	TokenNodeType,
+	TokenPropertyType,
+	TokenRelationship,
+	TokenSeverity,
+	TokenTrajectory
 } from './alias';

@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { ManagerCriticalPathTimeline } from '$stylist/chart/class/manager/critical-path-timeline';
 import type { RecipeCriticalPathTimeline } from '$stylist/chart/interface/recipe/critical-path-timeline';
 

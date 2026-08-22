@@ -1,7 +1,7 @@
 import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
-import type { TokenRelationship } from '$stylist/architecture/type/alias/relationship';
+import type { TokenRelationship } from '$stylist/workspace/type/alias/relationship';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { RecipeNodePort } from '$stylist/workspace/interface/recipe/node-port';
 export interface RecipeNodePortGroup

@@ -2,7 +2,7 @@ import type { RecipeWorkspaceNode } from '$stylist/workspace/interface/recipe/wo
 import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
 import type { TokenInteration } from '$stylist/workspace/type/alias/interaction';
 import type { TokenSeverity } from '$stylist/workspace/type/alias/sevetity';
-import type { TokenNodeType } from '$stylist/architecture/type/alias/node-type';
+import type { TokenNodeType } from '$stylist/workspace/type/alias/node-type';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { SemanticZoomPresentation } from '$stylist/presentation/interface/slot/semantic-zoom';
 import { SemanticZoomManager } from '$stylist/presentation/class/manager/semantic-zoom';

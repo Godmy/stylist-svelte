@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { ChatRoomProps } from '$stylist/chat/type/alias/chat-room-props';
 
 export function createChatRoomState(props: ChatRoomProps) {

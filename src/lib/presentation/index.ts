@@ -16,22 +16,29 @@ export {
 	FOUNDATION_DEPTH_RANGE,
 	FOUNDATION_DEPTH_THRESHOLDS,
 	FOUNDATION_SEMANTIC_ZOOM_STAGES,
+	PRESENTATION_MODE,
 	RECORD_DENSITY,
 	RECORD_FRAME,
 	RECORD_LAYER,
 	RECORD_LEVEL,
 	RECORD_SHAPE,
-	RECORD_SIZE
+	RECORD_SIZE,
+	TOKEN_FOUNDATION_AXES,
+	TOKEN_FOUNDATION_AXIS_DIRECTIONS,
+	TOKEN_TIER_CONTENT
 } from './const';
 export {
 	resolvePresenterSceneLinks,
 	useSemanticZoom
 } from './function';
 export type {
+	FoundationAxis,
 	FoundationDepthThreshold,
 	FoundationSemanticZoomStage,
+	PresentationMode,
 	PresenterSceneLink,
-	PreziSceneContract
+	PreziSceneContract,
+	TierContent
 } from './type';
 export type {
 	BehaviorPreziSceneMethods,

@@ -40,15 +40,35 @@ export function createSplitButtonState(...args: Parameters<typeof createButtonSt
 	}
 
 	return {
-		...buttonState,
-		get isOpen() {
-			return isOpen;
-		},
 		get variant() {
 			return variant;
 		},
 		get size() {
 			return size;
+		},
+		get disabled() {
+			return buttonState.disabled;
+		},
+		get loading() {
+			return buttonState.loading;
+		},
+		get isDisabled() {
+			return buttonState.isDisabled;
+		},
+		get block() {
+			return buttonState.block;
+		},
+		get loadingLabel() {
+			return buttonState.loadingLabel;
+		},
+		get attrs() {
+			return buttonState.attrs;
+		},
+		get ariaLabel() {
+			return buttonState.ariaLabel;
+		},
+		get isOpen() {
+			return isOpen;
 		},
 		buttonId,
 		toggleDropdown,

@@ -1,4 +1,4 @@
-import type { TierContent } from '$stylist/architecture/type/alias/tier';
+import type { TierContent } from '$stylist/presentation/type/alias/tier';
 export interface SlotTeamMemberCard {
 	/**
 	 * Name of the team member

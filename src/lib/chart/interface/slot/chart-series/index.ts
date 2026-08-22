@@ -1,6 +1,6 @@
 import type { ChartFunctionPoint } from '$stylist/chart/interface/slot/chart-point';
 
-/** Серия графика: идентичность, подпись, цвет и набор точек */
+/** РЎРµСЂРёСЏ РіСЂР°С„РёРєР°: РёРґРµРЅС‚РёС‡РЅРѕСЃС‚СЊ, РїРѕРґРїРёСЃСЊ, С†РІРµС‚ Рё РЅР°Р±РѕСЂ С‚РѕС‡РµРє */
 export interface ChartSeries {
 	id: string;
 	name: string;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RecipeGrid } from '$stylist/layout/interface/recipe/grid';
-	import { GridManager } from '$stylist/layout/class/object-manager/grid';
+	import { GridManager } from '$stylist/layout/class/manager/grid';
 
 	let props: RecipeGrid = $props();
 	const restProps = $derived.by(() => GridManager.filterRestProps(props));

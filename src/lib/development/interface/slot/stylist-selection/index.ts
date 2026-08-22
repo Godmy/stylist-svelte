@@ -1,4 +1,4 @@
-import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/architecture/const/array/functional-taxonomy';
+import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/development/const/array/functional-taxonomy';
 
 export interface StylistSelection {
 	category: (typeof TOKEN_FUNCTIONAL_TAXONOMY)[number];

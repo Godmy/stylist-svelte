@@ -30,18 +30,18 @@ export {
 	TaxonomyBreadcrumbs
 } from './component';
 export {
-	CLUSTER_TOOLBAR_ITEMS,
 	DEVICE_FRAME_VIEWPORT,
+	DOMAIN_CLUSTER,
 	DOMAIN_COMPONENT_DEBUG_ERROR,
-	DOMAIN_COUNT,
-	DOMAIN_MENU_ICONS,
 	DOMAIN_SCREEN,
-	DOMAIN_SCREEN_VALUES,
 	JOINT_TOOLBAR_ITEMS,
 	STYLIST_GRAPH_WORKSPACE_SEED,
 	TOKEN_CONTROLLER_TYPE
 } from './const';
-export { serializeUnknownError } from './function';
+export {
+	createClusterToolbarItems,
+	serializeUnknownError
+} from './function';
 export type {
 	DeviceFrameViewport,
 	TokenControllerType,

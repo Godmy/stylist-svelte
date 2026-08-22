@@ -24,7 +24,7 @@
 		<BaseIcon
 			name={CONTROL_BUTTON_ICON.LOADER}
 			class="c-button__loader"
-			style="width: 1rem; height: 1rem;"
+			size={16}
 			aria-hidden="true"
 		/>
 		<span class="c-button__sr-only">{state.factoryInput.contract.loadingLabel ?? 'Loading...'}</span
@@ -52,7 +52,8 @@
 			background-color 150ms ease,
 			color 150ms ease,
 			border-color 150ms ease,
-			opacity 150ms ease;
+			opacity 150ms ease,
+			transform 100ms ease;
 		outline: none;
 		position: relative;
 	}
@@ -60,6 +61,10 @@
 	.c-button:focus-visible {
 		outline: 2px solid var(--color-primary-500);
 		outline-offset: 2px;
+	}
+
+	.c-button:active:not([data-disabled]):not([data-loading]) {
+		transform: scale(0.97);
 	}
 
 	/* Variant styles */

@@ -1,3 +1,9 @@
-import type { SlotTimePicker } from '$stylist/calendar/interface/slot/time-picker';
-
-export interface RecipeTimePicker extends SlotTimePicker {}
+export interface RecipeTimePicker {
+	value?: string;
+	disabled?: boolean;
+	class?: string;
+	showSeconds?: boolean;
+	step?: number;
+	onChange?: (time: string) => void;
+	onValueChange?: (time: string) => void;
+}

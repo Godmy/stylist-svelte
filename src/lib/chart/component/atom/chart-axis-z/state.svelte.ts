@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeChartAxisZ } from '$stylist/chart/interface/recipe/chart-axis-z';
 
 function resolveClassName(className: unknown): string | undefined {

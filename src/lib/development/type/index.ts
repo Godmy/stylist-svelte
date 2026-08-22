@@ -4,5 +4,7 @@ export type {
 	DebugConsoleLogLevel,
 	TokenCodeLanguage,
 	TokenCodeView,
+	TokenComponentType,
+	TokenFunctionalTaxonomy,
 	TokenSoftwareBadge
 } from './alias';

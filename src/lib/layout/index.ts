@@ -58,6 +58,7 @@ export {
 	TOKEN_JUSTIFICATION,
 	TOKEN_ORIENTATION,
 	TOKEN_SHAPE,
+	TOKEN_SKELETON,
 	TOKEN_STACK_DIRECTION,
 	TOKEN_TRIGGER
 } from './const';
@@ -89,6 +90,7 @@ export type {
 	TokenJustification,
 	TokenOrientation,
 	TokenShape,
+	TokenSkeleton,
 	TokenStackDirection,
 	TokenTrigger
 } from './type';

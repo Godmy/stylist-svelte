@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { GraphScriptManager } from '$stylist/graph/class/manager/graph-script';
 import { InstancedGraphManager } from '$stylist/graph/class/manager/instanced-graph';
 import type { RecipeZwickyScene } from '$stylist/graph/interface/recipe/zwicky-scene';

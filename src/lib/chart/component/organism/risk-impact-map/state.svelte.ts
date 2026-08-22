@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { ManagerRiskImpactMap } from '$stylist/chart/class/manager/risk-impact-map';
 import type { RecipeRiskImpactMap } from '$stylist/chart/interface/recipe/risk-impact-map';
 

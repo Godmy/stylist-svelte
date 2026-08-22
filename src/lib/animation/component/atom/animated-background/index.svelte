@@ -7,7 +7,7 @@
 	const state = createAnimatedBackgroundState(props);
 </script>
 
-<div class={state.containerClasses}>
+<div class={state.containerClasses} style={state.inlineStyle}>
 	<Background class="ambient-bg__wash" aria-hidden="true" />
 
 	<div class="ambient-bg__shape s1" aria-hidden="true"></div>
@@ -92,8 +92,9 @@
 	.ambient-bg__shape {
 		border-radius: 999px;
 		filter: blur(56px);
-		opacity: 0.45;
-		animation: ambient-float 16s ease-in-out infinite alternate;
+		opacity: var(--animated-background-shape-opacity, 0.45);
+		animation: ambient-float var(--animated-background-shape-duration, 16s) ease-in-out
+			infinite alternate;
 	}
 
 	.ambient-bg__shape.s1 {
@@ -110,7 +111,7 @@
 		width: 22rem;
 		height: 22rem;
 		background: color-mix(in srgb, var(--color-danger-500) 20%, transparent);
-		animation-duration: 18s;
+		animation-duration: calc(var(--animated-background-shape-duration, 16s) * 1.125);
 	}
 
 	.ambient-bg__shape.s3 {
@@ -119,14 +120,14 @@
 		width: 20rem;
 		height: 20rem;
 		background: color-mix(in srgb, var(--color-error-500) 24%, transparent);
-		animation-duration: 20s;
+		animation-duration: calc(var(--animated-background-shape-duration, 16s) * 1.25);
 	}
 
 	.ambient-bg__orb {
 		border-radius: 999px;
 		filter: blur(2px);
-		opacity: 0.5;
-		animation: ambient-drift 14s ease-in-out infinite;
+		opacity: var(--animated-background-orb-opacity, 0.5);
+		animation: ambient-drift var(--animated-background-orb-duration, 14s) ease-in-out infinite;
 	}
 
 	.ambient-bg__orb.o1,
@@ -192,8 +193,8 @@
 		height: 0.3rem;
 		border-radius: 999px;
 		background: color-mix(in srgb, white 78%, var(--color-warning-500));
-		opacity: 0.32;
-		animation: ambient-particle 22s linear infinite;
+		opacity: var(--animated-background-particle-opacity, 0.32);
+		animation: ambient-particle var(--animated-background-particle-duration, 22s) linear infinite;
 	}
 
 	.ambient-bg__particle.p1 {
@@ -258,7 +259,7 @@
 	}
 
 	.ambient-bg__geo {
-		opacity: 0.7;
+		opacity: var(--animated-background-geo-opacity, 0.7);
 	}
 
 	.animated-background__content {

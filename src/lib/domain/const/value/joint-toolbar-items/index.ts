@@ -21,8 +21,6 @@ export const JOINT_TOOLBAR_ITEMS = [
 	{ name: 'recipe',         svg: TOKEN_ICON_REGISTRY['recipe'] },
 	{ name: 'contract',       svg: TOKEN_ICON_REGISTRY['contract'] },
 	{ name: 'manager',        svg: TOKEN_ICON_REGISTRY['manager'] },
-	{ name: 'object-manager', svg: TOKEN_ICON_REGISTRY['object-manager'] },
-	{ name: 'style-manager',  svg: TOKEN_ICON_REGISTRY['style-manager'] },
 	{ name: 'script',         svg: TOKEN_ICON_REGISTRY['script'] },
 	{ name: 'state',          svg: TOKEN_ICON_REGISTRY['state'] },
 	{ name: 'hook',           svg: TOKEN_ICON_REGISTRY['hook'] },

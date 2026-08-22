@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import type { PortfolioSummaryData } from '$stylist/portfolio/class/object-manager/portfolio';
+	import type { PortfolioSummaryData } from '$stylist/portfolio/class/manager/portfolio';
 	import PortfolioCellAtom from '$stylist/portfolio/component/atom/portfolio-cell/index.svelte';
 
 	interface PortfolioSummaryProps {

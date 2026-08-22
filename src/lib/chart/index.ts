@@ -60,12 +60,14 @@ export {
 	PRESET_CANVAS_CHART,
 	TOKEN_CANVAS_CHART_TYPE,
 	TOKEN_CHART,
-	TOKEN_CHART_COLORS
+	TOKEN_CHART_COLORS,
+	TOKEN_LINE_TYPE
 } from './const';
 export type {
 	HeatmapAxisValue,
 	TokenCanvasChartType,
-	TokenChart
+	TokenChart,
+	TokenLineType
 } from './type';
 export type {
 	AnalyticsChartBarPoint,
@@ -79,6 +81,7 @@ export type {
 	CanvasChartPadding,
 	ChartFunctionPoint,
 	ChartLegendItem,
+	ChartSeries,
 	IChartDataPoint,
 	IHeatmapCell,
 	InformationPieChartSegment,

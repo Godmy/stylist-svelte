@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { DEFAULT_BADGE_LABEL } from '$stylist/development/const/record/badge-label';
 import type { RecipeNpmBadge } from '$stylist/development/interface/recipe/npm-badge';
 

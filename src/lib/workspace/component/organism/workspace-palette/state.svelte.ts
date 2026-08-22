@@ -1,4 +1,4 @@
-import { ObjectManagerWorkspacePalette } from '$stylist/workspace/class/object-manager/workspace-palette';
+import { ObjectManagerWorkspacePalette } from '$stylist/workspace/class/manager/workspace-palette';
 import type { SlotWorkspaceNode as WorkspacePaletteItem } from '$stylist/workspace/interface/slot/workspace-node';
 import type { RecipeWorkspacePalette as WorkspacePaletteProps } from '$stylist/workspace/interface/recipe/workspace-palette';
 

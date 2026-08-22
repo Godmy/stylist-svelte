@@ -1,6 +1,6 @@
 import { tick } from 'svelte';
 import type { PrimaryMenuItem } from '$stylist/navigation/interface/slot/primary-menu-item';
-import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/architecture/const/array/functional-taxonomy';
+import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/development/const/array/functional-taxonomy';
 import type { RecipeStylistMenu } from '$stylist/navigation/interface/recipe/stylist-menu';
 import { STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS } from '$stylist/navigation/const/record/stylist-menu-functional-primary-sections';
 

@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeRichTextEditorStateProps } from '$stylist/input/interface/recipe/rich-text-editor-state-props';
 
 export const createRichTextEditorState = (props: RecipeRichTextEditorStateProps) => {

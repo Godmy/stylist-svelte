@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 ﻿import type { RecipePrivacySettings } from '$stylist/development/interface/recipe/privacy-settings';
 
 export function createPrivacySettingsState(props: RecipePrivacySettings) {

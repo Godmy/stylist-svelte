@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeMessageTimestamp } from '$stylist/chat/interface/recipe/message-timestamp';
 
 export function createMessageTimestampState(props: RecipeMessageTimestamp) {

@@ -1,6 +1,6 @@
 import type { SceneGeometry } from '$stylist/graph/interface/slot/scene-geometry';
 import type { SceneBufferSet } from '$stylist/graph/interface/slot/scene-buffer-set';
-import { Matrix4 } from '$stylist/graph/class/object-manager/matrix4';
+import { Matrix4 } from '$stylist/graph/class/manager/matrix4';
 import type { SceneAtom } from '$stylist/graph/interface/slot/scene-atom';
 import type { Camera } from '$stylist/graph/class/manager/camera';
 import { MATERIAL_PALETTE } from '$stylist/graph/const/record/material-palette';

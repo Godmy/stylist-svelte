@@ -1,6 +1,6 @@
 import type { RecipeNodeProperties as NodePropertiesProps } from '$stylist/workspace/interface/recipe/node-properties';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-import { ObjectManagerNodeProperties } from '$stylist/workspace/class/object-manager/node-properties';
+import { ObjectManagerNodeProperties } from '$stylist/workspace/class/manager/node-properties';
 
 export function createNodePropertiesState(props: NodePropertiesProps) {
 	const size = $derived((props.size ?? 'md') as TokenSize);

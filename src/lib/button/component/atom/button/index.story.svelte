@@ -16,6 +16,8 @@
 		{ name: 'loading', type: 'boolean', defaultValue: false },
 		{ name: 'block', type: 'boolean', defaultValue: false }
 	];
+
+	let clickCount = $state(0);
 </script>
 
 <Story
@@ -23,17 +25,34 @@
 	component={Button}
 	title="Button"
 	category="Atoms/Interaction/Controls/Buttons"
-	description="Base button component"
+	description="Base button component. Click it below to see the click count change."
 >
 	{#snippet children(values: any)}
-		<Button
-			variant={values.variant as any}
-			size={values.size as 'sm' | 'md' | 'lg'}
-			disabled={values.disabled as boolean}
-			loading={values.loading as boolean}
-			block={values.block as boolean}
-		>
-			{values.label as string}
-		</Button>
+		<div class="_c1">
+			<Button
+				variant={values.variant as any}
+				size={values.size as 'sm' | 'md' | 'lg'}
+				disabled={values.disabled as boolean}
+				loading={values.loading as boolean}
+				block={values.block as boolean}
+				onclick={() => (clickCount += 1)}
+			>
+				{values.label as string}
+			</Button>
+			<p class="_c2">Clicked {clickCount} time{clickCount === 1 ? '' : 's'}</p>
+		</div>
 	{/snippet}
 </Story>
+
+<style>
+	._c1 {
+		display: grid;
+		justify-items: center;
+		gap: 0.75rem;
+	}
+	._c2 {
+		margin: 0;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+	}
+</style>

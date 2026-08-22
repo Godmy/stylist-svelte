@@ -2,5 +2,6 @@
 export type {
 	HeatmapAxisValue,
 	TokenCanvasChartType,
-	TokenChart
+	TokenChart,
+	TokenLineType
 } from './alias';

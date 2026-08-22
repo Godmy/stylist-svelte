@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+	import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 	import { ZipViewerManager } from '$stylist/file/class/manager/zip-viewer';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';

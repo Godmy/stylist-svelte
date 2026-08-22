@@ -2,7 +2,7 @@ import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { BehaviorDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
-import type { TokenLineType } from '$stylist/architecture/type/alias/line-type';
+import type { TokenLineType } from '$stylist/chart/type/alias/line-type';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { BehaviorPointClickable } from '$stylist/chart/interface/behavior/point-clickable';
 import type { BehaviorTooltipable } from '$stylist/chart/interface/behavior/tooltipable';

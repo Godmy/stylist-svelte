@@ -1,6 +1,6 @@
 <script lang="ts">
 	import IconToolbar from '$stylist/control/component/molecule/icon-toolbar/index.svelte';
-	import { CLUSTER_TOOLBAR_ITEMS } from '$stylist/domain/const/value/cluster-toolbar-items';
+	import { createClusterToolbarItems } from '$stylist/domain/function/transform/cluster-toolbar-items';
 
 	interface ClusterToolbarProps {
 		active?: string;
@@ -17,10 +17,12 @@
 		onSelect,
 		class: className = ''
 	}: ClusterToolbarProps = $props();
+
+	const items = createClusterToolbarItems();
 </script>
 
 <IconToolbar
-	items={CLUSTER_TOOLBAR_ITEMS}
+	{items}
 	label="cluster"
 	{active}
 	{orientation}

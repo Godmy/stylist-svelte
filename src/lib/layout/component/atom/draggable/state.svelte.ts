@@ -1,4 +1,4 @@
-import { ObjectManagerGesture } from '$stylist/layout/class/object-manager/gesture';
+import { ObjectManagerGesture } from '$stylist/layout/class/manager/gesture';
 import type { RecipeDraggable as DragProps } from '$stylist/layout/interface/recipe/draggable';
 
 export const createDraggableState = (props: DragProps) => {

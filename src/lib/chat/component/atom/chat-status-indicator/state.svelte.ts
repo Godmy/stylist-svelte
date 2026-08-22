@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { derived, writable } from 'svelte/store';
 import type { RecipeChatStatusIndicator } from '$stylist/chat/interface/recipe/chat-status-indicator';
 

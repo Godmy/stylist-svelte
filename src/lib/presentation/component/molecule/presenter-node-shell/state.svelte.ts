@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { useSemanticZoom } from '$stylist/presentation/function/script/use-semantic-zoom';
 import type { RecipePresenterNodeShell } from '$stylist/presentation/interface/recipe/presenter-node-shell';
 

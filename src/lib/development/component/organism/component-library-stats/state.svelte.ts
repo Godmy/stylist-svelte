@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { onMount } from 'svelte';
 import type { RecipeComponentLibraryStats } from '$stylist/development/interface/recipe/component-library-stats';
 import type { SlotComponentLibraryStats } from '$stylist/development/interface/slot/component-library-stats';

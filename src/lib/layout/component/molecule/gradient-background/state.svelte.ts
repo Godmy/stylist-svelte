@@ -1,4 +1,4 @@
-import { ObjectManagerGradientBackground } from '$stylist/layout/class/object-manager/gradient-background';
+import { ObjectManagerGradientBackground } from '$stylist/layout/class/manager/gradient-background';
 import type { RecipeGradientBackground } from '$stylist/layout/interface/recipe/gradient-background';
 
 export function createGradientBackgroundState(props: RecipeGradientBackground) {

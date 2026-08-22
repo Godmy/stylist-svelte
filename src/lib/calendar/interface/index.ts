@@ -17,7 +17,5 @@ export type {
 export type {
 	SlotCalendarDay,
 	SlotCalendarEvent,
-	SlotDatePicker,
-	SlotEventCalendar,
-	SlotTimePicker
+	SlotDatePicker
 } from './slot';

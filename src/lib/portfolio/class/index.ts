@@ -1,8 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerPortfolio } from './object-manager';
+export { ObjectManagerPortfolio } from './manager';
 export type {
 	PortfolioCell,
 	PortfolioData,
 	PortfolioEntry,
 	PortfolioSummaryData
-} from './object-manager';
+} from './manager';

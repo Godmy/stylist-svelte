@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { ManagerMotion } from '$stylist/animation/class/manager/motion';
 import type { RecipeAnimatedDigit } from '$stylist/animation/interface/recipe/animated-digit';
 
@@ -23,7 +23,12 @@ export const createAnimatedDigitState = (props: RecipeAnimatedDigit) => {
 	// Вычисляемые inline стили
 	const inlineStyle = $derived.by(
 		() =>
-			`animation: ${normalizedProps.animation} ${normalizedProps.duration} ${normalizedProps.easing} ${normalizedProps.delay}ms${normalizedProps.infinite ? ' infinite' : ''};`
+			[
+				`animation: ${normalizedProps.animation} ${normalizedProps.duration} ${normalizedProps.easing} ${normalizedProps.delay}ms${normalizedProps.infinite ? ' infinite' : ''};`,
+				typeof props.style === 'string' ? props.style : ''
+			]
+				.filter(Boolean)
+				.join(' ')
 	);
 
 	// Форматирование значения

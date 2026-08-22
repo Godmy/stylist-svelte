@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeScatterPlot } from '$stylist/chart/interface/recipe/scatter-plot';
 import type { ScatterPlotDataPoint } from '$stylist/chart/interface/slot/scatter-plot-point';
 

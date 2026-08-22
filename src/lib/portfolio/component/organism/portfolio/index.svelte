@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import type { PortfolioData } from '$stylist/portfolio/class/object-manager/portfolio';
+	import type { PortfolioData } from '$stylist/portfolio/class/manager/portfolio';
 	import PortfolioHeader from '$stylist/portfolio/component/molecule/portfolio-header/index.svelte';
 	import PortfolioState from '$stylist/portfolio/component/molecule/portfolio-state/index.svelte';
 	import PortfolioSummary from '$stylist/portfolio/component/molecule/portfolio-summary/index.svelte';

@@ -3,7 +3,7 @@
 	import createNodePropertiesState from './state.svelte';
 	import IconButton from '$stylist/button/component/atom/icon-button/index.svelte';
 	import NodeProperty from '$stylist/workspace/component/atom/node-property/index.svelte';
-	import type { TokenPropertyType } from '$stylist/architecture/type/alias/property-type';
+	import type { TokenPropertyType } from '$stylist/workspace/type/alias/property-type';
 
 	let props: NodePropertiesProps = $props();
 	const state = createNodePropertiesState(props);

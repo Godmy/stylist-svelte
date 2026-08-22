@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+	import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 		import type { RecipeUploadProgress } from '$stylist/file/interface/recipe/upload-progress';

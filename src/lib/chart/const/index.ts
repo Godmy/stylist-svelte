@@ -2,7 +2,8 @@
 export {
 	TOKEN_CANVAS_CHART_TYPE,
 	TOKEN_CHART,
-	TOKEN_CHART_COLORS
+	TOKEN_CHART_COLORS,
+	TOKEN_LINE_TYPE
 } from './array';
 export { DEFAULT_CANVAS_CHART_PADDING } from './map';
 export {

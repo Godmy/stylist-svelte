@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeDebugConsole } from '$stylist/development/interface/recipe/debug-console';
 import type { DebugConsoleLogLevel } from '$stylist/development/type/alias/debug-console-log-level';
 import type { DebugConsoleLogEntry as SlotDebugConsoleLogEntry } from '$stylist/development/interface/slot/debug-console-log-entry';

@@ -1,5 +1,5 @@
 import { ManagerChartLegendBar } from '$stylist/chart/class/manager/chart-legend-bar';
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeLegendBarDiagram } from '$stylist/chart/interface/recipe/legend-bar-diagram';
 
 export function createLegendBarDiagramState(props: RecipeLegendBarDiagram) {

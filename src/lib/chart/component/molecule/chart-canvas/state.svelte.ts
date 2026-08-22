@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeChartCanvas as ChartCanvasProps } from '$stylist/chart/interface/recipe/chart-canvas';
 

@@ -28,7 +28,7 @@
 	{#if state.isLoading}
 		<BaseIcon
 			name={CONTROL_BUTTON_ICON.LOADER}
-			style="width:1rem;height:1rem;"
+			size={16}
 			class="c-button-composed__loader"
 			aria-hidden="true"
 		/>
@@ -36,9 +36,9 @@
 	{/if}
 
 	{#if props.iconLeft}
-		<BaseIcon name={props.iconLeft} style="width:1rem;height:1rem;" aria-hidden="true" />
+		<BaseIcon name={props.iconLeft} size={16} aria-hidden="true" />
 	{:else if props.icon}
-		<BaseIcon name={props.icon} style="width:1rem;height:1rem;" aria-hidden="true" />
+		<BaseIcon name={props.icon} size={16} aria-hidden="true" />
 	{/if}
 
 	{#if props.children}
@@ -48,7 +48,7 @@
 	{/if}
 
 	{#if props.iconRight}
-		<BaseIcon name={props.iconRight} style="width:1rem;height:1rem;" aria-hidden="true" />
+		<BaseIcon name={props.iconRight} size={16} aria-hidden="true" />
 	{/if}
 
 	{#if state.badgeText}

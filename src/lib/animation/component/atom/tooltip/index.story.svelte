@@ -58,23 +58,36 @@
 		min-height: 10rem;
 		align-items: center;
 		justify-content: center;
-		border-radius: 1rem;
-		border-width: 1px;
-		border-style: dashed;
-		border-color: var(--color-border-primary);
-		background-color: var(--color-background-secondary);
 		padding: 2rem;
+		background:
+			linear-gradient(
+				90deg,
+				color-mix(in srgb, var(--color-border-primary) 62%, transparent) 1px,
+				transparent 1px
+			),
+			linear-gradient(
+				color-mix(in srgb, var(--color-border-primary) 62%, transparent) 1px,
+				transparent 1px
+			),
+			var(--color-background-secondary);
+		background-size: 2rem 2rem;
+		border: 1px dashed var(--color-border-primary);
+		border-radius: 0.5rem;
 	}
 	._c2 {
+		padding: 0.625rem 1rem;
+		color: var(--color-text-primary);
+		background:
+			linear-gradient(
+				180deg,
+				color-mix(in srgb, var(--color-background-primary) 96%, white 4%),
+				color-mix(in srgb, var(--color-background-secondary) 82%, transparent)
+			);
+		border: 1px solid var(--color-border-primary);
 		border-radius: 0.5rem;
-		background-color: var(--color-primary-600);
-		padding-left: 1rem;
-		padding-right: 1rem;
-		padding-top: 0.5rem;
-		padding-bottom: 0.5rem;
+		box-shadow: 0 0.75rem 1.75rem color-mix(in srgb, var(--color-text-primary) 10%, transparent);
 		font-size: 0.875rem;
 		line-height: 1.25rem;
 		font-weight: 600;
-		color: var(--color-text-inverse);
 	}
 </style>

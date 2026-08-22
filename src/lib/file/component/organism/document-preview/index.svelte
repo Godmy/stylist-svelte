@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+	import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 		import type { RecipeDocumentPreview } from '$stylist/file/interface/recipe/document-preview';
 	import createDocumentPreviewState from './state.svelte';
 	let props: RecipeDocumentPreview = $props();

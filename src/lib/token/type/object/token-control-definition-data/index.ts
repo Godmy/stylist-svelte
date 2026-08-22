@@ -1,6 +1,6 @@
 import type { TokenControlOption } from '$stylist/token/type/object/token-control-option';
 import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/alias/token-value';
-import type { TokenFunctionalTaxonomy as TokenControlDomain } from '$stylist/architecture/type/alias/functional-taxonomy';
+import type { TokenFunctionalTaxonomy as TokenControlDomain } from '$stylist/development/type/alias/functional-taxonomy';
 
 export type TokenControlDefinitionData = {
 	id: string;

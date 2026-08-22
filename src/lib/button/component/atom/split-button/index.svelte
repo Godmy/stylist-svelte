@@ -98,7 +98,7 @@
 		aria-expanded={state.isOpen}
 		aria-label="Show more options"
 	>
-		<BaseIcon name={ChevronDown} style="width:1rem;height:1rem;" aria-hidden="true" />
+		<BaseIcon name={ChevronDown} size={16} aria-hidden="true" />
 	</button>
 
 	{#if state.isOpen}
@@ -125,8 +125,6 @@
 		position: relative;
 		display: inline-flex;
 		align-items: center;
-		border-radius: 0.375rem;
-		overflow: hidden;
 	}
 
 	.c-split-button__primary,
@@ -144,14 +142,14 @@
 	.c-split-button__primary {
 		padding: 0 1rem;
 		height: 2.25rem;
-		border-radius: 0;
+		border-radius: 0.375rem 0 0 0.375rem;
 		border-right-width: 0;
 	}
 
 	.c-split-button__toggle {
 		padding: 0 0.5rem;
 		height: 2.25rem;
-		border-radius: 0;
+		border-radius: 0 0.375rem 0.375rem 0;
 		border-left-width: 0;
 	}
 

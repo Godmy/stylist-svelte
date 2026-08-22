@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeLinkCard as RecipeLinkCard } from '$stylist/commerce/interface/recipe/link-card';
-import { ObjectManagerLinkCard } from '$stylist/commerce/class/object-manager/link-card';
+import { ObjectManagerLinkCard } from '$stylist/commerce/class/manager/link-card';
 
 export function createLinkCardState(props: RecipeLinkCard & HTMLAttributes<HTMLAnchorElement>) {
 	const target = $derived(ObjectManagerLinkCard.getTarget(props));

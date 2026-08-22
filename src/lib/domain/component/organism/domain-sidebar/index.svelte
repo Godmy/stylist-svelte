@@ -9,6 +9,7 @@
 		activeDomain,
 		activeCluster,
 		activeJoint,
+		availableDomains = [],
 		availableJoints,
 		entities = [],
 		activeEntityPath,
@@ -27,6 +28,7 @@
 	<div class="sidebar-grid">
 		<DomainToolbar
 			active={activeDomain}
+			domains={availableDomains}
 			orientation="vertical"
 			showLabel={false}
 			onSelect={onDomainSelect}

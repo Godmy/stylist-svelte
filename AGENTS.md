@@ -22,19 +22,19 @@
   - `class`: only `export class`
   - `function`: only `export function`
   - `component`: Svelte components and story files used to demonstrate component behavior
-  - `data`: supporting data in `svg`, `json`, `md`, and shader formats
+  - `data`: supporting data in `icon`, `flag`, `png`, `json`, `jsonl`, `md`, and shader formats
 
 ## Logical Joint Policy (Mandatory)
 
 - Treat directories in the form `src/lib/<domain>/<cluster>/<joint>/...` as strict logical typing of entities.
 - Inside clusters, use only the allowed joint subfolders:
-  - `const`: `enum`, `value`, `map`, `record`, `struct`, `preset`, `set`, `array`, `object`
-  - `type`: `enum`, `alias`, `map`, `record`, `struct`, `preset`, `set`, `object`, `compute`
+  - `const`: `value`, `map`, `record`, `preset`, `array`, `object`
+  - `type`: `alias`, `record`, `struct`, `preset`, `object`, `compute`
   - `interface`: `behavior`, `slot`, `recipe`, `contract`
-  - `class`: `manager`, `object-manager`, `style-manager`
+  - `class`: `manager`
   - `function`: `script`, `state`, `hook`, `transform`, `test`, `async`, `async-get`, `async-post`, `merge`, `check`, `count`, `create`, `resolve`, `serialize`
   - `component`: `atom`, `molecule`, `organism`, `template`, `page`
-  - `data`: `json`, `shader`, `svg`, `md`, `yaml`
+  - `data`: `json`, `jsonl`, `shader`, `icon`, `flag`, `png`, `md`, `yaml`
 - To validate actual joint usage, run `python -u "D:\2026\projects\vibe-management.pro\packages\stylist\di\reader\library\pipeline.py"` and inspect `stylist\di\output\step-16-joints.md`; the "Unknown Joints" section lists joints that are not allowed for their cluster.
 
 ### DSIAP: Domain-Specific Interface Assembly Pattern (Mandatory for `interface/`)
@@ -69,16 +69,18 @@
   - `*.frag`
   - `*.vert`
   - `*.json`
+  - `*.jsonl`
   - `*.svg`
+  - `*.png`
   - `*.md`
 - In all other folders, allow only a single `index.ts`.
 
-## Embedded Repository Exception For Server Domain (Mandatory)
+## Embedded Repository Exception For Submodule Domains (Mandatory)
 
-- `stylist-svelte/src/lib/server` may act as an embedded repository boundary for server-side filesystem and interaction logic.
-- At the root of `stylist-svelte/src/lib/server`, the files `.git` and `LICENSE` are allowed in addition to the regular domain structure.
-- This exception applies only to the root of `stylist-svelte/src/lib/server`.
-- All source code inside `stylist-svelte/src/lib/server/**` must still follow the domain, cluster, joint, family, and assembly rules unless a separate rule explicitly states otherwise.
+- Domains registered as their own git submodule in `stylist-svelte/.gitmodules` (currently `server`, `theme`, `svg`, `wbd`, `geo`) act as embedded repository boundaries.
+- At the root of each such domain, the files `.git`, `LICENSE`, and `README.md` are allowed in addition to the regular domain structure — they are metadata brought in by the submodule, not an architecture violation.
+- This exception applies only to the root of the embedded-repository domain, and only to domains actually listed as a submodule in `.gitmodules`.
+- All source code inside an embedded-repository domain must still follow the domain, cluster, joint, family, and assembly rules unless a separate rule explicitly states otherwise.
 
 ## Assembly Direction Policy (Mandatory)
 

@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import type { PortfolioEntry } from '$stylist/portfolio/class/object-manager/portfolio';
+	import type { PortfolioEntry } from '$stylist/portfolio/class/manager/portfolio';
 	import PortfolioDigit from '$stylist/portfolio/component/atom/portfolio-digit/index.svelte';
 	import PortfolioProject from '$stylist/portfolio/component/atom/portfolio-project/index.svelte';
 	import PortfolioCellAtom from '$stylist/portfolio/component/atom/portfolio-cell/index.svelte';

@@ -1,26 +1,26 @@
 import type { Token } from '$stylist/token/type/object/token';
-import { TOKEN_COMPONENT_TYPE } from '$stylist/architecture/const/array/component-type';
-import { TOKEN_CONNECTOR } from '$stylist/architecture/const/array/connector';
-import { TOKEN_FOUNDATION_AXES } from '$stylist/architecture/const/array/foundation-axes';
-import { TOKEN_FOUNDATION_AXIS_DIRECTIONS } from '$stylist/architecture/const/array/foundation-axis-directions';
-import { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/architecture/const/array/functional-taxonomy';
-import { GRAPH_GRID_MODE } from '$stylist/architecture/const/array/graph-grid-mode';
-import { GRAPH_NODE_CATEGORY } from '$stylist/architecture/const/array/graph-node-category';
-import { GRAPH_TOOL_MODE } from '$stylist/architecture/const/array/graph-tool-mode';
-import { TOKEN_LINE_TYPE } from '$stylist/architecture/const/array/line-type';
-import { TOKEN_MARKER } from '$stylist/architecture/const/array/marker';
-import { NODE_TITLE_VARIANT } from '$stylist/architecture/const/array/node-title-variant';
-import { TOKEN_NODE_TYPE } from '$stylist/architecture/const/array/node-type';
-import { TOKEN_PAN_MODES } from '$stylist/architecture/const/array/pan-mode';
-import { PRESENTATION_MODE } from '$stylist/architecture/const/array/presentation-mode';
-import { TOKEN_PROPERTY_TYPE } from '$stylist/architecture/const/array/property-type';
-import { TOKEN_RELATIONSHIP } from '$stylist/architecture/const/array/relationship';
-import { SELECTION_MODE } from '$stylist/architecture/const/array/selection-mode';
-import { TOKEN_ARCHITECTURE_SHADER_FRAGMENT } from '$stylist/architecture/const/array/shader-fragment';
-import { TOKEN_ARCHITECTURE_SHADER_VERTEX } from '$stylist/architecture/const/array/shader-vertex';
-import { TOKEN_SKELETON } from '$stylist/architecture/const/array/skeleton';
-import { TOKEN_TIER_CONTENT } from '$stylist/architecture/const/array/tier';
-import { TOKEN_TRAJECTORY } from '$stylist/architecture/const/array/trajectory';
+import { TOKEN_COMPONENT_TYPE } from '$stylist/development/const/array/component-type';
+import { TOKEN_CONNECTOR } from '$stylist/animation/const/array/connector';
+import { TOKEN_FOUNDATION_AXES } from '$stylist/presentation/const/array/foundation-axes';
+import { TOKEN_FOUNDATION_AXIS_DIRECTIONS } from '$stylist/presentation/const/array/foundation-axis-directions';
+import { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/development/const/array/functional-taxonomy';
+import { GRAPH_GRID_MODE } from '$stylist/graph/const/array/graph-grid-mode';
+import { GRAPH_NODE_CATEGORY } from '$stylist/graph/const/array/graph-node-category';
+import { GRAPH_TOOL_MODE } from '$stylist/graph/const/array/graph-tool-mode';
+import { TOKEN_LINE_TYPE } from '$stylist/chart/const/array/line-type';
+import { TOKEN_MARKER } from '$stylist/notification/const/array/marker';
+import { NODE_TITLE_VARIANT } from '$stylist/workspace/const/array/node-title-variant';
+import { TOKEN_NODE_TYPE } from '$stylist/workspace/const/array/node-type';
+import { TOKEN_PAN_MODES } from '$stylist/workspace/const/array/pan-mode';
+import { PRESENTATION_MODE } from '$stylist/presentation/const/array/presentation-mode';
+import { TOKEN_PROPERTY_TYPE } from '$stylist/workspace/const/array/property-type';
+import { TOKEN_RELATIONSHIP } from '$stylist/workspace/const/array/relationship';
+import { SELECTION_MODE } from '$stylist/workspace/const/array/selection-mode';
+import { TOKEN_ARCHITECTURE_SHADER_FRAGMENT } from '$stylist/webgl/const/array/shader-fragment';
+import { TOKEN_ARCHITECTURE_SHADER_VERTEX } from '$stylist/webgl/const/array/shader-vertex';
+import { TOKEN_SKELETON } from '$stylist/layout/const/array/skeleton';
+import { TOKEN_TIER_CONTENT } from '$stylist/presentation/const/array/tier';
+import { TOKEN_TRAJECTORY } from '$stylist/workspace/const/array/trajectory';
 
 export const TOKEN_ARCHITECTURE_SETTING = [
 	{ key: 'component-type', label: 'Component Type', domain: 'architecture', controlKind: 'radio', values: TOKEN_COMPONENT_TYPE },

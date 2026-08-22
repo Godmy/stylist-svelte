@@ -3,6 +3,8 @@ export { ActionSegmentedControl } from './action-segmented-control/index';
 export { AutocompleteDropdown } from './autocomplete-dropdown/index';
 export { Checkbox } from './checkbox/index';
 export { Chip } from './chip/index';
+export { Css3dCube } from './css-3d-cube/index';
+export { CubeControl } from './cube-control/index';
 export { Radio } from './radio/index';
 export { Switch } from './switch/index';
 export { Tag } from './tag/index';

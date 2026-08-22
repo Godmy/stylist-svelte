@@ -2,4 +2,4 @@
 export {
 	ObjectManagerTable,
 	ObjectManagerTableControls
-} from './object-manager';
+} from './manager';

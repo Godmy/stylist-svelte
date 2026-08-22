@@ -1,4 +1,4 @@
-import { ObjectManagerGesture } from '$stylist/layout/class/object-manager/gesture';
+import { ObjectManagerGesture } from '$stylist/layout/class/manager/gesture';
 import type { RecipeClickable as ClickProps } from '$stylist/layout/interface/recipe/clickable';
 
 export const createClickableState = (props: ClickProps) => {

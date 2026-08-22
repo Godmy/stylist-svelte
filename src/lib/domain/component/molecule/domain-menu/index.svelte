@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
-	import { ICON_WORKSPACE } from '$stylist/svg/const/value/workspace';
+	import { TOKEN_ICON_REGISTRY } from '$stylist/svg/const/record/icon-registry';
 	import ThemeModeToggle from '$stylist/theme/component/atom/theme-mode-toggle/index.svelte';
 
 	interface DomainMenuProps {
@@ -78,7 +78,7 @@
 		aria-label="Show workspace"
 		title="Show workspace"
 	>
-		<Icon svg={ICON_WORKSPACE} size={18} />
+		<Icon svg={TOKEN_ICON_REGISTRY['workspace']} size={18} />
 	</button>
 
 	<button

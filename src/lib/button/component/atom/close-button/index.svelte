@@ -38,12 +38,12 @@
 		<Icon
 			name="loader-2"
 			class="c-close-button__loader"
-			style="width: 1rem; height: 1rem;"
+			size={16}
 			aria-hidden="true"
 		/>
 		<span class="c-close-button__sr-only">{props.loadingLabel ?? 'Closing...'}</span>
 	{:else}
-		<Icon name="x" style="width: 1rem; height: 1rem;" />
+		<Icon name="x" size={16} />
 	{/if}
 </button>
 

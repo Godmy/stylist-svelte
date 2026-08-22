@@ -124,6 +124,7 @@
 		border-radius: 0.375rem;
 		border: 1px solid var(--color-border-primary);
 		background: var(--color-background-primary);
+		color: var(--color-text-primary);
 		padding: 0.5rem 0.75rem;
 		font-size: 0.875rem;
 		font-weight: 500;
@@ -188,10 +189,11 @@
 		width: 12rem;
 		border-radius: 0.375rem;
 		background: var(--color-background-primary);
+		color: var(--color-text-primary);
 		box-shadow:
 			0 10px 15px -3px rgb(0 0 0 / 0.1),
 			0 4px 6px -4px rgb(0 0 0 / 0.1);
-		border: 1px solid rgb(0 0 0 / 0.05);
+		border: 1px solid var(--color-border-primary);
 	}
 
 	.c-language-selector__dropdown--top {
@@ -233,8 +235,13 @@
 		border-radius: 0.375rem;
 		border: 1px solid var(--color-border-primary);
 		background: var(--color-background-primary);
+		color: var(--color-text-primary);
 		padding: 0.5rem 0.75rem 0.5rem 2.5rem;
 		font-size: 0.875rem;
+	}
+
+	.c-language-selector__search::placeholder {
+		color: var(--color-text-secondary);
 	}
 
 	.c-language-selector__search:focus {
@@ -264,6 +271,7 @@
 		cursor: pointer;
 		background: none;
 		border: none;
+		color: var(--color-text-primary);
 		text-align: left;
 	}
 

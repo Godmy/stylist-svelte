@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeFormSelection } from '$stylist/form/interface/recipe/form-selection';
 import type { SlotFormSelectionState } from '$stylist/form/interface/slot/form-selection-state';
 

@@ -23,6 +23,7 @@ export type {
 	TokenJustification,
 	TokenOrientation,
 	TokenShape,
+	TokenSkeleton,
 	TokenStackDirection,
 	TokenTrigger
 } from './alias';

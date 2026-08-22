@@ -115,6 +115,9 @@
 	const activeClusterNode = $derived(
 		activeDomainNode?.clusters.find((cluster) => cluster.name === activeCluster) ?? null
 	);
+	const availableDomainNames = $derived(
+		componentDomains.map((domain) => domain.name).sort((a, b) => a.localeCompare(b))
+	);
 	const availableJointNames = $derived(
 		activeClusterNode?.joints
 			.map((joint) => joint.name)
@@ -703,6 +706,7 @@
 			{activeDomain}
 			{activeCluster}
 			{activeJoint}
+			availableDomains={availableDomainNames}
 			availableJoints={availableJointNames}
 			{entities}
 			{activeEntityPath}

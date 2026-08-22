@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TierContent } from '$stylist/architecture/type/alias/tier';
+import type { TierContent } from '$stylist/presentation/type/alias/tier';
 import type { RecipeProductCard } from '$stylist/product/interface/recipe/product-card';
 
 export function createProductCardState(props: RecipeProductCard & HTMLAttributes<HTMLDivElement>) {

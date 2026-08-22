@@ -1,17 +1,14 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import ToolButton from './index.svelte';
 
-	const controls = [
-		{
-			name: 'tool',
-			type: 'select',
-			options: ['select', 'pan', 'frame', 'connect', 'text'],
-			defaultValue: 'select'
-		},
-		{ name: 'label', type: 'text', defaultValue: 'Tool' },
-		{ name: 'active', type: 'boolean', defaultValue: false }
+	const controls: SlotStory[] = [
+		{ name: 'label', type: 'text', defaultValue: 'Tool' }
 	];
+
+	const tools = ['select', 'pan', 'frame', 'connect', 'text'];
+	let activeTool = $state('select');
 </script>
 
 <Story
@@ -19,17 +16,20 @@
 	component={ToolButton}
 	title="ToolButton"
 	category="Atoms/Control/ToolButton"
-	description="Tool button component for design canvas"
+	description="Toolbar button for a design-canvas-style toolbar. Click a tool below to make it active — only one tool is active at a time, like a real toolbar."
 >
 	{#snippet children(values: any)}
 		<div
 			style="display: flex; gap: 8px; padding: 20px; background: var(--color-background-primary);"
 		>
-			<ToolButton
-				tool={values.tool as string}
-				label={values.label as string}
-				active={values.active as boolean}
-			/>
+			{#each tools as tool}
+				<ToolButton
+					{tool}
+					label={values.label as string}
+					active={activeTool === tool}
+					onClick={(clicked) => (activeTool = clicked)}
+				/>
+			{/each}
 		</div>
 	{/snippet}
 </Story>

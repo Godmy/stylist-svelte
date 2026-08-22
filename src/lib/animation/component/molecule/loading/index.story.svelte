@@ -5,7 +5,7 @@
 
 	const controls: SlotStory[] = [
 		{ name: 'loading', type: 'boolean', defaultValue: true },
-		{ name: 'label', type: 'text', defaultValue: 'Loading data' },
+		{ name: 'label', type: 'text', defaultValue: 'Preparing your workspace' },
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
 	];
 </script>
@@ -15,14 +15,14 @@
 	title="Loading"
 	component={Loading}
 	category="Molecules"
-	description="Composed loading state with spinner and label."
+	description="Polished loading state with spinner, label, and progress shimmer."
 	tags={['loading', 'spinner', 'information']}
 	{controls}
 >
 	{#snippet children(values: any)}
 		<Loading
 			loading={Boolean(values.loading)}
-			label={String(values.label || 'Loading data')}
+			label={String(values.label || 'Preparing your workspace')}
 			size={values.size}
 		/>
 	{/snippet}

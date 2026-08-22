@@ -5,12 +5,12 @@ import { AlertCardManager } from '$stylist/commerce/class/manager/alert-card';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 
 /**
- * Универсальный state creator для PriceAlert
- * Обеспечивает реактивное управление состоянием с использованием Svelte 5 runes
+ * РЈРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Р№ state creator РґР»СЏ PriceAlert
+ * РћР±РµСЃРїРµС‡РёРІР°РµС‚ СЂРµР°РєС‚РёРІРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёРµРј СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј Svelte 5 runes
  *
- * @param preset - Конфигурация пресета компонента
- * @param props - Пропсы компонента
- * @returns Реактивный объект состояния с классами, aria-атрибутами и вычисляемыми значениями
+ * @param preset - РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ РїСЂРµСЃРµС‚Р° РєРѕРјРїРѕРЅРµРЅС‚Р°
+ * @param props - РџСЂРѕРїСЃС‹ РєРѕРјРїРѕРЅРµРЅС‚Р°
+ * @returns Р РµР°РєС‚РёРІРЅС‹Р№ РѕР±СЉРµРєС‚ СЃРѕСЃС‚РѕСЏРЅРёСЏ СЃ РєР»Р°СЃСЃР°РјРё, aria-Р°С‚СЂРёР±СѓС‚Р°РјРё Рё РІС‹С‡РёСЃР»СЏРµРјС‹РјРё Р·РЅР°С‡РµРЅРёСЏРјРё
  */
 export function createPriceAlertState<V extends string, S extends string>(
 	preset: Preset<V, S>,
@@ -72,7 +72,7 @@ export function createPriceAlertState<V extends string, S extends string>(
 		return rest;
 	});
 
-	// Использовать геттеры для избежания захвата начальных значений вне реактивного контекста
+	// РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РіРµС‚С‚РµСЂС‹ РґР»СЏ РёР·Р±РµР¶Р°РЅРёСЏ Р·Р°С…РІР°С‚Р° РЅР°С‡Р°Р»СЊРЅС‹С… Р·РЅР°С‡РµРЅРёР№ РІРЅРµ СЂРµР°РєС‚РёРІРЅРѕРіРѕ РєРѕРЅС‚РµРєСЃС‚Р°
 	return {
 		get currentPrice() {
 			return currentPrice;

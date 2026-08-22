@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
-	import type { PortfolioData } from '$stylist/portfolio/class/object-manager/portfolio';
+	import type { PortfolioData } from '$stylist/portfolio/class/manager/portfolio';
 	import Portfolio from './index.svelte';
 
 	const controls: SlotStory[] = [];

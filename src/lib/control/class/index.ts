@@ -1,2 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ControlManager } from './manager';
+export {
+	ControlManager,
+	ZoomManager
+} from './manager';

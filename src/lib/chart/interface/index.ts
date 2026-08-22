@@ -47,6 +47,7 @@ export type {
 	CanvasChartPadding,
 	ChartFunctionPoint,
 	ChartLegendItem,
+	ChartSeries,
 	IChartDataPoint,
 	IHeatmapCell,
 	InformationPieChartSegment,

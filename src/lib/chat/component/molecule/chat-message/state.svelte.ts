@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
 type MessageStatus = 'sent' | 'delivered' | 'read';

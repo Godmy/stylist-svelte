@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import type { RecipeTable } from '$stylist/table/interface/recipe/table';
-	import { ObjectManagerTable } from '$stylist/table/class/object-manager/table';
+	import { ObjectManagerTable } from '$stylist/table/class/manager/table';
 
 	let props: RecipeTable & { children?: Snippet } = $props();
 	const restProps = $derived(ObjectManagerTable.getTableRestProps(props));

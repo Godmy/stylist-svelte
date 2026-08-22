@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { createSpinnerState } from './state.svelte';
 	import type { RecipeSpinner } from '$stylist/animation/interface/recipe/spinner';
 
@@ -25,9 +25,12 @@ import type { HTMLAttributes } from 'svelte/elements';
 		display: block;
 		width: 100%;
 		height: 100%;
-		border: 2px solid currentColor;
-		border-right-color: transparent;
+		background:
+			radial-gradient(farthest-side, currentColor 94%, transparent) top / 0.25rem 0.25rem no-repeat,
+			conic-gradient(transparent 18%, color-mix(in srgb, currentColor 36%, transparent), currentColor);
 		border-radius: 999px;
+		-webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 0.1875rem), #000 0);
+		mask: radial-gradient(farthest-side, transparent calc(100% - 0.1875rem), #000 0);
 		animation: information-spinner-spin 0.75s linear infinite;
 	}
 

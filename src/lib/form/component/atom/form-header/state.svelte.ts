@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 ﻿import type { SlotFormHeader as RecipeFormHeader } from '$stylist/form/interface/slot/form-header';
 
 export function createFormHeaderState(props: RecipeFormHeader) {

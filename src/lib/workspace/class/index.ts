@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	MinimapManager,
 	ObjectManagerNodeProperties,
 	ObjectManagerWorkspacePalette
-} from './object-manager';
+} from './manager';

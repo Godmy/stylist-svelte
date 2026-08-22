@@ -1,4 +1,4 @@
-import type { TokenComponentType } from '$stylist/architecture/type/alias/component-type';
+import type { TokenComponentType } from '$stylist/development/type/alias/component-type';
 import type { PageBuilderButtonAttributes as SlotPageBuilderButtonAttributes } from '$stylist/development/interface/slot/page-builder-button-attributes';
 import type { PageBuilderElement as SlotPageBuilderElement } from '$stylist/development/interface/slot/page-builder-element';
 import type { PageBuilderHeadingAttributes as SlotPageBuilderHeadingAttributes } from '$stylist/development/interface/slot/page-builder-heading-attributes';

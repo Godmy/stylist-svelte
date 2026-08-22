@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 ﻿import type { RecipeNotificationList } from '$stylist/notification/interface/recipe/notification-list';
 
 export function createNotificationListState(props: RecipeNotificationList) {

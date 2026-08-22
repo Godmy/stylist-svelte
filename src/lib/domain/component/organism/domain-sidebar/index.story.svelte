@@ -41,6 +41,7 @@
 	let activeEntityPath = $state<string>(entitiesByDomain.layout[0].path);
 
 	const availableJoints = ['atom', 'molecule', 'organism'] as const;
+	const availableDomains = ['layout', 'theme'] as const;
 </script>
 
 <Story
@@ -54,6 +55,7 @@
 				{activeDomain}
 				{activeCluster}
 				{activeJoint}
+				{availableDomains}
 				{availableJoints}
 				entities={entitiesByDomain[activeDomain]}
 				{activeEntityPath}

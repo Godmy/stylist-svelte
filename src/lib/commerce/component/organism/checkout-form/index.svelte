@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+	import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 	import type { RecipeCheckoutForm as Props } from '$stylist/commerce/interface/recipe/checkout-form';
 
 	import createCheckoutFormState from './state.svelte';

@@ -10,8 +10,8 @@
 		{ code: 'de-DE', name: 'German', region: 'Germany', flag: 'DE' }
 	];
 
-	let currentLocale = 'en-US';
-	let currentTimezone = 'America/New_York';
+	let currentLocale = $state('en-US');
+	let currentTimezone = $state('America/New_York');
 	const timezoneOptions = [
 		{ value: 'America/New_York', label: 'Eastern Time (New York)' },
 		{ value: 'America/Los_Angeles', label: 'Pacific Time (Los Angeles)' },

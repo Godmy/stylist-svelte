@@ -42,6 +42,8 @@ export {
 	PresetStylist,
 	TOKEN_CODE_LANGUAGE,
 	TOKEN_CODE_VIEW,
+	TOKEN_COMPONENT_TYPE,
+	TOKEN_FUNCTIONAL_TAXONOMY,
 	TOKEN_SOFTWARE_BADGE,
 	categories,
 	panelId
@@ -51,6 +53,8 @@ export type {
 	DebugConsoleLogLevel,
 	TokenCodeLanguage,
 	TokenCodeView,
+	TokenComponentType,
+	TokenFunctionalTaxonomy,
 	TokenSoftwareBadge
 } from './type';
 export type {

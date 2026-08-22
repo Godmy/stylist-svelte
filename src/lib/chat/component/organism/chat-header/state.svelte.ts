@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 import type { ChatHeaderOrganismProps } from '$stylist/chat/type/alias/chat-header-organism-props';
 

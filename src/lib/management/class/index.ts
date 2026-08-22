@@ -2,4 +2,4 @@
 export {
 	ObjectManagerDraggableCard,
 	ObjectManagerKPIIndicator
-} from './object-manager';
+} from './manager';

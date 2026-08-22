@@ -21,6 +21,7 @@ export type { TokenJustification } from './justification';
 export type { TokenOrientation } from './orientation';
 export type { OverlayLayoutAlign } from './overlay-layout-align';
 export type { TokenShape } from './shape';
+export type { TokenSkeleton } from './skeleton';
 export type { SplitLayoutGap } from './split-layout-gap';
 export type { TokenStackDirection } from './stack-direction';
 export type { TokenTrigger } from './trigger';

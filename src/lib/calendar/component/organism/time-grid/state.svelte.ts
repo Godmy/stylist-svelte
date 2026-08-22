@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeTimeGrid as TimeGridContract } from '$stylist/calendar/interface/recipe/time-grid';
 import type { SlotCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 import { isToday, isWeekend } from '$stylist/calendar/function/script/calendar-utils';

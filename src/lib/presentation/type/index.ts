@@ -1,5 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { FoundationSemanticZoomStage } from './alias';
+export type {
+	FoundationAxis,
+	FoundationSemanticZoomStage,
+	PresentationMode,
+	TierContent
+} from './alias';
 export type {
 	PresenterSceneLink,
 	PreziSceneContract

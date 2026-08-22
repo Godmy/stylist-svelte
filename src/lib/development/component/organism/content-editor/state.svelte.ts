@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 
 type ContentType = string;
 type ContentElement = { [key: string]: any; id: string; type: ContentType; content: string };

@@ -8,7 +8,7 @@
 	import NodeProperties from '$stylist/workspace/component/molecule/node-properties/index.svelte';
 	import WorkspaceNode from '$stylist/workspace/component/organism/workspace-node/index.svelte';
 	import WorkspacePalette from '$stylist/workspace/component/organism/workspace-palette/index.svelte';
-	import Minimap from '$stylist/architecture/component/organism/minimap/index.svelte';
+	import Minimap from '$stylist/workspace/component/organism/minimap/index.svelte';
 	import type { RecipeWorkspace } from '$stylist/workspace/interface/recipe/workspace';
 	import createWorkspaceState from './state.svelte';
 

@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeChartAxisX as ChartAxisXProps } from '$stylist/chart/interface/recipe/chart-axis-x';
 
 function resolveClassName(className: unknown): string | undefined {

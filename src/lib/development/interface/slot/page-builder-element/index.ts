@@ -1,4 +1,4 @@
-import type { TokenComponentType } from '$stylist/architecture/type/alias/component-type';
+import type { TokenComponentType } from '$stylist/development/type/alias/component-type';
 
 export interface PageBuilderElement {
 	id: string;

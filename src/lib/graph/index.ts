@@ -10,13 +10,22 @@ export {
 	FieldHighlighter,
 	GraphClusterFilter,
 	GraphDot,
+	GraphEdge,
 	GraphLegend,
+	GraphNode,
 	GraphTooltip,
+	GraphvizDirectedEdge,
+	NodeIcon,
+	OntologyEdgeComponent,
+	OntologyNodeComponent,
 	Scene,
 	SceneCameraControl,
 	ZwickyScene
 } from './component';
 export {
+	GRAPH_GRID_MODE,
+	GRAPH_NODE_CATEGORY,
+	GRAPH_TOOL_MODE,
 	INSTANCED_MAX_COUNT,
 	MATERIAL_PALETTE,
 	SCENE_CAMERA_PRESET,
@@ -26,18 +35,28 @@ export {
 	ZWICKY_LAYOUT_SCALE
 } from './const';
 export type {
+	GraphGridMode,
+	GraphNodeCategory,
+	GraphToolMode,
 	SceneAtomKind,
 	SceneCameraPreset,
 	SceneMaterialKind,
 	ZwickyLevel
 } from './type';
 export type {
+	ArchitectureScene,
 	GraphBounds3D,
 	GraphConnection,
 	GraphJsonInput,
-	GraphNode,
 	GraphPosition3D,
 	RecipeFieldHighlighter,
+	RecipeGraph,
+	RecipeGraphEdge,
+	RecipeGraphNode,
+	RecipeGraphvizDirectedEdge,
+	RecipeNodeIcon,
+	RecipeOntologyEdgeComponent,
+	RecipeOntologyNodeComponent,
 	RecipeScene,
 	RecipeSceneCameraControl,
 	RecipeZwickyScene,
@@ -47,6 +66,7 @@ export type {
 	SceneAtomMotion,
 	SceneAtomTransform,
 	SceneBufferSet,
+	SceneCamera,
 	SceneDebugInfo,
 	SceneGeometry,
 	SceneGraph,

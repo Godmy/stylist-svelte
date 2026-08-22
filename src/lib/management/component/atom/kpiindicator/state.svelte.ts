@@ -1,4 +1,4 @@
-import { ObjectManagerKPIIndicator } from '$stylist/management/class/object-manager/kpi-indicator';
+import { ObjectManagerKPIIndicator } from '$stylist/management/class/manager/kpi-indicator';
 import type { RecipeKPIIndicator } from '$stylist/management/interface/recipe/kpi-indicator';
 
 export function createKPIIndicatorState(props: RecipeKPIIndicator) {

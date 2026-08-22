@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeBreadcrumbDropdown } from '$stylist/navigation/interface/recipe/breadcrumb-dropdown';
 import type { BreadcrumbDropdownItem } from '$stylist/navigation/interface/slot/breadcrumb-dropdown-item';
 

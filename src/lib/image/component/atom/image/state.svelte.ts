@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeImage } from '$stylist/image/interface/recipe/image';
 
 export function createImageState(props: RecipeImage) {

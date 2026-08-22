@@ -7,17 +7,20 @@ import type { SlotLocaleSwitcherLocale as LocaleSwitcherLocale } from '$stylist/
 import type { RecipeLocaleSwitcher } from '$stylist/localization/interface/recipe/locale-switcher';
 
 export function createLocaleSwitcherState(props: RecipeLocaleSwitcher) {
-	const locales = props.locales ?? [];
-	const currentLocale = props.currentLocale;
-	const timezoneOptions = props.timezoneOptions ?? [];
-	const currentTimezone = props.currentTimezone ?? Intl.DateTimeFormat().resolvedOptions().timeZone;
-	const showRegional = props.showRegional ?? true;
-	const showDatePreview = props.showDatePreview ?? true;
-	const showTimePreview = props.showTimePreview ?? true;
+	const locales = $derived(props.locales ?? []);
+	const currentLocale = $derived(props.currentLocale);
+	const timezoneOptions = $derived(props.timezoneOptions ?? []);
+	const currentTimezone = $derived(
+		props.currentTimezone ?? Intl.DateTimeFormat().resolvedOptions().timeZone
+	);
+	const showRegional = $derived(props.showRegional ?? true);
+	const showDatePreview = $derived(props.showDatePreview ?? true);
+	const showTimePreview = $derived(props.showTimePreview ?? true);
 
 	const now = new Date();
-	const currentLocaleObj =
-		locales.find((loc: LocaleSwitcherLocale) => loc.code === currentLocale) ?? locales[0];
+	const currentLocaleObj = $derived(
+		locales.find((loc: LocaleSwitcherLocale) => loc.code === currentLocale) ?? locales[0]
+	);
 
 	const rootClass = $derived(['c-locale-switcher', props.class].filter(Boolean).join(' '));
 	const headerClass = $derived(['c-locale-switcher__header', props.headerClass].filter(Boolean).join(' '));

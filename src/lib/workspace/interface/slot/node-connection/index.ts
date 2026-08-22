@@ -1,4 +1,4 @@
-import type { TokenTrajectory } from '$stylist/architecture/type/alias/trajectory';
+import type { TokenTrajectory } from '$stylist/workspace/type/alias/trajectory';
 export interface SlotNodeConnection {
 	id: string;
 	fromNodeId?: string;

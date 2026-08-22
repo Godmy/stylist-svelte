@@ -100,31 +100,34 @@
 <style>
 	._c1 {
 		padding: 1rem;
+		color: var(--color-text-primary);
 	}
 	._c2 {
 		margin-bottom: 1rem;
+		color: var(--color-text-primary);
 		font-size: 1.125rem;
 		line-height: 1.75rem;
 		font-weight: 600;
 	}
 	._c3 {
 		margin-bottom: 1.5rem;
-		border-radius: 0.25rem;
-		border-width: 1px;
-		border-style: solid;
 		padding: 1rem;
+		background: var(--color-background-secondary);
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
 	}
 	._c4 {
+		margin-bottom: 0.5rem;
+		color: var(--color-text-primary);
 		font-size: 1rem;
 		line-height: 1.5rem;
-		margin-bottom: 0.5rem;
 		font-weight: 600;
 	}
 	._c5 {
-		border-radius: 0.25rem;
-		border-width: 1px;
-		border-style: solid;
 		padding: 1rem;
+		background: var(--color-background-secondary);
+		border: 1px solid var(--color-border-primary);
+		border-radius: 0.5rem;
 	}
 	._c6 {
 		display: grid;
@@ -138,6 +141,7 @@
 	}
 	._c7 {
 		margin-bottom: 0.5rem;
+		color: var(--color-text-secondary);
 		font-size: 0.875rem;
 		line-height: 1.25rem;
 		font-weight: 500;

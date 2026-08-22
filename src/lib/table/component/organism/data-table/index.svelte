@@ -8,7 +8,7 @@
 	import CellText from '$stylist/table/component/atom/cell-text/index.svelte';
 	import CellIcon from '$stylist/table/component/atom/cell-icon/index.svelte';
 	import CellPill from '$stylist/table/component/atom/cell-pill/index.svelte';
-	import { ObjectManagerTableControls } from '$stylist/table/class/object-manager/table-controls';
+	import { ObjectManagerTableControls } from '$stylist/table/class/manager/table-controls';
 
 	type RowData = Record<string, unknown>;
 

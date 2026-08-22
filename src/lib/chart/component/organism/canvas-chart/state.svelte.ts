@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { RecipeCanvasChart } from '$stylist/chart/interface/recipe/canvas-chart';
 

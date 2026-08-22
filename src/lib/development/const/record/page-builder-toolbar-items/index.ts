@@ -1,4 +1,4 @@
-import type { TokenComponentType } from '$stylist/architecture/type/alias/component-type';
+import type { TokenComponentType } from '$stylist/development/type/alias/component-type';
 import { PAGE_BUILDER_ICON } from '$stylist/development/const/map/page-builder-icons';
 
 export const PAGE_BUILDER_TOOLBAR_ITEMS: ({

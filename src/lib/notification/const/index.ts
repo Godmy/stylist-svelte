@@ -1,2 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TOKEN_NOTIFICATION_CHANNEL } from './array';
+export {
+	TOKEN_MARKER,
+	TOKEN_NOTIFICATION_CHANNEL
+} from './array';

@@ -1,11 +1,19 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type {
 	RecipeFieldHighlighter,
+	RecipeGraph,
+	RecipeGraphEdge,
+	RecipeGraphNode,
+	RecipeGraphvizDirectedEdge,
+	RecipeNodeIcon,
+	RecipeOntologyEdgeComponent,
+	RecipeOntologyNodeComponent,
 	RecipeScene,
 	RecipeSceneCameraControl,
 	RecipeZwickyScene
 } from './recipe';
 export type {
+	ArchitectureScene,
 	GraphBounds3D,
 	GraphConnection,
 	GraphJsonInput,
@@ -17,6 +25,7 @@ export type {
 	SceneAtomMotion,
 	SceneAtomTransform,
 	SceneBufferSet,
+	SceneCamera,
 	SceneDebugInfo,
 	SceneGeometry,
 	SceneGraph,

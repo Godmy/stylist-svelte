@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { SVGAttributes } from 'svelte/elements';
 import type { RecipeChartName as ChartNameProps } from '$stylist/chart/interface/recipe/chart-name';
 

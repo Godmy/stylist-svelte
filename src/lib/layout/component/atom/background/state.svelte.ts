@@ -1,5 +1,5 @@
 import type { RecipeBackground } from '$stylist/layout/interface/recipe/background';
-import { ObjectManagerBackground } from '$stylist/layout/class/object-manager/background';
+import { ObjectManagerBackground } from '$stylist/layout/class/manager/background';
 
 export function createBackgroundState(props: RecipeBackground) {
 	const background = $derived(ObjectManagerBackground.resolveBackground(props));

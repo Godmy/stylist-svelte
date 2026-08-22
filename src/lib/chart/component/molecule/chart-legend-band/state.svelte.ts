@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeChartLegendBand } from '$stylist/chart/interface/recipe/chart-legend-band';
 
 export default function createChartLegendBandState(props: RecipeChartLegendBand) {

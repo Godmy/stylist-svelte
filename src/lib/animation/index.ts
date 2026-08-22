@@ -14,6 +14,7 @@ export {
 export {
 	BASE_EASING,
 	INTERACTION_FEEDBACK,
+	TOKEN_CONNECTOR,
 	TOKEN_LOADING
 } from './const';
 export {
@@ -23,6 +24,7 @@ export {
 export type {
 	EasingFunction,
 	InteractionFeedback,
+	TokenConnector,
 	TokenLoading,
 	TokenTransition
 } from './type';

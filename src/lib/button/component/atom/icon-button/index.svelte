@@ -7,7 +7,8 @@
 	import createIconButtonState from './state.svelte';
 
 	let props: RecipeIconButton & HTMLButtonAttributes = $props();
-	const state = createIconButtonState(createButtonFactoryInput(props as any));
+	const factoryInput = $derived(createButtonFactoryInput(props as any));
+	const state = $derived(createIconButtonState(factoryInput));
 
 	const restProps = $derived.by(() => {
 		const {

@@ -5,4 +5,4 @@ export {
 	ObjectManagerBackground,
 	ObjectManagerGesture,
 	ObjectManagerGradientBackground
-} from './object-manager';
+} from './manager';

@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeDocumentationBlock } from '$stylist/development/interface/recipe/documentation-block';
 
 export function createDocumentationBlockState(props: RecipeDocumentationBlock) {

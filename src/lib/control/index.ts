@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ControlManager } from './class';
+export {
+	ControlManager,
+	ZoomManager
+} from './class';
 export {
 	AccessibilityToolbar,
 	ActionSegmentedControl,
@@ -8,6 +11,8 @@ export {
 	Chip,
 	Combobox,
 	ControlPanel,
+	Css3dCube,
+	CubeControl,
 	FilterPanel,
 	IconToolbar,
 	MultiSelect,
@@ -27,14 +32,21 @@ export {
 	ZoomToolbar
 } from './component';
 export {
+	CUBE_FACE_NUMBERS_SNAPSHOT,
+	CUBE_FACE_THEMES,
+	CUBE_HORIZONTAL_ICONS,
+	CUBE_VERTICAL_ICONS,
 	FILTER_PANEL_LAYOUT,
 	PresetAccessibilityToolbar,
 	PresetCombobox,
 	PresetMultiSelect,
 	PresetSelector,
 	PresetZoomToolbar,
+	TOKEN_CUBE_FACE_NAME,
+	TOKEN_CUBE_FACE_TITLE,
 	TOKEN_SELECTION_TYPE,
-	TOKEN_SELECTOR_KIND
+	TOKEN_SELECTOR_KIND,
+	TOKEN_ZOOM
 } from './const';
 export type {
 	ControlPanelStateProps,
@@ -42,7 +54,9 @@ export type {
 	Row,
 	ToggleGroupItemStateProps,
 	TokenSelectionType,
-	TokenSelectorKind
+	TokenSelectorKind,
+	Zoom,
+	ZoomStep
 } from './type';
 export type {
 	BehaviorSelectable,
@@ -52,7 +66,10 @@ export type {
 	RecipeCheckbox,
 	RecipeChip,
 	RecipeCombobox,
+	RecipeCss3dCube,
+	RecipeCubeControl,
 	RecipeFilterPanel,
+	RecipeFocusState,
 	RecipeMultiSelect,
 	RecipeOverlay,
 	RecipeProgressBar,
@@ -60,6 +77,7 @@ export type {
 	RecipeRangeInput,
 	RecipeRangeSlider,
 	RecipeSelect,
+	RecipeSelectionState,
 	RecipeSelector,
 	RecipeShortcutsPanel,
 	RecipeSlider,

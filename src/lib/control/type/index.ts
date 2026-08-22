@@ -7,3 +7,7 @@ export type {
 	TokenSelectionType,
 	TokenSelectorKind
 } from './alias';
+export type {
+	Zoom,
+	ZoomStep
+} from './struct';

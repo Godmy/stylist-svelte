@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { ChartSeries } from '$stylist/chart/interface/slot/chart-series';
 import type { RecipeChart } from '$stylist/chart/interface/recipe/chart';
 import { ManagerChart } from '$stylist/chart/class/manager/chart';

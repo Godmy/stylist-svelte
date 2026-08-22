@@ -24,7 +24,7 @@
 			<BaseIcon
 				name="loader-2"
 				class="c-follow-button__loader"
-				style="width: 1rem; height: 1rem;"
+				size={16}
 			/>
 			{#if state.showText}
 				<span>{state.isFollowing ? 'Unfollowing...' : 'Following...'}</span>
@@ -36,13 +36,13 @@
 				<BaseIcon
 					name="check"
 					class="c-follow-button__icon"
-					style="width: 1rem; height: 1rem;"
+					size={16}
 				/>
 			{:else}
 				<BaseIcon
 					name="user-plus"
 					class="c-follow-button__icon"
-					style="width: 1rem; height: 1rem;"
+					size={16}
 				/>
 			{/if}
 			{#if state.showText}

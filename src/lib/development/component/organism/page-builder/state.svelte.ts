@@ -1,4 +1,4 @@
-import type { TokenComponentType } from '$stylist/architecture/type/alias/component-type';
+import type { TokenComponentType } from '$stylist/development/type/alias/component-type';
 import { PageBuilderManager } from '$stylist/development/class/manager/page-builder';
 import type { PageBuilderElement as SlotPageBuilderElement } from '$stylist/development/interface/slot/page-builder-element';
 import type { RecipePageBuilder } from '$stylist/development/interface/recipe/page-builder';

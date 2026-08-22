@@ -10,6 +10,8 @@ export type {
 	RecipeSharedCanvas
 } from './recipe';
 export type {
+	ObjectPoint2DPath,
+	Point2D,
 	SlotCanvasObject,
 	SlotCanvasToolbarDrawingOptions,
 	SlotCollaborativeEditEvent,

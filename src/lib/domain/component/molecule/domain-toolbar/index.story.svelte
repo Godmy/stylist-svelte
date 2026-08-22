@@ -13,7 +13,8 @@
 		{ name: 'showLabel', type: 'boolean', defaultValue: true }
 	];
 
-	let active = $state('interaction');
+	const domains = ['workspace', 'button', 'dialog', 'tree', 'webgl'];
+	let active = $state('button');
 </script>
 
 <Story
@@ -26,6 +27,7 @@
 		<div class="_c1">
 			<DomainToolbar
 				{active}
+				{domains}
 				orientation={values.orientation as 'horizontal' | 'vertical'}
 				showLabel={Boolean(values.showLabel)}
 				onSelect={(name) => {

@@ -1,4 +1,4 @@
-import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/architecture/const/array/functional-taxonomy';
+import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/development/const/array/functional-taxonomy';
 export const STYLIST_MENU_FUNCTIONAL_TAB_ITEMS: ({
 	id: (typeof TOKEN_FUNCTIONAL_TAXONOMY)[number];
 	label: string;

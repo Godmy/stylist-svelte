@@ -1,4 +1,4 @@
-import { Matrix4 } from '$stylist/graph/class/object-manager/matrix4';
+import { Matrix4 } from '$stylist/graph/class/manager/matrix4';
 
 /**
  * Камера для WebGL сцены

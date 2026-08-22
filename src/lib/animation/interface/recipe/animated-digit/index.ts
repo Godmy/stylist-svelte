@@ -19,4 +19,5 @@ export interface RecipeAnimatedDigit
 	format?: (value: number) => string;
 	children?: Snippet;
 	class?: string;
+	style?: string;
 }

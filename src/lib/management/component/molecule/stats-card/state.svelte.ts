@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeStatsCard } from '$stylist/management/interface/recipe/stats-card';
 import { STATS_CARD_TREND_ICON } from '$stylist/management/const/record/stats-card-trend-icon';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+	import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 	import { DownloadCardManager } from '$stylist/file/class/manager/download-card';
 	import type { RecipeDownloadCard } from '$stylist/file/interface/recipe/download-card';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';

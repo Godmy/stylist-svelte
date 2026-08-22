@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+	import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import type { RecipeGeneralToolbar } from '$stylist/navigation/interface/recipe/general-toolbar';
 	import createGeneralToolbarState from './state.svelte';

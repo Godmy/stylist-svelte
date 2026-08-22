@@ -48,14 +48,14 @@
 			<BaseIcon
 				name="check"
 				class={state.iconClasses}
-				style="width: 1rem; height: 1rem;"
+				size={16}
 				aria-hidden="true"
 			/>
 		{:else}
 			<BaseIcon
 				name="copy"
 				class={state.iconClasses}
-				style="width: 1rem; height: 1rem;"
+				size={16}
 				aria-hidden="true"
 			/>
 		{/if}

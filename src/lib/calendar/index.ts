@@ -59,7 +59,5 @@ export type {
 	RecipeTimeline,
 	SlotCalendarDay,
 	SlotCalendarEvent,
-	SlotDatePicker,
-	SlotEventCalendar,
-	SlotTimePicker
+	SlotDatePicker
 } from './interface';

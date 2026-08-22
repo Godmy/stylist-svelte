@@ -1,3 +1,3 @@
-import { DOMAIN_SCREEN_VALUES } from '$stylist/domain/const/record/domain-screen-values';
+import { DOMAIN_SCREEN } from '$stylist/domain/const/value/domain-screen';
 
-export type TypeDomainScreen = (typeof DOMAIN_SCREEN_VALUES)[number];
+export type TypeDomainScreen = (typeof DOMAIN_SCREEN)[keyof typeof DOMAIN_SCREEN];

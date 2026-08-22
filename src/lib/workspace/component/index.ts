@@ -4,6 +4,8 @@ export {
 	NodeHeader,
 	NodePort,
 	NodeProperty,
+	Stage,
+	Viewport,
 	WorkspaceCanvas
 } from './atom';
 export {
@@ -13,6 +15,8 @@ export {
 	WorkspaceToolbar
 } from './molecule';
 export {
+	Minimap,
+	StylistGraphWorkspace,
 	Workspace,
 	WorkspaceNode,
 	WorkspacePalette

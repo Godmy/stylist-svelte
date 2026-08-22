@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
-	import type { PortfolioCell } from '$stylist/portfolio/class/object-manager/portfolio';
-	import { ObjectManagerPortfolio } from '$stylist/portfolio/class/object-manager/portfolio';
+	import type { PortfolioCell } from '$stylist/portfolio/class/manager/portfolio';
+	import { ObjectManagerPortfolio } from '$stylist/portfolio/class/manager/portfolio';
 
 	interface PortfolioCellProps {
 		cell: PortfolioCell;

@@ -1,5 +1,5 @@
 import { ManagerChartLegendBand } from '$stylist/chart/class/manager/chart-legend-band';
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeLegendBandDiagram } from '$stylist/chart/interface/recipe/legend-band-diagram';
 
 export default function createLegendBandDiagramState(props: RecipeLegendBandDiagram) {

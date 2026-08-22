@@ -23,7 +23,7 @@
 	component={CopyButton}
 	title="CopyButton"
 	category="Atoms/Interaction/Controls/Buttons"
-	description="Copies text to clipboard"
+	description="Copies the text passed via `copyText` to the clipboard when clicked. The icon and label switch to a checkmark and 'Copied!' for 2 seconds as confirmation, then revert automatically. Typically placed next to a code snippet, API key, or link that the user needs to paste elsewhere."
 >
 	{#snippet children(values: any)}
 		<div class="_c1">

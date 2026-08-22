@@ -36,6 +36,7 @@
 	.badge {
 		display: inline-flex;
 		align-items: center;
+		gap: 0.375rem;
 		width: fit-content;
 		max-width: 100%;
 		border: 1px solid transparent;

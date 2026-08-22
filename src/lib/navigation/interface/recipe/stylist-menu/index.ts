@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/architecture/const/array/functional-taxonomy';
+import type { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/development/const/array/functional-taxonomy';
 import type { PrimaryMenuItem } from '$stylist/navigation/interface/slot/primary-menu-item';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 

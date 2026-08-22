@@ -1,4 +1,4 @@
-import { ClassNamesManager } from '$stylist/layout/class/object-manager/class-names';
+import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipePromoBanner } from '$stylist/marketing/interface/recipe/promo-banner';
 
 export function createPromoBannerState(props: RecipePromoBanner) {

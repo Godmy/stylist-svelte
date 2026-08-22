@@ -1,4 +1,4 @@
-﻿import { ObjectManagerColorPalette } from '$stylist/canvas/class/object-manager/color-palette';
+﻿import { ObjectManagerColorPalette } from '$stylist/canvas/class/manager/color-palette';
 import type { RecipeColorPalette } from '$stylist/canvas/interface/recipe/color-palette';
 
 export function createColorPaletteState(props: RecipeColorPalette) {

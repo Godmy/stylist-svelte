@@ -1,5 +1,5 @@
 import type { SlotDataTable } from '$stylist/table/interface/slot/data-table';
-import { ObjectManagerTableControls } from '$stylist/table/class/object-manager/table-controls';
+import { ObjectManagerTableControls } from '$stylist/table/class/manager/table-controls';
 
 type Row = Record<string, unknown>;
 

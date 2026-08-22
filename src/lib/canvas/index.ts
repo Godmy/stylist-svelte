@@ -24,6 +24,8 @@ export type {
 	SharedCanvasToolDefinition
 } from './type';
 export type {
+	ObjectPoint2DPath,
+	Point2D,
 	RecipeCanvasImageEditor,
 	RecipeCanvasToolbar,
 	RecipeCollaborativeEditor,
