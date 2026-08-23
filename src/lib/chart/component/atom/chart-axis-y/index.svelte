@@ -51,12 +51,19 @@
 				y={(state.startY + state.endY) / 2}
 				text-anchor="middle"
 				transform={`rotate(-90 ${state.x - 28} ${(state.startY + state.endY) / 2})`}
+				fill={props.color ?? 'currentColor'}
 			>
 				{props.label}
 			</text>
 		{/if}
 		{#if props.tickLabels && props.tickLabels[i] !== undefined}
-			<text class={state.labelClasses} x={state.x - 10} y={tick + 4} text-anchor="end">
+			<text
+				class={state.labelClasses}
+				x={state.x - 10}
+				y={tick + 4}
+				text-anchor="end"
+				fill={props.color ?? 'currentColor'}
+			>
 				{String(props.tickLabels[i])}
 			</text>
 		{/if}
@@ -73,7 +80,6 @@
 	}
 
 	.c-chart-axis__label {
-		fill: var(--color-text-secondary);
 		font-size: 0.75rem;
 	}
 </style>

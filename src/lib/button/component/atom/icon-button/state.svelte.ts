@@ -25,11 +25,11 @@ export function createIconButtonState(input: RecipeButtonFactoryInput) {
 	});
 
 	const iconSizeMap: Record<string, number> = {
-		xs: 12,
-		sm: 14,
-		md: 16,
-		lg: 20,
-		xl: 24
+		xs: 14,
+		sm: 18,
+		md: 20,
+		lg: 24,
+		xl: 26
 	};
 
 	const iconSize = $derived(iconSizeMap[size] ?? 16);

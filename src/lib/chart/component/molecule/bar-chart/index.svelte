@@ -10,7 +10,7 @@
 
 <div
 	class={state.containerClasses}
-	style={`width: ${props.width ?? 600}px; height: ${props.height ?? 400}px;`}
+	style={`width: min(100%, ${props.width ?? 600}px);`}
 	{...props}
 >
 	{#if props.title}
@@ -28,14 +28,18 @@
 	{/if}
 
 	<div class={state.chartContainerClasses}>
-		<svg width={props.width ?? 600} height={props.height ?? 400} class={state.svgClasses}>
+		<svg
+			viewBox={`0 0 ${props.width ?? 600} ${props.height ?? 400}`}
+			class={state.svgClasses}
+			style={`height: ${props.height ?? 400}px;`}
+		>
 			{#if props.showAxis}
 				<!-- X axis -->
 				<line
 					x1={props.showAxis ? 50 : 5}
-					y1={(props.height ?? 400) - 10}
+					y1={state.chartHeight + 10}
 					x2={(props.width ?? 600) - 10}
-					y2={(props.height ?? 400) - 10}
+					y2={state.chartHeight + 10}
 					stroke={props.axisColor ?? 'var(--color-border-primary)'}
 					stroke-width="1"
 				/>
@@ -44,7 +48,7 @@
 					x1={props.showAxis ? 50 : 5}
 					y1={10}
 					x2={props.showAxis ? 50 : 5}
-					y2={(props.height ?? 400) - 10}
+					y2={state.chartHeight + 10}
 					stroke={props.axisColor ?? 'var(--color-border-primary)'}
 					stroke-width="1"
 				/>
@@ -53,7 +57,7 @@
 				{#each state.yAxisValues as val, i}
 					<text
 						x={props.showAxis ? 45 : 0}
-						y={(props.height ?? 400) - 15 - i * (state.chartHeight / 4)}
+						y={state.chartHeight + 6 - i * (state.chartHeight / 4)}
 						text-anchor="end"
 						font-size="10"
 						fill="var(--color-text-tertiary)"
@@ -62,9 +66,9 @@
 					</text>
 					<line
 						x1={props.showAxis ? 48 : 3}
-						y1={(props.height ?? 400) - 10 - i * (state.chartHeight / 4)}
+						y1={state.chartHeight + 10 - i * (state.chartHeight / 4)}
 						x2={(props.width ?? 600) - 10}
-						y2={(props.height ?? 400) - 10 - i * (state.chartHeight / 4)}
+						y2={state.chartHeight + 10 - i * (state.chartHeight / 4)}
 						stroke={props.axisColor ?? 'var(--color-border-primary)'}
 						stroke-dasharray="3,3"
 						stroke-width="0.5"
@@ -75,7 +79,7 @@
 				{#each state.barPositions as position, i (position.x)}
 					<text
 						x={position.x + (props.barWidth ?? 30) / 2}
-						y={(props.height ?? 400) - 5}
+						y={state.chartHeight + 26}
 						text-anchor="middle"
 						font-size="10"
 						fill="var(--color-text-tertiary)"
@@ -163,9 +167,14 @@
 		border: 1px solid var(--color-border-primary);
 		border-radius: 0.5rem;
 		background: var(--color-background-primary);
+		box-sizing: border-box;
+		overflow: hidden;
 	}
 
 	.bar-chart__svg {
+		display: block;
+		width: 100%;
+		max-width: 100%;
 		overflow: visible;
 	}
 

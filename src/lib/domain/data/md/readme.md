@@ -13,17 +13,29 @@ component/page/domain-playground          - root shell and screen switcher
 ├─ molecule/device-viewport               - story viewport control for component preview
 ├─ organism/domain-explorer               - component browser for domains, clusters, joints and families
 │  ├─ organism/domain-sidebar             - taxonomy navigation
-│  ├─ molecule/domain-toolbar             - domain selector
-│  ├─ molecule/cluster-toolbar            - cluster selector
-│  ├─ molecule/joint-toolbar              - joint selector
-│  ├─ molecule/domain-list                - entity list
-│  ├─ molecule/domain-search              - quick entity search
+│  │  ├─ molecule/domain-toolbar          - domain selector
+│  │  ├─ molecule/cluster-toolbar         - cluster selector
+│  │  ├─ molecule/joint-toolbar           - joint selector
+│  │  └─ molecule/domain-list             - entity list
 │  ├─ molecule/taxonomy-breadcrumbs       - selected path display
-│  ├─ molecule/joint-tab-buttons          - file/story/json/markdown tabs
-│  └─ organism/domain-file-preview        - selected file and story preview
-├─ organism/domain-diagnostics            - story and domain health runner
+│  ├─ molecule/domain-search              - quick entity search
+│  ├─ molecule/joint-tab-buttons          - file/story/json/markdown/dependency tabs
+│  └─ organism/domain-file-preview        - file, markdown, story, JSON-tree and dependency-graph preview
+├─ organism/domain-diagnostics            - story runner + manifest-driven file diagnostics
+│  └─ organism/domain-file-diagnostics    - manifest dashboard, always rendered above the story runner
+│     ├─ organism/domain-file-overview           - file/component totals from the domain-files manifest
+│     ├─ organism/domain-cluster-balance         - per-domain cluster balance from the domain-files manifest
+│     ├─ organism/domain-component-import-diagnostics - import-health rows/summary from the import-diagnostics manifest
+│     └─ organism/domain-file-domain-grid        - per-domain file grid from the domain-files manifest
 └─ organism/domain-settings               - theme settings panel
 ```
+
+`domain-diagnostics` combines two independent checks: the story runner (imports and mounts every `*.story.svelte` to catch runtime errors) and `domain-file-diagnostics`, a static dashboard fed by generated manifests rather than by running code:
+- `data/json/domain-files/index.json` — file/component counts and cluster balance per domain
+- `data/json/domain-component-intervals/index.json` — component size/interval stats, consumed by `domain-file-overview`
+- `data/json/domain-component-import-diagnostics/index.json` — import-health rows and summary, consumed by `domain-component-import-diagnostics`
+
+These manifests are generated data (see the `stylist` tooling in the sibling `stylist/` package), not hand-maintained; treat them the same way as the `di` audit manifest — regenerate rather than hand-edit. `data/json/domain-page-manifest/index.json` also exists in this cluster but is not currently consumed by any component under `domain/component/**`.
 
 The workspace node-editor demo, the drag-and-drop template builder (`domain-builder`), the backlog/sprint surface (`domain-backlog`) and the AI assistant panel (`domain-ai-agent`, with its `audio/component/organism/transcriber` dependency) were extracted out of this library into `stylist-svelte-domains` (sibling package, same `<domain>/<cluster>/<joint>/<family>` shape) — kept for reuse elsewhere, not wired into this app.
 

@@ -5,7 +5,7 @@
 
 	const controls: SlotStory[] = [
 		{ name: 'label', type: 'text', defaultValue: 'Z Axis' },
-		{ name: 'color', type: 'text', defaultValue: '#64748b' },
+		{ name: 'color', type: 'color', defaultValue: '#64748b' },
 		{ name: 'tickCount', type: 'number', defaultValue: 3, min: 0, max: 12, step: 1 },
 		{ name: 'showArrow', type: 'boolean', defaultValue: true }
 	];

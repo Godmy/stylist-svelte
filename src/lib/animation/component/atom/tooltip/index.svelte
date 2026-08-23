@@ -152,8 +152,9 @@
 		border-radius: 0.25rem;
 		white-space: nowrap;
 		pointer-events: none;
-		background: var(--color-neutral-900, #111827);
-		color: var(--color-text-inverse, #fff);
+		background: var(--color-tooltip-bg, var(--color-text-primary, #111827));
+		color: var(--color-tooltip-fg, var(--color-background-primary, #fff));
+		border: 1px solid color-mix(in srgb, var(--color-tooltip-fg, var(--color-background-primary)) 12%, transparent);
 	}
 
 	.c-tooltip__popup[data-variant='invisible'] {
@@ -161,7 +162,7 @@
 		font-size: 0.875rem;
 		border-radius: 0.5rem;
 		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-		background: var(--color-tooltip-bg, var(--color-neutral-900, #111827));
+		background: var(--color-tooltip-bg, var(--color-text-primary, #111827));
 	}
 
 	/* Placement: top (default) */
@@ -235,7 +236,7 @@
 		position: absolute;
 		width: 0.5rem;
 		height: 0.5rem;
-		background: var(--color-neutral-900, #111827);
+		background: var(--color-tooltip-bg, var(--color-text-primary, #111827));
 		transform: rotate(45deg);
 	}
 	.c-tooltip__arrow[data-placement='top'],

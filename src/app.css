@@ -28,8 +28,8 @@
 }
 
 body {
-	background: var(--sand);
-	color: var(--ink);
+	background: var(--color-background-primary, var(--sand));
+	color: var(--color-text-primary, var(--ink));
 	font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
 	margin: 0;
 	overflow-x: hidden;

@@ -47,7 +47,13 @@
 		/>
 	{/if}
 	{#if props.label}
-		<text class={state.labelClasses} x={endX + 8} y={endY + 4} text-anchor="start">
+		<text
+			class={state.labelClasses}
+			x={endX + 8}
+			y={endY + 4}
+			text-anchor="start"
+			fill={props.color ?? 'currentColor'}
+		>
 			{props.label}
 		</text>
 	{/if}
@@ -63,7 +69,6 @@
 	}
 
 	.c-chart-axis__label {
-		fill: var(--color-text-secondary);
 		font-size: 0.75rem;
 	}
 </style>

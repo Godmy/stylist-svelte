@@ -5,8 +5,8 @@
 
 	const controls: SlotStory[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Quarterly revenue' },
-		{ name: 'width', type: 'number', defaultValue: 640, min: 320, max: 900, step: 20 },
-		{ name: 'height', type: 'number', defaultValue: 360, min: 220, max: 600, step: 20 },
+		{ name: 'width', type: 'number', defaultValue: 520, min: 320, max: 900, step: 20 },
+		{ name: 'height', type: 'number', defaultValue: 300, min: 220, max: 600, step: 20 },
 		{ name: 'showLegend', type: 'boolean', defaultValue: true },
 		{ name: 'showAxis', type: 'boolean', defaultValue: true },
 		{
@@ -32,14 +32,24 @@
 	{controls}
 >
 	{#snippet children(values: any)}
-		<BarChart
-			{data}
-			title={values.title}
-			width={values.width}
-			height={values.height}
-			showLegend={values.showLegend}
-			showAxis={values.showAxis}
-			colorScheme={values.colorScheme}
-		/>
+		<div class="_c1">
+			<BarChart
+				{data}
+				title={values.title}
+				width={Number(values.width) || 520}
+				height={Number(values.height) || 300}
+				showLegend={values.showLegend}
+				showAxis={values.showAxis}
+				colorScheme={values.colorScheme}
+			/>
+		</div>
 	{/snippet}
 </Story>
+
+<style>
+	._c1 {
+		width: 100%;
+		max-width: 100%;
+		min-width: 0;
+	}
+</style>

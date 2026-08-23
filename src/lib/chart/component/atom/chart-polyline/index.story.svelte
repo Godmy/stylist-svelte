@@ -5,7 +5,7 @@
 
 	const controls: SlotStory[] = [
 		{ name: 'strokeWidth', type: 'number', defaultValue: 2, min: 1, max: 8, step: 1 },
-		{ name: 'color', type: 'text', defaultValue: '#2563eb' }
+		{ name: 'color', type: 'color', defaultValue: '#2563eb' }
 	];
 
 	const points = [

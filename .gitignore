@@ -15,6 +15,7 @@ build/
 package/
 json/
 *.tsbuildinfo
+static/generated/
 
 # Environment
 .env

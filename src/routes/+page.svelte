@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DOMAIN_SCREEN } from '$stylist/domain/const/value/domain-screen';
+	import { DOMAIN_SCREEN } from '$stylist/domain/const/object/domain-screen';
 	import DomainPlayground from '$stylist/domain/component/page/domain-playground/index.svelte';
 	import type { PageData } from './$types';
 

@@ -8,7 +8,7 @@
 		{ name: 'showGrid', type: 'boolean', defaultValue: true },
 		{ name: 'tickCount', type: 'number', defaultValue: 5, min: 1, max: 20, step: 1 },
 		{ name: 'showArrow', type: 'boolean', defaultValue: true },
-		{ name: 'color', type: 'text', defaultValue: '#64748b' }
+		{ name: 'color', type: 'color', defaultValue: '#64748b' }
 	];
 
 	const ticks = [20, 60, 100, 140, 180];

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import AppHeader from './index.svelte';
-	import { TOKEN_CONTROLLER_TYPE } from '$stylist/domain/const/map/controller-type';
+	import { TOKEN_CONTROLLER_TYPE } from '$stylist/domain/const/object/controller-type';
 
 	const navLinks = [
 		{ href: '#overview', label: 'Overview', active: true },

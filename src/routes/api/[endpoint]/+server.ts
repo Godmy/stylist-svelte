@@ -36,7 +36,7 @@ function buildErrorResponse(
 	return json({ error: serializedError.message || fallbackMessage }, { status: 500 });
 }
 
-export function GET(event: RequestEvent): Response {
+export async function GET(event: RequestEvent): Promise<Response> {
 	const endpoint = event.params.endpoint ?? '';
 
 	if (!isApiEndpoint(endpoint)) {
@@ -46,9 +46,9 @@ export function GET(event: RequestEvent): Response {
 	try {
 		switch (endpoint) {
 			case 'content':
-				return DomainManager.getContentFileResponse(event);
+				return await DomainManager.getContentFileResponse(event);
 			case 'descriptor':
-				return DomainManager.getDomainComponentProjectionResponse(event);
+				return await DomainManager.getDomainComponentProjectionResponse(event);
 			case 'di':
 				return DiagnosticManager.getDependencyResponse(event);
 		}

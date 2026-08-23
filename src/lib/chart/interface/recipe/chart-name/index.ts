@@ -6,4 +6,7 @@ export interface RecipeChartName extends ComputeIntersectAll<[SlotTheme]> {
 	x?: number;
 	y?: number;
 	color?: string;
+	fill?: string;
+	stroke?: string;
+	strokeWidth?: number;
 }

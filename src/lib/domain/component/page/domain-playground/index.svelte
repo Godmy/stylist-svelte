@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DOMAIN_SCREEN } from '$stylist/domain/const/value/domain-screen';
+	import { DOMAIN_SCREEN } from '$stylist/domain/const/object/domain-screen';
 	import DomainMenu from '$stylist/domain/component/molecule/domain-menu/index.svelte';
 	import DeviceViewport from '$stylist/domain/component/molecule/device-viewport/index.svelte';
 	import createDomainPlaygroundState from './state.svelte';

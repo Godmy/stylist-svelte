@@ -43,6 +43,7 @@
 				icon={values.icon as string}
 				onclick={() => (clickCount += 1)}
 			/>
+			<span class="_c2">{values.label as string}</span>
 			<p class="_c2">Clicked {clickCount} time{clickCount === 1 ? '' : 's'}</p>
 		</div>
 	{/snippet}

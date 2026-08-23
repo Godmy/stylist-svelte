@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
-	import { DOMAIN_SCREEN } from '$stylist/domain/const/value/domain-screen';
+	import { DOMAIN_SCREEN } from '$stylist/domain/const/object/domain-screen';
 	import DomainPlayground from './index.svelte';
 
 	const tree = [

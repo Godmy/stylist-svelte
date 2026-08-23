@@ -9,7 +9,6 @@ export function createFollowButtonState(props: RecipeFollowButton) {
 	const followingText = $derived(props.followingText ?? 'Following');
 	const unfollowText = $derived(props.unfollowText ?? 'Follow');
 
-	const buttonVariant = $derived(isFollowing ? 'outline' : variant);
 	const buttonText = $derived(isFollowing ? followingText : unfollowText);
 	const ariaLabel = $derived(isFollowing ? 'Unfollow user' : 'Follow user');
 	let isPending = $state(false);
@@ -22,7 +21,7 @@ export function createFollowButtonState(props: RecipeFollowButton) {
 			return showText;
 		},
 		get variant() {
-			return buttonVariant;
+			return variant;
 		},
 		get size() {
 			return size;

@@ -21,6 +21,16 @@
 	.information-skeleton {
 		--information-skeleton-width: 100%;
 		--information-skeleton-height: 1rem;
+		--information-skeleton-base: color-mix(
+			in srgb,
+			var(--color-text-primary) 10%,
+			var(--color-background-secondary)
+		);
+		--information-skeleton-highlight: color-mix(
+			in srgb,
+			var(--color-text-primary) 20%,
+			var(--color-background-primary)
+		);
 
 		display: grid;
 		gap: 0.5rem;
@@ -33,7 +43,7 @@
 		width: 100%;
 		height: var(--information-skeleton-height);
 		border-radius: var(--border-radius-base, 0.375rem);
-		background: var(--color-neutral-200);
+		background: var(--information-skeleton-base);
 	}
 
 	.information-skeleton--circle {
@@ -55,8 +65,13 @@
 
 	.information-skeleton--animated span {
 		background:
-			linear-gradient(90deg, transparent, rgb(255 255 255 / 0.55), transparent),
-			var(--color-neutral-200);
+			linear-gradient(
+				90deg,
+				transparent,
+				var(--information-skeleton-highlight),
+				transparent
+			),
+			var(--information-skeleton-base);
 		background-size: 220% 100%;
 		animation: information-skeleton-shimmer 1.35s ease-in-out infinite;
 	}

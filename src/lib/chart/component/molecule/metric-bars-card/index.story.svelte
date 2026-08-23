@@ -16,10 +16,10 @@
 	];
 
 	const bars = [
-		{ label: 'Ready', value: 18, valueLabel: '18', percentage: 43, color: '#16a34a' },
-		{ label: 'In Progress', value: 14, valueLabel: '14', percentage: 33, color: '#2563eb' },
-		{ label: 'Blocked', value: 4, valueLabel: '4', percentage: 10, color: '#dc2626' },
-		{ label: 'Review', value: 6, valueLabel: '6', percentage: 14, color: '#d97706' }
+		{ label: 'Ready', value: 18, valueLabel: '18', percentage: 43 },
+		{ label: 'In Progress', value: 14, valueLabel: '14', percentage: 33 },
+		{ label: 'Blocked', value: 4, valueLabel: '4', percentage: 10 },
+		{ label: 'Review', value: 6, valueLabel: '6', percentage: 14 }
 	];
 </script>
 
@@ -49,5 +49,6 @@
 <style>
 	._c1 {
 		max-width: 38rem;
+		min-width: 0;
 	}
 </style>

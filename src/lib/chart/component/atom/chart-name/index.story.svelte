@@ -5,7 +5,9 @@
 
 	const controls: SlotStory[] = [
 		{ name: 'text', type: 'text', defaultValue: 'f(x) = x^2 + 2x + 1' },
-		{ name: 'color', type: 'text', defaultValue: '#0f172a' }
+		{ name: 'fill', type: 'color', defaultValue: '#2563eb' },
+		{ name: 'stroke', type: 'color', defaultValue: '#ffffff' },
+		{ name: 'strokeWidth', type: 'range', defaultValue: 0, min: 0, max: 4, step: 0.25 }
 	];
 </script>
 
@@ -18,7 +20,14 @@
 >
 	{#snippet children(values: any)}
 		<svg width="460" height="70" class="_c1">
-			<ChartName text={values.text} x={16} y={30} color={values.color} />
+			<ChartName
+				text={values.text}
+				x={16}
+				y={30}
+				fill={String(values.fill || '#2563eb')}
+				stroke={String(values.stroke || '#ffffff')}
+				strokeWidth={Number(values.strokeWidth) || 0}
+			/>
 		</svg>
 	{/snippet}
 </Story>

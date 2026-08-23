@@ -64,12 +64,24 @@
 			/>
 		{/if}
 		{#if i === Math.floor(ticks.length / 2) && props.label}
-			<text class={state.labelClasses} x={(startX + endX) / 2} y={y + 24} text-anchor="middle">
+			<text
+				class={state.labelClasses}
+				x={(startX + endX) / 2}
+				y={y + 24}
+				text-anchor="middle"
+				fill={props.color ?? 'currentColor'}
+			>
 				{props.label}
 			</text>
 		{/if}
 		{#if props.tickLabels && props.tickLabels[i] !== undefined}
-			<text class={state.labelClasses} x={tick} y={y + 18} text-anchor="middle">
+			<text
+				class={state.labelClasses}
+				x={tick}
+				y={y + 18}
+				text-anchor="middle"
+				fill={props.color ?? 'currentColor'}
+			>
 				{String(props.tickLabels[i])}
 			</text>
 		{/if}
@@ -86,7 +98,6 @@
 	}
 
 	.c-chart-axis__label {
-		fill: var(--color-text-secondary);
 		font-size: 0.75rem;
 	}
 </style>

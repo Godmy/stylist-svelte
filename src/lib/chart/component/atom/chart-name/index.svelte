@@ -11,7 +11,9 @@
 	class={state.classes}
 	x={props.x ?? 16}
 	y={props.y ?? 24}
-	fill={props.color ?? 'var(--color-text-primary)'}
+	fill={props.fill ?? props.color ?? 'var(--color-text-primary)'}
+	stroke={props.stroke ?? 'none'}
+	stroke-width={props.strokeWidth ?? 0}
 >
 	{props.text}
 </text>

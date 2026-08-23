@@ -45,7 +45,18 @@
 >
 	{#if props.showIcon}
 		{#if state.copied}
-			<BaseIcon name="check" class={state.iconClasses} size={16} aria-hidden="true" />
+			<svg
+				class={state.iconClasses}
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2.25"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
+				<path d="M5 12.5l4.5 4.5L19 7" />
+			</svg>
 		{:else}
 			<BaseIcon name="copy" class={state.iconClasses} size={16} aria-hidden="true" />
 		{/if}
@@ -172,6 +183,9 @@
 
 	/* Copied state - icon turns green */
 	.c-copy-button__icon {
+		width: 1rem;
+		height: 1rem;
+		flex: 0 0 auto;
 		color: currentColor;
 		transition: color 150ms ease;
 	}

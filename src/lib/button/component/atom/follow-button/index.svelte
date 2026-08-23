@@ -29,7 +29,18 @@
 	{:else}
 		<div class="c-follow-button__inner">
 			{#if state.isFollowing}
-				<BaseIcon name="check" class="c-follow-button__icon" size={16} />
+				<svg
+					class="c-follow-button__icon"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2.25"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<path d="M5 12.5l4.5 4.5L19 7" />
+				</svg>
 			{:else}
 				<BaseIcon name="user-plus" class="c-follow-button__icon" size={16} />
 			{/if}
@@ -67,6 +78,12 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.375rem;
+	}
+
+	.c-follow-button__icon {
+		width: 1rem;
+		height: 1rem;
+		flex: 0 0 auto;
 	}
 
 	.c-follow-button[data-variant='primary']:not([data-following]) {
@@ -109,15 +126,15 @@
 	}
 
 	.c-follow-button[data-following] {
-		background: var(--color-background-secondary);
+		background: var(--color-background-primary);
 		color: var(--color-text-primary);
 		border-color: var(--color-border-primary);
 	}
 
 	.c-follow-button[data-following]:hover:not([data-disabled]) {
-		background: var(--color-danger-50);
+		background: color-mix(in srgb, var(--color-danger-600) 12%, var(--color-background-primary));
 		color: var(--color-danger-600);
-		border-color: var(--color-danger-200);
+		border-color: color-mix(in srgb, var(--color-danger-600) 42%, var(--color-border-primary));
 	}
 
 	.c-follow-button[data-size='sm'] {

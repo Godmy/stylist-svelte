@@ -7,7 +7,7 @@
 	const Bell = 'bell';
 	const Mail = 'mail';
 
-	import { TOKEN_CONTROLLER_TYPE } from '$stylist/domain/const/map/controller-type';
+	import { TOKEN_CONTROLLER_TYPE } from '$stylist/domain/const/object/controller-type';
 
 	type NavItem = {
 		id: string;

@@ -38,7 +38,18 @@
 		<Icon name="loader-2" class="c-close-button__loader" size={16} aria-hidden="true" />
 		<span class="c-close-button__sr-only">{props.loadingLabel ?? 'Closing...'}</span>
 	{:else}
-		<Icon name="x" size={16} />
+		<svg
+			class="c-close-button__icon"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			aria-hidden="true"
+		>
+			<path d="M6 6l12 12" />
+			<path d="M18 6L6 18" />
+		</svg>
 	{/if}
 </button>
 
@@ -93,9 +104,19 @@
 		height: 1.25rem;
 	}
 
+	.c-close-button[data-size='xs'] .c-close-button__icon {
+		width: 0.75rem;
+		height: 0.75rem;
+	}
+
 	.c-close-button[data-size='sm'] {
 		width: 1.5rem;
 		height: 1.5rem;
+	}
+
+	.c-close-button[data-size='sm'] .c-close-button__icon {
+		width: 0.875rem;
+		height: 0.875rem;
 	}
 
 	.c-close-button[data-size='md'] {
@@ -103,9 +124,19 @@
 		height: 1.75rem;
 	}
 
+	.c-close-button[data-size='md'] .c-close-button__icon {
+		width: 1rem;
+		height: 1rem;
+	}
+
 	.c-close-button[data-size='lg'] {
 		width: 2rem;
 		height: 2rem;
+	}
+
+	.c-close-button[data-size='lg'] .c-close-button__icon {
+		width: 1.125rem;
+		height: 1.125rem;
 	}
 
 	.c-close-button[data-size='xl'] {
@@ -113,9 +144,19 @@
 		height: 2.25rem;
 	}
 
+	.c-close-button[data-size='xl'] .c-close-button__icon {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+
 	.c-close-button[data-size='2xl'] {
 		width: 2.5rem;
 		height: 2.5rem;
+	}
+
+	.c-close-button[data-size='2xl'] .c-close-button__icon {
+		width: 1.375rem;
+		height: 1.375rem;
 	}
 
 	.c-close-button[data-disabled] {

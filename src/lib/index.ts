@@ -131,6 +131,7 @@ export {
 	CtaButtons,
 	DEVICE_FRAME_VIEWPORT,
 	DOMAIN_CLUSTER,
+	DOMAIN_REGIME,
 	DOMAIN_SCREEN,
 	DeviceFrame,
 	DeviceViewport,

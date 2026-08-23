@@ -1,4 +1,4 @@
-import { DOMAIN_SCREEN } from '$stylist/domain/const/value/domain-screen';
+import { DOMAIN_SCREEN } from '$stylist/domain/const/object/domain-screen';
 import type { TypeDomainScreen } from '$stylist/domain/type/alias/domain-screen';
 
 export function createDomainPlaygroundState(

@@ -57,16 +57,16 @@
 	._c1 {
 		display: grid;
 		gap: 1rem;
-		border-radius: 1rem;
+		border-radius: 0.5rem;
 		border-width: 1px;
 		border-style: solid;
-		border-color: #e2e8f0;
-		background-color: #f8fafc;
+		border-color: var(--color-border-primary);
+		background-color: var(--color-background-secondary);
 		padding: 1.5rem;
 	}
 	._c2 {
 		font-size: 0.875rem;
 		line-height: 1.25rem;
-		color: #64748b;
+		color: var(--color-text-secondary);
 	}
 </style>
