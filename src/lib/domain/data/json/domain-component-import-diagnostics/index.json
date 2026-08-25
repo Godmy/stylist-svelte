@@ -398,6 +398,97 @@
       ]
     },
     {
+      "path": "geo/component/organism/geo-jsonviewer/index.svelte",
+      "domain": "geo",
+      "joint": "organism",
+      "family": "geo-jsonviewer",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeGeoJsonviewer",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/button/component/atom/button/index.svelte",
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "./state.svelte",
+        "$stylist/geo/class/manager/geo"
+      ]
+    },
+    {
+      "path": "geo/component/organism/location-selector/index.svelte",
+      "domain": "geo",
+      "joint": "organism",
+      "family": "location-selector",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeLocationSelector",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "./state.svelte",
+        "$stylist/geo/interface/slot/location-selector-location"
+      ]
+    },
+    {
+      "path": "geo/component/organism/map-marker/index.svelte",
+      "domain": "geo",
+      "joint": "organism",
+      "family": "map-marker",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeMapMarker",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "$stylist/button/component/atom/button/index.svelte",
+        "./state.svelte"
+      ]
+    },
+    {
+      "path": "geo/component/organism/map-selector/index.svelte",
+      "domain": "geo",
+      "joint": "organism",
+      "family": "map-selector",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeMapSelector",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "$stylist/button/component/atom/button/index.svelte",
+        "./state.svelte"
+      ]
+    },
+    {
+      "path": "geo/component/organism/map-with-markers/index.svelte",
+      "domain": "geo",
+      "joint": "organism",
+      "family": "map-with-markers",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeMapWithMarkers",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "$stylist/button/component/atom/button/index.svelte",
+        "./state.svelte"
+      ]
+    },
+    {
+      "path": "geo/component/organism/store-locator/index.svelte",
+      "domain": "geo",
+      "joint": "organism",
+      "family": "store-locator",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeStoreLocator",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "$stylist/button/component/atom/button/index.svelte",
+        "./state.svelte"
+      ]
+    },
+    {
       "path": "idef-zero/component/molecule/idef0-inputs/index.svelte",
       "domain": "idef-zero",
       "joint": "molecule",
@@ -568,10 +659,10 @@
     }
   ],
   "summary": {
-    "total": 35,
+    "total": 41,
     "none": 2,
-    "missingRecipe": 33,
-    "valid": 407,
-    "scanned": 442
+    "missingRecipe": 39,
+    "valid": 409,
+    "scanned": 450
   }
 }
