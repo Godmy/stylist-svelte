@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SlotDataTableShell } from '$stylist/table/interface/slot/data-table-shell';
+	import type { RecipeDataTableShell } from '$stylist/table/interface/recipe/data-table-shell';
 	import { createDataTableShellState } from './state.svelte';
 	import FilterBar from '$stylist/table/component/molecule/filter-bar/index.svelte';
 	import ColumnManager from '$stylist/table/component/molecule/column-manager/index.svelte';
@@ -21,7 +21,7 @@
 		onRowClick,
 		class: className = '',
 		...restProps
-	}: SlotDataTableShell<RowData> = $props();
+	}: RecipeDataTableShell<RowData> = $props();
 
 	const state = createDataTableShellState({
 		get data() {

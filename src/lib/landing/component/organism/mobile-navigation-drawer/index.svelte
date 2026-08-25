@@ -1,20 +1,6 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
 	import Link from '$stylist/typography/component/atom/link/index.svelte';
-
-	interface MobileNavigationDrawerLink {
-		href: string;
-		label: string;
-	}
-
-	interface MobileNavigationDrawerProps {
-		ariaLabel: string;
-		open: boolean;
-		links: MobileNavigationDrawerLink[];
-		brand?: Snippet;
-		onClose?: () => void;
-		class?: string;
-	}
+	import type { RecipeMobileNavigationDrawer } from '$stylist/landing/interface/recipe/mobile-navigation-drawer';
 
 	let {
 		ariaLabel,
@@ -23,7 +9,7 @@
 		brand,
 		onClose,
 		class: className = ''
-	}: MobileNavigationDrawerProps = $props();
+	}: RecipeMobileNavigationDrawer = $props();
 
 	function close() {
 		onClose?.();

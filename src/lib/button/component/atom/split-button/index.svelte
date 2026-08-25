@@ -1,26 +1,12 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	import type { RecipeButtonElement as SlotButtonElement } from '$stylist/button/interface/recipe/button-element';
+	import type { RecipeSplitButton } from '$stylist/button/interface/recipe/split-button';
 	import createSplitButtonState from './state.svelte';
-	import type { SplitButtonButtonAttributes } from '$stylist/button/type/object/split-button-button-attributes';
 
 	const ChevronDown = 'chevron-down';
 
-	export interface ISplitButtonItem {
-		label: string;
-		onClick: () => void;
-		disabled?: boolean;
-	}
-
-	export type ISplitButtonElementProps = SlotButtonElement &
-		SplitButtonButtonAttributes & {
-			items: ISplitButtonItem[];
-			primaryAction: () => void;
-			primaryLabel?: string;
-		};
-
-	let props: ISplitButtonElementProps = $props();
-	const state = createSplitButtonState(props as any);
+	let props: RecipeSplitButton = $props();
+	const state = createSplitButtonState(props);
 
 	let divAttributes = $derived.by(() => {
 		const allProps = props as Record<string, any>;

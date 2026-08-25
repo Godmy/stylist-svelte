@@ -27,7 +27,7 @@
 >
 	{#snippet children(values: any)}
 		<Tag
-			label={values.text as string}
+			text={values.text as string}
 			variant={values.variant as
 				| 'default'
 				| 'primary'

@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { DEFAULT_SCHEMA_TEXT } from '$stylist/erd/const/value/schema-text';
 	import { schemaTextToDocument } from '$stylist/erd/function/transform/schema-text-to-document';
-	import type { SlotErdText } from '$stylist/erd/interface/slot/erd-text';
+	import type { RecipeSchemaText } from '$stylist/erd/interface/recipe/schema-text';
 
-	let { value = $bindable(DEFAULT_SCHEMA_TEXT), placeholder = DEFAULT_SCHEMA_TEXT }: SlotErdText =
-		$props();
+	let {
+		value = $bindable(DEFAULT_SCHEMA_TEXT),
+		placeholder = DEFAULT_SCHEMA_TEXT
+	}: RecipeSchemaText = $props();
 	let result = $derived(schemaTextToDocument(value));
 
 	function handleInput(event: Event): void {

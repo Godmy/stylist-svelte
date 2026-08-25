@@ -3,38 +3,7 @@
 	import JsonTreeViewer from '$stylist/domain/component/molecule/json-tree-viewer/index.svelte';
 	import FlatTree from '$stylist/tree/component/molecule/flat-tree/index.svelte';
 	import { ManagerStoryViewportContext } from '$stylist/theme/class/manager/story-viewport-context';
-	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
-	import type { TreeNode } from '$stylist/tree/type/object/tree-node';
-
-	interface DomainDependency {
-		key: string;
-		depth: number;
-	}
-
-	interface DomainDependencyFile {
-		name: string;
-		content: string;
-	}
-
-	interface DomainFilePreviewProps {
-		previewMode?: 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
-		fileContent?: string;
-		fileLoading?: boolean;
-		fileError?: string;
-		storyPreviewComponent?: any;
-		storyPreviewLoading?: boolean;
-		storyPreviewError?: string;
-		dependencyItems?: DomainDependency[];
-		dependencyTreeNodes?: TreeNode[];
-		selectedDependencyKey?: string;
-		selectedDependencyFiles?: DomainDependencyFile[];
-		dependencyLoading?: boolean;
-		dependencyError?: string;
-		onDependencySelect?: (key: string) => void;
-		previewKind?: 'svg' | 'json' | 'text';
-		storyDevice?: DeviceFrameViewport;
-		class?: string;
-	}
+	import type { RecipeDomainFilePreview } from '$stylist/domain/interface/recipe/domain-file-preview';
 
 	let {
 		previewMode = 'file',
@@ -54,7 +23,7 @@
 		previewKind = 'text',
 		storyDevice = $bindable('fullscreen'),
 		class: className = ''
-	}: DomainFilePreviewProps = $props();
+	}: RecipeDomainFilePreview = $props();
 
 	ManagerStoryViewportContext.set(() => storyDevice);
 

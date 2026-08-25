@@ -9,6 +9,7 @@
 <div class={`c-range-input ${state.className}`.trim()}>
 	<div class="c-range-input__track-wrap">
 		<div class={`c-range-input__track ${state.rangeClass}`}></div>
+		<div class="c-range-input__fill" style={state.fillStyle}></div>
 		<input
 			type="range"
 			class="c-range-input__range"
@@ -73,9 +74,22 @@
 		background-color: var(--color-background-tertiary);
 	}
 
+	.c-range-input__fill {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		height: 0.5rem;
+		border-radius: 9999px;
+		background: var(--color-primary-500);
+		pointer-events: none;
+	}
+
 	.c-range-input__range {
 		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
 		width: 100%;
+		height: 2rem;
 		appearance: none;
 		background: transparent;
 		pointer-events: none;
@@ -104,5 +118,6 @@
 		border: 1px solid var(--color-border-primary);
 		border-radius: var(--layout-border-radius-base, 0.25rem);
 		background-color: var(--color-background-primary);
+		color: var(--color-text-primary);
 	}
 </style>

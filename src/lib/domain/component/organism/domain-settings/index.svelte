@@ -1,14 +1,9 @@
 <script lang="ts">
 	import ThemeSettings from '$stylist/theme/component/organism/theme-settings/index.svelte';
 	import { ManagerThemeSettings } from '$stylist/theme/class/manager/theme-settings';
+	import type { RecipeDomainSettings } from '$stylist/domain/interface/recipe/domain-settings';
 
-	interface DomainSettingsProps {
-		open?: boolean;
-		onClose?: () => void;
-		class?: string;
-	}
-
-	let { open = false, onClose, class: className = '' }: DomainSettingsProps = $props();
+	let { open = false, onClose, class: className = '' }: RecipeDomainSettings = $props();
 
 	const settingsRecipe = ManagerThemeSettings.createContract({
 		modeSection: {

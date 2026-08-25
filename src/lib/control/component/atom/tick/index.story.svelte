@@ -1,6 +1,14 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Tick from './index.svelte';
+
+	const controls: SlotStory[] = [
+		{ name: 'value', type: 'number', defaultValue: 50, min: 0, max: 100, step: 1 },
+		{ name: 'position', type: 'range', defaultValue: 50, min: 0, max: 100, step: 1 },
+		{ name: 'label', type: 'text', defaultValue: '50%' },
+		{ name: 'active', type: 'boolean', defaultValue: true }
+	];
 </script>
 
 <Story
@@ -8,6 +16,7 @@
 	title="Tick"
 	category="Atoms/Control/Sliders/Tick"
 	description="Slider tick mark component"
+	{controls}
 >
 	{#snippet children(values: any)}
 		<div class="_c1">

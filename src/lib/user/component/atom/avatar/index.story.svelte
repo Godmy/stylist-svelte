@@ -1,0 +1,60 @@
+<script lang="ts">
+	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import Avatar from './index.svelte';
+	import type { AvatarUserStatus } from '$stylist/user/type/alias/avatar-user-status';
+
+	const controls: SlotStory[] = [
+		{
+			name: 'src',
+			type: 'text',
+			defaultValue: 'https://via.placeholder.com/150'
+		},
+		{
+			name: 'alt',
+			type: 'text',
+			defaultValue: 'User avatar'
+		},
+		{
+			name: 'name',
+			type: 'text',
+			defaultValue: 'John Doe'
+		},
+		{
+			name: 'status',
+			type: 'select',
+			options: ['online', 'away', 'offline', 'typing', 'idle', ''],
+			defaultValue: ''
+		},
+		{
+			name: 'size',
+			type: 'select',
+			options: ['sm', 'md', 'lg'],
+			defaultValue: 'md'
+		},
+		{
+			name: 'showStatus',
+			type: 'boolean',
+			defaultValue: false
+		}
+	];
+</script>
+
+<Story
+	{controls}
+	component={Avatar}
+	title="Avatar Component"
+	description="A component to display user avatars with customizable size and status indicators"
+	tags={['information', 'user', 'avatar']}
+>
+	{#snippet children(values: any)}
+		<Avatar
+			src={values.src as string}
+			alt={values.alt as string}
+			name={values.name as string}
+			status={(values.status as AvatarUserStatus) || undefined}
+			size={values.size as 'sm' | 'md' | 'lg'}
+			showStatus={values.showStatus as boolean}
+		/>
+	{/snippet}
+</Story>

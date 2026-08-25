@@ -9,6 +9,7 @@ export type {
 export type {
 	RecipeAnimatedBackground,
 	RecipeAnimatedDigit,
+	RecipeCss3dCube,
 	RecipeLayoutTransformation,
 	RecipeLoading,
 	RecipeProgressBar,

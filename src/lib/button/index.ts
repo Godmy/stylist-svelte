@@ -21,7 +21,7 @@ export {
 } from './function';
 export type {
 	ButtonPropsRecord,
-	SplitButtonButtonAttributes
+	SplitButtonItem
 } from './type';
 export type { ButtonPreset } from './function';
 export type {

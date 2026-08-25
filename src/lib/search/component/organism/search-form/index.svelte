@@ -2,8 +2,9 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createSearchFormState from './state.svelte';
 	import { SEARCH_ICON_NAME } from '$stylist/search/const/value/search-icon-name';
+	import type { RecipeSearchForm } from '$stylist/search/interface/recipe/search-form';
 
-	const props = $props();
+	const props: RecipeSearchForm = $props();
 	const state = createSearchFormState(props);
 </script>
 

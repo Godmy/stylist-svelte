@@ -3,6 +3,7 @@ export { ManagerMotion } from './class';
 export {
 	AnimatedBackground,
 	AnimatedDigit,
+	Css3dCube,
 	LayoutTransformation,
 	Loading,
 	ProgressBar,
@@ -36,6 +37,7 @@ export type {
 	BehaviorTransformable,
 	RecipeAnimatedBackground,
 	RecipeAnimatedDigit,
+	RecipeCss3dCube,
 	RecipeLayoutTransformation,
 	RecipeLoading,
 	RecipeProgressBar,

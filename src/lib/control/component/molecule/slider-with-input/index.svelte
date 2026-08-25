@@ -52,6 +52,17 @@
 		appearance: none;
 		border-radius: var(--layout-border-radius-full, 9999px);
 		background-color: var(--color-background-tertiary);
+		accent-color: var(--color-primary-500);
+	}
+
+	.slider-with-input__range::-webkit-slider-thumb {
+		appearance: none;
+		width: 1rem;
+		height: 1rem;
+		border-radius: 9999px;
+		border: 2px solid var(--color-primary-500);
+		background: var(--color-background-primary);
+		box-shadow: 0 1px 3px rgb(0 0 0 / 0.18);
 	}
 
 	.slider-with-input__range--disabled {
@@ -62,6 +73,8 @@
 	.slider-with-input__number {
 		border-radius: var(--layout-border-radius-base, 0.25rem);
 		border: 1px solid var(--color-border-primary);
+		background: var(--color-background-primary);
+		color: var(--color-text-primary);
 		padding: 0.5rem 0.75rem;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 	}

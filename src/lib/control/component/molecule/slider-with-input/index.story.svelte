@@ -35,6 +35,8 @@
 			description: 'Whether the component is disabled'
 		}
 	];
+
+	let currentValue = $state(50);
 </script>
 
 <Story
@@ -44,12 +46,19 @@
 >
 	{#snippet children(controlValues: any)}
 		<div class="_c1">
+			<p class="_c2">Current value: {currentValue}</p>
 			<SliderWithInput
 				min={controlValues.min}
 				max={controlValues.max}
 				step={controlValues.step}
-				value={controlValues.value}
+				value={currentValue}
 				disabled={controlValues.disabled}
+				onValueInput={(value) => {
+					currentValue = value;
+				}}
+				onValueChange={(value) => {
+					currentValue = value;
+				}}
 			/>
 		</div>
 	{/snippet}
@@ -58,5 +67,10 @@
 <style>
 	._c1 {
 		padding: 1rem;
+	}
+	._c2 {
+		margin: 0 0 0.75rem;
+		color: var(--color-text-secondary);
+		font-size: 0.875rem;
 	}
 </style>

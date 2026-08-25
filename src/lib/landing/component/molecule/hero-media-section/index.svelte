@@ -3,17 +3,7 @@
 	import Text from '$stylist/typography/component/atom/text/index.svelte';
 	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
 	import Image from '$stylist/image/component/atom/image/index.svelte';
-
-	interface HeroMediaSectionProps {
-		eyebrow?: string;
-		title: string;
-		lead?: string;
-		level?: 1 | 2 | 3;
-		imageSrc: string;
-		imageAlt: string;
-		imageLoading?: 'eager' | 'lazy';
-		class?: string;
-	}
+	import type { RecipeHeroMediaSection } from '$stylist/landing/interface/recipe/hero-media-section';
 
 	let {
 		eyebrow,
@@ -24,7 +14,7 @@
 		imageAlt,
 		imageLoading = 'lazy',
 		class: className = ''
-	}: HeroMediaSectionProps = $props();
+	}: RecipeHeroMediaSection = $props();
 </script>
 
 <section class="hero-media-section {className}">

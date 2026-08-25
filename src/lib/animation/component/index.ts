@@ -2,6 +2,7 @@
 export {
 	AnimatedBackground,
 	AnimatedDigit,
+	Css3dCube,
 	LayoutTransformation,
 	ProgressBar,
 	Skeleton,

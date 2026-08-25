@@ -1,11 +1,7 @@
 <script lang="ts">
-	interface NameHeroMediaItemsProps {
-		items: [string, string][];
-		ariaLabel: string;
-		class?: string;
-	}
+	import type { RecipeNameHeroMediaItems } from '$stylist/landing/interface/recipe/name-hero-media-items';
 
-	let { items, ariaLabel, class: className = '' }: NameHeroMediaItemsProps = $props();
+	let { items, ariaLabel, class: className = '' }: RecipeNameHeroMediaItems = $props();
 </script>
 
 <section class="name-hero-media-items {className}" aria-label={ariaLabel}>

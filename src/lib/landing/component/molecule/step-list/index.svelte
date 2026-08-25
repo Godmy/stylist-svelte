@@ -1,11 +1,7 @@
 <script lang="ts">
-	let {
-		steps,
-		class: className = ''
-	}: {
-		steps: string[];
-		class?: string;
-	} = $props();
+	import type { RecipeStepList } from '$stylist/landing/interface/recipe/step-list';
+
+	let { steps, class: className = '' }: RecipeStepList = $props();
 </script>
 
 <ol class="step-list {className}">

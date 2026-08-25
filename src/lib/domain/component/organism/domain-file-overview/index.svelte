@@ -1,58 +1,13 @@
 <script lang="ts">
 	import LegendBarDiagram from '$stylist/chart/component/organism/legend-bar-diagram/index.svelte';
 	import LegendBandDiagram from '$stylist/chart/component/organism/legend-band-diagram/index.svelte';
-
-	interface DomainFileMetric {
-		name: string;
-		fileCount: number;
-	}
-
-	interface DomainFilesManifest {
-		domains: DomainFileMetric[];
-		totals: {
-			domains: number;
-			files: number;
-			atoms: number;
-			molecules: number;
-			organisms: number;
-			templates: number;
-			pages: number;
-		};
-	}
-
-	interface DomainComponentIntervalMetric {
-		name: string;
-		value: number;
-		atom: number;
-		molecule: number;
-		organism: number;
-		template: number;
-		page: number;
-	}
-
-	interface DomainComponentIntervalsManifest {
-		domains: DomainComponentIntervalMetric[];
-		totals: {
-			components: number;
-			atoms: number;
-			molecules: number;
-			organisms: number;
-			templates: number;
-			pages: number;
-		};
-	}
-
-	interface DomainFileOverviewProps {
-		manifest: DomainFilesManifest;
-		componentIntervalsManifest: DomainComponentIntervalsManifest;
-		class?: string;
-	}
+	import type { RecipeDomainFileOverview } from '$stylist/domain/interface/recipe/domain-file-overview';
 
 	let {
 		manifest,
 		componentIntervalsManifest,
 		class: className = ''
-	}: DomainFileOverviewProps = $props();
+	}: RecipeDomainFileOverview = $props();
 
 	const domainFileChartItems = $derived(
 		manifest.domains.map((domain) => [domain.name, domain.fileCount] as [string, number])

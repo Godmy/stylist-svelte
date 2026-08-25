@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
+	import type { RecipeFeatureGrid } from '$stylist/domain/interface/recipe/feature-grid';
 
 	let {
 		title = 'Why Stylist?',
@@ -39,7 +40,7 @@
 			}
 		],
 		class: className = ''
-	} = $props();
+	}: RecipeFeatureGrid = $props();
 </script>
 
 <section class={`c-marketing-feature-grid ${className}`}>

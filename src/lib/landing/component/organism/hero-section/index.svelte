@@ -1,14 +1,9 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
-	import NavBar from '$stylist/landing/component/molecule/nav-bar/index.svelte';
-	import HeroMediaSection from '$stylist/landing/component/molecule/hero-media-section/index.svelte';
-	import MobileNavigationDrawer from '$stylist/landing/component/organism/mobile-navigation-drawer/index.svelte';
-	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
-
-	interface NavBarLink {
-		href: string;
-		label: string;
-	}
+	import { NavBar } from '$stylist/landing/component/molecule/nav-bar';
+	import { Paragraph } from '$stylist/typography/component/molecule/paragraph';
+	import { HeroMediaSection } from '$stylist/landing/component/molecule/hero-media-section';
+	import { MobileNavigationDrawer } from '$stylist/landing/component/organism/mobile-navigation-drawer';
+	import type { RecipeHeroSection } from '$stylist/landing/interface/recipe/hero-section';
 
 	let {
 		navAriaLabel,
@@ -22,19 +17,7 @@
 		brand,
 		languageControl,
 		class: className = ''
-	}: {
-		navAriaLabel: string;
-		sectionLinks: NavBarLink[];
-		signInHref: string;
-		signInLabel: string;
-		title: string;
-		lead: string;
-		imageSrc: string;
-		imageAlt: string;
-		brand?: Snippet;
-		languageControl?: Snippet;
-		class?: string;
-	} = $props();
+	}: RecipeHeroSection = $props();
 
 	let mobileMenuOpen = $state(false);
 

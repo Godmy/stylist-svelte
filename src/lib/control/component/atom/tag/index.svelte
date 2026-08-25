@@ -1,7 +1,5 @@
 <script lang="ts">
 	import type { RecipeTag } from '$stylist/control/interface/recipe/tag';
-	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-	const X = 'x';
 	import createTagState from './state.svelte';
 
 	let props: RecipeTag = $props();
@@ -57,7 +55,18 @@
 			disabled={state.disabled}
 			aria-label="Remove tag"
 		>
-			<BaseIcon name={X} style="width:0.75rem;height:0.75rem" />
+			<svg
+				class="c-tag__close-icon"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				aria-hidden="true"
+			>
+				<path d="M6 6l12 12" />
+				<path d="M18 6L6 18" />
+			</svg>
 		</button>
 	{/if}
 </span>
@@ -259,7 +268,8 @@
 		border-radius: 9999px;
 		border: none;
 		background: transparent;
-		color: var(--color-text-secondary);
+		color: currentColor;
+		opacity: 0.72;
 		cursor: pointer;
 		line-height: 1;
 		transition:
@@ -267,10 +277,15 @@
 			color var(--motion-duration-120, 120ms) var(--motion-easing-ease, ease);
 	}
 	.c-tag__close:hover {
-		background: var(--color-background-tertiary);
-		color: var(--color-text-primary);
+		background: color-mix(in srgb, currentColor 18%, transparent);
+		opacity: 1;
 	}
 	.c-tag__close:disabled {
 		cursor: not-allowed;
+	}
+
+	.c-tag__close-icon {
+		width: 0.75rem;
+		height: 0.75rem;
 	}
 </style>

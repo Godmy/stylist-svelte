@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createAutoSearchState from './state.svelte';
-	import type { SlotAutoSearch as AutoSearchProps } from '$stylist/search/interface/slot/auto-search';
+	import type { RecipeAutoSearch } from '$stylist/search/interface/recipe/auto-search';
 
 	let {
 		value = '',
@@ -10,7 +10,7 @@
 		/** @deprecated use onValueInput/onValueChange */
 		onInput = (value: string) => {},
 		class: className = ''
-	}: AutoSearchProps = $props();
+	}: RecipeAutoSearch = $props();
 
 	const state = createAutoSearchState({
 		value,

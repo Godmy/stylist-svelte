@@ -4,7 +4,6 @@ export {
 	AutocompleteDropdown,
 	Checkbox,
 	Chip,
-	Css3dCube,
 	Radio,
 	Switch,
 	Tag,

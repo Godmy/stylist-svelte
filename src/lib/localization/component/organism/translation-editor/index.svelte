@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createTranslationEditorState } from './state.svelte';
-	import type { SlotExtendedTranslationEditor as ExtendedTranslationEditorProps } from '$stylist/localization/interface/slot/extended-translation-editor';
+	import type { RecipeTranslationEditor } from '$stylist/localization/interface/recipe/translation-editor';
 
 	let {
 		onTranslationChange,
@@ -9,7 +9,7 @@
 		onImport,
 		onExport,
 		...stateProps
-	}: ExtendedTranslationEditorProps = $props();
+	}: RecipeTranslationEditor = $props();
 
 	const state = createTranslationEditorState(stateProps);
 </script>

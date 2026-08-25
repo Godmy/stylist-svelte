@@ -4,10 +4,8 @@
 	import DeviceViewport from '$stylist/domain/component/molecule/device-viewport/index.svelte';
 	import createDomainPlaygroundState from './state.svelte';
 	import DomainLanding from '$stylist/domain/component/page/domain-landing/index.svelte';
-	import type { TypeDomainComponentDescriptor } from '$stylist/domain/type/object/domain-component-descriptor';
-	import type { TypeDomainScreen } from '$stylist/domain/type/alias/domain-screen';
-	import type { TypeDomainTreeNode } from '$stylist/domain/type/object/domain-tree-node';
 	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
+	import type { RecipeDomainPlayground } from '$stylist/domain/interface/recipe/domain-playground';
 
 	let {
 		tree = [],
@@ -18,16 +16,7 @@
 		initialJoint,
 		initialPreviewMode,
 		class: className = ''
-	}: {
-		tree?: TypeDomainTreeNode[];
-		descriptors?: TypeDomainComponentDescriptor[];
-		initialScreen?: TypeDomainScreen;
-		initialDomain?: string;
-		initialCluster?: string;
-		initialJoint?: string;
-		initialPreviewMode?: 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
-		class?: string;
-	} = $props();
+	}: RecipeDomainPlayground = $props();
 
 	const screenState = createDomainPlaygroundState(initialScreen);
 	let storyDevice = $state<DeviceFrameViewport>('fullscreen');

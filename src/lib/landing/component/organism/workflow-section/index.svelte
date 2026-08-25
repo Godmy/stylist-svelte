@@ -5,72 +5,45 @@
 	import ComparisonTable from '$stylist/table/component/molecule/comparison-table/index.svelte';
 	import Image from '$stylist/image/component/atom/image/index.svelte';
 	import Divider from '$stylist/layout/component/atom/divider/index.svelte';
-	import type { ComparisonTableFeature } from '$stylist/table/type/object/comparison-table-feature';
-	import type { ComparisonTableProduct } from '$stylist/table/type/object/comparison-table-product';
+	import type { RecipeWorkflowSection } from '$stylist/landing/interface/recipe/workflow-section';
+	import createWorkflowSectionState from './state.svelte';
 
-	let {
-		id,
-		ariaLabel,
-		eyebrow,
-		title,
-		steps,
-		imageSrc,
-		imageAlt,
-		comparisonTitle,
-		comparisonColumns,
-		comparisonCriteria,
-		comparisonRows,
-		class: className = ''
-	}: {
-		id?: string;
-		ariaLabel: string;
-		eyebrow: string;
-		title: string;
-		steps: string[];
-		imageSrc: string;
-		imageAlt: string;
-		comparisonTitle: string;
-		comparisonColumns: [string, string, string];
-		comparisonCriteria: string[];
-		comparisonRows: [string, string, string][];
-		class?: string;
-	} = $props();
+	let props: RecipeWorkflowSection = $props();
 
-	const features = $derived<ComparisonTableFeature[]>(
-		comparisonCriteria.map((name, index) => ({ id: `criterion-${index}`, name }))
-	);
-	const products = $derived<ComparisonTableProduct[]>(
-		comparisonColumns.map((name, columnIndex) => ({
-			id: `column-${columnIndex}`,
-			name,
-			primary: columnIndex === comparisonColumns.length - 1,
-			features: Object.fromEntries(
-				comparisonCriteria.map((_, rowIndex) => [
-					`criterion-${rowIndex}`,
-					comparisonRows[rowIndex][columnIndex]
-				])
-			)
-		}))
-	);
+	const state = createWorkflowSectionState(props);
 </script>
 
-<section {id} class="workflow-section {className}" aria-label={ariaLabel}>
-	<Divider label={eyebrow} align="left" class="workflow-section__divider" />
-	<SectionHeading {title} class="workflow-section__heading" />
+<section id={props.id} class="workflow-section {props.class ?? ''}" aria-label={props.ariaLabel}>
+	<Divider label={props.eyebrow} align="left" class="workflow-section__divider" />
+	<SectionHeading title={props.title} class="workflow-section__heading" />
 
 	<div class="workflow-section__pair">
-		<StepList {steps} class="workflow-section__steps" />
+		<StepList steps={props.steps} class="workflow-section__steps" />
 		<figure class="workflow-section__media">
-			<Image {imageSrc} {imageAlt} size="xl" class="workflow-section__image" />
+			<Image
+				imageSrc={props.imageSrc}
+				imageAlt={props.imageAlt}
+				size="xl"
+				class="workflow-section__image"
+			/>
 		</figure>
 	</div>
 
 	<div class="workflow-section__comparison">
 		<div class="workflow-section__comparison-title-wrap">
-			<Heading level={3} text={comparisonTitle} class="workflow-section__comparison-title" />
+			<Heading
+				level={3}
+				text={props.comparisonTitle}
+				class="workflow-section__comparison-title"
+			/>
 		</div>
 		<div class="workflow-section__comparison-table">
-			<ComparisonTable {features} {products} featureColumnLabel="" showHeader />
+			<ComparisonTable
+				features={state.features}
+				products={state.products}
+				featureColumnLabel=""
+				showHeader
+			/>
 		</div>
 	</div>
 </section>

@@ -1,22 +1,16 @@
 <script lang="ts">
 	import IconToolbar from '$stylist/control/component/molecule/icon-toolbar/index.svelte';
 	import { createClusterToolbarItems } from '$stylist/domain/function/transform/cluster-toolbar-items';
-
-	interface ClusterToolbarProps {
-		active?: string;
-		orientation?: 'horizontal' | 'vertical';
-		showLabel?: boolean;
-		onSelect?: (name: string) => void;
-		class?: string;
-	}
+	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
+	import type { RecipeClusterToolbar } from '$stylist/domain/interface/recipe/cluster-toolbar';
 
 	let {
 		active,
-		orientation = 'horizontal',
+		orientation = TOKEN_ORIENTATION[0],
 		showLabel = true,
 		onSelect,
 		class: className = ''
-	}: ClusterToolbarProps = $props();
+	}: RecipeClusterToolbar = $props();
 
 	const items = createClusterToolbarItems();
 </script>

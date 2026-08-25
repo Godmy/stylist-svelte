@@ -1,12 +1,5 @@
 <script lang="ts">
-	interface DomainSearchFieldProps {
-		value?: string;
-		placeholder?: string;
-		onInput?: (value: string) => void;
-		onEscape?: () => void;
-		inputRef?: HTMLInputElement | null;
-		class?: string;
-	}
+	import type { RecipeDomainSearchField } from '$stylist/domain/interface/recipe/domain-search-field';
 
 	let {
 		value = $bindable(''),
@@ -15,7 +8,7 @@
 		onEscape,
 		inputRef = $bindable(null),
 		class: className = ''
-	}: DomainSearchFieldProps = $props();
+	}: RecipeDomainSearchField = $props();
 </script>
 
 <input

@@ -3,6 +3,7 @@
 	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
 	import Image from '$stylist/image/component/atom/image/index.svelte';
 	import Divider from '$stylist/layout/component/atom/divider/index.svelte';
+	import type { RecipeResultSection } from '$stylist/landing/interface/recipe/result-section';
 
 	let {
 		ariaLabel,
@@ -12,15 +13,7 @@
 		imageSrc,
 		imageAlt,
 		class: className = ''
-	}: {
-		ariaLabel: string;
-		eyebrow: string;
-		title: string;
-		body: string;
-		imageSrc: string;
-		imageAlt: string;
-		class?: string;
-	} = $props();
+	}: RecipeResultSection = $props();
 </script>
 
 <section class="result-section {className}" aria-label={ariaLabel}>

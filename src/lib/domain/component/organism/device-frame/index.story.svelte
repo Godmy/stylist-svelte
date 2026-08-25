@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import RecipeDeviceFrame from './index.svelte';
 
@@ -9,6 +10,12 @@
 			type: 'select',
 			defaultValue: 'desktop',
 			options: ['mobile', 'tablet', 'desktop', 'fullscreen']
+		},
+		{
+			name: 'orientation',
+			type: 'select',
+			defaultValue: TOKEN_ORIENTATION[1],
+			options: TOKEN_ORIENTATION
 		}
 	];
 </script>
@@ -20,7 +27,7 @@
 	{controls}
 >
 	{#snippet children(values: any)}
-		<RecipeDeviceFrame device={values.device}>
+		<RecipeDeviceFrame device={values.device} orientation={values.orientation}>
 			<div
 				style="min-height: 240px; padding: 24px; background: linear-gradient(135deg, #f8fafc, #e2e8f0); display: grid; place-items: center;"
 			>

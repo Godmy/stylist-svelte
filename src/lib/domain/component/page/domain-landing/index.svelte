@@ -1,5 +1,6 @@
 <script lang="ts">
 	import StylistLanding from '$stylist/domain/component/organism/stylist-hero/index.svelte';
+	import type { RecipeDomainLanding } from '$stylist/domain/interface/recipe/domain-landing';
 
 	let {
 		rootDomainCount = 0,
@@ -8,14 +9,7 @@
 		onOpenPlayground,
 		onOpenWorkspace,
 		class: className = ''
-	}: {
-		rootDomainCount?: number;
-		storyModuleCount?: number;
-		onBrowseComponents?: () => void;
-		onOpenPlayground?: () => void;
-		onOpenWorkspace?: () => void;
-		class?: string;
-	} = $props();
+	}: RecipeDomainLanding = $props();
 </script>
 
 <StylistLanding

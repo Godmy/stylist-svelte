@@ -4,11 +4,11 @@
 	import Switch from './index.svelte';
 
 	const controls: SlotStory[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Включить уведомления' },
+		{ name: 'label', type: 'text', defaultValue: 'Enable notifications' },
 		{
 			name: 'description',
 			type: 'text',
-			defaultValue: 'Получать email-уведомления о новых событиях'
+			defaultValue: 'Receive email notifications for new events'
 		},
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
@@ -22,7 +22,7 @@
 	component={Switch}
 	title="Switch"
 	category="Atoms/Interaction/Controls/Toggles"
-	description="Переключатель с лейблом и описанием для включения/выключения опций"
+	description="Switch with label, description, required, checked, and disabled states."
 	tags={['switch', 'toggle', 'checkbox', 'form', 'control']}
 >
 	{#snippet children(values: any)}

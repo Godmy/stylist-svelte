@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { RecipeAnimatedBackground } from './animated-background';
 export type { RecipeAnimatedDigit } from './animated-digit';
+export type { RecipeCss3dCube } from './css-3d-cube';
 export type { RecipeLayoutTransformation } from './layout-transformation';
 export type { RecipeLoading } from './loading';
 export type { RecipeProgressBar } from './progress-bar';

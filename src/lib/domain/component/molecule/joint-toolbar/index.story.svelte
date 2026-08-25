@@ -1,14 +1,16 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
 	import JointToolbar from './index.svelte';
 
 	const controls: SlotStory[] = [
 		{
 			name: 'orientation',
 			type: 'select',
-			defaultValue: 'horizontal',
-			options: ['horizontal', 'vertical']
+			defaultValue: TOKEN_ORIENTATION[0],
+			options: TOKEN_ORIENTATION
 		},
 		{ name: 'showLabel', type: 'boolean', defaultValue: true }
 	];
@@ -28,7 +30,7 @@
 			<JointToolbar
 				{active}
 				{availableJoints}
-				orientation={values.orientation as 'horizontal' | 'vertical'}
+				orientation={values.orientation as TokenOrientation}
 				showLabel={Boolean(values.showLabel)}
 				onSelect={(name) => {
 					active = name;

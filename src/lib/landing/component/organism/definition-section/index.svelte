@@ -1,5 +1,6 @@
 <script lang="ts">
 	import DividerHeadingImageText from '$stylist/image/component/molecule/divider-heading-image-text/index.svelte';
+	import type { RecipeDefinitionSection } from '$stylist/landing/interface/recipe/definition-section';
 
 	let {
 		id,
@@ -11,17 +12,7 @@
 		imageSrc,
 		imageAlt,
 		class: className = ''
-	}: {
-		id?: string;
-		ariaLabel: string;
-		eyebrow: string;
-		text: string;
-		body: string;
-		paragraphs?: string[];
-		imageSrc: string;
-		imageAlt: string;
-		class?: string;
-	} = $props();
+	}: RecipeDefinitionSection = $props();
 </script>
 
 <DividerHeadingImageText

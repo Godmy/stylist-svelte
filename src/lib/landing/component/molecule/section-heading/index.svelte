@@ -1,16 +1,9 @@
 <script lang="ts">
 	import Heading from '$stylist/typography/component/atom/heading/index.svelte';
 	import Text from '$stylist/typography/component/atom/text/index.svelte';
+	import type { RecipeSectionHeading } from '$stylist/landing/interface/recipe/section-heading';
 
-	let {
-		eyebrow,
-		title,
-		class: className = ''
-	}: {
-		eyebrow?: string;
-		title: string;
-		class?: string;
-	} = $props();
+	let { eyebrow, title, class: className = '' }: RecipeSectionHeading = $props();
 </script>
 
 <div class="section-heading {className}">

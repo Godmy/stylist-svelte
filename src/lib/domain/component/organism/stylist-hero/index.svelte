@@ -3,6 +3,7 @@
 	import FeatureGrid from '$stylist/domain/component/molecule/feature-grid/index.svelte';
 	import StylistHeroIntro from '$stylist/domain/component/molecule/stylist-hero-intro/index.svelte';
 	import StylistMission from '$stylist/domain/component/molecule/stylist-mission/index.svelte';
+	import type { RecipeStylistHero } from '$stylist/domain/interface/recipe/stylist-hero';
 
 	let {
 		rootDomainCount = 0,
@@ -11,14 +12,7 @@
 		onOpenPlayground,
 		onOpenWorkspace,
 		class: className = ''
-	}: {
-		rootDomainCount?: number;
-		storyModuleCount?: number;
-		onBrowseComponents?: () => void;
-		onOpenPlayground?: () => void;
-		onOpenWorkspace?: () => void;
-		class?: string;
-	} = $props();
+	}: RecipeStylistHero = $props();
 </script>
 
 <section class={`c-stylist-landing ${className}`} aria-label="Stylist landing">

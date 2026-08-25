@@ -1,23 +1,28 @@
 <script lang="ts">
 	import type { RecipeSpacer } from '$stylist/layout/interface/recipe/spacer';
-	import createSpacerState from './state.svelte';
 
 	let props: RecipeSpacer = $props();
-	const state = createSpacerState(props);
+	const axis = $derived(props.axis ?? 'vertical');
+	const size = $derived(props.size ?? '1rem');
+	const inline = $derived(props.inline ?? false);
+	const restProps = $derived.by(() => {
+		const { class: _class, axis: _axis, size: _size, inline: _inline, ...rest } = props;
+		return rest;
+	});
 </script>
 
 <div
 	class={[
 		'layout-spacer',
-		`layout-spacer--${state.axis}`,
-		state.inline && 'layout-spacer--inline',
+		`layout-spacer--${axis}`,
+		inline && 'layout-spacer--inline',
 		props.class
 	]
 		.filter(Boolean)
 		.join(' ')}
-	style:--spacer-size={state.sizeValue}
+	style:--spacer-size={size}
 	aria-hidden="true"
-	{...state.restProps}
+	{...restProps}
 ></div>
 
 <style>

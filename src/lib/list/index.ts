@@ -11,6 +11,7 @@ export type {
 	RecipeBaseCard,
 	RecipeDragAndDropList,
 	RecipeListItemMarker,
+	RecipeSortableList,
 	SlotDragAndDropListItem,
 	SlotSortableList,
 	SlotSortableListItem

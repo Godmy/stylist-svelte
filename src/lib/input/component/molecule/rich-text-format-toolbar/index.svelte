@@ -1,27 +1,6 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
-
-	type RichTextFormatToolbarProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
-		class?: string;
-		buttonClass?: string;
-		dividerClass?: string;
-		iconClass?: string;
-		showLinkInput?: boolean;
-		linkUrl?: string;
-		linkInputClass?: string;
-		linkInputFieldClass?: string;
-		linkInputButtonClass?: string;
-		onFormatText?: (command: string, value?: string) => void;
-		onToggleHeading?: (level: number) => void;
-		onToggleBlockquote?: () => void;
-		onToggleHorizontalRule?: () => void;
-		onToggleLinkInput?: () => void;
-		onSetShowLinkInput?: (value: boolean) => void;
-		onSetLinkUrl?: (url: string) => void;
-		onInsertLink?: () => void;
-		onInsertImage?: () => void;
-	};
+	import type { RecipeRichTextFormatToolbar } from '$stylist/input/interface/recipe/rich-text-format-toolbar';
 
 	const textStyles = [
 		{ label: 'Normal', value: 'p' },
@@ -78,7 +57,7 @@
 		onInsertLink,
 		onInsertImage,
 		...restProps
-	}: RichTextFormatToolbarProps = $props();
+	}: RecipeRichTextFormatToolbar = $props();
 
 	function formatStyle(value: string) {
 		if (value === 'blockquote') {

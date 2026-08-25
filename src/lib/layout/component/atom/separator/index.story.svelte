@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import Separator from './index.svelte';
 
@@ -7,8 +8,8 @@
 		{
 			name: 'orientation',
 			type: 'select',
-			options: ['horizontal', 'vertical'],
-			defaultValue: 'horizontal'
+			options: TOKEN_ORIENTATION,
+			defaultValue: TOKEN_ORIENTATION[0]
 		},
 		{
 			name: 'decorative',
@@ -42,7 +43,7 @@
 				<h3 class="_c4">Horizontal Separator</h3>
 				<div class="_c5">
 					<p>Top section</p>
-					<Separator orientation="horizontal" class="_c6" />
+					<Separator orientation={TOKEN_ORIENTATION[0]} class="_c6" />
 					<p>Bottom section</p>
 				</div>
 			</div>
@@ -61,12 +62,12 @@
 			<div class="_c11">
 				<h3 class="_c12">Semantic Separator</h3>
 				<p>role="separator" — announced by screen readers</p>
-				<Separator orientation="horizontal" decorative={false} />
+				<Separator orientation={TOKEN_ORIENTATION[0]} decorative={false} />
 				<p>After semantic separator</p>
 
 				<h3 class="_c13">Decorative Separator</h3>
 				<p>role="presentation" — hidden from assistive tech</p>
-				<Separator orientation="horizontal" decorative={true} />
+				<Separator orientation={TOKEN_ORIENTATION[0]} decorative={true} />
 				<p>After decorative separator</p>
 			</div>
 		</div>

@@ -1,24 +1,17 @@
 <script lang="ts">
 	import IconToolbar from '$stylist/control/component/molecule/icon-toolbar/index.svelte';
 	import { JOINT_TOOLBAR_ITEMS } from '$stylist/domain/const/value/joint-toolbar-items';
-
-	interface JointToolbarProps {
-		active?: string;
-		availableJoints?: readonly string[];
-		orientation?: 'horizontal' | 'vertical';
-		showLabel?: boolean;
-		onSelect?: (name: string) => void;
-		class?: string;
-	}
+	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
+	import type { RecipeJointToolbar } from '$stylist/domain/interface/recipe/joint-toolbar';
 
 	let {
 		active,
 		availableJoints,
-		orientation = 'horizontal',
+		orientation = TOKEN_ORIENTATION[0],
 		showLabel = true,
 		onSelect,
 		class: className = ''
-	}: JointToolbarProps = $props();
+	}: RecipeJointToolbar = $props();
 </script>
 
 <IconToolbar

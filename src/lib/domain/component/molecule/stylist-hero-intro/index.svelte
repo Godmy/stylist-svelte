@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AnimatedBackground from '$stylist/animation/component/atom/animated-background/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
+	import type { RecipeStylistHeroIntro } from '$stylist/domain/interface/recipe/stylist-hero-intro';
 
 	const Sparkles = 'sparkles';
 	const ExternalLink = 'external-link';
@@ -47,7 +48,7 @@
 			}
 		],
 		class: className = ''
-	} = $props();
+	}: RecipeStylistHeroIntro = $props();
 
 	const particleIndexes = Array.from({ length: 18 }, (_, index) => index);
 </script>

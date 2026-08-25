@@ -16,9 +16,10 @@ export type {
 	RecipeInputText,
 	RecipeNumberInput,
 	RecipePhoneNumberInput,
-	RecipeRadioButtonGroupProps,
+	RecipeRadioButtonGroup,
 	RecipeRadioGroup,
-	RecipeRichTextEditorStateProps,
+	RecipeRichTextEditor,
+	RecipeRichTextFormatToolbar,
 	RecipeTagInput,
 	RecipeTextArea
 } from './recipe';

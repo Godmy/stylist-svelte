@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 	import RadioGroup from './index.svelte';
 	import type { TokenControllerType } from '$stylist/domain/type/alias/controller-type';
 
@@ -26,8 +27,8 @@
 		{
 			name: 'orientation',
 			type: 'select' as TokenControllerType,
-			defaultValue: 'vertical',
-			options: ['vertical', 'horizontal'],
+			defaultValue: TOKEN_ORIENTATION[1],
+			options: TOKEN_ORIENTATION,
 			description: 'Orientation of the radio group'
 		},
 		{

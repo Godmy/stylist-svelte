@@ -5,9 +5,11 @@ import type { BehaviorScrollable } from '$stylist/layout/interface/behavior/scro
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotIcon } from '$stylist/svg/interface/slot/icon';
+import type { SlotAutoSearch } from '$stylist/search/interface/slot/auto-search';
 export interface RecipeAutoSearch
 	extends ComputeIntersectAll<
 		[
+			SlotAutoSearch,
 			SlotText,
 			SlotText,
 			SlotIcon,

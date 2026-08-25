@@ -1,24 +1,7 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
 	import Link from '$stylist/typography/component/atom/link/index.svelte';
 	import ThemeModeToggle from '$stylist/theme/component/atom/theme-mode-toggle/index.svelte';
-
-	interface NavBarLink {
-		href: string;
-		label: string;
-	}
-
-	interface NavBarProps {
-		ariaLabel: string;
-		sectionLinks: NavBarLink[];
-		signInHref: string;
-		signInLabel: string;
-		brand?: Snippet;
-		languageControl?: Snippet;
-		onMobileMenuOpen?: () => void;
-		mobileMenuOpen?: boolean;
-		class?: string;
-	}
+	import type { RecipeNavBar } from '$stylist/landing/interface/recipe/nav-bar';
 
 	let {
 		ariaLabel,
@@ -30,7 +13,7 @@
 		onMobileMenuOpen,
 		mobileMenuOpen = false,
 		class: className = ''
-	}: NavBarProps = $props();
+	}: RecipeNavBar = $props();
 </script>
 
 <nav class="nav-bar {className}" aria-label={ariaLabel}>

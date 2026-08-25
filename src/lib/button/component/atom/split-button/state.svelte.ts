@@ -1,8 +1,8 @@
 import { createButtonState as createButtonStateImpl } from '$stylist/button/function/state/button/index.svelte';
+import type { RecipeSplitButton } from '$stylist/button/interface/recipe/split-button';
 
-export function createSplitButtonState(...args: Parameters<typeof createButtonStateImpl>) {
-	const [props] = args as [Record<string, any>];
-	const buttonState = createButtonStateImpl(...args);
+export function createSplitButtonState(props: RecipeSplitButton) {
+	const buttonState = createButtonStateImpl(props as Parameters<typeof createButtonStateImpl>[0]);
 	let isOpen = $state(false);
 	const buttonId = `split-button-${Math.random().toString(36).slice(2, 11)}`;
 
@@ -25,7 +25,7 @@ export function createSplitButtonState(...args: Parameters<typeof createButtonSt
 	});
 
 	function toggleDropdown() {
-		if (!(props.contract?.disabled ?? props.disabled)) {
+		if (!props.disabled) {
 			isOpen = !isOpen;
 		}
 	}

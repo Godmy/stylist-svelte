@@ -1,39 +1,10 @@
 <script lang="ts">
 	import MetricBar from '$stylist/chart/component/atom/metric-bar/index.svelte';
+	import type { DomainFileMetric } from '$stylist/domain/type/object/domain-file-metric';
+	import type { DomainFileComponentMetric } from '$stylist/domain/type/object/domain-file-component-metric';
+	import type { RecipeDomainFileDomainGrid } from '$stylist/domain/interface/recipe/domain-file-domain-grid';
 
-	interface DomainFileJointMetric {
-		name: string;
-		entityCount: number;
-		fileCount: number;
-	}
-
-	interface DomainFileClusterMetric {
-		name: string;
-		fileCount: number;
-		joints: DomainFileJointMetric[];
-	}
-
-	interface DomainFileComponentMetric {
-		atoms: number;
-		molecules: number;
-		organisms: number;
-		templates: number;
-		pages: number;
-	}
-
-	interface DomainFileMetric {
-		name: string;
-		fileCount: number;
-		components: DomainFileComponentMetric;
-		clusters: DomainFileClusterMetric[];
-	}
-
-	interface DomainFileDomainGridProps {
-		domains: DomainFileMetric[];
-		class?: string;
-	}
-
-	let { domains, class: className = '' }: DomainFileDomainGridProps = $props();
+	let { domains, class: className = '' }: RecipeDomainFileDomainGrid = $props();
 
 	const componentLabels: Record<keyof DomainFileComponentMetric, string> = {
 		atoms: 'Atoms',

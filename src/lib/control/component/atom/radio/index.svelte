@@ -6,7 +6,12 @@
 	const state = createRadioState(props);
 </script>
 
-<div class="c-radio" data-disabled={state.disabled || undefined} data-size={state.size}>
+<div
+	class="c-radio"
+	data-disabled={state.disabled || undefined}
+	data-size={state.size}
+	data-required={state.required || undefined}
+>
 	<input
 		id={state.id}
 		type="radio"
@@ -60,6 +65,16 @@
 		font-weight: 500;
 		color: var(--color-text-primary);
 		cursor: pointer;
+	}
+
+	.c-radio[data-required] .c-radio__label::after {
+		content: ' *';
+		color: var(--color-danger-500, #ef4444);
+	}
+
+	.c-radio[data-required] .c-radio__input {
+		outline: 1px solid color-mix(in srgb, var(--color-primary-500) 60%, transparent);
+		outline-offset: 2px;
 	}
 
 	.c-radio[data-disabled] {

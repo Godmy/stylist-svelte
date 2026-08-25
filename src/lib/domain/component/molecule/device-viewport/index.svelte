@@ -1,14 +1,9 @@
 <script lang="ts">
 	import { DEVICE_FRAME_VIEWPORT } from '$stylist/domain/const/array/device-frame-viewport';
 	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
+	import type { RecipeDeviceViewport } from '$stylist/domain/interface/recipe/device-viewport';
 
-	interface DeviceViewportProps {
-		value?: DeviceFrameViewport;
-		onChange?: (value: DeviceFrameViewport) => void;
-		class?: string;
-	}
-
-	let { value = 'desktop', onChange, class: className = '' }: DeviceViewportProps = $props();
+	let { value = 'desktop', onChange, class: className = '' }: RecipeDeviceViewport = $props();
 
 	const LABEL: Record<DeviceFrameViewport, string> = {
 		mobile: 'Mobile',

@@ -2,10 +2,19 @@ import type { RecipeRangeSlider } from '$stylist/control/interface/recipe/range-
 
 export function createRangeSliderState(props: RecipeRangeSlider) {
 	const isRange = $derived(props.range ?? false);
-	const value = $derived(props.value ?? 0);
 	const min = $derived(props.min ?? 0);
 	const max = $derived(props.max ?? 100);
 	const disabled = $derived(props.disabled ?? false);
+	let value = $state<number | [number, number]>(props.value ?? 0);
+
+	$effect(() => {
+		if (isRange && !Array.isArray(value)) {
+			value = [min, max];
+		}
+		if (!isRange && Array.isArray(value)) {
+			value = value[0];
+		}
+	});
 
 	const minPercentage = $derived(
 		isRange && Array.isArray(value) ? ((value[0] - min) / (max - min)) * 100 : 0
@@ -41,6 +50,20 @@ export function createRangeSliderState(props: RecipeRangeSlider) {
 	);
 	const minMaxLabelClass = 'c-range-slider__minmax';
 	const descriptionClass = 'c-range-slider__description';
+
+	function updateSingle(nextValue: number) {
+		value = Math.min(Math.max(nextValue, min), max);
+	}
+
+	function updateRange(index: 0 | 1, nextValue: number) {
+		const current = Array.isArray(value) ? value : [min, max];
+		const next: [number, number] = [current[0], current[1]];
+		next[index] = Math.min(Math.max(nextValue, min), max);
+		if (next[0] > next[1]) {
+			next[index === 0 ? 1 : 0] = next[index];
+		}
+		value = next;
+	}
 
 	return {
 		get isRange() {
@@ -111,7 +134,9 @@ export function createRangeSliderState(props: RecipeRangeSlider) {
 		},
 		get id() {
 			return props.id;
-		}
+		},
+		updateSingle,
+		updateRange
 	};
 }
 

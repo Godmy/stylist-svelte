@@ -1,38 +1,11 @@
 <script lang="ts">
-	interface DomainFileJointMetric {
-		name: string;
-		entityCount: number;
-		fileCount: number;
-	}
-
-	interface DomainFileClusterMetric {
-		name: string;
-		fileCount: number;
-		joints: DomainFileJointMetric[];
-	}
-
-	interface DomainFileComponentMetric {
-		atoms: number;
-		molecules: number;
-		organisms: number;
-		templates: number;
-		pages: number;
-	}
-
-	interface DomainFileMetric {
-		name: string;
-		components: DomainFileComponentMetric;
-		clusters: DomainFileClusterMetric[];
-	}
-
-	interface DomainClusterBalanceProps {
-		domains: DomainFileMetric[];
-		class?: string;
-	}
+	import type { DomainFileMetric } from '$stylist/domain/type/object/domain-file-metric';
+	import type { DomainFileComponentMetric } from '$stylist/domain/type/object/domain-file-component-metric';
+	import type { RecipeDomainClusterBalance } from '$stylist/domain/interface/recipe/domain-cluster-balance';
 
 	type AnomalyMetricKey = 'components' | 'const' | 'type' | 'interface' | 'class' | 'function';
 
-	let { domains, class: className = '' }: DomainClusterBalanceProps = $props();
+	let { domains, class: className = '' }: RecipeDomainClusterBalance = $props();
 
 	const anomalyMetricLabels: Record<AnomalyMetricKey, string> = {
 		components: 'Components',

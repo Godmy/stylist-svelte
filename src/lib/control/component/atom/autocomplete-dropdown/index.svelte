@@ -27,6 +27,7 @@
 <div class={state.rootClass}>
 	<button
 		class={state.triggerClass}
+		data-placeholder={!state.selectedOption || undefined}
 		onclick={state.toggle}
 		onkeydown={state.handleKeyDown}
 		aria-haspopup="listbox"
@@ -71,7 +72,7 @@
 
 	.autocomplete-dropdown__trigger {
 		width: 100%;
-		padding: 0.5rem 1rem;
+		padding: 0.5rem 2.5rem 0.5rem 1rem;
 		text-align: left;
 		background-color: var(--color-background-primary);
 		border: 1px solid var(--color-border-primary);
@@ -79,6 +80,11 @@
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 		cursor: pointer;
 		position: relative;
+		color: var(--color-text-primary);
+	}
+
+	.autocomplete-dropdown__trigger[data-placeholder] {
+		color: var(--color-text-secondary);
 	}
 
 	.autocomplete-dropdown__trigger:focus {
@@ -118,6 +124,7 @@
 	.autocomplete-dropdown__option {
 		padding: 0.5rem 1rem;
 		cursor: pointer;
+		color: var(--color-text-primary);
 	}
 
 	.autocomplete-dropdown__option:hover {

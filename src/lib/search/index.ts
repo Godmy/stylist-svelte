@@ -17,6 +17,7 @@ export type {
 	RecipeAutoComplete,
 	RecipeAutoSearch,
 	RecipeSearchBar,
+	RecipeSearchForm,
 	RecipeSearchResults,
 	RecipeSearchSuggestion,
 	SlotAutoComplete,

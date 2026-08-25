@@ -1,4 +1,5 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
+import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 import type { RecipeRadioGroup } from '$stylist/input/interface/recipe/radio-group';
 export function createRadioGroupState(props: RecipeRadioGroup): {
 	internalValue: string;
@@ -21,7 +22,7 @@ export function createRadioGroupState(props: RecipeRadioGroup): {
 		if (props.value !== undefined) internalValue = props.value;
 	});
 
-	const orientation = $derived(props.orientation ?? 'vertical');
+	const orientation = $derived(props.orientation ?? TOKEN_ORIENTATION[1]);
 	const layoutClass = $derived(`c-radio-group__options--${orientation}`);
 
 	const rootClass = $derived('c-radio-group');

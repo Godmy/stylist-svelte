@@ -1,0 +1,8 @@
+import type { FRIEND_LIST_FRIEND } from '$stylist/social/type/object/friend-list/friend_list_friend';
+
+export function friendListHandleFriendClick(
+	friend: FRIEND_LIST_FRIEND,
+	onFriendSelect?: (friend: FRIEND_LIST_FRIEND) => void
+) {
+	onFriendSelect?.(friend);
+}

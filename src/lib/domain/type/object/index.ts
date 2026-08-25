@@ -1,4 +1,22 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AiModelInfo } from './ai-model-info';
+export type { ComponentImportRow } from './component-import-row';
+export type { ComponentImportSummary } from './component-import-summary';
 export type { TypeDomainComponentDescriptor } from './domain-component-descriptor';
+export type { DomainComponentIntervalMetric } from './domain-component-interval-metric';
+export type { DomainComponentIntervalsManifest } from './domain-component-intervals-manifest';
+export type { DomainComponentIntervalsTotals } from './domain-component-intervals-totals';
 export type { TypeDomainComponentProjection } from './domain-component-projection';
+export type { DomainDependency } from './domain-dependency';
+export type { DomainDependencyFile } from './domain-dependency-file';
+export type { DomainFileClusterMetric } from './domain-file-cluster-metric';
+export type { DomainFileComponentMetric } from './domain-file-component-metric';
+export type { DomainFileJointMetric } from './domain-file-joint-metric';
+export type { DomainFileMetric } from './domain-file-metric';
+export type { DomainFileSummary } from './domain-file-summary';
+export type { DomainFilesManifest } from './domain-files-manifest';
+export type { DomainFilesTotals } from './domain-files-totals';
+export type { DomainSearchEntry } from './domain-search-entry';
 export type { TypeDomainTreeNode } from './domain-tree-node';
+export type { FeatureGridItem } from './feature-grid-item';
+export type { TabFile } from './tab-file';

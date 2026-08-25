@@ -1,20 +1,22 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import { CENTERED_LAYOUT_AXIS } from '$stylist/layout/const/array/centered-layout-axis';
 	import Spacer from './index.svelte';
 
+	import type { RecipeSpacer } from '$stylist/layout/interface/recipe/spacer';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 
 	const controls: SlotStory[] = [
 		{
 			name: 'size',
 			type: 'select',
-			options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '16px'],
-			defaultValue: 'md'
+			options: ['0.25rem', '0.5rem', '1rem', '1.5rem', '2rem', '3rem'],
+			defaultValue: '1rem'
 		},
 		{
 			name: 'axis',
 			type: 'select',
-			options: ['vertical', 'horizontal', 'both'],
+			options: CENTERED_LAYOUT_AXIS,
 			defaultValue: 'vertical'
 		},
 		{
@@ -32,16 +34,17 @@
 	description="A flexible space component for layout purposes"
 >
 	{#snippet children(values: any)}
+		{@const spacerProps = values as RecipeSpacer}
 		{#if values.axis === 'vertical'}
 			<div class="_c1">
 				<span class="_c2">Top</span>
-				<Spacer {...values} />
+				<Spacer {...spacerProps} />
 				<span class="_c2">Bottom</span>
 			</div>
 		{:else}
 			<div class="_c3">
 				<span>Left</span>
-				<Spacer {...values} />
+				<Spacer {...spacerProps} />
 				<span>Right</span>
 			</div>
 		{/if}

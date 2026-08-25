@@ -1,177 +1,69 @@
 <script lang="ts">
-	import { untrack } from 'svelte';
-	import { DEFAULT_SCHEMA_TEXT } from '$stylist/erd/const/value/schema-text';
-	import { EDIT_CANDIDATE_SCHEMA_TEXT } from '$stylist/erd/const/value/schema-text-candidate';
-	import { SCIENCE_DOMAIN_SCHEMA_TEXT } from '$stylist/erd/const/value/schema-text-science-domain';
-	import { mergeSchemaDocuments } from '$stylist/erd/function/merge/schema-documents';
-	import { schemaDocumentToText } from '$stylist/erd/function/transform/schema-document-to-text';
-	import { schemaTextToDocument } from '$stylist/erd/function/transform/schema-text-to-document';
 	import SchemaText from '$stylist/erd/component/organism/schema-text/index.svelte';
 	import SchemaHeader from '$stylist/erd/component/organism/schema-header/index.svelte';
 	import SchemaView from '$stylist/erd/component/organism/schema-view/index.svelte';
-	import type { SchemaMode } from '$stylist/erd/type/alias/schema-mode';
-	import type { SlotErdSettings } from '$stylist/erd/interface/slot/erd-settings';
+	import type { RecipeSchema } from '$stylist/erd/interface/recipe/schema';
+	import createSchemaState from './state.svelte';
 
-	let {
-		title = 'Schema',
-		value = DEFAULT_SCHEMA_TEXT,
-		zoom = 1,
-		showRelations = true,
-		highlightRelations = true,
-		layout = 'grid',
-		draggable = true
-	}: SlotErdSettings = $props();
+	let props: RecipeSchema = $props();
 
-	// Each of these intentionally captures the prop only once (uncontrolled
-	// widget: initial value from the prop, then locally editable via the
-	// toolbar/text editor) -- untrack() makes that explicit instead of
-	// tripping the "did you mean a closure?" state_referenced_locally warning.
-	let liveSource = $state<string>(untrack(() => value));
-	// Candidate pool for Mode: Edit -- see docs/chat/20260726/001-CLAUDE-ERD-EDIT.md.
-	// Purely a format conversion of erd/data/md/schema/schema.md, nothing added
-	// or removed yet.
-	let editSource = $state<string>(EDIT_CANDIDATE_SCHEMA_TEXT);
-	let currentZoom = $state(untrack(() => zoom));
-	let relationsVisible = $state(untrack(() => showRelations));
-	let relationHighlight = $state(untrack(() => highlightRelations));
-	let currentLayout = $state(untrack(() => layout));
-	let currentMode = $state<SchemaMode>('live');
-	let textPanelVisible = $state(true);
-	let fileInput: HTMLInputElement | undefined = $state();
-
-	let scienceDomainSource = $state<string>(SCIENCE_DOMAIN_SCHEMA_TEXT);
-	let liveParseResult = $derived(schemaTextToDocument(liveSource));
-	let editParseResult = $derived(schemaTextToDocument(editSource));
-	let scienceDomainParseResult = $derived(schemaTextToDocument(scienceDomainSource));
-	let migrateParseResult = $derived.by(() => {
-		const merged = mergeSchemaDocuments(
-			liveParseResult.document,
-			scienceDomainParseResult.document
-		);
-
-		return {
-			document: merged.document,
-			errors: [...liveParseResult.errors, ...scienceDomainParseResult.errors, ...merged.errors]
-		};
-	});
-	let parseResult = $derived.by(() => {
-		if (currentMode === 'edit') {
-			return editParseResult;
-		}
-
-		if (currentMode === 'migrate') {
-			return migrateParseResult;
-		}
-
-		return liveParseResult;
-	});
-	let activeSource = $derived.by(() => {
-		if (currentMode === 'edit') {
-			return editSource;
-		}
-
-		if (currentMode === 'migrate') {
-			return schemaDocumentToText(migrateParseResult.document);
-		}
-
-		return liveSource;
-	});
-
-	function clampZoom(nextZoom: number): number {
-		return Math.min(1.8, Math.max(0.45, Number(nextZoom.toFixed(2))));
-	}
-
-	function importSchema(): void {
-		fileInput?.click();
-	}
-
-	function exportSchema(): void {
-		const blob = new Blob([activeSource], { type: 'text/plain;charset=utf-8' });
-		const url = URL.createObjectURL(blob);
-		const link = document.createElement('a');
-
-		link.href = url;
-		link.download = `schema.${currentMode}.erd.txt`;
-		link.click();
-		URL.revokeObjectURL(url);
-	}
-
-	async function handleFileImport(event: Event): Promise<void> {
-		const input = event.target as HTMLInputElement;
-		const file = input.files?.[0];
-
-		if (!file) {
-			return;
-		}
-
-		const text = await file.text();
-
-		if (currentMode === 'edit') {
-			editSource = text;
-		} else if (currentMode === 'migrate') {
-			scienceDomainSource = text;
-		} else {
-			liveSource = text;
-		}
-
-		input.value = '';
-	}
+	const state = createSchemaState(props);
 </script>
 
 <section class="schema">
 	<input
-		bind:this={fileInput}
+		bind:this={state.fileInput}
 		class="schema__file-input"
 		type="file"
 		accept=".txt,.schema,.erd,text/plain"
-		onchange={handleFileImport}
+		onchange={state.handleFileImport}
 	/>
 
 	<SchemaHeader
-		{title}
+		title={props.title ?? 'Schema'}
 		stats={{
-			tables: parseResult.document.tables.length,
-			relations: parseResult.document.dependencies.length,
-			errors: parseResult.errors.length
+			tables: state.parseResult.document.tables.length,
+			relations: state.parseResult.document.dependencies.length,
+			errors: state.parseResult.errors.length
 		}}
-		zoom={currentZoom}
-		showRelations={relationsVisible}
-		highlightRelations={relationHighlight}
-		layout={currentLayout}
-		mode={currentMode}
-		{textPanelVisible}
-		on:import={importSchema}
-		on:export={exportSchema}
-		on:zoom-in={() => (currentZoom = clampZoom(currentZoom + 0.1))}
-		on:zoom-out={() => (currentZoom = clampZoom(currentZoom - 0.1))}
-		on:zoom-reset={() => (currentZoom = 1)}
-		on:layout-change={(event) => (currentLayout = event.detail.layout)}
-		on:toggle-relations={(event) => (relationsVisible = event.detail.enabled)}
-		on:toggle-highlight={(event) => (relationHighlight = event.detail.enabled)}
-		on:mode-change={(event) => (currentMode = event.detail.mode)}
-		on:toggle-text-panel={(event) => (textPanelVisible = event.detail.visible)}
+		zoom={state.currentZoom}
+		showRelations={state.relationsVisible}
+		highlightRelations={state.relationHighlight}
+		layout={state.currentLayout}
+		mode={state.currentMode}
+		textPanelVisible={state.textPanelVisible}
+		on:import={state.importSchema}
+		on:export={state.exportSchema}
+		on:zoom-in={state.zoomIn}
+		on:zoom-out={state.zoomOut}
+		on:zoom-reset={state.zoomReset}
+		on:layout-change={(event) => state.setLayout(event.detail.layout)}
+		on:toggle-relations={(event) => state.setRelationsVisible(event.detail.enabled)}
+		on:toggle-highlight={(event) => state.setRelationHighlight(event.detail.enabled)}
+		on:mode-change={(event) => state.setMode(event.detail.mode)}
+		on:toggle-text-panel={(event) => state.setTextPanelVisible(event.detail.visible)}
 	/>
 
-	<div class={`schema__workspace ${textPanelVisible ? '' : 'schema__workspace--full'}`}>
+	<div class={`schema__workspace ${state.textPanelVisible ? '' : 'schema__workspace--full'}`}>
 		<div class="schema__view">
 			<SchemaView
-				document={parseResult.document}
-				zoom={currentZoom}
-				showRelations={relationsVisible}
-				highlightRelations={relationHighlight}
-				layout={currentLayout}
-				{draggable}
+				document={state.parseResult.document}
+				zoom={state.currentZoom}
+				showRelations={state.relationsVisible}
+				highlightRelations={state.relationHighlight}
+				layout={state.currentLayout}
+				draggable={props.draggable ?? true}
 			/>
 		</div>
 
-		{#if textPanelVisible}
+		{#if state.textPanelVisible}
 			<aside class="schema__editor">
-				{#if currentMode === 'edit'}
-					<SchemaText bind:value={editSource} />
-				{:else if currentMode === 'migrate'}
-					<SchemaText value={activeSource} />
+				{#if state.currentMode === 'edit'}
+					<SchemaText bind:value={state.editSource} />
+				{:else if state.currentMode === 'migrate'}
+					<SchemaText value={state.activeSource} />
 				{:else}
-					<SchemaText bind:value={liveSource} />
+					<SchemaText bind:value={state.liveSource} />
 				{/if}
 			</aside>
 		{/if}

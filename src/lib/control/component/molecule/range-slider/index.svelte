@@ -55,7 +55,8 @@
 				type="range"
 				class={state.thumbClass}
 				style={`left: ${state.minPercentage}%`}
-				bind:value={state.value[0]}
+				value={state.value[0]}
+				oninput={(event) => state.updateRange(0, Number((event.target as HTMLInputElement).value))}
 				min={state.min}
 				max={state.max}
 				step={state.step}
@@ -68,7 +69,8 @@
 				type="range"
 				class={state.thumbClass}
 				style={`left: ${state.maxPercentage}%`}
-				bind:value={state.value[1]}
+				value={state.value[1]}
+				oninput={(event) => state.updateRange(1, Number((event.target as HTMLInputElement).value))}
 				min={state.min}
 				max={state.max}
 				step={state.step}
@@ -83,7 +85,8 @@
 				type="range"
 				class={state.thumbClass}
 				style={`left: ${state.maxPercentage}%`}
-				bind:value={state.value}
+				value={state.value}
+				oninput={(event) => state.updateSingle(Number((event.target as HTMLInputElement).value))}
 				min={state.min}
 				max={state.max}
 				step={state.step}
@@ -169,10 +172,12 @@
 		top: 50%;
 		transform: translateY(-50%);
 		appearance: none;
-		width: 0;
-		height: 0;
+		width: 100%;
+		height: 1.5rem;
+		left: 0 !important;
 		background: transparent;
 		cursor: pointer;
+		pointer-events: none;
 	}
 
 	.c-range-slider__minmax {
@@ -198,6 +203,7 @@
 		border: 2px solid var(--range-slider-thumb-border-color);
 		box-shadow: var(--layout-box-shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
 		cursor: pointer;
+		pointer-events: all;
 	}
 
 	.c-range-slider__thumb:disabled::-webkit-slider-thumb {
@@ -213,6 +219,7 @@
 		border: 2px solid var(--range-slider-thumb-border-color);
 		box-shadow: var(--layout-box-shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
 		cursor: pointer;
+		pointer-events: all;
 	}
 
 	.c-range-slider__thumb:disabled::-moz-range-thumb {

@@ -56,6 +56,7 @@
 	class={state.containerClass}
 	data-disabled={disabled || undefined}
 	data-error={state.hasError || undefined}
+	data-required={state.required || undefined}
 >
 	<div class="c-checkbox__wrapper">
 		<input
@@ -146,6 +147,10 @@
 
 	.c-checkbox[data-error] .c-checkbox__input {
 		border-color: var(--color-danger-500, #ef4444);
+	}
+
+	.c-checkbox[data-required]:not([data-error]) .c-checkbox__input {
+		border-color: color-mix(in srgb, var(--color-primary-500) 70%, var(--color-border-primary));
 	}
 
 	.c-checkbox[data-disabled] {

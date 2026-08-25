@@ -1,10 +1,7 @@
 <script lang="ts">
-	interface DomainListHeaderProps {
-		label?: string;
-		count?: number;
-	}
+	import type { RecipeDomainListHeader } from '$stylist/domain/interface/recipe/domain-list-header';
 
-	let { label = 'Entities', count }: DomainListHeaderProps = $props();
+	let { label = 'Entities', count }: RecipeDomainListHeader = $props();
 </script>
 
 <div class="c-domain-list-header">

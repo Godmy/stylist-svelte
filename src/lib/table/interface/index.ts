@@ -6,12 +6,16 @@ export type {
 	RecipeCellPill,
 	RecipeCellText,
 	RecipeColumn,
+	RecipeColumnManager,
 	RecipeComparisonTable,
 	RecipeComponent,
+	RecipeDataTable,
+	RecipeDataTableShell,
 	RecipeFilterBar,
 	RecipeFilterPills,
 	RecipeFilterText,
 	RecipeRow,
+	RecipeRowExpandable,
 	RecipeTable,
 	RecipeTableListPanel
 } from './recipe';

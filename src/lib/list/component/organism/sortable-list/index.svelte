@@ -3,7 +3,7 @@
 	const GripVertical = 'grip-vertical';
 	const MoreHorizontal = 'more-horizontal';
 
-	import type { SlotSortableList as SortableListProps } from '$stylist/list/interface/slot/sortable-list';
+	import type { RecipeSortableList } from '$stylist/list/interface/recipe/sortable-list';
 	import createSortableListState from './state.svelte';
 
 	let {
@@ -16,7 +16,7 @@
 		showActions = true,
 		variant = 'card',
 		...restProps
-	}: SortableListProps = $props();
+	}: RecipeSortableList = $props();
 
 	const state = createSortableListState({
 		items,

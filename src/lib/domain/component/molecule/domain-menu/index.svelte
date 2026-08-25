@@ -1,18 +1,7 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import ThemeModeToggle from '$stylist/theme/component/atom/theme-mode-toggle/index.svelte';
-
-	interface DomainMenuProps {
-		landingVisible?: boolean;
-		domainVisible?: boolean;
-		diagnosticsOpen?: boolean;
-		settingsOpen?: boolean;
-		onLandingToggle?: () => void;
-		onDomainToggle?: () => void;
-		onDiagnosticsToggle?: () => void;
-		onSettingsToggle?: () => void;
-		class?: string;
-	}
+	import type { RecipeDomainMenu } from '$stylist/domain/interface/recipe/domain-menu';
 
 	let {
 		landingVisible = false,
@@ -24,7 +13,7 @@
 		onDiagnosticsToggle,
 		onSettingsToggle,
 		class: className = ''
-	}: DomainMenuProps = $props();
+	}: RecipeDomainMenu = $props();
 </script>
 
 <nav class="c-domain-menu {className}" aria-label="Domain menu">

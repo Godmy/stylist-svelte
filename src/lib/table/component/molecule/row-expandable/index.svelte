@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RowExpandableProps } from '$stylist/table/type/object/row-expandable-props';
+	import type { RecipeRowExpandable } from '$stylist/table/interface/recipe/row-expandable';
 	import { createExpandableTableRowState } from './state.svelte';
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
@@ -12,7 +12,7 @@
 		headerCellClass = '',
 		onToggle,
 		...restProps
-	}: RowExpandableProps = $props();
+	}: RecipeRowExpandable = $props();
 
 	const state = createExpandableTableRowState({
 		expandableContent,

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
+	import type { RecipeStylistMission } from '$stylist/domain/interface/recipe/stylist-mission';
 
 	const Sparkles = 'sparkles';
 
@@ -14,18 +15,7 @@
 		onPrimaryOpen,
 		onSecondaryOpen,
 		class: className = ''
-	}: {
-		badgeText?: string;
-		title?: string;
-		description?: string;
-		primaryLabel?: string;
-		primaryHref?: string;
-		secondaryLabel?: string;
-		secondaryHref?: string;
-		onPrimaryOpen?: () => void;
-		onSecondaryOpen?: () => void;
-		class?: string;
-	} = $props();
+	}: RecipeStylistMission = $props();
 
 	function handlePrimaryClick(event: MouseEvent) {
 		if (!onPrimaryOpen) return;

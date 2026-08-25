@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import { CENTERED_LAYOUT_AXIS } from '$stylist/layout/const/array/centered-layout-axis';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import CenteredLayout from './index.svelte';
 
@@ -8,7 +9,7 @@
 			name: 'axis',
 			type: 'select',
 			defaultValue: 'both',
-			options: ['both', 'horizontal', 'vertical']
+			options: CENTERED_LAYOUT_AXIS
 		},
 		{ name: 'fillHeight', type: 'boolean', defaultValue: true },
 		{ name: 'fillWidth', type: 'boolean', defaultValue: true }

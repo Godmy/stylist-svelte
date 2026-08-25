@@ -12,3 +12,20 @@ export {
 	StepList,
 	WorkflowSection
 } from './component';
+export type {
+	CaseItem,
+	NavBarLink
+} from './type';
+export type {
+	RecipeCasesSection,
+	RecipeDefinitionSection,
+	RecipeHeroMediaSection,
+	RecipeHeroSection,
+	RecipeMobileNavigationDrawer,
+	RecipeNameHeroMediaItems,
+	RecipeNavBar,
+	RecipeResultSection,
+	RecipeSectionHeading,
+	RecipeStepList,
+	RecipeWorkflowSection
+} from './interface';

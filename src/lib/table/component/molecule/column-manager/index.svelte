@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { SlotColumnManager } from '$stylist/table/interface/slot/column-manager';
+	import type { RecipeColumnManager } from '$stylist/table/interface/recipe/column-manager';
 	import { createColumnManagerState } from './state.svelte';
 
-	let props: SlotColumnManager & HTMLAttributes<HTMLDivElement> = $props();
+	let props: RecipeColumnManager & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createColumnManagerState(props);
 </script>
 

@@ -11,13 +11,13 @@
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createSearchBarState from './state.svelte';
-	import type { SlotSearchBar as ISearchBarProps } from '$stylist/search/interface/slot/search-bar';
+	import type { RecipeSearchBar } from '$stylist/search/interface/recipe/search-bar';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	const Search = 'search';
 	const X = 'x';
 
-	let props: ISearchBarProps & HTMLAttributes<HTMLDivElement> = $props();
+	let props: RecipeSearchBar & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createSearchBarState(props);
 </script>
 

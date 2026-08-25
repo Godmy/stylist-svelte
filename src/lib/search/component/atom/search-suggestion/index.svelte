@@ -1,6 +1,6 @@
 <script lang="ts">
 	import createSearchSuggestionState from './state.svelte';
-	import type { SlotSearchSuggestion as SearchSuggestionProps } from '$stylist/search/interface/slot/search-suggestion';
+	import type { RecipeSearchSuggestion } from '$stylist/search/interface/recipe/search-suggestion';
 
 	let {
 		suggestions = [],
@@ -13,7 +13,7 @@
 		onValueChange,
 		maxSuggestions = 5,
 		...restProps
-	}: SearchSuggestionProps = $props();
+	}: RecipeSearchSuggestion = $props();
 
 	const state = createSearchSuggestionState({
 		suggestions,

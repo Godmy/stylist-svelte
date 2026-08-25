@@ -5,31 +5,10 @@
 	import Text from '$stylist/typography/component/atom/text/index.svelte';
 	import Paragraph from '$stylist/typography/component/molecule/paragraph/index.svelte';
 	import Image from '$stylist/image/component/atom/image/index.svelte';
+	import type { RecipeCasesSection } from '$stylist/landing/interface/recipe/cases-section';
 
-	interface CaseItem {
-		kicker: string;
-		title: string;
-		body: string;
-		result: string;
-		image: string;
-		alt: string;
-	}
-
-	let {
-		id,
-		ariaLabel,
-		eyebrow,
-		title,
-		items,
-		class: className = ''
-	}: {
-		id?: string;
-		ariaLabel: string;
-		eyebrow: string;
-		title: string;
-		items: CaseItem[];
-		class?: string;
-	} = $props();
+	let { id, ariaLabel, eyebrow, title, items, class: className = '' }: RecipeCasesSection =
+		$props();
 </script>
 
 <section {id} class="cases-section {className}" aria-label={ariaLabel}>

@@ -1,29 +1,7 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { TOKEN_ICON_REGISTRY } from '$stylist/svg/const/record/icon-registry';
-
-	interface TabFile {
-		name: string;
-		path: string;
-	}
-
-	interface JointTabButtonsProps {
-		files?: TabFile[];
-		markdownFile?: TabFile | null;
-		storyFile?: TabFile | null;
-		selectedEntityName?: string;
-		activeFilePath?: string;
-		previewMode?: 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
-		previewKind?: 'svg' | 'json' | 'text';
-		activeJoint?: string;
-		hasDependencyPreview?: boolean;
-		onFileSelect?: (path: string) => void;
-		onMarkdownSelect?: () => void;
-		onStorySelect?: () => void;
-		onJsonTreeSelect?: () => void;
-		onDependencySelect?: () => void;
-		class?: string;
-	}
+	import type { RecipeJointTabButtons } from '$stylist/domain/interface/recipe/joint-tab-buttons';
 
 	let {
 		files = [],
@@ -41,7 +19,7 @@
 		onJsonTreeSelect,
 		onDependencySelect,
 		class: className = ''
-	}: JointTabButtonsProps = $props();
+	}: RecipeJointTabButtons = $props();
 
 	const NOT_FOUND_ICON_NAME = 'alert-circle';
 

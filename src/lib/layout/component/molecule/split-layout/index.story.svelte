@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
 	import SplitLayout from './index.svelte';
 
@@ -7,8 +8,8 @@
 		{
 			name: 'direction',
 			type: 'select',
-			defaultValue: 'horizontal',
-			options: ['horizontal', 'vertical']
+			defaultValue: TOKEN_ORIENTATION[0],
+			options: TOKEN_ORIENTATION
 		},
 		{ name: 'gap', type: 'select', defaultValue: 'md', options: ['none', 'sm', 'md', 'lg', 'xl'] },
 		{

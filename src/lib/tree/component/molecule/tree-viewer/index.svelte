@@ -1,21 +1,10 @@
 <script lang="ts">
-	import type { TreeNodeItemNode } from '$stylist/tree/type/object/tree-node-item-node';
+	import type { RecipeTreeViewer } from '$stylist/tree/interface/recipe/tree-viewer';
 	import FlatTree from '$stylist/tree/component/molecule/flat-tree/index.svelte';
 	import { normalizeTreeViewerNode } from '$stylist/tree/function/script/normalize-tree-viewer-node';
 	import createTreeViewerState from './state.svelte';
 
-	let props = $props<{
-		tree?: TreeNodeItemNode[];
-		onSelectCallback?: (key: string | undefined) => void;
-		onToggleCallback?: (key: string | undefined) => void;
-		itemHeight?: number;
-		visibleItemCount?: number;
-		bufferSize?: number;
-		class?: string;
-		onSelect?: (detail: { node: TreeNodeItemNode }) => void;
-		onExpand?: (detail: { node: TreeNodeItemNode }) => void;
-		onCollapse?: (detail: { node: TreeNodeItemNode }) => void;
-	}>();
+	let props: RecipeTreeViewer = $props();
 
 	const state = createTreeViewerState(props);
 

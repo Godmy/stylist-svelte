@@ -1,5 +1,5 @@
 import type { HTMLInputAttributes } from 'svelte/elements';
-import type { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
+import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
 export interface RecipeRadioGroup
 	extends Omit<HTMLInputAttributes, 'type' | 'value' | 'name' | 'checked'> {
 	name: string;
@@ -12,7 +12,7 @@ export interface RecipeRadioGroup
 	}[];
 	label?: string;
 	description?: string;
-	orientation?: (typeof TOKEN_ORIENTATION)[number];
+	orientation?: TokenOrientation;
 	disabled?: boolean;
 	required?: boolean;
 	error?: string;

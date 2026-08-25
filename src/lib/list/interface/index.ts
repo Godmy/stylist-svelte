@@ -2,7 +2,8 @@
 export type {
 	RecipeBaseCard,
 	RecipeDragAndDropList,
-	RecipeListItemMarker
+	RecipeListItemMarker,
+	RecipeSortableList
 } from './recipe';
 export type {
 	SlotDragAndDropListItem,

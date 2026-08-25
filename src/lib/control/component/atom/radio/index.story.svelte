@@ -15,7 +15,7 @@
 <Story
 	component={SlotRadio}
 	title="SlotRadio"
-	description="Single radio option with clear checked and disabled states."
+	description="Single radio option with checked, required, size, and disabled states."
 	{controls}
 >
 	{#snippet children(values: any)}
@@ -30,9 +30,7 @@
 				required={values.required}
 				size={values.size}
 			/>
-			<div class="_c2">
-				Use one `name` for a group. This story renders a single controllable option.
-			</div>
+			<div class="_c2">Selected value: {values.checked ? 'primary' : 'none'}</div>
 		</div>
 	{/snippet}
 </Story>

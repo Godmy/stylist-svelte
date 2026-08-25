@@ -6,12 +6,9 @@
 	import componentImportDiagnosticsManifest from '$stylist/domain/data/json/domain-component-import-diagnostics/index.json';
 	import domainComponentIntervalsManifest from '$stylist/domain/data/json/domain-component-intervals/index.json';
 	import domainFilesManifest from '$stylist/domain/data/json/domain-files/index.json';
+	import type { RecipeDomainFileDiagnostics } from '$stylist/domain/interface/recipe/domain-file-diagnostics';
 
-	interface DomainFileDiagnosticsProps {
-		class?: string;
-	}
-
-	let { class: className = '' }: DomainFileDiagnosticsProps = $props();
+	let { class: className = '' }: RecipeDomainFileDiagnostics = $props();
 </script>
 
 <section class="c-domain-file-diagnostics {className}" aria-label="Domain file diagnostics">

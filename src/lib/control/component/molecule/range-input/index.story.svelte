@@ -64,6 +64,8 @@
 			<RangeInput
 				min={values.min}
 				max={values.max}
+				minValue={currentValues.min}
+				maxValue={currentValues.max}
 				step={values.step}
 				disabled={values.disabled}
 				showInputFields={values.showInputFields}

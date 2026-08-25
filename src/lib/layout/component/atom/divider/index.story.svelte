@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
+	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 	import Divider from './index.svelte';
 
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
@@ -8,8 +9,8 @@
 		{
 			name: 'orientation',
 			type: 'select',
-			options: ['horizontal', 'vertical'],
-			defaultValue: 'horizontal'
+			options: TOKEN_ORIENTATION,
+			defaultValue: TOKEN_ORIENTATION[0]
 		},
 		{
 			name: 'align',
@@ -37,7 +38,7 @@
 	description="A visual separator with optional text label"
 >
 	{#snippet children(values: any)}
-		{#if values.orientation === 'horizontal'}
+		{#if values.orientation === TOKEN_ORIENTATION[0]}
 			<div class="_c1">
 				<Divider {...values} />
 			</div>

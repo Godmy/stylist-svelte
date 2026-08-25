@@ -1,12 +1,5 @@
 <script lang="ts">
-	interface TaxonomyBreadcrumbsProps {
-		domain?: string;
-		cluster?: string;
-		joint?: string;
-		family?: string;
-		file?: string;
-		class?: string;
-	}
+	import type { RecipeTaxonomyBreadcrumbs } from '$stylist/domain/interface/recipe/taxonomy-breadcrumbs';
 
 	let {
 		domain,
@@ -15,7 +8,7 @@
 		family,
 		file,
 		class: className = ''
-	}: TaxonomyBreadcrumbsProps = $props();
+	}: RecipeTaxonomyBreadcrumbs = $props();
 
 	const dotIndex = $derived(file ? file.lastIndexOf('.') : -1);
 	const fileName = $derived(dotIndex > 0 ? file!.slice(0, dotIndex) : (file ?? ''));

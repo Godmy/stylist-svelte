@@ -1,10 +1,7 @@
 <script lang="ts">
-	interface JsonTreeViewerProps {
-		content?: string;
-		class?: string;
-	}
+	import type { RecipeJsonTreeViewer } from '$stylist/domain/interface/recipe/json-tree-viewer';
 
-	let { content = '', class: className = '' }: JsonTreeViewerProps = $props();
+	let { content = '', class: className = '' }: RecipeJsonTreeViewer = $props();
 
 	const parsed = $derived.by(() => {
 		try {

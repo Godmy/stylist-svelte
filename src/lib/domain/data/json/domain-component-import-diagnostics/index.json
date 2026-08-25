@@ -1,6 +1,88 @@
 {
   "rows": [
     {
+      "path": "auth/component/atom/auth-error/index.svelte",
+      "domain": "auth",
+      "joint": "atom",
+      "family": "auth-error",
+      "status": "none",
+      "expectedRecipe": "RecipeAuthError",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
+      "path": "auth/component/atom/auth-link/index.svelte",
+      "domain": "auth",
+      "joint": "atom",
+      "family": "auth-link",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeAuthLink",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte"
+      ]
+    },
+    {
+      "path": "auth/component/atom/submit-button/index.svelte",
+      "domain": "auth",
+      "joint": "atom",
+      "family": "submit-button",
+      "status": "none",
+      "expectedRecipe": "RecipeSubmitButton",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
+      "path": "auth/component/organism/forgot-password-page/index.svelte",
+      "domain": "auth",
+      "joint": "organism",
+      "family": "forgot-password-page",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeForgotPasswordPage",
+      "importCount": 2,
+      "recipeImports": [
+        "$stylist/auth/interface/recipe/forgot-password"
+      ],
+      "otherImports": [
+        "$stylist/auth/component/molecule/forgot-password/index.svelte"
+      ]
+    },
+    {
+      "path": "auth/component/organism/login-page/index.svelte",
+      "domain": "auth",
+      "joint": "organism",
+      "family": "login-page",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeLoginPage",
+      "importCount": 3,
+      "recipeImports": [
+        "$stylist/auth/interface/recipe/login"
+      ],
+      "otherImports": [
+        "$stylist/auth/component/molecule/login/index.svelte",
+        "$stylist/auth/component/atom/auth-link/index.svelte"
+      ]
+    },
+    {
+      "path": "auth/component/organism/register-page/index.svelte",
+      "domain": "auth",
+      "joint": "organism",
+      "family": "register-page",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeRegisterPage",
+      "importCount": 3,
+      "recipeImports": [
+        "$stylist/auth/interface/recipe/register"
+      ],
+      "otherImports": [
+        "$stylist/auth/component/molecule/register/index.svelte",
+        "$stylist/auth/component/atom/auth-link/index.svelte"
+      ]
+    },
+    {
       "path": "button/component/atom/button/index.svelte",
       "domain": "button",
       "joint": "atom",
@@ -12,433 +94,235 @@
         "$stylist/button/interface/recipe/button-element"
       ],
       "otherImports": [
-        "$stylist/button/function/state/button-atom/index.svelte",
+        "./state.svelte",
         "$stylist/svg/component/atom/icon/index.svelte",
         "$stylist/button/const/map/button",
         "svelte/elements"
       ]
     },
     {
-      "path": "button/component/atom/split-button/index.svelte",
-      "domain": "button",
+      "path": "chat/component/atom/message-input/index.svelte",
+      "domain": "chat",
       "joint": "atom",
-      "family": "split-button",
+      "family": "message-input",
       "status": "missing-recipe",
-      "expectedRecipe": "RecipeSplitButton",
+      "expectedRecipe": "RecipeMessageInput",
       "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte/elements",
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "$stylist/chat/interface/slot/message-input",
+        "./state.svelte"
+      ]
+    },
+    {
+      "path": "chat/component/atom/message-meta/index.svelte",
+      "domain": "chat",
+      "joint": "atom",
+      "family": "message-meta",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeMessageMeta",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/chat/interface/slot/message",
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "$stylist/chat/component/atom/message-timestamp/index.svelte",
+        "./state.svelte"
+      ]
+    },
+    {
+      "path": "chat/component/atom/message-status/index.svelte",
+      "domain": "chat",
+      "joint": "atom",
+      "family": "message-status",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeMessageStatus",
+      "importCount": 2,
       "recipeImports": [
-        "$stylist/button/interface/recipe/button-element"
+        "$stylist/chat/interface/recipe/message-status-props"
       ],
       "otherImports": [
-        "$stylist/svg/component/atom/icon/index.svelte",
-        "./state.svelte",
-        "$stylist/button/type/object/split-button-button-attributes"
+        "./state.svelte"
       ]
     },
     {
-      "path": "control/component/molecule/icon-toolbar/index.svelte",
-      "domain": "control",
+      "path": "chat/component/molecule/chat-item/index.svelte",
+      "domain": "chat",
       "joint": "molecule",
-      "family": "icon-toolbar",
+      "family": "chat-item",
       "status": "missing-recipe",
-      "expectedRecipe": "RecipeIconToolbar",
-      "importCount": 1,
+      "expectedRecipe": "RecipeChatItem",
+      "importCount": 7,
       "recipeImports": [],
       "otherImports": [
-        "$stylist/svg/interface/slot/svg-name"
+        "$stylist/chat/interface/slot/chat",
+        "$stylist/chat/interface/slot/user",
+        "$stylist/user/component/atom/avatar/index.svelte",
+        "$stylist/typography/component/atom/badge/index.svelte",
+        "$stylist/chat/component/atom/message-timestamp/index.svelte",
+        "svelte/elements",
+        "./state.svelte"
       ]
     },
     {
-      "path": "domain/component/atom/domain-entity/index.svelte",
-      "domain": "domain",
-      "joint": "atom",
-      "family": "domain-entity",
-      "status": "none",
-      "expectedRecipe": "RecipeDomainEntity",
-      "importCount": 0,
-      "recipeImports": [],
-      "otherImports": []
-    },
-    {
-      "path": "domain/component/atom/domain-list-header/index.svelte",
-      "domain": "domain",
-      "joint": "atom",
-      "family": "domain-list-header",
-      "status": "none",
-      "expectedRecipe": "RecipeDomainListHeader",
-      "importCount": 0,
-      "recipeImports": [],
-      "otherImports": []
-    },
-    {
-      "path": "domain/component/atom/domain-search-field/index.svelte",
-      "domain": "domain",
-      "joint": "atom",
-      "family": "domain-search-field",
-      "status": "none",
-      "expectedRecipe": "RecipeDomainSearchField",
-      "importCount": 0,
-      "recipeImports": [],
-      "otherImports": []
-    },
-    {
-      "path": "domain/component/atom/domain-search-toggle/index.svelte",
-      "domain": "domain",
-      "joint": "atom",
-      "family": "domain-search-toggle",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainSearchToggle",
-      "importCount": 1,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/svg/component/atom/icon/index.svelte"
-      ]
-    },
-    {
-      "path": "domain/component/molecule/cluster-toolbar/index.svelte",
-      "domain": "domain",
+      "path": "chat/component/molecule/chat-list/index.svelte",
+      "domain": "chat",
       "joint": "molecule",
-      "family": "cluster-toolbar",
+      "family": "chat-list",
       "status": "missing-recipe",
-      "expectedRecipe": "RecipeClusterToolbar",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/control/component/molecule/icon-toolbar/index.svelte",
-        "$stylist/domain/function/transform/cluster-toolbar-items"
-      ]
-    },
-    {
-      "path": "domain/component/molecule/cta-buttons/index.svelte",
-      "domain": "domain",
-      "joint": "molecule",
-      "family": "cta-buttons",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeCtaButtons",
-      "importCount": 1,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/svg/component/atom/icon/index.svelte"
-      ]
-    },
-    {
-      "path": "domain/component/molecule/device-viewport/index.svelte",
-      "domain": "domain",
-      "joint": "molecule",
-      "family": "device-viewport",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDeviceViewport",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/domain/const/array/device-frame-viewport",
-        "$stylist/domain/type/alias/device-frame-viewport"
-      ]
-    },
-    {
-      "path": "domain/component/molecule/domain-menu/index.svelte",
-      "domain": "domain",
-      "joint": "molecule",
-      "family": "domain-menu",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainMenu",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/svg/component/atom/icon/index.svelte",
-        "$stylist/theme/component/atom/theme-mode-toggle/index.svelte"
-      ]
-    },
-    {
-      "path": "domain/component/molecule/domain-search/index.svelte",
-      "domain": "domain",
-      "joint": "molecule",
-      "family": "domain-search",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainSearch",
+      "expectedRecipe": "RecipeChatList",
       "importCount": 4,
       "recipeImports": [],
       "otherImports": [
-        "svelte",
-        "$stylist/domain/component/atom/domain-search-field/index.svelte",
-        "$stylist/domain/component/atom/domain-search-toggle/index.svelte",
-        "$stylist/domain/component/molecule/taxonomy-breadcrumbs/index.svelte"
+        "$stylist/chat/interface/slot/chat",
+        "$stylist/chat/interface/slot/user",
+        "$stylist/chat/component/molecule/chat-item/index.svelte",
+        "./state.svelte"
       ]
     },
     {
-      "path": "domain/component/molecule/feature-grid/index.svelte",
-      "domain": "domain",
+      "path": "chat/component/molecule/chat-message/index.svelte",
+      "domain": "chat",
       "joint": "molecule",
-      "family": "feature-grid",
+      "family": "chat-message",
       "status": "missing-recipe",
-      "expectedRecipe": "RecipeFeatureGrid",
-      "importCount": 1,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/svg/component/atom/icon/index.svelte"
-      ]
-    },
-    {
-      "path": "domain/component/molecule/joint-tab-buttons/index.svelte",
-      "domain": "domain",
-      "joint": "molecule",
-      "family": "joint-tab-buttons",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeJointTabButtons",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/svg/component/atom/icon/index.svelte",
-        "$stylist/svg/const/record/icon-registry"
-      ]
-    },
-    {
-      "path": "domain/component/molecule/joint-toolbar/index.svelte",
-      "domain": "domain",
-      "joint": "molecule",
-      "family": "joint-toolbar",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeJointToolbar",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/control/component/molecule/icon-toolbar/index.svelte",
-        "$stylist/domain/const/value/joint-toolbar-items"
-      ]
-    },
-    {
-      "path": "domain/component/molecule/json-tree-viewer/index.svelte",
-      "domain": "domain",
-      "joint": "molecule",
-      "family": "json-tree-viewer",
-      "status": "none",
-      "expectedRecipe": "RecipeJsonTreeViewer",
-      "importCount": 0,
-      "recipeImports": [],
-      "otherImports": []
-    },
-    {
-      "path": "domain/component/molecule/stylist-hero-intro/index.svelte",
-      "domain": "domain",
-      "joint": "molecule",
-      "family": "stylist-hero-intro",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeStylistHeroIntro",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/animation/component/atom/animated-background/index.svelte",
-        "$stylist/svg/component/atom/icon/index.svelte"
-      ]
-    },
-    {
-      "path": "domain/component/molecule/stylist-mission/index.svelte",
-      "domain": "domain",
-      "joint": "molecule",
-      "family": "stylist-mission",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeStylistMission",
-      "importCount": 1,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/svg/component/atom/icon/index.svelte"
-      ]
-    },
-    {
-      "path": "domain/component/molecule/taxonomy-breadcrumbs/index.svelte",
-      "domain": "domain",
-      "joint": "molecule",
-      "family": "taxonomy-breadcrumbs",
-      "status": "none",
-      "expectedRecipe": "RecipeTaxonomyBreadcrumbs",
-      "importCount": 0,
-      "recipeImports": [],
-      "otherImports": []
-    },
-    {
-      "path": "domain/component/organism/domain-cluster-balance/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "domain-cluster-balance",
-      "status": "none",
-      "expectedRecipe": "RecipeDomainClusterBalance",
-      "importCount": 0,
-      "recipeImports": [],
-      "otherImports": []
-    },
-    {
-      "path": "domain/component/organism/domain-component-import-diagnostics/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "domain-component-import-diagnostics",
-      "status": "none",
-      "expectedRecipe": "RecipeDomainComponentImportDiagnostics",
-      "importCount": 0,
-      "recipeImports": [],
-      "otherImports": []
-    },
-    {
-      "path": "domain/component/organism/domain-diagnostics/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "domain-diagnostics",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainDiagnostics",
+      "expectedRecipe": "RecipeChatMessage",
       "importCount": 5,
       "recipeImports": [],
       "otherImports": [
+        "svelte/elements",
         "svelte",
-        "$stylist/domain/component/organism/domain-file-diagnostics/index.svelte",
-        " | ",
-        ", ",
-        ", error);\n\t\t\t}\n\n\t\t\tconst result: DiagnosticResult = {\n\t\t\t\tid: entry.id,\n\t\t\t\tpath: entry.path,\n\t\t\t\ttitle: entry.title,\n\t\t\t\tdomain: entry.domain,\n\t\t\t\tstatus: pendingErrors.length === 0 ? "
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "$stylist/user/component/atom/avatar/index.svelte",
+        "./state.svelte"
       ]
     },
     {
-      "path": "domain/component/organism/domain-explorer/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "domain-explorer",
+      "path": "chat/component/molecule/chat-room/index.svelte",
+      "domain": "chat",
+      "joint": "molecule",
+      "family": "chat-room",
       "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainExplorer",
-      "importCount": 7,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/domain/component/organism/domain-file-preview/index.svelte",
-        "$stylist/domain/component/molecule/domain-search/index.svelte",
-        "$stylist/domain/component/organism/domain-sidebar/index.svelte",
-        "$stylist/domain/component/molecule/joint-tab-buttons/index.svelte",
-        "$stylist/domain/component/molecule/taxonomy-breadcrumbs/index.svelte",
-        "./state.svelte",
-        "$stylist/domain/type/alias/device-frame-viewport"
-      ]
-    },
-    {
-      "path": "domain/component/organism/domain-file-diagnostics/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "domain-file-diagnostics",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainFileDiagnostics",
-      "importCount": 7,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/domain/component/organism/domain-cluster-balance/index.svelte",
-        "$stylist/domain/component/organism/domain-component-import-diagnostics/index.svelte",
-        "$stylist/domain/component/organism/domain-file-domain-grid/index.svelte",
-        "$stylist/domain/component/organism/domain-file-overview/index.svelte",
-        "$stylist/domain/data/json/domain-component-import-diagnostics/index.json",
-        "$stylist/domain/data/json/domain-component-intervals/index.json",
-        "$stylist/domain/data/json/domain-files/index.json"
-      ]
-    },
-    {
-      "path": "domain/component/organism/domain-file-domain-grid/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "domain-file-domain-grid",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainFileDomainGrid",
-      "importCount": 1,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/chart/component/atom/metric-bar/index.svelte"
-      ]
-    },
-    {
-      "path": "domain/component/organism/domain-file-overview/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "domain-file-overview",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainFileOverview",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/chart/component/organism/legend-bar-diagram/index.svelte",
-        "$stylist/chart/component/organism/legend-band-diagram/index.svelte"
-      ]
-    },
-    {
-      "path": "domain/component/organism/domain-file-preview/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "domain-file-preview",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainFilePreview",
-      "importCount": 6,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/domain/component/organism/markdown-renderer/index.svelte",
-        "$stylist/domain/component/molecule/json-tree-viewer/index.svelte",
-        "$stylist/tree/component/molecule/flat-tree/index.svelte",
-        "$stylist/theme/class/manager/story-viewport-context",
-        "$stylist/domain/type/alias/device-frame-viewport",
-        "$stylist/tree/type/object/tree-node"
-      ]
-    },
-    {
-      "path": "domain/component/organism/domain-settings/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "domain-settings",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainSettings",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/theme/component/organism/theme-settings/index.svelte",
-        "$stylist/theme/class/manager/theme-settings"
-      ]
-    },
-    {
-      "path": "domain/component/organism/stylist-hero/index.svelte",
-      "domain": "domain",
-      "joint": "organism",
-      "family": "stylist-hero",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeStylistHero",
+      "expectedRecipe": "RecipeChatRoom",
       "importCount": 4,
       "recipeImports": [],
       "otherImports": [
-        "$stylist/domain/component/molecule/cta-buttons/index.svelte",
-        "$stylist/domain/component/molecule/feature-grid/index.svelte",
-        "$stylist/domain/component/molecule/stylist-hero-intro/index.svelte",
-        "$stylist/domain/component/molecule/stylist-mission/index.svelte"
-      ]
-    },
-    {
-      "path": "domain/component/page/domain-landing/index.svelte",
-      "domain": "domain",
-      "joint": "page",
-      "family": "domain-landing",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainLanding",
-      "importCount": 1,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/domain/component/organism/stylist-hero/index.svelte"
-      ]
-    },
-    {
-      "path": "domain/component/page/domain-playground/index.svelte",
-      "domain": "domain",
-      "joint": "page",
-      "family": "domain-playground",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDomainPlayground",
-      "importCount": 9,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/domain/const/value/domain-screen",
-        "$stylist/domain/component/molecule/domain-menu/index.svelte",
-        "$stylist/domain/component/molecule/device-viewport/index.svelte",
+        "$stylist/chat/component/molecule/chat-message/index.svelte",
+        "$stylist/chat/component/molecule/message-composer/index.svelte",
         "./state.svelte",
-        "$stylist/domain/component/page/domain-landing/index.svelte",
-        "$stylist/domain/type/object/domain-component-descriptor",
-        "$stylist/domain/type/alias/domain-screen",
-        "$stylist/domain/type/object/domain-tree-node",
-        "$stylist/domain/type/alias/device-frame-viewport"
+        "$stylist/chat/type/alias/chat-room-props"
+      ]
+    },
+    {
+      "path": "chat/component/molecule/chat-window/index.svelte",
+      "domain": "chat",
+      "joint": "molecule",
+      "family": "chat-window",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeChatWindow",
+      "importCount": 5,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/chat/interface/slot/user",
+        "$stylist/chat/interface/slot/message",
+        "$stylist/chat/component/molecule/message-list/index.svelte",
+        "$stylist/chat/component/atom/message-input/index.svelte",
+        "./state.svelte"
+      ]
+    },
+    {
+      "path": "chat/component/molecule/message-item/index.svelte",
+      "domain": "chat",
+      "joint": "molecule",
+      "family": "message-item",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeMessageItem",
+      "importCount": 7,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/chat/interface/slot/message",
+        "$stylist/chat/interface/slot/user",
+        "$stylist/user/component/atom/avatar/index.svelte",
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "$stylist/chat/component/atom/message-meta/index.svelte",
+        "$stylist/file/component/molecule/attachment-preview/index.svelte",
+        "./state.svelte"
+      ]
+    },
+    {
+      "path": "chat/component/molecule/message-list/index.svelte",
+      "domain": "chat",
+      "joint": "molecule",
+      "family": "message-list",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeMessageList",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/chat/interface/slot/message",
+        "$stylist/chat/interface/slot/user",
+        "$stylist/chat/component/molecule/message-item/index.svelte",
+        "./state.svelte"
+      ]
+    },
+    {
+      "path": "chat/component/molecule/user-status/index.svelte",
+      "domain": "chat",
+      "joint": "molecule",
+      "family": "user-status",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeUserStatus",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/chat/interface/slot/user",
+        "$stylist/chat/component/atom/chat-status-indicator/index.svelte",
+        "./state.svelte"
+      ]
+    },
+    {
+      "path": "chat/component/organism/chat-header/index.svelte",
+      "domain": "chat",
+      "joint": "organism",
+      "family": "chat-header",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeChatHeader",
+      "importCount": 6,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/button/component/atom/button/index.svelte",
+        "$stylist/user/component/atom/avatar/index.svelte",
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "$stylist/chat/component/molecule/user-status/index.svelte",
+        "$stylist/chat/interface/slot/user",
+        "./state.svelte"
+      ]
+    },
+    {
+      "path": "chat/component/organism/chat-workbench/index.svelte",
+      "domain": "chat",
+      "joint": "organism",
+      "family": "chat-workbench",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeChatWorkbench",
+      "importCount": 13,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte",
+        "$stylist/chat/component/molecule/chat-list/index.svelte",
+        "$stylist/chat/component/organism/chat-header/index.svelte",
+        "$stylist/chat/component/molecule/message-list/index.svelte",
+        "$stylist/chat/component/molecule/message-composer/index.svelte",
+        "$stylist/chat/component/molecule/user-status/index.svelte",
+        "$stylist/chat/component/atom/chat-preview/index.svelte",
+        "$stylist/typography/component/atom/badge/index.svelte",
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "$stylist/button/component/atom/button/index.svelte",
+        "$stylist/chat/interface/slot/chat",
+        "$stylist/chat/interface/slot/user",
+        "$stylist/chat/interface/slot/message"
       ]
     },
     {
@@ -497,90 +381,20 @@
       ]
     },
     {
-      "path": "erd/component/organism/schema/index.svelte",
-      "domain": "erd",
-      "joint": "organism",
-      "family": "schema",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeSchema",
-      "importCount": 12,
-      "recipeImports": [],
-      "otherImports": [
-        "svelte",
-        "$stylist/erd/const/value/schema-text",
-        "$stylist/erd/const/value/schema-text-candidate",
-        "$stylist/erd/const/value/schema-text-science-domain",
-        "$stylist/erd/function/merge/schema-documents",
-        "$stylist/erd/function/transform/schema-document-to-text",
-        "$stylist/erd/function/transform/schema-text-to-document",
-        "$stylist/erd/component/organism/schema-text/index.svelte",
-        "$stylist/erd/component/organism/schema-header/index.svelte",
-        "$stylist/erd/component/organism/schema-view/index.svelte",
-        "$stylist/erd/type/alias/schema-mode",
-        "$stylist/erd/interface/slot/erd-settings"
-      ]
-    },
-    {
-      "path": "erd/component/organism/schema-header/index.svelte",
-      "domain": "erd",
-      "joint": "organism",
-      "family": "schema-header",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeSchemaHeader",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/erd/component/organism/schema-tool/index.svelte",
-        "$stylist/erd/interface/slot/erd-header"
-      ]
-    },
-    {
-      "path": "erd/component/organism/schema-text/index.svelte",
-      "domain": "erd",
-      "joint": "organism",
-      "family": "schema-text",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeSchemaText",
-      "importCount": 3,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/erd/const/value/schema-text",
-        "$stylist/erd/function/transform/schema-text-to-document",
-        "$stylist/erd/interface/slot/erd-text"
-      ]
-    },
-    {
-      "path": "erd/component/organism/schema-tool/index.svelte",
-      "domain": "erd",
-      "joint": "organism",
-      "family": "schema-tool",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeSchemaTool",
-      "importCount": 5,
-      "recipeImports": [],
-      "otherImports": [
-        "svelte",
-        "$stylist/svg/component/atom/svg/index.svelte",
-        "$stylist/theme/component/atom/theme-mode-toggle/index.svelte",
-        "$stylist/erd/interface/slot/erd-tool",
-        ")}\n\t>\n\t\t<Svg svg={ICON_IMPORT} size={18} />\n\t</button>\n\t<button\n\t\ttype="
-      ]
-    },
-    {
       "path": "erd/component/organism/schema-view/index.svelte",
       "domain": "erd",
       "joint": "organism",
       "family": "schema-view",
       "status": "missing-recipe",
       "expectedRecipe": "RecipeSchemaView",
-      "importCount": 5,
-      "recipeImports": [],
+      "importCount": 4,
+      "recipeImports": [
+        "$stylist/erd/interface/recipe/erd-schema-view"
+      ],
       "otherImports": [
         "$stylist/erd/component/atom/schema-dependency/index.svelte",
         "$stylist/erd/component/molecule/schema-table/index.svelte",
-        "$stylist/erd/type/object/schema-dependency",
-        "$stylist/erd/type/object/schema-table-position",
-        "$stylist/erd/interface/slot/erd-view"
+        "./state.svelte"
       ]
     },
     {
@@ -618,217 +432,6 @@
       ]
     },
     {
-      "path": "input/component/molecule/radio-button-group/index.svelte",
-      "domain": "input",
-      "joint": "molecule",
-      "family": "radio-button-group",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeRadioButtonGroup",
-      "importCount": 2,
-      "recipeImports": [
-        "$stylist/input/interface/recipe/radio-button-group-props"
-      ],
-      "otherImports": [
-        "./state.svelte"
-      ]
-    },
-    {
-      "path": "input/component/molecule/rich-text-format-toolbar/index.svelte",
-      "domain": "input",
-      "joint": "molecule",
-      "family": "rich-text-format-toolbar",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeRichTextFormatToolbar",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "svelte/elements",
-        "$stylist/svg/component/atom/icon/index.svelte"
-      ]
-    },
-    {
-      "path": "input/component/organism/rich-text-editor/index.svelte",
-      "domain": "input",
-      "joint": "organism",
-      "family": "rich-text-editor",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeRichTextEditor",
-      "importCount": 4,
-      "recipeImports": [
-        "$stylist/input/interface/recipe/rich-text-editor-state-props"
-      ],
-      "otherImports": [
-        "svelte/elements",
-        "$stylist/input/component/molecule/rich-text-format-toolbar/index.svelte",
-        "./state.svelte"
-      ]
-    },
-    {
-      "path": "landing/component/molecule/hero-media-section/index.svelte",
-      "domain": "landing",
-      "joint": "molecule",
-      "family": "hero-media-section",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeHeroMediaSection",
-      "importCount": 4,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/typography/component/atom/heading/index.svelte",
-        "$stylist/typography/component/atom/text/index.svelte",
-        "$stylist/typography/component/molecule/paragraph/index.svelte",
-        "$stylist/image/component/atom/image/index.svelte"
-      ]
-    },
-    {
-      "path": "landing/component/molecule/name-hero-media-items/index.svelte",
-      "domain": "landing",
-      "joint": "molecule",
-      "family": "name-hero-media-items",
-      "status": "none",
-      "expectedRecipe": "RecipeNameHeroMediaItems",
-      "importCount": 0,
-      "recipeImports": [],
-      "otherImports": []
-    },
-    {
-      "path": "landing/component/molecule/nav-bar/index.svelte",
-      "domain": "landing",
-      "joint": "molecule",
-      "family": "nav-bar",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeNavBar",
-      "importCount": 3,
-      "recipeImports": [],
-      "otherImports": [
-        "svelte",
-        "$stylist/typography/component/atom/link/index.svelte",
-        "$stylist/theme/component/atom/theme-mode-toggle/index.svelte"
-      ]
-    },
-    {
-      "path": "landing/component/molecule/section-heading/index.svelte",
-      "domain": "landing",
-      "joint": "molecule",
-      "family": "section-heading",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeSectionHeading",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/typography/component/atom/heading/index.svelte",
-        "$stylist/typography/component/atom/text/index.svelte"
-      ]
-    },
-    {
-      "path": "landing/component/molecule/step-list/index.svelte",
-      "domain": "landing",
-      "joint": "molecule",
-      "family": "step-list",
-      "status": "none",
-      "expectedRecipe": "RecipeStepList",
-      "importCount": 0,
-      "recipeImports": [],
-      "otherImports": []
-    },
-    {
-      "path": "landing/component/organism/cases-section/index.svelte",
-      "domain": "landing",
-      "joint": "organism",
-      "family": "cases-section",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeCasesSection",
-      "importCount": 6,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/landing/component/molecule/section-heading/index.svelte",
-        "$stylist/image/component/molecule/card/index.svelte",
-        "$stylist/typography/component/atom/heading/index.svelte",
-        "$stylist/typography/component/atom/text/index.svelte",
-        "$stylist/typography/component/molecule/paragraph/index.svelte",
-        "$stylist/image/component/atom/image/index.svelte"
-      ]
-    },
-    {
-      "path": "landing/component/organism/definition-section/index.svelte",
-      "domain": "landing",
-      "joint": "organism",
-      "family": "definition-section",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDefinitionSection",
-      "importCount": 1,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/image/component/molecule/divider-heading-image-text/index.svelte"
-      ]
-    },
-    {
-      "path": "landing/component/organism/hero-section/index.svelte",
-      "domain": "landing",
-      "joint": "organism",
-      "family": "hero-section",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeHeroSection",
-      "importCount": 5,
-      "recipeImports": [],
-      "otherImports": [
-        "svelte",
-        "$stylist/landing/component/molecule/nav-bar/index.svelte",
-        "$stylist/landing/component/molecule/hero-media-section/index.svelte",
-        "$stylist/landing/component/organism/mobile-navigation-drawer/index.svelte",
-        "$stylist/typography/component/molecule/paragraph/index.svelte"
-      ]
-    },
-    {
-      "path": "landing/component/organism/mobile-navigation-drawer/index.svelte",
-      "domain": "landing",
-      "joint": "organism",
-      "family": "mobile-navigation-drawer",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeMobileNavigationDrawer",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "svelte",
-        "$stylist/typography/component/atom/link/index.svelte"
-      ]
-    },
-    {
-      "path": "landing/component/organism/result-section/index.svelte",
-      "domain": "landing",
-      "joint": "organism",
-      "family": "result-section",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeResultSection",
-      "importCount": 4,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/landing/component/molecule/section-heading/index.svelte",
-        "$stylist/typography/component/molecule/paragraph/index.svelte",
-        "$stylist/image/component/atom/image/index.svelte",
-        "$stylist/layout/component/atom/divider/index.svelte"
-      ]
-    },
-    {
-      "path": "landing/component/organism/workflow-section/index.svelte",
-      "domain": "landing",
-      "joint": "organism",
-      "family": "workflow-section",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeWorkflowSection",
-      "importCount": 8,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/landing/component/molecule/section-heading/index.svelte",
-        "$stylist/landing/component/molecule/step-list/index.svelte",
-        "$stylist/typography/component/atom/heading/index.svelte",
-        "$stylist/table/component/molecule/comparison-table/index.svelte",
-        "$stylist/image/component/atom/image/index.svelte",
-        "$stylist/layout/component/atom/divider/index.svelte",
-        "$stylist/table/type/object/comparison-table-feature",
-        "$stylist/table/type/object/comparison-table-product"
-      ]
-    },
-    {
       "path": "layout/component/atom/grid/index.svelte",
       "domain": "layout",
       "joint": "atom",
@@ -844,177 +447,53 @@
       ]
     },
     {
-      "path": "list/component/organism/sortable-list/index.svelte",
-      "domain": "list",
-      "joint": "organism",
-      "family": "sortable-list",
+      "path": "social/component/atom/rating/index.svelte",
+      "domain": "social",
+      "joint": "atom",
+      "family": "rating",
       "status": "missing-recipe",
-      "expectedRecipe": "RecipeSortableList",
+      "expectedRecipe": "RecipeRating",
       "importCount": 3,
       "recipeImports": [],
       "otherImports": [
+        "$stylist/social/interface/slot/rating",
         "$stylist/svg/component/atom/icon/index.svelte",
-        "$stylist/list/interface/slot/sortable-list",
         "./state.svelte"
       ]
     },
     {
-      "path": "localization/component/organism/translation-editor/index.svelte",
-      "domain": "localization",
-      "joint": "organism",
-      "family": "translation-editor",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeTranslationEditor",
-      "importCount": 3,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/svg/component/atom/icon/index.svelte",
-        "./state.svelte",
-        "$stylist/localization/interface/slot/extended-translation-editor"
-      ]
-    },
-    {
-      "path": "search/component/atom/auto-search/index.svelte",
-      "domain": "search",
-      "joint": "atom",
-      "family": "auto-search",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeAutoSearch",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "./state.svelte",
-        "$stylist/search/interface/slot/auto-search"
-      ]
-    },
-    {
-      "path": "search/component/atom/search-suggestion/index.svelte",
-      "domain": "search",
-      "joint": "atom",
-      "family": "search-suggestion",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeSearchSuggestion",
-      "importCount": 2,
-      "recipeImports": [],
-      "otherImports": [
-        "./state.svelte",
-        "$stylist/search/interface/slot/search-suggestion"
-      ]
-    },
-    {
-      "path": "search/component/molecule/search-bar/index.svelte",
-      "domain": "search",
+      "path": "social/component/molecule/reaction-picker/index.svelte",
+      "domain": "social",
       "joint": "molecule",
-      "family": "search-bar",
+      "family": "reaction-picker",
       "status": "missing-recipe",
-      "expectedRecipe": "RecipeSearchBar",
-      "importCount": 5,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/button/component/atom/button/index.svelte",
-        "$stylist/svg/component/atom/icon/index.svelte",
-        "./state.svelte",
-        "$stylist/search/interface/slot/search-bar",
-        "svelte/elements"
-      ]
-    },
-    {
-      "path": "search/component/organism/search-form/index.svelte",
-      "domain": "search",
-      "joint": "organism",
-      "family": "search-form",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeSearchForm",
-      "importCount": 3,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/svg/component/atom/icon/index.svelte",
-        "./state.svelte",
-        "$stylist/search/const/value/search-icon-name"
-      ]
-    },
-    {
-      "path": "svg/component/atom/flag/index.svelte",
-      "domain": "svg",
-      "joint": "atom",
-      "family": "flag",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeFlag",
-      "importCount": 3,
+      "expectedRecipe": "RecipeReactionPicker",
+      "importCount": 4,
       "recipeImports": [],
       "otherImports": [
         "svelte/elements",
-        "$stylist/svg/const/record/flag-registry",
-        "$stylist/svg/component/atom/svg/index.svelte"
-      ]
-    },
-    {
-      "path": "table/component/molecule/column-manager/index.svelte",
-      "domain": "table",
-      "joint": "molecule",
-      "family": "column-manager",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeColumnManager",
-      "importCount": 3,
-      "recipeImports": [],
-      "otherImports": [
-        "svelte/elements",
-        "$stylist/table/interface/slot/column-manager",
-        "./state.svelte"
-      ]
-    },
-    {
-      "path": "table/component/molecule/row-expandable/index.svelte",
-      "domain": "table",
-      "joint": "molecule",
-      "family": "row-expandable",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeRowExpandable",
-      "importCount": 3,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/table/type/object/row-expandable-props",
+        "$stylist/social/interface/slot/reaction-picker",
         "./state.svelte",
         "$stylist/svg/component/atom/icon/index.svelte"
       ]
     },
     {
-      "path": "table/component/organism/data-table/index.svelte",
-      "domain": "table",
+      "path": "social/component/organism/friend-list/index.svelte",
+      "domain": "social",
       "joint": "organism",
-      "family": "data-table",
+      "family": "friend-list",
       "status": "missing-recipe",
-      "expectedRecipe": "RecipeDataTable",
-      "importCount": 10,
+      "expectedRecipe": "RecipeFriendList",
+      "importCount": 7,
       "recipeImports": [],
       "otherImports": [
-        "svelte/elements",
-        "$stylist/table/interface/slot/data-table",
-        "./state.svelte",
-        "$stylist/table/component/atom/table/index.svelte",
-        "$stylist/table/component/atom/row/index.svelte",
-        "$stylist/table/component/molecule/column/index.svelte",
-        "$stylist/table/component/atom/cell-text/index.svelte",
-        "$stylist/table/component/atom/cell-icon/index.svelte",
-        "$stylist/table/component/atom/cell-pill/index.svelte",
-        "$stylist/table/class/manager/table-controls"
-      ]
-    },
-    {
-      "path": "table/component/organism/data-table-shell/index.svelte",
-      "domain": "table",
-      "joint": "organism",
-      "family": "data-table-shell",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeDataTableShell",
-      "importCount": 5,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/table/interface/slot/data-table-shell",
-        "./state.svelte",
-        "$stylist/table/component/molecule/filter-bar/index.svelte",
-        "$stylist/table/component/molecule/column-manager/index.svelte",
-        "$stylist/table/component/organism/data-table/index.svelte"
+        "$stylist/svg/component/atom/icon/index.svelte",
+        "$stylist/user/component/atom/avatar/index.svelte",
+        "$stylist/social/type/object/friend-list/friend_list_friend",
+        "$stylist/social/type/object/friend-list/friend_list_-props",
+        "$stylist/social/function/script/friend-list-format-last-seen",
+        "$stylist/social/function/script/friend-list-get-status-color",
+        "./state.svelte"
       ]
     },
     {
@@ -1035,22 +514,6 @@
       ]
     },
     {
-      "path": "tree/component/molecule/tree-viewer/index.svelte",
-      "domain": "tree",
-      "joint": "molecule",
-      "family": "tree-viewer",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeTreeViewer",
-      "importCount": 4,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/tree/type/object/tree-node-item-node",
-        "$stylist/tree/component/molecule/flat-tree/index.svelte",
-        "$stylist/tree/function/script/normalize-tree-viewer-node",
-        "./state.svelte"
-      ]
-    },
-    {
       "path": "typography/component/molecule/paragraph/index.svelte",
       "domain": "typography",
       "joint": "molecule",
@@ -1064,13 +527,51 @@
       "otherImports": [
         "./state.svelte"
       ]
+    },
+    {
+      "path": "wbd/component/organism/median-trend-chart/index.svelte",
+      "domain": "wbd",
+      "joint": "organism",
+      "family": "median-trend-chart",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeMedianTrendChart",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/chart/component/organism/line-chart/index.svelte"
+      ]
+    },
+    {
+      "path": "wbd/component/template/wbd-landing-page/index.svelte",
+      "domain": "wbd",
+      "joint": "template",
+      "family": "wbd-landing-page",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeWbdLandingPage",
+      "importCount": 12,
+      "recipeImports": [
+        "$stylist/wbd/interface/recipe/landing-page"
+      ],
+      "otherImports": [
+        "svelte",
+        "$stylist/landing/component/organism/hero-section/index.svelte",
+        "$stylist/landing/component/molecule/name-hero-media-items/index.svelte",
+        "$stylist/landing/component/organism/definition-section/index.svelte",
+        "$stylist/landing/component/organism/workflow-section/index.svelte",
+        "$stylist/image/component/molecule/divider-heading-image-text/index.svelte",
+        "$stylist/landing/component/organism/cases-section/index.svelte",
+        "$stylist/wbd/component/organism/public-polls-section/index.svelte",
+        "$stylist/wbd/component/organism/application-cta-section/index.svelte",
+        "$stylist/landing/component/organism/result-section/index.svelte",
+        "$stylist/wbd/type/object/public-poll"
+      ]
     }
   ],
   "summary": {
-    "total": 71,
-    "none": 9,
-    "missingRecipe": 62,
-    "valid": 194,
-    "scanned": 265
+    "total": 35,
+    "none": 2,
+    "missingRecipe": 33,
+    "valid": 407,
+    "scanned": 442
   }
 }

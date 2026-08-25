@@ -1,6 +1,6 @@
 <script lang="ts">
 	import SchemaTool from '$stylist/erd/component/organism/schema-tool/index.svelte';
-	import type { SlotErdHeader } from '$stylist/erd/interface/slot/erd-header';
+	import type { RecipeSchemaHeader } from '$stylist/erd/interface/recipe/schema-header';
 
 	let {
 		title = 'Schema',
@@ -13,7 +13,7 @@
 		canExport = true,
 		mode = 'live',
 		textPanelVisible = true
-	}: SlotErdHeader = $props();
+	}: RecipeSchemaHeader = $props();
 </script>
 
 <header class="schema-header">

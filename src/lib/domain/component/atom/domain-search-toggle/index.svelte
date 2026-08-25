@@ -1,13 +1,8 @@
 <script lang="ts">
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
+	import type { RecipeDomainSearchToggle } from '$stylist/domain/interface/recipe/domain-search-toggle';
 
-	interface DomainSearchToggleProps {
-		open?: boolean;
-		onToggle?: () => void;
-		class?: string;
-	}
-
-	let { open = false, onToggle, class: className = '' }: DomainSearchToggleProps = $props();
+	let { open = false, onToggle, class: className = '' }: RecipeDomainSearchToggle = $props();
 </script>
 
 <button

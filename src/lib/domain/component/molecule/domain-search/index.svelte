@@ -1,122 +1,36 @@
 <script lang="ts">
-	import { tick } from 'svelte';
 	import DomainSearchField from '$stylist/domain/component/atom/domain-search-field/index.svelte';
 	import DomainSearchToggle from '$stylist/domain/component/atom/domain-search-toggle/index.svelte';
 	import TaxonomyBreadcrumbs from '$stylist/domain/component/molecule/taxonomy-breadcrumbs/index.svelte';
+	import type { RecipeDomainSearch } from '$stylist/domain/interface/recipe/domain-search';
+	import createDomainSearchState from './state.svelte';
 
-	interface SearchEntry {
-		id: string;
-		domain: string;
-		cluster: string;
-		joint: string;
-		family: string;
-		entityPath: string;
-		searchText: string;
-	}
-
-	interface DomainSearchProps {
-		entries?: SearchEntry[];
-		currentPath?: string;
-		onSelect?: (entryId: string) => void;
-		class?: string;
-	}
-
-	let {
-		entries = [],
-		currentPath = '',
-		onSelect,
-		class: className = ''
-	}: DomainSearchProps = $props();
-
-	let open = $state(false);
-	let query = $state('');
-	let inputRef = $state<HTMLInputElement | null>(null);
-	let pathCopied = $state(false);
-	let copyResetTimeout: ReturnType<typeof setTimeout> | undefined;
-
-	const filteredEntries = $derived.by(() => {
-		const normalizedQuery = query.trim().toLowerCase();
-
-		if (!normalizedQuery) {
-			return [];
-		}
-
-		return entries
-			.map((entry) => {
-				let score = 0;
-
-				if (entry.family.toLowerCase() === normalizedQuery) score += 100;
-				if (entry.entityPath.toLowerCase() === normalizedQuery) score += 90;
-				if (entry.family.toLowerCase().startsWith(normalizedQuery)) score += 60;
-				if (entry.entityPath.toLowerCase().includes(normalizedQuery)) score += 40;
-				if (entry.searchText.includes(normalizedQuery)) score += 20;
-
-				return { entry, score };
-			})
-			.filter((item) => item.score > 0)
-			.sort(
-				(left, right) =>
-					right.score - left.score ||
-					left.entry.entityPath.length - right.entry.entityPath.length ||
-					left.entry.entityPath.localeCompare(right.entry.entityPath)
-			)
-			.slice(0, 24)
-			.map((item) => item.entry);
-	});
-
-	async function openSearch(): Promise<void> {
-		open = true;
-		await tick();
-		inputRef?.focus();
-		inputRef?.select();
-	}
-
-	function closeSearch(): void {
-		open = false;
-		query = '';
-	}
-
-	function handleToggle(): void {
-		if (open) {
-			closeSearch();
-			return;
-		}
-
-		void openSearch();
-	}
-
-	function handleSelect(entryId: string): void {
-		onSelect?.(entryId);
-		closeSearch();
-	}
-
-	async function handleCopyPath(): Promise<void> {
-		if (!currentPath) return;
-		await navigator.clipboard.writeText(currentPath);
-		pathCopied = true;
-		clearTimeout(copyResetTimeout);
-		copyResetTimeout = setTimeout(() => (pathCopied = false), 1600);
-	}
+	let props: RecipeDomainSearch = $props();
+	const state = createDomainSearchState(props);
 </script>
 
-<div class="c-domain-search {className}">
-	{#if open}
+<div class="c-domain-search {props.class ?? ''}">
+	{#if state.open}
 		<div class="search-shell">
-			<DomainSearchField bind:inputRef bind:value={query} onEscape={closeSearch} />
+			<DomainSearchField
+				bind:inputRef={state.inputRef}
+				bind:value={state.query}
+				onEscape={state.closeSearch}
+			/>
 
-			{#if query.trim()}
+			{#if state.query.trim()}
 				<div class="search-results" role="listbox" aria-label="Search results">
-					{#if filteredEntries.length === 0}
+					{#if state.filteredEntries.length === 0}
 						<p class="empty-state">No matching entities.</p>
 					{:else}
-						{#each filteredEntries as entry (entry.id)}
+						{#each state.filteredEntries as entry (entry.id)}
 							<button
 								type="button"
 								class="search-result"
 								role="option"
 								aria-selected="false"
 								title={entry.entityPath}
-								onclick={() => handleSelect(entry.id)}
+								onclick={() => state.handleSelect(entry.id)}
 							>
 								<TaxonomyBreadcrumbs
 									domain={entry.domain}
@@ -132,18 +46,18 @@
 		</div>
 	{/if}
 
-	<DomainSearchToggle {open} onToggle={handleToggle} />
+	<DomainSearchToggle open={state.open} onToggle={state.handleToggle} />
 
 	<button
 		type="button"
 		class="copy-path-button"
-		class:is-copied={pathCopied}
-		disabled={!currentPath}
-		title={currentPath ? `Copy path: ${currentPath}` : 'No entity selected'}
+		class:is-copied={state.pathCopied}
+		disabled={!props.currentPath}
+		title={props.currentPath ? `Copy path: ${props.currentPath}` : 'No entity selected'}
 		aria-label="Copy component path"
-		onclick={handleCopyPath}
+		onclick={state.handleCopyPath}
 	>
-		{#if pathCopied}
+		{#if state.pathCopied}
 			<svg
 				width="16"
 				height="16"

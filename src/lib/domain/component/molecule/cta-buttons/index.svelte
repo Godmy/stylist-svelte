@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
+	import type { RecipeCtaButtons } from '$stylist/domain/interface/recipe/cta-buttons';
 
 	const Package = 'package';
 	const Layers = 'layers';
@@ -17,18 +18,7 @@
 		onPlaygroundOpen,
 		class: className = '',
 		...restProps
-	}: {
-		totalComponents?: number;
-		componentsHref?: string;
-		playgroundHref?: string;
-		componentsTitle?: string;
-		componentsDescriptionPrefix?: string;
-		playgroundTitle?: string;
-		playgroundDescription?: string;
-		onComponentsOpen?: () => void;
-		onPlaygroundOpen?: () => void;
-		class?: string;
-	} = $props();
+	}: RecipeCtaButtons = $props();
 
 	function handleComponentsClick(event: MouseEvent) {
 		if (!onComponentsOpen) return;

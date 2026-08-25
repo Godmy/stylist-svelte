@@ -1,29 +1,18 @@
 <script lang="ts">
-	import type { SlotSvgName } from '$stylist/svg/interface/slot/svg-name';
-
-	interface IconToolbarProps {
-		items: readonly SlotSvgName[];
-		active?: string;
-		label?: string;
-		orientation?: 'horizontal' | 'vertical';
-		showLabel?: boolean;
-		availableItems?: readonly string[];
-		emptyText?: string;
-		onSelect?: (name: string) => void;
-		class?: string;
-	}
+	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
+	import type { RecipeIconToolbar } from '$stylist/control/interface/recipe/icon-toolbar';
 
 	let {
 		items,
 		active,
 		label = '',
-		orientation = 'horizontal',
+		orientation = TOKEN_ORIENTATION[0],
 		showLabel = true,
 		availableItems,
 		emptyText = 'empty',
 		onSelect,
 		class: className = ''
-	}: IconToolbarProps = $props();
+	}: RecipeIconToolbar = $props();
 
 	const visibleItems = $derived(
 		availableItems ? items.filter((item) => availableItems.includes(item.name)) : items

@@ -9,7 +9,7 @@
 
 <div class="zoom-controls" role="group" aria-label="Zoom controls">
 	<button class="zoom-button" onclick={state.handleZoomOut} aria-label="Zoom out" title="Zoom out">
-		<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+		<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
 			<path
 				d="M14 13L10 9M11 6.5C11 9.53757 8.53757 12 5.5 12C2.46243 12 0 9.53757 0 6.5C0 3.46243 2.46243 1 5.5 1C8.53757 1 11 3.46243 11 6.5Z"
 				stroke="currentColor"
@@ -23,7 +23,7 @@
 	<span class="zoom-value">{Math.round(state.currentZoom)}%</span>
 
 	<button class="zoom-button" onclick={state.handleZoomIn} aria-label="Zoom in" title="Zoom in">
-		<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+		<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
 			<path
 				d="M14 13L10 9M11 6.5C11 9.53757 8.53757 12 5.5 12C2.46243 12 0 9.53757 0 6.5C0 3.46243 2.46243 1 5.5 1C8.53757 1 11 3.46243 11 6.5Z"
 				stroke="currentColor"
@@ -40,7 +40,7 @@
 		aria-label="Reset zoom"
 		title="Reset zoom"
 	>
-		<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+		<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
 			<path
 				d="M8 4V1L3.5 5.5L8 10V7C10.7614 7 13 9.23858 13 12C13 12.1881 12.9895 12.3738 12.969 12.5566"
 				stroke="currentColor"

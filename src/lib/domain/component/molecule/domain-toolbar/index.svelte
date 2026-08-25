@@ -1,13 +1,14 @@
 <script lang="ts">
 	import IconToolbar from '$stylist/control/component/molecule/icon-toolbar/index.svelte';
 	import type { RecipeDomainToolbar } from '$stylist/domain/interface/recipe/domain-toolbar';
+	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 	import { TOKEN_ICON_REGISTRY } from '$stylist/svg/const/record/icon-registry';
 	import type { SlotSvgName } from '$stylist/svg/interface/slot/svg-name';
 
 	let {
 		active,
 		domains = [],
-		orientation = 'horizontal',
+		orientation = TOKEN_ORIENTATION[0],
 		showLabel = true,
 		onSelect,
 		class: className = ''

@@ -30,12 +30,16 @@ export type {
 } from './type';
 export type {
 	RecipeErdDependency,
+	RecipeErdSchemaView,
 	RecipeErdTable,
 	RecipeErdTableField,
 	RecipeErdTableHeader,
+	RecipeSchema,
+	RecipeSchemaHeader,
+	RecipeSchemaText,
+	RecipeSchemaTool,
 	SlotErdHeader,
 	SlotErdSettings,
 	SlotErdText,
-	SlotErdTool,
-	SlotErdView
+	SlotErdTool
 } from './interface';

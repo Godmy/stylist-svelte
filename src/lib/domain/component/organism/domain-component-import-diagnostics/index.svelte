@@ -1,31 +1,11 @@
 <script lang="ts">
-	interface ComponentImportRow {
-		path: string;
-		domain: string;
-		joint: string;
-		family: string;
-		status: string;
-		expectedRecipe: string;
-		importCount: number;
-		recipeImports: string[];
-		otherImports: string[];
-	}
+	import type { RecipeDomainComponentImportDiagnostics } from '$stylist/domain/interface/recipe/domain-component-import-diagnostics';
 
-	interface ComponentImportSummary {
-		total: number;
-		none: number;
-		missingRecipe: number;
-		valid?: number;
-		scanned?: number;
-	}
-
-	interface DomainComponentImportDiagnosticsProps {
-		rows: ComponentImportRow[];
-		summary: ComponentImportSummary;
-		class?: string;
-	}
-
-	let { rows, summary, class: className = '' }: DomainComponentImportDiagnosticsProps = $props();
+	let {
+		rows,
+		summary,
+		class: className = ''
+	}: RecipeDomainComponentImportDiagnostics = $props();
 
 	function formatDomainName(value: string): string {
 		return value

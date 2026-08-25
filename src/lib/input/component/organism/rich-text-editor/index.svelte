@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import RichTextFormatToolbar from '$stylist/input/component/molecule/rich-text-format-toolbar/index.svelte';
-	import type { RecipeRichTextEditorStateProps } from '$stylist/input/interface/recipe/rich-text-editor-state-props';
+	import type { RecipeRichTextEditor } from '$stylist/input/interface/recipe/rich-text-editor';
 	import createRichTextEditorState from './state.svelte';
 
-	let props: RecipeRichTextEditorStateProps & HTMLAttributes<HTMLDivElement> = $props();
+	let props: RecipeRichTextEditor & HTMLAttributes<HTMLDivElement> = $props();
 	const state = createRichTextEditorState(props);
 </script>
 

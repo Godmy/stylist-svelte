@@ -81,7 +81,7 @@
 <style>
 	.c-switch {
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		gap: 0.75rem;
 		cursor: pointer;
 	}
@@ -97,41 +97,49 @@
 	}
 
 	.c-switch__track {
-		--sw-tx: 1.25rem;
+		--sw-track-width: 2.75rem;
+		--sw-track-height: 1.5rem;
+		--sw-knob-size: 1.125rem;
+		--sw-inset: 0.1875rem;
 		position: relative;
 		display: inline-flex;
+		align-items: center;
 		flex-shrink: 0;
-		width: 2.75rem;
-		height: 1.5rem;
+		width: var(--sw-track-width);
+		height: var(--sw-track-height);
 		border-radius: 9999px;
-		border: 2px solid transparent;
+		border: 0;
 		background: var(--color-border-primary);
 		transition: background-color 200ms;
 		cursor: pointer;
 	}
 
 	.c-switch[data-size='xs'] .c-switch__track {
-		width: 2rem;
-		height: 1rem;
-		--sw-tx: 0.75rem;
+		--sw-track-width: 2rem;
+		--sw-track-height: 1rem;
+		--sw-knob-size: 0.75rem;
+		--sw-inset: 0.125rem;
 	}
 
 	.c-switch[data-size='sm'] .c-switch__track {
-		width: 2.25rem;
-		height: 1.25rem;
-		--sw-tx: 0.875rem;
+		--sw-track-width: 2.25rem;
+		--sw-track-height: 1.25rem;
+		--sw-knob-size: 0.875rem;
+		--sw-inset: 0.1875rem;
 	}
 
 	.c-switch[data-size='lg'] .c-switch__track {
-		width: 3.5rem;
-		height: 1.75rem;
-		--sw-tx: 1.625rem;
+		--sw-track-width: 3.5rem;
+		--sw-track-height: 1.75rem;
+		--sw-knob-size: 1.375rem;
+		--sw-inset: 0.1875rem;
 	}
 
 	.c-switch[data-size='xl'] .c-switch__track {
-		width: 4rem;
-		height: 2rem;
-		--sw-tx: 1.875rem;
+		--sw-track-width: 4rem;
+		--sw-track-height: 2rem;
+		--sw-knob-size: 1.625rem;
+		--sw-inset: 0.1875rem;
 	}
 
 	.c-switch[data-checked] .c-switch__track {
@@ -152,13 +160,13 @@
 
 	.c-switch__knob {
 		display: block;
-		width: 1.25rem;
-		height: 1.25rem;
+		width: var(--sw-knob-size);
+		height: var(--sw-knob-size);
 		border-radius: 9999px;
 		background: var(--color-background-primary);
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 		transition: transform 200ms;
-		transform: translateX(0);
+		transform: translateX(var(--sw-inset));
 		pointer-events: none;
 	}
 
@@ -183,7 +191,9 @@
 	}
 
 	.c-switch[data-checked] .c-switch__knob {
-		transform: translateX(var(--sw-tx, 1.25rem));
+		transform: translateX(
+			calc(var(--sw-track-width) - var(--sw-knob-size) - var(--sw-inset))
+		);
 	}
 
 	.c-switch__label-group {

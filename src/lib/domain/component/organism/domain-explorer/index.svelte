@@ -5,29 +5,9 @@
 	import JointTabButtons from '$stylist/domain/component/molecule/joint-tab-buttons/index.svelte';
 	import TaxonomyBreadcrumbs from '$stylist/domain/component/molecule/taxonomy-breadcrumbs/index.svelte';
 	import createDomainPageState from './state.svelte';
-	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
+	import type { RecipeDomainExplorer } from '$stylist/domain/interface/recipe/domain-explorer';
 
 	type StoryModule = { default: unknown };
-	type DomainTree = Parameters<typeof createDomainPageState>[0]['tree'];
-
-	interface DomainExplorerProps {
-		tree: DomainTree;
-		initialDomain?: string;
-		initialCluster?: string;
-		initialJoint?: string;
-		initialPreviewMode?: 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
-		onSelectionChange?: (selection: {
-			domain: string;
-			cluster: string;
-			joint: string;
-			family: string;
-			entityPath: string;
-			files: { name: string; path: string }[];
-		}) => void;
-		storyDevice?: DeviceFrameViewport;
-		deviceViewportVisible?: boolean;
-		class?: string;
-	}
 
 	const storyModules = import.meta.glob('/src/lib/**/component/**/index.story.svelte') as Record<
 		string,
@@ -44,7 +24,7 @@
 		storyDevice = $bindable('fullscreen'),
 		deviceViewportVisible = $bindable(false),
 		class: className = ''
-	}: DomainExplorerProps = $props();
+	}: RecipeDomainExplorer = $props();
 
 	const s = createDomainPageState({
 		tree,

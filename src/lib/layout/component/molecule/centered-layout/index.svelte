@@ -1,12 +1,13 @@
 <script lang="ts">
+	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 	import createCenteredLayoutState from './state.svelte';
 	import type { RecipeCenteredLayout } from '$stylist/layout/interface/recipe/centered-layout';
 
 	let props: RecipeCenteredLayout = $props();
 	const state = createCenteredLayoutState(props);
 
-	const horizontal = $derived(state.axis === 'both' || state.axis === 'horizontal');
-	const vertical = $derived(state.axis === 'both' || state.axis === 'vertical');
+	const horizontal = $derived(state.axis === 'both' || state.axis === TOKEN_ORIENTATION[0]);
+	const vertical = $derived(state.axis === 'both' || state.axis === TOKEN_ORIENTATION[1]);
 </script>
 
 <div

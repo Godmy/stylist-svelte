@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import Svg from '$stylist/svg/component/atom/svg/index.svelte';
 	import ThemeModeToggle from '$stylist/theme/component/atom/theme-mode-toggle/index.svelte';
-	import type { SlotErdTool } from '$stylist/erd/interface/slot/erd-tool';
+	import type { RecipeSchemaTool } from '$stylist/erd/interface/recipe/schema-tool';
 
 	// Inlined instead of `Icon` (which statically drags in the ~650-file icon
 	// registry barrel) -- that eager import graph is slow enough to resolve
@@ -68,10 +68,10 @@
 		'zoom-in': undefined;
 		'zoom-out': undefined;
 		'zoom-reset': undefined;
-		'layout-change': { layout: NonNullable<SlotErdTool['layout']> };
+		'layout-change': { layout: NonNullable<RecipeSchemaTool['layout']> };
 		'toggle-relations': { enabled: boolean };
 		'toggle-highlight': { enabled: boolean };
-		'mode-change': { mode: NonNullable<SlotErdTool['mode']> };
+		'mode-change': { mode: NonNullable<RecipeSchemaTool['mode']> };
 		'toggle-text-panel': { visible: boolean };
 	}>();
 
@@ -84,7 +84,7 @@
 		canExport = true,
 		mode = 'live',
 		textPanelVisible = true
-	}: SlotErdTool = $props();
+	}: RecipeSchemaTool = $props();
 </script>
 
 <nav class="schema-tool" aria-label="Schema tools">
@@ -114,7 +114,7 @@
 			value={mode}
 			onchange={(event) =>
 				dispatch('mode-change', {
-					mode: (event.currentTarget as HTMLSelectElement).value as NonNullable<SlotErdTool['mode']>
+					mode: (event.currentTarget as HTMLSelectElement).value as NonNullable<RecipeSchemaTool['mode']>
 				})}
 		>
 			<option value="live">Live</option>
@@ -147,7 +147,7 @@
 			onchange={(event) =>
 				dispatch('layout-change', {
 					layout: (event.currentTarget as HTMLSelectElement).value as NonNullable<
-						SlotErdTool['layout']
+						RecipeSchemaTool['layout']
 					>
 				})}
 		>
