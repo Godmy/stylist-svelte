@@ -109,7 +109,7 @@
 											onclick={() => state.removeVariable(variable.id)}
 											title="Remove variable"
 										>
-											<BaseIcon name="trash-2" style="width: 1rem; height: 1rem;" />
+											<BaseIcon name="trash" style="width: 1rem; height: 1rem;" />
 										</button>
 									</div>
 								</div>

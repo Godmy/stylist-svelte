@@ -3,6 +3,6 @@ export const TOKEN_TRANSLATION_EDITOR_ICON = [
 	'edit-3',
 	'languages',
 	'save',
-	'trash-2',
+	'trash',
 	'upload'
 ] as const;

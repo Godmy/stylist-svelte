@@ -83,7 +83,7 @@ export function createTranslationEditorState(props: RecipeTranslationEditor) {
 			return 'save';
 		},
 		get iconTrash() {
-			return 'trash-2';
+			return 'trash';
 		},
 		get iconUpload() {
 			return 'upload';
