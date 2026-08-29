@@ -329,6 +329,20 @@ export {
 	ZipViewerManager
 } from './file';
 export {
+	GeoJsonviewer,
+	GeoManager,
+	LocationPicker,
+	LocationSelector,
+	MAP_PROVIDER,
+	MapMarker,
+	MapSelector,
+	MapWithMarkers,
+	RoutePlanner,
+	StoreLocator,
+	TOKEN_MAP_TYPE,
+	TOKEN_PIN
+} from './geo';
+export {
 	Idef0BlackBox,
 	Idef0Connector,
 	Idef0Diagram,
@@ -910,6 +924,11 @@ export type {
 	ViewMode
 } from './file';
 export type {
+	MapProvider,
+	TokenMapType,
+	TokenPin
+} from './geo';
+export type {
 	CaseItem,
 	NavBarLink
 } from './landing';
@@ -1337,6 +1356,32 @@ export type {
 	SlotZipEntry,
 	SlotZipViewerStyleClasses
 } from './file';
+export type {
+	BehaviorMarkerProto,
+	LocationSelectorLocation,
+	MapSelectorLocation,
+	MapWithMarkersMarker,
+	MapWithMarkersView,
+	RecipeGeoJsonviewerStateProps,
+	RecipeLocationPicker,
+	RecipeLocationSelector,
+	RecipeMapMarker,
+	RecipeMapSelector,
+	RecipeMapSettings,
+	RecipeMapWithMarkers,
+	RecipeRoute,
+	RecipeRoutePlanner,
+	RecipeStoreLocator,
+	RouteOption,
+	RoutePlannerLocation,
+	SlotCoordinates,
+	SlotGeoJsonFeature,
+	SlotGeoJsonFeatureCollection,
+	SlotGeoJsonLayer,
+	SlotMapSelector,
+	SlotMapView,
+	StoreLocatorStore
+} from './geo';
 export type {
 	RecipeIdef0BlackBox,
 	RecipeIdef0Connector,

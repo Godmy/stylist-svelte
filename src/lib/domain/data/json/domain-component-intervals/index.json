@@ -452,6 +452,47 @@
       ]
     },
     {
+      "name": "geo",
+      "value": 8,
+      "atom": 0,
+      "molecule": 0,
+      "organism": 8,
+      "template": 0,
+      "page": 0,
+      "intervals": [
+        {
+          "name": "atom",
+          "value": 0,
+          "start": 0,
+          "end": 0
+        },
+        {
+          "name": "molecule",
+          "value": 0,
+          "start": 0,
+          "end": 0
+        },
+        {
+          "name": "organism",
+          "value": 8,
+          "start": 0,
+          "end": 8
+        },
+        {
+          "name": "template",
+          "value": 0,
+          "start": 8,
+          "end": 8
+        },
+        {
+          "name": "page",
+          "value": 0,
+          "start": 8,
+          "end": 8
+        }
+      ]
+    },
+    {
       "name": "idef-zero",
       "value": 7,
       "atom": 3,
@@ -1273,11 +1314,11 @@
     }
   ],
   "totals": {
-    "domains": 31,
-    "components": 442,
+    "domains": 32,
+    "components": 450,
     "atoms": 124,
     "molecules": 140,
-    "organisms": 165,
+    "organisms": 173,
     "templates": 11,
     "pages": 2
   }

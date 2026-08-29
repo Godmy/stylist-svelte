@@ -1067,6 +1067,84 @@
       ]
     },
     {
+      "name": "geo",
+      "fileCount": 79,
+      "components": {
+        "atoms": 0,
+        "molecules": 0,
+        "organisms": 8,
+        "templates": 0,
+        "pages": 0
+      },
+      "clusters": [
+        {
+          "name": "class",
+          "fileCount": 3,
+          "joints": [
+            {
+              "name": "manager",
+              "entityCount": 1,
+              "fileCount": 2
+            }
+          ]
+        },
+        {
+          "name": "component",
+          "fileCount": 34,
+          "joints": [
+            {
+              "name": "organism",
+              "entityCount": 8,
+              "fileCount": 33
+            }
+          ]
+        },
+        {
+          "name": "const",
+          "fileCount": 5,
+          "joints": [
+            {
+              "name": "array",
+              "entityCount": 3,
+              "fileCount": 4
+            }
+          ]
+        },
+        {
+          "name": "interface",
+          "fileCount": 29,
+          "joints": [
+            {
+              "name": "behavior",
+              "entityCount": 1,
+              "fileCount": 2
+            },
+            {
+              "name": "recipe",
+              "entityCount": 10,
+              "fileCount": 11
+            },
+            {
+              "name": "slot",
+              "entityCount": 14,
+              "fileCount": 15
+            }
+          ]
+        },
+        {
+          "name": "type",
+          "fileCount": 5,
+          "joints": [
+            {
+              "name": "alias",
+              "entityCount": 3,
+              "fileCount": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "idef-zero",
       "fileCount": 43,
       "components": {
@@ -1318,7 +1396,7 @@
     },
     {
       "name": "layout",
-      "fileCount": 240,
+      "fileCount": 239,
       "components": {
         "atoms": 16,
         "molecules": 11,
@@ -1340,12 +1418,12 @@
         },
         {
           "name": "component",
-          "fileCount": 115,
+          "fileCount": 114,
           "joints": [
             {
               "name": "atom",
               "entityCount": 16,
-              "fileCount": 65
+              "fileCount": 64
             },
             {
               "name": "molecule",
@@ -1954,7 +2032,7 @@
     },
     {
       "name": "svg",
-      "fileCount": 705,
+      "fileCount": 704,
       "components": {
         "atoms": 3,
         "molecules": 0,
@@ -1987,7 +2065,7 @@
         },
         {
           "name": "data",
-          "fileCount": 670,
+          "fileCount": 669,
           "joints": [
             {
               "name": "flag",
@@ -1996,8 +2074,8 @@
             },
             {
               "name": "icon",
-              "entityCount": 660,
-              "fileCount": 660
+              "entityCount": 659,
+              "fileCount": 659
             }
           ]
         },
@@ -2634,11 +2712,11 @@
     }
   ],
   "totals": {
-    "domains": 31,
-    "files": 3927,
+    "domains": 32,
+    "files": 4004,
     "atoms": 124,
     "molecules": 140,
-    "organisms": 165,
+    "organisms": 173,
     "templates": 11,
     "pages": 2
   }
