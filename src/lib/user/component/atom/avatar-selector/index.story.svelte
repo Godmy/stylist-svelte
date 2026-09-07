@@ -7,7 +7,7 @@
 		{
 			name: 'src',
 			type: 'text' as TokenControllerType,
-			defaultValue: 'https://placehold.co/40x40',
+			defaultValue: '/avatar/patterns/orbit.svg',
 			description: 'Avatar image URL'
 		},
 		{

@@ -17,5 +17,6 @@ export type {
 	RecipeRegister,
 	RecipeSecureForm,
 	RecipeSecuritySettings,
-	RecipeSessionManager
+	RecipeSessionManager,
+	RecipeSocialLogin
 } from './recipe';

@@ -7,3 +7,4 @@ export type { RecipeRegister } from './register';
 export type { RecipeSecureForm } from './secure-form';
 export type { RecipeSecuritySettings } from './security-settings';
 export type { RecipeSessionManager } from './session-manager';
+export type { RecipeSocialLogin } from './social-login';

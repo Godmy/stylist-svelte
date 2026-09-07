@@ -17,5 +17,6 @@ export {
 	RegisterPage,
 	SecureForm,
 	SecuritySettings,
-	SessionManager
+	SessionManager,
+	SocialLogin
 } from './organism';

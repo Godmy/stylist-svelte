@@ -25,14 +25,14 @@
 	const defaultPosts: Post[] = [
 		{
 			id: 'post-1',
-			title: 'New Project Launch',
-			subtitle: 'Milestone update',
+			title: 'Launch notes from the product team',
+			subtitle: 'Post card inside a full social timeline',
 			image: 'https://via.placeholder.com/640x360?text=Launch',
 			date: new Date(Date.now() - 3600000).toISOString(),
-			excerpt: 'Shipping the first milestone of our next-gen platform.',
+			excerpt: 'SocialFeed is the full timeline shell: composer, filters, search, post cards and load-more controls.',
 			author: 'John Doe',
 			tags: ['#product', '#launch'],
-			content: 'Just finished working on an amazing new project.',
+			content: 'Just finished the first public milestone and collecting team feedback in the feed.',
 			authorAvatar: 'https://via.placeholder.com/40',
 			authorIsVerified: true,
 			likes: 24,
@@ -40,6 +40,24 @@
 			shares: 2,
 			isLiked: false,
 			isBookmarked: false
+		},
+		{
+			id: 'post-2',
+			title: 'Community AMA recap',
+			subtitle: 'Second timeline item',
+			image: 'https://via.placeholder.com/640x360?text=AMA',
+			date: new Date(Date.now() - 7200000).toISOString(),
+			excerpt: 'Another post demonstrates that this organism manages a list, not a single social card.',
+			author: 'Jane Smith',
+			tags: ['#community', '#ama'],
+			content: 'We answered roadmap questions and gathered feature requests.',
+			authorAvatar: 'https://via.placeholder.com/40',
+			authorIsVerified: false,
+			likes: 18,
+			comments: 7,
+			shares: 4,
+			isLiked: true,
+			isBookmarked: true
 		}
 	];
 </script>
@@ -47,7 +65,7 @@
 <Story
 	component={SocialFeed}
 	title="Social Feed"
-	description="Social feed with posts and basic actions."
+	description="Full timeline organism with composer, filters, search, post cards and pagination actions."
 	{controls}
 >
 	{#snippet children()}

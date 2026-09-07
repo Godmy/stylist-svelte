@@ -5,17 +5,16 @@
 	import SocialActivityFeed from './index.svelte';
 
 	let {
-		id = '',
-		title = '',
-		description = '',
+		id = 'organisms-social-activity-feed',
+		title = 'Social Activity Feed',
+		description = 'Notification-style activity stream showing who liked, followed, commented or mentioned the current user.',
 		controls = [
 			{ name: 'showAvatars', type: 'boolean', defaultValue: true },
 			{ name: 'showTimestamp', type: 'boolean', defaultValue: true },
 			{
-				name: 'filterType',
-				type: 'select',
-				options: ['all', 'unread', 'important'],
-				defaultValue: 'all'
+				name: 'enableFiltering',
+				type: 'boolean',
+				defaultValue: true
 			}
 		]
 	} = $props<{
@@ -67,14 +66,17 @@
 				isVerified: true
 			},
 			subject: 'your post',
-			timestamp: new Date(Date.now() - 300000)
+			timestamp: new Date(Date.now() - 300000),
+			isRead: false,
+			isImportant: true
 		},
 		{
 			id: '2',
 			type: 'follow',
 			actor: { id: 'u2', name: 'Bob Smith', avatar: 'https://placehold.co/40x40' },
 			target: { id: 'u3', name: 'You' },
-			timestamp: new Date(Date.now() - 3600000)
+			timestamp: new Date(Date.now() - 3600000),
+			isRead: true
 		},
 		{
 			id: '3',
@@ -82,7 +84,8 @@
 			actor: { id: 'u4', name: 'Carol Davis', avatar: 'https://placehold.co/40x40' },
 			subject: 'your photo',
 			content: 'Great shot!',
-			timestamp: new Date(Date.now() - 7200000)
+			timestamp: new Date(Date.now() - 7200000),
+			isRead: false
 		}
 	];
 
@@ -95,22 +98,24 @@
 	{#snippet children(values: any)}
 		<section class="sb-organisms-social-activity-feed _c1">
 			<div class="_c2">
-				<p class="_c3">Primary Social Activity Feed Example</p>
-				<p class="_c4">Interactive social activity feed with customizable options.</p>
+				<p class="_c3">Notifications for current user</p>
+				<p class="_c4">A social activity feed is for events around the account, not for publishing posts.</p>
 
 				<div class="_c5">
 					<SocialActivityFeed
 						activities={sampleActivities}
 						showAvatars={values.showAvatars}
 						showTimestamp={values.showTimestamp}
+						showReadStatus={true}
+						enableFiltering={values.enableFiltering}
 						onActivityClick={handleActivityClick}
 					/>
 				</div>
 			</div>
 
 			<div class="_c6">
-				<h3 class="_c7">Activity Feed Variations</h3>
-				<p class="_c8">Different activity feed configurations with various options.</p>
+				<h3 class="_c7">Notification display variants</h3>
+				<p class="_c8">Use these for compact account activity surfaces where the user reviews recent social events.</p>
 
 				<div class="_c9">
 					<article class="_c10">
@@ -125,10 +130,12 @@
 					</article>
 
 					<article class="_c10">
-						<p class="_c11">Important Only</p>
+						<p class="_c11">Unread state</p>
 						<div class="_c12">
 							<SocialActivityFeed
 								activities={sampleActivities}
+								showReadStatus={true}
+								maxActivities={2}
 								onActivityClick={handleActivityClick}
 							/>
 						</div>

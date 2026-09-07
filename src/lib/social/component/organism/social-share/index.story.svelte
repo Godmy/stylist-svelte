@@ -5,9 +5,9 @@
 	import SocialShare from './index.svelte';
 
 	let {
-		id = '',
-		title = '',
-		description = '',
+		id = 'organisms-social-share',
+		title = 'Social Share',
+		description = 'Compact share action bar with a platform menu plus optional copy, save, and like actions.',
 		controls = [
 			{ name: 'showCopyLink', type: 'boolean', defaultValue: true },
 			{ name: 'showEmbed', type: 'boolean', defaultValue: false },
@@ -33,8 +33,8 @@
 		| 'copy';
 
 	const url = 'https://example.com';
-	const pageTitle = 'Example Page';
-	const pageDescription = 'This is a description of the example page.';
+	const pageTitle = 'Quarterly Product Launch';
+	const pageDescription = 'A launch announcement ready to share across social channels.';
 	const platforms: SocialPlatform[] = ['facebook', 'twitter', 'linkedin', 'email', 'copy'];
 
 	function handleShare(platform: SocialPlatform) {
@@ -54,8 +54,9 @@
 	{#snippet children(values: any)}
 		<section class="sb-organisms-social-share _c1">
 			<div class="_c2">
-				<p class="_c3">Primary Social Share Example</p>
-				<p class="_c4">Interactive social share with customizable options.</p>
+				<p class="_c3">Share toolbar for an article</p>
+				<p class="_c4">{pageTitle}</p>
+				<p class="_c8">{pageDescription}</p>
 
 				<div class="_c5">
 					<SocialShare
@@ -75,8 +76,8 @@
 			</div>
 
 			<div class="_c6">
-				<h3 class="_c7">Social Share Variations</h3>
-				<p class="_c8">Different social share configurations with various options.</p>
+				<h3 class="_c7">Action density variants</h3>
+				<p class="_c8">Minimal only opens a platform menu; full featured also exposes direct copy, save, and like buttons.</p>
 
 				<div class="_c9">
 					<article class="_c10">

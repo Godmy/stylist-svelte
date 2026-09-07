@@ -39,15 +39,15 @@
 			onmouseenter={() => state.handleStarHover(i + 1)}
 			onfocus={() => state.handleStarHover(i + 1)}
 			{disabled}
-			aria-label={`Рейтинг ${i + 1} из ${max}`}
+			aria-label={`Rating ${i + 1} of ${max}`}
 			aria-pressed={i < rating}
 		>
-			<BaseIcon name="star" class={state.starIconClasses(i)} />
+			<BaseIcon name="star" size={state.iconSize} class={state.starIconClasses(i)} />
 		</button>
 	{/each}
 
 	<span class={state.ratingTextClasses}>
-		{rating.toFixed(1)} из {max}
+		{rating.toFixed(1)} of {max}
 	</span>
 </div>
 

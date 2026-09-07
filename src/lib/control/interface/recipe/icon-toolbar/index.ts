@@ -1,7 +1,6 @@
-import type { SlotSvgName } from '$stylist/svg/interface/slot/svg-name';
 import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
 export interface RecipeIconToolbar {
-	items: readonly SlotSvgName[];
+	items: readonly { name: string }[];
 	active?: string;
 	label?: string;
 	orientation?: TokenOrientation;

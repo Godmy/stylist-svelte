@@ -70,11 +70,15 @@
 	title="Comment System"
 	component={CommentSystem}
 	category="Organisms"
-	description="Threaded comment stream with actions, replies and editing."
+	description="Full comment product surface: current user context, replies, likes/dislikes, edit and delete controls."
 	{controls}
 >
 	{#snippet children(values: any)}
 		<section class="sb-organisms-comment-system _c1">
+			<div class="_c2">
+				<p class="_c3">Article comment system</p>
+				<p class="_c4">Use when a page needs the whole commenting experience, including moderation-style actions.</p>
+			</div>
 			<CommentSystem
 				{comments}
 				{currentUser}
@@ -98,5 +102,22 @@
 		border-color: var(--color-border-primary);
 		background-color: var(--color-background-secondary);
 		padding: 1.5rem;
+	}
+	._c2 {
+		display: grid;
+		gap: 0.25rem;
+	}
+	._c3 {
+		margin: 0;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
+	}
+	._c4 {
+		margin: 0;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+		color: var(--color-text-secondary);
 	}
 </style>

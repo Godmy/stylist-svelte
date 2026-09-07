@@ -33,6 +33,15 @@ export {
 	getEasingFunction
 } from './animation';
 export {
+	AudioPlayer,
+	AudioRecordButton,
+	AudioRecorderManager,
+	AudioSlider,
+	AudioVisualizer,
+	TOKEN_AUDIO_ICON,
+	formatAudioTime
+} from './audio';
+export {
 	AUTH_STRATEGIES,
 	AuthError,
 	AuthGuard,
@@ -49,6 +58,7 @@ export {
 	SecureForm,
 	SecuritySettings,
 	SessionManager,
+	SocialLogin,
 	SubmitButton,
 	TOKEN_TYPE,
 	resolveAuthGuardState
@@ -103,6 +113,21 @@ export {
 	startOfWeek,
 	toInputDateString
 } from './calendar';
+export {
+	CANVAS_TOOLBAR_DRAWING_TOOL,
+	CanvasManager,
+	CanvasToolbar,
+	CollaborativeEditor,
+	ColorPalette,
+	DrawingOverlay,
+	DrawingSurface,
+	ObjectManagerColorPalette,
+	ObjectManagerSharedCanvas,
+	SHARED_CANVAS_ACTION_ICONS,
+	SHARED_CANVAS_TOOL_DEFINITIONS,
+	ScreenshotSelector,
+	SharedCanvas
+} from './canvas';
 export {
 	AnalyticsChart,
 	BAR_CHART_COLOR_SCHEME,
@@ -197,6 +222,66 @@ export {
 	handleKeydownFn
 } from './chat';
 export {
+	AlertCard,
+	AlertCardManager,
+	ArticleCard,
+	BillingSummary,
+	BulkOrderForm,
+	CardWithImage,
+	CartSummary,
+	CategoryCard,
+	CheckoutForm,
+	CurrencyConverter,
+	DISCOUNT_TYPE,
+	DataDisplayCard,
+	DiscountApplier,
+	ExpandableCard,
+	FilterBar,
+	INVENTORY_ITEM_STATUS,
+	InventoryTracker,
+	LinkCard,
+	MetricCard,
+	ObjectManagerDataDisplayCard,
+	ObjectManagerExpandableCard,
+	ObjectManagerLinkCard,
+	ObjectManagerMetricCard,
+	OrderConfirmation,
+	OrderHistory,
+	OrderTracking,
+	PaymentInfo,
+	PaymentMethodSelector,
+	PaymentSelector,
+	PaymentSummary,
+	PresetAlertCard,
+	PresetBillingSummary,
+	PresetOrderConfirmation,
+	PresetPriceAlert,
+	PresetQuoteRequest,
+	PriceAlert,
+	PriceFilter,
+	PriceHistory,
+	PriceMatch,
+	PricingTable,
+	QuoteRequest,
+	ReturnPolicy,
+	Rfqform,
+	SUBSCRIPTION_STATUS,
+	ShippingCalculator,
+	ShippingInfo,
+	SubscriptionManager,
+	TOKEN_BILLING_ITEM,
+	TOKEN_BILLING_SUMMARY,
+	TOKEN_MONITORING_TYPE,
+	TOKEN_ORDER_STATUS,
+	TOKEN_PAYMENT_METHOD,
+	TOKEN_PAYMENT_STATUS,
+	TaxCalculator,
+	Upsell,
+	UserCard,
+	WARRANTY_PERIOD_TYPE,
+	WarrantyInfo
+} from './commerce';
+export {
 	AccessibilityToolbar,
 	ActionSegmentedControl,
 	AutocompleteDropdown,
@@ -228,6 +313,95 @@ export {
 	ZoomControls,
 	ZoomManager
 } from './control';
+export {
+	AtomicPrinciplesShowcase,
+	CODE_WITH_COPY_DISPATCH,
+	CONTENT_EDITOR_CONTENT_TYPE,
+	CUBE_FACE_NUMBERS_SNAPSHOT,
+	CUBE_FACE_THEMES,
+	CUBE_HORIZONTAL_ICONS,
+	CUBE_VERTICAL_ICONS,
+	CodeBlock,
+	CodeBlockManager,
+	CodeDiff,
+	CodeEditor,
+	CodeViewer,
+	ComponentLibraryStats,
+	ComponentPreview,
+	ComponentPreviewManager,
+	ContentEditor,
+	CubeControl,
+	DEBUG_CONSOLE_LOG_LEVEL,
+	DEFAULT_BADGE_LABEL,
+	DebugConsole,
+	DesignTokens,
+	DevelopmentErrorBoundary,
+	DocumentationBlock,
+	EnhancedExportPanel,
+	ErrorBoundary,
+	GenericCodeViewer,
+	LiveCodeSection,
+	MockDataSelector,
+	NpmBadge,
+	PAGE_BUILDER_ICON,
+	PAGE_BUILDER_TOOLBAR_ITEMS,
+	PARTICLE_COUNT,
+	PageBuilder,
+	PageBuilderManager,
+	PresetAtomicPrinciplesShowcase,
+	PresetCodeBlock,
+	PresetCodeEditor,
+	PresetStylist,
+	PrivacySettings,
+	STYLIST_MENU_ATOMIC_TAB_ITEMS,
+	STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS,
+	STYLIST_MENU_FUNCTIONAL_TAB_ITEMS,
+	STYLIST_MENU_MENU_ITEMS,
+	Stylist,
+	StylistMenu,
+	SyntaxHighlightedCode,
+	TOKEN_CODE_LANGUAGE,
+	TOKEN_CODE_VIEW,
+	TOKEN_COMPONENT_TYPE,
+	TOKEN_CUBE_FACE_NAME,
+	TOKEN_CUBE_FACE_TITLE,
+	TOKEN_FUNCTIONAL_TAXONOMY,
+	TOKEN_SOFTWARE_BADGE,
+	categories,
+	panelId
+} from './development';
+export {
+	ACCORDION_CONTEXT_DEFAULT,
+	Accordion,
+	AccordionGroup,
+	AccordionLayout,
+	BreadcrumbDropdown,
+	BreadcrumbLink,
+	BreadcrumbSeparator,
+	Breadcrumbs,
+	BreadcrumbsManager,
+	ComponentInfoCard,
+	ConfirmationDialog,
+	Dialog,
+	DialogConfirm,
+	DialogConfirmManager,
+	DropdownMenu,
+	GeneralToolbar,
+	Modal,
+	PresetDropdownMenu,
+	STYLIST_TAB_DEFAULT_ITEMS,
+	SimpleModal,
+	Stepper,
+	StylistTab,
+	TAB_CONTEXT,
+	TAB_PANEL_CONTEXT,
+	Tab,
+	TabList,
+	TabPanel,
+	TabPanels,
+	Tabs,
+	TextInputDialog
+} from './dialog';
 export {
 	ClusterToolbar,
 	CtaButtons,
@@ -329,6 +503,22 @@ export {
 	ZipViewerManager
 } from './file';
 export {
+	AddressForm,
+	CheckboxGroup,
+	FormFooter,
+	FormHeader,
+	FormManager,
+	FormSelection,
+	FormWithValidation,
+	LoginForm,
+	SEARCH_ICON_NAME,
+	SchemaFormDialog,
+	ScreenReader,
+	SearchForm,
+	ToggleButtonGroup,
+	Validation
+} from './form';
+export {
 	GeoJsonviewer,
 	GeoManager,
 	LocationPicker,
@@ -342,6 +532,37 @@ export {
 	TOKEN_MAP_TYPE,
 	TOKEN_PIN
 } from './geo';
+export {
+	Camera,
+	FieldHighlighter,
+	GRAPH_GRID_MODE,
+	GRAPH_NODE_CATEGORY,
+	GRAPH_TOOL_MODE,
+	GraphClusterFilter,
+	GraphDot,
+	GraphEdge,
+	GraphLegend,
+	GraphNode,
+	GraphScriptManager,
+	GraphTooltip,
+	GraphvizDirectedEdge,
+	INSTANCED_MAX_COUNT,
+	InstancedGraphManager,
+	MATERIAL_PALETTE,
+	Matrix4,
+	NodeIcon,
+	OntologyEdgeComponent,
+	OntologyNodeComponent,
+	SCENE_CAMERA_PRESET,
+	Scene,
+	SceneCameraControl,
+	SceneObjectManager,
+	ZWICKY_CLUSTER_COLOR,
+	ZWICKY_CLUSTER_ORDER,
+	ZWICKY_DOMAIN_COLOR,
+	ZWICKY_LAYOUT_SCALE,
+	ZwickyScene
+} from './graph';
 export {
 	Idef0BlackBox,
 	Idef0Connector,
@@ -361,7 +582,6 @@ export {
 } from './image';
 export {
 	CharactersCount,
-	CheckboxGroup,
 	InputAddon,
 	InputDouble,
 	InputEmail,
@@ -480,6 +700,46 @@ export {
 	formatDateTime
 } from './localization';
 export {
+	DashboardLayout,
+	DraggableCard,
+	Kpiindicator,
+	LegendItem,
+	ObjectManagerDraggableCard,
+	ObjectManagerKPIIndicator,
+	OperationsHistory,
+	PERFORMANCE_MONITOR_STATUS,
+	PERFORMANCE_MONITOR_STATUS_COLOR,
+	PRESET_LAYOUT_DASHBOARD,
+	PageHeader,
+	PerformanceDashboard,
+	PerformanceMonitor,
+	PermissionGate,
+	ProcessStep,
+	STATS_CARD_TREND_CLASS,
+	STATS_CARD_TREND_ICON,
+	STATUS_DASHBOARD_PRESENTATION,
+	StatCard,
+	StatsCard,
+	StatusDashboard,
+	TOKEN_KPI,
+	TOKEN_PERFORMANCE_BARS,
+	TOKEN_TREND,
+	TeamMemberCard
+} from './management';
+export {
+	AbtestConfigurator,
+	AnnouncementBanner,
+	ConversionFunnel,
+	CtaBanner,
+	Hero,
+	MarketingManager,
+	PromoBanner,
+	TOKEN_TEST,
+	TestResultsViewer,
+	TrafficAnalytics,
+	UserBehaviorMetrics
+} from './marketing';
+export {
 	AppHeader,
 	BurgerMenu,
 	Drawer,
@@ -499,7 +759,6 @@ export {
 	NotificationBadge,
 	NotificationCenter,
 	NotificationList,
-	NotificationPreferences,
 	NotificationSettings,
 	ScheduledNotification,
 	TOKEN_MARKER,
@@ -508,12 +767,110 @@ export {
 	updateNotificationPreference
 } from './notification';
 export {
+	BURN_DOWN_CHART_DEFAULT_MARGINS,
+	BacklogViewTabs,
+	BurnDownChart,
+	IssuesTable,
+	KanbanBoard,
+	KanbanCard,
+	KanbanColumn,
+	ObjectManagerPortfolio,
+	Portfolio,
+	PortfolioCell,
+	PortfolioDigit,
+	PortfolioHeader,
+	PortfolioProject,
+	PortfolioState,
+	PortfolioSummary,
+	ScrumBacklog,
+	addKanbanCard,
+	addKanbanColumn,
+	applyKanbanColumnDrop,
+	archiveKanbanCard,
+	cloneKanbanBoard,
+	createBacklogItem,
+	deleteKanbanCard,
+	filterBacklogItems,
+	formatBacklogItemDate,
+	generateBurnDownActualPath,
+	generateBurnDownIdealPath,
+	generateBurnDownXLabels,
+	generateBurnDownYLabels,
+	getBurnDownMinMaxValues,
+	getBurnDownTimestamps,
+	moveKanbanCard,
+	parseDragPayload,
+	renameKanbanCard,
+	renameKanbanColumn
+} from './portfolio';
+export {
+	DEFAULT_FOUNDATION_CAMERA,
+	FOCUS_DURATION_MS,
+	FOUNDATION_DEPTH_RANGE,
+	FOUNDATION_DEPTH_THRESHOLDS,
+	FOUNDATION_SEMANTIC_ZOOM_STAGES,
+	FoundationManager,
+	PRESENTATION_MODE,
+	PresentationWorkplace,
+	PresentationWorkspace,
+	PresenterNodeShell,
+	PreziScene,
+	RECORD_DENSITY,
+	RECORD_FRAME,
+	RECORD_LAYER,
+	RECORD_LEVEL,
+	RECORD_SHAPE,
+	RECORD_SIZE,
+	SceneInspector,
+	SemanticZoomManager,
+	TOKEN_FOUNDATION_AXES,
+	TOKEN_FOUNDATION_AXIS_DIRECTIONS,
+	TOKEN_TIER_CONTENT,
+	resolvePresenterSceneLinks,
+	useSemanticZoom
+} from './presentation';
+export {
+	ComparisonCard,
+	ProductAvailability,
+	ProductCard,
+	ProductCardExtended,
+	ProductCarousel,
+	ProductCatalog,
+	ProductComparisonTable,
+	ProductDemo,
+	ProductGallery,
+	ProductRecommendation,
+	ProductReviews,
+	ProductSearch,
+	ProductSorting,
+	ProductTour,
+	ProductWishlist,
+	WishlistButton
+} from './product';
+export {
+	AbsorptionSpectrumBand,
+	ChemicalProperty,
+	ELEMENT_ABSORPTION_SPECTRAL_LINES,
+	PERIODIC_ELEMENTS,
+	PERIODIC_ELEMENT_CATEGORY_ACCENT,
+	PERIODIC_ELEMENT_DETAIL,
+	PERIODIC_ELEMENT_LIGHT_INTERACTION,
+	PeriodicElement,
+	PeriodicElementAbsorptionSpectrum,
+	PeriodicElementDetailCard,
+	PeriodicElementLegend,
+	PeriodicElementLightInteraction,
+	PeriodicElementPropertyGrid,
+	PeriodicElementSummary,
+	PeriodicElementTable,
+	PeriodicElementType,
+	SpectralAbsorptionLine
+} from './science';
+export {
 	AutoComplete,
 	AutoSearch,
 	ObjectManagerSearchBar,
-	SEARCH_ICON_NAME,
 	SearchBar,
-	SearchForm,
 	SearchResults,
 	SearchSuggestion
 } from './search';
@@ -527,7 +884,6 @@ export {
 	RealTimePresence,
 	SocialActivityFeed,
 	SocialFeed,
-	SocialLogin,
 	SocialShare,
 	TOKEN_STAR,
 	commentSystemFormatDate,
@@ -556,12 +912,22 @@ export {
 	Flag,
 	Icon,
 	Svg,
+	SvgCircle,
+	SvgGroup,
+	SvgLine,
+	SvgPath,
+	SvgPolygon,
+	SvgPolyline,
+	SvgRect,
+	SvgText,
 	TOKEN_FLAG_REGISTRY,
 	TOKEN_ICON_REGISTRY,
 	buildSvgMarkup,
 	escapeAttr,
 	joinClasses,
 	normalizeIconName,
+	resolveFlagSvg,
+	resolveIconSvg,
 	resolveSize
 } from './svg';
 export {
@@ -576,7 +942,6 @@ export {
 	Component,
 	DataTable,
 	DataTableShell,
-	FilterBar,
 	FilterPills,
 	FilterText,
 	ObjectManagerTable,
@@ -685,6 +1050,57 @@ export {
 	supportsThemeMode,
 	toggleThemeMode
 } from './theme';
+export {
+	CardClose,
+	CardOpen,
+	CardShell,
+	DomainDescriptorPanel,
+	L6_TOKEN_DEFINITIONS,
+	Orbit,
+	OrbitBackground,
+	OrbitContractL5,
+	OrbitTokenNode,
+	PrismaticOrbitL6,
+	RibbonMenu,
+	TOKEN_AI_SETTING,
+	TOKEN_ARCHITECTURE_SETTING,
+	TOKEN_CALENDAR_SETTING,
+	TOKEN_CANVAS_SETTING,
+	TOKEN_CHART_SETTING,
+	TOKEN_CHAT_SETTING,
+	TOKEN_COLOR_SETTING,
+	TOKEN_COMMERCE_SETTING,
+	TOKEN_CONTROL_SETTING,
+	TOKEN_DEVELOPMENT_SETTING,
+	TOKEN_DEVICE_FRAME_SETTING,
+	TOKEN_FILE_SETTING,
+	TOKEN_GEO_SETTING,
+	TOKEN_GRAPH_SETTING,
+	TOKEN_ICON_PATHS,
+	TOKEN_INTERACTION_SETTING,
+	TOKEN_LAYOUT_SETTING,
+	TOKEN_LOCALIZATION_SETTING,
+	TOKEN_MANAGEMENT_SETTING,
+	TOKEN_MARKETING_SETTING,
+	TOKEN_NOTIFICATION_SETTING,
+	TOKEN_SETTING,
+	TOKEN_SVG_SETTING,
+	TOKEN_TABLE_SETTING,
+	TOKEN_THEME_SETTING,
+	TOKEN_TYPOGRAPHY_SETTING,
+	TOKEN_USER_SETTING,
+	Token,
+	TokenChipSet,
+	TokenControlBase,
+	TokenIcon,
+	TokenRadio,
+	TokenRange,
+	TokenSelect,
+	TokenSetting,
+	TokenSettings,
+	TokenText,
+	getTokenIconKind
+} from './token';
 export {
 	FlatTree,
 	TreeNodeItem,
@@ -818,6 +1234,46 @@ export {
 	summarizeWbdExpertInvites,
 	validateWbdEstimate
 } from './wbd';
+export {
+	ConcentricCirclesScene,
+	GlCanvas,
+	HyperspaceScene,
+	SceneLauncher,
+	TOKEN_ARCHITECTURE_SHADER_FRAGMENT,
+	TOKEN_ARCHITECTURE_SHADER_VERTEX,
+	compileShader,
+	createProgram
+} from './webgl';
+export {
+	DEFAULT_WORKSPACE_CANVAS,
+	GraphNodeCard,
+	Minimap,
+	MinimapManager,
+	NODE_TITLE_VARIANT,
+	NodeConnection,
+	NodeHeader,
+	NodePort,
+	NodePortGroup,
+	NodeProperties,
+	NodeProperty,
+	ObjectManagerNodeProperties,
+	ObjectManagerWorkspacePalette,
+	Stage,
+	StylistGraphWorkspace,
+	TOKEN_INTERACTION,
+	TOKEN_NODE_TYPE,
+	TOKEN_PAN_MODES,
+	TOKEN_PROPERTY_TYPE,
+	TOKEN_RELATIONSHIP,
+	TOKEN_SEVERITY,
+	TOKEN_TRAJECTORY,
+	Viewport,
+	WORKSPACE_ICONS,
+	WorkspaceCanvas,
+	WorkspaceNode,
+	WorkspacePalette,
+	WorkspaceToolbar
+} from './workspace';
 export type {
 	AiAssistantAIClientLike,
 	PlaygroundAiAssistantAIProviderId,
@@ -842,6 +1298,7 @@ export type {
 	MessageResponse,
 	PasswordResetRequest,
 	Permission,
+	Provider,
 	RegistrationData,
 	Role,
 	Session,
@@ -859,6 +1316,11 @@ export type {
 	TokenTimeRange
 } from './calendar';
 export type {
+	CanvasToolbarDrawingTool,
+	SharedCanvasTool,
+	SharedCanvasToolDefinition
+} from './canvas';
+export type {
 	HeatmapAxisValue,
 	TokenCanvasChartType,
 	TokenChart,
@@ -871,6 +1333,20 @@ export type {
 	TokenMessageStatus
 } from './chat';
 export type {
+	CheckoutStep,
+	DiscountType,
+	InventoryItemStatus,
+	Preset,
+	SubscriptionStatus,
+	TokenBillingItem,
+	TokenBillingSummary,
+	TokenMonitoringType,
+	TokenOrderStatus,
+	TokenPaymentStatus,
+	TrackingStatusType,
+	WarrantyPeriodType
+} from './commerce';
+export type {
 	SelectionMode,
 	ToggleGroupItemStateProps,
 	TokenSelectionType,
@@ -878,6 +1354,16 @@ export type {
 	Zoom,
 	ZoomStep
 } from './control';
+export type {
+	ContentType,
+	DebugConsoleLogLevel,
+	TokenCodeLanguage,
+	TokenCodeView,
+	TokenComponentType,
+	TokenFunctionalTaxonomy,
+	TokenSoftwareBadge
+} from './development';
+export type { AccordionContext } from './dialog';
 export type {
 	AiModelInfo,
 	ComponentImportRow,
@@ -929,6 +1415,15 @@ export type {
 	TokenPin
 } from './geo';
 export type {
+	GraphGridMode,
+	GraphNodeCategory,
+	GraphToolMode,
+	SceneAtomKind,
+	SceneCameraPreset,
+	SceneMaterialKind,
+	ZwickyLevel
+} from './graph';
+export type {
 	CaseItem,
 	NavBarLink
 } from './landing';
@@ -944,7 +1439,6 @@ export type {
 	LayoutLevel,
 	LayoutShape,
 	OverlayLayoutAlign,
-	Preset,
 	RecordSizeMap,
 	SplitLayoutGap,
 	ThemeGradientBackgroundDirection,
@@ -972,11 +1466,37 @@ export type {
 	TranslationLocale
 } from './localization';
 export type {
+	CardData,
+	PerformanceMonitorStatus,
+	StatsCardData,
+	StatusItem,
+	TokenKPI,
+	TokenTrend
+} from './management';
+export type { TokenTest } from './marketing';
+export type {
 	INotificationSettingsPreference,
+	NotificationItem,
 	ScheduledNotificationItem,
 	TokenMarker,
 	TokenNotifictionChannel
 } from './notification';
+export type {
+	KanbanBoardAction,
+	KanbanBoardType,
+	KanbanCardStateProps,
+	KanbanCardType,
+	KanbanColumnType
+} from './portfolio';
+export type {
+	FoundationAxis,
+	FoundationDepthThreshold,
+	FoundationSemanticZoomStage,
+	PresentationMode,
+	PresenterSceneLink,
+	PreziSceneContract,
+	TierContent
+} from './presentation';
 export type {
 	AutoCompleteOption,
 	SearchResultItem
@@ -987,7 +1507,6 @@ export type {
 	FRIEND_LIST_FRIEND,
 	FRIEND_LIST_PROPS,
 	Post,
-	Provider,
 	ShareOption,
 	SocialPlatform
 } from './social';
@@ -1034,6 +1553,17 @@ export type {
 	TokenZIndex
 } from './theme';
 export type {
+	TokenControlDefinition,
+	TokenControlDefinitionData,
+	TokenControlOption,
+	TokenIconProps,
+	TokenRadioControlDefinition,
+	TokenRangeControlDefinition,
+	TokenSelectControlDefinition,
+	TokenTextControlDefinition,
+	TokenTextStateProps
+} from './token';
+export type {
 	TreeNode,
 	TreeNodeItemNode
 } from './tree';
@@ -1073,6 +1603,16 @@ export type {
 	WbdQuestionType
 } from './wbd';
 export type {
+	GraphWorkspaceConnectionInput,
+	NodeTitleVariant,
+	TokenInteration,
+	TokenNodeType,
+	TokenPropertyType,
+	TokenRelationship,
+	TokenSeverity,
+	TokenTrajectory
+} from './workspace';
+export type {
 	ContractPromptTemplate,
 	ContractPromptVariable,
 	RecipeAiAssistant,
@@ -1104,6 +1644,17 @@ export type {
 	RecipeTransformable
 } from './animation';
 export type {
+	RecipeAudioPlayer,
+	RecipeAudioRecordButton,
+	RecipeAudioSlider,
+	RecipeAudioVisualizer,
+	SlotAudioPlayer,
+	SlotAudioRecording,
+	SlotAudioSlider,
+	SlotAudioVisualizer,
+	SlotTranscriptionResult
+} from './audio';
+export type {
 	IAuthProvider,
 	IAuthStateManager,
 	IAuthStrategy,
@@ -1119,7 +1670,8 @@ export type {
 	RecipeRegister,
 	RecipeSecureForm,
 	RecipeSecuritySettings,
-	RecipeSessionManager
+	RecipeSessionManager,
+	RecipeSocialLogin
 } from './auth';
 export type {
 	ButtonPreset,
@@ -1153,6 +1705,24 @@ export type {
 	SlotCalendarEvent,
 	SlotDatePicker
 } from './calendar';
+export type {
+	ObjectPoint2DPath,
+	Point2D,
+	RecipeCanvasImageEditor,
+	RecipeCanvasToolbar,
+	RecipeCollaborativeEditor,
+	RecipeColorPalette,
+	RecipeDrawingOverlay,
+	RecipeDrawingSurface,
+	RecipeScreenshotSelector,
+	RecipeSharedCanvas,
+	SlotCanvasObject,
+	SlotCanvasToolbarDrawingOptions,
+	SlotCollaborativeEditEvent,
+	SlotDrawingSurfaceCanvasClearedEvent,
+	SlotDrawingSurfaceExposeMethodsEvent,
+	SlotSharedCanvasObjectBounds
+} from './canvas';
 export type {
 	AnalyticsChartBarPoint,
 	AnalyticsChartDataPoint,
@@ -1231,6 +1801,71 @@ export type {
 	ThemeIconItem
 } from './chat';
 export type {
+	Address,
+	BulkOrderFormItem,
+	BulkOrderFormProduct,
+	PaymentMethod,
+	PaymentSummaryDiscount,
+	PaymentSummaryItem,
+	PaymentSummaryTax,
+	QuoteRequestValue,
+	RFQFormData,
+	RFQProduct,
+	RecipeAlertCard,
+	RecipeAlertCardStateProps,
+	RecipeArticleCard,
+	RecipeBillingSummary,
+	RecipeBulkOrderForm,
+	RecipeCardWithImage,
+	RecipeCartSummaryProps,
+	RecipeCategoryCard,
+	RecipeCheckoutForm,
+	RecipeCurrencyConverter,
+	RecipeDataDisplayCard,
+	RecipeDiscountApplier,
+	RecipeExpandableCard,
+	RecipeFilterBar,
+	RecipeGraphNodeCard,
+	RecipeInventoryTracker,
+	RecipeLinkCard,
+	RecipeMetricCard,
+	RecipeOrderConfirmation,
+	RecipeOrderHistory,
+	RecipeOrderItemOrderConfirmation,
+	RecipeOrderItemOrderHistory,
+	RecipeOrderSort,
+	RecipeOrderTracking,
+	RecipePaymentInfoProps,
+	RecipePaymentMethodSelector,
+	RecipePaymentSelector,
+	RecipePaymentSummary,
+	RecipePriceAlert,
+	RecipePriceFilter,
+	RecipePriceHistory,
+	RecipePriceMatch,
+	RecipePricingTable,
+	RecipeQuoteRequest,
+	RecipeReturnPolicy,
+	RecipeRfqForm,
+	RecipeShippingCalculator,
+	RecipeShippingInfo,
+	RecipeShippingRegion,
+	RecipeSubscriptionManager,
+	RecipeTaxCalculator,
+	RecipeUpsell,
+	RecipeUserCardProps,
+	RecipeWarrantyInfo,
+	SlotBulkOrderForm,
+	SlotCurrency,
+	SlotDiscountRule,
+	SlotExchangeRate,
+	SlotFilterBarStyleClasses,
+	SlotInventoryItem,
+	SlotShippingOption,
+	SlotShippingOptionInfo,
+	SlotUpsellProduct
+} from './commerce';
+export type {
 	BehaviorSelectable,
 	RecipeAccessibilityToolbar,
 	RecipeActionSegmentedControl,
@@ -1271,6 +1906,82 @@ export type {
 	SlotToggleGroupContext,
 	SlotToggleInput
 } from './control';
+export type {
+	DebugConsoleLogEntry,
+	DomainForEachOptions,
+	PageBuilderButtonAttributes,
+	PageBuilderElement,
+	PageBuilderHeadingAttributes,
+	PageBuilderImageAttributes,
+	PageBuilderTextAttributes,
+	PrimaryMenuItem,
+	RecipeAtomicPrinciples,
+	RecipeAtomicPrinciplesShowcase,
+	RecipeCodeBlock,
+	RecipeCodeDiff,
+	RecipeCodeEditor,
+	RecipeCodeViewer,
+	RecipeComponentLibraryStats,
+	RecipeComponentPreview,
+	RecipeContentEditorStateProps,
+	RecipeCubeControl,
+	RecipeDebugConsole,
+	RecipeDesignTokens,
+	RecipeDevelopmentErrorBoundary,
+	RecipeDocumentationBlock,
+	RecipeEnhancedExportPanel,
+	RecipeErrorBoundary,
+	RecipeGenericCodeViewer,
+	RecipeLiveCodeSection,
+	RecipeMockDataSelector,
+	RecipeNpmBadge,
+	RecipePageBuilder,
+	RecipePrivacySettings,
+	RecipeStylist,
+	RecipeStylistMenu,
+	RecipeSyntaxHighlightedCode,
+	SlotAiModel,
+	SlotComponentLibraryStats,
+	SlotMockDataSelectorSelection,
+	SlotMockDataSelectorStyleClasses,
+	StylistSelection
+} from './development';
+export type {
+	BreadcrumbDropdownItem,
+	BreadcrumbItem,
+	RecipeAccordion,
+	RecipeAccordionGroup,
+	RecipeAccordionLayout,
+	RecipeBreadcrumbDropdown,
+	RecipeBreadcrumbLink,
+	RecipeBreadcrumbSeparator,
+	RecipeBreadcrumbs,
+	RecipeComponentInfoCard,
+	RecipeConfirmationDialog,
+	RecipeDialog,
+	RecipeDialogConfirm,
+	RecipeDropdownMenu,
+	RecipeGeneralToolbar,
+	RecipeModal,
+	RecipeSimpleModal,
+	RecipeStepper,
+	RecipeStylistTab,
+	RecipeTab,
+	RecipeTabList,
+	RecipeTabPanel,
+	RecipeTabPanels,
+	RecipeTabs,
+	SlotAccordion,
+	SlotAccordionGroup,
+	SlotAccordionLayout,
+	SlotConfirmationDialog,
+	SlotDialog,
+	SlotModal,
+	SlotTab,
+	SlotTabContainer,
+	SlotTabPanel,
+	StylistTabItem
+} from './dialog';
 export type {
 	RecipeClusterToolbar,
 	RecipeCtaButtons,
@@ -1357,6 +2068,23 @@ export type {
 	SlotZipViewerStyleClasses
 } from './file';
 export type {
+	RecipeAccountForms,
+	RecipeCheckboxGroup,
+	RecipeFormFooter,
+	RecipeFormHeader,
+	RecipeFormSelection,
+	RecipeInteractionForms,
+	RecipeSchemaFormDialog,
+	RecipeToggleButtonGroup,
+	SlotAddressData,
+	SlotFormData,
+	SlotFormFooter,
+	SlotFormHeader,
+	SlotFormSelectionState,
+	SlotLoginCredentials,
+	SlotValidationErrors
+} from './form';
+export type {
 	BehaviorMarkerProto,
 	LocationSelectorLocation,
 	MapSelectorLocation,
@@ -1383,6 +2111,42 @@ export type {
 	StoreLocatorStore
 } from './geo';
 export type {
+	ArchitectureScene,
+	GraphBounds3D,
+	GraphConnection,
+	GraphJsonInput,
+	GraphPosition3D,
+	RecipeFieldHighlighter,
+	RecipeGraph,
+	RecipeGraphEdge,
+	RecipeGraphNode,
+	RecipeGraphvizDirectedEdge,
+	RecipeNodeIcon,
+	RecipeOntologyEdgeComponent,
+	RecipeOntologyNodeComponent,
+	RecipeScene,
+	RecipeSceneCameraControl,
+	RecipeZwickyScene,
+	SceneAtom,
+	SceneAtomGeometry,
+	SceneAtomMetadata,
+	SceneAtomMotion,
+	SceneAtomTransform,
+	SceneBufferSet,
+	SceneCamera,
+	SceneDebugInfo,
+	SceneGeometry,
+	SceneGraph,
+	SceneMaterial,
+	SceneMolecule,
+	SlotFieldHighlighter,
+	SlotFieldHighlighterSelectedField,
+	SlotGraphEdge,
+	SlotGraphNode,
+	ZwickyFilterState,
+	ZwickyNode
+} from './graph';
+export type {
 	RecipeIdef0BlackBox,
 	RecipeIdef0Connector,
 	RecipeIdef0Diagram,
@@ -1392,7 +2156,6 @@ export type {
 	SlotIdef0
 } from './idef-zero';
 export type {
-	RecipeCanvasImageEditor,
 	RecipeCard,
 	RecipeDividerHeadingImageText,
 	RecipeImage,
@@ -1402,7 +2165,6 @@ export type {
 } from './image';
 export type {
 	RecipeCharactersCount,
-	RecipeCheckboxGroup,
 	RecipeInputAddon,
 	RecipeInputDouble,
 	RecipeInputEmail,
@@ -1520,6 +2282,49 @@ export type {
 	SlotLocaleSwitcherLocale
 } from './localization';
 export type {
+	BehaviorOperationsHistoryEvents,
+	BehaviorTrendable,
+	ContractDashboardLayout,
+	DraggableCardProps,
+	RecipeDashboardLayout,
+	RecipeDraggableCard,
+	RecipeKPIIndicator,
+	RecipeLegendItem,
+	RecipePageHeader,
+	RecipePerformanceDashboard,
+	RecipePerformanceDashboardPerformanceDashboardStateProps,
+	RecipePerformanceMonitor,
+	RecipePermissionGate,
+	RecipeProcessStep,
+	RecipeStatCard,
+	RecipeStatsCard,
+	RecipeStatusDashboard,
+	RecipeStatusDashboardStatusDashboardStateProps,
+	RecipeTeamMemberCard,
+	SlotDraggableCard,
+	SlotOperationsHistory,
+	SlotPageHeader,
+	SlotProcessStep,
+	SlotTeamMemberCard
+} from './management';
+export type {
+	RecipeAnnouncementBanner,
+	RecipeConversionFunnel,
+	RecipeCtaBanner,
+	RecipeHero,
+	RecipePromoBanner,
+	RecipeTestResultsViewer,
+	RecipeTrafficAnalytics,
+	RecipeUserBehaviorMetrics,
+	SlotABTest,
+	SlotABTestConfigurator,
+	SlotABTestVariant,
+	SlotFunnelStep,
+	SlotHero,
+	SlotHeroCta,
+	SlotTestResult
+} from './marketing';
+export type {
 	NavItem,
 	RecipeAppHeader,
 	RecipeBurgerMenu,
@@ -1539,12 +2344,69 @@ export type {
 	RecipeNotificationCenter,
 	RecipeNotificationList,
 	RecipeNotificationOptions,
-	RecipeNotificationPreferences,
 	RecipeNotificationSettings,
 	RecipeScheduledNotification,
 	RecipeToast,
 	RecipeToastStack
 } from './notification';
+export type {
+	BurnDownChartMargins,
+	BurnDownLabel,
+	PortfolioData,
+	PortfolioEntry,
+	PortfolioSummaryData,
+	RecipeBurnDownChart,
+	RecipeKanbanBoard,
+	RecipeKanbanCard,
+	RecipeKanbanColumn,
+	RecipeScrumBacklog,
+	SlotBacklogData,
+	SlotBacklogItem,
+	SlotBurnDownData,
+	SlotBurnDownPoint,
+	SlotIssueMessage
+} from './portfolio';
+export type {
+	BehaviorPreziSceneMethods,
+	PreziCamera,
+	RecipePresentationState,
+	RecipePresenterNodeShell,
+	RecipePreziScene,
+	RecipePreziSceneState,
+	SceneNode,
+	SceneNodePoint,
+	SemanticZoomPresentation
+} from './presentation';
+export type {
+	RecipeComparisonCard,
+	RecipeProductAvailability,
+	RecipeProductCard,
+	RecipeProductCollection,
+	RecipeProductDemo,
+	RecipeProductGallery,
+	RecipeProductReviews,
+	RecipeProductSearch,
+	RecipeProductSorting,
+	RecipeProductTour,
+	RecipeWishlistButton,
+	SlotProductDescription,
+	SlotProductOption,
+	SlotProductSortingStyleClasses
+} from './product';
+export type {
+	RecipeAbsorptionSpectrumBand,
+	RecipeChemicalProperty,
+	RecipePeriodicElement,
+	RecipePeriodicElementAbsorptionSpectrum,
+	RecipePeriodicElementDetailCard,
+	RecipePeriodicElementLegend,
+	RecipePeriodicElementLightInteraction,
+	RecipePeriodicElementPropertyGrid,
+	RecipePeriodicElementSummary,
+	RecipePeriodicElementTable,
+	RecipePeriodicElementType,
+	RecipeSpectralAbsorptionLine
+} from './science';
 export type {
 	RecipeAutoComplete,
 	RecipeAutoSearch,
@@ -1567,7 +2429,6 @@ export type {
 	RecipeRealTimePresence,
 	RecipeSocialActivityFeed,
 	RecipeSocialFeed,
-	RecipeSocialLogin,
 	RecipeSocialShare,
 	SlotCommentItem,
 	SlotCommentSystem,
@@ -1582,6 +2443,14 @@ export type {
 	RecipeFlag,
 	RecipeIcon,
 	RecipeSvg,
+	RecipeSvgCircle,
+	RecipeSvgGroup,
+	RecipeSvgLine,
+	RecipeSvgPath,
+	RecipeSvgPolygon,
+	RecipeSvgPolyline,
+	RecipeSvgRect,
+	RecipeSvgText,
 	SlotIcon,
 	SlotSvgName
 } from './svg';
@@ -1597,7 +2466,6 @@ export type {
 	RecipeComponent,
 	RecipeDataTable,
 	RecipeDataTableShell,
-	RecipeFilterBar,
 	RecipeFilterPills,
 	RecipeFilterText,
 	RecipeRow,
@@ -1640,6 +2508,15 @@ export type {
 	SlotThemeSettings,
 	SlotTypography
 } from './theme';
+export type {
+	RecipeToken,
+	RecipeTokenChipSet,
+	RecipeTokenControlBase,
+	RecipeTokenRadio,
+	RecipeTokenRange,
+	RecipeTokenSelect,
+	RecipeTokenText
+} from './token';
 export type {
 	RecipeTree,
 	RecipeTreeNodeItem,
@@ -1765,3 +2642,29 @@ export type {
 	RecipeWbsTree,
 	SlotWbdDiscussionNote
 } from './wbd';
+export type {
+	GraphNodeDraft,
+	GraphPortDimensions,
+	GraphWorkspaceBounds,
+	GraphWorkspaceConnection,
+	GraphWorkspaceNode,
+	MinimapBounds,
+	MinimapViewport,
+	RecipeMinimap,
+	RecipeNodeConnection,
+	RecipeNodeHeader,
+	RecipeNodePort,
+	RecipeNodePortGroup,
+	RecipeNodeProperties,
+	RecipeNodeProperty,
+	RecipeStage,
+	RecipeStylistGraphWorkspace,
+	RecipeViewport,
+	RecipeWorkspace,
+	RecipeWorkspaceCanvas,
+	RecipeWorkspaceNode,
+	RecipeWorkspacePalette,
+	RecipeWorkspaceToolbar,
+	SlotNodeConnection,
+	SlotWorkspaceNode
+} from './workspace';

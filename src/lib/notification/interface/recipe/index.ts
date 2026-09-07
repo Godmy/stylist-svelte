@@ -7,7 +7,6 @@ export type { RecipeNotificationBadge } from './notification-badge';
 export type { RecipeNotificationCenter } from './notification-center';
 export type { RecipeNotificationList } from './notification-list';
 export type { RecipeNotificationOptions } from './notification-options';
-export type { RecipeNotificationPreferences } from './notification-preferences';
 export type { RecipeNotificationSettings } from './notification-settings';
 export type { RecipeScheduledNotification } from './scheduled-notification';
 export type { RecipeToast } from './toast';

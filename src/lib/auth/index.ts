@@ -13,6 +13,7 @@ export {
 	SecureForm,
 	SecuritySettings,
 	SessionManager,
+	SocialLogin,
 	SubmitButton
 } from './component';
 export {
@@ -32,6 +33,7 @@ export type {
 	MessageResponse,
 	PasswordResetRequest,
 	Permission,
+	Provider,
 	RegistrationData,
 	Role,
 	Session,
@@ -53,5 +55,6 @@ export type {
 	RecipeRegister,
 	RecipeSecureForm,
 	RecipeSecuritySettings,
-	RecipeSessionManager
+	RecipeSessionManager,
+	RecipeSocialLogin
 } from './interface';

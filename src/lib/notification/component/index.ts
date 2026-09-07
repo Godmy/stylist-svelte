@@ -13,6 +13,5 @@ export {
 export {
 	NotificationCenter,
 	NotificationList,
-	NotificationPreferences,
 	ScheduledNotification
 } from './organism';

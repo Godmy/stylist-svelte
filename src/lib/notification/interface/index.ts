@@ -8,7 +8,6 @@ export type {
 	RecipeNotificationCenter,
 	RecipeNotificationList,
 	RecipeNotificationOptions,
-	RecipeNotificationPreferences,
 	RecipeNotificationSettings,
 	RecipeScheduledNotification,
 	RecipeToast,

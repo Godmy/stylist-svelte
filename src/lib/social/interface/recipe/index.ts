@@ -7,5 +7,4 @@ export type { RecipeReactionPicker } from './reaction-picker';
 export type { RecipeRealTimePresence } from './real-time-presence';
 export type { RecipeSocialActivityFeed } from './social-activity-feed';
 export type { RecipeSocialFeed } from './social-feed';
-export type { RecipeSocialLogin } from './social-login';
 export type { RecipeSocialShare } from './social-share';

@@ -8,7 +8,6 @@ export type {
 	ActivityType
 } from './social-activity-feed';
 export type { Post } from './social-feed';
-export type { Provider } from './social-login';
 export type {
 	ShareOption,
 	SocialPlatform

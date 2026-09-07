@@ -6,3 +6,4 @@ export { RegisterPage } from './register-page/index';
 export { SecureForm } from './secure-form/index';
 export { SecuritySettings } from './security-settings/index';
 export { SessionManager } from './session-manager/index';
+export { SocialLogin } from './social-login/index';

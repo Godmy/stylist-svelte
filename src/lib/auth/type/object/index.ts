@@ -10,4 +10,5 @@ export type { Permission } from './permission';
 export type { RegistrationData } from './registration-data';
 export type { Role } from './role';
 export type { Session } from './session';
+export type { Provider } from './social-login';
 export type { User } from './user';

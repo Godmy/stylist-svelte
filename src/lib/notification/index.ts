@@ -7,7 +7,6 @@ export {
 	NotificationBadge,
 	NotificationCenter,
 	NotificationList,
-	NotificationPreferences,
 	NotificationSettings,
 	ScheduledNotification,
 	ToastStack
@@ -19,6 +18,7 @@ export {
 export { updateNotificationPreference } from './function';
 export type {
 	INotificationSettingsPreference,
+	NotificationItem,
 	ScheduledNotificationItem,
 	TokenMarker,
 	TokenNotifictionChannel
@@ -32,7 +32,6 @@ export type {
 	RecipeNotificationCenter,
 	RecipeNotificationList,
 	RecipeNotificationOptions,
-	RecipeNotificationPreferences,
 	RecipeNotificationSettings,
 	RecipeScheduledNotification,
 	RecipeToast,

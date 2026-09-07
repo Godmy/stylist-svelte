@@ -8,7 +8,7 @@
 		{
 			name: 'src',
 			type: 'text',
-			defaultValue: 'https://via.placeholder.com/150'
+			defaultValue: '/avatar/letters/jd.svg'
 		},
 		{
 			name: 'alt',

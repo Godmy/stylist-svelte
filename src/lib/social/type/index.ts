@@ -5,7 +5,6 @@ export type {
 	FRIEND_LIST_FRIEND,
 	FRIEND_LIST_PROPS,
 	Post,
-	Provider,
 	ShareOption,
 	SocialPlatform
 } from './object';

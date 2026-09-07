@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { AnyProperty } from '$stylist/layout/type/record/any-property';
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import type { NotificationItem } from '$stylist/notification/type/object/notification-item';
 
 	import NotificationCenter from './index.svelte';
 
@@ -13,7 +13,7 @@
 		{ name: 'pollingInterval', type: 'number', defaultValue: 30000 }
 	];
 
-	const notifications: AnyProperty[] = [
+	const notifications: NotificationItem[] = [
 		{
 			id: '1',
 			title: 'Welcome',
@@ -58,7 +58,7 @@
 				showClearAll={values.showClearAll}
 				showTimestamp={values.showTimestamp}
 				pollingInterval={values.pollingInterval}
-				onNotificationClick={(notification: AnyProperty) => {
+				onNotificationClick={(notification: NotificationItem) => {
 					console.log('Notification clicked:', notification);
 				}}
 				onMarkAllRead={() => {

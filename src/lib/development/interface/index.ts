@@ -1,0 +1,43 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type {
+	RecipeAtomicPrinciples,
+	RecipeAtomicPrinciplesShowcase,
+	RecipeCodeBlock,
+	RecipeCodeDiff,
+	RecipeCodeEditor,
+	RecipeCodeViewer,
+	RecipeComponentLibraryStats,
+	RecipeComponentPreview,
+	RecipeContentEditorStateProps,
+	RecipeCubeControl,
+	RecipeDebugConsole,
+	RecipeDesignTokens,
+	RecipeDevelopmentErrorBoundary,
+	RecipeDocumentationBlock,
+	RecipeEnhancedExportPanel,
+	RecipeErrorBoundary,
+	RecipeGenericCodeViewer,
+	RecipeLiveCodeSection,
+	RecipeMockDataSelector,
+	RecipeNpmBadge,
+	RecipePageBuilder,
+	RecipePrivacySettings,
+	RecipeStylist,
+	RecipeStylistMenu,
+	RecipeSyntaxHighlightedCode
+} from './recipe';
+export type {
+	DebugConsoleLogEntry,
+	DomainForEachOptions,
+	PageBuilderButtonAttributes,
+	PageBuilderElement,
+	PageBuilderHeadingAttributes,
+	PageBuilderImageAttributes,
+	PageBuilderTextAttributes,
+	PrimaryMenuItem,
+	SlotAiModel,
+	SlotComponentLibraryStats,
+	SlotMockDataSelectorSelection,
+	SlotMockDataSelectorStyleClasses,
+	StylistSelection
+} from './slot';

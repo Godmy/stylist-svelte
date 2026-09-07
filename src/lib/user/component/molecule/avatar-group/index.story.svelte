@@ -22,35 +22,35 @@
 			id: '1',
 			name: 'John Doe',
 			role: 'Product Lead',
-			src: 'https://i.pravatar.cc/120?img=1',
+			src: '/avatar/letters/jd.svg',
 			status: 'online' as const
 		},
 		{
 			id: '2',
 			name: 'Jane Smith',
 			role: 'Designer',
-			src: 'https://i.pravatar.cc/120?img=2',
+			src: '/avatar/letters/js.svg',
 			status: 'away' as const
 		},
 		{
 			id: '3',
 			name: 'Bob Lee',
 			role: 'Engineer',
-			src: 'https://i.pravatar.cc/120?img=3',
+			src: '/avatar/letters/bl.svg',
 			status: 'offline' as const
 		},
 		{
 			id: '4',
 			name: 'Sara Kim',
 			role: 'Engineer',
-			src: 'https://i.pravatar.cc/120?img=4',
+			src: '/avatar/letters/sk.svg',
 			status: 'busy' as const
 		},
 		{
 			id: '5',
 			name: 'Mike Hall',
 			role: 'QA',
-			src: 'https://i.pravatar.cc/120?img=5',
+			src: '/avatar/letters/mh.svg',
 			status: 'online' as const
 		}
 	];

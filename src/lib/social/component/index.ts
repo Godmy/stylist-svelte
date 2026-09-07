@@ -11,6 +11,5 @@ export {
 	RealTimePresence,
 	SocialActivityFeed,
 	SocialFeed,
-	SocialLogin,
 	SocialShare
 } from './organism';

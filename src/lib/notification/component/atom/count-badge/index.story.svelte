@@ -55,7 +55,7 @@
 				<ul class="_c6">
 					{#each inboxViews as view}
 						<li class="_c7">
-							<span class="_c8 _c3">{view.label}</span>
+							<span class="_c8">{view.label}</span>
 							<CountBadge
 								count={view.label === 'Inbox' ? (Number.isNaN(count) ? 12 : count) : view.count}
 								max={Number.isNaN(max) ? 99 : max}

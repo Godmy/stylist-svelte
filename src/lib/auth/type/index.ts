@@ -9,6 +9,7 @@ export type {
 	MessageResponse,
 	PasswordResetRequest,
 	Permission,
+	Provider,
 	RegistrationData,
 	Role,
 	Session,

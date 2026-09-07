@@ -8,7 +8,6 @@ export type {
 	RecipeRealTimePresence,
 	RecipeSocialActivityFeed,
 	RecipeSocialFeed,
-	RecipeSocialLogin,
 	RecipeSocialShare
 } from './recipe';
 export type {

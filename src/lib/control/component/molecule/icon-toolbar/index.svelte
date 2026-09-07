@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
+	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeIconToolbar } from '$stylist/control/interface/recipe/icon-toolbar';
 
 	let {
@@ -38,24 +39,7 @@
 			onclick={() => onSelect?.(item.name)}
 		>
 			<span class="icon">
-				{#if item.svg}
-					{@html item.svg}
-				{:else}
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						aria-hidden="true"
-					>
-						<rect x="4" y="4" width="16" height="16" rx="2" />
-						<path d="M8 9h8" />
-						<path d="M8 15h8" />
-					</svg>
-				{/if}
+				<Icon name={item.name} size="sm" />
 			</span>
 			{#if active === item.name}
 				<span class="active-indicator"></span>

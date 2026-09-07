@@ -5,5 +5,6 @@ export type {
 } from './alias';
 export type {
 	INotificationSettingsPreference,
+	NotificationItem,
 	ScheduledNotificationItem
 } from './object';

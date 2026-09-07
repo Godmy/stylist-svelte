@@ -3,6 +3,16 @@ import type { SlotRating } from '$stylist/social/interface/slot/rating';
 export function createRatingState(props: SlotRating & { rating?: number }) {
 	let hoverRating = $state(0);
 	const size = $derived(props.size ?? 'md');
+	const iconSize = $derived.by(() =>
+		size === 'xs' ||
+		size === 'sm' ||
+		size === 'md' ||
+		size === 'lg' ||
+		size === 'xl' ||
+		size === '2xl'
+			? size
+			: 'md'
+	);
 	const disabled = $derived(props.disabled ?? false);
 	const readonly = $derived(props.readonly ?? false);
 
@@ -54,6 +64,9 @@ export function createRatingState(props: SlotRating & { rating?: number }) {
 		},
 		get ratingTextClasses() {
 			return ratingTextClasses;
+		},
+		get iconSize() {
+			return iconSize;
 		},
 		handleMouseLeave,
 		handleStarClick,

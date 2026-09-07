@@ -9,7 +9,6 @@ export {
 	RealTimePresence,
 	SocialActivityFeed,
 	SocialFeed,
-	SocialLogin,
 	SocialShare
 } from './component';
 export { TOKEN_STAR } from './const';
@@ -42,7 +41,6 @@ export type {
 	FRIEND_LIST_FRIEND,
 	FRIEND_LIST_PROPS,
 	Post,
-	Provider,
 	ShareOption,
 	SocialPlatform
 } from './type';
@@ -55,7 +53,6 @@ export type {
 	RecipeRealTimePresence,
 	RecipeSocialActivityFeed,
 	RecipeSocialFeed,
-	RecipeSocialLogin,
 	RecipeSocialShare,
 	SlotCommentItem,
 	SlotCommentSystem,
