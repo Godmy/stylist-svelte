@@ -87,7 +87,7 @@
 				{/if}
 				{#if state.allowDelete}
 					<button type="button" class="ml-btn ml-btn--danger">
-						<BaseIcon name="trash-2" style="width:1rem;height:1rem;margin-right:0.25rem" />
+						<BaseIcon name="trash" style="width:1rem;height:1rem;margin-right:0.25rem" />
 						Delete
 					</button>
 				{/if}
@@ -214,7 +214,7 @@
 								}}
 								title="Delete"
 							>
-								<BaseIcon name="trash-2" style="width:1.25rem;height:1.25rem" />
+								<BaseIcon name="trash" style="width:1.25rem;height:1.25rem" />
 							</button>
 						{/if}
 					</div>

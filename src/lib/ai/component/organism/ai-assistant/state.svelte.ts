@@ -21,7 +21,7 @@ const providerNames: Record<string, string> = {
 export function createAiAssistantState(props: RecipeAiAssistant & HTMLAttributes<HTMLDivElement>) {
 	const X = 'x';
 	const Send = 'send';
-	const Trash2 = 'trash-2';
+	const Trash2 = 'trash';
 	const RotateCcw = 'rotate-ccw';
 	const Loader2 = 'loader-2';
 

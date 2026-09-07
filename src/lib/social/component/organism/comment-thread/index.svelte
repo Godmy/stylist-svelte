@@ -131,7 +131,7 @@
 										class="c-comment-thread__action-btn c-comment-thread__action-btn--danger"
 										onclick={() => props.onDelete?.(comment.id)}
 									>
-										<BaseIcon name="trash-2" class="c-comment-thread__action-icon" />
+										<BaseIcon name="trash" class="c-comment-thread__action-icon" />
 										<span class="c-comment-thread__action-label">Delete</span>
 									</button>
 								{/if}
