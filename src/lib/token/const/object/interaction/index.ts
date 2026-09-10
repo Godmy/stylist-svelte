@@ -1,6 +1,5 @@
 import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_AVAILABILITY } from '$stylist/user/const/array/availability';
-import { CONTENT_EDITOR_CONTENT_TYPE } from '$stylist/development/const/array/content-editor-content-type';
 import { TOKEN_FLOW } from '$stylist/calendar/const/array/flow';
 import { TOKEN_INTERACTION } from '$stylist/workspace/const/array/interaction';
 import { INTERACTION_FEEDBACK } from '$stylist/animation/const/array/interaction-feedback';
@@ -25,13 +24,6 @@ export const TOKEN_INTERACTION_SETTING = [
 		domain: 'user',
 		controlKind: 'radio',
 		values: TOKEN_AVAILABILITY
-	},
-	{
-		key: 'content-editor-content-type',
-		label: 'Content Editor Content Type',
-		domain: 'development',
-		controlKind: 'radio',
-		values: CONTENT_EDITOR_CONTENT_TYPE
 	},
 	{ key: 'flow', label: 'Flow', domain: 'calendar', controlKind: 'radio', values: TOKEN_FLOW },
 	{

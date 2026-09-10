@@ -3,11 +3,10 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotBadge } from '$stylist/layout/interface/slot/badge';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-import type { SlotStatus } from '$stylist/ai/interface/slot/status';
 import type { Snippet } from 'svelte';
 export interface RecipeDataDisplayCard
 	extends ComputeIntersectAll<
-		[SlotTheme, SlotText, SlotText, SlotBadge, SlotStatus, HTMLAttributes<HTMLDivElement>]
+		[SlotTheme, SlotText, SlotText, SlotBadge, HTMLAttributes<HTMLDivElement>]
 	> {
 	title?: string;
 	subtitle?: string;

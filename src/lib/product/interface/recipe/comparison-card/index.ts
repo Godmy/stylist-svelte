@@ -4,9 +4,8 @@ import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-
 import type { SlotBadge } from '$stylist/layout/interface/slot/badge';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
 import type { SlotImage } from '$stylist/image/interface/slot/image';
-import type { SlotStatus } from '$stylist/ai/interface/slot/status';
 export interface RecipeComparisonCard
-	extends ComputeIntersectAll<[SlotTheme, SlotText, SlotImage, SlotBadge, SlotStatus]> {
+	extends ComputeIntersectAll<[SlotTheme, SlotText, SlotImage, SlotBadge]> {
 	before: {
 		title: string;
 		items: SlotProductOption[];

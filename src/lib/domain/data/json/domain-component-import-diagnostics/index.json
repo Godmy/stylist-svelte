@@ -391,23 +391,6 @@
       ]
     },
     {
-      "path": "development/component/organism/content-editor/index.svelte",
-      "domain": "development",
-      "joint": "organism",
-      "family": "content-editor",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeContentEditor",
-      "importCount": 4,
-      "recipeImports": [
-        "$stylist/development/interface/recipe/content-editor-state-props"
-      ],
-      "otherImports": [
-        "svelte/elements",
-        "$stylist/svg/component/atom/icon/index.svelte",
-        "./state.svelte"
-      ]
-    },
-    {
       "path": "dialog/component/atom/breadcrumbs/index.svelte",
       "domain": "dialog",
       "joint": "atom",
@@ -1442,19 +1425,6 @@
       ]
     },
     {
-      "path": "wbd/component/organism/median-trend-chart/index.svelte",
-      "domain": "wbd",
-      "joint": "organism",
-      "family": "median-trend-chart",
-      "status": "missing-recipe",
-      "expectedRecipe": "RecipeMedianTrendChart",
-      "importCount": 1,
-      "recipeImports": [],
-      "otherImports": [
-        "$stylist/chart/component/organism/line-chart/index.svelte"
-      ]
-    },
-    {
       "path": "wbd/component/template/wbd-landing-page/index.svelte",
       "domain": "wbd",
       "joint": "template",
@@ -1539,10 +1509,10 @@
     }
   ],
   "summary": {
-    "total": 101,
+    "total": 99,
     "none": 9,
-    "missingRecipe": 92,
-    "valid": 588,
-    "scanned": 689
+    "missingRecipe": 90,
+    "valid": 553,
+    "scanned": 652
   }
 }

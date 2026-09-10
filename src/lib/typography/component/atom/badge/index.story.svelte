@@ -24,6 +24,18 @@
 		{ name: 'variant', type: 'select', defaultValue: 'default', options: [...variantOptions] },
 		{ name: 'size', type: 'select', defaultValue: 'md', options: [...sizeOptions] }
 	];
+
+	const allVariants = [
+		'default',
+		'neutral',
+		'primary',
+		'secondary',
+		'success',
+		'info',
+		'warning',
+		'danger'
+	] as const;
+	const allSizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
 </script>
 
 <Story
@@ -53,6 +65,24 @@
 				{/each}
 			</div>
 
+			<div class="_c4">
+				<h3 class="_c5">Variants</h3>
+				<div class="_c3">
+					{#each allVariants as variant}
+						<Badge label={variant} {variant} size={(values as BadgeStoryProps).size} />
+					{/each}
+				</div>
+			</div>
+
+			<div class="_c4">
+				<h3 class="_c5">Sizes</h3>
+				<div class="_c3">
+					{#each allSizes as size}
+						<Badge label={size} variant={(values as BadgeStoryProps).variant} {size} />
+					{/each}
+				</div>
+			</div>
+
 			<div class="_c2">
 				<p>Inline status marker for priorities, tags, counters, and short state labels.</p>
 				<p>Variants map the marker to a semantic state; size should follow nearby text.</p>
@@ -78,5 +108,14 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
+	}
+	._c4 {
+		display: grid;
+		gap: 0.5rem;
+	}
+	._c5 {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
 	}
 </style>

@@ -3,6 +3,7 @@ export {
 	AnimatedBackground,
 	AnimatedDigit,
 	Css3dCube,
+	FloatingIcon,
 	LayoutTransformation,
 	ProgressBar,
 	Skeleton,
@@ -10,4 +11,11 @@ export {
 	Tooltip,
 	Transformable
 } from './atom';
-export { Loading } from './molecule';
+export {
+	AtomicTierCard,
+	Loading
+} from './molecule';
+export {
+	AtomicPrinciplesShowcase,
+	ComponentLibraryStats
+} from './organism';

@@ -9,7 +9,11 @@ export type {
 export type {
 	RecipeAnimatedBackground,
 	RecipeAnimatedDigit,
+	RecipeAtomicPrinciplesShowcase,
+	RecipeAtomicTierCard,
+	RecipeComponentLibraryStats,
 	RecipeCss3dCube,
+	RecipeFloatingIcon,
 	RecipeLayoutTransformation,
 	RecipeLoading,
 	RecipeProgressBar,
@@ -18,3 +22,4 @@ export type {
 	RecipeTooltip,
 	RecipeTransformable
 } from './recipe';
+export type { SlotComponentLibraryStats } from './slot';

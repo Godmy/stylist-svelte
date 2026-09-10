@@ -2,6 +2,7 @@
 export { AnimatedBackground } from './animated-background/index';
 export { AnimatedDigit } from './animated-digit/index';
 export { Css3dCube } from './css-3d-cube/index';
+export { FloatingIcon } from './floating-icon/index';
 export { LayoutTransformation } from './layout-transformation/index';
 export { ProgressBar } from './progress-bar/index';
 export { Skeleton } from './skeleton/index';

@@ -3,7 +3,11 @@ export { ManagerMotion } from './class';
 export {
 	AnimatedBackground,
 	AnimatedDigit,
+	AtomicPrinciplesShowcase,
+	AtomicTierCard,
+	ComponentLibraryStats,
 	Css3dCube,
+	FloatingIcon,
 	LayoutTransformation,
 	Loading,
 	ProgressBar,
@@ -13,8 +17,10 @@ export {
 	Transformable
 } from './component';
 export {
+	ATOMIC_PRINCIPLES_TIER,
 	BASE_EASING,
 	INTERACTION_FEEDBACK,
+	PresetAtomicPrinciplesShowcase,
 	TOKEN_CONNECTOR,
 	TOKEN_LOADING
 } from './const';
@@ -37,12 +43,17 @@ export type {
 	BehaviorTransformable,
 	RecipeAnimatedBackground,
 	RecipeAnimatedDigit,
+	RecipeAtomicPrinciplesShowcase,
+	RecipeAtomicTierCard,
+	RecipeComponentLibraryStats,
 	RecipeCss3dCube,
+	RecipeFloatingIcon,
 	RecipeLayoutTransformation,
 	RecipeLoading,
 	RecipeProgressBar,
 	RecipeSkeleton,
 	RecipeSpinner,
 	RecipeTooltip,
-	RecipeTransformable
+	RecipeTransformable,
+	SlotComponentLibraryStats
 } from './interface';

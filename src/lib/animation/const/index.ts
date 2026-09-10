@@ -4,4 +4,8 @@ export {
 	TOKEN_CONNECTOR,
 	TOKEN_LOADING
 } from './array';
-export { BASE_EASING } from './record';
+export { PresetAtomicPrinciplesShowcase } from './preset';
+export {
+	ATOMIC_PRINCIPLES_TIER,
+	BASE_EASING
+} from './record';

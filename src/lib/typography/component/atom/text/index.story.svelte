@@ -128,6 +128,20 @@
 		'warning',
 		'danger'
 	] as const;
+
+	const familyExamples = ['sans', 'serif', 'mono'] as const;
+	const sizeExamples = ['3', '4', '5', '6', '8', '10', '12', '16', '20'] as const;
+	const weightExamples = [
+		'thin',
+		'extralight',
+		'light',
+		'normal',
+		'medium',
+		'semibold',
+		'bold',
+		'extrabold',
+		'black'
+	] as const;
 </script>
 
 <Story
@@ -194,6 +208,42 @@
 								<Text {tone} fontWeight="medium">
 									{tone}: typography color without wrapping it in a richer component.
 								</Text>
+							</div>
+						{/each}
+					</div>
+				</div>
+
+				<div class="_c11">
+					<h3 class="_c12">Font Family</h3>
+					<div class="_c13">
+						{#each familyExamples as family}
+							<div class="_c14">
+								<p class="_spec-key">{family}</p>
+								<Text fontFamily={family} fontSize="6">Aa Bb Cc — 0123 quick brown fox</Text>
+							</div>
+						{/each}
+					</div>
+				</div>
+
+				<div class="_c11">
+					<h3 class="_c12">Type Scale</h3>
+					<div class="_c13">
+						{#each sizeExamples as size}
+							<div class="_c14 _spec-row">
+								<span class="_spec-key">{size}</span>
+								<Text fontSize={size}>Aa Bb Cc</Text>
+							</div>
+						{/each}
+					</div>
+				</div>
+
+				<div class="_c11">
+					<h3 class="_c12">Weight</h3>
+					<div class="_c13">
+						{#each weightExamples as weight}
+							<div class="_c14 _spec-row">
+								<span class="_spec-key">{weight}</span>
+								<Text fontWeight={weight} fontSize="6">The quick brown fox</Text>
 							</div>
 						{/each}
 					</div>
@@ -340,5 +390,15 @@
 		._c9 {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
+	}
+	._spec-key {
+		font-family: monospace;
+		font-size: 0.75rem;
+		color: var(--color-text-tertiary);
+	}
+	._spec-row {
+		display: flex;
+		align-items: baseline;
+		gap: 0.75rem;
 	}
 </style>

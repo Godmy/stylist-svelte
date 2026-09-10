@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TOKEN_AI_SETTING } from './ai';
 export { TOKEN_ARCHITECTURE_SETTING } from './architecture';
 export { TOKEN_CALENDAR_SETTING } from './calendar';
 export { TOKEN_CANVAS_SETTING } from './canvas';
@@ -8,7 +7,6 @@ export { TOKEN_CHAT_SETTING } from './chat';
 export { TOKEN_COLOR_SETTING } from './color';
 export { TOKEN_COMMERCE_SETTING } from './commerce';
 export { TOKEN_CONTROL_SETTING } from './control';
-export { TOKEN_DEVELOPMENT_SETTING } from './development';
 export { TOKEN_DEVICE_FRAME_SETTING } from './device-frame';
 export { TOKEN_FILE_SETTING } from './file';
 export { TOKEN_GEO_SETTING } from './geo';

@@ -1,5 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { TokenTextStateProps } from './alias';
+export type {
+	TokenFunctionalTaxonomy,
+	TokenTextStateProps
+} from './alias';
 export type {
 	Token,
 	TokenControlDefinition,

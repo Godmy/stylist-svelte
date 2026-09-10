@@ -120,6 +120,20 @@
 	];
 
 	const levelExamples = [1, 2, 3, 4, 5, 6] as const;
+
+	const familyExamples = ['sans', 'serif', 'mono'] as const;
+	const sizeExamples = ['3', '4', '5', '6', '8', '10', '12', '16', '20'] as const;
+	const weightExamples = [
+		'thin',
+		'extralight',
+		'light',
+		'normal',
+		'medium',
+		'semibold',
+		'bold',
+		'extrabold',
+		'black'
+	] as const;
 </script>
 
 <Story
@@ -182,6 +196,33 @@
 							<Heading {level} fontSize={level <= 2 ? '8' : level <= 4 ? '5' : '4'}>
 								Heading level {level}
 							</Heading>
+						{/each}
+					</div>
+				</div>
+
+				<div class="_c10">
+					<h3 class="_c11">Font Family</h3>
+					<div class="_c12">
+						{#each familyExamples as family}
+							<Heading level={3} fontFamily={family} fontSize="6">{family} — Aa Bb Cc 0123</Heading>
+						{/each}
+					</div>
+				</div>
+
+				<div class="_c10">
+					<h3 class="_c11">Type Scale</h3>
+					<div class="_c12">
+						{#each sizeExamples as size}
+							<Heading level={3} fontSize={size}>Size {size}</Heading>
+						{/each}
+					</div>
+				</div>
+
+				<div class="_c10">
+					<h3 class="_c11">Weight</h3>
+					<div class="_c12">
+						{#each weightExamples as weight}
+							<Heading level={3} fontWeight={weight} fontSize="6">{weight}</Heading>
 						{/each}
 					</div>
 				</div>

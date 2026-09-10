@@ -7,7 +7,6 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { ComputeIntersectAll } from '$stylist/theme/type/compute/intersect-all';
 import type { SlotImage } from '$stylist/image/interface/slot/image';
 import type { SlotText } from '$stylist/typography/interface/slot/text';
-import type { SlotStatus } from '$stylist/ai/interface/slot/status';
 import type { SlotBadge } from '$stylist/layout/interface/slot/badge';
 import type { BehaviorClickable } from '$stylist/layout/interface/behavior/clickable';
 import type { BehaviorSizable } from '$stylist/layout/interface/behavior/sizable';
@@ -34,7 +33,6 @@ export interface RecipeAvatarGroup
 			SlotTheme,
 			SlotImage,
 			SlotText,
-			SlotStatus,
 			SlotBadge,
 			BehaviorClickable,
 			BehaviorSizable,

@@ -1,7 +1,7 @@
 import type { Token } from '$stylist/token/type/object/token';
 import { TOKEN_BUTTON_LOADER_CLASSES } from '$stylist/button/const/array/button-loader-classes';
-import { TOKEN_CUBE_FACE_NAME } from '$stylist/development/const/array/cube-face-name';
-import { TOKEN_CUBE_FACE_TITLE } from '$stylist/development/const/array/cube-face-title';
+import { TOKEN_CUBE_FACE_NAME } from '$stylist/token/const/array/cube-face-name';
+import { TOKEN_CUBE_FACE_TITLE } from '$stylist/token/const/array/cube-face-title';
 import { EXPORT_FORMAT } from '$stylist/file/const/array/export-format';
 import { TOKEN_SELECTOR_KIND } from '$stylist/control/const/array/selection-kind';
 import { TOKEN_SELECTION_TYPE } from '$stylist/control/const/array/selection-type';

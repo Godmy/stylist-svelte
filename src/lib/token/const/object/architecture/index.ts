@@ -1,9 +1,9 @@
 import type { Token } from '$stylist/token/type/object/token';
-import { TOKEN_COMPONENT_TYPE } from '$stylist/development/const/array/component-type';
+import { TOKEN_COMPONENT_TYPE } from '$stylist/token/const/array/component-type';
 import { TOKEN_CONNECTOR } from '$stylist/animation/const/array/connector';
 import { TOKEN_FOUNDATION_AXES } from '$stylist/presentation/const/array/foundation-axes';
 import { TOKEN_FOUNDATION_AXIS_DIRECTIONS } from '$stylist/presentation/const/array/foundation-axis-directions';
-import { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/development/const/array/functional-taxonomy';
+import { TOKEN_FUNCTIONAL_TAXONOMY } from '$stylist/token/const/array/functional-taxonomy';
 import { GRAPH_GRID_MODE } from '$stylist/graph/const/array/graph-grid-mode';
 import { GRAPH_NODE_CATEGORY } from '$stylist/graph/const/array/graph-node-category';
 import { GRAPH_TOOL_MODE } from '$stylist/graph/const/array/graph-tool-mode';
