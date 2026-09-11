@@ -13,7 +13,6 @@ build/
 .svelte-kit/
 .wrangler/
 package/
-json/
 *.tsbuildinfo
 static/generated/
 
