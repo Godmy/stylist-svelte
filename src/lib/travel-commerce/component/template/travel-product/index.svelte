@@ -156,13 +156,13 @@
 		position: relative;
 		z-index: 10;
 		margin-top: -12rem;
-		padding: 2rem 2rem 4rem;
+		padding: 0 2rem 1rem;
 		text-align: center;
 		pointer-events: none;
 	}
 
 	.tc-travel-product__logo {
-		width: min(600px, 90%);
+		width: min(500px, 85%);
 		height: auto;
 		display: block;
 		margin: 0 auto;
@@ -171,6 +171,10 @@
 	@media (max-width: 768px) {
 		.tc-travel-product__brand {
 			margin-top: -8rem;
+		}
+
+		.tc-travel-product__logo {
+			width: min(400px, 90%);
 		}
 	}
 
