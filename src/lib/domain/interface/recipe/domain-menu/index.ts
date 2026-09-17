@@ -7,5 +7,6 @@ export interface RecipeDomainMenu {
 	onDomainToggle?: () => void;
 	onDiagnosticsToggle?: () => void;
 	onSettingsToggle?: () => void;
+	onManifestReload?: () => void;
 	class?: string;
 }

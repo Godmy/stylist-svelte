@@ -39,7 +39,7 @@
 					<div class="c-search-results__item-inner">
 						<BaseIcon
 							name={state.icon(result.type)}
-							style="width:1.25rem;height:1.25rem;"
+							size={20}
 							class="c-search-results__icon"
 						/>
 						<div class="c-search-results__content">

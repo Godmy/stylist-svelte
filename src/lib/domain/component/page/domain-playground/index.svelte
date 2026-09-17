@@ -74,6 +74,7 @@
 			onDomainToggle={screenState.handleDomainToggle}
 			onDiagnosticsToggle={screenState.handleDiagnosticsToggle}
 			onSettingsToggle={screenState.handleSettingsToggle}
+			onManifestReload={screenState.handleManifestReload}
 		/>
 	</div>
 </div>

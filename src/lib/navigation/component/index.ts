@@ -7,6 +7,7 @@ export {
 } from './atom';
 export {
 	AppHeader,
+	BottomSheet,
 	Drawer,
 	Pagination,
 	Sidebar

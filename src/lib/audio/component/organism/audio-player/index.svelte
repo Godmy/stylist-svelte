@@ -32,9 +32,9 @@
 					aria-label={state.isPlaying ? 'Pause' : 'Play'}
 				>
 					{#if state.isPlaying}
-						<BaseIcon name={state.icons.PAUSE} style="width:1.25rem;height:1.25rem" />
+						<BaseIcon name={state.icons.PAUSE} size={20} />
 					{:else}
-						<BaseIcon name={state.icons.PLAY} style="width:1.25rem;height:1.25rem" />
+						<BaseIcon name={state.icons.PLAY} size={20} />
 					{/if}
 				</Button>
 
@@ -45,9 +45,9 @@
 					aria-label={state.isMuted ? 'Unmute' : 'Mute'}
 				>
 					{#if state.isMuted}
-						<BaseIcon name={state.icons.VOLUME_X} style="width:1.25rem;height:1.25rem" />
+						<BaseIcon name={state.icons.VOLUME_X} size={20} />
 					{:else}
-						<BaseIcon name={state.icons.VOLUME_2} style="width:1.25rem;height:1.25rem" />
+						<BaseIcon name={state.icons.VOLUME_2} size={20} />
 					{/if}
 				</Button>
 			</div>
@@ -81,7 +81,7 @@
 					onclick={() => state.reloadAudio()}
 					aria-label="Reload audio"
 				>
-					<BaseIcon name={state.icons.ROTATE_CCW} style="width:1rem;height:1rem" />
+					<BaseIcon name={state.icons.ROTATE_CCW} size={16} />
 				</Button>
 			</div>
 		</div>

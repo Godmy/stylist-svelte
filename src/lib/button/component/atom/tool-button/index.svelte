@@ -7,7 +7,7 @@
 </script>
 
 <button
-	class="c-tool-button"
+	class={['c-tool-button', props.class].filter(Boolean).join(' ')}
 	data-active={state.active || undefined}
 	aria-pressed={state.active}
 	aria-label={state.label ?? state.tool}

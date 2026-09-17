@@ -1,2 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ManagerMotion } from './manager';
+export {
+	ManagerMotion,
+	ManagerMotionPreference,
+	ManagerScrollProgress
+} from './manager';

@@ -22,7 +22,7 @@
 </script>
 
 <div
-	class="c-tick"
+	class={['c-tick', props.class].filter(Boolean).join(' ')}
 	data-active={state.active || undefined}
 	style="left: {state.position}%"
 	{...restProps}

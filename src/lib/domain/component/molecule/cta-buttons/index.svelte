@@ -39,7 +39,7 @@
 		<div class="cta-card-top">
 			<BaseIcon
 				name={Package}
-				style="width:3rem;height:3rem;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.3))"
+				size={48} style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3))"
 			/>
 			<BaseIcon name={ArrowRight} class="cta-arrow" />
 		</div>
@@ -55,7 +55,7 @@
 		<div class="cta-card-top">
 			<BaseIcon
 				name={Layers}
-				style="width:3rem;height:3rem;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.3))"
+				size={48} style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3))"
 			/>
 			<BaseIcon name={ArrowRight} class="cta-arrow" />
 		</div>

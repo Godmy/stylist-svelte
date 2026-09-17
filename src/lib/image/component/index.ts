@@ -5,7 +5,8 @@ export {
 } from './atom';
 export {
 	Card,
-	DividerHeadingImageText
+	DividerHeadingImageText,
+	MediaThumbnail
 } from './molecule';
 export {
 	CanvasImageEditor,

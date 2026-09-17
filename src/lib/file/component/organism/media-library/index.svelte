@@ -16,7 +16,7 @@
 					<div class="ml-search-icon-wrap">
 						<BaseIcon
 							name="search"
-							style="width:1.25rem;height:1.25rem;color:var(--color-text-tertiary)"
+							size={20} style="color: var(--color-text-tertiary)"
 						/>
 					</div>
 					<input
@@ -35,7 +35,7 @@
 						class="ml-btn ml-btn--primary"
 						onclick={() => state.triggerFileInput()}
 					>
-						<BaseIcon name="upload" style="width:1rem;height:1rem;margin-right:0.25rem" />
+						<BaseIcon name="upload" size={16} style="margin-right: 0.25rem" />
 						Upload
 					</button>
 				{/if}
@@ -47,7 +47,7 @@
 						onclick={() => (state.selectedViewMode = 'grid')}
 						title="Grid view"
 					>
-						<BaseIcon name="grid-3x3" style="width:1rem;height:1rem" />
+						<BaseIcon name="grid-3x3" size={16} />
 					</button>
 					<button
 						type="button"
@@ -55,7 +55,7 @@
 						onclick={() => (state.selectedViewMode = 'list')}
 						title="List view"
 					>
-						<BaseIcon name="list" style="width:1rem;height:1rem" />
+						<BaseIcon name="list" size={16} />
 					</button>
 				</div>
 			</div>
@@ -81,13 +81,13 @@
 			<div class="ml-toolbar-actions">
 				{#if state.allowDownload}
 					<button type="button" class="ml-btn ml-btn--secondary">
-						<BaseIcon name="download" style="width:1rem;height:1rem;margin-right:0.25rem" />
+						<BaseIcon name="download" size={16} style="margin-right: 0.25rem" />
 						Download
 					</button>
 				{/if}
 				{#if state.allowDelete}
 					<button type="button" class="ml-btn ml-btn--danger">
-						<BaseIcon name="trash" style="width:1rem;height:1rem;margin-right:0.25rem" />
+						<BaseIcon name="trash" size={16} style="margin-right: 0.25rem" />
 						Delete
 					</button>
 				{/if}
@@ -96,7 +96,7 @@
 					class="ml-btn ml-btn--neutral"
 					onclick={() => (state.selectedItems = [])}
 				>
-					<BaseIcon name="x" style="width:1rem;height:1rem;margin-right:0.25rem" />
+					<BaseIcon name="x" size={16} style="margin-right: 0.25rem" />
 					Clear
 				</button>
 			</div>
@@ -138,7 +138,7 @@
 						{:else}
 							<BaseIcon
 								name={state.getFileIcon(item.type)}
-								style="width:2.5rem;height:2.5rem;color:var(--color-text-tertiary)"
+								size={40} style="color: var(--color-text-tertiary)"
 							/>
 						{/if}
 					</div>
@@ -170,7 +170,7 @@
 					<div class="ml-list-thumb">
 						<BaseIcon
 							name={state.getFileIcon(item.type)}
-							style="width:2rem;height:2rem;color:var(--color-text-tertiary)"
+							size={32} style="color: var(--color-text-tertiary)"
 						/>
 					</div>
 					<div class="ml-list-info">
@@ -190,7 +190,7 @@
 								}}
 								title="Download"
 							>
-								<BaseIcon name="download" style="width:1.25rem;height:1.25rem" />
+								<BaseIcon name="download" size={20} />
 							</button>
 						{/if}
 						<button
@@ -202,7 +202,7 @@
 							}}
 							title="View"
 						>
-							<BaseIcon name="preview" style="width:1.25rem;height:1.25rem" />
+							<BaseIcon name="preview" size={20} />
 						</button>
 						{#if state.allowDelete}
 							<button
@@ -214,7 +214,7 @@
 								}}
 								title="Delete"
 							>
-								<BaseIcon name="trash" style="width:1.25rem;height:1.25rem" />
+								<BaseIcon name="trash" size={20} />
 							</button>
 						{/if}
 					</div>
@@ -228,7 +228,7 @@
 		<div class="ml-empty">
 			<BaseIcon
 				name="folder"
-				style="width:3rem;height:3rem;color:var(--color-text-tertiary);display:block;margin:0 auto 0.5rem"
+				size={48} style="color: var(--color-text-tertiary); display: block; margin: 0 auto 0.5rem"
 			/>
 			<h3 class="ml-empty-title">No media files</h3>
 			<p class="ml-empty-desc">
@@ -240,7 +240,7 @@
 					class="ml-btn ml-btn--primary ml-btn--lg"
 					onclick={() => state.triggerFileInput()}
 				>
-					<BaseIcon name="upload" style="width:1rem;height:1rem;margin-right:0.25rem" />
+					<BaseIcon name="upload" size={16} style="margin-right: 0.25rem" />
 					Upload files
 				</button>
 			{/if}

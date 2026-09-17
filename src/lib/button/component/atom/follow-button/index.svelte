@@ -9,7 +9,7 @@
 
 <button
 	type="button"
-	class="c-follow-button"
+	class={['c-follow-button', props.class].filter(Boolean).join(' ')}
 	data-variant={state.variant}
 	data-size={state.size}
 	data-disabled={state.disabled || undefined}

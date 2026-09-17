@@ -258,7 +258,7 @@
 								</div>
 
 								<div>
-									<label for="state" class="_c11">SlotState</label>
+									<label for="state" class="_c11">State</label>
 
 									<select
 										id="state"
@@ -308,7 +308,7 @@
 								</div>
 
 								<div>
-									<label for="country" class="_c11">SlotCountry</label>
+									<label for="country" class="_c11">Country</label>
 
 									<select
 										id="country"
@@ -560,14 +560,14 @@
 				</div>
 			{/if}
 
-			<!-- Step 4: SlotReview -->
+			<!-- Step 4: Review -->
 
 			{#if state.currentStep === 'review'}
 				<div class="_c7">
 					<h2 class="_c8">
 						<BaseIcon name={Package} class="_c9" />
 
-						SlotReview Your SlotOrder
+						Review Your Order
 					</h2>
 
 					<div class="_c31">
@@ -654,8 +654,7 @@
 						<h2 class="_c39">Thank you for your order!</h2>
 
 						<p class="_c40">
-							Your order number is <span class="_c41">var(--color-primary-700)</span>. We've emailed
-							your receipt to {state.billingAddress.email}.
+							We've emailed your receipt to {state.billingAddress.email}.
 						</p>
 
 						<div class="_c42">
@@ -670,26 +669,26 @@
 			<div class="_c43">
 				{#if state.currentStep !== 'information' && state.currentStep !== 'confirmation'}
 					<Button variant="ghost" onclick={state.goToPreviousStep}>
-						в†ђ Return to {state.getPreviousStepTitle(state.currentStep)}
+						Return to {state.getPreviousStepTitle(state.currentStep)}
 					</Button>
 				{/if}
 
 				<div class={state.currentStep === 'information' ? 'sm:col-span-2' : ''}>
 					<Button variant="primary" class="_c44" onclick={state.goToNextStep}>
 						{state.currentStep === 'review'
-							? 'Place SlotOrder в†’'
+							? 'Place Order'
 							: state.currentStep === 'confirmation'
-								? 'Continue Shopping в†’'
-								: `Continue to ${state.getNextStepTitle(state.currentStep)} в†’`}
+								? 'Continue Shopping'
+								: `Continue to ${state.getNextStepTitle(state.currentStep)}`}
 					</Button>
 				</div>
 			</div>
 		</div>
 
-		<!-- SlotOrder summary sidebar -->
+		<!-- Order summary sidebar -->
 
 		<div class="_c45">
-			<h2 class="_c46">SlotOrder Summary</h2>
+			<h2 class="_c46">Order Summary</h2>
 
 			<div class="flow-root">
 				<ul class="_c47">
@@ -752,7 +751,7 @@
 					</div>
 
 					<div class="_c58">
-						<dt>SlotOrder total</dt>
+						<dt>Order total</dt>
 
 						<dd>{state.formattedTotal}</dd>
 					</div>
@@ -1981,5 +1980,196 @@
 	}
 	._c47 > * + * {
 		border-top: 1px solid var(--color-border-primary);
+	}
+
+	.c-checkout-form {
+		display: block;
+		min-width: 0;
+	}
+
+	.c-checkout-form * {
+		box-sizing: border-box;
+	}
+
+	.c-checkout-form > ._c1 {
+		display: block;
+		margin-bottom: 2rem;
+	}
+
+	.c-checkout-form > ._c1 > ._c2 {
+		display: flex;
+		width: 100%;
+		height: auto;
+		align-items: flex-start;
+		justify-content: space-between;
+		border: 0;
+		border-radius: 0;
+		background: transparent;
+	}
+
+	.c-checkout-form > ._c1 > ._c2 > ._c1 {
+		display: flex;
+		flex: 1 1 0;
+		flex-direction: column;
+		align-items: center;
+		min-width: 0;
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	.c-checkout-form > ._c1 > ._c2 ._c3 {
+		display: flex;
+		width: 100%;
+		align-items: center;
+		border-top: 0;
+	}
+
+	.c-checkout-form > ._c1 > ._c2 ._c3 > ._c2 {
+		display: flex;
+		width: 2rem;
+		height: 2rem;
+		flex: 0 0 auto;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+	}
+
+	.c-checkout-form > ._c1 > ._c2 ._c3 > ._c3 {
+		flex: 1 1 auto;
+		border-top-width: 2px;
+		border-top-style: solid;
+	}
+
+	.c-checkout-form > ._c5 {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 2rem;
+		align-items: start;
+		border: 0;
+		padding: 0;
+		box-shadow: none;
+	}
+
+	.c-checkout-form > ._c5 > ._c6 {
+		min-width: 0;
+	}
+
+	.c-checkout-form :is(input, select)._c1,
+	.c-checkout-form :is(input, select)._c2 {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-bottom: 0;
+		align-items: initial;
+		justify-content: initial;
+		border-radius: 0.375rem;
+		background-color: var(--color-background-primary);
+	}
+
+	.c-checkout-form input[type='checkbox']._c2,
+	.c-checkout-form input[type='radio']._c2 {
+		display: inline-block;
+		width: 1rem;
+		height: 1rem;
+		flex: 0 0 auto;
+		border-radius: 0.25rem;
+	}
+
+	.c-checkout-form ._c12 {
+		min-width: 0;
+		color: var(--color-text-primary);
+	}
+
+	.c-checkout-form ._c12:disabled {
+		cursor: not-allowed;
+		opacity: 0.65;
+		background-color: var(--color-background-secondary);
+	}
+
+	.c-checkout-form [role='radiogroup'] > ._c5 {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1rem;
+		border-width: 1px;
+		border-style: solid;
+		padding: 1rem;
+		box-shadow: none;
+	}
+
+	.c-checkout-form ._c28 {
+		border-color: var(--color-border-primary);
+	}
+
+	.c-checkout-form ._c43 {
+		gap: 1rem;
+	}
+
+	.c-checkout-form ._c45 {
+		border: 1px solid var(--color-border-secondary);
+		min-width: 0;
+	}
+
+	.c-checkout-form ._c47 {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.c-checkout-form ._c48 {
+		gap: 1rem;
+	}
+
+	.c-checkout-form ._c51 {
+		min-width: 0;
+		margin-left: 0;
+	}
+
+	.c-checkout-form ._c52 {
+		gap: 1rem;
+	}
+
+	.c-checkout-form ._c52 h3 {
+		min-width: 0;
+		overflow-wrap: anywhere;
+	}
+
+	.c-checkout-form ._c53 {
+		flex: 0 0 auto;
+		margin-left: 0;
+	}
+
+	@media (min-width: 1024px) {
+		.c-checkout-form > ._c5 {
+			grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.c-checkout-form > ._c1 > ._c2 {
+			overflow-x: auto;
+			padding-bottom: 0.5rem;
+		}
+
+		.c-checkout-form > ._c1 > ._c2 > ._c1 {
+			min-width: 5rem;
+		}
+
+		.c-checkout-form [role='radiogroup'] > ._c5 {
+			flex-direction: column;
+		}
+
+		.c-checkout-form ._c7,
+		.c-checkout-form ._c45 {
+			padding: 1rem;
+		}
+
+		.c-checkout-form ._c29 {
+			margin-left: 0;
+		}
+
+		.c-checkout-form ._c48 {
+			flex-wrap: wrap;
+		}
 	}
 </style>

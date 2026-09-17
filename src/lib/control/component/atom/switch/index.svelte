@@ -35,7 +35,7 @@
 </script>
 
 <label
-	class="c-switch"
+	class={['c-switch', _className].filter(Boolean).join(' ')}
 	data-size={state.size}
 	data-checked={checked || undefined}
 	data-disabled={state.disabled || undefined}

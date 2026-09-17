@@ -43,7 +43,7 @@
 		<div class="abt-row">
 			<BaseIcon
 				name={TestTube}
-				style="margin-right:0.5rem;width:1.5rem;height:1.5rem;color:var(--color-text-secondary)"
+				size={24} style="margin-right: 0.5rem; color: var(--color-text-secondary)"
 			/>
 
 			<h3 class="abt-title">A/B Test Configurator</h3>
@@ -136,7 +136,7 @@
 								<div class="abt-row">
 									<BaseIcon
 										name={GitBranch}
-										style="margin-right:0.5rem;width:1.25rem;height:1.25rem;color:var(--color-text-tertiary)"
+										size={20} style="margin-right: 0.5rem; color: var(--color-text-tertiary)"
 									/>
 
 									<div>
@@ -225,7 +225,7 @@
 
 						<div class="abt-new-col-3">
 							<button type="button" class="abt-add-btn" onclick={state.addVariant}>
-								<BaseIcon name={Plus} style="margin-right:0.25rem;width:1rem;height:1rem" />
+								<BaseIcon name={Plus} size={16} style="margin-right: 0.25rem" />
 
 								Add
 							</button>
@@ -259,7 +259,7 @@
 				<span class="abt-targeting">
 					<BaseIcon
 						name={Users}
-						style="margin-right:0.25rem;width:1rem;height:1rem;display:inline;vertical-align:middle"
+						size={16} style="margin-right: 0.25rem; display: inline; vertical-align: middle"
 					/>
 
 					Targeting: {state.test.targetAudience || 'All Users'}
@@ -268,14 +268,14 @@
 
 			<div class="abt-footer-actions">
 				<button type="button" class="abt-btn abt-btn--secondary" onclick={state.saveTest}>
-					<BaseIcon name={Settings} style="margin-right:0.25rem;width:1rem;height:1rem" />
+					<BaseIcon name={Settings} size={16} style="margin-right: 0.25rem" />
 
 					Save Draft
 				</button>
 
 				{#if state.test.status === 'draft' || state.test.status === 'paused'}
 					<button type="button" class="abt-btn abt-btn--success" onclick={state.startTest}>
-						<BaseIcon name={Play} style="margin-right:0.25rem;width:1rem;height:1rem" />
+						<BaseIcon name={Play} size={16} style="margin-right: 0.25rem" />
 
 						Start Test
 					</button>
@@ -283,13 +283,13 @@
 
 				{#if state.test.status === 'running'}
 					<button type="button" class="abt-btn abt-btn--warning" onclick={state.pauseTest}>
-						<BaseIcon name={Pause} style="margin-right:0.25rem;width:1rem;height:1rem" />
+						<BaseIcon name={Pause} size={16} style="margin-right: 0.25rem" />
 
 						Pause Test
 					</button>
 
 					<button type="button" class="abt-btn abt-btn--primary" onclick={state.completeTest}>
-						<BaseIcon name={BarChart3} style="margin-right:0.25rem;width:1rem;height:1rem" />
+						<BaseIcon name={BarChart3} size={16} style="margin-right: 0.25rem" />
 
 						Complete Test
 					</button>

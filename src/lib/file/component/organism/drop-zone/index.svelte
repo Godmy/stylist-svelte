@@ -33,7 +33,7 @@
 		<div class="dz-inner">
 			<BaseIcon
 				name="upload"
-				style="margin-bottom:0.5rem;width:2.5rem;height:2.5rem;color:var(--color-text-tertiary)"
+				size={40} style="margin-bottom: 0.5rem; color: var(--color-text-tertiary)"
 			/>
 			<h3 class="dz-label">{state.label}</h3>
 			<p class="dz-desc">{state.description}</p>
@@ -75,7 +75,7 @@
 							<div
 								style="width:1.25rem;height:1.25rem;flex-shrink:0;color:var(--color-primary-500)"
 							>
-								<BaseIcon name="check" style="width:1.25rem;height:1.25rem" />
+								<BaseIcon name="check" size={20} />
 							</div>
 							<div class="dz-item-meta">
 								<p class="dz-item-name">{item.name}</p>
@@ -92,7 +92,7 @@
 								onclick={() => state.removeDroppedItem(item.id)}
 								disabled={state.disabled}
 							>
-								<BaseIcon name="x" style="width:1rem;height:1rem" />
+								<BaseIcon name="x" size={16} />
 							</Button>
 						</div>
 					</div>

@@ -33,7 +33,7 @@
 <button
 	{...restButtonProps}
 	type={props.type ?? 'button'}
-	class="c-page-button"
+	class={['c-page-button', props.class].filter(Boolean).join(' ')}
 	data-variant={state.variant}
 	data-size={state.size}
 	data-disabled={state.disabled || undefined}
@@ -48,7 +48,7 @@
 		<BaseIcon
 			name={PresetPageButton.Loader2}
 			class="c-page-button__loader"
-			style="width: 1rem; height: 1rem;"
+			size={16}
 			aria-hidden="true"
 		/>
 		<span class="c-page-button__sr-only">{props.loadingLabel ?? 'Loading...'}</span>

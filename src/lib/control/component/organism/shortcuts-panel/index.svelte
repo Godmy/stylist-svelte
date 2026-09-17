@@ -23,7 +23,7 @@
 	<div class="sp-header">
 		<div class="sp-header-row">
 			<div class="sp-icon-box">
-				<BaseIcon name={Keyboard} style="width:1.5rem;height:1.5rem;color:white" />
+				<BaseIcon name={Keyboard} size={24} style="color: white" />
 			</div>
 			<h3 class="sp-title">Keyboard Shortcuts</h3>
 		</div>
@@ -39,7 +39,7 @@
 						<div class="sp-cat-icon {state.getCategoryColor(category)} _c1">
 							<BaseIcon
 								name={state.getCategoryIcon(category)}
-								style="width:1rem;height:1rem;color:#374151"
+								size={16} style="color: #374151"
 							/>
 						</div>
 						<h4 class="sp-cat-label">{category}</h4>
@@ -54,7 +54,7 @@
 										{#if shortcut.icon}
 											<BaseIcon
 												name={shortcut.icon}
-												style="width:1rem;height:1rem;flex-shrink:0;color:#6b7280"
+												size={16} style="flex-shrink: 0; color: #6b7280"
 											/>
 										{/if}
 										<span class="sp-item-desc">{shortcut.description}</span>
@@ -78,7 +78,7 @@
 
 	<div class="sp-tips">
 		<h4 class="sp-tips-header">
-			<BaseIcon name={Zap} style="width:1rem;height:1rem" />
+			<BaseIcon name={Zap} size={16} />
 			Pro Tips
 		</h4>
 		<ul class="sp-tips-list">

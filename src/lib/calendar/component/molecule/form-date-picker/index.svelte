@@ -40,7 +40,7 @@
 		<div class="fdp__icon-wrap">
 			<BaseIcon
 				name={Calendar}
-				style="width: 1.25rem; height: 1.25rem; color: var(--color-text-tertiary)"
+				size={20} style="color: var(--color-text-tertiary)"
 			/>
 		</div>
 	</div>

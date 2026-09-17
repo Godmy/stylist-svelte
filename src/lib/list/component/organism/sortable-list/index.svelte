@@ -51,7 +51,7 @@
 				<div class="c-sortable-list__item-inner">
 					<div class="c-sortable-list__item-left">
 						{#if showHandle}
-							<BaseIcon name={GripVertical} style="width:1rem;height:1rem;" />
+							<BaseIcon name={GripVertical} size={16} />
 						{/if}
 						<div class="c-sortable-list__item-content">
 							<div class="c-sortable-list__item-title">{item.title}</div>
@@ -66,7 +66,7 @@
 							class="c-sortable-list__item-action"
 							onclick={() => onItemAction?.(item, 'menu')}
 						>
-							<BaseIcon name={MoreHorizontal} style="width:1rem;height:1rem;" />
+							<BaseIcon name={MoreHorizontal} size={16} />
 						</button>
 					{/if}
 				</div>

@@ -4,6 +4,7 @@ export { AutocompleteDropdown } from './autocomplete-dropdown/index';
 export { Checkbox } from './checkbox/index';
 export { Chip } from './chip/index';
 export { Radio } from './radio/index';
+export { Stepper } from './stepper/index';
 export { Switch } from './switch/index';
 export { Tag } from './tag/index';
 export { Tick } from './tick/index';

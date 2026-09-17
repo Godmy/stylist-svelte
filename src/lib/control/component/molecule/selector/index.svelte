@@ -60,7 +60,7 @@
 			<span class={state.chevronClass} aria-hidden="true">
 				<BaseIcon
 					name={PresetSelector.ChevronDown}
-					style="width:1rem;height:1rem;"
+					size={16}
 					aria-hidden="true"
 				/>
 			</span>

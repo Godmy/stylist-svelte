@@ -28,7 +28,7 @@
 </script>
 
 <button
-	class="c-icon-button"
+	class={['c-icon-button', props.class].filter(Boolean).join(' ')}
 	data-variant={state.variant}
 	data-size={state.size}
 	data-disabled={state.isDisabled || undefined}

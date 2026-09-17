@@ -27,7 +27,7 @@
 </script>
 
 <button
-	class="c-toggle-group-item"
+	class={['c-toggle-group-item', props.class].filter(Boolean).join(' ')}
 	data-active={state.isActive || undefined}
 	data-disabled={state.disabled || undefined}
 	disabled={state.disabled}

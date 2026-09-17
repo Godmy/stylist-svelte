@@ -37,7 +37,7 @@
 						onclick={() => state.prevImage()}
 						aria-label="Previous image"
 					>
-						<BaseIcon name="chevron-left" style="width:1.5rem;height:1.5rem" />
+						<BaseIcon name="chevron-left" size={24} />
 					</button>
 
 					<button
@@ -46,7 +46,7 @@
 						onclick={() => state.nextImage()}
 						aria-label="Next image"
 					>
-						<BaseIcon name="chevron-right" style="width:1.5rem;height:1.5rem" />
+						<BaseIcon name="chevron-right" size={24} />
 					</button>
 				{/if}
 
@@ -98,7 +98,7 @@
 				onclick={() => state.closeFullscreen()}
 				aria-label="Close fullscreen"
 			>
-				<BaseIcon name="x" style="width:1.5rem;height:1.5rem" />
+				<BaseIcon name="x" size={24} />
 			</button>
 
 			<button
@@ -107,7 +107,7 @@
 				onclick={() => state.prevImage()}
 				aria-label="Previous image"
 			>
-				<BaseIcon name="chevron-left" style="width:2rem;height:2rem" />
+				<BaseIcon name="chevron-left" size={32} />
 			</button>
 
 			<div class="image-gallery__fullscreen-image-container">
@@ -138,7 +138,7 @@
 				onclick={() => state.nextImage()}
 				aria-label="Next image"
 			>
-				<BaseIcon name="chevron-right" style="width:2rem;height:2rem" />
+				<BaseIcon name="chevron-right" size={32} />
 			</button>
 		</div>
 	{/if}

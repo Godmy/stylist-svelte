@@ -18,7 +18,7 @@
 				{#each state.pathParts as part, index}
 					<span>{part}</span>
 					{#if index < state.pathParts.length - 1}
-						<BaseIcon name="chevron-right" style="margin:0 0.25rem;width:1rem;height:1rem" />
+						<BaseIcon name="chevron-right" size={16} style="margin: 0 0.25rem" />
 					{/if}
 				{/each}
 			</div>
@@ -31,7 +31,7 @@
 						<div class="fe-search-icon">
 							<BaseIcon
 								name="search"
-								style="width:1.25rem;height:1.25rem;color:var(--color-text-tertiary)"
+								size={20} style="color: var(--color-text-tertiary)"
 							/>
 						</div>
 						<input
@@ -46,15 +46,15 @@
 
 				<Button variant="outline" size="sm" onclick={state.toggleViewMode}>
 					{#if state.currentViewMode === 'grid'}
-						<BaseIcon name="list" style="margin-right:0.25rem;width:1rem;height:1rem" />
+						<BaseIcon name="list" size={16} style="margin-right: 0.25rem" />
 					{:else}
-						<BaseIcon name="grid" style="margin-right:0.25rem;width:1rem;height:1rem" />
+						<BaseIcon name="grid" size={16} style="margin-right: 0.25rem" />
 					{/if}
 					{state.currentViewMode === 'grid' ? 'List' : 'Grid'}
 				</Button>
 
 				<Button variant="outline" size="sm" onclick={state.openUploadDialog}>
-					<BaseIcon name="upload" style="margin-right:0.25rem;width:1rem;height:1rem" />
+					<BaseIcon name="upload" size={16} style="margin-right: 0.25rem" />
 					Upload
 				</Button>
 				<input
@@ -69,7 +69,7 @@
 			<div class="fe-toolbar-right">
 				<span class="fe-item-count">{state.filteredItems.length} items</span>
 				<Button variant="ghost" size="sm">
-					<BaseIcon name="more-horizontal" style="width:1.25rem;height:1.25rem" />
+					<BaseIcon name="more-horizontal" size={20} />
 				</Button>
 			</div>
 		</div>
@@ -94,7 +94,8 @@
 					>
 						<BaseIcon
 							name={itemIcon}
-							style={`margin-bottom:0.5rem;width:2rem;height:2rem;color:${item.type === 'folder' ? 'var(--color-primary-500)' : 'var(--color-text-secondary)'}`}
+							size={32}
+							style={`margin-bottom:0.5rem;color:${item.type === 'folder' ? 'var(--color-primary-500)' : 'var(--color-text-secondary)'}`}
 						/>
 						<div class="fe-grid-name">{item.name}</div>
 						{#if item.type === 'file' && item.size}
@@ -121,7 +122,8 @@
 					>
 						<BaseIcon
 							name={itemIcon}
-							style={`margin-right:0.75rem;width:1.25rem;height:1.25rem;flex-shrink:0;color:${item.type === 'folder' ? 'var(--color-primary-500)' : 'var(--color-text-secondary)'}`}
+							size={20}
+							style={`margin-right:0.75rem;flex-shrink:0;color:${item.type === 'folder' ? 'var(--color-primary-500)' : 'var(--color-text-secondary)'}`}
 						/>
 						<div class="fe-list-info">
 							<div class="fe-list-name">{item.name}</div>
@@ -142,7 +144,7 @@
 								state.handleDownload(item);
 							}}
 						>
-							<BaseIcon name="download" style="width:1rem;height:1rem" />
+							<BaseIcon name="download" size={16} />
 						</Button>
 					</div>
 				{/each}

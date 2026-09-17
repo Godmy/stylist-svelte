@@ -4,7 +4,10 @@ export {
 	TOKEN_CONNECTOR,
 	TOKEN_LOADING
 } from './array';
-export { PresetAtomicPrinciplesShowcase } from './preset';
+export {
+	MEDIA_SLIDER_SLIDES,
+	PresetAtomicPrinciplesShowcase
+} from './preset';
 export {
 	ATOMIC_PRINCIPLES_TIER,
 	BASE_EASING

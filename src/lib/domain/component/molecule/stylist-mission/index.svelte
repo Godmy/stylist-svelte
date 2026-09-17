@@ -33,7 +33,7 @@
 <section class={`c-stylist-mission ${className}`}>
 	<div class="sm-inner">
 		<div class="sm-badge">
-			<BaseIcon name={Sparkles} style="width:1.25rem;height:1.25rem" />
+			<BaseIcon name={Sparkles} size={20} />
 			<span class="sm-badge-text">{badgeText}</span>
 		</div>
 

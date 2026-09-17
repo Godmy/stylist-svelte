@@ -79,7 +79,7 @@
 				class={`${state.firstActiveReaction ? 'fill-current' : ''} _c1`}
 			/>
 		{:else}
-			<BaseIcon name={Smile} style="width: 1.25rem; height: 1.25rem;" />
+			<BaseIcon name={Smile} size={20} />
 		{/if}
 	</button>
 </div>

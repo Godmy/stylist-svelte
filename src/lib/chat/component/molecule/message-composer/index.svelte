@@ -50,7 +50,7 @@
 			>
 				<BaseIcon
 					name={Paperclip}
-					style="width:1.25rem;height:1.25rem;color:var(--color-text-secondary)"
+					size={20} style="color: var(--color-text-secondary)"
 				/>
 			</Button>
 		{/if}
@@ -74,7 +74,7 @@
 				disabled={state.disabled}
 				class={state.sendButtonClasses}
 			>
-				<BaseIcon name={Send} style="width:1.25rem;height:1.25rem" />
+				<BaseIcon name={Send} size={20} />
 			</Button>
 		{:else if state.showVoiceButton}
 			<Button
@@ -87,7 +87,7 @@
 			>
 				<BaseIcon
 					name={Mic}
-					style="width:1.25rem;height:1.25rem;color:var(--color-text-secondary)"
+					size={20} style="color: var(--color-text-secondary)"
 				/>
 			</Button>
 		{/if}

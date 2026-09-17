@@ -5,7 +5,8 @@ export {
 	InputError,
 	InputHelper,
 	InputLabel,
-	InputPinDigit
+	InputPinDigit,
+	InputStepper
 } from './atom';
 export {
 	CheckboxGroup,

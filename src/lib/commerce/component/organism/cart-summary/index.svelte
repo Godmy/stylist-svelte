@@ -45,7 +45,7 @@
 	{/if}
 
 	<div class="cart-summary__summary">
-		<h3 class="cart-summary__summary-title">SlotOrder Summary</h3>
+		<h3 class="cart-summary__summary-title">Order Summary</h3>
 
 		<div class="cart-summary__summary-row">
 			<span class="cart-summary__summary-label">Subtotal</span>
@@ -337,5 +337,82 @@
 		font-weight: 500;
 		background-color: var(--color-success-100);
 		color: var(--color-success-800);
+	}
+
+	.cart-summary {
+		overflow: hidden;
+	}
+
+	.cart-summary__header {
+		border-color: var(--color-border-secondary);
+	}
+
+	.cart-summary ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.cart-summary__item {
+		gap: 1rem;
+		border-color: var(--color-border-secondary);
+		padding: 1rem 1.5rem;
+	}
+
+	.cart-summary__thumbnail {
+		margin-right: 0;
+		object-fit: cover;
+	}
+
+	.cart-summary__quantity-control,
+	.cart-summary__remove-button {
+		flex: 0 0 auto;
+	}
+
+	.cart-summary__remove-button {
+		margin-left: 0;
+	}
+
+	.cart-summary__summary {
+		border: 0;
+		border-radius: 0;
+	}
+
+	.cart-summary__summary-row,
+	.cart-summary__total {
+		gap: 1rem;
+	}
+
+	.cart-summary__summary-row {
+		margin-top: 0.75rem;
+	}
+
+	.cart-summary__total {
+		margin-top: 1rem;
+	}
+
+	.cart-summary__promo-code-button {
+		border-radius: 0.25rem;
+	}
+
+	@media (max-width: 520px) {
+		.cart-summary__item {
+			align-items: flex-start;
+			flex-wrap: wrap;
+			padding-inline: 1rem;
+		}
+
+		.cart-summary__thumbnail {
+			width: 4.5rem;
+			height: 4.5rem;
+		}
+
+		.cart-summary__quantity-control {
+			margin-left: calc(4.5rem + 1rem);
+		}
+
+		.cart-summary__summary {
+			padding: 1rem;
+		}
 	}
 </style>

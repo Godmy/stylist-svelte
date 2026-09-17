@@ -56,12 +56,12 @@
 							{#if message.status === 'read'}
 								<BaseIcon
 									name={CHAT_PREVIEW_ICON_CHECK_CHECK}
-									style="width:0.75rem;height:0.75rem;margin-left:0.25rem;color:var(--color-primary-500)"
+									size={12} style="margin-left: 0.25rem; color: var(--color-primary-500)"
 								/>
 							{:else}
 								<BaseIcon
 									name={CHAT_PREVIEW_ICON_CHECK}
-									style="width:0.75rem;height:0.75rem;margin-left:0.25rem;color:var(--color-text-tertiary)"
+									size={12} style="margin-left: 0.25rem; color: var(--color-text-tertiary)"
 								/>
 							{/if}
 						{/if}

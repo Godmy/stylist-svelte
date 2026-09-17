@@ -19,7 +19,7 @@
 	const state = createActionSegmentedControlState(props);
 </script>
 
-<div class="c-action-segmented" {...restProps}>
+<div class={['c-action-segmented', props.class].filter(Boolean).join(' ')} {...restProps}>
 	{#each state.items as item, i}
 		<button
 			class="c-action-segmented__item"

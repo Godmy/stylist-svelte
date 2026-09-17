@@ -18,6 +18,26 @@
                       "path": "animation/class/manager/motion/index.ts"
                     }
                   ]
+                },
+                {
+                  "name": "motion-preference",
+                  "path": "animation/class/manager/motion-preference",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/class/manager/motion-preference/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "scroll-progress",
+                  "path": "animation/class/manager/scroll-progress",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/class/manager/scroll-progress/index.ts"
+                    }
+                  ]
                 }
               ]
             }
@@ -70,6 +90,42 @@
                     {
                       "name": "state.svelte.ts",
                       "path": "animation/component/atom/animated-digit/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "arc-letter",
+                  "path": "animation/component/atom/arc-letter",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/atom/arc-letter/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/atom/arc-letter/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/atom/arc-letter/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "beach-water",
+                  "path": "animation/component/atom/beach-water",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/atom/beach-water/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/atom/beach-water/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/atom/beach-water/index.ts"
                     }
                   ]
                 },
@@ -136,6 +192,60 @@
                   ]
                 },
                 {
+                  "name": "letter-arc-path",
+                  "path": "animation/component/atom/letter-arc-path",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/atom/letter-arc-path/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/atom/letter-arc-path/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/atom/letter-arc-path/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "marquee-ticker",
+                  "path": "animation/component/atom/marquee-ticker",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/atom/marquee-ticker/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/atom/marquee-ticker/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/atom/marquee-ticker/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "palm-sway",
+                  "path": "animation/component/atom/palm-sway",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/atom/palm-sway/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/atom/palm-sway/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/atom/palm-sway/index.ts"
+                    }
+                  ]
+                },
+                {
                   "name": "progress-bar",
                   "path": "animation/component/atom/progress-bar",
                   "files": [
@@ -154,6 +264,24 @@
                     {
                       "name": "state.svelte.ts",
                       "path": "animation/component/atom/progress-bar/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "scroll-phase-debug",
+                  "path": "animation/component/atom/scroll-phase-debug",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/atom/scroll-phase-debug/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/atom/scroll-phase-debug/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/atom/scroll-phase-debug/index.ts"
                     }
                   ]
                 },
@@ -244,6 +372,100 @@
                       "path": "animation/component/atom/transformable/state.svelte.ts"
                     }
                   ]
+                },
+                {
+                  "name": "turtle-crawl",
+                  "path": "animation/component/atom/turtle-crawl",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/atom/turtle-crawl/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/atom/turtle-crawl/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/atom/turtle-crawl/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "turtle-logo-mark",
+                  "path": "animation/component/atom/turtle-logo-mark",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/atom/turtle-logo-mark/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/atom/turtle-logo-mark/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/atom/turtle-logo-mark/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "vector-scene",
+                  "path": "animation/component/atom/vector-scene",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/atom/vector-scene/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/atom/vector-scene/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/atom/vector-scene/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "animation/component/atom/vector-scene/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "wave-surf",
+                  "path": "animation/component/atom/wave-surf",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/atom/wave-surf/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/atom/wave-surf/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/atom/wave-surf/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "whale-spout",
+                  "path": "animation/component/atom/whale-spout",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/atom/whale-spout/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/atom/whale-spout/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/atom/whale-spout/index.ts"
+                    }
+                  ]
                 }
               ]
             },
@@ -287,6 +509,24 @@
                     {
                       "name": "state.svelte.ts",
                       "path": "animation/component/molecule/loading/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "phrase-arc-flight",
+                  "path": "animation/component/molecule/phrase-arc-flight",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/molecule/phrase-arc-flight/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/molecule/phrase-arc-flight/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/molecule/phrase-arc-flight/index.ts"
                     }
                   ]
                 }
@@ -336,6 +576,28 @@
                     {
                       "name": "state.svelte.ts",
                       "path": "animation/component/organism/component-library-stats/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "media-slider",
+                  "path": "animation/component/organism/media-slider",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "animation/component/organism/media-slider/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "animation/component/organism/media-slider/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/component/organism/media-slider/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "animation/component/organism/media-slider/state.svelte.ts"
                     }
                   ]
                 }
@@ -393,6 +655,16 @@
                       "path": "animation/const/preset/atomic-principles-showcase/index.ts"
                     }
                   ]
+                },
+                {
+                  "name": "media-slider",
+                  "path": "animation/const/preset/media-slider",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/const/preset/media-slider/index.ts"
+                    }
+                  ]
                 }
               ]
             },
@@ -446,6 +718,63 @@
                     {
                       "name": "index.ts",
                       "path": "animation/function/script/get-easing-function/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "map-progress",
+                  "path": "animation/function/script/map-progress",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/function/script/map-progress/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "state",
+              "entities": [
+                {
+                  "name": "motion-preference",
+                  "path": "animation/function/state/motion-preference",
+                  "files": [
+                    {
+                      "name": "index.svelte.ts",
+                      "path": "animation/function/state/motion-preference/index.svelte.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/function/state/motion-preference/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "scroll-progress",
+                  "path": "animation/function/state/scroll-progress",
+                  "files": [
+                    {
+                      "name": "index.svelte.ts",
+                      "path": "animation/function/state/scroll-progress/index.svelte.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/function/state/scroll-progress/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "sticky-scroll-progress",
+                  "path": "animation/function/state/sticky-scroll-progress",
+                  "files": [
+                    {
+                      "name": "index.svelte.ts",
+                      "path": "animation/function/state/sticky-scroll-progress/index.svelte.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "animation/function/state/sticky-scroll-progress/index.ts"
                     }
                   ]
                 }
@@ -508,6 +837,16 @@
                       "path": "animation/interface/behavior/transformable/index.ts"
                     }
                   ]
+                },
+                {
+                  "name": "vector-scene",
+                  "path": "animation/interface/behavior/vector-scene",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/behavior/vector-scene/index.ts"
+                    }
+                  ]
                 }
               ]
             },
@@ -535,6 +874,16 @@
                   ]
                 },
                 {
+                  "name": "arc-letter",
+                  "path": "animation/interface/recipe/arc-letter",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/arc-letter/index.ts"
+                    }
+                  ]
+                },
+                {
                   "name": "atomic-principles-showcase",
                   "path": "animation/interface/recipe/atomic-principles-showcase",
                   "files": [
@@ -551,6 +900,16 @@
                     {
                       "name": "index.ts",
                       "path": "animation/interface/recipe/atomic-tier-card/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "beach-water",
+                  "path": "animation/interface/recipe/beach-water",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/beach-water/index.ts"
                     }
                   ]
                 },
@@ -595,12 +954,62 @@
                   ]
                 },
                 {
+                  "name": "letter-arc-path",
+                  "path": "animation/interface/recipe/letter-arc-path",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/letter-arc-path/index.ts"
+                    }
+                  ]
+                },
+                {
                   "name": "loading",
                   "path": "animation/interface/recipe/loading",
                   "files": [
                     {
                       "name": "index.ts",
                       "path": "animation/interface/recipe/loading/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "marquee-ticker",
+                  "path": "animation/interface/recipe/marquee-ticker",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/marquee-ticker/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "media-slider",
+                  "path": "animation/interface/recipe/media-slider",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/media-slider/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "palm-sway",
+                  "path": "animation/interface/recipe/palm-sway",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/palm-sway/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "phrase-arc-flight",
+                  "path": "animation/interface/recipe/phrase-arc-flight",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/phrase-arc-flight/index.ts"
                     }
                   ]
                 },
@@ -651,6 +1060,56 @@
                     {
                       "name": "index.ts",
                       "path": "animation/interface/recipe/transformable/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "turtle-crawl",
+                  "path": "animation/interface/recipe/turtle-crawl",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/turtle-crawl/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "turtle-logo-mark",
+                  "path": "animation/interface/recipe/turtle-logo-mark",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/turtle-logo-mark/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "vector-scene",
+                  "path": "animation/interface/recipe/vector-scene",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/vector-scene/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "wave-surf",
+                  "path": "animation/interface/recipe/wave-surf",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/wave-surf/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "whale-spout",
+                  "path": "animation/interface/recipe/whale-spout",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/interface/recipe/whale-spout/index.ts"
                     }
                   ]
                 }
@@ -731,6 +1190,21 @@
                     {
                       "name": "index.ts",
                       "path": "animation/type/compute/get-easing-function/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "object",
+              "entities": [
+                {
+                  "name": "media-slider",
+                  "path": "animation/type/object/media-slider",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "animation/type/object/media-slider/index.ts"
                     }
                   ]
                 }
@@ -1760,6 +2234,305 @@
       ]
     },
     {
+      "name": "booking",
+      "clusters": [
+        {
+          "name": "component",
+          "joints": [
+            {
+              "name": "atom",
+              "entities": [
+                {
+                  "name": "booking-dropdown",
+                  "path": "booking/component/atom/booking-dropdown",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/atom/booking-dropdown/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/atom/booking-dropdown/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/atom/booking-dropdown/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "molecule",
+              "entities": [
+                {
+                  "name": "booking-adventure-picker",
+                  "path": "booking/component/molecule/booking-adventure-picker",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/molecule/booking-adventure-picker/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/molecule/booking-adventure-picker/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/molecule/booking-adventure-picker/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking-bar",
+                  "path": "booking/component/molecule/booking-bar",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/molecule/booking-bar/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/molecule/booking-bar/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/molecule/booking-bar/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking-calendar",
+                  "path": "booking/component/molecule/booking-calendar",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/molecule/booking-calendar/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/molecule/booking-calendar/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/molecule/booking-calendar/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking-field-date",
+                  "path": "booking/component/molecule/booking-field-date",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/molecule/booking-field-date/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/molecule/booking-field-date/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/molecule/booking-field-date/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking-field-guests",
+                  "path": "booking/component/molecule/booking-field-guests",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/molecule/booking-field-guests/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/molecule/booking-field-guests/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/molecule/booking-field-guests/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking-field-pickup",
+                  "path": "booking/component/molecule/booking-field-pickup",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/molecule/booking-field-pickup/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/molecule/booking-field-pickup/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/molecule/booking-field-pickup/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking-guest",
+                  "path": "booking/component/molecule/booking-guest",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/molecule/booking-guest/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/molecule/booking-guest/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/molecule/booking-guest/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking-pickup-list",
+                  "path": "booking/component/molecule/booking-pickup-list",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/molecule/booking-pickup-list/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/molecule/booking-pickup-list/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/molecule/booking-pickup-list/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking-summary-bar",
+                  "path": "booking/component/molecule/booking-summary-bar",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/molecule/booking-summary-bar/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/molecule/booking-summary-bar/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/molecule/booking-summary-bar/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "organism",
+              "entities": [
+                {
+                  "name": "booking-accordion",
+                  "path": "booking/component/organism/booking-accordion",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/organism/booking-accordion/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/organism/booking-accordion/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/organism/booking-accordion/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking-bridge",
+                  "path": "booking/component/organism/booking-bridge",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/organism/booking-bridge/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/organism/booking-bridge/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/organism/booking-bridge/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking-widget",
+                  "path": "booking/component/organism/booking-widget",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/organism/booking-widget/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/organism/booking-widget/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "booking/component/organism/booking-widget/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "function",
+          "joints": [
+            {
+              "name": "script",
+              "entities": [
+                {
+                  "name": "format-guest-summary",
+                  "path": "booking/function/script/format-guest-summary",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "booking/function/script/format-guest-summary/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "type",
+          "joints": [
+            {
+              "name": "object",
+              "entities": [
+                {
+                  "name": "booking-draft",
+                  "path": "booking/type/object/booking-draft",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "booking/type/object/booking-draft/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "button",
       "clusters": [
         {
@@ -2229,6 +3002,24 @@
               "name": "atom",
               "entities": [
                 {
+                  "name": "calendar-day",
+                  "path": "calendar/component/atom/calendar-day",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "calendar/component/atom/calendar-day/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "calendar/component/atom/calendar-day/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "calendar/component/atom/calendar-day/index.ts"
+                    }
+                  ]
+                },
+                {
                   "name": "time-slot",
                   "path": "calendar/component/atom/time-slot",
                   "files": [
@@ -2255,6 +3046,24 @@
             {
               "name": "molecule",
               "entities": [
+                {
+                  "name": "calendar-grid",
+                  "path": "calendar/component/molecule/calendar-grid",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "calendar/component/molecule/calendar-grid/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "calendar/component/molecule/calendar-grid/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "calendar/component/molecule/calendar-grid/index.ts"
+                    }
+                  ]
+                },
                 {
                   "name": "date-picker",
                   "path": "calendar/component/molecule/date-picker",
@@ -2370,6 +3179,50 @@
             {
               "name": "organism",
               "entities": [
+                {
+                  "name": "calendar",
+                  "path": "calendar/component/organism/calendar",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "calendar/component/organism/calendar/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "calendar/component/organism/calendar/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "calendar/component/organism/calendar/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "calendar/component/organism/calendar/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "calendar-range",
+                  "path": "calendar/component/organism/calendar-range",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "calendar/component/organism/calendar-range/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "calendar/component/organism/calendar-range/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "calendar/component/organism/calendar-range/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "calendar/component/organism/calendar-range/state.svelte.ts"
+                    }
+                  ]
+                },
                 {
                   "name": "calendar-view",
                   "path": "calendar/component/organism/calendar-view",
@@ -2591,6 +3444,16 @@
                       "path": "calendar/function/script/date-format/index.ts"
                     }
                   ]
+                },
+                {
+                  "name": "generate-calendar-days",
+                  "path": "calendar/function/script/generate-calendar-days",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "calendar/function/script/generate-calendar-days/index.ts"
+                    }
+                  ]
                 }
               ]
             }
@@ -2602,6 +3465,46 @@
             {
               "name": "recipe",
               "entities": [
+                {
+                  "name": "calendar",
+                  "path": "calendar/interface/recipe/calendar",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "calendar/interface/recipe/calendar/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "calendar-day",
+                  "path": "calendar/interface/recipe/calendar-day",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "calendar/interface/recipe/calendar-day/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "calendar-grid",
+                  "path": "calendar/interface/recipe/calendar-grid",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "calendar/interface/recipe/calendar-grid/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "calendar-range",
+                  "path": "calendar/interface/recipe/calendar-range",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "calendar/interface/recipe/calendar-range/index.ts"
+                    }
+                  ]
+                },
                 {
                   "name": "calendar-view",
                   "path": "calendar/interface/recipe/calendar-view",
@@ -7823,6 +8726,24 @@
                   ]
                 },
                 {
+                  "name": "stepper",
+                  "path": "control/component/atom/stepper",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "control/component/atom/stepper/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "control/component/atom/stepper/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "control/component/atom/stepper/index.ts"
+                    }
+                  ]
+                },
+                {
                   "name": "switch",
                   "path": "control/component/atom/switch",
                   "files": [
@@ -10423,6 +11344,21 @@
                     {
                       "name": "index.ts",
                       "path": "domain/const/array/domain-cluster/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "map",
+              "entities": [
+                {
+                  "name": "controller-type",
+                  "path": "domain/const/map/controller-type",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "domain/const/map/controller-type/index.ts"
                     }
                   ]
                 }
@@ -15120,6 +16056,24 @@
                       "path": "image/component/molecule/divider-heading-image-text/index.ts"
                     }
                   ]
+                },
+                {
+                  "name": "media-thumbnail",
+                  "path": "image/component/molecule/media-thumbnail",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "image/component/molecule/media-thumbnail/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "image/component/molecule/media-thumbnail/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "image/component/molecule/media-thumbnail/index.ts"
+                    }
+                  ]
                 }
               ]
             },
@@ -15237,6 +16191,16 @@
                     {
                       "name": "index.ts",
                       "path": "image/interface/recipe/image-gallery/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "media-thumbnail",
+                  "path": "image/interface/recipe/media-thumbnail",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "image/interface/recipe/media-thumbnail/index.ts"
                     }
                   ]
                 }
@@ -15383,6 +16347,24 @@
                     {
                       "name": "index.ts",
                       "path": "input/component/atom/input-pin-digit/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "input-stepper",
+                  "path": "input/component/atom/input-stepper",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "input/component/atom/input-stepper/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "input/component/atom/input-stepper/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "input/component/atom/input-stepper/index.ts"
                     }
                   ]
                 }
@@ -15986,6 +16968,16 @@
                     {
                       "name": "index.ts",
                       "path": "input/interface/recipe/input-pin-digit/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "input-stepper",
+                  "path": "input/interface/recipe/input-stepper",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "input/interface/recipe/input-stepper/index.ts"
                     }
                   ]
                 },
@@ -20310,6 +21302,24 @@
                     {
                       "name": "index.ts",
                       "path": "navigation/component/organism/app-header/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "bottom-sheet",
+                  "path": "navigation/component/organism/bottom-sheet",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "navigation/component/organism/bottom-sheet/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "navigation/component/organism/bottom-sheet/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "navigation/component/organism/bottom-sheet/index.ts"
                     }
                   ]
                 },
@@ -25350,6 +26360,16 @@
                     {
                       "name": "index.svg",
                       "path": "svg/data/icon/bold/index.svg"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking",
+                  "path": "svg/data/icon/booking",
+                  "files": [
+                    {
+                      "name": "index.svg",
+                      "path": "svg/data/icon/booking/index.svg"
                     }
                   ]
                 },
@@ -32720,6 +33740,16 @@
                   ]
                 },
                 {
+                  "name": "size-px",
+                  "path": "theme/const/array/size-px",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "theme/const/array/size-px/index.ts"
+                    }
+                  ]
+                },
+                {
                   "name": "size-rem",
                   "path": "theme/const/array/size-rem",
                   "files": [
@@ -34823,6 +35853,1591 @@
       ]
     },
     {
+      "name": "travel-admin",
+      "clusters": [
+        {
+          "name": "component",
+          "joints": [
+            {
+              "name": "molecule",
+              "entities": [
+                {
+                  "name": "addon-rule-row",
+                  "path": "travel-admin/component/molecule/addon-rule-row",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/molecule/addon-rule-row/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/molecule/addon-rule-row/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/molecule/addon-rule-row/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "organism",
+              "entities": [
+                {
+                  "name": "addon-rules-editor",
+                  "path": "travel-admin/component/organism/addon-rules-editor",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/organism/addon-rules-editor/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/organism/addon-rules-editor/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/organism/addon-rules-editor/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "travel-admin/component/organism/addon-rules-editor/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "admin-kpi-row",
+                  "path": "travel-admin/component/organism/admin-kpi-row",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/organism/admin-kpi-row/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/organism/admin-kpi-row/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/organism/admin-kpi-row/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "admin-shell",
+                  "path": "travel-admin/component/organism/admin-shell",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/organism/admin-shell/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/organism/admin-shell/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/organism/admin-shell/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "media-gallery-manager",
+                  "path": "travel-admin/component/organism/media-gallery-manager",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/organism/media-gallery-manager/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/organism/media-gallery-manager/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/organism/media-gallery-manager/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "travel-admin/component/organism/media-gallery-manager/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "pricing-matrix-editor",
+                  "path": "travel-admin/component/organism/pricing-matrix-editor",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/organism/pricing-matrix-editor/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/organism/pricing-matrix-editor/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/organism/pricing-matrix-editor/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "travel-admin/component/organism/pricing-matrix-editor/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "product-editor-form",
+                  "path": "travel-admin/component/organism/product-editor-form",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/organism/product-editor-form/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/organism/product-editor-form/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/organism/product-editor-form/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "travel-admin/component/organism/product-editor-form/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "route-stops-editor",
+                  "path": "travel-admin/component/organism/route-stops-editor",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/organism/route-stops-editor/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/organism/route-stops-editor/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/organism/route-stops-editor/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "travel-admin/component/organism/route-stops-editor/state.svelte.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "template",
+              "entities": [
+                {
+                  "name": "addon-catalog-page",
+                  "path": "travel-admin/component/template/addon-catalog-page",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/template/addon-catalog-page/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/template/addon-catalog-page/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/template/addon-catalog-page/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "travel-admin/component/template/addon-catalog-page/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "admin-dashboard-page",
+                  "path": "travel-admin/component/template/admin-dashboard-page",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/template/admin-dashboard-page/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/template/admin-dashboard-page/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/template/admin-dashboard-page/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "travel-admin/component/template/admin-dashboard-page/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "pricing-matrix-page",
+                  "path": "travel-admin/component/template/pricing-matrix-page",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/template/pricing-matrix-page/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/template/pricing-matrix-page/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/template/pricing-matrix-page/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "travel-admin/component/template/pricing-matrix-page/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "product-editor-page",
+                  "path": "travel-admin/component/template/product-editor-page",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-admin/component/template/product-editor-page/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-admin/component/template/product-editor-page/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/component/template/product-editor-page/index.ts"
+                    },
+                    {
+                      "name": "state.svelte.ts",
+                      "path": "travel-admin/component/template/product-editor-page/state.svelte.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "const",
+          "joints": [
+            {
+              "name": "array",
+              "entities": [
+                {
+                  "name": "vehicle-type",
+                  "path": "travel-admin/const/array/vehicle-type",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/const/array/vehicle-type/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "preset",
+              "entities": [
+                {
+                  "name": "sample-admin-addons",
+                  "path": "travel-admin/const/preset/sample-admin-addons",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/const/preset/sample-admin-addons/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "sample-admin-pickup-points",
+                  "path": "travel-admin/const/preset/sample-admin-pickup-points",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/const/preset/sample-admin-pickup-points/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "sample-admin-products",
+                  "path": "travel-admin/const/preset/sample-admin-products",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/const/preset/sample-admin-products/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "sample-admin-route-stops",
+                  "path": "travel-admin/const/preset/sample-admin-route-stops",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/const/preset/sample-admin-route-stops/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "sample-admin-transfer-rates",
+                  "path": "travel-admin/const/preset/sample-admin-transfer-rates",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/const/preset/sample-admin-transfer-rates/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "function",
+          "joints": [
+            {
+              "name": "script",
+              "entities": [
+                {
+                  "name": "create-mock-catalog-repository",
+                  "path": "travel-admin/function/script/create-mock-catalog-repository",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/function/script/create-mock-catalog-repository/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "create-mock-media-uploader",
+                  "path": "travel-admin/function/script/create-mock-media-uploader",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/function/script/create-mock-media-uploader/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "interface",
+          "joints": [
+            {
+              "name": "contract",
+              "entities": [
+                {
+                  "name": "catalog-repository",
+                  "path": "travel-admin/interface/contract/catalog-repository",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/contract/catalog-repository/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "media-uploader",
+                  "path": "travel-admin/interface/contract/media-uploader",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/contract/media-uploader/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "recipe",
+              "entities": [
+                {
+                  "name": "addon-catalog-page",
+                  "path": "travel-admin/interface/recipe/addon-catalog-page",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/addon-catalog-page/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "addon-rule-row",
+                  "path": "travel-admin/interface/recipe/addon-rule-row",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/addon-rule-row/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "addon-rules-editor",
+                  "path": "travel-admin/interface/recipe/addon-rules-editor",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/addon-rules-editor/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "admin-dashboard-page",
+                  "path": "travel-admin/interface/recipe/admin-dashboard-page",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/admin-dashboard-page/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "admin-kpi-row",
+                  "path": "travel-admin/interface/recipe/admin-kpi-row",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/admin-kpi-row/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "admin-shell",
+                  "path": "travel-admin/interface/recipe/admin-shell",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/admin-shell/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "media-gallery-manager",
+                  "path": "travel-admin/interface/recipe/media-gallery-manager",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/media-gallery-manager/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "pricing-matrix-editor",
+                  "path": "travel-admin/interface/recipe/pricing-matrix-editor",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/pricing-matrix-editor/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "pricing-matrix-page",
+                  "path": "travel-admin/interface/recipe/pricing-matrix-page",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/pricing-matrix-page/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "product-editor-form",
+                  "path": "travel-admin/interface/recipe/product-editor-form",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/product-editor-form/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "product-editor-page",
+                  "path": "travel-admin/interface/recipe/product-editor-page",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/product-editor-page/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "route-stops-editor",
+                  "path": "travel-admin/interface/recipe/route-stops-editor",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/interface/recipe/route-stops-editor/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "type",
+          "joints": [
+            {
+              "name": "alias",
+              "entities": [
+                {
+                  "name": "admin-product-domain",
+                  "path": "travel-admin/type/alias/admin-product-domain",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/type/alias/admin-product-domain/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "object",
+              "entities": [
+                {
+                  "name": "admin-media-asset",
+                  "path": "travel-admin/type/object/admin-media-asset",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/type/object/admin-media-asset/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "admin-pickup-point",
+                  "path": "travel-admin/type/object/admin-pickup-point",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/type/object/admin-pickup-point/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "admin-product",
+                  "path": "travel-admin/type/object/admin-product",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/type/object/admin-product/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "admin-product-addon",
+                  "path": "travel-admin/type/object/admin-product-addon",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/type/object/admin-product-addon/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "admin-route-stop",
+                  "path": "travel-admin/type/object/admin-route-stop",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/type/object/admin-route-stop/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "admin-transfer-rate",
+                  "path": "travel-admin/type/object/admin-transfer-rate",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-admin/type/object/admin-transfer-rate/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "travel-commerce",
+      "clusters": [
+        {
+          "name": "component",
+          "joints": [
+            {
+              "name": "atom",
+              "entities": [
+                {
+                  "name": "experience-filter-chip",
+                  "path": "travel-commerce/component/atom/experience-filter-chip",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/atom/experience-filter-chip/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/atom/experience-filter-chip/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/atom/experience-filter-chip/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "molecule",
+              "entities": [
+                {
+                  "name": "active-experience-filters",
+                  "path": "travel-commerce/component/molecule/active-experience-filters",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/active-experience-filters/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/active-experience-filters/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/active-experience-filters/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "cart-line-item",
+                  "path": "travel-commerce/component/molecule/cart-line-item",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/cart-line-item/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/cart-line-item/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/cart-line-item/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "cart-upsell-card",
+                  "path": "travel-commerce/component/molecule/cart-upsell-card",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/cart-upsell-card/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/cart-upsell-card/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/cart-upsell-card/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "excursion-card-compact",
+                  "path": "travel-commerce/component/molecule/excursion-card-compact",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/excursion-card-compact/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/excursion-card-compact/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/excursion-card-compact/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "excursion-card-feature",
+                  "path": "travel-commerce/component/molecule/excursion-card-feature",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/excursion-card-feature/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/excursion-card-feature/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/excursion-card-feature/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "excursion-card-standard",
+                  "path": "travel-commerce/component/molecule/excursion-card-standard",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/excursion-card-standard/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/excursion-card-standard/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/excursion-card-standard/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "experience-filter-group",
+                  "path": "travel-commerce/component/molecule/experience-filter-group",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/experience-filter-group/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/experience-filter-group/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/experience-filter-group/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "itinerary-leg-card",
+                  "path": "travel-commerce/component/molecule/itinerary-leg-card",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/itinerary-leg-card/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/itinerary-leg-card/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/itinerary-leg-card/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "parallax-layer",
+                  "path": "travel-commerce/component/molecule/parallax-layer",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/parallax-layer/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/parallax-layer/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/parallax-layer/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "results-counter",
+                  "path": "travel-commerce/component/molecule/results-counter",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/results-counter/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/results-counter/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/results-counter/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tour-meta-line",
+                  "path": "travel-commerce/component/molecule/tour-meta-line",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/tour-meta-line/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/tour-meta-line/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/tour-meta-line/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tour-price-note",
+                  "path": "travel-commerce/component/molecule/tour-price-note",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/tour-price-note/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/tour-price-note/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/tour-price-note/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tour-tag-list",
+                  "path": "travel-commerce/component/molecule/tour-tag-list",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/tour-tag-list/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/tour-tag-list/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/tour-tag-list/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "turtle-hero-photo-scene",
+                  "path": "travel-commerce/component/molecule/turtle-hero-photo-scene",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/turtle-hero-photo-scene/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/turtle-hero-photo-scene/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/turtle-hero-photo-scene/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "turtle-hero-wordmark",
+                  "path": "travel-commerce/component/molecule/turtle-hero-wordmark",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/turtle-hero-wordmark/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/turtle-hero-wordmark/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/turtle-hero-wordmark/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "turtle-photo-to-mark",
+                  "path": "travel-commerce/component/molecule/turtle-photo-to-mark",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/turtle-photo-to-mark/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/turtle-photo-to-mark/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/molecule/turtle-photo-to-mark/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "organism",
+              "entities": [
+                {
+                  "name": "cart-summary-panel",
+                  "path": "travel-commerce/component/organism/cart-summary-panel",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/cart-summary-panel/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/cart-summary-panel/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/cart-summary-panel/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "cart-usd-cash-toggle",
+                  "path": "travel-commerce/component/organism/cart-usd-cash-toggle",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/cart-usd-cash-toggle/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/cart-usd-cash-toggle/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/cart-usd-cash-toggle/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "contact-request-form",
+                  "path": "travel-commerce/component/organism/contact-request-form",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/contact-request-form/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/contact-request-form/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/contact-request-form/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "experience-filter-bar",
+                  "path": "travel-commerce/component/organism/experience-filter-bar",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/experience-filter-bar/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/experience-filter-bar/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/experience-filter-bar/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "hero-outro",
+                  "path": "travel-commerce/component/organism/hero-outro",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/hero-outro/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/hero-outro/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/hero-outro/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "hero-scene",
+                  "path": "travel-commerce/component/organism/hero-scene",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/hero-scene/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/hero-scene/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/hero-scene/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "itinerary-builder",
+                  "path": "travel-commerce/component/organism/itinerary-builder",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/itinerary-builder/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/itinerary-builder/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/itinerary-builder/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "itinerary-map",
+                  "path": "travel-commerce/component/organism/itinerary-map",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/itinerary-map/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/itinerary-map/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/itinerary-map/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "store-editorial-grid",
+                  "path": "travel-commerce/component/organism/store-editorial-grid",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/store-editorial-grid/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/store-editorial-grid/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/store-editorial-grid/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "store-trust-insert",
+                  "path": "travel-commerce/component/organism/store-trust-insert",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/store-trust-insert/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/store-trust-insert/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/store-trust-insert/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tour-addon-picker",
+                  "path": "travel-commerce/component/organism/tour-addon-picker",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/tour-addon-picker/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/tour-addon-picker/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/tour-addon-picker/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tour-booking-panel",
+                  "path": "travel-commerce/component/organism/tour-booking-panel",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/tour-booking-panel/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/tour-booking-panel/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/tour-booking-panel/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tour-hero-gallery",
+                  "path": "travel-commerce/component/organism/tour-hero-gallery",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/tour-hero-gallery/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/tour-hero-gallery/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/tour-hero-gallery/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tour-route-stops",
+                  "path": "travel-commerce/component/organism/tour-route-stops",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/tour-route-stops/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/tour-route-stops/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/tour-route-stops/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "turtle-hero-morph",
+                  "path": "travel-commerce/component/organism/turtle-hero-morph",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/turtle-hero-morph/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/turtle-hero-morph/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/turtle-hero-morph/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "turtle-hero-morph-slide",
+                  "path": "travel-commerce/component/organism/turtle-hero-morph-slide",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/organism/turtle-hero-morph-slide/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/organism/turtle-hero-morph-slide/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/organism/turtle-hero-morph-slide/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "template",
+              "entities": [
+                {
+                  "name": "cart-page",
+                  "path": "travel-commerce/component/template/cart-page",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/template/cart-page/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/template/cart-page/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/template/cart-page/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "store-page",
+                  "path": "travel-commerce/component/template/store-page",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/template/store-page/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/template/store-page/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/template/store-page/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tour-detail-page",
+                  "path": "travel-commerce/component/template/tour-detail-page",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/template/tour-detail-page/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/template/tour-detail-page/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/template/tour-detail-page/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "travel-landing",
+                  "path": "travel-commerce/component/template/travel-landing",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/template/travel-landing/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/template/travel-landing/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/template/travel-landing/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "travel-product",
+                  "path": "travel-commerce/component/template/travel-product",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/template/travel-product/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/template/travel-product/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/component/template/travel-product/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "const",
+          "joints": [
+            {
+              "name": "array",
+              "entities": [
+                {
+                  "name": "experience-category",
+                  "path": "travel-commerce/const/array/experience-category",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/const/array/experience-category/index.ts"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "preset",
+              "entities": [
+                {
+                  "name": "experience-filter-motif",
+                  "path": "travel-commerce/const/preset/experience-filter-motif",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/const/preset/experience-filter-motif/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "hero-scene",
+                  "path": "travel-commerce/const/preset/hero-scene",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/const/preset/hero-scene/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "hero-slider",
+                  "path": "travel-commerce/const/preset/hero-slider",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/const/preset/hero-slider/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "sample-excursions",
+                  "path": "travel-commerce/const/preset/sample-excursions",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/const/preset/sample-excursions/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "sample-tour-detail",
+                  "path": "travel-commerce/const/preset/sample-tour-detail",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/const/preset/sample-tour-detail/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "turtle-hero-morph",
+                  "path": "travel-commerce/const/preset/turtle-hero-morph",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/const/preset/turtle-hero-morph/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "function",
+          "joints": [
+            {
+              "name": "script",
+              "entities": [
+                {
+                  "name": "create-sticky-scroll-progress",
+                  "path": "travel-commerce/function/script/create-sticky-scroll-progress",
+                  "files": [
+                    {
+                      "name": "index.svelte.ts",
+                      "path": "travel-commerce/function/script/create-sticky-scroll-progress/index.svelte.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/function/script/create-sticky-scroll-progress/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "filter-excursions",
+                  "path": "travel-commerce/function/script/filter-excursions",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/function/script/filter-excursions/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "format-results-count",
+                  "path": "travel-commerce/function/script/format-results-count",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/function/script/format-results-count/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "type",
+          "joints": [
+            {
+              "name": "object",
+              "entities": [
+                {
+                  "name": "cart-line-item",
+                  "path": "travel-commerce/type/object/cart-line-item",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/type/object/cart-line-item/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "cart-summary",
+                  "path": "travel-commerce/type/object/cart-summary",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/type/object/cart-summary/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "contact-request",
+                  "path": "travel-commerce/type/object/contact-request",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/type/object/contact-request/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "excursion",
+                  "path": "travel-commerce/type/object/excursion",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/type/object/excursion/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "hero-scene",
+                  "path": "travel-commerce/type/object/hero-scene",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/type/object/hero-scene/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "hero-slider",
+                  "path": "travel-commerce/type/object/hero-slider",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/type/object/hero-slider/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "itinerary-leg",
+                  "path": "travel-commerce/type/object/itinerary-leg",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/type/object/itinerary-leg/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tour-addon",
+                  "path": "travel-commerce/type/object/tour-addon",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/type/object/tour-addon/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tour-gallery-image",
+                  "path": "travel-commerce/type/object/tour-gallery-image",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/type/object/tour-gallery-image/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tour-route-stop",
+                  "path": "travel-commerce/type/object/tour-route-stop",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/type/object/tour-route-stop/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "turtle-hero-morph-config",
+                  "path": "travel-commerce/type/object/turtle-hero-morph-config",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/type/object/turtle-hero-morph-config/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "tree",
       "clusters": [
         {
@@ -35823,6 +38438,24 @@
                     {
                       "name": "state.svelte.ts",
                       "path": "video/component/molecule/video-player/state.svelte.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "video-scene",
+                  "path": "video/component/molecule/video-scene",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "video/component/molecule/video-scene/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "video/component/molecule/video-scene/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "video/component/molecule/video-scene/index.ts"
                     }
                   ]
                 }
@@ -39134,6 +41767,24 @@
                       "path": "webgl/component/molecule/hyperspace-scene/index.ts"
                     }
                   ]
+                },
+                {
+                  "name": "turtle-dissolve-scene",
+                  "path": "webgl/component/molecule/turtle-dissolve-scene",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "webgl/component/molecule/turtle-dissolve-scene/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "webgl/component/molecule/turtle-dissolve-scene/index.svelte"
+                    },
+                    {
+                      "name": "index.ts",
+                      "path": "webgl/component/molecule/turtle-dissolve-scene/index.ts"
+                    }
+                  ]
                 }
               ]
             },
@@ -39209,6 +41860,10 @@
                     {
                       "name": "hyperspace.frag",
                       "path": "webgl/data/shader/fragment/hyperspace.frag"
+                    },
+                    {
+                      "name": "turtle-dissolve.frag",
+                      "path": "webgl/data/shader/fragment/turtle-dissolve.frag"
                     }
                   ]
                 },
@@ -40170,6 +42825,52 @@
       "storyModulePath": "animation/component/atom/animated-digit/index.story.svelte"
     },
     {
+      "entityPath": "animation/component/atom/arc-letter",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "arc-letter",
+      "componentModulePath": "animation/component/atom/arc-letter/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/arc-letter/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/atom/arc-letter/index.story.svelte"
+    },
+    {
+      "entityPath": "animation/component/atom/beach-water",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "beach-water",
+      "componentModulePath": "animation/component/atom/beach-water/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/beach-water/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/atom/beach-water/index.story.svelte"
+    },
+    {
       "entityPath": "animation/component/atom/css-3d-cube",
       "domain": "animation",
       "cluster": "component",
@@ -40239,6 +42940,75 @@
       "storyModulePath": "animation/component/atom/layout-transformation/index.story.svelte"
     },
     {
+      "entityPath": "animation/component/atom/letter-arc-path",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "letter-arc-path",
+      "componentModulePath": "animation/component/atom/letter-arc-path/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/letter-arc-path/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/atom/letter-arc-path/index.story.svelte"
+    },
+    {
+      "entityPath": "animation/component/atom/marquee-ticker",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "marquee-ticker",
+      "componentModulePath": "animation/component/atom/marquee-ticker/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/marquee-ticker/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/atom/marquee-ticker/index.story.svelte"
+    },
+    {
+      "entityPath": "animation/component/atom/palm-sway",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "palm-sway",
+      "componentModulePath": "animation/component/atom/palm-sway/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/palm-sway/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/atom/palm-sway/index.story.svelte"
+    },
+    {
       "entityPath": "animation/component/atom/progress-bar",
       "domain": "animation",
       "cluster": "component",
@@ -40260,6 +43030,29 @@
       "hasStatePipeline": true,
       "hasStoryPreview": true,
       "storyModulePath": "animation/component/atom/progress-bar/index.story.svelte"
+    },
+    {
+      "entityPath": "animation/component/atom/scroll-phase-debug",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "scroll-phase-debug",
+      "componentModulePath": "animation/component/atom/scroll-phase-debug/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/atom/scroll-phase-debug/index.story.svelte"
     },
     {
       "entityPath": "animation/component/atom/skeleton",
@@ -40354,6 +43147,121 @@
       "storyModulePath": "animation/component/atom/transformable/index.story.svelte"
     },
     {
+      "entityPath": "animation/component/atom/turtle-crawl",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "turtle-crawl",
+      "componentModulePath": "animation/component/atom/turtle-crawl/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/turtle-crawl/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/atom/turtle-crawl/index.story.svelte"
+    },
+    {
+      "entityPath": "animation/component/atom/turtle-logo-mark",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "turtle-logo-mark",
+      "componentModulePath": "animation/component/atom/turtle-logo-mark/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/turtle-logo-mark/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/atom/turtle-logo-mark/index.story.svelte"
+    },
+    {
+      "entityPath": "animation/component/atom/vector-scene",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "vector-scene",
+      "componentModulePath": "animation/component/atom/vector-scene/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/vector-scene/index.ts",
+      "stateFunctionPath": "animation/component/atom/vector-scene/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "animation/component/atom/vector-scene/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/atom/vector-scene/index.story.svelte"
+    },
+    {
+      "entityPath": "animation/component/atom/wave-surf",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "wave-surf",
+      "componentModulePath": "animation/component/atom/wave-surf/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/wave-surf/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/atom/wave-surf/index.story.svelte"
+    },
+    {
+      "entityPath": "animation/component/atom/whale-spout",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "whale-spout",
+      "componentModulePath": "animation/component/atom/whale-spout/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/whale-spout/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/atom/whale-spout/index.story.svelte"
+    },
+    {
       "entityPath": "animation/component/molecule/atomic-tier-card",
       "domain": "animation",
       "cluster": "component",
@@ -40400,6 +43308,29 @@
       "storyModulePath": "animation/component/molecule/loading/index.story.svelte"
     },
     {
+      "entityPath": "animation/component/molecule/phrase-arc-flight",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "phrase-arc-flight",
+      "componentModulePath": "animation/component/molecule/phrase-arc-flight/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/phrase-arc-flight/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/molecule/phrase-arc-flight/index.story.svelte"
+    },
+    {
       "entityPath": "animation/component/organism/atomic-principles-showcase",
       "domain": "animation",
       "cluster": "component",
@@ -40444,6 +43375,29 @@
       "hasStatePipeline": true,
       "hasStoryPreview": true,
       "storyModulePath": "animation/component/organism/component-library-stats/index.story.svelte"
+    },
+    {
+      "entityPath": "animation/component/organism/media-slider",
+      "domain": "animation",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "media-slider",
+      "componentModulePath": "animation/component/organism/media-slider/index.svelte",
+      "recipeTypePath": "animation/interface/recipe/media-slider/index.ts",
+      "stateFunctionPath": "animation/component/organism/media-slider/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "animation/component/organism/media-slider/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "animation/component/organism/media-slider/index.story.svelte"
     },
     {
       "entityPath": "audio/component/atom/audio-record-button",
@@ -40883,6 +43837,305 @@
       "storyModulePath": "auth/component/organism/social-login/index.story.svelte"
     },
     {
+      "entityPath": "booking/component/atom/booking-dropdown",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "booking-dropdown",
+      "componentModulePath": "booking/component/atom/booking-dropdown/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/atom/booking-dropdown/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/molecule/booking-adventure-picker",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "booking-adventure-picker",
+      "componentModulePath": "booking/component/molecule/booking-adventure-picker/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/molecule/booking-adventure-picker/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/molecule/booking-bar",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "booking-bar",
+      "componentModulePath": "booking/component/molecule/booking-bar/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/molecule/booking-bar/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/molecule/booking-calendar",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "booking-calendar",
+      "componentModulePath": "booking/component/molecule/booking-calendar/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/molecule/booking-calendar/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/molecule/booking-field-date",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "booking-field-date",
+      "componentModulePath": "booking/component/molecule/booking-field-date/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/molecule/booking-field-date/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/molecule/booking-field-guests",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "booking-field-guests",
+      "componentModulePath": "booking/component/molecule/booking-field-guests/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/molecule/booking-field-guests/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/molecule/booking-field-pickup",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "booking-field-pickup",
+      "componentModulePath": "booking/component/molecule/booking-field-pickup/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/molecule/booking-field-pickup/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/molecule/booking-guest",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "booking-guest",
+      "componentModulePath": "booking/component/molecule/booking-guest/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/molecule/booking-guest/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/molecule/booking-pickup-list",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "booking-pickup-list",
+      "componentModulePath": "booking/component/molecule/booking-pickup-list/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/molecule/booking-pickup-list/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/molecule/booking-summary-bar",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "booking-summary-bar",
+      "componentModulePath": "booking/component/molecule/booking-summary-bar/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/molecule/booking-summary-bar/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/organism/booking-accordion",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "booking-accordion",
+      "componentModulePath": "booking/component/organism/booking-accordion/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/organism/booking-accordion/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/organism/booking-bridge",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "booking-bridge",
+      "componentModulePath": "booking/component/organism/booking-bridge/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/organism/booking-bridge/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/organism/booking-widget",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "booking-widget",
+      "componentModulePath": "booking/component/organism/booking-widget/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/organism/booking-widget/index.story.svelte"
+    },
+    {
       "entityPath": "button/component/atom/button",
       "domain": "button",
       "cluster": "component",
@@ -41067,6 +44320,29 @@
       "storyModulePath": "button/component/atom/tool-button/index.story.svelte"
     },
     {
+      "entityPath": "calendar/component/atom/calendar-day",
+      "domain": "calendar",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "calendar-day",
+      "componentModulePath": "calendar/component/atom/calendar-day/index.svelte",
+      "recipeTypePath": "calendar/interface/recipe/calendar-day/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "calendar/component/atom/calendar-day/index.story.svelte"
+    },
+    {
       "entityPath": "calendar/component/atom/time-slot",
       "domain": "calendar",
       "cluster": "component",
@@ -41088,6 +44364,29 @@
       "hasStatePipeline": true,
       "hasStoryPreview": true,
       "storyModulePath": "calendar/component/atom/time-slot/index.story.svelte"
+    },
+    {
+      "entityPath": "calendar/component/molecule/calendar-grid",
+      "domain": "calendar",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "calendar-grid",
+      "componentModulePath": "calendar/component/molecule/calendar-grid/index.svelte",
+      "recipeTypePath": "calendar/interface/recipe/calendar-grid/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "calendar/component/molecule/calendar-grid/index.story.svelte"
     },
     {
       "entityPath": "calendar/component/molecule/date-picker",
@@ -41203,6 +44502,52 @@
       "hasStatePipeline": true,
       "hasStoryPreview": true,
       "storyModulePath": "calendar/component/molecule/timeline/index.story.svelte"
+    },
+    {
+      "entityPath": "calendar/component/organism/calendar",
+      "domain": "calendar",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "calendar",
+      "componentModulePath": "calendar/component/organism/calendar/index.svelte",
+      "recipeTypePath": "calendar/interface/recipe/calendar/index.ts",
+      "stateFunctionPath": "calendar/component/organism/calendar/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "calendar/component/organism/calendar/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "calendar/component/organism/calendar/index.story.svelte"
+    },
+    {
+      "entityPath": "calendar/component/organism/calendar-range",
+      "domain": "calendar",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "calendar-range",
+      "componentModulePath": "calendar/component/organism/calendar-range/index.svelte",
+      "recipeTypePath": "calendar/interface/recipe/calendar-range/index.ts",
+      "stateFunctionPath": "calendar/component/organism/calendar-range/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "calendar/component/organism/calendar-range/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "calendar/component/organism/calendar-range/index.story.svelte"
     },
     {
       "entityPath": "calendar/component/organism/calendar-view",
@@ -43756,6 +47101,29 @@
       "hasStatePipeline": true,
       "hasStoryPreview": true,
       "storyModulePath": "control/component/atom/radio/index.story.svelte"
+    },
+    {
+      "entityPath": "control/component/atom/stepper",
+      "domain": "control",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "stepper",
+      "componentModulePath": "control/component/atom/stepper/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "control/component/atom/stepper/index.story.svelte"
     },
     {
       "entityPath": "control/component/atom/switch",
@@ -47024,6 +50392,29 @@
       "storyModulePath": "image/component/molecule/divider-heading-image-text/index.story.svelte"
     },
     {
+      "entityPath": "image/component/molecule/media-thumbnail",
+      "domain": "image",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "media-thumbnail",
+      "componentModulePath": "image/component/molecule/media-thumbnail/index.svelte",
+      "recipeTypePath": "image/interface/recipe/media-thumbnail/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "image/component/molecule/media-thumbnail/index.story.svelte"
+    },
+    {
       "entityPath": "image/component/organism/canvas-image-editor",
       "domain": "image",
       "cluster": "component",
@@ -47206,6 +50597,29 @@
       "hasStatePipeline": false,
       "hasStoryPreview": true,
       "storyModulePath": "input/component/atom/input-pin-digit/index.story.svelte"
+    },
+    {
+      "entityPath": "input/component/atom/input-stepper",
+      "domain": "input",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "input-stepper",
+      "componentModulePath": "input/component/atom/input-stepper/index.svelte",
+      "recipeTypePath": "input/interface/recipe/input-stepper/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "input/component/atom/input-stepper/index.story.svelte"
     },
     {
       "entityPath": "input/component/molecule/checkbox-group",
@@ -49299,6 +52713,29 @@
       "hasStatePipeline": false,
       "hasStoryPreview": true,
       "storyModulePath": "navigation/component/organism/app-header/index.story.svelte"
+    },
+    {
+      "entityPath": "navigation/component/organism/bottom-sheet",
+      "domain": "navigation",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "bottom-sheet",
+      "componentModulePath": "navigation/component/organism/bottom-sheet/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "navigation/component/organism/bottom-sheet/index.story.svelte"
     },
     {
       "entityPath": "navigation/component/organism/drawer",
@@ -52245,6 +55682,1156 @@
       "storyModulePath": "token/component/organism/token-settings/index.story.svelte"
     },
     {
+      "entityPath": "travel-admin/component/molecule/addon-rule-row",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "addon-rule-row",
+      "componentModulePath": "travel-admin/component/molecule/addon-rule-row/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/addon-rule-row/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/molecule/addon-rule-row/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-admin/component/organism/addon-rules-editor",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "addon-rules-editor",
+      "componentModulePath": "travel-admin/component/organism/addon-rules-editor/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/addon-rules-editor/index.ts",
+      "stateFunctionPath": "travel-admin/component/organism/addon-rules-editor/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "travel-admin/component/organism/addon-rules-editor/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/organism/addon-rules-editor/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-admin/component/organism/admin-kpi-row",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "admin-kpi-row",
+      "componentModulePath": "travel-admin/component/organism/admin-kpi-row/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/admin-kpi-row/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/organism/admin-kpi-row/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-admin/component/organism/admin-shell",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "admin-shell",
+      "componentModulePath": "travel-admin/component/organism/admin-shell/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/admin-shell/index.ts",
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/organism/admin-shell/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-admin/component/organism/media-gallery-manager",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "media-gallery-manager",
+      "componentModulePath": "travel-admin/component/organism/media-gallery-manager/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/media-gallery-manager/index.ts",
+      "stateFunctionPath": "travel-admin/component/organism/media-gallery-manager/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "travel-admin/component/organism/media-gallery-manager/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/organism/media-gallery-manager/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-admin/component/organism/pricing-matrix-editor",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "pricing-matrix-editor",
+      "componentModulePath": "travel-admin/component/organism/pricing-matrix-editor/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/pricing-matrix-editor/index.ts",
+      "stateFunctionPath": "travel-admin/component/organism/pricing-matrix-editor/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "travel-admin/component/organism/pricing-matrix-editor/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/organism/pricing-matrix-editor/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-admin/component/organism/product-editor-form",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "product-editor-form",
+      "componentModulePath": "travel-admin/component/organism/product-editor-form/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/product-editor-form/index.ts",
+      "stateFunctionPath": "travel-admin/component/organism/product-editor-form/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "travel-admin/component/organism/product-editor-form/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/organism/product-editor-form/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-admin/component/organism/route-stops-editor",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "route-stops-editor",
+      "componentModulePath": "travel-admin/component/organism/route-stops-editor/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/route-stops-editor/index.ts",
+      "stateFunctionPath": "travel-admin/component/organism/route-stops-editor/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "travel-admin/component/organism/route-stops-editor/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/organism/route-stops-editor/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-admin/component/template/addon-catalog-page",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "template",
+      "family": "addon-catalog-page",
+      "componentModulePath": "travel-admin/component/template/addon-catalog-page/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/addon-catalog-page/index.ts",
+      "stateFunctionPath": "travel-admin/component/template/addon-catalog-page/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "travel-admin/component/template/addon-catalog-page/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/template/addon-catalog-page/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-admin/component/template/admin-dashboard-page",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "template",
+      "family": "admin-dashboard-page",
+      "componentModulePath": "travel-admin/component/template/admin-dashboard-page/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/admin-dashboard-page/index.ts",
+      "stateFunctionPath": "travel-admin/component/template/admin-dashboard-page/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "travel-admin/component/template/admin-dashboard-page/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/template/admin-dashboard-page/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-admin/component/template/pricing-matrix-page",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "template",
+      "family": "pricing-matrix-page",
+      "componentModulePath": "travel-admin/component/template/pricing-matrix-page/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/pricing-matrix-page/index.ts",
+      "stateFunctionPath": "travel-admin/component/template/pricing-matrix-page/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "travel-admin/component/template/pricing-matrix-page/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/template/pricing-matrix-page/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-admin/component/template/product-editor-page",
+      "domain": "travel-admin",
+      "cluster": "component",
+      "joint": "template",
+      "family": "product-editor-page",
+      "componentModulePath": "travel-admin/component/template/product-editor-page/index.svelte",
+      "recipeTypePath": "travel-admin/interface/recipe/product-editor-page/index.ts",
+      "stateFunctionPath": "travel-admin/component/template/product-editor-page/state.svelte.ts",
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": "travel-admin/component/template/product-editor-page/state.svelte.ts",
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": true,
+      "hasStatePipeline": true,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-admin/component/template/product-editor-page/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/atom/experience-filter-chip",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "experience-filter-chip",
+      "componentModulePath": "travel-commerce/component/atom/experience-filter-chip/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/atom/experience-filter-chip/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/active-experience-filters",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "active-experience-filters",
+      "componentModulePath": "travel-commerce/component/molecule/active-experience-filters/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/active-experience-filters/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/cart-line-item",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "cart-line-item",
+      "componentModulePath": "travel-commerce/component/molecule/cart-line-item/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/cart-line-item/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/cart-upsell-card",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "cart-upsell-card",
+      "componentModulePath": "travel-commerce/component/molecule/cart-upsell-card/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/cart-upsell-card/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/excursion-card-compact",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "excursion-card-compact",
+      "componentModulePath": "travel-commerce/component/molecule/excursion-card-compact/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/excursion-card-compact/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/excursion-card-feature",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "excursion-card-feature",
+      "componentModulePath": "travel-commerce/component/molecule/excursion-card-feature/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/excursion-card-feature/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/excursion-card-standard",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "excursion-card-standard",
+      "componentModulePath": "travel-commerce/component/molecule/excursion-card-standard/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/excursion-card-standard/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/experience-filter-group",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "experience-filter-group",
+      "componentModulePath": "travel-commerce/component/molecule/experience-filter-group/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/experience-filter-group/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/itinerary-leg-card",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "itinerary-leg-card",
+      "componentModulePath": "travel-commerce/component/molecule/itinerary-leg-card/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/itinerary-leg-card/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/parallax-layer",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "parallax-layer",
+      "componentModulePath": "travel-commerce/component/molecule/parallax-layer/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/parallax-layer/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/results-counter",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "results-counter",
+      "componentModulePath": "travel-commerce/component/molecule/results-counter/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/results-counter/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/tour-meta-line",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "tour-meta-line",
+      "componentModulePath": "travel-commerce/component/molecule/tour-meta-line/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/tour-meta-line/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/tour-price-note",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "tour-price-note",
+      "componentModulePath": "travel-commerce/component/molecule/tour-price-note/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/tour-price-note/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/tour-tag-list",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "tour-tag-list",
+      "componentModulePath": "travel-commerce/component/molecule/tour-tag-list/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/tour-tag-list/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/turtle-hero-photo-scene",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "turtle-hero-photo-scene",
+      "componentModulePath": "travel-commerce/component/molecule/turtle-hero-photo-scene/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/turtle-hero-photo-scene/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/turtle-hero-wordmark",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "turtle-hero-wordmark",
+      "componentModulePath": "travel-commerce/component/molecule/turtle-hero-wordmark/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/turtle-hero-wordmark/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/turtle-photo-to-mark",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "turtle-photo-to-mark",
+      "componentModulePath": "travel-commerce/component/molecule/turtle-photo-to-mark/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/turtle-photo-to-mark/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/cart-summary-panel",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "cart-summary-panel",
+      "componentModulePath": "travel-commerce/component/organism/cart-summary-panel/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/cart-summary-panel/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/cart-usd-cash-toggle",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "cart-usd-cash-toggle",
+      "componentModulePath": "travel-commerce/component/organism/cart-usd-cash-toggle/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/cart-usd-cash-toggle/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/contact-request-form",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "contact-request-form",
+      "componentModulePath": "travel-commerce/component/organism/contact-request-form/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/contact-request-form/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/experience-filter-bar",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "experience-filter-bar",
+      "componentModulePath": "travel-commerce/component/organism/experience-filter-bar/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/experience-filter-bar/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/hero-outro",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "hero-outro",
+      "componentModulePath": "travel-commerce/component/organism/hero-outro/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/hero-outro/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/hero-scene",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "hero-scene",
+      "componentModulePath": "travel-commerce/component/organism/hero-scene/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/hero-scene/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/itinerary-builder",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "itinerary-builder",
+      "componentModulePath": "travel-commerce/component/organism/itinerary-builder/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/itinerary-builder/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/itinerary-map",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "itinerary-map",
+      "componentModulePath": "travel-commerce/component/organism/itinerary-map/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/itinerary-map/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/store-editorial-grid",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "store-editorial-grid",
+      "componentModulePath": "travel-commerce/component/organism/store-editorial-grid/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/store-editorial-grid/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/store-trust-insert",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "store-trust-insert",
+      "componentModulePath": "travel-commerce/component/organism/store-trust-insert/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/store-trust-insert/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/tour-addon-picker",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "tour-addon-picker",
+      "componentModulePath": "travel-commerce/component/organism/tour-addon-picker/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/tour-addon-picker/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/tour-booking-panel",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "tour-booking-panel",
+      "componentModulePath": "travel-commerce/component/organism/tour-booking-panel/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/tour-booking-panel/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/tour-hero-gallery",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "tour-hero-gallery",
+      "componentModulePath": "travel-commerce/component/organism/tour-hero-gallery/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/tour-hero-gallery/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/tour-route-stops",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "tour-route-stops",
+      "componentModulePath": "travel-commerce/component/organism/tour-route-stops/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/tour-route-stops/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/turtle-hero-morph",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "turtle-hero-morph",
+      "componentModulePath": "travel-commerce/component/organism/turtle-hero-morph/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/turtle-hero-morph/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/organism/turtle-hero-morph-slide",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "turtle-hero-morph-slide",
+      "componentModulePath": "travel-commerce/component/organism/turtle-hero-morph-slide/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/organism/turtle-hero-morph-slide/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/template/cart-page",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "template",
+      "family": "cart-page",
+      "componentModulePath": "travel-commerce/component/template/cart-page/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/template/cart-page/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/template/store-page",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "template",
+      "family": "store-page",
+      "componentModulePath": "travel-commerce/component/template/store-page/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/template/store-page/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/template/tour-detail-page",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "template",
+      "family": "tour-detail-page",
+      "componentModulePath": "travel-commerce/component/template/tour-detail-page/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/template/tour-detail-page/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/template/travel-landing",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "template",
+      "family": "travel-landing",
+      "componentModulePath": "travel-commerce/component/template/travel-landing/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/template/travel-landing/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/template/travel-product",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "template",
+      "family": "travel-product",
+      "componentModulePath": "travel-commerce/component/template/travel-product/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/template/travel-product/index.story.svelte"
+    },
+    {
       "entityPath": "tree/component/molecule/flat-tree",
       "domain": "tree",
       "cluster": "component",
@@ -52705,6 +57292,29 @@
       "hasStatePipeline": true,
       "hasStoryPreview": true,
       "storyModulePath": "video/component/molecule/video-player/index.story.svelte"
+    },
+    {
+      "entityPath": "video/component/molecule/video-scene",
+      "domain": "video",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "video-scene",
+      "componentModulePath": "video/component/molecule/video-scene/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "video/component/molecule/video-scene/index.story.svelte"
     },
     {
       "entityPath": "wbd/component/atom/confidence-range-bar",
@@ -54775,6 +59385,29 @@
       "hasStatePipeline": false,
       "hasStoryPreview": true,
       "storyModulePath": "webgl/component/molecule/hyperspace-scene/index.story.svelte"
+    },
+    {
+      "entityPath": "webgl/component/molecule/turtle-dissolve-scene",
+      "domain": "webgl",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "turtle-dissolve-scene",
+      "componentModulePath": "webgl/component/molecule/turtle-dissolve-scene/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "webgl/component/molecule/turtle-dissolve-scene/index.story.svelte"
     },
     {
       "entityPath": "webgl/component/organism/scene-launcher",

@@ -13,6 +13,7 @@ export type {
 	RecipeInputName,
 	RecipeInputPassword,
 	RecipeInputPinDigit,
+	RecipeInputStepper,
 	RecipeInputText,
 	RecipeNumberInput,
 	RecipePhoneNumberInput,

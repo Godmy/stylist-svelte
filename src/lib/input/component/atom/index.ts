@@ -5,3 +5,4 @@ export { InputError } from './input-error/index';
 export { InputHelper } from './input-helper/index';
 export { InputLabel } from './input-label/index';
 export { InputPinDigit } from './input-pin-digit/index';
+export { InputStepper } from './input-stepper/index';

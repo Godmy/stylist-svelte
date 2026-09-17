@@ -7,6 +7,7 @@ export {
 	formatShortMonthYear,
 	formatTime,
 	fromInputDateString,
+	generateCalendarDays,
 	generateCalendarGrid,
 	isSameDay,
 	isToday,

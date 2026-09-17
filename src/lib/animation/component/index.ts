@@ -2,20 +2,33 @@
 export {
 	AnimatedBackground,
 	AnimatedDigit,
+	ArcLetter,
+	BeachWater,
 	Css3dCube,
 	FloatingIcon,
 	LayoutTransformation,
+	LetterArcPath,
+	MarqueeTicker,
+	PalmSway,
 	ProgressBar,
+	ScrollPhaseDebug,
 	Skeleton,
 	Spinner,
 	Tooltip,
-	Transformable
+	Transformable,
+	TurtleCrawl,
+	TurtleLogoMark,
+	VectorScene,
+	WaveSurf,
+	WhaleSpout
 } from './atom';
 export {
 	AtomicTierCard,
-	Loading
+	Loading,
+	PhraseArcFlight
 } from './molecule';
 export {
 	AtomicPrinciplesShowcase,
-	ComponentLibraryStats
+	ComponentLibraryStats,
+	MediaSlider
 } from './organism';

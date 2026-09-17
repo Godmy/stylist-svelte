@@ -5,7 +5,8 @@ import type { SlotCalendarDay } from '$stylist/calendar/interface/slot/calendar-
 import {
 	generateCalendarGrid,
 	isToday as isTodayFn,
-	isSameDay
+	isSameDay,
+	startOfWeek
 } from '$stylist/calendar/function/script/calendar-utils';
 import { formatMonthYear } from '$stylist/calendar/function/script/date-format';
 
@@ -25,14 +26,27 @@ export function createCalendarViewState(props: CalendarViewContract) {
 	const headerClasses = $derived(
 		ClassNamesManager.merge('c-calendar-view__header', headerClassProp)
 	);
-	const gridClasses = $derived('c-calendar-view__grid');
+	const gridClasses = $derived(
+		ClassNamesManager.merge('c-calendar-view__grid', `c-calendar-view__grid--${currentViewMode}`)
+	);
 	const weekdayHeaderClasses = $derived('c-calendar-view__weekday');
 	const todayButtonClasses = $derived('c-calendar-view__today-btn');
 	const navigationButtonClasses = $derived('c-calendar-view__nav-btn');
 
 	const days = $derived.by<SlotCalendarDay[]>(() => {
 		const month = currentDate.getMonth();
-		return generateCalendarGrid(currentDate).map((date) => {
+		const dates =
+			currentViewMode === 'month'
+				? generateCalendarGrid(currentDate)
+				: currentViewMode === 'week'
+					? Array.from({ length: 7 }, (_, index) => {
+							const date = new Date(startOfWeek(currentDate));
+							date.setDate(date.getDate() + index);
+							return date;
+						})
+					: [currentDate];
+
+		return dates.map((date) => {
 			const dayEvents = events.filter((event: SlotCalendarEvent) =>
 				isSameDay(new Date(event.start), date)
 			);

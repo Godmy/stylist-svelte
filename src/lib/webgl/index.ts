@@ -3,7 +3,8 @@ export {
 	ConcentricCirclesScene,
 	GlCanvas,
 	HyperspaceScene,
-	SceneLauncher
+	SceneLauncher,
+	TurtleDissolveScene
 } from './component';
 export {
 	TOKEN_ARCHITECTURE_SHADER_FRAGMENT,

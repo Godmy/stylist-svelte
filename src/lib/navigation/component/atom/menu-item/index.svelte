@@ -15,7 +15,7 @@
 {#if state.href}
 	<a
 		href={state.href}
-		class="c-menu-item"
+		class={['c-menu-item', props.class].filter(Boolean).join(' ')}
 		data-active={state.active || undefined}
 		data-disabled={state.disabled || undefined}
 		target={state.external ? '_blank' : undefined}
@@ -41,7 +41,7 @@
 	</a>
 {:else}
 	<button
-		class="c-menu-item"
+		class={['c-menu-item', props.class].filter(Boolean).join(' ')}
 		data-active={state.active || undefined}
 		data-disabled={state.disabled || undefined}
 		disabled={state.disabled}

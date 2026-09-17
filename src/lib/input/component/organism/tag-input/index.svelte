@@ -17,7 +17,7 @@
 				class={`c-tag-input__remove ${state.removeButtonClass}`}
 				onclick={() => state.removeTag(index)}
 			>
-				<BaseIcon name={X} style="width: 1rem; height: 1rem;" />
+				<BaseIcon name={X} size={16} />
 			</button>
 		</span>
 	{/each}

@@ -23,7 +23,7 @@
 				<div class="ta-row">
 					<BaseIcon
 						name={Globe}
-						style="margin-right:0.5rem;width:1.25rem;height:1.25rem;color:var(--color-text-secondary)"
+						size={20} style="margin-right: 0.5rem; color: var(--color-text-secondary)"
 					/>
 					<h3 class="ta-title">{state.title}</h3>
 				</div>
@@ -46,7 +46,7 @@
 						<option value="1y">Last year</option>
 					</select>
 					<div class="ta-select-icon">
-						<BaseIcon name={Calendar} style="width:1rem;height:1rem" />
+						<BaseIcon name={Calendar} size={16} />
 					</div>
 				</div>
 			</div>
@@ -59,28 +59,28 @@
 			<div class="ta-metric">
 				<div class="ta-metric-value">{state.totalVisitors}</div>
 				<div class="ta-metric-label">
-					<BaseIcon name={Users} style="margin-right:0.25rem;width:0.75rem;height:0.75rem" />
+					<BaseIcon name={Users} size={12} style="margin-right: 0.25rem" />
 					Total Visitors
 				</div>
 			</div>
 			<div class="ta-metric">
 				<div class="ta-metric-value">{state.uniqueVisitors}</div>
 				<div class="ta-metric-label">
-					<BaseIcon name={Users} style="margin-right:0.25rem;width:0.75rem;height:0.75rem" />
+					<BaseIcon name={Users} size={12} style="margin-right: 0.25rem" />
 					Unique Visitors
 				</div>
 			</div>
 			<div class="ta-metric">
 				<div class="ta-metric-value">{state.pageViews}</div>
 				<div class="ta-metric-label">
-					<BaseIcon name={Eye} style="margin-right:0.25rem;width:0.75rem;height:0.75rem" />
+					<BaseIcon name={Eye} size={12} style="margin-right: 0.25rem" />
 					Page Views
 				</div>
 			</div>
 			<div class="ta-metric">
 				<div class="ta-metric-value">{state.timeOnPage}</div>
 				<div class="ta-metric-label">
-					<BaseIcon name={Clock} style="margin-right:0.25rem;width:0.75rem;height:0.75rem" />
+					<BaseIcon name={Clock} size={12} style="margin-right: 0.25rem" />
 					Time on Page
 				</div>
 			</div>
@@ -95,7 +95,7 @@
 			>
 				<div class="ta-metric-value">{state.bounceRate}%</div>
 				<div class="ta-metric-label">
-					<BaseIcon name={BarChart3} style="margin-right:0.25rem;width:0.75rem;height:0.75rem" />
+					<BaseIcon name={BarChart3} size={12} style="margin-right: 0.25rem" />
 					Bounce Rate
 				</div>
 			</div>

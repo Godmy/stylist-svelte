@@ -1,6 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { DatePickerValue } from './slot';
 export type {
+	RecipeCalendar,
+	RecipeCalendarDay,
+	RecipeCalendarGrid,
+	RecipeCalendarRange,
 	RecipeCalendarView,
 	RecipeDatePicker,
 	RecipeDateRangePicker,

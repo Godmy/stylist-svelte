@@ -51,7 +51,7 @@
 				disabled={props.disabled || state.quantity <= (props.min ?? 1)}
 				aria-label="Decrease quantity"
 			>
-				<BaseIcon name={PresetQuantitySelector.Minus} style="width:1rem;height:1rem;" />
+				<BaseIcon name={PresetQuantitySelector.Minus} size={16} />
 			</button>
 		{/if}
 
@@ -78,7 +78,7 @@
 				disabled={props.disabled || state.quantity >= (props.max ?? 99)}
 				aria-label="Increase quantity"
 			>
-				<BaseIcon name={PresetQuantitySelector.Plus} style="width:1rem;height:1rem;" />
+				<BaseIcon name={PresetQuantitySelector.Plus} size={16} />
 			</button>
 		{/if}
 	</div>

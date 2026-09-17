@@ -53,7 +53,7 @@
 				<div class="c-sortable-grid__item-content">
 					<BaseIcon
 						name={GripVertical}
-						style="width:1rem;height:1rem;"
+						size={16}
 						class="c-sortable-grid__grip"
 					/>
 					<div class="c-sortable-grid__item-body">

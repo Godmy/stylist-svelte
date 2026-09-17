@@ -48,7 +48,7 @@
 			<button type="button" class="date-time-picker__icon-btn" onclick={state.toggleDropdown}>
 				<BaseIcon
 					name={Calendar}
-					style="width: 1rem; height: 1rem; color: var(--color-text-secondary)"
+					size={16} style="color: var(--color-text-secondary)"
 				/>
 			</button>
 		{/if}

@@ -12,6 +12,7 @@ export type { RecipeInputLabel } from './input-label';
 export type { RecipeInputName } from './input-name';
 export type { RecipeInputPassword } from './input-password';
 export type { RecipeInputPinDigit } from './input-pin-digit';
+export type { RecipeInputStepper } from './input-stepper';
 export type { RecipeInputText } from './input-text';
 export type { RecipeNumberInput } from './number-input';
 export type { RecipePhoneNumberInput } from './phone-number-input';

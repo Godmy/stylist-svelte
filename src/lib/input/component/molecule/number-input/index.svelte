@@ -18,7 +18,7 @@
 		onclick={state.decrement}
 		disabled={state.disabled || state.readonly || state.currentValue <= state.min}
 	>
-		<BaseIcon name={Minus} style="width: 1rem; height: 1rem;" />
+		<BaseIcon name={Minus} size={16} />
 	</button>
 
 	<input
@@ -40,7 +40,7 @@
 		onclick={state.increment}
 		disabled={state.disabled || state.readonly || state.currentValue >= state.max}
 	>
-		<BaseIcon name={Plus} style="width: 1rem; height: 1rem;" />
+		<BaseIcon name={Plus} size={16} />
 	</button>
 </div>
 

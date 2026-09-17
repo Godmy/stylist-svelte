@@ -52,7 +52,9 @@
 			{#if props.children}{@render props.children()}{/if}
 		</div>
 	{:else if state.currentViewMode === 'day' || state.currentViewMode === 'week'}
-		<div class="c-event-calendar__day-week-grid">
+		<div
+			class="c-event-calendar__day-week-grid c-event-calendar__day-week-grid--{state.currentViewMode}"
+		>
 			{#if state.currentViewMode === 'week'}
 				{#each state.weekdays as day}
 					<div class="{state.getWeekdayHeaderClasses()} {state.headerClassProp}">{day}</div>
@@ -148,9 +150,7 @@
 			<div class={state.getModalContentClasses()}>
 				<div class={state.getModalHeaderClasses()}>
 					<h3 class="c-event-calendar__modal-title">{state.selectedEvent.title}</h3>
-					<button onclick={state.closeEventActions} class="c-event-calendar__modal-close"
-						>вњ•</button
-					>
+					<button onclick={state.closeEventActions} class="c-event-calendar__modal-close">×</button>
 				</div>
 				<div class="c-event-calendar__modal-body">
 					<p class="c-event-calendar__modal-desc">{state.selectedEvent.description}</p>
@@ -197,6 +197,7 @@
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
+		gap: 0.25rem;
 	}
 	.c-event-calendar__today-btn {
 		margin-inline: 0.5rem;
@@ -225,11 +226,20 @@
 	}
 
 	.c-event-calendar__day-week-grid {
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		overflow-x: auto;
+	}
+
+	.c-event-calendar__day-week-grid--day {
+		grid-template-columns: minmax(16rem, 1fr);
+	}
+
+	.c-event-calendar__day-week-grid--week {
+		grid-template-columns: repeat(7, minmax(9rem, 1fr));
 	}
 
 	.c-event-calendar__day-col {
+		min-width: 0;
 		border-right: 1px solid var(--color-border-primary);
 		border-bottom: 1px solid var(--color-border-primary);
 	}
@@ -253,11 +263,17 @@
 
 	.c-event-calendar__grid {
 		display: grid;
-		grid-template-columns: repeat(7, 1fr);
+		grid-template-columns: repeat(7, minmax(0, 1fr));
+		overflow-x: auto;
+	}
+
+	.c-event-calendar__grid--month {
+		grid-template-columns: repeat(7, minmax(0, 1fr));
 	}
 
 	.c-event-calendar__day {
 		min-height: 6rem;
+		min-width: 0;
 		padding: var(--spacing-xs, 0.25rem);
 		border-top: 1px solid var(--color-border-secondary);
 		border-right: 1px solid var(--color-border-secondary);
@@ -293,6 +309,7 @@
 	}
 
 	.c-event-calendar__event {
+		min-width: 0;
 		font-size: var(--text-size-xs, 0.75rem);
 		padding: var(--spacing-xs, 0.25rem);
 		border-radius: var(--radius-sm, 0.25rem);
@@ -376,6 +393,29 @@
 	.c-event-calendar__modal-actions {
 		display: flex;
 		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	@media (max-width: 640px) {
+		.c-event-calendar__header {
+			align-items: stretch;
+		}
+
+		.c-event-calendar__header-left,
+		.c-event-calendar__view-tabs {
+			width: 100%;
+		}
+
+		.c-event-calendar__title {
+			width: 100%;
+			margin-left: 0;
+			margin-top: 0.5rem;
+		}
+
+		.c-event-calendar__grid,
+		.c-event-calendar__grid--month {
+			grid-template-columns: repeat(7, minmax(5.5rem, 1fr));
+		}
 	}
 
 	._c1 {

@@ -145,14 +145,16 @@
 	.content-panel {
 		display: grid;
 		min-width: 0;
-		overflow-x: hidden;
+		overflow-x: clip;
+		overflow-y: visible;
 	}
 
 	.viewer {
 		display: grid;
 		grid-template-rows: auto auto 1fr;
 		min-height: 0;
-		overflow-x: hidden;
+		overflow-x: clip;
+		overflow-y: visible;
 	}
 
 	.taxonomy-row {

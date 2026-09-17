@@ -13,7 +13,7 @@
 		<div class="c-auto-complete__icon">
 			<BaseIcon
 				name={Search}
-				style="width: 1.25rem; height: 1.25rem; color: var(--color-text-tertiary)"
+				size={20} style="color: var(--color-text-tertiary)"
 			/>
 		</div>
 		<input

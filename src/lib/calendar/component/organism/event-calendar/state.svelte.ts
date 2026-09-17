@@ -24,7 +24,7 @@ export function createEventCalendarState(props: RecipeEventCalendar) {
 	const showAllDayEvents = $derived(props.showAllDayEvents ?? true);
 	const showEventDuration = $derived(props.showEventDuration ?? true);
 
-	const wrapperClasses = $derived('c-event-calendar');
+	const wrapperClasses = $derived(ClassNamesManager.merge('c-event-calendar', className));
 	const headerClasses = $derived('c-event-calendar__header');
 
 	const days = $derived.by<SlotCalendarDay[]>(() => {
@@ -157,9 +157,10 @@ export function createEventCalendarState(props: RecipeEventCalendar) {
 					year: 'numeric'
 				});
 			case 'week': {
-				const endOfWeek = new Date(date);
-				endOfWeek.setDate(date.getDate() + 6);
-				return `${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${endOfWeek.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+				const weekStart = startOfWeek(date);
+				const weekEnd = new Date(weekStart);
+				weekEnd.setDate(weekStart.getDate() + 6);
+				return `${weekStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${weekEnd.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
 			}
 			default:
 				return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
@@ -175,7 +176,10 @@ export function createEventCalendarState(props: RecipeEventCalendar) {
 		return 'c-event-calendar__weekday';
 	}
 	function getGridClasses(): string {
-		return 'c-event-calendar__grid';
+		return ClassNamesManager.merge(
+			'c-event-calendar__grid',
+			`c-event-calendar__grid--${currentViewMode}`
+		);
 	}
 
 	function getDateHeaderClasses(isTodayDate: boolean): string {

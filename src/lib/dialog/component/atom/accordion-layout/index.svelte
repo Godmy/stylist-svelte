@@ -13,7 +13,15 @@
 	const open = $derived(ctx.isPanelOpen(props.value));
 
 	const restProps = $derived.by(() => {
-		const { value: _v, title: _t, children: _c, disabled: _d, class: _cl, ...rest } = props;
+		const {
+			value: _v,
+			title: _t,
+			children: _c,
+			headerEnd: _he,
+			disabled: _d,
+			class: _cl,
+			...rest
+		} = props;
 		return rest;
 	});
 </script>
@@ -32,9 +40,14 @@
 		aria-disabled={props.disabled}
 		disabled={props.disabled}
 	>
-		<span class="c-accordion-layout__title">{props.title}</span>
+		<span class="c-accordion-layout__title-group">
+			<span class="c-accordion-layout__title">{props.title}</span>
+			{#if props.headerEnd}
+				<span class="c-accordion-layout__header-end">{@render props.headerEnd()}</span>
+			{/if}
+		</span>
 		<span class="c-accordion-layout__chevron">
-			<BaseIcon name="chevron-down" style="width: 1.25rem; height: 1.25rem;" />
+			<BaseIcon name="chevron-down" size={20} />
 		</span>
 	</button>
 	<div class="c-accordion-layout__panel" aria-hidden={!open} data-expanded={open || undefined}>
@@ -86,6 +99,20 @@
 	.c-accordion-layout[data-expanded] .c-accordion-layout__header {
 		background: var(--color-primary-50);
 		color: var(--color-primary-700);
+	}
+
+	.c-accordion-layout__title-group {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		min-width: 0;
+	}
+
+	.c-accordion-layout__header-end {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		flex-shrink: 0;
 	}
 
 	.c-accordion-layout__chevron {

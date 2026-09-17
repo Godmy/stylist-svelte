@@ -21,7 +21,7 @@
 		<div class="trv-row">
 			<BaseIcon
 				name={BarChart3}
-				style="margin-right:0.5rem;width:1.5rem;height:1.5rem;color:var(--color-text-secondary)"
+				size={24} style="margin-right: 0.5rem; color: var(--color-text-secondary)"
 			/>
 			<h3 class="trv-title">{state.title}</h3>
 		</div>
@@ -36,7 +36,7 @@
 					<div class="trv-icon-box trv-icon-box--primary">
 						<BaseIcon
 							name={Activity}
-							style="width:1.25rem;height:1.25rem;color:var(--color-primary-600)"
+							size={20} style="color: var(--color-primary-600)"
 						/>
 					</div>
 					<div class="trv-stat-content">
@@ -62,7 +62,7 @@
 					<div class="trv-icon-box trv-icon-box--primary">
 						<BaseIcon
 							name={Users}
-							style="width:1.25rem;height:1.25rem;color:var(--color-primary-600)"
+							size={20} style="color: var(--color-primary-600)"
 						/>
 					</div>
 					<div class="trv-stat-content">
@@ -79,7 +79,7 @@
 					<div class="trv-icon-box trv-icon-box--success">
 						<BaseIcon
 							name={CheckCircle}
-							style="width:1.25rem;height:1.25rem;color:var(--color-success-600)"
+							size={20} style="color: var(--color-success-600)"
 						/>
 					</div>
 					<div class="trv-stat-content">
@@ -96,7 +96,7 @@
 					<div class="trv-icon-box trv-icon-box--secondary">
 						<BaseIcon
 							name={TrendingUp}
-							style="width:1.25rem;height:1.25rem;color:var(--color-secondary-600)"
+							size={20} style="color: var(--color-secondary-600)"
 						/>
 					</div>
 					<div class="trv-stat-content">
@@ -258,7 +258,7 @@
 					<div class="trv-rec-icon">
 						<BaseIcon
 							name={CheckCircle}
-							style="width:1.25rem;height:1.25rem;color:var(--color-primary-400)"
+							size={20} style="color: var(--color-primary-400)"
 						/>
 					</div>
 					<div class="trv-rec-content">
@@ -285,13 +285,13 @@
 			<div>
 				{#if state.testOverview.confidence >= 95}
 					<span class="trv-confidence trv-text--success">
-						<BaseIcon name={CheckCircle} style="margin-right:0.25rem;width:1rem;height:1rem" />
+						<BaseIcon name={CheckCircle} size={16} style="margin-right: 0.25rem" />
 						Results are statistically significant ({state.testOverview.confidence.toFixed(1)}%
 						confidence)
 					</span>
 				{:else}
 					<span class="trv-confidence trv-text--warning">
-						<BaseIcon name={AlertTriangle} style="margin-right:0.25rem;width:1rem;height:1rem" />
+						<BaseIcon name={AlertTriangle} size={16} style="margin-right: 0.25rem" />
 						Low confidence ({state.testOverview.confidence.toFixed(1)}% confidence)
 					</span>
 				{/if}

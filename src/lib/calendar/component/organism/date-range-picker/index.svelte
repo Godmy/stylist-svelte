@@ -23,7 +23,7 @@
 		/>
 		{#if state.selectedRange.start}
 			<button type="button" class="c-drp__clear-btn" onclick={state.clear} aria-label="Clear">
-				<BaseIcon name={X} style="width: 1rem; height: 1rem;" />
+				<BaseIcon name={X} size={16} />
 			</button>
 		{/if}
 	</div>
@@ -37,7 +37,7 @@
 					onclick={state.previousMonth}
 					aria-label="Previous month"
 				>
-					<BaseIcon name={ChevronLeft} style="width: 1rem; height: 1rem;" />
+					<BaseIcon name={ChevronLeft} size={16} />
 				</button>
 				<span class="c-drp__month-label">
 					{state.currentDateView.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
@@ -48,7 +48,7 @@
 					onclick={state.nextMonth}
 					aria-label="Next month"
 				>
-					<BaseIcon name={ChevronRight} style="width: 1rem; height: 1rem;" />
+					<BaseIcon name={ChevronRight} size={16} />
 				</button>
 			</div>
 

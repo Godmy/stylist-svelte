@@ -30,7 +30,12 @@
 	});
 </script>
 
-<div class="c-toggle-group" data-disabled={state.disabled || undefined} role="group" {...restProps}>
+<div
+	class={['c-toggle-group', props.class].filter(Boolean).join(' ')}
+	data-disabled={state.disabled || undefined}
+	role="group"
+	{...restProps}
+>
 	{#if props.children}{@render props.children()}{/if}
 </div>
 

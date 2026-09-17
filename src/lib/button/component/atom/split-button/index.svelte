@@ -51,7 +51,7 @@
 
 <div
 	{...restProps}
-	class="c-split-button"
+	class={['c-split-button', props.class].filter(Boolean).join(' ')}
 	data-variant={state.variant}
 	data-size={state.size}
 	data-disabled={state.isDisabled || undefined}

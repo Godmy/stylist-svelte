@@ -1,2 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { VideoPlayer } from './molecule';
+export {
+	VideoPlayer,
+	VideoScene
+} from './molecule';

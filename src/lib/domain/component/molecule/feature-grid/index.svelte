@@ -53,7 +53,7 @@
 		{#each features as feature}
 			<div class={`fg-card ${feature.palette}`}>
 				<div class={`fg-icon-box ${feature.iconBg}`}>
-					<BaseIcon name={feature.icon} style="width:1.75rem;height:1.75rem;color:#fff" />
+					<BaseIcon name={feature.icon} size={28} style="color: #fff" />
 				</div>
 				<h3 class="fg-card-title">{feature.title}</h3>
 				<p class="fg-card-desc">{feature.description}</p>

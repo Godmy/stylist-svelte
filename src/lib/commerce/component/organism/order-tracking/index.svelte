@@ -9,10 +9,9 @@
 <div class="order-tracking">
 	<div class="order-tracking__header">
 		<div class="_c1">
-			<h2 class="order-tracking__title">SlotOrder Tracking</h2>
+			<h2 class="order-tracking__title">Order Tracking</h2>
 			<span
-				class="order-tracking__status-badge"
-				data-TODO="was state.StatusBadgeClasses(...) вЂ” add data-attr"
+				class="order-tracking__status-badge order-tracking__status-badge--{state.trackingInfo.status}"
 			>
 				{state.trackingInfo.status}
 			</span>
@@ -41,8 +40,7 @@
 			{@const eventStatus = state.getEventStatus(event.status, state.trackingInfo.status)}
 			<div class="order-tracking__timeline-item">
 				<div
-					class="order-tracking__timeline-indicator"
-					data-TODO="was state.TimelineIndicatorClasses(...) вЂ” add data-attr"
+					class="order-tracking__timeline-indicator order-tracking__timeline-indicator--{eventStatus}"
 				></div>
 				<div class="order-tracking__timeline-content">
 					<p class="order-tracking__event-title">{event.description}</p>
@@ -79,7 +77,6 @@
 			<button
 				onclick={props.onContactCarrier}
 				class="order-tracking__action-button"
-				data-TODO="was state.ActionButtonClasses(...) вЂ” add data-attr"
 			>
 				Contact Carrier
 			</button>
@@ -88,7 +85,6 @@
 			<button
 				onclick={props.onReportIssue}
 				class="order-tracking__action-button"
-				data-TODO="was state.ActionButtonClasses(...) вЂ” add data-attr"
 			>
 				Report Issue
 			</button>
@@ -419,5 +415,84 @@
 		font-weight: 500;
 		background-color: var(--color-success-100);
 		color: var(--color-success-800);
+	}
+
+	.order-tracking {
+		overflow: hidden;
+	}
+
+	.order-tracking__header {
+		border-color: var(--color-border-secondary);
+	}
+
+	.order-tracking__progress-container {
+		border-bottom: 1px solid var(--color-border-secondary);
+	}
+
+	.order-tracking__timeline-container {
+		margin-top: 0;
+		padding: 1.5rem;
+	}
+
+	.order-tracking__timeline-indicator {
+		flex: 0 0 auto;
+	}
+
+	.order-tracking__timeline-indicator--current {
+		background-color: var(--color-primary-600);
+		box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-primary-500) 18%, transparent);
+	}
+
+	.order-tracking__timeline-indicator--upcoming {
+		background-color: var(--color-background-tertiary);
+		border: 1px solid var(--color-border-primary);
+	}
+
+	.order-tracking__shipping-info {
+		margin: 0 1.5rem 1.5rem;
+	}
+
+	.order-tracking__actions-container {
+		margin-top: 0;
+		padding: 0 1.5rem 1.5rem;
+	}
+
+	.order-tracking__action-button {
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-background-secondary);
+		color: var(--color-text-primary);
+	}
+
+	.order-tracking__status-badge {
+		text-transform: capitalize;
+	}
+
+	@media (max-width: 640px) {
+		._c1 {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.order-tracking__header,
+		.order-tracking__progress-container,
+		.order-tracking__timeline-container,
+		._c4 {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+
+		.order-tracking__shipping-info {
+			margin-inline: 1rem;
+		}
+
+		.order-tracking__actions-container {
+			padding-inline: 1rem;
+		}
+
+		.order-tracking__action-button {
+			width: 100%;
+			justify-content: center;
+		}
 	}
 </style>

@@ -39,9 +39,9 @@
 						aria-label={state.isPlaying ? 'Pause' : 'Play'}
 					>
 						{#if state.isPlaying}
-							<BaseIcon name="pause" style="width:1.25rem;height:1.25rem" />
+							<BaseIcon name="pause" size={20} />
 						{:else}
-							<BaseIcon name="play" style="width:1.25rem;height:1.25rem" />
+							<BaseIcon name="play" size={20} />
 						{/if}
 					</Button>
 
@@ -52,9 +52,9 @@
 						aria-label={state.isMuted ? 'Unmute' : 'Mute'}
 					>
 						{#if state.isMuted}
-							<BaseIcon name="volume-x" style="width:1.25rem;height:1.25rem" />
+							<BaseIcon name="volume-x" size={20} />
 						{:else}
-							<BaseIcon name="volume-2" style="width:1.25rem;height:1.25rem" />
+							<BaseIcon name="volume-2" size={20} />
 						{/if}
 					</Button>
 
@@ -75,7 +75,7 @@
 					onclick={() => state.reloadVideo()}
 					aria-label="Reload video"
 				>
-					<BaseIcon name="rotate-ccw" style="width:1.25rem;height:1.25rem" />
+					<BaseIcon name="rotate-ccw" size={20} />
 				</Button>
 			</div>
 

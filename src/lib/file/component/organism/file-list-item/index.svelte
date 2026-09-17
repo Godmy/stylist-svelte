@@ -29,7 +29,7 @@
 	<div class="fli-icon">
 		<BaseIcon
 			name={state.iconName}
-			style="width:1.25rem;height:1.25rem;color:var(--color-text-secondary)"
+			size={20} style="color: var(--color-text-secondary)"
 		/>
 	</div>
 
@@ -74,7 +74,7 @@
 			}}
 			disabled={state.disabled}
 		>
-			<BaseIcon name="eye" style="width:1rem;height:1rem;color:var(--color-text-secondary)" />
+			<BaseIcon name="eye" size={16} style="color: var(--color-text-secondary)" />
 		</Button>
 		<Button
 			variant="ghost"
@@ -85,7 +85,7 @@
 			}}
 			disabled={state.disabled}
 		>
-			<BaseIcon name="download" style="width:1rem;height:1rem;color:var(--color-text-secondary)" />
+			<BaseIcon name="download" size={16} style="color: var(--color-text-secondary)" />
 		</Button>
 		<Button
 			variant="ghost"
@@ -98,7 +98,7 @@
 		>
 			<BaseIcon
 				name="more-horizontal"
-				style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+				size={16} style="color: var(--color-text-secondary)"
 			/>
 		</Button>
 	</div>

@@ -64,7 +64,7 @@
 						<div class="c-dnd-list__card-header">
 							<div class="c-dnd-list__card-title">
 								<span class="c-dnd-list__grip">
-									<BaseIcon name={GripVertical} style="width:1rem;height:1rem;" />
+									<BaseIcon name={GripVertical} size={16} />
 								</span>
 								{item.title}
 							</div>
@@ -76,7 +76,7 @@
 				{:else}
 					<div class="c-dnd-list__simple-item">
 						<span class="c-dnd-list__grip">
-							<BaseIcon name={GripVertical} style="width:1rem;height:1rem;" />
+							<BaseIcon name={GripVertical} size={16} />
 						</span>
 						<span class={['c-dnd-list__label', state.bodyClass].filter(Boolean).join(' ')}>
 							{item.title}

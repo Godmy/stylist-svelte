@@ -2,6 +2,7 @@
 export { DrawerManager } from './class';
 export {
 	AppHeader,
+	BottomSheet,
 	BurgerMenu,
 	Drawer,
 	MenuItem,

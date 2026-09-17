@@ -15,7 +15,7 @@
 		<div class="cf-row">
 			<BaseIcon
 				name={BarChart3}
-				style="margin-right:0.5rem;width:1.25rem;height:1.25rem;color:var(--color-text-secondary)"
+				size={20} style="margin-right: 0.5rem; color: var(--color-text-secondary)"
 			/>
 			<h3 class="cf-title">{state.title}</h3>
 		</div>
@@ -78,7 +78,7 @@
 						<div class="cf-arrow">
 							<BaseIcon
 								name={ArrowRight}
-								style="width:1.25rem;height:1.25rem;color:var(--color-text-tertiary)"
+								size={20} style="color: var(--color-text-tertiary)"
 							/>
 						</div>
 					{/if}

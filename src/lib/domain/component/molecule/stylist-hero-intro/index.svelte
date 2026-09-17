@@ -79,7 +79,7 @@
 					<span class="sh-heart">
 						<BaseIcon
 							name={Heart}
-							style="width:1.25rem;height:1.25rem;color:#ef4444;fill:currentColor"
+							size={20} style="color: #ef4444; fill: currentColor"
 						/>
 					</span>
 				</p>

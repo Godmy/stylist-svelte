@@ -5,6 +5,7 @@ export type {
 	RecipeDividerHeadingImageText,
 	RecipeImage,
 	RecipeImageCaption,
-	RecipeImageGallery
+	RecipeImageGallery,
+	RecipeMediaThumbnail
 } from './recipe';
 export type { SlotImage } from './slot';

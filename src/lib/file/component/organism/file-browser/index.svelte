@@ -66,12 +66,12 @@
 					{#if state.isExpanded(item.id)}
 						<BaseIcon
 							name="chevron-down"
-							style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+							size={16} style="color: var(--color-text-secondary)"
 						/>
 					{:else}
 						<BaseIcon
 							name="chevron-right"
-							style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+							size={16} style="color: var(--color-text-secondary)"
 						/>
 					{/if}
 				</button>
@@ -84,18 +84,18 @@
 					{#if state.isExpanded(item.id)}
 						<BaseIcon
 							name="folder-open"
-							style="margin-right:0.5rem;width:1.25rem;height:1.25rem;flex-shrink:0;color:var(--color-primary-600)"
+							size={20} style="margin-right: 0.5rem; flex-shrink: 0; color: var(--color-primary-600)"
 						/>
 					{:else}
 						<BaseIcon
 							name="folder"
-							style="margin-right:0.5rem;width:1.25rem;height:1.25rem;flex-shrink:0;color:var(--color-primary-600)"
+							size={20} style="margin-right: 0.5rem; flex-shrink: 0; color: var(--color-primary-600)"
 						/>
 					{/if}
 				{:else}
 					<BaseIcon
 						name="file"
-						style="margin-right:0.5rem;width:1.25rem;height:1.25rem;flex-shrink:0;color:var(--color-text-secondary)"
+						size={20} style="margin-right: 0.5rem; flex-shrink: 0; color: var(--color-text-secondary)"
 					/>
 				{/if}
 

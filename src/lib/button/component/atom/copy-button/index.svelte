@@ -33,7 +33,7 @@
 	{...restButtonProps}
 	type={props.type ?? 'button'}
 	onclick={state.handleCopy}
-	class="c-copy-button"
+	class={['c-copy-button', props.class].filter(Boolean).join(' ')}
 	data-variant={state.variant}
 	data-size={state.size}
 	data-disabled={state.disabled || undefined}

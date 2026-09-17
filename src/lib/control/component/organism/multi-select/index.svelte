@@ -58,7 +58,7 @@
 							}}
 							aria-label={`Remove ${foundOption.label}`}
 						>
-							<BaseIcon name={state.X} style="width:0.75rem;height:0.75rem;" />
+							<BaseIcon name={state.X} size={12} />
 						</button>
 					</span>
 				{/if}
@@ -74,12 +74,12 @@
 			}}
 			disabled={state.disabled || state.selectedValues.length === 0}
 		>
-			<BaseIcon name={state.X} style="width:1rem;height:1rem;" />
+			<BaseIcon name={state.X} size={16} />
 		</button>
 		<BaseIcon
 			name={state.ChevronDown}
 			class={state.chevronClasses}
-			style="width:1rem;height:1rem;"
+			size={16}
 		/>
 	</div>
 

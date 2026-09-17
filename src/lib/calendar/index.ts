@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	Calendar,
+	CalendarDay,
+	CalendarGrid,
+	CalendarRange,
 	CalendarView,
 	DatePicker,
 	DateRangePicker,
@@ -28,6 +32,7 @@ export {
 	formatShortMonthYear,
 	formatTime,
 	fromInputDateString,
+	generateCalendarDays,
 	generateCalendarGrid,
 	isSameDay,
 	isToday,
@@ -45,6 +50,10 @@ export type {
 	TokenTimeRange
 } from './type';
 export type {
+	RecipeCalendar,
+	RecipeCalendarDay,
+	RecipeCalendarGrid,
+	RecipeCalendarRange,
 	RecipeCalendarView,
 	RecipeDatePicker,
 	RecipeDateRangePicker,

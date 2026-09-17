@@ -5,6 +5,7 @@ export {
 	Checkbox,
 	Chip,
 	Radio,
+	Stepper,
 	Switch,
 	Tag,
 	Tick,

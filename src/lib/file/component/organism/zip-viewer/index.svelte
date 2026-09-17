@@ -15,7 +15,7 @@
 		<div class="zv-header-row">
 			<BaseIcon
 				name="archive"
-				style="margin-right:0.75rem;width:1.5rem;height:1.5rem;color:var(--color-primary-500)"
+				size={24} style="margin-right: 0.75rem; color: var(--color-primary-500)"
 			/>
 			<div>
 				<h3 class="zv-archive-name">{state.archiveName}</h3>
@@ -28,7 +28,7 @@
 				<div class="zv-search-icon">
 					<BaseIcon
 						name="search"
-						style="width:1.25rem;height:1.25rem;color:var(--color-text-tertiary)"
+						size={20} style="color: var(--color-text-tertiary)"
 					/>
 				</div>
 				<input
@@ -72,12 +72,12 @@
 								{#if state.expandedFolders.has(entry.path)}
 									<BaseIcon
 										name="chevron-down"
-										style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+										size={16} style="color: var(--color-text-secondary)"
 									/>
 								{:else}
 									<BaseIcon
 										name="chevron-right"
-										style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+										size={16} style="color: var(--color-text-secondary)"
 									/>
 								{/if}
 							{/if}
@@ -119,7 +119,7 @@
 								>
 									<BaseIcon
 										name="eye"
-										style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+										size={16} style="color: var(--color-text-secondary)"
 									/>
 								</Button>
 							{/if}
@@ -132,7 +132,7 @@
 							>
 								<BaseIcon
 									name="download"
-									style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+									size={16} style="color: var(--color-text-secondary)"
 								/>
 							</Button>
 							<Button
@@ -144,7 +144,7 @@
 							>
 								<BaseIcon
 									name="external-link"
-									style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+									size={16} style="color: var(--color-text-secondary)"
 								/>
 							</Button>
 						</div>

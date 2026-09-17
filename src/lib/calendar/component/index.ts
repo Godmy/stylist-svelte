@@ -1,6 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TimeSlot } from './atom';
 export {
+	CalendarDay,
+	TimeSlot
+} from './atom';
+export {
+	CalendarGrid,
 	DatePicker,
 	DateTimePicker,
 	FormDatePicker,
@@ -8,6 +12,8 @@ export {
 	Timeline
 } from './molecule';
 export {
+	Calendar,
+	CalendarRange,
 	CalendarView,
 	DateRangePicker,
 	DateTimeRangePicker,

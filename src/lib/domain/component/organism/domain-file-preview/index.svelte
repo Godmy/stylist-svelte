@@ -37,7 +37,10 @@
 	});
 </script>
 
-<div class="c-domain-file-preview {className}">
+<div
+	class="c-domain-file-preview {className}"
+	class:c-domain-file-preview--story={previewMode === 'story'}
+>
 	{#if previewMode === 'story' && storyPreviewLoading}
 		<p class="empty-state">Loading playground...</p>
 	{:else if previewMode === 'story' && storyPreviewError}
@@ -119,6 +122,10 @@
 		color: var(--color-text-primary);
 	}
 
+	.c-domain-file-preview--story {
+		overflow: visible;
+	}
+
 	.svg-preview {
 		display: grid;
 		grid-template-rows: minmax(180px, 34vh) auto;
@@ -140,6 +147,7 @@
 		   (e.g. the top-right DomainMenu, z-index: 20) and can paint over it. */
 		position: relative;
 		isolation: isolate;
+		overflow: visible;
 	}
 
 	.svg-art {

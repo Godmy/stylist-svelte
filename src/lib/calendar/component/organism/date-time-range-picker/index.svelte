@@ -28,7 +28,7 @@
 		/>
 		{#if state.selectedRange.start || state.selectedRange.end}
 			<button type="button" class="c-dtrp__clear-btn" onclick={state.clear} aria-label="Clear">
-				<BaseIcon name={X} style="width: 1rem; height: 1rem;" />
+				<BaseIcon name={X} size={16} />
 			</button>
 		{/if}
 	</div>

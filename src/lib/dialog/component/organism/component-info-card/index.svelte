@@ -50,7 +50,7 @@
 				<div class="pic-hero-row">
 					<div class="pic-hero-info">
 						<div class="pic-title-row">
-							<BaseIcon name={Package} style="width:1.25rem;height:1.25rem;color:white" />
+							<BaseIcon name={Package} size={20} style="color: white" />
 							<h2 id="component-info-title" class="pic-comp-title">
 								{state.componentName || 'Component Info'}
 							</h2>
@@ -69,7 +69,7 @@
 					</div>
 
 					<button onclick={state.handleClose} class="pic-close-btn" title="Close">
-						<BaseIcon name={X} style="width:1.25rem;height:1.25rem;color:white" />
+						<BaseIcon name={X} size={20} style="color: white" />
 					</button>
 				</div>
 			</div>
@@ -79,7 +79,7 @@
 					<div class="pic-section-header">
 						<BaseIcon
 							name={Info}
-							style="width:1rem;height:1rem;color:var(--playground-accent,var(--color-primary-600))"
+							size={16} style="color: var(--playground-accent,var(--color-primary-600))"
 						/>
 						<h3 class="pic-section-title">Description</h3>
 					</div>
@@ -89,7 +89,7 @@
 				<div class="pic-stats-grid">
 					<div class="stat-card stat-card--indigo">
 						<div class="pic-stat-header">
-							<BaseIcon name={Layers} style="width:1rem;height:1rem;color:#4f46e5" />
+							<BaseIcon name={Layers} size={16} style="color: #4f46e5" />
 							<span style="font-size:0.75rem;font-weight:600;color:#312e81">Props</span>
 						</div>
 						<p style="font-size:1.5rem;font-weight:900;color:#4f46e5">{state.propsCount}</p>
@@ -97,7 +97,7 @@
 
 					<div class="stat-card stat-card--green">
 						<div class="pic-stat-header">
-							<BaseIcon name={Tag} style="width:1rem;height:1rem;color:#16a34a" />
+							<BaseIcon name={Tag} size={16} style="color: #16a34a" />
 							<span style="font-size:0.75rem;font-weight:600;color:#14532d">Version</span>
 						</div>
 						<p style="font-family:monospace;font-size:1.5rem;font-weight:900;color:#16a34a">
@@ -107,7 +107,7 @@
 
 					<div class="stat-card stat-card--purple">
 						<div class="pic-stat-header">
-							<BaseIcon name={User} style="width:1rem;height:1rem;color:#9333ea" />
+							<BaseIcon name={User} size={16} style="color: #9333ea" />
 							<span style="font-size:0.75rem;font-weight:600;color:#581c87">Author</span>
 						</div>
 						<p style="font-size:0.875rem;font-weight:700;color:#9333ea">{state.author}</p>
@@ -115,7 +115,7 @@
 
 					<div class="stat-card stat-card--orange">
 						<div class="pic-stat-header">
-							<BaseIcon name={Calendar} style="width:1rem;height:1rem;color:#ea580c" />
+							<BaseIcon name={Calendar} size={16} style="color: #ea580c" />
 							<span style="font-size:0.75rem;font-weight:600;color:#7c2d12">Updated</span>
 						</div>
 						<p style="font-size:0.875rem;font-weight:700;color:#ea580c">{state.lastUpdated}</p>
@@ -127,7 +127,7 @@
 						<div class="pic-section-header">
 							<BaseIcon
 								name={Package}
-								style="width:1rem;height:1rem;color:var(--playground-accent,var(--color-primary-600))"
+								size={16} style="color: var(--playground-accent,var(--color-primary-600))"
 							/>
 							<h3 class="pic-section-title">Installation</h3>
 						</div>
@@ -137,9 +137,9 @@
 							</div>
 							<button onclick={state.copyNpmCommand} class="pic-npm-copy-btn" title="Copy command">
 								{#if state.copySuccess}
-									<BaseIcon name={CheckCircle} style="width:1rem;height:1rem;color:#4ade80" />
+									<BaseIcon name={CheckCircle} size={16} style="color: #4ade80" />
 								{:else}
-									<BaseIcon name={Copy} style="width:1rem;height:1rem;color:#9ca3af" />
+									<BaseIcon name={Copy} size={16} style="color: #9ca3af" />
 								{/if}
 							</button>
 						</div>
@@ -151,7 +151,7 @@
 						<div class="pic-section-header">
 							<BaseIcon
 								name={FileCode}
-								style="width:1rem;height:1rem;color:var(--playground-accent,var(--color-primary-600))"
+								size={16} style="color: var(--playground-accent,var(--color-primary-600))"
 							/>
 							<h3 class="pic-section-title">Usage Examples</h3>
 						</div>
@@ -174,17 +174,17 @@
 						rel="noopener noreferrer"
 						class="pic-action-link pic-action-link--npm"
 					>
-						<BaseIcon name={Package} style="width:1rem;height:1rem" />
+						<BaseIcon name={Package} size={16} />
 						NPM Package
-						<BaseIcon name={ExternalLink} style="width:0.875rem;height:0.875rem" />
+						<BaseIcon name={ExternalLink} size={14} />
 					</a>
 					<a
 						href="/docs/components/{state.componentName}"
 						class="pic-action-link pic-action-link--docs"
 					>
-						<BaseIcon name={FileCode} style="width:1rem;height:1rem" />
+						<BaseIcon name={FileCode} size={16} />
 						Documentation
-						<BaseIcon name={ExternalLink} style="width:0.875rem;height:0.875rem" />
+						<BaseIcon name={ExternalLink} size={14} />
 					</a>
 				</div>
 			</div>

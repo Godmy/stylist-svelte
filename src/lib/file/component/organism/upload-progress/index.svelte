@@ -120,7 +120,7 @@
 								>
 									<BaseIcon
 										name="rotate-ccw"
-										style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+										size={16} style="color: var(--color-text-secondary)"
 									/>
 								</Button>
 							{/if}
@@ -134,7 +134,7 @@
 								>
 									<BaseIcon
 										name="x"
-										style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+										size={16} style="color: var(--color-text-secondary)"
 									/>
 								</Button>
 							{/if}
@@ -147,7 +147,7 @@
 							>
 								<BaseIcon
 									name="x"
-									style="width:1rem;height:1rem;color:var(--color-text-secondary)"
+									size={16} style="color: var(--color-text-secondary)"
 								/>
 							</Button>
 						</div>

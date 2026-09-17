@@ -7,7 +7,7 @@
 </script>
 
 <button
-	class="c-burger-menu"
+	class={['c-burger-menu', props.class].filter(Boolean).join(' ')}
 	data-open={state.open || undefined}
 	type="button"
 	aria-label={state.ariaLabel}

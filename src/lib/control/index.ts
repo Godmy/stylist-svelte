@@ -18,6 +18,7 @@ export {
 	Selector,
 	ShortcutsPanel,
 	SliderWithInput,
+	Stepper,
 	Switch,
 	Tag,
 	Tick,

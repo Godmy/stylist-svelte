@@ -18,3 +18,4 @@ export {
 	formatShortMonthYear,
 	formatTime
 } from './date-format';
+export { generateCalendarDays } from './generate-calendar-days';

@@ -12,7 +12,7 @@
 <button
 	{...state.factoryInput.html.attrs}
 	type={state.factoryInput.html.type ?? 'button'}
-	class="c-button"
+	class={['c-button', state.factoryInput.html.class].filter(Boolean).join(' ')}
 	data-variant={state.state.variant}
 	data-size={state.state.size}
 	data-disabled={state.state.isDisabled || undefined}

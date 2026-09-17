@@ -5,7 +5,8 @@ export {
 	DividerHeadingImageText,
 	Image,
 	ImageCaption,
-	ImageGallery
+	ImageGallery,
+	MediaThumbnail
 } from './component';
 export type {
 	RecipeCanvasImageEditor,
@@ -14,5 +15,6 @@ export type {
 	RecipeImage,
 	RecipeImageCaption,
 	RecipeImageGallery,
+	RecipeMediaThumbnail,
 	SlotImage
 } from './interface';

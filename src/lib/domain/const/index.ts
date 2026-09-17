@@ -3,10 +3,8 @@ export {
 	DEVICE_FRAME_VIEWPORT,
 	DOMAIN_CLUSTER
 } from './array';
-export {
-	DOMAIN_SCREEN,
-	TOKEN_CONTROLLER_TYPE
-} from './object';
+export { TOKEN_CONTROLLER_TYPE } from './map';
+export { DOMAIN_SCREEN } from './object';
 export {
 	DOMAIN_REGIME,
 	JOINT_TOOLBAR_ITEMS,

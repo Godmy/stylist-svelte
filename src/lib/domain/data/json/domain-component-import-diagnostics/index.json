@@ -1,6 +1,17 @@
 {
   "rows": [
     {
+      "path": "animation/component/atom/scroll-phase-debug/index.svelte",
+      "domain": "animation",
+      "joint": "atom",
+      "family": "scroll-phase-debug",
+      "status": "none",
+      "expectedRecipe": "RecipeScrollPhaseDebug",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
       "path": "auth/component/atom/auth-error/index.svelte",
       "domain": "auth",
       "joint": "atom",
@@ -80,6 +91,201 @@
       "otherImports": [
         "$stylist/auth/component/molecule/register/index.svelte",
         "$stylist/auth/component/atom/auth-link/index.svelte"
+      ]
+    },
+    {
+      "path": "booking/component/atom/booking-dropdown/index.svelte",
+      "domain": "booking",
+      "joint": "atom",
+      "family": "booking-dropdown",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingDropdown",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte",
+        "svelte"
+      ]
+    },
+    {
+      "path": "booking/component/molecule/booking-adventure-picker/index.svelte",
+      "domain": "booking",
+      "joint": "molecule",
+      "family": "booking-adventure-picker",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingAdventurePicker",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/excursion",
+        "$stylist/travel-commerce/const/preset/sample-excursions",
+        "$stylist/svg/component/atom/icon/index.svelte"
+      ]
+    },
+    {
+      "path": "booking/component/molecule/booking-bar/index.svelte",
+      "domain": "booking",
+      "joint": "molecule",
+      "family": "booking-bar",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingBar",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/booking/component/molecule/booking-field-pickup/index.svelte",
+        "$stylist/booking/component/molecule/booking-field-date/index.svelte",
+        "$stylist/booking/component/molecule/booking-field-guests/index.svelte",
+        "$stylist/booking/type/object/booking-draft"
+      ]
+    },
+    {
+      "path": "booking/component/molecule/booking-calendar/index.svelte",
+      "domain": "booking",
+      "joint": "molecule",
+      "family": "booking-calendar",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingCalendar",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/calendar/component/organism/calendar/index.svelte"
+      ]
+    },
+    {
+      "path": "booking/component/molecule/booking-field-date/index.svelte",
+      "domain": "booking",
+      "joint": "molecule",
+      "family": "booking-field-date",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingFieldDate",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/booking/component/atom/booking-dropdown/index.svelte",
+        "$stylist/booking/component/molecule/booking-calendar/index.svelte",
+        "$stylist/svg/component/atom/icon/index.svelte"
+      ]
+    },
+    {
+      "path": "booking/component/molecule/booking-field-guests/index.svelte",
+      "domain": "booking",
+      "joint": "molecule",
+      "family": "booking-field-guests",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingFieldGuests",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/booking/component/atom/booking-dropdown/index.svelte",
+        "$stylist/booking/component/molecule/booking-guest/index.svelte",
+        "$stylist/booking/function/script/format-guest-summary",
+        "$stylist/svg/component/atom/icon/index.svelte"
+      ]
+    },
+    {
+      "path": "booking/component/molecule/booking-field-pickup/index.svelte",
+      "domain": "booking",
+      "joint": "molecule",
+      "family": "booking-field-pickup",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingFieldPickup",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/booking/component/atom/booking-dropdown/index.svelte",
+        "$stylist/booking/component/molecule/booking-pickup-list/index.svelte",
+        "$stylist/svg/component/atom/icon/index.svelte"
+      ]
+    },
+    {
+      "path": "booking/component/molecule/booking-guest/index.svelte",
+      "domain": "booking",
+      "joint": "molecule",
+      "family": "booking-guest",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingGuest",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/input/component/atom/input-stepper/index.svelte"
+      ]
+    },
+    {
+      "path": "booking/component/molecule/booking-pickup-list/index.svelte",
+      "domain": "booking",
+      "joint": "molecule",
+      "family": "booking-pickup-list",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingPickupList",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/svg/component/atom/icon/index.svelte"
+      ]
+    },
+    {
+      "path": "booking/component/molecule/booking-summary-bar/index.svelte",
+      "domain": "booking",
+      "joint": "molecule",
+      "family": "booking-summary-bar",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingSummaryBar",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/booking/type/object/booking-draft"
+      ]
+    },
+    {
+      "path": "booking/component/organism/booking-accordion/index.svelte",
+      "domain": "booking",
+      "joint": "organism",
+      "family": "booking-accordion",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingAccordion",
+      "importCount": 9,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/dialog/component/molecule/accordion/index.svelte",
+        "$stylist/dialog/component/atom/accordion-layout/index.svelte",
+        "$stylist/booking/component/molecule/booking-pickup-list/index.svelte",
+        "$stylist/booking/component/molecule/booking-calendar/index.svelte",
+        "$stylist/booking/component/molecule/booking-guest/index.svelte",
+        "$stylist/booking/component/molecule/booking-adventure-picker/index.svelte",
+        "$stylist/booking/function/script/format-guest-summary",
+        "$stylist/booking/type/object/booking-draft",
+        "$stylist/travel-commerce/type/object/excursion"
+      ]
+    },
+    {
+      "path": "booking/component/organism/booking-bridge/index.svelte",
+      "domain": "booking",
+      "joint": "organism",
+      "family": "booking-bridge",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingBridge",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/booking/component/molecule/booking-bar/index.svelte",
+        "$stylist/booking/component/molecule/booking-summary-bar/index.svelte",
+        "$stylist/booking/type/object/booking-draft"
+      ]
+    },
+    {
+      "path": "booking/component/organism/booking-widget/index.svelte",
+      "domain": "booking",
+      "joint": "organism",
+      "family": "booking-widget",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingWidget",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/booking/component/molecule/booking-bar/index.svelte",
+        "$stylist/booking/component/organism/booking-accordion/index.svelte",
+        "$stylist/booking/type/object/booking-draft",
+        "$stylist/travel-commerce/type/object/excursion"
       ]
     },
     {
@@ -389,6 +595,17 @@
         "$stylist/svg/component/atom/icon/index.svelte",
         "./state.svelte"
       ]
+    },
+    {
+      "path": "control/component/atom/stepper/index.svelte",
+      "domain": "control",
+      "joint": "atom",
+      "family": "stepper",
+      "status": "none",
+      "expectedRecipe": "RecipeStepper",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
     },
     {
       "path": "dialog/component/atom/breadcrumbs/index.svelte",
@@ -820,6 +1037,19 @@
         "$stylist/svg/component/atom/icon/index.svelte",
         "$stylist/marketing/interface/slot/ab-test-configurator",
         "./state.svelte"
+      ]
+    },
+    {
+      "path": "navigation/component/organism/bottom-sheet/index.svelte",
+      "domain": "navigation",
+      "joint": "organism",
+      "family": "bottom-sheet",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBottomSheet",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte"
       ]
     },
     {
@@ -1393,6 +1623,567 @@
       ]
     },
     {
+      "path": "travel-commerce/component/atom/experience-filter-chip/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "atom",
+      "family": "experience-filter-chip",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeExperienceFilterChip",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/animation/component/atom/vector-scene/index.svelte"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/molecule/active-experience-filters/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "active-experience-filters",
+      "status": "none",
+      "expectedRecipe": "RecipeActiveExperienceFilters",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
+      "path": "travel-commerce/component/molecule/cart-line-item/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "cart-line-item",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeCartLineItem",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/cart-line-item"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/molecule/cart-upsell-card/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "cart-upsell-card",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeCartUpsellCard",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/tour-addon"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/molecule/excursion-card-compact/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "excursion-card-compact",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeExcursionCardCompact",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/excursion",
+        "$stylist/travel-commerce/component/molecule/tour-price-note/index.svelte"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/molecule/excursion-card-feature/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "excursion-card-feature",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeExcursionCardFeature",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/excursion",
+        "$stylist/travel-commerce/component/molecule/tour-meta-line/index.svelte",
+        "$stylist/travel-commerce/component/molecule/tour-tag-list/index.svelte",
+        "$stylist/travel-commerce/component/molecule/tour-price-note/index.svelte"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/molecule/excursion-card-standard/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "excursion-card-standard",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeExcursionCardStandard",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/excursion",
+        "$stylist/travel-commerce/component/molecule/tour-meta-line/index.svelte",
+        "$stylist/travel-commerce/component/molecule/tour-tag-list/index.svelte",
+        "$stylist/travel-commerce/component/molecule/tour-price-note/index.svelte"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/molecule/experience-filter-group/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "experience-filter-group",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeExperienceFilterGroup",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/component/atom/experience-filter-chip/index.svelte",
+        "$stylist/travel-commerce/const/array/experience-category",
+        "$stylist/travel-commerce/const/preset/experience-filter-motif"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/molecule/itinerary-leg-card/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "itinerary-leg-card",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeItineraryLegCard",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/itinerary-leg"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/molecule/parallax-layer/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "parallax-layer",
+      "status": "none",
+      "expectedRecipe": "RecipeParallaxLayer",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
+      "path": "travel-commerce/component/molecule/results-counter/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "results-counter",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeResultsCounter",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/function/script/format-results-count"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/molecule/tour-meta-line/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "tour-meta-line",
+      "status": "none",
+      "expectedRecipe": "RecipeTourMetaLine",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
+      "path": "travel-commerce/component/molecule/tour-price-note/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "tour-price-note",
+      "status": "none",
+      "expectedRecipe": "RecipeTourPriceNote",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
+      "path": "travel-commerce/component/molecule/tour-tag-list/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "tour-tag-list",
+      "status": "none",
+      "expectedRecipe": "RecipeTourTagList",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
+      "path": "travel-commerce/component/molecule/turtle-hero-photo-scene/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "turtle-hero-photo-scene",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTurtleHeroPhotoScene",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/image/component/atom/image/index.svelte",
+        "$stylist/animation/function/script/map-progress",
+        "$stylist/travel-commerce/type/object/turtle-hero-morph-config",
+        "$stylist/travel-commerce/const/preset/turtle-hero-morph"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/molecule/turtle-hero-wordmark/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "turtle-hero-wordmark",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTurtleHeroWordmark",
+      "importCount": 3,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/animation/function/script/map-progress",
+        "$stylist/travel-commerce/type/object/turtle-hero-morph-config",
+        "$stylist/travel-commerce/const/preset/turtle-hero-morph"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/molecule/turtle-photo-to-mark/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "molecule",
+      "family": "turtle-photo-to-mark",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTurtlePhotoToMark",
+      "importCount": 5,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/image/component/atom/image/index.svelte",
+        "$stylist/webgl/component/molecule/turtle-dissolve-scene/index.svelte",
+        "$stylist/animation/function/script/map-progress",
+        "$stylist/travel-commerce/type/object/turtle-hero-morph-config",
+        "$stylist/travel-commerce/const/preset/turtle-hero-morph"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/cart-summary-panel/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "cart-summary-panel",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeCartSummaryPanel",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/cart-summary"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/cart-usd-cash-toggle/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "cart-usd-cash-toggle",
+      "status": "none",
+      "expectedRecipe": "RecipeCartUsdCashToggle",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
+      "path": "travel-commerce/component/organism/contact-request-form/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "contact-request-form",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeContactRequestForm",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/contact-request"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/experience-filter-bar/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "experience-filter-bar",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeExperienceFilterBar",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/component/molecule/experience-filter-group/index.svelte",
+        "$stylist/travel-commerce/component/molecule/active-experience-filters/index.svelte",
+        "$stylist/travel-commerce/component/molecule/results-counter/index.svelte",
+        "$stylist/travel-commerce/const/array/experience-category"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/hero-outro/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "hero-outro",
+      "status": "none",
+      "expectedRecipe": "RecipeHeroOutro",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
+      "path": "travel-commerce/component/organism/hero-scene/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "hero-scene",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeHeroScene",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/webgl/component/atom/gl-canvas/index.svelte",
+        "$stylist/travel-commerce/type/object/hero-scene",
+        "$stylist/travel-commerce/const/preset/hero-scene",
+        "$stylist/video/component/molecule/video-scene/index.svelte"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/itinerary-builder/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "itinerary-builder",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeItineraryBuilder",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/itinerary-leg",
+        "$stylist/travel-commerce/component/molecule/itinerary-leg-card/index.svelte"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/itinerary-map/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "itinerary-map",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeItineraryMap",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/itinerary-leg"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/store-editorial-grid/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "store-editorial-grid",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeStoreEditorialGrid",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/excursion",
+        "$stylist/travel-commerce/component/molecule/excursion-card-feature/index.svelte",
+        "$stylist/travel-commerce/component/molecule/excursion-card-standard/index.svelte",
+        "$stylist/travel-commerce/component/organism/store-trust-insert/index.svelte"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/store-trust-insert/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "store-trust-insert",
+      "status": "none",
+      "expectedRecipe": "RecipeStoreTrustInsert",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
+    },
+    {
+      "path": "travel-commerce/component/organism/tour-addon-picker/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "tour-addon-picker",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTourAddonPicker",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/tour-addon",
+        "$stylist/travel-commerce/component/molecule/cart-upsell-card/index.svelte"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/tour-booking-panel/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "tour-booking-panel",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTourBookingPanel",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/control/component/atom/stepper/index.svelte",
+        "$stylist/booking/type/object/booking-draft"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/tour-hero-gallery/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "tour-hero-gallery",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTourHeroGallery",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/tour-gallery-image",
+        "$stylist/video/component/molecule/video-scene/index.svelte"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/tour-route-stops/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "tour-route-stops",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTourRouteStops",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/tour-route-stop"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/turtle-hero-morph/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "turtle-hero-morph",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTurtleHeroMorph",
+      "importCount": 13,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/component/molecule/turtle-hero-photo-scene/index.svelte",
+        "$stylist/travel-commerce/component/molecule/turtle-photo-to-mark/index.svelte",
+        "$stylist/travel-commerce/component/molecule/turtle-hero-wordmark/index.svelte",
+        "$stylist/booking/component/molecule/booking-bar/index.svelte",
+        "$stylist/animation/component/atom/scroll-phase-debug/index.svelte",
+        "$stylist/travel-commerce/function/script/create-sticky-scroll-progress",
+        "$stylist/animation/function/state/motion-preference",
+        "$stylist/animation/function/script/map-progress",
+        "$stylist/travel-commerce/type/object/turtle-hero-morph-config",
+        "$stylist/travel-commerce/const/preset/turtle-hero-morph",
+        "$stylist/booking/type/object/booking-draft",
+        "$stylist/travel-commerce/type/object/hero-slider",
+        "$stylist/travel-commerce/const/preset/hero-slider"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/turtle-hero-morph-slide/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "turtle-hero-morph-slide",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTurtleHeroMorphSlide",
+      "importCount": 5,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/component/organism/turtle-hero-morph/index.svelte",
+        "$stylist/animation/function/state/motion-preference",
+        "$stylist/booking/type/object/booking-draft",
+        "$stylist/travel-commerce/type/object/hero-slider",
+        "$stylist/travel-commerce/type/object/turtle-hero-morph-config"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/template/cart-page/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "template",
+      "family": "cart-page",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeCartPage",
+      "importCount": 7,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/cart-line-item",
+        "$stylist/travel-commerce/type/object/cart-summary",
+        "$stylist/travel-commerce/type/object/tour-addon",
+        "$stylist/travel-commerce/component/molecule/cart-line-item/index.svelte",
+        "$stylist/travel-commerce/component/molecule/cart-upsell-card/index.svelte",
+        "$stylist/travel-commerce/component/organism/cart-usd-cash-toggle/index.svelte",
+        "$stylist/travel-commerce/component/organism/cart-summary-panel/index.svelte"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/template/store-page/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "template",
+      "family": "store-page",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeStorePage",
+      "importCount": 5,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/component/organism/experience-filter-bar/index.svelte",
+        "$stylist/travel-commerce/component/organism/store-editorial-grid/index.svelte",
+        "$stylist/travel-commerce/const/preset/sample-excursions",
+        "$stylist/travel-commerce/function/script/filter-excursions",
+        "$stylist/travel-commerce/type/object/excursion"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/template/tour-detail-page/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "template",
+      "family": "tour-detail-page",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTourDetailPage",
+      "importCount": 9,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/excursion",
+        "$stylist/travel-commerce/type/object/tour-addon",
+        "$stylist/travel-commerce/type/object/tour-gallery-image",
+        "$stylist/travel-commerce/type/object/tour-route-stop",
+        "$stylist/travel-commerce/component/organism/tour-hero-gallery/index.svelte",
+        "$stylist/travel-commerce/component/organism/tour-route-stops/index.svelte",
+        "$stylist/travel-commerce/component/organism/tour-addon-picker/index.svelte",
+        "$stylist/travel-commerce/component/organism/tour-booking-panel/index.svelte",
+        "$stylist/travel-commerce/component/molecule/excursion-card-compact/index.svelte"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/template/travel-landing/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "template",
+      "family": "travel-landing",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTravelLanding",
+      "importCount": 11,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/animation/component/organism/media-slider/index.svelte",
+        "$stylist/travel-commerce/component/organism/turtle-hero-morph-slide/index.svelte",
+        "$stylist/booking/component/organism/booking-bridge/index.svelte",
+        "$stylist/travel-commerce/component/template/store-page/index.svelte",
+        "$stylist/travel-commerce/component/organism/contact-request-form/index.svelte",
+        "$stylist/travel-commerce/const/preset/hero-slider",
+        "$stylist/booking/type/object/booking-draft",
+        "$stylist/travel-commerce/type/object/contact-request",
+        "$stylist/travel-commerce/type/object/hero-slider",
+        "$stylist/animation/type/object/media-slider",
+        "$stylist/travel-commerce/type/object/turtle-hero-morph-config"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/template/travel-product/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "template",
+      "family": "travel-product",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTravelProduct",
+      "importCount": 9,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/excursion",
+        "$stylist/travel-commerce/type/object/tour-addon",
+        "$stylist/travel-commerce/type/object/tour-gallery-image",
+        "$stylist/travel-commerce/type/object/tour-route-stop",
+        "$stylist/travel-commerce/component/organism/tour-hero-gallery/index.svelte",
+        "$stylist/travel-commerce/component/organism/tour-route-stops/index.svelte",
+        "$stylist/travel-commerce/component/organism/tour-addon-picker/index.svelte",
+        "$stylist/travel-commerce/component/organism/tour-booking-panel/index.svelte",
+        "$stylist/travel-commerce/component/molecule/excursion-card-compact/index.svelte"
+      ]
+    },
+    {
       "path": "tree/component/molecule/flat-tree/index.svelte",
       "domain": "tree",
       "joint": "molecule",
@@ -1423,6 +2214,17 @@
       "otherImports": [
         "./state.svelte"
       ]
+    },
+    {
+      "path": "video/component/molecule/video-scene/index.svelte",
+      "domain": "video",
+      "joint": "molecule",
+      "family": "video-scene",
+      "status": "none",
+      "expectedRecipe": "RecipeVideoScene",
+      "importCount": 0,
+      "recipeImports": [],
+      "otherImports": []
     },
     {
       "path": "wbd/component/template/wbd-landing-page/index.svelte",
@@ -1493,6 +2295,22 @@
       ]
     },
     {
+      "path": "webgl/component/molecule/turtle-dissolve-scene/index.svelte",
+      "domain": "webgl",
+      "joint": "molecule",
+      "family": "turtle-dissolve-scene",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTurtleDissolveScene",
+      "importCount": 4,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/webgl/component/atom/gl-canvas/index.svelte",
+        "$stylist/webgl/function/script/create-program",
+        "$stylist/webgl/data/shader/vertex/full-screen.vert?raw",
+        "$stylist/webgl/data/shader/fragment/turtle-dissolve.frag?raw"
+      ]
+    },
+    {
       "path": "webgl/component/organism/scene-launcher/index.svelte",
       "domain": "webgl",
       "joint": "organism",
@@ -1509,10 +2327,10 @@
     }
   ],
   "summary": {
-    "total": 99,
-    "none": 9,
-    "missingRecipe": 90,
-    "valid": 553,
-    "scanned": 652
+    "total": 155,
+    "none": 20,
+    "missingRecipe": 135,
+    "valid": 583,
+    "scanned": 738
   }
 }

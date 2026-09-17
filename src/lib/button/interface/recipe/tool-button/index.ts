@@ -4,4 +4,5 @@ export interface RecipeToolButton {
 	icon?: string;
 	label?: string;
 	onClick?: (tool: string) => void;
+	class?: string;
 }

@@ -28,7 +28,7 @@
 				<div class="pcc-search-wrap">
 					<BaseIcon
 						name={Search}
-						style="position:absolute;top:50%;left:1rem;transform:translateY(-50%);width:1.25rem;height:1.25rem;color:#fb923c"
+						size={20} style="position: absolute; top: 50%; left: 1rem; transform: translateY(-50%); color: #fb923c"
 					/>
 					<input
 						type="text"
@@ -40,7 +40,7 @@
 					/>
 					{#if state.searchQuery}
 						<button onclick={() => state.onSearchQueryChange('')} class="pcc-clear-btn">
-							<BaseIcon name={X} style="width:1rem;height:1rem" />
+							<BaseIcon name={X} size={16} />
 						</button>
 					{/if}
 				</div>
@@ -51,14 +51,14 @@
 						class="pcc-view-btn {state.viewMode === 'grid' ? 'pcc-view-btn--active' : ''}"
 						title="Grid view"
 					>
-						<BaseIcon name={Grid} style="width:1.25rem;height:1.25rem" />
+						<BaseIcon name={Grid} size={20} />
 					</button>
 					<button
 						onclick={() => state.onViewModeChange('list')}
 						class="pcc-view-btn {state.viewMode === 'list' ? 'pcc-view-btn--active' : ''}"
 						title="List view"
 					>
-						<BaseIcon name={List} style="width:1.25rem;height:1.25rem" />
+						<BaseIcon name={List} size={20} />
 					</button>
 				</div>
 
@@ -77,7 +77,7 @@
 						<option value="recent">Recently Updated</option>
 					</select>
 					<div class="pcc-sort-icon">
-						<BaseIcon name={SortAsc} style="width:1rem;height:1rem;color:#9ca3af" />
+						<BaseIcon name={SortAsc} size={16} style="color: #9ca3af" />
 					</div>
 				</div>
 
@@ -86,7 +86,7 @@
 					class="pcc-filter-btn {state.showFilters ? 'pcc-filter-btn--active' : ''}"
 					title={state.showFilters ? 'Hide filters' : 'Show filters'}
 				>
-					<BaseIcon name={Filter} style="width:1.25rem;height:1.25rem" />
+					<BaseIcon name={Filter} size={20} />
 				</button>
 			</div>
 
@@ -122,7 +122,7 @@
 									onclick={() => state.onToggleTag(tag)}
 									class="pcc-tag-btn {isSelected ? 'pcc-tag-btn--active' : ''}"
 								>
-									<BaseIcon name={Tag} style="width:0.875rem;height:0.875rem" />
+									<BaseIcon name={Tag} size={14} />
 									{tag}
 								</button>
 							{/each}
@@ -132,7 +132,7 @@
 					{#if state.hasActiveFilters}
 						<div class="pcc-filter-footer">
 							<button onclick={state.onClearFilters} class="pcc-clear-all-btn">
-								<BaseIcon name={X} style="width:1rem;height:1rem" />
+								<BaseIcon name={X} size={16} />
 								Clear all filters
 							</button>
 						</div>
@@ -155,7 +155,7 @@
 							<div class="pcc-card-preview-overlay"></div>
 							<BaseIcon
 								name={state.getCategoryIcon(story.category)}
-								style="width:4rem;height:4rem;opacity:0.3;transition:opacity 0.15s"
+								size={64} style="opacity: 0.3; transition: opacity 0.15s"
 								class={colors.text}
 							/>
 							<div class="pcc-preview-label {colors.text}">Preview</div>
@@ -165,7 +165,7 @@
 							<div class="pcc-card-icon-wrap {colors.bg} {colors.border} _c1">
 								<BaseIcon
 									name={state.getCategoryIcon(story.category)}
-									style="width:1.25rem;height:1.25rem"
+									size={20}
 									class={colors.text}
 								/>
 							</div>
@@ -178,12 +178,12 @@
 						<div class="pcc-card-tags">
 							{#if story.subcategory}
 								<div class="pcc-subcat-chip">
-									<BaseIcon name={Tag} style="width:0.75rem;height:0.75rem" />
+									<BaseIcon name={Tag} size={12} />
 									<span style="text-transform:capitalize">{story.subcategory}</span>
 								</div>
 							{/if}
 							<div class="pcc-ai-chip">
-								<BaseIcon name={Sparkles} style="width:0.75rem;height:0.75rem" />
+								<BaseIcon name={Sparkles} size={12} />
 								AI-Generated
 							</div>
 						</div>
@@ -194,7 +194,7 @@
 								<span>Open</span>
 								<BaseIcon
 									name={ArrowRight}
-									style="width:1rem;height:1rem;transition:transform 0.15s"
+									size={16} style="transition: transform 0.15s"
 								/>
 							</div>
 						</div>
@@ -209,7 +209,7 @@
 						<div class="pcc-list-icon {colors.bg} {colors.border} _c1">
 							<BaseIcon
 								name={state.getCategoryIcon(story.category)}
-								style="width:2.5rem;height:2.5rem"
+								size={40}
 								class={colors.text}
 							/>
 						</div>
@@ -223,12 +223,12 @@
 								<span class="pcc-cat-badge">{story.category}</span>
 								{#if story.subcategory}
 									<div class="pcc-subcat-chip">
-										<BaseIcon name={Tag} style="width:0.75rem;height:0.75rem" />
+										<BaseIcon name={Tag} size={12} />
 										<span style="text-transform:capitalize">{story.subcategory}</span>
 									</div>
 								{/if}
 								<div class="pcc-ai-chip">
-									<BaseIcon name={Sparkles} style="width:0.75rem;height:0.75rem" />
+									<BaseIcon name={Sparkles} size={12} />
 									AI-Generated
 								</div>
 								<span style="margin-left:auto;font-size:0.75rem;color:#9ca3af">Svelte 5</span>
@@ -236,7 +236,7 @@
 						</div>
 
 						<div class="pcc-list-arrow">
-							<BaseIcon name={ArrowRight} style="width:2rem;height:2rem" />
+							<BaseIcon name={ArrowRight} size={32} />
 						</div>
 					</button>
 				{/each}
@@ -246,7 +246,7 @@
 		{#if state.stories.length === 0}
 			<div class="pcc-empty">
 				<div class="pcc-empty-icon">
-					<BaseIcon name={Search} style="width:3rem;height:3rem;color:#f97316" />
+					<BaseIcon name={Search} size={48} style="color: #f97316" />
 				</div>
 				<h3 class="pcc-empty-title">No components found</h3>
 				<p class="pcc-empty-text">Try adjusting your search or filters</p>

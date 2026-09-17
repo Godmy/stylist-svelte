@@ -17,7 +17,7 @@
 				aria-label="Decrease font size"
 				onclick={state.decreaseFontSize}
 			>
-				<BaseIcon name={PresetAccessibilityToolbar.Minus} style="width:1.25rem;height:1.25rem;" />
+				<BaseIcon name={PresetAccessibilityToolbar.Minus} size={20} />
 			</button>
 
 			<span class={state.fontSizeDisplayClass}>{Math.round(state.fontSizeScale * 100)}%</span>
@@ -28,7 +28,7 @@
 				aria-label="Increase font size"
 				onclick={state.increaseFontSize}
 			>
-				<BaseIcon name={PresetAccessibilityToolbar.Plus} style="width:1.25rem;height:1.25rem;" />
+				<BaseIcon name={PresetAccessibilityToolbar.Plus} size={20} />
 			</button>
 		{/if}
 
@@ -44,7 +44,7 @@
 				aria-pressed={state.screenReaderMode}
 				onclick={state.toggleScreenReaderMode}
 			>
-				<BaseIcon name={PresetAccessibilityToolbar.Volume2} style="width:1.25rem;height:1.25rem;" />
+				<BaseIcon name={PresetAccessibilityToolbar.Volume2} size={20} />
 			</button>
 		{/if}
 
@@ -58,7 +58,7 @@
 				aria-pressed={state.focusIndicator}
 				onclick={state.toggleFocusIndicator}
 			>
-				<BaseIcon name={PresetAccessibilityToolbar.Eye} style="width:1.25rem;height:1.25rem;" />
+				<BaseIcon name={PresetAccessibilityToolbar.Eye} size={20} />
 			</button>
 		{/if}
 
@@ -72,14 +72,14 @@
 				aria-pressed={state.disableTokenAnimation}
 				onclick={state.toggleTokenAnimation}
 			>
-				<BaseIcon name={PresetAccessibilityToolbar.Grid} style="width:1.25rem;height:1.25rem;" />
+				<BaseIcon name={PresetAccessibilityToolbar.Grid} size={20} />
 			</button>
 		{/if}
 
 		<button type="button" class={state.buttonClass} aria-label="Accessibility settings">
 			<BaseIcon
 				name={PresetAccessibilityToolbar.Accessibility}
-				style="width:1.25rem;height:1.25rem;"
+				size={20}
 			/>
 		</button>
 	</div>

@@ -25,7 +25,7 @@
 	>
 		<BaseIcon
 			name="upload"
-			style="display:block;margin:0 auto 1rem;width:3rem;height:3rem;color:var(--color-text-tertiary)"
+			size={48} style="display: block; margin: 0 auto 1rem; color: var(--color-text-tertiary)"
 		/>
 		<p class="ddf-title">Drag and drop files here</p>
 		<p class="ddf-subtitle">or click to browse</p>
@@ -59,7 +59,7 @@
 						<div class="ddf-item-info">
 							<BaseIcon
 								name="file-text"
-								style="margin-right:0.5rem;width:1.25rem;height:1.25rem;color:var(--color-text-secondary);flex-shrink:0"
+								size={20} style="margin-right: 0.5rem; color: var(--color-text-secondary); flex-shrink: 0"
 							/>
 							<div>
 								<p class="ddf-item-name">{file.name}</p>
@@ -84,7 +84,7 @@
 								class="ddf-remove-btn"
 								onclick={() => state.removeFile(file.id)}
 							>
-								<BaseIcon name="x" style="width:1rem;height:1rem" />
+								<BaseIcon name="x" size={16} />
 							</button>
 						</div>
 					</li>

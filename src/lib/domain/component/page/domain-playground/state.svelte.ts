@@ -27,6 +27,12 @@ export function createDomainPlaygroundState(
 		isSettingsOpen = false;
 	}
 
+	function handleManifestReload() {
+		if (typeof window !== 'undefined') {
+			window.location.reload();
+		}
+	}
+
 	return {
 		get currentScreen() {
 			return currentScreen;
@@ -38,7 +44,8 @@ export function createDomainPlaygroundState(
 		handleLandingToggle,
 		handleDiagnosticsToggle,
 		handleSettingsToggle,
-		closeSettings
+		closeSettings,
+		handleManifestReload
 	};
 }
 

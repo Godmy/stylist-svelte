@@ -1,5 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
 	animateValue,
-	getEasingFunction
+	getEasingFunction,
+	mapProgress
 } from './script';
+export {
+	createMotionPreferenceState,
+	createScrollProgressState,
+	createStickyScrollProgress
+} from './state';

@@ -2,6 +2,7 @@
 export { GlCanvas } from './atom';
 export {
 	ConcentricCirclesScene,
-	HyperspaceScene
+	HyperspaceScene,
+	TurtleDissolveScene
 } from './molecule';
 export { SceneLauncher } from './organism';

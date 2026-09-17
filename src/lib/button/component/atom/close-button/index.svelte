@@ -25,7 +25,7 @@
 <button
 	{...restButtonProps}
 	type={props.type ?? 'button'}
-	class="c-close-button"
+	class={['c-close-button', props.class].filter(Boolean).join(' ')}
 	data-size={state.size}
 	data-variant={state.variant || undefined}
 	data-disabled={state.disabled || undefined}
