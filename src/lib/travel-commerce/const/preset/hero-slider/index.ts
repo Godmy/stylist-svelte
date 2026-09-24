@@ -12,17 +12,17 @@ export const HERO_SLIDER: HeroSlider = {
 	photos: [
 		{
 			id: 'day',
-			src: '/landing/slider/page/01.png',
+			src: '/landing/slider/page/01.jpg',
 			alt: 'Черепаха на пляже Шри-Ланки утром'
 		},
 		{
 			id: 'dusk',
-			src: '/landing/slider/page/01-1.png',
+			src: '/landing/slider/page/01-1.jpg',
 			alt: 'Пляж Шри-Ланки в сумерках'
 		},
 		{
 			id: 'sunset',
-			src: '/landing/slider/page/01-2.png',
+			src: '/landing/slider/page/01-2.jpg',
 			alt: 'Драматичный закат над океаном'
 		}
 	],

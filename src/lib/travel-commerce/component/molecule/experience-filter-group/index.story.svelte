@@ -1,14 +1,15 @@
 <script lang="ts">
 	import Story from '$stylist/theme/component/molecule/story/index.svelte';
 	import type { SlotStory } from '$stylist/theme/interface/slot/story';
+	import { EXPERIENCE_CATEGORIES } from '$stylist/booking/const/array/experience-category';
 	import ExperienceFilterGroup from './index.svelte';
 
 	const controls: SlotStory[] = [
 		{
 			name: 'selected',
 			type: 'select',
-			options: ['none', 'ocean-fishing', 'wildlife', 'hills-mountains'],
-			defaultValue: 'ocean-fishing'
+			options: ['none', ...EXPERIENCE_CATEGORIES.map((item) => item.id)],
+			defaultValue: 'nature'
 		}
 	];
 </script>

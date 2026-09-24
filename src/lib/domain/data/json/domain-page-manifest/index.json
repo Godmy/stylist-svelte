@@ -2266,20 +2266,16 @@
               "name": "molecule",
               "entities": [
                 {
-                  "name": "booking-adventure-picker",
-                  "path": "booking/component/molecule/booking-adventure-picker",
+                  "name": "booking-adventure-list",
+                  "path": "booking/component/molecule/booking-adventure-list",
                   "files": [
                     {
                       "name": "index.story.svelte",
-                      "path": "booking/component/molecule/booking-adventure-picker/index.story.svelte"
+                      "path": "booking/component/molecule/booking-adventure-list/index.story.svelte"
                     },
                     {
                       "name": "index.svelte",
-                      "path": "booking/component/molecule/booking-adventure-picker/index.svelte"
-                    },
-                    {
-                      "name": "index.ts",
-                      "path": "booking/component/molecule/booking-adventure-picker/index.ts"
+                      "path": "booking/component/molecule/booking-adventure-list/index.svelte"
                     }
                   ]
                 },
@@ -2316,6 +2312,20 @@
                     {
                       "name": "index.ts",
                       "path": "booking/component/molecule/booking-calendar/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "booking-field-adventures",
+                  "path": "booking/component/molecule/booking-field-adventures",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "booking/component/molecule/booking-field-adventures/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "booking/component/molecule/booking-field-adventures/index.svelte"
                     }
                   ]
                 },
@@ -2408,24 +2418,6 @@
                       "path": "booking/component/molecule/booking-pickup-list/index.ts"
                     }
                   ]
-                },
-                {
-                  "name": "booking-summary-bar",
-                  "path": "booking/component/molecule/booking-summary-bar",
-                  "files": [
-                    {
-                      "name": "index.story.svelte",
-                      "path": "booking/component/molecule/booking-summary-bar/index.story.svelte"
-                    },
-                    {
-                      "name": "index.svelte",
-                      "path": "booking/component/molecule/booking-summary-bar/index.svelte"
-                    },
-                    {
-                      "name": "index.ts",
-                      "path": "booking/component/molecule/booking-summary-bar/index.ts"
-                    }
-                  ]
                 }
               ]
             },
@@ -2496,6 +2488,26 @@
             {
               "name": "script",
               "entities": [
+                {
+                  "name": "format-adventure-count-label",
+                  "path": "booking/function/script/format-adventure-count-label",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "booking/function/script/format-adventure-count-label/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "format-guest-count-label",
+                  "path": "booking/function/script/format-guest-count-label",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "booking/function/script/format-guest-count-label/index.ts"
+                    }
+                  ]
+                },
                 {
                   "name": "format-guest-summary",
                   "path": "booking/function/script/format-guest-summary",
@@ -25432,6 +25444,267 @@
       ]
     },
     {
+      "name": "spanish",
+      "clusters": [
+        {
+          "name": "component",
+          "joints": [
+            {
+              "name": "atom",
+              "entities": [
+                {
+                  "name": "autumn-leaf",
+                  "path": "spanish/component/atom/autumn-leaf",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/atom/autumn-leaf/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/atom/autumn-leaf/index.svelte"
+                    }
+                  ]
+                },
+                {
+                  "name": "brush-label",
+                  "path": "spanish/component/atom/brush-label",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/atom/brush-label/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/atom/brush-label/index.svelte"
+                    }
+                  ]
+                },
+                {
+                  "name": "doodle-icon",
+                  "path": "spanish/component/atom/doodle-icon",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/atom/doodle-icon/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/atom/doodle-icon/index.svelte"
+                    }
+                  ]
+                },
+                {
+                  "name": "watercolor-panel",
+                  "path": "spanish/component/atom/watercolor-panel",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/atom/watercolor-panel/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/atom/watercolor-panel/index.svelte"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "molecule",
+              "entities": [
+                {
+                  "name": "age-meta-pill",
+                  "path": "spanish/component/molecule/age-meta-pill",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/molecule/age-meta-pill/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/molecule/age-meta-pill/index.svelte"
+                    }
+                  ]
+                },
+                {
+                  "name": "duration-meta",
+                  "path": "spanish/component/molecule/duration-meta",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/molecule/duration-meta/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/molecule/duration-meta/index.svelte"
+                    }
+                  ]
+                },
+                {
+                  "name": "hero-title-group",
+                  "path": "spanish/component/molecule/hero-title-group",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/molecule/hero-title-group/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/molecule/hero-title-group/index.svelte"
+                    }
+                  ]
+                },
+                {
+                  "name": "program-item",
+                  "path": "spanish/component/molecule/program-item",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/molecule/program-item/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/molecule/program-item/index.svelte"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "organism",
+              "entities": [
+                {
+                  "name": "autumn-decor-layer",
+                  "path": "spanish/component/organism/autumn-decor-layer",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/organism/autumn-decor-layer/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/organism/autumn-decor-layer/index.svelte"
+                    }
+                  ]
+                },
+                {
+                  "name": "autumn-hero",
+                  "path": "spanish/component/organism/autumn-hero",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/organism/autumn-hero/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/organism/autumn-hero/index.svelte"
+                    }
+                  ]
+                },
+                {
+                  "name": "autumn-instructor",
+                  "path": "spanish/component/organism/autumn-instructor",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/organism/autumn-instructor/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/organism/autumn-instructor/index.svelte"
+                    }
+                  ]
+                },
+                {
+                  "name": "autumn-program",
+                  "path": "spanish/component/organism/autumn-program",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/organism/autumn-program/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/organism/autumn-program/index.svelte"
+                    }
+                  ]
+                },
+                {
+                  "name": "autumn-schedule",
+                  "path": "spanish/component/organism/autumn-schedule",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/organism/autumn-schedule/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/organism/autumn-schedule/index.svelte"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "page",
+              "entities": [
+                {
+                  "name": "autumn-landing",
+                  "path": "spanish/component/page/autumn-landing",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "spanish/component/page/autumn-landing/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "spanish/component/page/autumn-landing/index.svelte"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "data",
+          "joints": [
+            {
+              "name": "jpg",
+              "entities": [
+                {
+                  "name": "landing-01",
+                  "path": "spanish/data/jpg/landing-01",
+                  "files": [
+                    {
+                      "name": "2026-09-17-otono.jpg",
+                      "path": "spanish/data/jpg/landing-01/2026-09-17-otono.jpg"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "md",
+              "entities": [
+                {
+                  "name": "landing-01",
+                  "path": "spanish/data/md/landing-01",
+                  "files": [
+                    {
+                      "name": "2026-09-17-otono.md",
+                      "path": "spanish/data/md/landing-01/2026-09-17-otono.md"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "svg",
       "clusters": [
         {
@@ -26830,6 +27103,16 @@
                     {
                       "name": "index.svg",
                       "path": "svg/data/icon/chevron-down/index.svg"
+                    }
+                  ]
+                },
+                {
+                  "name": "chevron-left",
+                  "path": "svg/data/icon/chevron-left",
+                  "files": [
+                    {
+                      "name": "index.svg",
+                      "path": "svg/data/icon/chevron-left/index.svg"
                     }
                   ]
                 },
@@ -30990,6 +31273,16 @@
                     {
                       "name": "index.svg",
                       "path": "svg/data/icon/spacing/index.svg"
+                    }
+                  ]
+                },
+                {
+                  "name": "spanish",
+                  "path": "svg/data/icon/spanish",
+                  "files": [
+                    {
+                      "name": "index.svg",
+                      "path": "svg/data/icon/spanish/index.svg"
                     }
                   ]
                 },
@@ -36525,6 +36818,20 @@
                   ]
                 },
                 {
+                  "name": "adventure-grid",
+                  "path": "travel-commerce/component/molecule/adventure-grid",
+                  "files": [
+                    {
+                      "name": "index.story.svelte",
+                      "path": "travel-commerce/component/molecule/adventure-grid/index.story.svelte"
+                    },
+                    {
+                      "name": "index.svelte",
+                      "path": "travel-commerce/component/molecule/adventure-grid/index.svelte"
+                    }
+                  ]
+                },
+                {
                   "name": "cart-line-item",
                   "path": "travel-commerce/component/molecule/cart-line-item",
                   "files": [
@@ -37208,6 +37515,26 @@
               "name": "preset",
               "entities": [
                 {
+                  "name": "elephants-sigiriya-2day",
+                  "path": "travel-commerce/const/preset/elephants-sigiriya-2day",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/const/preset/elephants-sigiriya-2day/index.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "excursion-motif",
+                  "path": "travel-commerce/const/preset/excursion-motif",
+                  "files": [
+                    {
+                      "name": "index.ts",
+                      "path": "travel-commerce/const/preset/excursion-motif/index.ts"
+                    }
+                  ]
+                },
+                {
                   "name": "experience-filter-motif",
                   "path": "travel-commerce/const/preset/experience-filter-motif",
                   "files": [
@@ -37264,6 +37591,30 @@
                     {
                       "name": "index.ts",
                       "path": "travel-commerce/const/preset/turtle-hero-morph/index.ts"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "data",
+          "joints": [
+            {
+              "name": "jpg",
+              "entities": [
+                {
+                  "name": "logo",
+                  "path": "travel-commerce/data/jpg/logo",
+                  "files": [
+                    {
+                      "name": "logo.png",
+                      "path": "travel-commerce/data/jpg/logo/logo.png"
+                    },
+                    {
+                      "name": "picture.png",
+                      "path": "travel-commerce/data/jpg/logo/picture.png"
                     }
                   ]
                 }
@@ -43860,12 +44211,12 @@
       "storyModulePath": "booking/component/atom/booking-dropdown/index.story.svelte"
     },
     {
-      "entityPath": "booking/component/molecule/booking-adventure-picker",
+      "entityPath": "booking/component/molecule/booking-adventure-list",
       "domain": "booking",
       "cluster": "component",
       "joint": "molecule",
-      "family": "booking-adventure-picker",
-      "componentModulePath": "booking/component/molecule/booking-adventure-picker/index.svelte",
+      "family": "booking-adventure-list",
+      "componentModulePath": "booking/component/molecule/booking-adventure-list/index.svelte",
       "recipeTypePath": null,
       "stateFunctionPath": null,
       "jsonPaths": [],
@@ -43880,7 +44231,7 @@
       "hasRecipePipeline": false,
       "hasStatePipeline": false,
       "hasStoryPreview": true,
-      "storyModulePath": "booking/component/molecule/booking-adventure-picker/index.story.svelte"
+      "storyModulePath": "booking/component/molecule/booking-adventure-list/index.story.svelte"
     },
     {
       "entityPath": "booking/component/molecule/booking-bar",
@@ -43927,6 +44278,29 @@
       "hasStatePipeline": false,
       "hasStoryPreview": true,
       "storyModulePath": "booking/component/molecule/booking-calendar/index.story.svelte"
+    },
+    {
+      "entityPath": "booking/component/molecule/booking-field-adventures",
+      "domain": "booking",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "booking-field-adventures",
+      "componentModulePath": "booking/component/molecule/booking-field-adventures/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "booking/component/molecule/booking-field-adventures/index.story.svelte"
     },
     {
       "entityPath": "booking/component/molecule/booking-field-date",
@@ -44042,29 +44416,6 @@
       "hasStatePipeline": false,
       "hasStoryPreview": true,
       "storyModulePath": "booking/component/molecule/booking-pickup-list/index.story.svelte"
-    },
-    {
-      "entityPath": "booking/component/molecule/booking-summary-bar",
-      "domain": "booking",
-      "cluster": "component",
-      "joint": "molecule",
-      "family": "booking-summary-bar",
-      "componentModulePath": "booking/component/molecule/booking-summary-bar/index.svelte",
-      "recipeTypePath": null,
-      "stateFunctionPath": null,
-      "jsonPaths": [],
-      "contractPaths": [],
-      "interfaceRecipeJsonPaths": [],
-      "constEnumJsonPaths": [],
-      "constMapJsonPaths": [],
-      "functionStateJsonPaths": [],
-      "componentStatePath": null,
-      "functionScriptJsonPaths": [],
-      "controlDefinitionJsonPaths": [],
-      "hasRecipePipeline": false,
-      "hasStatePipeline": false,
-      "hasStoryPreview": true,
-      "storyModulePath": "booking/component/molecule/booking-summary-bar/index.story.svelte"
     },
     {
       "entityPath": "booking/component/organism/booking-accordion",
@@ -54486,6 +54837,328 @@
       "storyModulePath": "social/component/organism/social-share/index.story.svelte"
     },
     {
+      "entityPath": "spanish/component/atom/autumn-leaf",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "autumn-leaf",
+      "componentModulePath": "spanish/component/atom/autumn-leaf/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/atom/autumn-leaf/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/atom/brush-label",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "brush-label",
+      "componentModulePath": "spanish/component/atom/brush-label/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/atom/brush-label/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/atom/doodle-icon",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "doodle-icon",
+      "componentModulePath": "spanish/component/atom/doodle-icon/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/atom/doodle-icon/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/atom/watercolor-panel",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "atom",
+      "family": "watercolor-panel",
+      "componentModulePath": "spanish/component/atom/watercolor-panel/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/atom/watercolor-panel/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/molecule/age-meta-pill",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "age-meta-pill",
+      "componentModulePath": "spanish/component/molecule/age-meta-pill/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/molecule/age-meta-pill/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/molecule/duration-meta",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "duration-meta",
+      "componentModulePath": "spanish/component/molecule/duration-meta/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/molecule/duration-meta/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/molecule/hero-title-group",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "hero-title-group",
+      "componentModulePath": "spanish/component/molecule/hero-title-group/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/molecule/hero-title-group/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/molecule/program-item",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "program-item",
+      "componentModulePath": "spanish/component/molecule/program-item/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/molecule/program-item/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/organism/autumn-decor-layer",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "autumn-decor-layer",
+      "componentModulePath": "spanish/component/organism/autumn-decor-layer/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/organism/autumn-decor-layer/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/organism/autumn-hero",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "autumn-hero",
+      "componentModulePath": "spanish/component/organism/autumn-hero/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/organism/autumn-hero/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/organism/autumn-instructor",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "autumn-instructor",
+      "componentModulePath": "spanish/component/organism/autumn-instructor/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/organism/autumn-instructor/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/organism/autumn-program",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "autumn-program",
+      "componentModulePath": "spanish/component/organism/autumn-program/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/organism/autumn-program/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/organism/autumn-schedule",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "organism",
+      "family": "autumn-schedule",
+      "componentModulePath": "spanish/component/organism/autumn-schedule/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/organism/autumn-schedule/index.story.svelte"
+    },
+    {
+      "entityPath": "spanish/component/page/autumn-landing",
+      "domain": "spanish",
+      "cluster": "component",
+      "joint": "page",
+      "family": "autumn-landing",
+      "componentModulePath": "spanish/component/page/autumn-landing/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "spanish/component/page/autumn-landing/index.story.svelte"
+    },
+    {
       "entityPath": "svg/component/atom/flag",
       "domain": "svg",
       "cluster": "component",
@@ -56002,6 +56675,29 @@
       "hasStatePipeline": false,
       "hasStoryPreview": true,
       "storyModulePath": "travel-commerce/component/molecule/active-experience-filters/index.story.svelte"
+    },
+    {
+      "entityPath": "travel-commerce/component/molecule/adventure-grid",
+      "domain": "travel-commerce",
+      "cluster": "component",
+      "joint": "molecule",
+      "family": "adventure-grid",
+      "componentModulePath": "travel-commerce/component/molecule/adventure-grid/index.svelte",
+      "recipeTypePath": null,
+      "stateFunctionPath": null,
+      "jsonPaths": [],
+      "contractPaths": [],
+      "interfaceRecipeJsonPaths": [],
+      "constEnumJsonPaths": [],
+      "constMapJsonPaths": [],
+      "functionStateJsonPaths": [],
+      "componentStatePath": null,
+      "functionScriptJsonPaths": [],
+      "controlDefinitionJsonPaths": [],
+      "hasRecipePipeline": false,
+      "hasStatePipeline": false,
+      "hasStoryPreview": true,
+      "storyModulePath": "travel-commerce/component/molecule/adventure-grid/index.story.svelte"
     },
     {
       "entityPath": "travel-commerce/component/molecule/cart-line-item",

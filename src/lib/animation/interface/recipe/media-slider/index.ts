@@ -25,6 +25,8 @@ export interface RecipeMediaSlider {
 	autoPlayInterval?: number;
 	showControls?: boolean;
 	showIndicators?: boolean;
+	/** Accessible label for the slider's carousel region. Defaults to "Media slider". */
+	ariaLabel?: string;
 	class?: string;
 	/** Fires whenever the active slide changes (autoplay tick, arrows, indicators, keyboard) — including once on mount for the initial slide. */
 	onSlideChange?: (info: { index: number; slide: MediaSliderSlide; isFirst: boolean }) => void;

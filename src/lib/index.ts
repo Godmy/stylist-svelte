@@ -77,16 +77,21 @@ export {
 } from './auth';
 export {
 	BookingAccordion,
+	BookingAdventureList,
 	BookingBar,
 	BookingBridge,
 	BookingCalendar,
 	BookingDropdown,
+	BookingFieldAdventures,
 	BookingFieldDate,
 	BookingFieldGuests,
 	BookingFieldPickup,
 	BookingGuest,
 	BookingPickupList,
-	BookingWidget
+	BookingWidget,
+	formatAdventureCountLabel,
+	formatGuestCountLabel,
+	formatGuestSummary
 } from './booking';
 export {
 	Button,
@@ -885,6 +890,22 @@ export {
 	socialActivityFeedGetIcon
 } from './social';
 export {
+	AgeMetaPill,
+	AutumnDecorLayer,
+	AutumnHero,
+	AutumnInstructor,
+	AutumnLanding,
+	AutumnLeaf,
+	AutumnProgram,
+	AutumnSchedule,
+	BrushLabel,
+	DoodleIcon,
+	DurationMeta,
+	HeroTitleGroup,
+	ProgramItem,
+	WatercolorPanel
+} from './spanish';
+export {
 	Flag,
 	Icon,
 	Svg,
@@ -1094,12 +1115,23 @@ export {
 } from './travel-admin';
 export {
 	ActiveExperienceFilters,
+	AdventureGrid,
 	CartLineItem,
 	CartPage,
 	CartSummaryPanel,
 	CartUpsellCard,
 	CartUsdCashToggle,
 	ContactRequestForm,
+	ELEPHANTS_SIGIRIYA_ADDONS,
+	ELEPHANTS_SIGIRIYA_EXCLUDED,
+	ELEPHANTS_SIGIRIYA_EXCURSION,
+	ELEPHANTS_SIGIRIYA_GALLERY,
+	ELEPHANTS_SIGIRIYA_HIGHLIGHTS,
+	ELEPHANTS_SIGIRIYA_IMPORTANT_INFO,
+	ELEPHANTS_SIGIRIYA_INCLUDED,
+	ELEPHANTS_SIGIRIYA_ROUTE_STOPS,
+	ELEPHANTS_SIGIRIYA_WHAT_TO_BRING,
+	EXCURSION_MOTIFS,
 	EXPERIENCE_CATEGORIES,
 	EXPERIENCE_FILTER_MOTIFS,
 	ExcursionCardCompact,

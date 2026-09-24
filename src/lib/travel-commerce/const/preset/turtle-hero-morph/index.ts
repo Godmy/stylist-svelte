@@ -22,8 +22,6 @@ export const TURTLE_HERO_MORPH_CONFIG: TurtleHeroMorphConfig = {
 		backgroundZoomTo: 1.08,
 		fogHeightFromPercent: 50,
 		fogHeightToPercent: 105,
-		wordmarkRevealDurationFraction: 0.06,
-		bookingRevealStartOffsetFraction: 0.02,
-		bookingRevealDurationFraction: 0.06
+		wordmarkRevealDurationFraction: 0.06
 	}
 };

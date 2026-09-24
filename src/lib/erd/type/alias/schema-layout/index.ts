@@ -1,1 +1,1 @@
-export type SchemaLayout = 'grid' | 'wide' | 'columns' | 'radial';
+export type SchemaLayout = 'grid' | 'wide' | 'columns' | 'radial' | 'clusters' | 'star';

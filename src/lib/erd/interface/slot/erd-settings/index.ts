@@ -8,4 +8,5 @@ export interface SlotErdSettings {
 	layout?: SchemaLayout;
 	draggable?: boolean;
 	textPanelVisible?: boolean;
+	persistLayout?: boolean;
 }

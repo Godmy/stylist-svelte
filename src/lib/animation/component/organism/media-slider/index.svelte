@@ -39,7 +39,7 @@
 >
 <section
 	class={state.containerClass}
-	aria-label="Media slider"
+	aria-label={props.ariaLabel ?? 'Media slider'}
 	aria-roledescription="carousel"
 >
 	{#each state.slides as slide, index (slide.id)}

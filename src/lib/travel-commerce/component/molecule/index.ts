@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { ActiveExperienceFilters } from './active-experience-filters/index';
+export { AdventureGrid } from './adventure-grid/index';
 export { CartLineItem } from './cart-line-item/index';
 export { CartUpsellCard } from './cart-upsell-card/index';
 export { ExcursionCardCompact } from './excursion-card-compact/index';

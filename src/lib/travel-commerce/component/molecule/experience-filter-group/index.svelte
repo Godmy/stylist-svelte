@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ExperienceFilterChip from '$stylist/travel-commerce/component/atom/experience-filter-chip/index.svelte';
-	import { EXPERIENCE_CATEGORIES } from '$stylist/travel-commerce/const/array/experience-category';
+	import { EXPERIENCE_CATEGORIES } from '$stylist/booking/const/array/experience-category';
 	import { EXPERIENCE_FILTER_MOTIFS } from '$stylist/travel-commerce/const/preset/experience-filter-motif';
 
 	type Props = {

@@ -8,7 +8,7 @@
 		{ name: 'seniors', type: 'number', defaultValue: 0, min: 0, max: 16, step: 1 },
 		{ name: 'childrenTeen', type: 'number', defaultValue: 0, min: 0, max: 12, step: 1 },
 		{ name: 'children', type: 'number', defaultValue: 0, min: 0, max: 12, step: 1 },
-		{ name: 'childrenUnder2', type: 'number', defaultValue: 0, min: 0, max: 8, step: 1 }
+		{ name: 'childrenUnder3', type: 'number', defaultValue: 0, min: 0, max: 8, step: 1 }
 	];
 </script>
 
@@ -27,7 +27,7 @@
 				seniors={Number(values.seniors)}
 				childrenTeen={Number(values.childrenTeen)}
 				children={Number(values.children)}
-				childrenUnder2={Number(values.childrenUnder2)}
+				childrenUnder3={Number(values.childrenUnder3)}
 			/>
 		</div>
 	{/snippet}

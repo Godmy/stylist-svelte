@@ -2,21 +2,18 @@
 	import TurtleHeroPhotoScene from '$stylist/travel-commerce/component/molecule/turtle-hero-photo-scene/index.svelte';
 	import TurtlePhotoToMark from '$stylist/travel-commerce/component/molecule/turtle-photo-to-mark/index.svelte';
 	import TurtleHeroWordmark from '$stylist/travel-commerce/component/molecule/turtle-hero-wordmark/index.svelte';
-	import BookingBar from '$stylist/booking/component/molecule/booking-bar/index.svelte';
 	import ScrollPhaseDebug from '$stylist/animation/component/atom/scroll-phase-debug/index.svelte';
 	import { createStickyScrollProgress } from '$stylist/travel-commerce/function/script/create-sticky-scroll-progress';
 	import { createMotionPreferenceState } from '$stylist/animation/function/state/motion-preference';
 	import { mapProgress } from '$stylist/animation/function/script/map-progress';
 	import type { TurtleHeroMorphConfig } from '$stylist/travel-commerce/type/object/turtle-hero-morph-config';
 	import { TURTLE_HERO_MORPH_CONFIG } from '$stylist/travel-commerce/const/preset/turtle-hero-morph';
-	import type { BookingDraft } from '$stylist/booking/type/object/booking-draft';
 	import type { HeroSlider } from '$stylist/travel-commerce/type/object/hero-slider';
 	import { HERO_SLIDER } from '$stylist/travel-commerce/const/preset/hero-slider';
 
 	type Props = {
 		progress?: number;
 		config?: TurtleHeroMorphConfig;
-		onSearch?: (value: BookingDraft) => void;
 		/**
 		 * When false, skips the sticky/320vh scroll-jacking wrapper and just
 		 * fills its container instead — for embedding somewhere that already
@@ -35,7 +32,6 @@
 	let {
 		progress,
 		config = TURTLE_HERO_MORPH_CONFIG,
-		onSearch,
 		pinned = true,
 		onReady,
 		onDebug,
@@ -74,26 +70,6 @@
 	const introPhotoSrc = $derived(slider.photos[0]?.src);
 	const introNextPhotoSrc = $derived(slider.photos[1]?.src);
 	const introFinalPhotoSrc = $derived(slider.photos[2]?.src);
-
-	// Short window right after logoStart, same reasoning as
-	// TurtleHeroWordmark's own reveal — a quick scroll flick that gets the
-	// turtle mark fully formed (by logoStart) needs to reliably carry far
-	// enough to also finish revealing this, not require reaching all the way
-	// to `complete`.
-	const bookingReveal = $derived(
-		mapProgress(effectiveProgress, [
-			{ at: config.phases.logoStart + config.motion.bookingRevealStartOffsetFraction, value: 0 },
-			{
-				at:
-					config.phases.logoStart +
-					config.motion.bookingRevealStartOffsetFraction +
-					config.motion.bookingRevealDurationFraction,
-				value: 1
-			}
-		])
-	);
-
-	let bookingValue = $state<BookingDraft>({ pickup: 'Галле', date: '', adults: 2, children: 0 });
 
 	const phase = $derived.by(() => {
 		const p = config.phases;
@@ -134,24 +110,6 @@
 		{config}
 		reducedMotion={motionPreference.prefersReducedMotion}
 	/>
-
-	<div
-		class="tc-turtle-hero__booking"
-		style:--tc-turtle-hero-booking-opacity={bookingReveal}
-		style:--tc-turtle-hero-booking-shift={motionPreference.prefersReducedMotion
-			? '0px'
-			: `${(1 - bookingReveal) * 16}px`}
-		inert={bookingReveal < 0.4 ? true : undefined}
-	>
-		<BookingBar
-			value={bookingValue}
-			compact
-			onSearch={(value) => {
-				bookingValue = value;
-				onSearch?.(value);
-			}}
-		/>
-	</div>
 
 	{#if import.meta.env.DEV && pinned}
 		<ScrollPhaseDebug
@@ -203,24 +161,4 @@
 		height: 100%;
 	}
 
-	.tc-turtle-hero__booking {
-		position: absolute;
-		left: 50%;
-		top: 84%;
-		width: min(94%, 760px);
-		transform: translate(-50%, calc(-50% + var(--tc-turtle-hero-booking-shift)));
-		opacity: var(--tc-turtle-hero-booking-opacity, 0);
-	}
-
-	@media (max-width: 720px) {
-		.tc-turtle-hero__booking {
-			top: 88%;
-		}
-	}
-
-	@container (max-width: 720px) {
-		.tc-turtle-hero__booking {
-			top: 88%;
-		}
-	}
 </style>

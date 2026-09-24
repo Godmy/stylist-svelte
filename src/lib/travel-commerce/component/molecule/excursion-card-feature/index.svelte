@@ -11,7 +11,7 @@
 	let { excursion }: Props = $props();
 </script>
 
-<article class="tc-feature-card">
+<a class="tc-feature-card" href={`/tours/${excursion.slug}`}>
 	<img src={excursion.imageSrc} alt={excursion.imageAlt} loading="lazy" />
 	<div class="tc-feature-card__overlay">
 		<TourTagList tags={excursion.tags} />
@@ -20,16 +20,18 @@
 		<TourMetaLine duration={excursion.duration} pickup={excursion.pickup} />
 		<TourPriceNote price={excursion.priceFrom} />
 	</div>
-</article>
+</a>
 
 <style>
 	.tc-feature-card {
 		position: relative;
+		display: block;
 		min-height: 520px;
 		overflow: hidden;
 		border-radius: 8px;
 		background: #17231f;
 		color: white;
+		text-decoration: none;
 	}
 	.tc-feature-card img {
 		position: absolute;

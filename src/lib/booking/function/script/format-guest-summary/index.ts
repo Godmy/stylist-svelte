@@ -3,7 +3,7 @@ export function formatGuestSummary(input: {
 	seniors?: number;
 	childrenTeen?: number;
 	children?: number;
-	childrenUnder2?: number;
+	childrenUnder3?: number;
 }): string {
 	function pluralize(count: number, one: string, few: string, many: string): string {
 		const mod10 = count % 10;
@@ -13,7 +13,7 @@ export function formatGuestSummary(input: {
 		return many;
 	}
 
-	const { adults, seniors = 0, childrenTeen = 0, children = 0, childrenUnder2 = 0 } = input;
+	const { adults, seniors = 0, childrenTeen = 0, children = 0, childrenUnder3 = 0 } = input;
 	const parts: string[] = [];
 	if (adults > 0) parts.push(`${adults} ${pluralize(adults, 'взрослый', 'взрослых', 'взрослых')}`);
 	if (seniors > 0) {
@@ -25,10 +25,10 @@ export function formatGuestSummary(input: {
 	if (children > 0) {
 		parts.push(`${children} ${pluralize(children, 'ребёнок', 'ребёнка', 'детей')} до 13`);
 	}
-	if (childrenUnder2 > 0) parts.push(`${childrenUnder2} до 2 лет`);
+	if (childrenUnder3 > 0) parts.push(`${childrenUnder3} до 3 лет`);
 
 	if (parts.length === 0) {
-		return `${adults + seniors + childrenTeen + children + childrenUnder2} гостей`;
+		return `${adults + seniors + childrenTeen + children + childrenUnder3} гостей`;
 	}
 	return parts.join(', ');
 }

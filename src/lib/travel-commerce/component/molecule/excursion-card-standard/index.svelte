@@ -11,7 +11,7 @@
 	let { excursion }: Props = $props();
 </script>
 
-<article class="tc-excursion-card">
+<a class="tc-excursion-card" href={`/tours/${excursion.slug}`}>
 	<img src={excursion.imageSrc} alt={excursion.imageAlt} loading="lazy" />
 	<div class="tc-excursion-card__body">
 		<h3>{excursion.title}</h3>
@@ -20,7 +20,7 @@
 		<TourTagList tags={excursion.tags} />
 		<TourPriceNote price={excursion.priceFrom} />
 	</div>
-</article>
+</a>
 
 <style>
 	.tc-excursion-card {
@@ -30,6 +30,8 @@
 		background: white;
 		border: 1px solid rgba(23, 35, 31, 0.1);
 		box-shadow: 0 16px 42px rgba(20, 36, 31, 0.08);
+		color: inherit;
+		text-decoration: none;
 	}
 	.tc-excursion-card img {
 		width: 100%;

@@ -6,4 +6,5 @@ export interface RecipeErdDependency {
 	x2: number;
 	y2: number;
 	active?: boolean;
+	dimmed?: boolean;
 }

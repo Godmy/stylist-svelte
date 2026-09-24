@@ -12,7 +12,8 @@
 		canImport = true,
 		canExport = true,
 		mode = 'live',
-		textPanelVisible = true
+		textPanelVisible = true,
+		persistLayout = false
 	}: RecipeSchemaHeader = $props();
 </script>
 
@@ -26,6 +27,9 @@
 				<span class={stats.errors > 0 ? 'schema-header__stats-error' : ''}>
 					{stats.errors} errors
 				</span>
+				<span class="schema-header__hint"
+					>hover/click a table to trace its relations · drag a domain's label to move it</span
+				>
 			</div>
 		{/if}
 	</div>
@@ -38,6 +42,7 @@
 		{canExport}
 		{mode}
 		{textPanelVisible}
+		{persistLayout}
 		on:import
 		on:export
 		on:zoom-in
@@ -48,6 +53,8 @@
 		on:toggle-highlight
 		on:mode-change
 		on:toggle-text-panel
+		on:save-layout
+		on:reset-layout
 	/>
 </header>
 
@@ -90,6 +97,13 @@
 		background: var(--color-background-secondary, #edf2f7);
 		color: var(--color-text-secondary, #334155);
 		font-size: 0.74rem;
+	}
+
+	.schema-header__hint {
+		background: transparent !important;
+		padding-left: 0 !important;
+		color: var(--color-text-tertiary, #8896a8);
+		font-style: italic;
 	}
 
 	.schema-header__stats-error {

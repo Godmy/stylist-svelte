@@ -193,7 +193,10 @@ export function schemaTextToDocument(source: string): SchemaParseResult {
 		return collected.join(' ') || 'unknown';
 	}
 
-	function parseSqlField(entry: string, tableName: string): SchemaField | null {
+	function parseSqlField(
+		entry: string,
+		tableName: string
+	): { field: SchemaField; dependency?: SchemaDependency } | null {
 		const fieldMatch = entry.match(/^`?([\w]+)`?\s+(.+)$/s);
 		if (!fieldMatch) {
 			return null;
@@ -203,18 +206,35 @@ export function schemaTextToDocument(source: string): SchemaParseResult {
 		const rest = fieldMatch[2].replace(/\s+/g, ' ').trim();
 		const lowerRest = rest.toLowerCase();
 		const tokens = rest.split(/\s+/);
+		const inlineReferenceMatch = rest.match(
+			/\breferences\s+`?([\w]+)`?\s*\(\s*`?([\w]+)`?\s*\)/i
+		);
+		const reference = inlineReferenceMatch
+			? `${inlineReferenceMatch[1]}.${inlineReferenceMatch[2]}`
+			: undefined;
 
 		return {
-			id: `${normalizeId(tableName)}.${normalizeId(name)}`,
-			name,
-			type: parseSqlType(tokens),
-			required: /\bnot\s+null\b/i.test(rest),
-			primary: /\bprimary\s+key\b/i.test(rest),
-			unique: /\bunique\b/i.test(rest),
-			notes: [
-				...(lowerRest.includes('auto_increment') ? ['auto_increment'] : []),
-				...(lowerRest.includes('default') ? ['default'] : [])
-			]
+			field: {
+				id: `${normalizeId(tableName)}.${normalizeId(name)}`,
+				name,
+				type: parseSqlType(tokens),
+				required: /\bnot\s+null\b/i.test(rest),
+				primary: /\bprimary\s+key\b/i.test(rest),
+				unique: /\bunique\b/i.test(rest),
+				reference,
+				notes: [
+					...(lowerRest.includes('auto_increment') ? ['auto_increment'] : []),
+					...(lowerRest.includes('default') ? ['default'] : [])
+				]
+			},
+			dependency: inlineReferenceMatch
+				? createDependency(
+						tableName,
+						name,
+						inlineReferenceMatch[1],
+						inlineReferenceMatch[2]
+					)
+				: undefined
 		};
 	}
 
@@ -241,13 +261,20 @@ export function schemaTextToDocument(source: string): SchemaParseResult {
 					continue;
 				}
 
-				if (/^(constraint|primary\s+key|unique\s+key|key|index|check)\b/i.test(normalizedEntry)) {
+				if (
+					/^(constraint|primary\s+key|unique\s+key|key|index|check)\b/i.test(normalizedEntry) ||
+					/^unique\s*\(/i.test(normalizedEntry)
+				) {
 					continue;
 				}
 
-				const field = parseSqlField(normalizedEntry, block.name);
-				if (field) {
-					fields.push(field);
+				const parsedField = parseSqlField(normalizedEntry, block.name);
+				if (parsedField) {
+					fields.push(parsedField.field);
+
+					if (parsedField.dependency) {
+						dependencies.push(parsedField.dependency);
+					}
 				}
 			}
 

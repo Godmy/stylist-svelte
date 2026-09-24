@@ -40,10 +40,6 @@ export type TurtleHeroMorphMotion = {
 	fogHeightToPercent: number;
 	/** How far past `logoStart` the wordmark takes to fully reveal, as a fraction of the whole 0..1 progress. */
 	wordmarkRevealDurationFraction: number;
-	/** Where the embedded booking bar's reveal window starts, as an offset past `logoStart` (fraction of the whole 0..1 progress). */
-	bookingRevealStartOffsetFraction: number;
-	/** How long the booking bar's reveal takes once it starts, same units as the offset above. */
-	bookingRevealDurationFraction: number;
 };
 
 export type TurtleHeroMorphConfig = {

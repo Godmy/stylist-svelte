@@ -9,11 +9,16 @@ export const SAMPLE_EXCURSIONS: Excursion[] = [
 		imageSrc: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1400&q=80',
 		imageAlt: 'Чайные плантации в горах Шри-Ланки',
 		duration: '12 часов',
+		durationDays: 1,
 		pickup: 'из Галле',
 		priceFrom: 'от $145',
-		categories: ['hills-mountains', 'plants-parks', 'popular'],
+		categories: ['mountains-waterfalls', 'tea-plantations', 'train'],
 		tags: ['чай', 'водопады', 'поезд', 'горы'],
-		featured: true
+		featured: true,
+		tourType: 'group',
+		recommendedForKids: false,
+		noEarlyDeparture: false,
+		physicalLoad: 'medium'
 	},
 	{
 		id: 'mirissa-whales',
@@ -23,10 +28,15 @@ export const SAMPLE_EXCURSIONS: Excursion[] = [
 		imageSrc: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
 		imageAlt: 'Океан на рассвете',
 		duration: '7 часов',
+		durationDays: 1,
 		pickup: 'из Мириссы',
 		priceFrom: 'от $95',
-		categories: ['ocean-fishing', 'wildlife'],
-		tags: ['киты', 'океан', 'рассвет']
+		categories: ['nature', 'wildlife-safari'],
+		tags: ['киты', 'океан', 'рассвет'],
+		tourType: 'individual',
+		recommendedForKids: true,
+		noEarlyDeparture: false,
+		physicalLoad: 'low'
 	},
 	{
 		id: 'yala-wildlife',
@@ -36,10 +46,15 @@ export const SAMPLE_EXCURSIONS: Excursion[] = [
 		imageSrc: 'https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1200&q=80',
 		imageAlt: 'Слон в природном парке',
 		duration: '10 часов',
+		durationDays: 1,
 		pickup: 'из Тангалле',
 		priceFrom: 'от $130',
-		categories: ['wildlife', 'extreme'],
-		tags: ['слоны', 'сафари', 'птицы']
+		categories: ['wildlife-safari', 'trekking'],
+		tags: ['слоны', 'сафари', 'птицы'],
+		tourType: 'group',
+		recommendedForKids: false,
+		noEarlyDeparture: false,
+		physicalLoad: 'high'
 	},
 	{
 		id: 'galle-culture',
@@ -49,9 +64,14 @@ export const SAMPLE_EXCURSIONS: Excursion[] = [
 		imageSrc: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=1200&q=80',
 		imageAlt: 'Побережье и маяк',
 		duration: '5 часов',
+		durationDays: 1,
 		pickup: 'из Галле',
 		priceFrom: 'от $70',
-		categories: ['culture', 'ocean-fishing', 'popular'],
-		tags: ['форт', 'маяк', 'закат']
+		categories: ['history-culture', 'city', 'photogenic-places'],
+		tags: ['форт', 'маяк', 'закат'],
+		tourType: 'group',
+		recommendedForKids: true,
+		noEarlyDeparture: true,
+		physicalLoad: 'low'
 	}
 ];

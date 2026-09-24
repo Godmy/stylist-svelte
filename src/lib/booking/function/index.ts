@@ -1,2 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { formatGuestSummary } from './script';
+export {
+	formatAdventureCountLabel,
+	formatGuestCountLabel,
+	formatGuestSummary
+} from './script';

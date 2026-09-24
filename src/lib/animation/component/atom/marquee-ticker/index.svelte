@@ -149,6 +149,13 @@
 
 	.c-marquee-ticker__track--animated {
 		animation: c-marquee-ticker-scroll var(--marquee-ticker-duration, 24s) linear infinite;
+		/* Promotes the track to its own compositor layer up front, so this
+		   `transform` animation keeps running smoothly on the compositor
+		   thread even while the main thread is busy elsewhere on this page
+		   (WebGL turtle scene, backdrop-filter blur, Ken Burns zoom, wave
+		   SVG) — without this, a shared/late-promoted layer is more likely
+		   to visibly stutter under that load. */
+		will-change: transform;
 	}
 
 	.c-marquee-ticker:hover .c-marquee-ticker__track--animated {

@@ -12,11 +12,16 @@ export const ELEPHANTS_SIGIRIYA_EXCURSION: Excursion = {
 	imageSrc: '/Экскурсии групповые/слоны сигирия 2 дня/20240310_160038.jpg',
 	imageAlt: 'Вид на Сигирию с Пидурангалы',
 	duration: '2 дня',
+	durationDays: 2,
 	pickup: 'из отеля',
 	priceFrom: 'от $160',
-	categories: ['culture', 'wildlife', 'hills-mountains', 'popular'],
+	categories: ['history-culture', 'wildlife-safari', 'nature', 'religion', 'photogenic-places'],
 	tags: ['слоны', 'сигирия', 'канди', 'храмы', 'природа'],
-	featured: true
+	featured: true,
+	tourType: 'group',
+	recommendedForKids: false,
+	noEarlyDeparture: false,
+	physicalLoad: 'medium'
 };
 
 export const ELEPHANTS_SIGIRIYA_GALLERY: TourGalleryImage[] = [

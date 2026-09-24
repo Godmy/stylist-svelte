@@ -7,6 +7,7 @@
 	type Props = {
 		value?: BookingDraft;
 		excursions?: Excursion[];
+		showAdventures?: boolean;
 		onSearch?: (value: BookingDraft) => void;
 	};
 
@@ -18,10 +19,11 @@
 			seniors: 0,
 			childrenTeen: 0,
 			children: 0,
-			childrenUnder2: 0,
+			childrenUnder3: 0,
 			adventures: []
 		},
 		excursions,
+		showAdventures = true,
 		onSearch
 	}: Props = $props();
 </script>
@@ -31,7 +33,7 @@
 		<BookingBar {value} {onSearch} />
 	</div>
 	<div class="tc-booking-widget__mobile">
-		<BookingAccordion {value} {excursions} {onSearch} />
+		<BookingAccordion {value} {excursions} {showAdventures} {onSearch} />
 	</div>
 </div>
 

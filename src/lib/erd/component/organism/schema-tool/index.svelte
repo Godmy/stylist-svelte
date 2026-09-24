@@ -62,6 +62,21 @@
 </svg>
 ` as const;
 
+	const ICON_SAVE = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/>
+  <path d="M17 21v-8H7v8"/>
+  <path d="M7 3v5h8"/>
+</svg>
+` as const;
+
+	const ICON_RESET = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 12a9 9 0 1 0 3-6.7"/>
+  <polyline points="3 4 3 9 8 9"/>
+</svg>
+` as const;
+
 	let dispatch = createEventDispatcher<{
 		import: undefined;
 		export: undefined;
@@ -73,6 +88,8 @@
 		'toggle-highlight': { enabled: boolean };
 		'mode-change': { mode: NonNullable<RecipeSchemaTool['mode']> };
 		'toggle-text-panel': { visible: boolean };
+		'save-layout': undefined;
+		'reset-layout': undefined;
 	}>();
 
 	let {
@@ -83,7 +100,8 @@
 		canImport = true,
 		canExport = true,
 		mode = 'live',
-		textPanelVisible = true
+		textPanelVisible = true,
+		persistLayout = false
 	}: RecipeSchemaTool = $props();
 </script>
 
@@ -155,8 +173,29 @@
 			<option value="wide">Wide</option>
 			<option value="columns">Columns</option>
 			<option value="radial">Radial</option>
+			<option value="clusters">Clusters</option>
+			<option value="star">Star</option>
 		</select>
 	</label>
+	{#if persistLayout}
+		<div class="schema-tool__separator"></div>
+		<button
+			type="button"
+			aria-label="Save layout"
+			title="Save the current table positions so you can come back to them"
+			onclick={() => dispatch('save-layout')}
+		>
+			<Svg svg={ICON_SAVE} size={18} />
+		</button>
+		<button
+			type="button"
+			aria-label="Reset layout"
+			title="Discard the saved positions and recompute the layout"
+			onclick={() => dispatch('reset-layout')}
+		>
+			<Svg svg={ICON_RESET} size={18} />
+		</button>
+	{/if}
 	<div class="schema-tool__separator"></div>
 	<button
 		type="button"

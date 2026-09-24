@@ -12,12 +12,12 @@
 		seniors?: number;
 		childrenTeen?: number;
 		children?: number;
-		childrenUnder2?: number;
+		childrenUnder3?: number;
 		onAdultsChange?: (value: number) => void;
 		onSeniorsChange?: (value: number) => void;
 		onChildrenTeenChange?: (value: number) => void;
 		onChildrenChange?: (value: number) => void;
-		onChildrenUnder2Change?: (value: number) => void;
+		onChildrenUnder3Change?: (value: number) => void;
 	};
 
 	let {
@@ -25,18 +25,18 @@
 		seniors = 0,
 		childrenTeen = 0,
 		children = 0,
-		childrenUnder2 = 0,
+		childrenUnder3 = 0,
 		onAdultsChange,
 		onSeniorsChange,
 		onChildrenTeenChange,
 		onChildrenChange,
-		onChildrenUnder2Change
+		onChildrenUnder3Change
 	}: Props = $props();
 
 	// Короткая сводка в самом баре ("2 человека"), без деталей по категориям —
 	// иначе при каждом изменении степпера меняется ширина триггера и
 	// всплывающая панель (bk-dropdown__panel, align="right") визуально "прыгает".
-	const totalGuests = $derived(adults + seniors + childrenTeen + children + childrenUnder2);
+	const totalGuests = $derived(adults + seniors + childrenTeen + children + childrenUnder3);
 	const summary = $derived(formatGuestCountLabel(totalGuests));
 </script>
 
@@ -70,12 +70,12 @@
 				{seniors}
 				{childrenTeen}
 				{children}
-				{childrenUnder2}
+				{childrenUnder3}
 				onAdultsChange={(value) => onAdultsChange?.(value)}
 				onSeniorsChange={(value) => onSeniorsChange?.(value)}
 				onChildrenTeenChange={(value) => onChildrenTeenChange?.(value)}
 				onChildrenChange={(value) => onChildrenChange?.(value)}
-				onChildrenUnder2Change={(value) => onChildrenUnder2Change?.(value)}
+				onChildrenUnder3Change={(value) => onChildrenUnder3Change?.(value)}
 			/>
 		</div>
 	{/snippet}

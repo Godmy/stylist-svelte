@@ -1,12 +1,10 @@
 <script lang="ts">
 	import TurtleHeroMorph from '$stylist/travel-commerce/component/organism/turtle-hero-morph/index.svelte';
 	import { createMotionPreferenceState } from '$stylist/animation/function/state/motion-preference';
-	import type { BookingDraft } from '$stylist/booking/type/object/booking-draft';
 	import type { HeroSlider } from '$stylist/travel-commerce/type/object/hero-slider';
 	import type { TurtleHeroMorphConfig } from '$stylist/travel-commerce/type/object/turtle-hero-morph-config';
 
 	type Props = {
-		onSearch?: (value: BookingDraft) => void;
 		/** Called whenever the morph is at rest (progress 0) or has finished at least once — lets the host gate its own nav controls while the morph is genuinely mid-way. */
 		setAtRest?: (visible: boolean) => void;
 		/** Called once the resting-state assets have loaded (forwarded to MediaSlider's markLoaded, which controls this slide's skeleton). */
@@ -19,7 +17,7 @@
 		durationMs?: number;
 	};
 
-	let { onSearch, onAssetsLoaded, setAtRest, slider, config, durationMs = 6000 }: Props = $props();
+	let { onAssetsLoaded, setAtRest, slider, config, durationMs = 6000 }: Props = $props();
 
 	// TEMP: merged from TurtleHeroMorph's own onDebug so there's one panel
 	// instead of two.
@@ -32,9 +30,10 @@
 	// MediaSlider slide). It used to require the visitor to physically
 	// scroll/swipe far enough (a fixed pixel distance) to finish the morph —
 	// on mobile that meant repeatedly "rubbing" the screen. It now autoplays
-	// on a fixed clock instead; any wheel/touch input before it finishes
-	// just skips straight to the end, so an impatient visitor can still bail
-	// out without needing precise drag distance.
+	// on a fixed clock instead; a sustained wheel/touch gesture before it
+	// finishes skips straight to the end (see `registerSkipIntent` below),
+	// so an impatient visitor can still bail out without needing the old
+	// precise drag distance.
 	let progress = $state(0);
 
 	// One-way latch: once the morph has finished (by the clock or by a
@@ -78,13 +77,41 @@
 		onAssetsLoaded?.();
 	}
 
-	// Any deliberate wheel/touch input before the autoplay finishes skips it
-	// outright, rather than accumulating distance — no preventDefault, so
-	// the same gesture also carries straight into a real page scroll.
-	function skip() {
+	// A deliberate, sustained wheel/touch gesture before the autoplay
+	// finishes skips it outright — but it must actually accumulate real
+	// distance first. An earlier version skipped on ANY input at all (even a
+	// single `touchstart` with zero movement, or a 1-2px wheel tick), which
+	// meant an ordinary "let me start scrolling the page" nudge — something
+	// nearly every visitor does within the first second — instantly jumped
+	// straight to the finished logo, so the turtle/morph sequence itself was
+	// never actually seen. No preventDefault here, so once the threshold is
+	// crossed the same gesture also carries straight into a real page scroll.
+	const SKIP_THRESHOLD_PX = 120;
+	let skipAccumulator = 0;
+
+	function registerSkipIntent(distancePx: number) {
 		if (morphUnlocked) return;
+		skipAccumulator += distancePx;
+		if (skipAccumulator < SKIP_THRESHOLD_PX) return;
 		progress = 1;
 		morphUnlocked = true;
+	}
+
+	function handleWheel(event: WheelEvent) {
+		registerSkipIntent(Math.abs(event.deltaY));
+	}
+
+	let lastTouchY: number | null = null;
+
+	function handleTouchStart(event: TouchEvent) {
+		lastTouchY = event.touches[0]?.clientY ?? null;
+	}
+
+	function handleTouchMove(event: TouchEvent) {
+		const y = event.touches[0]?.clientY;
+		if (y == null || lastTouchY == null) return;
+		registerSkipIntent(Math.abs(lastTouchY - y));
+		lastTouchY = y;
 	}
 </script>
 
@@ -92,13 +119,13 @@
 	class="tc-turtle-hero-morph-slide"
 	role="region"
 	aria-label="Turtle hero morph"
-	onwheel={skip}
-	ontouchstart={skip}
+	onwheel={handleWheel}
+	ontouchstart={handleTouchStart}
+	ontouchmove={handleTouchMove}
 >
 	<TurtleHeroMorph
 		pinned={false}
 		{progress}
-		{onSearch}
 		{slider}
 		{config}
 		onReady={handleAssetsLoaded}

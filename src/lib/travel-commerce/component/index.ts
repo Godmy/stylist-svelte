@@ -2,6 +2,7 @@
 export { ExperienceFilterChip } from './atom';
 export {
 	ActiveExperienceFilters,
+	AdventureGrid,
 	CartLineItem,
 	CartUpsellCard,
 	ExcursionCardCompact,

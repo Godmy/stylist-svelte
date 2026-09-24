@@ -2,45 +2,56 @@
 	import BookingFieldPickup from '$stylist/booking/component/molecule/booking-field-pickup/index.svelte';
 	import BookingFieldDate from '$stylist/booking/component/molecule/booking-field-date/index.svelte';
 	import BookingFieldGuests from '$stylist/booking/component/molecule/booking-field-guests/index.svelte';
+	import BookingFieldDuration from '$stylist/booking/component/molecule/booking-field-duration/index.svelte';
 	import type { BookingDraft } from '$stylist/booking/type/object/booking-draft';
 
 	type Props = {
 		value?: BookingDraft;
 		compact?: boolean;
+		/** Показывать ли поле «Количество дней». По умолчанию true — на странице тура (travel-product) длительность уже известна из самого тура, здесь скрывается. */
+		showDuration?: boolean;
 		onSearch?: (value: BookingDraft) => void;
 	};
 
 	let {
-		value = {
+		value = $bindable({
 			pickup: 'Галле',
 			date: '',
 			adults: 2,
 			seniors: 0,
 			childrenTeen: 0,
 			children: 0,
-			childrenUnder2: 0,
-			adventures: []
-		},
+			childrenUnder3: 0,
+			adventures: [],
+			durationDays: []
+		}),
 		compact = false,
+		showDuration = true,
 		onSearch
 	}: Props = $props();
 </script>
 
 <div class="tc-booking-bar" data-compact={compact || undefined}>
 	<BookingFieldPickup value={value.pickup} onChange={(pickup) => (value = { ...value, pickup })} />
-	<BookingFieldDate value={value.date} onChange={(date) => (value = { ...value, date })} />
 	<BookingFieldGuests
 		adults={value.adults}
 		seniors={value.seniors ?? 0}
 		childrenTeen={value.childrenTeen ?? 0}
 		children={value.children}
-		childrenUnder2={value.childrenUnder2 ?? 0}
+		childrenUnder3={value.childrenUnder3 ?? 0}
 		onAdultsChange={(adults) => (value = { ...value, adults })}
 		onSeniorsChange={(seniors) => (value = { ...value, seniors })}
 		onChildrenTeenChange={(childrenTeen) => (value = { ...value, childrenTeen })}
 		onChildrenChange={(children) => (value = { ...value, children })}
-		onChildrenUnder2Change={(childrenUnder2) => (value = { ...value, childrenUnder2 })}
+		onChildrenUnder3Change={(childrenUnder3) => (value = { ...value, childrenUnder3 })}
 	/>
+	<BookingFieldDate value={value.date} onChange={(date) => (value = { ...value, date })} />
+	{#if showDuration}
+		<BookingFieldDuration
+			selected={value.durationDays ?? []}
+			onChange={(durationDays) => (value = { ...value, durationDays })}
+		/>
+	{/if}
 	<button type="button" class="tc-booking-bar__action" onclick={() => onSearch?.(value)}>
 		Забронировать
 	</button>

@@ -2,7 +2,7 @@
 	import ExperienceFilterGroup from '$stylist/travel-commerce/component/molecule/experience-filter-group/index.svelte';
 	import ActiveExperienceFilters from '$stylist/travel-commerce/component/molecule/active-experience-filters/index.svelte';
 	import ResultsCounter from '$stylist/travel-commerce/component/molecule/results-counter/index.svelte';
-	import { EXPERIENCE_CATEGORIES } from '$stylist/travel-commerce/const/array/experience-category';
+	import { EXPERIENCE_CATEGORIES } from '$stylist/booking/const/array/experience-category';
 
 	type Props = {
 		count: number;

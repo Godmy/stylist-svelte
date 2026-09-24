@@ -10,8 +10,9 @@
 		{ name: 'seniors', type: 'number', defaultValue: 0, min: 0, max: 8, step: 1 },
 		{ name: 'childrenTeen', type: 'number', defaultValue: 0, min: 0, max: 6, step: 1 },
 		{ name: 'children', type: 'number', defaultValue: 1, min: 0, max: 6, step: 1 },
-		{ name: 'childrenUnder2', type: 'number', defaultValue: 0, min: 0, max: 4, step: 1 },
-		{ name: 'compact', type: 'boolean', defaultValue: false }
+		{ name: 'childrenUnder3', type: 'number', defaultValue: 0, min: 0, max: 4, step: 1 },
+		{ name: 'compact', type: 'boolean', defaultValue: false },
+		{ name: 'showDuration', type: 'boolean', label: 'Показать поле "Количество дней"', defaultValue: true }
 	];
 </script>
 
@@ -20,7 +21,7 @@
 	title="Booking / BookingBar"
 	component={BookingBar}
 	category="Booking/Molecules"
-	description="Отзывчивый бар бронирования: место, дата, гости (5 категорий), приключения. `compact` — сжатый режим для встраивания (например, в BookingBridge при скролле)."
+	description="Отзывчивый бар бронирования: откуда забрать, гости (5 категорий), дата, количество дней. Приключения сюда не входят — переехали в BookingFilterPanel. `compact` — сжатый режим для встраивания (например, в BookingBridge при скролле)."
 	{controls}
 >
 	{#snippet children(values: any)}
@@ -33,10 +34,12 @@
 					seniors: Number(values.seniors),
 					childrenTeen: Number(values.childrenTeen),
 					children: Number(values.children),
-					childrenUnder2: Number(values.childrenUnder2),
-					adventures: []
+					childrenUnder3: Number(values.childrenUnder3),
+					adventures: [],
+					durationDays: []
 				}}
 				compact={Boolean(values.compact)}
+				showDuration={Boolean(values.showDuration)}
 			/>
 		</div>
 	{/snippet}

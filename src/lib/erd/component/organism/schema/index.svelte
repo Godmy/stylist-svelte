@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import SchemaText from '$stylist/erd/component/organism/schema-text/index.svelte';
 	import SchemaHeader from '$stylist/erd/component/organism/schema-header/index.svelte';
 	import SchemaView from '$stylist/erd/component/organism/schema-view/index.svelte';
@@ -7,7 +8,11 @@
 
 	let props: RecipeSchema = $props();
 
-	const state = createSchemaState(props);
+	// `props` itself is a stable reactive proxy -- handing the reference to
+	// the factory doesn't need to re-run when a prop changes, only the
+	// $derived reads *inside* createSchemaState do. untrack() says exactly
+	// that instead of tripping "did you mean a closure?" (state_referenced_locally).
+	const state = createSchemaState(untrack(() => props));
 </script>
 
 <section class="schema">
@@ -32,6 +37,7 @@
 		layout={state.currentLayout}
 		mode={state.currentMode}
 		textPanelVisible={state.textPanelVisible}
+		persistLayout={props.persistLayout ?? false}
 		on:import={state.importSchema}
 		on:export={state.exportSchema}
 		on:zoom-in={state.zoomIn}
@@ -42,17 +48,21 @@
 		on:toggle-highlight={(event) => state.setRelationHighlight(event.detail.enabled)}
 		on:mode-change={(event) => state.setMode(event.detail.mode)}
 		on:toggle-text-panel={(event) => state.setTextPanelVisible(event.detail.visible)}
+		on:save-layout={state.saveLayout}
+		on:reset-layout={state.resetLayout}
 	/>
 
 	<div class={`schema__workspace ${state.textPanelVisible ? '' : 'schema__workspace--full'}`}>
 		<div class="schema__view">
 			<SchemaView
+				bind:this={state.schemaView}
 				document={state.parseResult.document}
 				zoom={state.currentZoom}
 				showRelations={state.relationsVisible}
 				highlightRelations={state.relationHighlight}
 				layout={state.currentLayout}
 				draggable={props.draggable ?? true}
+				persistLayout={props.persistLayout ?? false}
 			/>
 		</div>
 

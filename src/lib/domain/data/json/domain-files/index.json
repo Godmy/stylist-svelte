@@ -297,7 +297,7 @@
     },
     {
       "name": "booking",
-      "fileCount": 49,
+      "fileCount": 50,
       "components": {
         "atoms": 1,
         "molecules": 9,
@@ -308,7 +308,7 @@
       "clusters": [
         {
           "name": "component",
-          "fileCount": 43,
+          "fileCount": 41,
           "joints": [
             {
               "name": "atom",
@@ -318,7 +318,7 @@
             {
               "name": "molecule",
               "entityCount": 9,
-              "fileCount": 28
+              "fileCount": 26
             },
             {
               "name": "organism",
@@ -329,12 +329,12 @@
         },
         {
           "name": "function",
-          "fileCount": 2,
+          "fileCount": 5,
           "joints": [
             {
               "name": "script",
-              "entityCount": 1,
-              "fileCount": 2
+              "entityCount": 3,
+              "fileCount": 4
             }
           ]
         },
@@ -3083,8 +3083,63 @@
       ]
     },
     {
+      "name": "spanish",
+      "fileCount": 30,
+      "components": {
+        "atoms": 4,
+        "molecules": 4,
+        "organisms": 5,
+        "templates": 0,
+        "pages": 1
+      },
+      "clusters": [
+        {
+          "name": "component",
+          "fileCount": 28,
+          "joints": [
+            {
+              "name": "atom",
+              "entityCount": 4,
+              "fileCount": 8
+            },
+            {
+              "name": "molecule",
+              "entityCount": 4,
+              "fileCount": 8
+            },
+            {
+              "name": "organism",
+              "entityCount": 5,
+              "fileCount": 10
+            },
+            {
+              "name": "page",
+              "entityCount": 1,
+              "fileCount": 2
+            }
+          ]
+        },
+        {
+          "name": "data",
+          "fileCount": 2,
+          "joints": [
+            {
+              "name": "jpg",
+              "entityCount": 1,
+              "fileCount": 1
+            },
+            {
+              "name": "md",
+              "entityCount": 1,
+              "fileCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "svg",
-      "fileCount": 706,
+      "fileCount": 708,
       "components": {
         "atoms": 3,
         "molecules": 0,
@@ -3117,7 +3172,7 @@
         },
         {
           "name": "data",
-          "fileCount": 671,
+          "fileCount": 673,
           "joints": [
             {
               "name": "flag",
@@ -3126,8 +3181,8 @@
             },
             {
               "name": "icon",
-              "entityCount": 661,
-              "fileCount": 661
+              "entityCount": 663,
+              "fileCount": 663
             }
           ]
         },
@@ -3596,10 +3651,10 @@
     },
     {
       "name": "travel-commerce",
-      "fileCount": 149,
+      "fileCount": 155,
       "components": {
         "atoms": 1,
-        "molecules": 16,
+        "molecules": 17,
         "organisms": 16,
         "templates": 5,
         "pages": 0
@@ -3607,7 +3662,7 @@
       "clusters": [
         {
           "name": "component",
-          "fileCount": 119,
+          "fileCount": 121,
           "joints": [
             {
               "name": "atom",
@@ -3616,8 +3671,8 @@
             },
             {
               "name": "molecule",
-              "entityCount": 16,
-              "fileCount": 49
+              "entityCount": 17,
+              "fileCount": 51
             },
             {
               "name": "organism",
@@ -3633,7 +3688,7 @@
         },
         {
           "name": "const",
-          "fileCount": 10,
+          "fileCount": 12,
           "joints": [
             {
               "name": "array",
@@ -3642,8 +3697,19 @@
             },
             {
               "name": "preset",
-              "entityCount": 6,
-              "fileCount": 7
+              "entityCount": 8,
+              "fileCount": 9
+            }
+          ]
+        },
+        {
+          "name": "data",
+          "fileCount": 2,
+          "joints": [
+            {
+              "name": "jpg",
+              "entityCount": 1,
+              "fileCount": 2
             }
           ]
         },
@@ -4182,12 +4248,12 @@
     }
   ],
   "totals": {
-    "domains": 49,
-    "files": 5864,
-    "atoms": 193,
-    "molecules": 256,
-    "organisms": 267,
+    "domains": 50,
+    "files": 5903,
+    "atoms": 197,
+    "molecules": 261,
+    "organisms": 272,
     "templates": 20,
-    "pages": 3
+    "pages": 4
   }
 }

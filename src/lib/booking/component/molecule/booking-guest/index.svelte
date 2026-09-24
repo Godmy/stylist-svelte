@@ -5,12 +5,12 @@
 		adults?: number;
 		seniors?: number;
 		children?: number;
-		childrenUnder2?: number;
+		childrenUnder3?: number;
 		childrenTeen?: number;
 		onAdultsChange?: (value: number) => void;
 		onSeniorsChange?: (value: number) => void;
 		onChildrenChange?: (value: number) => void;
-		onChildrenUnder2Change?: (value: number) => void;
+		onChildrenUnder3Change?: (value: number) => void;
 		onChildrenTeenChange?: (value: number) => void;
 		/** Размер подписи (любое CSS-значение font-size) */
 		textSize?: string;
@@ -24,12 +24,12 @@
 		adults = 2,
 		seniors = 0,
 		children = 0,
-		childrenUnder2 = 0,
+		childrenUnder3 = 0,
 		childrenTeen = 0,
 		onAdultsChange,
 		onSeniorsChange,
 		onChildrenChange,
-		onChildrenUnder2Change,
+		onChildrenUnder3Change,
 		onChildrenTeenChange,
 		textSize = '1rem',
 		background,
@@ -70,13 +70,13 @@
 		/>
 	</div>
 	<div class="tc-booking-guest__row" style:gap={gap}>
-		<span class="tc-booking-guest__label" style:font-size={textSize}>Дети до 2 лет</span>
+		<span class="tc-booking-guest__label" style:font-size={textSize}>Дети до 3 лет</span>
 		<InputStepper
-			value={childrenUnder2}
+			value={childrenUnder3}
 			min={0}
 			max={8}
-			label="Дети до 2 лет"
-			onChange={(value) => onChildrenUnder2Change?.(value)}
+			label="Дети до 3 лет"
+			onChange={(value) => onChildrenUnder3Change?.(value)}
 		/>
 	</div>
 </div>

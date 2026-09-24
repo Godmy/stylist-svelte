@@ -2,37 +2,113 @@
 	import type { Excursion } from '$stylist/travel-commerce/type/object/excursion';
 	import type { TourGalleryImage } from '$stylist/travel-commerce/type/object/tour-gallery-image';
 	import type { TourRouteStop } from '$stylist/travel-commerce/type/object/tour-route-stop';
+	import type { TourAddon } from '$stylist/travel-commerce/type/object/tour-addon';
 	import type { MediaSliderSlide } from '$stylist/animation/type/object/media-slider';
 	import MediaSlider from '$stylist/animation/component/organism/media-slider/index.svelte';
 	import BookingBridge from '$stylist/booking/component/organism/booking-bridge/index.svelte';
+	import BookingAccordion from '$stylist/booking/component/organism/booking-accordion/index.svelte';
+	import BookingGuest from '$stylist/booking/component/molecule/booking-guest/index.svelte';
 	import type { BookingDraft } from '$stylist/booking/type/object/booking-draft';
 	import logoImage from '$stylist/travel-commerce/data/jpg/logo/logo.png';
 
-	export type ContentSection = {
-		type: 'text' | 'image' | 'text-image' | 'highlights' | 'itinerary';
-		heading?: string;
-		text?: string;
+	export type DayContentBlock = {
+		text: string;
+		images: [TourGalleryImage, TourGalleryImage]; // always 2 images
+	};
+
+	export type DaySection = {
+		type: 'day';
+		dayNumber: number;
+		title: string;
+		blocks: DayContentBlock[];
+	};
+
+	export type HotelSection = {
+		type: 'hotel';
+		name: string;
+		description: string;
 		image?: TourGalleryImage;
-		items?: string[];
-		stops?: TourRouteStop[];
-		layout?: 'left' | 'right'; // для text-image
+	};
+
+	export type IncludedSection = {
+		type: 'included';
+		items: string[];
+		/** «Не входит» — rendered alongside `items` when present. */
+		excludedItems?: string[];
+	};
+
+	export type WhatToBringSection = {
+		type: 'what-to-bring';
+		items: string[];
+	};
+
+	export type HighlightsSection = {
+		type: 'highlights';
+		items: string[];
+	};
+
+	export type RouteStopsSection = {
+		type: 'route-stops';
+		stops: TourRouteStop[];
+	};
+
+	export type AddonsSection = {
+		type: 'addons';
+		items: TourAddon[];
+	};
+
+	export type ImportantInfoSection = {
+		type: 'important-info';
+		items: string[];
+		schedule?: { label: string; value: string }[];
+	};
+
+	export type ContentSection =
+		| DaySection
+		| HotelSection
+		| IncludedSection
+		| WhatToBringSection
+		| HighlightsSection
+		| RouteStopsSection
+		| AddonsSection
+		| ImportantInfoSection;
+
+	/** Everything needed to compute the one price shown on the page, reactively, from the guest picker below. Cents are integer US cents, same convention as the rest of the site. */
+	export type PricingModel = {
+		priceUnit: 'per_person' | 'per_tour';
+		/** Adult per-person rate (`per_person`) or the total price at the smallest listed group size (`per_tour`). */
+		basePriceCents: number;
+		/** Child (~5-12) rate — `per_person` tours only. Falls back to the adult rate when absent. */
+		childPriceCents?: number;
+		/** `per_tour` tours only — total price by headcount, smallest group first. */
+		groupPricing?: { participants: number; priceCents: number }[];
+		/** Percent off the adult per-person rate for each senior (пенсионер), e.g. `10` for 10%. */
+		seniorDiscountPercent: number;
 	};
 
 	type Props = {
 		excursion: Excursion;
 		gallery: TourGalleryImage[];
 		content?: ContentSection[];
-		pricing?: {
-			adult: string;
-			child?: string;
-		};
+		pricing: PricingModel;
+		/** The booking draft driving both the sticky top widget and the price picker below — bind this to a host-level store so it arrives pre-filled from wherever the visitor came from (e.g. the landing page's own booking bar) instead of always restarting at the defaults. */
+		bookingValue?: BookingDraft;
 	};
 
 	let {
 		excursion,
 		gallery,
 		content = [],
-		pricing
+		pricing,
+		bookingValue = $bindable({
+			pickup: 'Галле',
+			date: '',
+			adults: 2,
+			seniors: 0,
+			children: 0,
+			childrenUnder3: 0,
+			childrenTeen: 0
+		})
 	}: Props = $props();
 
 	// Prepare slides from gallery - captions will be shown as marquee ticker inside MediaSlider
@@ -46,8 +122,41 @@
 		}))
 	);
 
-	// Booking state
-	let bookingValue = $state<BookingDraft>({ pickup: 'Галле', date: '', adults: 2, children: 0 });
+	function formatUsdCents(cents: number): string {
+		return `${Math.round(cents / 100).toLocaleString('ru-RU')} $`;
+	}
+
+	// Same `bookingValue` drives both the sticky top widget and this total —
+	// pick "3 человека" in either place and both agree.
+	const totalPriceCents = $derived.by(() => {
+		const adults = bookingValue.adults;
+		const seniors = bookingValue.seniors ?? 0;
+		const children = bookingValue.children;
+		const childrenTeen = bookingValue.childrenTeen ?? 0;
+		const discount = pricing.seniorDiscountPercent / 100;
+
+		if (pricing.priceUnit === 'per_person') {
+			const adultRate = pricing.basePriceCents;
+			const childRate = pricing.childPriceCents ?? adultRate;
+			const seniorRate = Math.round(adultRate * (1 - discount));
+			// Teens (13-18) charged at the adult rate, under-3s (bookingValue.childrenUnder3) ride free — no
+			// separate rate exists for either in the tour pricing data.
+			return adults * adultRate + seniors * seniorRate + children * childRate + childrenTeen * adultRate;
+		}
+
+		// per_tour: total is looked up by headcount from `groupPricing`, then
+		// each senior's per-person share of that total is discounted.
+		const headcount = Math.max(1, adults + seniors + children + childrenTeen);
+		const table =
+			pricing.groupPricing && pricing.groupPricing.length > 0
+				? [...pricing.groupPricing].sort((a, b) => a.participants - b.participants)
+				: [{ participants: headcount, priceCents: pricing.basePriceCents }];
+		const row =
+			table.find((r) => r.participants === headcount) ??
+			(headcount < table[0].participants ? table[0] : table[table.length - 1]);
+		const perPersonShare = row.priceCents / row.participants;
+		return Math.round(row.priceCents - seniors * perPersonShare * discount);
+	});
 </script>
 
 <main class="tc-travel-product">
@@ -58,7 +167,7 @@
 		autoPlayInterval={5000}
 		showControls
 		showIndicators
-		aria-label={excursion.title}
+		ariaLabel={excursion.title}
 	/>
 
 	<!-- Brand Logo - overlays the wave -->
@@ -66,42 +175,90 @@
 		<img src={logoImage} alt="ЛанкаТур - Экскурсии на Шри-Ланке" class="tc-travel-product__logo" />
 	</div>
 
-	<!-- Booking Bridge -->
-	<BookingBridge progress={1} value={bookingValue} />
+	<!-- Booking Bridge (desktop) -->
+	<div class="tc-travel-product__booking-desktop">
+		<BookingBridge progress={1} bind:value={bookingValue} showDuration={false} />
+	</div>
 
-	<!-- Main Content: text with images interspersed -->
+	<!-- Booking Accordion (mobile) -->
+	<div class="tc-travel-product__booking-mobile">
+		<BookingAccordion bind:value={bookingValue} showAdventures={false} showDuration={false} />
+	</div>
+
+	<!-- Main Content: blog-style tour description -->
 	<div class="tc-travel-product__content">
+		<!-- Tour Header -->
+		<header class="tc-travel-product__header">
+			<h1 class="tc-travel-product__title">{excursion.title}</h1>
+			<p class="tc-travel-product__duration">{excursion.duration}</p>
+			{#if excursion.tags.length > 0}
+				<div class="tc-travel-product__badges">
+					{#each excursion.tags as tag}
+						<span class="tc-travel-product__badge">{tag}</span>
+					{/each}
+				</div>
+			{/if}
+		</header>
+
+		<hr class="tc-travel-product__divider" />
+
+		<!-- Content Sections -->
 		{#each content as section, index (index)}
-			{#if section.type === 'text'}
-				<section class="tc-travel-product__text-section">
-					{#if section.heading}
-						<h2>{section.heading}</h2>
-					{/if}
-					{#if section.text}
-						<p>{section.text}</p>
-					{/if}
+			{#if section.type === 'highlights'}
+				<section class="tc-travel-product__highlights">
+					<h2>Кратко о туре</h2>
+					<ul>
+						{#each section.items as item}
+							<li>{item}</li>
+						{/each}
+					</ul>
 				</section>
-			{:else if section.type === 'image'}
-				<figure class="tc-travel-product__image-section">
+			{:else if section.type === 'route-stops'}
+				<section class="tc-travel-product__route-stops">
+					<h2>Маршрут по точкам</h2>
+					<ol class="tc-travel-product__route-list">
+						{#each section.stops as stop}
+							<li class="tc-travel-product__route-stop">
+								<div class="tc-travel-product__route-stop-head">
+									<span class="tc-travel-product__route-stop-title">{stop.title}</span>
+									{#if stop.duration}
+										<span class="tc-travel-product__route-stop-duration">{stop.duration}</span>
+									{/if}
+								</div>
+								<p class="tc-travel-product__route-stop-description">{stop.description}</p>
+							</li>
+						{/each}
+					</ol>
+				</section>
+			{:else if section.type === 'day'}
+				<section class="tc-travel-product__day">
+					<h2 class="tc-travel-product__day-title">День {section.dayNumber}. {section.title}</h2>
+					{#each section.blocks as block}
+						<div class="tc-travel-product__day-block">
+							<p class="tc-travel-product__day-text">{block.text}</p>
+							<div class="tc-travel-product__day-images">
+								<figure class="tc-travel-product__day-image">
+									<img src={block.images[0].src} alt={block.images[0].alt} />
+									{#if block.images[0].caption}
+										<figcaption>{block.images[0].caption}</figcaption>
+									{/if}
+								</figure>
+								<figure class="tc-travel-product__day-image">
+									<img src={block.images[1].src} alt={block.images[1].alt} />
+									{#if block.images[1].caption}
+										<figcaption>{block.images[1].caption}</figcaption>
+									{/if}
+								</figure>
+							</div>
+						</div>
+					{/each}
+				</section>
+			{:else if section.type === 'hotel'}
+				<section class="tc-travel-product__hotel">
+					<h3 class="tc-travel-product__hotel-title">{section.name}</h3>
+					<p class="tc-travel-product__hotel-description">{section.description}</p>
 					{#if section.image}
-						<img src={section.image.src} alt={section.image.alt} />
-						{#if section.image.caption}
-							<figcaption>{section.image.caption}</figcaption>
-						{/if}
-					{/if}
-				</figure>
-			{:else if section.type === 'text-image'}
-				<section class="tc-travel-product__text-image-section" data-layout={section.layout ?? 'left'}>
-					<div class="tc-travel-product__text-image-text">
-						{#if section.heading}
-							<h2>{section.heading}</h2>
-						{/if}
-						{#if section.text}
-							<p>{section.text}</p>
-						{/if}
-					</div>
-					{#if section.image}
-						<figure class="tc-travel-product__text-image-figure">
+						<figure class="tc-travel-product__hotel-image">
 							<img src={section.image.src} alt={section.image.alt} />
 							{#if section.image.caption}
 								<figcaption>{section.image.caption}</figcaption>
@@ -109,38 +266,102 @@
 						</figure>
 					{/if}
 				</section>
-			{:else if section.type === 'highlights' && section.items}
-				<section class="tc-travel-product__highlights">
-					{#if section.heading}
-						<h2>{section.heading}</h2>
+			{:else if section.type === 'included'}
+				<section class="tc-travel-product__included">
+					<div class="tc-travel-product__included-col">
+						<h2>Что входит в экскурсию</h2>
+						<ul>
+							{#each section.items as item}
+								<li>{item}</li>
+							{/each}
+						</ul>
+					</div>
+					{#if section.excludedItems && section.excludedItems.length > 0}
+						<div class="tc-travel-product__included-col tc-travel-product__included-col--excluded">
+							<h2>Не входит</h2>
+							<ul>
+								{#each section.excludedItems as item}
+									<li>{item}</li>
+								{/each}
+							</ul>
+						</div>
 					{/if}
+				</section>
+			{:else if section.type === 'addons'}
+				<section class="tc-travel-product__addons">
+					<h2>Допники и замены</h2>
+					<div class="tc-travel-product__addons-grid">
+						{#each section.items as addon (addon.id)}
+							<div class="tc-travel-product__addon">
+								<div class="tc-travel-product__addon-head">
+									<span class="tc-travel-product__addon-label">{addon.label}</span>
+									<span class="tc-travel-product__addon-price">{addon.price}</span>
+								</div>
+								{#if addon.description}
+									<p class="tc-travel-product__addon-description">{addon.description}</p>
+								{/if}
+							</div>
+						{/each}
+					</div>
+				</section>
+			{:else if section.type === 'what-to-bring'}
+				<section class="tc-travel-product__what-to-bring">
+					<h2>Что взять с собой</h2>
 					<ul>
 						{#each section.items as item}
 							<li>{item}</li>
 						{/each}
 					</ul>
 				</section>
+			{:else if section.type === 'important-info'}
+				<section class="tc-travel-product__important-info">
+					<h2>Важно знать</h2>
+					{#if section.schedule && section.schedule.length > 0}
+						<dl class="tc-travel-product__schedule">
+							{#each section.schedule as row}
+								<div class="tc-travel-product__schedule-row">
+									<dt>{row.label}</dt>
+									<dd>{row.value}</dd>
+								</div>
+							{/each}
+						</dl>
+					{/if}
+					{#if section.items.length > 0}
+						<ul>
+							{#each section.items as item}
+								<li>{item}</li>
+							{/each}
+						</ul>
+					{/if}
+				</section>
 			{/if}
 		{/each}
 
 		<!-- Pricing Section -->
-		{#if pricing}
-			<section class="tc-travel-product__pricing">
-				<h2>Цены</h2>
-				<div class="tc-travel-product__pricing-grid">
-					<div class="tc-travel-product__price-item">
-						<span class="tc-travel-product__price-label">Взрослые</span>
-						<span class="tc-travel-product__price-value">{pricing.adult}</span>
-					</div>
-					{#if pricing.child}
-						<div class="tc-travel-product__price-item">
-							<span class="tc-travel-product__price-label">Дети (5-12 лет)</span>
-							<span class="tc-travel-product__price-value">{pricing.child}</span>
-						</div>
-					{/if}
-				</div>
-			</section>
-		{/if}
+		<section class="tc-travel-product__pricing">
+			<h2>Стоимость</h2>
+			<p class="tc-travel-product__pricing-hint">
+				Цена зависит от числа участников{pricing.seniorDiscountPercent > 0
+					? ` — пенсионерам скидка ${pricing.seniorDiscountPercent}%`
+					: ''}.
+			</p>
+			<BookingGuest
+				adults={bookingValue.adults}
+				seniors={bookingValue.seniors ?? 0}
+				children={bookingValue.children}
+				childrenUnder3={bookingValue.childrenUnder3 ?? 0}
+				childrenTeen={bookingValue.childrenTeen ?? 0}
+				onAdultsChange={(value) => (bookingValue = { ...bookingValue, adults: value })}
+				onSeniorsChange={(value) => (bookingValue = { ...bookingValue, seniors: value })}
+				onChildrenChange={(value) => (bookingValue = { ...bookingValue, children: value })}
+				onChildrenUnder3Change={(value) => (bookingValue = { ...bookingValue, childrenUnder3: value })}
+				onChildrenTeenChange={(value) => (bookingValue = { ...bookingValue, childrenTeen: value })}
+			/>
+			<div class="tc-travel-product__price-total">
+				<span class="tc-travel-product__price-total-label">Итого</span>
+				<span class="tc-travel-product__price-total-value">{formatUsdCents(totalPriceCents)}</span>
+			</div>
+		</section>
 	</div>
 </main>
 
@@ -155,8 +376,9 @@
 	.tc-travel-product__brand {
 		position: relative;
 		z-index: 10;
-		margin-top: -12rem;
-		padding: 0 2rem 1rem;
+		margin-top: -24rem;
+		margin-bottom: 0;
+		padding: 0 2rem 8rem;
 		text-align: center;
 		pointer-events: none;
 	}
@@ -168,9 +390,34 @@
 		margin: 0 auto;
 	}
 
+	/* Desktop booking bar - preserve sticky context */
+	.tc-travel-product__booking-desktop {
+		display: block;
+		position: sticky;
+		top: 0;
+		z-index: 30;
+	}
+
+	/* Mobile booking accordion */
+	.tc-travel-product__booking-mobile {
+		display: none;
+	}
+
 	@media (max-width: 768px) {
+		/* Hide desktop booking bar on mobile */
+		.tc-travel-product__booking-desktop {
+			display: none;
+		}
+
+		/* Show mobile booking accordion */
+		.tc-travel-product__booking-mobile {
+			display: block;
+			padding: clamp(0.75rem, 3vw, 1.25rem) 0 2rem;
+		}
 		.tc-travel-product__brand {
-			margin-top: -8rem;
+			margin-top: -16rem;
+			margin-bottom: 0;
+			padding-bottom: 5rem;
 		}
 
 		.tc-travel-product__logo {
@@ -179,283 +426,493 @@
 	}
 
 	.tc-travel-product__content {
-		max-width: 1200px;
+		max-width: 900px;
 		margin: 0 auto;
-		padding: 3rem 2rem 4rem;
-		display: grid;
-		gap: 4rem;
-	}
-
-	/* Text Section */
-	.tc-travel-product__text-section h2 {
-		margin: 0 0 1rem;
-		font-size: clamp(1.8rem, 4vw, 2.5rem);
-		line-height: 1.2;
-		color: #17231f;
-	}
-
-	.tc-travel-product__text-section p {
-		margin: 0;
-		font-size: clamp(1.05rem, 2vw, 1.2rem);
-		line-height: 1.7;
-		color: rgba(23, 35, 31, 0.82);
-		max-width: 68ch;
-		white-space: pre-line;
-	}
-
-	/* Image Section */
-	.tc-travel-product__image-section {
-		margin: 0;
-		border-radius: 1rem;
-		overflow: hidden;
-		background: #17231f;
-	}
-
-	.tc-travel-product__image-section img {
-		width: 100%;
-		height: auto;
-		display: block;
-	}
-
-	.tc-travel-product__image-section figcaption {
-		padding: 1rem 1.5rem;
-		color: rgba(247, 243, 236, 0.85);
-		font-size: 0.95rem;
-		font-style: italic;
-	}
-
-	/* Text + Image Section */
-	.tc-travel-product__text-image-section {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+		padding: 2rem 1.5rem 4rem;
+		display: flex;
+		flex-direction: column;
 		gap: 3rem;
-		align-items: center;
 	}
 
-	.tc-travel-product__text-image-section[data-layout='right'] {
-		grid-template-columns: 1fr 1fr;
-		direction: rtl;
+	/* Tour Header */
+	.tc-travel-product__header {
+		text-align: center;
+		padding: 1rem 0;
 	}
 
-	.tc-travel-product__text-image-section[data-layout='right'] > * {
-		direction: ltr;
-	}
-
-	.tc-travel-product__text-image-text h2 {
-		margin: 0 0 1rem;
-		font-size: clamp(1.5rem, 3vw, 2rem);
+	.tc-travel-product__title {
+		margin: 0 0 0.5rem;
+		font-size: clamp(1.8rem, 5vw, 2.8rem);
 		line-height: 1.2;
+		font-weight: 800;
 		color: #17231f;
 	}
 
-	.tc-travel-product__text-image-text p {
+	.tc-travel-product__duration {
 		margin: 0;
-		font-size: clamp(1rem, 2vw, 1.15rem);
-		line-height: 1.65;
-		color: rgba(23, 35, 31, 0.8);
-		white-space: pre-line;
+		font-size: clamp(1rem, 2vw, 1.2rem);
+		color: rgba(23, 35, 31, 0.65);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
 	}
 
-	.tc-travel-product__text-image-figure {
-		margin: 0;
-		border-radius: 0.75rem;
-		overflow: hidden;
-		background: #17231f;
+	.tc-travel-product__badges {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5rem;
+		margin-top: 0.85rem;
 	}
 
-	.tc-travel-product__text-image-figure img {
-		width: 100%;
-		height: auto;
-		display: block;
+	.tc-travel-product__badge {
+		padding: 0.3rem 0.85rem;
+		border-radius: 999px;
+		background: rgba(26, 138, 134, 0.12);
+		color: #146663;
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
 	}
 
-	.tc-travel-product__text-image-figure figcaption {
-		padding: 0.75rem 1rem;
-		color: rgba(247, 243, 236, 0.85);
-		font-size: 0.9rem;
-		font-style: italic;
+	.tc-travel-product__divider {
+		border: 0;
+		height: 2px;
+		background: linear-gradient(to right, transparent, rgba(23, 35, 31, 0.2), transparent);
+		margin: 1rem 0 2rem;
 	}
 
-	/* Highlights Section */
+	/* Highlights */
 	.tc-travel-product__highlights {
-		background: rgba(255, 255, 255, 0.5);
-		border-radius: 1rem;
-		padding: 2.5rem;
+		background: rgba(26, 138, 134, 0.08);
+		border-radius: 0.75rem;
+		padding: 1.75rem 2rem;
 	}
 
 	.tc-travel-product__highlights h2 {
-		margin: 0 0 1.5rem;
-		font-size: clamp(1.5rem, 3vw, 2rem);
+		margin: 0 0 1rem;
+		font-size: clamp(1.3rem, 3vw, 1.6rem);
 		color: #17231f;
+		font-weight: 700;
 	}
 
 	.tc-travel-product__highlights ul {
 		margin: 0;
-		padding: 0 0 0 1.5rem;
-		display: grid;
-		gap: 0.75rem;
+		padding: 0 0 0 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
 	}
 
 	.tc-travel-product__highlights li {
 		font-size: clamp(1rem, 2vw, 1.1rem);
 		line-height: 1.6;
+		font-weight: 600;
+		color: #146663;
+	}
+
+	/* Route stops */
+	.tc-travel-product__route-stops {
+		background: rgba(255, 255, 255, 0.5);
+		border-radius: 0.75rem;
+		padding: 2rem;
+	}
+
+	.tc-travel-product__route-stops h2 {
+		margin: 0 0 1.25rem;
+		font-size: clamp(1.4rem, 3vw, 1.8rem);
+		color: #17231f;
+		font-weight: 700;
+	}
+
+	.tc-travel-product__route-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+	}
+
+	.tc-travel-product__route-stop {
+		padding: 0.9rem 1rem;
+		background: rgba(255, 255, 255, 0.5);
+	}
+
+	.tc-travel-product__route-stop:first-child {
+		border-radius: 0.5rem 0.5rem 0 0;
+	}
+
+	.tc-travel-product__route-stop:last-child {
+		border-radius: 0 0 0.5rem 0.5rem;
+	}
+
+	.tc-travel-product__route-stop-head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.tc-travel-product__route-stop-title {
+		font-weight: 700;
+		color: #17231f;
+	}
+
+	.tc-travel-product__route-stop-duration {
+		flex-shrink: 0;
+		font-size: 0.85rem;
+		color: rgba(23, 35, 31, 0.55);
+		font-weight: 600;
+	}
+
+	.tc-travel-product__route-stop-description {
+		margin: 0.35rem 0 0;
+		font-size: 0.95rem;
+		line-height: 1.5;
+		color: rgba(23, 35, 31, 0.75);
+	}
+
+	/* Day Section */
+	.tc-travel-product__day {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.tc-travel-product__day-title {
+		margin: 0;
+		font-size: clamp(1.5rem, 4vw, 2rem);
+		line-height: 1.3;
+		font-weight: 700;
+		color: #17231f;
+		border-left: 4px solid #1a8a86;
+		padding-left: 1rem;
+	}
+
+	.tc-travel-product__day-block {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.tc-travel-product__day-text {
+		margin: 0;
+		font-size: clamp(1rem, 2vw, 1.15rem);
+		line-height: 1.7;
+		color: rgba(23, 35, 31, 0.85);
+	}
+
+	.tc-travel-product__day-images {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.tc-travel-product__day-image {
+		margin: 0;
+		border-radius: 0.5rem;
+		overflow: hidden;
+		background: #17231f;
+	}
+
+	.tc-travel-product__day-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		aspect-ratio: 4/3;
+	}
+
+	.tc-travel-product__day-image figcaption {
+		padding: 0.5rem 0.75rem;
+		color: rgba(247, 243, 236, 0.9);
+		font-size: 0.85rem;
+		font-style: italic;
+	}
+
+	/* Hotel Section */
+	.tc-travel-product__hotel {
+		background: rgba(255, 255, 255, 0.6);
+		border-radius: 0.75rem;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.tc-travel-product__hotel-title {
+		margin: 0;
+		font-size: clamp(1.3rem, 3vw, 1.6rem);
+		color: #17231f;
+		font-weight: 700;
+	}
+
+	.tc-travel-product__hotel-description {
+		margin: 0;
+		font-size: clamp(1rem, 2vw, 1.1rem);
+		line-height: 1.6;
 		color: rgba(23, 35, 31, 0.8);
 	}
 
+	.tc-travel-product__hotel-image {
+		margin: 1rem 0 0;
+		border-radius: 0.5rem;
+		overflow: hidden;
+	}
+
+	.tc-travel-product__hotel-image img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	/* Included / Excluded & What to Bring */
+	.tc-travel-product__included,
+	.tc-travel-product__what-to-bring {
+		background: rgba(255, 255, 255, 0.5);
+		border-radius: 0.75rem;
+		padding: 2rem;
+	}
+
+	.tc-travel-product__included {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+
+	.tc-travel-product__included h2,
+	.tc-travel-product__what-to-bring h2 {
+		margin: 0 0 1.5rem;
+		font-size: clamp(1.4rem, 3vw, 1.8rem);
+		color: #17231f;
+		font-weight: 700;
+	}
+
+	.tc-travel-product__included-col--excluded h2 {
+		color: rgba(23, 35, 31, 0.6);
+	}
+
+	.tc-travel-product__included ul,
+	.tc-travel-product__what-to-bring ul {
+		margin: 0;
+		padding: 0 0 0 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.tc-travel-product__included li,
+	.tc-travel-product__what-to-bring li {
+		font-size: clamp(1rem, 2vw, 1.1rem);
+		line-height: 1.6;
+		color: rgba(23, 35, 31, 0.82);
+	}
+
+	.tc-travel-product__included-col--excluded li {
+		color: rgba(23, 35, 31, 0.6);
+	}
+
+	/* Addons & surcharges */
+	.tc-travel-product__addons {
+		background: rgba(242, 138, 0, 0.08);
+		border-radius: 0.75rem;
+		padding: 2rem;
+	}
+
+	.tc-travel-product__addons h2 {
+		margin: 0 0 1.25rem;
+		font-size: clamp(1.4rem, 3vw, 1.8rem);
+		color: #17231f;
+		font-weight: 700;
+	}
+
+	.tc-travel-product__addons-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 1rem;
+	}
+
+	.tc-travel-product__addon {
+		background: rgba(255, 255, 255, 0.6);
+		border: 1px solid rgba(23, 35, 31, 0.1);
+		border-radius: 0.6rem;
+		padding: 1.1rem 1.25rem;
+	}
+
+	.tc-travel-product__addon-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 0.75rem;
+	}
+
+	.tc-travel-product__addon-label {
+		font-weight: 700;
+		color: #17231f;
+	}
+
+	.tc-travel-product__addon-price {
+		flex-shrink: 0;
+		font-weight: 700;
+		color: #f28a00;
+		text-align: right;
+	}
+
+	.tc-travel-product__addon-description {
+		margin: 0.4rem 0 0;
+		font-size: 0.92rem;
+		line-height: 1.5;
+		color: rgba(23, 35, 31, 0.7);
+	}
+
+	/* Important info & schedule */
+	.tc-travel-product__important-info {
+		background: rgba(255, 255, 255, 0.5);
+		border-radius: 0.75rem;
+		padding: 2rem;
+	}
+
+	.tc-travel-product__important-info h2 {
+		margin: 0 0 1.25rem;
+		font-size: clamp(1.4rem, 3vw, 1.8rem);
+		color: #17231f;
+		font-weight: 700;
+	}
+
+	.tc-travel-product__schedule {
+		margin: 0 0 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.tc-travel-product__schedule-row {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.6rem 0;
+		border-bottom: 1px solid rgba(23, 35, 31, 0.1);
+	}
+
+	.tc-travel-product__schedule-row dt {
+		color: rgba(23, 35, 31, 0.6);
+	}
+
+	.tc-travel-product__schedule-row dd {
+		margin: 0;
+		font-weight: 600;
+		color: #17231f;
+	}
+
+	.tc-travel-product__important-info ul {
+		margin: 0;
+		padding: 0 0 0 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+	.tc-travel-product__important-info li {
+		font-size: 0.98rem;
+		line-height: 1.6;
+		color: rgba(23, 35, 31, 0.82);
+	}
+
+	/* Pricing */
 	.tc-travel-product__pricing {
 		background: rgba(255, 255, 255, 0.6);
 		border-radius: 0.75rem;
 		padding: 2rem;
 	}
 
-	.tc-travel-product__pricing-grid {
-		display: grid;
-		gap: 1rem;
+	.tc-travel-product__pricing h2 {
+		margin: 0 0 0.5rem;
+		font-size: clamp(1.4rem, 3vw, 1.8rem);
+		color: #17231f;
+		font-weight: 700;
 	}
 
-	.tc-travel-product__price-item {
+	.tc-travel-product__pricing-hint {
+		margin: 0 0 1.5rem;
+		color: rgba(23, 35, 31, 0.65);
+	}
+
+	.tc-travel-product__price-total {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 1rem;
-		background: rgba(255, 255, 255, 0.7);
+		margin-top: 1.5rem;
+		padding: 1.1rem 1.25rem;
+		background: rgba(255, 255, 255, 0.8);
 		border-radius: 0.5rem;
 		border: 1px solid rgba(23, 35, 31, 0.1);
 	}
 
-	.tc-travel-product__price-label {
-		font-size: 1.05rem;
+	.tc-travel-product__price-total-label {
+		font-size: 1.1rem;
+		font-weight: 600;
 		color: rgba(23, 35, 31, 0.75);
 	}
 
-	.tc-travel-product__price-value {
-		font-size: 1.3rem;
-		font-weight: 600;
+	.tc-travel-product__price-total-value {
+		font-size: 1.6rem;
+		font-weight: 800;
 		color: #17231f;
 	}
 
-	.tc-travel-product__pricing-note {
-		margin: 1rem 0 0;
-		font-size: 0.95rem;
-		color: rgba(23, 35, 31, 0.68);
-		font-style: italic;
-	}
-
-	.tc-travel-product__related-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-		gap: 1rem;
-	}
-
-	.tc-travel-product__sidebar {
-		position: sticky;
-		top: 1.5rem;
-	}
-
-	/*
-	 * Responsive Design — duplicated as both `@media` (real device viewport,
-	 * what actually renders on the live site) and `@container` (the Story
-	 * sandbox simulates device width via `container-type: inline-size` on an
-	 * ancestor, which plain `@media` can't see — see
-	 * theme/component/molecule/story/index.svelte). Keep both in sync.
-	 */
-	@media (max-width: 1024px) {
-		.tc-travel-product__content {
-			grid-template-columns: 1fr;
-			padding: 0 1.5rem 3rem;
-		}
-
-		.tc-travel-product__sidebar {
-			position: static;
-			max-width: 32rem;
-			margin: 0 auto;
-			width: 100%;
-		}
-	}
-
-	@container (max-width: 1024px) {
-		.tc-travel-product__content {
-			grid-template-columns: 1fr;
-			padding: 0 1.5rem 3rem;
-		}
-
-		.tc-travel-product__sidebar {
-			position: static;
-			max-width: 32rem;
-			margin: 0 auto;
-			width: 100%;
-		}
-	}
-
+	/* Responsive: Mobile */
 	@media (max-width: 768px) {
-		.tc-travel-product__hero {
-			min-height: 24rem;
-		}
-
-		.tc-travel-product__hero-caption {
-			padding: 2rem 1.5rem 1.5rem;
-		}
-
 		.tc-travel-product__content {
-			gap: 2rem;
-			padding: 0 1rem 2rem;
+			padding: 1.5rem 1rem 3rem;
+			gap: 2.5rem;
 		}
 
-		.tc-travel-product__article {
-			gap: 2rem;
+		.tc-travel-product__day-images {
+			grid-template-columns: 1fr;
 		}
 
-		.tc-travel-product__description {
-			font-size: 1.1rem;
-		}
-
-		.tc-travel-product__highlights {
-			padding: 1.5rem;
-		}
-
-		.tc-travel-product__inclusions {
+		.tc-travel-product__included {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
 		}
 
-		.tc-travel-product__related-grid {
-			grid-template-columns: 1fr;
+		.tc-travel-product__hotel,
+		.tc-travel-product__highlights,
+		.tc-travel-product__included,
+		.tc-travel-product__addons,
+		.tc-travel-product__what-to-bring,
+		.tc-travel-product__important-info,
+		.tc-travel-product__pricing {
+			padding: 1.5rem;
 		}
 	}
 
+	/* Container queries for Story sandbox */
 	@container (max-width: 768px) {
-		.tc-travel-product__hero {
-			min-height: 24rem;
-		}
-
-		.tc-travel-product__hero-caption {
-			padding: 2rem 1.5rem 1.5rem;
-		}
-
 		.tc-travel-product__content {
-			gap: 2rem;
-			padding: 0 1rem 2rem;
+			padding: 1.5rem 1rem 3rem;
+			gap: 2.5rem;
 		}
 
-		.tc-travel-product__article {
-			gap: 2rem;
+		.tc-travel-product__day-images {
+			grid-template-columns: 1fr;
 		}
 
-		.tc-travel-product__description {
-			font-size: 1.1rem;
-		}
-
-		.tc-travel-product__highlights {
-			padding: 1.5rem;
-		}
-
-		.tc-travel-product__inclusions {
+		.tc-travel-product__included {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
 		}
 
-		.tc-travel-product__related-grid {
-			grid-template-columns: 1fr;
+		.tc-travel-product__hotel,
+		.tc-travel-product__highlights,
+		.tc-travel-product__included,
+		.tc-travel-product__addons,
+		.tc-travel-product__what-to-bring,
+		.tc-travel-product__important-info,
+		.tc-travel-product__pricing {
+			padding: 1.5rem;
 		}
 	}
 </style>

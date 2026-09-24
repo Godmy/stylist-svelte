@@ -1477,6 +1477,47 @@
       ]
     },
     {
+      "name": "spanish",
+      "value": 14,
+      "atom": 4,
+      "molecule": 4,
+      "organism": 5,
+      "template": 0,
+      "page": 1,
+      "intervals": [
+        {
+          "name": "atom",
+          "value": 4,
+          "start": 0,
+          "end": 4
+        },
+        {
+          "name": "molecule",
+          "value": 4,
+          "start": 4,
+          "end": 8
+        },
+        {
+          "name": "organism",
+          "value": 5,
+          "start": 8,
+          "end": 13
+        },
+        {
+          "name": "template",
+          "value": 0,
+          "start": 13,
+          "end": 13
+        },
+        {
+          "name": "page",
+          "value": 1,
+          "start": 13,
+          "end": 14
+        }
+      ]
+    },
+    {
       "name": "svg",
       "value": 3,
       "atom": 3,
@@ -1683,9 +1724,9 @@
     },
     {
       "name": "travel-commerce",
-      "value": 38,
+      "value": 39,
       "atom": 1,
-      "molecule": 16,
+      "molecule": 17,
       "organism": 16,
       "template": 5,
       "page": 0,
@@ -1698,27 +1739,27 @@
         },
         {
           "name": "molecule",
-          "value": 16,
+          "value": 17,
           "start": 1,
-          "end": 17
+          "end": 18
         },
         {
           "name": "organism",
           "value": 16,
-          "start": 17,
-          "end": 33
+          "start": 18,
+          "end": 34
         },
         {
           "name": "template",
           "value": 5,
-          "start": 33,
-          "end": 38
+          "start": 34,
+          "end": 39
         },
         {
           "name": "page",
           "value": 0,
-          "start": 38,
-          "end": 38
+          "start": 39,
+          "end": 39
         }
       ]
     },
@@ -2011,12 +2052,12 @@
     }
   ],
   "totals": {
-    "domains": 49,
-    "components": 739,
-    "atoms": 193,
-    "molecules": 256,
-    "organisms": 267,
+    "domains": 50,
+    "components": 754,
+    "atoms": 197,
+    "molecules": 261,
+    "organisms": 272,
     "templates": 20,
-    "pages": 3
+    "pages": 4
   }
 }

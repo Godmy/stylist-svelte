@@ -7,6 +7,7 @@
 		ELEPHANTS_SIGIRIYA_EXCURSION,
 		ELEPHANTS_SIGIRIYA_GALLERY,
 		ELEPHANTS_SIGIRIYA_ROUTE_STOPS,
+		ELEPHANTS_SIGIRIYA_ADDONS,
 		ELEPHANTS_SIGIRIYA_HIGHLIGHTS,
 		ELEPHANTS_SIGIRIYA_INCLUDED,
 		ELEPHANTS_SIGIRIYA_EXCLUDED,
@@ -30,66 +31,99 @@
 		};
 	});
 
-	// Build content sections from preset data
+	// Build content sections in blog-style format
 	const content: ContentSection[] = [
-		// Introduction
-		{
-			type: 'text',
-			heading: 'О программе',
-			text: ELEPHANTS_SIGIRIYA_EXCURSION.summary
-		},
-
-		// Highlights
 		{
 			type: 'highlights',
-			heading: 'Что вас ждёт',
 			items: ELEPHANTS_SIGIRIYA_HIGHLIGHTS
 		},
 
-		// Day 1 overview with image
 		{
-			type: 'text-image',
-			heading: 'День 1: Путь через центральную часть острова',
-			text: 'Ранний выезд около 04:00. Посещение питомника слонов Пиннавела, сада специй, чайной фабрики и Королевского ботанического сада Перадении. Вечером прибытие в Канди, ужин и ночлег в отеле.',
-			image: ELEPHANTS_SIGIRIYA_GALLERY[4], // Peradeniya garden
-			layout: 'left'
+			type: 'route-stops',
+			stops: ELEPHANTS_SIGIRIYA_ROUTE_STOPS
 		},
 
-		// Day 2 overview with image
+		// Day 1
 		{
-			type: 'text-image',
-			heading: 'День 2: Культурный треугольник',
-			text: 'Посещение буддийского центра Неллигала, подъём на Пидурангалу (или Сигирию за доплату) с потрясающим видом, и завершение в храме Золотого Будды в Дамбулле. Возвращение в отель около 23:00.',
-			image: ELEPHANTS_SIGIRIYA_GALLERY[0], // Pidurangala view
-			layout: 'right'
+			type: 'day',
+			dayNumber: 1,
+			title: 'Путь через центральную часть острова',
+			blocks: [
+				{
+					text: 'Ранний выезд около 04:00 для максимального использования светового дня. Первая остановка — питомник слонов Пиннавела, где мы наблюдаем за слонами во время купания в реке, можем покормить их и увидеть, как за ними ухаживают.',
+					images: [ELEPHANTS_SIGIRIYA_GALLERY[1], ELEPHANTS_SIGIRIYA_GALLERY[1]]
+				},
+				{
+					text: 'После питомника посещаем сад специй, где узнаём, как растут корица, кардамон, ваниль, перец и другие специи, а также знакомимся с их использованием в аюрведе. Затем заезжаем на чайную фабрику — посмотрим основные этапы производства цейлонского чая и попробуем готовый напиток.',
+					images: [ELEPHANTS_SIGIRIYA_GALLERY[5], ELEPHANTS_SIGIRIYA_GALLERY[5]]
+				},
+				{
+					text: 'Завершаем день в Королевском ботаническом саду Перадении с большой коллекцией растений: оранжерея орхидей, пальмовые аллеи, мемориальная аллея с деревьями, посаженными Николаем II и Юрием Гагариным.',
+					images: [ELEPHANTS_SIGIRIYA_GALLERY[4], ELEPHANTS_SIGIRIYA_GALLERY[4]]
+				}
+			]
 		},
 
-		// Included/Excluded in two-column style
+		// Hotel info after Day 1
 		{
-			type: 'text-image',
-			heading: 'Что включено',
-			text: ELEPHANTS_SIGIRIYA_INCLUDED.map((item) => `• ${item}`).join('\n'),
-			layout: 'left'
+			type: 'hotel',
+			name: 'Ночлег в Канди',
+			description: 'Вечером прибываем в Канди, где вас ждёт комфортный отель с ужином и завтраком. Отдохните после насыщенного дня и подготовьтесь к завтрашним приключениям.',
+			image: ELEPHANTS_SIGIRIYA_GALLERY[4]
 		},
 
+		// Day 2
 		{
-			type: 'text',
-			heading: 'Что не включено',
-			text: ELEPHANTS_SIGIRIYA_EXCLUDED.map((item) => `• ${item}`).join('\n')
+			type: 'day',
+			dayNumber: 2,
+			title: 'Культурный треугольник',
+			blocks: [
+				{
+					text: 'Начинаем день с посещения Международного буддийского центра Неллигала — храм на вершине горы с видом на окружающие горы и долины. В ясную погоду виден священный Пик Адама.',
+					images: [ELEPHANTS_SIGIRIYA_GALLERY[0], ELEPHANTS_SIGIRIYA_GALLERY[2]]
+				},
+				{
+					text: 'Главное событие дня — подъём на Пидурангалу (~1 час) с потрясающим видом на Сигирию. Альтернативно можно выбрать подъём на саму Сигирию за дополнительную плату. Панорамные виды с вершины оставят незабываемые впечатления.',
+					images: [ELEPHANTS_SIGIRIYA_GALLERY[0], ELEPHANTS_SIGIRIYA_GALLERY[2]]
+				},
+				{
+					text: 'Завершаем путешествие посещением храма Золотого Будды в Дамбулле — 30-метровая статуя Будды, одна из самых узнаваемых достопримечательностей Шри-Ланки.',
+					images: [ELEPHANTS_SIGIRIYA_GALLERY[3], ELEPHANTS_SIGIRIYA_GALLERY[3]]
+				}
+			]
+		},
+
+		// Return hotel info
+		{
+			type: 'hotel',
+			name: 'Возвращение в отель',
+			description: 'Прибытие в ваш отель ориентировочно около 23:00 с остановками для фото и еды по пути.'
+		},
+
+		// What's included / not included
+		{
+			type: 'included',
+			items: ELEPHANTS_SIGIRIYA_INCLUDED,
+			excludedItems: ELEPHANTS_SIGIRIYA_EXCLUDED
+		},
+
+		// Addons & surcharges
+		{
+			type: 'addons',
+			items: ELEPHANTS_SIGIRIYA_ADDONS
 		},
 
 		// What to bring
 		{
-			type: 'highlights',
-			heading: 'Что взять с собой',
+			type: 'what-to-bring',
 			items: ELEPHANTS_SIGIRIYA_WHAT_TO_BRING
 		},
 
-		// Important info
+		// Important info & schedule
 		{
-			type: 'highlights',
-			heading: 'Важная информация',
-			items: ELEPHANTS_SIGIRIYA_IMPORTANT_INFO
+			type: 'important-info',
+			items: ELEPHANTS_SIGIRIYA_IMPORTANT_INFO,
+			schedule: [{ label: 'Возвращение', value: '~23:00' }]
 		}
 	];
 </script>
@@ -104,8 +138,10 @@
 			{gallery}
 			{content}
 			pricing={{
-				adult: '$160',
-				child: '$120'
+				priceUnit: 'per_person',
+				basePriceCents: 16000,
+				childPriceCents: 12000,
+				seniorDiscountPercent: 10
 			}}
 		/>
 	{/snippet}

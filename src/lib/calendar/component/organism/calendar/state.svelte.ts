@@ -1,17 +1,16 @@
 import type { RecipeCalendar } from '$stylist/calendar/interface/recipe/calendar';
 import { generateCalendarDays } from '$stylist/calendar/function/script/generate-calendar-days';
 
-export function createCalendarState(props: RecipeCalendar) {
+export function createCalendarState(getProps: () => RecipeCalendar) {
 	function firstOfMonth(date: Date): Date {
 		return new Date(date.getFullYear(), date.getMonth(), 1);
 	}
 
-	let viewMonth = $state(firstOfMonth(props.initialMonth ?? props.value ?? new Date()));
+	const props = $derived(getProps());
+	let viewMonth = $state(firstOfMonth(new Date()));
 
 	$effect(() => {
-		if (props.value) {
-			viewMonth = firstOfMonth(props.value);
-		}
+		viewMonth = firstOfMonth(props.value ?? props.initialMonth ?? new Date());
 	});
 
 	const weekStartsOn = $derived(props.weekStartsOn ?? 1);

@@ -8,7 +8,8 @@
 		{ name: 'pickup', type: 'select', options: ['Галле', 'Мирисса', 'Унаватуна', 'Тангалле'], defaultValue: 'Галле' },
 		{ name: 'date', type: 'text', defaultValue: '2026-10-18' },
 		{ name: 'adults', type: 'number', defaultValue: 2, min: 1, max: 8, step: 1 },
-		{ name: 'children', type: 'number', defaultValue: 0, min: 0, max: 6, step: 1 }
+		{ name: 'children', type: 'number', defaultValue: 0, min: 0, max: 6, step: 1 },
+		{ name: 'showDuration', type: 'boolean', label: 'Показать "Количество дней"', defaultValue: true }
 	];
 </script>
 
@@ -17,7 +18,7 @@
 	title="Booking / BookingBridge"
 	component={BookingBridge}
 	category="Booking/Organisms"
-	description="Sticky scroll bridge: рендерит BookingBar, `compact` включается сам при `progress > 0.45`. Отдельного summary-компонента больше нет — BookingBar интерактивен и в сжатом виде (включая выбор приключений), поэтому подменять его на статичную плашку не нужно. Тащи `progress`, чтобы прокрутить состояние."
+	description="Sticky scroll bridge: рендерит BookingBar (десктоп, без приключений — они только в BookingFilterPanel) и BookingAccordion (мобильный breakpoint, приключения остаются последней секцией). `compact` включается сам при `progress > 0.45`. Тащи `progress`, чтобы прокрутить состояние."
 	{controls}
 >
 	{#snippet children(values: any)}
@@ -31,9 +32,11 @@
 					seniors: 0,
 					childrenTeen: 0,
 					children: Number(values.children),
-					childrenUnder2: 0,
-					adventures: []
+					childrenUnder3: 0,
+					adventures: [],
+					durationDays: []
 				}}
+				showDuration={Boolean(values.showDuration)}
 			/>
 			<div class="_surface__filler">Прокручиваемое содержимое страницы под липким баром</div>
 		</div>

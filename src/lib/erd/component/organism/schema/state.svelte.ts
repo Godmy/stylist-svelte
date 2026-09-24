@@ -24,8 +24,9 @@ export function createSchemaState(props: RecipeSchema) {
 	let relationHighlight = $state(untrack(() => props.highlightRelations ?? true));
 	let currentLayout = $state<SchemaLayout>(untrack(() => props.layout ?? 'grid'));
 	let currentMode = $state<SchemaMode>('live');
-	let textPanelVisible = $state(true);
+	let textPanelVisible = $state(untrack(() => props.textPanelVisible ?? true));
 	let fileInput: HTMLInputElement | undefined = $state();
+	let schemaView: { saveLayout: () => void; resetLayout: () => void } | undefined = $state();
 
 	let scienceDomainSource = $state<string>(SCIENCE_DOMAIN_SCHEMA_TEXT);
 	let liveParseResult = $derived(schemaTextToDocument(liveSource));
@@ -66,7 +67,7 @@ export function createSchemaState(props: RecipeSchema) {
 	});
 
 	function clampZoom(nextZoom: number): number {
-		return Math.min(1.8, Math.max(0.45, Number(nextZoom.toFixed(2))));
+		return Math.min(1.8, Math.max(0.08, Number(nextZoom.toFixed(2))));
 	}
 
 	function importSchema(): void {
@@ -117,6 +118,14 @@ export function createSchemaState(props: RecipeSchema) {
 		currentZoom = 1;
 	}
 
+	function saveLayout(): void {
+		schemaView?.saveLayout();
+	}
+
+	function resetLayout(): void {
+		schemaView?.resetLayout();
+	}
+
 	return {
 		get liveSource() {
 			return liveSource;
@@ -154,6 +163,12 @@ export function createSchemaState(props: RecipeSchema) {
 		set fileInput(value: HTMLInputElement | undefined) {
 			fileInput = value;
 		},
+		get schemaView() {
+			return schemaView;
+		},
+		set schemaView(value: { saveLayout: () => void; resetLayout: () => void } | undefined) {
+			schemaView = value;
+		},
 		get parseResult() {
 			return parseResult;
 		},
@@ -166,6 +181,8 @@ export function createSchemaState(props: RecipeSchema) {
 		zoomIn,
 		zoomOut,
 		zoomReset,
+		saveLayout,
+		resetLayout,
 		setLayout(layout: SchemaLayout) {
 			currentLayout = layout;
 		},
