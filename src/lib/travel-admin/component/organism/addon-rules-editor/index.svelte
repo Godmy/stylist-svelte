@@ -12,7 +12,7 @@
 	{#each state.addons as addon, i (addon.id)}
 		<AddonRuleRow {addon} onChange={(next) => state.update(i, next)} onRemove={() => state.remove(i)} />
 	{/each}
-	<Button variant="secondary" size="sm" onclick={state.add}>+ Допник</Button>
+	<Button variant="secondary" size="sm" onclick={state.add}>+ Услуга</Button>
 </div>
 
 <style>

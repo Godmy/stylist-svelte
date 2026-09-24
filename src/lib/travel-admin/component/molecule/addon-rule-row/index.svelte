@@ -39,7 +39,7 @@
 			<option value="per_day">за день</option>
 		</select>
 	</label>
-	<CloseButton class="addon-rule-row__remove" size="md" ariaLabel="Удалить допник" onclick={props.onRemove} />
+	<CloseButton class="addon-rule-row__remove" size="md" ariaLabel="Удалить услугу" onclick={props.onRemove} />
 </div>
 
 <style>

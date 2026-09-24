@@ -2,8 +2,8 @@
 export type TourFilters = {
 	/** Selected `EXPERIENCE_CATEGORIES` ids — matches an excursion tagged with ANY of these (not all). */
 	categories: string[];
-	/** Групповая/индивидуальная — undefined means both. */
-	tourType?: 'group' | 'individual';
+	/** Групповая/индивидуальная/большой тур — undefined means any. */
+	tourType?: 'group' | 'individual' | 'tour';
 	recommendedForKids: boolean;
 	noEarlyDeparture: boolean;
 	/** Физическая нагрузка — undefined means any. */

@@ -11,7 +11,7 @@
 	const navItems = [
 		{ id: 'dashboard', label: 'Дашборд', href: '/admin' },
 		{ id: 'products', label: 'Туры и услуги', href: '/admin/products' },
-		{ id: 'addons', label: 'Допники', href: '/admin/addons', active: true },
+		{ id: 'addons', label: 'Доп. услуги', href: '/admin/addons', active: true },
 		{ id: 'pricing', label: 'Тарифы трансфера', href: '/admin/pricing' }
 	];
 </script>
@@ -19,7 +19,7 @@
 <div class={props.class ?? ''}>
 	<AdminShell {navItems}>
 		{#snippet children()}
-			<h1>Допники</h1>
+			<h1>Дополнительные услуги</h1>
 			{#if state.loading}
 				<p>Загрузка…</p>
 			{:else}

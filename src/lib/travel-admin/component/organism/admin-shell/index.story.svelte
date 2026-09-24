@@ -5,7 +5,7 @@
 	const navItems = [
 		{ id: 'dashboard', label: 'Дашборд', href: '/admin', active: true },
 		{ id: 'products', label: 'Туры и услуги', href: '/admin/products' },
-		{ id: 'addons', label: 'Допники', href: '/admin/addons' },
+		{ id: 'addons', label: 'Доп. услуги', href: '/admin/addons' },
 		{ id: 'pricing', label: 'Тарифы трансфера', href: '/admin/pricing' }
 	];
 </script>

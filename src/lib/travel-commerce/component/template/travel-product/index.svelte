@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { Excursion } from '$stylist/travel-commerce/type/object/excursion';
 	import type { TourGalleryImage } from '$stylist/travel-commerce/type/object/tour-gallery-image';
-	import type { TourRouteStop } from '$stylist/travel-commerce/type/object/tour-route-stop';
 	import type { TourAddon } from '$stylist/travel-commerce/type/object/tour-addon';
 	import type { MediaSliderSlide } from '$stylist/animation/type/object/media-slider';
 	import MediaSlider from '$stylist/animation/component/organism/media-slider/index.svelte';
@@ -47,11 +46,6 @@
 		items: string[];
 	};
 
-	export type RouteStopsSection = {
-		type: 'route-stops';
-		stops: TourRouteStop[];
-	};
-
 	export type AddonsSection = {
 		type: 'addons';
 		items: TourAddon[];
@@ -69,7 +63,6 @@
 		| IncludedSection
 		| WhatToBringSection
 		| HighlightsSection
-		| RouteStopsSection
 		| AddonsSection
 		| ImportantInfoSection;
 
@@ -213,23 +206,6 @@
 						{/each}
 					</ul>
 				</section>
-			{:else if section.type === 'route-stops'}
-				<section class="tc-travel-product__route-stops">
-					<h2>Маршрут по точкам</h2>
-					<ol class="tc-travel-product__route-list">
-						{#each section.stops as stop}
-							<li class="tc-travel-product__route-stop">
-								<div class="tc-travel-product__route-stop-head">
-									<span class="tc-travel-product__route-stop-title">{stop.title}</span>
-									{#if stop.duration}
-										<span class="tc-travel-product__route-stop-duration">{stop.duration}</span>
-									{/if}
-								</div>
-								<p class="tc-travel-product__route-stop-description">{stop.description}</p>
-							</li>
-						{/each}
-					</ol>
-				</section>
 			{:else if section.type === 'day'}
 				<section class="tc-travel-product__day">
 					<h2 class="tc-travel-product__day-title">День {section.dayNumber}. {section.title}</h2>
@@ -289,7 +265,7 @@
 				</section>
 			{:else if section.type === 'addons'}
 				<section class="tc-travel-product__addons">
-					<h2>Допники и замены</h2>
+					<h2>Дополнительные услуги и замены</h2>
 					<div class="tc-travel-product__addons-grid">
 						{#each section.items as addon (addon.id)}
 							<div class="tc-travel-product__addon">
@@ -510,68 +486,6 @@
 		line-height: 1.6;
 		font-weight: 600;
 		color: #146663;
-	}
-
-	/* Route stops */
-	.tc-travel-product__route-stops {
-		background: rgba(255, 255, 255, 0.5);
-		border-radius: 0.75rem;
-		padding: 2rem;
-	}
-
-	.tc-travel-product__route-stops h2 {
-		margin: 0 0 1.25rem;
-		font-size: clamp(1.4rem, 3vw, 1.8rem);
-		color: #17231f;
-		font-weight: 700;
-	}
-
-	.tc-travel-product__route-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-		gap: 1px;
-	}
-
-	.tc-travel-product__route-stop {
-		padding: 0.9rem 1rem;
-		background: rgba(255, 255, 255, 0.5);
-	}
-
-	.tc-travel-product__route-stop:first-child {
-		border-radius: 0.5rem 0.5rem 0 0;
-	}
-
-	.tc-travel-product__route-stop:last-child {
-		border-radius: 0 0 0.5rem 0.5rem;
-	}
-
-	.tc-travel-product__route-stop-head {
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		gap: 1rem;
-	}
-
-	.tc-travel-product__route-stop-title {
-		font-weight: 700;
-		color: #17231f;
-	}
-
-	.tc-travel-product__route-stop-duration {
-		flex-shrink: 0;
-		font-size: 0.85rem;
-		color: rgba(23, 35, 31, 0.55);
-		font-weight: 600;
-	}
-
-	.tc-travel-product__route-stop-description {
-		margin: 0.35rem 0 0;
-		font-size: 0.95rem;
-		line-height: 1.5;
-		color: rgba(23, 35, 31, 0.75);
 	}
 
 	/* Day Section */
