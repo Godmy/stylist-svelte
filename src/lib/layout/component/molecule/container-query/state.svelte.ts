@@ -1,7 +1,8 @@
 import type { ContainerQueryType } from '$stylist/layout/type/alias/container-query-type';
 import type { RecipeContainerQuery } from '$stylist/layout/interface/recipe/container-query';
 
-export function createContainerQueryState(props: RecipeContainerQuery) {
+export function createContainerQueryState(getProps: () => RecipeContainerQuery) {
+	const props = $derived(getProps());
 	const containerType = $derived<ContainerQueryType>(props.containerType ?? 'inline-size');
 	const containerName = $derived(props.containerName);
 

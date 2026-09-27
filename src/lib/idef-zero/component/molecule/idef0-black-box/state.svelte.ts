@@ -2,8 +2,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeIdef0BlackBox } from '$stylist/idef-zero/interface/recipe/idef0-black-box';
 
 export function createIdef0BlackBoxState(
-	props: RecipeIdef0BlackBox & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipeIdef0BlackBox & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	const width = $derived(props.width ?? 920);
 	const height = $derived(props.height ?? 420);
 	const boxWidth = $derived(props.boxWidth ?? 320);

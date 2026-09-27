@@ -5,7 +5,7 @@
 	const X = 'x';
 
 	let props: RecipeTagInput = $props();
-	const state = createTagInputState(props);
+	const state = createTagInputState(() => props);
 </script>
 
 <div class={`c-tag-input ${state.className}`} {...props}>

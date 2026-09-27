@@ -2,7 +2,8 @@ import type { RecipeUserBehaviorMetrics } from '$stylist/marketing/interface/rec
 import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
 import { untrack } from 'svelte';
 
-export function createUserBehaviorMetricsState(props: RecipeUserBehaviorMetrics) {
+export function createUserBehaviorMetricsState(getProps: () => RecipeUserBehaviorMetrics) {
+	const props = $derived(getProps());
 	const title = $derived(props.title ?? 'User Behavior Metrics');
 	const subtitle = $derived(props.subtitle);
 	const metrics = $derived(props.metrics ?? []);

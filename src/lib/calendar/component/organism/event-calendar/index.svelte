@@ -8,7 +8,7 @@
 	const ChevronRight = 'chevron-right';
 
 	let props: RecipeEventCalendar = $props();
-	const state = createEventCalendarState(props);
+	const state = createEventCalendarState(() => props);
 </script>
 
 <div class="{state.wrapperClasses} {state.className}" {...state.restProps}>

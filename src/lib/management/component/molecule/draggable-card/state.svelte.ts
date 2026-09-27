@@ -1,6 +1,7 @@
 import type { RecipeDraggableCard } from '$stylist/management/interface/recipe/draggable-card';
 
-export function createDraggableCardState(props: RecipeDraggableCard) {
+export function createDraggableCardState(getProps: () => RecipeDraggableCard) {
+	const props = $derived(getProps());
 	const data = $derived(props.data);
 	const hostClass = $derived(props.class ?? '');
 	const contentClass = $derived(props.contentClass ?? '');

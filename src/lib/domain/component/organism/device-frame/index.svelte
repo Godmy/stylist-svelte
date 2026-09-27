@@ -3,7 +3,7 @@
 	import type { RecipeDeviceFrame } from '$stylist/domain/interface/recipe/device-frame';
 	import { createDeviceFrameState } from './state.svelte';
 	let props: RecipeDeviceFrame & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createDeviceFrameState(props);
+	const state = createDeviceFrameState(() => props);
 </script>
 
 {#if state.showFrame}

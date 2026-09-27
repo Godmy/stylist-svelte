@@ -2,7 +2,8 @@ import type { Point2D } from '$stylist/canvas/interface/slot/point-2d';
 import { DEFAULT_WORKSPACE_CANVAS } from '$stylist/workspace/const/record/workspace-canvas';
 import type { RecipeWorkspaceCanvas } from '$stylist/workspace/interface/recipe/workspace-canvas';
 
-export function createWorkspaceCanvasState(props: RecipeWorkspaceCanvas) {
+export function createWorkspaceCanvasState(getProps: () => RecipeWorkspaceCanvas) {
+	const props = $derived(getProps());
 	let isPanning = $state(false);
 	let panStart = $state({ x: 0, y: 0 });
 	let panOffsetStart = $state({ x: 0, y: 0 });

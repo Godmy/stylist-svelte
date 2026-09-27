@@ -4,7 +4,7 @@
 	import Link from '$stylist/typography/component/atom/link/index.svelte';
 
 	let props: RecipePageHeader = $props();
-	const state = createPageHeaderState(props);
+	const state = createPageHeaderState(() => props);
 </script>
 
 <div class="page-header" role="banner">

@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeSceneCameraControl } from '$stylist/graph/interface/recipe/scene-camera-control';
 
-export function createSceneCameraControlState(props: RecipeSceneCameraControl) {
+export function createSceneCameraControlState(getProps: () => RecipeSceneCameraControl) {
+	const props = $derived(getProps());
 	const targetRange = 10;
 	const containerClass = $derived(
 		ClassNamesManager.merge(

@@ -1,5 +1,6 @@
 import type { RecipeOrderHistory as OrderHistoryContract } from '$stylist/commerce/interface/recipe/order-history';
-export function createOrderHistoryState(props: OrderHistoryContract) {
+export function createOrderHistoryState(getProps: () => OrderHistoryContract) {
+	const props = $derived(getProps());
 	let searchQuery = $state('');
 
 	const orders = $derived(props.orders ?? []);

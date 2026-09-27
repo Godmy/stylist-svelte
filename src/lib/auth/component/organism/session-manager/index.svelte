@@ -3,7 +3,7 @@
 	import { createSessionManagerState } from './state.svelte';
 
 	let props: RecipeSessionManager = $props();
-	const state = createSessionManagerState(props);
+	const state = createSessionManagerState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

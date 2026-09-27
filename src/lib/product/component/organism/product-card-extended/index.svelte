@@ -4,7 +4,7 @@
 	import { createProductCardExtendedState } from './state.svelte';
 
 	let props: RecipeProductCard & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createProductCardExtendedState(props);
+	const state = createProductCardExtendedState(() => props);
 </script>
 
 <div class={state.containerClass}>

@@ -3,7 +3,7 @@
 	import createRangeSliderState from './state.svelte';
 
 	let props: RecipeRangeSlider = $props();
-	const state = createRangeSliderState(props);
+	const state = createRangeSliderState(() => props);
 
 	const restProps = $derived.by(() => {
 		const {

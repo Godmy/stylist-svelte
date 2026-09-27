@@ -1,11 +1,11 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RecipeChart } from '$stylist/chart/interface/recipe/chart';
 	import createChartState from './state.svelte';
 	import ChartCanvas from '$stylist/chart/component/molecule/chart-canvas/index.svelte';
 	import ChartLegend from '$stylist/chart/component/molecule/chart-legend/index.svelte';
 
 	let props: RecipeChart = $props();
-	const state = createChartState(props);
+	const state = createChartState(() => props);
 </script>
 
 <section class={state.containerClasses}>

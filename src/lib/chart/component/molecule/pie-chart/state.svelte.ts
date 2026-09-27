@@ -2,7 +2,8 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { ManagerPieChart } from '$stylist/chart/class/manager/pie-chart';
 import type { RecipePieChart } from '$stylist/chart/interface/recipe/pie-chart';
 
-export function createPieChartState(props: RecipePieChart) {
+export function createPieChartState(getProps: () => RecipePieChart) {
+	const props = $derived(getProps());
 	const data = $derived((props as any).data ?? []);
 	const width = $derived((props as any).width ?? 200);
 	const height = $derived((props as any).height ?? 200);

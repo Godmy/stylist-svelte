@@ -1,6 +1,7 @@
 import type { RecipeCommentSystem } from '$stylist/social/interface/recipe/comment-system';
 
-export function createCommentSystemState(props: RecipeCommentSystem) {
+export function createCommentSystemState(getProps: () => RecipeCommentSystem) {
+	const props = $derived(getProps());
 	let editCommentId = $state<string | null>(null);
 	let editContent = $state('');
 	let newComment = $state('');

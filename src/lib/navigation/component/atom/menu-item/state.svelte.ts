@@ -1,6 +1,7 @@
 import type { RecipeMenuItem } from '$stylist/navigation/interface/recipe/menu-item';
 
-export function createMenuItemState(props: RecipeMenuItem) {
+export function createMenuItemState(getProps: () => RecipeMenuItem) {
+	const props = $derived(getProps());
 	const active = $derived(props.active ?? false);
 	const disabled = $derived(props.disabled ?? false);
 	const href = $derived(props.href);

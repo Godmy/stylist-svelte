@@ -1,6 +1,7 @@
 import type { RecipeToggleGroupRoot as RecipeToggleGroupRoot } from '$stylist/control/interface/recipe/toggle-group-root';
 
-export const createToggleGroupRootState = (props: RecipeToggleGroupRoot) => {
+export const createToggleGroupRootState = (getProps: () => RecipeToggleGroupRoot) => {
+	const props = $derived(getProps());
 	const type = $derived(props.type ?? 'single');
 	const disabled = $derived(props.disabled ?? false);
 	let internalValue = $state<string | string[] | null>(props.value ?? null);

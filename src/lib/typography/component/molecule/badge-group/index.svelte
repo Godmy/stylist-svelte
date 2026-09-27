@@ -5,7 +5,7 @@
 
 	let props: RecipeBadgeGroup = $props();
 
-	const state = createBadgeGroupState(props);
+	const state = createBadgeGroupState(() => props);
 
 	const restProps = $derived(
 		(() => {

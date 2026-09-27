@@ -1,6 +1,7 @@
 import type { RecipeTimeline } from '$stylist/calendar/interface/recipe/timeline';
 
-export function createTimelineState(props: RecipeTimeline) {
+export function createTimelineState(getProps: () => RecipeTimeline) {
+	const props = $derived(getProps());
 	const items = $derived(props.items ?? []);
 	const orientation = $derived(props.orientation ?? 'vertical');
 	const className = $derived(props.class ?? '');

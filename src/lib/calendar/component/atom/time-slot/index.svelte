@@ -1,9 +1,9 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import createTimeSlotState from './state.svelte';
 	import type { RecipeTimeSlot } from '$stylist/calendar/interface/recipe/time-slot';
 
 	let props: RecipeTimeSlot = $props();
-	const state = createTimeSlotState(props);
+	const state = createTimeSlotState(() => props);
 </script>
 
 <div

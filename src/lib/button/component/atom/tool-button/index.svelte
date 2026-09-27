@@ -3,7 +3,7 @@
 	import type { RecipeToolButton } from '$stylist/button/interface/recipe/tool-button';
 
 	let props: RecipeToolButton = $props();
-	const state = createToolButtonState(props);
+	const state = createToolButtonState(() => props);
 </script>
 
 <button

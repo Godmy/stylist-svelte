@@ -4,7 +4,7 @@
 	import createTokenRangeState from './state.svelte';
 
 	let props: RecipeTokenRange = $props();
-	const state = createTokenRangeState(props);
+	const state = createTokenRangeState(() => props);
 </script>
 
 <TokenControlBase definition={state.definition} layout="inline">

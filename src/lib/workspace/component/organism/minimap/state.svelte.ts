@@ -1,7 +1,8 @@
 import { MinimapManager } from '$stylist/workspace/class/manager/minimap';
 import type { RecipeMinimap } from '$stylist/workspace/interface/recipe/minimap';
 
-export function createMinimapState(props: RecipeMinimap) {
+export function createMinimapState(getProps: () => RecipeMinimap) {
+	const props = $derived(getProps());
 	const nodes = $derived(props.nodes ?? []);
 	const zoom = $derived(props.zoom ?? 1);
 	const offset = $derived(props.offset ?? { x: 0, y: 0 });

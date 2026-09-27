@@ -3,7 +3,8 @@ import { TOKEN_COLOR_TONE_ICON } from '$stylist/theme/const/map/color-tone-icon'
 import type { RecipeNotificationCenter } from '$stylist/notification/interface/recipe/notification-center';
 import type { NotificationItem } from '$stylist/notification/type/object/notification-item';
 
-export function createNotificationCenterState(props: RecipeNotificationCenter) {
+export function createNotificationCenterState(getProps: () => RecipeNotificationCenter) {
+	const props = $derived(getProps());
 	const notifications = $derived(props.notifications ?? []);
 	const showUnreadCount = $derived(props.showUnreadCount ?? true);
 	const showMarkAllRead = $derived(props.showMarkAllRead ?? true);

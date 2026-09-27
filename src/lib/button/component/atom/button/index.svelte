@@ -6,7 +6,7 @@
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 
 	let props: SlotButtonElement & HTMLButtonAttributes = $props();
-	const state = createButtonState(props);
+	const state = createButtonState(() => props);
 </script>
 
 <button

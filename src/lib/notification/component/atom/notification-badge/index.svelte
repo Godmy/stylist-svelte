@@ -3,7 +3,7 @@
 	import { createNotificationBadgeState } from './state.svelte';
 
 	let props: RecipeNotificationBadge = $props();
-	const state = createNotificationBadgeState(props);
+	const state = createNotificationBadgeState(() => props);
 </script>
 
 {#if state.shouldShow}

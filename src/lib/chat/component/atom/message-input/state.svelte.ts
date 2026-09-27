@@ -6,8 +6,9 @@ import { handleKeydownFn } from '$stylist/chat/function/script/handle-keydown-fn
 import { handleInputFn } from '$stylist/chat/function/script/message-input-handlers';
 
 export const createMessageInputState = (
-	props: MessageInputContract & HTMLAttributes<HTMLDivElement>
+	getProps: () => MessageInputContract & HTMLAttributes<HTMLDivElement>
 ) => {
+	const props = $derived(getProps());
 	let messageContent = $state('');
 
 	const disabled = $derived(props.disabled ?? false);

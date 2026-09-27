@@ -6,7 +6,7 @@
 	import { createBillingSummaryState } from './state.svelte';
 
 	let props: RecipeBillingSummary & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createBillingSummaryState(props);
+	const state = createBillingSummaryState(() => props);
 </script>
 
 <div class={state.containerClass}>

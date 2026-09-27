@@ -3,7 +3,7 @@
 	import type { RecipeRangeBarsChart } from '$stylist/chart/interface/recipe/range-bars-chart';
 
 	let props: RecipeRangeBarsChart = $props();
-	const state = createRangeBarsChartState(props);
+	const state = createRangeBarsChartState(() => props);
 </script>
 
 <div

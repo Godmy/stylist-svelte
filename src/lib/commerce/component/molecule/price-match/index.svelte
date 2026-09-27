@@ -4,7 +4,7 @@
 	import { createPriceMatchState } from './state.svelte';
 
 	let props: RecipePriceMatch & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createPriceMatchState(props);
+	const state = createPriceMatchState(() => props);
 </script>
 
 <div class={state.containerClass}>

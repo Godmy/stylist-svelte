@@ -3,7 +3,7 @@
 	import { createCardState } from './state.svelte';
 
 	let props: RecipeCard = $props();
-	const state = createCardState(props);
+	const state = createCardState(() => props);
 
 	const PADDING: Record<string, string> = {
 		xs: '0.5rem',

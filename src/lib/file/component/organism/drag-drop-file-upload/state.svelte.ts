@@ -2,7 +2,8 @@ import { DragDropFileUploadManager } from '$stylist/file/class/manager/drag-drop
 import type { RecipeDragDropFileUpload } from '$stylist/file/interface/recipe/drag-drop-file-upload';
 import type { SlotDragDropUploadFile } from '$stylist/file/interface/slot/drag-drop-upload-file';
 
-export function createDragDropFileUploadState(props: RecipeDragDropFileUpload) {
+export function createDragDropFileUploadState(getProps: () => RecipeDragDropFileUpload) {
+	const props = $derived(getProps());
 	let files = $state<SlotDragDropUploadFile[]>([]);
 	let isDragging = $state(false);
 	let fileInputElement = $state<HTMLInputElement | null>(null);

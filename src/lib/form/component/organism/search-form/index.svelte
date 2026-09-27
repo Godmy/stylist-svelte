@@ -4,7 +4,7 @@
 	import { SEARCH_ICON_NAME } from '$stylist/form/const/value/search-icon-name';
 
 	const props = $props();
-	const state = createSearchFormState(props);
+	const state = createSearchFormState(() => props);
 </script>
 
 <form class={state.rootClass} {...props}>

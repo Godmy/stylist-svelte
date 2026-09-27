@@ -6,7 +6,7 @@
 	import { createSecureFormState } from './state.svelte';
 
 	let props: RecipeSecureForm = $props();
-	const state = createSecureFormState(props);
+	const state = createSecureFormState(() => props);
 </script>
 
 <form class={state.containerClasses} {...state.restProps}>

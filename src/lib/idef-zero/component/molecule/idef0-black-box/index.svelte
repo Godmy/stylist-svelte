@@ -7,7 +7,7 @@
 	import Idef0Outputs from '$stylist/idef-zero/component/molecule/idef0-outputs/index.svelte';
 
 	let props: RecipeIdef0BlackBox & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createIdef0BlackBoxState(props);
+	const state = createIdef0BlackBoxState(() => props);
 
 	const leftMargin = $derived(40);
 	const rightMargin = $derived(40);

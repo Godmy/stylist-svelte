@@ -2,7 +2,8 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { ManagerMotion } from '$stylist/animation/class/manager/motion';
 import type { RecipeAnimatedDigit } from '$stylist/animation/interface/recipe/animated-digit';
 
-export const createAnimatedDigitState = (props: RecipeAnimatedDigit) => {
+export const createAnimatedDigitState = (getProps: () => RecipeAnimatedDigit) => {
+	const props = $derived(getProps());
 	// SlotState
 	let isAnimating = $state(false);
 	let currentValue = $state(props.from ?? 0);

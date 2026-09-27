@@ -3,7 +3,7 @@
 	import createLayoutTransformationState from './state.svelte';
 
 	let props: RecipeLayoutTransformation = $props();
-	const state = createLayoutTransformationState(props);
+	const state = createLayoutTransformationState(() => props);
 </script>
 
 <div

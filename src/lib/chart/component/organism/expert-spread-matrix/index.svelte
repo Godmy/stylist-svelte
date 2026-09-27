@@ -3,7 +3,7 @@
 	import type { RecipeExpertSpreadMatrix } from '$stylist/chart/interface/recipe/expert-spread-matrix';
 
 	let props: RecipeExpertSpreadMatrix = $props();
-	const state = createExpertSpreadMatrixState(props);
+	const state = createExpertSpreadMatrixState(() => props);
 </script>
 
 <section

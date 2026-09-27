@@ -22,7 +22,8 @@ function createAddressState(source?: Address): Address {
 	};
 }
 
-export function createCheckoutFormState(props: Props) {
+export function createCheckoutFormState(getProps: () => Props) {
+	const props = $derived(getProps());
 	const countries = $derived(
 		props.countries ?? [
 			{ value: 'US', label: 'United States' },

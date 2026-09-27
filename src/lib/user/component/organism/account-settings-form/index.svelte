@@ -3,7 +3,7 @@
 	import { createAccountSettingsFormState } from './state.svelte';
 
 	let props: RecipeAccountSettingsForm = $props();
-	const state = createAccountSettingsFormState(props);
+	const state = createAccountSettingsFormState(() => props);
 </script>
 
 <form class={state.containerClasses} {...state.restProps}>

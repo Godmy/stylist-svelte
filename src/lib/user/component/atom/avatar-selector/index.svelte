@@ -3,7 +3,7 @@
 	import createAvatarSelectorState from './state.svelte';
 
 	let props: RecipeAvatarSelector = $props();
-	const state = createAvatarSelectorState(props);
+	const state = createAvatarSelectorState(() => props);
 
 	const restProps = $derived.by(() => {
 		const {

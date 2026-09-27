@@ -1,6 +1,7 @@
 import type { RecipeCardWithImage } from '$stylist/commerce/interface/recipe/card-with-image';
 
-export function createCardWithImageState(props: RecipeCardWithImage) {
+export function createCardWithImageState(getProps: () => RecipeCardWithImage) {
+	const props = $derived(getProps());
 	const restProps = $derived.by(() => {
 		const {
 			title: _title,

@@ -18,7 +18,7 @@
 	const Sparkles = 'sparkles';
 
 	let props: RecipeComponent & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createComponentState(props);
+	const state = createComponentState(() => props);
 </script>
 
 <div class="pcc-wrap">

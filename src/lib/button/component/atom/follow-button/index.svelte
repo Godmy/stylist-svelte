@@ -4,7 +4,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeFollowButton = $props();
-	const state = createFollowButtonState(props);
+	const state = createFollowButtonState(() => props);
 </script>
 
 <button

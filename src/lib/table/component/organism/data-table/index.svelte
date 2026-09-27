@@ -13,7 +13,7 @@
 
 	let props: RecipeDataTable<RowData> = $props();
 
-	const state = createDataTableState(props);
+	const state = createDataTableState(() => props);
 </script>
 
 <div

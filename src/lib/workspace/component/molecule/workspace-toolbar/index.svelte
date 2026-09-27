@@ -5,7 +5,7 @@
 	import Separator from '$stylist/layout/component/atom/separator/index.svelte';
 
 	let props: RecipeWorkspaceToolbar = $props();
-	const state = createWorkspaceToolbarState(props);
+	const state = createWorkspaceToolbarState(() => props);
 </script>
 
 <div class={state.classes} data-toolbar-id={props.id} {...state.restProps}>

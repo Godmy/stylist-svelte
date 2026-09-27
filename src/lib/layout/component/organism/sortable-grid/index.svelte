@@ -6,7 +6,7 @@
 	const GripVertical = 'grip-vertical';
 
 	let props: RecipeSortableGrid = $props();
-	const state = createSortableGridState(props);
+	const state = createSortableGridState(() => props);
 
 	const restProps = $derived.by(() => {
 		const {

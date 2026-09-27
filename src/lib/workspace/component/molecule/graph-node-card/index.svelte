@@ -6,7 +6,7 @@
 	import { createGraphNodeCardState } from './state.svelte';
 
 	let props: RecipeGraphNodeCard & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createGraphNodeCardState(props);
+	const state = createGraphNodeCardState(() => props);
 </script>
 
 <div class={state.containerClass} {...state.restProps}>

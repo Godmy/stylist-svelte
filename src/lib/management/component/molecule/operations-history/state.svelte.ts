@@ -2,8 +2,9 @@ import type { SlotOperationsHistory as OperationsHistoryProps } from '$stylist/m
 import type { BehaviorOperationsHistoryEvents } from '$stylist/management/interface/behavior/operations-history-events';
 
 export function createOperationsHistoryState(
-	props: OperationsHistoryProps & BehaviorOperationsHistoryEvents
+	getProps: () => OperationsHistoryProps & BehaviorOperationsHistoryEvents
 ) {
+	const props = $derived(getProps());
 	const operations = $derived(
 		(props.operations ?? []) as unknown as {
 			id: string;

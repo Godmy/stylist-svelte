@@ -1,6 +1,7 @@
 import type { RecipeCounter } from '$stylist/notification/interface/recipe/counter';
 
-export function createCounterState(props: RecipeCounter) {
+export function createCounterState(getProps: () => RecipeCounter) {
+	const props = $derived(getProps());
 	const count = $derived(props.count ?? 0);
 	const max = $derived(props.max ?? 99);
 	const variant = $derived(props.variant ?? 'primary');

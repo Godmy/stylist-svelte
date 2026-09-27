@@ -1,6 +1,7 @@
 import type { RecipeImageGallery } from '$stylist/image/interface/recipe/image-gallery';
 
-export function createImageGalleryState(props: RecipeImageGallery) {
+export function createImageGalleryState(getProps: () => RecipeImageGallery) {
+	const props = $derived(getProps());
 	let currentIndex = $state(0);
 	let isFullscreen = $state(false);
 

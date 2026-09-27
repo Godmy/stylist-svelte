@@ -2,7 +2,8 @@ import type { SchemaDependency as SchemaDependencyData } from '$stylist/erd/type
 import type { SchemaTablePosition } from '$stylist/erd/type/object/schema-table-position';
 import type { RecipeErdSchemaView } from '$stylist/erd/interface/recipe/erd-schema-view';
 
-export function createSchemaViewState(props: RecipeErdSchemaView) {
+export function createSchemaViewState(getProps: () => RecipeErdSchemaView) {
+	const props = $derived(getProps());
 	// A floor, not a target: keeps tiny documents from collapsing to near-zero
 	// canvas. Previously fixed at 4800x3200 regardless of content, which for a
 	// typical (non-demo-scale) document left most of the canvas empty -- the

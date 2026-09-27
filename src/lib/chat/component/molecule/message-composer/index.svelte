@@ -34,7 +34,7 @@
 	 */
 	let props: RecipeMessageComposer = $props();
 
-	const state = createMessageComposerState(props);
+	const state = createMessageComposerState(() => props);
 </script>
 
 <div class={state.containerClasses} {...props}>

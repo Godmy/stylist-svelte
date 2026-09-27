@@ -3,7 +3,8 @@ import type { RecipeFileExplorer } from '$stylist/file/interface/recipe/file-exp
 import type { SlotFileSystemItem } from '$stylist/file/interface/slot/file-system-item';
 import type { ViewMode } from '$stylist/file/type/alias/file-explorer-view-mode';
 
-export function createFileExplorerState(props: RecipeFileExplorer) {
+export function createFileExplorerState(getProps: () => RecipeFileExplorer) {
+	const props = $derived(getProps());
 	let selectedItems = $state<SlotFileSystemItem[]>([]);
 	let searchQuery = $state('');
 	let currentViewMode = $state<ViewMode>(props.viewMode ?? 'grid');

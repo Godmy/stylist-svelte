@@ -4,7 +4,7 @@
 	import createIdef0PortLabelState from './state.svelte';
 
 	let props: RecipeIdef0PortLabel & HTMLAttributes<HTMLSpanElement> = $props();
-	const state = createIdef0PortLabelState(props);
+	const state = createIdef0PortLabelState(() => props);
 </script>
 
 <text

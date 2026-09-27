@@ -1,6 +1,7 @@
 import type { RecipeDropdownMenu } from '$stylist/dialog/interface/recipe/dropdown-menu';
 
-export function createDropdownMenuState(props: RecipeDropdownMenu) {
+export function createDropdownMenuState(getProps: () => RecipeDropdownMenu) {
+	const props = $derived(getProps());
 	const normalizedPosition = $derived(
 		props.position === 'right' ? 'right' : props.position === 'center' ? 'center' : 'left'
 	);

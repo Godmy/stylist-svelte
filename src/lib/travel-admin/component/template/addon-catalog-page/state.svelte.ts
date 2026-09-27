@@ -1,7 +1,8 @@
 import type { RecipeAddonCatalogPage } from '$stylist/travel-admin/interface/recipe/addon-catalog-page';
 import type { AdminProductAddon } from '$stylist/travel-admin/type/object/admin-product-addon';
 
-export function createAddonCatalogPageState(props: RecipeAddonCatalogPage) {
+export function createAddonCatalogPageState(getProps: () => RecipeAddonCatalogPage) {
+	const props = $derived(getProps());
 	let addons = $state<AdminProductAddon[]>([]);
 	let loading = $state(true);
 	let saving = $state(false);

@@ -6,7 +6,7 @@
 	import MessageTimestamp from '$stylist/chat/component/atom/message-timestamp/index.svelte';
 
 	let props: RecipeNotificationCenter = $props();
-	const state = createNotificationCenterState(props);
+	const state = createNotificationCenterState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

@@ -1,7 +1,8 @@
 import type { RecipeCurrencyConverter as CurrencyConverterContract } from '$stylist/commerce/interface/recipe/currency-converter';
 import type { SlotCurrency as CurrencyContract } from '$stylist/commerce/interface/slot/currency';
 import type { SlotExchangeRate as ExchangeRateContract } from '$stylist/commerce/interface/slot/exchange-rate';
-export function createCurrencyConverterState(props: CurrencyConverterContract) {
+export function createCurrencyConverterState(getProps: () => CurrencyConverterContract) {
+	const props = $derived(getProps());
 	let inputAmount = $state(props.amount ?? 0);
 
 	const exchangeKey = $derived(`${props.fromCurrency}_${props.toCurrency}`);

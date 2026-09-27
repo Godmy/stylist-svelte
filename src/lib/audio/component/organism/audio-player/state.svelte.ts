@@ -5,7 +5,8 @@ import type { RecipeAudioPlayer } from '$stylist/audio/interface/recipe/audio-pl
 
 type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 
-export function createAudioPlayerState(props: RecipeAudioPlayer) {
+export function createAudioPlayerState(getProps: () => RecipeAudioPlayer) {
+	const props = $derived(getProps());
 	let audioRef = $state<HTMLAudioElement | null>(null);
 	let isPlaying = $state(false);
 	let isMuted = $state(props.muted ?? false);

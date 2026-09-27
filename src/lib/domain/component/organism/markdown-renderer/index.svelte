@@ -4,7 +4,7 @@
 	import { marked } from 'marked';
 	import { createMarkdownRendererState } from './state.svelte';
 	let props: RecipeMarkdownRenderer & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createMarkdownRendererState(props);
+	const state = createMarkdownRendererState(() => props);
 
 	// Configure marked for safe rendering
 	marked.setOptions({

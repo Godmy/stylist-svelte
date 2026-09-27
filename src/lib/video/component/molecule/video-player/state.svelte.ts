@@ -6,7 +6,8 @@ import type { RecipeVideoPlayer } from '$stylist/video/interface/recipe/video-pl
 
 type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & SlotThemeBorder & SlotTypography;
 
-export function createVideoPlayerState(props: RecipeVideoPlayer) {
+export function createVideoPlayerState(getProps: () => RecipeVideoPlayer) {
+	const props = $derived(getProps());
 	let videoRef = $state<HTMLVideoElement | null>(null);
 	let isPlaying = $state(false);
 	let isMuted = $state(props.muted ?? false);

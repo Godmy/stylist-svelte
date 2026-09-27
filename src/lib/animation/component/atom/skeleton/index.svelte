@@ -4,7 +4,7 @@
 	import type { RecipeSkeleton } from '$stylist/animation/interface/recipe/skeleton';
 
 	let props: RecipeSkeleton & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createSkeletonState(props);
+	const state = createSkeletonState(() => props);
 </script>
 
 <div class={state.classes} style={state.style} aria-hidden="true">

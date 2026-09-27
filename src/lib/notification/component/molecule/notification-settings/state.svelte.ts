@@ -8,7 +8,8 @@ const Smartphone = 'smartphone';
 const Monitor = 'monitor';
 const Settings = 'settings';
 
-export function createNotificationSettingsState(props: RecipeNotificationSettings) {
+export function createNotificationSettingsState(getProps: () => RecipeNotificationSettings) {
+	const props = $derived(getProps());
 	// Props with defaults
 	const preferences = $derived(props.preferences ?? []);
 	const onPreferenceChange = $derived(props.onPreferenceChange);

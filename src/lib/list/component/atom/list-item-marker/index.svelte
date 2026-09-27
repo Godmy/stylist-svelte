@@ -6,7 +6,7 @@
 	type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number;
 
 	let props: RecipeListItemMarker = $props();
-	const state = createListItemMarkerState(props);
+	const state = createListItemMarkerState(() => props);
 	const iconSize = $derived<IconSize>(
 		(
 			{

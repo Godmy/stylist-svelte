@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeAnimatedBackground } from '$stylist/animation/interface/recipe/animated-background';
 
-export function createAnimatedBackgroundState(props: RecipeAnimatedBackground) {
+export function createAnimatedBackgroundState(getProps: () => RecipeAnimatedBackground) {
+	const props = $derived(getProps());
 	const particleIndices = Array.from({ length: 12 }, (_, index) => index + 1);
 	const children = $derived(props.children);
 	const inlineStyle = $derived(typeof props.style === 'string' ? props.style : undefined);

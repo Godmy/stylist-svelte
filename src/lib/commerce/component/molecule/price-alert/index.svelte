@@ -4,7 +4,7 @@
 	import { createPriceAlertState } from './state.svelte';
 
 	let props: RecipePriceAlert = $props();
-	const state = createPriceAlertState(PresetPriceAlert, props);
+	const state = createPriceAlertState(PresetPriceAlert, () => props);
 </script>
 
 <div {...state.restProps} class={state.classes} {...state.attrs}>

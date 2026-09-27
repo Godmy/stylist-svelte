@@ -6,7 +6,7 @@
 	import AuthError from '$stylist/auth/component/atom/auth-error/index.svelte';
 
 	let props: RecipeRegister = $props();
-	const state = createRegisterState(props);
+	const state = createRegisterState(() => props);
 </script>
 
 <div class={state.rootClass}>

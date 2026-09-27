@@ -28,7 +28,8 @@ function mapPointsToViewBox(
 		.join(' ');
 }
 
-export function createChartPolylineState(props: ChartPolylineProps) {
+export function createChartPolylineState(getProps: () => ChartPolylineProps) {
+	const props = $derived(getProps());
 	const classes = $derived(
 		ClassNamesManager.merge('c-chart-polyline', resolveClassName(props.class))
 	);

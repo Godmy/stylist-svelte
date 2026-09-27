@@ -4,7 +4,7 @@
 
 	let props: RecipeStatusIndicator = $props();
 
-	const state = createStatusIndicatorState(props);
+	const state = createStatusIndicatorState(() => props);
 
 	const restProps = $derived(
 		(() => {

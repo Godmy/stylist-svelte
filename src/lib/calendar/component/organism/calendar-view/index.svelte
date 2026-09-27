@@ -9,7 +9,7 @@
 	const Plus = 'plus';
 
 	let props: CalendarViewStateProps = $props();
-	const state = createCalendarViewState(props);
+	const state = createCalendarViewState(() => props);
 </script>
 
 <div class={state.wrapperClasses} {...state.restProps}>

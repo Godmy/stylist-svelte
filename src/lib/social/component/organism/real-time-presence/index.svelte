@@ -7,7 +7,7 @@
 	const Activity = 'activity';
 
 	let props: RealTimePresenceStateProps = $props();
-	const state = createRealTimePresenceState(props);
+	const state = createRealTimePresenceState(() => props);
 </script>
 
 <div class="c-real-time-presence {state.className}" {...state.restProps}>

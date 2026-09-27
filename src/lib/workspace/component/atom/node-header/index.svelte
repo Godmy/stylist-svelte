@@ -4,7 +4,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeNodeHeader = $props();
-	const state = createNodeHeaderState(props);
+	const state = createNodeHeaderState(() => props);
 </script>
 
 <div

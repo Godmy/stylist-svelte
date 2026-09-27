@@ -1,7 +1,8 @@
 import type { RecipeAvatarSelector } from '$stylist/user/interface/recipe/avatar-selector';
 
 import type { TOKEN_SIZE } from '$stylist/theme/const/array/size';
-export function createAvatarSelectorState(props: RecipeAvatarSelector) {
+export function createAvatarSelectorState(getProps: () => RecipeAvatarSelector) {
+	const props = $derived(getProps());
 	const size = $derived((props.size ?? 'md') as (typeof TOKEN_SIZE)[number]);
 	const className = $derived(props.class ?? '');
 	const src = $derived(props.src ?? '');

@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeLayoutTransformation as LayoutTransformationProps } from '$stylist/animation/interface/recipe/layout-transformation';
 
-export function createLayoutTransformationState(props: LayoutTransformationProps) {
+export function createLayoutTransformationState(getProps: () => LayoutTransformationProps) {
+	const props = $derived(getProps());
 	const scale = $derived(props.scale ?? 1);
 	const rotate = $derived(props.rotate ?? 0);
 	const translateX = $derived(props.translateX ?? 0);

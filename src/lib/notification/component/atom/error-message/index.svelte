@@ -4,7 +4,7 @@
 
 	let props: RecipeErrorMessage = $props();
 
-	const state = createErrorMessageState(props);
+	const state = createErrorMessageState(() => props);
 
 	const restProps = $derived(
 		(() => {

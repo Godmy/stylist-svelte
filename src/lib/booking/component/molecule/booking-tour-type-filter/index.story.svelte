@@ -11,7 +11,7 @@
 	title="Booking / BookingTourTypeFilter"
 	component={BookingTourTypeFilter}
 	category="Booking/Molecules"
-	description="Радио-выбор «Индивидуальная экскурсия» / «Групповая экскурсия» — часть BookingFilterPanel."
+	description="Радио-выбор «Индивидуальная экскурсия» / «Групповая экскурсия» плюс «Все варианты» (selected = undefined, без фильтрации) — часть BookingFilterPanel."
 	{controls}
 >
 	{#snippet children()}

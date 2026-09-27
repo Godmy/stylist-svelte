@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createFileBrowserState } from './state.svelte';
 	import { FileBrowserManager } from '$stylist/file/class/manager/file-browser';
@@ -6,7 +6,7 @@
 	import type { RecipeFileBrowser } from '$stylist/file/interface/recipe/file-browser';
 
 	let props: RecipeFileBrowser = $props();
-	const state = createFileBrowserState(props);
+	const state = createFileBrowserState(() => props);
 </script>
 
 <div class={`folder-tree ${state.classes}`} {...state.restProps}>

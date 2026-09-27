@@ -3,7 +3,7 @@
 	import createChartAxisYState from './state.svelte';
 
 	let props: RecipeChartAxisY = $props();
-	const state = createChartAxisYState(props);
+	const state = createChartAxisYState(() => props);
 </script>
 
 <g class={state.axisClasses}>

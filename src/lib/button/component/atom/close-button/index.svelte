@@ -4,7 +4,7 @@
 	import { createCloseButtonState } from './state.svelte';
 
 	let props: RecipeCloseButton = $props();
-	const state = createCloseButtonState(props);
+	const state = createCloseButtonState(() => props);
 
 	let restButtonProps = $derived.by(() => {
 		const {

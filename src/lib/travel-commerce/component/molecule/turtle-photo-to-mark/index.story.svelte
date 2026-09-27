@@ -9,11 +9,13 @@
 	];
 
 	const frames = [
-		'/landing/slider/scroll/logo-morph/02-turtle-01.png',
-		'/landing/slider/scroll/logo-morph/02-turtle-02.png',
-		'/landing/slider/scroll/logo-morph/02-turtle-03.png',
-		'/landing/slider/scroll/logo-morph/02-turtle-04.png',
-		'/landing/slider/scroll/logo-morph/02-turtle-05.png'
+		'/landing/slider/scroll/logo-morph/02-turtle-morph-01.png',
+		'/landing/slider/scroll/logo-morph/02-turtle-morph-02.png',
+		'/landing/slider/scroll/logo-morph/02-turtle-morph-03.png',
+		'/landing/slider/scroll/logo-morph/02-turtle-morph-04.png',
+		'/landing/slider/scroll/logo-morph/02-turtle-morph-05.png',
+		'/landing/slider/scroll/logo-morph/02-turtle-morph-06.png',
+		'/landing/slider/scroll/logo-morph/02-turtle-morph-07.png'
 	];
 </script>
 

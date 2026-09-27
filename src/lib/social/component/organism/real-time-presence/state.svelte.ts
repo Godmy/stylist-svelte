@@ -1,7 +1,8 @@
 import type { RecipeRealTimePresence as RealTimePresenceContract } from '$stylist/social/interface/recipe/real-time-presence';
 
 import type { TOKEN_AVAILABILITY } from '$stylist/user/const/array/availability';
-export function createRealTimePresenceState(props: RealTimePresenceContract) {
+export function createRealTimePresenceState(getProps: () => RealTimePresenceContract) {
+	const props = $derived(getProps());
 	const users = $derived(props.users ?? []);
 	const showAvatars = $derived(props.showAvatars ?? true);
 	const showStatus = $derived(props.showStatus ?? true);

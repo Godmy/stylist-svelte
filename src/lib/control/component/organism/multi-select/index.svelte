@@ -4,7 +4,7 @@
 	import { createMultiSelectState } from './state.svelte';
 
 	let props: RecipeMultiSelect = $props();
-	const state = createMultiSelectState(props);
+	const state = createMultiSelectState(() => props);
 
 	const restProps = $derived.by(() => {
 		const {

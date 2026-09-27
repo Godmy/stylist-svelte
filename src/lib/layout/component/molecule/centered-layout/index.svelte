@@ -4,7 +4,7 @@
 	import type { RecipeCenteredLayout } from '$stylist/layout/interface/recipe/centered-layout';
 
 	let props: RecipeCenteredLayout = $props();
-	const state = createCenteredLayoutState(props);
+	const state = createCenteredLayoutState(() => props);
 
 	const horizontal = $derived(state.axis === 'both' || state.axis === TOKEN_ORIENTATION[0]);
 	const vertical = $derived(state.axis === 'both' || state.axis === TOKEN_ORIENTATION[1]);

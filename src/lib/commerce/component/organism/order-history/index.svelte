@@ -3,7 +3,7 @@
 	import createOrderHistoryState from './state.svelte';
 
 	let props: OrderHistoryContract = $props();
-	const state = createOrderHistoryState(props);
+	const state = createOrderHistoryState(() => props);
 </script>
 
 <div class="order-history">

@@ -10,7 +10,7 @@
 	const EyeOff = 'eye-off';
 
 	let props: IInputPasswordProps = $props();
-	const state = createInputPasswordState(props);
+	const state = createInputPasswordState(() => props);
 
 	let inputElement: HTMLInputElement | null = null;
 	onMount(() => {

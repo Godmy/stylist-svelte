@@ -1,6 +1,7 @@
 import type { RecipeShippingCalculator as ShippingCalculatorContract } from '$stylist/commerce/interface/recipe/shipping-calculator';
 import type { SlotShippingOption as ShippingOptionContract } from '$stylist/commerce/interface/slot/shipping-option';
-export function createShippingCalculatorState(props: ShippingCalculatorContract) {
+export function createShippingCalculatorState(getProps: () => ShippingCalculatorContract) {
+	const props = $derived(getProps());
 	let selectedOptionId = $state<string | null>(null);
 	let weight = $state(props.defaultWeight ?? 1);
 	let dimensions = $state(props.defaultDimensions ?? { length: 10, width: 10, height: 10 });

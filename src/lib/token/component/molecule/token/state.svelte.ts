@@ -4,7 +4,8 @@ import type { TokenRangeControlDefinition } from '$stylist/token/type/object/ran
 import type { TokenSelectControlDefinition } from '$stylist/token/type/object/select-control-definition';
 import type { TokenTextControlDefinition } from '$stylist/token/type/object/text-control-definition';
 
-export function createTokenControlComposerState(props: RecipeToken) {
+export function createTokenControlComposerState(getProps: () => RecipeToken) {
+	const props = $derived(getProps());
 	const controlKind = $derived(props.definition.controlKind);
 	const value = $derived(props.value);
 

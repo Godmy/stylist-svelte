@@ -3,7 +3,8 @@ import { onMount } from 'svelte';
 import type { RecipeComponentLibraryStats } from '$stylist/animation/interface/recipe/component-library-stats';
 import type { SlotComponentLibraryStats } from '$stylist/animation/interface/slot/component-library-stats';
 
-export function createComponentLibraryStatsState(props: RecipeComponentLibraryStats) {
+export function createComponentLibraryStatsState(getProps: () => RecipeComponentLibraryStats) {
+	const props = $derived(getProps());
 	let animatedStats = $state<SlotComponentLibraryStats>({
 		totalComponents: 0,
 		atoms: 0,

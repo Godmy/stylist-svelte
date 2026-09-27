@@ -1,7 +1,8 @@
 import { untrack } from 'svelte';
 import type { RecipeFilterBar } from '$stylist/commerce/interface/recipe/filter-bar';
 
-export function createFilterBarState(props: RecipeFilterBar) {
+export function createFilterBarState(getProps: () => RecipeFilterBar) {
+	const props = $derived(getProps());
 	const toggles = $derived(props.toggles ?? []);
 	const tags = $derived(props.tags ?? []);
 	const range = $derived(props.range);

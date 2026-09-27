@@ -4,7 +4,7 @@
 	import createTokenSelectState from './state.svelte';
 
 	let props: RecipeTokenSelect = $props();
-	const state = createTokenSelectState(props);
+	const state = createTokenSelectState(() => props);
 </script>
 
 <TokenControlBase definition={state.definition} layout="inline">

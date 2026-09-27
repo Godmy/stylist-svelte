@@ -1,6 +1,7 @@
 import type { RecipeTimePicker } from '$stylist/calendar/interface/recipe/time-picker';
 
-export const createTimePickerState = (props: RecipeTimePicker) => {
+export const createTimePickerState = (getProps: () => RecipeTimePicker) => {
+	const props = $derived(getProps());
 	let selectedTime = $state(props.value ?? '');
 
 	$effect(() => {

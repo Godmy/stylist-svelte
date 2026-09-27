@@ -40,7 +40,7 @@
 
 	let props: Props = $props();
 
-	const state = createCheckoutFormState(props);
+	const state = createCheckoutFormState(() => props);
 </script>
 
 <div class={ClassNamesManager.merge('c-checkout-form', props.class ?? '')} {...props}>

@@ -2,7 +2,8 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { useSemanticZoom } from '$stylist/presentation/function/script/use-semantic-zoom';
 import type { RecipePresenterNodeShell } from '$stylist/presentation/interface/recipe/presenter-node-shell';
 
-export function createPresenterNodeShellState(props: RecipePresenterNodeShell) {
+export function createPresenterNodeShellState(getProps: () => RecipePresenterNodeShell) {
+	const props = $derived(getProps());
 	const zoom = useSemanticZoom({
 		node: props.node,
 		get cameraDepth() {

@@ -4,7 +4,7 @@
 
 	let props: RecipeDot = $props();
 
-	const state = createDotState(props);
+	const state = createDotState(() => props);
 
 	const restProps = $derived(
 		(() => {

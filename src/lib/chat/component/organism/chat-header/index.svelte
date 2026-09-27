@@ -26,7 +26,7 @@
 
 	let props: ChatHeaderOrganismProps = $props();
 
-	const state = createChatHeaderState(props);
+	const state = createChatHeaderState(() => props);
 </script>
 
 <div class={state.containerClasses}>

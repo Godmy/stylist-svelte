@@ -2,7 +2,8 @@ import { DropZoneManager } from '$stylist/file/class/manager/drop-zone';
 import type { RecipeDropZone } from '$stylist/file/interface/recipe/drop-zone';
 import type { SlotDropItem } from '$stylist/file/interface/slot/drop-item';
 
-export function createDropZoneState(props: RecipeDropZone) {
+export function createDropZoneState(getProps: () => RecipeDropZone) {
+	const props = $derived(getProps());
 	let isDragOver = $state(false);
 	let items = $state<SlotDropItem[]>([]);
 	let isProcessing = $state(false);

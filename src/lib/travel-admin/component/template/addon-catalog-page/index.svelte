@@ -6,7 +6,7 @@
 	import createAddonCatalogPageState from './state.svelte';
 
 	let props: RecipeAddonCatalogPage = $props();
-	const state = createAddonCatalogPageState(props);
+	const state = createAddonCatalogPageState(() => props);
 
 	const navItems = [
 		{ id: 'dashboard', label: 'Дашборд', href: '/admin' },

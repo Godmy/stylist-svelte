@@ -2,7 +2,7 @@
 	import createAddressFormState from './state.svelte';
 
 	const props = $props();
-	const state = createAddressFormState(props);
+	const state = createAddressFormState(() => props);
 </script>
 
 <form class={state.rootClass} {...props}>

@@ -4,7 +4,7 @@
 	import type { RecipeTokenText } from '$stylist/token/interface/recipe/token-text';
 
 	let props: RecipeTokenText = $props();
-	const state = createTokenTextState(props);
+	const state = createTokenTextState(() => props);
 </script>
 
 <TokenControlBase definition={state.definition} layout="inline">

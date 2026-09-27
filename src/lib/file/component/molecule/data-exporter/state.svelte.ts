@@ -3,7 +3,8 @@ import { DataExporterManager } from '$stylist/file/class/manager/data-exporter';
 import type { DataExporterFormat } from '$stylist/file/type/alias/data-exporter-format';
 import type { RecipeDataExporter } from '$stylist/file/interface/recipe/data-exporter';
 
-export function createDataExporterState(props: RecipeDataExporter) {
+export function createDataExporterState(getProps: () => RecipeDataExporter) {
+	const props = $derived(getProps());
 	const disabled = $derived(props.disabled ?? false);
 	const format = $derived(props.format ?? 'csv');
 	const fileName = $derived(props.fileName ?? 'export');

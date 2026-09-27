@@ -7,7 +7,7 @@
 
 	let props: RecipeKPIIndicator = $props();
 
-	const state = createKPIIndicatorState(props);
+	const state = createKPIIndicatorState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

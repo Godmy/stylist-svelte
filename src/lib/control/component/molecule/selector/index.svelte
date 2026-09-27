@@ -5,7 +5,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeSelector = $props();
-	const state = createSelectorState(props);
+	const state = createSelectorState(() => props);
 
 	const restProps = $derived.by(() => {
 		const {

@@ -1,6 +1,7 @@
 import type { RecipeKbd } from '$stylist/typography/interface/recipe/kbd';
 
-export function createKbdState(props: RecipeKbd) {
+export function createKbdState(getProps: () => RecipeKbd) {
+	const props = $derived(getProps());
 	const classes = $derived(
 		['c-typography-kbd', typeof props.class === 'string' ? props.class : undefined]
 			.filter(Boolean)

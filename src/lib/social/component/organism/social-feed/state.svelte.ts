@@ -1,7 +1,8 @@
 import type { Post } from '$stylist/social/type/object/social-feed/post';
 import type { RecipeSocialFeed } from '$stylist/social/interface/recipe/social-feed';
 
-export function createSocialFeedState(props: RecipeSocialFeed) {
+export function createSocialFeedState(getProps: () => RecipeSocialFeed) {
+	const props = $derived(getProps());
 	let searchQuery = $state('');
 	let activeFilter = $state('');
 	let showCreateForm = $state(false);

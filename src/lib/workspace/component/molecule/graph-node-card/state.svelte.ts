@@ -4,8 +4,9 @@ import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/worksp
 import type { RecipeGraphNodeCard } from '$stylist/workspace/interface/recipe/graph-node-card';
 
 export function createGraphNodeCardState(
-	props: RecipeGraphNodeCard & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipeGraphNodeCard & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	const dispatch = createEventDispatcher<{
 		toggleExpand: { node: SlotWorkspaceNode };
 		viewDetails: { node: SlotWorkspaceNode };

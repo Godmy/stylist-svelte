@@ -4,7 +4,7 @@
 
 	let props: RecipeMessageThread = $props();
 
-	const state = createMessageThreadState(props);
+	const state = createMessageThreadState(() => props);
 </script>
 
 <div class={state.hostClasses} {...props}>

@@ -29,7 +29,8 @@ const Share2 = 'share-2';
 const HandHeart = 'hand-heart';
 const Sparkles = 'sparkles';
 
-export const createReactionPickerState = (props: IReactionPickerProps) => {
+export const createReactionPickerState = (getProps: () => IReactionPickerProps) => {
+	const props = $derived(getProps());
 	let showEmojiPicker = $state(false);
 
 	function toggleReaction(reactionType: string) {

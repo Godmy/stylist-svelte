@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import type { RecipePostCard } from '$stylist/social/interface/recipe/post-card';
 	import createPostCardState from './state.svelte';
 
 	let props: RecipePostCard = $props();
-	const state = createPostCardState(props);
+	const state = createPostCardState(untrack(() => props));
 </script>
 
 <div class="post-card">

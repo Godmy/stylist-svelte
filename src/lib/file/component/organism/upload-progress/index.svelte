@@ -7,7 +7,7 @@
 	import { UploadProgressManager } from '$stylist/file/class/manager/upload-progress';
 
 	let props: RecipeUploadProgress = $props();
-	const state = createUploadProgressState(props);
+	const state = createUploadProgressState(() => props);
 	const hostClasses = $derived(
 		ClassNamesManager.merge(
 			'c-upload-progress flex flex-col gap-3',

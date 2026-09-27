@@ -3,7 +3,7 @@
 	import createPaymentSummaryState from './state.svelte';
 
 	let props: RecipePaymentSummary = $props();
-	const state = createPaymentSummaryState(props);
+	const state = createPaymentSummaryState(() => props);
 </script>
 
 <div class="payment-summary">

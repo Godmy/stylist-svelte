@@ -2,7 +2,8 @@ import type { HTMLAttributes } from 'svelte/elements';
 import { ObjectManagerMetricCard } from '$stylist/commerce/class/manager/metric-card';
 import type { RecipeMetricCard } from '$stylist/commerce/interface/recipe/metric-card';
 
-export function createMetricCardState(props: RecipeMetricCard & HTMLAttributes<HTMLDivElement>) {
+export function createMetricCardState(getProps: () => RecipeMetricCard & HTMLAttributes<HTMLDivElement>) {
+	const props = $derived(getProps());
 	const label = props.title;
 	const value = props.value;
 	const max = props.max;

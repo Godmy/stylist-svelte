@@ -4,7 +4,7 @@
 	import { createColumnManagerState } from './state.svelte';
 
 	let props: RecipeColumnManager & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createColumnManagerState(props);
+	const state = createColumnManagerState(() => props);
 </script>
 
 <div class="c-column-manager {props.class ?? ''}">

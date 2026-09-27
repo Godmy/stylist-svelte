@@ -11,7 +11,7 @@
 	const Search = 'search';
 
 	let props: RecipeLanguageSelector & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createLanguageSelectorState(props);
+	const state = createLanguageSelectorState(() => props);
 </script>
 
 <div class={state.baseClasses} {...state.restProps}>

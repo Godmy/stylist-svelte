@@ -6,7 +6,7 @@
 
 	let props: RecipeNodePort = $props();
 
-	const state = createNodePortState(props);
+	const state = createNodePortState(() => props);
 	const label = $derived(props.label ?? '');
 	const dataType = $derived((props.dataType ?? 'any') as TokenPropertyType);
 

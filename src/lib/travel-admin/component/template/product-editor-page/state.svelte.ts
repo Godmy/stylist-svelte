@@ -20,7 +20,8 @@ const BLANK_PRODUCT: AdminProduct = {
 	sortOrder: 0
 };
 
-export function createProductEditorPageState(props: RecipeProductEditorPage) {
+export function createProductEditorPageState(getProps: () => RecipeProductEditorPage) {
+	const props = $derived(getProps());
 	let product = $state<AdminProduct>({ ...BLANK_PRODUCT });
 	let stops = $state<AdminRouteStop[]>([]);
 	let gallery = $state<AdminMediaAsset[]>([]);

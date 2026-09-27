@@ -4,7 +4,7 @@
 	import createOntologyNodeComponentState from './state.svelte';
 
 	let props: RecipeOntologyNodeComponent = $props();
-	const state = createOntologyNodeComponentState(props);
+	const state = createOntologyNodeComponentState(() => props);
 </script>
 
 <div class={state.baseClasses}>

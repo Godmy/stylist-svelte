@@ -3,7 +3,7 @@
 	import createStageState from './state.svelte';
 
 	let props: RecipeStage = $props();
-	const state = createStageState(props);
+	const state = createStageState(() => props);
 </script>
 
 <div class={state.classes} style={state.worldStyle} {...state.restProps}>

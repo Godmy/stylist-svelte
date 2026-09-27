@@ -1,6 +1,7 @@
-﻿import type { RecipeSelector } from '$stylist/control/interface/recipe/selector';
+import type { RecipeSelector } from '$stylist/control/interface/recipe/selector';
 
-export function createSelectorState(props: RecipeSelector) {
+export function createSelectorState(getProps: () => RecipeSelector) {
+	const props = $derived(getProps());
 	const id = $derived(props.id);
 	const label = $derived(props.label);
 	const value = $derived(props.value ?? '');

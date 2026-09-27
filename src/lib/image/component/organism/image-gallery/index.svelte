@@ -4,7 +4,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeImageGallery = $props();
-	const state = createImageGalleryState(props);
+	const state = createImageGalleryState(() => props);
 </script>
 
 <div class={state.containerClass} {...state.restProps}>

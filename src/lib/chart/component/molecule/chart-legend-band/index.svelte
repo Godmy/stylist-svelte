@@ -3,7 +3,7 @@
 	import type { RecipeChartLegendBand } from '$stylist/chart/interface/recipe/chart-legend-band';
 
 	let props: RecipeChartLegendBand = $props();
-	const state = createChartLegendBandState(props);
+	const state = createChartLegendBandState(() => props);
 </script>
 
 <g class={state.className} aria-label={`${state.labelText}: ${state.valueLabel}`}>

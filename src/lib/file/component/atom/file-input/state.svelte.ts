@@ -2,7 +2,8 @@ import { FileInputManager } from '$stylist/file/class/manager/file-input';
 import { untrack } from 'svelte';
 import type { RecipeFileInput } from '$stylist/file/interface/recipe/file-input';
 
-export function createFileInputState(props: RecipeFileInput) {
+export function createFileInputState(getProps: () => RecipeFileInput) {
+	const props = $derived(getProps());
 	const variant = $derived(props.variant ?? 'default');
 	const size = $derived(props.size ?? 'md');
 	const disabled = $derived(props.disabled ?? false);

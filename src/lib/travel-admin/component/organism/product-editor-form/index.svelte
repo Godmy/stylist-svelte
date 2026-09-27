@@ -6,7 +6,7 @@
 	import createProductEditorFormState from './state.svelte';
 
 	let props: RecipeProductEditorForm = $props();
-	const state = createProductEditorFormState(props);
+	const state = createProductEditorFormState(() => props);
 </script>
 
 <form class="product-editor-form {props.class ?? ''}" onsubmit={(e) => (e.preventDefault(), state.save())}>

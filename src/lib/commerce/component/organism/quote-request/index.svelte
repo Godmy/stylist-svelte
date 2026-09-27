@@ -6,7 +6,7 @@
 	import { createQuoteRequestState } from './state.svelte';
 
 	let props: RecipeQuoteRequest & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createQuoteRequestState(props);
+	const state = createQuoteRequestState(() => props);
 </script>
 
 <div class={state.containerClass}>

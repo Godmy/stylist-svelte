@@ -4,11 +4,12 @@ import type { SlotMessage as Message } from '$stylist/chat/interface/slot/messag
 const Check = 'check';
 const CheckCheck = 'check-check';
 
-export const createMessageMetaState = (props: {
+export const createMessageMetaState = (getProps: () => {
 	message?: Message;
 	showTimestamp?: boolean;
 	showStatus?: boolean;
 }) => {
+	const props = $derived(getProps());
 	const showTimestamp = $derived(props.showTimestamp ?? true);
 	const showStatus = $derived(props.showStatus ?? true);
 

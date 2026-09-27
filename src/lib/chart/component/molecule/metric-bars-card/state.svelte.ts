@@ -1,6 +1,7 @@
 import type { RecipeMetricBarsCard } from '$stylist/chart/interface/recipe/metric-bars-card';
 
-export function createMetricBarsCardState(props: RecipeMetricBarsCard) {
+export function createMetricBarsCardState(getProps: () => RecipeMetricBarsCard) {
+	const props = $derived(getProps());
 	const text = $derived(props.text ?? '');
 	const caption = $derived(props.description);
 	const total = $derived(props.total);

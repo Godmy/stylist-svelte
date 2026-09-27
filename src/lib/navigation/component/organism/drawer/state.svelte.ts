@@ -1,7 +1,8 @@
 import type { RecipeDrawer } from '$stylist/navigation/interface/recipe/drawer';
 import { DrawerManager } from '$stylist/navigation/class/manager/drawer';
 
-export function createDrawerState(props: RecipeDrawer) {
+export function createDrawerState(getProps: () => RecipeDrawer) {
+	const props = $derived(getProps());
 	let drawerEl = $state<HTMLElement | null>(null);
 	let backdropEl = $state<HTMLElement | null>(null);
 	const isOpen = $derived(props.open ?? false);

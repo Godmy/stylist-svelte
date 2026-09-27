@@ -4,7 +4,7 @@
 
 	let props: RecipeChip = $props();
 
-	const state = createChipState(props);
+	const state = createChipState(() => props);
 	const children = $derived(props.children);
 
 	const restProps = $derived(

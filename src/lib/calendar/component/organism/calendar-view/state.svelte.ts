@@ -10,7 +10,8 @@ import {
 } from '$stylist/calendar/function/script/calendar-utils';
 import { formatMonthYear } from '$stylist/calendar/function/script/date-format';
 
-export function createCalendarViewState(props: CalendarViewContract) {
+export function createCalendarViewState(getProps: () => CalendarViewContract) {
+	const props = $derived(getProps());
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
 	let currentViewMode = $state(props.viewMode ?? 'month');
 

@@ -9,7 +9,7 @@
 
 	let props: RecipeChatPreview = $props();
 
-	const state = createChatPreviewState(props);
+	const state = createChatPreviewState(() => props);
 	const displayMessages = $derived(state.displayMessages as ChatPreviewMessage[]);
 </script>
 

@@ -3,7 +3,7 @@
 	import { createUserProfileCardState } from './state.svelte';
 
 	let props: RecipeUserProfileCard = $props();
-	const state = createUserProfileCardState(props);
+	const state = createUserProfileCardState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

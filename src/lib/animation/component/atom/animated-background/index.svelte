@@ -4,7 +4,7 @@
 	import Background from '$stylist/layout/component/atom/background/index.svelte';
 
 	let props: RecipeAnimatedBackground = $props();
-	const state = createAnimatedBackgroundState(props);
+	const state = createAnimatedBackgroundState(() => props);
 </script>
 
 <div class={state.containerClasses} style={state.inlineStyle}>

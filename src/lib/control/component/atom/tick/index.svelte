@@ -4,7 +4,7 @@
 
 	let props: RecipeTick = $props();
 
-	const state = createSliderTickState(props);
+	const state = createSliderTickState(() => props);
 
 	const restProps = $derived(
 		(() => {

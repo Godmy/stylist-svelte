@@ -5,7 +5,7 @@
 	import type { RecipeLegendBandDiagram } from '$stylist/chart/interface/recipe/legend-band-diagram';
 
 	let props: RecipeLegendBandDiagram = $props();
-	const state = createLegendBandDiagramState(props);
+	const state = createLegendBandDiagramState(() => props);
 	const activeItemId = writable<string | null>(null);
 	const hoverColor = '#f59e0b';
 </script>

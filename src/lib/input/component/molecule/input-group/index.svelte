@@ -7,7 +7,7 @@
 	import InputLabel from '$stylist/input/component/atom/input-label/index.svelte';
 
 	let props: IInputGroupProps = $props();
-	const state = createInputGroupState(props);
+	const state = createInputGroupState(() => props);
 
 	let inputElement: HTMLInputElement | null = null;
 	onMount(() => {

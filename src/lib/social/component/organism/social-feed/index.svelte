@@ -5,7 +5,7 @@
 	import type { RecipeSocialFeed } from '$stylist/social/interface/recipe/social-feed';
 
 	let props: RecipeSocialFeed = $props();
-	const state = createSocialFeedState(props);
+	const state = createSocialFeedState(() => props);
 </script>
 
 <div class="c-social-feed {state.hostClass}" {...props}>

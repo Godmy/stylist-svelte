@@ -9,7 +9,7 @@
 	const Maximize2 = 'maximize-2';
 
 	let props: RecipeWidgetContainer = $props();
-	const state = createWidgetContainerState(props);
+	const state = createWidgetContainerState(() => props);
 
 	const TITLE_SIZE: Record<string, string> = {
 		sm: '1rem',

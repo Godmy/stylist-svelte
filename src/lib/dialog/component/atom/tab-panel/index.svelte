@@ -14,7 +14,7 @@
 	let tabId = $derived(`tab-${tabsId}-${props.id}`);
 	let panelId = $derived(`panel-${tabsId}-${props.id}`);
 
-	const state = createTabPanelState(props, () => isSelected);
+	const state = createTabPanelState(() => props, () => isSelected);
 
 	const restProps = $derived(
 		(() => {

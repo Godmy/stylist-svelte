@@ -3,7 +3,7 @@
 	import { createComponentLibraryStatsState } from './state.svelte';
 
 	let { ...props }: RecipeComponentLibraryStats = $props();
-	const state = createComponentLibraryStatsState(props);
+	const state = createComponentLibraryStatsState(() => props);
 </script>
 
 <div id={state.sectionId} class={state.containerClass} {...state.restProps}>

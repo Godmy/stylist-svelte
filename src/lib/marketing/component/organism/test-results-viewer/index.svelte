@@ -13,7 +13,7 @@
 	import createTestResultsViewerState from './state.svelte';
 
 	let props: RecipeTestResultsViewer = $props();
-	const state = createTestResultsViewerState(props);
+	const state = createTestResultsViewerState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

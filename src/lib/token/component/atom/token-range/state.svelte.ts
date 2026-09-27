@@ -1,6 +1,7 @@
 import type { RecipeTokenRange } from '$stylist/token/interface/recipe/token-range';
 
-export function createTokenRangeState(props: RecipeTokenRange) {
+export function createTokenRangeState(getProps: () => RecipeTokenRange) {
+	const props = $derived(getProps());
 	const initialValue =
 		typeof props.value === 'number'
 			? props.value

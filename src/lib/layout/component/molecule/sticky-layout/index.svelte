@@ -3,7 +3,7 @@
 	import type { RecipeStickyLayout } from '$stylist/layout/interface/recipe/sticky-layout';
 
 	let props: RecipeStickyLayout = $props();
-	const state = createStickyLayoutState(props);
+	const state = createStickyLayoutState(() => props);
 </script>
 
 <div

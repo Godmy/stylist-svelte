@@ -3,7 +3,7 @@
 	import createCtaBannerState from './state.svelte';
 
 	let props: RecipeCtaBanner = $props();
-	const state = createCtaBannerState(props);
+	const state = createCtaBannerState(() => props);
 </script>
 
 <section

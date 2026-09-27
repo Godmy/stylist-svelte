@@ -14,7 +14,8 @@ function getDropoff(steps: SlotFunnelStep[], stepIndex: number): number {
 	return previous > 0 ? Math.round(((previous - current) / previous) * 100) : 0;
 }
 
-export function createConversionFunnelState(props: RecipeConversionFunnel) {
+export function createConversionFunnelState(getProps: () => RecipeConversionFunnel) {
+	const props = $derived(getProps());
 	const title = $derived(props.title ?? 'Conversion Funnel');
 	const subtitle = $derived(props.subtitle);
 	const steps = $derived(props.steps ?? []);

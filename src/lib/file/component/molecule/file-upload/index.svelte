@@ -4,7 +4,7 @@
 	import type { RecipeFileUpload } from '$stylist/file/interface/recipe/file-upload';
 
 	let props: RecipeFileUpload = $props();
-	const state = createFileUploadState(props);
+	const state = createFileUploadState(() => props);
 </script>
 
 <div class={`file-upload-container ${state.className}`} {...state.restProps}>

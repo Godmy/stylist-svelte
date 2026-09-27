@@ -5,7 +5,7 @@
 
 	let props: RecipeTooltip & HTMLAttributes<HTMLElement> = $props();
 
-	const state = createTooltipState(props);
+	const state = createTooltipState(() => props);
 
 	$effect(() => {
 		if (state.trigger === 'click' && state.isVisible) {

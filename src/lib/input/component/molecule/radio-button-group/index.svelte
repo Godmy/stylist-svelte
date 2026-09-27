@@ -4,7 +4,7 @@
 
 	let props: RecipeRadioButtonGroup = $props();
 
-	const state = createRadioButtonGroupState(props);
+	const state = createRadioButtonGroupState(() => props);
 </script>
 
 <div class={state.containerClass} {...state.htmlProps}>

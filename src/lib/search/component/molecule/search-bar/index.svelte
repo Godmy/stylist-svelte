@@ -18,7 +18,7 @@
 	const X = 'x';
 
 	let props: RecipeSearchBar & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createSearchBarState(props);
+	const state = createSearchBarState(() => props);
 </script>
 
 <div class={state.containerClasses}>

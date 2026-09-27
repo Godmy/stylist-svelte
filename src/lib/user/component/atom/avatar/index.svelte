@@ -7,7 +7,7 @@
 
 	let props: RecipeAvatar & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography =
 		$props();
-	const state = createAvatarState(props);
+	const state = createAvatarState(() => props);
 </script>
 
 <div {...state.restProps} class={state.avatarClasses}>

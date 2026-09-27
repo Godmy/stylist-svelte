@@ -3,7 +3,7 @@
 	import type { RecipeExpertAgreementRadar } from '$stylist/chart/interface/recipe/expert-agreement-radar';
 
 	let props: RecipeExpertAgreementRadar = $props();
-	const state = createExpertAgreementRadarState(props);
+	const state = createExpertAgreementRadarState(() => props);
 </script>
 
 <section

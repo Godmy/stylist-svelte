@@ -17,7 +17,7 @@
 	import { createProcessStepState } from './state.svelte';
 
 	let props: RecipeProcessStep = $props();
-	const state = createProcessStepState(props);
+	const state = createProcessStepState(() => props);
 </script>
 
 <div class={state.classes}>

@@ -1,7 +1,8 @@
 import { ObjectManagerGesture } from '$stylist/layout/class/manager/gesture';
 import type { RecipeDraggable as DragProps } from '$stylist/layout/interface/recipe/draggable';
 
-export const createDraggableState = (props: DragProps) => {
+export const createDraggableState = (getProps: () => DragProps) => {
+	const props = $derived(getProps());
 	let isDragging = $state(false);
 	let isOverDropZone = $state(false);
 	let dragPreviewElement = $state<HTMLElement | null>(null);

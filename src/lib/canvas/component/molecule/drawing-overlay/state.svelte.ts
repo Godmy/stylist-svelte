@@ -1,8 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeDrawingOverlay } from '$stylist/canvas/interface/recipe/drawing-overlay';
 export function createDrawingOverlayState(
-	props: RecipeDrawingOverlay & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipeDrawingOverlay & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	const drawColor = $derived(props.drawColor ?? 'var(--color-error-500)');
 	const onClose = $derived(props.onClose);
 

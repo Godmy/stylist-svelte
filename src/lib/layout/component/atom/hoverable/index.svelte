@@ -3,7 +3,7 @@
 	import createHoverableState from './state.svelte';
 
 	let props: RecipeHoverable = $props();
-	const state = createHoverableState(props);
+	const state = createHoverableState(() => props);
 </script>
 
 <div

@@ -2,7 +2,8 @@ import type { RecipeNodeProperties as NodePropertiesProps } from '$stylist/works
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import { ObjectManagerNodeProperties } from '$stylist/workspace/class/manager/node-properties';
 
-export function createNodePropertiesState(props: NodePropertiesProps) {
+export function createNodePropertiesState(getProps: () => NodePropertiesProps) {
+	const props = $derived(getProps());
 	const size = $derived((props.size ?? 'md') as TokenSize);
 	const compact = $derived(props.compact ?? false);
 	const showHeader = $derived(props.showHeader ?? true);

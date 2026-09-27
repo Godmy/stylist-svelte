@@ -6,7 +6,7 @@
 	import type { RecipeAttachmentPreview } from '$stylist/file/interface/recipe/attachment-preview';
 
 	let props: RecipeAttachmentPreview = $props();
-	const state = createAttachmentPreviewState(props);
+	const state = createAttachmentPreviewState(() => props);
 </script>
 
 <div class={`attachment-preview ${state.classes}`.trim()}>

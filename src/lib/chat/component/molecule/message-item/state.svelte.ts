@@ -2,13 +2,14 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 
-export const createMessageItemState = (props: {
+export const createMessageItemState = (getProps: () => {
 	message: Message;
 	isOwn?: boolean;
 	showAvatar?: boolean;
 	enableReactions?: boolean;
 	sender?: User;
 }) => {
+	const props = $derived(getProps());
 	const isOwn = $derived(props.isOwn ?? false);
 	const showAvatar = $derived(props.showAvatar ?? true);
 	const enableReactions = $derived(props.enableReactions ?? true);

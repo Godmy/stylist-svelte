@@ -4,7 +4,7 @@
 	import createTokenRadioState from './state.svelte';
 
 	let props: RecipeTokenRadio = $props();
-	const state = createTokenRadioState(props);
+	const state = createTokenRadioState(() => props);
 </script>
 
 <TokenControlBase definition={state.definition} layout="inline">

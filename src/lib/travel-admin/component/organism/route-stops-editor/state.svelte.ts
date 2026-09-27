@@ -1,7 +1,8 @@
 import type { RecipeRouteStopsEditor } from '$stylist/travel-admin/interface/recipe/route-stops-editor';
 import type { AdminRouteStop } from '$stylist/travel-admin/type/object/admin-route-stop';
 
-export function createRouteStopsEditorState(props: RecipeRouteStopsEditor) {
+export function createRouteStopsEditorState(getProps: () => RecipeRouteStopsEditor) {
+	const props = $derived(getProps());
 	const stops = $state<AdminRouteStop[]>(props.stops.map((s) => ({ ...s })));
 
 	function emit() {

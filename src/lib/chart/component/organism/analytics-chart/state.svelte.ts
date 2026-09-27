@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeAnalyticsChart } from '$stylist/chart/interface/recipe/analytics-chart';
 
-export function createAnalyticsChartState(props: RecipeAnalyticsChart) {
+export function createAnalyticsChartState(getProps: () => RecipeAnalyticsChart) {
+	const props = $derived(getProps());
 	const classNameStr = $derived(typeof props.class === 'string' ? props.class : undefined);
 	const chartClassStr = $derived(
 		typeof props.chartClass === 'string' ? props.chartClass : undefined

@@ -2,8 +2,8 @@
 	import type { RecipePermissionGate } from '$stylist/management/interface/recipe/permission-gate';
 	import createPermissionGateState from './state.svelte';
 
-	let props: Parameters<typeof createPermissionGateState>[0] = $props();
-	const state = createPermissionGateState(props);
+	let props: RecipePermissionGate = $props();
+	const state = createPermissionGateState(() => props);
 </script>
 
 {#if state.hasPermission}

@@ -1,6 +1,7 @@
 import type { RecipeNotificationBadge } from '$stylist/notification/interface/recipe/notification-badge';
 
-export function createNotificationBadgeState(props: RecipeNotificationBadge) {
+export function createNotificationBadgeState(getProps: () => RecipeNotificationBadge) {
+	const props = $derived(getProps());
 	const count = $derived(props.count ?? 0);
 	const maxCount = $derived(props.maxCount ?? 99);
 	const marker = $derived(props.marker ?? 'number');

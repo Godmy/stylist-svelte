@@ -11,7 +11,7 @@
 	title="Booking / BookingPhysicalLoadFilter"
 	component={BookingPhysicalLoadFilter}
 	category="Booking/Molecules"
-	description="Радио-выбор физической нагрузки (низкая/средняя/высокая) с описанием под каждым вариантом — часть BookingFilterPanel."
+	description="Радио-выбор физической нагрузки («Любая нагрузка» = undefined, без фильтрации / низкая / средняя / высокая) с описанием под каждым вариантом — часть BookingFilterPanel."
 	{controls}
 >
 	{#snippet children()}

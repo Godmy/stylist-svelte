@@ -14,8 +14,9 @@ import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
  */
 export function createPriceAlertState<V extends string, S extends string>(
 	preset: Preset<V, S>,
-	props: RecipePriceAlert & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipePriceAlert & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	const currentPrice = $derived(props.currentPrice ?? 0);
 	const targetPrice = $derived(props.targetPrice ?? 0);
 	const currency = $derived(props.currency ?? '$');

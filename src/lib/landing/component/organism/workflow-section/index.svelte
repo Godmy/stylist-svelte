@@ -10,7 +10,7 @@
 
 	let props: RecipeWorkflowSection = $props();
 
-	const state = createWorkflowSectionState(props);
+	const state = createWorkflowSectionState(() => props);
 </script>
 
 <section id={props.id} class="workflow-section {props.class ?? ''}" aria-label={props.ariaLabel}>

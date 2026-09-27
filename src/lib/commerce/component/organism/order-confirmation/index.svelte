@@ -7,7 +7,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeOrderConfirmation & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createOrderConfirmationState(props);
+	const state = createOrderConfirmationState(() => props);
 </script>
 
 <div class={state.containerClass}>

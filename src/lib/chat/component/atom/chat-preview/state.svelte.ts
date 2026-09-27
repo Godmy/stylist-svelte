@@ -2,8 +2,7 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeChatPreview } from '$stylist/chat/interface/recipe/chat-preview';
 
 export function createChatPreviewState(
-	props:
-		| {
+	getProps: () => | {
 				title?: string;
 				participants?: string[];
 				messages?: Array<{ author: string; text: string; timestamp: string }>;
@@ -15,6 +14,7 @@ export function createChatPreviewState(
 		  }
 		| RecipeChatPreview
 ) {
+	const props = $derived(getProps());
 	// Initialize props with defaults
 	const title = props.title ?? 'Chat';
 	const participants = props.participants ?? [];

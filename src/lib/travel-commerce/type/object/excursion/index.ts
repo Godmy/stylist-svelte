@@ -14,7 +14,7 @@ export type Excursion = {
 	categories: string[];
 	tags: string[];
 	featured?: boolean;
-	/** Групповая, индивидуальная или большой тур (многодневный) — BookingFilterPanel's tour-type radio filter. Optional so hosts without this data (sandbox sample data) keep working. */
+	/** Групповая экскурсия, индивидуальная экскурсия или тур (многодневный) — BookingFilterPanel's tour-type radio filter. Optional so hosts without this data (sandbox sample data) keep working. */
 	tourType?: 'group' | 'individual' | 'tour';
 	recommendedForKids?: boolean;
 	noEarlyDeparture?: boolean;

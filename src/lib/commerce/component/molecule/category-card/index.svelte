@@ -5,7 +5,7 @@
 	import createCategoryCardState from './state.svelte';
 
 	let props: ICategoryCardProps & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createCategoryCardState(props);
+	const state = createCategoryCardState(() => props);
 </script>
 
 <a href={props.link} class={state.classes} aria-label={state.ariaLabel}>

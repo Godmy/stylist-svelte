@@ -3,7 +3,7 @@
 	import type { RecipeExchangeOracleForecast } from '$stylist/chart/interface/recipe/exchange-oracle-forecast';
 
 	let props: RecipeExchangeOracleForecast = $props();
-	const state = createExchangeOracleForecastState(props);
+	const state = createExchangeOracleForecastState(() => props);
 </script>
 
 <section

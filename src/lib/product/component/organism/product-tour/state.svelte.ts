@@ -1,7 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductTour } from '$stylist/product/interface/recipe/product-tour';
 
-export function createProductTourState(props: RecipeProductTour & HTMLAttributes<HTMLDivElement>) {
+export function createProductTourState(getProps: () => RecipeProductTour & HTMLAttributes<HTMLDivElement>) {
+	const props = $derived(getProps());
 	let localCurrentStep = $state(props.currentStep ?? 0);
 	let localShowTour = $state(props.showTour ?? false);
 

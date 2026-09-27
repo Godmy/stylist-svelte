@@ -3,7 +3,7 @@
 	import createBurgerMenuState from './state.svelte';
 
 	let props: RecipeBurgerMenu = $props();
-	const state = createBurgerMenuState(props);
+	const state = createBurgerMenuState(() => props);
 </script>
 
 <button

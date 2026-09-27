@@ -6,7 +6,7 @@
 	import createMediaGalleryManagerState from './state.svelte';
 
 	let props: RecipeMediaGalleryManager = $props();
-	const state = createMediaGalleryManagerState(props);
+	const state = createMediaGalleryManagerState(() => props);
 
 	function handleItemAdded(item: SlotDropItem) {
 		if (item.data instanceof File) state.upload(item.data);

@@ -1,7 +1,8 @@
 import createInputTextState from '$stylist/input/component/molecule/input-text/state.svelte';
 import type { RecipeInputGroup as IInputGroupProps } from '$stylist/input/interface/recipe/input-group';
 
-export const createInputGroupState = (props: IInputGroupProps) => {
+export const createInputGroupState = (getProps: () => IInputGroupProps) => {
+	const props = $derived(getProps());
 	const hasError = $derived(!!props.error || (props.errors?.length ?? 0) > 0);
 	const errorId = $derived(props.id ? `${props.id}-error` : undefined);
 	const labelId = $derived(props.id ? `${props.id}-label` : undefined);

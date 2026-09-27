@@ -6,7 +6,7 @@
 	import createPricingMatrixPageState from './state.svelte';
 
 	let props: RecipePricingMatrixPage = $props();
-	const state = createPricingMatrixPageState(props);
+	const state = createPricingMatrixPageState(() => props);
 
 	const navItems = [
 		{ id: 'dashboard', label: 'Дашборд', href: '/admin' },

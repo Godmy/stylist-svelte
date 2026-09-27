@@ -5,7 +5,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeCellIcon & HTMLAttributes<HTMLTableCellElement> = $props();
-	const state = createCellIconState(props);
+	const state = createCellIconState(() => props);
 </script>
 
 <td class="c-cell-icon {props.class ?? ''}" title={state.label || undefined}>

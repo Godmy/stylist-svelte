@@ -50,7 +50,8 @@ const EXCLUDED_CONTAINER_PROP_NAMES = [
 	'wrap'
 ];
 
-export const createRadioButtonGroupState = (props: RecipeRadioButtonGroup) => {
+export const createRadioButtonGroupState = (getProps: () => RecipeRadioButtonGroup) => {
+	const props = $derived(getProps());
 	const containerClass = $derived(['c-radio-group', props.class].filter(Boolean).join(' '));
 	const options = $derived(props.options ?? []);
 	const name = $derived(props.name ?? '');

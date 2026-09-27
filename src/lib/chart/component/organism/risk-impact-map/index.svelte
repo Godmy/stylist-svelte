@@ -3,7 +3,7 @@
 	import type { RecipeRiskImpactMap } from '$stylist/chart/interface/recipe/risk-impact-map';
 
 	let props: RecipeRiskImpactMap = $props();
-	const state = createRiskImpactMapState(props);
+	const state = createRiskImpactMapState(() => props);
 </script>
 
 <section class={state.className} aria-label={props.ariaLabel ?? props.text ?? 'Risk impact map'}>

@@ -8,7 +8,7 @@
 	import { createAtomicPrinciplesShowcaseState } from './state.svelte';
 
 	let { ...props }: RecipeAtomicPrinciplesShowcase = $props();
-	const state = createAtomicPrinciplesShowcaseState(props);
+	const state = createAtomicPrinciplesShowcaseState(() => props);
 </script>
 
 <section class={state.className} {...state.restProps}>

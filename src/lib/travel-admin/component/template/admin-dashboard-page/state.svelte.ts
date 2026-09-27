@@ -1,7 +1,8 @@
 import type { RecipeAdminDashboardPage } from '$stylist/travel-admin/interface/recipe/admin-dashboard-page';
 import type { AdminProduct } from '$stylist/travel-admin/type/object/admin-product';
 
-export function createAdminDashboardPageState(props: RecipeAdminDashboardPage) {
+export function createAdminDashboardPageState(getProps: () => RecipeAdminDashboardPage) {
+	const props = $derived(getProps());
 	let products = $state<AdminProduct[]>([]);
 	let loading = $state(true);
 

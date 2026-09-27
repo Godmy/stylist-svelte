@@ -2,7 +2,8 @@ import { ControlManager } from '$stylist/control/class/manager/control';
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 type SearchBarStateProps = { [key: string]: any };
 
-export const createSearchBarState = (props: SearchBarStateProps) => {
+export const createSearchBarState = (getProps: () => SearchBarStateProps) => {
+	const props = $derived(getProps());
 	// SlotState
 	let searchTerm = $state(props.value ?? '');
 

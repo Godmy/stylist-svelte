@@ -21,7 +21,7 @@
 		})()
 	);
 
-	const state = createTagState(props);
+	const state = createTagState(() => props);
 	const icon = $derived(props.icon);
 	const content = $derived(props.content);
 </script>

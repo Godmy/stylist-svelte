@@ -5,7 +5,7 @@
 	import type { ChatRoomProps } from '$stylist/chat/type/alias/chat-room-props';
 
 	let props: ChatRoomProps = $props();
-	const state = stateFn(props);
+	const state = stateFn(() => props);
 </script>
 
 <div class={state.containerClasses} {...props}>

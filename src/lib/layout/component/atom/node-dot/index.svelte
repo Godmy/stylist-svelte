@@ -3,7 +3,7 @@
 	import createNodeDotState from './state.svelte';
 
 	let props: RecipeNodeDot = $props();
-	const state = createNodeDotState(props);
+	const state = createNodeDotState(() => props);
 </script>
 
 <div

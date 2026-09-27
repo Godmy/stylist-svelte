@@ -4,7 +4,7 @@
 	import createSocialLoginState from './state.svelte';
 
 	let props: RecipeSocialLogin = $props();
-	const state = createSocialLoginState(props);
+	const state = createSocialLoginState(() => props);
 </script>
 
 <div class="c-social-login {state.hostClass}" {...props}>

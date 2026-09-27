@@ -9,7 +9,7 @@
 	import type { RecipeDraggableCard } from '$stylist/management/interface/recipe/draggable-card';
 
 	let props: RecipeDraggableCard = $props();
-	const state = createDraggableCardState(props);
+	const state = createDraggableCardState(() => props);
 </script>
 
 <div

@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import type { RecipeReturnPolicy as ReturnPolicyContract } from '$stylist/commerce/interface/recipe/return-policy';
 	import stateFn from './state.svelte';
 
 	let props: ReturnPolicyContract = $props();
-	const state = stateFn(props);
+	const state = stateFn(untrack(() => props));
 </script>
 
 <div class="return-policy">

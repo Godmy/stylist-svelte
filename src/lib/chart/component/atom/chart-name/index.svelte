@@ -4,7 +4,7 @@
 	import createChartNameState from './state.svelte';
 
 	let props: ChartNameProps & SVGAttributes<SVGTextElement> = $props();
-	const state = createChartNameState(props);
+	const state = createChartNameState(() => props);
 </script>
 
 <text

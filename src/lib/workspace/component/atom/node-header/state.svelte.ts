@@ -1,7 +1,8 @@
 import type { RecipeNodeHeader } from '$stylist/workspace/interface/recipe/node-header';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 
-export function createNodeHeaderState(props: RecipeNodeHeader) {
+export function createNodeHeaderState(getProps: () => RecipeNodeHeader) {
+	const props = $derived(getProps());
 	let isEditing = $state(false);
 	const size = $derived((props.size ?? 'md') as TokenSize);
 	const selected = $derived(Boolean(props.selected));

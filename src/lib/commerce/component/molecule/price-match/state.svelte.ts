@@ -1,7 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipePriceMatch } from '$stylist/commerce/interface/recipe/price-match';
 
-export function createPriceMatchState(props: RecipePriceMatch & HTMLAttributes<HTMLDivElement>) {
+export function createPriceMatchState(getProps: () => RecipePriceMatch & HTMLAttributes<HTMLDivElement>) {
+	const props = $derived(getProps());
 	const competitorPrices = $derived(props.competitorPrices ?? []);
 	const bestPrice = $derived(
 		competitorPrices.length > 0 ? Math.min(...competitorPrices.map((p) => p.price)) : null

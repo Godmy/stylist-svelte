@@ -5,7 +5,7 @@
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 
 	let props: RecipeAudioPlayer = $props();
-	const state = createAudioPlayerState(props);
+	const state = createAudioPlayerState(() => props);
 </script>
 
 <div class={state.hostClasses} {...state.restProps}>

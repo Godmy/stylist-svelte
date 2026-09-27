@@ -3,7 +3,7 @@
 	import createFieldHighlighterState from './state.svelte';
 
 	let props: IFieldHighlighterProps = $props();
-	const state = createFieldHighlighterState(props);
+	const state = createFieldHighlighterState(() => props);
 </script>
 
 <div class="field-highlighter-visualization">

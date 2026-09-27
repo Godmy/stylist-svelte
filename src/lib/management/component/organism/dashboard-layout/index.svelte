@@ -9,7 +9,7 @@
 
 	let props: RecipeDashboardLayout = $props();
 
-	const state = createDashboardLayoutState(props);
+	const state = createDashboardLayoutState(() => props);
 </script>
 
 <div class={`c-dashboard-layout ${props.class ?? ''} _c1`} {...state.restProps}>

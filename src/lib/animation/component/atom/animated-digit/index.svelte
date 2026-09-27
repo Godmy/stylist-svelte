@@ -3,7 +3,7 @@
 	import createAnimatedDigitState from './state.svelte';
 
 	let props: RecipeAnimatedDigit = $props();
-	const state = createAnimatedDigitState(props);
+	const state = createAnimatedDigitState(() => props);
 </script>
 
 <div class={state.classes} style={state.inlineStyle}>

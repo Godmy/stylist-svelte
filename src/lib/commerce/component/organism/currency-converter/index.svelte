@@ -3,7 +3,7 @@
 	import createCurrencyConverterState from './state.svelte';
 
 	let props: CurrencyConverterContract = $props();
-	const state = createCurrencyConverterState(props);
+	const state = createCurrencyConverterState(() => props);
 </script>
 
 <div class="currency-converter">

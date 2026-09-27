@@ -1,6 +1,7 @@
 import type { RecipeFilterPills } from '$stylist/table/interface/recipe/filter-pills';
 
-export function createFilterPillsState(props: RecipeFilterPills) {
+export function createFilterPillsState(getProps: () => RecipeFilterPills) {
+	const props = $derived(getProps());
 	const isActive = (value: string) => (props.active ?? []).includes(value);
 	const toggle = (value: string) => props.onToggle?.(props.columnKey, value);
 

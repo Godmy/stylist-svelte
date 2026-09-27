@@ -1,6 +1,7 @@
 import type { RecipeFilterText } from '$stylist/table/interface/recipe/filter-text';
 
-export function createFilterTextState(props: RecipeFilterText) {
+export function createFilterTextState(getProps: () => RecipeFilterText) {
+	const props = $derived(getProps());
 	let value = $state(props.value ?? '');
 
 	$effect(() => {

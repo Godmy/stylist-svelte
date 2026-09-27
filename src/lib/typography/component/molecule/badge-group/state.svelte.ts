@@ -1,6 +1,7 @@
 import type { RecipeBadgeGroup } from '$stylist/typography/interface/recipe/badge-group';
 
-export function createBadgeGroupState(props: RecipeBadgeGroup) {
+export function createBadgeGroupState(getProps: () => RecipeBadgeGroup) {
+	const props = $derived(getProps());
 	const badges = $derived(props.badges ?? []);
 	const maxVisible = $derived(props.maxVisible ?? 5);
 	const showOverflow = $derived(props.showOverflow ?? true);

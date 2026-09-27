@@ -7,7 +7,7 @@
 
 	let props: RecipeAvatarGroup & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography =
 		$props();
-	const state = createAvatarGroupState(props);
+	const state = createAvatarGroupState(() => props);
 </script>
 
 <div class={state.hostClasses} {...state.restProps}>

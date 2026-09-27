@@ -7,7 +7,7 @@
 	import PieChart from '$stylist/chart/component/molecule/pie-chart/index.svelte';
 
 	let props: RecipeAnalyticsChart = $props();
-	const state = createAnalyticsChartState(props);
+	const state = createAnalyticsChartState(() => props);
 
 	const maxValue = $derived(ManagerAnalyticsChart.resolveMaxValue(props.data ?? []));
 	const chartPoints = $derived(ManagerAnalyticsChart.buildBarChartPoints(props.data ?? []));

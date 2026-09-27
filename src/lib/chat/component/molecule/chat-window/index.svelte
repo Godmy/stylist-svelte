@@ -25,7 +25,7 @@
 		onChatInfo?: () => void;
 	} = $props();
 
-	const state = createChatWindowState(props);
+	const state = createChatWindowState(() => props);
 </script>
 
 <div class={state.containerClasses}>

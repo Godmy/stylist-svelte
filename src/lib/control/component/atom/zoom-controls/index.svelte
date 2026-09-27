@@ -4,7 +4,7 @@
 	import { createZoomControlsState } from './state.svelte';
 
 	let props: RecipeZoomControls & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createZoomControlsState(props);
+	const state = createZoomControlsState(() => props);
 </script>
 
 <div class="zoom-controls" role="group" aria-label="Zoom controls">

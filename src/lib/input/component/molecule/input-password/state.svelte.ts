@@ -1,7 +1,8 @@
 import createInputTextState from '$stylist/input/component/molecule/input-text/state.svelte';
 import type { RecipeInputPassword as IInputPasswordProps } from '$stylist/input/interface/recipe/input-password';
 
-export const createInputPasswordState = (props: IInputPasswordProps) => {
+export const createInputPasswordState = (getProps: () => IInputPasswordProps) => {
+	const props = $derived(getProps());
 	const hasError = $derived(!!props.error || (props.errors?.length ?? 0) > 0);
 	const errorId = $derived(props.id ? `${String(props.id)}-error` : undefined);
 	const labelId = $derived(props.id ? `${String(props.id)}-label` : undefined);

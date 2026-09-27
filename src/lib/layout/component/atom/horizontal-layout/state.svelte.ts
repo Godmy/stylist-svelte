@@ -12,7 +12,8 @@ const GAP_VALUES: Record<string, string> = {
 	'2xl': '3rem'
 };
 
-export function createHorizontalLayoutState(props: RecipeHorizontalLayout) {
+export function createHorizontalLayoutState(getProps: () => RecipeHorizontalLayout) {
+	const props = $derived(getProps());
 	const gap = $derived(props.gap ?? 16);
 	const gapValue = $derived.by(() => {
 		if (typeof gap === 'number') return `${gap}px`;

@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 	import type { RecipeDocumentPreview } from '$stylist/file/interface/recipe/document-preview';
 	import createDocumentPreviewState from './state.svelte';
 	let props: RecipeDocumentPreview = $props();
-	const state = createDocumentPreviewState(props);
+	const state = createDocumentPreviewState(untrack(() => props));
 	const { title: _title, content: _content, format: _format, class: _class, ...restProps } = props;
 </script>
 

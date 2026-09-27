@@ -1,7 +1,8 @@
 import type { RecipeBreadcrumbs } from '$stylist/dialog/interface/recipe/breadcrumbs';
 import { BreadcrumbsManager } from '$stylist/dialog/class/manager/breadcrumbs';
 
-export function createBreadcrumbsState(props: RecipeBreadcrumbs) {
+export function createBreadcrumbsState(getProps: () => RecipeBreadcrumbs) {
+	const props = $derived(getProps());
 	let hoveredId = $state<string | null>(null);
 	const visibleCrumbs = $derived(
 		BreadcrumbsManager.getBreadcrumbItems(props.crumbs ?? [], props.activeId)

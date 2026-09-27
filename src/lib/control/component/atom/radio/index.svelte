@@ -3,7 +3,7 @@
 	import createRadioState from './state.svelte';
 
 	let props: RecipeRadio = $props();
-	const state = createRadioState(props);
+	const state = createRadioState(() => props);
 </script>
 
 <div

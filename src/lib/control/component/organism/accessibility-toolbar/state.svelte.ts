@@ -1,6 +1,7 @@
 import type { RecipeAccessibilityToolbar } from '$stylist/control/interface/recipe/accessibility-toolbar';
 
-export function createAccessibilityToolbarState(props: RecipeAccessibilityToolbar) {
+export function createAccessibilityToolbarState(getProps: () => RecipeAccessibilityToolbar) {
+	const props = $derived(getProps());
 	const showFontSizeControls = $derived(props.showFontSizeControls ?? true);
 	const showScreenReaderTester = $derived(props.showScreenReaderTester ?? true);
 	const showFocusIndicatorToggle = $derived(

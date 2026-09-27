@@ -3,7 +3,7 @@
 	import type { RecipeCriticalPathTimeline } from '$stylist/chart/interface/recipe/critical-path-timeline';
 
 	let props: RecipeCriticalPathTimeline = $props();
-	const state = createCriticalPathTimelineState(props);
+	const state = createCriticalPathTimelineState(() => props);
 </script>
 
 <section

@@ -2,7 +2,8 @@ import type { ComparisonTableFeature } from '$stylist/table/type/object/comparis
 import type { ComparisonTableProduct } from '$stylist/table/type/object/comparison-table-product';
 import type { RecipeWorkflowSection } from '$stylist/landing/interface/recipe/workflow-section';
 
-export function createWorkflowSectionState(props: RecipeWorkflowSection) {
+export function createWorkflowSectionState(getProps: () => RecipeWorkflowSection) {
+	const props = $derived(getProps());
 	const features = $derived<ComparisonTableFeature[]>(
 		props.comparisonCriteria.map((name, index) => ({ id: `criterion-${index}`, name }))
 	);

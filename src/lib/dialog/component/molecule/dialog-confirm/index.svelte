@@ -4,7 +4,7 @@
 	import createDialogConfirmState from './state.svelte';
 
 	let props: RecipeDialogConfirm = $props();
-	const state = createDialogConfirmState(props);
+	const state = createDialogConfirmState(() => props);
 </script>
 
 {#snippet dialogContent()}

@@ -1,6 +1,7 @@
 import type { RecipeDiscountApplier as DiscountApplierContract } from '$stylist/commerce/interface/recipe/discount-applier';
 import type { SlotDiscountRule as DiscountRuleContract } from '$stylist/commerce/interface/slot/discount-rule';
-export function createDiscountApplierState(props: DiscountApplierContract) {
+export function createDiscountApplierState(getProps: () => DiscountApplierContract) {
+	const props = $derived(getProps());
 	let codeInput = $state('');
 	let message = $state<{ text: string; type: 'success' | 'error' } | null>(null);
 

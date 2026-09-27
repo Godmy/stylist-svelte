@@ -5,7 +5,7 @@
 	import type { RecipeSearchForm } from '$stylist/search/interface/recipe/search-form';
 
 	const props: RecipeSearchForm = $props();
-	const state = createSearchFormState(props);
+	const state = createSearchFormState(() => props);
 </script>
 
 <form class={state.rootClass} {...props}>

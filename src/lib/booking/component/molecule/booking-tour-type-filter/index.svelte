@@ -6,13 +6,22 @@
 
 	type Props = {
 		selected?: TourType;
-		onChange?: (value: TourType) => void;
+		/** `undefined` = «Все варианты» (no tour-type filtering). */
+		onChange?: (value: TourType | undefined) => void;
 	};
 
 	let { selected, onChange }: Props = $props();
 </script>
 
 <div class="tc-booking-tour-type-filter" role="radiogroup" aria-label="Тип экскурсии">
+	<Radio
+		id="booking-tour-type-all"
+		name="booking-tour-type"
+		value="all"
+		label="Все варианты"
+		checked={selected === undefined}
+		onchange={() => onChange?.(undefined)}
+	/>
 	{#each TOUR_TYPE_OPTIONS as option (option.value)}
 		<Radio
 			id={`booking-tour-type-${option.value}`}

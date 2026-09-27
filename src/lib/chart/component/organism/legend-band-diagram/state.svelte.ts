@@ -2,7 +2,8 @@ import { ManagerChartLegendBand } from '$stylist/chart/class/manager/chart-legen
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeLegendBandDiagram } from '$stylist/chart/interface/recipe/legend-band-diagram';
 
-export default function createLegendBandDiagramState(props: RecipeLegendBandDiagram) {
+export default function createLegendBandDiagramState(getProps: () => RecipeLegendBandDiagram) {
+	const props = $derived(getProps());
 	const className = $derived(ClassNamesManager.merge('legend-band-diagram', props.class));
 	const layout = $derived.by(() =>
 		ManagerChartLegendBand.createLayout(props.items, {

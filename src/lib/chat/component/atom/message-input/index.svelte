@@ -5,7 +5,7 @@
 	import createMessageInputState from './state.svelte';
 
 	let props: MessageInputContract & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createMessageInputState(props);
+	const state = createMessageInputState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

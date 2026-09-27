@@ -7,7 +7,7 @@
 
 	let props: RecipePaymentMethodSelector = $props();
 
-	const state = createPaymentMethodSelectorState(props);
+	const state = createPaymentMethodSelectorState(() => props);
 </script>
 
 <div class="payment-method-selector">

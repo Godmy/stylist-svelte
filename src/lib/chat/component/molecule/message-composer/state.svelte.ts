@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeMessageComposer } from '$stylist/chat/interface/recipe/message-composer';
 
-export const createMessageComposerState = (props: RecipeMessageComposer) => {
+export const createMessageComposerState = (getProps: () => RecipeMessageComposer) => {
+	const props = $derived(getProps());
 	let messageText = $state(props.value ?? '');
 
 	$effect(() => {

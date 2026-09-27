@@ -3,7 +3,7 @@
 	import { createComparisonTableState } from './state.svelte';
 
 	let props: RecipeComparisonTable = $props();
-	const state = createComparisonTableState(props);
+	const state = createComparisonTableState(() => props);
 
 	const restProps = $derived.by(() => {
 		const {

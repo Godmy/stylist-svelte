@@ -1,6 +1,7 @@
 import type { RecipeAspectRatio } from '$stylist/layout/interface/recipe/aspect-ratio';
 
-export function createAspectRatioState(props: RecipeAspectRatio) {
+export function createAspectRatioState(getProps: () => RecipeAspectRatio) {
+	const props = $derived(getProps());
 	const ratio = $derived(props.ratio ?? 1);
 
 	const restProps = $derived.by(() => {

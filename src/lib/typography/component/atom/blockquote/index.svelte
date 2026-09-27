@@ -5,7 +5,7 @@
 
 	let props: RecipeBlockquote & HTMLAttributes<HTMLQuoteElement> = $props();
 
-	const state = createBlockquoteState(props);
+	const state = createBlockquoteState(() => props);
 	const children = $derived(props.children);
 
 	const restProps = $derived(

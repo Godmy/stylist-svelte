@@ -7,7 +7,7 @@
 	import createWorkspaceNodeState from './state.svelte';
 
 	let props: RecipeWorkspaceNode = $props();
-	const state = createWorkspaceNodeState(props);
+	const state = createWorkspaceNodeState(() => props);
 	const indexedInputs = $derived(
 		state.inputs.map((port: SlotWorkspaceNode, idx: number) => ({ ...port, index: idx }))
 	);

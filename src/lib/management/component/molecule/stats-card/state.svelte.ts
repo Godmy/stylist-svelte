@@ -4,7 +4,10 @@ import type { RecipeStatsCard } from '$stylist/management/interface/recipe/stats
 import { STATS_CARD_TREND_ICON } from '$stylist/management/const/record/stats-card-trend-icon';
 import { STATS_CARD_TREND_CLASS } from '$stylist/management/const/record/stats-card-trend-class';
 
-export function createStatsCardState(props: RecipeStatsCard & HTMLAttributes<HTMLDivElement>) {
+export function createStatsCardState(
+	getProps: () => RecipeStatsCard & HTMLAttributes<HTMLDivElement>
+) {
+	const props = $derived(getProps());
 	// Props with defaults
 	const text = props.text;
 	const value = props.value;

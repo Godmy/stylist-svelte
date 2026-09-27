@@ -4,12 +4,11 @@ import { createMotionPreferenceState } from '$stylist/animation/function/state/m
 import type { RecipeVectorScene } from '$stylist/animation/interface/recipe/vector-scene';
 
 export function createVectorSceneState(getProps: () => RecipeVectorScene) {
+	const props = $derived(getProps());
 	const motionPreference = createMotionPreferenceState();
 
 	let isHovered = $state(false);
 	let isActive = $state(false);
-
-	const props = $derived.by(getProps);
 	const mode = $derived(props.mode ?? 'ambient');
 	const reducedMotion = $derived(motionPreference.prefersReducedMotion);
 	const progressValue = $derived(Math.min(Math.max(props.progress ?? 0, 0), 1));

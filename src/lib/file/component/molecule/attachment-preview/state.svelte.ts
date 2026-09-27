@@ -1,7 +1,8 @@
 import { AttachmentPreviewManager } from '$stylist/file/class/manager/attachment-preview';
 import type { RecipeAttachmentPreview } from '$stylist/file/interface/recipe/attachment-preview';
 
-export function createAttachmentPreviewState(props: RecipeAttachmentPreview) {
+export function createAttachmentPreviewState(getProps: () => RecipeAttachmentPreview) {
+	const props = $derived(getProps());
 	const dispatch = AttachmentPreviewManager.createDispatch();
 
 	function download(): void {

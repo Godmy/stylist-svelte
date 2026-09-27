@@ -1,6 +1,7 @@
 import type { RecipeAbbr as AbbrProps } from '$stylist/typography/interface/recipe/abbr';
 
-export function createAbbrState(props: AbbrProps) {
+export function createAbbrState(getProps: () => AbbrProps) {
+	const props = $derived(getProps());
 	const title = $derived(props.title ?? '');
 	const classes = $derived(
 		['c-typography-abbr', typeof props.class === 'string' ? props.class : undefined]

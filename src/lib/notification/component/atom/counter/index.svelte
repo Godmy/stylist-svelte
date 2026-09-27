@@ -4,7 +4,7 @@
 
 	let props: RecipeCounter = $props();
 
-	const state = createCounterState(props);
+	const state = createCounterState(() => props);
 
 	const restProps = $derived(
 		(() => {

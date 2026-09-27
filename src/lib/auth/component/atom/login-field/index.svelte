@@ -4,7 +4,7 @@
 	import createLoginFieldState from './state.svelte';
 
 	let props: RecipeLoginField & HTMLInputAttributes = $props();
-	const state = createLoginFieldState(props);
+	const state = createLoginFieldState(() => props);
 </script>
 
 <div class={state.wrapperClass}>

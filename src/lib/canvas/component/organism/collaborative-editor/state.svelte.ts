@@ -14,7 +14,8 @@ const MessageCircle = 'message-circle';
 const UserIcon = 'user';
 const Users = 'users';
 
-export const createCollaborativeEditorState = (props: RecipeCollaborativeEditor) => {
+export const createCollaborativeEditorState = (getProps: () => RecipeCollaborativeEditor) => {
+	const props = $derived(getProps());
 	let editorContent = $state(props.content ?? '');
 	let editorRef: HTMLDivElement | undefined;
 

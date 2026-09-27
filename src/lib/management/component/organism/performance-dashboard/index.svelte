@@ -5,7 +5,7 @@
 	import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
 
 	let props: RecipePerformanceDashboard = $props();
-	const state = createPerformanceDashboardState(props);
+	const state = createPerformanceDashboardState(() => props);
 </script>
 
 <div class={state.containerClass} {...state.restProps}>

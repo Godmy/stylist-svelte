@@ -5,7 +5,8 @@ import {
 } from '$stylist/calendar/function/script/calendar-utils';
 import { formatDisplayDate } from '$stylist/calendar/function/script/date-format';
 
-export const createFormDatePickerState = (props: RecipeFormDatePicker) => {
+export const createFormDatePickerState = (getProps: () => RecipeFormDatePicker) => {
+	const props = $derived(getProps());
 	const toInputDate = (value: RecipeFormDatePicker['value']): string => {
 		if (value instanceof Date) return toInputDateString(value);
 		if (typeof value === 'string') return value;

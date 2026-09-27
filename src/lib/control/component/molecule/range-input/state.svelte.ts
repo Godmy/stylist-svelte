@@ -1,6 +1,7 @@
 import type { SlotRangeInput as RecipeRangeInput } from '$stylist/control/interface/slot/range-input';
 
-export const createRangeInputState = (props: RecipeRangeInput) => {
+export const createRangeInputState = (getProps: () => RecipeRangeInput) => {
+	const props = $derived(getProps());
 	let minVal = $state(props.minValue ?? props.min ?? 0);
 	let maxVal = $state(props.maxValue ?? props.max ?? 100);
 

@@ -6,7 +6,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeDropdownMenu = $props();
-	const state = createDropdownMenuState(props);
+	const state = createDropdownMenuState(() => props);
 
 	let restProps = $derived.by(() => {
 		const { label, position, disabled, class: className, children, ...rest } = props;

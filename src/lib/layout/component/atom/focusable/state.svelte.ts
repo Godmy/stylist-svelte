@@ -1,6 +1,7 @@
 import type { RecipeFocusable as FocusProps } from '$stylist/layout/interface/recipe/focusable';
 
-export const createFocusableState = (props: FocusProps) => {
+export const createFocusableState = (getProps: () => FocusProps) => {
+	const props = $derived(getProps());
 	let isFocused = $state(false);
 
 	const classes = $derived.by(() => {

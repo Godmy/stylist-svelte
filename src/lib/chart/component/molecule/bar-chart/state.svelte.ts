@@ -2,7 +2,8 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeBarChart } from '$stylist/chart/interface/recipe/bar-chart';
 import { ManagerBarChart } from '$stylist/chart/class/manager/bar-chart';
 
-export function createBarChartState(props: RecipeBarChart) {
+export function createBarChartState(getProps: () => RecipeBarChart) {
+	const props = $derived(getProps());
 	let hoveredBar = $state<number | null>(null);
 	const containerHostClass = $derived(typeof props.class === 'string' ? props.class : undefined);
 	const resolvedColorScheme = $derived(

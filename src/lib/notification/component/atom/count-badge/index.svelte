@@ -4,7 +4,7 @@
 
 	let props: RecipeCountBadge = $props();
 
-	const state = createCountBadgeState(props);
+	const state = createCountBadgeState(() => props);
 
 	const restProps = $derived(
 		(() => {

@@ -6,7 +6,7 @@
 	const Check = 'check';
 
 	let props: NodePropertyProps = $props();
-	const state = createNodePropertyState(props);
+	const state = createNodePropertyState(() => props);
 </script>
 
 <div

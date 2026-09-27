@@ -6,7 +6,7 @@
 	import { ManagerLineChart } from '$stylist/chart/class/manager/line-chart';
 
 	let props: RecipeLineChart = $props();
-	const state = createLineChartState(props);
+	const state = createLineChartState(() => props);
 </script>
 
 <div

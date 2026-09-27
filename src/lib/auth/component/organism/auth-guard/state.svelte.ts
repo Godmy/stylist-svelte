@@ -1,7 +1,8 @@
 import { resolveAuthGuardState } from '$stylist/auth/function/script/resolve-auth-guard-state';
 import type { AuthGuardProps } from '$stylist/auth/type/alias/auth-guard-props';
 
-export const createAuthGuardState = (props: AuthGuardProps) => {
+export const createAuthGuardState = (getProps: () => AuthGuardProps) => {
+	const props = $derived(getProps());
 	const isAuthenticated = $derived(props.isAuthenticated ?? false);
 	const requiredRole = $derived(props.requiredRole);
 	const allowedRoles = $derived(props.allowedRoles ?? []);

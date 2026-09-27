@@ -4,7 +4,7 @@
 	import { createNodeIconState } from './state.svelte';
 
 	let props: RecipeNodeIcon & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createNodeIconState(props);
+	const state = createNodeIconState(() => props);
 </script>
 
 <div class="node-icon" style={state.iconStyle} role="img" aria-label={state.icon}>

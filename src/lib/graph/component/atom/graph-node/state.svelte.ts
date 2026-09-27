@@ -9,7 +9,8 @@ const GRAPH_NODE_SIZE_MAP: Partial<Record<TokenSize, string>> = {
 	xl: 'graph-node graph-node--xl'
 };
 
-export function createGraphNodeState(props: RecipeGraphNode) {
+export function createGraphNodeState(getProps: () => RecipeGraphNode) {
+	const props = $derived(getProps());
 	const size = $derived((props.size ?? 'md') as TokenSize);
 	const color = $derived(props.color ?? 'var(--color-primary-500)');
 	const selected = $derived(Boolean(props.selected));

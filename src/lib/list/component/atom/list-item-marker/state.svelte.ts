@@ -1,6 +1,7 @@
 import type { RecipeListItemMarker } from '$stylist/list/interface/recipe/list-item-marker';
 
-export function createListItemMarkerState(props: RecipeListItemMarker) {
+export function createListItemMarkerState(getProps: () => RecipeListItemMarker) {
+	const props = $derived(getProps());
 	const type = $derived(props.type ?? 'bullet');
 	const value = $derived(props.value ?? '');
 	const color = $derived(props.color ?? 'gray');

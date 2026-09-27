@@ -1,7 +1,8 @@
 import type { SlotComboboxItem } from '$stylist/control/interface/slot/combobox-item';
 import type { RecipeCombobox } from '$stylist/control/interface/recipe/combobox';
 
-export function createComboboxState(props: RecipeCombobox) {
+export function createComboboxState(getProps: () => RecipeCombobox) {
+	const props = $derived(getProps());
 	const items = $derived(props.items ?? []);
 	const disabled = $derived(props.disabled ?? false);
 	const clearable = $derived(props.clearable ?? true);

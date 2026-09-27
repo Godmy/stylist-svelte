@@ -4,7 +4,7 @@
 	import { createPhoneNumberInputState } from './state.svelte';
 
 	let props: IPhoneNumberInputProps = $props();
-	const state = createPhoneNumberInputState(props);
+	const state = createPhoneNumberInputState(() => props);
 </script>
 
 <div class={state.containerClass}>

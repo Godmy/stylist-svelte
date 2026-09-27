@@ -4,7 +4,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	const props: RecipeAlert = $props();
-	const state = createAlertState(props);
+	const state = createAlertState(() => props);
 </script>
 
 {#if state.open}

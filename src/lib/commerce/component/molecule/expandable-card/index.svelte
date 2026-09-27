@@ -6,7 +6,7 @@
 	import createExpandableCardState from './state.svelte';
 
 	let props: RecipeExpandableCard & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createExpandableCardState(props);
+	const state = createExpandableCardState(() => props);
 </script>
 
 <div class={state.containerClasses}>

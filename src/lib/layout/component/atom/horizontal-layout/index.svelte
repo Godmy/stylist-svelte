@@ -3,7 +3,7 @@
 	import createHorizontalLayoutState from './state.svelte';
 
 	let props: RecipeHorizontalLayout = $props();
-	const state = createHorizontalLayoutState(props);
+	const state = createHorizontalLayoutState(() => props);
 
 	const ALIGN: Record<string, string> = {
 		top: 'flex-start',

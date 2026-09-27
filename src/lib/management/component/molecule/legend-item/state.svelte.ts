@@ -1,6 +1,7 @@
-﻿import type { RecipeLegendItem } from '$stylist/management/interface/recipe/legend-item';
+import type { RecipeLegendItem } from '$stylist/management/interface/recipe/legend-item';
 
-export function createLegendItemState(props: RecipeLegendItem) {
+export function createLegendItemState(getProps: () => RecipeLegendItem) {
+	const props = $derived(getProps());
 	const label = $derived(props.label);
 	const type = $derived(props.type);
 	const count = $derived(props.count ?? 0);

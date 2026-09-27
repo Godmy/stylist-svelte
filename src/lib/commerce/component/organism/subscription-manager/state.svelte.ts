@@ -1,5 +1,6 @@
 import type { RecipeSubscriptionManager as SubscriptionManagerContract } from '$stylist/commerce/interface/recipe/subscription-manager';
-export function createSubscriptionManagerState(props: SubscriptionManagerContract) {
+export function createSubscriptionManagerState(getProps: () => SubscriptionManagerContract) {
+	const props = $derived(getProps());
 	const subscription = $derived(props.subscription);
 
 	function formatDate(date?: Date) {

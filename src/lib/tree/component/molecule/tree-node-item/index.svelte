@@ -5,7 +5,7 @@
 	import Self from './index.svelte';
 
 	let props: RecipeTreeNodeItem = $props();
-	const state = createTreeNodeItemState(props);
+	const state = createTreeNodeItemState(() => props);
 </script>
 
 <div class={state.containerClasses}>

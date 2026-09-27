@@ -1,6 +1,7 @@
 import type { RecipePageHeader } from '$stylist/management/interface/recipe/page-header';
 
-export function createPageHeaderState(props: RecipePageHeader) {
+export function createPageHeaderState(getProps: () => RecipePageHeader) {
+	const props = $derived(getProps());
 	// Props with defaults
 	const title = $derived(props.title);
 	const description = $derived(props.description ?? '');

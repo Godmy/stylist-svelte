@@ -3,7 +3,7 @@
 	import createFocusableState from './state.svelte';
 
 	let props: RecipeFocusable = $props();
-	const state = createFocusableState(props);
+	const state = createFocusableState(() => props);
 </script>
 
 <div

@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeVerticalBarsChart } from '$stylist/chart/interface/recipe/vertical-bars-chart';
 
-export function createVerticalBarsChartState(props: RecipeVerticalBarsChart) {
+export function createVerticalBarsChartState(getProps: () => RecipeVerticalBarsChart) {
+	const props = $derived(getProps());
 	const className = $derived(ClassNamesManager.merge('vertical-bars-chart', props.class));
 	const text = $derived(props.text);
 	const items = $derived(props.items);

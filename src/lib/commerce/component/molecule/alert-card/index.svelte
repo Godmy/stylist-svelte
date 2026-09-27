@@ -4,7 +4,7 @@
 	import { createAlertCardState } from './state.svelte';
 
 	let props: RecipeAlertCard = $props();
-	const state = createAlertCardState(PresetAlertCard, props);
+	const state = createAlertCardState(PresetAlertCard, () => props);
 </script>
 
 <div class={`alert-card ${state.classes}`} {...state.attrs}>

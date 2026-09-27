@@ -3,8 +3,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeWishlistButton } from '$stylist/product/interface/recipe/wishlist-button';
 
 export function createWishlistButtonState(
-	props: RecipeWishlistButton & HTMLAttributes<HTMLButtonElement>
+	getProps: () => RecipeWishlistButton & HTMLAttributes<HTMLButtonElement>
 ) {
+	const props = $derived(getProps());
 	let isLoading = $state(false);
 	let showMessage = $state(false);
 	let message = $state('');

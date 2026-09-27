@@ -2,7 +2,7 @@
 	import type { RecipeWorkspaceCanvas } from '$stylist/workspace/interface/recipe/workspace-canvas';
 	import { createWorkspaceCanvasState } from './state.svelte';
 	let props: RecipeWorkspaceCanvas = $props();
-	const state = createWorkspaceCanvasState(props);
+	const state = createWorkspaceCanvasState(() => props);
 
 	let canvasRef: HTMLDivElement;
 	let contentRef: HTMLDivElement;

@@ -55,7 +55,8 @@ function calculateArcPath(
 	return computeResult(path, start, end);
 }
 
-export function createNodeConnectionState(props: RecipeNodeConnection) {
+export function createNodeConnectionState(getProps: () => RecipeNodeConnection) {
+	const props = $derived(getProps());
 	const type = $derived((props.type ?? 'bezier') as TokenTrajectory);
 	const lineStyle = $derived((props.lineStyle ?? 'solid') as LineStyleToken);
 	const strokeWidth = $derived(props.strokeWidth ?? 2);

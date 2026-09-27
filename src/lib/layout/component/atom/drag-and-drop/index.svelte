@@ -3,7 +3,7 @@
 	import createDragAndDropState from './state.svelte';
 
 	let props: RecipeDragAndDrop = $props();
-	const state = createDragAndDropState(props);
+	const state = createDragAndDropState(() => props);
 
 	const restProps = $derived(
 		(() => {

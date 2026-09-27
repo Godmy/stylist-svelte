@@ -1,6 +1,7 @@
 import type { RecipeRangeSlider } from '$stylist/control/interface/recipe/range-slider';
 
-export function createRangeSliderState(props: RecipeRangeSlider) {
+export function createRangeSliderState(getProps: () => RecipeRangeSlider) {
+	const props = $derived(getProps());
 	const isRange = $derived(props.range ?? false);
 	const min = $derived(props.min ?? 0);
 	const max = $derived(props.max ?? 100);

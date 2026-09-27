@@ -1,6 +1,7 @@
 import type { RecipeRegister } from '$stylist/auth/interface/recipe/register';
 
-export const createRegisterState = (props: RecipeRegister) => {
+export const createRegisterState = (getProps: () => RecipeRegister) => {
+	const props = $derived(getProps());
 	let username = $state('');
 	let email = $state('');
 	let password = $state('');

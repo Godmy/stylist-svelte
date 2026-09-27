@@ -1,6 +1,7 @@
 import type { RecipeAccountSettingsForm } from '$stylist/user/interface/recipe/account-settings-form';
 
-export function createAccountSettingsFormState(props: RecipeAccountSettingsForm) {
+export function createAccountSettingsFormState(getProps: () => RecipeAccountSettingsForm) {
+	const props = $derived(getProps());
 	const name = $derived(props.name ?? 'John Doe');
 	const email = $derived(props.email ?? 'john@example.com');
 	const locale = $derived(props.locale ?? 'en-US');

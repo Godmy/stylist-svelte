@@ -1,5 +1,6 @@
 import type { RecipeTaxCalculator as TaxCalculatorContract } from '$stylist/commerce/interface/recipe/tax-calculator';
-export function createTaxCalculatorState(props: TaxCalculatorContract) {
+export function createTaxCalculatorState(getProps: () => TaxCalculatorContract) {
+	const props = $derived(getProps());
 	let amount = $state(props.defaultAmount ?? 100);
 	let selectedLocationId = $state(props.defaultLocation ?? props.locations?.[0]?.id ?? '');
 	let includeTax = $state(props.defaultIncludeTax ?? false);

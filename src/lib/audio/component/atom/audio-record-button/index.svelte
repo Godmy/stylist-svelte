@@ -4,7 +4,7 @@
 	import { createAudioRecordButtonState } from './state.svelte';
 
 	let props: RecipeAudioRecordButton = $props();
-	const state = createAudioRecordButtonState(props);
+	const state = createAudioRecordButtonState(() => props);
 </script>
 
 <div class={`c-audio-record-button ${state.className}`} aria-live="polite">

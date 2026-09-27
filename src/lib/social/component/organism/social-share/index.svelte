@@ -5,7 +5,7 @@
 	import type { RecipeSocialShare } from '$stylist/social/interface/recipe/social-share';
 
 	let props: RecipeSocialShare = $props();
-	const state = createSocialShareState(props);
+	const state = createSocialShareState(() => props);
 </script>
 
 <div class="c-social-share {state.hostClass}" {...props}>

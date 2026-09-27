@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeMessageTimestamp } from '$stylist/chat/interface/recipe/message-timestamp';
 
-export function createMessageTimestampState(props: RecipeMessageTimestamp) {
+export function createMessageTimestampState(getProps: () => RecipeMessageTimestamp) {
+	const props = $derived(getProps());
 	// Initialize props with defaults
 	const parsedTimestamp = (() => {
 		if (props.timestamp instanceof Date) {

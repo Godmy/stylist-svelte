@@ -7,7 +7,7 @@
 
 	const contract: LayoutHTMLAttributes<HTMLDivElement> & RecipeMinimap & { class?: string } =
 		$props();
-	const state = createMinimapState(contract);
+	const state = createMinimapState(() => contract);
 </script>
 
 <div

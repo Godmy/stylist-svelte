@@ -2,7 +2,7 @@
 	import createScreenReaderState from './state.svelte';
 
 	const props = $props();
-	const state = createScreenReaderState(props);
+	const state = createScreenReaderState(() => props);
 </script>
 
 <div class={state.rootClass} {...props}>

@@ -1,13 +1,14 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeSearchForm } from '$stylist/search/interface/recipe/search-form';
 export function createSearchFormState(
-	props: RecipeSearchForm
+	getProps: () => RecipeSearchForm
 ): {
 	rootClass: string;
 	iconClass: string;
 	inputClass: string;
 	submitButtonClass: string;
 } {
+	const props = $derived(getProps());
 	const rootClass = $derived(ClassNamesManager.merge('c-search-form', props.class ?? ''));
 	const iconClass = $derived('c-search-form__icon');
 	const inputClass = $derived('c-search-form__input');

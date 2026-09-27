@@ -1,7 +1,8 @@
 import { ObjectManagerGesture } from '$stylist/layout/class/manager/gesture';
 import type { RecipeClickable as ClickProps } from '$stylist/layout/interface/recipe/clickable';
 
-export const createClickableState = (props: ClickProps) => {
+export const createClickableState = (getProps: () => ClickProps) => {
+	const props = $derived(getProps());
 	const normalizedProps = $derived(ObjectManagerGesture.normalizeClickContract(props));
 
 	const classes = $derived.by(() => {

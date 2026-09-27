@@ -4,7 +4,7 @@
 	import { createProductCarouselState } from './state.svelte';
 
 	let props: RecipeProductCollection & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createProductCarouselState(props);
+	const state = createProductCarouselState(() => props);
 </script>
 
 <div class={state.containerClass}>

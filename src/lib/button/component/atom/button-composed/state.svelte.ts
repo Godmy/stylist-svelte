@@ -5,12 +5,21 @@ import createBackgroundState from '$stylist/layout/component/atom/background/sta
 import createBorderState from '$stylist/layout/component/atom/border/state.svelte';
 import createContainerState from '$stylist/layout/component/atom/container/state.svelte';
 
-export function createButtonComposedState(props: RecipeButtonComposed) {
-	const clickable = createClickableState(props as Parameters<typeof createClickableState>[0]);
-	const focusable = createFocusableState(props as Parameters<typeof createFocusableState>[0]);
-	const container = createContainerState(props);
-	const background = createBackgroundState(props);
-	const border = createBorderState(props);
+export function createButtonComposedState(getProps: () => RecipeButtonComposed) {
+	const props = $derived(getProps());
+	const clickable = createClickableState(
+		() => props as ReturnType<Parameters<typeof createClickableState>[0]>
+	);
+	const focusable = createFocusableState(
+		() => props as ReturnType<Parameters<typeof createFocusableState>[0]>
+	);
+	const container = createContainerState(
+		() => props as ReturnType<Parameters<typeof createContainerState>[0]>
+	);
+	const background = createBackgroundState(
+		() => props as ReturnType<Parameters<typeof createBackgroundState>[0]>
+	);
+	const border = createBorderState(() => props as ReturnType<Parameters<typeof createBorderState>[0]>);
 
 	const isLoading = $derived(props.loading ?? false);
 	const isDisabled = $derived(Boolean(props.disabled || clickable.disabled || isLoading));

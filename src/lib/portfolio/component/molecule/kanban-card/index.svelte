@@ -14,7 +14,7 @@
 	import type { RecipeKanbanCard as KanbanCardProps } from '$stylist/portfolio/interface/recipe/kanban-card';
 
 	let props: KanbanCardProps = $props();
-	const state = createKanbanCardState(props);
+	const state = createKanbanCardState(() => props);
 </script>
 
 <div

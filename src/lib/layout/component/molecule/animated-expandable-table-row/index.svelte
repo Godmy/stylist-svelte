@@ -7,7 +7,7 @@
 	const ChevronUp = 'chevron-up';
 
 	let props: RecipeAnimatedExpandableTableRow = $props();
-	const state = createAnimatedExpandableTableRowState(props);
+	const state = createAnimatedExpandableTableRowState(() => props);
 </script>
 
 <tr {...state.restProps} class={['aet-row', state.className].filter(Boolean).join(' ')}>

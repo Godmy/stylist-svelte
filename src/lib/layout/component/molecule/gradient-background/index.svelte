@@ -3,7 +3,7 @@
 	import createGradientBackgroundState from './state.svelte';
 
 	let props: RecipeGradientBackground = $props();
-	const state = createGradientBackgroundState(props);
+	const state = createGradientBackgroundState(() => props);
 </script>
 
 <div

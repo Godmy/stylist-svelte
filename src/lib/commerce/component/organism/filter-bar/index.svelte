@@ -5,7 +5,7 @@
 	import { createFilterBarState } from './state.svelte';
 
 	let props: RecipeFilterBar = $props();
-	const state = createFilterBarState(props);
+	const state = createFilterBarState(() => props);
 
 	const restProps = $derived.by(() => {
 		const {

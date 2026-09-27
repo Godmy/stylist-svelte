@@ -12,7 +12,7 @@
 		onChatDelete?: (chat: Chat) => void;
 	} = $props();
 
-	const state = createChatListState(props);
+	const state = createChatListState(() => props);
 </script>
 
 <div class={state.containerClasses}>

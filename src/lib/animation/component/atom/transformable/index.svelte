@@ -3,7 +3,7 @@
 	import createTransformableState from './state.svelte';
 
 	let props: RecipeTransformable = $props();
-	const state = createTransformableState(props);
+	const state = createTransformableState(() => props);
 </script>
 
 <div

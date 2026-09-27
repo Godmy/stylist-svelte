@@ -4,7 +4,7 @@
 	import { createPriceHistoryState } from './state.svelte';
 
 	let props: RecipePriceHistory & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createPriceHistoryState(props);
+	const state = createPriceHistoryState(() => props);
 </script>
 
 <div class={state.containerClass}>

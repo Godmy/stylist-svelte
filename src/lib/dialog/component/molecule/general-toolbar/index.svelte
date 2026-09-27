@@ -5,7 +5,7 @@
 	import createGeneralToolbarState from './state.svelte';
 
 	let props: RecipeGeneralToolbar = $props();
-	const state = createGeneralToolbarState(props);
+	const state = createGeneralToolbarState(() => props);
 </script>
 
 <div class={ClassNamesManager.join('toolbar', props.class)}>

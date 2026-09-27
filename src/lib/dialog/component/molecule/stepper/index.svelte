@@ -3,7 +3,7 @@
 	import createStepperState from './state.svelte';
 
 	let props: RecipeStepper = $props();
-	const state = createStepperState(props);
+	const state = createStepperState(() => props);
 </script>
 
 <div class={`${props.class ?? ''} ${state.orientationClass} _c1`} {...props}>

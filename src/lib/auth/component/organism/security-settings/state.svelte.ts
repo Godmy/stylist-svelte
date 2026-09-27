@@ -1,6 +1,7 @@
 import type { RecipeSecuritySettings } from '$stylist/auth/interface/recipe/security-settings';
 
-export function createSecuritySettingsState(props: RecipeSecuritySettings) {
+export function createSecuritySettingsState(getProps: () => RecipeSecuritySettings) {
+	const props = $derived(getProps());
 	const twoFactor = $derived(props.twoFactor ?? true);
 	const loginAlerts = $derived(props.loginAlerts ?? true);
 	const className = $derived(props.class ?? '');

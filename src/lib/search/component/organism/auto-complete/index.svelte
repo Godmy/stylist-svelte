@@ -5,7 +5,7 @@
 	const Search = 'search';
 
 	let props: RecipeAutoComplete = $props();
-	const state = createAutoCompleteState(props);
+	const state = createAutoCompleteState(() => props);
 </script>
 
 <div class={`c-auto-complete ${state.className}`.trim()}>

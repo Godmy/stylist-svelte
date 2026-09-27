@@ -3,7 +3,7 @@
 	import createTimePickerState from './state.svelte';
 
 	let props: RecipeTimePicker = $props();
-	const state = createTimePickerState(props);
+	const state = createTimePickerState(() => props);
 </script>
 
 <div class={`time-picker ${state.className}`.trim()}>

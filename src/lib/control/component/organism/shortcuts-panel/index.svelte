@@ -16,7 +16,7 @@
 	const Copy = 'copy';
 
 	let props: RecipeShortcutsPanel & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createShortcutsPanelState(props);
+	const state = createShortcutsPanelState(() => props);
 </script>
 
 <div class="shortcuts-panel">

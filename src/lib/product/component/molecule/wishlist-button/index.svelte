@@ -5,7 +5,7 @@
 	import createWishlistButtonState from './state.svelte';
 
 	let props: RecipeWishlistButton & HTMLAttributes<HTMLButtonElement> = $props();
-	const state = createWishlistButtonState(props);
+	const state = createWishlistButtonState(() => props);
 </script>
 
 <div class={state.containerClass}>

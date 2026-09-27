@@ -3,7 +3,7 @@
 	import createSeparatorState from './state.svelte';
 
 	let props: RecipeSeparator = $props();
-	const state = createSeparatorState(props);
+	const state = createSeparatorState(() => props);
 
 	const restProps = $derived(
 		(() => {

@@ -1,7 +1,8 @@
 import type { NavItem } from '$stylist/navigation/interface/slot/nav-item';
 import type { RecipeSidebar } from '$stylist/navigation/interface/recipe/sidebar';
 
-export function createSidebarState(props: RecipeSidebar) {
+export function createSidebarState(getProps: () => RecipeSidebar) {
+	const props = $derived(getProps());
 	// SlotState
 	let isMobile = $state(false);
 	let isSidebarOpen = $state(!props.collapsed);

@@ -3,7 +3,7 @@
 	import createTimelineState from './state.svelte';
 
 	let props: RecipeTimeline = $props();
-	const state = createTimelineState(props);
+	const state = createTimelineState(() => props);
 </script>
 
 <div

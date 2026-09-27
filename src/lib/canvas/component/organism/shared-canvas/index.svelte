@@ -6,7 +6,7 @@
 	import createSharedCanvasState from './state.svelte';
 
 	const contract: RecipeSharedCanvas = $props();
-	const state = createSharedCanvasState(contract);
+	const state = createSharedCanvasState(() => contract);
 
 	let canvasRef: HTMLCanvasElement | null = null;
 	let ctx: CanvasRenderingContext2D | null = null;

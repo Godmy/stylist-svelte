@@ -3,7 +3,7 @@
 	import createTokenChipSetState from './state.svelte';
 
 	let props: RecipeTokenChipSet = $props();
-	const state = createTokenChipSetState(props);
+	const state = createTokenChipSetState(() => props);
 
 	const restProps = $derived.by(() => {
 		const {

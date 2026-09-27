@@ -5,7 +5,7 @@
 	import Badge from '$stylist/typography/component/atom/badge/index.svelte';
 
 	let props: RecipeTeamMemberCard = $props();
-	const state = createTeamMemberCardState(props);
+	const state = createTeamMemberCardState(() => props);
 </script>
 
 <div class="c-team-member-card ${state.classes}">

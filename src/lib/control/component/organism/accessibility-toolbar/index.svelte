@@ -5,7 +5,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeAccessibilityToolbar = $props();
-	const state = createAccessibilityToolbarState(props);
+	const state = createAccessibilityToolbarState(() => props);
 </script>
 
 <div class={state.containerClass} {...state.restProps}>

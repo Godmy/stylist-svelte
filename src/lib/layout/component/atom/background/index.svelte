@@ -3,7 +3,7 @@
 	import createBackgroundState from './state.svelte';
 
 	let props: RecipeBackground = $props();
-	const state = createBackgroundState(props);
+	const state = createBackgroundState(() => props);
 </script>
 
 <div

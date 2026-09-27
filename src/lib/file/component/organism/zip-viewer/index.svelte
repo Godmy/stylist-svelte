@@ -7,7 +7,7 @@
 	import type { RecipeZipViewer } from '$stylist/file/interface/recipe/zip-viewer';
 
 	let props: RecipeZipViewer = $props();
-	const state = createZipViewerState(props);
+	const state = createZipViewerState(() => props);
 </script>
 
 <div class={ClassNamesManager.merge('c-zip-viewer', state.classes)} {...state.restProps}>

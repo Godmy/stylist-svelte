@@ -4,7 +4,7 @@
 	import { createPaginationState } from './state.svelte';
 
 	let props: RecipePagination = $props();
-	const state = createPaginationState(props);
+	const state = createPaginationState(() => props);
 </script>
 
 <div class={state.containerClass} {...state.restProps}>

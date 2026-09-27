@@ -3,7 +3,7 @@
 	import { createAnnouncementBannerState } from './state.svelte';
 
 	let props: RecipeAnnouncementBanner = $props();
-	const state = createAnnouncementBannerState(props);
+	const state = createAnnouncementBannerState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

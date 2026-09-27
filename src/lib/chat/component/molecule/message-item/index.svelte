@@ -20,7 +20,7 @@
 
 	let props: MessageItemProps = $props();
 
-	const state = createMessageItemState(props);
+	const state = createMessageItemState(() => props);
 </script>
 
 <div class={state.messageContainerClasses}>

@@ -3,7 +3,8 @@ import type { SlotAudioRecording } from '$stylist/audio/interface/slot/audio-rec
 import { TOKEN_AUDIO_ICON } from '$stylist/audio/const/record/audio-icon';
 import { AudioRecorderManager } from '$stylist/audio/class/manager/audio-recorder';
 
-export function createAudioRecordButtonState(props: RecipeAudioRecordButton) {
+export function createAudioRecordButtonState(getProps: () => RecipeAudioRecordButton) {
+	const props = $derived(getProps());
 	const recorder = new AudioRecorderManager();
 	let recording = $state<SlotAudioRecording | null>(null);
 	let isRecording = $state(false);

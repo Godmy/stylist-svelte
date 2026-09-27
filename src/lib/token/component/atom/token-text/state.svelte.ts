@@ -1,6 +1,7 @@
 import type { TokenTextStateProps } from '$stylist/token/type/alias/token-text-state-props';
 
-export function createTokenTextState(props: TokenTextStateProps) {
+export function createTokenTextState(getProps: () => TokenTextStateProps) {
+	const props = $derived(getProps());
 	const definition = $derived(props.definition);
 	const placeholder = $derived(props.placeholder ?? definition.placeholder ?? 'Enter value');
 	const onChange = $derived(props.onChange);

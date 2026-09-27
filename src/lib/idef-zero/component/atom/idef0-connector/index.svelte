@@ -5,7 +5,7 @@
 	import Idef0PortLabel from '$stylist/idef-zero/component/atom/idef0-port-label/index.svelte';
 
 	let props: RecipeIdef0Connector & SVGAttributes<SVGGElement> = $props();
-	const state = createIdef0ConnectorState(props);
+	const state = createIdef0ConnectorState(() => props);
 </script>
 
 <g class={state.groupClasses}>

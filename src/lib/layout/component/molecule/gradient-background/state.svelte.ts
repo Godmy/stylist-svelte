@@ -1,7 +1,8 @@
 import { ObjectManagerGradientBackground } from '$stylist/layout/class/manager/gradient-background';
 import type { RecipeGradientBackground } from '$stylist/layout/interface/recipe/gradient-background';
 
-export function createGradientBackgroundState(props: RecipeGradientBackground) {
+export function createGradientBackgroundState(getProps: () => RecipeGradientBackground) {
+	const props = $derived(getProps());
 	const variant = $derived(ObjectManagerGradientBackground.resolveVariant(props.variant));
 	const colors = $derived(ObjectManagerGradientBackground.resolveColors(props.colors));
 	const speed = $derived(ObjectManagerGradientBackground.resolveSpeed(props.speed));

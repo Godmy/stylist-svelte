@@ -1,7 +1,8 @@
 import type { RecipeTokenRadio } from '$stylist/token/interface/recipe/token-radio';
 import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/alias/token-value';
 
-export function createTokenRadioState(props: RecipeTokenRadio) {
+export function createTokenRadioState(getProps: () => RecipeTokenRadio) {
+	const props = $derived(getProps());
 	let internalValue = $state<TokenValue>(
 		props.value ?? props.definition.defaultValue ?? props.definition.options[0]?.value ?? ''
 	);

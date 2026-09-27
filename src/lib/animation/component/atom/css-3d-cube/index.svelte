@@ -3,7 +3,7 @@
 	import createCss3dCubeState from './state.svelte';
 
 	let props: RecipeCss3dCube = $props();
-	const state = createCss3dCubeState(props);
+	const state = createCss3dCubeState(() => props);
 </script>
 
 <div class="scene" {...state.restProps}>

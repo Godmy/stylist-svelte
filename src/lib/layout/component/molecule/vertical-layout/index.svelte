@@ -3,7 +3,7 @@
 	import createVerticalLayoutState from './state.svelte';
 
 	let props: RecipeVerticalLayout = $props();
-	const state = createVerticalLayoutState(props);
+	const state = createVerticalLayoutState(() => props);
 
 	const GAP: Record<string, string> = {
 		none: '0',

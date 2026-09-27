@@ -1,6 +1,7 @@
-﻿import type { RecipePagination } from '$stylist/navigation/interface/recipe/pagination';
+import type { RecipePagination } from '$stylist/navigation/interface/recipe/pagination';
 
-export function createPaginationState(props: RecipePagination) {
+export function createPaginationState(getProps: () => RecipePagination) {
+	const props = $derived(getProps());
 	// Props with defaults
 	const currentPage = $derived(props.currentPage ?? 1);
 	const totalPages = $derived(props.totalPages ?? 1);

@@ -18,7 +18,8 @@ const PORT_SIZE_MAP: Record<string, string> = {
 	full: 'node-port--2xl'
 };
 
-export function createNodePortState(props: NodePortProps) {
+export function createNodePortState(getProps: () => NodePortProps) {
+	const props = $derived(getProps());
 	const direction = $derived(props.direction === 'input' ? 'input' : 'output');
 	const size = $derived((props.size ?? 'md') as TokenSize);
 	const dataType = $derived(props.dataType ?? 'any');

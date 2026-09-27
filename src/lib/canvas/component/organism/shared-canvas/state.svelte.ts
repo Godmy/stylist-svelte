@@ -5,7 +5,8 @@ import type { Point2D } from '$stylist/canvas/interface/slot/point-2d';
 import type { SharedCanvasTool } from '$stylist/canvas/type/alias/shared-canvas-tool';
 import type { RecipeSharedCanvas } from '$stylist/canvas/interface/recipe/shared-canvas';
 
-export function createSharedCanvasState(contract: RecipeSharedCanvas) {
+export function createSharedCanvasState(getContract: () => RecipeSharedCanvas) {
+	const contract = $derived(getContract());
 	let selectedTool = $state<SharedCanvasTool>('select');
 	let selectedColor = $state(
 		contract.users?.find((u) => u.id === contract.currentUserId)?.color ??

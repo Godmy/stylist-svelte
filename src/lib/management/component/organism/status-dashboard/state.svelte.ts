@@ -6,7 +6,8 @@ function resolveStatusPresentation(status: StatusItem['status']) {
 	return STATUS_DASHBOARD_PRESENTATION[status] ?? STATUS_DASHBOARD_PRESENTATION.info;
 }
 
-export function createStatusDashboardState(props: RecipeStatusDashboardStatusDashboardStateProps) {
+export function createStatusDashboardState(getProps: () => RecipeStatusDashboardStatusDashboardStateProps) {
+	const props = $derived(getProps());
 	const title = $derived(props.title);
 	const subtitle = $derived(props.subtitle);
 	const items = $derived(props.items ?? []);

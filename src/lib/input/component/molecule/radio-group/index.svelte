@@ -3,7 +3,7 @@
 	import type { RecipeRadioGroup } from '$stylist/input/interface/recipe/radio-group';
 
 	const props: RecipeRadioGroup = $props();
-	const state = createRadioGroupState(props);
+	const state = createRadioGroupState(() => props);
 </script>
 
 <fieldset class="{state.rootClass} {props.class ?? ''}">

@@ -1,6 +1,7 @@
 import type { RecipeNodeIcon } from '$stylist/graph/interface/recipe/node-icon';
 
-export function createNodeIconState(props: RecipeNodeIcon) {
+export function createNodeIconState(getProps: () => RecipeNodeIcon) {
+	const props = $derived(getProps());
 	const icon = $derived(props.icon ?? '📦');
 	const size = $derived(props.size ?? 32);
 	const accent = $derived(props.accent ?? 'var(--color-accent, #3498db)');

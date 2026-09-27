@@ -19,7 +19,7 @@
 
 	let props: RecipeMessageBubble = $props();
 
-	const state = createMessageBubbleState(props);
+	const state = createMessageBubbleState(() => props);
 </script>
 
 <div class={state.containerClasses}>

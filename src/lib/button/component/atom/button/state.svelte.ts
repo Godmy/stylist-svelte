@@ -3,7 +3,8 @@ import type { RecipeButtonElement as ButtonElementProps } from '$stylist/button/
 import { createButtonFactoryInput } from '$stylist/button/function/transform/button-factory-input';
 import { createButtonState as createOriginalButtonState } from '$stylist/button/function/state/button/index.svelte';
 
-export function createButtonState(props: ButtonElementProps & HTMLButtonAttributes) {
+export function createButtonState(getProps: () => ButtonElementProps & HTMLButtonAttributes) {
+	const props = $derived(getProps());
 	const factoryInput = $derived(createButtonFactoryInput(props));
 	const state = $derived.by(() => createOriginalButtonState(factoryInput));
 

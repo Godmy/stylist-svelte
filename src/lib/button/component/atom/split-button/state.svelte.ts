@@ -1,7 +1,8 @@
 import { createButtonState as createButtonStateImpl } from '$stylist/button/function/state/button/index.svelte';
 import type { RecipeSplitButton } from '$stylist/button/interface/recipe/split-button';
 
-export function createSplitButtonState(props: RecipeSplitButton) {
+export function createSplitButtonState(getProps: () => RecipeSplitButton) {
+	const props = $derived(getProps());
 	const buttonState = createButtonStateImpl(props as Parameters<typeof createButtonStateImpl>[0]);
 	let isOpen = $state(false);
 	const buttonId = `split-button-${Math.random().toString(36).slice(2, 11)}`;

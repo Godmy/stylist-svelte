@@ -3,8 +3,9 @@ import type { RecipeQuoteRequest } from '$stylist/commerce/interface/recipe/quot
 import type { QuoteRequestValue } from '$stylist/commerce/interface/slot/quote-request-value';
 
 export function createQuoteRequestState(
-	props: RecipeQuoteRequest & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipeQuoteRequest & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	let request = $state<QuoteRequestValue>({
 		requesterName: '',
 		requesterEmail: '',

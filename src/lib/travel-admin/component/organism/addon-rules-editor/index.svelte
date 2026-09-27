@@ -5,7 +5,7 @@
 	import createAddonRulesEditorState from './state.svelte';
 
 	let props: RecipeAddonRulesEditor = $props();
-	const state = createAddonRulesEditorState(props);
+	const state = createAddonRulesEditorState(() => props);
 </script>
 
 <div class="addon-rules-editor {props.class ?? ''}">

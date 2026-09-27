@@ -3,8 +3,9 @@ import type { RecipeCellHeader } from '$stylist/table/interface/recipe/cell-head
 import { PresetCellHeader } from '$stylist/table/const/preset/cell-header';
 
 export function createCellHeaderState(
-	props: RecipeCellHeader & HTMLAttributes<HTMLTableHeaderCellElement>
+	getProps: () => RecipeCellHeader & HTMLAttributes<HTMLTableHeaderCellElement>
 ) {
+	const props = $derived(getProps());
 	const isCurrentSort = $derived(
 		props.sortKey !== undefined && props.currentSortKey === props.sortKey
 	);

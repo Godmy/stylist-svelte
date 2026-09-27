@@ -5,7 +5,7 @@
 	import { createRowState } from './state.svelte';
 
 	let props: RecipeRow & HTMLAttributes<HTMLTableRowElement> & { children?: Snippet } = $props();
-	const state = createRowState(props);
+	const state = createRowState(() => props);
 	const content = $derived(props.content ?? props.children);
 </script>
 

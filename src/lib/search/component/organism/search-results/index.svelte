@@ -4,7 +4,7 @@
 	import type { RecipeSearchResults } from '$stylist/search/interface/recipe/search-results';
 
 	let props: RecipeSearchResults = $props();
-	const state = createSearchResultsState(props);
+	const state = createSearchResultsState(() => props);
 
 	const restProps = $derived.by(() => {
 		const {

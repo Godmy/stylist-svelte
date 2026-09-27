@@ -12,18 +12,22 @@
 </script>
 
 <div class="tc-store-grid">
-	{#if excursions[0]}
-		<div class="tc-store-grid__feature">
-			<ExcursionCardFeature excursion={excursions[0]} />
-		</div>
-	{/if}
-	{#each excursions.slice(1, 3) as excursion (excursion.id)}
-		<ExcursionCardStandard {excursion} />
+	<!-- Two editorial rows, each a big feature card with one standard card
+	     beside it on the right. -->
+	{#each [0, 2] as start (start)}
+		{#if excursions[start]}
+			<div class="tc-store-grid__feature">
+				<ExcursionCardFeature excursion={excursions[start]} />
+			</div>
+		{/if}
+		{#if excursions[start + 1]}
+			<ExcursionCardStandard excursion={excursions[start + 1]} />
+		{/if}
 	{/each}
 	<div class="tc-store-grid__wide">
 		<StoreTrustInsert />
 	</div>
-	{#each excursions.slice(3) as excursion (excursion.id)}
+	{#each excursions.slice(4) as excursion (excursion.id)}
 		<ExcursionCardStandard {excursion} />
 	{/each}
 </div>
@@ -39,7 +43,6 @@
 	}
 	.tc-store-grid__feature {
 		grid-column: span 8;
-		grid-row: span 2;
 	}
 	.tc-store-grid > :global(.tc-excursion-card) {
 		grid-column: span 4;

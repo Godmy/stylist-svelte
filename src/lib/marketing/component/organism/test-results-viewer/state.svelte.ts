@@ -8,7 +8,8 @@ function getBestVariant(results: SlotTestResult[]): SlotTestResult | undefined {
 	);
 }
 
-export function createTestResultsViewerState(props: RecipeTestResultsViewer) {
+export function createTestResultsViewerState(getProps: () => RecipeTestResultsViewer) {
+	const props = $derived(getProps());
 	const testResults = $derived(props.testResults ?? []);
 	const testOverview = $derived(props.testOverview);
 	const title = $derived(props.title ?? 'Test Results Viewer');

@@ -3,7 +3,7 @@
 	import createClickableState from './state.svelte';
 
 	let props: RecipeClickable = $props();
-	const state = createClickableState(props);
+	const state = createClickableState(() => props);
 </script>
 
 <div

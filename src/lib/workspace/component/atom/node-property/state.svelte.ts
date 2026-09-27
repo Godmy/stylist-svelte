@@ -1,6 +1,7 @@
 import type { RecipeNodeProperty as NodePropertyProps } from '$stylist/workspace/interface/recipe/node-property';
 
-export function createNodePropertyState(props: NodePropertyProps) {
+export function createNodePropertyState(getProps: () => NodePropertyProps) {
+	const props = $derived(getProps());
 	const type = $derived((props.type ?? 'string') as NonNullable<NodePropertyProps['type']>);
 	const size = $derived((props.size ?? 'md') as NonNullable<NodePropertyProps['size']>);
 	const editable = $derived(props.editable ?? true);

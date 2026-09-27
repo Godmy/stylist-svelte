@@ -26,7 +26,8 @@
 	.tc-feature-card {
 		position: relative;
 		display: block;
-		min-height: 520px;
+		height: 100%;
+		min-height: 610px;
 		overflow: hidden;
 		border-radius: 8px;
 		background: #17231f;

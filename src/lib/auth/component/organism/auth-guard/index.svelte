@@ -14,7 +14,7 @@
 
 	let props: AuthGuardProps = $props();
 
-	const state = createAuthGuardState(props);
+	const state = createAuthGuardState(() => props);
 
 	$effect(() => {
 		props.onAuthChange?.(state.resolved.isAuthorized);

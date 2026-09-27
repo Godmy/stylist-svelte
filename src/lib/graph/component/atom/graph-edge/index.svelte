@@ -4,7 +4,7 @@
 
 	let props: RecipeGraphEdge & { fromNodeId: string; toNodeId: string; label?: string } = $props();
 
-	const state = createGraphEdgeState(props);
+	const state = createGraphEdgeState(() => props);
 	const fromNodeId = $derived(props.fromNodeId);
 	const toNodeId = $derived(props.toNodeId);
 	const edgeLabel = $derived(

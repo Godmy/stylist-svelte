@@ -2,8 +2,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductCollection } from '$stylist/product/interface/recipe/product-collection';
 
 export function createProductRecommendationState(
-	props: RecipeProductCollection & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipeProductCollection & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	return {
 		get containerClass() {
 			return ['product-recommendation', props.class].filter(Boolean).join(' ');

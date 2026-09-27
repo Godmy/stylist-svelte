@@ -5,7 +5,7 @@
 	import type { RecipeBarChart } from '$stylist/chart/interface/recipe/bar-chart';
 
 	let props: RecipeBarChart = $props();
-	const state = createBarChartState(props);
+	const state = createBarChartState(() => props);
 </script>
 
 <div

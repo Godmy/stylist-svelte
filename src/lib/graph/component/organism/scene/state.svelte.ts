@@ -18,7 +18,8 @@ const DEFAULT_CAMERA_CONTROL = {
 	verticalAngle: 0.42
 };
 
-export function createSceneState(props: RecipeScene) {
+export function createSceneState(getProps: () => RecipeScene) {
+	const props = $derived(getProps());
 	const sceneManager = new SceneObjectManager();
 	let cameraControl = $state(DEFAULT_CAMERA_CONTROL);
 	let debugInfo = $state<SceneDebugInfo>({

@@ -4,7 +4,7 @@
 	import type { RecipeAccordionGroup } from '$stylist/dialog/interface/recipe/accordion-group';
 
 	let props: RecipeAccordionGroup = $props();
-	const state = createAccordionGroupState(props);
+	const state = createAccordionGroupState(() => props);
 
 	setContext('accordion-context', {
 		isPanelOpen: state.isPanelOpen,

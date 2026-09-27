@@ -1,6 +1,7 @@
 import type { RecipeDot } from '$stylist/chat/interface/recipe/dot';
 
-export function createDotState(props: RecipeDot) {
+export function createDotState(getProps: () => RecipeDot) {
+	const props = $derived(getProps());
 	const color = $derived(props.color ?? 'primary');
 	const size = $derived(props.size ?? 'md');
 	const className = $derived(typeof props.class === 'string' ? props.class : undefined);

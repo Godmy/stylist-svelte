@@ -3,7 +3,8 @@ import type { RecipeCloseButton } from '$stylist/button/interface/recipe/close-b
 import { createButtonPreset } from '$stylist/button/function/script/create-button-preset';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 
-export function createCloseButtonState(props: RecipeCloseButton & HTMLButtonAttributes) {
+export function createCloseButtonState(getProps: () => RecipeCloseButton & HTMLButtonAttributes) {
+	const props = $derived(getProps());
 	const preset = createButtonPreset({
 		variant: 'ghost',
 		size: 'sm'

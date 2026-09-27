@@ -3,7 +3,8 @@ import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { SlotWorkspaceNode } from '$stylist/workspace/interface/slot/workspace-node';
 import type { RecipeWorkspaceToolbar } from '$stylist/workspace/interface/recipe/workspace-toolbar';
 
-export function createWorkspaceToolbarState(props: RecipeWorkspaceToolbar) {
+export function createWorkspaceToolbarState(getProps: () => RecipeWorkspaceToolbar) {
+	const props = $derived(getProps());
 	const items = $derived(props.items ?? []);
 	const size = $derived((props.size ?? 'md') as TokenSize);
 	const orientation = $derived(props.orientation ?? 'horizontal');

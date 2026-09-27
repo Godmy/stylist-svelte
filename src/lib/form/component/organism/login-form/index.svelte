@@ -2,7 +2,7 @@
 	import createLoginFormState from './state.svelte';
 
 	const props = $props();
-	const state = createLoginFormState(props);
+	const state = createLoginFormState(() => props);
 </script>
 
 <form class={state.rootClass} {...props}>

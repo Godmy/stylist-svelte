@@ -3,7 +3,7 @@
 	import createParagraphState from './state.svelte';
 
 	let props: RecipeText = $props();
-	const state = createParagraphState(props);
+	const state = createParagraphState(() => props);
 </script>
 
 <p {...state.restProps} class={state.classes} style={state.style}>

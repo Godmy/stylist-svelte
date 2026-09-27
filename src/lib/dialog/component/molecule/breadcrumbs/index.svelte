@@ -6,7 +6,7 @@
 	import createBreadcrumbsState from './state.svelte';
 
 	let props: RecipeBreadcrumbs = $props();
-	const state = createBreadcrumbsState(props);
+	const state = createBreadcrumbsState(() => props);
 </script>
 
 <nav aria-label="Breadcrumb" class={props.class ?? ''} {...state.restProps}>

@@ -6,7 +6,8 @@ import { friendListHandleVideoCall } from '$stylist/social/function/script/frien
 import type { FRIEND_LIST_FRIEND } from '$stylist/social/type/object/friend-list/friend_list_friend';
 import type { FRIEND_LIST_PROPS } from '$stylist/social/type/object/friend-list/friend_list_-props';
 
-export function createFriendListState(props: FRIEND_LIST_PROPS) {
+export function createFriendListState(getProps: () => FRIEND_LIST_PROPS) {
+	const props = $derived(getProps());
 	let searchQuery = $state('');
 	const friends = $derived(props.friends ?? []);
 	const filteredFriends = $derived(

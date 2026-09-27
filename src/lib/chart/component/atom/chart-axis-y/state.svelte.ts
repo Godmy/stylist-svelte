@@ -6,7 +6,8 @@ function resolveClassName(className: unknown): string | undefined {
 	return typeof className === 'string' ? className : undefined;
 }
 
-export function createChartAxisYState(props: RecipeChartAxisY) {
+export function createChartAxisYState(getProps: () => RecipeChartAxisY) {
+	const props = $derived(getProps());
 	const axisClasses = $derived(
 		ClassNamesManager.merge('c-chart-axis', resolveClassName(props.class))
 	);

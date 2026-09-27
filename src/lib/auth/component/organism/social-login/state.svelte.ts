@@ -2,7 +2,8 @@ import type { Provider } from '$stylist/auth/type/object/social-login/provider';
 
 import type { RecipeSocialLogin } from '$stylist/auth/interface/recipe/social-login';
 
-export function createSocialLoginState(props: RecipeSocialLogin) {
+export function createSocialLoginState(getProps: () => RecipeSocialLogin) {
+	const props = $derived(getProps());
 	const isLoading = $state(false);
 	let email = $state('');
 	let password = $state('');

@@ -1,6 +1,7 @@
 import type { RecipeBurgerMenu } from '$stylist/navigation/interface/recipe/burger-menu';
 
-export function createBurgerMenuState(props: RecipeBurgerMenu) {
+export function createBurgerMenuState(getProps: () => RecipeBurgerMenu) {
+	const props = $derived(getProps());
 	const open = $derived(props.open ?? false);
 	const ariaLabel = $derived(props['aria-label'] ?? (open ? 'Close menu' : 'Open menu'));
 	const restProps = $derived.by(() => {

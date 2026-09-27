@@ -1,6 +1,7 @@
 import type { RecipeHoverable as HoverProps } from '$stylist/layout/interface/recipe/hoverable';
 
-export const createHoverableState = (props: HoverProps) => {
+export const createHoverableState = (getProps: () => HoverProps) => {
+	const props = $derived(getProps());
 	let isHovered = $state(false);
 
 	const classes = $derived.by(() => {

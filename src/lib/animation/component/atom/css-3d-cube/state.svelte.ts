@@ -5,7 +5,8 @@ const DEFAULT_ROTATION_X = 25;
 const DEFAULT_ROTATION_Y = 45;
 const DEFAULT_ROTATION_Z = 0;
 
-export function createCss3dCubeState(props: RecipeCss3dCube) {
+export function createCss3dCubeState(getProps: () => RecipeCss3dCube) {
+	const props = $derived(getProps());
 	const size = $derived(props.size ?? DEFAULT_SIZE);
 	const rotationX = $derived(props.rotationX ?? DEFAULT_ROTATION_X);
 	const rotationY = $derived(props.rotationY ?? DEFAULT_ROTATION_Y);

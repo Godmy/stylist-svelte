@@ -83,6 +83,7 @@ export function usePreziState(
 
 	// Sync toggle state when props change externally (e.g. workspace checkbox)
 	$effect(() => {
+	const props = $derived(getProps());
 		showGrid = showGridProp;
 	});
 	$effect(() => {

@@ -12,7 +12,7 @@
 	// the factory doesn't need to re-run when a prop changes, only the
 	// $derived reads *inside* createSchemaState do. untrack() says exactly
 	// that instead of tripping "did you mean a closure?" (state_referenced_locally).
-	const state = createSchemaState(untrack(() => props));
+	const state = createSchemaState(() => props);
 </script>
 
 <section class="schema">

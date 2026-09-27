@@ -1,6 +1,7 @@
 import type { RecipeShippingInfo as ShippingInfoContract } from '$stylist/commerce/interface/recipe/shipping-info';
 import type { SlotShippingOptionInfo as ShippingOptionInfoContract } from '$stylist/commerce/interface/slot/shipping-option-info';
-export function createShippingInfoState(props: ShippingInfoContract) {
+export function createShippingInfoState(getProps: () => ShippingInfoContract) {
+	const props = $derived(getProps());
 	let selectedOptionId = $state<string | null>(null);
 
 	const options = $derived(props.shippingOptions ?? []);

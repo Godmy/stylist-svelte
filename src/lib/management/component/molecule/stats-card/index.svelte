@@ -2,10 +2,11 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import createStatsCardState from './state.svelte';
 	import type { RecipeStatsCard } from '$stylist/management/interface/recipe/stats-card';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	let stateProps: RecipeStatsCard = $props();
+	let stateProps: RecipeStatsCard & HTMLAttributes<HTMLDivElement> = $props();
 
-	const state = createStatsCardState(stateProps as Parameters<typeof createStatsCardState>[0]);
+	const state = createStatsCardState(() => stateProps);
 </script>
 
 <article class={state.containerClasses}>

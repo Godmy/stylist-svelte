@@ -4,7 +4,7 @@
 
 	let props: RecipeKbd = $props();
 
-	const state = createKbdState(props);
+	const state = createKbdState(() => props);
 	const children = $derived(props.children);
 
 	const restProps = $derived(

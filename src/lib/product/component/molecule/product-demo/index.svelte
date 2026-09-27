@@ -4,7 +4,7 @@
 	import { createProductDemoState } from './state.svelte';
 
 	let props: RecipeProductDemo & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createProductDemoState(props);
+	const state = createProductDemoState(() => props);
 </script>
 
 <div class={state.containerClass}>

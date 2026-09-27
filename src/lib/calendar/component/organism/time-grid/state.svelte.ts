@@ -27,7 +27,8 @@ type DayColumn = {
 	slots: TimeGridSlot[];
 };
 
-export function createTimeGridState(props: TimeGridContract) {
+export function createTimeGridState(getProps: () => TimeGridContract) {
+	const props = $derived(getProps());
 	let viewStartDate = $state(new Date(props.startDate ?? new Date()));
 	let viewEndDate = $state(
 		new Date(

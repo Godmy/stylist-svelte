@@ -3,7 +3,7 @@
 	import createContainerState from './state.svelte';
 
 	let props: RecipeContainer = $props();
-	const state = createContainerState(props);
+	const state = createContainerState(() => props);
 
 	const MAX_WIDTH: Record<string, string> = {
 		xs: '480px',

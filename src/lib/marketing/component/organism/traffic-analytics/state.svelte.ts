@@ -2,7 +2,8 @@ import { untrack } from 'svelte';
 import type { RecipeTrafficAnalytics } from '$stylist/marketing/interface/recipe/traffic-analytics';
 import type { TokenTimeRange } from '$stylist/calendar/type/alias/token-time-range';
 
-export function createTrafficAnalyticsState(props: RecipeTrafficAnalytics) {
+export function createTrafficAnalyticsState(getProps: () => RecipeTrafficAnalytics) {
+	const props = $derived(getProps());
 	const title = $derived(props.title ?? 'Traffic Analytics');
 	const subtitle = $derived(props.subtitle);
 	const totalVisitors = $derived(props.totalVisitors ?? 0);

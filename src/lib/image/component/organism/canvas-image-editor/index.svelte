@@ -4,7 +4,7 @@
 	import type { RecipeCanvasImageEditor } from '$stylist/image/interface/recipe/canvas-image-editor';
 
 	let props: RecipeCanvasImageEditor & HTMLAttributes<HTMLCanvasElement> = $props();
-	const state = createCanvasImageEditorState(props);
+	const state = createCanvasImageEditorState(() => props);
 </script>
 
 <canvas

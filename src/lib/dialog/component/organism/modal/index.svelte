@@ -3,7 +3,7 @@
 	import createModalState from './state.svelte';
 
 	let props: RecipeModal = $props();
-	const state = createModalState(props);
+	const state = createModalState(() => props);
 </script>
 
 {#if props.open}

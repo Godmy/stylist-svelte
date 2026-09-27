@@ -4,7 +4,7 @@
 	import { createProductSortingState } from './state.svelte';
 
 	let props: RecipeProductSorting & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createProductSortingState(props);
+	const state = createProductSortingState(() => props);
 </script>
 
 <div class={state.containerClass}>

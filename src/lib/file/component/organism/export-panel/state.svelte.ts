@@ -1,7 +1,8 @@
 import type { ExportFormat } from '$stylist/file/type/alias/export-format';
 import type { RecipeExportPanel } from '$stylist/file/interface/recipe/export-panel';
 
-export function createExportPanelState(props: RecipeExportPanel) {
+export function createExportPanelState(getProps: () => RecipeExportPanel) {
+	const props = $derived(getProps());
 	let exportFormat = $state<ExportFormat>('png');
 	let includeLegend = $state(true);
 	let includeFilters = $state(true);

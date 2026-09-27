@@ -2,8 +2,8 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 	import { createLegendItemState } from './state.svelte';
 
-	let props: Parameters<typeof createLegendItemState>[0] = $props();
-	const state = createLegendItemState(props);
+	let props: ReturnType<Parameters<typeof createLegendItemState>[0]> = $props();
+	const state = createLegendItemState(() => props);
 </script>
 
 <div

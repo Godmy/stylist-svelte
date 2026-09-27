@@ -1,7 +1,8 @@
 import type { RecipePaymentMethodSelector } from '$stylist/commerce/interface/recipe/payment-method-selector';
 import type { PaymentMethod } from '$stylist/commerce/interface/slot/payment-method';
 
-export function createPaymentMethodSelectorState(props: RecipePaymentMethodSelector) {
+export function createPaymentMethodSelectorState(getProps: () => RecipePaymentMethodSelector) {
+	const props = $derived(getProps());
 	let selectedMethodId = $state(props.selectedMethod);
 
 	$effect(() => {

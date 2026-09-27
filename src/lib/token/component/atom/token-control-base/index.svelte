@@ -3,7 +3,7 @@
 	import createTokenControlBaseState from './state.svelte';
 
 	let props: RecipeTokenControlBase = $props();
-	const state = createTokenControlBaseState(props);
+	const state = createTokenControlBaseState(() => props);
 </script>
 
 <article class={state.cssClass}>

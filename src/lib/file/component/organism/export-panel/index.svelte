@@ -5,7 +5,7 @@
 
 	let props: RecipeExportPanel = $props();
 
-	const state = createExportPanelState(props);
+	const state = createExportPanelState(() => props);
 </script>
 
 <div class={['c-export-panel', props.class].filter(Boolean).join(' ')}>

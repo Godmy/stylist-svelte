@@ -5,7 +5,7 @@
 	import SceneCameraControl from '$stylist/graph/component/molecule/scene-camera-control/index.svelte';
 
 	let props: RecipeScene = $props();
-	const state = createSceneState(props);
+	const state = createSceneState(() => props);
 	let canvasRef: HTMLCanvasElement | null = null;
 
 	onMount(() => {

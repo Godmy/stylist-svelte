@@ -5,7 +5,7 @@
 
 	let props: RecipeLink & HTMLAttributes<HTMLAnchorElement> = $props();
 
-	const state = createLinkState(props);
+	const state = createLinkState(() => props);
 	const children = $derived(props.children);
 
 	const restProps = $derived(

@@ -20,7 +20,8 @@ function filterIcons(icons: ThemeIconItem[], searchQuery: string): ThemeIconItem
 	});
 }
 
-export function createIconPickerState(props: RecipeIconPicker) {
+export function createIconPickerState(getProps: () => RecipeIconPicker) {
+	const props = $derived(getProps());
 	const icons = $derived(props.icons ?? []);
 	const title = $derived(props.title ?? 'Icon Picker');
 	const searchPlaceholder = $derived(props.searchPlaceholder ?? 'Search icons...');

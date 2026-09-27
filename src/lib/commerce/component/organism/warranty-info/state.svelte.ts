@@ -1,5 +1,6 @@
 import type { RecipeWarrantyInfo as WarrantyInfoContract } from '$stylist/commerce/interface/recipe/warranty-info';
-export function createWarrantyInfoState(props: WarrantyInfoContract) {
+export function createWarrantyInfoState(getProps: () => WarrantyInfoContract) {
+	const props = $derived(getProps());
 	let claimIssue = $state('');
 	let claimDescription = $state('');
 

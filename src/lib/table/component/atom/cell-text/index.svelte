@@ -4,7 +4,7 @@
 	import { createCellTextState } from './state.svelte';
 
 	let props: RecipeCellText & HTMLAttributes<HTMLTableCellElement> = $props();
-	const state = createCellTextState(props);
+	const state = createCellTextState(() => props);
 </script>
 
 <td

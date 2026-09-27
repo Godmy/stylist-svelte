@@ -8,7 +8,7 @@
 	import type { RecipeFileExplorer } from '$stylist/file/interface/recipe/file-explorer';
 
 	let props: RecipeFileExplorer = $props();
-	const state = createFileExplorerState(props);
+	const state = createFileExplorerState(() => props);
 </script>
 
 <div class={ClassNamesManager.merge('c-file-explorer', state.classes)} {...state.restProps}>

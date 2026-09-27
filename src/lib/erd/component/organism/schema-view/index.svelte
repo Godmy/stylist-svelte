@@ -12,7 +12,7 @@
 	// $derived reads *inside* createSchemaViewState do. untrack() says
 	// exactly that instead of tripping "did you mean a closure?"
 	// (state_referenced_locally).
-	const state = createSchemaViewState(untrack(() => props));
+	const state = createSchemaViewState(() => props);
 
 	export function saveLayout(): void {
 		state.saveLayout();

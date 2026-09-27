@@ -7,7 +7,7 @@
 	const GripVertical = 'grip-vertical';
 
 	let props: RecipeDragAndDropList = $props();
-	const state = createDragAndDropListState(props);
+	const state = createDragAndDropListState(() => props);
 
 	const restProps = $derived.by(() => {
 		const {

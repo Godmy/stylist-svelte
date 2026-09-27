@@ -69,7 +69,7 @@ const shortcuts: {
 ];
 
 export function createShortcutsPanelState(
-	_props: RecipeShortcutsPanel & HTMLAttributes<HTMLDivElement>
+	_getProps: () => RecipeShortcutsPanel & HTMLAttributes<HTMLDivElement>
 ) {
 	const groupedShortcuts = $derived.by(() => {
 		const groups = new Map<

@@ -1,6 +1,7 @@
 import type { TrackingStatusType } from '$stylist/commerce/type/alias/tracking-status-type';
 import type { RecipeOrderTracking as OrderTrackingContract } from '$stylist/commerce/interface/recipe/order-tracking';
-export function createOrderTrackingState(props: OrderTrackingContract) {
+export function createOrderTrackingState(getProps: () => OrderTrackingContract) {
+	const props = $derived(getProps());
 	const trackingInfo = $derived(props.trackingInfo);
 
 	function getEventStatus(

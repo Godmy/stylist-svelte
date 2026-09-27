@@ -2,7 +2,8 @@ import { createRichTextSegments } from '$stylist/typography/function/script/rich
 import { resolveTypographyInlineStyle } from '$stylist/typography/function/script/inline-style';
 import type { RecipeRichText } from '$stylist/typography/interface/recipe/rich-text';
 
-export function createRichTextState(props: RecipeRichText) {
+export function createRichTextState(getProps: () => RecipeRichText) {
+	const props = $derived(getProps());
 	const text = $derived(props.text ?? '');
 	const html = $derived(props.html ?? '');
 	const marks = $derived(props.marks ?? []);

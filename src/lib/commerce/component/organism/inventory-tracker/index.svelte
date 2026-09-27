@@ -3,7 +3,7 @@
 	import createInventoryTrackerState from './state.svelte';
 
 	let props: InventoryTrackerContract = $props();
-	const state = createInventoryTrackerState(props);
+	const state = createInventoryTrackerState(() => props);
 </script>
 
 <div class="inventory-tracker">

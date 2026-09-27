@@ -5,8 +5,9 @@ import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 
 export function createAlertCardState<V extends string, S extends string>(
 	preset: Preset<V, S>,
-	props: RecipeAlertCard
+	getProps: () => RecipeAlertCard
 ) {
+	const props = $derived(getProps());
 	const variant = $derived((props.variant ?? preset.defaults.variant) as V);
 	const size = $derived((props.size ?? preset.defaults.size) as S);
 	const disabled = $derived(props.disabled ?? preset.defaults.disabled);

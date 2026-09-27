@@ -1,6 +1,7 @@
 import type { RecipeSimpleModal as SimpleModalProps } from '$stylist/dialog/interface/recipe/simple-modal';
 
-export function createSimpleModalState(props: SimpleModalProps) {
+export function createSimpleModalState(getProps: () => SimpleModalProps) {
+	const props = $derived(getProps());
 	const dialogClasses = $derived(`sm-dialog ${props.class ?? ''}`.trim());
 
 	return {

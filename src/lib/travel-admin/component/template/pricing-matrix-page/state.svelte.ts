@@ -2,7 +2,8 @@ import type { RecipePricingMatrixPage } from '$stylist/travel-admin/interface/re
 import type { AdminTransferRate } from '$stylist/travel-admin/type/object/admin-transfer-rate';
 import type { AdminPickupPoint } from '$stylist/travel-admin/type/object/admin-pickup-point';
 
-export function createPricingMatrixPageState(props: RecipePricingMatrixPage) {
+export function createPricingMatrixPageState(getProps: () => RecipePricingMatrixPage) {
+	const props = $derived(getProps());
 	let rates = $state<AdminTransferRate[]>([]);
 	let pickupPoints = $state<AdminPickupPoint[]>([]);
 	let loading = $state(true);

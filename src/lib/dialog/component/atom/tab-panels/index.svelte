@@ -4,7 +4,7 @@
 
 	let props: RecipeTabPanels = $props();
 
-	const state = createTabPanelsState(props);
+	const state = createTabPanelsState(() => props);
 
 	const restProps = $derived(
 		(() => {

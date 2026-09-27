@@ -1,16 +1,13 @@
-<script module lang="ts">
-	let uidCounter = 0;
-</script>
-
 <script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import type { RecipeDateTimeRangePicker } from '$stylist/calendar/interface/recipe/date-time-range-picker';
 	import createDateTimeRangePickerState from './state.svelte';
 
+	let uidCounter = 0;
 	const X = 'x';
 
 	let props: RecipeDateTimeRangePicker = $props();
-	const state = createDateTimeRangePickerState(props);
+	const state = createDateTimeRangePickerState(() => props);
 
 	const fieldId = `dtrp-${uidCounter++}`;
 </script>

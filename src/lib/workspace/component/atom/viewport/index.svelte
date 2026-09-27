@@ -5,7 +5,7 @@
 	import Grid from '$stylist/layout/component/atom/grid/index.svelte';
 
 	let props: RecipeViewport = $props();
-	const state = createViewportState(props);
+	const state = createViewportState(() => props);
 </script>
 
 <div

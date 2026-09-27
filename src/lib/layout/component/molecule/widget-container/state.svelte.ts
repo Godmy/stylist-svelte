@@ -1,6 +1,7 @@
 import type { RecipeWidgetContainer } from '$stylist/layout/interface/recipe/widget-container';
 
-export function createWidgetContainerState(props: RecipeWidgetContainer) {
+export function createWidgetContainerState(getProps: () => RecipeWidgetContainer) {
+	const props = $derived(getProps());
 	let isCollapsed = $state(props.initiallyCollapsed ?? false);
 	let isMaximized = $state(false);
 	let isDragging = $state(false);

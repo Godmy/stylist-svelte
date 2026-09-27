@@ -8,7 +8,7 @@
 	import createFriendListState from './state.svelte';
 
 	let props: FRIEND_LIST_PROPS = $props();
-	const state = createFriendListState(props);
+	const state = createFriendListState(() => props);
 </script>
 
 {#snippet friendEntry(friend: FRIEND_LIST_FRIEND)}

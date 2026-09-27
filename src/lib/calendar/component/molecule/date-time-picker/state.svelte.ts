@@ -1,7 +1,8 @@
 import type { RecipeDateTimePicker as IDateTimePickerProps } from '$stylist/calendar/interface/recipe/date-time-picker';
 import type { DatePickerValue } from '$stylist/calendar/interface/slot/date-picker';
 
-export const createDateTimePickerState = (props: IDateTimePickerProps) => {
+export const createDateTimePickerState = (getProps: () => IDateTimePickerProps) => {
+	const props = $derived(getProps());
 	const toDate = (value: Date | string | { start: Date | null; end: Date | null } | undefined) => {
 		if (value instanceof Date) return value;
 		if (typeof value === 'string') return new Date(`${value}T00:00:00`);

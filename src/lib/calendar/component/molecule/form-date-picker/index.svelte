@@ -5,7 +5,7 @@
 	const Calendar = 'calendar';
 
 	let props: RecipeFormDatePicker = $props();
-	const state = createFormDatePickerState(props);
+	const state = createFormDatePickerState(() => props);
 </script>
 
 <div class={`fdp ${state.hostClass}`}>

@@ -4,7 +4,7 @@
 	import { createCellPillState } from './state.svelte';
 
 	let props: RecipeCellPill & HTMLAttributes<HTMLTableCellElement> = $props();
-	const state = createCellPillState(props);
+	const state = createCellPillState(() => props);
 </script>
 
 <td class="c-cell-pill {props.class ?? ''}">

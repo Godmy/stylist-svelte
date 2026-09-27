@@ -1,6 +1,7 @@
 import type { RecipeTabPanel } from '$stylist/dialog/interface/recipe/tab-panel';
 
-export const createTabPanelState = (props: RecipeTabPanel, selected: () => boolean) => {
+export const createTabPanelState = (getProps: () => RecipeTabPanel, selected: () => boolean) => {
+	const props = $derived(getProps());
 	const isSelected = $derived.by(selected);
 	const disabled = $derived(props.disabled ?? false);
 

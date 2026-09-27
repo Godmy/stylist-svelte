@@ -1,7 +1,8 @@
 import type { TreeNodeItemNode } from '$stylist/tree/type/object/tree-node-item-node';
 import type { RecipeTreeViewer } from '$stylist/tree/interface/recipe/tree-viewer';
 
-export function createTreeViewerState(props: RecipeTreeViewer) {
+export function createTreeViewerState(getProps: () => RecipeTreeViewer) {
+	const props = $derived(getProps());
 	const tree = $derived(props.tree ?? []);
 	const itemHeight = $derived(props.itemHeight ?? 36);
 	const visibleItemCount = $derived(props.visibleItemCount ?? 15);

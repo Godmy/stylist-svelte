@@ -1,7 +1,8 @@
 import type { RecipeChip } from '$stylist/control/interface/recipe/chip';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 
-export function createChipState(props: RecipeChip) {
+export function createChipState(getProps: () => RecipeChip) {
+	const props = $derived(getProps());
 	const variant = $derived((props.variant ?? 'default') as string);
 	const size = $derived((props.size ?? 'md') as TokenSize);
 	const disabled = $derived(props.disabled ?? false);

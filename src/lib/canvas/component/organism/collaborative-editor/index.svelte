@@ -5,7 +5,7 @@
 
 	let props: RecipeCollaborativeEditor = $props();
 
-	const state = createCollaborativeEditorState(props);
+	const state = createCollaborativeEditorState(() => props);
 
 	let editorRef: HTMLDivElement | undefined;
 

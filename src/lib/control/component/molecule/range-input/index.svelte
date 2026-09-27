@@ -3,7 +3,7 @@
 	import { createRangeInputState } from './state.svelte';
 
 	let props: RecipeRangeInput = $props();
-	const state = createRangeInputState(props);
+	const state = createRangeInputState(() => props);
 </script>
 
 <div class={`c-range-input ${state.className}`.trim()}>

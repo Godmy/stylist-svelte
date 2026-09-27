@@ -8,7 +8,7 @@
 
 	let props: RecipeTextArea &
 		Omit<HTMLTextareaAttributes, 'class' | 'autocomplete' | 'id' | 'disabled'> = $props();
-	const state = createTextareaState(props);
+	const state = createTextareaState(() => props);
 
 	let textareaElement: HTMLTextAreaElement | null = null;
 	onMount(() => {

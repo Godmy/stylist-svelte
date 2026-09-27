@@ -2,7 +2,8 @@ import type { RecipeDateRangePicker } from '$stylist/calendar/interface/recipe/d
 import { generateCalendarGrid } from '$stylist/calendar/function/script/calendar-utils';
 import { formatDisplayDate } from '$stylist/calendar/function/script/date-format';
 
-export const createDateRangePickerState = (props: RecipeDateRangePicker) => {
+export const createDateRangePickerState = (getProps: () => RecipeDateRangePicker) => {
+	const props = $derived(getProps());
 	const isRangeValue = (
 		value: RecipeDateRangePicker['value']
 	): value is { start: Date | null; end: Date | null } => {

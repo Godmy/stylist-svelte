@@ -3,7 +3,7 @@
 	import { createFilterTextState } from './state.svelte';
 
 	let props: RecipeFilterText = $props();
-	const state = createFilterTextState(props);
+	const state = createFilterTextState(() => props);
 </script>
 
 <div class="c-filter-text {props.class ?? ''}">

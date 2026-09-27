@@ -2,8 +2,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeZoomControls } from '$stylist/control/interface/recipe/zoom-controls';
 
 export function createZoomControlsState(
-	props: RecipeZoomControls & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipeZoomControls & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	const initialValue = $derived(props.initialValue ?? 100);
 	const minZoom = $derived(props.minZoom ?? 50);
 	const maxZoom = $derived(props.maxZoom ?? 200);

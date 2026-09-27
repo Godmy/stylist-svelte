@@ -8,7 +8,8 @@ const titleClasses = 'announcement-banner__announcement-banner-title';
 const descriptionClasses = 'announcement-banner__announcement-banner-description';
 const childrenClasses = 'announcement-banner__announcement-banner-children-container';
 
-export function createAnnouncementBannerState(props: RecipeAnnouncementBanner) {
+export function createAnnouncementBannerState(getProps: () => RecipeAnnouncementBanner) {
+	const props = $derived(getProps());
 	const containerClasses = $derived(
 		ClassNamesManager.merge('announcement-banner__announcement-banner-container', props.class ?? '')
 	);

@@ -9,7 +9,8 @@ const RECURRENCE_LABEL: Record<ScheduledNotificationItem['recurrence'], string> 
 	once: 'One-time'
 };
 
-export function createScheduledNotificationState(props: RecipeScheduledNotification) {
+export function createScheduledNotificationState(getProps: () => RecipeScheduledNotification) {
+	const props = $derived(getProps());
 	const notifications = $derived(props.notifications ?? []);
 	const showEditButton = $derived(props.showEditButton ?? true);
 	const showDeleteButton = $derived(props.showDeleteButton ?? true);

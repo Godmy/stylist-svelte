@@ -8,7 +8,7 @@
 	const Plus = 'plus';
 
 	let props: RecipeNumberInput & HTMLAttributes<HTMLInputElement> = $props();
-	const state = createNumberInputState(props);
+	const state = createNumberInputState(() => props);
 </script>
 
 <div class={state.containerClasses}>

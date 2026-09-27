@@ -5,8 +5,9 @@ import { TOKEN_PERFORMANCE_BARS } from '$stylist/management/const/array/performa
 import type { RecipePerformanceDashboardPerformanceDashboardStateProps } from '$stylist/management/interface/recipe/performance-dashboard-performance-dashboard-state-props';
 
 export function createPerformanceDashboardState(
-	props: RecipePerformanceDashboardPerformanceDashboardStateProps
+	getProps: () => RecipePerformanceDashboardPerformanceDashboardStateProps
 ) {
+	const props = $derived(getProps());
 	const label = $derived(props.title ?? 'Performance Dashboard');
 	const subtitle = $derived(props.subtitle);
 	const metrics = $derived(props.metrics ?? []);

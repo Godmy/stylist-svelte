@@ -4,7 +4,8 @@ import { InstancedGraphManager } from '$stylist/graph/class/manager/instanced-gr
 import type { RecipeZwickyScene } from '$stylist/graph/interface/recipe/zwicky-scene';
 import type { ZwickyNode } from '$stylist/graph/interface/slot/zwicky-node';
 
-export function createZwickySceneState(props: RecipeZwickyScene) {
+export function createZwickySceneState(getProps: () => RecipeZwickyScene) {
+	const props = $derived(getProps());
 	const manager = new InstancedGraphManager();
 
 	let selectedNode = $state<ZwickyNode | null>(null);

@@ -1,7 +1,8 @@
 import type { RecipeAddonRulesEditor } from '$stylist/travel-admin/interface/recipe/addon-rules-editor';
 import type { AdminProductAddon } from '$stylist/travel-admin/type/object/admin-product-addon';
 
-export function createAddonRulesEditorState(props: RecipeAddonRulesEditor) {
+export function createAddonRulesEditorState(getProps: () => RecipeAddonRulesEditor) {
+	const props = $derived(getProps());
 	const addons = $state<AdminProductAddon[]>(props.addons.map((a) => ({ ...a })));
 
 	function emit() {

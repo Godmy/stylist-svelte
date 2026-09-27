@@ -6,7 +6,7 @@
 	const SearchIconName = 'search';
 
 	let props: RecipeIconPicker = $props();
-	const state = createIconPickerState(props);
+	const state = createIconPickerState(() => props);
 </script>
 
 <div class={state.rootClass} {...state.restProps}>

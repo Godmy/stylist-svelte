@@ -6,7 +6,7 @@
 	import createCommentSystemState from './state.svelte';
 
 	let props: RecipeCommentSystem = $props();
-	const state = createCommentSystemState(props);
+	const state = createCommentSystemState(() => props);
 </script>
 
 {#snippet renderComment(_comment: CommentItem, depth = 0)}

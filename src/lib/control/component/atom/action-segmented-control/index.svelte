@@ -16,7 +16,7 @@
 		return rest;
 	});
 
-	const state = createActionSegmentedControlState(props);
+	const state = createActionSegmentedControlState(() => props);
 </script>
 
 <div class={['c-action-segmented', props.class].filter(Boolean).join(' ')} {...restProps}>

@@ -2,7 +2,8 @@ import { ZipViewerManager } from '$stylist/file/class/manager/zip-viewer';
 import type { RecipeZipViewer } from '$stylist/file/interface/recipe/zip-viewer';
 import type { SlotZipEntry } from '$stylist/file/interface/slot/zip-entry';
 
-export function createZipViewerState(props: RecipeZipViewer) {
+export function createZipViewerState(getProps: () => RecipeZipViewer) {
+	const props = $derived(getProps());
 	let searchQuery = $state('');
 	let expandedFolders = $state<Set<string>>(new Set());
 	const entries = $derived(props.entries ?? []);

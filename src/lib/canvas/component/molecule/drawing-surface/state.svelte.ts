@@ -2,12 +2,13 @@ import type { SlotDrawingSurfaceExposeMethodsEvent } from '$stylist/canvas/inter
 import type { RecipeDrawingSurface } from '$stylist/canvas/interface/recipe/drawing-surface';
 
 export function createDrawingSurfaceState(
-	props: RecipeDrawingSurface,
+	getProps: () => RecipeDrawingSurface,
 	dispatch: (
 		type: 'canvas-cleared' | 'expose-methods',
 		detail: {} | SlotDrawingSurfaceExposeMethodsEvent
 	) => void
 ) {
+	const props = $derived(getProps());
 	let isDrawing = $state(false);
 
 	const width = $derived(props.width ?? 800);

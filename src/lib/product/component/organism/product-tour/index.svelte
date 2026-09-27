@@ -4,7 +4,7 @@
 	import { createProductTourState } from './state.svelte';
 
 	let props: RecipeProductTour & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createProductTourState(props);
+	const state = createProductTourState(() => props);
 </script>
 
 {#if state.showTour && props.steps.length > 0}

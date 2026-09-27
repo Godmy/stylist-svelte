@@ -6,7 +6,7 @@
 
 	let props: RecipeTreeViewer = $props();
 
-	const state = createTreeViewerState(props);
+	const state = createTreeViewerState(() => props);
 
 	const nodes = $derived(state.tree.map((node, index) => normalizeTreeViewerNode(node, index)));
 

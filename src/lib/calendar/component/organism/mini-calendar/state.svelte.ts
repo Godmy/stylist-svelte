@@ -9,7 +9,8 @@ import {
 } from '$stylist/calendar/function/script/calendar-utils';
 import { formatShortMonthYear } from '$stylist/calendar/function/script/date-format';
 
-export function createMiniCalendarState(props: MiniCalendarContract) {
+export function createMiniCalendarState(getProps: () => MiniCalendarContract) {
+	const props = $derived(getProps());
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
 	let selectedDate = $state<Date | null>(null);
 

@@ -10,7 +10,8 @@ import {
 	startOfWeek
 } from '$stylist/calendar/function/script/calendar-utils';
 
-export function createEventCalendarState(props: RecipeEventCalendar) {
+export function createEventCalendarState(getProps: () => RecipeEventCalendar) {
+	const props = $derived(getProps());
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
 	let selectedEvent: SlotCalendarEvent | null = $state(null);
 	let showEventActions = $state(false);

@@ -1,11 +1,12 @@
 import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 
-export const createMessageListState = (props: {
+export const createMessageListState = (getProps: () => {
 	messages: Message[];
 	currentUser: User;
 	onMessageAction?: (action: string, message: Message) => void;
 }) => {
+	const props = $derived(getProps());
 	const containerClasses = 'message-list';
 
 	function handleMessageClick(message: Message) {

@@ -8,7 +8,7 @@
 	const ChevronRight = 'chevron-right';
 
 	let props: RecipeCalendarRange = $props();
-	const state = createCalendarRangeState(props);
+	const state = createCalendarRangeState(() => props);
 </script>
 
 <div class={['c-calendar-range', props.class].filter(Boolean).join(' ')}>

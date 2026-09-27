@@ -4,7 +4,7 @@
 	import { createCopyButtonState } from './state.svelte';
 
 	let props: RecipeCopyButton = $props();
-	const state = createCopyButtonState(props);
+	const state = createCopyButtonState(() => props);
 
 	// Extract rest props manually to avoid $$restProps in runes mode
 	let restButtonProps = $derived.by(() => {

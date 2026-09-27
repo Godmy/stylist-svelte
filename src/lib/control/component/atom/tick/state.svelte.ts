@@ -7,7 +7,8 @@ type SliderTickProps = {
 };
 
 // Определение состояния для Slider Tick
-export function createSliderTickState(props: SliderTickProps) {
+export function createSliderTickState(getProps: () => SliderTickProps) {
+	const props = $derived(getProps());
 	const value = $derived(props.value ?? 0);
 	const position = $derived(props.position ?? 0);
 	const active = $derived(props.active ?? false);

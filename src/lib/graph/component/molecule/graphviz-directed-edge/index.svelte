@@ -3,7 +3,7 @@
 	import createGraphvizDirectedEdgeState from './state.svelte';
 
 	let props: RecipeGraphvizDirectedEdge = $props();
-	const state = createGraphvizDirectedEdgeState(props);
+	const state = createGraphvizDirectedEdgeState(() => props);
 </script>
 
 <svg class={state.rootClass} style="position: absolute; width: 100%; height: 100%;">

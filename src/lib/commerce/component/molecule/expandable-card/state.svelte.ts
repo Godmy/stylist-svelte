@@ -3,8 +3,9 @@ import type { RecipeExpandableCard as RecipeExpandableCard } from '$stylist/comm
 import { ObjectManagerExpandableCard } from '$stylist/commerce/class/manager/expandable-card';
 
 export function createExpandableCardState(
-	props: RecipeExpandableCard & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipeExpandableCard & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	let isExpanded = $state(props.defaultExpanded ?? false);
 	const baseClasses = $derived('expandable-card__base');
 	const themedClasses = $derived('expandable-card__themed');

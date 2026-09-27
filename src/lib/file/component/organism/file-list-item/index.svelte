@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 	import { createFileListItemState } from './state.svelte';
@@ -6,7 +6,7 @@
 	import type { RecipeFileListItem } from '$stylist/file/interface/recipe/file-list-item';
 
 	let props: RecipeFileListItem = $props();
-	const state = createFileListItemState(props);
+	const state = createFileListItemState(() => props);
 </script>
 
 <div

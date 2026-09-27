@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import type { RecipeCheckbox } from '$stylist/control/interface/recipe/checkbox';
 	import createCheckboxState from './state.svelte';
 
@@ -40,7 +41,8 @@
 		return filteredProps;
 	});
 
-	const state = createCheckboxState({
+	const state = createCheckboxState(
+		untrack(() => ({
 		id,
 		label,
 		description,
@@ -49,7 +51,8 @@
 		required,
 		disabled,
 		class: className
-	});
+		}))
+	);
 </script>
 
 <div

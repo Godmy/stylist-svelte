@@ -3,7 +3,7 @@
 	import createDataDisplayCardState from './state.svelte';
 
 	let props: DataDisplayCardProps = $props();
-	const state = createDataDisplayCardState(props);
+	const state = createDataDisplayCardState(() => props);
 </script>
 
 <div class="data-display-card" {...state.restProps}>

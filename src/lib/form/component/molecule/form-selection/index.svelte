@@ -5,7 +5,7 @@
 	import type { RecipeFormSelection } from '$stylist/form/interface/recipe/form-selection';
 
 	const props: RecipeFormSelection = $props();
-	const state = createFormSelectionState(props);
+	const state = createFormSelectionState(() => props);
 	const ChevronDown = 'chevron-down';
 </script>
 

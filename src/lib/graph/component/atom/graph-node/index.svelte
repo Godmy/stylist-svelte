@@ -4,7 +4,7 @@
 
 	let props: RecipeGraphNode = $props();
 
-	const state = createGraphNodeState(props);
+	const state = createGraphNodeState(() => props);
 	const label = $derived(props.label ?? props.id);
 	const restProps = $derived(
 		(() => {

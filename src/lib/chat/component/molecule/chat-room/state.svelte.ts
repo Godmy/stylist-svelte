@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { ChatRoomProps } from '$stylist/chat/type/alias/chat-room-props';
 
-export function createChatRoomState(props: ChatRoomProps) {
+export function createChatRoomState(getProps: () => ChatRoomProps) {
+	const props = $derived(getProps());
 	let messageText = $state('');
 
 	const variantClass = $derived(`c-chat-room__messages--${props.variant ?? 'default'}`);

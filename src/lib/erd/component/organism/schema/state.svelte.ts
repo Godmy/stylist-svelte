@@ -9,7 +9,8 @@ import type { SchemaMode } from '$stylist/erd/type/alias/schema-mode';
 import type { SchemaLayout } from '$stylist/erd/type/alias/schema-layout';
 import type { RecipeSchema } from '$stylist/erd/interface/recipe/schema';
 
-export function createSchemaState(props: RecipeSchema) {
+export function createSchemaState(getProps: () => RecipeSchema) {
+	const props = $derived(getProps());
 	// Each of these intentionally captures the prop only once (uncontrolled
 	// widget: initial value from the prop, then locally editable via the
 	// toolbar/text editor) -- untrack() makes that explicit instead of

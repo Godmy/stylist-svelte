@@ -14,7 +14,7 @@
 
 	let props: MessageListProps = $props();
 
-	const state = createMessageListState(props);
+	const state = createMessageListState(() => props);
 </script>
 
 <div class={state.containerClasses} use:state.enhanceScroll>

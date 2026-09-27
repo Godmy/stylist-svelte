@@ -2,7 +2,7 @@
 	import createValidationState from './state.svelte';
 
 	const props = $props();
-	const state = createValidationState(props);
+	const state = createValidationState(() => props);
 </script>
 
 <div class={state.containerClasses} {...props}>

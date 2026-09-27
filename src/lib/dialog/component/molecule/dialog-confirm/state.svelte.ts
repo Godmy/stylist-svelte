@@ -7,7 +7,8 @@ const DIALOG_CONFIRM_ICON_NAMES = {
 	info: 'info'
 } as const;
 
-export function createDialogConfirmState(props: RecipeDialogConfirm) {
+export function createDialogConfirmState(getProps: () => RecipeDialogConfirm) {
+	const props = $derived(getProps());
 	const variantClasses = $derived(`dc-btn-confirm--${props.variant ?? 'danger'}`);
 	const iconColor = $derived(`dc-icon--${props.variant ?? 'danger'}`);
 	const confirmButtonClasses = $derived(variantClasses);

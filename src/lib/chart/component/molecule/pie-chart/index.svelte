@@ -3,7 +3,7 @@
 	import createPieChartState from './state.svelte';
 
 	let props: RecipePieChart = $props();
-	const state = createPieChartState(props);
+	const state = createPieChartState(() => props);
 </script>
 
 <div class={state.containerClasses}>

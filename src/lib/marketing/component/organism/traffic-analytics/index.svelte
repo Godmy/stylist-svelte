@@ -13,7 +13,7 @@
 	import createTrafficAnalyticsState from './state.svelte';
 
 	let props: RecipeTrafficAnalytics = $props();
-	const state = createTrafficAnalyticsState(props);
+	const state = createTrafficAnalyticsState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

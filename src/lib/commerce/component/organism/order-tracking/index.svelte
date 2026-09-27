@@ -3,7 +3,7 @@
 	import createOrderTrackingState from './state.svelte';
 
 	let props: OrderTrackingContract = $props();
-	const state = createOrderTrackingState(props);
+	const state = createOrderTrackingState(() => props);
 </script>
 
 <div class="order-tracking">

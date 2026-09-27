@@ -1,6 +1,7 @@
 import type { RecipeBadge } from '$stylist/typography/interface/recipe/badge';
 
-export function createBadgeState(props: RecipeBadge) {
+export function createBadgeState(getProps: () => RecipeBadge) {
+	const props = $derived(getProps());
 	const variant = $derived(props.variant ?? 'default');
 	const size = $derived(props.size ?? 'md');
 	const className = $derived(typeof props.class === 'string' ? props.class : '');

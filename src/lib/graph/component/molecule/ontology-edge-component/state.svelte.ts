@@ -16,7 +16,8 @@ const EDGE_DASH_MAP: Record<string, string> = {
 	subPropertyOf: '5,5'
 };
 
-export function createOntologyEdgeComponentState(props: RecipeOntologyEdgeComponent) {
+export function createOntologyEdgeComponentState(getProps: () => RecipeOntologyEdgeComponent) {
+	const props = $derived(getProps());
 	const startX = $derived(
 		(props.sourceNode.position?.x || 0) + (props.sourceNode.width || 120) / 2
 	);

@@ -1,6 +1,7 @@
 import type { RecipeQuantitySelector } from '$stylist/file/interface/recipe/quantity-selector';
 
-export function createQuantitySelectorState(props: RecipeQuantitySelector) {
+export function createQuantitySelectorState(getProps: () => RecipeQuantitySelector) {
+	const props = $derived(getProps());
 	let quantity = $state(props.value ?? 1);
 	const inputId = $derived(`quantity-${Math.random().toString(36).slice(2, 9)}`);
 

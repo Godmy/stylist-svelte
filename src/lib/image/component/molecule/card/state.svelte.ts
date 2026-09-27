@@ -3,7 +3,8 @@ import type { LayoutShape } from '$stylist/layout/type/alias/item-layout-shape';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { RecipeCard } from '$stylist/image/interface/recipe/card';
 
-export function createCardState(props: RecipeCard) {
+export function createCardState(getProps: () => RecipeCard) {
+	const props = $derived(getProps());
 	const shape = $derived<LayoutShape>(props.shape ?? 'rounded');
 	const size = $derived<TokenSize>((props.size as TokenSize | undefined) ?? 'md');
 	const elevation = $derived(props.elevation ?? props.layoutElevation ?? 1);

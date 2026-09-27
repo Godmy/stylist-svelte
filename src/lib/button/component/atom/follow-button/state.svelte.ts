@@ -1,6 +1,7 @@
 import type { RecipeFollowButton } from '$stylist/button/interface/recipe/follow-button';
 
-export function createFollowButtonState(props: RecipeFollowButton) {
+export function createFollowButtonState(getProps: () => RecipeFollowButton) {
+	const props = $derived(getProps());
 	const isFollowing = $derived(props.isFollowing ?? false);
 	const showText = $derived(props.showText ?? true);
 	const variant = $derived(props.variant ?? 'primary');

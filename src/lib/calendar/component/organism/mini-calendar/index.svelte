@@ -8,7 +8,7 @@
 	const ChevronRight = 'chevron-right';
 
 	let props: MiniCalendarStateProps = $props();
-	const state = createMiniCalendarState(props);
+	const state = createMiniCalendarState(() => props);
 </script>
 
 <div class={state.wrapperClasses} {...state.restProps}>

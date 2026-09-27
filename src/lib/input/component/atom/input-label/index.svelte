@@ -3,7 +3,7 @@
 	import createInputLabelState from './state.svelte';
 
 	let props: IInputLabelProps = $props();
-	const state = createInputLabelState(props);
+	const state = createInputLabelState(() => props);
 </script>
 
 {#if props.label}

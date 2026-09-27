@@ -4,7 +4,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeColumn = $props();
-	const state = createColumnState(props);
+	const state = createColumnState(() => props);
 </script>
 
 <th

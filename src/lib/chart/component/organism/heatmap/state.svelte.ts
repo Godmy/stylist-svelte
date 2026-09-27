@@ -2,7 +2,8 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeHeatmap } from '$stylist/chart/interface/recipe/heatmap';
 import { ManagerHeatmap } from '$stylist/chart/class/manager/heatmap';
 
-export function createHeatmapState(props: RecipeHeatmap) {
+export function createHeatmapState(getProps: () => RecipeHeatmap) {
+	const props = $derived(getProps());
 	let hoveredCell = $state<string | null>(null);
 	const hostClass = $derived(typeof props.class === 'string' ? props.class : undefined);
 	const chartClass = $derived(typeof props.chartClass === 'string' ? props.chartClass : undefined);

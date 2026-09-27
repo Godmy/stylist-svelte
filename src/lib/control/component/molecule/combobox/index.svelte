@@ -5,7 +5,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeCombobox = $props();
-	const state = createComboboxState(props);
+	const state = createComboboxState(() => props);
 
 	const restProps = $derived.by(() => {
 		const {

@@ -4,7 +4,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeScheduledNotification = $props();
-	const state = createScheduledNotificationState(props);
+	const state = createScheduledNotificationState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

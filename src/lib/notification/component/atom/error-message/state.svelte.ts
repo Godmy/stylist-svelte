@@ -1,6 +1,7 @@
 import type { RecipeErrorMessage } from '$stylist/notification/interface/recipe/error-message';
 
-export function createErrorMessageState(props: RecipeErrorMessage) {
+export function createErrorMessageState(getProps: () => RecipeErrorMessage) {
+	const props = $derived(getProps());
 	const error = props.error;
 	const text = props.text ?? 'Error';
 	const onRetry = props.onRetry;

@@ -1,10 +1,13 @@
-export function createToolButtonState(props: {
+type ToolButtonStateProps = {
 	active?: boolean;
 	tool?: string;
 	icon?: string;
 	label?: string;
 	onClick?: (tool: string) => void;
-}) {
+};
+
+export function createToolButtonState(getProps: () => ToolButtonStateProps) {
+	const props = $derived(getProps());
 	const active = $derived(props.active ?? false);
 	const tool = $derived(props.tool ?? 'select');
 	const icon = $derived(props.icon ?? '↖');

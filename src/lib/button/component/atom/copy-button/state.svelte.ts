@@ -4,7 +4,8 @@ import { copyTextToClipboard } from '$stylist/button/function/async/copy-text-to
 import { createButtonPreset } from '$stylist/button/function/script/create-button-preset';
 import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 
-export function createCopyButtonState(props: RecipeCopyButton & HTMLButtonAttributes) {
+export function createCopyButtonState(getProps: () => RecipeCopyButton & HTMLButtonAttributes) {
+	const props = $derived(getProps());
 	const preset = createButtonPreset({
 		variant: 'outline',
 		size: 'sm'

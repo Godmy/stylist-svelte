@@ -3,7 +3,7 @@
 	import { createAudioSliderState } from './state.svelte';
 
 	let props: RecipeAudioSlider = $props();
-	const state = createAudioSliderState(props);
+	const state = createAudioSliderState(() => props);
 </script>
 
 <div class={`as-wrap ${state.className}`} {...state.restProps}>

@@ -4,7 +4,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	const props: RecipeToastStack = $props();
-	const state = createToastStackState(props);
+	const state = createToastStackState(() => props);
 </script>
 
 {#if state.toasts.length > 0}

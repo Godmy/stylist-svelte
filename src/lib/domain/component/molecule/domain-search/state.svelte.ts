@@ -1,7 +1,8 @@
 import { tick } from 'svelte';
 import type { RecipeDomainSearch } from '$stylist/domain/interface/recipe/domain-search';
 
-export function createDomainSearchState(props: RecipeDomainSearch) {
+export function createDomainSearchState(getProps: () => RecipeDomainSearch) {
+	const props = $derived(getProps());
 	let open = $state(false);
 	let query = $state('');
 	let inputRef = $state<HTMLInputElement | null>(null);

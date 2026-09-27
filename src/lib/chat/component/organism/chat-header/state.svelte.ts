@@ -2,7 +2,8 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 import type { ChatHeaderOrganismProps } from '$stylist/chat/type/alias/chat-header-organism-props';
 
-export const createChatHeaderState = (props: ChatHeaderOrganismProps) => {
+export const createChatHeaderState = (getProps: () => ChatHeaderOrganismProps) => {
+	const props = $derived(getProps());
 	const chat = $derived(props.chat);
 	const currentUser = $derived(props.currentUser);
 	const showActions = $derived(props.showActions ?? true);

@@ -1,6 +1,7 @@
 import type { RecipeAnimatedExpandableTableRow } from '$stylist/layout/interface/recipe/animated-expandable-table-row';
 
-export function createAnimatedExpandableTableRowState(props: RecipeAnimatedExpandableTableRow) {
+export function createAnimatedExpandableTableRowState(getProps: () => RecipeAnimatedExpandableTableRow) {
+	const props = $derived(getProps());
 	let isExpanded = $state(props.expanded ?? false);
 
 	$effect(() => {

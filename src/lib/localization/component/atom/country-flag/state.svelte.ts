@@ -8,7 +8,8 @@ function countryCodeToEmoji(countryCode: string): string {
 		.join('');
 }
 
-export function createCountryFlagState(props: RecipeCountryFlag) {
+export function createCountryFlagState(getProps: () => RecipeCountryFlag) {
+	const props = $derived(getProps());
 	const countryCode = $derived(props.countryCode ?? '');
 	const size = $derived(props.size ?? 24);
 	const isValid = $derived(Boolean(countryCode && countryCode.length === 2));

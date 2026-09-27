@@ -4,7 +4,7 @@
 
 	let props: RecipeTabList = $props();
 
-	const state = createTabListState(props);
+	const state = createTabListState(() => props);
 
 	const restProps = $derived(
 		(() => {

@@ -4,7 +4,7 @@
 	import createProductSearchState from './state.svelte';
 
 	let props: RecipeProductSearch & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createProductSearchState(props);
+	const state = createProductSearchState(() => props);
 </script>
 
 <div class={state.rootClasses}>

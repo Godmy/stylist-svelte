@@ -4,7 +4,7 @@
 	import { createPriceFilterState } from './state.svelte';
 
 	let props: RecipePriceFilter & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createPriceFilterState(props);
+	const state = createPriceFilterState(() => props);
 </script>
 
 <div class={state.containerClass}>

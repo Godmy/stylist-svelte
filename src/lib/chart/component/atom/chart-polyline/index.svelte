@@ -3,7 +3,7 @@
 	import createChartPolylineState from './state.svelte';
 
 	let props: ChartPolylineProps = $props();
-	const state = createChartPolylineState(props);
+	const state = createChartPolylineState(() => props);
 </script>
 
 <polyline

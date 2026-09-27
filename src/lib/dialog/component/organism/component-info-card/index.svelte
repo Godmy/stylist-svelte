@@ -17,7 +17,7 @@
 	const User = 'user';
 
 	let props: RecipeComponentInfoCard & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createComponentInfoCardState(props);
+	const state = createComponentInfoCardState(() => props);
 </script>
 
 {#if state.isOpen}

@@ -5,7 +5,7 @@
 	import AnimatedDigit from '$stylist/animation/component/atom/animated-digit/index.svelte';
 
 	let props: RecipeStatCard & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createStatCardState(props);
+	const state = createStatCardState(() => props);
 </script>
 
 <div class="c-stat-card ${state.classes}">

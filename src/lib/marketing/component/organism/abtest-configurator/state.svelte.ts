@@ -3,7 +3,7 @@ import { MarketingManager } from '$stylist/marketing/class/manager/marketing';
 import type { SlotABTestConfigurator as IABTestConfiguratorProps } from '$stylist/marketing/interface/slot/ab-test-configurator';
 import type { SlotABTest as ABTest } from '$stylist/marketing/interface/slot/ab-test';
 export function createABTestConfiguratorState(
-	props: IABTestConfiguratorProps & {
+	getProps: () => IABTestConfiguratorProps & {
 		class?: string;
 		headerClass?: string;
 		formClass?: string;
@@ -11,6 +11,7 @@ export function createABTestConfiguratorState(
 		footerClass?: string;
 	}
 ) {
+	const props = $derived(getProps());
 	const initialTest = $derived(props.initialTest);
 	const onSave = $derived(props.onSave);
 	const onStart = $derived(props.onStart);

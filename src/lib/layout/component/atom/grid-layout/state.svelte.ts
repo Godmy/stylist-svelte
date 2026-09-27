@@ -20,7 +20,8 @@ function resolveColumns(
 	return `repeat(${cols}, 1fr)`;
 }
 
-export function createGridLayoutState(props: RecipeGridLayout) {
+export function createGridLayoutState(getProps: () => RecipeGridLayout) {
+	const props = $derived(getProps());
 	const cols = $derived(props.cols ?? 2);
 	const rows = $derived(props.rows);
 	const gap = $derived(props.gap ?? 'md');

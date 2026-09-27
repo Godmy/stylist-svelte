@@ -7,7 +7,7 @@
 	import type { RecipeZwickyScene } from '$stylist/graph/interface/recipe/zwicky-scene';
 
 	let props: RecipeZwickyScene = $props();
-	const state = createZwickySceneState(props);
+	const state = createZwickySceneState(() => props);
 	let canvasRef: HTMLCanvasElement | null = null;
 
 	onMount(() => {

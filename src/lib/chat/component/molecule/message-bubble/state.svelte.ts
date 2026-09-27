@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeMessageBubble } from '$stylist/chat/interface/recipe/message-bubble';
 
-export const createMessageBubbleState = (props: RecipeMessageBubble) => {
+export const createMessageBubbleState = (getProps: () => RecipeMessageBubble) => {
+	const props = $derived(getProps());
 	const isSecondary = $derived((props.variant ?? 'primary') === 'secondary');
 	const isRight = $derived((props.align ?? 'left') === 'right');
 

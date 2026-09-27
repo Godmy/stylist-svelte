@@ -2,7 +2,8 @@ import { UploadProgressManager } from '$stylist/file/class/manager/upload-progre
 import type { SlotUploadFile as IUploadFile } from '$stylist/file/interface/slot/upload-file';
 import type { RecipeUploadProgress } from '$stylist/file/interface/recipe/upload-progress';
 
-export function createUploadProgressState(props: RecipeUploadProgress) {
+export function createUploadProgressState(getProps: () => RecipeUploadProgress) {
+	const props = $derived(getProps());
 	const files = $derived(props.files ?? []);
 	const hostClass = $derived(props.hostClass ?? '');
 	const itemClass = $derived(props.itemClass ?? '');

@@ -4,7 +4,7 @@
 	import { createMetricCardState } from './state.svelte';
 
 	let props: RecipeMetricCard & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createMetricCardState(props);
+	const state = createMetricCardState(() => props);
 </script>
 
 <div class="metric-card" role="region" aria-label={`Metric: ${state.label}`}>

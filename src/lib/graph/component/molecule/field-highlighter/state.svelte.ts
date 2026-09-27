@@ -3,7 +3,8 @@ import type { SlotFieldHighlighterSelectedField as IFieldHighlighterSelectedFiel
 import type { SlotGraphEdge as IGraphEdge } from '$stylist/graph/interface/slot/graph-edge';
 import type { SlotGraphNode as IGraphNode } from '$stylist/graph/interface/slot/graph-node';
 
-export const createFieldHighlighterState = (props: IFieldHighlighterProps) => {
+export const createFieldHighlighterState = (getProps: () => IFieldHighlighterProps) => {
+	const props = $derived(getProps());
 	function handleNodeClick(node: IGraphNode) {
 		props.onNodeClick?.(node);
 	}

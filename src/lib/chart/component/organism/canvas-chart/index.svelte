@@ -4,7 +4,7 @@
 	import { ManagerCanvasChart } from '$stylist/chart/class/manager/canvas-chart';
 
 	let props: RecipeCanvasChart = $props();
-	const state = createCanvasChartState(props);
+	const state = createCanvasChartState(() => props);
 
 	let canvasRef: HTMLCanvasElement | null = null;
 	const resolvedColors = $derived(ManagerCanvasChart.resolveColors(state.colors));

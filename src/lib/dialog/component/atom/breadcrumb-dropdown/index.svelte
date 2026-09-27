@@ -10,7 +10,7 @@
 		class?: string;
 	} = $props();
 
-	const state = createBreadcrumbDropdownState(props);
+	const state = createBreadcrumbDropdownState(() => props);
 </script>
 
 {#if state.open && state.items.length > 0}

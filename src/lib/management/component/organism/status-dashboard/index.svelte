@@ -4,7 +4,7 @@
 	import type { RecipeStatusDashboard } from '$stylist/management/interface/recipe/status-dashboard';
 
 	let props: RecipeStatusDashboard = $props();
-	const state = createStatusDashboardState(props);
+	const state = createStatusDashboardState(() => props);
 </script>
 
 <div class={state.containerClass} {...state.restProps}>

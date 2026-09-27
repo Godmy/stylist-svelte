@@ -4,7 +4,7 @@
 	import { createSidebarState } from './state.svelte';
 
 	let props: RecipeSidebar = $props();
-	const state = createSidebarState(props);
+	const state = createSidebarState(() => props);
 </script>
 
 <div class={state.hostClass} {...state.restProps}>

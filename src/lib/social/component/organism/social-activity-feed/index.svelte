@@ -7,7 +7,7 @@
 	import type { RecipeSocialActivityFeed } from '$stylist/social/interface/recipe/social-activity-feed';
 
 	let props: RecipeSocialActivityFeed = $props();
-	const state = createSocialActivityFeedState(props);
+	const state = createSocialActivityFeedState(() => props);
 </script>
 
 <div class="c-activity-feed {state.hostClass}" {...props}>

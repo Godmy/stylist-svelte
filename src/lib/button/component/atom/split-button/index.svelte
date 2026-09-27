@@ -6,7 +6,7 @@
 	const ChevronDown = 'chevron-down';
 
 	let props: RecipeSplitButton = $props();
-	const state = createSplitButtonState(props);
+	const state = createSplitButtonState(() => props);
 
 	let divAttributes = $derived.by(() => {
 		const allProps = props as Record<string, any>;

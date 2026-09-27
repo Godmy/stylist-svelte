@@ -4,7 +4,7 @@
 	import createIdef0FunctionBoxState from './state.svelte';
 
 	let props: Idef0FunctionBoxProps & SVGAttributes<SVGGElement> = $props();
-	const state = createIdef0FunctionBoxState(props);
+	const state = createIdef0FunctionBoxState(() => props);
 </script>
 
 <g class={state.groupClasses}>

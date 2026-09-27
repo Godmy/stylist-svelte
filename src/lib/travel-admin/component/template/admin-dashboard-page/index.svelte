@@ -5,7 +5,7 @@
 	import createAdminDashboardPageState from './state.svelte';
 
 	let props: RecipeAdminDashboardPage = $props();
-	const state = createAdminDashboardPageState(props);
+	const state = createAdminDashboardPageState(() => props);
 
 	const navItems = [
 		{ id: 'dashboard', label: 'Дашборд', href: '/admin', active: true },

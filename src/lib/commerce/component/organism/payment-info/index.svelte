@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	import createPaymentInfoState from './state.svelte';
@@ -7,7 +7,7 @@
 
 	let props: RecipePaymentInfoProps = $props();
 
-	const state = createPaymentInfoState(props);
+	const state = createPaymentInfoState(() => props);
 </script>
 
 <div class="payment-info">

@@ -5,13 +5,26 @@
 
 	type Props = {
 		selected?: PhysicalLoad;
-		onChange?: (value: PhysicalLoad) => void;
+		/** `undefined` = «Любая нагрузка» (no physical-load filtering). */
+		onChange?: (value: PhysicalLoad | undefined) => void;
 	};
 
 	let { selected, onChange }: Props = $props();
 </script>
 
 <div class="tc-booking-physical-load-filter" role="radiogroup" aria-label="Физическая нагрузка">
+	<label class="tc-booking-physical-load-filter__option">
+		<input
+			type="radio"
+			name="booking-physical-load"
+			value="any"
+			checked={selected === undefined}
+			onchange={() => onChange?.(undefined)}
+		/>
+		<span class="tc-booking-physical-load-filter__text">
+			<span class="tc-booking-physical-load-filter__label">Любая нагрузка</span>
+		</span>
+	</label>
 	{#each PHYSICAL_LOAD_OPTIONS as option (option.value)}
 		<label class="tc-booking-physical-load-filter__option">
 			<input
@@ -43,7 +56,7 @@
 	}
 
 	.tc-booking-physical-load-filter__option input {
-		margin-top: 3px;
+		margin-top: 2px;
 		width: 1rem;
 		height: 1rem;
 		accent-color: #17231f;
@@ -56,13 +69,15 @@
 		gap: 2px;
 	}
 
+	/* Sized to the 0.875rem Radio/Checkbox labels so options never outgrow the 0.95rem section title */
 	.tc-booking-physical-load-filter__label {
+		font-size: 0.875rem;
 		font-weight: 650;
 		color: #17231f;
 	}
 
 	.tc-booking-physical-load-filter__description {
-		font-size: 0.82rem;
+		font-size: 0.78rem;
 		color: rgba(23, 35, 31, 0.62);
 	}
 </style>

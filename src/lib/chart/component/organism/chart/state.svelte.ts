@@ -27,7 +27,8 @@ function getChartBounds(series: ChartSeries[]): {
 	};
 }
 
-export function createChartState(props: RecipeChart) {
+export function createChartState(getProps: () => RecipeChart) {
+	const props = $derived(getProps());
 	const width = $derived(props.width ?? 640);
 	const height = $derived(props.height ?? 380);
 	const showLegend = $derived(props.showLegend ?? true);

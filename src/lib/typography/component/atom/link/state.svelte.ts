@@ -3,7 +3,8 @@ import type { RecipeLink } from '$stylist/typography/interface/recipe/link';
 import type { TokenFontSize } from '$stylist/theme/type/alias/font-size';
 import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 
-export function createLinkState(props: RecipeLink & HTMLAttributes<HTMLAnchorElement>) {
+export function createLinkState(getProps: () => RecipeLink & HTMLAttributes<HTMLAnchorElement>) {
+	const props = $derived(getProps());
 	const tone = $derived(props.tone ?? 'primary');
 	const fontSize = $derived(props.fontSize ?? '4');
 	const disabled = $derived(props.disabled ?? false);

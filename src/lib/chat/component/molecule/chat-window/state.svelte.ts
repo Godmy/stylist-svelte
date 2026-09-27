@@ -1,6 +1,6 @@
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 import type { SlotMessage as Message } from '$stylist/chat/interface/slot/message';
-export const createChatWindowState = (props: {
+export const createChatWindowState = (getProps: () => {
 	chat: {
 		id: string;
 		name?: string;
@@ -14,6 +14,7 @@ export const createChatWindowState = (props: {
 	currentUser: User;
 	messages: Message[];
 }) => {
+	const props = $derived(getProps());
 	const compatibleChat = $derived({
 		...props.chat,
 		lastMessage:

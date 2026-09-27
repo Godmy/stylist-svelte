@@ -3,7 +3,7 @@
 	import createTextState from './state.svelte';
 
 	let props: RecipeText = $props();
-	const state = createTextState(props);
+	const state = createTextState(() => props);
 </script>
 
 <span {...state.restProps} class={state.classes} style={state.style}>

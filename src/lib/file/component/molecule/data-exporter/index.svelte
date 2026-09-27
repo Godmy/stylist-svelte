@@ -3,7 +3,7 @@
 	import type { RecipeDataExporter } from '$stylist/file/interface/recipe/data-exporter';
 
 	let props: RecipeDataExporter = $props();
-	const state = createDataExporterState(props);
+	const state = createDataExporterState(() => props);
 </script>
 
 <div class="data-exporter">

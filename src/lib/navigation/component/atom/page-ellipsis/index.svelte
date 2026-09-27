@@ -4,7 +4,7 @@
 	import createPageEllipsisState from './state.svelte';
 
 	let props: RecipePageEllipsis & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createPageEllipsisState(props);
+	const state = createPageEllipsisState(() => props);
 </script>
 
 <div class={`${props.class ?? ''} _c1`} {...props}>

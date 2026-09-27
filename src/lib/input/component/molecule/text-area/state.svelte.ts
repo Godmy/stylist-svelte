@@ -6,7 +6,7 @@ import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { SlotInputStateOptions } from '$stylist/input/interface/slot/input-state-options';
 
 export const createTextareaState = (
-	props: SlotInputStateOptions & {
+	getProps: () => SlotInputStateOptions & {
 		id?: string;
 		value?: string;
 		maxlength?: number;
@@ -15,6 +15,7 @@ export const createTextareaState = (
 		autoResize?: boolean;
 	}
 ) => {
+	const props = $derived(getProps());
 	const variant = $derived(
 		resolveAllowedOption(props.variant as TokenColorTone | undefined, TOKEN_COLOR_TONE, 'default')
 	);

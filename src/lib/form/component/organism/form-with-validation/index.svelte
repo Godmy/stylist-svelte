@@ -2,7 +2,7 @@
 	import createFormWithValidationState from './state.svelte';
 
 	const props = $props();
-	const state = createFormWithValidationState(props);
+	const state = createFormWithValidationState(() => props);
 </script>
 
 <form class={state.rootClass} {...props}>

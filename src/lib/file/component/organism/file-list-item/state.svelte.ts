@@ -2,7 +2,8 @@ import { FileListItemManager } from '$stylist/file/class/manager/file-list-item'
 import type { RecipeFileListItem } from '$stylist/file/interface/recipe/file-list-item';
 import type { SlotFileItem } from '$stylist/file/interface/slot/file-item';
 
-export function createFileListItemState(props: RecipeFileListItem) {
+export function createFileListItemState(getProps: () => RecipeFileListItem) {
+	const props = $derived(getProps());
 	const item = $derived(props.item);
 	const fileItem = $derived(item as SlotFileItem);
 	const showThumbnail = $derived(props.showThumbnail ?? false);

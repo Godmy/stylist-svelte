@@ -4,7 +4,7 @@
 	import type { RecipeDragDropFileUpload } from '$stylist/file/interface/recipe/drag-drop-file-upload';
 
 	let props: RecipeDragDropFileUpload = $props();
-	const state = createDragDropFileUploadState(props);
+	const state = createDragDropFileUploadState(() => props);
 </script>
 
 <div class={`c-drag-drop-file-upload ${state.classes}`} {...state.restProps}>

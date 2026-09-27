@@ -6,7 +6,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: TimeGridStateProps = $props();
-	const state = createTimeGridState(props);
+	const state = createTimeGridState(() => props);
 </script>
 
 <div class={state.wrapperClasses} {...state.restProps}>

@@ -2,7 +2,8 @@ import type { TokenColorTone } from '$stylist/theme/type/alias/color-tone';
 import type { TokenAvailability } from '$stylist/user/type/alias/availability';
 import type { RecipeStatusIndicator } from '$stylist/chat/interface/recipe/status-indicator';
 
-export function createStatusIndicatorState(props: RecipeStatusIndicator) {
+export function createStatusIndicatorState(getProps: () => RecipeStatusIndicator) {
+	const props = $derived(getProps());
 	const status = $derived((props.status ?? 'online') as TokenAvailability);
 	const appearance = $derived((props.appearance ?? 'neutral') as TokenColorTone);
 	const label = $derived(props.label ?? '');

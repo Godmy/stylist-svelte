@@ -6,7 +6,7 @@
 	import { createDownloadCardState } from './state.svelte';
 
 	let props: RecipeDownloadCard = $props();
-	const state = createDownloadCardState(props as RecipeDownloadCard & Record<string, unknown>);
+	const state = createDownloadCardState(() => props as RecipeDownloadCard & Record<string, unknown>);
 
 	const containerClasses = $derived(ClassNamesManager.merge('download-card', state.class));
 	const iconContainerClasses = 'download-card__icon-container';

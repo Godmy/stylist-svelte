@@ -11,7 +11,7 @@
 
 	let props: IReactionPickerProps & Omit<HTMLAttributes<HTMLDivElement>, 'class'> = $props();
 
-	const state = createReactionPickerState(props);
+	const state = createReactionPickerState(() => props);
 </script>
 
 <div

@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeMessageThread } from '$stylist/chat/interface/recipe/message-thread';
 
-export const createMessageThreadState = (props: RecipeMessageThread) => {
+export const createMessageThreadState = (getProps: () => RecipeMessageThread) => {
+	const props = $derived(getProps());
 	const hostClasses = $derived(ClassNamesManager.merge('c-message-thread', props.class));
 
 	const headerClasses = $derived('c-message-thread__header');

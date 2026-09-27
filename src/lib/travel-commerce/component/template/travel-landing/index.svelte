@@ -25,25 +25,8 @@
 	import StorePage from '$stylist/travel-commerce/component/template/store-page/index.svelte';
 	import ContactRequestForm from '$stylist/travel-commerce/component/organism/contact-request-form/index.svelte';
 	import { HERO_SLIDER as DEFAULT_HERO_SLIDER } from '$stylist/travel-commerce/const/preset/hero-slider';
-	import type { ContactRequest } from '$stylist/travel-commerce/type/object/contact-request';
-	import type { Excursion } from '$stylist/travel-commerce/type/object/excursion';
-	import type { HeroSlider } from '$stylist/travel-commerce/type/object/hero-slider';
-	import type { MediaSliderSlide } from '$stylist/animation/type/object/media-slider';
-	import type { TurtleHeroMorphConfig } from '$stylist/travel-commerce/type/object/turtle-hero-morph-config';
-	import type { BookingDraft } from '$stylist/booking/type/object/booking-draft';
-
-	type Props = {
-		/** The host app's real hero + carousel imagery (e.g. lankatour.ru's `src/lib/landing/const/preset/hero-slider`) — forwarded to TurtleHeroMorph's `slider` prop, and its `pages` become MediaSlider's carousel slides. Falls back to the design system's generic default when omitted. */
-		heroSlider?: HeroSlider;
-		/** Forwarded to TurtleHeroMorphSlide's `config` prop — the hero morph's phase timing. The host app's `hero-slider-animation` preset (`HERO_SLIDER_ANIMATION_CONFIG`) is the real single source of truth for this on the live site. */
-		heroAnimationConfig?: TurtleHeroMorphConfig;
-		/** Forwarded to TurtleHeroMorphSlide's `durationMs` — how long the hero morph autoplay takes end to end. Comes from the same host-app preset (`HERO_SLIDER_ANIMATION_TOTAL_MS`). */
-		heroAnimationMs?: number;
-		/** Forwarded to StorePage's `excursions` prop — the host app's real catalogue (e.g. lankatour.ru's D1 `tours` table, mapped to `Excursion[]`). Falls back to StorePage's own sample data when omitted, so the sandbox/story keep working standalone. */
-		excursions?: Excursion[];
-		/** The sticky booking bar's draft — bind this to a host-level store so the same guest count survives navigating into a tour page. Uncontrolled (own local default) when omitted, same as before. */
-		bookingValue?: BookingDraft;
-	};
+	import type { RecipeTravelLanding } from '$stylist/travel-commerce/interface/recipe/travel-landing';
+	import { createTravelLandingState } from './state.svelte';
 
 	let {
 		heroSlider = DEFAULT_HERO_SLIDER,
@@ -59,43 +42,27 @@
 			childrenUnder3: 0,
 			childrenTeen: 0
 		})
-	}: Props = $props();
+	}: RecipeTravelLanding = $props();
 
-	// The hero-morph slide and closing contact form are structural (part of
-	// this template's own behaviour, not per-site content), so only the
-	// carousel pages in between come from `heroSlider`.
-	const slides = $derived<MediaSliderSlide[]>([
-		{ id: 'hero-morph', type: 'hero', caption: 'Путешествие начинается' },
-		...heroSlider.pages,
-		{ id: 'contact', type: 'form' }
-	]);
-
-	// TODO: wire this up to a real submission endpoint once one exists.
-	function handleContactRequest(value: ContactRequest) {
-		console.info('Contact request submitted', value);
-	}
-
-	// Tracks which MediaSlider slide is currently showing, updated by the
-	// slider's onSlideChange on every change (autoplay tick, arrows,
-	// indicators, keyboard, or the hero slide's own gesture-driven `next`) —
-	// the rest of the page can branch on `isFirstSlide`/`activeSlideId` once
-	// there's a concrete design for what should differ.
-	let activeSlideIndex = $state(0);
-	let activeSlideId = $state('hero-morph');
-	const isFirstSlide = $derived(activeSlideIndex === 0);
+	const landing = createTravelLandingState({
+		get heroSlider() {
+			return heroSlider;
+		}
+	});
 </script>
 
-<div class="tc-landing-page" data-active-slide-index={activeSlideIndex} data-first-slide={isFirstSlide}>
+<div
+	class="tc-landing-page"
+	data-active-slide-index={landing.activeSlideIndex}
+	data-first-slide={landing.isFirstSlide}
+>
 	<MediaSlider
-		{slides}
+		slides={landing.slides}
 		autoPlay
-		autoPlayInterval={6000}
+		autoPlayInterval={5000}
 		showControls
 		showIndicators
-		onSlideChange={({ index, slide }) => {
-			activeSlideIndex = index;
-			activeSlideId = slide.id;
-		}}
+		onSlideChange={landing.handleSlideChange}
 	>
 		{#snippet heroContent({ markLoaded, setAtRest })}
 			<TurtleHeroMorphSlide
@@ -107,7 +74,7 @@
 			/>
 		{/snippet}
 		{#snippet formContent()}
-			<ContactRequestForm onSubmit={handleContactRequest} />
+			<ContactRequestForm onSubmit={landing.handleContactRequest} />
 		{/snippet}
 	</MediaSlider>
 	<BookingBridge progress={1} bind:value={bookingValue} />

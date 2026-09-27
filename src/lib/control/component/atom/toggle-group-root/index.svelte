@@ -5,7 +5,7 @@
 
 	let props: RecipeToggleGroupRoot = $props();
 
-	const state = createToggleGroupRootState(props);
+	const state = createToggleGroupRootState(() => props);
 
 	setContext('toggleGroup', {
 		updateValue: state.updateValue,

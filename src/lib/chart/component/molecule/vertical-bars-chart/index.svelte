@@ -3,7 +3,7 @@
 	import type { RecipeVerticalBarsChart } from '$stylist/chart/interface/recipe/vertical-bars-chart';
 
 	let props: RecipeVerticalBarsChart = $props();
-	const state = createVerticalBarsChartState(props);
+	const state = createVerticalBarsChartState(() => props);
 </script>
 
 <section class={state.className}>

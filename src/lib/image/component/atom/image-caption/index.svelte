@@ -3,7 +3,7 @@
 	import { createImageCaptionState } from './state.svelte';
 
 	let props: RecipeImageCaption = $props();
-	const state = createImageCaptionState(props);
+	const state = createImageCaptionState(() => props);
 </script>
 
 <div class={state.hostClasses} {...state.restProps}>

@@ -8,7 +8,7 @@
 	type Props = {
 		progress?: number;
 		config?: TurtleHeroMorphConfig;
-		/** Exactly 5 transparent-background turtle frames, photoreal → fully stylised mark (with the wave flourish), in that order. */
+		/** Transparent-background turtle frames, photoreal → fully stylised mark (with the wave flourish), in that order. */
 		frames: string[];
 		reducedMotion?: boolean;
 		/** Fires once frame 0 (the resting frame) has finished loading. */
@@ -33,7 +33,7 @@
 	const TURTLE_ANCHOR = $derived(config.motion.turtleAnchorFrom);
 	const FINAL_ANCHOR = $derived(config.motion.turtleAnchorTo);
 
-	// All 5 frames are now delivered at the same 800×400 canvas (2:1) — matching
+	// All frames are now delivered at the same 800×400 canvas (2:1) — matching
 	// the box exactly means `object-fit: contain` renders every frame at the
 	// same scale, so the turtle's apparent size can't jump between frames.
 	// If a future frame set has a different (but still uniform) size, update
@@ -55,7 +55,7 @@
 	const centerY = $derived(TURTLE_ANCHOR.y + (FINAL_ANCHOR.y - TURTLE_ANCHOR.y) * travel);
 	const boxSize = $derived(TURTLE_ANCHOR.size + (FINAL_ANCHOR.size - TURTLE_ANCHOR.size) * travel);
 
-	// The 5 frames crossfade across the same window travel starts in
+	// The frames crossfade across the same window travel starts in
 	// (focusStart) through logoStart — a beat sooner than travel finishes, so
 	// the mark has already fully formed by the time it settles.
 	const localMorph = $derived(

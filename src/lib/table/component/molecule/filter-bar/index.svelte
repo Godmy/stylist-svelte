@@ -5,7 +5,7 @@
 	import FilterPills from '$stylist/table/component/molecule/filter-pills/index.svelte';
 
 	let props: RecipeFilterBar = $props();
-	const state = createFilterBarState(props);
+	const state = createFilterBarState(() => props);
 </script>
 
 <div class="c-filter-bar {props.class ?? ''}">

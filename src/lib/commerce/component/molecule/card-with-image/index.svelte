@@ -3,7 +3,7 @@
 	import createCardWithImageState from './state.svelte';
 
 	let props: RecipeCardWithImage = $props();
-	const state = createCardWithImageState(props);
+	const state = createCardWithImageState(() => props);
 </script>
 
 <div class="card-with-image" {...state.restProps}>

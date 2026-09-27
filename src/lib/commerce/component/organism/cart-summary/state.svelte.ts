@@ -1,6 +1,7 @@
-﻿import type { RecipeCartSummaryProps } from '$stylist/commerce/interface/recipe/cart-summary-props';
+import type { RecipeCartSummaryProps } from '$stylist/commerce/interface/recipe/cart-summary-props';
 
-export function createCartSummaryState(props: RecipeCartSummaryProps) {
+export function createCartSummaryState(getProps: () => RecipeCartSummaryProps) {
+	const props = $derived(getProps());
 	let promoCode = $state('');
 
 	const items = $derived(props.items ?? []);

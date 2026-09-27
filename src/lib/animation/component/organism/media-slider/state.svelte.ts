@@ -3,13 +3,12 @@ import { createMotionPreferenceState } from '$stylist/animation/function/state/m
 import type { RecipeMediaSlider } from '$stylist/animation/interface/recipe/media-slider';
 
 export function createMediaSliderState(getProps: () => RecipeMediaSlider) {
+	const props = $derived(getProps());
 	const motionPreference = createMotionPreferenceState();
 
 	let currentIndex = $state(0);
 	let loadedIndexes = $state(new Set<number>());
 	let heroAtRest = $state(true);
-
-	const props = $derived.by(getProps);
 	const slides = $derived(props.slides ?? []);
 	const autoPlay = $derived(props.autoPlay ?? true);
 	const autoPlayInterval = $derived(props.autoPlayInterval ?? 6000);

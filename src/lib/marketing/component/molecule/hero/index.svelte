@@ -4,7 +4,7 @@
 	import AnimatedDigit from '$stylist/animation/component/atom/animated-digit/index.svelte';
 
 	let props: RecipeHero = $props();
-	const state = createHeroState(props);
+	const state = createHeroState(() => props);
 </script>
 
 <div class="hero" role="banner">

@@ -1,6 +1,7 @@
 import type { RecipeUserProfileCard } from '$stylist/user/interface/recipe/user-profile-card';
 
-export function createUserProfileCardState(props: RecipeUserProfileCard) {
+export function createUserProfileCardState(getProps: () => RecipeUserProfileCard) {
+	const props = $derived(getProps());
 	const name = $derived(props.name ?? 'Jane Doe');
 	const role = $derived(props.role ?? 'Administrator');
 	const email = $derived(props.email ?? 'jane@example.com');

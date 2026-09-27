@@ -3,7 +3,7 @@
 	import type { RecipeOutlierConstellation } from '$stylist/chart/interface/recipe/outlier-constellation';
 
 	let props: RecipeOutlierConstellation = $props();
-	const state = createOutlierConstellationState(props);
+	const state = createOutlierConstellationState(() => props);
 </script>
 
 <section

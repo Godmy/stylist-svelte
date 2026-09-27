@@ -4,7 +4,7 @@
 	import type { RecipeSpinner } from '$stylist/animation/interface/recipe/spinner';
 
 	let props: RecipeSpinner & HTMLAttributes<HTMLSpanElement> = $props();
-	const state = createSpinnerState(props);
+	const state = createSpinnerState(() => props);
 </script>
 
 <span class={state.classes} style={props.style} role="status" aria-label={state.label}>

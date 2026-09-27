@@ -2,7 +2,8 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { RecipeCanvasChart } from '$stylist/chart/interface/recipe/canvas-chart';
 
-export function createCanvasChartState(props: RecipeCanvasChart) {
+export function createCanvasChartState(getProps: () => RecipeCanvasChart) {
+	const props = $derived(getProps());
 	const width = $derived(props.width ?? 800);
 	const height = $derived(props.height ?? 600);
 	const data = $derived(props.data ?? []);

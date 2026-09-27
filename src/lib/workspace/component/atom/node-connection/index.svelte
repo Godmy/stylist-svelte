@@ -3,7 +3,7 @@
 	import createNodeConnectionState from './state.svelte';
 
 	let props: RecipeNodeConnection = $props();
-	const state = createNodeConnectionState(props);
+	const state = createNodeConnectionState(() => props);
 </script>
 
 <g class={state.classes} data-connection-id={props.id}>

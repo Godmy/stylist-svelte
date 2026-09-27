@@ -7,7 +7,7 @@
 	import createCommentThreadState from './state.svelte';
 
 	let props: RecipeCommentThread = $props();
-	const state = createCommentThreadState(props);
+	const state = createCommentThreadState(() => props);
 </script>
 
 <div class={state.wrapperClass} {...props}>

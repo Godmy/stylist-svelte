@@ -3,7 +3,7 @@
 	import type { RecipeContainerQuery } from '$stylist/layout/interface/recipe/container-query';
 
 	let props: RecipeContainerQuery = $props();
-	const state = createContainerQueryState(props);
+	const state = createContainerQueryState(() => props);
 </script>
 
 <div

@@ -3,7 +3,7 @@
 	import { createBaseCardState } from './state.svelte';
 
 	let props: RecipeBaseCard = $props();
-	const state = createBaseCardState(props);
+	const state = createBaseCardState(() => props);
 </script>
 
 <div

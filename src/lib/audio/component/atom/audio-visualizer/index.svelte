@@ -4,7 +4,7 @@
 	import { createAudioVisualizerState } from './state.svelte';
 
 	let props: RecipeAudioVisualizer & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createAudioVisualizerState(props);
+	const state = createAudioVisualizerState(() => props);
 </script>
 
 <div class={`av-wrap ${state.className}`}>

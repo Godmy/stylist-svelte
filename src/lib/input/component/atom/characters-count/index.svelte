@@ -3,7 +3,7 @@
 	import createCharactersCountState from './state.svelte';
 
 	let props: RecipeCharactersCount = $props();
-	const state = createCharactersCountState(props);
+	const state = createCharactersCountState(() => props);
 </script>
 
 <div class={state.classes}>

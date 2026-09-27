@@ -7,7 +7,7 @@
 	import type { RecipeDropZone } from '$stylist/file/interface/recipe/drop-zone';
 
 	let props: RecipeDropZone = $props();
-	const state = createDropZoneState(props);
+	const state = createDropZoneState(() => props);
 	const rootClasses = $derived(
 		ClassNamesManager.merge(
 			'c-drop-zone',

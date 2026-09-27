@@ -5,7 +5,7 @@
 	import Button from '$stylist/button/component/atom/button/index.svelte';
 
 	let props: RecipeVideoPlayer = $props();
-	const state = createVideoPlayerState(props);
+	const state = createVideoPlayerState(() => props);
 </script>
 
 <div class={state.hostClasses} style={state.hostStyle} {...state.restProps}>

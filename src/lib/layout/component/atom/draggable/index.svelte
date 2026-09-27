@@ -3,7 +3,7 @@
 	import createDraggableState from './state.svelte';
 
 	let props: RecipeDraggable = $props();
-	const state = createDraggableState(props);
+	const state = createDraggableState(() => props);
 </script>
 
 <div

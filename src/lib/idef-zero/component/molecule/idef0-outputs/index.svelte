@@ -5,7 +5,7 @@
 	import Idef0Connector from '$stylist/idef-zero/component/atom/idef0-connector/index.svelte';
 
 	let props: RecipeIdef0Io & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createIdef0OutputsState(props);
+	const state = createIdef0OutputsState(() => props);
 </script>
 
 <g>

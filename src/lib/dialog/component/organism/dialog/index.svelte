@@ -3,7 +3,7 @@
 	import createDialogState from './state.svelte';
 
 	let props: RecipeDialog = $props();
-	const state = createDialogState(props);
+	const state = createDialogState(() => props);
 </script>
 
 {#if props.open}

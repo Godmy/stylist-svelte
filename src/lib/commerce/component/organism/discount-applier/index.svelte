@@ -3,7 +3,7 @@
 	import createDiscountApplierState from './state.svelte';
 
 	let props: DiscountApplierContract = $props();
-	const state = createDiscountApplierState(props);
+	const state = createDiscountApplierState(() => props);
 </script>
 
 <div class="discount-applier">

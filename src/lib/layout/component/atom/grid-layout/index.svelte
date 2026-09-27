@@ -3,7 +3,7 @@
 	import createGridLayoutState from './state.svelte';
 
 	let props: RecipeGridLayout = $props();
-	const state = createGridLayoutState(props);
+	const state = createGridLayoutState(() => props);
 
 	const itemColSpanStyle = (colSpan?: number, rowSpan?: number): string => {
 		let style = '';

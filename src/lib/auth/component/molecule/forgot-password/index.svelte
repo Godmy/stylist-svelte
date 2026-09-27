@@ -7,7 +7,7 @@
 	import AuthLink from '$stylist/auth/component/atom/auth-link/index.svelte';
 
 	let props: RecipeForgotPassword = $props();
-	const state = createForgotPasswordState(props);
+	const state = createForgotPasswordState(() => props);
 </script>
 
 <div class={state.rootClass}>

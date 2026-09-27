@@ -5,7 +5,7 @@
 	import createButtonComposedState from './state.svelte';
 
 	let props: RecipeButtonComposed = $props();
-	const state = createButtonComposedState(props);
+	const state = createButtonComposedState(() => props);
 </script>
 
 <button

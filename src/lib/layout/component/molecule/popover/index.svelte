@@ -3,7 +3,7 @@
 	import type { RecipePopover } from '$stylist/layout/interface/recipe/popover';
 
 	let props: RecipePopover = $props();
-	const state = createPopoverState(props);
+	const state = createPopoverState(() => props);
 </script>
 
 <div class={['layout-popover', props.class].filter(Boolean).join(' ')}>

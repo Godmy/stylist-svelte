@@ -1,6 +1,7 @@
 import type { RecipeBaseCard } from '$stylist/list/interface/recipe/base-card';
 
-export function createBaseCardState(props: RecipeBaseCard) {
+export function createBaseCardState(getProps: () => RecipeBaseCard) {
+	const props = $derived(getProps());
 	const variant = $derived(props.variant ?? 'default');
 	const size = $derived(props.size ?? 'md');
 	const disabled = $derived(props.disabled ?? false);

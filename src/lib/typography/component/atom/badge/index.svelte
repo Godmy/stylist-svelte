@@ -4,7 +4,7 @@
 
 	let props: RecipeBadge = $props();
 
-	const state = createBadgeState(props);
+	const state = createBadgeState(() => props);
 	const children = $derived(props.children);
 	const label = $derived(props.label);
 

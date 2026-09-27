@@ -1,6 +1,7 @@
 import type { RecipeForgotPassword } from '$stylist/auth/interface/recipe/forgot-password';
 
-export const createForgotPasswordState = (props: RecipeForgotPassword) => {
+export const createForgotPasswordState = (getProps: () => RecipeForgotPassword) => {
+	const props = $derived(getProps());
 	let email = $state('');
 	let submitted = $state(false);
 

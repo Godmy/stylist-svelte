@@ -2,7 +2,8 @@ import type { RecipePricingMatrixEditor } from '$stylist/travel-admin/interface/
 import type { AdminTransferRate } from '$stylist/travel-admin/type/object/admin-transfer-rate';
 import { VEHICLE_TYPES } from '$stylist/travel-admin/const/array/vehicle-type';
 
-export function createPricingMatrixEditorState(props: RecipePricingMatrixEditor) {
+export function createPricingMatrixEditorState(getProps: () => RecipePricingMatrixEditor) {
+	const props = $derived(getProps());
 	const rates = $state<AdminTransferRate[]>(props.rates.map((r) => ({ ...r })));
 
 	function emit() {

@@ -3,12 +3,13 @@ import type { CanvasToolbarDrawingTool } from '$stylist/canvas/type/alias/canvas
 import type { RecipeCanvasToolbar } from '$stylist/canvas/interface/recipe/canvas-toolbar';
 
 export function createCanvasToolbarState(
-	props: RecipeCanvasToolbar,
+	getProps: () => RecipeCanvasToolbar,
 	dispatch: (
 		type: 'tool-change' | 'clear-canvas' | 'undo' | 'redo' | 'save',
 		detail?: unknown
 	) => void
 ) {
+	const props = $derived(getProps());
 	let currentTool = $state<CanvasToolbarDrawingTool>(props.selectedTool ?? 'pen');
 	let currentOptions = $state<SlotCanvasToolbarDrawingOptions>({
 		lineWidth: props.drawingOptions?.lineWidth ?? 2,

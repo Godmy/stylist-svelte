@@ -4,7 +4,7 @@
 	import type { RecipeProgressBar } from '$stylist/animation/interface/recipe/progress-bar';
 
 	let props: RecipeProgressBar & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createProgressBarState(props);
+	const state = createProgressBarState(() => props);
 </script>
 
 <div class={state.classes} style={state.style}>

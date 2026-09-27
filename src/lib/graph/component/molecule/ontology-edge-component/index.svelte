@@ -3,7 +3,7 @@
 	import createOntologyEdgeComponentState from './state.svelte';
 
 	let props: RecipeOntologyEdgeComponent = $props();
-	const state = createOntologyEdgeComponentState(props);
+	const state = createOntologyEdgeComponentState(() => props);
 </script>
 
 <svg

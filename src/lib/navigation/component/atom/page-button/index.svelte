@@ -9,7 +9,7 @@
 	 * Uses the same props as Button for consistency (SOLID - Liskov Substitution)
 	 */
 	let props: RecipePageButton = $props();
-	const state = createPageButtonState(props);
+	const state = createPageButtonState(() => props);
 
 	// Extract rest props manually to avoid $$restProps in runes mode
 	let restButtonProps = $derived.by(() => {

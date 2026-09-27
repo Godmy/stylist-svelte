@@ -7,7 +7,8 @@ import type { TokenSize } from '$stylist/theme/type/alias/size';
 import type { SemanticZoomPresentation } from '$stylist/presentation/interface/slot/semantic-zoom';
 import { SemanticZoomManager } from '$stylist/presentation/class/manager/semantic-zoom';
 
-export function createWorkspaceNodeState(props: RecipeWorkspaceNode) {
+export function createWorkspaceNodeState(getProps: () => RecipeWorkspaceNode) {
+	const props = $derived(getProps());
 	const id = $derived(props.id);
 	const title = $derived(props.title ?? '');
 	let isDragging = $state(false);

@@ -4,7 +4,8 @@ import { commentThreadSubmitEdit } from '$stylist/social/function/script/comment
 import { commentThreadSubmitReply } from '$stylist/social/function/script/comment-thread-submit-reply';
 import type { RecipeCommentThread } from '$stylist/social/interface/recipe/comment-thread';
 
-export function createCommentThreadState(props: RecipeCommentThread) {
+export function createCommentThreadState(getProps: () => RecipeCommentThread) {
+	const props = $derived(getProps());
 	let newComment = $state('');
 	let editingCommentId = $state<string | null>(null);
 	let editTexts = $state<Record<string, string>>({});

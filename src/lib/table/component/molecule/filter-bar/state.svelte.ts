@@ -1,6 +1,7 @@
 import type { RecipeFilterBar } from '$stylist/table/interface/recipe/filter-bar';
 
-export function createFilterBarState(props: RecipeFilterBar) {
+export function createFilterBarState(getProps: () => RecipeFilterBar) {
+	const props = $derived(getProps());
 	return {
 		get searchValue() {
 			return props.searchValue ?? '';

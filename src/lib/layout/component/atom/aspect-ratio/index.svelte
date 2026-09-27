@@ -3,7 +3,7 @@
 	import createAspectRatioState from './state.svelte';
 
 	let props: RecipeAspectRatio = $props();
-	const state = createAspectRatioState(props);
+	const state = createAspectRatioState(() => props);
 </script>
 
 <div

@@ -3,7 +3,8 @@ import { ObjectManagerTableControls } from '$stylist/table/class/manager/table-c
 
 type Row = Record<string, unknown>;
 
-export function createDataTableState(props: RecipeDataTable<Row>) {
+export function createDataTableState(getProps: () => RecipeDataTable<Row>) {
+	const props = $derived(getProps());
 	let sortKey = $state<string | null>(null);
 	let sortDirection = $state<'asc' | 'desc'>('asc');
 

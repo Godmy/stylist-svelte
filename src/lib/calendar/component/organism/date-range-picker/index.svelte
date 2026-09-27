@@ -8,7 +8,7 @@
 	const X = 'x';
 
 	let props: RecipeDateRangePicker = $props();
-	const state = createDateRangePickerState(props);
+	const state = createDateRangePickerState(() => props);
 </script>
 
 <div class={`c-date-range-picker ${state.className}`.trim()}>

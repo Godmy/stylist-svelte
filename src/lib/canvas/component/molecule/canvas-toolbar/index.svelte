@@ -14,7 +14,7 @@
 	}>();
 
 	let props: RecipeCanvasToolbar = $props();
-	const state = createCanvasToolbarState(props, (type, detail) =>
+	const state = createCanvasToolbarState(() => props, (type, detail) =>
 		dispatch(type as never, detail as never)
 	);
 

@@ -1,7 +1,8 @@
 import { ObjectManagerKPIIndicator } from '$stylist/management/class/manager/kpi-indicator';
 import type { RecipeKPIIndicator } from '$stylist/management/interface/recipe/kpi-indicator';
 
-export function createKPIIndicatorState(props: RecipeKPIIndicator) {
+export function createKPIIndicatorState(getProps: () => RecipeKPIIndicator) {
+	const props = $derived(getProps());
 	const label = $derived(props.title ?? '');
 	const currentValue = $derived((props as any).currentValue ?? 0);
 	const targetValue = $derived((props as any).targetValue ?? 0);

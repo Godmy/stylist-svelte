@@ -3,7 +3,7 @@
 	import stateFn from './state.svelte';
 
 	let props: ShippingInfoContract = $props();
-	const state = stateFn(props);
+	const state = stateFn(() => props);
 </script>
 
 <div class="shipping-info">

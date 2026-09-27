@@ -3,7 +3,7 @@
 	import createBreadcrumbSeparatorState from './state.svelte';
 
 	let props: RecipeBreadcrumbSeparator = $props();
-	const state = createBreadcrumbSeparatorState(props);
+	const state = createBreadcrumbSeparatorState(() => props);
 </script>
 
 <span class={state.separatorClasses} aria-hidden="true" {...props}>

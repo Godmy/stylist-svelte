@@ -2,7 +2,8 @@ import type { RecipeNodePortGroup } from '$stylist/workspace/interface/recipe/no
 import type { RecipeNodePort } from '$stylist/workspace/interface/recipe/node-port';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
 
-export function createNodePortGroupState(props: RecipeNodePortGroup) {
+export function createNodePortGroupState(getProps: () => RecipeNodePortGroup) {
+	const props = $derived(getProps());
 	const direction = $derived(
 		(props.direction === 'output' ? 'output' : 'input') as 'input' | 'output'
 	);

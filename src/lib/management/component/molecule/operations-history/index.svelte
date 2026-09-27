@@ -7,7 +7,7 @@
 	import type { SlotOperationsHistory as OperationsHistoryProps } from '$stylist/management/interface/slot/operations-history';
 
 	let props: OperationsHistoryProps & BehaviorOperationsHistoryEvents = $props();
-	const state = createOperationsHistoryState(props);
+	const state = createOperationsHistoryState(() => props);
 </script>
 
 <div class="operations-history__base">

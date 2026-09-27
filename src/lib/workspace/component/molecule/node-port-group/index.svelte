@@ -5,7 +5,7 @@
 	import Divider from '$stylist/layout/component/atom/divider/index.svelte';
 
 	let props: RecipeNodePortGroup = $props();
-	const state = createNodePortGroupState(props);
+	const state = createNodePortGroupState(() => props);
 </script>
 
 <div

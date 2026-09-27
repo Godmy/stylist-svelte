@@ -1,6 +1,7 @@
 import type { RecipeUpsell as UpsellContract } from '$stylist/commerce/interface/recipe/upsell';
 import type { SlotUpsellProduct as UpsellProductContract } from '$stylist/commerce/interface/slot/upsell-product';
-export function createUpsellState(props: UpsellContract) {
+export function createUpsellState(getProps: () => UpsellContract) {
+	const props = $derived(getProps());
 	const visibleProducts = $derived((props.upsellProducts ?? []).slice(0, props.maxProducts ?? 3));
 
 	function formatPrice(amount: number) {

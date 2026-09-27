@@ -3,11 +3,12 @@ import type { RecipePageButton } from '$stylist/navigation/interface/recipe/page
 import { createButtonPreset } from '$stylist/button/function/script/create-button-preset';
 
 export function createPageButtonState(
-	props: RecipePageButton &
+	getProps: () => RecipePageButton &
 		HTMLButtonAttributes & {
 			isActive?: boolean;
 		}
 ) {
+	const props = $derived(getProps());
 	const preset = createButtonPreset({
 		variant: 'outline',
 		size: 'md'

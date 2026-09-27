@@ -4,7 +4,7 @@
 	import type { RecipeMetricBarsCard } from '$stylist/chart/interface/recipe/metric-bars-card';
 
 	let props: RecipeMetricBarsCard = $props();
-	const state = createMetricBarsCardState(props);
+	const state = createMetricBarsCardState(() => props);
 </script>
 
 <article class={state.containerClasses} {...state.restProps}>

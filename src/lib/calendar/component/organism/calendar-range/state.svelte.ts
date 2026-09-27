@@ -1,7 +1,8 @@
 import type { RecipeCalendarRange } from '$stylist/calendar/interface/recipe/calendar-range';
 import { generateCalendarDays } from '$stylist/calendar/function/script/generate-calendar-days';
 
-export function createCalendarRangeState(props: RecipeCalendarRange) {
+export function createCalendarRangeState(getProps: () => RecipeCalendarRange) {
+	const props = $derived(getProps());
 	function firstOfMonth(date: Date): Date {
 		return new Date(date.getFullYear(), date.getMonth(), 1);
 	}

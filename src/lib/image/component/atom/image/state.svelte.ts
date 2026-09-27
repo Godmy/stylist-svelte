@@ -2,10 +2,9 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeImage } from '$stylist/image/interface/recipe/image';
 
 export function createImageState(getProps: () => RecipeImage) {
+	const props = $derived(getProps());
 	let isLoaded = $state(false);
 	let hasError = $state(false);
-
-	const props = $derived.by(getProps);
 	const imageSrc = $derived(props.imageSrc);
 	const imageFallback = $derived(props.imageFallback);
 	const loadingProp = $derived(props.imageLoading ?? 'lazy');

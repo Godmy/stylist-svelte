@@ -3,7 +3,7 @@
 	import type { RecipeFileInput } from '$stylist/file/interface/recipe/file-input';
 
 	let props: RecipeFileInput = $props();
-	const state = createFileInputState(props);
+	const state = createFileInputState(() => props);
 </script>
 
 <div class="fi-wrapper">

@@ -10,7 +10,7 @@
 		showStatus?: boolean;
 	} = $props();
 
-	const state = createMessageMetaState(props);
+	const state = createMessageMetaState(() => props);
 </script>
 
 {#if state.showTimestamp || state.showStatus}

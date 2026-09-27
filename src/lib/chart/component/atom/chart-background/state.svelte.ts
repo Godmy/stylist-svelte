@@ -5,7 +5,8 @@ function resolveClassName(className: unknown): string | undefined {
 	return typeof className === 'string' ? className : undefined;
 }
 
-export function createChartBackgroundState(props: RecipeChartBackground) {
+export function createChartBackgroundState(getProps: () => RecipeChartBackground) {
+	const props = $derived(getProps());
 	const classes = $derived(
 		ClassNamesManager.merge('c-chart-background', resolveClassName(props.class))
 	);

@@ -6,7 +6,7 @@
 	import type { TokenPropertyType } from '$stylist/workspace/type/alias/property-type';
 
 	let props: NodePropertiesProps = $props();
-	const state = createNodePropertiesState(props);
+	const state = createNodePropertiesState(() => props);
 	const title = $derived(props.title ?? 'Properties');
 </script>
 

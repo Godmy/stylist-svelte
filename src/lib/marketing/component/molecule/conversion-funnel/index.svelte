@@ -7,7 +7,7 @@
 	const ArrowRight = 'arrow-right';
 
 	let props: RecipeConversionFunnel = $props();
-	const state = createConversionFunnelState(props);
+	const state = createConversionFunnelState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

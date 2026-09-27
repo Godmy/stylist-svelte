@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipePromoBanner } from '$stylist/marketing/interface/recipe/promo-banner';
 
-export function createPromoBannerState(props: RecipePromoBanner) {
+export function createPromoBannerState(getProps: () => RecipePromoBanner) {
+	const props = $derived(getProps());
 	const title = $derived(props.title ?? '');
 	const description = $derived(props.description ?? '');
 	const cta = $derived(props.cta ?? 'Learn More');

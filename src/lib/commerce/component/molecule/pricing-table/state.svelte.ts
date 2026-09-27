@@ -2,8 +2,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipePricingTable } from '$stylist/commerce/interface/recipe/pricing-table';
 
 export function createPricingTableState(
-	props: RecipePricingTable & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipePricingTable & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	function getPlanCardClass(highlighted?: boolean) {
 		return [
 			'pricing-table__plan-card',

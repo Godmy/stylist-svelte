@@ -1,7 +1,8 @@
 import type { RecipeTokenSelect } from '$stylist/token/interface/recipe/token-select';
 import type { TokenTokenValue as TokenValue } from '$stylist/theme/type/alias/token-value';
 
-export function createTokenSelectState(props: RecipeTokenSelect) {
+export function createTokenSelectState(getProps: () => RecipeTokenSelect) {
+	const props = $derived(getProps());
 	const valueToIndex = (candidate: TokenValue) =>
 		Math.max(
 			0,

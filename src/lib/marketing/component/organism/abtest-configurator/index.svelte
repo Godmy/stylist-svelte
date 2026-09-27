@@ -35,7 +35,7 @@
 		footerClass?: string;
 	} = $props();
 
-	const state = createABTestConfiguratorState(props);
+	const state = createABTestConfiguratorState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

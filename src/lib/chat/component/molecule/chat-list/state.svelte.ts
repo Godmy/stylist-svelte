@@ -1,11 +1,12 @@
 import type { SlotChat as Chat } from '$stylist/chat/interface/slot/chat';
 import type { SlotUser as User } from '$stylist/chat/interface/slot/user';
 
-export const createChatListState = (props: {
+export const createChatListState = (getProps: () => {
 	chats: Chat[];
 	currentUser: User;
 	activeChatId?: string;
 }) => {
+	const props = $derived(getProps());
 	const containerClasses = 'chat-list';
 
 	function handleChatSelect(chat: Chat) {

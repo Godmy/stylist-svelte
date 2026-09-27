@@ -6,7 +6,7 @@
 	import createDomainSearchState from './state.svelte';
 
 	let props: RecipeDomainSearch = $props();
-	const state = createDomainSearchState(props);
+	const state = createDomainSearchState(() => props);
 </script>
 
 <div class="c-domain-search {props.class ?? ''}">

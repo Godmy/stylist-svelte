@@ -1,7 +1,8 @@
 import { ManagerMetricBar } from '$stylist/chart/class/manager/metric-bar';
 import type { RecipeMetricBar } from '$stylist/chart/interface/recipe/metric-bar';
 
-export function createMetricBarState(props: RecipeMetricBar) {
+export function createMetricBarState(getProps: () => RecipeMetricBar) {
+	const props = $derived(getProps());
 	const text = $derived(props.text ?? '');
 	const percentage = $derived(ManagerMetricBar.resolvePercentage(props));
 	const valueLabel = $derived(ManagerMetricBar.resolveValueLabel(props));

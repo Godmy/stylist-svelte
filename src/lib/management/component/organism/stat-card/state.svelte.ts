@@ -10,7 +10,8 @@ function resolveNumericValue(value: string | number): number | null {
 	return Number.isNaN(parsedValue) ? null : parsedValue;
 }
 
-export function createStatCardState(props: RecipeStatCard & HTMLAttributes<HTMLDivElement>) {
+export function createStatCardState(getProps: () => RecipeStatCard & HTMLAttributes<HTMLDivElement>) {
+	const props = $derived(getProps());
 	const text = $derived(props.text ?? '');
 	const value = $derived((props as any).value);
 	const icon = $derived((props as any).icon);

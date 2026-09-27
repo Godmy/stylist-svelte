@@ -1,6 +1,7 @@
 import type { RecipeDatePicker } from '$stylist/calendar/interface/recipe/date-picker';
 
-export const createDatePickerState = (props: RecipeDatePicker) => {
+export const createDatePickerState = (getProps: () => RecipeDatePicker) => {
+	const props = $derived(getProps());
 	const toInputDate = (
 		value: Date | string | { start: Date | null; end: Date | null } | undefined
 	) => {

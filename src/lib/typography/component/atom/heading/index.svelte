@@ -4,7 +4,7 @@
 	import createHeadingState from './state.svelte';
 
 	let props: RecipeHeading & HTMLAttributes<HTMLHeadingElement> = $props();
-	const state = createHeadingState(props);
+	const state = createHeadingState(() => props);
 </script>
 
 <svelte:element

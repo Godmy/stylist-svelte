@@ -5,7 +5,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeCellHeader & HTMLAttributes<HTMLTableHeaderCellElement> = $props();
-	const state = createCellHeaderState(props);
+	const state = createCellHeaderState(() => props);
 </script>
 
 <th

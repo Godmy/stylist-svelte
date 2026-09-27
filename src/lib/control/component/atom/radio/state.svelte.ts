@@ -1,6 +1,7 @@
 import type { RecipeRadio } from '$stylist/control/interface/recipe/radio';
 
-export const createRadioState = (props: RecipeRadio) => {
+export const createRadioState = (getProps: () => RecipeRadio) => {
+	const props = $derived(getProps());
 	const checked = $derived(props.checked ?? false);
 	const disabled = $derived(props.disabled ?? false);
 	const size = $derived(props.size ?? 'md');

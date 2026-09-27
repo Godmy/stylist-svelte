@@ -2,7 +2,8 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeLineChart } from '$stylist/chart/interface/recipe/line-chart';
 import { ManagerLineChart } from '$stylist/chart/class/manager/line-chart';
 
-export function createLineChartState(props: RecipeLineChart) {
+export function createLineChartState(getProps: () => RecipeLineChart) {
+	const props = $derived(getProps());
 	const hostClass = $derived(typeof props.class === 'string' ? props.class : undefined);
 	const chartClass = $derived(typeof props.chartClass === 'string' ? props.chartClass : undefined);
 	const resolvedColorScheme = $derived(

@@ -3,7 +3,7 @@
 	import type { RecipeBorder } from '$stylist/layout/interface/recipe/border';
 
 	let props: RecipeBorder = $props();
-	const state = createBorderState(props);
+	const state = createBorderState(() => props);
 </script>
 
 <div

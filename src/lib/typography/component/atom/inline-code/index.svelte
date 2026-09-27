@@ -4,7 +4,7 @@
 
 	let props: RecipeInlineCode = $props();
 
-	const state = createInlineCodeState(props);
+	const state = createInlineCodeState(() => props);
 	const children = $derived(props.children);
 
 	const restProps = $derived(

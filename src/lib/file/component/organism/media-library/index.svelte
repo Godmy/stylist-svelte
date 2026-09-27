@@ -4,7 +4,7 @@
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeMediaLibrary = $props();
-	const state = createMediaLibraryState(props);
+	const state = createMediaLibraryState(() => props);
 </script>
 
 <div class={state.hostClasses} {...state.restProps}>

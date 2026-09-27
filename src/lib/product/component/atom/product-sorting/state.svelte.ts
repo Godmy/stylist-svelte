@@ -2,8 +2,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductSorting } from '$stylist/product/interface/recipe/product-sorting';
 
 export function createProductSortingState(
-	props: RecipeProductSorting & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipeProductSorting & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	function handleChange(event: Event): void {
 		props.onchange?.(event);
 	}

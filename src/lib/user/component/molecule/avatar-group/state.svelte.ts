@@ -11,8 +11,9 @@ function statusDotClass(status?: AvatarGroupAvatar['status']): string {
 }
 
 export function createAvatarGroupState(
-	props: RecipeAvatarGroup & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography
+	getProps: () => RecipeAvatarGroup & HTMLAttributes<HTMLDivElement> & SlotThemeBorder & SlotTypography
 ) {
+	const props = $derived(getProps());
 	const avatars = $derived(props.avatars ?? []);
 	const maxVisible = $derived(props.maxVisible ?? 5);
 	const size = $derived(props.size ?? 'md');

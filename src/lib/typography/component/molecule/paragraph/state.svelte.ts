@@ -2,7 +2,8 @@ import { resolveAriaLabel } from '$stylist/theme/function/resolve/aria-label';
 import { resolveTypographyInlineStyle } from '$stylist/typography/function/script/inline-style';
 import type { RecipeText } from '$stylist/typography/interface/recipe/text';
 
-export function createParagraphState(props: RecipeText) {
+export function createParagraphState(getProps: () => RecipeText) {
+	const props = $derived(getProps());
 	const disabled = $derived(props.disabled ?? false);
 	const block = $derived(props.block ?? false);
 	const children = $derived(props.children);

@@ -1,7 +1,7 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 import type { RecipeRadioGroup } from '$stylist/input/interface/recipe/radio-group';
-export function createRadioGroupState(props: RecipeRadioGroup): {
+export function createRadioGroupState(getProps: () => RecipeRadioGroup): {
 	internalValue: string;
 	layoutClass: string;
 	rootClass: string;
@@ -16,6 +16,7 @@ export function createRadioGroupState(props: RecipeRadioGroup): {
 	indicatorClass: string;
 	errorClass: string;
 } {
+	const props = $derived(getProps());
 	let internalValue = $state(props.value ?? '');
 
 	$effect(() => {

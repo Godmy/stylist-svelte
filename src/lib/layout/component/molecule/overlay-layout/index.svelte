@@ -3,7 +3,7 @@
 	import type { RecipeOverlayLayout } from '$stylist/layout/interface/recipe/overlay-layout';
 
 	let props: RecipeOverlayLayout = $props();
-	const state = createOverlayLayoutState(props);
+	const state = createOverlayLayoutState(() => props);
 
 	type OverlayAlign =
 		| 'top-left'

@@ -1,6 +1,7 @@
 import type { RecipePermissionGate } from '$stylist/management/interface/recipe/permission-gate';
 
-export function createPermissionGateState(props: RecipePermissionGate) {
+export function createPermissionGateState(getProps: () => RecipePermissionGate) {
+	const props = $derived(getProps());
 	const hasPermission = $derived(props.hasPermission ?? true);
 	const fallback = $derived(props.fallback);
 

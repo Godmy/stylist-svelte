@@ -1,7 +1,8 @@
 import type { RecipeColumn } from '$stylist/table/interface/recipe/column';
 import { PresetCellHeader } from '$stylist/table/const/preset/cell-header';
 
-export function createColumnState(props: RecipeColumn) {
+export function createColumnState(getProps: () => RecipeColumn) {
+	const props = $derived(getProps());
 	const key = $derived(String(props.schema.key));
 	const isCurrentSort = $derived(props.schema.sortable === true && props.currentSortKey === key);
 	const sortDirection = $derived(isCurrentSort ? (props.currentSortDirection ?? 'none') : 'none');

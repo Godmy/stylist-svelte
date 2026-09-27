@@ -2,7 +2,8 @@ import { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeDeviceFrame } from '$stylist/domain/interface/recipe/device-frame';
 import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
-export function createDeviceFrameState(props: RecipeDeviceFrame & HTMLAttributes<HTMLDivElement>) {
+export function createDeviceFrameState(getProps: () => RecipeDeviceFrame & HTMLAttributes<HTMLDivElement>) {
+	const props = $derived(getProps());
 	const device = $derived(props.device ?? 'desktop');
 	const orientation = $derived(
 		props.orientation ?? (device === 'desktop' ? TOKEN_ORIENTATION[0] : TOKEN_ORIENTATION[1])

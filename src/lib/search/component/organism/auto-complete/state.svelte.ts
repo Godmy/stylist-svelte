@@ -1,7 +1,8 @@
 import type { AutoCompleteOption } from '$stylist/search/type/object/auto-complete-option';
 import type { SlotAutoComplete as RecipeAutoComplete } from '$stylist/search/interface/slot/auto-complete';
 
-export const createAutoCompleteState = (props: RecipeAutoComplete) => {
+export const createAutoCompleteState = (getProps: () => RecipeAutoComplete) => {
+	const props = $derived(getProps());
 	let filteredOptions = $state<AutoCompleteOption[]>([]);
 	let isOpen = $state(false);
 	let highlightedIndex = $state(-1);

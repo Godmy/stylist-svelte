@@ -3,7 +3,8 @@ import type { RecipeDivider } from '$stylist/layout/interface/recipe/divider';
 import type { TokenOrientation } from '$stylist/layout/type/alias/orientation';
 import type { TokenAlignment } from '$stylist/layout/type/alias/alignment';
 
-export function createDividerState(props: RecipeDivider) {
+export function createDividerState(getProps: () => RecipeDivider) {
+	const props = $derived(getProps());
 	const orientation = $derived<TokenOrientation>(props.orientation ?? TOKEN_ORIENTATION[0]);
 	const align = $derived<TokenAlignment>((props.align as TokenAlignment | undefined) ?? 'center');
 	const dashed = $derived(props.dashed ?? false);

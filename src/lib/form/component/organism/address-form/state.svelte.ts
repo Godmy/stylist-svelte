@@ -1,7 +1,7 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
 export function createAddressFormState(
-	props: HTMLAttributes<HTMLFormElement> & {
+	getProps: () => HTMLAttributes<HTMLFormElement> & {
 		street?: string;
 		city?: string;
 		region?: string;
@@ -15,6 +15,7 @@ export function createAddressFormState(
 	gridClass: string;
 	gridItemClass: string;
 } {
+	const props = $derived(getProps());
 	const rootClass = $derived(ClassNamesManager.merge('c-address-form', props.class ?? ''));
 	const inputClass = $derived('c-address-form__input');
 	const gridClass = $derived('c-address-form__grid');

@@ -1,6 +1,7 @@
 import type { RecipeDateTimeRangePicker } from '$stylist/calendar/interface/recipe/date-time-range-picker';
 
-export const createDateTimeRangePickerState = (props: RecipeDateTimeRangePicker) => {
+export const createDateTimeRangePickerState = (getProps: () => RecipeDateTimeRangePicker) => {
+	const props = $derived(getProps());
 	const isRangeValue = (
 		value: RecipeDateTimeRangePicker['value']
 	): value is { start: Date | null; end: Date | null } => {

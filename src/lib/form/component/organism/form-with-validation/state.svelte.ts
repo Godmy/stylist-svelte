@@ -1,7 +1,7 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { HTMLAttributes } from 'svelte/elements';
 export function createFormWithValidationState(
-	props: HTMLAttributes<HTMLFormElement> & {
+	getProps: () => HTMLAttributes<HTMLFormElement> & {
 		email?: string;
 		password?: string;
 		class?: string;
@@ -14,6 +14,7 @@ export function createFormWithValidationState(
 	passwordValidText: string;
 	passwordValidClass: string;
 } {
+	const props = $derived(getProps());
 	const emailValid = $derived(props.email?.includes('@') ?? false);
 	const passwordValid = $derived((props.password?.length ?? 0) >= 8);
 

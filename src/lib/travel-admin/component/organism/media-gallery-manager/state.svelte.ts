@@ -1,7 +1,8 @@
 import type { RecipeMediaGalleryManager } from '$stylist/travel-admin/interface/recipe/media-gallery-manager';
 import type { AdminMediaAsset } from '$stylist/travel-admin/type/object/admin-media-asset';
 
-export function createMediaGalleryManagerState(props: RecipeMediaGalleryManager) {
+export function createMediaGalleryManagerState(getProps: () => RecipeMediaGalleryManager) {
+	const props = $derived(getProps());
 	const assets = $state<AdminMediaAsset[]>(props.assets.map((a) => ({ ...a })));
 	let uploading = $state(false);
 

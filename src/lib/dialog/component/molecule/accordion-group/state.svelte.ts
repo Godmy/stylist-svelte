@@ -1,6 +1,7 @@
 import type { RecipeAccordionGroup } from '$stylist/dialog/interface/recipe/accordion-group';
 
-export function createAccordionGroupState(props: RecipeAccordionGroup) {
+export function createAccordionGroupState(getProps: () => RecipeAccordionGroup) {
+	const props = $derived(getProps());
 	let openValues = $state<Set<string>>(new Set(props.defaultValues ?? []));
 
 	$effect(() => {

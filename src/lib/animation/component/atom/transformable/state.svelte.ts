@@ -2,7 +2,8 @@ import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import { ManagerMotion } from '$stylist/animation/class/manager/motion';
 import type { RecipeTransformable as TransformProps } from '$stylist/animation/interface/recipe/transformable';
 
-export const createTransformableState = (props: TransformProps) => {
+export const createTransformableState = (getProps: () => TransformProps) => {
+	const props = $derived(getProps());
 	// SlotState
 	let isHovered = $state(false);
 	let isActive = $state(false);

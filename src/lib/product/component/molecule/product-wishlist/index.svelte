@@ -4,7 +4,7 @@
 	import { createProductWishlistState } from './state.svelte';
 
 	let props: RecipeProductCollection & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createProductWishlistState(props);
+	const state = createProductWishlistState(() => props);
 </script>
 
 <div class={state.containerClass}>

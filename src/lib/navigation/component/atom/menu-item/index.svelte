@@ -4,7 +4,7 @@
 	import Icon from '$stylist/svg/component/atom/icon/index.svelte';
 
 	let props: RecipeMenuItem = $props();
-	const state = createMenuItemState(props);
+	const state = createMenuItemState(() => props);
 
 	const restProps = $derived.by(() => {
 		const { class: _class, children: _children, ...rest } = props;

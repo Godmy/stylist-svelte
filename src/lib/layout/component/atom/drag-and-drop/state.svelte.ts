@@ -1,6 +1,7 @@
 import type { RecipeDragAndDrop } from '$stylist/layout/interface/recipe/drag-and-drop';
 
-export function createDragAndDropState(props: RecipeDragAndDrop) {
+export function createDragAndDropState(getProps: () => RecipeDragAndDrop) {
+	const props = $derived(getProps());
 	const draggable = $derived(props.draggable ?? false);
 	const dropzone = $derived(props.dropzone ?? false);
 	const disabled = $derived(props.disabled ?? false);

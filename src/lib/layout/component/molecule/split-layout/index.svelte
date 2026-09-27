@@ -3,7 +3,7 @@
 	import type { RecipeSplitLayout } from '$stylist/layout/interface/recipe/split-layout';
 
 	let props: RecipeSplitLayout = $props();
-	const state = createSplitLayoutState(props);
+	const state = createSplitLayoutState(() => props);
 
 	const GAP: Record<string, string> = {
 		none: '0',

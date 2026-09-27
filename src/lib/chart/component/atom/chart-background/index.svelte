@@ -3,7 +3,7 @@
 	import createChartBackgroundState from './state.svelte';
 
 	let props: RecipeChartBackground = $props();
-	const state = createChartBackgroundState(props);
+	const state = createChartBackgroundState(() => props);
 </script>
 
 <rect

@@ -3,13 +3,14 @@ import type { RecipeBreadcrumbDropdown } from '$stylist/dialog/interface/recipe/
 import type { BreadcrumbDropdownItem } from '$stylist/dialog/interface/slot/breadcrumb-dropdown-item';
 
 export function createBreadcrumbDropdownState(
-	props: RecipeBreadcrumbDropdown & {
+	getProps: () => RecipeBreadcrumbDropdown & {
 		open?: boolean;
 		items?: BreadcrumbDropdownItem[];
 		onSelect?: (targetId: string) => void;
 		class?: string;
 	}
 ) {
+	const props = $derived(getProps());
 	const open = $derived(props.open ?? false);
 	const items = $derived(props.items ?? []);
 	const dropdownClass = $derived(ClassNamesManager.join('breadcrumb-dropdown', props.class ?? ''));

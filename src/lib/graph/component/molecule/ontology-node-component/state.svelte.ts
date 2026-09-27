@@ -9,7 +9,8 @@ const NODE_ICON_MAP: Record<string, string> = {
 	'equivalent-class': 'zap'
 };
 
-export function createOntologyNodeComponentState(props: RecipeOntologyNodeComponent) {
+export function createOntologyNodeComponentState(getProps: () => RecipeOntologyNodeComponent) {
+	const props = $derived(getProps());
 	const nodeType = $derived(props.node.type);
 	const baseClasses = $derived(
 		['ontology-node-component', `ontology-node-component--${nodeType}`, props.class ?? '']

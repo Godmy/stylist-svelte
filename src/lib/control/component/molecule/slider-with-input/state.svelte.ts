@@ -1,6 +1,7 @@
 import type { RecipeSliderWithInput } from '$stylist/control/interface/recipe/slider-with-input';
 
-export const createSliderWithInputState = (props: RecipeSliderWithInput) => {
+export const createSliderWithInputState = (getProps: () => RecipeSliderWithInput) => {
+	const props = $derived(getProps());
 	let currentValue = $state(props.value ?? 0);
 
 	$effect(() => {

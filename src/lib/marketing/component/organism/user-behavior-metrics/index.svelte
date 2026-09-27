@@ -4,7 +4,7 @@
 	import createUserBehaviorMetricsState from './state.svelte';
 
 	let props: RecipeUserBehaviorMetrics = $props();
-	const state = createUserBehaviorMetricsState(props);
+	const state = createUserBehaviorMetricsState(() => props);
 </script>
 
 <div class={state.containerClasses} {...state.restProps}>

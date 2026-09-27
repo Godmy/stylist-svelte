@@ -5,7 +5,7 @@
 	import { createInputFieldState } from './state.svelte';
 
 	let { value = $bindable<string>(''), ...props }: IInputFieldProps = $props();
-	const state = createInputFieldState(props);
+	const state = createInputFieldState(() => props);
 </script>
 
 <div class={state.containerClasses}>

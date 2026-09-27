@@ -5,7 +5,7 @@
 	import createRouteStopsEditorState from './state.svelte';
 
 	let props: RecipeRouteStopsEditor = $props();
-	const state = createRouteStopsEditorState(props);
+	const state = createRouteStopsEditorState(() => props);
 </script>
 
 <div class="route-stops-editor {props.class ?? ''}">

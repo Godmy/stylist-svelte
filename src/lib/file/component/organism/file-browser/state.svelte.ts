@@ -2,7 +2,8 @@ import { FileBrowserManager } from '$stylist/file/class/manager/file-browser';
 import type { RecipeFileBrowser } from '$stylist/file/interface/recipe/file-browser';
 import type { SlotFolderItem } from '$stylist/file/interface/slot/folder-item';
 
-export function createFileBrowserState(props: RecipeFileBrowser) {
+export function createFileBrowserState(getProps: () => RecipeFileBrowser) {
+	const props = $derived(getProps());
 	const items = $derived(props.items ?? []);
 	const showItemCount = $derived(props.showItemCount ?? true);
 	const enableSelection = $derived(props.enableSelection ?? true);

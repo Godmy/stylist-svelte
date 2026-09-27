@@ -5,7 +5,7 @@
 	import createRichTextEditorState from './state.svelte';
 
 	let props: RecipeRichTextEditor & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createRichTextEditorState(props);
+	const state = createRichTextEditorState(() => props);
 </script>
 
 <div class={state.rootClasses} {...props}>

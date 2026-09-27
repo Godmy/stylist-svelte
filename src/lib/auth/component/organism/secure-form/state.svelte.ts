@@ -1,6 +1,7 @@
 import type { RecipeSecureForm } from '$stylist/auth/interface/recipe/secure-form';
 
-export function createSecureFormState(props: RecipeSecureForm) {
+export function createSecureFormState(getProps: () => RecipeSecureForm) {
+	const props = $derived(getProps());
 	const token = $derived(props.token ?? 'SECURE_TOKEN');
 	const className = $derived(props.class ?? '');
 

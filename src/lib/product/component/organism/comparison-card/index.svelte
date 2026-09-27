@@ -4,7 +4,7 @@
 	import { createComparisonCardState } from './state.svelte';
 
 	let props: RecipeComparisonCard & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createComparisonCardState(props);
+	const state = createComparisonCardState(() => props);
 </script>
 
 <div class={state.containerClass}>

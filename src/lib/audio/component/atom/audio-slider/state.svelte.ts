@@ -1,6 +1,7 @@
 import type { RecipeAudioSlider } from '$stylist/audio/interface/recipe/audio-slider';
 
-export function createAudioSliderState(props: RecipeAudioSlider) {
+export function createAudioSliderState(getProps: () => RecipeAudioSlider) {
+	const props = $derived(getProps());
 	let localValue = $state(props.value ?? 0);
 
 	$effect(() => {

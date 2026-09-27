@@ -7,7 +7,7 @@
 	import createTokenControlComposerState from './state.svelte';
 
 	let props: RecipeToken = $props();
-	const state = createTokenControlComposerState(props);
+	const state = createTokenControlComposerState(() => props);
 </script>
 
 <div class="token">

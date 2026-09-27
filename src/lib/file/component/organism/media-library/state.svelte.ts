@@ -1,9 +1,10 @@
-﻿import { MediaLibraryManager } from '$stylist/file/class/manager/media-library';
+import { MediaLibraryManager } from '$stylist/file/class/manager/media-library';
 import type { RecipeMediaLibrary } from '$stylist/file/interface/recipe/media-library';
 import type { MediaType } from '$stylist/file/type/alias/media-library-media-type';
 import type { SlotMediaItem } from '$stylist/file/interface/slot/media-item';
 
-export function createMediaLibraryState(props: RecipeMediaLibrary) {
+export function createMediaLibraryState(getProps: () => RecipeMediaLibrary) {
+	const props = $derived(getProps());
 	let searchQuery = $state('');
 	let selectedViewMode = $state(props.viewMode ?? 'grid');
 	let selectedItems = $state<string[]>([]);

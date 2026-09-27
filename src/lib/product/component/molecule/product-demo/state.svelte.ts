@@ -1,7 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductDemo } from '$stylist/product/interface/recipe/product-demo';
 
-export function createProductDemoState(props: RecipeProductDemo & HTMLAttributes<HTMLDivElement>) {
+export function createProductDemoState(getProps: () => RecipeProductDemo & HTMLAttributes<HTMLDivElement>) {
+	const props = $derived(getProps());
 	return {
 		get containerClass() {
 			return ['product-demo', props.class].filter(Boolean).join(' ');

@@ -3,7 +3,7 @@
 	import type { RecipeWidebandDelphiDiagram } from '$stylist/chart/interface/recipe/wideband-delphi-diagram';
 
 	let props: RecipeWidebandDelphiDiagram = $props();
-	const state = createWidebandDelphiDiagramState(props);
+	const state = createWidebandDelphiDiagramState(() => props);
 </script>
 
 <section

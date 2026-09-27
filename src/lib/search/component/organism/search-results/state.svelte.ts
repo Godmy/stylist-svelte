@@ -6,7 +6,8 @@ const MapPin = 'map-pin';
 const Search = 'search';
 const User = 'user';
 
-export function createSearchResultsState(props: RecipeSearchResults) {
+export function createSearchResultsState(getProps: () => RecipeSearchResults) {
+	const props = $derived(getProps());
 	const results = $derived(props.results ?? []);
 	const query = $derived(props.query ?? '');
 	const loading = $derived(props.loading ?? false);

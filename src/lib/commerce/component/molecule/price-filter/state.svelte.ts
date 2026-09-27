@@ -1,7 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipePriceFilter } from '$stylist/commerce/interface/recipe/price-filter';
 
-export function createPriceFilterState(props: RecipePriceFilter & HTMLAttributes<HTMLDivElement>) {
+export function createPriceFilterState(getProps: () => RecipePriceFilter & HTMLAttributes<HTMLDivElement>) {
+	const props = $derived(getProps());
 	let min = $state(props.currentMin ?? 0);
 	let max = $state(props.currentMax ?? 1000);
 

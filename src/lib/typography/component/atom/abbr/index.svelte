@@ -4,7 +4,7 @@
 
 	let props: RecipeAbbr = $props();
 
-	const state = createAbbrState(props);
+	const state = createAbbrState(() => props);
 	const children = $derived(props.children);
 
 	const restProps = $derived(

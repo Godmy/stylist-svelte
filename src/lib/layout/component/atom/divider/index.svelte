@@ -3,7 +3,7 @@
 	import createDividerState from './state.svelte';
 
 	let props: RecipeDivider = $props();
-	const state = createDividerState(props);
+	const state = createDividerState(() => props);
 </script>
 
 {#if state.isHorizontal}

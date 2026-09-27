@@ -6,7 +6,7 @@
 	const Calendar = 'calendar';
 
 	let props: RecipeDateTimePicker = $props();
-	const state = createDateTimePickerState(props);
+	const state = createDateTimePickerState(() => props);
 </script>
 
 <div class={`date-time-picker ${state.className}`.trim()}>

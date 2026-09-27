@@ -26,7 +26,8 @@ const BORDER_RADIUS_MAP: Record<string, string> = {
 	full: '9999px'
 };
 
-export function createBorderState(props: RecipeBorder) {
+export function createBorderState(getProps: () => RecipeBorder) {
+	const props = $derived(getProps());
 	const borderStyle = $derived(props.borderStyle ?? 'solid');
 	const borderWidth = $derived.by(() => {
 		if (borderStyle === 'bold') return '2px';

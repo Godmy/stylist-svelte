@@ -1,6 +1,7 @@
 import type { RecipeStepper } from '$stylist/dialog/interface/recipe/stepper';
 
-export function createStepperState(props: RecipeStepper) {
+export function createStepperState(getProps: () => RecipeStepper) {
+	const props = $derived(getProps());
 	const orientationClass = $derived(
 		props.orientation === 'vertical' ? 'stepper--col' : 'stepper--row'
 	);

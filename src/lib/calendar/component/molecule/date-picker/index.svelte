@@ -3,7 +3,7 @@
 	import createDatePickerState from './state.svelte';
 
 	let props: RecipeDatePicker = $props();
-	const state = createDatePickerState(props);
+	const state = createDatePickerState(() => props);
 </script>
 
 <div class="date-picker">

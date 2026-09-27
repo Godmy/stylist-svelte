@@ -3,7 +3,7 @@
 	import { createCountryFlagState } from './state.svelte';
 
 	let props: RecipeCountryFlag = $props();
-	const state = createCountryFlagState(props);
+	const state = createCountryFlagState(() => props);
 </script>
 
 {#if state.isValid}

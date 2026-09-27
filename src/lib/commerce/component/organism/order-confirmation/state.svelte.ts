@@ -20,8 +20,9 @@ const ORDER_STATUS_TEXT: Record<TokenOrderStatus, string> = {
 };
 
 export function createOrderConfirmationState(
-	props: RecipeOrderConfirmation & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipeOrderConfirmation & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	const status = $derived(props.orderStatus ?? 'processing');
 	const subtotal = $derived(props.items.reduce((sum, item) => sum + item.price * item.quantity, 0));
 

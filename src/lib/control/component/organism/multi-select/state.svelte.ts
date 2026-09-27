@@ -6,7 +6,8 @@ import type { SlotMultiSelectOption as MultiSelectOption } from '$stylist/contro
 const EMPTY_MULTI_SELECT_VALUE: string[] = [];
 const EMPTY_MULTI_SELECT_OPTIONS: MultiSelectOption[] = [];
 
-export function createMultiSelectState(props: RecipeMultiSelect) {
+export function createMultiSelectState(getProps: () => RecipeMultiSelect) {
+	const props = $derived(getProps());
 	const options = $derived(props.options ?? EMPTY_MULTI_SELECT_OPTIONS);
 	const value = $derived(props.value ?? EMPTY_MULTI_SELECT_VALUE);
 	const placeholder = $derived(props.placeholder ?? 'Select options...');

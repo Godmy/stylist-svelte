@@ -6,7 +6,7 @@
 	import { ManagerHeatmap } from '$stylist/chart/class/manager/heatmap';
 
 	let props: RecipeHeatmap = $props();
-	const state = createHeatmapState(props);
+	const state = createHeatmapState(() => props);
 </script>
 
 <div

@@ -3,7 +3,8 @@ import type { PaymentSummaryDiscount } from '$stylist/commerce/interface/slot/pa
 import type { PaymentSummaryItem } from '$stylist/commerce/interface/slot/payment-summary-item';
 import type { PaymentSummaryTax } from '$stylist/commerce/interface/slot/payment-summary-tax';
 
-export function createPaymentSummaryState(props: RecipePaymentSummary) {
+export function createPaymentSummaryState(getProps: () => RecipePaymentSummary) {
+	const props = $derived(getProps());
 	const subtotal = $derived(
 		(props.items ?? []).reduce((sum: number, item: PaymentSummaryItem) => sum + item.total, 0)
 	);

@@ -3,7 +3,7 @@
 	import createSliderWithInputState from './state.svelte';
 
 	let props: RecipeSliderWithInput = $props();
-	const state = createSliderWithInputState(props);
+	const state = createSliderWithInputState(() => props);
 </script>
 
 <div class={`slider-with-input ${state.className}`} {...props}>

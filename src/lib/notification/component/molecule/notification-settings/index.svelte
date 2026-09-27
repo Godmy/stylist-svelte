@@ -4,7 +4,7 @@
 	import createNotificationSettingsState from './state.svelte';
 
 	let props: RecipeNotificationSettings = $props();
-	const state = createNotificationSettingsState(props);
+	const state = createNotificationSettingsState(() => props);
 </script>
 
 <div class={`${state.className} _c14`} {...state.restProps}>

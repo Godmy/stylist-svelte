@@ -5,7 +5,7 @@
 	import createPricingMatrixEditorState from './state.svelte';
 
 	let props: RecipePricingMatrixEditor = $props();
-	const state = createPricingMatrixEditorState(props);
+	const state = createPricingMatrixEditorState(() => props);
 </script>
 
 <div class="pricing-matrix-editor {props.class ?? ''}">

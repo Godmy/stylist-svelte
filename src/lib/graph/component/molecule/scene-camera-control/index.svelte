@@ -3,7 +3,7 @@
 	import createSceneCameraControlState from './state.svelte';
 
 	let props: RecipeSceneCameraControl = $props();
-	const state = createSceneCameraControlState(props);
+	const state = createSceneCameraControlState(() => props);
 </script>
 
 <section

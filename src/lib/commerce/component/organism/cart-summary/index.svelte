@@ -3,7 +3,7 @@
 	import createCartSummaryState from './state.svelte';
 
 	let props: RecipeCartSummaryProps = $props();
-	const state = createCartSummaryState(props);
+	const state = createCartSummaryState(() => props);
 </script>
 
 <div class="cart-summary">

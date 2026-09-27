@@ -5,7 +5,7 @@
 	import type { RecipeLoading } from '$stylist/animation/interface/recipe/loading';
 
 	let props: RecipeLoading & HTMLAttributes<HTMLDivElement> = $props();
-	const state = createLoadingState(props);
+	const state = createLoadingState(() => props);
 </script>
 
 {#if state.loading}

@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import createChatStatusIndicatorState from './state.svelte';
 	import type { RecipeChatStatusIndicator } from '$stylist/chat/interface/recipe/chat-status-indicator';
 
 	let props: RecipeChatStatusIndicator = $props();
 
-	const state = createChatStatusIndicatorState(props);
+	const state = createChatStatusIndicatorState(untrack(() => props));
 </script>
 
 <span class={state.containerClasses} role="status" aria-label={`Status: ${state.status}`}>

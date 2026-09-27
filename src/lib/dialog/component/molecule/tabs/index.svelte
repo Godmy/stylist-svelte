@@ -5,7 +5,7 @@
 
 	let props: RecipeTabs = $props();
 
-	const state = createTabsState(props);
+	const state = createTabsState(() => props);
 
 	setContext('tabs-context', {
 		tabsId: state.tabsId,

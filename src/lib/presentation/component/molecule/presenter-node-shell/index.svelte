@@ -3,7 +3,7 @@
 	import type { RecipePresenterNodeShell } from '$stylist/presentation/interface/recipe/presenter-node-shell';
 
 	let props: RecipePresenterNodeShell = $props();
-	const state = createPresenterNodeShellState(props);
+	const state = createPresenterNodeShellState(() => props);
 </script>
 
 <button

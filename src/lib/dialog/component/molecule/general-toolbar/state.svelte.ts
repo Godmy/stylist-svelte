@@ -4,7 +4,8 @@ function getButtonSizeForToolbar(compact: boolean): 'sm' | 'md' {
 	return compact ? 'sm' : 'md';
 }
 
-export function createGeneralToolbarState(props: RecipeGeneralToolbar) {
+export function createGeneralToolbarState(getProps: () => RecipeGeneralToolbar) {
+	const props = $derived(getProps());
 	const buttonSize = $derived(getButtonSizeForToolbar(props.compact ?? false));
 
 	return {

@@ -4,7 +4,7 @@
 	import type { SlotRichText } from '$stylist/typography/interface/slot/rich-text';
 
 	let props: RecipeRichText = $props();
-	const state = createRichTextState(props);
+	const state = createRichTextState(() => props);
 
 	function createSegmentStyle(
 		segment: NonNullable<SlotRichText['segments']>[number],

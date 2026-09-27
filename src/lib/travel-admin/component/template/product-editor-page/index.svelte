@@ -7,7 +7,7 @@
 	import createProductEditorPageState from './state.svelte';
 
 	let props: RecipeProductEditorPage = $props();
-	const state = createProductEditorPageState(props);
+	const state = createProductEditorPageState(() => props);
 
 	const navItems = [
 		{ id: 'dashboard', label: 'Дашборд', href: '/admin' },

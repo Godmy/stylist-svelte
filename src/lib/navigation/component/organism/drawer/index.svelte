@@ -3,7 +3,7 @@
 	import stateFn from './state.svelte';
 
 	let props: RecipeDrawer = $props();
-	const state = stateFn(props);
+	const state = stateFn(() => props);
 </script>
 
 <svelte:window onkeydown={(e) => state.handleEscapeFn(e)} />

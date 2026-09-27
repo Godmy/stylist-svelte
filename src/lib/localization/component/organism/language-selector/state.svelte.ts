@@ -2,8 +2,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeLanguageSelector as ILanguageSelectorProps } from '$stylist/localization/interface/recipe/language-selector';
 
 function createLanguageSelectorState(
-	props: ILanguageSelectorProps & HTMLAttributes<HTMLDivElement>
+	getProps: () => ILanguageSelectorProps & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	let isOpen = $state(false);
 	let searchQuery = $state('');
 

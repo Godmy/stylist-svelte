@@ -3,8 +3,9 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { RecipeProductSearch } from '$stylist/product/interface/recipe/product-search';
 
 export function createProductSearchState(
-	props: RecipeProductSearch & HTMLAttributes<HTMLDivElement>
+	getProps: () => RecipeProductSearch & HTMLAttributes<HTMLDivElement>
 ) {
+	const props = $derived(getProps());
 	let query = $state('');
 	let showSuggestions = $state(false);
 

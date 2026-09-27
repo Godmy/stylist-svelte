@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import type { RecipeArticleCard as ArticleCardProps } from '$stylist/commerce/interface/recipe/article-card';
 	import createArticleCardState from './state.svelte';
 
 	let props: ArticleCardProps = $props();
-	const state = createArticleCardState(props);
+	const state = createArticleCardState(untrack(() => props));
 </script>
 
 <div class="article-card">

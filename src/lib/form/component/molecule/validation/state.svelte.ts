@@ -3,7 +3,7 @@ import type { Snippet } from 'svelte';
 import type { TOKEN_ORIENTATION } from '$stylist/layout/const/array/orientation';
 
 export function createValidationState(
-	props: HTMLAttributes<HTMLDivElement> & {
+	getProps: () => HTMLAttributes<HTMLDivElement> & {
 		label?: string;
 		description?: string;
 		required?: boolean;
@@ -26,6 +26,7 @@ export function createValidationState(
 	errorClass: string;
 	hintClass: string;
 } {
+	const props = $derived(getProps());
 	const containerClasses = $derived(
 		`field-group ${props.orientation === 'horizontal' ? 'horizontal' : 'vertical'} ${props.disabled ? 'field-group--disabled' : ''} ${props.class ?? ''}`
 	);

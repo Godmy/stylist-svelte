@@ -1,6 +1,7 @@
 import type { RecipeImageCaption } from '$stylist/image/interface/recipe/image-caption';
 
-export function createImageCaptionState(props: RecipeImageCaption) {
+export function createImageCaptionState(getProps: () => RecipeImageCaption) {
+	const props = $derived(getProps());
 	const hostClasses = $derived(
 		[
 			'c-image-caption',

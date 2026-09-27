@@ -1,7 +1,8 @@
 import { ClassNamesManager } from '$stylist/layout/class/manager/class-names';
 import type { RecipeRichTextEditor } from '$stylist/input/interface/recipe/rich-text-editor';
 
-export const createRichTextEditorState = (props: RecipeRichTextEditor) => {
+export const createRichTextEditorState = (getProps: () => RecipeRichTextEditor) => {
+	const props = $derived(getProps());
 	// SlotState
 	let editorRef: HTMLDivElement | null = $state(null);
 	let isFocused = $state(false);

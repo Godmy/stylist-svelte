@@ -3,7 +3,7 @@
 	import type { RecipeMetricBar } from '$stylist/chart/interface/recipe/metric-bar';
 
 	let props: RecipeMetricBar = $props();
-	const state = createMetricBarState(props);
+	const state = createMetricBarState(() => props);
 </script>
 
 <div

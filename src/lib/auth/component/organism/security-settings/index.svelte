@@ -3,7 +3,7 @@
 	import { createSecuritySettingsState } from './state.svelte';
 
 	let props: RecipeSecuritySettings = $props();
-	const state = createSecuritySettingsState(props);
+	const state = createSecuritySettingsState(() => props);
 </script>
 
 <form class={state.containerClasses} {...state.restProps}>

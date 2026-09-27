@@ -1,6 +1,7 @@
 import type { RecipeGraphvizDirectedEdge } from '$stylist/graph/interface/recipe/graphviz-directed-edge';
 
-export function createGraphvizDirectedEdgeState(props: RecipeGraphvizDirectedEdge) {
+export function createGraphvizDirectedEdgeState(getProps: () => RecipeGraphvizDirectedEdge) {
+	const props = $derived(getProps());
 	const id = $derived(props.id);
 	const sourceX = $derived(props.sourceX ?? 0);
 	const sourceY = $derived(props.sourceY ?? 0);

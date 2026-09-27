@@ -1,7 +1,8 @@
 import type { RecipeHero } from '$stylist/marketing/interface/recipe/hero';
 import type { TokenBackground } from '$stylist/layout/type/alias/background';
 import type { TokenSize } from '$stylist/theme/type/alias/size';
-export function createHeroState(props: RecipeHero) {
+export function createHeroState(getProps: () => RecipeHero) {
+	const props = $derived(getProps());
 	const hostClass = $derived(props.class == null ? undefined : String(props.class));
 	const title = $derived(props.title);
 	const subtitle = $derived(props.subtitle);

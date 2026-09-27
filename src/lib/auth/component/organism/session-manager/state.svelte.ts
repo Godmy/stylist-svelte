@@ -1,6 +1,7 @@
 import type { RecipeSessionManager } from '$stylist/auth/interface/recipe/session-manager';
 
-export function createSessionManagerState(props: RecipeSessionManager) {
+export function createSessionManagerState(getProps: () => RecipeSessionManager) {
+	const props = $derived(getProps());
 	const activeSessions = $derived(props.activeSessions ?? 1);
 	const expiresAt = $derived(props.expiresAt ?? '2026-12-31 23:59');
 	const className = $derived(props.class ?? '');

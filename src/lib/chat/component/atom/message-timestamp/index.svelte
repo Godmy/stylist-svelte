@@ -4,7 +4,7 @@
 
 	let props: RecipeMessageTimestamp = $props();
 
-	const state = createMessageTimestampState(props);
+	const state = createMessageTimestampState(() => props);
 </script>
 
 <time class={state.classes} datetime={state.formattedDateTime}>
