@@ -37,8 +37,18 @@
 
 <aside class="tc-booking-filter-panel" aria-label="Фильтры туров">
 	<!-- Sections collapse into an accordion (one open at a time) so the panel fits the viewport; a counter in each header keeps collapsed selections visible -->
-	<Accordion class="tc-booking-filter-panel__accordion" defaultValue="experiences">
+	<Accordion class="tc-booking-filter-panel__accordion" defaultValue="tour-type">
 		{#snippet children()}
+			<AccordionLayout value="tour-type" title="Тип экскурсии">
+				{#snippet headerEnd()}{@render counter(value.tourType ? 1 : 0)}{/snippet}
+				{#snippet children()}
+					<BookingTourTypeFilter
+						selected={value.tourType}
+						onChange={(tourType) => update({ tourType })}
+					/>
+				{/snippet}
+			</AccordionLayout>
+
 			<AccordionLayout value="experiences" title="Что хотите посмотреть?">
 				{#snippet headerEnd()}{@render counter(value.categories.length)}{/snippet}
 				{#snippet children()}
@@ -48,16 +58,6 @@
 							onChange={(categories) => update({ categories })}
 						/>
 					</div>
-				{/snippet}
-			</AccordionLayout>
-
-			<AccordionLayout value="tour-type" title="Тип экскурсии">
-				{#snippet headerEnd()}{@render counter(value.tourType ? 1 : 0)}{/snippet}
-				{#snippet children()}
-					<BookingTourTypeFilter
-						selected={value.tourType}
-						onChange={(tourType) => update({ tourType })}
-					/>
 				{/snippet}
 			</AccordionLayout>
 

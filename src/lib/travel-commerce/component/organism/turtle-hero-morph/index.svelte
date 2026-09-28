@@ -85,6 +85,58 @@
 	$effect(() => {
 		onDebug?.({ phase, effectiveProgress });
 	});
+
+	// Image wordmark (`slider.logo`): the logo picture's box on the stage,
+	// in px, and the turtle sprite's final anchor derived from it so the
+	// formed mark lands in the logo's own spot for it (see HeroSlider.logo).
+	let stageWidth = $state(0);
+	let stageHeight = $state(0);
+
+	// Matches turtle-photo-to-mark's BOX_ASPECT_RATIO (800×400 frames).
+	const SPRITE_BOX_ASPECT_RATIO = 2;
+	const LOGO_MAX_WIDTH_PX = 720;
+	const LOGO_MAX_HEIGHT_FRACTION = 0.34;
+	const LOGO_MAX_WIDTH_FRACTION = 0.9;
+	const LOGO_CENTER_Y_FRACTION = 0.55;
+
+	const logoBox = $derived.by(() => {
+		const logo = slider.logo;
+		if (!logo || !stageWidth || !stageHeight) return null;
+		const height = Math.min(
+			stageHeight * LOGO_MAX_HEIGHT_FRACTION,
+			(stageWidth * LOGO_MAX_WIDTH_FRACTION) / logo.aspectRatio,
+			LOGO_MAX_WIDTH_PX / logo.aspectRatio
+		);
+		const width = height * logo.aspectRatio;
+		return {
+			left: (stageWidth - width) / 2,
+			top: stageHeight * LOGO_CENTER_Y_FRACTION - height / 2,
+			width,
+			height
+		};
+	});
+
+	const spriteConfig = $derived.by((): TurtleHeroMorphConfig => {
+		const logo = slider.logo;
+		if (!logo || !logoBox) return config;
+		const boxHeight = (logo.markBox.height * logoBox.height) / logo.frameMarkBox.height;
+		const boxWidth = boxHeight * SPRITE_BOX_ASPECT_RATIO;
+		const markX = logoBox.left + logo.markBox.x * logoBox.width;
+		const markY = logoBox.top + logo.markBox.y * logoBox.height;
+		const centerX = markX - (logo.frameMarkBox.x - 0.5) * boxWidth;
+		const centerY = markY - (logo.frameMarkBox.y - 0.5) * boxHeight;
+		return {
+			...config,
+			motion: {
+				...config.motion,
+				turtleAnchorTo: {
+					x: centerX / stageWidth,
+					y: centerY / stageHeight,
+					size: boxWidth / stageHeight
+				}
+			}
+		};
+	});
 </script>
 
 {#snippet stage()}
@@ -100,7 +152,7 @@
 	{#if photoLoaded}
 		<TurtlePhotoToMark
 			progress={effectiveProgress}
-			{config}
+			config={spriteConfig}
 			frames={slider.turtleFrames}
 			reducedMotion={motionPreference.prefersReducedMotion}
 		/>
@@ -109,6 +161,8 @@
 		progress={effectiveProgress}
 		{config}
 		reducedMotion={motionPreference.prefersReducedMotion}
+		logo={slider.logo}
+		{logoBox}
 	/>
 
 	{#if import.meta.env.DEV && pinned}
@@ -128,13 +182,19 @@
 		use:scroll.track
 		aria-label="ЛанкаТур — экскурсии на Шри-Ланке"
 	>
-		<div class="tc-turtle-hero__stage">
+		<div
+			class="tc-turtle-hero__stage"
+			bind:clientWidth={stageWidth}
+			bind:clientHeight={stageHeight}
+		>
 			{@render stage()}
 		</div>
 	</section>
 {:else}
 	<div
 		class="tc-turtle-hero__stage tc-turtle-hero__stage--embedded"
+		bind:clientWidth={stageWidth}
+		bind:clientHeight={stageHeight}
 		role="group"
 		aria-label="ЛанкаТур — экскурсии на Шри-Ланке"
 	>

@@ -27,4 +27,23 @@ export type HeroSlider = {
 	turtleFrames: string[];
 	/** MediaSlider's carousel pages between the hero-morph slide and the closing contact form — in display order. */
 	pages: MediaSliderSlide[];
+	/**
+	 * Optional image wordmark: replaces TurtleHeroWordmark's default text
+	 * with this picture (the full logo minus the turtle mark), and the turtle
+	 * sprite's final resting spot is then computed from it so the formed mark
+	 * lands exactly in the gap left for it — overriding
+	 * `config.motion.turtleAnchorTo`. Box fractions below are measured on the
+	 * images themselves (x/y = the mark's center, height = the mark's
+	 * height), not derived automatically: re-measure if either asset changes.
+	 */
+	logo?: {
+		src: string;
+		alt: string;
+		/** The logo image's natural width / height. */
+		aspectRatio: number;
+		/** Where the turtle mark belongs in the complete logo, as fractions of the logo image. */
+		markBox: { x: number; y: number; height: number };
+		/** Where the mark sits inside the last turtle frame, as fractions of the frame canvas. */
+		frameMarkBox: { x: number; y: number; height: number };
+	};
 };

@@ -22,9 +22,23 @@
 		excursions?: Excursion[];
 		/** BookingBar's "Количество дней" selection (from the host's shared booking draft) — filters this grid in addition to the sidebar's own TourFilters. */
 		durationDays?: number[];
+		/** Asks the host to rewrite that shared "Количество дней" selection — StorePage doesn't own it. */
+		onDurationDaysChange?: (durationDays: number[]) => void;
 	};
 
-	let { excursions = SAMPLE_EXCURSIONS, durationDays = [] }: Props = $props();
+	let { excursions = SAMPLE_EXCURSIONS, durationDays = [], onDurationDaysChange }: Props = $props();
+
+	// «Тур» is always 3+ days, so switching the tour type to it drops a
+	// "1 день"/"2 дня" pick that would otherwise empty the grid.
+	const SHORT_DURATION_DAYS = [1, 2];
+
+	function handleFiltersChange(next: TourFilters) {
+		if (next.tourType === 'tour' && filters.tourType !== 'tour') {
+			const kept = durationDays.filter((day) => !SHORT_DURATION_DAYS.includes(day));
+			if (kept.length !== durationDays.length) onDurationDaysChange?.(kept);
+		}
+		filters = next;
+	}
 
 	let filters = $state<TourFilters>({
 		categories: [],
@@ -39,7 +53,7 @@
 
 <main class="tc-store-page">
 	<aside class="tc-store-page__filters">
-		<BookingFilterPanel value={filters} onChange={(next) => (filters = next)} />
+		<BookingFilterPanel value={filters} onChange={handleFiltersChange} />
 	</aside>
 	<div class="tc-store-page__grid">
 		<StoreEditorialGrid excursions={visibleExcursions} />

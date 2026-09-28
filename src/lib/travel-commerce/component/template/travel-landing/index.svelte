@@ -78,7 +78,11 @@
 		{/snippet}
 	</MediaSlider>
 	<BookingBridge progress={1} bind:value={bookingValue} />
-	<StorePage {excursions} durationDays={bookingValue.durationDays} />
+	<StorePage
+		{excursions}
+		durationDays={bookingValue.durationDays}
+		onDurationDaysChange={(durationDays) => (bookingValue = { ...bookingValue, durationDays })}
+	/>
 </div>
 
 <style>
