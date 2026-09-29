@@ -12,7 +12,8 @@
 
 	export type DayContentBlock = {
 		text: string;
-		images: [TourGalleryImage, TourGalleryImage]; // always 2 images
+		/** Photos shown after `text`, in order; may be empty. Laid out two per row, an odd last one spans the row. */
+		images: TourGalleryImage[];
 	};
 
 	export type DaySection = {
@@ -212,20 +213,18 @@
 					{#each section.blocks as block}
 						<div class="tc-travel-product__day-block">
 							<p class="tc-travel-product__day-text">{block.text}</p>
-							<div class="tc-travel-product__day-images">
-								<figure class="tc-travel-product__day-image">
-									<img src={block.images[0].src} alt={block.images[0].alt} />
-									{#if block.images[0].caption}
-										<figcaption>{block.images[0].caption}</figcaption>
-									{/if}
-								</figure>
-								<figure class="tc-travel-product__day-image">
-									<img src={block.images[1].src} alt={block.images[1].alt} />
-									{#if block.images[1].caption}
-										<figcaption>{block.images[1].caption}</figcaption>
-									{/if}
-								</figure>
-							</div>
+							{#if block.images.length > 0}
+								<div class="tc-travel-product__day-images">
+									{#each block.images as image}
+										<figure class="tc-travel-product__day-image">
+											<img src={image.src} alt={image.alt} />
+											{#if image.caption}
+												<figcaption>{image.caption}</figcaption>
+											{/if}
+										</figure>
+									{/each}
+								</div>
+							{/if}
 						</div>
 					{/each}
 				</section>
@@ -537,6 +536,14 @@
 		object-fit: cover;
 		display: block;
 		aspect-ratio: 4/3;
+	}
+
+	.tc-travel-product__day-image:last-child:nth-child(odd) {
+		grid-column: 1 / -1;
+	}
+
+	.tc-travel-product__day-image:last-child:nth-child(odd) img {
+		aspect-ratio: 16/9;
 	}
 
 	.tc-travel-product__day-image figcaption {
