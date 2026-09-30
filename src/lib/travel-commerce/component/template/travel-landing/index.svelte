@@ -81,6 +81,7 @@
 	<StorePage
 		{excursions}
 		durationDays={bookingValue.durationDays}
+		booking={bookingValue}
 		onDurationDaysChange={(durationDays) => (bookingValue = { ...bookingValue, durationDays })}
 	/>
 </div>

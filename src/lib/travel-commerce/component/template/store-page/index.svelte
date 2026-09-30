@@ -17,6 +17,7 @@
 	import { SAMPLE_EXCURSIONS } from '$stylist/travel-commerce/const/preset/sample-excursions';
 	import type { Excursion } from '$stylist/travel-commerce/type/object/excursion';
 	import type { TourFilters } from '$stylist/booking/type/object/tour-filters';
+	import type { BookingDraft } from '$stylist/booking/type/object/booking-draft';
 
 	type Props = {
 		excursions?: Excursion[];
@@ -24,9 +25,16 @@
 		durationDays?: number[];
 		/** Asks the host to rewrite that shared "Количество дней" selection — StorePage doesn't own it. */
 		onDurationDaysChange?: (durationDays: number[]) => void;
+		/** The host's booking draft (guests) — the cards price themselves for it. */
+		booking?: BookingDraft;
 	};
 
-	let { excursions = SAMPLE_EXCURSIONS, durationDays = [], onDurationDaysChange }: Props = $props();
+	let {
+		excursions = SAMPLE_EXCURSIONS,
+		durationDays = [],
+		onDurationDaysChange,
+		booking
+	}: Props = $props();
 
 	// «Тур» is always 3+ days, so switching the tour type to it drops a
 	// "1 день"/"2 дня" pick that would otherwise empty the grid.
@@ -56,7 +64,7 @@
 		<BookingFilterPanel value={filters} onChange={handleFiltersChange} />
 	</aside>
 	<div class="tc-store-page__grid">
-		<StoreEditorialGrid excursions={visibleExcursions} />
+		<StoreEditorialGrid excursions={visibleExcursions} {booking} />
 	</div>
 </main>
 

@@ -8,6 +8,8 @@
 	import BookingAccordion from '$stylist/booking/component/organism/booking-accordion/index.svelte';
 	import BookingGuest from '$stylist/booking/component/molecule/booking-guest/index.svelte';
 	import type { BookingDraft } from '$stylist/booking/type/object/booking-draft';
+	import type { PricingModel } from '$stylist/travel-commerce/type/object/pricing-model';
+	import { calculateBookingTotalCents } from '$stylist/travel-commerce/function/script/calculate-booking-total';
 	import logoImage from '$stylist/travel-commerce/data/jpg/logo/logo.png';
 
 	export type DayContentBlock = {
@@ -77,19 +79,6 @@
 		| AddonsSection
 		| ImportantInfoSection;
 
-	/** Everything needed to compute the one price shown on the page, reactively, from the guest picker below. Cents are integer US cents, same convention as the rest of the site. */
-	export type PricingModel = {
-		priceUnit: 'per_person' | 'per_tour';
-		/** Adult per-person rate (`per_person`) or the total price at the smallest listed group size (`per_tour`). */
-		basePriceCents: number;
-		/** Child (~5-12) rate — `per_person` tours only. Falls back to the adult rate when absent. */
-		childPriceCents?: number;
-		/** `per_tour` tours only — total price by headcount, smallest group first. */
-		groupPricing?: { participants: number; priceCents: number }[];
-		/** Percent off the adult per-person rate for each senior (пенсионер), e.g. `10` for 10%. */
-		seniorDiscountPercent: number;
-	};
-
 	type Props = {
 		excursion: Excursion;
 		gallery: TourGalleryImage[];
@@ -135,35 +124,7 @@
 
 	// Same `bookingValue` drives both the sticky top widget and this total —
 	// pick "3 человека" in either place and both agree.
-	const totalPriceCents = $derived.by(() => {
-		const adults = bookingValue.adults;
-		const seniors = bookingValue.seniors ?? 0;
-		const children = bookingValue.children;
-		const childrenTeen = bookingValue.childrenTeen ?? 0;
-		const discount = pricing.seniorDiscountPercent / 100;
-
-		if (pricing.priceUnit === 'per_person') {
-			const adultRate = pricing.basePriceCents;
-			const childRate = pricing.childPriceCents ?? adultRate;
-			const seniorRate = Math.round(adultRate * (1 - discount));
-			// Teens (13-18) charged at the adult rate, under-3s (bookingValue.childrenUnder3) ride free — no
-			// separate rate exists for either in the tour pricing data.
-			return adults * adultRate + seniors * seniorRate + children * childRate + childrenTeen * adultRate;
-		}
-
-		// per_tour: total is looked up by headcount from `groupPricing`, then
-		// each senior's per-person share of that total is discounted.
-		const headcount = Math.max(1, adults + seniors + children + childrenTeen);
-		const table =
-			pricing.groupPricing && pricing.groupPricing.length > 0
-				? [...pricing.groupPricing].sort((a, b) => a.participants - b.participants)
-				: [{ participants: headcount, priceCents: pricing.basePriceCents }];
-		const row =
-			table.find((r) => r.participants === headcount) ??
-			(headcount < table[0].participants ? table[0] : table[table.length - 1]);
-		const perPersonShare = row.priceCents / row.participants;
-		return Math.round(row.priceCents - seniors * perPersonShare * discount);
-	});
+	const totalPriceCents = $derived(calculateBookingTotalCents(pricing, bookingValue));
 </script>
 
 <main class="tc-travel-product">

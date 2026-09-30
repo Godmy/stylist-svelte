@@ -1,14 +1,17 @@
 <script lang="ts">
 	import type { Excursion } from '$stylist/travel-commerce/type/object/excursion';
+	import type { BookingDraft } from '$stylist/booking/type/object/booking-draft';
 	import ExcursionCardFeature from '$stylist/travel-commerce/component/molecule/excursion-card-feature/index.svelte';
 	import ExcursionCardStandard from '$stylist/travel-commerce/component/molecule/excursion-card-standard/index.svelte';
 	import StoreTrustInsert from '$stylist/travel-commerce/component/organism/store-trust-insert/index.svelte';
 
 	type Props = {
 		excursions: Excursion[];
+		/** Visitor's current guests — cards show the total price for them. */
+		booking?: BookingDraft;
 	};
 
-	let { excursions }: Props = $props();
+	let { excursions, booking }: Props = $props();
 </script>
 
 <div class="tc-store-grid">
@@ -17,18 +20,18 @@
 	{#each [0, 2] as start (start)}
 		{#if excursions[start]}
 			<div class="tc-store-grid__feature">
-				<ExcursionCardFeature excursion={excursions[start]} />
+				<ExcursionCardFeature excursion={excursions[start]} {booking} />
 			</div>
 		{/if}
 		{#if excursions[start + 1]}
-			<ExcursionCardStandard excursion={excursions[start + 1]} />
+			<ExcursionCardStandard excursion={excursions[start + 1]} {booking} />
 		{/if}
 	{/each}
 	<div class="tc-store-grid__wide">
 		<StoreTrustInsert />
 	</div>
 	{#each excursions.slice(4) as excursion (excursion.id)}
-		<ExcursionCardStandard {excursion} />
+		<ExcursionCardStandard {excursion} {booking} />
 	{/each}
 </div>
 
