@@ -97,6 +97,8 @@
 		pricing: PricingModel;
 		/** The booking draft driving both the sticky top widget and the price picker below — bind this to a host-level store so it arrives pre-filled from wherever the visitor came from (e.g. the landing page's own booking bar) instead of always restarting at the defaults. */
 		bookingValue?: BookingDraft;
+		/** «Забронировать» in the top widget and under the price. Without it the buttons do nothing and the one under the price is hidden. */
+		onBook?: (value: BookingDraft) => void;
 	};
 
 	let {
@@ -112,7 +114,8 @@
 			children: 0,
 			childrenUnder3: 0,
 			childrenTeen: 0
-		})
+		}),
+		onBook
 	}: Props = $props();
 
 	// Prepare slides from gallery - captions will be shown as marquee ticker inside MediaSlider
@@ -181,12 +184,12 @@
 
 	<!-- Booking Bridge (desktop) -->
 	<div class="tc-travel-product__booking-desktop">
-		<BookingBridge progress={1} bind:value={bookingValue} showDuration={false} />
+		<BookingBridge progress={1} bind:value={bookingValue} showDuration={false} onSearch={onBook} />
 	</div>
 
 	<!-- Booking Accordion (mobile) -->
 	<div class="tc-travel-product__booking-mobile">
-		<BookingAccordion bind:value={bookingValue} showAdventures={false} showDuration={false} />
+		<BookingAccordion bind:value={bookingValue} showAdventures={false} showDuration={false} onSearch={onBook} />
 	</div>
 
 	<!-- Main Content: blog-style tour description -->
@@ -356,6 +359,11 @@
 				<span class="tc-travel-product__price-total-label">Итого</span>
 				<span class="tc-travel-product__price-total-value">{formatUsdCents(totalPriceCents)}</span>
 			</div>
+			{#if onBook}
+				<button type="button" class="tc-travel-product__book" onclick={() => onBook(bookingValue)}>
+					Забронировать
+				</button>
+			{/if}
 		</section>
 	</div>
 </main>
@@ -795,6 +803,24 @@
 		background: rgba(255, 255, 255, 0.8);
 		border-radius: 0.5rem;
 		border: 1px solid rgba(23, 35, 31, 0.1);
+	}
+
+	.tc-travel-product__book {
+		display: block;
+		width: 100%;
+		margin-top: 1rem;
+		border: 0;
+		border-radius: 999px;
+		padding: 14px 24px;
+		background: #17231f;
+		color: white;
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+	.tc-travel-product__book:hover {
+		background: #2a3a34;
 	}
 
 	.tc-travel-product__price-total-label {
