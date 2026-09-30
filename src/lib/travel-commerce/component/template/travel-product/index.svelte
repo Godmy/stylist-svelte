@@ -20,7 +20,16 @@
 		type: 'day';
 		dayNumber: number;
 		title: string;
+		/** Photos shown right under the day title, before the first block's text. */
+		leadImages?: TourGalleryImage[];
 		blocks: DayContentBlock[];
+	};
+
+	/** Opening text of the tour description, with the photos that follow it (before day 1). */
+	export type IntroSection = {
+		type: 'intro';
+		text: string;
+		images: TourGalleryImage[];
 	};
 
 	export type HotelSection = {
@@ -59,6 +68,7 @@
 	};
 
 	export type ContentSection =
+		| IntroSection
 		| DaySection
 		| HotelSection
 		| IncludedSection
@@ -196,9 +206,29 @@
 
 		<hr class="tc-travel-product__divider" />
 
+		{#snippet photoGrid(images: TourGalleryImage[])}
+			{#if images.length > 0}
+				<div class="tc-travel-product__day-images">
+					{#each images as image}
+						<figure class="tc-travel-product__day-image">
+							<img src={image.src} alt={image.alt} />
+							{#if image.caption}
+								<figcaption>{image.caption}</figcaption>
+							{/if}
+						</figure>
+					{/each}
+				</div>
+			{/if}
+		{/snippet}
+
 		<!-- Content Sections -->
 		{#each content as section, index (index)}
-			{#if section.type === 'highlights'}
+			{#if section.type === 'intro'}
+				<section class="tc-travel-product__intro">
+					<p class="tc-travel-product__day-text">{section.text}</p>
+					{@render photoGrid(section.images)}
+				</section>
+			{:else if section.type === 'highlights'}
 				<section class="tc-travel-product__highlights">
 					<h2>Кратко о туре</h2>
 					<ul>
@@ -210,21 +240,11 @@
 			{:else if section.type === 'day'}
 				<section class="tc-travel-product__day">
 					<h2 class="tc-travel-product__day-title">День {section.dayNumber}. {section.title}</h2>
+					{@render photoGrid(section.leadImages ?? [])}
 					{#each section.blocks as block}
 						<div class="tc-travel-product__day-block">
 							<p class="tc-travel-product__day-text">{block.text}</p>
-							{#if block.images.length > 0}
-								<div class="tc-travel-product__day-images">
-									{#each block.images as image}
-										<figure class="tc-travel-product__day-image">
-											<img src={image.src} alt={image.alt} />
-											{#if image.caption}
-												<figcaption>{image.caption}</figcaption>
-											{/if}
-										</figure>
-									{/each}
-								</div>
-							{/if}
+							{@render photoGrid(block.images)}
 						</div>
 					{/each}
 				</section>
@@ -492,6 +512,12 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
+	}
+
+	.tc-travel-product__intro {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
 	}
 
 	.tc-travel-product__day-title {
