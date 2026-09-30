@@ -7,6 +7,7 @@ export type {
 	HeroSlider,
 	HeroSliderPhoto,
 	ItineraryLeg,
+	PricingModel,
 	TourAddon,
 	TourGalleryImage,
 	TourRouteStop,

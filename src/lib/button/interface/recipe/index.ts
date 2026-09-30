@@ -9,3 +9,4 @@ export type { RecipeFollowButton } from './follow-button';
 export type { RecipeIconButton } from './icon-button';
 export type { RecipeSplitButton } from './split-button';
 export type { RecipeToolButton } from './tool-button';
+export type { RecipeWhatsappButton } from './whatsapp-button';

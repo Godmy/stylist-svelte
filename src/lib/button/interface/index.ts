@@ -9,7 +9,8 @@ export type {
 	RecipeFollowButton,
 	RecipeIconButton,
 	RecipeSplitButton,
-	RecipeToolButton
+	RecipeToolButton,
+	RecipeWhatsappButton
 } from './recipe';
 export type {
 	SlotButtonAttributesBase,

@@ -7,5 +7,6 @@ export {
 	FollowButton,
 	IconButton,
 	SplitButton,
-	ToolButton
+	ToolButton,
+	WhatsappButton
 } from './atom';

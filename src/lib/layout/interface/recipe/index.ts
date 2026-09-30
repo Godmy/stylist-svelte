@@ -20,6 +20,8 @@ export type { RecipeGridSvg } from './grid-svg';
 export type { RecipeHorizontalLayout } from './horizontal-layout';
 export type { RecipeHoverable } from './hoverable';
 export type { RecipeNodeDot } from './node-dot';
+export type { RecipeNumberedStep } from './numbered-step';
+export type { RecipeNumberedStepGrid } from './numbered-step-grid';
 export type { RecipeOverlayLayout } from './overlay-layout';
 export type { RecipePopover } from './popover';
 export type { RecipeSeparator } from './separator';

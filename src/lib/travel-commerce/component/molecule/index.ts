@@ -10,6 +10,7 @@ export { ExperienceFilterGroup } from './experience-filter-group/index';
 export { ItineraryLegCard } from './itinerary-leg-card/index';
 export { ParallaxLayer } from './parallax-layer/index';
 export { ResultsCounter } from './results-counter/index';
+export { TourCardBadges } from './tour-card-badges/index';
 export { TourMetaLine } from './tour-meta-line/index';
 export { TourPriceNote } from './tour-price-note/index';
 export { TourTagList } from './tour-tag-list/index';

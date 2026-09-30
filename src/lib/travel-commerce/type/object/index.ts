@@ -8,6 +8,7 @@ export type {
 	HeroSliderPhoto
 } from './hero-slider';
 export type { ItineraryLeg } from './itinerary-leg';
+export type { PricingModel } from './pricing-model';
 export type { TourAddon } from './tour-addon';
 export type { TourGalleryImage } from './tour-gallery-image';
 export type { TourRouteStop } from './tour-route-stop';

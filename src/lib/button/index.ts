@@ -7,7 +7,8 @@ export {
 	FollowButton,
 	IconButton,
 	SplitButton,
-	ToolButton
+	ToolButton,
+	WhatsappButton
 } from './component';
 export {
 	CONTROL_BUTTON_ICON,
@@ -35,6 +36,7 @@ export type {
 	RecipeIconButton,
 	RecipeSplitButton,
 	RecipeToolButton,
+	RecipeWhatsappButton,
 	SlotButtonAttributesBase,
 	SlotButtonDom
 } from './interface';

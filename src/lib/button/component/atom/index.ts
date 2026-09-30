@@ -7,3 +7,4 @@ export { FollowButton } from './follow-button/index';
 export { IconButton } from './icon-button/index';
 export { SplitButton } from './split-button/index';
 export { ToolButton } from './tool-button/index';
+export { WhatsappButton } from './whatsapp-button/index';

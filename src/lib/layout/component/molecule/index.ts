@@ -4,6 +4,7 @@ export { CenteredLayout } from './centered-layout/index';
 export { ContainerQuery } from './container-query/index';
 export { GradientBackground } from './gradient-background/index';
 export { Grid } from './grid/index';
+export { NumberedStepGrid } from './numbered-step-grid/index';
 export { OverlayLayout } from './overlay-layout/index';
 export { Popover } from './popover/index';
 export { SplitLayout } from './split-layout/index';

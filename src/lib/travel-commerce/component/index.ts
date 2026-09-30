@@ -12,6 +12,7 @@ export {
 	ItineraryLegCard,
 	ParallaxLayer,
 	ResultsCounter,
+	TourCardBadges,
 	TourMetaLine,
 	TourPriceNote,
 	TourTagList,

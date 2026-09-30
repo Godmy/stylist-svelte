@@ -34,6 +34,8 @@ export type {
 	RecipeHorizontalLayout,
 	RecipeHoverable,
 	RecipeNodeDot,
+	RecipeNumberedStep,
+	RecipeNumberedStepGrid,
 	RecipeOverlayLayout,
 	RecipePopover,
 	RecipeSeparator,

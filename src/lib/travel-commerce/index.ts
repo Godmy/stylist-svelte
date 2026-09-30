@@ -26,6 +26,7 @@ export {
 	StoreTrustInsert,
 	TourAddonPicker,
 	TourBookingPanel,
+	TourCardBadges,
 	TourDetailPage,
 	TourHeroGallery,
 	TourMetaLine,
@@ -51,7 +52,6 @@ export {
 	ELEPHANTS_SIGIRIYA_ROUTE_STOPS,
 	ELEPHANTS_SIGIRIYA_WHAT_TO_BRING,
 	EXCURSION_MOTIFS,
-	EXPERIENCE_CATEGORIES,
 	EXPERIENCE_FILTER_MOTIFS,
 	HERO_SCENES,
 	HERO_SLIDER,
@@ -65,8 +65,13 @@ export {
 	TURTLE_HERO_MORPH_CONFIG
 } from './const';
 export {
+	calculateBookingTotalCents,
+	countBookingGuests,
 	createStickyScrollProgress,
 	filterExcursions,
+	filterExcursionsByDuration,
+	filterExcursionsByTourFilters,
+	formatExcursionCardPrice,
 	formatResultsCount
 } from './function';
 export type {
@@ -75,6 +80,7 @@ export type {
 	HeroSlider,
 	HeroSliderPhoto,
 	ItineraryLeg,
+	PricingModel,
 	TourAddon,
 	TourGalleryImage,
 	TourRouteStop,
@@ -83,4 +89,5 @@ export type {
 	TurtleHeroMorphMotion,
 	TurtleHeroMorphPhases
 } from './type';
+export type { RecipeTravelLanding } from './interface';
 export type { ContactRequest } from './type';

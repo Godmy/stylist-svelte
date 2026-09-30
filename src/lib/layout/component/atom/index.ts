@@ -13,5 +13,6 @@ export { Grid } from './grid/index';
 export { HorizontalLayout } from './horizontal-layout/index';
 export { Hoverable } from './hoverable/index';
 export { NodeDot } from './node-dot/index';
+export { NumberedStep } from './numbered-step/index';
 export { Separator } from './separator/index';
 export { Spacer } from './spacer/index';

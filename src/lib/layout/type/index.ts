@@ -27,6 +27,7 @@ export type {
 	TokenStackDirection,
 	TokenTrigger
 } from './alias';
+export type { NumberedStep } from './object';
 export type { Preset } from './preset';
 export type {
 	AnyProperty,

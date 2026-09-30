@@ -14,6 +14,7 @@ export {
 	HorizontalLayout,
 	Hoverable,
 	NodeDot,
+	NumberedStep,
 	Separator,
 	Spacer
 } from './atom';
@@ -22,6 +23,7 @@ export {
 	CenteredLayout,
 	ContainerQuery,
 	GradientBackground,
+	NumberedStepGrid,
 	OverlayLayout,
 	Popover,
 	SplitLayout,

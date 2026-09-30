@@ -6,17 +6,32 @@ export {
 	BookingBridge,
 	BookingCalendar,
 	BookingDropdown,
+	BookingDurationPicker,
 	BookingFieldAdventures,
 	BookingFieldDate,
+	BookingFieldDuration,
 	BookingFieldGuests,
 	BookingFieldPickup,
+	BookingFilterPanel,
 	BookingGuest,
+	BookingPhysicalLoadFilter,
 	BookingPickupList,
+	BookingTourTypeFilter,
 	BookingWidget
 } from './component';
 export {
+	DURATION_OPTIONS,
+	EXPERIENCE_CATEGORIES,
+	PHYSICAL_LOAD_OPTIONS,
+	TOUR_TYPE_OPTIONS
+} from './const';
+export {
 	formatAdventureCountLabel,
+	formatDurationLabel,
 	formatGuestCountLabel,
 	formatGuestSummary
 } from './function';
-export type { BookingDraft } from './type';
+export type {
+	BookingDraft,
+	TourFilters
+} from './type';
