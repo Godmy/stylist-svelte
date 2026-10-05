@@ -375,10 +375,8 @@ export {
 	Dialog,
 	DialogConfirm,
 	DialogConfirmManager,
-	DropdownMenu,
 	GeneralToolbar,
 	Modal,
-	PresetDropdownMenu,
 	STYLIST_TAB_DEFAULT_ITEMS,
 	SimpleModal,
 	StylistTab,
@@ -734,11 +732,27 @@ export {
 } from './marketing';
 export {
 	AppHeader,
-	BottomSheet,
 	BurgerMenu,
 	Drawer,
 	DrawerManager,
+	DropdownMenu,
+	MegaMenu,
+	MegaMenuColumn,
+	MegaMenuFeature,
+	MegaMenuLink,
+	MegaMenuPanel,
+	MegaMenuTrigger,
 	MenuItem,
+	PresetDropdownMenu,
+	PresetMegaMenu,
+	createBurgerMenuState,
+	createDrawerState,
+	createDropdownMenuState,
+	createMegaMenuState,
+	createMenuItemState
+} from './menu';
+export {
+	BottomSheet,
 	PageButton,
 	PageEllipsis,
 	Pagination,
@@ -1169,6 +1183,7 @@ export {
 	ItineraryBuilder,
 	ItineraryLegCard,
 	ItineraryMap,
+	LandingTopicGrid,
 	ParallaxLayer,
 	ResultsCounter,
 	SAMPLE_CART_LINES,
@@ -2056,7 +2071,6 @@ export type {
 	RecipeConfirmationDialog,
 	RecipeDialog,
 	RecipeDialogConfirm,
-	RecipeDropdownMenu,
 	RecipeGeneralToolbar,
 	RecipeModal,
 	RecipeSimpleModal,
@@ -2425,11 +2439,24 @@ export type {
 	SlotTestResult
 } from './marketing';
 export type {
-	NavItem,
 	RecipeAppHeader,
 	RecipeBurgerMenu,
 	RecipeDrawer,
+	RecipeDropdownMenu,
+	RecipeMegaMenu,
+	RecipeMegaMenuColumn,
+	RecipeMegaMenuFeature,
+	RecipeMegaMenuLink,
+	RecipeMegaMenuPanel,
+	RecipeMegaMenuTrigger,
 	RecipeMenuItem,
+	SlotMegaMenuColumn,
+	SlotMegaMenuFeature,
+	SlotMegaMenuLink,
+	SlotMegaMenuSection
+} from './menu';
+export type {
+	NavItem,
 	RecipePageButton,
 	RecipePageEllipsis,
 	RecipePagination,
@@ -2635,6 +2662,7 @@ export type {
 } from './travel-admin';
 export type {
 	ContactRequest,
+	LandingTopic,
 	RecipeTravelLanding
 } from './travel-commerce';
 export type {

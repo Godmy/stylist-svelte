@@ -2286,6 +2286,19 @@
       ]
     },
     {
+      "path": "travel-commerce/component/organism/landing-topic-grid/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "landing-topic-grid",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeLandingTopicGrid",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/travel-commerce/type/object/landing-topic"
+      ]
+    },
+    {
       "path": "travel-commerce/component/organism/store-editorial-grid/index.svelte",
       "domain": "travel-commerce",
       "joint": "organism",
@@ -2648,10 +2661,10 @@
     }
   ],
   "summary": {
-    "total": 176,
+    "total": 177,
     "none": 23,
-    "missingRecipe": 153,
-    "valid": 595,
-    "scanned": 771
+    "missingRecipe": 154,
+    "valid": 601,
+    "scanned": 778
   }
 }

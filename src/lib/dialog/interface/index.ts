@@ -11,7 +11,6 @@ export type {
 	RecipeConfirmationDialog,
 	RecipeDialog,
 	RecipeDialogConfirm,
-	RecipeDropdownMenu,
 	RecipeGeneralToolbar,
 	RecipeModal,
 	RecipeSimpleModal,

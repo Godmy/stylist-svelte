@@ -15,7 +15,6 @@ export {
 	AccordionGroup,
 	ConfirmationDialog,
 	DialogConfirm,
-	DropdownMenu,
 	GeneralToolbar,
 	Stepper,
 	StylistTab,

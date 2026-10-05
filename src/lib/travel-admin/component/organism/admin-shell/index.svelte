@@ -1,5 +1,5 @@
 <script lang="ts">
-	import AppHeader from '$stylist/navigation/component/organism/app-header/index.svelte';
+	import AppHeader from '$stylist/menu/component/organism/app-header/index.svelte';
 	import Sidebar from '$stylist/navigation/component/organism/sidebar/index.svelte';
 	import type { RecipeAdminShell } from '$stylist/travel-admin/interface/recipe/admin-shell';
 

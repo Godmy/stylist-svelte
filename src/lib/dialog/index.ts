@@ -15,7 +15,6 @@ export {
 	ConfirmationDialog,
 	Dialog,
 	DialogConfirm,
-	DropdownMenu,
 	GeneralToolbar,
 	Modal,
 	SimpleModal,
@@ -30,7 +29,6 @@ export {
 } from './component';
 export {
 	ACCORDION_CONTEXT_DEFAULT,
-	PresetDropdownMenu,
 	STYLIST_TAB_DEFAULT_ITEMS,
 	TAB_CONTEXT,
 	TAB_PANEL_CONTEXT
@@ -50,7 +48,6 @@ export type {
 	RecipeConfirmationDialog,
 	RecipeDialog,
 	RecipeDialogConfirm,
-	RecipeDropdownMenu,
 	RecipeGeneralToolbar,
 	RecipeModal,
 	RecipeSimpleModal,

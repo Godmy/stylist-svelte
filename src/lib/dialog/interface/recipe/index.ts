@@ -10,7 +10,6 @@ export type { RecipeComponentInfoCard } from './component-info-card';
 export type { RecipeConfirmationDialog } from './confirmation-dialog';
 export type { RecipeDialog } from './dialog';
 export type { RecipeDialogConfirm } from './dialog-confirm';
-export type { RecipeDropdownMenu } from './dropdown-menu';
 export type { RecipeGeneralToolbar } from './general-toolbar';
 export type { RecipeModal } from './modal';
 export type { RecipeSimpleModal } from './simple-modal';

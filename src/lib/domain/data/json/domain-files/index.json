@@ -1031,10 +1031,10 @@
     },
     {
       "name": "dialog",
-      "fileCount": 147,
+      "fileCount": 140,
       "components": {
         "atoms": 9,
-        "molecules": 10,
+        "molecules": 9,
         "organisms": 5,
         "templates": 0,
         "pages": 0
@@ -1053,7 +1053,7 @@
         },
         {
           "name": "component",
-          "fileCount": 97,
+          "fileCount": 93,
           "joints": [
             {
               "name": "atom",
@@ -1062,8 +1062,8 @@
             },
             {
               "name": "molecule",
-              "entityCount": 10,
-              "fileCount": 41
+              "entityCount": 9,
+              "fileCount": 37
             },
             {
               "name": "organism",
@@ -1074,13 +1074,8 @@
         },
         {
           "name": "const",
-          "fileCount": 8,
+          "fileCount": 6,
           "joints": [
-            {
-              "name": "preset",
-              "entityCount": 1,
-              "fileCount": 2
-            },
             {
               "name": "record",
               "entityCount": 4,
@@ -1090,12 +1085,12 @@
         },
         {
           "name": "interface",
-          "fileCount": 37,
+          "fileCount": 36,
           "joints": [
             {
               "name": "recipe",
-              "entityCount": 22,
-              "fileCount": 23
+              "entityCount": 21,
+              "fileCount": 22
             },
             {
               "name": "slot",
@@ -2391,12 +2386,12 @@
       ]
     },
     {
-      "name": "navigation",
-      "fileCount": 56,
+      "name": "menu",
+      "fileCount": 75,
       "components": {
         "atoms": 4,
-        "molecules": 0,
-        "organisms": 5,
+        "molecules": 4,
+        "organisms": 3,
         "templates": 0,
         "pages": 0
       },
@@ -2419,12 +2414,84 @@
             {
               "name": "atom",
               "entityCount": 4,
-              "fileCount": 17
+              "fileCount": 13
+            },
+            {
+              "name": "molecule",
+              "entityCount": 4,
+              "fileCount": 13
             },
             {
               "name": "organism",
+              "entityCount": 3,
+              "fileCount": 10
+            }
+          ]
+        },
+        {
+          "name": "const",
+          "fileCount": 4,
+          "joints": [
+            {
+              "name": "preset",
+              "entityCount": 2,
+              "fileCount": 3
+            }
+          ]
+        },
+        {
+          "name": "function",
+          "fileCount": 12,
+          "joints": [
+            {
+              "name": "state",
               "entityCount": 5,
-              "fileCount": 19
+              "fileCount": 11
+            }
+          ]
+        },
+        {
+          "name": "interface",
+          "fileCount": 18,
+          "joints": [
+            {
+              "name": "recipe",
+              "entityCount": 11,
+              "fileCount": 12
+            },
+            {
+              "name": "slot",
+              "entityCount": 4,
+              "fileCount": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "navigation",
+      "fileCount": 34,
+      "components": {
+        "atoms": 2,
+        "molecules": 0,
+        "organisms": 3,
+        "templates": 0,
+        "pages": 0
+      },
+      "clusters": [
+        {
+          "name": "component",
+          "fileCount": 22,
+          "joints": [
+            {
+              "name": "atom",
+              "entityCount": 2,
+              "fileCount": 9
+            },
+            {
+              "name": "organism",
+              "entityCount": 3,
+              "fileCount": 12
             }
           ]
         },
@@ -2441,12 +2508,12 @@
         },
         {
           "name": "interface",
-          "fileCount": 12,
+          "fileCount": 8,
           "joints": [
             {
               "name": "recipe",
-              "entityCount": 8,
-              "fileCount": 9
+              "entityCount": 4,
+              "fileCount": 5
             },
             {
               "name": "slot",
@@ -3677,18 +3744,18 @@
     },
     {
       "name": "travel-commerce",
-      "fileCount": 168,
+      "fileCount": 172,
       "components": {
         "atoms": 1,
         "molecules": 18,
-        "organisms": 16,
+        "organisms": 17,
         "templates": 5,
         "pages": 0
       },
       "clusters": [
         {
           "name": "component",
-          "fileCount": 126,
+          "fileCount": 129,
           "joints": [
             {
               "name": "atom",
@@ -3702,8 +3769,8 @@
             },
             {
               "name": "organism",
-              "entityCount": 16,
-              "fileCount": 49
+              "entityCount": 17,
+              "fileCount": 52
             },
             {
               "name": "template",
@@ -3763,12 +3830,12 @@
         },
         {
           "name": "type",
-          "fileCount": 14,
+          "fileCount": 15,
           "joints": [
             {
               "name": "object",
-              "entityCount": 12,
-              "fileCount": 13
+              "entityCount": 13,
+              "fileCount": 14
             }
           ]
         }
@@ -4285,11 +4352,11 @@
     }
   ],
   "totals": {
-    "domains": 50,
-    "files": 6013,
-    "atoms": 207,
-    "molecules": 267,
-    "organisms": 274,
+    "domains": 51,
+    "files": 6063,
+    "atoms": 209,
+    "molecules": 270,
+    "organisms": 276,
     "templates": 20,
     "pages": 4
   }
