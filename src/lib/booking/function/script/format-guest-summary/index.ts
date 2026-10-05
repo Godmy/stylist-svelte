@@ -23,7 +23,7 @@ export function formatGuestSummary(input: {
 		parts.push(`${childrenTeen} ${pluralize(childrenTeen, 'ребёнок', 'ребёнка', 'детей')} 13-18`);
 	}
 	if (children > 0) {
-		parts.push(`${children} ${pluralize(children, 'ребёнок', 'ребёнка', 'детей')} до 13`);
+		parts.push(`${children} ${pluralize(children, 'ребёнок', 'ребёнка', 'детей')} до 12`);
 	}
 	if (childrenUnder3 > 0) parts.push(`${childrenUnder3} до 3 лет`);
 

@@ -1,6 +1,10 @@
 <script lang="ts">
 	import InputStepper from '$stylist/input/component/atom/input-stepper/index.svelte';
 
+	// 2026-10-05 (заказчик): only Взрослые / Дети до 12 лет (со скидкой) /
+	// Дети до 3 лет are offered. `seniors` / `childrenTeen` stay in the props
+	// (and in BookingDraft) so existing callers and orders keep working, but
+	// there are no rows for them any more.
 	type Props = {
 		adults?: number;
 		seniors?: number;
@@ -22,15 +26,11 @@
 
 	let {
 		adults = 2,
-		seniors = 0,
 		children = 0,
 		childrenUnder3 = 0,
-		childrenTeen = 0,
 		onAdultsChange,
-		onSeniorsChange,
 		onChildrenChange,
 		onChildrenUnder3Change,
-		onChildrenTeenChange,
 		textSize = '1rem',
 		background,
 		gap = '18px'
@@ -44,28 +44,14 @@
 	</div>
 	<div class="tc-booking-guest__row" style:gap={gap}>
 		<span class="tc-booking-guest__label" style:font-size={textSize}>
-			Пенсионеры
+			Дети до 12 лет
 			<span class="tc-booking-guest__hint">со скидкой</span>
 		</span>
-		<InputStepper value={seniors} min={0} max={16} label="Пенсионеры" onChange={(value) => onSeniorsChange?.(value)} />
-	</div>
-	<div class="tc-booking-guest__row" style:gap={gap}>
-		<span class="tc-booking-guest__label" style:font-size={textSize}>Дети 13-18 лет</span>
-		<InputStepper
-			value={childrenTeen}
-			min={0}
-			max={12}
-			label="Дети 13-18 лет"
-			onChange={(value) => onChildrenTeenChange?.(value)}
-		/>
-	</div>
-	<div class="tc-booking-guest__row" style:gap={gap}>
-		<span class="tc-booking-guest__label" style:font-size={textSize}>Дети до 13 лет</span>
 		<InputStepper
 			value={children}
 			min={0}
 			max={12}
-			label="Дети до 13 лет"
+			label="Дети до 12 лет"
 			onChange={(value) => onChildrenChange?.(value)}
 		/>
 	</div>

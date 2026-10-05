@@ -2,7 +2,7 @@ export type BookingDraft = {
 	pickup: string;
 	date: string;
 	adults: number;
-	/** Дети от 3 до 13 лет. Дети до 3 лет — отдельное поле `childrenUnder3`. */
+	/** Дети от 3 до 12 лет (с 2026-10-05; раньше до 13). Дети до 3 лет — отдельное поле `childrenUnder3`. */
 	children: number;
 	/** Пенсионеры (скидка). Необязательное поле — старые потребители типа его не знают. */
 	seniors?: number;
