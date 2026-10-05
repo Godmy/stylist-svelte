@@ -7,8 +7,12 @@
 	import Checkbox from '$stylist/control/component/atom/checkbox/index.svelte';
 	import type { TourFilters } from '$stylist/booking/type/object/tour-filters';
 
+	type Section = 'tour-type' | 'experiences' | 'extras' | 'physical-load';
+
 	type Props = {
 		value?: TourFilters;
+		/** Which sections to show, in this order; the first one starts open. The landing (2026-10-05) drops «Тип экскурсии» and leads with «Что хотите посмотреть?». */
+		sections?: Section[];
 		onChange?: (value: TourFilters) => void;
 	};
 
@@ -18,7 +22,11 @@
 		noEarlyDeparture: false
 	};
 
-	let { value = DEFAULT_VALUE, onChange }: Props = $props();
+	let {
+		value = DEFAULT_VALUE,
+		sections = ['tour-type', 'experiences', 'extras', 'physical-load'],
+		onChange
+	}: Props = $props();
 
 	const extrasCount = $derived(
 		Number(value.recommendedForKids) + Number(value.noEarlyDeparture)
@@ -37,61 +45,65 @@
 
 <aside class="tc-booking-filter-panel" aria-label="Фильтры туров">
 	<!-- Sections collapse into an accordion (one open at a time) so the panel fits the viewport; a counter in each header keeps collapsed selections visible -->
-	<Accordion class="tc-booking-filter-panel__accordion" defaultValue="tour-type">
+	<Accordion class="tc-booking-filter-panel__accordion" defaultValue={sections[0]}>
 		{#snippet children()}
-			<AccordionLayout value="tour-type" title="Тип экскурсии">
-				{#snippet headerEnd()}{@render counter(value.tourType ? 1 : 0)}{/snippet}
-				{#snippet children()}
-					<BookingTourTypeFilter
-						selected={value.tourType}
-						onChange={(tourType) => update({ tourType })}
-					/>
-				{/snippet}
-			</AccordionLayout>
-
-			<AccordionLayout value="experiences" title="Что хотите посмотреть?">
-				{#snippet headerEnd()}{@render counter(value.categories.length)}{/snippet}
-				{#snippet children()}
-					<div class="tc-booking-filter-panel__experiences">
-						<ExperienceFilterGroup
-							selected={value.categories}
-							onChange={(categories) => update({ categories })}
-						/>
-					</div>
-				{/snippet}
-			</AccordionLayout>
-
-			<AccordionLayout value="extras" title="Дополнительно">
-				{#snippet headerEnd()}{@render counter(extrasCount)}{/snippet}
-				{#snippet children()}
-					<div class="tc-booking-filter-panel__extras">
-						<Checkbox
-							id="booking-filter-recommended-for-kids"
-							label="Рекомендуем с детьми"
-							checked={value.recommendedForKids}
-							onchange={(e: Event) =>
-								update({ recommendedForKids: (e.currentTarget as HTMLInputElement).checked })}
-						/>
-						<Checkbox
-							id="booking-filter-no-early-departure"
-							label="Без раннего выезда"
-							checked={value.noEarlyDeparture}
-							onchange={(e: Event) =>
-								update({ noEarlyDeparture: (e.currentTarget as HTMLInputElement).checked })}
-						/>
-					</div>
-				{/snippet}
-			</AccordionLayout>
-
-			<AccordionLayout value="physical-load" title="Физическая нагрузка">
-				{#snippet headerEnd()}{@render counter(value.physicalLoad ? 1 : 0)}{/snippet}
-				{#snippet children()}
-					<BookingPhysicalLoadFilter
-						selected={value.physicalLoad}
-						onChange={(physicalLoad) => update({ physicalLoad })}
-					/>
-				{/snippet}
-			</AccordionLayout>
+			{#each sections as section (section)}
+				{#if section === 'tour-type'}
+					<AccordionLayout value="tour-type" title="Тип экскурсии">
+						{#snippet headerEnd()}{@render counter(value.tourType ? 1 : 0)}{/snippet}
+						{#snippet children()}
+							<BookingTourTypeFilter
+								selected={value.tourType}
+								onChange={(tourType) => update({ tourType })}
+							/>
+						{/snippet}
+					</AccordionLayout>
+				{:else if section === 'experiences'}
+					<AccordionLayout value="experiences" title="Что хотите посмотреть?">
+						{#snippet headerEnd()}{@render counter(value.categories.length)}{/snippet}
+						{#snippet children()}
+							<div class="tc-booking-filter-panel__experiences">
+								<ExperienceFilterGroup
+									selected={value.categories}
+									onChange={(categories) => update({ categories })}
+								/>
+							</div>
+						{/snippet}
+					</AccordionLayout>
+				{:else if section === 'extras'}
+					<AccordionLayout value="extras" title="Дополнительно">
+						{#snippet headerEnd()}{@render counter(extrasCount)}{/snippet}
+						{#snippet children()}
+							<div class="tc-booking-filter-panel__extras">
+								<Checkbox
+									id="booking-filter-recommended-for-kids"
+									label="Рекомендуем с детьми"
+									checked={value.recommendedForKids}
+									onchange={(e: Event) =>
+										update({ recommendedForKids: (e.currentTarget as HTMLInputElement).checked })}
+								/>
+								<Checkbox
+									id="booking-filter-no-early-departure"
+									label="Без раннего выезда"
+									checked={value.noEarlyDeparture}
+									onchange={(e: Event) =>
+										update({ noEarlyDeparture: (e.currentTarget as HTMLInputElement).checked })}
+								/>
+							</div>
+						{/snippet}
+					</AccordionLayout>
+				{:else if section === 'physical-load'}
+					<AccordionLayout value="physical-load" title="Физическая нагрузка">
+						{#snippet headerEnd()}{@render counter(value.physicalLoad ? 1 : 0)}{/snippet}
+						{#snippet children()}
+							<BookingPhysicalLoadFilter
+								selected={value.physicalLoad}
+								onChange={(physicalLoad) => update({ physicalLoad })}
+							/>
+						{/snippet}
+					</AccordionLayout>
+				{/if}
+			{/each}
 		{/snippet}
 	</Accordion>
 </aside>

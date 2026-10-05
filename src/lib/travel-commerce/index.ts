@@ -19,6 +19,7 @@ export {
 	ItineraryBuilder,
 	ItineraryLegCard,
 	ItineraryMap,
+	LandingTopicGrid,
 	ParallaxLayer,
 	ResultsCounter,
 	StoreEditorialGrid,
@@ -90,4 +91,7 @@ export type {
 	TurtleHeroMorphPhases
 } from './type';
 export type { RecipeTravelLanding } from './interface';
-export type { ContactRequest } from './type';
+export type {
+	ContactRequest,
+	LandingTopic
+} from './type';

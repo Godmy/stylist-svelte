@@ -16,4 +16,7 @@ export type {
 	TurtleHeroMorphMotion,
 	TurtleHeroMorphPhases
 } from './object';
-export type { ContactRequest } from './object';
+export type {
+	ContactRequest,
+	LandingTopic
+} from './object';

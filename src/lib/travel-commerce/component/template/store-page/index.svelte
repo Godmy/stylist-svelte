@@ -27,13 +27,23 @@
 		onDurationDaysChange?: (durationDays: number[]) => void;
 		/** The host's booking draft (guests) — the cards price themselves for it. */
 		booking?: BookingDraft;
+		/** Sidebar filter selection — bindable, so a host can preselect it (e.g. from the URL) and read it back. */
+		filters?: TourFilters;
+		/** Fires after every sidebar filter change — e.g. to mirror the selection into the URL. */
+		onFiltersChange?: (filters: TourFilters) => void;
 	};
 
 	let {
 		excursions = SAMPLE_EXCURSIONS,
 		durationDays = [],
 		onDurationDaysChange,
-		booking
+		booking,
+		filters = $bindable({
+			categories: [],
+			recommendedForKids: false,
+			noEarlyDeparture: false
+		}),
+		onFiltersChange
 	}: Props = $props();
 
 	// «Тур» is always 3+ days, so switching the tour type to it drops a
@@ -46,17 +56,20 @@
 			if (kept.length !== durationDays.length) onDurationDaysChange?.(kept);
 		}
 		filters = next;
+		onFiltersChange?.(next);
 	}
 
-	let filters = $state<TourFilters>({
-		categories: [],
-		recommendedForKids: false,
-		noEarlyDeparture: false
-	});
+	const filteredExcursions = $derived(filterExcursionsByTourFilters(excursions, filters));
+	const visibleExcursions = $derived(filterExcursionsByDuration(filteredExcursions, durationDays));
 
-	const visibleExcursions = $derived(
-		filterExcursionsByDuration(filterExcursionsByTourFilters(excursions, filters), durationDays)
-	);
+	// Any way the page arrives at a «Количество дней» pick that empties a grid
+	// the other filters would fill (e.g. a landing tile into «Туры» while the
+	// shared draft still says «1 день») resets it to «Не выбрано».
+	$effect(() => {
+		if (durationDays.length && filteredExcursions.length && !visibleExcursions.length) {
+			onDurationDaysChange?.([]);
+		}
+	});
 </script>
 
 <main class="tc-store-page">

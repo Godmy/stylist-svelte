@@ -5,7 +5,7 @@
 
 <Story
 	title="TravelLanding"
-	description="Full homepage assembly: hero media slider, sticky booking bridge, and the store page."
+	description="Homepage body: media slider with the running-line ticker, overlaid with the catalogue filters and topic tiles."
 	preview="fullscreen"
 >
 	{#snippet children()}

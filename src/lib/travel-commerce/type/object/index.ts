@@ -19,3 +19,4 @@ export type {
 	TurtleHeroMorphPhases
 } from './turtle-hero-morph-config';
 export type { ContactRequest } from './contact-request';
+export type { LandingTopic } from './landing-topic';

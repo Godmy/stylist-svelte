@@ -7,6 +7,7 @@ export { HeroOutro } from './hero-outro/index';
 export { HeroScene } from './hero-scene/index';
 export { ItineraryBuilder } from './itinerary-builder/index';
 export { ItineraryMap } from './itinerary-map/index';
+export { LandingTopicGrid } from './landing-topic-grid/index';
 export { StoreEditorialGrid } from './store-editorial-grid/index';
 export { StoreTrustInsert } from './store-trust-insert/index';
 export { TourAddonPicker } from './tour-addon-picker/index';

@@ -29,6 +29,7 @@ export {
 	HeroScene,
 	ItineraryBuilder,
 	ItineraryMap,
+	LandingTopicGrid,
 	StoreEditorialGrid,
 	StoreTrustInsert,
 	TourAddonPicker,

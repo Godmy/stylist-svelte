@@ -14,6 +14,8 @@
 	// to scroll through, pinned, before the wave below fully covers the
 	// screen and the pin releases into whatever comes after the slider.
 	const WAVE_REVEAL_VH = 60;
+	const scrollReveal = $derived(props.scrollReveal ?? true);
+	const showTicker = $derived(props.showTicker ?? true);
 
 	// Toggling the `autoplay` attribute after a <video> is already mounted
 	// doesn't (re)start playback in browsers — it's only honored when the
@@ -34,7 +36,9 @@
 
 <div
 	class="c-media-slider-scroll"
-	style:height={`calc(100svh + ${WAVE_REVEAL_VH}vh)`}
+	style:height={scrollReveal
+		? `calc(var(--c-media-slider-height, 100svh) + ${WAVE_REVEAL_VH}vh)`
+		: 'var(--c-media-slider-height, 100svh)'}
 	use:scroll.track
 >
 <section
@@ -100,6 +104,16 @@
 		</div>
 	{/each}
 
+	{#if props.overlayContent}
+		<!-- Host content laid over every slide (e.g. a landing's catalogue entry
+		     points). The layer itself never takes clicks — only its children do
+		     — so the media and nav controls around it stay usable. Fades out
+		     with the ticker as the wave rises. -->
+		<div class="c-media-slider__overlay" style:opacity={1 - scroll.progress}>
+			{@render props.overlayContent()}
+		</div>
+	{/if}
+
 	{#if state.showControls && state.slides.length > 1}
 		<button
 			type="button"
@@ -142,7 +156,7 @@
 		</div>
 	{/if}
 
-	{#if state.activeSlide && state.activeSlide.type !== 'form' && state.activeSlide.caption && state.isLoaded(state.currentIndex) && (state.activeSlide.type !== 'hero' || state.heroAtRest)}
+	{#if showTicker && state.activeSlide && state.activeSlide.type !== 'form' && state.activeSlide.caption && state.isLoaded(state.currentIndex) && (state.activeSlide.type !== 'hero' || state.heroAtRest)}
 		<div class="c-media-slider__ticker" style:opacity={1 - scroll.progress}>
 			<MarqueeTicker
 				items={[state.activeSlide.caption]}
@@ -162,9 +176,11 @@
 	     state), washing the screen white before handing off to whatever comes
 	     after the slider. The ticker above fades out in lockstep so the two
 	     never fight for the same strip. -->
-	<div class="c-media-slider__wave" style:height={`${scroll.progress * 100}%`} aria-hidden="true">
-		<BeachWater tone="#ffffff" waveStart={0.14} amplitude={26} layerOffset={12} />
-	</div>
+	{#if scrollReveal}
+		<div class="c-media-slider__wave" style:height={`${scroll.progress * 100}%`} aria-hidden="true">
+			<BeachWater tone="#ffffff" waveStart={0.14} amplitude={26} layerOffset={12} />
+		</div>
+	{/if}
 </section>
 </div>
 
@@ -174,7 +190,9 @@
 		top: 0;
 		display: block;
 		width: 100%;
-		height: 100svh;
+		/* A host with an in-flow header above can shrink it to the rest of
+		   the screen. */
+		height: var(--c-media-slider-height, 100svh);
 		overflow: hidden;
 		isolation: isolate;
 		background: #0e1714;
@@ -359,6 +377,18 @@
 		background: #fff;
 	}
 
+	.c-media-slider__overlay {
+		position: absolute;
+		inset: 0 0 var(--tc-slider-ticker-height, 4.6rem);
+		z-index: 2;
+		pointer-events: none;
+		transition: opacity 240ms ease-out;
+	}
+
+	.c-media-slider__overlay > :global(*) {
+		pointer-events: auto;
+	}
+
 	/* Running-line strip that closes the slider at the bottom — fades out as
 	   the wave below rises to take its place (see __wave), and back in as the
 	   visitor scrolls back up to rest. */
@@ -412,6 +442,7 @@
 	}
 
 	@media (prefers-reduced-motion: reduce) {
+		.c-media-slider__overlay,
 		.c-media-slider__ticker,
 		.c-media-slider__wave {
 			transition: none;
