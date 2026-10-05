@@ -2,7 +2,7 @@
 	import InputStepper from '$stylist/input/component/atom/input-stepper/index.svelte';
 
 	// 2026-10-05 (заказчик): only Взрослые / Дети до 12 лет (со скидкой) /
-	// Дети до 3 лет are offered. `seniors` / `childrenTeen` stay in the props
+	// Дети до 5 лет are offered. `seniors` / `childrenTeen` stay in the props
 	// (and in BookingDraft) so existing callers and orders keep working, but
 	// there are no rows for them any more.
 	type Props = {
@@ -56,12 +56,12 @@
 		/>
 	</div>
 	<div class="tc-booking-guest__row" style:gap={gap}>
-		<span class="tc-booking-guest__label" style:font-size={textSize}>Дети до 3 лет</span>
+		<span class="tc-booking-guest__label" style:font-size={textSize}>Дети до 5 лет</span>
 		<InputStepper
 			value={childrenUnder3}
 			min={0}
 			max={8}
-			label="Дети до 3 лет"
+			label="Дети до 5 лет"
 			onChange={(value) => onChildrenUnder3Change?.(value)}
 		/>
 	</div>

@@ -25,7 +25,7 @@ export function formatGuestSummary(input: {
 	if (children > 0) {
 		parts.push(`${children} ${pluralize(children, 'ребёнок', 'ребёнка', 'детей')} до 12`);
 	}
-	if (childrenUnder3 > 0) parts.push(`${childrenUnder3} до 3 лет`);
+	if (childrenUnder3 > 0) parts.push(`${childrenUnder3} до 5 лет`);
 
 	if (parts.length === 0) {
 		return `${adults + seniors + childrenTeen + children + childrenUnder3} гостей`;

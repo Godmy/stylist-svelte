@@ -40,7 +40,7 @@
 	const summary = $derived(formatGuestCountLabel(totalGuests));
 </script>
 
-<BookingDropdown align="right" panelWidth="340px">
+<BookingDropdown align="right" panelWidth="360px">
 	{#snippet trigger({ open, toggle })}
 		<button
 			type="button"
