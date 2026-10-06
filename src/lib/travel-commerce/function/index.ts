@@ -2,6 +2,7 @@
 export { countBookingGuests } from './count';
 export {
 	calculateBookingTotalCents,
+	calculateExcursionCardTotal,
 	createStickyScrollProgress,
 	filterExcursions,
 	filterExcursionsByDuration,

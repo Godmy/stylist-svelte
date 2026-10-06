@@ -10,6 +10,7 @@
 	import type { BookingDraft } from '$stylist/booking/type/object/booking-draft';
 	import type { PricingModel } from '$stylist/travel-commerce/type/object/pricing-model';
 	import { calculateBookingTotalCents } from '$stylist/travel-commerce/function/script/calculate-booking-total';
+	import AnimatedDigit from '$stylist/animation/component/atom/animated-digit/index.svelte';
 	import logoImage from '$stylist/travel-commerce/data/jpg/logo/logo.png';
 
 	export type DayContentBlock = {
@@ -84,7 +85,7 @@
 		gallery: TourGalleryImage[];
 		content?: ContentSection[];
 		pricing: PricingModel;
-		/** The booking draft driving both the sticky top widget and the price picker below — bind this to a host-level store so it arrives pre-filled from wherever the visitor came from (e.g. the landing page's own booking bar) instead of always restarting at the defaults. */
+		/** The booking draft driving both the sticky top widget and the price picker under the title — bind this to a host-level store so it arrives pre-filled from wherever the visitor came from (e.g. the landing page's own booking bar) instead of always restarting at the defaults. */
 		bookingValue?: BookingDraft;
 		/** «Забронировать» in the top widget and under the price. Without it the buttons do nothing and the one under the price is hidden. */
 		onBook?: (value: BookingDraft) => void;
@@ -118,13 +119,13 @@
 		}))
 	);
 
-	function formatUsdCents(cents: number): string {
-		return `${Math.round(cents / 100).toLocaleString('ru-RU')} $`;
+	function formatUsd(value: number): string {
+		return `${Math.round(value).toLocaleString('ru-RU')} $`;
 	}
 
 	// Same `bookingValue` drives both the sticky top widget and this total —
-	// pick "3 человека" in either place and both agree.
-	const totalPriceCents = $derived(calculateBookingTotalCents(pricing, bookingValue));
+	// pick "3 человека" in either place and both agree; the sum rolls to it.
+	const totalPriceUsd = $derived(Math.round(calculateBookingTotalCents(pricing, bookingValue) / 100));
 </script>
 
 <main class="tc-travel-product">
@@ -167,6 +168,39 @@
 				</div>
 			{/if}
 		</header>
+
+		<!-- Pricing: right under the title, before the programme (2026-10-06, заказчик) -->
+		<section class="tc-travel-product__pricing">
+			<h2>Стоимость</h2>
+			<p class="tc-travel-product__pricing-hint">
+				Цена зависит от числа участников{pricing.seniorDiscountPercent > 0
+					? ` — пенсионерам скидка ${pricing.seniorDiscountPercent}%`
+					: ''}.
+			</p>
+			<BookingGuest
+				adults={bookingValue.adults}
+				seniors={bookingValue.seniors ?? 0}
+				children={bookingValue.children}
+				childrenUnder3={bookingValue.childrenUnder3 ?? 0}
+				childrenTeen={bookingValue.childrenTeen ?? 0}
+				onAdultsChange={(value) => (bookingValue = { ...bookingValue, adults: value })}
+				onSeniorsChange={(value) => (bookingValue = { ...bookingValue, seniors: value })}
+				onChildrenChange={(value) => (bookingValue = { ...bookingValue, children: value })}
+				onChildrenUnder3Change={(value) => (bookingValue = { ...bookingValue, childrenUnder3: value })}
+				onChildrenTeenChange={(value) => (bookingValue = { ...bookingValue, childrenTeen: value })}
+			/>
+			<div class="tc-travel-product__price-total">
+				<span class="tc-travel-product__price-total-label">Итого</span>
+				<span class="tc-travel-product__price-total-value">
+					<AnimatedDigit from={totalPriceUsd} to={totalPriceUsd} duration="500ms" format={formatUsd} />
+				</span>
+			</div>
+			{#if onBook}
+				<button type="button" class="tc-travel-product__book" onclick={() => onBook(bookingValue)}>
+					Забронировать
+				</button>
+			{/if}
+		</section>
 
 		<hr class="tc-travel-product__divider" />
 
@@ -296,36 +330,6 @@
 			{/if}
 		{/each}
 
-		<!-- Pricing Section -->
-		<section class="tc-travel-product__pricing">
-			<h2>Стоимость</h2>
-			<p class="tc-travel-product__pricing-hint">
-				Цена зависит от числа участников{pricing.seniorDiscountPercent > 0
-					? ` — пенсионерам скидка ${pricing.seniorDiscountPercent}%`
-					: ''}.
-			</p>
-			<BookingGuest
-				adults={bookingValue.adults}
-				seniors={bookingValue.seniors ?? 0}
-				children={bookingValue.children}
-				childrenUnder3={bookingValue.childrenUnder3 ?? 0}
-				childrenTeen={bookingValue.childrenTeen ?? 0}
-				onAdultsChange={(value) => (bookingValue = { ...bookingValue, adults: value })}
-				onSeniorsChange={(value) => (bookingValue = { ...bookingValue, seniors: value })}
-				onChildrenChange={(value) => (bookingValue = { ...bookingValue, children: value })}
-				onChildrenUnder3Change={(value) => (bookingValue = { ...bookingValue, childrenUnder3: value })}
-				onChildrenTeenChange={(value) => (bookingValue = { ...bookingValue, childrenTeen: value })}
-			/>
-			<div class="tc-travel-product__price-total">
-				<span class="tc-travel-product__price-total-label">Итого</span>
-				<span class="tc-travel-product__price-total-value">{formatUsdCents(totalPriceCents)}</span>
-			</div>
-			{#if onBook}
-				<button type="button" class="tc-travel-product__book" onclick={() => onBook(bookingValue)}>
-					Забронировать
-				</button>
-			{/if}
-		</section>
 	</div>
 </main>
 
@@ -738,6 +742,7 @@
 
 	/* Pricing */
 	.tc-travel-product__pricing {
+		margin-top: 1rem;
 		background: rgba(255, 255, 255, 0.6);
 		border-radius: 0.75rem;
 		padding: 2rem;

@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { calculateBookingTotalCents } from './calculate-booking-total';
+export { calculateExcursionCardTotal } from './calculate-excursion-card-total';
 export { createStickyScrollProgress } from './create-sticky-scroll-progress';
 export { filterExcursions } from './filter-excursions';
 export { filterExcursionsByDuration } from './filter-excursions-by-duration';

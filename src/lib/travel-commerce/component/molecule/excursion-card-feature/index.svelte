@@ -5,7 +5,7 @@
 	import TourCardBadges from '$stylist/travel-commerce/component/molecule/tour-card-badges/index.svelte';
 	import TourTagList from '$stylist/travel-commerce/component/molecule/tour-tag-list/index.svelte';
 	import TourPriceNote from '$stylist/travel-commerce/component/molecule/tour-price-note/index.svelte';
-	import { formatExcursionCardPrice } from '$stylist/travel-commerce/function/script/format-excursion-card-price';
+	import { calculateExcursionCardTotal } from '$stylist/travel-commerce/function/script/calculate-excursion-card-total';
 
 	type Props = {
 		excursion: Excursion;
@@ -22,7 +22,7 @@
 			return label ? [label] : [];
 		})
 	);
-	const price = $derived(formatExcursionCardPrice(excursion, booking));
+	const total = $derived(calculateExcursionCardTotal(excursion, booking));
 </script>
 
 <a class="tc-feature-card" href={`/tours/${excursion.slug}`}>
@@ -37,7 +37,7 @@
 		<h3>{excursion.title}</h3>
 		<p>{excursion.summary}</p>
 		<TourTagList tags={categoryLabels} />
-		<TourPriceNote {price} />
+		<TourPriceNote price={excursion.priceFrom} {total} />
 	</div>
 </a>
 

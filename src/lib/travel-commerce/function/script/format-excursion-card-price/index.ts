@@ -1,7 +1,6 @@
 import type { BookingDraft } from '$stylist/booking/type/object/booking-draft';
 import type { Excursion } from '$stylist/travel-commerce/type/object/excursion';
-import { calculateBookingTotalCents } from '$stylist/travel-commerce/function/script/calculate-booking-total';
-import { countBookingGuests } from '$stylist/travel-commerce/function/count/booking-guest';
+import { calculateExcursionCardTotal } from '$stylist/travel-commerce/function/script/calculate-excursion-card-total';
 
 /**
  * A product card's price line: the real total for the visitor's current
@@ -9,9 +8,7 @@ import { countBookingGuests } from '$stylist/travel-commerce/function/count/book
  * are known, otherwise the static `priceFrom` label.
  */
 export function formatExcursionCardPrice(excursion: Excursion, booking?: BookingDraft): string | undefined {
-	if (!excursion.pricing || !booking) return excursion.priceFrom;
-	const guests = countBookingGuests(booking);
-	if (guests === 0) return excursion.priceFrom;
-	const totalCents = calculateBookingTotalCents(excursion.pricing, booking);
-	return `${Math.round(totalCents / 100).toLocaleString('ru-RU')} $ за ${guests} чел.`;
+	const total = calculateExcursionCardTotal(excursion, booking);
+	if (!total) return excursion.priceFrom;
+	return `${total.usd.toLocaleString('ru-RU')} $ за ${total.guests} чел.`;
 }

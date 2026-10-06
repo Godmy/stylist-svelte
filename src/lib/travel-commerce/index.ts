@@ -67,6 +67,7 @@ export {
 } from './const';
 export {
 	calculateBookingTotalCents,
+	calculateExcursionCardTotal,
 	countBookingGuests,
 	createStickyScrollProgress,
 	filterExcursions,

@@ -6,17 +6,18 @@
 	const state = createAnimatedDigitState(() => props);
 </script>
 
-<div class={state.classes} style={state.inlineStyle}>
+<!-- Inline, so it can sit inside a sentence or a <p> («740 $ за 3 чел.»). -->
+<span class={state.classes} style={state.inlineStyle}>
 	{#if state.children}
 		{@render state.children()}
 	{:else}
 		{state.formattedValue}
 	{/if}
-</div>
+</span>
 
 <style>
 	.c-animated-digit {
-		will-change: transform;
+		font-variant-numeric: tabular-nums;
 	}
 
 	.c-animated-digit--infinite {
