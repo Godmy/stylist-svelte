@@ -86,7 +86,7 @@
 		display: flex;
 		align-items: flex-start;
 		gap: 24px;
-		width: min(1180px, calc(100% - 32px));
+		width: var(--page-width, min(1180px, calc(100% - 32px)));
 		margin: 0 auto;
 		background: #f7f3ec;
 		min-height: 100vh;

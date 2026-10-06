@@ -390,9 +390,9 @@
 	}
 
 	.tc-travel-product__content {
-		max-width: 900px;
+		width: var(--page-width, min(1180px, calc(100% - 32px)));
 		margin: 0 auto;
-		padding: 2rem 1.5rem 4rem;
+		padding: 2rem 0 4rem;
 		display: flex;
 		flex-direction: column;
 		gap: 3rem;

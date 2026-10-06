@@ -130,7 +130,7 @@
 		display: grid;
 		align-content: center;
 		min-height: var(--tc-hero-height);
-		width: min(1180px, calc(100% - 32px));
+		width: var(--page-width, min(1180px, calc(100% - 32px)));
 		margin: 0 auto;
 		padding: 80px 0 118px;
 	}

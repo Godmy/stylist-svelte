@@ -59,7 +59,7 @@
 <style>
 	.c-mega-link {
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		gap: 0.75rem;
 		padding: 0.625rem 0.75rem;
 		border-radius: 0.625rem;

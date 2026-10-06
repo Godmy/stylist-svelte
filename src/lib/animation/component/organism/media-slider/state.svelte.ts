@@ -7,6 +7,8 @@ export function createMediaSliderState(getProps: () => RecipeMediaSlider) {
 	const motionPreference = createMotionPreferenceState();
 
 	let currentIndex = $state(0);
+	let pendingIndex = $state<number | null>(null);
+	let transitioning = false;
 	let loadedIndexes = $state(new Set<number>());
 	let heroAtRest = $state(true);
 	const slides = $derived(props.slides ?? []);
@@ -25,17 +27,38 @@ export function createMediaSliderState(getProps: () => RecipeMediaSlider) {
 
 	function next() {
 		if (slides.length === 0) return;
-		currentIndex = (currentIndex + 1) % slides.length;
+		goTo(((pendingIndex ?? currentIndex) + 1) % slides.length);
 	}
 
 	function prev() {
 		if (slides.length === 0) return;
-		currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+		goTo(((pendingIndex ?? currentIndex) - 1 + slides.length) % slides.length);
 	}
 
 	function goTo(index: number) {
 		if (index < 0 || index >= slides.length) return;
+		if (transitioning) {
+			pendingIndex = index;
+			return;
+		}
+		// Keep the current picture visible while the requested media loads.
+		// Only the latest navigation request is committed when it is ready.
+		const slide = slides[index];
+		if ((slide.type === 'image' || slide.type === 'video') && !isLoaded(index)) {
+			pendingIndex = index;
+			return;
+		}
+		pendingIndex = null;
+		if (index === currentIndex) return;
+		const outgoing = slides[currentIndex];
+		transitioning = (outgoing?.type === 'image' || outgoing?.type === 'video')
+			&& (slide.type === 'image' || slide.type === 'video');
 		currentIndex = index;
+	}
+
+	function finishTransition() {
+		transitioning = false;
+		if (pendingIndex !== null) goTo(pendingIndex);
 	}
 
 	function handleVideoEnded(index: number) {
@@ -45,6 +68,7 @@ export function createMediaSliderState(getProps: () => RecipeMediaSlider) {
 	function markLoaded(index: number) {
 		if (loadedIndexes.has(index)) return;
 		loadedIndexes = new Set(loadedIndexes).add(index);
+		if (pendingIndex === index) goTo(index);
 	}
 
 	function isLoaded(index: number) {
@@ -107,6 +131,7 @@ export function createMediaSliderState(getProps: () => RecipeMediaSlider) {
 		next,
 		prev,
 		goTo,
+		finishTransition,
 		markLoaded,
 		isLoaded,
 		setHeroAtRest,

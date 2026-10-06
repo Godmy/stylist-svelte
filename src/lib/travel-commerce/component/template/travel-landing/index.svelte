@@ -27,8 +27,9 @@
 	import type { RecipeTravelLanding } from '$stylist/travel-commerce/interface/recipe/travel-landing';
 	import type { TourFilters } from '$stylist/booking/type/object/tour-filters';
 	import { createTravelLandingState } from './state.svelte';
+	import type { Snippet } from 'svelte';
 
-	let { heroSlider = DEFAULT_HERO_SLIDER, topics = [], onFiltersChange }: RecipeTravelLanding =
+	let { heroSlider = DEFAULT_HERO_SLIDER, topics = [], onFiltersChange, betweenTopicRows }: RecipeTravelLanding & { betweenTopicRows?: Snippet } =
 		$props();
 
 	let filters = $state<TourFilters>({
@@ -71,7 +72,7 @@
 				</aside>
 				<div class="tc-landing-page__topics">
 					<h2 id="tc-landing-page-entry-title" class="tc-landing-page__title">Куда отправимся?</h2>
-					<LandingTopicGrid {topics} />
+					<LandingTopicGrid {topics} betweenRows={betweenTopicRows} />
 				</div>
 			</section>
 		{/snippet}
@@ -94,13 +95,19 @@
 		display: flex;
 		align-items: flex-start;
 		gap: 24px;
-		width: min(1180px, calc(100% - 32px));
+		width: var(--page-width, min(1180px, calc(100% - 32px)));
 		max-height: 100%;
 		margin: 0 auto;
 		padding: calc(var(--tc-landing-overlay-top, 0px) + 24px) 0 24px;
 		overflow-y: auto;
+		overflow-x: hidden;
 		overscroll-behavior: contain;
-		scrollbar-width: thin;
+		/* Keep scrolling without letting an inner scrollbar shrink only
+		   the right-hand card column. The site's root scrollbar is stable. */
+		scrollbar-width: none;
+	}
+	.tc-landing-page__entry::-webkit-scrollbar {
+		display: none;
 	}
 
 	.tc-landing-page__filters {
@@ -116,7 +123,7 @@
 
 	.tc-landing-page__title {
 		margin: 0 0 16px;
-		color: #fff;
+		color: #000;
 		font-family: 'Playfair Display Variable', Georgia, serif;
 		font-size: clamp(1.6rem, 3vw, 2.2rem);
 		line-height: 1.15;

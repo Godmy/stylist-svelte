@@ -40,7 +40,7 @@
 		display: grid;
 		grid-template-columns: repeat(12, minmax(0, 1fr));
 		gap: 18px;
-		width: min(1180px, calc(100% - 32px));
+		width: var(--page-width, min(1180px, calc(100% - 32px)));
 		margin: 0 auto;
 		padding: 18px 0 80px;
 	}

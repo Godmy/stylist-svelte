@@ -17,6 +17,37 @@
 	const scrollReveal = $derived(props.scrollReveal ?? true);
 	const showTicker = $derived(props.showTicker ?? true);
 
+	// Complete each dissolve before applying another navigation request.
+	// Otherwise a half-visible incoming layer could become the background.
+	function syncSlideTransition(node: HTMLDivElement, active: boolean) {
+		let timer: ReturnType<typeof setTimeout> | undefined;
+		let frame = 0;
+		function finishWhenOpaque() {
+			if (Number(getComputedStyle(node).opacity) === 1) state.finishTransition();
+			else frame = requestAnimationFrame(finishWhenOpaque);
+		}
+		function apply(isActive: boolean) {
+			clearTimeout(timer);
+			cancelAnimationFrame(frame);
+			if (!isActive) return;
+			const style = getComputedStyle(node);
+			const durations = style.transitionDuration.split(',');
+			const delays = style.transitionDelay.split(',');
+			const duration = Math.max(...durations.map((value, index) =>
+				(parseFloat(value) + parseFloat(delays[index % delays.length])) * 1000
+			));
+			timer = setTimeout(finishWhenOpaque, duration);
+		}
+		apply(active);
+		return {
+			update: apply,
+			destroy: () => {
+				clearTimeout(timer);
+				cancelAnimationFrame(frame);
+			}
+		};
+	}
+
 	// Toggling the `autoplay` attribute after a <video> is already mounted
 	// doesn't (re)start playback in browsers — it's only honored when the
 	// element first loads its resource. Since every slide is mounted upfront
@@ -49,8 +80,10 @@
 	{#each state.slides as slide, index (slide.id)}
 		<div
 			class="c-media-slider__slide"
+			class:c-media-slider__slide--media={slide.type === 'image' || slide.type === 'video'}
 			class:c-media-slider__slide--active={index === state.currentIndex}
 			aria-hidden={index !== state.currentIndex}
+			use:syncSlideTransition={index === state.currentIndex}
 		>
 			{#if slide.type === 'video'}
 				<video
@@ -74,7 +107,7 @@
 					class="c-media-slider__media"
 					src={slide.src}
 					alt={slide.alt ?? ''}
-					loading={index === 0 ? 'eager' : 'lazy'}
+					loading="eager"
 					onload={() => state.markLoaded(index)}
 					onerror={() => state.markLoaded(index)}
 				/>
@@ -214,7 +247,7 @@
 		   for the active slide underneath (e.g. the hero slide's own scroll-
 		   scrubbed morph never receives a single wheel event). */
 		pointer-events: none;
-		transition: opacity 800ms ease;
+		transition: opacity var(--c-media-slider-transition-duration, 800ms) ease;
 	}
 
 	.c-media-slider__slide--active {
@@ -233,6 +266,20 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+
+	/* Keep outgoing media opaque underneath the incoming fade. Fading both
+	   layers at once exposes the dark background halfway through a change.
+	   Apply stacking only to media: hero content needs its existing stacking
+	   relationship with the overlay and wave. Duration can be set by hosts. */
+	.c-media-slider__slide--media {
+		z-index: 0;
+		transition: opacity 0s linear var(--c-media-slider-transition-duration, 800ms);
+	}
+
+	.c-media-slider__slide--media.c-media-slider__slide--active {
+		z-index: 1;
+		transition: opacity var(--c-media-slider-transition-duration, 800ms) ease;
 	}
 
 	.c-media-slider__form {
@@ -450,7 +497,8 @@
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.c-media-slider__slide {
+		.c-media-slider__slide,
+		.c-media-slider__slide--media.c-media-slider__slide--active {
 			transition: none;
 		}
 	}

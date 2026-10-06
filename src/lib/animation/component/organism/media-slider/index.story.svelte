@@ -26,6 +26,8 @@
 	];
 
 	const controls: SlotStory[] = [
+		{ name: 'showVideo', type: 'boolean', label: 'Видеослайд', defaultValue: false },
+		{ name: 'transitionDuration', type: 'number', label: 'Растворение (мс)', defaultValue: 800 },
 		{ name: 'autoPlay', type: 'boolean', defaultValue: true },
 		{ name: 'autoPlayInterval', type: 'number', defaultValue: 4000 },
 		{ name: 'showControls', type: 'boolean', defaultValue: true },
@@ -40,20 +42,23 @@
 	{controls}
 	component={MediaSlider}
 	title="MediaSlider"
-	description="Full-viewport image/video slider. Video slides advance on end, image slides on a timer. Respects prefers-reduced-motion."
+	description="Плавное растворение между фотографиями без мигания фона. Настройте длительность перехода, переключайте стрелками или включите автопоказ и видеослайд. Учитывает prefers-reduced-motion."
 >
 	{#snippet children(values: any)}
-		<div class="_c1">
+		<div class="_c1" style:--c-media-slider-transition-duration={`${Math.max(0, Number(values.transitionDuration) || 0)}ms`}>
 			<MediaSlider
 				slides={[
 					{ ...slides[0], caption: values.caption1 },
-					{ ...slides[1], caption: values.caption2 },
+					values.showVideo
+						? { ...slides[1], caption: values.caption2 }
+						: { id: 'ocean', type: 'image', src: slides[1].poster!, alt: 'Песчаный берег и океан', caption: values.caption2 },
 					{ ...slides[2], caption: values.caption3 }
 				]}
 				autoPlay={Boolean(values.autoPlay)}
 				autoPlayInterval={Number(values.autoPlayInterval)}
 				showControls={Boolean(values.showControls)}
 				showIndicators={Boolean(values.showIndicators)}
+				scrollReveal={false}
 			/>
 		</div>
 	{/snippet}
@@ -61,12 +66,9 @@
 
 <style>
 	._c1 {
+		--c-media-slider-height: 70vh;
 		height: 70vh;
 		overflow: hidden;
 		border-radius: 0.5rem;
-	}
-
-	._c1 :global(.c-media-slider) {
-		height: 100%;
 	}
 </style>

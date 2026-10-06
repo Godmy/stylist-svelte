@@ -41,7 +41,7 @@
 		width: 100%;
 		max-width: none;
 		margin: 0;
-		padding: 18px max(16px, calc((100% - 1180px) / 2)) 16px;
+		padding: 18px max(var(--gutter, 16px), calc((100% - var(--container, 1180px)) / 2)) 16px;
 		background: color-mix(in srgb, #f7f3ec 92%, transparent);
 		backdrop-filter: blur(8px);
 		border-bottom: 1px solid rgba(23, 35, 31, 0.08);
