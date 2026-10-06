@@ -29,8 +29,13 @@
 	import { createTravelLandingState } from './state.svelte';
 	import type { Snippet } from 'svelte';
 
-	let { heroSlider = DEFAULT_HERO_SLIDER, topics = [], onFiltersChange, betweenTopicRows }: RecipeTravelLanding & { betweenTopicRows?: Snippet } =
-		$props();
+	let {
+		heroSlider = DEFAULT_HERO_SLIDER,
+		topics = [],
+		onFiltersChange,
+		showSliderControls = true,
+		betweenTopicRows
+	}: RecipeTravelLanding & { betweenTopicRows?: Snippet } = $props();
 
 	let filters = $state<TourFilters>({
 		categories: [],
@@ -57,7 +62,7 @@
 		autoPlayInterval={5000}
 		scrollReveal={false}
 		showTicker={false}
-		showControls
+		showControls={showSliderControls}
 		showIndicators
 		onSlideChange={landing.handleSlideChange}
 	>

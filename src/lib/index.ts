@@ -104,13 +104,20 @@ export {
 	formatGuestSummary
 } from './booking';
 export {
+	AnimatedButton,
+	ArrowButton,
 	Button,
 	ButtonComposed,
 	CONTROL_BUTTON_ICON,
 	CloseButton,
 	CopyButton,
+	FillButton,
 	FollowButton,
+	GlowButton,
 	IconButton,
+	MorphButton,
+	SelectionButton,
+	ShineButton,
 	SplitButton,
 	TOKEN_BUTTON_LOADER_CLASSES,
 	ToolButton,
@@ -1214,6 +1221,7 @@ export {
 	TurtleHeroWordmark,
 	TurtlePhotoToMark,
 	calculateBookingTotalCents,
+	calculateExcursionCardTotal,
 	countBookingGuests,
 	filterExcursions,
 	filterExcursionsByDuration,

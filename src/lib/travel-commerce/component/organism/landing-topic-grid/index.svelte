@@ -55,8 +55,9 @@
 	.tc-landing-topic-grid__cta {
 		grid-column: 1 / -1;
 		min-width: 0;
-		/* Keep the hover lift, focus ring and glow inside the scroll viewport. */
-		padding: 20px 24px;
+		/* Keep the hover lift, focus ring and glow inside the scroll viewport:
+		   16px covers the host CTA's 4% hover scale-up (2026-10-06). */
+		padding: 20px 16px;
 	}
 
 	.tc-landing-topic-grid {
@@ -72,7 +73,8 @@
 		grid-column: span 3;
 		min-width: 0;
 		width: 100%;
-		aspect-ratio: 4 / 3;
+		/* A bit lower than 4/3, to give the CTA above more height (2026-10-06). */
+		aspect-ratio: 16 / 11;
 	}
 
 	/* Info tiles: titles scale with the tile's own width (cqi). */

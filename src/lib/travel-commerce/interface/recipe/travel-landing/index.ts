@@ -9,4 +9,6 @@ export interface RecipeTravelLanding {
 	topics?: LandingTopic[];
 	/** A pick in the landing's filter panel — the host navigates into the store with it preselected. */
 	onFiltersChange?: (filters: TourFilters) => void;
+	/** The slider's prev/next arrows. Default `true`; lankatour.ru's landing turns them off (2026-10-06) — they sat on top of the catalogue overlay. */
+	showSliderControls?: boolean;
 }
