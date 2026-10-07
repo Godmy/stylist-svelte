@@ -10,6 +10,7 @@
 		const {
 			title: _title,
 			links: _links,
+			iconLinks: _iconLinks,
 			moreLink: _moreLink,
 			compact: _compact,
 			class: _class,
@@ -30,6 +31,9 @@
 					href={link.href}
 					description={link.description}
 					icon={link.icon}
+					iconSvg={link.iconSvg}
+					iconBackground={link.iconBackground}
+					iconColor={link.iconColor}
 					badge={link.badge}
 					active={link.active}
 					external={link.external}
@@ -39,6 +43,26 @@
 			</li>
 		{/each}
 	</ul>
+	{#if props.iconLinks?.length}
+		<ul class="c-mega-column__icons">
+			{#each props.iconLinks as link (link.id)}
+				<li>
+					<MegaMenuLink
+						label={link.label}
+						href={link.href}
+						icon={link.icon}
+						iconSvg={link.iconSvg}
+						iconBackground={link.iconBackground}
+						iconColor={link.iconColor}
+						active={link.active}
+						external={link.external}
+						iconOnly
+						onNavigate={props.onNavigate}
+					/>
+				</li>
+			{/each}
+		</ul>
+	{/if}
 	{#if props.moreLink}
 		<a
 			class="c-mega-column__more"
@@ -75,6 +99,15 @@
 		gap: 0.125rem;
 		margin: 0;
 		padding: 0;
+		list-style: none;
+	}
+
+	.c-mega-column__icons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem;
+		margin: 0;
+		padding: 0 0.5rem;
 		list-style: none;
 	}
 

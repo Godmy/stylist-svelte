@@ -7,6 +7,8 @@ export interface SlotMegaMenuColumn {
 	title: string;
 	/** Links listed in the column */
 	links: SlotMegaMenuLink[];
+	/** Optional row of icon-only links under the list (label → accessible name) */
+	iconLinks?: SlotMegaMenuLink[];
 	/** Optional trailing "see all" link */
 	moreLink?: SlotMegaMenuLink;
 }

@@ -6,6 +6,8 @@ export interface RecipeMegaMenuLink
 		Omit<SlotMegaMenuLink, 'id'> {
 	/** Compact rendering without description */
 	compact?: boolean;
+	/** Only the icon is shown; the label becomes the accessible name and tooltip */
+	iconOnly?: boolean;
 	/** Additional CSS classes */
 	class?: string;
 	/** Fired when the link is activated */

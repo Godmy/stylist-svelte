@@ -38,6 +38,7 @@
 					<MegaMenuColumn
 						title={column.title}
 						links={column.links}
+						iconLinks={column.iconLinks}
 						moreLink={column.moreLink}
 						compact={props.compact}
 						onNavigate={props.onNavigate}
@@ -58,6 +59,9 @@
 					label={link.label}
 					href={link.href}
 					icon={link.icon}
+					iconSvg={link.iconSvg}
+					iconBackground={link.iconBackground}
+					iconColor={link.iconColor}
 					badge={link.badge}
 					active={link.active}
 					external={link.external}

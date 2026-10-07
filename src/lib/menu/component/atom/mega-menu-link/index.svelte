@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { RecipeMegaMenuLink } from '$stylist/menu/interface/recipe/mega-menu-link';
 	import BaseIcon from '$stylist/svg/component/atom/icon/index.svelte';
+	import Svg from '$stylist/svg/component/atom/svg/index.svelte';
 
 	let props: RecipeMegaMenuLink = $props();
 
@@ -10,6 +11,10 @@
 			href: _href,
 			description: _description,
 			icon: _icon,
+			iconSvg: _iconSvg,
+			iconBackground: _iconBackground,
+			iconColor: _iconColor,
+			iconOnly: _iconOnly,
 			badge: _badge,
 			active: _active,
 			external: _external,
@@ -29,31 +34,46 @@
 <a
 	{...restProps}
 	href={props.href}
-	class={['c-mega-link', props.compact && 'c-mega-link--compact', props.class]
+	class={[
+		'c-mega-link',
+		props.compact && 'c-mega-link--compact',
+		props.iconOnly && 'c-mega-link--icon-only',
+		props.class
+	]
 		.filter(Boolean)
 		.join(' ')}
 	data-active={props.active || undefined}
 	aria-current={props.active ? 'page' : undefined}
 	target={props.external ? '_blank' : undefined}
 	rel={props.external ? 'noopener noreferrer' : undefined}
+	aria-label={props.iconOnly ? props.label : undefined}
+	title={props.iconOnly ? props.label : undefined}
+	style:--c-mega-link-icon-bg={props.iconBackground}
+	style:--c-mega-link-icon-color={props.iconColor}
 	onclick={handleClick}
 >
-	{#if props.icon}
+	{#if props.iconSvg}
+		<span class="c-mega-link__icon" aria-hidden="true">
+			<Svg svg={props.iconSvg} size={18} />
+		</span>
+	{:else if props.icon}
 		<span class="c-mega-link__icon" aria-hidden="true">
 			<BaseIcon name={props.icon} size={18} />
 		</span>
 	{/if}
-	<span class="c-mega-link__body">
-		<span class="c-mega-link__label">
-			{props.label}
-			{#if props.badge}
-				<span class="c-mega-link__badge">{props.badge}</span>
+	{#if !props.iconOnly}
+		<span class="c-mega-link__body">
+			<span class="c-mega-link__label">
+				{props.label}
+				{#if props.badge}
+					<span class="c-mega-link__badge">{props.badge}</span>
+				{/if}
+			</span>
+			{#if props.description && !props.compact}
+				<span class="c-mega-link__description">{props.description}</span>
 			{/if}
 		</span>
-		{#if props.description && !props.compact}
-			<span class="c-mega-link__description">{props.description}</span>
-		{/if}
-	</span>
+	{/if}
 </a>
 
 <style>
@@ -95,8 +115,24 @@
 		width: 2rem;
 		height: 2rem;
 		border-radius: 0.5rem;
-		background: var(--color-primary-50, #eff6ff);
-		color: var(--color-primary-600, #2563eb);
+		background: var(--c-mega-link-icon-bg, var(--color-primary-50, #eff6ff));
+		color: var(--c-mega-link-icon-color, var(--color-primary-600, #2563eb));
+	}
+
+	.c-mega-link--icon-only {
+		padding: 0.25rem;
+	}
+
+	.c-mega-link--icon-only .c-mega-link__icon {
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		transition: transform var(--duration-150, 150ms) ease;
+	}
+
+	.c-mega-link--icon-only:hover .c-mega-link__icon,
+	.c-mega-link--icon-only:focus-visible .c-mega-link__icon {
+		transform: translateY(-1px);
 	}
 
 	.c-mega-link--compact .c-mega-link__icon {
