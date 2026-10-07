@@ -46,3 +46,5 @@ yarn-debug.log*
 yarn-error.log*
 
 
+# Story screenshots from examples/capture-story-screenshots.mjs
+artifacts/
