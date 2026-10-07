@@ -3,10 +3,12 @@
 
 	type Props = {
 		value?: string;
+		/** Only these ISO dates can be picked (a tour's schedule); absent — any day from today. */
+		availableDates?: string[];
 		onChange?: (value: string) => void;
 	};
 
-	let { value = '', onChange }: Props = $props();
+	let { value = '', availableDates, onChange }: Props = $props();
 
 	function toIsoDate(date: Date): string {
 		const year = date.getFullYear();
@@ -26,13 +28,23 @@
 		return Number.isNaN(parsed.getTime()) ? null : parsed;
 	});
 
-	function isPast(date: Date): boolean {
-		return startOfDay(date) < today;
+	const available = $derived(availableDates ? new Set(availableDates) : null);
+	const firstAvailable = $derived(
+		availableDates?.[0] ? new Date(`${availableDates[0]}T00:00:00`) : undefined
+	);
+
+	function isDisabled(date: Date): boolean {
+		if (startOfDay(date) < today) return true;
+		return available ? !available.has(toIsoDate(date)) : false;
 	}
 </script>
 
 <div class="tc-booking-calendar-shell">
-	<Calendar value={selectedDate} isDateDisabled={isPast} onChange={(date) => onChange?.(toIsoDate(date))} />
+	<Calendar
+		value={selectedDate}
+		initialMonth={firstAvailable}
+		isDateDisabled={isDisabled}
+		onChange={(date) => onChange?.(toIsoDate(date))} />
 </div>
 
 <style>

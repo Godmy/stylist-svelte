@@ -8,10 +8,12 @@
 
 	type Props = {
 		value?: string;
+		/** Only these ISO dates can be picked (a tour's schedule); absent — any day. */
+		availableDates?: string[];
 		onChange?: (value: string) => void;
 	};
 
-	let { value = '', onChange }: Props = $props();
+	let { value = '', availableDates, onChange }: Props = $props();
 
 	const displayValue = $derived.by(() => {
 		if (!value) return '';
@@ -48,6 +50,7 @@
 		<div class="tc-booking-date-panel">
 			<BookingCalendar
 				{value}
+				{availableDates}
 				onChange={(next) => {
 					onChange?.(next);
 					close();

@@ -22,6 +22,14 @@
 		fullWidth?: boolean;
 		/** Which `AccordionLayout` section (`pickup`/`date`/`guests`/`adventures`) starts open. Only read once, at mount — hosts that need to force a specific section open later (e.g. re-expanding straight to "Приключения") should remount this component (e.g. via `{#key}`) rather than expect this to react live. */
 		initialOpenSection?: string;
+		/** «Откуда забрать» places; BookingPickupList's own default when absent. */
+		pickupOptions?: string[];
+		/** Per-place note, e.g. «+$50» (see BookingPickupList). */
+		pickupHints?: Record<string, string>;
+		/** A tour's pickup tariff — places grouped Бесплатно / С доплатой / По запросу. */
+		pickupTariff?: { place: string; amountCents: number }[];
+		/** Only these ISO dates can be picked (a tour's schedule). */
+		availableDates?: string[];
 		onSearch?: (value: BookingDraft) => void;
 	};
 
@@ -42,6 +50,10 @@
 		showDuration = true,
 		fullWidth = false,
 		initialOpenSection,
+		pickupOptions,
+		pickupHints,
+		pickupTariff,
+		availableDates,
 		onSearch
 	}: Props = $props();
 
@@ -70,7 +82,13 @@
 		{#snippet children()}
 			<AccordionLayout value="pickup" title={`Откуда забрать: ${value.pickup}`}>
 				{#snippet children()}
-					<BookingPickupList value={value.pickup} onChange={(pickup) => (value = { ...value, pickup })} />
+					<BookingPickupList
+						value={value.pickup}
+						options={pickupOptions}
+						hints={pickupHints}
+						tariff={pickupTariff}
+						onChange={(pickup) => (value = { ...value, pickup })}
+					/>
 				{/snippet}
 			</AccordionLayout>
 
@@ -93,7 +111,11 @@
 
 			<AccordionLayout value="date" title={`Когда: ${dateLabel}`}>
 				{#snippet children()}
-					<BookingCalendar value={value.date} onChange={(date) => (value = { ...value, date })} />
+					<BookingCalendar
+						value={value.date}
+						{availableDates}
+						onChange={(date) => (value = { ...value, date })}
+					/>
 				{/snippet}
 			</AccordionLayout>
 

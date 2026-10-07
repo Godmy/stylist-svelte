@@ -3,6 +3,7 @@
 	import BookingFieldDate from '$stylist/booking/component/molecule/booking-field-date/index.svelte';
 	import BookingFieldGuests from '$stylist/booking/component/molecule/booking-field-guests/index.svelte';
 	import BookingFieldDuration from '$stylist/booking/component/molecule/booking-field-duration/index.svelte';
+	import AnimatedDigit from '$stylist/animation/component/atom/animated-digit/index.svelte';
 	import type { BookingDraft } from '$stylist/booking/type/object/booking-draft';
 
 	type Props = {
@@ -10,6 +11,16 @@
 		compact?: boolean;
 		/** Показывать ли поле «Количество дней». По умолчанию true — на странице тура (travel-product) длительность уже известна из самого тура, здесь скрывается. */
 		showDuration?: boolean;
+		/** «Откуда вас забрать» places; the field's own default list when absent. */
+		pickupOptions?: string[];
+		/** Per-place note in the pickup list, e.g. «бесплатно» / «+$50». */
+		pickupHints?: Record<string, string>;
+		/** A tour's pickup tariff — «Откуда вас забрать?» opens as a mega-menu (Бесплатно / С доплатой / По запросу). */
+		pickupTariff?: { place: string; amountCents: number }[];
+		/** Only these ISO dates can be picked in «Когда» (a tour's schedule). */
+		availableDates?: string[];
+		/** A tour's total in whole USD for the current choice. When set, a «Цена» field (rolling digits) takes the place of «Количество дней». */
+		priceUsd?: number;
 		onSearch?: (value: BookingDraft) => void;
 	};
 
@@ -27,12 +38,27 @@
 		}),
 		compact = false,
 		showDuration = true,
+		pickupOptions,
+		pickupHints,
+		pickupTariff,
+		availableDates,
+		priceUsd,
 		onSearch
 	}: Props = $props();
+
+	function formatUsd(amount: number): string {
+		return `${Math.round(amount).toLocaleString('ru-RU')} $`;
+	}
 </script>
 
 <div class="tc-booking-bar" data-compact={compact || undefined}>
-	<BookingFieldPickup value={value.pickup} onChange={(pickup) => (value = { ...value, pickup })} />
+	<BookingFieldPickup
+		value={value.pickup}
+		options={pickupOptions}
+		hints={pickupHints}
+		tariff={pickupTariff}
+		onChange={(pickup) => (value = { ...value, pickup })}
+	/>
 	<BookingFieldGuests
 		adults={value.adults}
 		seniors={value.seniors ?? 0}
@@ -45,8 +71,22 @@
 		onChildrenChange={(children) => (value = { ...value, children })}
 		onChildrenUnder3Change={(childrenUnder3) => (value = { ...value, childrenUnder3 })}
 	/>
-	<BookingFieldDate value={value.date} onChange={(date) => (value = { ...value, date })} />
-	{#if showDuration}
+	<BookingFieldDate
+		value={value.date}
+		{availableDates}
+		onChange={(date) => (value = { ...value, date })}
+	/>
+	{#if priceUsd !== undefined}
+		<div class="tc-booking-bar__price" aria-live="polite">
+			<span class="tc-booking-bar__price-icon" aria-hidden="true">$</span>
+			<span class="tc-booking-bar__price-text">
+				<span class="tc-booking-bar__price-label">Цена</span>
+				<span class="tc-booking-bar__price-value">
+					<AnimatedDigit from={priceUsd} to={priceUsd} duration="500ms" format={formatUsd} />
+				</span>
+			</span>
+		</div>
+	{:else if showDuration}
 		<BookingFieldDuration
 			selected={value.durationDays ?? []}
 			onChange={(durationDays) => (value = { ...value, durationDays })}
@@ -79,6 +119,47 @@
 		background: rgba(255, 255, 255, 0.94);
 		backdrop-filter: blur(8px);
 		box-shadow: 0 8px 28px rgba(20, 36, 31, 0.12);
+	}
+
+	/* Same box as the other fields (label over value), not a button. */
+	/* Never squeezed: the other fields ellipsise first, the price stays whole. */
+	.tc-booking-bar__price {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex-shrink: 0;
+	}
+
+	.tc-booking-bar__price-icon {
+		display: grid;
+		place-items: center;
+		width: 18px;
+		height: 18px;
+		flex-shrink: 0;
+		border: 1.5px solid rgba(23, 35, 31, 0.5);
+		border-radius: 50%;
+		font-size: 0.7rem;
+		font-weight: 800;
+		color: rgba(23, 35, 31, 0.6);
+		box-sizing: border-box;
+	}
+
+	.tc-booking-bar__price-text {
+		display: grid;
+		gap: 2px;
+		min-width: 0;
+	}
+
+	.tc-booking-bar__price-label {
+		font-size: 0.76rem;
+		color: rgba(23, 35, 31, 0.62);
+	}
+
+	.tc-booking-bar__price-value {
+		display: block;
+		color: #17231f;
+		font-weight: 800;
+		white-space: nowrap;
 	}
 
 	.tc-booking-bar__action {

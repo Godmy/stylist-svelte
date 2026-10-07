@@ -16,6 +16,7 @@
 		const {
 			value: _v,
 			title: _t,
+			subtitle: _st,
 			children: _c,
 			headerEnd: _he,
 			disabled: _d,
@@ -41,7 +42,12 @@
 		disabled={props.disabled}
 	>
 		<span class="c-accordion-layout__title-group">
-			<span class="c-accordion-layout__title">{props.title}</span>
+			<span class="c-accordion-layout__titles">
+				<span class="c-accordion-layout__title">{props.title}</span>
+				{#if props.subtitle}
+					<span class="c-accordion-layout__subtitle">{props.subtitle}</span>
+				{/if}
+			</span>
 			{#if props.headerEnd}
 				<span class="c-accordion-layout__header-end">{@render props.headerEnd()}</span>
 			{/if}
@@ -106,6 +112,18 @@
 		align-items: center;
 		gap: 0.6rem;
 		min-width: 0;
+	}
+
+	.c-accordion-layout__titles {
+		display: grid;
+		gap: 0.15rem;
+		min-width: 0;
+	}
+
+	.c-accordion-layout__subtitle {
+		font-size: 0.85em;
+		font-weight: 400;
+		opacity: 0.7;
 	}
 
 	.c-accordion-layout__header-end {
