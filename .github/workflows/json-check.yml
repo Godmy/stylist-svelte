@@ -18,6 +18,9 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
+      - name: Test public module checkout
+        run: node --test experiments/prepare-local-build.test.mjs
+
       - name: Initialize public sandbox submodules
         run: bash experiments/prepare-local-build.sh
 
