@@ -34,6 +34,7 @@ export {
 	TourPriceNote,
 	TourRouteStops,
 	TourTagList,
+	TravelCalculator,
 	TravelLanding,
 	TravelProduct,
 	TurtleHeroMorph,
@@ -66,6 +67,8 @@ export {
 	TURTLE_HERO_MORPH_CONFIG
 } from './const';
 export {
+	calculateBookingBaseCents,
+	calculateBookingQuote,
 	calculateBookingTotalCents,
 	calculateExcursionCardTotal,
 	countBookingGuests,
@@ -77,6 +80,8 @@ export {
 	formatResultsCount
 } from './function';
 export type {
+	AddonQuantity,
+	BookingQuote,
 	CartSummary,
 	Excursion,
 	HeroSlider,
@@ -86,6 +91,7 @@ export type {
 	TourAddon,
 	TourGalleryImage,
 	TourRouteStop,
+	TripInfo,
 	TurtleHeroMorphAnchor,
 	TurtleHeroMorphConfig,
 	TurtleHeroMorphMotion,

@@ -16,6 +16,7 @@ export {
 	BookingGuest,
 	BookingPhysicalLoadFilter,
 	BookingPickupList,
+	BookingPickupTariff,
 	BookingTourTypeFilter,
 	BookingWidget
 } from './component';

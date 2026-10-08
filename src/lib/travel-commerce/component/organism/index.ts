@@ -14,5 +14,6 @@ export { TourAddonPicker } from './tour-addon-picker/index';
 export { TourBookingPanel } from './tour-booking-panel/index';
 export { TourHeroGallery } from './tour-hero-gallery/index';
 export { TourRouteStops } from './tour-route-stops/index';
+export { TravelCalculator } from './travel-calculator/index';
 export { TurtleHeroMorphSlide } from './turtle-hero-morph-slide/index';
 export { TurtleHeroMorph } from './turtle-hero-morph/index';

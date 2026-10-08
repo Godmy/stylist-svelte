@@ -36,6 +36,7 @@ export {
 	TourBookingPanel,
 	TourHeroGallery,
 	TourRouteStops,
+	TravelCalculator,
 	TurtleHeroMorph,
 	TurtleHeroMorphSlide
 } from './organism';

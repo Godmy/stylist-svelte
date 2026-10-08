@@ -11,4 +11,5 @@ export { BookingFieldPickup } from './booking-field-pickup/index';
 export { BookingGuest } from './booking-guest/index';
 export { BookingPhysicalLoadFilter } from './booking-physical-load-filter/index';
 export { BookingPickupList } from './booking-pickup-list/index';
+export { BookingPickupTariff } from './booking-pickup-tariff/index';
 export { BookingTourTypeFilter } from './booking-tour-type-filter/index';

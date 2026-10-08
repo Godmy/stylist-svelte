@@ -13,6 +13,7 @@ export {
 	BookingGuest,
 	BookingPhysicalLoadFilter,
 	BookingPickupList,
+	BookingPickupTariff,
 	BookingTourTypeFilter
 } from './molecule';
 export {

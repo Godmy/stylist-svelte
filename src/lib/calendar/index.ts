@@ -5,6 +5,7 @@ export {
 	CalendarGrid,
 	CalendarRange,
 	CalendarView,
+	DatePairPicker,
 	DatePicker,
 	DateRangePicker,
 	DateTimePicker,

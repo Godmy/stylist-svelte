@@ -108,6 +108,16 @@
 
 ## Export And Barrel Policy (Mandatory)
 
+- Multi-domain library roots have two generated entrypoints: `src/lib/index.ts`
+  uses the indexator's package domain filter, and `src/lib/index.full.ts` uses
+  its full filter for workspace use. Both come from the same analyzed tree;
+  absent or empty domains are omitted. `index.full.ts` is the explicit root
+  filename exception to the single `index.ts` structure and is excluded from npm.
+- Keep complete internal public-domain implementations and runtime assets in
+  the package even when their domain is not exported by the public root:
+  included components may depend on them. Private `geo`/`wbd`, sandbox `server`,
+  stories, tests and the full entrypoint are excluded from npm.
+
 - Do not add manual re-export files or extra re-export indirection layers.
 - Do not manually edit barrel `index.ts` files; regenerate them through the existing indexation workflow.
 - If the user task conflicts with these architecture rules, explicitly report the conflict before proceeding.
@@ -130,7 +140,9 @@
 
 ## Index Generation Policy (Mandatory)
 
-- Do not edit any `index.ts` manually in `stylist-svelte/src/lib/**`.
+- Do not edit generated barrel `index.ts` or `index.full.ts` files manually.
+  Single-entity implementation files named `index.ts` are source code and may
+  be edited under the Source Change Rules; the generator preserves them.
 - After any change that can affect exports/imports in `stylist-svelte/src/lib/**`, the barrels must be regenerated with:
   - `python -u "D:\2026\projects\vibe-management.pro\packages\stylist\indexation\cli.py"`
 - New/renamed/moved components also require the sandbox manifest to be regenerated separately, or they stay invisible in the sandbox even though they type-check fine:

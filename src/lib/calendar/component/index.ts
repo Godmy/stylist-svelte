@@ -15,6 +15,7 @@ export {
 	Calendar,
 	CalendarRange,
 	CalendarView,
+	DatePairPicker,
 	DateRangePicker,
 	DateTimeRangePicker,
 	EventCalendar,

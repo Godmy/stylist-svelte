@@ -2,6 +2,7 @@ node_modules/
 dist/
 build/
 .svelte-kit/
+static/generated/
 package/
 coverage/
 *.min.js

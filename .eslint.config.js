@@ -1,3 +1,1 @@
-import { kitql } from '@kitql/eslint-config';
-
-export default [...kitql()];
+export { default } from './eslint.config.js';

@@ -5,6 +5,9 @@
 	"type": "module",
 	"author": "Godmy & AI-Team",
 	"license": "MIT",
+	"sideEffects": [
+		"**/*.css"
+	],
 	"packageManager": "yarn@4.6.0",
 	"keywords": [
 		"stylist",
@@ -26,11 +29,12 @@
 	"homepage": "https://github.com/Godmy/stylist-svelte#readme",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "svelte-package && publint",
+		"build": "node scripts/check-package-source.mjs && svelte-package && publint --pack npm",
 		"build:site": "node scripts/generate-lib-source-mirror.mjs && vite build && node scripts/write-cloudflare-assets-ignore.mjs",
-		"ci:pipeline": "yarn lint && yarn test:unit && yarn build",
+		"ci:pipeline": "yarn lint && yarn test:package-source && yarn test:unit && yarn build",
 		"preview": "vite preview",
-		"package": "svelte-package",
+		"package": "node scripts/check-package-source.mjs && svelte-package",
+		"check:package-source": "node scripts/check-package-source.mjs",
 		"package:watch": "svelte-package --watch",
 		"tsc": "tsc --noEmit",
 		"prepublishOnly": "yarn build",
@@ -39,6 +43,7 @@
 		"validate": "yarn lint && yarn tsc && yarn check",
 		"test": "vitest",
 		"test:unit": "vitest run",
+		"test:package-source": "node --test scripts/check-package-source.test.mjs",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"clean": "node -e \"const fs=require('node:fs'); ['dist','.svelte-kit','node_modules/.vite'].forEach((path)=>fs.rmSync(path,{recursive:true,force:true}));\"",
@@ -55,13 +60,10 @@
 	},
 	"files": [
 		"dist",
-		"!dist/chat/**",
 		"!scripts/**",
-		"!dist/commerce/**",
-		"!dist/development/**",
-		"!dist/domain/**",
 		"!dist/geo/**",
-		"!dist/**/*.json",
+		"!dist/wbd/**",
+		"!dist/index.full.*",
 		"!dist/**/*.story.*",
 		"!dist/**/index.story.svelte",
 		"!dist/**/index.story.svelte.d.ts",
@@ -69,12 +71,7 @@
 		"!dist/**/story-*.svelte.d.ts",
 		"!dist/**/*.test.*",
 		"!dist/**/*.spec.*",
-		"!dist/management/**",
-		"!dist/marketing/**",
-		"!dist/playground/**",
-		"!dist/science/**",
-		"!dist/server/**",
-		"!dist/social/**"
+		"!dist/server/**"
 	],
 	"peerDependencies": {
 		"svelte": "^5.0.0"

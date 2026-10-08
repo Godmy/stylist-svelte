@@ -18,6 +18,9 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
+      - name: Initialize public sandbox submodules
+        run: bash experiments/prepare-local-build.sh
+
       - name: Install dependencies
         run: yarn install --immutable
 

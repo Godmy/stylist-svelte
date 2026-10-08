@@ -1,4 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AddonQuantity } from './addon-quantity';
+export type { BookingQuote } from './booking-quote';
 export type { CartLineItem } from './cart-line-item';
 export type { CartSummary } from './cart-summary';
 export type { Excursion } from './excursion';
@@ -12,6 +14,7 @@ export type { PricingModel } from './pricing-model';
 export type { TourAddon } from './tour-addon';
 export type { TourGalleryImage } from './tour-gallery-image';
 export type { TourRouteStop } from './tour-route-stop';
+export type { TripInfo } from './trip-info';
 export type {
 	TurtleHeroMorphAnchor,
 	TurtleHeroMorphConfig,
