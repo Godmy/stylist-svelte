@@ -67,10 +67,11 @@ export async function checkPackageSource(packageRoot) {
 		return domains[domain] ? join(domains[domain], ...parts) : join(lib, subpath);
 	};
 	try {
-		await stat(join(lib, 'index.full.ts'));
+		// Only the public root is committed; index.full.ts is local-only (clean clones lack it).
+		await stat(join(lib, 'index.ts'));
 	} catch {
 		throw new Error(
-			'Generated public/full entrypoints are missing. Dmitrii must run yarn stylist:index from the site root before packaging.'
+			'Generated public entrypoint src/lib/index.ts is missing. Dmitrii must run yarn stylist:index from the site root before packaging.'
 		);
 	}
 	const pending = [join(lib, 'index.ts')];

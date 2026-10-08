@@ -51,9 +51,11 @@ test('a private transitive dependency is rejected even when it is checked out', 
 });
 
 test('missing generated entrypoints and missing runtime assets prevent packaging', async () => {
-	await fixture({ 'index.ts': '' }, async (root) =>
-		assert.rejects(checkPackageSource(root), /entrypoints are missing/)
+	await fixture({ 'readme.md': '' }, async (root) =>
+		assert.rejects(checkPackageSource(root), /public entrypoint src\/lib\/index.ts is missing/)
 	);
+	// A clean clone has no local-only index.full.ts; the public root alone is enough.
+	await fixture({ 'index.ts': '' }, async (root) => assert.equal(await checkPackageSource(root), 1));
 	await fixture(
 		{
 			'index.ts': "export { default as data } from './missing.json';",
