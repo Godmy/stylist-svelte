@@ -4,7 +4,11 @@ This file records package and documentation changes. Source-history details are
 in [src/changelog.md](src/changelog.md). Unreleased entries do not establish npm
 publication or a successful site deployment.
 
-## Unreleased
+## 1.1.0 — 2026-10-08
+
+> **Breaking:** the npm package no longer contains business domains (auth, user, chat,
+> social, commerce, product, management, marketing, landing, portfolio, science) or spanish;
+> they are private modules now. Projects importing them from 1.0.1 must stay on 1.0.1.
 
 ### Public-only package and sandbox (2026-10-08)
 
@@ -36,7 +40,7 @@ publication or a successful site deployment.
 - Add public/full entrypoint separation, public source preflight and runtime
   asset retention (`afb625862`).
 - Move source ownership to physical Git modules and isolate private travel
-  (`681e886ea`). Generated umbrella roots still need human regeneration.
+  (`681e886ea`). Umbrella roots were regenerated publicly on 2026-10-08.
 
 ### CI checkout
 
@@ -46,8 +50,8 @@ publication or a successful site deployment.
   for recursive initialization, private-owner exclusion, missing required owners
   and the helper's no-op `--revert`; run these before CI checkout.
 
-The repository version remains `1.0.2`. This change adds no
-release tag, package build, publication or deployment.
+Tagged `v1.1.0`; npm publication and the push are done by Dmitrii (see
+[docs/release.md](docs/release.md)).
 
 ## 1.0.1
 
