@@ -2,6 +2,7 @@ import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { moduleAliases } from './scripts/prepare-module-sources.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const libRoot = path.resolve(__dirname, './src/lib');
@@ -22,6 +23,9 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
+			...moduleAliases(__dirname),
+			'stylist-svelte/*': libRoot,
+			'stylist-svelte-travel/*': path.resolve(__dirname, './modules/travel'),
 			$stylist: libRoot,
 			'stylist-test': testRoot
 		}

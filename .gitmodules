@@ -1,18 +1,30 @@
 [submodule "adr"]
 	path = adr
 	url = https://github.com/Godmy/adr.git
-[submodule "src/lib/server"]
-	path = src/lib/server
-	url = https://github.com/Godmy/stylist-svelte-server.git
-[submodule "src/lib/theme"]
-	path = src/lib/theme
-	url = https://github.com/Godmy/stylist-svelte-theme.git
-[submodule "src/lib/svg"]
-	path = src/lib/svg
-	url = https://github.com/Godmy/stylist-svelte-svg.git
 [submodule "src/lib/wbd"]
-	path = src/lib/wbd
+	path = modules/wbd
 	url = https://github.com/Godmy/stylist-svelte-wbd.git
 [submodule "src/lib/geo"]
-	path = src/lib/geo
+	path = modules/geo
 	url = https://github.com/Godmy/stylist-svelte-geo.git
+[submodule "modules/design-system"]
+	path = modules/design-system
+	url = https://github.com/Godmy/stylist-svelte-design-system.git
+[submodule "modules/interaction"]
+	path = modules/interaction
+	url = https://github.com/Godmy/stylist-svelte-interaction.git
+[submodule "modules/information"]
+	path = modules/information
+	url = https://github.com/Godmy/stylist-svelte-information.git
+[submodule "modules/business"]
+	path = modules/business
+	url = https://github.com/Godmy/stylist-svelte-business.git
+[submodule "modules/architecture"]
+	path = modules/architecture
+	url = https://github.com/Godmy/stylist-svelte-architecture.git
+[submodule "modules/observer"]
+	path = modules/observer
+	url = https://github.com/Godmy/stylist-svelte-observer.git
+[submodule "modules/travel"]
+	path = modules/travel
+	url = https://github.com/Godmy/stylist-svelte-travel.git

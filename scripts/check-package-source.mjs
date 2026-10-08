@@ -2,8 +2,9 @@ import { readFile, stat } from 'node:fs/promises';
 import { dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
+import { moduleSources } from './prepare-module-sources.mjs';
 
-const PRIVATE_DOMAINS = new Set(['geo', 'wbd', 'server']);
+const PRIVATE_DOMAINS = new Set(['geo', 'wbd', 'server', 'booking', 'travel-commerce', 'travel-admin']);
 
 async function resolveSource(target) {
 	const candidates = [target];
@@ -52,6 +53,19 @@ function localImports(filename, content) {
 
 export async function checkPackageSource(packageRoot) {
 	const lib = resolve(packageRoot, 'src/lib');
+	const domains = moduleSources(packageRoot);
+	const roots = [[lib, ''], ...Object.entries(domains).map(([name, path]) => [path, name])];
+	const logicalPath = (filename) => {
+		for (const [root, domain] of roots) {
+			const rest = relative(root, filename).replaceAll('\\', '/');
+			if (!rest.startsWith('../') && rest !== '..') return [domain, rest].filter(Boolean).join('/');
+		}
+		return relative(lib, filename).replaceAll('\\', '/');
+	};
+	const logicalSource = (subpath) => {
+		const [domain, ...parts] = subpath.split('/');
+		return domains[domain] ? join(domains[domain], ...parts) : join(lib, subpath);
+	};
 	try {
 		await stat(join(lib, 'index.full.ts'));
 	} catch {
@@ -65,7 +79,7 @@ export async function checkPackageSource(packageRoot) {
 		const filename = await resolveSource(pending.pop());
 		if (visited.has(filename)) continue;
 		visited.add(filename);
-		const path = relative(lib, filename).replaceAll('\\', '/');
+		const path = logicalPath(filename);
 		if (
 			path.startsWith('../') ||
 			PRIVATE_DOMAINS.has(path.split('/')[0]) ||
@@ -79,9 +93,18 @@ export async function checkPackageSource(packageRoot) {
 		const content = await readFile(filename, 'utf8');
 		for (const specifier of localImports(filename, content)) {
 			const clean = specifier.split('?')[0];
+			if (clean === 'stylist-svelte-travel' || clean.startsWith('stylist-svelte-travel/')) {
+				throw new Error(`Public package depends on private travel: ${path}`);
+			}
 			if (clean === '$stylist') pending.push(join(lib, 'index.ts'));
-			else if (clean.startsWith('$stylist/')) pending.push(join(lib, clean.slice(9)));
-			else if (clean.startsWith('.')) pending.push(resolve(dirname(filename), clean));
+			else if (clean.startsWith('$stylist/')) pending.push(logicalSource(clean.slice(9)));
+			else if (clean.startsWith('stylist-svelte/')) pending.push(logicalSource(clean.slice(15)));
+			else if (clean.startsWith('.')) {
+				if (filename === join(lib, 'index.ts') && clean.startsWith('./') && domains[clean.slice(2).split('/')[0]]) {
+					throw new Error('Generated umbrella entrypoint still references removed domain folders. Dmitrii must run yarn stylist:manifest from the site root.');
+				}
+				pending.push(resolve(dirname(filename), clean));
+			}
 		}
 	}
 	return visited.size;

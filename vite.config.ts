@@ -3,6 +3,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { svelteTesting } from '@testing-library/svelte/vite';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { moduleAliases } from './scripts/prepare-module-sources.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -43,7 +44,11 @@ export default defineConfig(() => {
 	return {
 		plugins,
 		resolve: {
+			preserveSymlinks: true,
+			dedupe: ['svelte'],
 			alias: {
+				...moduleAliases(__dirname),
+				'stylist-svelte': path.resolve(__dirname, './src/lib'),
 				'stylist-test': path.resolve(__dirname, './src/test')
 			}
 		},
@@ -59,7 +64,7 @@ export default defineConfig(() => {
 		},
 		assetsInclude: ['**/*.vert', '**/*.frag'],
 		test: {
-			include: ['src/**/*.{test,spec}.{js,ts}'],
+			include: ['src/**/*.{test,spec}.{js,ts}', 'modules/*/*/**/*.{test,spec}.{js,ts}'],
 			globals: true,
 			environment: 'jsdom',
 			coverage: {

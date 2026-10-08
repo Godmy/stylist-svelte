@@ -58,6 +58,18 @@ test('missing generated entrypoints and missing runtime assets prevent packaging
 	);
 });
 
+test('public source cannot import an extracted travel domain', async () => {
+  await fixture({
+    'index.ts': "export { value } from './layout/index';", 'index.full.ts': '',
+    'layout/index.ts': "export { value } from '$stylist/booking/index';", 'booking/index.ts': 'export const value = 1;'
+  }, async root => assert.rejects(checkPackageSource(root), /excluded source: booking/));
+});
+
+test('package-name imports cannot bypass the private travel guard', async () => {
+  await fixture({ 'index.ts': "export { value } from 'stylist-svelte-travel/booking/index.js';", 'index.full.ts': '' },
+    async root => assert.rejects(checkPackageSource(root), /private travel/));
+});
+
 test('public exports cannot depend on stories excluded from npm', async () => {
 	await fixture(
 		{

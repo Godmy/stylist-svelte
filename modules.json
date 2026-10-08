@@ -1,0 +1,110 @@
+{
+  "design-system": {
+    "path": "modules/design-system",
+    "domains": [
+      "theme",
+      "typography",
+      "layout",
+      "localization",
+      "svg"
+    ],
+    "sourceRoot": "."
+  },
+  "interaction": {
+    "path": "modules/interaction",
+    "domains": [
+      "animation",
+      "button",
+      "control",
+      "input",
+      "form",
+      "calendar",
+      "file",
+      "search",
+      "menu",
+      "navigation",
+      "dialog"
+    ],
+    "sourceRoot": "."
+  },
+  "information": {
+    "path": "modules/information",
+    "domains": [
+      "list",
+      "tree",
+      "table",
+      "chart",
+      "image",
+      "audio",
+      "video",
+      "notification"
+    ],
+    "sourceRoot": "."
+  },
+  "business": {
+    "path": "modules/business",
+    "domains": [
+      "auth",
+      "user",
+      "chat",
+      "social",
+      "commerce",
+      "product",
+      "management",
+      "marketing",
+      "landing",
+      "portfolio",
+      "science",
+      "spanish"
+    ],
+    "sourceRoot": "."
+  },
+  "architecture": {
+    "path": "modules/architecture",
+    "domains": [
+      "graph",
+      "erd",
+      "idef-zero",
+      "workspace",
+      "canvas",
+      "presentation",
+      "webgl"
+    ],
+    "sourceRoot": "."
+  },
+  "observer": {
+    "path": "modules/observer",
+    "domains": [
+      "domain",
+      "token",
+      "server"
+    ],
+    "sourceRoot": "."
+  },
+  "travel": {
+    "path": "modules/travel",
+    "private": true,
+    "domains": [
+      "booking",
+      "travel-commerce",
+      "travel-admin"
+    ],
+    "sourceRoot": "."
+  },
+  "geo": {
+    "path": "modules/geo",
+    "domainRoot": true,
+    "private": true,
+    "domains": [
+      "geo"
+    ]
+  },
+  "wbd": {
+    "path": "modules/wbd",
+    "domainRoot": true,
+    "private": true,
+    "domains": [
+      "wbd"
+    ]
+  }
+}

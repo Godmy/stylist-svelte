@@ -230,3 +230,6 @@
 | индикаторы из `animation`, `notification` + empty/error-state | новый `feedback` |
 | `tabs`, `breadcrumbs`, `stepper` из `dialog`                  | `navigation`     |
 | `landing` + hero из `marketing`                               | `landing`        |
+> Обновление структуры, 2026-10-08: домены перенесены в `../../modules/*`.
+> Старые папки-ссылки удалены; `geo` и `wbd` находятся в `../../modules/geo` и `../../modules/wbd`. Ниже сохранён исходный аудит.
+> Актуальная структура и условия регенерации: [docs/modules.md](../../docs/modules.md).
