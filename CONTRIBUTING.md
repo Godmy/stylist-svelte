@@ -32,16 +32,18 @@ indexation, auditor or unified error CLI.
 
 ## Validation
 
-The library declares these checks in [package.json](package.json):
+The library and CI use these checks (package commands are declared in
+[package.json](package.json)):
 
-| Command                                           | Scope                                           |
-| ------------------------------------------------- | ----------------------------------------------- |
-| `yarn lint`                                       | Prettier and ESLint                             |
-| `yarn test:package-source`                        | Public source, alias and assembly fixture tests |
-| `node --test scripts/component-manifest.test.mjs` | Presets, tree decoding and component projection |
-| `yarn test:unit`                                  | Vitest tests selected by vite.config.ts         |
-| `node scripts/check-package-source.mjs`           | Actual public-root dependency traversal         |
-| `yarn tsc`, `yarn check`                          | TypeScript and Svelte diagnostics               |
+| Command                                                | Scope                                                     |
+| ------------------------------------------------------ | --------------------------------------------------------- |
+| `yarn lint`                                            | Prettier and ESLint                                       |
+| `yarn test:package-source`                             | Public source, alias and assembly fixture tests           |
+| `node --test scripts/component-manifest.test.mjs`      | Presets, tree decoding and component projection           |
+| `node --test experiments/prepare-local-build.test.mjs` | Public checkout, nested owners and missing-owner failures |
+| `yarn test:unit`                                       | Vitest tests selected by vite.config.ts                   |
+| `node scripts/check-package-source.mjs`                | Actual public-root dependency traversal                   |
+| `yarn tsc`, `yarn check`                               | TypeScript and Svelte diagnostics                         |
 
 For documentation changes, check modified Markdown formatting, relative links
 and file/commit evidence. For code changes, run the relevant tests and record

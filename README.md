@@ -65,11 +65,12 @@ Checkout requires access to the listed repositories, including their nested
 submodules. The sandbox uses port **5174** with `strictPort: true`. Physical
 aliases resolve logical domain imports without creating source links or copies.
 
-The current checkout has release blockers: generated umbrella exports still
-reference removed domain folders, and CI's checkout helper uses obsolete
-submodule paths. Access to `modules/business` also failed during the documentation
-review. See the [backlog](src/backlog.md) for evidence and completion criteria;
-the setup sequence above is not a claim that this revision builds successfully.
+The checkout helper now initializes registered public owners recursively and
+validates their physical domains. Release blockers remain: generated umbrella
+exports still reference removed domain folders, and access to `modules/business`
+failed during validation. See the [backlog](src/backlog.md) for evidence and
+completion criteria; the setup sequence above is not a claim that this revision
+builds successfully.
 
 Package builds and publication are maintainer operations. For `weoracle.online`,
 follow [AGENTS.md](AGENTS.md): keep its source hot-reload workflow and do not

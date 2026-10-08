@@ -19,11 +19,17 @@ before the module migration:
 The subsequent migration moved domain implementations to physical repositories.
 Current ownership is documented in [modules/readme.md](../modules/readme.md).
 
-The helper [prepare-local-build.sh](../experiments/prepare-local-build.sh) still
-uses removed `src/lib/server`, `src/lib/theme` and `src/lib/svg` submodule paths.
-CI fails there before installation. Generated umbrella roots also retain
-pre-migration paths, so source preflight currently rejects them. The previous
-session's passing checks do not establish that the migrated revision builds.
+The helper [prepare-local-build.sh](../experiments/prepare-local-build.sh) now
+reads the public owner paths from `modules.json`, initializes their nested
+repositories recursively and validates physical domains. Its
+[regression tests](../experiments/prepare-local-build.test.mjs) reproduce the
+obsolete-path failure and check private exclusion and required-owner failures.
+
+Public checkout still fails with `Repository not found` for `modules/business`.
+Generated umbrella roots retain pre-migration paths, so source preflight also
+rejects them. Passing fixture tests do not establish that the migrated revision
+builds; these remaining prerequisites require repository access and human
+regeneration.
 
 Current blockers and release verification are in
 [src/backlog.md](../src/backlog.md). Global regeneration is performed by Dmitrii

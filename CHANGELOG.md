@@ -26,7 +26,15 @@ publication or a successful site deployment.
 - Move source ownership to physical Git modules and isolate private travel
   (`681e886ea`). Generated umbrella roots still need human regeneration.
 
-The repository version remains `1.0.2`. This documentation change adds no
+### CI checkout
+
+- Read public owner paths from `modules.json` and initialize their nested
+  repositories instead of requesting removed `src/lib` submodule paths.
+- Validate public physical sources after checkout. Add local Git fixture tests
+  for recursive initialization, private-owner exclusion, missing required owners
+  and the helper's no-op `--revert`; run these before CI checkout.
+
+The repository version remains `1.0.2`. This change adds no
 release tag, package build, publication or deployment.
 
 ## 1.0.1
