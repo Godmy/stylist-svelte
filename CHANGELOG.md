@@ -6,6 +6,18 @@ publication or a successful site deployment.
 
 ## Unreleased
 
+### Public-only package and sandbox (2026-10-08)
+
+- `business`, `spanish` and the new `farm` module are private in `modules.json`; the npm
+  package now ships only public modules (33 domains). **Breaking** for users of 1.0.1, which
+  contained business domains (auth, user, chat, commerce, landing, …).
+- `MessageTimestamp` moved to `notification`; business token settings live in their own domains.
+- Gate `scripts/stylist-gate.mjs` (pre-push hook, Workers Builds, npm release): public import
+  boundary incl. stories, generated files without private names, package closure, python
+  `--check`. `src/lib/index.full.ts` is local-only.
+- Packaging emits `.d.ts` again (tsconfig moved to the package root); bounded publint wrapper;
+  `check-package-tarball.mjs`. Runbook and release log: [docs/release.md](docs/release.md).
+
 ### Documentation
 
 - Replace the three earlier audits with current source, entrypoint and sandbox
