@@ -1,53 +1,30 @@
-# P0: sandbox build and public package
+# P0 source fixes and package validation
 
-This supplements the audit in `src/readme.md`, which describes commit
-`81bd28b90` before these source fixes.
+This records changes introduced by
+[afb625862](https://github.com/Godmy/stylist-svelte/commit/afb6258628fba28b6a9bfec6b959f1ea9dd3e4ea),
+before the module migration:
 
-- Prettier uses only the installed Svelte plugin.
-- ESLint uses the declared TypeScript/Svelte plugins instead of an undeclared
-  KitQL configuration. Generated source mirrors are ignored by both tools.
-- The Zwicky story fetches the tracked dataset at
-  `static/data/step-2-dependencies.json` with the SvelteKit base path. The
-  dataset was recovered from `a94243f8e` and is outside the module graph.
-- `TOKEN_GEO_SETTING` owns its public preset values; importing token settings
-  no longer loads the private geo repository. The available values are preserved.
-- The external Python indexator now generates `src/lib/index.ts` for public
-  package exports and `src/lib/index.full.ts` for complete workspace exports.
-  Missing domains are omitted. Internal barrels retain all dependency exports.
-- npm retains public internal implementations and JSON assets, including domains
-  omitted from the public root, so transitive imports keep resolving. It excludes
-  private geo/wbd, sandbox server, the full entrypoint, stories and tests. CSS is
-  declared as side-effectful.
-- Package preparation checks statically declared source dependencies before writing `dist`.
-  It rejects private/server imports and missing modules or assets. Packaging is
-  then checked by `publint --pack npm`.
-- The clean-clone helper only initializes public server/theme/svg submodules.
-  It creates no geo stubs or restored source files; `--revert` deletes nothing.
+- Prettier's configuration uses the declared Svelte plugin; ESLint uses the
+  declared TypeScript/Svelte plugins. Generated source mirrors are ignored.
+- The Zwicky story fetches the tracked dataset in
+  [static/data/step-2-dependencies.json](../static/data/step-2-dependencies.json).
+- The public token geo preset owns its values without importing private geo.
+- Public and full workspace root entrypoints have separate package filters.
+- The package retains public internal implementations and runtime assets,
+  excludes private/sandbox sources, stories and tests, and marks CSS as
+  side-effectful.
+- [check-package-source.mjs](../scripts/check-package-source.mjs) validates source
+  dependencies; package builds additionally run `publint --pack npm`.
 
-## Required human step
+The subsequent migration moved domain implementations to physical repositories.
+Current ownership is documented in [modules/readme.md](../modules/readme.md).
 
-Agents do not execute global indexation, manifest or error CLIs. After reviewing
-the generator source changes, Dmitrii runs from the **site root**:
+The helper [prepare-local-build.sh](../experiments/prepare-local-build.sh) still
+uses removed `src/lib/server`, `src/lib/theme` and `src/lib/svg` submodule paths.
+CI fails there before installation. Generated umbrella roots also retain
+pre-migration paths, so source preflight currently rejects them. The previous
+session's passing checks do not establish that the migrated revision builds.
 
-```sh
-yarn stylist:index
-```
-
-Both roots are generated in one pass. On 2026-10-08 another authorized session
-ran regeneration; both working roots now exist, and the source preflight passes
-for 3,383 dependencies. Before regeneration the existing root contained private
-exports and package validation deliberately failed. No new
-component families were added by P0, so P0 itself does not require a manifest
-regeneration (other sessions may have pending manifest changes).
-
-After regeneration, validate from the site root:
-
-```sh
-node packages/stylist-svelte/scripts/check-package-source.mjs
-yarn stylist:package
-```
-
-For this workspace, use `yarn install` only at the site root. Never install from
-the nested library directory. A standalone public clone can use its own tracked
-lockfile; its CI initializes public submodules before installing dependencies.
-Only Dmitrii publishes npm releases, using the monthly release procedure.
+Current blockers and release verification are in
+[src/backlog.md](../src/backlog.md). Global regeneration is performed by Dmitrii
+from the parent site root; agents do not run generation or release commands.
