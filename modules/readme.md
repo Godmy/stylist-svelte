@@ -1,7 +1,7 @@
 # modules — source ownership
 
 [modules.json](../modules.json) maps logical domains to physical repositories.
-The registry has 51 domains in nine entries. This is an ownership map, not an
+The registry has 51 domains in ten entries. This is an ownership map, not an
 inventory of available checkouts or a list of public root exports.
 
 | Owner            | Physical path           | Registered domains                                                                                       |
@@ -9,17 +9,22 @@ inventory of available checkouts or a list of public root exports.
 | design-system    | `modules/design-system` | theme, typography, layout, localization, svg                                                             |
 | interaction      | `modules/interaction`   | animation, button, control, input, form, calendar, file, search, menu, navigation, dialog                |
 | information      | `modules/information`   | list, tree, table, chart, image, audio, video, notification                                              |
-| business         | `modules/business`      | auth, user, chat, social, commerce, product, management, marketing, landing, portfolio, science, spanish |
+| business         | `modules/business`      | auth, user, chat, social, commerce, product, management, marketing, landing, portfolio, science          |
 | architecture     | `modules/architecture`  | graph, erd, idef-zero, workspace, canvas, presentation, webgl                                            |
 | observer         | `modules/observer`      | domain, token, server                                                                                    |
 | travel (private) | `modules/travel`        | booking, travel-commerce, travel-admin                                                                   |
 | geo (private)    | `modules/geo`           | geo                                                                                                      |
 | wbd (private)    | `modules/wbd`           | wbd                                                                                                      |
+| spanish          | `modules/spanish`       | spanish                                                                                                  |
 
 For grouped owners, `sourceRoot: "."` means domains are direct children of the
-repository root. For `geo` and `wbd`, `domainRoot: true` means the repository root
-is the domain itself. The first six entries are not marked private in the
+repository root. For `geo`, `wbd` and `spanish`, `domainRoot: true` means the repository root
+is the domain itself. The first six entries and `spanish` are not marked private in the
 registry; that does not guarantee anonymous GitHub access.
+
+`modules/farm` (Godmy/stylist-svelte-farm) is checked out as a submodule but is
+not registered in `modules.json` yet: it has no domain sources. Register it
+(`domainRoot: true`, like `spanish`) when its sources land.
 
 ## Checkout and repository boundaries
 

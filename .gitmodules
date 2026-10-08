@@ -28,3 +28,9 @@
 [submodule "modules/travel"]
 	path = modules/travel
 	url = https://github.com/Godmy/stylist-svelte-travel.git
+[submodule "modules/spanish"]
+	path = modules/spanish
+	url = https://github.com/Godmy/stylist-svelte-spanish.git
+[submodule "modules/farm"]
+	path = modules/farm
+	url = https://github.com/Godmy/stylist-svelte-farm.git

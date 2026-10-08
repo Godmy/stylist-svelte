@@ -54,8 +54,7 @@
       "marketing",
       "landing",
       "portfolio",
-      "science",
-      "spanish"
+      "science"
     ],
     "sourceRoot": "."
   },
@@ -105,6 +104,13 @@
     "private": true,
     "domains": [
       "wbd"
+    ]
+  },
+  "spanish": {
+    "path": "modules/spanish",
+    "domainRoot": true,
+    "domains": [
+      "spanish"
     ]
   }
 }
