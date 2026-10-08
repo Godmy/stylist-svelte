@@ -43,6 +43,7 @@
   },
   "business": {
     "path": "modules/business",
+    "private": true,
     "domains": [
       "auth",
       "user",
@@ -109,8 +110,17 @@
   "spanish": {
     "path": "modules/spanish",
     "domainRoot": true,
+    "private": true,
     "domains": [
       "spanish"
+    ]
+  },
+  "farm": {
+    "path": "modules/farm",
+    "domainRoot": true,
+    "private": true,
+    "domains": [
+      "farm"
     ]
   }
 }

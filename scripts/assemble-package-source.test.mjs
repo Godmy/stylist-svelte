@@ -27,7 +27,10 @@ test('physical modules validate and assemble one public package without private 
 		const stage = await assemblePackageSource(root, join(root, '.package-input'));
 		assert.equal(await readFile(join(stage, 'index.ts'), 'utf8'), "export { BUTTON } from './button';");
 		assert.match(await readFile(join(root, 'src/lib/index.ts'), 'utf8'), /modules\/common/);
-		for (const name of ['booking', 'button/.git', 'button/index.story.svelte', 'index.full.ts']) {
+		// Types are emitted only when the tsconfig sits in the package root (cwd), never in the stage.
+		const tsconfig = JSON.parse(await readFile(join(root, 'tsconfig.package.json'), 'utf8'));
+		assert.deepEqual(tsconfig.include, ['./.package-input/**/*']);
+		for (const name of ['booking', 'button/.git', 'button/index.story.svelte', 'index.full.ts', 'tsconfig.json']) {
 			await assert.rejects(stat(join(stage, name)), /ENOENT/);
 		}
 		await writeFile(join(root, 'modules/common/button/index.ts'), "export { PRIVATE } from '$stylist/booking/index.js';");

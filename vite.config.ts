@@ -4,6 +4,7 @@ import { svelteTesting } from '@testing-library/svelte/vite';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { moduleAliases } from './scripts/prepare-module-sources.mjs';
+import { publicSandbox } from './scripts/public-sandbox.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -35,7 +36,7 @@ const quietProductionBuildWarnings = () => ({
 });
 
 export default defineConfig(() => {
-	const plugins = [sveltekit(), quietProductionBuildWarnings()];
+	const plugins = [publicSandbox(__dirname), sveltekit(), quietProductionBuildWarnings()];
 
 	if (process.env.VITEST) {
 		plugins.push(svelteTesting());

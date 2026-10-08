@@ -20,7 +20,7 @@ async function resolveSource(target) {
 	throw new Error(`Package dependency is missing: ${target}`);
 }
 
-function localImports(filename, content) {
+export function localImports(filename, content) {
 	const scripts = filename.endsWith('.svelte')
 		? [...content.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map((match) => match[1])
 		: [content];

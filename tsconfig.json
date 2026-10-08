@@ -51,7 +51,6 @@
     "modules/business/landing/**/*",
     "modules/business/portfolio/**/*",
     "modules/business/science/**/*",
-    "modules/business/spanish/**/*",
     "modules/architecture/graph/**/*",
     "modules/architecture/erd/**/*",
     "modules/architecture/idef-zero/**/*",
@@ -66,6 +65,8 @@
     "modules/travel/travel-commerce/**/*",
     "modules/travel/travel-admin/**/*",
     "modules/geo/**/*",
-    "modules/wbd/**/*"
+    "modules/wbd/**/*",
+    "modules/spanish/**/*",
+    "modules/farm/**/*"
   ]
 }

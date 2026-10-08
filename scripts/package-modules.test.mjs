@@ -50,3 +50,13 @@ test('moduleSources and aliases accept a selection or STYLIST_MODULES, packaging
 		await rm(dir, { recursive: true, force: true });
 	}
 });
+
+test('tsconfig.json includes every modules.json source owner', async () => {
+	const include = JSON.parse(await readFile(new URL('../tsconfig.json', import.meta.url), 'utf8')).include;
+	const missing = [];
+	for (const module of Object.values(readModules(root))) {
+		const owners = module.domainRoot ? [module.path] : module.domains.map((domain) => `${module.path}/${domain}`);
+		for (const owner of owners) if (!include.includes(`${owner}/**/*`)) missing.push(owner);
+	}
+	assert.deepEqual(missing, [], 'svelte-check and types skip sources missing from tsconfig.json include');
+});

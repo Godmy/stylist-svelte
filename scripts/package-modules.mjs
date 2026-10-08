@@ -2,7 +2,7 @@ import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 import { watch, existsSync } from 'node:fs';
-import { assemblePackageSource } from './assemble-package-source.mjs';
+import { assemblePackageSource, packageTsconfig } from './assemble-package-source.mjs';
 import { checkPackageSource } from './check-package-source.mjs';
 import { moduleSources } from './prepare-module-sources.mjs';
 import config from '../svelte.config.js';
@@ -14,7 +14,7 @@ async function packageModules() {
 	await checkPackageSource(root);
 	const input = await assemblePackageSource(root, join(root, '.package-input'));
 	await build({ cwd: root, input, output: 'dist', types: true, preserve_output: false,
-		tsconfig: join(input, 'tsconfig.json'),
+		tsconfig: packageTsconfig(root),
 		config: { ...config, kit: { alias: { '$stylist': input, 'stylist-svelte': input } } } });
 }
 await packageModules();

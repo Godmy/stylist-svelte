@@ -2,6 +2,9 @@ import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { basename, join, resolve, relative } from 'node:path';
 import { excludedPackageDomains, moduleSources } from './prepare-module-sources.mjs';
 
+/** @param {string} packageRoot */
+export const packageTsconfig = (packageRoot) => join(resolve(packageRoot), 'tsconfig.package.json');
+
 /** Assemble an ignored build input; never change generated source barrels.
  * @param {string} packageRoot
  * @param {string} output
@@ -33,11 +36,14 @@ export async function assemblePackageSource(packageRoot, output) {
 		content = content.replaceAll(`'${physical}'`, `'./${domain}'`).replaceAll(`"${physical}"`, `"./${domain}"`);
 	}
 	await writeFile(index, content);
+	// The tsconfig lives in the package root, not the stage: svelte2tsx resolves
+	// declarationDir against the tsconfig folder while svelte-package collects the
+	// .d.ts files relative to cwd, so a staged tsconfig silently drops every type.
 	const tsconfig = {
-		extends: '../tsconfig.json',
-		compilerOptions: { paths: { '$stylist': ['./index.ts'], '$stylist/*': ['./*'], 'stylist-svelte/*': ['./*'] } },
-		include: ['./**/*'], exclude: []
+		extends: './tsconfig.json',
+		compilerOptions: { paths: { '$stylist': ['./.package-input/index.ts'], '$stylist/*': ['./.package-input/*'], 'stylist-svelte/*': ['./.package-input/*'] } },
+		include: ['./.package-input/**/*'], exclude: []
 	};
-	await writeFile(join(stage, 'tsconfig.json'), JSON.stringify(tsconfig, null, 2));
+	await writeFile(packageTsconfig(root), JSON.stringify(tsconfig, null, 2));
 	return stage;
 }

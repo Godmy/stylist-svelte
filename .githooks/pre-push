@@ -1,0 +1,43 @@
+#!/bin/sh
+# A push to main is a production deploy: Cloudflare Workers Builds rebuilds stylist-svelte.online
+# from it. So main only receives trees that pass the public-only gate. The gate only checks;
+# regeneration stays human-only (yarn stylist:index / stylist:manifest from the site root).
+# Install once per clone: git config core.hooksPath .githooks  (npm run hooks:install)
+
+zero=0000000000000000000000000000000000000000
+pushes_main=0
+pushed_sha=
+while read -r local_ref local_sha remote_ref remote_sha; do
+	if [ "$remote_ref" = "refs/heads/main" ] && [ "$local_sha" != "$zero" ]; then
+		pushes_main=1
+		pushed_sha=$local_sha
+	fi
+done
+[ "$pushes_main" = 1 ] || exit 0
+
+root=$(git rev-parse --show-toplevel) || exit 1
+gate="$root/scripts/stylist-gate.mjs"
+if [ ! -f "$gate" ]; then
+	echo "pre-push: $gate is missing; refusing to push to main (it deploys stylist-svelte.online)." >&2
+	exit 1
+fi
+if [ "$pushed_sha" != "$(git rev-parse HEAD)" ]; then
+	echo "pre-push: warning: pushing $pushed_sha, but the gate checks the checked-out tree (HEAD)." >&2
+fi
+if [ -n "$(git status --porcelain --untracked-files=no --ignore-submodules=dirty)" ]; then
+	echo "pre-push: warning: uncommitted changes; the gate result reflects the working tree, not the commit." >&2
+fi
+
+echo "pre-push: main deploys stylist-svelte.online - running public-only gate..." >&2
+if ! node "$gate"; then
+	cat >&2 <<'MSG'
+
+pre-push: push to main REFUSED - the public-only gate failed (see above).
+  main is auto-deployed by Cloudflare Workers Builds and is the npm release source, so it must not
+  depend on, export or mention private modules (modules.json "private": true).
+  - Import of a private module from public code: move the shared piece into a public module.
+  - Stale/private generated barrels or manifest: ask Dmitrii to regenerate (human-only).
+  Bypass (git push --no-verify) only with Dmitrii's explicit decision; Workers Builds runs the gate again.
+MSG
+	exit 1
+fi
