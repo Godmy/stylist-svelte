@@ -41,7 +41,12 @@ test('a private transitive dependency is rejected even when it is checked out', 
 			'token/index.ts': "export { TOKEN } from '$stylist/geo/index';",
 			'geo/index.ts': 'export const TOKEN = 1;'
 		},
-		async (root) => assert.rejects(checkPackageSource(root), /excluded source: geo/)
+		async (root) => {
+			// Exclusion comes from the registry's private flag, not a hard-coded list.
+			assert.equal(await checkPackageSource(root), 3);
+			await writeFile(join(root, 'modules.json'), JSON.stringify({ geo: { path: 'src/lib/geo', domainRoot: true, private: true, domains: ['geo'] } }));
+			await assert.rejects(checkPackageSource(root), /excluded source: geo/);
+		}
 	);
 });
 
@@ -62,7 +67,10 @@ test('public source cannot import an extracted travel domain', async () => {
   await fixture({
     'index.ts': "export { value } from './layout/index';", 'index.full.ts': '',
     'layout/index.ts': "export { value } from '$stylist/booking/index';", 'booking/index.ts': 'export const value = 1;'
-  }, async root => assert.rejects(checkPackageSource(root), /excluded source: booking/));
+  }, async root => {
+    await writeFile(join(root, 'modules.json'), JSON.stringify({ travel: { path: 'src/lib', sourceRoot: '.', private: true, domains: ['booking'] } }));
+    await assert.rejects(checkPackageSource(root), /excluded source: booking/);
+  });
 });
 
 test('package-name imports cannot bypass the private travel guard', async () => {

@@ -1,8 +1,6 @@
 import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { basename, join, resolve, relative } from 'node:path';
-import { moduleSources } from './prepare-module-sources.mjs';
-
-const excluded = new Set(['geo', 'wbd', 'server', 'booking', 'travel-commerce', 'travel-admin']);
+import { excludedPackageDomains, moduleSources } from './prepare-module-sources.mjs';
 
 /** Assemble an ignored build input; never change generated source barrels.
  * @param {string} packageRoot
@@ -15,7 +13,9 @@ export async function assemblePackageSource(packageRoot, output) {
 	await rm(stage, { recursive: true, force: true });
 	await mkdir(stage, { recursive: true });
 	const lib = join(root, 'src/lib');
-	const domains = moduleSources(root);
+	// Packaging always sees every module so private imports are recognised and rejected.
+	const domains = moduleSources(root, { modules: 'all', exclude: '' });
+	const excluded = excludedPackageDomains(root);
 	const filter = (source) => !['.git', 'node_modules', 'dist', '.svelte-kit'].includes(basename(source))
 		&& !/\.(story|test|spec)\./.test(source) && !/^story-.*\.svelte/.test(basename(source));
 	for (const entry of await readdir(lib, { withFileTypes: true })) {

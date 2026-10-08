@@ -44,7 +44,7 @@
 		"validate": "yarn lint && yarn tsc && yarn check",
 		"test": "vitest",
 		"test:unit": "vitest run",
-		"test:package-source": "node --test scripts/check-package-source.test.mjs scripts/prepare-module-sources.test.mjs scripts/assemble-package-source.test.mjs",
+		"test:package-source": "node --test scripts/check-package-source.test.mjs scripts/prepare-module-sources.test.mjs scripts/assemble-package-source.test.mjs scripts/package-modules.test.mjs",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"clean": "node -e \"const fs=require('node:fs'); ['dist','.svelte-kit','node_modules/.vite'].forEach((path)=>fs.rmSync(path,{recursive:true,force:true}));\"",

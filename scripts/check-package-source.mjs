@@ -2,9 +2,7 @@ import { readFile, stat } from 'node:fs/promises';
 import { dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
-import { moduleSources } from './prepare-module-sources.mjs';
-
-const PRIVATE_DOMAINS = new Set(['geo', 'wbd', 'server', 'booking', 'travel-commerce', 'travel-admin']);
+import { excludedPackageDomains, moduleSources } from './prepare-module-sources.mjs';
 
 async function resolveSource(target) {
 	const candidates = [target];
@@ -53,7 +51,9 @@ function localImports(filename, content) {
 
 export async function checkPackageSource(packageRoot) {
 	const lib = resolve(packageRoot, 'src/lib');
-	const domains = moduleSources(packageRoot);
+	// Every module, regardless of STYLIST_MODULES: private imports must be recognised.
+	const domains = moduleSources(packageRoot, { modules: 'all', exclude: '' });
+	const excluded = excludedPackageDomains(packageRoot);
 	const roots = [[lib, ''], ...Object.entries(domains).map(([name, path]) => [path, name])];
 	const logicalPath = (filename) => {
 		for (const [root, domain] of roots) {
@@ -82,7 +82,7 @@ export async function checkPackageSource(packageRoot) {
 		const path = logicalPath(filename);
 		if (
 			path.startsWith('../') ||
-			PRIVATE_DOMAINS.has(path.split('/')[0]) ||
+			excluded.has(path.split('/')[0]) ||
 			/^index\.full\./.test(path) ||
 			/\.(story|test|spec)\./.test(path) ||
 			/(^|\/)story-[^/]+\.svelte/.test(path)
