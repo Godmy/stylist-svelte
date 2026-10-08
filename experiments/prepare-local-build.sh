@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Prepares a clean clone of stylist-svelte for a local site build without access
-# to the private submodules (adr, src/lib/wbd, src/lib/geo).
+# Prepares the registered public source owners, including nested repositories,
+# without initializing adr or modules marked private in modules.json.
 # Graph demo data is tracked in static/data, and token presets no longer depend
 # on private geo. No restoration files or private-submodule stubs are necessary.
 set -euo pipefail
@@ -12,9 +12,18 @@ if [[ "${1:-}" == "--revert" ]]; then
 	exit 0
 fi
 
-# 1. Public submodules (server, theme, svg) are required by the sandbox itself.
-for s in src/lib/server src/lib/theme src/lib/svg; do
-	GIT_TERMINAL_PROMPT=0 git submodule update --init "$s"
-done
+# Read physical owner paths rather than pre-migration src/lib domain paths.
+# Capture Node's status directly so a registry error stops preparation.
+public_module_paths="$(node --input-type=module -e '
+import { readFileSync } from "node:fs";
+const modules = JSON.parse(readFileSync("modules.json", "utf8"));
+const paths = Object.values(modules).filter(module => !module.private).map(module => module.path);
+if (!paths.length) throw new Error("No public module owners registered");
+console.log(paths.join("\n"));
+')"
+mapfile -t public_modules <<< "$public_module_paths"
+GIT_TERMINAL_PROMPT=0 git submodule update --init --recursive -- "${public_modules[@]}"
+
+node scripts/prepare-module-sources.mjs --public
 
 echo "ready: run 'yarn dev' or 'yarn build:site'"
