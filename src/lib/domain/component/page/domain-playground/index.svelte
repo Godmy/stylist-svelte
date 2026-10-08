@@ -6,10 +6,10 @@
 	import DomainLanding from '$stylist/domain/component/page/domain-landing/index.svelte';
 	import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
 	import type { RecipeDomainPlayground } from '$stylist/domain/interface/recipe/domain-playground';
+	import { countDomainStories } from '$stylist/domain/function/count/stories';
 
 	let {
-		tree = [],
-		descriptors = [],
+		tree = {},
 		initialScreen = DOMAIN_SCREEN.LANDING,
 		initialDomain,
 		initialCluster,
@@ -21,7 +21,7 @@
 	const screenState = createDomainPlaygroundState(initialScreen);
 	let storyDevice = $state<DeviceFrameViewport>('fullscreen');
 	let deviceViewportVisible = $state(false);
-	const storyModuleCount = descriptors.filter((descriptor) => descriptor.hasStoryPreview).length;
+	const storyModuleCount = $derived(countDomainStories(tree));
 
 	const loadDomainExplorer = () =>
 		import('$stylist/domain/component/organism/domain-explorer/index.svelte');
@@ -52,7 +52,7 @@
 		{/await}
 	{:else}
 		<DomainLanding
-			rootDomainCount={tree.length}
+			rootDomainCount={Array.isArray(tree) ? tree.length : Object.keys(tree).length}
 			{storyModuleCount}
 			onBrowseComponents={screenState.handleDomainToggle}
 			onOpenPlayground={screenState.handleDomainToggle}

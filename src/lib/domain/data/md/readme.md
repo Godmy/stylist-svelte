@@ -35,11 +35,13 @@ component/page/domain-playground          - root shell and screen switcher
 - `data/json/domain-component-intervals/index.json` — component size/interval stats, consumed by `domain-file-overview`
 - `data/json/domain-component-import-diagnostics/index.json` — import-health rows and summary, consumed by `domain-component-import-diagnostics`
 
-These manifests are generated data (see the `stylist` tooling in the sibling `stylist/` package), not hand-maintained; treat them the same way as the `di` audit manifest — regenerate rather than hand-edit. `data/json/domain-page-manifest/index.json` also exists in this cluster but is not currently consumed by any component under `domain/component/**`.
+These manifests are generated data (see the sibling stylist tooling); global regeneration is human-only. The page manifest contains only tree, with dictionaries at every level: domain/cluster/joint/family maps directly to a PRESET_FILE string key. ARRAY_FILE is the filename catalog, parsed together with PRESET_FILE by a single Python parser. Explorer reconstructs all paths/files through normalizeDomainTree, resolveTreeFamilies, resolveFilePreset and expandComponentTree. resolveComponentDescriptor derives API projection on demand, checking actual entries in the tree; no descriptors section is serialized. countDomainStories computes the landing statistic from presets. See [file catalog and compact manifest](../../../../../docs/component-manifest-presets.md) for the encoding contract and measurements.
 
 The workspace node-editor demo, the drag-and-drop template builder (`domain-builder`), the backlog/sprint surface (`domain-backlog`) and the AI assistant panel (`domain-ai-agent`, with its `audio/component/organism/transcriber` dependency) were extracted out of this library into `stylist-svelte-domains` (sibling package, same `<domain>/<cluster>/<joint>/<family>` shape) — kept for reuse elsewhere, not wired into this app.
 
 ## Purpose
+
+The page manifest encodes canonical `index.svg` entries as `"INDEX_SVG"` from `const/preset/file`. Every family stores one preset string covering its complete file composition. Explorer restores filenames and paths when consuming the tree.
 
 The domain workspace makes the component library readable before it becomes gigantic. It compresses the architecture into a navigable shape: domains describe subject areas, clusters describe language-level entity types, joints describe logical roles, and families keep related implementation files together.
 

@@ -1,17 +1,7 @@
+import type { TypeDomainTreeCluster } from '$stylist/domain/type/object/domain-tree-cluster';
+
 export type TypeDomainTreeNode = {
 	name: string;
-	clusters: {
-		name: string;
-		joints: {
-			name: string;
-			entities: {
-				name: string;
-				path: string;
-				files: {
-					name: string;
-					path: string;
-				}[];
-			}[];
-		}[];
-	}[];
+	cluster?: TypeDomainTreeCluster[];
+	clusters?: TypeDomainTreeCluster[];
 };

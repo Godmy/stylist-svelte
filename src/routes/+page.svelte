@@ -8,7 +8,6 @@
 
 <DomainPlayground
 	tree={data.tree}
-	descriptors={data.descriptors}
 	initialScreen={DOMAIN_SCREEN.LANDING}
 	initialDomain="wbd"
 	initialCluster="component"

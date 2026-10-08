@@ -1,7 +1,7 @@
-import type { TypeDomainTreeNode } from '$stylist/domain/type/object/domain-tree-node';
+import type { TypeDomainTreeInput } from '$stylist/domain/type/alias/domain-tree-input';
 import type { DeviceFrameViewport } from '$stylist/domain/type/alias/device-frame-viewport';
 export interface RecipeDomainExplorer {
-	tree: TypeDomainTreeNode[];
+	tree: TypeDomainTreeInput;
 	initialDomain?: string;
 	initialCluster?: string;
 	initialJoint?: string;

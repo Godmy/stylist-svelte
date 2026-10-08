@@ -1,10 +1,12 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	ARRAY_FILE,
 	DEVICE_FRAME_VIEWPORT,
 	DOMAIN_CLUSTER
 } from './array';
 export { TOKEN_CONTROLLER_TYPE } from './map';
 export { DOMAIN_SCREEN } from './object';
+export { PRESET_FILE } from './preset';
 export {
 	DOMAIN_REGIME,
 	JOINT_TOOLBAR_ITEMS,

@@ -1,36 +1,12 @@
 import type { TreeNode } from '$stylist/tree/type/object/tree-node';
+import { expandComponentTree } from '$stylist/domain/function/transform/expand-component-tree';
+import type { TypeDomainTreeInput } from '$stylist/domain/type/alias/domain-tree-input';
 
 type PreviewMode = 'file' | 'markdown' | 'story' | 'json-tree' | 'di';
 type StoryModule = { default: unknown };
 
-interface DomainFile {
-	name: string;
-	path: string;
-}
-
-interface DomainEntity {
-	name: string;
-	path: string;
-	files: DomainFile[];
-}
-
-interface DomainJoint {
-	name: string;
-	entities: DomainEntity[];
-}
-
-interface DomainCluster {
-	name: string;
-	joints: DomainJoint[];
-}
-
-interface DomainTreeNode {
-	name: string;
-	clusters: DomainCluster[];
-}
-
 interface DomainPageInput {
-	tree: DomainTreeNode[];
+	tree: TypeDomainTreeInput;
 	storyModules: Record<string, () => Promise<StoryModule>>;
 	initialDomain?: string;
 	initialCluster?: string;
@@ -60,8 +36,8 @@ interface DomainDependencyFile {
 }
 
 export function createDomainPageState(input: DomainPageInput) {
-	const { tree, storyModules, initialDomain, initialCluster, initialJoint, initialPreviewMode } =
-		input;
+	const { storyModules, initialDomain, initialCluster, initialJoint, initialPreviewMode } = input;
+	const tree = expandComponentTree(input.tree);
 
 	let activeDomain = $state(
 		tree.some((domainNode) => domainNode.name === initialDomain)

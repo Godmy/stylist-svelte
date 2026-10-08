@@ -2,7 +2,10 @@
 export type {
 	DeviceFrameViewport,
 	TokenControllerType,
-	TypeDomainScreen
+	TypeDomainScreen,
+	TypeDomainTreeInput,
+	TypeFile,
+	TypeFilePreset
 } from './alias';
 export type {
 	AiModelInfo,
@@ -25,5 +28,9 @@ export type {
 	TabFile,
 	TypeDomainComponentDescriptor,
 	TypeDomainComponentProjection,
+	TypeDomainTree,
+	TypeDomainTreeCluster,
+	TypeDomainTreeEntity,
+	TypeDomainTreeJoint,
 	TypeDomainTreeNode
 } from './object';

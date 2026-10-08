@@ -130,13 +130,14 @@
       "family": "booking-bar",
       "status": "missing-recipe",
       "expectedRecipe": "RecipeBookingBar",
-      "importCount": 5,
+      "importCount": 6,
       "recipeImports": [],
       "otherImports": [
         "$stylist/booking/component/molecule/booking-field-pickup/index.svelte",
         "$stylist/booking/component/molecule/booking-field-date/index.svelte",
         "$stylist/booking/component/molecule/booking-field-guests/index.svelte",
         "$stylist/booking/component/molecule/booking-field-duration/index.svelte",
+        "$stylist/animation/component/atom/animated-digit/index.svelte",
         "$stylist/booking/type/object/booking-draft"
       ]
     },
@@ -285,6 +286,19 @@
       ]
     },
     {
+      "path": "booking/component/molecule/booking-pickup-tariff/index.svelte",
+      "domain": "booking",
+      "joint": "molecule",
+      "family": "booking-pickup-tariff",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeBookingPickupTariff",
+      "importCount": 1,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/booking/component/molecule/booking-pickup-list/index.svelte"
+      ]
+    },
+    {
       "path": "booking/component/molecule/booking-tour-type-filter/index.svelte",
       "domain": "booking",
       "joint": "molecule",
@@ -378,6 +392,34 @@
       ]
     },
     {
+      "path": "button/component/atom/animated-button/index.svelte",
+      "domain": "button",
+      "joint": "atom",
+      "family": "animated-button",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeAnimatedButton",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte",
+        "svelte/elements"
+      ]
+    },
+    {
+      "path": "button/component/atom/arrow-button/index.svelte",
+      "domain": "button",
+      "joint": "atom",
+      "family": "arrow-button",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeArrowButton",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte",
+        "../animated-button/index.svelte"
+      ]
+    },
+    {
       "path": "button/component/atom/button/index.svelte",
       "domain": "button",
       "joint": "atom",
@@ -393,6 +435,90 @@
         "$stylist/svg/component/atom/icon/index.svelte",
         "$stylist/button/const/map/button",
         "svelte/elements"
+      ]
+    },
+    {
+      "path": "button/component/atom/fill-button/index.svelte",
+      "domain": "button",
+      "joint": "atom",
+      "family": "fill-button",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeFillButton",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte",
+        "../animated-button/index.svelte"
+      ]
+    },
+    {
+      "path": "button/component/atom/glow-button/index.svelte",
+      "domain": "button",
+      "joint": "atom",
+      "family": "glow-button",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeGlowButton",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte",
+        "../animated-button/index.svelte"
+      ]
+    },
+    {
+      "path": "button/component/atom/morph-button/index.svelte",
+      "domain": "button",
+      "joint": "atom",
+      "family": "morph-button",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeMorphButton",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte",
+        "../animated-button/index.svelte"
+      ]
+    },
+    {
+      "path": "button/component/atom/selection-button/index.svelte",
+      "domain": "button",
+      "joint": "atom",
+      "family": "selection-button",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeSelectionButton",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte",
+        "../animated-button/index.svelte"
+      ]
+    },
+    {
+      "path": "button/component/atom/shine-button/index.svelte",
+      "domain": "button",
+      "joint": "atom",
+      "family": "shine-button",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeShineButton",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte",
+        "../animated-button/index.svelte"
+      ]
+    },
+    {
+      "path": "calendar/component/organism/date-pair-picker/index.svelte",
+      "domain": "calendar",
+      "joint": "organism",
+      "family": "date-pair-picker",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeDatePairPicker",
+      "importCount": 2,
+      "recipeImports": [],
+      "otherImports": [
+        "$stylist/calendar/component/organism/calendar/index.svelte",
+        "$stylist/svg/component/atom/icon/index.svelte"
       ]
     },
     {
@@ -2007,7 +2133,7 @@
         "$stylist/travel-commerce/component/molecule/tour-card-badges/index.svelte",
         "$stylist/travel-commerce/component/molecule/tour-tag-list/index.svelte",
         "$stylist/travel-commerce/component/molecule/tour-price-note/index.svelte",
-        "$stylist/travel-commerce/function/script/format-excursion-card-price"
+        "$stylist/travel-commerce/function/script/calculate-excursion-card-total"
       ]
     },
     {
@@ -2026,7 +2152,7 @@
         "$stylist/travel-commerce/component/molecule/tour-card-badges/index.svelte",
         "$stylist/travel-commerce/component/molecule/tour-tag-list/index.svelte",
         "$stylist/travel-commerce/component/molecule/tour-price-note/index.svelte",
-        "$stylist/travel-commerce/function/script/format-excursion-card-price"
+        "$stylist/travel-commerce/function/script/calculate-excursion-card-total"
       ]
     },
     {
@@ -2112,11 +2238,13 @@
       "domain": "travel-commerce",
       "joint": "molecule",
       "family": "tour-price-note",
-      "status": "none",
+      "status": "missing-recipe",
       "expectedRecipe": "RecipeTourPriceNote",
-      "importCount": 0,
+      "importCount": 1,
       "recipeImports": [],
-      "otherImports": []
+      "otherImports": [
+        "$stylist/animation/component/atom/animated-digit/index.svelte"
+      ]
     },
     {
       "path": "travel-commerce/component/molecule/tour-tag-list/index.svelte",
@@ -2292,10 +2420,11 @@
       "family": "landing-topic-grid",
       "status": "missing-recipe",
       "expectedRecipe": "RecipeLandingTopicGrid",
-      "importCount": 1,
+      "importCount": 2,
       "recipeImports": [],
       "otherImports": [
-        "$stylist/travel-commerce/type/object/landing-topic"
+        "$stylist/travel-commerce/type/object/landing-topic",
+        "svelte"
       ]
     },
     {
@@ -2379,6 +2508,31 @@
       "recipeImports": [],
       "otherImports": [
         "$stylist/travel-commerce/type/object/tour-route-stop"
+      ]
+    },
+    {
+      "path": "travel-commerce/component/organism/travel-calculator/index.svelte",
+      "domain": "travel-commerce",
+      "joint": "organism",
+      "family": "travel-calculator",
+      "status": "missing-recipe",
+      "expectedRecipe": "RecipeTravelCalculator",
+      "importCount": 13,
+      "recipeImports": [],
+      "otherImports": [
+        "svelte",
+        "$stylist/input/component/atom/input-stepper/index.svelte",
+        "$stylist/animation/component/atom/animated-digit/index.svelte",
+        "$stylist/dialog/component/molecule/accordion/index.svelte",
+        "$stylist/dialog/component/atom/accordion-layout/index.svelte",
+        "$stylist/booking/component/molecule/booking-pickup-tariff/index.svelte",
+        "$stylist/calendar/component/organism/date-pair-picker/index.svelte",
+        "$stylist/booking/type/object/booking-draft",
+        "$stylist/travel-commerce/type/object/pricing-model",
+        "$stylist/travel-commerce/type/object/addon-quantity",
+        "$stylist/travel-commerce/type/object/tour-addon",
+        "$stylist/travel-commerce/type/object/trip-info",
+        "$stylist/travel-commerce/function/script/calculate-booking-quote"
       ]
     },
     {
@@ -2487,7 +2641,7 @@
       "family": "travel-product",
       "status": "missing-recipe",
       "expectedRecipe": "RecipeTravelProduct",
-      "importCount": 12,
+      "importCount": 17,
       "recipeImports": [],
       "otherImports": [
         "$stylist/travel-commerce/type/object/excursion",
@@ -2497,10 +2651,15 @@
         "$stylist/animation/component/organism/media-slider/index.svelte",
         "$stylist/booking/component/organism/booking-bridge/index.svelte",
         "$stylist/booking/component/organism/booking-accordion/index.svelte",
-        "$stylist/booking/component/molecule/booking-guest/index.svelte",
+        "$stylist/travel-commerce/component/organism/travel-calculator/index.svelte",
+        "$stylist/travel-commerce/type/object/addon-quantity",
+        "$stylist/travel-commerce/type/object/trip-info",
+        "svelte",
         "$stylist/booking/type/object/booking-draft",
         "$stylist/travel-commerce/type/object/pricing-model",
-        "$stylist/travel-commerce/function/script/calculate-booking-total",
+        "$stylist/travel-commerce/function/script/calculate-booking-quote",
+        "$stylist/booking/const/array/experience-category",
+        "$stylist/animation/component/atom/animated-digit/index.svelte",
         "$stylist/travel-commerce/data/jpg/logo/logo.png"
       ]
     },
@@ -2661,10 +2820,10 @@
     }
   ],
   "summary": {
-    "total": 177,
-    "none": 23,
-    "missingRecipe": 154,
+    "total": 187,
+    "none": 22,
+    "missingRecipe": 165,
     "valid": 601,
-    "scanned": 778
+    "scanned": 788
   }
 }

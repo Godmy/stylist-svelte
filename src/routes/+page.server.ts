@@ -1,6 +1,5 @@
-import type { DomainManager } from '$stylist/server/class/manager/domain';
-import manifest from '$stylist/domain/data/json/domain-page-manifest/index.json';
+import { DomainManager } from '$stylist/server/class/manager/domain';
 
 type DomainPageData = ReturnType<typeof DomainManager.getDomainPageData>;
 
-export const load = (): DomainPageData => manifest as DomainPageData;
+export const load = (): DomainPageData => DomainManager.getDomainPageData();

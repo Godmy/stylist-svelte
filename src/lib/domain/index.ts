@@ -35,16 +35,24 @@ export {
 	TaxonomyBreadcrumbs
 } from './component';
 export {
+	ARRAY_FILE,
 	DEVICE_FRAME_VIEWPORT,
 	DOMAIN_CLUSTER,
 	DOMAIN_REGIME,
 	DOMAIN_SCREEN,
 	JOINT_TOOLBAR_ITEMS,
+	PRESET_FILE,
 	STYLIST_GRAPH_WORKSPACE_SEED,
 	TOKEN_CONTROLLER_TYPE
 } from './const';
 export {
+	countDomainStories,
 	createClusterToolbarItems,
+	expandComponentTree,
+	normalizeDomainTree,
+	resolveComponentDescriptor,
+	resolveFilePreset,
+	resolveTreeFamilies,
 	serializeUnknownError
 } from './function';
 export type {
@@ -71,7 +79,14 @@ export type {
 	TypeDomainComponentDescriptor,
 	TypeDomainComponentProjection,
 	TypeDomainScreen,
-	TypeDomainTreeNode
+	TypeDomainTree,
+	TypeDomainTreeCluster,
+	TypeDomainTreeEntity,
+	TypeDomainTreeInput,
+	TypeDomainTreeJoint,
+	TypeDomainTreeNode,
+	TypeFile,
+	TypeFilePreset
 } from './type';
 export type {
 	RecipeClusterToolbar,

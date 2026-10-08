@@ -50,7 +50,7 @@
 >
 	{#snippet children()}
 		<div class="_c1">
-			<DomainPlayground {tree} descriptors={[]} initialScreen={DOMAIN_SCREEN.DOMAIN} />
+			<DomainPlayground {tree} initialScreen={DOMAIN_SCREEN.DOMAIN} />
 		</div>
 	{/snippet}
 </Story>
