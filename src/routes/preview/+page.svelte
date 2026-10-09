@@ -83,15 +83,17 @@
 {/if}
 
 <style>
-	:global(html),
-	:global(html > body) {
+	:global(html) {
 		height: 100%;
-		overflow: hidden;
-		scrollbar-gutter: auto;
+		overflow: auto;
+		scrollbar-gutter: stable;
 	}
 
 	:global(html > body) {
-		overflow: auto;
+		height: auto;
+		min-height: 100%;
+		overflow: visible;
+		scrollbar-gutter: auto;
 	}
 
 	:global(.c-story--isolated.c-story--fullscreen),
