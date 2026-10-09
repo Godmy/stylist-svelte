@@ -64,10 +64,32 @@ try {
 	const hidden = sandboxExclusion(target, selection);
 	const publicModules = Object.entries(registry).filter(([name]) => !hidden.modules.has(name));
 	console.log(`public: ${publicModules.map(([name]) => name).join(', ')}; private (left empty): ${[...hidden.modules].join(', ')}`);
-	for (const [, module] of publicModules) {
-		if (!fromGithub) step(`url ${module.path}`, 'git', ['config', `submodule.${module.path}.url`, path.join(source, module.path)]);
+	if (fromGithub) {
+		step('submodules', 'git', ['-c', 'protocol.file.allow=always', 'submodule', 'update', '--init', '--recursive', '--', ...publicModules.map(([, module]) => module.path)]);
+	} else {
+		// Level by level, each nested repository from its local checkout: unpushed nested commits work too.
+		const started = Date.now();
+		const initLocal = (repository, paths) => {
+			for (const submodule of paths) {
+				git(path.join(target, repository), ['submodule', 'init', '--', submodule]);
+				// .gitmodules names may differ from paths (e.g. "src/lib/theme" at path theme).
+				const name = lines(git(path.join(target, repository), ['config', '-f', '.gitmodules', '--get-regexp', String.raw`^submodule\..*\.path$`]))
+					.map((line) => line.split(/\s+/))
+					.find(([, value]) => value === submodule)[0]
+					.replace(/^submodule\./, '')
+					.replace(/\.path$/, '');
+				git(path.join(target, repository), ['config', `submodule.${name}.url`, path.join(source, repository, submodule)]);
+				git(path.join(target, repository), ['submodule', 'update', '--', submodule]);
+				const nested = path.join(repository, submodule);
+				const children = existsSync(path.join(target, nested, '.gitmodules'))
+					? lines(git(path.join(target, nested), ['config', '-f', '.gitmodules', '--get-regexp', 'path'])).map((line) => line.split(/\s+/)[1])
+					: [];
+				initLocal(nested, children);
+			}
+		};
+		initLocal('', publicModules.map(([, module]) => module.path));
+		timings.push(['submodules (local, recursive)', Date.now() - started, 'ok']);
 	}
-	step('submodules', 'git', ['-c', 'protocol.file.allow=always', 'submodule', 'update', '--init', '--recursive', '--', ...publicModules.map(([, module]) => module.path)]);
 	if (workingTree) {
 		for (const [, module] of publicModules) {
 			const nested = lines(git(path.join(source, module.path), ['submodule', 'foreach', '--recursive', '--quiet', 'echo $displaypath']));
