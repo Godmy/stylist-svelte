@@ -1,13 +1,15 @@
 import { existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
-import { dirname, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { checkPublicBoundary } from './check-public-boundary.mjs';
 import { checkPackageSource } from './check-package-source.mjs';
 
-/** Locate the Python stylist tools next to this library (lankatour layout) or via STYLIST_TOOLS_DIR.
+/** Locate the Python stylist tools next to this library or via STYLIST_TOOLS_DIR.
  * The auditor resolves the library from its own location, so the tools must sit in the same
- * packages/ folder as this checkout; anything else is reported as skipped, never guessed.
+ * folder as this checkout; anything else is reported as skipped, never guessed.
+ * Indexation runs from the site root when both sit in its packages/ folder, otherwise from
+ * the shared folder holding the stylist + stylist-svelte siblings.
  * @param {string} root
  */
 export function findTools(root, env = process.env) {
@@ -16,7 +18,8 @@ export function findTools(root, env = process.env) {
 	if (resolve(tools, '..', 'stylist-svelte') !== resolve(root)) {
 		return { skipped: `stylist tools at ${tools} check ${resolve(tools, '..', 'stylist-svelte')}, not this checkout` };
 	}
-	return { tools, cwd: resolve(tools, '..', '..') };
+	const container = resolve(tools, '..');
+	return { tools, cwd: basename(container) === 'packages' ? resolve(container, '..') : container };
 }
 
 /** One gate for the pre-push hook, Workers Builds and npm releases. Only checks; never writes.
