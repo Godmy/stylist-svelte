@@ -22,7 +22,7 @@
 
 Проверены файлы umbrella и доступные checkout: design-system (с четырьмя
 вложенными репозиториями), interaction, information, architecture, observer
-(с server). Business не удалось загрузить: Git сообщил `Repository not found`.
+(с server; сейчас этот модуль называется sandbox). Business не удалось загрузить: Git сообщил `Repository not found`.
 Travel, geo, wbd и adr не инициализировались. Отсутствие доступа не доказывает
 отсутствие кода; числа из манифеста не считаются результатом обхода этих исходников.
 

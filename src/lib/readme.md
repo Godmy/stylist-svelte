@@ -72,7 +72,7 @@ business/travel/geo/wbd, доступные в этом окружении. Не
 субъективная оценка функционального охвата, не тестовое покрытие, доступность
 или готовность к production. После переноса доменов рейтинг заново не выставлялся.
 Группы ниже — аналитическая классификация; физических владельцев определяет
-[modules/readme.md](../../modules/readme.md). Например, token принадлежит observer,
+[modules/readme.md](../../modules/readme.md). Например, token принадлежит sandbox,
 animation — interaction, webgl — architecture; booking и travel-* — private travel.
 
 ### 2.1 Фундамент (дизайн-система)

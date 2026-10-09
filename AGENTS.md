@@ -4,7 +4,7 @@
 
 - Source owners are declared in `modules.json`. General modules are Git submodules under `modules/`; travel is a separate private Yarn workspace/package.
 - Mapped domains live only in `modules/<module>/<domain>`. Do not recreate links or copied sources under the umbrella `src/lib`. `scripts/prepare-module-sources.mjs` validates checkouts and provides physical aliases without filesystem writes.
-- Edit and run Git operations in the owning physical repository. Design-system contains nested theme/svg/typography/layout repositories; observer contains the server repository. Preserve their histories.
+- Edit and run Git operations in the owning physical repository. Design-system contains nested theme/svg/typography/layout repositories; sandbox contains the server repository. Preserve their histories.
 - The domain/cluster/joint/family architecture applies within each module root. Module grouping is repository ownership, not another domain hierarchy level. Geo and wbd are independent nested repositories at `modules/global/geo` and `modules/business/wbd`; business also embeds travel, spanish, sakartvelo, and farm.
 - SvelteKit/Vite resolve logical domain imports through `moduleAliases`; deduplicate Svelte. Source mirrors read actual domain owners and omit `.git` metadata. Packaging assembles ignored `.package-input` and translates only its copied generated entrypoint; never hand-edit source barrels.
 - Public npm output must exclude booking/travel-commerce/travel-admin; source dependencies on the travel package are forbidden in the public library. Travel imports common entities by `stylist-svelte` package subpath and uses relative imports internally.
@@ -88,7 +88,7 @@
 
 ## Embedded Repository Exception For Submodule Domains (Mandatory)
 
-- Domains registered as Git submodules in the owning repository's `.gitmodules` act as embedded repository boundaries. `theme`, `svg`, `typography`, `layout` belong to design-system; `server` belongs to observer; `wbd` is registered by business, and `geo` by global; business also registers travel, spanish, sakartvelo, and farm.
+- Domains registered as Git submodules in the owning repository's `.gitmodules` act as embedded repository boundaries. `theme`, `svg`, `typography`, `layout` belong to design-system; `server` belongs to sandbox; `wbd` is registered by business, and `geo` by global; business also registers travel, spanish, sakartvelo, and farm.
 - At the root of each such domain, the files `.git`, `LICENSE`, and `README.md` are allowed in addition to the regular domain structure — they are metadata brought in by the submodule, not an architecture violation.
 - This exception applies only to the root of the embedded-repository domain, and only to domains actually listed in the relevant owner's `.gitmodules`.
 - All source code inside an embedded-repository domain must still follow the domain, cluster, joint, family, and assembly rules unless a separate rule explicitly states otherwise.
