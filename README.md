@@ -55,7 +55,7 @@ in `package.json`. In the parent site workspace, install dependencies from the
 site root. For a standalone clone, use the library root:
 
 ```sh
-git submodule update --init --recursive modules/design-system modules/interaction modules/information modules/business modules/architecture modules/observer
+git submodule update --init --recursive modules/design-system modules/interaction modules/information modules/business modules/architecture modules/sandbox
 node scripts/prepare-module-sources.mjs --public
 yarn install --immutable
 yarn dev

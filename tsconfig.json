@@ -58,17 +58,18 @@
     "modules/architecture/canvas/**/*",
     "modules/architecture/presentation/**/*",
     "modules/architecture/webgl/**/*",
-    "modules/observer/domain/**/*",
-    "modules/observer/token/**/*",
-    "modules/observer/server/**/*",
+    "modules/sandbox/domain/**/*",
+    "modules/sandbox/token/**/*",
+    "modules/sandbox/server/**/*",
     "modules/business/travel/booking/**/*",
     "modules/business/travel/travel-commerce/**/*",
     "modules/business/travel/travel-admin/**/*",
+    "modules/business/sakartvelo/tea-commerce/**/*",
     "modules/global/geo/**/*",
     "modules/business/wbd/**/*",
     "modules/business/spanish/**/*",
     "modules/business/farm/**/*",
-    "modules/observer/development/**/*",
+    "modules/sandbox/development/**/*",
     "modules/customer/ai/**/*"
   ]
 }

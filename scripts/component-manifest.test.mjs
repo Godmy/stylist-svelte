@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
 import ts from 'typescript';
 
-const root = new URL('../modules/observer/domain/', import.meta.url);
+const root = new URL('../modules/sandbox/domain/', import.meta.url);
 const compile = (source) =>
 	ts.transpileModule(source, {
 		compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext }

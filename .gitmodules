@@ -22,9 +22,9 @@ url = https://github.com/Godmy/stylist-svelte-business.git
 path = modules/architecture
 url = https://github.com/Godmy/stylist-svelte-architecture.git
 
-[submodule "modules/observer"]
-path = modules/observer
-url = https://github.com/Godmy/stylist-svelte-observer.git
+[submodule "modules/sandbox"]
+	path = modules/sandbox
+	url = https://github.com/Godmy/stylist-svelte-sandbox.git
 
 [submodule "modules/customer"]
 path = modules/customer

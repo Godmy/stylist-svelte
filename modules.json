@@ -73,8 +73,8 @@
     ],
     "sourceRoot": "."
   },
-  "observer": {
-    "path": "modules/observer",
+  "sandbox": {
+    "path": "modules/sandbox",
     "domains": [
       "domain",
       "token",

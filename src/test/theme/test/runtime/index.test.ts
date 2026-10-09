@@ -12,8 +12,8 @@ describe('theme runtime helpers', () => {
 	afterEach(() => {
 		vi.unstubAllGlobals();
 		document.documentElement.className = '';
-		document.documentElement.removeAttribute('data-theme');
-		document.documentElement.removeAttribute('data-scheme');
+		document.documentElement.removeAttribute('theme-mode');
+		document.documentElement.removeAttribute('theme-scheme');
 		document.documentElement.removeAttribute('style');
 		localStorage.clear();
 	});
@@ -33,8 +33,8 @@ describe('theme runtime helpers', () => {
 	it('applies mode and scheme to the browser target element', () => {
 		applyThemeModeAndScheme('dark', 'forest');
 
-		expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
-		expect(document.documentElement.getAttribute('data-scheme')).toBe('forest');
+		expect(document.documentElement.getAttribute('theme-mode')).toBe('dark');
+		expect(document.documentElement.getAttribute('theme-scheme')).toBe('forest');
 		expect(document.documentElement.classList.contains('dark')).toBe(true);
 		expect(document.documentElement.style.getPropertyValue('--color-background-primary')).not.toBe(
 			''
@@ -45,7 +45,7 @@ describe('theme runtime helpers', () => {
 	it('applies stored scheme attribute to the target element', () => {
 		ManagerThemeResolver.applyStoredScheme('sunset');
 
-		expect(document.documentElement.getAttribute('data-scheme')).toBe('sunset');
+		expect(document.documentElement.getAttribute('theme-scheme')).toBe('sunset');
 	});
 
 	it('normalizes legacy mode values', () => {

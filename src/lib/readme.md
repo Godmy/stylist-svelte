@@ -192,7 +192,7 @@ animation — interaction, webgl — architecture; booking и travel-* — priva
 
 - `list` — нет базового `list-item`, `virtual-list`, `infinite-scroll`, `description-list`.
 - `navigation` — нет `tabs` (лежат в `dialog`), `breadcrumbs` (в `dialog`), `skip-link`, `stepper` (в `dialog`).
-- `typography` — нет `code-block` с подсветкой (хотя `shiki` объявлен runtime-зависимостью, он нигде не импортируется), `prose`, `truncate`/`line-clamp`.
+- `typography` — нет `code-block` с подсветкой, `prose`, `truncate`/`line-clamp`.
 - `feedback` (нового домена нет) — `empty-state`, `error-state`, `result`/`404`, `skeleton` (в `animation`).
 - `form` — нет `form-field` (label + control + helper + error как одна обёртка), `fieldset`,
   `otp-input` (есть только атом `input/atom/input-pin-digit`), `password-strength-meter`.

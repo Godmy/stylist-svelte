@@ -1,6 +1,6 @@
 # src/routes — песочница и API
 
-Маршруты используют домены `domain` и `server` владельца `modules/observer`,
+Маршруты используют домены `domain` и `server` владельца `modules/sandbox`,
 а тема подключается из `modules/design-system/theme`. Ниже описано поведение
 исходников на `681e886ea`; успешный запуск этой ревизии здесь не подтверждён.
 
@@ -35,7 +35,7 @@ family. Stories загружаются через glob по физическим
 адресам `/src/lib/<domain>/...`. `Story` находится в домене `theme`.
 
 Манифест хранится в
-`modules/observer/domain/data/json/domain-page-manifest/index.json`. Он содержит
+`modules/sandbox/domain/data/json/domain-page-manifest/index.json`. Он содержит
 только `tree`; массива `descriptors` нет. DomainManager передаёт компактное
 дерево странице, а `resolveComponentDescriptor` строит проекцию по запросу.
 Число stories на landing вычисляет `countDomainStories`. Формат и измерения:
@@ -75,7 +75,7 @@ Playwright не объявлен зависимостью проекта. При
 
 ## 2. Как устроен UI песочницы
 
-`DomainPlayground` (`modules/observer/domain/component/page/domain-playground`) — три экрана.
+`DomainPlayground` (`modules/sandbox/domain/component/page/domain-playground`) — три экрана.
 Раздел восстанавливает подробный анализ из аудита `81bd28b90`, сохранённого до
 PR #4. Пути и формат манифеста обновлены; старые скриншоты и browser-замеры
 остаются историческими свидетельствами, не результатом нового запуска.

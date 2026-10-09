@@ -99,6 +99,7 @@ export async function prepareModuleSources(packageRoot, { includePrivate = true,
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
 	const root = fileURLToPath(new URL('../', import.meta.url));
+	/** @param {string} flag */
 	const option = (flag) => process.argv.find((arg) => arg.startsWith(`${flag}=`))?.slice(flag.length + 1);
 	prepareModuleSources(root, {
 		modules: option('--modules') ?? (process.argv.includes('--public') ? 'public' : 'all'),

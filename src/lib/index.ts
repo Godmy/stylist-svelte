@@ -826,7 +826,7 @@ export {
 	TokenSettings,
 	TokenText,
 	getTokenIconKind
-} from '../../modules/observer/token';
+} from '../../modules/sandbox/token';
 export type {
 	CanvasToolbarDrawingTool,
 	SharedCanvasTool,
@@ -1021,7 +1021,7 @@ export type {
 	TokenSelectControlDefinition,
 	TokenTextControlDefinition,
 	TokenTextStateProps
-} from '../../modules/observer/token';
+} from '../../modules/sandbox/token';
 export type {
 	ObjectPoint2DPath,
 	Point2D,
@@ -1674,4 +1674,4 @@ export type {
 	RecipeTokenRange,
 	RecipeTokenSelect,
 	RecipeTokenText
-} from '../../modules/observer/token';
+} from '../../modules/sandbox/token';

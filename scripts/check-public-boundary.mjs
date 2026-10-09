@@ -12,10 +12,10 @@ const SKIP = new Set(['.git', 'node_modules', 'dist', '.svelte-kit', '.package-i
 /** Generated files that are committed and must only describe public modules. */
 export const GENERATED_PUBLIC_FILES = Object.freeze([
 	'src/lib/index.ts',
-	'modules/observer/domain/data/json/domain-page-manifest/index.json',
-	'modules/observer/domain/data/json/domain-files/index.json',
-	'modules/observer/domain/data/json/domain-component-intervals/index.json',
-	'modules/observer/domain/data/json/domain-component-import-diagnostics/index.json'
+	'modules/sandbox/domain/data/json/domain-page-manifest/index.json',
+	'modules/sandbox/domain/data/json/domain-files/index.json',
+	'modules/sandbox/domain/data/json/domain-component-intervals/index.json',
+	'modules/sandbox/domain/data/json/domain-component-import-diagnostics/index.json'
 ]);
 
 /** Local-only workspace artefacts (all modules); committing them publishes private names. */

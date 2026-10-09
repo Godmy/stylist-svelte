@@ -10,7 +10,7 @@
 | business (private) | `modules/business` | Nested repository container |
 | customer (private) | `modules/customer` | auth, chat, ai, user, social, landing |
 | architecture | `modules/architecture` | graph, erd, idef-zero, workspace, canvas, presentation, webgl |
-| observer | `modules/observer` | domain, token, server, development |
+| sandbox | `modules/sandbox` | domain, token, server, development |
 | travel (private) | `modules/business/travel` | booking, travel-commerce, travel-admin |
 | sakartvelo (private) | `modules/business/sakartvelo` | tea-commerce |
 | geo (private) | `modules/global/geo` | geo |
@@ -30,6 +30,6 @@ Grouped domains are direct children of their owner (`sourceRoot: "."`). Single-d
 
 Travel and sakartvelo remain separate private packages at `modules/business/travel` and `modules/business/sakartvelo`. Site portal dependencies resolve these physical paths. Refresh the consuming site's Yarn installation after path changes.
 
-Design-system embeds theme/svg/typography/layout, and observer embeds server. Edit files and run Git operations inside the physical owning repository. An umbrella commit records owner revisions; owner commits record nested submodule revisions.
+Design-system embeds theme/svg/typography/layout, and sandbox embeds server. Edit files and run Git operations inside the physical owning repository. An umbrella commit records owner revisions; owner commits record nested submodule revisions.
 
 Preparation validates physical paths without creating source projections. Public module selection excludes private domains, server is never published, and generated roots/manifests come from the existing Stylist tooling. Source mirrors omit Git metadata. Packaging uses an ignored staging directory.

@@ -8,7 +8,7 @@ import { findTools, runGate } from './stylist-gate.mjs';
 
 const registry = {
 	common: { path: 'modules/common', sourceRoot: '.', domains: ['button', 'notification'] },
-	observer: { path: 'modules/observer', sourceRoot: '.', domains: ['domain'] },
+	sandbox: { path: 'modules/sandbox', sourceRoot: '.', domains: ['domain'] },
 	business: { path: 'modules/business', sourceRoot: '.', private: true, domains: ['chat'] },
 	geo: { path: 'modules/geo', domainRoot: true, private: true, domains: ['geo'] }
 };
@@ -57,8 +57,8 @@ test('runtime, story and relative imports of private modules are violations', as
 test('committed generated root and manifest must not mention private modules', async () => {
 	await fixture({
 		'src/lib/index.ts': "export * from '../../modules/common/button';\nexport * from '../../modules/geo';",
-		'modules/observer/domain/data/json/domain-page-manifest/index.json': JSON.stringify({ tree: { button: {}, chat: {} } }),
-		'modules/observer/domain/data/json/domain-component-import-diagnostics/index.json': JSON.stringify({ rows: [{ domain: 'geo' }] })
+		'modules/sandbox/domain/data/json/domain-page-manifest/index.json': JSON.stringify({ tree: { button: {}, chat: {} } }),
+		'modules/sandbox/domain/data/json/domain-component-import-diagnostics/index.json': JSON.stringify({ rows: [{ domain: 'geo' }] })
 	}, async (root) => {
 		const found = details(await checkPublicBoundary(root, { git: false }));
 		assert.ok(found.some((line) => line.startsWith('generated src/lib/index.ts mentions modules/geo')), found.join('\n'));

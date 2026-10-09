@@ -52,8 +52,8 @@ describe('theme component integration', () => {
 		expect(screen.getByTestId('theme-switcher-value').textContent).toBe('forest');
 		expect(Number(screen.getByTestId('theme-switcher-count').textContent)).toBe(beforeChanges + 1);
 		expect(localStorage.getItem(THEME_STORAGE_CONTRACT.schemeStorageKey)).toBe('forest');
-		expect(document.documentElement.getAttribute('data-ui-theme')).toBe('forest');
-		expect(document.documentElement.getAttribute('data-theme')).toBe('light');
+		expect(document.documentElement.getAttribute('theme-scheme')).toBe('forest');
+		expect(document.documentElement.getAttribute('theme-mode')).toBe('light');
 	});
 
 	it('publishes the theme settings defaults', () => {
