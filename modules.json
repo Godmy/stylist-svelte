@@ -44,18 +44,19 @@
   "business": {
     "path": "modules/business",
     "private": true,
+    "domains": [],
+    "sourceRoot": "."
+  },
+  "customer": {
+    "path": "modules/customer",
+    "private": true,
     "domains": [
       "auth",
-      "user",
       "chat",
+      "ai",
+      "user",
       "social",
-      "commerce",
-      "product",
-      "management",
-      "marketing",
-      "landing",
-      "portfolio",
-      "science"
+      "landing"
     ],
     "sourceRoot": "."
   },
@@ -77,12 +78,13 @@
     "domains": [
       "domain",
       "token",
-      "server"
+      "server",
+      "development"
     ],
     "sourceRoot": "."
   },
   "travel": {
-    "path": "modules/travel",
+    "path": "modules/business/travel",
     "private": true,
     "domains": [
       "booking",
@@ -92,7 +94,7 @@
     "sourceRoot": "."
   },
   "sakartvelo": {
-    "path": "modules/sakartvelo",
+    "path": "modules/business/sakartvelo",
     "private": true,
     "domains": [
       "tea-commerce"
@@ -100,7 +102,7 @@
     "sourceRoot": "."
   },
   "geo": {
-    "path": "modules/geo",
+    "path": "modules/global/geo",
     "domainRoot": true,
     "private": true,
     "domains": [
@@ -108,7 +110,7 @@
     ]
   },
   "wbd": {
-    "path": "modules/wbd",
+    "path": "modules/business/wbd",
     "domainRoot": true,
     "private": true,
     "domains": [
@@ -116,7 +118,7 @@
     ]
   },
   "spanish": {
-    "path": "modules/spanish",
+    "path": "modules/business/spanish",
     "domainRoot": true,
     "private": true,
     "domains": [
@@ -124,11 +126,31 @@
     ]
   },
   "farm": {
-    "path": "modules/farm",
+    "path": "modules/business/farm",
     "domainRoot": true,
     "private": true,
     "domains": [
       "farm"
     ]
+  },
+  "management": {
+    "path": "modules/management",
+    "private": true,
+    "domains": [
+      "management",
+      "marketing",
+      "portfolio",
+      "science"
+    ],
+    "sourceRoot": "."
+  },
+  "global": {
+    "path": "modules/global",
+    "private": true,
+    "domains": [
+      "commerce",
+      "product"
+    ],
+    "sourceRoot": "."
   }
 }

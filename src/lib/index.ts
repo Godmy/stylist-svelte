@@ -133,6 +133,7 @@ export {
 	TOKEN_TRAJECTORY,
 	Viewport,
 	WORKSPACE_ICONS,
+	Workspace,
 	WorkspaceCanvas,
 	WorkspaceNode,
 	WorkspacePalette,
@@ -349,6 +350,7 @@ export {
 	AudioSlider,
 	AudioVisualizer,
 	TOKEN_AUDIO_ICON,
+	Transcriber,
 	formatAudioTime
 } from '../../modules/information/audio';
 export {
@@ -780,6 +782,7 @@ export {
 	CardClose,
 	CardOpen,
 	CardShell,
+	DomainBuilder,
 	DomainDescriptorPanel,
 	L6_TOKEN_DEFINITIONS,
 	Orbit,
@@ -931,6 +934,7 @@ export type {
 	TokenTypographyTone,
 	TokenZIndex
 } from '../../modules/design-system/theme';
+export type { TypeTranscriberStatus } from '../../modules/information/audio';
 export type {
 	HeatmapAxisValue,
 	TokenCanvasChartType,
@@ -1261,6 +1265,7 @@ export type {
 	RecipeAudioRecordButton,
 	RecipeAudioSlider,
 	RecipeAudioVisualizer,
+	RecipeTranscriber,
 	SlotAudioPlayer,
 	SlotAudioRecording,
 	SlotAudioSlider,

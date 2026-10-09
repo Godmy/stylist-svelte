@@ -25,7 +25,7 @@ const config = {
 		alias: {
 			...moduleAliases(__dirname),
 			'stylist-svelte/*': libRoot,
-			'stylist-svelte-travel/*': path.resolve(__dirname, './modules/travel'),
+			'stylist-svelte-travel/*': path.resolve(__dirname, './modules/business/travel'),
 			$stylist: libRoot,
 			'stylist-test': testRoot
 		}

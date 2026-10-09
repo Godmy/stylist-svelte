@@ -272,9 +272,9 @@ animation — interaction, webgl — architecture; booking и travel-* — priva
 
 | Предложение прежнего аудита                    | Текущее состояние                                                                                   | Следующий критерий                                                |
 | ---------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| Вынести booking, travel-commerce, travel-admin | Выполнено в исходниках: private workspace `modules/travel`; публичная assembly исключает три домена | Регенерация корней, проверки peer-imports и независимой установки |
+| Вынести booking, travel-commerce, travel-admin | Выполнено в исходниках: private workspace `modules/business/travel`; публичная assembly исключает три домена | Регенерация корней, проверки peer-imports и независимой установки |
 | Изолировать geo/wbd                            | Независимые приватные репозитории, исключены из публичного npm                                      | Проверить публичный пакет без этих checkout                       |
-| Отдельные наборы spanish/science               | Остаются в business; это предложение, не согласованное изменение                                    | Оценить потребителей и пользу выделения до смены API              |
+| Separate spanish/science sources | spanish is nested at `modules/business/spanish`; science belongs to `modules/management/science` | Ownership updated without changing logical domain imports |
 | Вынести брендовые сцены из общих доменов       | Остаётся аналитическим кандидатом                                                                   | Проверить текущие зависимости и сохранить публичную границу       |
 
 ### 4.3 Предлагаемое слияние/переименование доменов

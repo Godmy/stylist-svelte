@@ -1,39 +1,39 @@
 [submodule "adr"]
-	path = adr
-	url = https://github.com/Godmy/adr.git
-[submodule "src/lib/wbd"]
-	path = modules/wbd
-	url = https://github.com/Godmy/stylist-svelte-wbd.git
-[submodule "src/lib/geo"]
-	path = modules/geo
-	url = https://github.com/Godmy/stylist-svelte-geo.git
+path = adr
+url = https://github.com/Godmy/adr.git
+
 [submodule "modules/design-system"]
-	path = modules/design-system
-	url = https://github.com/Godmy/stylist-svelte-design-system.git
+path = modules/design-system
+url = https://github.com/Godmy/stylist-svelte-design-system.git
+
 [submodule "modules/interaction"]
-	path = modules/interaction
-	url = https://github.com/Godmy/stylist-svelte-interaction.git
+path = modules/interaction
+url = https://github.com/Godmy/stylist-svelte-interaction.git
+
 [submodule "modules/information"]
-	path = modules/information
-	url = https://github.com/Godmy/stylist-svelte-information.git
+path = modules/information
+url = https://github.com/Godmy/stylist-svelte-information.git
+
 [submodule "modules/business"]
-	path = modules/business
-	url = https://github.com/Godmy/stylist-svelte-business.git
+path = modules/business
+url = https://github.com/Godmy/stylist-svelte-business.git
+
 [submodule "modules/architecture"]
-	path = modules/architecture
-	url = https://github.com/Godmy/stylist-svelte-architecture.git
+path = modules/architecture
+url = https://github.com/Godmy/stylist-svelte-architecture.git
+
 [submodule "modules/observer"]
-	path = modules/observer
-	url = https://github.com/Godmy/stylist-svelte-observer.git
-[submodule "modules/travel"]
-	path = modules/travel
-	url = https://github.com/Godmy/stylist-svelte-travel.git
-[submodule "modules/spanish"]
-	path = modules/spanish
-	url = https://github.com/Godmy/stylist-svelte-spanish.git
-[submodule "modules/farm"]
-	path = modules/farm
-	url = https://github.com/Godmy/stylist-svelte-farm.git
-[submodule "modules/sakartvelo"]
-	path = modules/sakartvelo
-	url = https://github.com/Godmy/stylist-svelte--sakartvelo.git
+path = modules/observer
+url = https://github.com/Godmy/stylist-svelte-observer.git
+
+[submodule "modules/customer"]
+path = modules/customer
+url = https://github.com/Godmy/stylist-svelte-customer.git
+
+[submodule "modules/management"]
+path = modules/management
+url = https://github.com/Godmy/stylist-svelte-management.git
+
+[submodule "modules/global"]
+path = modules/global
+url = https://github.com/Godmy/stylist-svelte-global.git
