@@ -4,11 +4,26 @@ This file records package and documentation changes. Source-history details are
 in [src/changelog.md](src/changelog.md). Unreleased entries do not establish npm
 publication or a successful site deployment.
 
-## 1.1.0 — 2026-10-08
+## 2.0.0 — 2026-10-09
 
 > **Breaking:** the npm package no longer contains business domains (auth, user, chat,
 > social, commerce, product, management, marketing, landing, portfolio, science) or spanish;
 > they are private modules now. Projects importing them from 1.0.1 must stay on 1.0.1.
+> A 1.1.0 was prepared on 2026-10-08 but never published; 2.0.0 replaces it (major bump
+> because of the removed domains).
+
+### Fixed
+
+- `svg`: the `heart` icon is symmetric (the right lobe ended at x=20 and the halves met off
+  the tip).
+
+### Sandbox (stylist-svelte.online, not part of the package)
+
+- Landing hero: SAMO badge, "Faster!" accent and heart mark with a synced shine, animated
+  public-domain/story counters, credits row instead of the model panel, calm CTA cards.
+- The public site is built from public modules only (`scripts/public-sandbox.mjs`), checked
+  by `scripts/verify-public-build.mjs`; `scripts/verify-public-clone.mjs` proves it on a clean
+  clone. Deploy runbook: lankatour.ru `docs/stylist-svelte/deploy-cloudflare.md`.
 
 ### Public-only package and sandbox (2026-10-08)
 
