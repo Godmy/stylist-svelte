@@ -15,7 +15,7 @@
 - [400dec575](https://github.com/Godmy/stylist-svelte/commit/400dec57503ed7906780e282c40db78ea21d12c8):
   манифест переведён на словари и file presets, descriptors вычисляются по запросу;
   добавлены тесты формата. Размер закреплённого файла и его область измерения:
-  [component-manifest-presets.md](../docs/component-manifest-presets.md).
+  [component-manifest-presets.md](../../.docs/stylist-svelte/component-manifest-presets.md).
 
 ## 2026-10-07
 

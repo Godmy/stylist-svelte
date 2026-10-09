@@ -59,7 +59,7 @@ family представлены словарями; значение family — 
 `resolveComponentDescriptor` строит проекцию выбранного компонента по
 соглашениям об именах и существовании файлов в дереве. Эта проекция не является
 графом импортов. `countDomainStories` считает stories по preset.
-Подробный контракт: [component-manifest-presets.md](../docs/component-manifest-presets.md).
+Подробный контракт: [component-manifest-presets.md](../../.docs/stylist-svelte/component-manifest-presets.md).
 
 ## Публичный пакет
 

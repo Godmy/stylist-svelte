@@ -23,7 +23,7 @@ publication or a successful site deployment.
   public-domain/story counters, credits row instead of the model panel, calm CTA cards.
 - The public site is built from public modules only (`scripts/public-sandbox.mjs`), checked
   by `scripts/verify-public-build.mjs`; `scripts/verify-public-clone.mjs` proves it on a clean
-  clone. Deploy runbook: lankatour.ru `docs/stylist-svelte/deploy-cloudflare.md`.
+  clone. Deploy runbook: `../.docs/stylist-svelte/deploy-cloudflare.md`.
 
 ### Public-only package and sandbox (2026-10-08)
 
@@ -35,7 +35,7 @@ publication or a successful site deployment.
   boundary incl. stories, generated files without private names, package closure, python
   `--check`. `src/lib/index.full.ts` is local-only.
 - Packaging emits `.d.ts` again (tsconfig moved to the package root); bounded publint wrapper;
-  `check-package-tarball.mjs`. Runbook and release log: [docs/release.md](docs/release.md).
+  `check-package-tarball.mjs`. Runbook and release log: [../.docs/stylist-svelte/release.md](../.docs/stylist-svelte/release.md).
 
 ### Documentation
 
@@ -66,7 +66,7 @@ publication or a successful site deployment.
   and the helper's no-op `--revert`; run these before CI checkout.
 
 Tagged `v1.1.0`; npm publication and the push are done by Dmitrii (see
-[docs/release.md](docs/release.md)).
+[../.docs/stylist-svelte/release.md](../.docs/stylist-svelte/release.md)).
 
 ## 1.0.1
 

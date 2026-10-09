@@ -39,7 +39,7 @@ family. Stories загружаются через glob по физическим
 только `tree`; массива `descriptors` нет. DomainManager передаёт компактное
 дерево странице, а `resolveComponentDescriptor` строит проекцию по запросу.
 Число stories на landing вычисляет `countDomainStories`. Формат и измерения:
-[component-manifest-presets.md](../../docs/component-manifest-presets.md).
+[component-manifest-presets.md](../../../.docs/stylist-svelte/component-manifest-presets.md).
 
 ## Превью исходников и отчёты
 
@@ -69,7 +69,7 @@ Playwright не объявлен зависимостью проекта. При
 старого `src/lib/<entityPath>`: после переноса модулей эти поля контекста могут
 быть `null`. Его совместимость с текущей песочницей не подтверждена.
 
-Скриншоты в `docs/screenshots` относятся к предыдущему аудиту из PR #2.
+Скриншоты в `.docs/stylist-svelte/screenshots` относятся к предыдущему аудиту из PR #2.
 Они не доказывают текущее состояние UI. Проверки сайта перед выпуском описаны
 в [backlog.md](../backlog.md).
 
@@ -91,7 +91,7 @@ PR #4. Пути и формат манифеста обновлены; стар�
 `device-viewport` (Mobile / Tablet / Desktop / Fullscreen), только на экране `DOMAIN` и только когда
 загружена story.
 
-![Лендинг песочницы](../../docs/screenshots/sandbox-landing.png)
+![Лендинг песочницы](../../../.docs/stylist-svelte/screenshots/sandbox-landing.png)
 
 ### 2.1 Explorer: меню доменов, переключение кластеров и joint’ов
 
@@ -119,7 +119,7 @@ PR #4. Пути и формат манифеста обновлены; стар�
 - режимы превью: `file | markdown | story | json-tree | di`;
 - исходники грузятся `fetch('/api/content?path=…')`, story — из ленивых glob по физическим владельцам; ключ приводится к логическому адресу.
 
-![Story кнопки](../../docs/screenshots/sandbox-story-button.png)
+![Story кнопки](../../../.docs/stylist-svelte/screenshots/sandbox-story-button.png)
 
 ### 2.2 Подробная карта проблем и предложений
 
@@ -128,7 +128,7 @@ PR #4. Пути и формат манифеста обновлены; стар�
 отдельных /components и /playground; поведение в браузере повторно не измерялось.
 Визуальные перекрытия и удобство навигации требуют нового capture.
 
-![Стартовый экран explorer’а без приватного wbd](../../docs/screenshots/sandbox-explorer-wbd-missing.png)
+![Стартовый экран explorer’а без приватного wbd](../../../.docs/stylist-svelte/screenshots/sandbox-explorer-wbd-missing.png)
 
 | #   | Проблема                                                                                                                                  | Где                               | Рекомендация                                                                                                                                          |
 | --- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -193,7 +193,7 @@ PR #4. Пути и формат манифеста обновлены; стар�
 
 Компактный файл содержит 51 домен и 3257 family-записей; размеры закреплённого
 снимка — 181006 байт JSON, 129303 байт compact JSON, 19572 байта gzip.
-Методика и ревизии: [component-manifest-presets.md](../../docs/component-manifest-presets.md).
+Методика и ревизии: [component-manifest-presets.md](../../../.docs/stylist-svelte/component-manifest-presets.md).
 Старые 2.33 МБ manifest и 1.28 МБ HTML относятся к прежнему descriptor-формату.
 Их нельзя использовать как текущую стоимость загрузки.
 
@@ -224,7 +224,7 @@ getComputedStyle(surface).containerType; // "inline-size"
 
 | `travel-commerce/component/template/store-page` — только `@media (max-width: 980px)`                                                  | `travel-commerce/component/template/cart-page` — `@media` **и** `@container`                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| ![store-page в режиме Mobile: десктопная сетка вылезает за 375px](../../docs/screenshots/sandbox-store-page-mobile-media-ignored.png) | ![cart-page в режиме Mobile: корректная мобильная раскладка](../../docs/screenshots/sandbox-cart-page-mobile-container.png) |
+| ![store-page в режиме Mobile: десктопная сетка вылезает за 375px](../../../.docs/stylist-svelte/screenshots/sandbox-store-page-mobile-media-ignored.png) | ![cart-page в режиме Mobile: корректная мобильная раскладка](../../../.docs/stylist-svelte/screenshots/sandbox-cart-page-mobile-container.png) |
 
 Ещё одна деталь: в режиме Desktop (1440px) в прежнем измерении поверхность получала **1109px** — ширину
 области превью при окне 1440×900 (сайдбар 249px + отступы), т. е. Desktop от Fullscreen не

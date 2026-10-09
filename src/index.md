@@ -11,7 +11,7 @@
 | [backlog.md](backlog.md)                                                    | Действия перед выпуском и критерии завершения            |
 | [changelog.md](changelog.md)                                                | Изменения исходников с привязкой к коммитам              |
 | [CHANGELOG.md](../CHANGELOG.md)                                             | Изменения пакета и документации                          |
-| [docs/component-manifest-presets.md](../docs/component-manifest-presets.md) | Контракт компактного манифеста; English                  |
+| [.docs/stylist-svelte/component-manifest-presets.md](../../.docs/stylist-svelte/component-manifest-presets.md) | Контракт компактного манифеста; English                  |
 | [AGENTS.md](../AGENTS.md)                                                   | Обязательные правила работы                              |
 
 ## Как проверялись сведения

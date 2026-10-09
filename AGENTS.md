@@ -138,7 +138,7 @@
 - See the repository root `AGENTS.md` for the full multi-agent
   coordination protocol (coordination log, soft domain locking, roles).
 - Before editing anything under `stylist-svelte/src/lib/<domain>/**`,
-  announce the domain in `docs/lankatour.ru/chat/<YYYYMMDD>/` and/or to
+  announce the domain in `../.docs/lankatour.ru/chat/<YYYYMMDD>/` and/or to
   peer sessions — this subtree is the highest-collision area in the repo
   because barrels and the sandbox manifest are regenerated from the
   whole tree at once.
