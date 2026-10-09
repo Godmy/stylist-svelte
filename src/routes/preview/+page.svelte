@@ -23,11 +23,10 @@
 	const loadStory = $derived(logicalStories[storyPath]);
 	let device = $state<TokenStoryViewport>('fullscreen');
 	let fullscreen = $state(false);
-	let sizing = $state<'viewport' | 'container'>('viewport');
 	ManagerStoryViewportContext.set(
 		() => device,
 		() => fullscreen,
-		() => sizing === 'viewport'
+		() => true
 	);
 
 	onMount(() => {
@@ -41,8 +40,6 @@
 			if (['mobile', 'tablet', 'desktop', 'fullscreen'].includes(event.data.device))
 				device = event.data.device;
 			fullscreen = event.data.fullscreen === true;
-			if (event.data.sizing === 'viewport' || event.data.sizing === 'container')
-				sizing = event.data.sizing;
 			// Mirror the applied theme, including custom scheme CSS variables.
 			const parentRoot = window.parent.document.documentElement;
 			document.documentElement.style.cssText = parentRoot.style.cssText;
@@ -86,9 +83,20 @@
 {/if}
 
 <style>
+	:global(html),
 	:global(body) {
-		overflow-x: auto;
-		overflow-y: auto;
+		height: 100%;
+		overflow: hidden;
 		scrollbar-gutter: auto;
+	}
+
+	:global(.c-story--isolated.c-story--fullscreen),
+	:global(.c-story--isolated.c-story--fullscreen > .component-preview),
+	:global(
+		.c-story--isolated.c-story--fullscreen > .component-preview > .component-preview__surface
+	) {
+		height: 100%;
+		min-height: 0;
+		overflow: hidden;
 	}
 </style>
