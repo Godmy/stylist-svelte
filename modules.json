@@ -1,156 +1,99 @@
 {
-  "design-system": {
-    "path": "modules/design-system",
-    "domains": [
-      "theme",
-      "typography",
-      "layout",
-      "localization",
-      "svg"
-    ],
-    "sourceRoot": "."
-  },
-  "interaction": {
-    "path": "modules/interaction",
-    "domains": [
-      "animation",
-      "button",
-      "control",
-      "input",
-      "form",
-      "calendar",
-      "file",
-      "search",
-      "menu",
-      "navigation",
-      "dialog"
-    ],
-    "sourceRoot": "."
-  },
-  "information": {
-    "path": "modules/information",
-    "domains": [
-      "list",
-      "tree",
-      "table",
-      "chart",
-      "image",
-      "audio",
-      "video",
-      "notification"
-    ],
-    "sourceRoot": "."
-  },
-  "business": {
-    "path": "modules/business",
-    "private": true,
-    "domains": [],
-    "sourceRoot": "."
-  },
-  "customer": {
-    "path": "modules/customer",
-    "private": true,
-    "domains": [
-      "auth",
-      "chat",
-      "ai",
-      "user",
-      "social",
-      "landing"
-    ],
-    "sourceRoot": "."
-  },
-  "architecture": {
-    "path": "modules/architecture",
-    "domains": [
-      "graph",
-      "erd",
-      "idef-zero",
-      "workspace",
-      "canvas",
-      "presentation",
-      "webgl"
-    ],
-    "sourceRoot": "."
-  },
-  "sandbox": {
-    "path": "modules/sandbox",
-    "domains": [
-      "domain",
-      "token",
-      "server",
-      "development"
-    ],
-    "sourceRoot": "."
-  },
-  "travel": {
-    "path": "modules/business/travel",
-    "private": true,
-    "domains": [
-      "booking",
-      "travel-commerce",
-      "travel-admin"
-    ],
-    "sourceRoot": "."
-  },
-  "sakartvelo": {
-    "path": "modules/business/sakartvelo",
-    "private": true,
-    "domains": [
-      "tea-commerce"
-    ],
-    "sourceRoot": "."
-  },
-  "geo": {
-    "path": "modules/global/geo",
-    "domainRoot": true,
-    "private": true,
-    "domains": [
-      "geo"
-    ]
-  },
-  "wbd": {
-    "path": "modules/business/wbd",
-    "domainRoot": true,
-    "private": true,
-    "domains": [
-      "wbd"
-    ]
-  },
-  "spanish": {
-    "path": "modules/business/spanish",
-    "domainRoot": true,
-    "private": true,
-    "domains": [
-      "spanish"
-    ]
-  },
-  "farm": {
-    "path": "modules/business/farm",
-    "domainRoot": true,
-    "private": true,
-    "domains": [
-      "farm"
-    ]
-  },
-  "management": {
-    "path": "modules/management",
-    "private": true,
-    "domains": [
-      "management",
-      "marketing",
-      "portfolio",
-      "science"
-    ],
-    "sourceRoot": "."
-  },
-  "global": {
-    "path": "modules/global",
-    "private": true,
-    "domains": [
-      "commerce",
-      "product"
-    ],
-    "sourceRoot": "."
-  }
+	"design-system": {
+		"path": "modules/design-system",
+		"domains": ["theme", "typography", "layout", "localization", "svg"],
+		"sourceRoot": "."
+	},
+	"interaction": {
+		"path": "modules/interaction",
+		"domains": [
+			"animation",
+			"button",
+			"control",
+			"input",
+			"form",
+			"calendar",
+			"file",
+			"search",
+			"menu",
+			"navigation",
+			"dialog"
+		],
+		"sourceRoot": "."
+	},
+	"information": {
+		"path": "modules/information",
+		"domains": ["list", "tree", "table", "chart", "image", "audio", "video", "notification"],
+		"sourceRoot": "."
+	},
+	"business": {
+		"path": "modules/business",
+		"private": true,
+		"domains": [],
+		"sourceRoot": "."
+	},
+	"customer": {
+		"path": "modules/customer",
+		"private": true,
+		"domains": ["auth", "chat", "ai", "user", "social", "landing"],
+		"sourceRoot": "."
+	},
+	"architecture": {
+		"path": "modules/architecture",
+		"domains": ["graph", "erd", "idef-zero", "workspace", "canvas", "presentation", "webgl"],
+		"sourceRoot": "."
+	},
+	"sandbox": {
+		"path": "modules/sandbox",
+		"domains": ["domain", "token", "server", "development"],
+		"sourceRoot": "."
+	},
+	"travel": {
+		"path": "modules/business/travel",
+		"private": true,
+		"domains": ["booking", "travel-commerce", "travel-admin"],
+		"sourceRoot": "."
+	},
+	"sakartvelo": {
+		"path": "modules/business/sakartvelo",
+		"private": true,
+		"domains": ["tea-commerce"],
+		"sourceRoot": "."
+	},
+	"geo": {
+		"path": "modules/global/geo",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["geo"]
+	},
+	"wbd": {
+		"path": "modules/business/wbd",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["wbd"]
+	},
+	"spanish": {
+		"path": "modules/business/spanish",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["spanish"]
+	},
+	"farm": {
+		"path": "modules/business/farm",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["farm"]
+	},
+	"management": {
+		"path": "modules/management",
+		"private": true,
+		"domains": ["management", "marketing", "portfolio", "science"],
+		"sourceRoot": "."
+	},
+	"global": {
+		"path": "modules/global",
+		"private": true,
+		"domains": ["commerce", "product"],
+		"sourceRoot": "."
+	}
 }

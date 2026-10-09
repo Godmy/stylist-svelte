@@ -10,10 +10,14 @@ test('physical modules validate and assemble one public package without private 
 	const root = await mkdtemp(join(tmpdir(), 'stylist-assembly-'));
 	try {
 		const files = {
-			'modules.json': JSON.stringify({ common: { path: 'modules/common', sourceRoot: '.', domains: ['button', 'chat'] }, travel: { path: 'modules/travel', sourceRoot: '.', private: true, domains: ['booking'] } }),
+			'modules.json': JSON.stringify({
+				common: { path: 'modules/common', sourceRoot: '.', domains: ['button', 'chat'] },
+				travel: { path: 'modules/travel', sourceRoot: '.', private: true, domains: ['booking'] }
+			}),
 			'src/lib/index.ts': "export { BUTTON } from '../../modules/common/button';",
 			'src/lib/index.full.ts': '',
-			'modules/common/button/index.ts': "import { CHAT } from '$stylist/chat/index.js'; export const BUTTON = CHAT;",
+			'modules/common/button/index.ts':
+				"import { CHAT } from '$stylist/chat/index.js'; export const BUTTON = CHAT;",
 			'modules/common/button/index.story.svelte': '<button />',
 			'modules/common/button/.git/config': 'private git metadata',
 			'modules/common/chat/index.ts': 'export const CHAT = 1;',
@@ -25,15 +29,29 @@ test('physical modules validate and assemble one public package without private 
 		}
 		assert.equal(await checkPackageSource(root), 3);
 		const stage = await assemblePackageSource(root, join(root, '.package-input'));
-		assert.equal(await readFile(join(stage, 'index.ts'), 'utf8'), "export { BUTTON } from './button';");
+		assert.equal(
+			await readFile(join(stage, 'index.ts'), 'utf8'),
+			"export { BUTTON } from './button';"
+		);
 		assert.match(await readFile(join(root, 'src/lib/index.ts'), 'utf8'), /modules\/common/);
 		// Types are emitted only when the tsconfig sits in the package root (cwd), never in the stage.
 		const tsconfig = JSON.parse(await readFile(join(root, 'tsconfig.package.json'), 'utf8'));
 		assert.deepEqual(tsconfig.include, ['./.package-input/**/*']);
-		for (const name of ['booking', 'button/.git', 'button/index.story.svelte', 'index.full.ts', 'tsconfig.json']) {
+		for (const name of [
+			'booking',
+			'button/.git',
+			'button/index.story.svelte',
+			'index.full.ts',
+			'tsconfig.json'
+		]) {
 			await assert.rejects(stat(join(stage, name)), /ENOENT/);
 		}
-		await writeFile(join(root, 'modules/common/button/index.ts'), "export { PRIVATE } from '$stylist/booking/index.js';");
+		await writeFile(
+			join(root, 'modules/common/button/index.ts'),
+			"export { PRIVATE } from '$stylist/booking/index.js';"
+		);
 		await assert.rejects(checkPackageSource(root), /excluded source: booking/);
-	} finally { await rm(root, { recursive: true, force: true }); }
+	} finally {
+		await rm(root, { recursive: true, force: true });
+	}
 });

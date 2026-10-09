@@ -222,8 +222,8 @@ getComputedStyle(surface).containerType; // "inline-size"
 Т. е. **`@media` по-прежнему видит окно 1440px**, а `@container` — 375px. Прежний аудит насчитал 367 правил
 `@media` в 125 компонентах и 43 `@container` в 32; текущие количества не измерялись. Наглядно:
 
-| `travel-commerce/component/template/store-page` — только `@media (max-width: 980px)`                                                  | `travel-commerce/component/template/cart-page` — `@media` **и** `@container`                                                |
-| ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `travel-commerce/component/template/store-page` — только `@media (max-width: 980px)`                                                                     | `travel-commerce/component/template/cart-page` — `@media` **и** `@container`                                                                   |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | ![store-page в режиме Mobile: десктопная сетка вылезает за 375px](../../../.docs/stylist-svelte/screenshots/sandbox-store-page-mobile-media-ignored.png) | ![cart-page в режиме Mobile: корректная мобильная раскладка](../../../.docs/stylist-svelte/screenshots/sandbox-cart-page-mobile-container.png) |
 
 Ещё одна деталь: в режиме Desktop (1440px) в прежнем измерении поверхность получала **1109px** — ширину

@@ -14,7 +14,10 @@ const zero = '0'.repeat(40);
 function shell() {
 	if (process.platform !== 'win32') return 'sh';
 	const execPath = execFileSync('git', ['--exec-path'], { encoding: 'utf8' }).trim();
-	const candidates = [path.resolve(execPath, '../../../usr/bin/sh.exe'), path.resolve(execPath, '../../../bin/sh.exe')];
+	const candidates = [
+		path.resolve(execPath, '../../../usr/bin/sh.exe'),
+		path.resolve(execPath, '../../../bin/sh.exe')
+	];
 	return candidates.find((candidate) => existsSync(candidate)) ?? 'sh';
 }
 
@@ -28,7 +31,10 @@ async function repository(gateExitCode) {
 	await copyFile(hook, path.join(root, '.githooks', 'pre-push'));
 	if (gateExitCode !== null) {
 		await mkdir(path.join(root, 'scripts'));
-		await writeFile(path.join(root, 'scripts', 'stylist-gate.mjs'), `console.log('GATE RAN'); process.exitCode = ${gateExitCode};`);
+		await writeFile(
+			path.join(root, 'scripts', 'stylist-gate.mjs'),
+			`console.log('GATE RAN'); process.exitCode = ${gateExitCode};`
+		);
 	}
 	git('add', '-A');
 	git('commit', '-qm', 'init');
@@ -37,12 +43,17 @@ async function repository(gateExitCode) {
 
 function push(root, lines) {
 	return spawnSync(shell(), [path.join(root, '.githooks', 'pre-push'), 'origin', 'url'], {
-		cwd: root, input: lines.map((line) => `${line}\n`).join(''), encoding: 'utf8'
+		cwd: root,
+		input: lines.map((line) => `${line}\n`).join(''),
+		encoding: 'utf8'
 	});
 }
 
 test('pushing main runs the gate and refuses on failure', async () => {
-	for (const [exitCode, expected] of [[0, 0], [1, 1]]) {
+	for (const [exitCode, expected] of [
+		[0, 0],
+		[1, 1]
+	]) {
 		const { root, head } = await repository(exitCode);
 		try {
 			const result = push(root, [`refs/heads/main ${head} refs/heads/main ${zero}`]);
@@ -58,7 +69,10 @@ test('pushing main runs the gate and refuses on failure', async () => {
 test('other branches and branch deletions skip the gate', async () => {
 	const { root, head } = await repository(1);
 	try {
-		for (const line of [`refs/heads/x ${head} refs/heads/feature ${zero}`, `(delete) ${zero} refs/heads/main ${head}`]) {
+		for (const line of [
+			`refs/heads/x ${head} refs/heads/feature ${zero}`,
+			`(delete) ${zero} refs/heads/main ${head}`
+		]) {
 			const result = push(root, [line]);
 			assert.equal(result.status, 0, result.stderr);
 			assert.doesNotMatch(result.stdout, /GATE RAN/);

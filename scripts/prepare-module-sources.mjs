@@ -12,7 +12,13 @@ export function readModules(packageRoot) {
 }
 
 /** @param {string | undefined} value */
-const names = (value) => new Set((value ?? '').split(',').map((name) => name.trim()).filter(Boolean));
+const names = (value) =>
+	new Set(
+		(value ?? '')
+			.split(',')
+			.map((name) => name.trim())
+			.filter(Boolean)
+	);
 
 /** Shared with the Python indexer, which cli.py --modules/--exclude-modules set. */
 export const MODULES_ENV = 'STYLIST_MODULES';
@@ -23,17 +29,26 @@ export const EXCLUDE_MODULES_ENV = 'STYLIST_EXCLUDE_MODULES';
  * @param {Record<string, any>} modules
  * @param {{ modules?: string, exclude?: string }} [options]
  */
-export function selectModules(modules, {
-	modules: selection = process.env[MODULES_ENV] || 'all',
-	exclude = process.env[EXCLUDE_MODULES_ENV] || ''
-} = {}) {
-	const chosen = selection === 'all' ? new Set(Object.keys(modules))
-		: selection === 'public' ? new Set(Object.keys(modules).filter((name) => !modules[name].private))
-		: names(selection);
+export function selectModules(
+	modules,
+	{
+		modules: selection = process.env[MODULES_ENV] || 'all',
+		exclude = process.env[EXCLUDE_MODULES_ENV] || ''
+	} = {}
+) {
+	const chosen =
+		selection === 'all'
+			? new Set(Object.keys(modules))
+			: selection === 'public'
+				? new Set(Object.keys(modules).filter((name) => !modules[name].private))
+				: names(selection);
 	const excluded = names(exclude);
 	const unknown = [...chosen, ...excluded].filter((name) => !(name in modules));
-	if (unknown.length) throw new Error(`Unknown modules: ${[...new Set(unknown)].sort().join(', ')}`);
-	return Object.fromEntries(Object.entries(modules).filter(([name]) => chosen.has(name) && !excluded.has(name)));
+	if (unknown.length)
+		throw new Error(`Unknown modules: ${[...new Set(unknown)].sort().join(', ')}`);
+	return Object.fromEntries(
+		Object.entries(modules).filter(([name]) => chosen.has(name) && !excluded.has(name))
+	);
 }
 
 /** Domains kept out of the npm package: private modules.json modules plus server code.
@@ -58,8 +73,11 @@ export function moduleSources(packageRoot, selection) {
 	for (const module of Object.values(selectModules(readModules(root), selection))) {
 		for (const domain of module.domains) {
 			if (domains[domain]) throw new Error(`Duplicate module domain: ${domain}`);
-			const target = module.domainRoot ? resolve(root, module.path) : resolve(root, module.path, module.sourceRoot ?? 'src/lib', domain);
-			if (relative(root, target).startsWith('..')) throw new Error(`Module escapes package: ${domain}`);
+			const target = module.domainRoot
+				? resolve(root, module.path)
+				: resolve(root, module.path, module.sourceRoot ?? 'src/lib', domain);
+			if (relative(root, target).startsWith('..'))
+				throw new Error(`Module escapes package: ${domain}`);
 			domains[domain] = target;
 		}
 	}
@@ -83,14 +101,23 @@ export function moduleAliases(packageRoot, selection) {
 /** @param {string} packageRoot
  * @param {{ includePrivate?: boolean, modules?: string, exclude?: string }} [options]
  */
-export async function prepareModuleSources(packageRoot, { includePrivate = true, modules: selection, exclude } = {}) {
-	const chosen = { modules: selection ?? (includePrivate ? 'all' : 'public'), exclude: exclude ?? '' };
+export async function prepareModuleSources(
+	packageRoot,
+	{ includePrivate = true, modules: selection, exclude } = {}
+) {
+	const chosen = {
+		modules: selection ?? (includePrivate ? 'all' : 'public'),
+		exclude: exclude ?? ''
+	};
 	const modules = selectModules(readModules(packageRoot), chosen);
 	const domains = moduleSources(packageRoot, chosen);
 	let count = 0;
 	for (const [name, module] of Object.entries(modules)) {
 		for (const domain of module.domains) {
-			if (!existsSync(domains[domain])) throw new Error(`Module ${name} is not initialized: ${domains[domain]}. Run git submodule update --init --recursive.`);
+			if (!existsSync(domains[domain]))
+				throw new Error(
+					`Module ${name} is not initialized: ${domains[domain]}. Run git submodule update --init --recursive.`
+				);
 			count++;
 		}
 	}
@@ -100,11 +127,15 @@ export async function prepareModuleSources(packageRoot, { includePrivate = true,
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
 	const root = fileURLToPath(new URL('../', import.meta.url));
 	/** @param {string} flag */
-	const option = (flag) => process.argv.find((arg) => arg.startsWith(`${flag}=`))?.slice(flag.length + 1);
+	const option = (flag) =>
+		process.argv.find((arg) => arg.startsWith(`${flag}=`))?.slice(flag.length + 1);
 	prepareModuleSources(root, {
 		modules: option('--modules') ?? (process.argv.includes('--public') ? 'public' : 'all'),
 		exclude: option('--exclude-modules')
 	})
 		.then((count) => console.log(`Physical module sources: ${count} domains ready.`))
-		.catch((error) => { console.error(error.message); process.exitCode = 1; });
+		.catch((error) => {
+			console.error(error.message);
+			process.exitCode = 1;
+		});
 }

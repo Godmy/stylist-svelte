@@ -2,23 +2,23 @@
 
 `../modules.json` maps logical domain imports to physical repository owners. All checkouts preserve separate Git histories.
 
-| Owner | Physical path | Domains |
-| --- | --- | --- |
-| design-system | `modules/design-system` | theme, typography, layout, localization, svg |
-| interaction | `modules/interaction` | animation, button, control, input, form, calendar, file, search, menu, navigation, dialog |
-| information | `modules/information` | list, tree, table, chart, image, audio, video, notification |
-| business (private) | `modules/business` | Nested repository container |
-| customer (private) | `modules/customer` | auth, chat, ai, user, social, landing |
-| architecture | `modules/architecture` | graph, erd, idef-zero, workspace, canvas, presentation, webgl |
-| sandbox | `modules/sandbox` | domain, token, server, development |
-| travel (private) | `modules/business/travel` | booking, travel-commerce, travel-admin |
-| sakartvelo (private) | `modules/business/sakartvelo` | tea-commerce |
-| geo (private) | `modules/global/geo` | geo |
-| wbd (private) | `modules/business/wbd` | wbd |
-| spanish (private) | `modules/business/spanish` | spanish |
-| farm (private) | `modules/business/farm` | farm |
-| management (private) | `modules/management` | management, marketing, portfolio, science |
-| global (private) | `modules/global` | commerce, product |
+| Owner                | Physical path                 | Domains                                                                                   |
+| -------------------- | ----------------------------- | ----------------------------------------------------------------------------------------- |
+| design-system        | `modules/design-system`       | theme, typography, layout, localization, svg                                              |
+| interaction          | `modules/interaction`         | animation, button, control, input, form, calendar, file, search, menu, navigation, dialog |
+| information          | `modules/information`         | list, tree, table, chart, image, audio, video, notification                               |
+| business (private)   | `modules/business`            | Nested repository container                                                               |
+| customer (private)   | `modules/customer`            | auth, chat, ai, user, social, landing                                                     |
+| architecture         | `modules/architecture`        | graph, erd, idef-zero, workspace, canvas, presentation, webgl                             |
+| sandbox              | `modules/sandbox`             | domain, token, server, development                                                        |
+| travel (private)     | `modules/business/travel`     | booking, travel-commerce, travel-admin                                                    |
+| sakartvelo (private) | `modules/business/sakartvelo` | tea-commerce                                                                              |
+| geo (private)        | `modules/global/geo`          | geo                                                                                       |
+| wbd (private)        | `modules/business/wbd`        | wbd                                                                                       |
+| spanish (private)    | `modules/business/spanish`    | spanish                                                                                   |
+| farm (private)       | `modules/business/farm`       | farm                                                                                      |
+| management (private) | `modules/management`          | management, marketing, portfolio, science                                                 |
+| global (private)     | `modules/global`              | commerce, product                                                                         |
 
 Business groups nested Git submodules `wbd`, `travel`, `spanish`, `sakartvelo`, and `farm`; global groups the nested `geo` submodule alongside its direct `commerce` and `product` domains. Their registrations are in the owning business/global `.gitmodules`, not the umbrella `.gitmodules`.
 

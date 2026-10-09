@@ -1,18 +1,18 @@
 # Документация проекта
 
-| Документ                                                                    | Что в нём искать                                         |
-| --------------------------------------------------------------------------- | -------------------------------------------------------- |
-| [README.md](../README.md)                                                   | Назначение библиотеки, установка, начало работы; English |
-| [src/readme.md](readme.md)                                                  | Карта исходников приложения                              |
-| [src/lib/readme.md](lib/readme.md)                                          | Корневые экспорты и логические адреса                    |
-| [src/routes/readme.md](routes/readme.md)                                    | Маршруты, stories, source preview, device switcher       |
-| [modules/readme.md](../modules/readme.md)                                   | Все зарегистрированные владельцы и checkout; English     |
-| [architecture.md](architecture.md)                                          | Слои, границы репозиториев, генерация и пакет            |
-| [backlog.md](backlog.md)                                                    | Действия перед выпуском и критерии завершения            |
-| [changelog.md](changelog.md)                                                | Изменения исходников с привязкой к коммитам              |
-| [CHANGELOG.md](../CHANGELOG.md)                                             | Изменения пакета и документации                          |
+| Документ                                                                                                       | Что в нём искать                                         |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| [README.md](../README.md)                                                                                      | Назначение библиотеки, установка, начало работы; English |
+| [src/readme.md](readme.md)                                                                                     | Карта исходников приложения                              |
+| [src/lib/readme.md](lib/readme.md)                                                                             | Корневые экспорты и логические адреса                    |
+| [src/routes/readme.md](routes/readme.md)                                                                       | Маршруты, stories, source preview, device switcher       |
+| [modules/readme.md](../modules/readme.md)                                                                      | Все зарегистрированные владельцы и checkout; English     |
+| [architecture.md](architecture.md)                                                                             | Слои, границы репозиториев, генерация и пакет            |
+| [backlog.md](backlog.md)                                                                                       | Действия перед выпуском и критерии завершения            |
+| [changelog.md](changelog.md)                                                                                   | Изменения исходников с привязкой к коммитам              |
+| [CHANGELOG.md](../CHANGELOG.md)                                                                                | Изменения пакета и документации                          |
 | [.docs/stylist-svelte/component-manifest-presets.md](../../.docs/stylist-svelte/component-manifest-presets.md) | Контракт компактного манифеста; English                  |
-| [AGENTS.md](../AGENTS.md)                                                   | Обязательные правила работы                              |
+| [AGENTS.md](../AGENTS.md)                                                                                      | Обязательные правила работы                              |
 
 ## Как проверялись сведения
 

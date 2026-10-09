@@ -44,7 +44,12 @@ test('a private transitive dependency is rejected even when it is checked out', 
 		async (root) => {
 			// Exclusion comes from the registry's private flag, not a hard-coded list.
 			assert.equal(await checkPackageSource(root), 3);
-			await writeFile(join(root, 'modules.json'), JSON.stringify({ geo: { path: 'src/lib/geo', domainRoot: true, private: true, domains: ['geo'] } }));
+			await writeFile(
+				join(root, 'modules.json'),
+				JSON.stringify({
+					geo: { path: 'src/lib/geo', domainRoot: true, private: true, domains: ['geo'] }
+				})
+			);
 			await assert.rejects(checkPackageSource(root), /excluded source: geo/);
 		}
 	);
@@ -55,7 +60,9 @@ test('missing generated entrypoints and missing runtime assets prevent packaging
 		assert.rejects(checkPackageSource(root), /public entrypoint src\/lib\/index.ts is missing/)
 	);
 	// A clean clone has no local-only index.full.ts; the public root alone is enough.
-	await fixture({ 'index.ts': '' }, async (root) => assert.equal(await checkPackageSource(root), 1));
+	await fixture({ 'index.ts': '' }, async (root) =>
+		assert.equal(await checkPackageSource(root), 1)
+	);
 	await fixture(
 		{
 			'index.ts': "export { default as data } from './missing.json';",
@@ -66,18 +73,33 @@ test('missing generated entrypoints and missing runtime assets prevent packaging
 });
 
 test('public source cannot import an extracted travel domain', async () => {
-  await fixture({
-    'index.ts': "export { value } from './layout/index';", 'index.full.ts': '',
-    'layout/index.ts': "export { value } from '$stylist/booking/index';", 'booking/index.ts': 'export const value = 1;'
-  }, async root => {
-    await writeFile(join(root, 'modules.json'), JSON.stringify({ travel: { path: 'src/lib', sourceRoot: '.', private: true, domains: ['booking'] } }));
-    await assert.rejects(checkPackageSource(root), /excluded source: booking/);
-  });
+	await fixture(
+		{
+			'index.ts': "export { value } from './layout/index';",
+			'index.full.ts': '',
+			'layout/index.ts': "export { value } from '$stylist/booking/index';",
+			'booking/index.ts': 'export const value = 1;'
+		},
+		async (root) => {
+			await writeFile(
+				join(root, 'modules.json'),
+				JSON.stringify({
+					travel: { path: 'src/lib', sourceRoot: '.', private: true, domains: ['booking'] }
+				})
+			);
+			await assert.rejects(checkPackageSource(root), /excluded source: booking/);
+		}
+	);
 });
 
 test('package-name imports cannot bypass the private travel guard', async () => {
-  await fixture({ 'index.ts': "export { value } from 'stylist-svelte-travel/booking/index.js';", 'index.full.ts': '' },
-    async root => assert.rejects(checkPackageSource(root), /private travel/));
+	await fixture(
+		{
+			'index.ts': "export { value } from 'stylist-svelte-travel/booking/index.js';",
+			'index.full.ts': ''
+		},
+		async (root) => assert.rejects(checkPackageSource(root), /private travel/)
+	);
 });
 
 test('public exports cannot depend on stories excluded from npm', async () => {

@@ -12,17 +12,21 @@ export const packageTsconfig = (packageRoot) => join(resolve(packageRoot), 'tsco
 export async function assemblePackageSource(packageRoot, output) {
 	const root = resolve(packageRoot);
 	const stage = resolve(output);
-	if (stage !== join(root, '.package-input')) throw new Error('Package input must be the package-local .package-input directory');
+	if (stage !== join(root, '.package-input'))
+		throw new Error('Package input must be the package-local .package-input directory');
 	await rm(stage, { recursive: true, force: true });
 	await mkdir(stage, { recursive: true });
 	const lib = join(root, 'src/lib');
 	// Packaging always sees every module so private imports are recognised and rejected.
 	const domains = moduleSources(root, { modules: 'all', exclude: '' });
 	const excluded = excludedPackageDomains(root);
-	const filter = (source) => !['.git', 'node_modules', 'dist', '.svelte-kit'].includes(basename(source))
-		&& !/\.(story|test|spec)\./.test(source) && !/^story-.*\.svelte/.test(basename(source));
+	const filter = (source) =>
+		!['.git', 'node_modules', 'dist', '.svelte-kit'].includes(basename(source)) &&
+		!/\.(story|test|spec)\./.test(source) &&
+		!/^story-.*\.svelte/.test(basename(source));
 	for (const entry of await readdir(lib, { withFileTypes: true })) {
-		if (excluded.has(entry.name) || domains[entry.name] || entry.name.startsWith('index.full.')) continue;
+		if (excluded.has(entry.name) || domains[entry.name] || entry.name.startsWith('index.full.'))
+			continue;
 		await cp(join(lib, entry.name), join(stage, entry.name), { recursive: true, filter });
 	}
 	for (const [domain, source] of Object.entries(domains)) {
@@ -33,7 +37,9 @@ export async function assemblePackageSource(packageRoot, output) {
 	let content = await readFile(index, 'utf8');
 	for (const [domain, source] of Object.entries(domains)) {
 		const physical = relative(lib, source).replaceAll('\\', '/');
-		content = content.replaceAll(`'${physical}'`, `'./${domain}'`).replaceAll(`"${physical}"`, `"./${domain}"`);
+		content = content
+			.replaceAll(`'${physical}'`, `'./${domain}'`)
+			.replaceAll(`"${physical}"`, `"./${domain}"`);
 	}
 	await writeFile(index, content);
 	// The tsconfig lives in the package root, not the stage: svelte2tsx resolves
@@ -41,8 +47,15 @@ export async function assemblePackageSource(packageRoot, output) {
 	// .d.ts files relative to cwd, so a staged tsconfig silently drops every type.
 	const tsconfig = {
 		extends: './tsconfig.json',
-		compilerOptions: { paths: { '$stylist': ['./.package-input/index.ts'], '$stylist/*': ['./.package-input/*'], 'stylist-svelte/*': ['./.package-input/*'] } },
-		include: ['./.package-input/**/*'], exclude: []
+		compilerOptions: {
+			paths: {
+				$stylist: ['./.package-input/index.ts'],
+				'$stylist/*': ['./.package-input/*'],
+				'stylist-svelte/*': ['./.package-input/*']
+			}
+		},
+		include: ['./.package-input/**/*'],
+		exclude: []
 	};
 	await writeFile(packageTsconfig(root), JSON.stringify(tsconfig, null, 2));
 	return stage;

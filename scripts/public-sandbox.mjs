@@ -1,5 +1,11 @@
 import path from 'node:path';
-import { readModules, selectModules, SERVER_DOMAINS, MODULES_ENV, EXCLUDE_MODULES_ENV } from './prepare-module-sources.mjs';
+import {
+	readModules,
+	selectModules,
+	SERVER_DOMAINS,
+	MODULES_ENV,
+	EXCLUDE_MODULES_ENV
+} from './prepare-module-sources.mjs';
 
 /** Module selection ('all', 'public' or a comma list): deploy builds are public unless
  * STYLIST_MODULES says otherwise; dev keeps every module.
@@ -31,14 +37,17 @@ export function sandboxExclusion(packageRoot, selection = {}) {
 		modules: new Set(hidden.map(([name]) => name)),
 		domains: new Set(hidden.flatMap(([, module]) => module.domains)),
 		/** Package-relative module folders, e.g. modules/travel. */
-		paths: [...new Set(hidden.map(([, module]) => path.posix.normalize(module.path.replace(/\\/g, '/'))))]
+		paths: [
+			...new Set(hidden.map(([, module]) => path.posix.normalize(module.path.replace(/\\/g, '/'))))
+		]
 	};
 }
 
 /** Domains the public source mirror never contains: hidden modules plus server code.
  * @param {ReturnType<typeof sandboxExclusion>} exclusion
  */
-export const mirrorExcludedDomains = (exclusion) => new Set([...exclusion.domains, ...SERVER_DOMAINS]);
+export const mirrorExcludedDomains = (exclusion) =>
+	new Set([...exclusion.domains, ...SERVER_DOMAINS]);
 
 /** Adds negative patterns to every import.meta.glob call so hidden files are never globbed.
  * @param {string} code
@@ -66,7 +75,9 @@ export function stripHiddenExports(code, hidden) {
 		const parts = specifier.replace(/\\/g, '/').split('/');
 		return segments.some((segment) => {
 			const wanted = segment.split('/');
-			return parts.some((_, index) => wanted.every((part, offset) => parts[index + offset] === part));
+			return parts.some((_, index) =>
+				wanted.every((part, offset) => parts[index + offset] === part)
+			);
 		});
 	};
 	return code.replace(
@@ -86,10 +97,19 @@ const JOINTS = ['atom', 'molecule', 'organism', 'template', 'page'];
 export function filterSandboxManifest(file, data, domains) {
 	const name = normalize(file);
 	if (name.endsWith('/modules.json')) {
-		return Object.fromEntries(Object.entries(data).filter(([, module]) => !module.domains?.some((domain) => domains.has(domain))));
+		return Object.fromEntries(
+			Object.entries(data).filter(
+				([, module]) => !module.domains?.some((domain) => domains.has(domain))
+			)
+		);
 	}
 	if (name.endsWith('/domain-page-manifest/index.json')) {
-		return { ...data, tree: Object.fromEntries(Object.entries(data.tree ?? {}).filter(([domain]) => !domains.has(domain))) };
+		return {
+			...data,
+			tree: Object.fromEntries(
+				Object.entries(data.tree ?? {}).filter(([domain]) => !domains.has(domain))
+			)
+		};
 	}
 	if (name.endsWith('/domain-files/index.json')) {
 		const rows = data.domains.filter((row) => !domains.has(row.name));
@@ -100,7 +120,9 @@ export function filterSandboxManifest(file, data, domains) {
 				...data.totals,
 				domains: rows.length,
 				files: sum(rows, (row) => row.fileCount),
-				...Object.fromEntries(JOINTS.map((joint) => [`${joint}s`, sum(rows, (row) => row.components?.[`${joint}s`])]))
+				...Object.fromEntries(
+					JOINTS.map((joint) => [`${joint}s`, sum(rows, (row) => row.components?.[`${joint}s`])])
+				)
 			}
 		};
 	}
@@ -165,14 +187,18 @@ export function publicSandbox(packageRoot) {
 				...[...exclusion.domains].map((domain) => `!/src/lib/${domain}/**`)
 			];
 			if (exclusion.modules.size) {
-				console.log(`[stylist-public-sandbox] modules=${selection.modules}; hidden: ${[...exclusion.modules].sort().join(', ')}`);
+				console.log(
+					`[stylist-public-sandbox] modules=${selection.modules}; hidden: ${[...exclusion.modules].sort().join(', ')}`
+				);
 			}
 		},
 		/** @param {string} id */
 		load(id) {
 			const root = hiddenRoot(id);
 			if (root) {
-				throw new Error(`[stylist-public-sandbox] ${id} belongs to a hidden module (${root}). Public sandbox code must not import it; set STYLIST_MODULES=all for a private build.`);
+				throw new Error(
+					`[stylist-public-sandbox] ${id} belongs to a hidden module (${root}). Public sandbox code must not import it; set STYLIST_MODULES=all for a private build.`
+				);
 			}
 			return null;
 		},

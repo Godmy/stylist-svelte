@@ -26,7 +26,8 @@ test('a clean public build passes', async () => {
 	const { root, output } = await build({
 		'.assetsignore': '_worker.js\n',
 		'_worker.js': "import '/modules/travel/booking/x.js';",
-		'_app/immutable/chunks/a.js': 'const s = {"/src/lib/button/component/atom/x/index.story.svelte": () => import("./b.js")};',
+		'_app/immutable/chunks/a.js':
+			'const s = {"/src/lib/button/component/atom/x/index.story.svelte": () => import("./b.js")};',
 		'generated/lib-source/button/index.ts': "export * from '$stylist/chat/x';",
 		'generated/lib-source/readme.md': 'modules/travel is private'
 	});
@@ -41,8 +42,10 @@ test('a clean public build passes', async () => {
 
 test('mirrored private domains, story globs and imports are reported', async () => {
 	const { root, output } = await build({
-		'_app/immutable/chunks/a.js': 'const s = {"/modules/geo/component/atom/map/index.story.svelte": 1};',
-		'_app/immutable/chunks/b.js': 'const s = {"/src/lib/booking/component/x/index.story.svelte": 1};',
+		'_app/immutable/chunks/a.js':
+			'const s = {"/modules/geo/component/atom/map/index.story.svelte": 1};',
+		'_app/immutable/chunks/b.js':
+			'const s = {"/src/lib/booking/component/x/index.story.svelte": 1};',
 		'generated/lib-source/button/index.ts': "export * from '$stylist/booking/x';",
 		'generated/lib-source/server/index.ts': 'secret',
 		'generated/lib-source/geo/index.ts': 'private'
@@ -51,8 +54,15 @@ test('mirrored private domains, story globs and imports are reported', async () 
 		const { violations } = await verifyPublicBuild(root, output, { modules: 'public' });
 		assert.ok(violations.includes('generated/lib-source/geo/ is published'));
 		assert.ok(violations.includes('generated/lib-source/server/ is published'));
-		for (const file of ['_app/immutable/chunks/a.js', '_app/immutable/chunks/b.js', 'generated/lib-source/button/index.ts']) {
-			assert.ok(violations.some((violation) => violation.startsWith(`${file}:`)), file);
+		for (const file of [
+			'_app/immutable/chunks/a.js',
+			'_app/immutable/chunks/b.js',
+			'generated/lib-source/button/index.ts'
+		]) {
+			assert.ok(
+				violations.some((violation) => violation.startsWith(`${file}:`)),
+				file
+			);
 		}
 		const widened = await verifyPublicBuild(root, output, { modules: 'public', exclude: 'core' });
 		assert.ok(widened.violations.length > violations.length);

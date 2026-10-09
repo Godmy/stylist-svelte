@@ -20,23 +20,33 @@ const target = args.find((arg) => !arg.startsWith('--'));
 const fromGithub = args.includes('--github');
 const workingTree = args.includes('--working-tree');
 if (!target) throw new Error('Target directory is required.');
-if (existsSync(target) && readdirSync(target).length) throw new Error(`Target is not empty: ${target}`);
+if (existsSync(target) && readdirSync(target).length)
+	throw new Error(`Target is not empty: ${target}`);
 
 const selection = sandboxSelection('build');
 const timings = [];
 const lines = (text) => text.split(/\r?\n/).filter(Boolean);
 
 /** @param {string} cwd @param {string[]} gitArgs @param {Buffer} [input] */
-const git = (cwd, gitArgs, input) => execFileSync('git', ['-c', 'protocol.file.allow=always', ...gitArgs], {
-	cwd, input, encoding: input ? undefined : 'utf8', maxBuffer: 1 << 30
-});
+const git = (cwd, gitArgs, input) =>
+	execFileSync('git', ['-c', 'protocol.file.allow=always', ...gitArgs], {
+		cwd,
+		input,
+		encoding: input ? undefined : 'utf8',
+		maxBuffer: 1 << 30
+	});
 
 function step(name, command, commandArgs, options = {}) {
 	const started = Date.now();
 	console.log(`\n=== ${name}: ${command} ${commandArgs.join(' ')}`);
 	const viaShell = process.platform === 'win32' && command !== 'git' && command !== 'node';
 	try {
-		execFileSync(viaShell ? `${command}.cmd` : command, commandArgs, { cwd: target, stdio: 'inherit', shell: viaShell, ...options });
+		execFileSync(viaShell ? `${command}.cmd` : command, commandArgs, {
+			cwd: target,
+			stdio: 'inherit',
+			shell: viaShell,
+			...options
+		});
 		timings.push([name, Date.now() - started, 'ok']);
 	} catch (error) {
 		timings.push([name, Date.now() - started, `FAILED (${error.status ?? error.message})`]);
@@ -46,26 +56,47 @@ function step(name, command, commandArgs, options = {}) {
 
 /** Copies one repository's uncommitted tracked changes and the untracked files it keeps. */
 function overlay(from, to, keepUntracked, label) {
-	const diff = execFileSync('git', ['diff', 'HEAD', '--binary', '--ignore-submodules=all'], { cwd: from, maxBuffer: 1 << 30 });
+	const diff = execFileSync('git', ['diff', 'HEAD', '--binary', '--ignore-submodules=all'], {
+		cwd: from,
+		maxBuffer: 1 << 30
+	});
 	if (diff.length) git(to, ['apply', '--whitespace=nowarn'], diff);
-	const untracked = lines(git(from, ['ls-files', '--others', '--exclude-standard'])).filter(keepUntracked);
+	const untracked = lines(git(from, ['ls-files', '--others', '--exclude-standard'])).filter(
+		keepUntracked
+	);
 	for (const file of untracked) {
 		mkdirSync(path.dirname(path.join(to, file)), { recursive: true });
 		copyFileSync(path.join(from, file), path.join(to, file));
 	}
-	timings.push([`overlay ${label}`, 0, `ok (${diff.length} diff bytes, ${untracked.length} untracked)`]);
+	timings.push([
+		`overlay ${label}`,
+		0,
+		`ok (${diff.length} diff bytes, ${untracked.length} untracked)`
+	]);
 }
 
 let failed = false;
 try {
 	step('clone', 'git', ['clone', '--quiet', source, target], { cwd: undefined });
-	if (workingTree) overlay(source, target, (file) => /^(?:scripts|\.githooks|docs)\//.test(file), 'umbrella');
+	if (workingTree)
+		overlay(source, target, (file) => /^(?:scripts|\.githooks|docs)\//.test(file), 'umbrella');
 	const registry = readModules(target);
 	const hidden = sandboxExclusion(target, selection);
 	const publicModules = Object.entries(registry).filter(([name]) => !hidden.modules.has(name));
-	console.log(`public: ${publicModules.map(([name]) => name).join(', ')}; private (left empty): ${[...hidden.modules].join(', ')}`);
+	console.log(
+		`public: ${publicModules.map(([name]) => name).join(', ')}; private (left empty): ${[...hidden.modules].join(', ')}`
+	);
 	if (fromGithub) {
-		step('submodules', 'git', ['-c', 'protocol.file.allow=always', 'submodule', 'update', '--init', '--recursive', '--', ...publicModules.map(([, module]) => module.path)]);
+		step('submodules', 'git', [
+			'-c',
+			'protocol.file.allow=always',
+			'submodule',
+			'update',
+			'--init',
+			'--recursive',
+			'--',
+			...publicModules.map(([, module]) => module.path)
+		]);
 	} else {
 		// Level by level, each nested repository from its local checkout: unpushed nested commits work too.
 		const started = Date.now();
@@ -73,27 +104,61 @@ try {
 			for (const submodule of paths) {
 				git(path.join(target, repository), ['submodule', 'init', '--', submodule]);
 				// .gitmodules names may differ from paths (e.g. "src/lib/theme" at path theme).
-				const name = lines(git(path.join(target, repository), ['config', '-f', '.gitmodules', '--get-regexp', String.raw`^submodule\..*\.path$`]))
+				const name = lines(
+					git(path.join(target, repository), [
+						'config',
+						'-f',
+						'.gitmodules',
+						'--get-regexp',
+						String.raw`^submodule\..*\.path$`
+					])
+				)
 					.map((line) => line.split(/\s+/))
 					.find(([, value]) => value === submodule)[0]
 					.replace(/^submodule\./, '')
 					.replace(/\.path$/, '');
-				git(path.join(target, repository), ['config', `submodule.${name}.url`, path.join(source, repository, submodule)]);
+				git(path.join(target, repository), [
+					'config',
+					`submodule.${name}.url`,
+					path.join(source, repository, submodule)
+				]);
 				git(path.join(target, repository), ['submodule', 'update', '--', submodule]);
 				const nested = path.join(repository, submodule);
 				const children = existsSync(path.join(target, nested, '.gitmodules'))
-					? lines(git(path.join(target, nested), ['config', '-f', '.gitmodules', '--get-regexp', 'path'])).map((line) => line.split(/\s+/)[1])
+					? lines(
+							git(path.join(target, nested), [
+								'config',
+								'-f',
+								'.gitmodules',
+								'--get-regexp',
+								'path'
+							])
+						).map((line) => line.split(/\s+/)[1])
 					: [];
 				initLocal(nested, children);
 			}
 		};
-		initLocal('', publicModules.map(([, module]) => module.path));
+		initLocal(
+			'',
+			publicModules.map(([, module]) => module.path)
+		);
 		timings.push(['submodules (local, recursive)', Date.now() - started, 'ok']);
 	}
 	if (workingTree) {
 		for (const [, module] of publicModules) {
-			const nested = lines(git(path.join(source, module.path), ['submodule', 'foreach', '--recursive', '--quiet', 'echo $displaypath']));
-			for (const repository of [module.path, ...nested.map((nestedPath) => path.join(module.path, nestedPath))]) {
+			const nested = lines(
+				git(path.join(source, module.path), [
+					'submodule',
+					'foreach',
+					'--recursive',
+					'--quiet',
+					'echo $displaypath'
+				])
+			);
+			for (const repository of [
+				module.path,
+				...nested.map((nestedPath) => path.join(module.path, nestedPath))
+			]) {
 				const from = path.join(source, repository);
 				const to = path.join(target, repository);
 				const head = git(from, ['rev-parse', 'HEAD']).trim();
@@ -104,17 +169,22 @@ try {
 		}
 	}
 	if (!args.includes('--skip-install')) step('install', 'yarn', ['install', '--immutable']);
-	if (existsSync(path.join(target, 'scripts', 'stylist-gate.mjs'))) step('gate', 'node', ['scripts/stylist-gate.mjs']);
+	if (existsSync(path.join(target, 'scripts', 'stylist-gate.mjs')))
+		step('gate', 'node', ['scripts/stylist-gate.mjs']);
 	else timings.push(['gate', 0, 'skipped (scripts/stylist-gate.mjs not present)']);
 	step('mirror', 'node', ['scripts/generate-lib-source-mirror.mjs']);
 	step('vite build', 'npx', ['vite', 'build']);
 	step('assets ignore', 'node', ['scripts/write-cloudflare-assets-ignore.mjs']);
 	step('verify build', 'node', ['scripts/verify-public-build.mjs']);
 } catch (error) {
-	if (!timings.some(([, , status]) => status.startsWith('FAILED'))) timings.push(['harness', 0, `FAILED (${error.message})`]);
+	if (!timings.some(([, , status]) => status.startsWith('FAILED')))
+		timings.push(['harness', 0, `FAILED (${error.message})`]);
 	failed = true;
 } finally {
-	console.log(`\nverify-public-clone (modules=${selection.modules}${selection.exclude ? `, exclude=${selection.exclude}` : ''}):`);
-	for (const [name, ms, status] of timings) console.log(`  ${name.padEnd(36)} ${(ms / 1000).toFixed(1).padStart(7)} s  ${status}`);
+	console.log(
+		`\nverify-public-clone (modules=${selection.modules}${selection.exclude ? `, exclude=${selection.exclude}` : ''}):`
+	);
+	for (const [name, ms, status] of timings)
+		console.log(`  ${name.padEnd(36)} ${(ms / 1000).toFixed(1).padStart(7)} s  ${status}`);
 	if (failed) process.exitCode = 1;
 }

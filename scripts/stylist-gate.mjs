@@ -14,9 +14,12 @@ import { checkPackageSource } from './check-package-source.mjs';
  */
 export function findTools(root, env = process.env) {
 	const tools = resolve(env.STYLIST_TOOLS_DIR || join(root, '..', 'stylist'));
-	if (!existsSync(join(tools, 'auditor', 'cli.py'))) return { skipped: `no stylist tools at ${tools}` };
+	if (!existsSync(join(tools, 'auditor', 'cli.py')))
+		return { skipped: `no stylist tools at ${tools}` };
 	if (resolve(tools, '..', 'stylist-svelte') !== resolve(root)) {
-		return { skipped: `stylist tools at ${tools} check ${resolve(tools, '..', 'stylist-svelte')}, not this checkout` };
+		return {
+			skipped: `stylist tools at ${tools} check ${resolve(tools, '..', 'stylist-svelte')}, not this checkout`
+		};
 	}
 	const container = resolve(tools, '..');
 	return { tools, cwd: basename(container) === 'packages' ? resolve(container, '..') : container };
@@ -31,31 +34,49 @@ export async function runGate(root, { python = true, log = console.log } = {}) {
 	const step = async (name, run) => {
 		try {
 			const detail = await run();
-			results.push({ name, status: detail?.skipped ? 'skipped' : 'passed', detail: detail?.skipped ?? detail?.message ?? '' });
+			results.push({
+				name,
+				status: detail?.skipped ? 'skipped' : 'passed',
+				detail: detail?.skipped ?? detail?.message ?? ''
+			});
 		} catch (error) {
 			results.push({ name, status: 'failed', detail: error.message });
 		}
 		const last = results.at(-1);
-		log(`[gate] ${last.status.toUpperCase().padEnd(7)} ${name}${last.detail ? ` - ${last.detail}` : ''}`);
+		log(
+			`[gate] ${last.status.toUpperCase().padEnd(7)} ${name}${last.detail ? ` - ${last.detail}` : ''}`
+		);
 	};
 	await step('public boundary (sources, stories, generated files)', async () => {
 		const { violations, scanned } = await checkPublicBoundary(root);
-		for (const violation of violations) log(`  ${violation.kind}: ${violation.file} -> ${violation.detail}`);
+		for (const violation of violations)
+			log(`  ${violation.kind}: ${violation.file} -> ${violation.detail}`);
 		if (violations.length) throw new Error(`${violations.length} violation(s) in ${scanned} files`);
 		return { message: `${scanned} files` };
 	});
-	await step('npm package source closure', async () => ({ message: `${await checkPackageSource(root)} dependencies` }));
+	await step('npm package source closure', async () => ({
+		message: `${await checkPackageSource(root)} dependencies`
+	}));
 	await step('generated barrels + public manifest are current (python)', async () => {
 		if (!python) return { skipped: 'disabled (--no-python)' };
 		const found = findTools(root);
 		if (found.skipped) return found;
-		const run = spawnSync(process.env.PYTHON || 'python', ['-u', join(found.tools, 'auditor', 'cli.py'), '--check'], {
-			cwd: found.cwd, encoding: 'utf8', env: { ...process.env, PYTHONIOENCODING: 'utf-8' }
-		});
+		const run = spawnSync(
+			process.env.PYTHON || 'python',
+			['-u', join(found.tools, 'auditor', 'cli.py'), '--check'],
+			{
+				cwd: found.cwd,
+				encoding: 'utf8',
+				env: { ...process.env, PYTHONIOENCODING: 'utf-8' }
+			}
+		);
 		if (run.error) return { skipped: `python unavailable (${run.error.message})` };
-		const tail = `${run.stdout}${run.stderr}`.split('\n').filter((line) => /STALE|Would generate|Check failed|❌|✅|Error/.test(line));
+		const tail = `${run.stdout}${run.stderr}`
+			.split('\n')
+			.filter((line) => /STALE|Would generate|Check failed|❌|✅|Error/.test(line));
 		for (const line of tail.slice(0, 40)) log(`  ${line.trim()}`);
-		if (run.status !== 0) throw new Error('stale generated files: Dmitrii must run yarn stylist:manifest (human-only)');
+		if (run.status !== 0)
+			throw new Error('stale generated files: Dmitrii must run yarn stylist:manifest (human-only)');
 		return { message: 'up to date' };
 	});
 	return { ok: results.every((result) => result.status !== 'failed'), results };

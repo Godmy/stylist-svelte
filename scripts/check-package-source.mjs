@@ -101,8 +101,14 @@ export async function checkPackageSource(packageRoot) {
 			else if (clean.startsWith('$stylist/')) pending.push(logicalSource(clean.slice(9)));
 			else if (clean.startsWith('stylist-svelte/')) pending.push(logicalSource(clean.slice(15)));
 			else if (clean.startsWith('.')) {
-				if (filename === join(lib, 'index.ts') && clean.startsWith('./') && domains[clean.slice(2).split('/')[0]]) {
-					throw new Error('Generated umbrella entrypoint still references removed domain folders. Dmitrii must run yarn stylist:manifest from the site root.');
+				if (
+					filename === join(lib, 'index.ts') &&
+					clean.startsWith('./') &&
+					domains[clean.slice(2).split('/')[0]]
+				) {
+					throw new Error(
+						'Generated umbrella entrypoint still references removed domain folders. Dmitrii must run yarn stylist:manifest from the site root.'
+					);
 				}
 				pending.push(resolve(dirname(filename), clean));
 			}

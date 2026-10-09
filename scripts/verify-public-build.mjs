@@ -23,9 +23,13 @@ export function leakPatterns(exclusion) {
 
 async function walk(directory, prefix = '') {
 	const entries = await readdir(directory, { withFileTypes: true });
-	const nested = await Promise.all(entries.map((entry) => entry.isDirectory()
-		? walk(path.join(directory, entry.name), `${prefix}${entry.name}/`)
-		: [`${prefix}${entry.name}`]));
+	const nested = await Promise.all(
+		entries.map((entry) =>
+			entry.isDirectory()
+				? walk(path.join(directory, entry.name), `${prefix}${entry.name}/`)
+				: [`${prefix}${entry.name}`]
+		)
+	);
 	return nested.flat();
 }
 
@@ -38,9 +42,14 @@ export async function verifyPublicBuild(packageRoot, outputDirectory, selection)
 	const exclusion = sandboxExclusion(packageRoot, selection);
 	const hidden = mirrorExcludedDomains(exclusion);
 	const ignoreFile = path.join(outputDirectory, '.assetsignore');
-	const ignored = new Set(existsSync(ignoreFile)
-		? (await readFile(ignoreFile, 'utf8')).split(/\r?\n/).map((line) => line.trim()).filter(Boolean)
-		: DEFAULT_IGNORED);
+	const ignored = new Set(
+		existsSync(ignoreFile)
+			? (await readFile(ignoreFile, 'utf8'))
+					.split(/\r?\n/)
+					.map((line) => line.trim())
+					.filter(Boolean)
+			: DEFAULT_IGNORED
+	);
 	const violations = [];
 	for (const domain of hidden) {
 		if (existsSync(path.join(outputDirectory, 'generated', 'lib-source', domain))) {
@@ -48,14 +57,18 @@ export async function verifyPublicBuild(packageRoot, outputDirectory, selection)
 		}
 	}
 	const patterns = leakPatterns(exclusion);
-	const files = (await walk(outputDirectory)).filter((file) => !ignored.has(file) && TEXT_FILE.test(file));
+	const files = (await walk(outputDirectory)).filter(
+		(file) => !ignored.has(file) && TEXT_FILE.test(file)
+	);
 	for (const file of files) {
 		const text = await readFile(path.join(outputDirectory, file), 'utf8');
 		for (const pattern of patterns) {
 			const match = text.match(pattern);
 			if (match) {
 				const start = Math.max(0, (match.index ?? 0) - 40);
-				violations.push(`${file}: ${JSON.stringify(text.slice(start, (match.index ?? 0) + match[0].length + 40))}`);
+				violations.push(
+					`${file}: ${JSON.stringify(text.slice(start, (match.index ?? 0) + match[0].length + 40))}`
+				);
 				break;
 			}
 		}
@@ -69,10 +82,14 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
 	const selection = sandboxSelection('build');
 	const { hidden, files, violations } = await verifyPublicBuild(packageRoot, output, selection);
 	if (violations.length) {
-		console.error(`Public build check FAILED (${violations.length}): hidden modules reached ${path.relative(packageRoot, output)}`);
+		console.error(
+			`Public build check FAILED (${violations.length}): hidden modules reached ${path.relative(packageRoot, output)}`
+		);
 		for (const violation of violations.slice(0, 50)) console.error(`  ${violation}`);
 		process.exitCode = 1;
 	} else {
-		console.log(`Public build check passed: ${files} public files, none mention ${[...hidden].sort().join(', ')}.`);
+		console.log(
+			`Public build check passed: ${files} public files, none mention ${[...hidden].sort().join(', ')}.`
+		);
 	}
 }

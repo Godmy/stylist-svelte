@@ -9,13 +9,22 @@ import config from '../svelte.config.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const require = createRequire(import.meta.url);
-const { build } = await import(pathToFileURL(join(dirname(require.resolve('@sveltejs/package/package.json')), 'src/index.js')).href);
+const { build } = await import(
+	pathToFileURL(join(dirname(require.resolve('@sveltejs/package/package.json')), 'src/index.js'))
+		.href
+);
 async function packageModules() {
 	await checkPackageSource(root);
 	const input = await assemblePackageSource(root, join(root, '.package-input'));
-	await build({ cwd: root, input, output: 'dist', types: true, preserve_output: false,
+	await build({
+		cwd: root,
+		input,
+		output: 'dist',
+		types: true,
+		preserve_output: false,
 		tsconfig: packageTsconfig(root),
-		config: { ...config, kit: { alias: { '$stylist': input, 'stylist-svelte': input } } } });
+		config: { ...config, kit: { alias: { $stylist: input, 'stylist-svelte': input } } }
+	});
 }
 await packageModules();
 if (process.argv.includes('--watch')) {
@@ -23,10 +32,22 @@ if (process.argv.includes('--watch')) {
 	let running = false;
 	let pending = false;
 	async function rebuild() {
-		if (running) { pending = true; return; }
+		if (running) {
+			pending = true;
+			return;
+		}
 		running = true;
-		try { await packageModules(); } catch (error) { console.error(error); }
-		finally { running = false; if (pending) { pending = false; await rebuild(); } }
+		try {
+			await packageModules();
+		} catch (error) {
+			console.error(error);
+		} finally {
+			running = false;
+			if (pending) {
+				pending = false;
+				await rebuild();
+			}
+		}
 	}
 	for (const source of [join(root, 'src/lib'), ...Object.values(moduleSources(root))]) {
 		if (!existsSync(source)) continue;

@@ -2,7 +2,13 @@ import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { moduleSources } from './prepare-module-sources.mjs';
-import { filterSandboxManifest, mirrorExcludedDomains, sandboxExclusion, sandboxSelection, stripHiddenExports } from './public-sandbox.mjs';
+import {
+	filterSandboxManifest,
+	mirrorExcludedDomains,
+	sandboxExclusion,
+	sandboxSelection,
+	stripHiddenExports
+} from './public-sandbox.mjs';
 import { existsSync } from 'node:fs';
 
 const libDirectory = fileURLToPath(new URL('../src/lib/', import.meta.url));
@@ -46,7 +52,7 @@ export async function generateLibSourceMirror(packageRoot, source, target, selec
 		if (hidden.has(domain) || !existsSync(domainSource)) continue;
 		await cp(domainSource, path.join(target, domain), {
 			recursive: true,
-			filter: sourcePath => !shouldSkip(sourcePath)
+			filter: (sourcePath) => !shouldSkip(sourcePath)
 		});
 	}
 	for (const manifest of MIRRORED_MANIFESTS) {
@@ -57,13 +63,27 @@ export async function generateLibSourceMirror(packageRoot, source, target, selec
 	}
 	for (const barrel of ROOT_BARRELS) {
 		const file = path.join(target, barrel);
-		if (existsSync(file)) await writeFile(file, stripHiddenExports(await readFile(file, 'utf8'), { paths: exclusion.paths, domains: hidden }));
+		if (existsSync(file))
+			await writeFile(
+				file,
+				stripHiddenExports(await readFile(file, 'utf8'), {
+					paths: exclusion.paths,
+					domains: hidden
+				})
+			);
 	}
 	return hidden;
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
 	const selection = sandboxSelection('build');
-	const hidden = await generateLibSourceMirror(path.resolve(libDirectory, '../..'), libDirectory, mirrorDirectory, selection);
-	console.log(`Source mirror (modules=${selection.modules}) without: ${[...hidden].sort().join(', ')}`);
+	const hidden = await generateLibSourceMirror(
+		path.resolve(libDirectory, '../..'),
+		libDirectory,
+		mirrorDirectory,
+		selection
+	);
+	console.log(
+		`Source mirror (modules=${selection.modules}) without: ${[...hidden].sort().join(', ')}`
+	);
 }

@@ -16,15 +16,18 @@ export function limitConcurrency(fn, limit) {
 		active--;
 		queue.shift()?.();
 	};
-	return /** @type {T} */ (async (...args) => {
-		if (active >= limit) await new Promise((next) => queue.push(/** @type {() => void} */ (next)));
-		active++;
-		try {
-			return await fn(...args);
-		} finally {
-			release();
+	return /** @type {T} */ (
+		async (...args) => {
+			if (active >= limit)
+				await new Promise((next) => queue.push(/** @type {() => void} */ (next)));
+			active++;
+			try {
+				return await fn(...args);
+			} finally {
+				release();
+			}
 		}
-	});
+	);
 }
 
 /** publint reads every file matched by "./*" at once; with ~8.5k dist files Windows
@@ -36,8 +39,16 @@ export async function publintPackage(packageRoot, { limit = 64 } = {}) {
 	fsp.readFile = limitConcurrency(fsp.readFile.bind(fsp), limit);
 	const { publint } = await import('publint');
 	const { formatMessage } = await import('publint/utils');
-	const { messages, pkg } = await publint({ pkgDir: packageRoot, pack: 'npm', level: 'suggestion' });
-	return messages.map((message) => ({ type: message.type, code: message.code, text: formatMessage(message, pkg) }));
+	const { messages, pkg } = await publint({
+		pkgDir: packageRoot,
+		pack: 'npm',
+		level: 'suggestion'
+	});
+	return messages.map((message) => ({
+		type: message.type,
+		code: message.code,
+		text: formatMessage(message, pkg)
+	}));
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
