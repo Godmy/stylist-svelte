@@ -84,10 +84,14 @@
 
 <style>
 	:global(html),
-	:global(body) {
+	:global(html > body) {
 		height: 100%;
 		overflow: hidden;
 		scrollbar-gutter: auto;
+	}
+
+	:global(html > body) {
+		overflow: auto;
 	}
 
 	:global(.c-story--isolated.c-story--fullscreen),
@@ -95,8 +99,7 @@
 	:global(
 		.c-story--isolated.c-story--fullscreen > .component-preview > .component-preview__surface
 	) {
-		height: 100%;
-		min-height: 0;
-		overflow: hidden;
+		min-height: 100%;
+		overflow: visible;
 	}
 </style>
