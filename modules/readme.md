@@ -1,7 +1,7 @@
 # modules — source ownership
 
 [modules.json](../modules.json) maps logical domains to physical repositories.
-The registry has 51 domains in ten entries. This is an ownership map, not an
+The registry has 53 domains in twelve entries. This is an ownership map, not an
 inventory of available checkouts or a list of public root exports.
 
 | Owner            | Physical path           | Registered domains                                                                                       |
@@ -13,6 +13,7 @@ inventory of available checkouts or a list of public root exports.
 | architecture     | `modules/architecture`  | graph, erd, idef-zero, workspace, canvas, presentation, webgl                                            |
 | observer         | `modules/observer`      | domain, token, server                                                                                    |
 | travel (private) | `modules/travel`        | booking, travel-commerce, travel-admin                                                                   |
+| sakartvelo (private) | `modules/sakartvelo` | tea-commerce                                                                                             |
 | geo (private)    | `modules/geo`           | geo                                                                                                      |
 | wbd (private)    | `modules/wbd`           | wbd                                                                                                      |
 | spanish          | `modules/spanish`       | spanish                                                                                                  |
@@ -35,7 +36,7 @@ git submodule update --init --recursive modules/design-system modules/interactio
 node scripts/prepare-module-sources.mjs --public
 ```
 
-With access and a need for private functionality, initialize `modules/travel`,
+With access and a need for private functionality, initialize `modules/travel`, `modules/sakartvelo`,
 `modules/geo`, and `modules/wbd` separately. Running preparation without
 `--public` requires all registered domains. ADR is a separate submodule at `adr`.
 Submodule URLs are in the umbrella [.gitmodules](../.gitmodules).

@@ -91,6 +91,14 @@
     ],
     "sourceRoot": "."
   },
+  "sakartvelo": {
+    "path": "modules/sakartvelo",
+    "private": true,
+    "domains": [
+      "tea-commerce"
+    ],
+    "sourceRoot": "."
+  },
   "geo": {
     "path": "modules/geo",
     "domainRoot": true,

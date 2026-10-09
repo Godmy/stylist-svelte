@@ -34,3 +34,6 @@
 [submodule "modules/farm"]
 	path = modules/farm
 	url = https://github.com/Godmy/stylist-svelte-farm.git
+[submodule "modules/sakartvelo"]
+	path = modules/sakartvelo
+	url = https://github.com/Godmy/stylist-svelte--sakartvelo.git
