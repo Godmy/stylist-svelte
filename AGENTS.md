@@ -52,7 +52,7 @@
     `render` (mounts components or reads their stories)
 - Tests that import `component` must live in `<domain>/test/render/<family>/`; `function/test`
   stays allowed only for tests that import no component.
-- To validate actual joint usage, run `python -u "D:\2026\projects\vibe-management.pro\packages\stylist\di\reader\library\pipeline.py"` and inspect `stylist\di\output\step-16-joints.md`; the "Unknown Joints" section lists joints that are not allowed for their cluster.
+- To validate actual joint usage, run `python -u "D:\2026\cloudflare\stylist\di\reader\library\pipeline.py"` and inspect `D:\2026\cloudflare\stylist\di\output\step-16-joints.md`; the "Unknown Joints" section lists joints that are not allowed for their cluster.
 
 ### DSIAP: Domain-Specific Interface Assembly Pattern (Mandatory for `interface/`)
 
@@ -170,13 +170,15 @@
 
 ## Index Generation Policy (Mandatory)
 
+- The Stylist tooling (indexation, auditor, errors, di) is the Git repository `D:\2026\cloudflare\stylist`; the yarn scripts of the site call it. The copy in `D:\2026\projects\vibe-management.pro\packages\stylist` is outdated: do not read or edit it. Commit generator changes in `D:\2026\cloudflare\stylist`.
+
 - Do not edit generated barrel `index.ts` or `index.full.ts` files manually.
   Single-entity implementation files named `index.ts` are source code and may
   be edited under the Source Change Rules; the generator preserves them.
 - After any change that can affect exports/imports in `stylist-svelte/src/lib/**`, the barrels must be regenerated with:
-  - `python -u "D:\2026\projects\vibe-management.pro\packages\stylist\indexation\cli.py"`
+  - `yarn stylist:index` from `D:\2026\cloudflare\lankatour.ru` (runs `python -u "D:\2026\cloudflare\stylist\indexation\cli.py"`)
 - New/renamed/moved components also require the sandbox manifest to be regenerated separately, or they stay invisible in the sandbox even though they type-check fine:
-  - `python -u "D:\2026\projects\vibe-management.pro\packages\stylist\auditor\cli.py" --manifest-only`
+  - `yarn stylist:manifest` from `D:\2026\cloudflare\lankatour.ru` (runs `python -u "D:\2026\cloudflare\stylist\auditor\cli.py" --manifest-only`)
 - **Do not run either command yourself** — see Multi-Agent Coordination above. Tell Dmitrii which one(s) are needed and why.
 - Treat generated `index.ts` files as source of truth.
 - If TypeScript errors look related to stale barrel exports, ask Dmitrii to regenerate indexes first, then continue fixes.
@@ -184,7 +186,7 @@
 ## Error Checking Policy (Mandatory)
 
 - The unified errors CLI (instead of running two analyzers separately):
-  - `python -u "D:\2026\projects\vibe-management.pro\packages\stylist\errors\cli.py"`
+  - `yarn stylist:errors` from `D:\2026\cloudflare\lankatour.ru` (runs `python -u "D:\2026\cloudflare\stylist\errors\cli.py"`)
 - **Do not run it yourself** — see Multi-Agent Coordination above. Ask Dmitrii to run it when you need a fresh error report; use a longer timeout expectation when he does (recommended: 20 minutes or more).
 - This CLI sequentially runs:
   - `stylist\errors\npx\analyzer.py`
