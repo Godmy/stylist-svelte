@@ -2,25 +2,28 @@
 
 `../modules.json` maps logical domain imports to physical repository owners. All checkouts preserve separate Git histories.
 
-| Owner                | Physical path                 | Domains                                                                                   |
-| -------------------- | ----------------------------- | ----------------------------------------------------------------------------------------- |
-| design-system        | `modules/design-system`       | theme, typography, layout, localization, svg                                              |
-| interaction          | `modules/interaction`         | animation, button, control, input, form, calendar, file, search, menu, navigation, dialog |
-| information          | `modules/information`         | list, tree, table, chart, image, audio, video, notification                               |
-| business (private)   | `modules/business`            | Nested repository container                                                               |
-| customer (private)   | `modules/customer`            | auth, chat, ai, user, social, landing                                                     |
-| architecture         | `modules/architecture`        | graph, erd, idef-zero, workspace, canvas, presentation, webgl                             |
-| sandbox              | `modules/sandbox`             | domain, token, server, development                                                        |
-| travel (private)     | `modules/business/travel`     | booking, travel-commerce, travel-admin                                                    |
-| sakartvelo (private) | `modules/business/sakartvelo` | tea-commerce                                                                              |
-| geo (private)        | `modules/global/geo`          | geo                                                                                       |
-| wbd (private)        | `modules/business/wbd`        | wbd                                                                                       |
-| spanish (private)    | `modules/business/spanish`    | spanish                                                                                   |
-| farm (private)       | `modules/business/farm`       | farm                                                                                      |
-| management (private) | `modules/management`          | management, marketing, portfolio, science                                                 |
-| global (private)     | `modules/global`              | commerce, product                                                                         |
+| Owner                | Physical path                    | Domains                                                                                   |
+| -------------------- | -------------------------------- | ----------------------------------------------------------------------------------------- |
+| design-system        | `modules/design-system`          | theme, typography, layout, localization, svg                                              |
+| interaction          | `modules/interaction`            | animation, button, control, input, form, calendar, file, search, menu, navigation, dialog |
+| information          | `modules/information`            | list, tree, table, chart, image, audio, video, notification                               |
+| business (private)   | `modules/business`               | Nested repository container                                                               |
+| customer (private)   | `modules/customer`               | auth, chat, ai, user, social, landing                                                     |
+| architecture         | `modules/architecture`           | graph, erd, idef-zero, workspace, canvas, webgl                                           |
+| sandbox              | `modules/sandbox`                | domain, token, server, development                                                        |
+| travel (private)     | `modules/business/travel`        | booking, travel-commerce, travel-admin                                                    |
+| sakartvelo (private) | `modules/business/sakartvelo`    | tea-commerce                                                                              |
+| geo (private)        | `modules/global/geo`             | geo                                                                                       |
+| wbd (private)        | `modules/business/wbd`           | wbd                                                                                       |
+| spanish (private)    | `modules/business/spanish`       | spanish                                                                                   |
+| farm (private)       | `modules/business/farm`          | farm                                                                                      |
+| management (private) | `modules/management`             | management, marketing, portfolio, science                                                 |
+| global (private)     | `modules/global`                 | commerce, product                                                                         |
+| prototype            | `modules/prototype`              | Nested repository container                                                               |
+| prezi                | `modules/prototype/presentation` | presentation                                                                              |
+| scratch (private)    | `modules/prototype/scratch`      | scratch                                                                                   |
 
-Business groups nested Git submodules `wbd`, `travel`, `spanish`, `sakartvelo`, and `farm`; global groups the nested `geo` submodule alongside its direct `commerce` and `product` domains. Their registrations are in the owning business/global `.gitmodules`, not the umbrella `.gitmodules`.
+Business groups nested Git submodules `wbd`, `travel`, `spanish`, `sakartvelo`, and `farm`; global groups the nested `geo` submodule alongside its direct `commerce` and `product` domains. Prototype groups the nested `presentation` (repository stylist-svelte-prezi, registry key `prezi`, public) and `scratch` (private) submodules and has no direct domains. Their registrations are in the owning business/global/prototype `.gitmodules`, not the umbrella `.gitmodules`.
 
 Nested repositories retain their own registry keys. Module selection uses these keys, for example `travel` or `geo`; the `business` container has no direct domains.
 

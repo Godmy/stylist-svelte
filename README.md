@@ -93,19 +93,21 @@ the sandbox landing and its **How it works** page explain them with examples.
 | design-system | `modules/design-system` | public     | theme, typography, layout, localization, svg                                              |
 | interaction   | `modules/interaction`   | public     | animation, button, control, input, form, calendar, file, search, menu, navigation, dialog |
 | information   | `modules/information`   | public     | list, tree, table, chart, image, audio, video, notification                               |
-| architecture  | `modules/architecture`  | public     | graph, erd, idef-zero, workspace, canvas, presentation, webgl                             |
+| architecture  | `modules/architecture`  | public     | graph, erd, idef-zero, workspace, canvas, webgl                                           |
 | sandbox       | `modules/sandbox`       | public¹    | domain, token, development, server                                                        |
 | customer      | `modules/customer`      | private    | auth, chat, ai, user, social, landing                                                     |
 | management    | `modules/management`    | private    | management, marketing, portfolio, science                                                 |
 | global        | `modules/global`        | private    | commerce, product (+ nested `geo`)                                                        |
 | business      | `modules/business`      | private    | container for nested travel, wbd, spanish, sakartvelo, farm                               |
+| prototype     | `modules/prototype`     | public²    | container for nested presentation (prezi), scratch                                        |
 
 ¹ `server` is never published, whichever module owns it.
+² `presentation` (registry key `prezi`) is public; `scratch` is private.
 
 Some domains are Git repositories of their own, registered in the owning
 module's `.gitmodules`: `theme`, `svg`, `typography` and `layout` in
 design-system; `server` in sandbox; `geo` in global; `travel`, `wbd`, `spanish`,
-`sakartvelo` and `farm` in business. `travel` and `sakartvelo` are also separate
+`sakartvelo` and `farm` in business; `presentation` (repository stylist-svelte-prezi) and `scratch` in prototype. `travel` and `sakartvelo` are also separate
 private Yarn packages. See [modules/readme.md](modules/readme.md) for the
 registry format (`path`, `domains`, `sourceRoot`, `domainRoot`, `private`).
 

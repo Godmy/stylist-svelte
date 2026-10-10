@@ -37,3 +37,6 @@ url = https://github.com/Godmy/stylist-svelte-management.git
 [submodule "modules/global"]
 path = modules/global
 url = https://github.com/Godmy/stylist-svelte-global.git
+[submodule "modules/prototype"]
+	path = modules/prototype
+	url = https://github.com/Godmy/stylist-svelte-prototype.git

@@ -40,7 +40,7 @@
 	},
 	"architecture": {
 		"path": "modules/architecture",
-		"domains": ["graph", "erd", "idef-zero", "workspace", "canvas", "presentation", "webgl"],
+		"domains": ["graph", "erd", "idef-zero", "workspace", "canvas", "webgl"],
 		"sourceRoot": "."
 	},
 	"sandbox": {
@@ -95,5 +95,21 @@
 		"private": true,
 		"domains": ["commerce", "product"],
 		"sourceRoot": "."
+	},
+	"prototype": {
+		"path": "modules/prototype",
+		"domains": [],
+		"sourceRoot": "."
+	},
+	"prezi": {
+		"path": "modules/prototype/presentation",
+		"domainRoot": true,
+		"domains": ["presentation"]
+	},
+	"scratch": {
+		"path": "modules/prototype/scratch",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["scratch"]
 	}
 }

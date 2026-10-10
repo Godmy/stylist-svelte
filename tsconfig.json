@@ -56,7 +56,7 @@
 		"modules/architecture/idef-zero/**/*",
 		"modules/architecture/workspace/**/*",
 		"modules/architecture/canvas/**/*",
-		"modules/architecture/presentation/**/*",
+		"modules/prototype/presentation/**/*",
 		"modules/architecture/webgl/**/*",
 		"modules/sandbox/domain/**/*",
 		"modules/sandbox/token/**/*",
@@ -70,6 +70,7 @@
 		"modules/business/spanish/**/*",
 		"modules/business/farm/**/*",
 		"modules/sandbox/development/**/*",
-		"modules/customer/ai/**/*"
+		"modules/customer/ai/**/*",
+		"modules/prototype/scratch/**/*"
 	]
 }
