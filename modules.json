@@ -98,12 +98,14 @@
 	},
 	"prototype": {
 		"path": "modules/prototype",
+		"private": true,
 		"domains": [],
 		"sourceRoot": "."
 	},
 	"prezi": {
 		"path": "modules/prototype/presentation",
 		"domainRoot": true,
+		"private": true,
 		"domains": ["presentation"]
 	},
 	"scratch": {

@@ -99,10 +99,9 @@ the sandbox landing and its **How it works** page explain them with examples.
 | management    | `modules/management`    | private    | management, marketing, portfolio, science                                                 |
 | global        | `modules/global`        | private    | commerce, product (+ nested `geo`)                                                        |
 | business      | `modules/business`      | private    | container for nested travel, wbd, spanish, sakartvelo, farm                               |
-| prototype     | `modules/prototype`     | public²    | container for nested presentation (prezi), scratch                                        |
+| prototype     | `modules/prototype`     | private    | container for nested presentation (prezi), scratch                                        |
 
 ¹ `server` is never published, whichever module owns it.
-² `presentation` (registry key `prezi`) is public; `scratch` is private.
 
 Some domains are Git repositories of their own, registered in the owning
 module's `.gitmodules`: `theme`, `svg`, `typography` and `layout` in
