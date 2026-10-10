@@ -21,6 +21,7 @@
 		"modules/design-system/layout/**/*",
 		"modules/design-system/localization/**/*",
 		"modules/design-system/svg/**/*",
+		"modules/design-system/html/**/*",
 		"modules/interaction/animation/**/*",
 		"modules/interaction/button/**/*",
 		"modules/interaction/control/**/*",

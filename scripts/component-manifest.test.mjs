@@ -82,7 +82,10 @@ test('family dictionary resolves every preset and counts stories', () => {
 			entity.files.map((file) => file.name),
 			[...preset.files].sort()
 		);
-		assert.equal(countDomainStories(compact), preset.files.includes('index.story.svelte') ? 1 : 0);
+		assert.equal(
+			countDomainStories(compact),
+			preset.files.some((name) => name.startsWith('index.story.')) ? 1 : 0
+		);
 		assert.deepEqual(compact, snapshot);
 	}
 });

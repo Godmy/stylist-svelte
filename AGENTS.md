@@ -34,6 +34,8 @@
   - `function`: only `export function`
   - `component`: Svelte components and story files used to demonstrate component behavior
   - `data`: supporting data in `icon`, `flag`, `png`, `json`, `jsonl`, `md`, and shader formats
+  - `test`: vitest suites of the domain; they export nothing and are never re-exported
+    (ADR `folder\cluster\002`)
 
 ## Logical Joint Policy (Mandatory)
 
@@ -46,6 +48,10 @@
   - `function`: `script`, `state`, `hook`, `transform`, `test`, `async`, `async-get`, `async-post`, `merge`, `check`, `count`, `create`, `resolve`, `serialize`
   - `component`: `atom`, `molecule`, `organism`, `template`, `page`
   - `data`: `json`, `jsonl`, `shader`, `icon`, `flag`, `png`, `md`, `yaml`
+  - `test`: `unit` (data/const/type/interface/class/function, no component rendering),
+    `render` (mounts components or reads their stories)
+- Tests that import `component` must live in `<domain>/test/render/<family>/`; `function/test`
+  stays allowed only for tests that import no component.
 - To validate actual joint usage, run `python -u "D:\2026\projects\vibe-management.pro\packages\stylist\di\reader\library\pipeline.py"` and inspect `stylist\di\output\step-16-joints.md`; the "Unknown Joints" section lists joints that are not allowed for their cluster.
 
 ### DSIAP: Domain-Specific Interface Assembly Pattern (Mandatory for `interface/`)
@@ -68,7 +74,11 @@
 - In `atom`, `molecule`, `organism`, `template`, and `page` folders, allow only:
   - `index.ts`
   - `index.svelte`
-  - optionally `index.story.svelte`
+  - optionally `index.story.ts` — the story contract (`ContractStory` from
+    `sandbox/domain/interface/contract/story`): component, args, controls, presets
+    and `HtmlNode` content, typed by the component recipe
+  - optionally `index.story.svelte` — next to `index.story.ts` it is only that
+    story's custom render and receives args as props; alone it is a legacy story
   - optionally `readme.md`
 - In `state` folders, allow only:
   - `index.svelte.ts`
@@ -96,7 +106,8 @@
 ## Assembly Direction Policy (Mandatory)
 
 - Preserve the composition direction:
-  - `data` -> `const` -> `type` -> `interface` -> `class` -> `function` -> `component`
+  - `data` -> `const` -> `type` -> `interface` -> `class` -> `function` -> `component` -> `test`
+- `test` may import any cluster of its domain; no other cluster imports `test`.
 - Do not introduce dependencies that violate this direction without explicit user approval.
 - DSIAP sub-direction within `interface/`:
   - `behavior` / `slot` / optional `contract` -> `recipe` (one-way, no reverse dependencies)
@@ -114,7 +125,7 @@
 
 - If a task requires a structure outside `<domain>/<cluster>/<joint>/<family>`, report the conflict first and only then propose a solution.
 - Introduce a new domain only when the entity clearly does not belong to any existing domain.
-- Introduce a new cluster only through a new ADR (see ADR-005).
+- Introduce a new cluster only through a new ADR (see ADR-005; `test` was added by `adr/folder/cluster/002`).
 - Introduce a new joint only through consensus in the architectural session; domain-specific names belong at the `family` level, not the `joint` level.
 
 ## Export And Barrel Policy (Mandatory)
@@ -135,10 +146,18 @@
 
 ## Multi-Agent Coordination (Mandatory)
 
-- See the repository root `AGENTS.md` for the full multi-agent
+- See `../lankatour.ru/AGENTS.md` for the full multi-agent
   coordination protocol (coordination log, soft domain locking, roles).
+- Write library, tooling, npm release and sandbox claims/reports to
+  `../.docs/stylist-svelte/chat/<YYYYMMDD>/`, creating the date folder when
+  needed. Choose the chat by the task's project, not the working directory.
+  Site-specific product, booking, payment and integration work (including
+  private travel components used by LankaTour) belongs in
+  `../.docs/lankatour.ru/chat/<YYYYMMDD>/`; other projects use
+  `../.docs/<project>/chat/<YYYYMMDD>/`. Cross-project work keeps its full
+  record in the primary project's chat and a short linked note in the other.
 - Before editing anything under `stylist-svelte/src/lib/<domain>/**`,
-  announce the domain in `../.docs/lankatour.ru/chat/<YYYYMMDD>/` and/or to
+  announce the domain in the relevant project's chat and/or to
   peer sessions — this subtree is the highest-collision area in the repo
   because barrels and the sandbox manifest are regenerated from the
   whole tree at once.

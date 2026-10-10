@@ -1,7 +1,7 @@
 {
 	"design-system": {
 		"path": "modules/design-system",
-		"domains": ["theme", "typography", "layout", "localization", "svg"],
+		"domains": ["theme", "typography", "layout", "localization", "svg", "html"],
 		"sourceRoot": "."
 	},
 	"interaction": {
