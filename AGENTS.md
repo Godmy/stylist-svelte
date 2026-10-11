@@ -44,7 +44,9 @@
   - `const`: `value`, `map`, `record`, `preset`, `array`, `object`
   - `type`: `alias`, `record`, `struct`, `preset`, `object`, `compute`
   - `interface`: `behavior`, `slot`, `recipe`, `contract`
-  - `class`: `manager`
+  - `class`: `manager` or another design-pattern name that states the class role
+    (`adapter`, `builder`, `facade`, `factory`, `registry`, `repository`,
+    `strategy`, `visitor`, ...)
   - `function`: `script`, `state`, `hook`, `transform`, `test`, `async`, `async-get`, `async-post`, `merge`, `check`, `count`, `create`, `resolve`, `serialize`
   - `component`: `atom`, `molecule`, `organism`, `template`, `page`
   - `data`: `json`, `jsonl`, `shader`, `icon`, `flag`, `png`, `md`, `yaml`
@@ -109,6 +111,9 @@
 - Preserve the composition direction:
   - `data` -> `const` -> `type` -> `interface` -> `class` -> `function` -> `component` -> `test`
 - `test` may import any cluster of its domain; no other cluster imports `test`.
+- `class` may import `function`: a class can call functions of its domain.
+  Keep existing classes as classes; do not rewrite them into functions only
+  to satisfy the direction.
 - Do not introduce dependencies that violate this direction without explicit user approval.
 - DSIAP sub-direction within `interface/`:
   - `behavior` / `slot` / optional `contract` -> `recipe` (one-way, no reverse dependencies)
@@ -171,13 +176,13 @@
 
 ## Index Generation Policy (Mandatory)
 
-- The native indexation, DI reader, auditor and errors belong to the sibling private repository `D:\2026\cloudflare\stylist-svelte-tools` (TypeScript, Node.js >=24.11). Site scripts launch the auditor via `scripts/auditor.mjs`; it launches native indexation and `scripts/reader.mjs pipeline`. Report output remains under `D:\2026\cloudflare\stylist`, including `di\output`, `auditor\output` and `errors\output`. The older Python indexation launcher remains in `stylist`. The copy in `D:\2026\projects\vibe-management.pro\packages\stylist` is outdated: do not read or edit it. Commit TypeScript tool changes in `stylist-svelte-tools`.
+- The native indexation, DI reader, auditor and errors belong to the sibling private repository `D:\2026\cloudflare\stylist-svelte-tools` (TypeScript, Node.js >=24.11). Site scripts launch the auditor via `scripts/auditor.mjs`; it launches native indexation and `scripts/reader.mjs pipeline`. Report output remains under `D:\2026\cloudflare\stylist`, including `di\output`, `auditor\output` and `errors\output`. `yarn stylist:index` runs the TypeScript indexation `scripts/indexation.mjs` (output byte-identical to the retired Python `stylist\indexation\cli.py`, which is no longer launched). The copy in `D:\2026\projects\vibe-management.pro\packages\stylist` is outdated: do not read or edit it. Commit TypeScript tool changes in `stylist-svelte-tools`.
 
 - Do not edit generated barrel `index.ts` or `index.full.ts` files manually.
   Single-entity implementation files named `index.ts` are source code and may
   be edited under the Source Change Rules; the generator preserves them.
 - After any change that can affect exports/imports in `stylist-svelte/src/lib/**`, the barrels must be regenerated with:
-  - `yarn stylist:index` from `D:\2026\cloudflare\lankatour.ru` (runs `python -u "D:\2026\cloudflare\stylist\indexation\cli.py"`)
+  - `yarn stylist:index` from `D:\2026\cloudflare\lankatour.ru` (runs `node "D:\2026\cloudflare\stylist-svelte-tools\scripts\indexation.mjs"`)
 - New/renamed/moved components also require the sandbox manifest to be regenerated separately, or they stay invisible in the sandbox even though they type-check fine:
   - `yarn stylist:manifest` from `D:\2026\cloudflare\lankatour.ru` (runs `node "D:\2026\cloudflare\stylist-svelte-tools\scripts\auditor.mjs" --manifest-only`)
 - **Do not run either command yourself** — see Multi-Agent Coordination above. Tell Dmitrii which one(s) are needed and why.
