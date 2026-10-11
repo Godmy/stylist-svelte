@@ -52,7 +52,7 @@
     `render` (mounts components or reads their stories)
 - Tests that import `component` must live in `<domain>/test/render/<family>/`; `function/test`
   stays allowed only for tests that import no component.
-- To validate actual joint usage, run `python -u "D:\2026\cloudflare\stylist\di\reader\library\pipeline.py"` and inspect `D:\2026\cloudflare\stylist\di\output\step-16-joints.md`; the "Unknown Joints" section lists joints that are not allowed for their cluster.
+- To validate actual joint usage, run `node "D:\2026\cloudflare\stylist-svelte-tools\scripts\reader.mjs" pipeline` and inspect `D:\2026\cloudflare\stylist\di\output\step-16-joints.md`; the "Unknown Joints" section lists joints that are not allowed for their cluster. The reader requires Node.js >=24.11 and reads the existing indexation snapshot, including physical modular sources.
 
 ### DSIAP: Domain-Specific Interface Assembly Pattern (Mandatory for `interface/`)
 
@@ -171,7 +171,7 @@
 
 ## Index Generation Policy (Mandatory)
 
-- The Stylist tooling (indexation, auditor, errors, di) is the Git repository `D:\2026\cloudflare\stylist`; the yarn scripts of the site call it. The copy in `D:\2026\projects\vibe-management.pro\packages\stylist` is outdated: do not read or edit it. Commit generator changes in `D:\2026\cloudflare\stylist`.
+- Indexation, auditor and errors belong to the Git repository `D:\2026\cloudflare\stylist`; the yarn scripts of the site call it. The DI reader belongs to the sibling private repository `D:\2026\cloudflare\stylist-svelte-tools` (TypeScript, Node.js >=24.11); auditor launches its `scripts/reader.mjs pipeline` and preserves reports in `stylist\di\output`. The copy in `D:\2026\projects\vibe-management.pro\packages\stylist` is outdated: do not read or edit it. Commit generator changes in `D:\2026\cloudflare\stylist` and reader changes in `D:\2026\cloudflare\stylist-svelte-tools`.
 
 - Do not edit generated barrel `index.ts` or `index.full.ts` files manually.
   Single-entity implementation files named `index.ts` are source code and may
