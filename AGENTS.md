@@ -98,6 +98,11 @@
   - `*.png`
   - `*.md`
 - In all other folders, allow only a single `index.ts`.
+- A domain root (`<domain>/README.md`) and each cluster root
+  (`<domain>/<cluster>/README.md`) may hold a `README.md` that documents it:
+  purpose, entities by joint and data flow. Diagrams go into these READMEs as
+  ` ```mermaid ` blocks, not separate `.mmd` files. Joint and family folders
+  keep their file rules above; entities document themselves with JSDoc.
 
 ## Embedded Repository Exception For Submodule Domains (Mandatory)
 
