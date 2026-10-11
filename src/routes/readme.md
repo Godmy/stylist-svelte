@@ -50,25 +50,29 @@ family. Stories загружаются через glob по физическим
 
 ## Превью исходников и отчёты
 
-`/api/content` читает зеркало `/generated/lib-source` через `event.fetch`,
-на Cloudflare — через `platform.env.ASSETS`, если binding доступен. Зеркало
-создаёт [generate-lib-source-mirror.mjs](../../scripts/generate-lib-source-mirror.mjs)
-из физических владельцев; Git-метаданные не копируются. Сервер не читает
-произвольный исходный файл напрямую: `.` и `..` в адресе отклоняются, для
-отсутствующего файла возвращается 404, для превышения лимита — 413.
+В `yarn dev` `/api/content` читает файл прямо с диска: первый сегмент адреса
+(домен) сопоставляется с физическим владельцем через `moduleSources` из
+[prepare-module-sources.mjs](../../scripts/prepare-module-sources.mjs) по всем
+модулям, остальное ищется в `src/lib`. Новые файлы видны сразу, без зеркала и
+перезапуска. Граница та же, что у зеркала: домен `server` и сегменты,
+начинающиеся с точки (`.git`), не читаются.
 
-`yarn dev` сам зеркало не создаёт. Для просмотра исходников локально запустите
-`node scripts/generate-lib-source-mirror.mjs` из корня библиотеки; это снимок
-файлов, который нужно обновлять после изменений. `build:site` выполняет этот
-шаг автоматически. DI/dashboard используют результаты внешних инструментов
-`stylist/*/output`; их наличие не гарантируется checkout библиотеки.
+В сборке (`build:site`, Cloudflare) читается зеркало `/generated/lib-source`
+через `event.fetch` или `platform.env.ASSETS`, если binding доступен. Зеркало
+создаёт [generate-lib-source-mirror.mjs](../../scripts/generate-lib-source-mirror.mjs)
+из физических владельцев; Git-метаданные не копируются; `build:site` запускает
+его сам. В обоих режимах `.` и `..` в адресе отклоняются, для отсутствующего
+файла возвращается 404, для превышения лимита — 413. DI/dashboard используют
+результаты внешних инструментов `stylist/*/output`; их наличие не гарантируется
+checkout библиотеки.
 
 ## Размер превью и скриншоты
 
-Device switcher задаёт поверхности Story `max-width`: Mobile — 375 px,
-Tablet — 768 px, Desktop — 1440 px, Fullscreen — без ограничения. Поверхность
-использует `container-type: inline-size`. Это изменение контейнера; `@media`
-продолжает зависеть от окна браузера. Доступная ширина также ограничена оболочкой.
+Device switcher задаёт ширину iframe `/preview` в `domain-file-preview`:
+Mobile — 375 px, Tablet — 768 px, Desktop — 1440 px, Fullscreen — без
+ограничения; при нехватке места iframe масштабируется. Внутри iframe работают и
+`@media`, и `@container` (поверхность Story — `container-type: inline-size`).
+Story берёт из `ManagerStoryViewportContext` только `fullscreen` и `isolated`.
 
 [examples/capture-story-screenshots.mjs](../../examples/capture-story-screenshots.mjs)
 переключает эти режимы в explorer и сохраняет PNG и JSON с метриками.
@@ -195,7 +199,7 @@ PR #4. Пути и формат манифеста обновлены; стар�
 | DomainManager /api/descriptor | Строит проекцию выбранного компонента по запросу      | Проекция по именам не является графом фактических импортов        |
 | DomainPlayground landing      | countDomainStories считает stories через file presets | Манифест может включать отсутствующий private checkout            |
 | Explorer                      | expandComponentTree восстанавливает файлы             | Неизвестный preset должен приводить к явной ошибке                |
-| Source preview                | Читает отдельное зеркало физических исходников        | После изменения файлов обновить зеркало независимо от дерева      |
+| Source preview                | Dev читает диск, сборка — зеркало исходников          | Зеркало обновляет build:site; в dev обновлять ничего не нужно     |
 | Генерация                     | Внешний auditor; глобальный запуск только Дмитрием    | Регламентировать входы/версии и сверять результат после генерации |
 
 Компактный файл содержит 51 домен и 3257 family-записей; размеры закреплённого

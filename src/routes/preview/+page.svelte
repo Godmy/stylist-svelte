@@ -5,8 +5,11 @@
 	import { ManagerStoryViewportContext } from '$stylist/theme/class/manager/story-viewport-context';
 	import type { TokenStoryViewport } from '$stylist/theme/type/alias/story-viewport';
 	import type { ContractStory } from '$stylist/html/interface/contract/story';
+	import type { HtmlNode } from '$stylist/html/type/alias/html-node';
 	import WorkspaceHints from '$stylist/domain/component/molecule/workspace-hints/index.svelte';
 	import StoryCanvas from '$stylist/domain/component/molecule/story-canvas/index.svelte';
+	import { resolvePreviewSkin } from '$stylist/domain/function/resolve/preview-skin';
+	import type { ContractPreviewEnvironment } from '$stylist/domain/interface/contract/preview-environment';
 
 	type StoryModule = { default: Component | ContractStory };
 
@@ -36,6 +39,9 @@
 		return { component: null, story: story as ContractStory, render };
 	});
 	let storyArgs = $state<Record<string, unknown>>();
+	let storyContent = $state<readonly HtmlNode[]>();
+	let environment = $state<ContractPreviewEnvironment>({});
+	const visualHtml = $derived(resolvePreviewSkin(storyPath));
 	let device = $state<TokenStoryViewport>('fullscreen');
 	let fullscreen = $state(false);
 	ManagerStoryViewportContext.set(
@@ -56,10 +62,18 @@
 	});
 
 	onMount(() => {
+		// A directly opened preview uses its own ThemeProvider and never waits for a parent.
+		if (window.parent === window) themed = true;
 		const receive = (event: MessageEvent) => {
 			if (event.origin !== window.location.origin || event.source !== window.parent) return;
 			if (event.data?.type === 'stylist:story-args') {
 				storyArgs = event.data.args;
+				storyContent = event.data.content;
+				return;
+			}
+			if (event.data?.type === 'stylist:preview-environment') {
+				if (event.data.settings && typeof event.data.settings === 'object')
+					environment = event.data.settings;
 				return;
 			}
 			if (event.data?.type !== 'stylist:viewport') return;
@@ -98,7 +112,13 @@
 		<svelte:boundary>
 			<div class="preview-story" {@attach settle}>
 				{#if entry.story}
-					<StoryCanvas story={entry.story} args={storyArgs} render={entry.render} />
+					<StoryCanvas
+						story={entry.story}
+						args={storyArgs}
+						content={storyContent}
+						environment={visualHtml ? environment : undefined}
+						render={entry.render}
+					/>
 				{:else if Story}
 					<Story />
 				{/if}

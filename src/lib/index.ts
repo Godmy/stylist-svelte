@@ -128,6 +128,50 @@ export {
 	WorkspaceToolbar
 } from '../../modules/architecture/workspace';
 export {
+	COLORS_SCALES_AMBER,
+	COLORS_SCALES_BLUE,
+	COLORS_SCALES_GRAY,
+	COLORS_SCALES_GREEN,
+	COLORS_SCALES_NEUTRAL,
+	COLORS_SCALES_ORANGE,
+	COLORS_SCALES_RED,
+	COLORS_SCALES_SLATE,
+	COLORS_SCALES_TEAL,
+	DESIGN_TOKEN_CONTENT_SIZE,
+	DESIGN_TOKEN_DENSITY,
+	DESIGN_TOKEN_FOCUS,
+	DESIGN_TOKEN_HTML_REQUIREMENT,
+	DESIGN_TOKEN_HTML_SUPPLEMENT,
+	GRADIENT_CUSTOM,
+	GRADIENT_LINEAR,
+	GRADIENT_RADIAL,
+	RECORD_ELEVATION,
+	RECORD_SPACING,
+	TOKEN_ANIMATION,
+	TOKEN_BORDER_RADIUS,
+	TOKEN_BORDER_WIDTH,
+	TOKEN_COLOR,
+	TOKEN_COLOR_TONE,
+	TOKEN_DIRECTION,
+	TOKEN_DURATION,
+	TOKEN_EASING,
+	TOKEN_FONT_FAMILY,
+	TOKEN_FONT_SIZE,
+	TOKEN_FONT_SIZE_RELATIVE,
+	TOKEN_FONT_WEIGHT,
+	TOKEN_LETTER_SPACING,
+	TOKEN_LINE_HEIGHT,
+	TOKEN_OPACITY,
+	TOKEN_SIZE,
+	TOKEN_SIZE_PX,
+	TOKEN_SIZE_REM,
+	TOKEN_TOKEN_VALUE,
+	TOKEN_TRANSITION,
+	TOKEN_Z_INDEX,
+	checkStyleTokenCoverage,
+	resolveStyleTokenUsage
+} from '../../modules/design-system/design-token';
+export {
 	HTML_BLOCK_SHAPE,
 	HTML_BOOLEAN_ATTRIBUTE,
 	HTML_CONTENT,
@@ -286,14 +330,19 @@ export {
 	checkHtmlRawText,
 	createHtmlBlock,
 	createHtmlBlockList,
+	createHtmlStoryNode,
 	resolveHtmlAddress,
 	resolveHtmlStyleSelector,
+	resolveHtmlText,
 	resolveHtmlValidation,
 	serializeHtmlAttributes,
 	serializeHtmlDocument,
+	serializeHtmlMarkup,
 	serializeHtmlNode,
 	serializeHtmlRawText,
-	serializeHtmlStylesheet
+	serializeHtmlStylesheet,
+	transformHtmlOutlet,
+	transformHtmlText
 } from '../../modules/design-system/html';
 export {
 	AnimatedExpandableTableRow,
@@ -349,6 +398,7 @@ export {
 	TOKEN_IMAGE_FILTER,
 	TOKEN_JUSTIFICATION,
 	TOKEN_ORIENTATION,
+	TOKEN_SHAPE,
 	TOKEN_SKELETON,
 	TOKEN_STACK_DIRECTION,
 	TOKEN_TIER_CONTENT,
@@ -390,20 +440,8 @@ export {
 	resolveSize
 } from '../../modules/design-system/svg';
 export {
-	COLORS_SCALES_AMBER,
-	COLORS_SCALES_BLUE,
-	COLORS_SCALES_GRAY,
-	COLORS_SCALES_GREEN,
-	COLORS_SCALES_NEUTRAL,
-	COLORS_SCALES_ORANGE,
-	COLORS_SCALES_RED,
-	COLORS_SCALES_SLATE,
-	COLORS_SCALES_TEAL,
 	ColorPicker,
 	ColorSwatch,
-	GRADIENT_CUSTOM,
-	GRADIENT_LINEAR,
-	GRADIENT_RADIAL,
 	INTERACTION_MOTION,
 	LAYOUT_ELEVATION_SEMANTIC,
 	LAYOUT_GRADIENTS,
@@ -417,8 +455,6 @@ export {
 	ManagerThemeSettings,
 	ManagerThemeStorage,
 	ManagerThemeSwitcher,
-	RECORD_ELEVATION,
-	RECORD_SPACING,
 	RECORD_THEME_SCHEME,
 	SCHEME_FOREST,
 	SCHEME_MINIMAL,
@@ -433,24 +469,7 @@ export {
 	THEME_SCHEMES,
 	THEME_STORAGE_CONTRACT,
 	THEME_TYPOGRAPHY,
-	TOKEN_ANIMATION,
-	TOKEN_BORDER_RADIUS,
-	TOKEN_COLOR,
-	TOKEN_COLOR_TONE,
 	TOKEN_COLOR_TONE_ICON,
-	TOKEN_DIRECTION,
-	TOKEN_DURATION,
-	TOKEN_EASING,
-	TOKEN_FONT_FAMILY,
-	TOKEN_FONT_SIZE,
-	TOKEN_FONT_WEIGHT,
-	TOKEN_LETTER_SPACING,
-	TOKEN_LINE_HEIGHT,
-	TOKEN_OPACITY,
-	TOKEN_SHAPE,
-	TOKEN_SIZE,
-	TOKEN_SIZE_PX,
-	TOKEN_SIZE_REM,
 	TOKEN_STORY_VIEWPORT,
 	TOKEN_STORY_VIEWPORT_CONTEXT,
 	TOKEN_THEME_CONTEXT,
@@ -458,9 +477,6 @@ export {
 	TOKEN_THEME_MODE_STORAGE,
 	TOKEN_THEME_SCHEME,
 	TOKEN_THEME_SCHEME_STORAGE,
-	TOKEN_TOKEN_VALUE,
-	TOKEN_TRANSITION,
-	TOKEN_Z_INDEX,
 	ThemeConsumer,
 	ThemeContext,
 	ThemeModeToggle,
@@ -494,6 +510,7 @@ export {
 	Link,
 	Paragraph,
 	RichText,
+	TYPOGRAPHY_PRESET,
 	Text,
 	createRichTextSegments,
 	normalizeText,
@@ -1020,6 +1037,25 @@ export type {
 	TokenTrajectory
 } from '../../modules/architecture/workspace';
 export type {
+	DesignTokenUsage,
+	TokenAnimation,
+	TokenColor,
+	TokenColorTone,
+	TokenDirection,
+	TokenDuration,
+	TokenEasing,
+	TokenFontFamily,
+	TokenFontSize,
+	TokenFontWeight,
+	TokenLetterSpacing,
+	TokenLineHeight,
+	TokenOpacity,
+	TokenSize,
+	TokenSizeRem,
+	TokenTokenValue,
+	TokenZIndex
+} from '../../modules/design-system/design-token';
+export type {
 	HtmlAttributeValue,
 	HtmlBlockShape,
 	HtmlContent,
@@ -1031,6 +1067,7 @@ export type {
 	HtmlNamespace,
 	HtmlNode,
 	HtmlNodeIssue,
+	HtmlOutletNode,
 	HtmlRender,
 	HtmlStyleRule,
 	HtmlTag,
@@ -1066,6 +1103,7 @@ export type {
 	TokenGradient,
 	TokenJustification,
 	TokenOrientation,
+	TokenShape,
 	TokenSkeleton,
 	TokenStackDirection,
 	TokenTrigger
@@ -1082,28 +1120,11 @@ export type {
 	Theme,
 	ThemeSchemeDefinition,
 	ThemeStorageContract,
-	TokenAnimation,
-	TokenColor,
-	TokenColorTone,
-	TokenDirection,
-	TokenDuration,
-	TokenEasing,
-	TokenFontFamily,
-	TokenFontSize,
-	TokenFontWeight,
-	TokenLetterSpacing,
-	TokenLineHeight,
-	TokenOpacity,
-	TokenShape,
-	TokenSize,
-	TokenSizeRem,
 	TokenStoryViewport,
 	TokenThemeMode,
 	TokenThemeScheme,
 	TokenThemeTone,
-	TokenTokenValue,
-	TokenTypographyTone,
-	TokenZIndex
+	TokenTypographyTone
 } from '../../modules/design-system/theme';
 export type { TypeTranscriberStatus } from '../../modules/information/audio';
 export type {
@@ -1300,6 +1321,7 @@ export type {
 	SlotNodeConnection,
 	SlotWorkspaceNode
 } from '../../modules/architecture/workspace';
+export type { ContractDesignTokenStyleRule } from '../../modules/design-system/design-token';
 export type {
 	ContractHtmlComponent,
 	ContractHtmlComposite,
@@ -1551,8 +1573,7 @@ export type {
 	SlotThemeBorder,
 	SlotThemeChildren,
 	SlotThemePaletteColor,
-	SlotThemeSettings,
-	SlotTypography
+	SlotThemeSettings
 } from '../../modules/design-system/theme';
 export type {
 	RecipeAbbr,
@@ -1567,7 +1588,8 @@ export type {
 	RecipeText,
 	SlotLink,
 	SlotRichText,
-	SlotText
+	SlotText,
+	SlotTypography
 } from '../../modules/design-system/typography';
 export type {
 	RecipeAudioPlayer,

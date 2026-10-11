@@ -39,7 +39,7 @@
 	._c3 {
 		margin-top: var(--spacing-lg);
 	}
-	._c4 {
+	._c3 :global(._c4) {
 		margin-right: var(--spacing-sm);
 	}
 </style>

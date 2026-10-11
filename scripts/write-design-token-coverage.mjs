@@ -1,7 +1,12 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { HTML_STYLE } from '../modules/design-system/html/const/array/html-style/index.ts';
-import { resolveStyleTokenUsage } from '../modules/design-system/design-token/function/resolve/style-token-usage/index.ts';
+import { registerModuleSources } from './register-module-sources.mjs';
+
+registerModuleSources();
+const { HTML_STYLE } =
+	await import('../modules/design-system/html/const/array/html-style/index.ts');
+const { resolveStyleTokenUsage } =
+	await import('../modules/design-system/design-token/function/resolve/style-token-usage/index.ts');
 
 const usages = resolveStyleTokenUsage(HTML_STYLE);
 const names = [...new Set(usages.map((usage) => usage.name))].sort();
@@ -13,7 +18,7 @@ writeFileSync(
 	`${directory}/index.json`,
 	JSON.stringify(
 		{
-			date: '2026-10-10',
+			date: '2026-10-11',
 			source: 'html/const/array/html-style/index.ts',
 			scope:
 				'Observed references; emission is verified separately against light/dark theme providers.',
@@ -26,42 +31,48 @@ writeFileSync(
 					priority: 'P0',
 					content: ['text', 'headings', 'caption', 'code'],
 					required: ['font family including mono', 'size', 'weight', 'line height', 'tracking'],
-					next: ['body/heading/caption/code presets', 'relative small-text scale']
+					status: 'implemented: body/heading/caption/code presets and relative small-text scale',
+					next: []
 				},
 				{
 					family: 'color',
 					priority: 'P0',
 					content: ['text', 'links', 'surfaces', 'controls', 'validation'],
 					required: ['text', 'background', 'border', 'accent', 'on-accent', 'danger', 'backdrop'],
-					next: ['visited/active links', 'selection', 'placeholder', 'readonly']
+					status: 'implemented: active links, selected options, placeholder and readonly',
+					next: ['visited links require a separate privacy-aware visual contract']
 				},
 				{
 					family: 'spacing',
 					priority: 'P0',
 					content: ['lists', 'tables', 'forms', 'disclosures'],
 					required: ['block rhythm', 'inline indentation', 'padding', 'gap'],
-					next: ['logical spacing names without decimal punctuation', 'compact/comfortable density']
+					status: 'implemented: compact/comfortable density; compatible decimal names preserved',
+					next: []
 				},
 				{
 					family: 'border',
 					priority: 'P1',
 					content: ['controls', 'table cells', 'separators', 'code'],
 					required: ['radius'],
-					next: ['width/style', 'focus width/offset', 'separator width']
+					status: 'implemented: border/separator widths and focus width/offset',
+					next: []
 				},
 				{
 					family: 'state-motion',
 					priority: 'P1',
 					content: ['interactive controls', 'validation', 'dialog'],
 					required: ['disabled opacity', 'transition duration'],
-					next: ['active/hover/focus/invalid/readonly', 'easing', 'reduced-motion policy']
+					status: 'implemented: active/hover/focus/invalid/readonly, easing and reduced motion',
+					next: []
 				},
 				{
 					family: 'layout-media',
 					priority: 'P1',
 					content: ['image', 'video', 'canvas', 'svg', 'dialog'],
 					required: ['modal elevation'],
-					next: ['content width', 'dialog width', 'aspect ratio', 'object fit', 'overlay stacking']
+					status: 'implemented: dialog width/gutter and modal elevation/stacking',
+					next: ['media aspect-ratio/object-fit deferred until a media API consumes them']
 				},
 				{
 					family: 'foreign-service',

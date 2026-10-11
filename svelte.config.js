@@ -17,6 +17,14 @@ const config = {
 			return;
 		}
 
+		// Workers Builds (CI) compiles only public modules, which have no warnings: keep it that way.
+		// scripts/check-svelte-warnings.mjs sets SVELTE_WARNINGS_REPORT to count instead of failing.
+		if ((process.env.WORKERS_CI || process.env.CI) && !process.env.SVELTE_WARNINGS_REPORT) {
+			throw new Error(
+				`Svelte warning ${warning.code} in ${filename}:${warning.start?.line ?? 0}: ${warning.message}`
+			);
+		}
+
 		defaultHandler(warning);
 	},
 
