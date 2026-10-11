@@ -36,7 +36,14 @@ family. Stories загружаются через glob по физическим
 
 Манифест хранится в
 `modules/sandbox/domain/data/json/domain-page-manifest/index.json`. Он содержит
-только `tree`; массива `descriptors` нет. DomainManager передаёт компактное
+только `tree`; массива `descriptors` нет. В git лежит только публичная часть;
+`stylist/auditor` рядом пишет игнорируемый `index.full.json` со всеми модулями
+(то же для `domain-files`, `domain-component-intervals`,
+`domain-component-import-diagnostics`). Плагин `publicSandbox` в `vite dev`
+подставляет полный файл и вырезает домены, скрытые `STYLIST_MODULES`; в сборке
+полный файл берётся только без скрытых модулей. Из корня workspace
+`yarn stylist` — приватный режим (`STYLIST_MODULES=all`), `yarn stylist:public` —
+только публичные модули. DomainManager передаёт компактное
 дерево странице, а `resolveComponentDescriptor` строит проекцию по запросу.
 Число stories на landing вычисляет `countDomainStories`. Формат и измерения:
 [component-manifest-presets.md](../../../.docs/stylist-svelte/component-manifest-presets.md).

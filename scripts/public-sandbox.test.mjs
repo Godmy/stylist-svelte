@@ -311,3 +311,23 @@ test('a real vite build skips hidden globs, filters modules.json and refuses hid
 		if (existsSync(root)) await rm(root, { recursive: true, force: true });
 	}
 });
+
+test('the git-ignored full manifest replaces the public one unless modules are hidden', async () => {
+	const manifest = 'modules/core/domain/data/json/domain-page-manifest';
+	const root = await fixture({
+		'entry.js': `export { default } from '/${manifest}/index.json';`,
+		[`${manifest}/index.json`]: JSON.stringify({ tree: { button: 'PUBLIC_TREE' } }),
+		[`${manifest}/index.full.json`]: JSON.stringify({
+			tree: { button: 'PUBLIC_TREE', geo: 'PRIVATE_TREE' }
+		})
+	});
+	try {
+		const publicOutput = await viteBuild(root, 'entry.js', { STYLIST_MODULES: '' });
+		assert.match(publicOutput, /PUBLIC_TREE/);
+		assert.doesNotMatch(publicOutput, /PRIVATE_TREE/);
+		const allOutput = await viteBuild(root, 'entry.js', { STYLIST_MODULES: 'all' });
+		assert.match(allOutput, /PRIVATE_TREE/);
+	} finally {
+		if (existsSync(root)) await rm(root, { recursive: true, force: true });
+	}
+});

@@ -1,3 +1,4 @@
+import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import {
 	readModules,
@@ -157,6 +158,20 @@ export function filterSandboxManifest(file, data, domains) {
 	return data;
 }
 
+const GENERATED_JSON =
+	/\/data\/json\/domain-(page-manifest|files|component-intervals|component-import-diagnostics)\/index\.json$/;
+
+/** Git-ignored `index.full.json` written next to a public generated manifest, if any.
+ * The tracked file holds public modules only; the full one also has private domains.
+ * @param {string} file
+ */
+export function fullManifestPath(file) {
+	const slashed = file.replace(/\\/g, '/');
+	if (!GENERATED_JSON.test(slashed)) return null;
+	const full = file.replace(/index\.json$/, 'index.full.json');
+	return existsSync(full) ? full : null;
+}
+
 /** Vite plugin: a sandbox build without hidden (by default private) modules.
  * Globs skip them, generated manifests drop them, and any import that still reaches a
  * hidden module fails the build instead of shipping its code.
@@ -169,6 +184,8 @@ export function publicSandbox(packageRoot) {
 	let roots = [];
 	/** @type {string[]} */
 	let negatives = [];
+	/** Serve the full manifests: always in dev, in a build only when nothing is hidden. */
+	let useFull = false;
 	const hiddenRoot = (id) => {
 		const file = normalize(id.replace(/^\0/, '').split('?')[0]);
 		return roots.find((root) => file === root || file.startsWith(`${root}/`));
@@ -181,6 +198,7 @@ export function publicSandbox(packageRoot) {
 		configResolved(config) {
 			const selection = sandboxSelection(config.command);
 			exclusion = sandboxExclusion(packageRoot, selection);
+			useFull = config.command === 'serve' || exclusion.modules.size === 0;
 			roots = exclusion.paths.map((modulePath) => normalize(path.resolve(packageRoot, modulePath)));
 			negatives = [
 				...exclusion.paths.map((modulePath) => `!/${modulePath}/**`),
@@ -200,7 +218,11 @@ export function publicSandbox(packageRoot) {
 					`[stylist-public-sandbox] ${id} belongs to a hidden module (${root}). Public sandbox code must not import it; set STYLIST_MODULES=all for a private build.`
 				);
 			}
-			return null;
+			const full = useFull ? fullManifestPath(id.split('?')[0]) : null;
+			if (!full) return null;
+			// transform() below still drops domains hidden by the current selection.
+			this.addWatchFile(full);
+			return readFileSync(full, 'utf8');
 		},
 		/** @param {string} code @param {string} id */
 		transform(code, id) {
