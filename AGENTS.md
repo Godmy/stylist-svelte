@@ -187,16 +187,14 @@
 ## Error Checking Policy (Mandatory)
 
 - The unified errors CLI (instead of running two analyzers separately):
-  - `yarn stylist:errors` from `D:\2026\cloudflare\lankatour.ru` (runs `python -u "D:\2026\cloudflare\stylist\errors\cli.py"`)
+  - `yarn stylist:errors` from `D:\2026\cloudflare\lankatour.ru` (runs `node "D:\2026\cloudflare\stylist-svelte-tools\scripts\errors.mjs"`; requires Node.js >=24.11)
 - **Do not run it yourself** — see Multi-Agent Coordination above. Ask Dmitrii to run it when you need a fresh error report; use a longer timeout expectation when he does (recommended: 20 minutes or more).
 - This CLI sequentially runs:
-  - `stylist\errors\npx\analyzer.py`
-  - `stylist\errors\yarn\analyzer.py`
+  - `npx tsc --noEmit` in `stylist-svelte`
+  - `yarn check` in `stylist-svelte`
 - Generated analyzer outputs:
-  - `stylist\errors\npx\tsc_stylist_playground.json`
   - `stylist\errors\npx\tsc_stylist_svelte.json`
   - `stylist\errors\yarn\yarn_check_stylist_svelte.json`
-  - `stylist\errors\yarn\yarn_check_stylist_playground.json`
 - Generated aggregated report:
   - `stylist\errors\output\<timestamp>\README.md`
 - Report is a header of files with errors in directory:
