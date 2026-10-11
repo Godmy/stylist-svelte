@@ -1303,6 +1303,7 @@ export type {
 export type {
 	ContractHtmlComponent,
 	ContractHtmlComposite,
+	ContractStory,
 	RecipeHtmlA,
 	RecipeHtmlAbbr,
 	RecipeHtmlAddress,
@@ -1442,7 +1443,8 @@ export type {
 	RecipeHtmlVar,
 	RecipeHtmlVideo,
 	RecipeHtmlWbr,
-	SlotHtmlText
+	SlotHtmlText,
+	SlotStoryControl
 } from '../../modules/design-system/html';
 export type {
 	BehaviorClickable,

@@ -75,7 +75,8 @@
   - `index.ts`
   - `index.svelte`
   - optionally `index.story.ts` — the story contract (`ContractStory` from
-    `sandbox/domain/interface/contract/story`): component, args, controls, presets
+    `html/interface/contract/story`; controls are `SlotStoryControl` from
+    `html/interface/slot/story-control`): component, args, controls, presets
     and `HtmlNode` content, typed by the component recipe
   - optionally `index.story.svelte` — next to `index.story.ts` it is only that
     story's custom render and receives args as props; alone it is a legacy story

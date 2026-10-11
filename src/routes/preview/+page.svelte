@@ -4,7 +4,7 @@
 	import type { Component } from 'svelte';
 	import { ManagerStoryViewportContext } from '$stylist/theme/class/manager/story-viewport-context';
 	import type { TokenStoryViewport } from '$stylist/theme/type/alias/story-viewport';
-	import type { ContractStory } from '$stylist/domain/interface/contract/story';
+	import type { ContractStory } from '$stylist/html/interface/contract/story';
 	import WorkspaceHints from '$stylist/domain/component/molecule/workspace-hints/index.svelte';
 	import StoryCanvas from '$stylist/domain/component/molecule/story-canvas/index.svelte';
 
