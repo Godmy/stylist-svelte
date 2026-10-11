@@ -171,7 +171,7 @@
 
 ## Index Generation Policy (Mandatory)
 
-- Indexation, auditor and errors belong to the Git repository `D:\2026\cloudflare\stylist`; the yarn scripts of the site call it. The DI reader belongs to the sibling private repository `D:\2026\cloudflare\stylist-svelte-tools` (TypeScript, Node.js >=24.11); auditor launches its `scripts/reader.mjs pipeline` and preserves reports in `stylist\di\output`. The copy in `D:\2026\projects\vibe-management.pro\packages\stylist` is outdated: do not read or edit it. Commit generator changes in `D:\2026\cloudflare\stylist` and reader changes in `D:\2026\cloudflare\stylist-svelte-tools`.
+- The native indexation, DI reader, auditor and errors belong to the sibling private repository `D:\2026\cloudflare\stylist-svelte-tools` (TypeScript, Node.js >=24.11). Site scripts launch the auditor via `scripts/auditor.mjs`; it launches native indexation and `scripts/reader.mjs pipeline`. Report output remains under `D:\2026\cloudflare\stylist`, including `di\output`, `auditor\output` and `errors\output`. The older Python indexation launcher remains in `stylist`. The copy in `D:\2026\projects\vibe-management.pro\packages\stylist` is outdated: do not read or edit it. Commit TypeScript tool changes in `stylist-svelte-tools`.
 
 - Do not edit generated barrel `index.ts` or `index.full.ts` files manually.
   Single-entity implementation files named `index.ts` are source code and may
@@ -179,7 +179,7 @@
 - After any change that can affect exports/imports in `stylist-svelte/src/lib/**`, the barrels must be regenerated with:
   - `yarn stylist:index` from `D:\2026\cloudflare\lankatour.ru` (runs `python -u "D:\2026\cloudflare\stylist\indexation\cli.py"`)
 - New/renamed/moved components also require the sandbox manifest to be regenerated separately, or they stay invisible in the sandbox even though they type-check fine:
-  - `yarn stylist:manifest` from `D:\2026\cloudflare\lankatour.ru` (runs `python -u "D:\2026\cloudflare\stylist\auditor\cli.py" --manifest-only`)
+  - `yarn stylist:manifest` from `D:\2026\cloudflare\lankatour.ru` (runs `node "D:\2026\cloudflare\stylist-svelte-tools\scripts\auditor.mjs" --manifest-only`)
 - **Do not run either command yourself** — see Multi-Agent Coordination above. Tell Dmitrii which one(s) are needed and why.
 - Treat generated `index.ts` files as source of truth.
 - If TypeScript errors look related to stale barrel exports, ask Dmitrii to regenerate indexes first, then continue fixes.
