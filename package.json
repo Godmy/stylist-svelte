@@ -6,7 +6,8 @@
 	"author": "Godmy & AI-Team",
 	"license": "MIT",
 	"sideEffects": [
-		"**/*.css"
+		"**/*.css",
+		"./.svelte-kit/**"
 	],
 	"packageManager": "yarn@4.13.0",
 	"keywords": [
