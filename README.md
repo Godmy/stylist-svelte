@@ -150,8 +150,12 @@ yarn install --immutable
 yarn dev                                           # sandbox on http://localhost:5174
 ```
 
-Private modules require access to their repositories; with access, initialise
-them too and run `prepare-module-sources.mjs` without `--public`. The sandbox
+Private modules and ADR use `update = none` in `.gitmodules`, so automatic
+recursive checkout can prepare the public sandbox without requesting private
+repositories. Developers with access can explicitly initialize them with
+`git submodule update --init --recursive --checkout -- adr modules/business
+modules/customer modules/management modules/global modules/prototype`, then
+run `prepare-module-sources.mjs` without `--public`. The sandbox
 port is fixed: **5174** with `strictPort: true`.
 
 ### Use the library in your site from source

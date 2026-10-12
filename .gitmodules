@@ -1,6 +1,7 @@
 [submodule "adr"]
 path = adr
 url = https://github.com/Godmy/adr.git
+update = none
 
 [submodule "modules/design-system"]
 path = modules/design-system
@@ -17,6 +18,7 @@ url = https://github.com/Godmy/stylist-svelte-information.git
 [submodule "modules/business"]
 path = modules/business
 url = https://github.com/Godmy/stylist-svelte-business.git
+update = none
 
 [submodule "modules/architecture"]
 path = modules/architecture
@@ -29,14 +31,18 @@ url = https://github.com/Godmy/stylist-svelte-architecture.git
 [submodule "modules/customer"]
 path = modules/customer
 url = https://github.com/Godmy/stylist-svelte-customer.git
+update = none
 
 [submodule "modules/management"]
 path = modules/management
 url = https://github.com/Godmy/stylist-svelte-management.git
+update = none
 
 [submodule "modules/global"]
 path = modules/global
 url = https://github.com/Godmy/stylist-svelte-global.git
+update = none
 [submodule "modules/prototype"]
 	path = modules/prototype
 	url = https://github.com/Godmy/stylist-svelte-prototype.git
+	update = none

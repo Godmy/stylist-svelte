@@ -68,6 +68,8 @@ async function fixture(t, { missingPublic = false } = {}) {
 	for (const [path, url] of declarations) {
 		await git(source, 'config', '--file', '.gitmodules', `submodule.${path}.path`, path);
 		await git(source, 'config', '--file', '.gitmodules', `submodule.${path}.url`, url);
+		if (path === 'modules/private')
+			await git(source, 'config', '--file', '.gitmodules', `submodule.${path}.update`, 'none');
 	}
 	await git(source, 'add', '.');
 	for (const [path] of declarations) {
@@ -121,6 +123,21 @@ test(
 				return true;
 			}
 		);
+	}
+);
+
+test(
+	'automatic recursive checkout skips unavailable private owners',
+	{ timeout: 30000 },
+	async (t) => {
+		const cwd = await fixture(t);
+		await git(cwd, 'submodule', 'update', '--init', '--recursive');
+		assert.equal(
+			await readFile(join(cwd, 'modules/common/svg/index.ts'), 'utf8'),
+			'export const icon = 1;'
+		);
+		await assert.rejects(readFile(join(cwd, 'modules/private/.git')), { code: 'ENOENT' });
+		assert.equal((await git(cwd, 'status', '--porcelain')).stdout, '');
 	}
 );
 
