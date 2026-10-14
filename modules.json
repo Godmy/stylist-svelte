@@ -56,9 +56,9 @@
 	},
 	"sakartvelo": {
 		"path": "modules/business/sakartvelo",
+		"domainRoot": true,
 		"private": true,
-		"domains": ["tea-commerce"],
-		"sourceRoot": "."
+		"domains": ["sakartvelo"]
 	},
 	"geo": {
 		"path": "modules/global/geo",
