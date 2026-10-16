@@ -35,8 +35,14 @@
 	"customer": {
 		"path": "modules/customer",
 		"private": true,
-		"domains": ["auth", "chat", "ai", "user", "social", "landing"],
+		"domains": ["chat", "ai", "user", "social", "landing"],
 		"sourceRoot": "."
+	},
+	"auth": {
+		"path": "modules/customer/auth",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["auth"]
 	},
 	"architecture": {
 		"path": "modules/architecture",

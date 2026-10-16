@@ -8,7 +8,8 @@
 | interaction          | `modules/interaction`            | animation, button, control, input, form, calendar, file, search, menu, navigation, dialog |
 | information          | `modules/information`            | list, tree, table, chart, image, audio, video, notification                               |
 | business (private)   | `modules/business`               | Nested repository container                                                               |
-| customer (private)   | `modules/customer`               | auth, chat, ai, user, social, landing                                                     |
+| customer (private)   | `modules/customer`               | chat, ai, user, social, landing (+ nested auth)                                           |
+| auth (private)       | `modules/customer/auth`          | auth                                                                                     |
 | architecture         | `modules/architecture`           | graph, erd, idef-zero, workspace, canvas, webgl                                           |
 | sandbox              | `modules/sandbox`                | domain, token, server, development                                                        |
 | travel (private)     | `modules/business/travel`        | booking, travel-commerce, travel-admin                                                    |
@@ -27,7 +28,10 @@ Business groups nested Git submodules `wbd`, `travel`, `spanish`, `sakartvelo`, 
 
 Nested repositories retain their own registry keys. Module selection uses these keys, for example `travel` or `geo`; the `business` container has no direct domains.
 
-Customer owns auth/chat/ai/user/social/landing. Management owns management/marketing/portfolio/science. These and global remain private, as do all business children.
+Customer owns chat/ai/user/social/landing and embeds the `auth` repository
+(`stylist-svelte-auth`), registered in customer's `.gitmodules`. Auth has its
+own registry key with `domainRoot: true` and remains private in module selection.
+Management owns management/marketing/portfolio/science. These and global remain private, as do all business children.
 
 Grouped domains are direct children of their owner (`sourceRoot: "."`). Single-domain repositories use `domainRoot: true`. The existing domain/cluster/joint/family structure and logical `$stylist/<domain>` imports are unchanged.
 
