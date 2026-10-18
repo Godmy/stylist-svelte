@@ -54,8 +54,8 @@ Read first:
    - `title` and `description` come from the legacy `<Story title=… description=…>` (drop
      category prefixes such as `Organisms / Canvas / …`; keep the component name).
    - Every legacy `SlotStory` control `{ name, type, defaultValue, options, min, max, step,
-     label, description }` becomes `controls[name] = { type, options?, min?, max?, step?,
-     label?, description? }` and `args[name] = defaultValue`.
+label, description }` becomes `controls[name] = { type, options?, min?, max?, step?,
+label?, description? }` and `args[name] = defaultValue`.
    - Control types are only `text | number | boolean | select | range | color`. `object`,
      `array`, `json`, … become plain `args` (no control). Select options are strings/numbers:
      `{ label, value }` objects become their values.
@@ -73,13 +73,14 @@ Read first:
      `$stylist/design-token/const/array/{size,color-tone,direction,shape,size-px,size-rem}`
      (`TOKEN_SIZE`, `TOKEN_COLOR_TONE`, …) or the domain's own `<domain>/const/array/*`
      (`TOKEN_ALIGNMENT`, `TOKEN_SORT_DIRECTION`, `TOKEN_CHART`, … — `grep -rn "export const
-     TOKEN_" modules/<module>`). Use the subset the component styles when it supports only part
+TOKEN_" modules/<module>`). Use the subset the component styles when it supports only part
      of a token: `TOKEN_SIZE.slice(0, 6)` with a short comment. Keep literals only when no token
      matches.
    - Children text goes into `content: [{ kind: 'text', value: '…' }]` (html nodes are also
      possible: `{ kind: 'element', tag: 'strong', children: [...] }` — see
      `modules/design-system/html/type/struct/html-element-node`).
    - `layout: 'centered' | 'fullscreen'` replaces a wrapper that only centers / fills the canvas.
+
 4. **Decide on the render** (prefer the contract alone):
    - Demo-only extras do not justify a render: decorative headings/paragraphs around the
      component, "clicked N times" counters, `console.log` handlers, centering wrappers. Drop them.
@@ -118,9 +119,10 @@ Read first:
      ```
 
      The first line comment states the reason: `// Render of index.story.ts: <why the
-     contract alone is not enough>` (the summary report quotes it).
+contract alone is not enough>` (the summary report quotes it).
      `values.x` becomes `args.x`; spread `{...args}` into the main instance when it takes all
      controls. Remove `values: any` and other `any`.
+
    - Other files importing the legacy story (rare; `grep -rn "<family>/index.story" modules src`)
      must keep working.
 5. Keep everything else intact: no behaviour changes in components, no deleted features.
