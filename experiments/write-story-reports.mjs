@@ -4,8 +4,7 @@
 //   docs/reports/story-migration/<module>/README.md      — one module, by domain
 //   docs/reports/story-migration/<module>/<domain>.md    — one domain, by family
 // "Before" is each repository's `origin/main`; "after" is the working tree.
-// Usage: node experiments/write-story-reports.mjs [--check]
-//   --check  exit 1 when a written report would change (reports are up to date)
+// Usage: node experiments/write-story-reports.mjs   (formats the reports with prettier)
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
@@ -16,7 +15,6 @@ const outDir = join(root, 'docs/reports/story-migration');
 const LEVELS = ['atom', 'molecule', 'organism', 'template', 'page'];
 const PUBLIC = ['architecture', 'design-system', 'information', 'interaction', 'sandbox'];
 const PRIVATE = ['business', 'customer', 'global', 'management', 'prototype'];
-const check = process.argv.includes('--check');
 
 function* walk(dir) {
 	for (const entry of readdirSync(dir, { withFileTypes: true })) {
@@ -235,20 +233,12 @@ ${
 	}
 }
 
-let stale = 0;
-if (!check) rmSync(outDir, { recursive: true, force: true });
+rmSync(outDir, { recursive: true, force: true });
 for (const [name, content] of files) {
 	const path = join(outDir, name);
-	if (check) {
-		if (read(path) !== content) {
-			console.log(`stale: ${relative(root, path)}`);
-			stale++;
-		}
-		continue;
-	}
 	mkdirSync(dirname(path), { recursive: true });
 	writeFileSync(path, content);
 }
-console.log(`${check ? 'checked' : 'wrote'} ${files.size} reports, ${families.length} families`);
+execFileSync('npx', ['prettier', '--write', '--log-level', 'warn', outDir], { cwd: root });
+console.log(`wrote ${files.size} reports, ${families.length} families`);
 console.log(totals);
-if (stale) process.exit(1);
