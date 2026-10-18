@@ -28,7 +28,8 @@ function* walk(dir) {
 function familyOf(path) {
 	// modules/<module>/[<repo>/]<domain>/component/<level>/<family>/index.story.*
 	const parts = relative(modulesDir, path).split('/');
-	const c = parts.lastIndexOf('component');
+	// The level folder follows `component`; a family may itself be named `component`.
+	const c = parts.findLastIndex((part, i) => part === 'component' && LEVELS.has(parts[i + 1]));
 	if (c < 2 || !LEVELS.has(parts[c + 1])) return null;
 	return {
 		module: parts[0],
@@ -80,13 +81,7 @@ for (const entry of families.values()) {
 		domain: entry.domain,
 		family: `${entry.level}/${entry.family}`,
 		path: relative(root, entry.dir),
-		status: entry.ts
-			? entry.svelte
-				? 'rendered'
-				: 'contract'
-			: entry.svelte
-				? 'legacy'
-				: 'none',
+		status: entry.ts ? (entry.svelte ? 'rendered' : 'contract') : entry.svelte ? 'legacy' : 'none',
 		state: files.includes('state.svelte.ts'),
 		readme: files.includes('readme.md'),
 		recipe: false

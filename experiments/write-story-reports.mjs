@@ -57,7 +57,9 @@ for (const module of PUBLIC) {
 	for (const path of walk(join(modulesDir, module))) {
 		if (!path.endsWith('/index.svelte')) continue;
 		const parts = relative(modulesDir, path).split('/');
-		const c = parts.lastIndexOf('component');
+		const c = parts.findLastIndex(
+			(part, i) => part === 'component' && LEVELS.includes(parts[i + 1])
+		);
 		if (c < 2 || !LEVELS.includes(parts[c + 1]) || parts.length !== c + 4) continue;
 		const dir = dirname(path);
 		const domainDir = join(modulesDir, ...parts.slice(0, c));
