@@ -30,6 +30,8 @@ for d in "${DOMAINS[@]}"; do
 	locked timeout 900 npx vitest run modules/sandbox/domain/test/render/story-contract -t "$d/" >"$LOG/contract-${d//\//-}.log" 2>&1
 	grep -E '^\s+(×|✗)|Tests ' "$LOG/contract-${d//\//-}.log" | grep -v 'gives every' | head -40
 	grep -qE 'Tests .*failed' "$LOG/contract-${d//\//-}.log" && grep -E '(×|✗)' "$LOG/contract-${d//\//-}.log" | grep -vq 'gives every' && status=1
+	# A suite that fails to load (e.g. a story file deleted mid-run) reports no tests at all.
+	grep -qE '^\s+Tests .*passed' "$LOG/contract-${d//\//-}.log" || { echo "contract tests did not run"; status=1; }
 done
 
 for d in "${DOMAINS[@]}"; do
