@@ -1,3 +1,5 @@
+Follow the workspace [agent workflow](../AGENTS.md); keep the project rules below.
+
 # AGENTS.md
 
 ## Modular Source Ownership (Mandatory)
