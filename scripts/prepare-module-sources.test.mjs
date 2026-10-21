@@ -47,3 +47,31 @@ test('validation never overwrites existing source directories', async () => {
 		assert.equal(await readFile(join(root, 'src/lib/text/index.ts'), 'utf8'), 'keep');
 	});
 });
+
+test('single-domain private packages share physical aliases and stay out of public selection', async () => {
+	await fixture(async (root) => {
+		const registry = JSON.parse(await readFile(join(root, 'modules.json'), 'utf8'));
+		delete registry.private;
+		for (const name of ['booking', 'admin', 'travel']) {
+			registry[name] = {
+				path: `modules/business/${name}`,
+				domainRoot: true,
+				private: true,
+				domains: [name],
+				packageName: `stylist-svelte-${name}`
+			};
+			await mkdir(join(root, registry[name].path, 'component'), { recursive: true });
+		}
+		await writeFile(join(root, 'modules.json'), JSON.stringify(registry));
+		const aliases = moduleAliases(root, { modules: 'all', exclude: '' });
+		const publicAliases = moduleAliases(root, { modules: 'public', exclude: '' });
+		for (const name of ['booking', 'admin', 'travel']) {
+			const target = join(root, `modules/business/${name}`);
+			assert.equal(aliases[`$stylist/${name}`], target);
+			assert.equal(aliases[`stylist-svelte/${name}`], target);
+			assert.equal(aliases[`stylist-svelte-${name}`], target);
+			assert.equal(publicAliases[`$stylist/${name}`], undefined);
+			assert.equal(publicAliases[`stylist-svelte-${name}`], undefined);
+		}
+	});
+});

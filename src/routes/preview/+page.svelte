@@ -58,7 +58,10 @@
 	};
 	$effect(() => {
 		if (themed && settled)
-			window.parent.postMessage({ type: 'stylist:story-ready' }, window.location.origin);
+			window.parent.postMessage(
+				{ type: 'stylist:story-ready', story: page.url.searchParams.get('story') ?? '' },
+				window.location.origin
+			);
 	});
 
 	onMount(() => {

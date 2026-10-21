@@ -74,6 +74,8 @@
 		"!dist/geo/**",
 		"!dist/wbd/**",
 		"!dist/booking/**",
+		"!dist/admin/**",
+		"!dist/travel/**",
 		"!dist/travel-commerce/**",
 		"!dist/travel-admin/**",
 		"!dist/auth/**",

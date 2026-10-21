@@ -56,9 +56,10 @@
 	},
 	"travel": {
 		"path": "modules/business/travel",
+		"domainRoot": true,
 		"private": true,
-		"domains": ["booking", "travel-commerce", "travel-admin"],
-		"sourceRoot": "."
+		"domains": ["travel"],
+		"packageName": "stylist-svelte-travel"
 	},
 	"sakartvelo": {
 		"path": "modules/business/sakartvelo",
@@ -119,5 +120,19 @@
 		"domainRoot": true,
 		"private": true,
 		"domains": ["scratch"]
+	},
+	"booking": {
+		"path": "modules/business/booking",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["booking"],
+		"packageName": "stylist-svelte-booking"
+	},
+	"admin": {
+		"path": "modules/business/admin",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["admin"],
+		"packageName": "stylist-svelte-admin"
 	}
 }

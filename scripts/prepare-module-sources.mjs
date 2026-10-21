@@ -95,6 +95,9 @@ export function moduleAliases(packageRoot, selection) {
 		aliases[`$stylist/${domain}`] = target;
 		aliases[`stylist-svelte/${domain}`] = target;
 	}
+	for (const module of Object.values(selectModules(readModules(packageRoot), selection))) {
+		if (module.packageName) aliases[module.packageName] = resolve(packageRoot, module.path);
+	}
 	return aliases;
 }
 

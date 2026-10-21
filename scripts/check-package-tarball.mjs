@@ -38,8 +38,8 @@ export function tarballPathViolations(files, names) {
  * @param {string} file @param {string} content @param {ReturnType<typeof privateNames>} names */
 export function tarballContentViolations(file, content, names) {
 	const violations = [];
-	if (content.includes('stylist-svelte-travel'))
-		violations.push(`${file}: mentions stylist-svelte-travel`);
+	for (const name of ['stylist-svelte-travel', 'stylist-svelte-booking', 'stylist-svelte-admin'])
+		if (content.includes(name)) violations.push(`${file}: mentions ${name}`);
 	for (const path of names.paths)
 		if (content.includes(`${path}/`) || content.includes(`'${path}'`))
 			violations.push(`${file}: mentions ${path}`);

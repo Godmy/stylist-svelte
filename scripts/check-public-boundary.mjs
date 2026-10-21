@@ -64,8 +64,8 @@ const inside = (path, parent) => {
  */
 export function privateTarget(specifier, filename, scope) {
 	const clean = specifier.split('?')[0];
-	if (clean === 'stylist-svelte-travel' || clean.startsWith('stylist-svelte-travel/'))
-		return 'private package stylist-svelte-travel';
+	if (/^stylist-svelte-(?:travel|booking|admin)(?:\/|$)/.test(clean))
+		return `private package ${clean.split('/')[0]}`;
 	for (const prefix of ['$stylist/', 'stylist-svelte/']) {
 		if (
 			clean.startsWith(prefix) &&

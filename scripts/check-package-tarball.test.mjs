@@ -40,6 +40,12 @@ test('packed paths reject private domains, server, stories, tests and the full r
 });
 
 test('packed contents reject private imports and module paths but allow public ones', () => {
+	for (const name of ['booking', 'admin']) {
+		assert.equal(
+			tarballContentViolations('a.js', `import 'stylist-svelte-${name}';`, names).length,
+			1
+		);
+	}
 	assert.deepEqual(
 		tarballContentViolations('a.js', "import x from '$stylist/button/index.js';", names),
 		[]

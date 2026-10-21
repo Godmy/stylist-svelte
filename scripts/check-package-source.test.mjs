@@ -92,14 +92,16 @@ test('public source cannot import an extracted travel domain', async () => {
 	);
 });
 
-test('package-name imports cannot bypass the private travel guard', async () => {
-	await fixture(
-		{
-			'index.ts': "export { value } from 'stylist-svelte-travel/booking/index.js';",
-			'index.full.ts': ''
-		},
-		async (root) => assert.rejects(checkPackageSource(root), /private travel/)
-	);
+test('package-name imports cannot bypass the private domain guard', async () => {
+	for (const name of ['travel', 'booking', 'admin']) {
+		await fixture(
+			{
+				'index.ts': `export { value } from 'stylist-svelte-${name}/type/object/example/index.js';`,
+				'index.full.ts': ''
+			},
+			async (root) => assert.rejects(checkPackageSource(root), /private package/)
+		);
+	}
 });
 
 test('public exports cannot depend on stories excluded from npm', async () => {

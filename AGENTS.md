@@ -4,14 +4,14 @@ Follow the workspace [agent workflow](../AGENTS.md); keep the project rules belo
 
 ## Modular Source Ownership (Mandatory)
 
-- Source owners are declared in `modules.json`. General modules are Git submodules under `modules/`; travel is a separate private Yarn workspace/package.
+- Source owners are declared in `modules.json`. General modules are Git submodules under `modules/`; booking, admin and travel are separate private single-domain packages with clusters at their repository roots.
 - Mapped domains live only in `modules/<module>/<domain>`. Do not recreate links or copied sources under the umbrella `src/lib`. `scripts/prepare-module-sources.mjs` validates checkouts and provides physical aliases without filesystem writes.
 - Edit and run Git operations in the owning physical repository. Design-system contains nested theme/svg/typography/layout repositories; sandbox contains the server repository. Preserve their histories.
-- The domain/cluster/joint/family architecture applies within each module root. Module grouping is repository ownership, not another domain hierarchy level. Geo and wbd are independent nested repositories at `modules/global/geo` and `modules/business/wbd`; business also embeds travel, spanish, sakartvelo, and farm. Prototype is a private container that embeds `presentation` (repository stylist-svelte-prezi) and `scratch`; everything inside it is private.
+- The domain/cluster/joint/family architecture applies within each module root. Module grouping is repository ownership, not another domain hierarchy level. Geo and wbd are independent nested repositories at `modules/global/geo` and `modules/business/wbd`; business also embeds booking, admin, travel, spanish, sakartvelo, and farm. Prototype is a private container that embeds `presentation` (repository stylist-svelte-prezi) and `scratch`; everything inside it is private.
 - SvelteKit/Vite resolve logical domain imports through `moduleAliases`; deduplicate Svelte. Source mirrors read actual domain owners and omit `.git` metadata. Packaging assembles ignored `.package-input` and translates only its copied generated entrypoint; never hand-edit source barrels.
-- Public npm output must exclude booking/travel-commerce/travel-admin; source dependencies on the travel package are forbidden in the public library. Travel imports common entities by `stylist-svelte` package subpath and uses relative imports internally.
+- Public npm output must exclude booking/admin/travel; source dependencies on their private packages are forbidden in the public library. These packages import common entities by `stylist-svelte` package subpath, use relative imports within each domain and explicit `stylist-svelte-{booking,admin,travel}` subpaths across private domains.
 - Embedded-domain metadata exceptions also cover typography/layout, registered in the owning design-system `.gitmodules`. Inspect module-specific `.gitmodules`, not only the umbrella file.
-- Generated root exports, including travel's root entrypoint, are still human-only. After changes tell Dmitrii to run `yarn stylist:manifest` from the site root; never run global generation yourself.
+- Generated root exports, including the booking/admin/travel root entrypoints, are still human-only. After changes tell Dmitrii to run `yarn stylist:manifest` from the site root; never run global generation yourself.
 
 ## Workspace Hot-Reload Policy For `weoracle.online` (Mandatory)
 
@@ -108,7 +108,7 @@ Follow the workspace [agent workflow](../AGENTS.md); keep the project rules belo
 
 ## Embedded Repository Exception For Submodule Domains (Mandatory)
 
-- Domains registered as Git submodules in the owning repository's `.gitmodules` act as embedded repository boundaries. `theme`, `svg`, `typography`, `layout` belong to design-system; `server` belongs to sandbox; `wbd` is registered by business, and `geo` by global; business also registers travel, spanish, sakartvelo, and farm; prototype registers presentation and scratch.
+- Domains registered as Git submodules in the owning repository's `.gitmodules` act as embedded repository boundaries. `theme`, `svg`, `typography`, `layout` belong to design-system; `server` belongs to sandbox; `wbd` is registered by business, and `geo` by global; business also registers booking, admin, travel, spanish, sakartvelo, and farm; prototype registers presentation and scratch.
 - At the root of each such domain, the files `.git`, `LICENSE`, and `README.md` are allowed in addition to the regular domain structure — they are metadata brought in by the submodule, not an architecture violation.
 - This exception applies only to the root of the embedded-repository domain, and only to domains actually listed in the relevant owner's `.gitmodules`.
 - All source code inside an embedded-repository domain must still follow the domain, cluster, joint, family, and assembly rules unless a separate rule explicitly states otherwise.

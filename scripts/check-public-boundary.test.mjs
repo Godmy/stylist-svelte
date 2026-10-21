@@ -3,7 +3,7 @@ import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { checkPublicBoundary } from './check-public-boundary.mjs';
+import { checkPublicBoundary, privateTarget } from './check-public-boundary.mjs';
 import { findTools, runGate } from './stylist-gate.mjs';
 
 const registry = {
@@ -31,6 +31,15 @@ const details = (result) =>
 	result.violations.map(
 		(violation) => `${violation.kind} ${violation.file.replaceAll('\\', '/')} ${violation.detail}`
 	);
+
+test('private booking and admin package imports cannot bypass the public boundary', () => {
+	for (const name of ['booking', 'admin']) {
+		assert.equal(
+			privateTarget(`stylist-svelte-${name}/component/atom/example/index.svelte`, 'example.ts', {}),
+			`private package stylist-svelte-${name}`
+		);
+	}
+});
 
 test('public sources may import public domains and the public root', async () => {
 	await fixture(
