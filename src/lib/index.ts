@@ -1257,8 +1257,12 @@ export type {
 	GraphPosition3D,
 	RecipeFieldHighlighter,
 	RecipeGraph,
+	RecipeGraphClusterFilter,
+	RecipeGraphDot,
 	RecipeGraphEdge,
+	RecipeGraphLegend,
 	RecipeGraphNode,
+	RecipeGraphTooltip,
 	RecipeGraphvizDirectedEdge,
 	RecipeNodeIcon,
 	RecipeOntologyEdgeComponent,
@@ -1294,6 +1298,13 @@ export type {
 	RecipeIdef0PortLabel,
 	SlotIdef0
 } from '../../modules/architecture/idef-zero';
+export type {
+	RecipeConcentricCirclesScene,
+	RecipeGlCanvas,
+	RecipeHyperspaceScene,
+	RecipeSceneLauncher,
+	RecipeTurtleDissolveScene
+} from '../../modules/architecture/webgl';
 export type {
 	GraphNodeDraft,
 	GraphPortDimensions,
@@ -1723,7 +1734,10 @@ export type {
 	RecipeTreeNodeItem,
 	RecipeTreeViewer
 } from '../../modules/information/tree';
-export type { RecipeVideoPlayer } from '../../modules/information/video';
+export type {
+	RecipeVideoPlayer,
+	RecipeVideoScene
+} from '../../modules/information/video';
 export type {
 	BehaviorAnimate,
 	BehaviorMotion,
@@ -1751,6 +1765,7 @@ export type {
 	RecipePalmSway,
 	RecipePhraseArcFlight,
 	RecipeProgressBar,
+	RecipeScrollPhaseDebug,
 	RecipeSkeleton,
 	RecipeSpinner,
 	RecipeTooltip,
@@ -1764,14 +1779,21 @@ export type {
 } from '../../modules/interaction/animation';
 export type {
 	ButtonPreset,
+	RecipeAnimatedButton,
+	RecipeArrowButton,
 	RecipeButton,
 	RecipeButtonComposed,
 	RecipeButtonElement,
 	RecipeButtonFactoryInput,
 	RecipeCloseButton,
 	RecipeCopyButton,
+	RecipeFillButton,
 	RecipeFollowButton,
+	RecipeGlowButton,
 	RecipeIconButton,
+	RecipeMorphButton,
+	RecipeSelectionButton,
+	RecipeShineButton,
 	RecipeSplitButton,
 	RecipeToolButton,
 	RecipeWhatsappButton,
@@ -1784,6 +1806,7 @@ export type {
 	RecipeCalendarGrid,
 	RecipeCalendarRange,
 	RecipeCalendarView,
+	RecipeDatePairPicker,
 	RecipeDatePicker,
 	RecipeDateRangePicker,
 	RecipeDateTimePicker,
@@ -1819,6 +1842,7 @@ export type {
 	RecipeShortcutsPanel,
 	RecipeSlider,
 	RecipeSliderWithInput,
+	RecipeStepper,
 	RecipeSwitch,
 	RecipeTag,
 	RecipeTick,
@@ -1850,6 +1874,7 @@ export type {
 	RecipeBreadcrumbLink,
 	RecipeBreadcrumbSeparator,
 	RecipeBreadcrumbs,
+	RecipeBreadcrumbsContainer,
 	RecipeComponentInfoCard,
 	RecipeConfirmationDialog,
 	RecipeDialog,
@@ -1857,13 +1882,13 @@ export type {
 	RecipeGeneralToolbar,
 	RecipeModal,
 	RecipeSimpleModal,
-	RecipeStepper,
 	RecipeStylistTab,
 	RecipeTab,
 	RecipeTabList,
 	RecipeTabPanel,
 	RecipeTabPanels,
 	RecipeTabs,
+	RecipeTextInputDialog,
 	SlotAccordion,
 	SlotAccordionGroup,
 	SlotAccordionLayout,
@@ -1911,12 +1936,18 @@ export type {
 } from '../../modules/interaction/file';
 export type {
 	RecipeAccountForms,
+	RecipeAddressForm,
 	RecipeFormFooter,
 	RecipeFormHeader,
 	RecipeFormSelection,
+	RecipeFormWithValidation,
 	RecipeInteractionForms,
+	RecipeLoginForm,
 	RecipeSchemaFormDialog,
+	RecipeScreenReader,
+	RecipeSearchForm,
 	RecipeToggleButtonGroup,
+	RecipeValidation,
 	SlotAddressData,
 	SlotFormData,
 	SlotFormFooter,
@@ -1979,6 +2010,7 @@ export type {
 } from '../../modules/interaction/menu';
 export type {
 	NavItem,
+	RecipeBottomSheet,
 	RecipePageButton,
 	RecipePageEllipsis,
 	RecipePagination,
@@ -1988,7 +2020,6 @@ export type {
 	RecipeAutoComplete,
 	RecipeAutoSearch,
 	RecipeSearchBar,
-	RecipeSearchForm,
 	RecipeSearchResults,
 	RecipeSearchSuggestion,
 	SlotAutoComplete,
@@ -1998,11 +2029,25 @@ export type {
 	SlotSearchSuggestion
 } from '../../modules/interaction/search';
 export type {
+	RecipeCardClose,
+	RecipeCardOpen,
+	RecipeCardShell,
+	RecipeDomainBuilder,
+	RecipeDomainDescriptorPanel,
+	RecipeOrbit,
+	RecipeOrbitBackground,
+	RecipeOrbitContractL5,
+	RecipeOrbitTokenNode,
+	RecipePrismaticOrbitL6,
+	RecipeRibbonMenu,
 	RecipeToken,
 	RecipeTokenChipSet,
 	RecipeTokenControlBase,
+	RecipeTokenIcon,
 	RecipeTokenRadio,
 	RecipeTokenRange,
 	RecipeTokenSelect,
+	RecipeTokenSetting,
+	RecipeTokenSettings,
 	RecipeTokenText
 } from '../../modules/sandbox/token';
