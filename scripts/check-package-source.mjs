@@ -95,7 +95,9 @@ export async function checkPackageSource(packageRoot) {
 		for (const specifier of localImports(filename, content)) {
 			const clean = specifier.split('?')[0];
 			if (/^stylist-svelte-(?:travel|booking|admin)(?:\/|$)/.test(clean)) {
-				throw new Error(`Public package depends on private package ${clean.split('/')[0]}: ${path}`);
+				throw new Error(
+					`Public package depends on private package ${clean.split('/')[0]}: ${path}`
+				);
 			}
 			if (clean === '$stylist') pending.push(join(lib, 'index.ts'));
 			else if (clean.startsWith('$stylist/')) pending.push(logicalSource(clean.slice(9)));

@@ -73,6 +73,7 @@
 		"!dist/**/.git",
 		"!dist/geo/**",
 		"!dist/wbd/**",
+		"!dist/sakartvelo/**",
 		"!dist/booking/**",
 		"!dist/admin/**",
 		"!dist/travel/**",

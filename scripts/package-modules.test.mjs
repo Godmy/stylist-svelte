@@ -1,10 +1,13 @@
 import { strict as assert } from 'node:assert';
+import { existsSync, readdirSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test } from 'node:test';
 import { excludedPackageDomains, readModules, selectModules } from './prepare-module-sources.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
+const CLUSTERS = ['class', 'component', 'const', 'data', 'function', 'interface', 'test', 'type'];
 const modules = {
 	common: { path: 'modules/common', domains: ['button'] },
 	business: { path: 'modules/business', domains: ['chat'] },
@@ -80,7 +83,23 @@ test('tsconfig.json includes every modules.json source owner', async () => {
 		const owners = module.domainRoot
 			? [module.path]
 			: module.domains.map((domain) => `${module.path}/${domain}`);
-		for (const owner of owners) if (!include.includes(`${owner}/**/*`)) missing.push(owner);
+		for (const owner of owners) {
+			if (include.includes(`${owner}/**/*`)) continue;
+			// A package root (own tsconfig, svelte.config, scripts) lists its clusters instead:
+			// each cluster present on disk must be included; absent checkouts cannot be listed.
+			if (!module.domainRoot || !include.some((entry) => entry.startsWith(`${owner}/`))) {
+				missing.push(owner);
+				continue;
+			}
+			const ownerDir = join(root, owner);
+			const clusters = existsSync(ownerDir)
+				? readdirSync(ownerDir, { withFileTypes: true })
+						.filter((entry) => entry.isDirectory() && CLUSTERS.includes(entry.name))
+						.map((entry) => entry.name)
+				: [];
+			for (const cluster of clusters)
+				if (!include.includes(`${owner}/${cluster}/**/*`)) missing.push(`${owner}/${cluster}`);
+		}
 	}
 	assert.deepEqual(
 		missing,

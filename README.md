@@ -95,7 +95,7 @@ the sandbox landing and its **How it works** page explain them with examples.
 | information   | `modules/information`   | public     | list, tree, table, chart, image, audio, video, notification                               |
 | architecture  | `modules/architecture`  | public     | graph, erd, idef-zero, workspace, canvas, webgl                                           |
 | sandbox       | `modules/sandbox`       | public¹    | domain, token, development, server                                                        |
-| customer      | `modules/customer`      | private    | chat, ai, user, social, landing (+ nested `auth`)                                          |
+| customer      | `modules/customer`      | private    | chat, ai, user, social, landing (+ nested `auth`)                                         |
 | management    | `modules/management`    | private    | management, marketing, portfolio, science                                                 |
 | global        | `modules/global`        | private    | commerce, product (+ nested `geo`)                                                        |
 | business      | `modules/business`      | private    | container for nested travel, wbd, spanish, sakartvelo, farm                               |

@@ -9,7 +9,7 @@
 | information          | `modules/information`            | list, tree, table, chart, image, audio, video, notification                               |
 | business (private)   | `modules/business`               | Nested repository container                                                               |
 | customer (private)   | `modules/customer`               | chat, ai, user, social, landing (+ nested auth)                                           |
-| auth (private)       | `modules/customer/auth`          | auth                                                                                     |
+| auth (private)       | `modules/customer/auth`          | auth                                                                                      |
 | architecture         | `modules/architecture`           | graph, erd, idef-zero, workspace, canvas, webgl                                           |
 | sandbox              | `modules/sandbox`                | domain, token, server, development                                                        |
 | travel (private)     | `modules/business/travel`        | booking, travel-commerce, travel-admin                                                    |
