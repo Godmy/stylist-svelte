@@ -9,7 +9,7 @@ Follow the workspace [agent workflow](../AGENTS.md); keep the project rules belo
 - Edit and run Git operations in the owning physical repository. Design-system contains nested theme/svg/typography/layout repositories; sandbox contains the server repository. Preserve their histories.
 - The domain/cluster/joint/family architecture applies within each module root. Module grouping is repository ownership, not another domain hierarchy level. Geo and wbd are independent nested repositories at `modules/global/geo` and `modules/business/wbd`; business also embeds booking, admin, travel, spanish, sakartvelo, and farm. Prototype is a private container that embeds `presentation` (repository stylist-svelte-prezi) and `scratch`; everything inside it is private.
 - SvelteKit/Vite resolve logical domain imports through `moduleAliases`; deduplicate Svelte. Source mirrors read actual domain owners and omit `.git` metadata. Packaging assembles ignored `.package-input` and translates only its copied generated entrypoint; never hand-edit source barrels.
-- Public npm output must exclude booking/admin/travel; source dependencies on their private packages are forbidden in the public library. These packages import common entities by `stylist-svelte` package subpath, use relative imports within each domain and explicit `stylist-svelte-{booking,admin,travel}` subpaths across private domains.
+- Public npm output must exclude booking/admin/travel; source dependencies on their private packages are forbidden in the public library. Standalone private packages import common entities by `stylist-svelte` package subpath and their own or other private entities by explicit package subpaths; see Logical Import Policy below.
 - Embedded-domain metadata exceptions also cover typography/layout, registered in the owning design-system `.gitmodules`. Inspect module-specific `.gitmodules`, not only the umbrella file.
 - Generated root exports, including the booking/admin/travel root entrypoints, are still human-only. After changes tell Dmitrii to run `yarn stylist:manifest` from the site root; never run global generation yourself.
 
@@ -24,6 +24,32 @@ Follow the workspace [agent workflow](../AGENTS.md); keep the project rules belo
 
 - This regulation applies to `stylist-svelte/modules/<module>/<domain>/**` and to standalone `modules/global/geo/**`, `modules/business/wbd/**`. Umbrella `src/lib` holds generated entrypoints.
 - Treat directories in the form `src/lib/<domain>/...` as subject-area domains.
+
+## Logical Import Policy (Mandatory)
+
+- In handwritten domain source under `modules/**`, use logical absolute module
+  specifiers for imports and re-exports, including stories, tests, dynamic imports
+  with literal paths and `import()` types. This also applies to same-folder
+  dependencies such as `./index.svelte` and `./state.svelte`.
+- Shared workspace domains use `$stylist/<domain>/<cluster>/<joint>/<family>`;
+  preserve explicit filenames and extensions when required, for example
+  `$stylist/button/component/atom/button/index.svelte`.
+- Standalone packages (`stylist-svelte-booking`, `stylist-svelte-admin`,
+  `stylist-svelte-travel`, `stylist-svelte-sakartvelo`) use their own package
+  subpaths internally, for example
+  `stylist-svelte-travel/type/object/booking-quote/index.js`. Common dependencies
+  use `stylist-svelte/<domain>/...`; private dependencies use the owning package's
+  name and must satisfy its peer dependency contract. Do not introduce `$stylist`
+  aliases into standalone package source.
+- Before replacing a relative path, verify that the logical specifier resolves to
+  the same physical file in every supported environment. Register package aliases
+  and TypeScript source paths where necessary; preserve query/hash suffixes.
+- Generated barrels remain generator-owned and may use relative re-exports. Do
+  not hand-edit them to enforce this policy. Infrastructure outside domain
+  clusters (Node scripts, package/configuration files) may use relative paths.
+- Filesystem paths, asset URLs and computed runtime paths are not module
+  specifiers. Do not rewrite them mechanically. If a dependency has no supported
+  logical address, retain the working relative import and report the exception.
 
 ## Domain Clustering Policy (Mandatory)
 

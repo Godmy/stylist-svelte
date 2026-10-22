@@ -94,7 +94,7 @@ export async function checkPackageSource(packageRoot) {
 		const content = await readFile(filename, 'utf8');
 		for (const specifier of localImports(filename, content)) {
 			const clean = specifier.split('?')[0];
-			if (/^stylist-svelte-(?:travel|booking|admin)(?:\/|$)/.test(clean)) {
+			if (/^stylist-svelte-(?:travel|booking|admin|sakartvelo)(?:\/|$)/.test(clean)) {
 				throw new Error(
 					`Public package depends on private package ${clean.split('/')[0]}: ${path}`
 				);

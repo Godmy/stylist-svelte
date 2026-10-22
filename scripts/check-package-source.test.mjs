@@ -93,7 +93,7 @@ test('public source cannot import an extracted travel domain', async () => {
 });
 
 test('package-name imports cannot bypass the private domain guard', async () => {
-	for (const name of ['travel', 'booking', 'admin']) {
+	for (const name of ['travel', 'booking', 'admin', 'sakartvelo']) {
 		await fixture(
 			{
 				'index.ts': `export { value } from 'stylist-svelte-${name}/type/object/example/index.js';`,

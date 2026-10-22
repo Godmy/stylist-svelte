@@ -65,7 +65,8 @@
 		"path": "modules/business/sakartvelo",
 		"domainRoot": true,
 		"private": true,
-		"domains": ["sakartvelo"]
+		"domains": ["sakartvelo"],
+		"packageName": "stylist-svelte-sakartvelo"
 	},
 	"geo": {
 		"path": "modules/global/geo",
