@@ -33,6 +33,7 @@
 		"modules/interaction/search/**/*",
 		"modules/interaction/menu/**/*",
 		"modules/interaction/navigation/**/*",
+		"modules/interaction/pager/**/*",
 		"modules/interaction/dialog/**/*",
 		"modules/information/list/**/*",
 		"modules/information/tree/**/*",
