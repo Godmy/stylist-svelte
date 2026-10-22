@@ -18,7 +18,6 @@ const mirrorDirectory = fileURLToPath(new URL('../static/generated/lib-source/',
 const MIRRORED_MANIFESTS = [
 	'domain-page-manifest',
 	'domain-files',
-	'domain-component-intervals',
 	'domain-component-import-diagnostics'
 ].map((name) => path.join('domain', 'data', 'json', name, 'index.json'));
 

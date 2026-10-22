@@ -160,52 +160,28 @@ test('generated manifests drop hidden domains and recompute totals', () => {
 		templates: 0,
 		pages: 0
 	});
-	const intervals = filterSandboxManifest(
-		'a/domain-component-intervals/index.json',
-		{
-			domains: [
-				{ name: 'button', value: 3, atom: 1, molecule: 2, organism: 0, template: 0, page: 0 },
-				{ name: 'geo', value: 5, atom: 4, molecule: 0, organism: 1, template: 0, page: 0 }
-			],
-			totals: {
-				domains: 2,
-				components: 8,
-				atoms: 5,
-				molecules: 2,
-				organisms: 1,
-				templates: 0,
-				pages: 0
-			}
-		},
-		hidden
-	);
-	assert.deepEqual(intervals.totals, {
-		domains: 1,
-		components: 3,
-		atoms: 1,
-		molecules: 2,
-		organisms: 0,
-		templates: 0,
-		pages: 0
-	});
 	const diagnostics = filterSandboxManifest(
 		'a/domain-component-import-diagnostics/index.json',
 		{
 			rows: [
 				{ domain: 'button', status: 'none' },
-				{ domain: 'geo', status: 'missingRecipe' }
+				{ domain: 'button', status: 'missing-recipe' },
+				{ domain: 'geo', status: 'missing-recipe' }
 			],
-			summary: { total: 2, none: 1, missingRecipe: 1, valid: 7, scanned: 9 }
+			summary: { total: 3, none: 1, missingRecipe: 2, valid: 7, scanned: 10 }
 		},
 		hidden
 	);
-	assert.deepEqual(diagnostics.rows, [{ domain: 'button', status: 'none' }]);
+	assert.deepEqual(diagnostics.rows, [
+		{ domain: 'button', status: 'none' },
+		{ domain: 'button', status: 'missing-recipe' }
+	]);
 	assert.deepEqual(diagnostics.summary, {
-		total: 1,
+		total: 2,
 		none: 1,
-		missingRecipe: 0,
+		missingRecipe: 1,
 		valid: 7,
-		scanned: 8
+		scanned: 9
 	});
 	assert.deepEqual(filterSandboxManifest('a/other.json', { geo: 1 }, hidden), { geo: 1 });
 });

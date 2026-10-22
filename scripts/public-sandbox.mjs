@@ -127,19 +127,6 @@ export function filterSandboxManifest(file, data, domains) {
 			}
 		};
 	}
-	if (name.endsWith('/domain-component-intervals/index.json')) {
-		const rows = data.domains.filter((row) => !domains.has(row.name));
-		return {
-			...data,
-			domains: rows,
-			totals: {
-				...data.totals,
-				domains: rows.length,
-				components: sum(rows, (row) => row.value),
-				...Object.fromEntries(JOINTS.map((joint) => [`${joint}s`, sum(rows, (row) => row[joint])]))
-			}
-		};
-	}
 	if (name.endsWith('/domain-component-import-diagnostics/index.json')) {
 		const rows = data.rows.filter((row) => !domains.has(row.domain));
 		const removed = data.rows.length - rows.length;
@@ -150,7 +137,7 @@ export function filterSandboxManifest(file, data, domains) {
 				...data.summary,
 				total: rows.length,
 				none: rows.filter((row) => row.status === 'none').length,
-				missingRecipe: rows.filter((row) => row.status === 'missingRecipe').length,
+				missingRecipe: rows.filter((row) => row.status === 'missing-recipe').length,
 				scanned: Math.max(0, (data.summary?.scanned ?? 0) - removed)
 			}
 		};
@@ -159,7 +146,7 @@ export function filterSandboxManifest(file, data, domains) {
 }
 
 const GENERATED_JSON =
-	/\/data\/json\/domain-(page-manifest|files|component-intervals|component-import-diagnostics)\/index\.json$/;
+	/\/data\/json\/domain-(page-manifest|files|component-import-diagnostics)\/index\.json$/;
 
 /** Git-ignored `index.full.json` written next to a public generated manifest, if any.
  * The tracked file holds public modules only; the full one also has private domains.

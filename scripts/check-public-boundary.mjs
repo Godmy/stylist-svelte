@@ -21,7 +21,6 @@ export const GENERATED_PUBLIC_FILES = Object.freeze([
 	'src/lib/index.ts',
 	'modules/sandbox/domain/data/json/domain-page-manifest/index.json',
 	'modules/sandbox/domain/data/json/domain-files/index.json',
-	'modules/sandbox/domain/data/json/domain-component-intervals/index.json',
 	'modules/sandbox/domain/data/json/domain-component-import-diagnostics/index.json'
 ]);
 
