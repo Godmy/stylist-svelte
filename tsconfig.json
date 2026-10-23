@@ -97,6 +97,7 @@
 		"modules/business/wbd/**/*",
 		"modules/business/spanish/**/*",
 		"modules/business/farm/**/*",
+		"modules/business/yoga/**/*",
 		"modules/sandbox/development/**/*",
 		"modules/customer/ai/**/*",
 		"modules/prototype/scratch/**/*"

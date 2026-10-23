@@ -93,6 +93,12 @@
 		"private": true,
 		"domains": ["farm"]
 	},
+	"yoga": {
+		"path": "modules/business/yoga",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["yoga"]
+	},
 	"management": {
 		"path": "modules/management",
 		"private": true,

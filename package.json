@@ -94,6 +94,7 @@
 		"!dist/science/**",
 		"!dist/spanish/**",
 		"!dist/farm/**",
+		"!dist/yoga/**",
 		"!dist/presentation/**",
 		"!dist/scratch/**",
 		"!dist/index.full.*",
