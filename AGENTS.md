@@ -13,12 +13,10 @@ Follow the workspace [agent workflow](../AGENTS.md); keep the project rules belo
 - Embedded-domain metadata exceptions also cover typography/layout, registered in the owning design-system `.gitmodules`. Inspect module-specific `.gitmodules`, not only the umbrella file.
 - Generated root exports, including the booking/admin/travel root entrypoints, are still human-only. After changes tell Dmitrii to run `yarn stylist:manifest` from the site root; never run global generation yourself.
 
-## Workspace Hot-Reload Policy For `weoracle.online` (Mandatory)
+## Workspace Hot-Reload Policy
 
 - Do not run `yarn package`, `yarn build`, `svelte-package`, or any command that regenerates `stylist-svelte/dist` unless the user explicitly asks for it in the current turn.
-- The user runs `weoracle.online` with a manually managed hot-reload server that consumes workspace source files from `stylist-svelte/src/**`.
 - Regenerating `dist` can break or desynchronize hot reload and force the user to restart the server.
-- For landing-page and component work used by `weoracle.online`, edit `src/lib/**` source files only and rely on the existing hot-reload server.
 
 ## Domain Aggregation Policy (Mandatory)
 
