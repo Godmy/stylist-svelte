@@ -500,13 +500,10 @@ export {
 	toggleThemeMode
 } from '../../modules/design-system/theme';
 export {
-	Abbr,
 	Badge,
 	BadgeGroup,
 	Blockquote,
 	Heading,
-	InlineCode,
-	Kbd,
 	Link,
 	Paragraph,
 	RichText,
@@ -890,7 +887,6 @@ export {
 	InputDouble,
 	InputEmail,
 	InputError,
-	InputField,
 	InputGroup,
 	InputHelper,
 	InputLabel,
@@ -910,10 +906,12 @@ export {
 	createCharacterCountState,
 	createFieldClassState,
 	createFieldPresetState,
+	createInputFormReset,
 	formatPhoneNumber,
 	normalizePhoneInputValue,
 	resolveAllowedOption,
-	resolveCharacterCountState
+	resolveCharacterCountState,
+	resolveInputAttributes
 } from '../../modules/interaction/input';
 export {
 	AppHeader,
@@ -937,13 +935,30 @@ export {
 	createMenuItemState
 } from '../../modules/interaction/menu';
 export {
+	Activity,
 	BottomSheet,
+	FloatingActionButton,
+	Fragment,
+	NavigationComposite,
+	NavigationDrawer,
+	NavigationGraph,
+	NavigationItem,
+	Sidebar,
+	TopAppBar,
+	createActivityState,
+	createNavigationState,
+	createSidebarState,
+	resolveNavigationGraphLayout
+} from '../../modules/interaction/navigation';
+export {
 	PageButton,
 	PageEllipsis,
 	Pagination,
 	PresetPageButton,
-	Sidebar
-} from '../../modules/interaction/navigation';
+	createPageButtonState,
+	createPageEllipsisState,
+	createPaginationState
+} from '../../modules/interaction/pager';
 export {
 	AutoComplete,
 	AutoSearch,
@@ -1587,13 +1602,10 @@ export type {
 	SlotThemeSettings
 } from '../../modules/design-system/theme';
 export type {
-	RecipeAbbr,
 	RecipeBadge,
 	RecipeBadgeGroup,
 	RecipeBlockquote,
 	RecipeHeading,
-	RecipeInlineCode,
-	RecipeKbd,
 	RecipeLink,
 	RecipeRichText,
 	RecipeText,
@@ -1963,7 +1975,6 @@ export type {
 	RecipeInputDouble,
 	RecipeInputEmail,
 	RecipeInputError,
-	RecipeInputField,
 	RecipeInputGroup,
 	RecipeInputHelper,
 	RecipeInputLabel,
@@ -2009,13 +2020,29 @@ export type {
 	SlotMegaMenuSection
 } from '../../modules/interaction/menu';
 export type {
+	ContractNavigationAction,
+	ContractNavigationDestination,
+	ContractNavigationDrawerSection,
+	ContractNavigationEntry,
+	ContractNavigationGraph,
+	ContractNavigationGraphLayout,
+	ContractNavigator,
 	NavItem,
+	RecipeActivity,
 	RecipeBottomSheet,
+	RecipeFloatingActionButton,
+	RecipeFragment,
+	RecipeNavigationDrawer,
+	RecipeNavigationGraph,
+	RecipeNavigationItem,
+	RecipeSidebar,
+	RecipeTopAppBar
+} from '../../modules/interaction/navigation';
+export type {
 	RecipePageButton,
 	RecipePageEllipsis,
-	RecipePagination,
-	RecipeSidebar
-} from '../../modules/interaction/navigation';
+	RecipePagination
+} from '../../modules/interaction/pager';
 export type {
 	RecipeAutoComplete,
 	RecipeAutoSearch,
