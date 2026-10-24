@@ -114,7 +114,9 @@
 	"prototype": {
 		"path": "modules/prototype",
 		"private": true,
-		"domains": [],
+		"domains": [
+			"demo"
+		],
 		"sourceRoot": "."
 	},
 	"prezi": {
