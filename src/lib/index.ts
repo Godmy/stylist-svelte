@@ -79,6 +79,7 @@ export {
 export {
 	Idef0BlackBox,
 	Idef0Connector,
+	Idef0Decomposition,
 	Idef0Diagram,
 	Idef0FunctionBox,
 	Idef0Inputs,
@@ -89,12 +90,15 @@ export {
 	ConcentricCirclesScene,
 	GlCanvas,
 	HyperspaceScene,
+	InterferenceFieldScene,
 	SceneLauncher,
+	ShaderField,
 	TOKEN_ARCHITECTURE_SHADER_FRAGMENT,
 	TOKEN_ARCHITECTURE_SHADER_VERTEX,
 	TurtleDissolveScene,
 	compileShader,
-	createProgram
+	createProgram,
+	shaderTint
 } from '../../modules/architecture/webgl';
 export {
 	DEFAULT_WORKSPACE_CANVAS,
@@ -415,7 +419,11 @@ export {
 	TranslationEditor,
 	formatDate,
 	formatDateTime,
-	formatTime
+	formatDay,
+	formatMoment,
+	formatMoney,
+	formatTime,
+	formatUsd
 } from '../../modules/design-system/localization';
 export {
 	Flag,
@@ -590,6 +598,7 @@ export {
 	DividerHeadingImageText,
 	Image,
 	ImageCaption,
+	ImageCaptionEditorCard,
 	ImageGallery,
 	MediaThumbnail
 } from '../../modules/information/image';
@@ -643,6 +652,7 @@ export {
 	Table,
 	TableListPanel,
 	createColumn,
+	createColumnVisibility,
 	createTable
 } from '../../modules/information/table';
 export {
@@ -665,6 +675,7 @@ export {
 	AtomicTierCard,
 	BASE_EASING,
 	BeachWater,
+	CarouselZoom,
 	ComponentLibraryStats,
 	Css3dCube,
 	FloatingIcon,
@@ -687,6 +698,8 @@ export {
 	Spinner,
 	TOKEN_CONNECTOR,
 	TOKEN_LOADING,
+	TiltCard,
+	TiltShowcase,
 	Tooltip,
 	Transformable,
 	TurtleCrawl,
@@ -695,11 +708,15 @@ export {
 	WaveSurf,
 	WhaleSpout,
 	animateValue,
+	carouselIndex,
 	createMotionPreferenceState,
 	createScrollProgressState,
 	createStickyScrollProgress,
 	getEasingFunction,
-	mapProgress
+	mapProgress,
+	pointerPosition,
+	tiltRotation,
+	tiltSample
 } from '../../modules/interaction/animation';
 export {
 	AnimatedButton,
@@ -739,6 +756,7 @@ export {
 	EventCalendar,
 	FormDatePicker,
 	MiniCalendar,
+	MonthRangePicker,
 	TOKEN_CALENDAR,
 	TOKEN_FLOW,
 	TOKEN_PRIORITY,
@@ -748,6 +766,7 @@ export {
 	TimePicker,
 	TimeSlot,
 	Timeline,
+	Timetable,
 	formatDayLabel,
 	formatDisplayDate,
 	formatMonthYear,
@@ -762,6 +781,7 @@ export {
 	navigateMonth,
 	startOfDay,
 	startOfWeek,
+	timetableCell,
 	toInputDateString
 } from '../../modules/interaction/calendar';
 export {
@@ -843,6 +863,7 @@ export {
 	ExportPanel,
 	FILE_EXPLORER_VIEW_MODE,
 	FILE_ITEM_TYPE,
+	FILE_MANAGER_SAMPLE,
 	FileBrowser,
 	FileBrowserManager,
 	FileExplorer,
@@ -851,10 +872,14 @@ export {
 	FileInputManager,
 	FileListItem,
 	FileListItemManager,
+	FileManager,
+	FileStorage,
 	FileUpload,
 	MEDIA_LIBRARY_MEDIA_TYPE,
 	MediaLibrary,
 	MediaLibraryManager,
+	PresetFileManagerLabels,
+	PresetFileManagerLabelsRu,
 	PresetQuantitySelector,
 	QuantitySelector,
 	TOKEN_DOCUMENT_FORMAT,
@@ -863,22 +888,29 @@ export {
 	UploadProgress,
 	UploadProgressManager,
 	ZipViewer,
-	ZipViewerManager
+	ZipViewerManager,
+	fileKind,
+	fileManagerFilter
 } from '../../modules/interaction/file';
 export {
 	AddressForm,
+	FeedbackScenario,
 	FormFooter,
 	FormHeader,
 	FormManager,
 	FormSelection,
 	FormWithValidation,
 	LoginForm,
+	PresetRatingFeedbackLabels,
+	RatingFeedback,
 	SEARCH_ICON_NAME,
 	SchemaFormDialog,
 	ScreenReader,
 	SearchForm,
+	SupportCounter,
 	ToggleButtonGroup,
-	Validation
+	Validation,
+	cooldownCounter
 } from '../../modules/interaction/form';
 export {
 	CharactersCount,
@@ -928,11 +960,15 @@ export {
 	MenuItem,
 	PresetDropdownMenu,
 	PresetMegaMenu,
+	SITE_MENU_SAMPLE,
+	SiteMenu,
 	createBurgerMenuState,
 	createDrawerState,
 	createDropdownMenuState,
 	createMegaMenuState,
-	createMenuItemState
+	createMenuItemState,
+	siteMenuGroup,
+	siteMenuSearch
 } from '../../modules/interaction/menu';
 export {
 	Activity,
@@ -943,12 +979,17 @@ export {
 	NavigationDrawer,
 	NavigationGraph,
 	NavigationItem,
+	NavigationPatterns,
+	SectionBar,
 	Sidebar,
 	TopAppBar,
+	WorkspaceMenu,
 	createActivityState,
 	createNavigationState,
 	createSidebarState,
-	resolveNavigationGraphLayout
+	resolveNavigationDestination,
+	resolveNavigationGraphLayout,
+	resolveNavigationHref
 } from '../../modules/interaction/navigation';
 export {
 	PageButton,
@@ -1035,6 +1076,7 @@ export type {
 export type {
 	GraphGridMode,
 	GraphNodeCategory,
+	GraphTheme,
 	GraphToolMode,
 	SceneAtomKind,
 	SceneCameraPreset,
@@ -1175,9 +1217,11 @@ export type {
 	TreeNodeItemNode
 } from '../../modules/information/tree';
 export type {
+	CarouselImage,
 	EasingFunction,
 	InteractionFeedback,
 	MediaSliderSlide,
+	TiltSample,
 	TokenConnector,
 	TokenLoading,
 	TokenTransition
@@ -1188,6 +1232,11 @@ export type {
 } from '../../modules/interaction/button';
 export type {
 	DatePickerValue,
+	TimetableCell,
+	TimetableClass,
+	TimetableDay,
+	TimetableLesson,
+	TimetablePeriod,
 	TokenPriority,
 	TokenTimeFormat,
 	TokenTimeMeasure,
@@ -1206,6 +1255,7 @@ export type {
 	DataExporterFormat,
 	ExportFormat,
 	FileItemType,
+	FileManagerEntry,
 	FileStateOptions,
 	FileStateResult,
 	MediaType,
@@ -1213,6 +1263,10 @@ export type {
 	UploadStatus,
 	ViewMode
 } from '../../modules/interaction/file';
+export type {
+	SiteMenuGroup,
+	SiteMenuItem
+} from '../../modules/interaction/menu';
 export type {
 	AutoCompleteOption,
 	SearchResultItem
@@ -1297,16 +1351,23 @@ export type {
 	SceneGraph,
 	SceneMaterial,
 	SceneMolecule,
+	SceneText,
 	SlotFieldHighlighter,
 	SlotFieldHighlighterSelectedField,
 	SlotGraphEdge,
 	SlotGraphNode,
 	ZwickyFilterState,
-	ZwickyNode
+	ZwickyGroup,
+	ZwickyNode,
+	ZwickyScheme,
+	ZwickyText
 } from '../../modules/architecture/graph';
 export type {
+	Idef0Activity,
+	Idef0Arrow,
 	RecipeIdef0BlackBox,
 	RecipeIdef0Connector,
+	RecipeIdef0Decomposition,
 	RecipeIdef0Diagram,
 	RecipeIdef0FunctionBox,
 	RecipeIdef0Io,
@@ -1317,8 +1378,11 @@ export type {
 	RecipeConcentricCirclesScene,
 	RecipeGlCanvas,
 	RecipeHyperspaceScene,
+	RecipeInterferenceFieldScene,
 	RecipeSceneLauncher,
-	RecipeTurtleDissolveScene
+	RecipeShaderField,
+	RecipeTurtleDissolveScene,
+	SlotShaderField
 } from '../../modules/architecture/webgl';
 export type {
 	GraphNodeDraft,
@@ -1686,6 +1750,7 @@ export type {
 	RecipeDividerHeadingImageText,
 	RecipeImage,
 	RecipeImageCaption,
+	RecipeImageCaptionEditorCard,
 	RecipeImageGallery,
 	RecipeMediaThumbnail,
 	SlotImage
@@ -1752,8 +1817,11 @@ export type {
 } from '../../modules/information/video';
 export type {
 	BehaviorAnimate,
+	BehaviorCarousel,
+	BehaviorImageZoom,
 	BehaviorMotion,
 	BehaviorMotionPreset,
+	BehaviorTilt,
 	BehaviorTransform,
 	BehaviorTransformable,
 	BehaviorVectorScene,
@@ -1766,6 +1834,7 @@ export type {
 	RecipeAtomicPrinciplesShowcase,
 	RecipeAtomicTierCard,
 	RecipeBeachWater,
+	RecipeCarouselZoom,
 	RecipeComponentLibraryStats,
 	RecipeCss3dCube,
 	RecipeFloatingIcon,
@@ -1780,6 +1849,8 @@ export type {
 	RecipeScrollPhaseDebug,
 	RecipeSkeleton,
 	RecipeSpinner,
+	RecipeTiltCard,
+	RecipeTiltShowcase,
 	RecipeTooltip,
 	RecipeTransformable,
 	RecipeTurtleCrawl,
@@ -1787,7 +1858,10 @@ export type {
 	RecipeVectorScene,
 	RecipeWaveSurf,
 	RecipeWhaleSpout,
-	SlotComponentLibraryStats
+	SlotCarouselImages,
+	SlotComponentLibraryStats,
+	SlotTiltCard,
+	SlotTiltShowcase
 } from '../../modules/interaction/animation';
 export type {
 	ButtonPreset,
@@ -1813,6 +1887,7 @@ export type {
 	SlotButtonDom
 } from '../../modules/interaction/button';
 export type {
+	BehaviorTimetable,
 	RecipeCalendar,
 	RecipeCalendarDay,
 	RecipeCalendarGrid,
@@ -1826,12 +1901,15 @@ export type {
 	RecipeEventCalendar,
 	RecipeFormDatePicker,
 	RecipeMiniCalendar,
+	RecipeMonthRangePicker,
 	RecipeTimeGrid,
 	RecipeTimePicker,
 	RecipeTimeline,
+	RecipeTimetable,
 	SlotCalendarDay,
 	SlotCalendarEvent,
-	SlotDatePicker
+	SlotDatePicker,
+	SlotTimetable
 } from '../../modules/interaction/calendar';
 export type {
 	BehaviorSelectable,
@@ -1913,6 +1991,7 @@ export type {
 	StylistTabItem
 } from '../../modules/interaction/dialog';
 export type {
+	BehaviorFileManager,
 	RecipeAttachmentPreview,
 	RecipeDataExporter,
 	RecipeDocumentPreview,
@@ -1924,6 +2003,8 @@ export type {
 	RecipeFileExplorer,
 	RecipeFileInput,
 	RecipeFileListItem,
+	RecipeFileManager,
+	RecipeFileStorage,
 	RecipeFileUpload,
 	RecipeMediaLibrary,
 	RecipeQuantitySelector,
@@ -1938,6 +2019,8 @@ export type {
 	SlotDropZoneStyleClasses,
 	SlotExportPanelStyleClasses,
 	SlotFileItem,
+	SlotFileManager,
+	SlotFileStorage,
 	SlotFileSystemItem,
 	SlotFolderItem,
 	SlotMediaItem,
@@ -1947,25 +2030,32 @@ export type {
 	SlotZipViewerStyleClasses
 } from '../../modules/interaction/file';
 export type {
+	BehaviorRatingFeedback,
 	RecipeAccountForms,
 	RecipeAddressForm,
+	RecipeFeedbackScenario,
 	RecipeFormFooter,
 	RecipeFormHeader,
 	RecipeFormSelection,
 	RecipeFormWithValidation,
 	RecipeInteractionForms,
 	RecipeLoginForm,
+	RecipeRatingFeedback,
 	RecipeSchemaFormDialog,
 	RecipeScreenReader,
 	RecipeSearchForm,
+	RecipeSupportCounter,
 	RecipeToggleButtonGroup,
 	RecipeValidation,
 	SlotAddressData,
+	SlotFeedbackScenario,
 	SlotFormData,
 	SlotFormFooter,
 	SlotFormHeader,
 	SlotFormSelectionState,
 	SlotLoginCredentials,
+	SlotRatingFeedback,
+	SlotSupportCounter,
 	SlotValidationErrors
 } from '../../modules/interaction/form';
 export type {
@@ -2003,6 +2093,7 @@ export type {
 	SlotTagInput
 } from '../../modules/interaction/input';
 export type {
+	BehaviorSiteMenu,
 	RecipeAppHeader,
 	RecipeBurgerMenu,
 	RecipeDrawer,
@@ -2014,12 +2105,15 @@ export type {
 	RecipeMegaMenuPanel,
 	RecipeMegaMenuTrigger,
 	RecipeMenuItem,
+	RecipeSiteMenu,
 	SlotMegaMenuColumn,
 	SlotMegaMenuFeature,
 	SlotMegaMenuLink,
-	SlotMegaMenuSection
+	SlotMegaMenuSection,
+	SlotSiteMenu
 } from '../../modules/interaction/menu';
 export type {
+	BehaviorSectionSelect,
 	ContractNavigationAction,
 	ContractNavigationDestination,
 	ContractNavigationDrawerSection,
@@ -2035,8 +2129,14 @@ export type {
 	RecipeNavigationDrawer,
 	RecipeNavigationGraph,
 	RecipeNavigationItem,
+	RecipeNavigationPatterns,
+	RecipeSectionBar,
 	RecipeSidebar,
-	RecipeTopAppBar
+	RecipeTopAppBar,
+	RecipeWorkspaceMenu,
+	SlotNavigationPatterns,
+	SlotSectionBar,
+	SlotWorkspaceMenu
 } from '../../modules/interaction/navigation';
 export type {
 	RecipePageButton,
