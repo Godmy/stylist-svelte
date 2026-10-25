@@ -75,6 +75,12 @@
 		"private": true,
 		"domains": ["geo"]
 	},
+	"treejs": {
+		"path": "modules/architecture/treejs",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["treejs"]
+	},
 	"wbd": {
 		"path": "modules/business/wbd",
 		"domainRoot": true,
@@ -114,9 +120,7 @@
 	"prototype": {
 		"path": "modules/prototype",
 		"private": true,
-		"domains": [
-			"demo"
-		],
+		"domains": ["demo", "prototype-school", "prototype-shop"],
 		"sourceRoot": "."
 	},
 	"prezi": {
