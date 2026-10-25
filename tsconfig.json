@@ -21,6 +21,7 @@
 		"modules/design-system/layout/**/*",
 		"modules/design-system/localization/**/*",
 		"modules/design-system/svg/**/*",
+		"modules/design-system/mathml/**/*",
 		"modules/design-system/html/**/*",
 		"modules/design-system/design-token/**/*",
 		"modules/interaction/animation/**/*",

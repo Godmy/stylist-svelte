@@ -33,13 +33,13 @@
 		padding: 1rem;
 	}
 	._c2 {
-		margin-bottom: var(--spacing-md);
-		color: var(--text-size-lg);
+		margin-bottom: var(--space-4);
+		font-size: var(--font-size-4-5);
 	}
 	._c3 {
-		margin-top: var(--spacing-lg);
+		margin-top: var(--space-6);
 	}
 	._c3 :global(._c4) {
-		margin-right: var(--spacing-sm);
+		margin-right: var(--space-3);
 	}
 </style>
