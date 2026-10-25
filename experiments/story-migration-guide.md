@@ -56,8 +56,9 @@ Read first:
    - Every legacy `SlotStory` control `{ name, type, defaultValue, options, min, max, step,
 label, description }` becomes `controls[name] = { type, options?, min?, max?, step?,
 label?, description? }` and `args[name] = defaultValue`.
-   - Control types are only `text | number | boolean | select | range | color`. `object`,
-     `array`, `json`, … become plain `args` (no control). Select options are strings/numbers:
+   - Control types are only `text | number | boolean | select | range | color | json`. Arrays
+     and objects get `{ type: 'json', example? }` (a JSON editor; an invalid value is not
+     applied, `example` sets the expected kind). Select options are strings/numbers:
      `{ label, value }` objects become their values.
    - Args and presets must be structured-cloneable (they are sent to the iframe with
      `postMessage`): no functions, snippets, components, DOM nodes, class instances with
