@@ -120,6 +120,7 @@
 						args={storyArgs}
 						content={storyContent}
 						environment={visualHtml ? environment : undefined}
+						locale={environment.locale}
 						render={entry.render}
 					/>
 				{:else if Story}
