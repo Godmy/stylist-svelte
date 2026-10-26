@@ -18,13 +18,14 @@
 | wbd (private)        | `modules/business/wbd`           | wbd                                                                                       |
 | spanish (private)    | `modules/business/spanish`       | spanish                                                                                   |
 | farm (private)       | `modules/business/farm`          | farm                                                                                      |
+| yoga (private)       | `modules/business/yoga`          | yoga                                                                                      |
 | management (private) | `modules/management`             | management, marketing, portfolio, science                                                 |
 | global (private)     | `modules/global`                 | commerce, product                                                                         |
 | prototype (private)  | `modules/prototype`              | Nested repository container                                                               |
 | prezi (private)      | `modules/prototype/presentation` | presentation                                                                              |
 | scratch (private)    | `modules/prototype/scratch`      | scratch                                                                                   |
 
-Business groups nested Git submodules `wbd`, `travel`, `spanish`, `sakartvelo`, and `farm`; global groups the nested `geo` submodule alongside its direct `commerce` and `product` domains. Prototype groups the nested `presentation` (repository stylist-svelte-prezi, registry key `prezi`) and `scratch` submodules; the container and both nested modules are private and has no direct domains. Their registrations are in the owning business/global/prototype `.gitmodules`, not the umbrella `.gitmodules`.
+Business groups nested Git submodules `wbd`, `travel`, `booking`, `admin`, `spanish`, `sakartvelo`, `farm`, and `yoga`; global groups the nested `geo` submodule alongside its direct `commerce` and `product` domains. Prototype groups the nested `presentation` (repository stylist-svelte-prezi, registry key `prezi`) and `scratch` submodules; the container and both nested modules are private and has no direct domains. Their registrations are in the owning business/global/prototype `.gitmodules`, not the umbrella `.gitmodules`.
 
 Nested repositories retain their own registry keys. Module selection uses these keys, for example `travel` or `geo`; the `business` container has no direct domains.
 
