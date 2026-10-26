@@ -39,10 +39,34 @@ async function fixture(t, { missingPublic = false } = {}) {
 	await mkdir(join(owner, 'text'));
 	await writeFile(join(owner, 'text/index.ts'), 'export const text = 1;');
 	await git(owner, 'submodule', 'add', '--quiet', nested, 'svg');
-	await commit(owner);
+	await git(owner, 'config', '--file', '.gitmodules', 'submodule.treejs.path', 'treejs');
+	await git(
+		owner,
+		'config',
+		'--file',
+		'.gitmodules',
+		'submodule.treejs.url',
+		join(root, 'missing-treejs')
+	);
+	await git(owner, 'config', '--file', '.gitmodules', 'submodule.treejs.update', 'none');
+	await git(owner, 'add', '.');
+	await git(
+		owner,
+		'update-index',
+		'--add',
+		'--cacheinfo',
+		`160000,${(await git(nested, 'rev-parse', 'HEAD')).stdout.trim()},treejs`
+	);
+	await git(owner, 'commit', '--quiet', '-m', 'Fixture');
 	const source = await repository(root, 'source', {
 		'modules.json': JSON.stringify({
 			public: { path: 'modules/common', sourceRoot: '.', domains: ['text', 'svg'] },
+			privateNested: {
+				path: 'modules/common/treejs',
+				private: true,
+				domainRoot: true,
+				domains: ['treejs']
+			},
 			...(missingPublic && {
 				business: { path: 'modules/business', sourceRoot: '.', domains: ['auth'] }
 			}),
@@ -104,6 +128,7 @@ test(
 		assert.match(result.stdout, /2 domains ready/);
 		await assert.rejects(readFile(join(cwd, 'src/lib/svg/index.ts')), { code: 'ENOENT' });
 		await assert.rejects(readFile(join(cwd, 'modules/private/.git')), { code: 'ENOENT' });
+		await assert.rejects(readFile(join(cwd, 'modules/common/treejs/.git')), { code: 'ENOENT' });
 		assert.equal((await git(cwd, 'status', '--porcelain')).stdout, '');
 		await exec('bash', ['experiments/prepare-local-build.sh'], { cwd, env });
 		assert.equal((await git(cwd, 'status', '--porcelain')).stdout, '');
@@ -137,6 +162,7 @@ test(
 			'export const icon = 1;'
 		);
 		await assert.rejects(readFile(join(cwd, 'modules/private/.git')), { code: 'ENOENT' });
+		await assert.rejects(readFile(join(cwd, 'modules/common/treejs/.git')), { code: 'ENOENT' });
 		assert.equal((await git(cwd, 'status', '--porcelain')).stdout, '');
 	}
 );
