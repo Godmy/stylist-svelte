@@ -110,7 +110,7 @@ Follow the workspace [agent workflow](../AGENTS.md); keep the project rules belo
     story's custom render and receives args as props; alone it is a legacy story
   - optionally `readme.md`
 - In `state` folders, allow only:
-  - `index.svelte.ts`
+  - `state.svelte.ts`
   - `index.ts`
 - In `test` folders, allow only:
   - `index.test.ts`
