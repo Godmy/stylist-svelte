@@ -139,6 +139,7 @@ test('tree-only descriptor API returns the existing projection shape', async () 
 	const manifestUrl = dataUrl(`export default ${JSON.stringify({ tree })};`);
 	const moduleSource = source
 		.replace('@sveltejs/kit', kitUrl)
+		.replace('$app/environment', dataUrl('export const dev = false;'))
 		.replace('$stylist/server/const/value/content-preview-max-file-size', maxSizeUrl)
 		.replace('$stylist/domain/data/json/domain-page-manifest/index.json', manifestUrl)
 		.replace('$stylist/domain/function/resolve/component-descriptor', descriptorUrl);
@@ -207,7 +208,7 @@ test('tree-derived descriptor checks existence and respects state precedence', (
 						{
 							name: 'state',
 							family: [
-								{ name: 'sample', files: [{ name: 'index.svelte.ts' }, { name: 'index.ts' }] }
+								{ name: 'sample', files: [{ name: 'state.svelte.ts' }, { name: 'index.ts' }] }
 							]
 						}
 					]
@@ -232,7 +233,7 @@ test('tree-derived descriptor checks existence and respects state precedence', (
 	withoutLocalState[0].cluster[0].joint[0].family[0].component_type = 'INDEXED_COMPONENT';
 	assert.equal(
 		resolveComponentDescriptor(withoutLocalState, descriptor.entityPath).stateFunctionPath,
-		'example/function/state/sample/index.svelte.ts'
+		'example/function/state/sample/state.svelte.ts'
 	);
 	withoutLocalState[0].cluster[2].joint[0].family[0].files.shift();
 	assert.equal(
