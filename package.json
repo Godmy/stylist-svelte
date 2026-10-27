@@ -27,7 +27,11 @@
 	"bugs": {
 		"url": "https://github.com/Godmy/stylist-svelte/issues"
 	},
-	"homepage": "https://github.com/Godmy/stylist-svelte#readme",
+	"homepage": "https://stylist-svelte.online/",
+	"funding": {
+		"type": "github",
+		"url": "https://github.com/sponsors/Godmy"
+	},
 	"scripts": {
 		"modules:prepare": "node scripts/prepare-module-sources.mjs",
 		"dev": "vite dev",
