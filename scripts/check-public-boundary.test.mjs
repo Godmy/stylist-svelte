@@ -88,6 +88,9 @@ test('committed generated root and manifest must not mention private modules', a
 			'modules/sandbox/domain/data/json/domain-page-manifest/index.json': JSON.stringify({
 				tree: { button: {}, chat: {} }
 			}),
+			'modules/sandbox/domain/data/json/domain-component-manifest/index.json': JSON.stringify({
+				tree: { chat: { component: { atom: ['message'] } } }
+			}),
 			'modules/sandbox/domain/data/json/domain-component-import-diagnostics/index.json':
 				JSON.stringify({ rows: [{ domain: 'geo' }] })
 		},
@@ -102,6 +105,12 @@ test('committed generated root and manifest must not mention private modules', a
 			);
 			assert.ok(
 				found.some((line) => line.includes('import-diagnostics') && line.includes('domain geo'))
+			);
+			assert.ok(
+				found.some(
+					(line) =>
+						line.includes('domain-component-manifest/index.json') && line.includes('domain chat')
+				)
 			);
 			// index.full.ts is local-only: it may list private modules and is not scanned.
 			assert.ok(!found.some((line) => line.includes('index.full.ts')));

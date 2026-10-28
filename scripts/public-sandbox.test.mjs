@@ -108,6 +108,19 @@ test('mirrored root barrels lose re-exports of hidden modules and domains', () =
 
 test('generated manifests drop hidden domains and recompute totals', () => {
 	const hidden = new Set(['geo']);
+	assert.deepEqual(
+		filterSandboxManifest(
+			'a/domain-component-manifest/index.json',
+			{
+				tree: {
+					button: { component: { atom: ['button'] } },
+					geo: { component: { organism: ['map'] } }
+				}
+			},
+			hidden
+		),
+		{ tree: { button: { component: { atom: ['button'] } } } }
+	);
 	assert.deepEqual(filterSandboxManifest('x/modules.json', registry, hidden), {
 		core: registry.core,
 		travel: registry.travel
@@ -305,5 +318,44 @@ test('the git-ignored full manifest replaces the public one unless modules are h
 		assert.match(allOutput, /PRIVATE_TREE/);
 	} finally {
 		if (existsSync(root)) await rm(root, { recursive: true, force: true });
+	}
+});
+
+test('component inventory uses full data locally and filters the public source mirror', async () => {
+	const manifest = 'modules/core/domain/data/json/domain-component-manifest';
+	const root = await fixture({
+		'src/lib/index.ts': 'export {};',
+		'entry.js': `export { default } from '/${manifest}/index.json';`,
+		[`${manifest}/index.json`]: JSON.stringify({
+			tree: { button: { component: { atom: ['PUBLIC_BUTTON'] } } }
+		}),
+		[`${manifest}/index.full.json`]: JSON.stringify({
+			tree: {
+				button: { component: { atom: ['PUBLIC_BUTTON'] } },
+				geo: { component: { organism: ['PRIVATE_MAP'] } }
+			}
+		})
+	});
+	try {
+		const publicOutput = await viteBuild(root, 'entry.js', { STYLIST_MODULES: '' });
+		assert.match(publicOutput, /PUBLIC_BUTTON/);
+		assert.doesNotMatch(publicOutput, /PRIVATE_MAP/);
+		const allOutput = await viteBuild(root, 'entry.js', { STYLIST_MODULES: 'all' });
+		assert.match(allOutput, /PRIVATE_MAP/);
+		const target = path.join(root, 'mirror');
+		await generateLibSourceMirror(root, path.join(root, 'src/lib/'), target, { modules: 'public' });
+		const mirrored = JSON.parse(
+			await readFile(
+				path.join(target, 'domain/data/json/domain-component-manifest/index.json'),
+				'utf8'
+			)
+		);
+		assert.deepEqual(Object.keys(mirrored.tree), ['button']);
+		assert.equal(
+			existsSync(path.join(target, 'domain/data/json/domain-component-manifest/index.full.json')),
+			false
+		);
+	} finally {
+		await rm(root, { recursive: true, force: true });
 	}
 });

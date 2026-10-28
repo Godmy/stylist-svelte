@@ -104,7 +104,10 @@ export function filterSandboxManifest(file, data, domains) {
 			)
 		);
 	}
-	if (name.endsWith('/domain-page-manifest/index.json')) {
+	if (
+		name.endsWith('/domain-page-manifest/index.json') ||
+		name.endsWith('/domain-component-manifest/index.json')
+	) {
 		return {
 			...data,
 			tree: Object.fromEntries(
@@ -146,7 +149,7 @@ export function filterSandboxManifest(file, data, domains) {
 }
 
 const GENERATED_JSON =
-	/\/data\/json\/domain-(page-manifest|files|component-import-diagnostics)\/index\.json$/;
+	/\/data\/json\/domain-(page-manifest|component-manifest|files|component-import-diagnostics)\/index\.json$/;
 
 /** Git-ignored `index.full.json` written next to a public generated manifest, if any.
  * The tracked file holds public modules only; the full one also has private domains.

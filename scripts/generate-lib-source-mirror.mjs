@@ -17,6 +17,7 @@ const mirrorDirectory = fileURLToPath(new URL('../static/generated/lib-source/',
 /** Generated manifests copied into the mirror also list hidden domains. */
 const MIRRORED_MANIFESTS = [
 	'domain-page-manifest',
+	'domain-component-manifest',
 	'domain-files',
 	'domain-component-import-diagnostics'
 ].map((name) => path.join('domain', 'data', 'json', name, 'index.json'));
@@ -26,7 +27,7 @@ const ROOT_BARRELS = ['index.ts', 'index.full.ts'];
 
 function shouldSkip(sourcePath) {
 	const baseName = path.basename(sourcePath);
-	return baseName === '.git' || baseName === 'node_modules';
+	return baseName === '.git' || baseName === 'node_modules' || baseName === 'index.full.json';
 }
 
 /** Copies the selected sources (public modules by default, STYLIST_MODULES=all for every one)
