@@ -9,6 +9,11 @@
 - Use Yarn to install dependencies and run scripts. The specific commands are defined by the available `package.json`.
 - Domains registered as Git submodules in the owning repository's `.gitmodules` are treated as embedded repository boundaries.
 - All source code inside an embedded repository must follow the domain, cluster, joint, family, and assembly rules.
+[public library manifest json](modules\sandbox\domain\data\json\domain-page-manifest\index.json)
+[full library manifest json](modules\sandbox\domain\data\json\domain-page-manifest\index.full.json)
+[public components manifest  for fast find components in json](modules\sandbox\domain\data\json\domain-component-manifest\index.json)
+[full components manifest for fast find components in json](modules\sandbox\domain\data\json\domain-component-manifest\index.full.json)
+[sandbox playground workspace](modules\sandbox\domain\data\md\readme.md)
 
 ### ADR-002 - Address Space Policy Within the stylist-svelte Library (Mandatory)
 

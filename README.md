@@ -1,5 +1,13 @@
 # Stylist Svelte
 
+[![npm version](https://img.shields.io/npm/v/stylist-svelte.svg)](https://www.npmjs.com/package/stylist-svelte)
+[![npm downloads](https://img.shields.io/npm/dm/stylist-svelte.svg)](https://www.npmjs.com/package/stylist-svelte)
+[![License](https://img.shields.io/npm/l/stylist-svelte.svg)](https://github.com/Godmy/stylist-svelte/blob/main/LICENSE)
+
+**Svelte 5 components and an AI-oriented development ecosystem powered by SAMO.**
+
+[Website](https://stylist-svelte.online/) · [npm](https://www.npmjs.com/package/stylist-svelte) · [Source](https://github.com/Godmy/stylist-svelte)
+
 `stylist-svelte` is a Svelte 5 component library with TypeScript types, a theme
 system and a SvelteKit sandbox. It is organised by the **SAMO** methodology
 (SOLID · Atomic Design · Morphological box · Orchestration): every entity has a
@@ -18,6 +26,10 @@ one owner.
 
 ```sh
 npm install stylist-svelte svelte
+```
+
+```bash
+npm install stylist-svelte
 ```
 
 Svelte `^5.0.0` is the required peer dependency. Import components by subpath —
