@@ -4,6 +4,7 @@ import svelte from 'eslint-plugin-svelte';
 export default tseslint.config(
 	{
 		ignores: [
+			'.tmp/**',
 			'.svelte-kit/**',
 			'dist/**',
 			'build/**',
