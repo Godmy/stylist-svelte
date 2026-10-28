@@ -7,6 +7,7 @@ import { access, copyFile, mkdir, readFile, rename, writeFile } from 'node:fs/pr
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
+import { format, resolveConfig } from 'prettier';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const options = {
@@ -337,11 +338,12 @@ try {
 	const indexTemporary = `${indexFile}.${process.pid}.tmp`;
 	await writeFile(
 		indexTemporary,
-		JSON.stringify(
-			Object.fromEntries(Object.entries(imageIndex).sort(([a], [b]) => a.localeCompare(b))),
-			null,
-			2
-		) + '\n'
+		await format(
+			JSON.stringify(
+				Object.fromEntries(Object.entries(imageIndex).sort(([a], [b]) => a.localeCompare(b)))
+			),
+			{ ...(await resolveConfig(indexFile)), filepath: indexFile }
+		)
 	);
 	await rename(indexTemporary, indexFile);
 	console.log(JSON.stringify({ succeeded, skipped, failed: failures.length, failures }, null, 2));
