@@ -4,7 +4,7 @@ import { registerModuleSources } from './register-module-sources.mjs';
 
 registerModuleSources();
 const { HTML_STYLE } =
-	await import('../modules/design-system/html/const/array/html-style/index.ts');
+	await import('../modules/design-system/html/const/preset/html-style/index.ts');
 const { resolveStyleTokenUsage } =
 	await import('../modules/design-system/design-token/function/resolve/style-token-usage/index.ts');
 
@@ -19,7 +19,7 @@ writeFileSync(
 	JSON.stringify(
 		{
 			date: '2026-10-11',
-			source: 'html/const/array/html-style/index.ts',
+			source: 'html/const/preset/html-style/index.ts',
 			scope:
 				'Observed references; emission is verified separately against light/dark theme providers.',
 			rules: HTML_STYLE.length,
