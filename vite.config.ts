@@ -5,6 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { moduleAliases } from './scripts/prepare-module-sources.mjs';
 import { publicSandbox } from './scripts/public-sandbox.mjs';
+import { componentFeedback } from './scripts/component-feedback.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -36,7 +37,12 @@ const quietProductionBuildWarnings = () => ({
 });
 
 export default defineConfig(() => {
-	const plugins = [publicSandbox(__dirname), sveltekit(), quietProductionBuildWarnings()];
+	const plugins = [
+		publicSandbox(__dirname),
+		componentFeedback(__dirname),
+		sveltekit(),
+		quietProductionBuildWarnings()
+	];
 
 	if (process.env.VITEST) {
 		plugins.push(svelteTesting());
