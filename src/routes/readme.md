@@ -6,17 +6,17 @@
 
 ## Маршруты
 
-| Адрес / метод                          | Реализация                                                       | Назначение                                                           |
-| -------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `/`                                    | [+page.server.ts](+page.server.ts), [+page.svelte](+page.svelte) | Получает `{ tree }` через DomainManager и открывает DomainPlayground |
-| Общий layout                           | [+layout.svelte](+layout.svelte)                                 | Подключает app.css и ThemeProvider                                   |
-| `GET /api/content?path=`               | [api/[endpoint]/+server.ts](api/[endpoint]/+server.ts)           | Возвращает текст файла по логическому адресу                         |
-| `GET /api/descriptor?entityPath=`      | Тот же обработчик                                                | Строит проекцию компонента по компактному дереву                     |
-| `GET /api/di?component=&dependency=`   | Тот же обработчик                                                | Читает отчёты зависимостей через DiagnosticManager                   |
-| `GET /api/dashboard/audit-tree`        | [Обработчик](api/dashboard/audit-tree/+server.ts)                | Дерево аудита                                                        |
-| `GET /api/dashboard/errors/latest`     | [Обработчик](api/dashboard/errors/latest/+server.ts)             | Последний отчёт ошибок                                               |
-| `GET /api/dashboard/indexation/latest` | [Обработчик](api/dashboard/indexation/latest/+server.ts)         | Последний отчёт индексации                                           |
-| `GET /api/dashboard/reports/latest`    | [Обработчик](api/dashboard/reports/latest/+server.ts)            | Сводка отчётов                                                       |
+| Адрес / метод                                            | Реализация                                                                                                 | Назначение                                                           |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `/`, `/components`, `/playground`, `/about`, `/settings` | [+page.server.ts]([[screen=workspace]]/+page.server.ts), [+page.svelte]([[screen=workspace]]/+page.svelte) | Получает `{ tree }` через DomainManager и открывает DomainPlayground |
+| Общий layout                                             | [+layout.svelte](+layout.svelte)                                                                           | Подключает app.css и ThemeProvider                                   |
+| `GET /api/content?path=`                                 | [api/[endpoint]/+server.ts](api/[endpoint]/+server.ts)                                                     | Возвращает текст файла по логическому адресу                         |
+| `GET /api/descriptor?entityPath=`                        | Тот же обработчик                                                                                          | Строит проекцию компонента по компактному дереву                     |
+| `GET /api/di?component=&dependency=`                     | Тот же обработчик                                                                                          | Читает отчёты зависимостей через DiagnosticManager                   |
+| `GET /api/dashboard/audit-tree`                          | [Обработчик](api/dashboard/audit-tree/+server.ts)                                                          | Дерево аудита                                                        |
+| `GET /api/dashboard/errors/latest`                       | [Обработчик](api/dashboard/errors/latest/+server.ts)                                                       | Последний отчёт ошибок                                               |
+| `GET /api/dashboard/indexation/latest`                   | [Обработчик](api/dashboard/indexation/latest/+server.ts)                                                   | Последний отчёт индексации                                           |
+| `GET /api/dashboard/reports/latest`                      | [Обработчик](api/dashboard/reports/latest/+server.ts)                                                      | Сводка отчётов                                                       |
 
 Для известных endpoint `content`, `descriptor`, `di` обработчик POST возвращает
 405; неизвестный endpoint возвращает 404. `app.svelte` — обычный файл примера,
@@ -29,7 +29,7 @@
 В DomainPlayground доступны landing, explorer и how-it-works; explorer и
 how-it-works импортируются лениво. Выбор экрана хранится в состоянии компонента.
 Отдельного экрана диагностики нет: прогон stories — это story страницы
-`page/story-runner`, отчёты по манифестам — stories своих организмов (см. раздел 2).
+`organism/story-runner`, отчёты по манифестам — stories своих организмов (см. раздел 2).
 
 Explorer восстанавливает файлы из дерева и выбирает domain, cluster, joint и
 family. Stories загружаются через glob по физическим `modules/*/*/component/**`,
@@ -103,7 +103,7 @@ PR #4. Пути и формат манифеста обновлены; стар�
 
 | Story                                                                   | Данные                                  | Содержимое                                                                                                                                  |
 | ----------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sandbox/domain/component/page/story-runner`                            | glob всех stories, кроме собственной    | по кнопке импортирует и монтирует **каждую** story, меряет `importMs`/`mountMs`, ловит `import`/`mount`/`window.error`/`unhandledrejection` |
+| `sandbox/domain/component/organism/story-runner`                        | glob всех stories, кроме собственной    | по кнопке импортирует и монтирует **каждую** story, меряет `importMs`/`mountMs`, ловит `import`/`mount`/`window.error`/`unhandledrejection` |
 | `chart/component/organism/legend-bar-diagram`                           | `domain-files`: `fileCount` по доменам  | число файлов по доменам; пресет `Sample` — прежние демо-данные                                                                              |
 | `chart/component/organism/legend-band-diagram`                          | `domain-files`: `components` по доменам | состав компонентов (atom…page) по доменам; пресет `Sample`                                                                                  |
 | `sandbox/domain/component/organism/domain-cluster-balance`              | `domain-files`: кластеры доменов        | тепловая таблица баланса кластеров                                                                                                          |
@@ -288,7 +288,7 @@ iPad 768×1024, монитор 1440×900, ориентация), но песоч
 
 ### 6.1 Что уже есть и на чём строить
 
-- `page/story-runner` уже умеет пройти по всем stories, импортировать и смонтировать каждую и
+- `organism/story-runner` уже умеет пройти по всем stories, импортировать и смонтировать каждую и
   собрать ошибки/время — не хватает только снимка.
 - `canvas/component/molecule/screenshot-selector` — выбор области на экране (можно использовать для
   «снять фрагмент»).

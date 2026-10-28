@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { DOMAIN_SCREEN } from '$stylist/domain/const/object/domain-screen';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
 	import DomainPlayground from '$stylist/domain/component/page/domain-playground/index.svelte';
 	import type { PageData } from './$types';
 
@@ -8,8 +9,11 @@
 
 <DomainPlayground
 	tree={data.tree}
-	initialScreen={DOMAIN_SCREEN.LANDING}
-	initialDomain="wbd"
+	route={page.url.pathname + page.url.search}
+	onNavigate={(url) => {
+		void goto(url, { keepFocus: true });
+	}}
+	initialDomain="html"
 	initialCluster="component"
 	initialJoint="atom"
 	initialPreviewMode="story"

@@ -60,7 +60,8 @@
 		"audit": "yarn audit",
 		"depcheck": "depcheck",
 		"gate": "node scripts/stylist-gate.mjs",
-		"check:package-tarball": "node scripts/check-package-tarball.mjs"
+		"check:package-tarball": "node scripts/check-package-tarball.mjs",
+		"previews:capture": "node scripts/capture-component-previews.mjs"
 	},
 	"exports": {
 		"./*": "./dist/*",
