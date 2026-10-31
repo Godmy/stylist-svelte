@@ -552,6 +552,7 @@ export {
 	SCHEME_FOREST,
 	SCHEME_MINIMAL,
 	SCHEME_OCEAN,
+	SCHEME_SPANISH,
 	SCHEME_SUNSET,
 	SCHEME_WEORACLE,
 	Story,
@@ -1035,10 +1036,8 @@ export {
 	LoginForm,
 	PresetRatingFeedbackLabels,
 	RatingFeedback,
-	SEARCH_ICON_NAME,
 	SchemaFormDialog,
 	ScreenReader,
-	SearchForm,
 	SupportCounter,
 	ToggleButtonGroup,
 	Validation,
@@ -1134,11 +1133,16 @@ export {
 } from '../../modules/interaction/pager';
 export {
 	AutoComplete,
-	AutoSearch,
 	ObjectManagerSearchBar,
+	SEARCH_ICON_NAME,
+	SEARCH_SKIN_SCOPE,
 	SearchBar,
+	SearchField,
+	SearchForm,
+	SearchOverlay,
 	SearchResults,
-	SearchSuggestion
+	SearchSuggestion,
+	SearchToggle
 } from '../../modules/interaction/search';
 export {
 	CardClose,
@@ -1416,7 +1420,8 @@ export type {
 } from '../../modules/interaction/menu';
 export type {
 	AutoCompleteOption,
-	SearchResultItem
+	SearchResultItem,
+	SearchSuggestionItem
 } from '../../modules/interaction/search';
 export type {
 	TokenControlDefinition,
@@ -2223,7 +2228,6 @@ export type {
 	RecipeRatingFeedback,
 	RecipeSchemaFormDialog,
 	RecipeScreenReader,
-	RecipeSearchForm,
 	RecipeSupportCounter,
 	RecipeToggleButtonGroup,
 	RecipeValidation,
@@ -2325,15 +2329,22 @@ export type {
 } from '../../modules/interaction/pager';
 export type {
 	RecipeAutoComplete,
-	RecipeAutoSearch,
 	RecipeSearchBar,
+	RecipeSearchField,
+	RecipeSearchForm,
+	RecipeSearchOverlay,
 	RecipeSearchResults,
 	RecipeSearchSuggestion,
+	RecipeSearchToggle,
 	SlotAutoComplete,
-	SlotAutoSearch,
 	SlotSearchBar,
-	SlotSearchBarEvents,
-	SlotSearchSuggestion
+	SlotSearchField,
+	SlotSearchForm,
+	SlotSearchOverlay,
+	SlotSearchResults,
+	SlotSearchSkin,
+	SlotSearchSuggestion,
+	SlotSearchToggle
 } from '../../modules/interaction/search';
 export type {
 	RecipeCardClose,
