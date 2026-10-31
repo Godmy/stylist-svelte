@@ -84,6 +84,13 @@
 		"private": true,
 		"domains": ["geo"]
 	},
+	"maplibre": {
+		"path": "modules/global/maplibre",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["maplibre"],
+		"packageName": "stylist-svelte-maplibre"
+	},
 	"treejs": {
 		"path": "modules/architecture/treejs",
 		"domainRoot": true,
