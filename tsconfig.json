@@ -99,6 +99,8 @@
 		"modules/business/sakartvelo/interface/**/*",
 		"modules/business/sakartvelo/type/**/*",
 		"modules/global/geo/**/*",
+		"modules/global/maplibre/**/*",
+		"modules/global/weather/**/*",
 		"modules/business/wbd/**/*",
 		"modules/business/spanish/**/*",
 		"modules/business/farm/**/*",

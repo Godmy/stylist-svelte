@@ -91,6 +91,13 @@
 		"domains": ["maplibre"],
 		"packageName": "stylist-svelte-maplibre"
 	},
+	"weather": {
+		"path": "modules/global/weather",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["weather"],
+		"packageName": "stylist-svelte-weather"
+	},
 	"treejs": {
 		"path": "modules/architecture/treejs",
 		"domainRoot": true,
