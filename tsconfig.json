@@ -108,6 +108,14 @@
 		"modules/sandbox/development/**/*",
 		"modules/customer/ai/**/*",
 		"modules/prototype/scratch/**/*",
+		"modules/prototype/motion/**/*",
+		"modules/prototype/blender/component/**/*",
+		"modules/prototype/blender/const/**/*",
+		"modules/prototype/blender/data/**/*",
+		"modules/prototype/blender/function/**/*",
+		"modules/prototype/blender/interface/**/*",
+		"modules/prototype/blender/type/**/*",
+		"modules/prototype/blender/test/**/*",
 		"modules/prototype/prototype-*/**/*",
 		"modules/information/content/**/*"
 	]

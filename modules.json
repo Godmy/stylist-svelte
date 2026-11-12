@@ -168,6 +168,18 @@
 		"private": true,
 		"domains": ["scratch"]
 	},
+	"motion": {
+		"path": "modules/prototype/motion",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["motion"]
+	},
+	"blender": {
+		"path": "modules/prototype/blender",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["blender"]
+	},
 	"booking": {
 		"path": "modules/business/booking",
 		"domainRoot": true,
