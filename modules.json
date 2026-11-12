@@ -33,7 +33,17 @@
 	},
 	"information": {
 		"path": "modules/information",
-		"domains": ["list", "tree", "table", "chart", "image", "audio", "video", "notification"],
+		"domains": [
+			"list",
+			"tree",
+			"table",
+			"chart",
+			"image",
+			"audio",
+			"video",
+			"notification",
+			"content"
+		],
 		"sourceRoot": "."
 	},
 	"business": {

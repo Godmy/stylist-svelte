@@ -700,6 +700,18 @@ export {
 	WidebandDelphiDiagram
 } from '../../modules/information/chart';
 export {
+	ARTICLE_BLOCK_OPTIONS,
+	ArticleBlockEditor,
+	ArticleReader,
+	articleBlockLabel,
+	articleHtmlText,
+	checkArticleBlocks,
+	createArticleBlock,
+	enhanceArticleContents,
+	normalizeArticleHtml,
+	splitArticleSections
+} from '../../modules/information/content';
+export {
 	CanvasImageEditor,
 	Card,
 	DividerHeadingImageText,
@@ -1143,7 +1155,8 @@ export {
 	SearchOverlay,
 	SearchResults,
 	SearchSuggestion,
-	SearchToggle
+	SearchToggle,
+	createAsyncSearchState
 } from '../../modules/interaction/search';
 export {
 	CardClose,
@@ -1345,6 +1358,19 @@ export type {
 	TokenChart,
 	TokenLineType
 } from '../../modules/information/chart';
+export type {
+	ArticleBlock,
+	ArticleBlockProblem,
+	ArticleComparisonColumn,
+	ArticleDocument,
+	ArticleEditorRun,
+	ArticleEditorSection,
+	ArticleLink
+} from '../../modules/information/content';
+export type {
+	CreditedImage,
+	ImageAttribution
+} from '../../modules/information/image';
 export type { ListItemMarkerType } from '../../modules/information/list';
 export type {
 	INotificationSettingsPreference,
@@ -1929,6 +1955,14 @@ export type {
 	SlotChartAxis
 } from '../../modules/information/chart';
 export type {
+	BehaviorArticleBlockEditor,
+	BehaviorArticleReader,
+	RecipeArticleBlockEditor,
+	RecipeArticleReader,
+	SlotArticleBlockEditor,
+	SlotArticleReader
+} from '../../modules/information/content';
+export type {
 	RecipeCanvasImageEditor,
 	RecipeCard,
 	RecipeDividerHeadingImageText,
@@ -2332,6 +2366,7 @@ export type {
 	RecipePagination
 } from '../../modules/interaction/pager';
 export type {
+	ContractAsyncSearch,
 	RecipeAutoComplete,
 	RecipeSearchBar,
 	RecipeSearchField,

@@ -108,6 +108,7 @@
 		"modules/sandbox/development/**/*",
 		"modules/customer/ai/**/*",
 		"modules/prototype/scratch/**/*",
-		"modules/prototype/prototype-*/**/*"
+		"modules/prototype/prototype-*/**/*",
+		"modules/information/content/**/*"
 	]
 }
