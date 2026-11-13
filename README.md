@@ -245,7 +245,7 @@ the site's Yarn installation so the portal follows the new path.
 ### Choose modules
 
 One selection rule is shared by the aliases, `prepare-module-sources.mjs` and
-the Python indexer: `all` (default), `public`, or a comma-separated list of
+the indexer (`stylist-indexation`): `all` (default), `public`, or a comma-separated list of
 registry keys.
 
 ```sh

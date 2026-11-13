@@ -20,7 +20,7 @@ const names = (value) =>
 			.filter(Boolean)
 	);
 
-/** Shared with the Python indexer, which cli.py --modules/--exclude-modules set. */
+/** Shared with the indexer (stylist-indexation), which --modules/--exclude-modules set. */
 export const MODULES_ENV = 'STYLIST_MODULES';
 export const EXCLUDE_MODULES_ENV = 'STYLIST_EXCLUDE_MODULES';
 

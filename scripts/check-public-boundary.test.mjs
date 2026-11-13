@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
 import { checkPublicBoundary, privateTarget } from './check-public-boundary.mjs';
-import { findTools, runGate } from './stylist-gate.mjs';
+import { runGate } from './stylist-gate.mjs';
 
 const registry = {
 	common: { path: 'modules/common', sourceRoot: '.', domains: ['button', 'notification'] },
@@ -118,18 +118,20 @@ test('committed generated root and manifest must not mention private modules', a
 	);
 });
 
-test('gate reports python checks as skipped without stylist tools and fails on violations', async () => {
+test('gate passes a clean tree and fails on violations', async () => {
 	await fixture(
 		{
 			'src/lib/index.ts': "export { B } from '../../modules/common/button';",
 			'modules/common/button/index.ts': 'export const B = 1;'
 		},
 		async (root) => {
-			assert.match(findTools(root, {}).skipped, /no stylist tools/);
 			const lines = [];
 			const passed = await runGate(root, { log: (line) => lines.push(line) });
 			assert.equal(passed.ok, true, lines.join('\n'));
-			assert.ok(lines.some((line) => line.includes('SKIPPED') && line.includes('python')));
+			assert.deepEqual(
+				passed.results.map((result) => result.status),
+				['passed', 'passed']
+			);
 			await writeFile(
 				join(root, 'modules/common/button/index.ts'),
 				"export { C as B } from '$stylist/chat/index.js';"
