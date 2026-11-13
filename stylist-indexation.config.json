@@ -1,0 +1,60 @@
+{
+  "projects": [
+    { "name": "stylist-svelte", "path": "." },
+    { "name": "stylist-svelte-travel", "path": "modules/business/travel" },
+    { "name": "stylist-svelte-booking", "path": "modules/business/booking" },
+    { "name": "stylist-svelte-admin", "path": "modules/business/admin" },
+    {
+      "name": "stylist-svelte-sakartvelo",
+      "path": "modules/business/sakartvelo"
+    }
+  ],
+  "clustersOnly": true,
+  "modes": {
+    "full": {
+      "excludedRootDomains": ["server"],
+      "includedRootClusters": [
+        "class",
+        "component",
+        "const",
+        "data",
+        "function",
+        "interface",
+        "type"
+      ]
+    },
+    "package": {
+      "excludedRootDomains": [
+        "admin",
+        "booking",
+        "chat",
+        "commerce",
+        "development",
+        "domain",
+        "geo",
+        "management",
+        "marketing",
+        "playground",
+        "science",
+        "server",
+        "social",
+        "travel",
+        "travel-admin",
+        "travel-commerce",
+        "wbd"
+      ],
+      "includedRootClusters": ["component", "const", "interface", "type"]
+    }
+  },
+  "skipFolders": [
+    "shader",
+    "design-system/presets/legacy",
+    "design-system/compat"
+  ],
+  "svgDomains": ["svg"],
+  "componentPrefixes": { "html": "Html" },
+  "componentNames": { "html/node": "HtmlNodeRenderer" },
+  "retiredMarkers": ["LANKATOUR LIB INDEX"],
+  "aliases": ["$stylist", "$lib", "$stylist-playground"],
+  "outDir": "../stylist/indexation/output"
+}
