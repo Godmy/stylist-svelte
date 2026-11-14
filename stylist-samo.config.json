@@ -1,0 +1,14 @@
+{
+	"root": "..",
+	"library": ".",
+	"outDir": "../stylist",
+	"consumers": [
+		"../sakartvelotea.com/apps/web",
+		"../pavarenkin.online",
+		"../yogamaya.ru",
+		"../weoracle.online",
+		"../myspanish.space/myspanish.space",
+		"../pbmtherapy",
+		"../ai-hecate.shop/moon-core/apps/web"
+	]
+}
