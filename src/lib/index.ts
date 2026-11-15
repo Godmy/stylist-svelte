@@ -1137,10 +1137,12 @@ export {
 	resolveNavigationHref
 } from '../../modules/interaction/navigation';
 export {
+	Carousel,
 	PageButton,
 	PageEllipsis,
 	Pagination,
 	PresetPageButton,
+	createCarouselState,
 	createPageButtonState,
 	createPageEllipsisState,
 	createPaginationState
@@ -2362,6 +2364,7 @@ export type {
 	SlotWorkspaceMenu
 } from '../../modules/interaction/navigation';
 export type {
+	RecipeCarousel,
 	RecipePageButton,
 	RecipePageEllipsis,
 	RecipePagination
