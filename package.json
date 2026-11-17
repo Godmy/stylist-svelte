@@ -103,6 +103,7 @@
 		"!dist/presentation/**",
 		"!dist/scratch/**",
 		"!dist/treejs/**",
+		"!dist/tools/**",
 		"!dist/demo/**",
 		"!dist/prototype-school/**",
 		"!dist/prototype-shop/**",

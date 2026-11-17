@@ -74,6 +74,12 @@
 		"domains": ["domain", "token", "server", "development"],
 		"sourceRoot": "."
 	},
+	"tools": {
+		"path": "modules/sandbox/tools/src/lib",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["tools"]
+	},
 	"travel": {
 		"path": "modules/business/travel",
 		"domainRoot": true,

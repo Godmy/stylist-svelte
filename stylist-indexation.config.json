@@ -12,7 +12,7 @@
   "clustersOnly": true,
   "modes": {
     "full": {
-      "excludedRootDomains": ["server"],
+      "excludedRootDomains": ["server", "tools"],
       "includedRootClusters": [
         "class",
         "component",
@@ -37,6 +37,7 @@
         "playground",
         "science",
         "server",
+        "tools",
         "social",
         "travel",
         "travel-admin",
