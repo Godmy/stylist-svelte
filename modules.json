@@ -150,6 +150,24 @@
 		"domains": ["management", "marketing", "portfolio", "science"],
 		"sourceRoot": "."
 	},
+	"task-processor": {
+		"path": "modules/management/task-processor",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["task-processor"]
+	},
+	"object-registry": {
+		"path": "modules/management/object-registry",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["object-registry"]
+	},
+	"access-control": {
+		"path": "modules/management/access-control",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["access-control"]
+	},
 	"global": {
 		"path": "modules/global",
 		"private": true,
