@@ -57,5 +57,5 @@
   "componentNames": { "html/node": "HtmlNodeRenderer" },
   "retiredMarkers": ["LANKATOUR LIB INDEX"],
   "aliases": ["$stylist", "$lib", "$stylist-playground"],
-  "outDir": "../stylist/indexation/output"
+  "outDir": "../.stylist/indexation/output"
 }

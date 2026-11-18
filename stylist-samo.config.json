@@ -1,7 +1,7 @@
 {
 	"root": "..",
 	"library": ".",
-	"outDir": "../stylist",
+	"outDir": "../.stylist",
 	"consumers": [
 		"../sakartvelotea.com/apps/web",
 		"../pavarenkin.online",
