@@ -118,7 +118,10 @@ the sandbox landing and its **How it works** page explain them with examples.
 Some domains are Git repositories of their own, registered in the owning
 module's `.gitmodules`: `theme`, `svg`, `typography` and `layout` in
 design-system; `auth` in customer; `server` in sandbox; `geo` in global; `travel`, `wbd`, `spanish`,
-`sakartvelo` and `farm` in business; `presentation` (repository stylist-svelte-prezi) and `scratch` in prototype. `travel` and `sakartvelo` are also separate
+`sakartvelo` and `farm` in business; `presentation` (repository stylist-svelte-prezi) and `scratch` in prototype. Sandbox also embeds `tools` (repository
+stylist-svelte-tools); its private domain root is `modules/sandbox/tools/src/lib`.
+It is excluded from browser root exports and the public npm package.
+`travel` and `sakartvelo` are also separate
 private Yarn packages. See [modules/readme.md](modules/readme.md) for the
 registry format (`path`, `domains`, `sourceRoot`, `domainRoot`, `private`).
 
@@ -159,6 +162,7 @@ git submodule update --init --recursive \
   modules/architecture modules/sandbox
 node scripts/prepare-module-sources.mjs --public   # validate physical domains
 yarn install --immutable
+npm ci --prefix modules/sandbox/tools              # generation tools
 yarn dev                                           # sandbox on http://localhost:5174
 ```
 
@@ -272,6 +276,12 @@ The sandbox dev server uses all modules; production builds of the sandbox use
    | `yarn stylist:index`    | Regenerate barrel `index.ts` files               |
    | `yarn stylist:manifest` | Regenerate the sandbox manifest (new components) |
    | `yarn stylist:errors`   | Unified TypeScript + Svelte error report         |
+
+   Workspace generation commands launch `modules/sandbox/tools/scripts/` from
+   the library root. Indexation reports go to `../.stylist/indexation/output/`,
+   as configured in `stylist-indexation.config.json`; generated barrels and
+   manifests stay in their source locations. Analysis is provided separately
+   by `stylist-samo-analyze`.
 
 4. **Commit up the nesting.** Commit in the repository that owns the file, then
    record its revision in the owning module, then in the umbrella:

@@ -26,8 +26,12 @@ Use existing implementations in the owning domain as examples.
 
 Generated barrels and root exports are human-only. After changes affecting
 exports or the component inventory, tell Dmitrii which regeneration is needed.
-The parent site's `yarn stylist:manifest` refreshes roots and the sandbox
-manifest; it is not a standalone library command. Agents never run the global
+The parent workspace's `yarn stylist:manifest` launches
+`modules/sandbox/tools/scripts/manifest.mjs` from the library root and refreshes
+roots and the sandbox manifest. Install the nested tools with
+`npm ci --prefix modules/sandbox/tools`. Indexation reports go to
+`../.stylist/indexation/output`; source barrels and manifests stay in place.
+Agents never run the global
 indexation, auditor or unified error CLI.
 
 ## Validation

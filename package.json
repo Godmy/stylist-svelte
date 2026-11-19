@@ -114,7 +114,8 @@
 		"!dist/**/story-*.svelte.d.ts",
 		"!dist/**/*.test.*",
 		"!dist/**/*.spec.*",
-		"!dist/server/**"
+		"!dist/server/**",
+		"!dist/tools/**"
 	],
 	"peerDependencies": {
 		"svelte": "^5.0.0"

@@ -89,9 +89,12 @@ Travel — отдельная приватная граница пакета; е
 `build:site` создаёт зеркало исходников, собирает SvelteKit и пишет
 `.assetsignore` для Cloudflare. Это отдельный процесс от сборки npm-пакета.
 API просмотра текста читает зеркало, а диагностические API читают результаты
-внешних инструментов `stylist/*/output`.
+внешних инструментов в `.stylist/*/output` родительского workspace.
 
-В standalone-клоне этих инструментов (`stylist-svelte-tools`) и site-root scripts нет. Дмитрий
-управляет глобальной индексацией, аудитом и error-check CLI в родительском
-проекте. Для `weoracle.online` обычная разработка использует workspace-исходники
+Генераторы (`stylist-svelte-tools`) подключены вложенным подмодулем
+`modules/sandbox/tools`; зависимости устанавливаются через
+`npm ci --prefix modules/sandbox/tools`. Команды родительского workspace запускают
+их из корня библиотеки; отчёты индексации идут в `../.stylist/indexation/output`.
+Дмитрий управляет глобальной индексацией; аудит и error-check CLI предоставляет
+отдельный `stylist-samo-analyze`. Для `weoracle.online` обычная разработка использует workspace-исходники
 и существующий hot reload; регенерация `dist` требует отдельного поручения.

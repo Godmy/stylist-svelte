@@ -12,7 +12,7 @@
   "clustersOnly": true,
   "modes": {
     "full": {
-      "excludedRootDomains": ["server"],
+      "excludedRootDomains": ["server", "tools"],
       "includedRootClusters": [
         "class",
         "component",
@@ -38,6 +38,7 @@
         "science",
         "server",
         "social",
+        "tools",
         "travel",
         "travel-admin",
         "travel-commerce",
@@ -56,5 +57,5 @@
   "componentNames": { "html/node": "HtmlNodeRenderer" },
   "retiredMarkers": ["LANKATOUR LIB INDEX"],
   "aliases": ["$stylist", "$lib", "$stylist-playground"],
-  "outDir": "../stylist/indexation/output"
+  "outDir": "../.stylist/indexation/output"
 }
