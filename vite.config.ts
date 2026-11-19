@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import { moduleAliases } from './scripts/prepare-module-sources.mjs';
 import { publicSandbox } from './scripts/public-sandbox.mjs';
 import { componentFeedback } from './scripts/component-feedback.mjs';
+import { toolReports } from './scripts/tool-reports.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -40,6 +41,7 @@ export default defineConfig(() => {
 	const plugins = [
 		publicSandbox(__dirname),
 		componentFeedback(__dirname),
+		toolReports(__dirname),
 		sveltekit(),
 		quietProductionBuildWarnings()
 	];
