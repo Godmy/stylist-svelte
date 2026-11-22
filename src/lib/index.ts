@@ -36,12 +36,14 @@ export {
 export {
 	DEFAULT_SCHEMA_TEXT,
 	EDIT_CANDIDATE_SCHEMA_TEXT,
+	ERD_SCHEMA_GRAVITY_MESSAGE,
 	ERD_SCHEMA_HEADER_MESSAGE,
 	ERD_SCHEMA_TEXT_MESSAGE,
 	ERD_SCHEMA_TOOL_MESSAGE,
 	SCIENCE_DOMAIN_SCHEMA_TEXT,
 	Schema,
 	SchemaDependency,
+	SchemaGravity,
 	SchemaHeader,
 	SchemaTable,
 	SchemaTableField,
@@ -49,9 +51,12 @@ export {
 	SchemaText,
 	SchemaTool,
 	SchemaView,
+	bundleSchemaDependencyRoutes,
+	createSchemaDependencyRoutes,
 	mergeSchemaDocuments,
 	schemaDocumentToText,
-	schemaTextToDocument
+	schemaTextToDocument,
+	serializeSchemaRoutePath
 } from '../../modules/architecture/erd';
 export {
 	Camera,
@@ -395,6 +400,7 @@ export {
 	GRID_MOLECULE_JUSTIFY,
 	Grid,
 	GridManager,
+	HeroBanner,
 	HeroSection,
 	ITEM_LAYOUT_GRAVITY,
 	ITEM_LAYOUT_LEVEL,
@@ -797,12 +803,17 @@ export {
 	createTable
 } from '../../modules/information/table';
 export {
+	Catalog,
 	FlatTree,
+	TREE_CATALOG_MESSAGE,
 	TREE_TREE_NODE_ITEM_MESSAGE,
 	TreeNodeItem,
 	TreeViewer,
+	buildCatalogTree,
 	createTreeExpansionState,
-	normalizeTreeViewerNode
+	filterCatalogTree,
+	normalizeTreeViewerNode,
+	prettyJson
 } from '../../modules/information/tree';
 export {
 	VIDEO_VIDEO_PLAYER_MESSAGE,
@@ -842,6 +853,7 @@ export {
 	Spinner,
 	TOKEN_CONNECTOR,
 	TOKEN_LOADING,
+	TOKEN_NAMED_EASINGS,
 	TiltCard,
 	TiltShowcase,
 	Tooltip,
@@ -858,7 +870,9 @@ export {
 	createStickyScrollProgress,
 	getEasingFunction,
 	mapProgress,
+	parseDurationMs,
 	pointerPosition,
+	prefersReducedMotion,
 	tiltRotation,
 	tiltSample
 } from '../../modules/interaction/animation';
@@ -1041,6 +1055,8 @@ export {
 } from '../../modules/interaction/file';
 export {
 	AddressForm,
+	CONTACT_FORM_MESSAGES,
+	ContactForm,
 	FeedbackScenario,
 	FormFooter,
 	FormHeader,
@@ -1219,8 +1235,11 @@ export type {
 	SharedCanvasToolDefinition
 } from '../../modules/architecture/canvas';
 export type {
+	SchemaDependencyRoute,
 	SchemaDocument,
 	SchemaField,
+	SchemaGravitySettings,
+	SchemaGravityZone,
 	SchemaLayout,
 	SchemaMode,
 	SchemaParseResult,
@@ -1396,6 +1415,8 @@ export type {
 	TokenSortDirection
 } from '../../modules/information/table';
 export type {
+	CatalogField,
+	CatalogTreeNode,
 	TreeNode,
 	TreeNodeItemNode
 } from '../../modules/information/tree';
@@ -1447,6 +1468,10 @@ export type {
 	ViewMode
 } from '../../modules/interaction/file';
 export type {
+	ContactFormFeedback,
+	ContactFormMessages
+} from '../../modules/interaction/form';
+export type {
 	SiteMenuGroup,
 	SiteMenuItem
 } from '../../modules/interaction/menu';
@@ -1494,6 +1519,7 @@ export type {
 	RecipeErdTableField,
 	RecipeErdTableHeader,
 	RecipeSchema,
+	RecipeSchemaGravity,
 	RecipeSchemaHeader,
 	RecipeSchemaText,
 	RecipeSchemaTool,
@@ -1769,6 +1795,7 @@ export type {
 	RecipeDivider,
 	RecipeFeatureItems,
 	RecipeGrid,
+	RecipeHeroBanner,
 	RecipeHeroSection,
 	RecipeLanding,
 	RecipeLandingTemplate,
@@ -2030,6 +2057,7 @@ export type {
 	SlotFilterText
 } from '../../modules/information/table';
 export type {
+	RecipeCatalog,
 	RecipeTree,
 	RecipeTreeNodeItem,
 	RecipeTreeViewer
@@ -2259,6 +2287,7 @@ export type {
 	BehaviorRatingFeedback,
 	RecipeAccountForms,
 	RecipeAddressForm,
+	RecipeContactForm,
 	RecipeFeedbackScenario,
 	RecipeFormFooter,
 	RecipeFormHeader,
@@ -2273,6 +2302,7 @@ export type {
 	RecipeToggleButtonGroup,
 	RecipeValidation,
 	SlotAddressData,
+	SlotContactFormMessages,
 	SlotFeedbackScenario,
 	SlotFormData,
 	SlotFormFooter,

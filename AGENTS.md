@@ -31,7 +31,7 @@
 - The contents of `<domain>` must match its subject area and be organized into `<cluster>` directories according to language constraints.
 - Directories of the form `.../<cluster>/...` represent strict typing at the TypeScript and Svelte language level.
 - The contents of `<cluster>` must match its name and reside inside the directory of an appropriate strictly typed joint: `/<joint>/`.
-- Directories of the form `.../<joint>/...` represent strict logical typing of entities:
+- Directories of the form `.../<cluster>/...` represent strict logical typing of entities:
   -- `interface` contains the Domain-Specific Interface Assembly Pattern (DSIAP) and import directories.
   -- `function` contains pure function names according to the functional taxonomy.
   -- `class` contains design-pattern names that express the role of the class.
