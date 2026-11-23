@@ -30,7 +30,7 @@ async function commit(path) {
 	await git(path, 'commit', '--quiet', '-m', 'Fixture');
 }
 
-async function fixture(t, { missingPublic = false } = {}) {
+async function fixture(t, { missingPublic = false, skipPrivateTools = true } = {}) {
 	const root = await mkdtemp(join(tmpdir(), 'stylist-checkout-'));
 	t.after(() => rm(root, { recursive: true, force: true }));
 	const nested = await repository(root, 'nested', { 'index.ts': 'export const icon = 1;' });
@@ -49,6 +49,19 @@ async function fixture(t, { missingPublic = false } = {}) {
 		join(root, 'missing-treejs')
 	);
 	await git(owner, 'config', '--file', '.gitmodules', 'submodule.treejs.update', 'none');
+	// A public owner can contain a private tool repository, including older pinned
+	// revisions that do not yet declare update=none in their own .gitmodules.
+	await git(owner, 'config', '--file', '.gitmodules', 'submodule.tools.path', 'tools');
+	await git(
+		owner,
+		'config',
+		'--file',
+		'.gitmodules',
+		'submodule.tools.url',
+		join(root, 'missing-tools')
+	);
+	if (skipPrivateTools)
+		await git(owner, 'config', '--file', '.gitmodules', 'submodule.tools.update', 'none');
 	await git(owner, 'add', '.');
 	await git(
 		owner,
@@ -56,6 +69,13 @@ async function fixture(t, { missingPublic = false } = {}) {
 		'--add',
 		'--cacheinfo',
 		`160000,${(await git(nested, 'rev-parse', 'HEAD')).stdout.trim()},treejs`
+	);
+	await git(
+		owner,
+		'update-index',
+		'--add',
+		'--cacheinfo',
+		`160000,${(await git(nested, 'rev-parse', 'HEAD')).stdout.trim()},tools`
 	);
 	await git(owner, 'commit', '--quiet', '-m', 'Fixture');
 	const source = await repository(root, 'source', {
@@ -66,6 +86,12 @@ async function fixture(t, { missingPublic = false } = {}) {
 				private: true,
 				domainRoot: true,
 				domains: ['treejs']
+			},
+			tools: {
+				path: 'modules/common/tools/src/lib',
+				private: true,
+				domainRoot: true,
+				domains: ['tools']
 			},
 			...(missingPublic && {
 				business: { path: 'modules/business', sourceRoot: '.', domains: ['auth'] }
@@ -129,8 +155,26 @@ test(
 		await assert.rejects(readFile(join(cwd, 'src/lib/svg/index.ts')), { code: 'ENOENT' });
 		await assert.rejects(readFile(join(cwd, 'modules/private/.git')), { code: 'ENOENT' });
 		await assert.rejects(readFile(join(cwd, 'modules/common/treejs/.git')), { code: 'ENOENT' });
+		await assert.rejects(readFile(join(cwd, 'modules/common/tools/.git')), { code: 'ENOENT' });
 		assert.equal((await git(cwd, 'status', '--porcelain')).stdout, '');
 		await exec('bash', ['experiments/prepare-local-build.sh'], { cwd, env });
+		assert.equal((await git(cwd, 'status', '--porcelain')).stdout, '');
+	}
+);
+
+test(
+	'public preparation skips private tools even in an older owner without update=none',
+	{ timeout: 30000 },
+	async (t) => {
+		const cwd = await fixture(t, { skipPrivateTools: false });
+		const result = await exec('bash', ['experiments/prepare-local-build.sh'], { cwd, env });
+		assert.match(result.stdout, /ready: run/);
+		assert.doesNotMatch(result.stderr, /Cloning into .*\/tools/);
+		await assert.rejects(readFile(join(cwd, 'modules/common/tools/.git')), { code: 'ENOENT' });
+		assert.equal(
+			await readFile(join(cwd, 'modules/common/svg/index.ts'), 'utf8'),
+			'export const icon = 1;'
+		);
 		assert.equal((await git(cwd, 'status', '--porcelain')).stdout, '');
 	}
 );
