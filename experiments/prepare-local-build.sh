@@ -22,7 +22,10 @@ if (!paths.length) throw new Error("No public module owners registered");
 console.log(paths.join("\n"));
 ')"
 mapfile -t public_modules <<< "$public_module_paths"
-GIT_TERMINAL_PROMPT=0 git submodule update --init --recursive -- "${public_modules[@]}"
+# The public sandbox owns a nested private tools repository. Command-level
+# configuration is inherited by recursive Git calls, including when CI checks
+# out an older sandbox revision without its own update=none declaration.
+GIT_TERMINAL_PROMPT=0 git -c submodule.tools.update=none submodule update --init --recursive -- "${public_modules[@]}"
 
 node scripts/prepare-module-sources.mjs --public
 
