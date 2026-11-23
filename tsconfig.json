@@ -69,6 +69,7 @@
 		"modules/sandbox/domain/**/*",
 		"modules/sandbox/token/**/*",
 		"modules/sandbox/server/**/*",
+		"modules/sandbox/tools/src/lib/**/*",
 		"modules/business/booking/component/**/*",
 		"modules/business/booking/const/**/*",
 		"modules/business/booking/data/**/*",
