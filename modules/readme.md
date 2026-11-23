@@ -12,6 +12,7 @@
 | auth (private)       | `modules/customer/auth`          | auth                                                                                      |
 | architecture         | `modules/architecture`           | graph, erd, idef-zero, workspace, canvas, webgl                                           |
 | sandbox              | `modules/sandbox`                | domain, token, server, development                                                        |
+| tools (private)      | `modules/sandbox/tools/src/lib`  | tools                                                                                     |
 | travel (private)     | `modules/business/travel`        | booking, travel-commerce, travel-admin                                                    |
 | sakartvelo (private) | `modules/business/sakartvelo`    | tea-commerce                                                                              |
 | geo (private)        | `modules/global/geo`             | geo                                                                                       |
@@ -38,6 +39,6 @@ Grouped domains are direct children of their owner (`sourceRoot: "."`). Single-d
 
 Travel and sakartvelo remain separate private packages at `modules/business/travel` and `modules/business/sakartvelo`. Site portal dependencies resolve these physical paths. Refresh the consuming site's Yarn installation after path changes.
 
-Design-system embeds theme/svg/typography/layout, and sandbox embeds server. Edit files and run Git operations inside the physical owning repository. An umbrella commit records owner revisions; owner commits record nested submodule revisions.
+Design-system embeds theme/svg/typography/layout, and sandbox embeds server and tools (repository stylist-svelte-tools). The tools domain root is the nested repository's `src/lib`, registered separately with `domainRoot: true` and `private: true`. It is excluded from browser root exports and the public npm package. Edit files and run Git operations inside the physical owning repository. An umbrella commit records owner revisions; owner commits record nested submodule revisions.
 
 Preparation validates physical paths without creating source projections. Public module selection excludes private domains, server is never published, and generated roots/manifests come from the existing Stylist tooling. Source mirrors omit Git metadata. Packaging uses an ignored staging directory.
