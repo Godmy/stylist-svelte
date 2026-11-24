@@ -15,7 +15,9 @@ export {
 	CanvasBoardManager,
 	CanvasGeometryManager,
 	CanvasHistoryManager,
+	CanvasImageManager,
 	CanvasManager,
+	CanvasRecognitionManager,
 	CanvasShapeManager,
 	CanvasSurfaceManager,
 	CanvasToolbar,
@@ -67,6 +69,7 @@ export {
 	bundleSchemaDependencyRoutes,
 	createSchemaDependencyRoutes,
 	mergeSchemaDocuments,
+	orderDomainsByConnectionStrength,
 	schemaDocumentToText,
 	schemaTextToDocument,
 	serializeSchemaRoutePath
@@ -610,12 +613,19 @@ export {
 	getPreviewTheme,
 	getSurfaceStyle,
 	getSwatchStyle,
+	groupBy,
+	indexBy,
 	resolveAriaLabel,
 	resolveTargetElement,
 	resolveThemeMode,
 	resolveThemeScheme,
 	supportsThemeMode,
-	toggleThemeMode
+	toMap,
+	toSet,
+	toggleInSet,
+	toggleThemeMode,
+	unique,
+	withMapEntry
 } from '../../modules/design-system/theme';
 export {
 	Badge,
@@ -944,22 +954,31 @@ export {
 	TimeSlot,
 	Timeline,
 	Timetable,
+	addDays,
+	addMinutes,
+	addYears,
+	createDate,
 	formatDayLabel,
 	formatDisplayDate,
 	formatMonthYear,
 	formatShortDate,
 	formatShortMonthYear,
 	fromInputDateString,
+	fromInputDateTime,
 	generateCalendarDays,
 	generateCalendarGrid,
 	isSameDay,
 	isToday,
 	isWeekend,
 	navigateMonth,
+	now,
 	startOfDay,
 	startOfWeek,
 	timetableCell,
-	toInputDateString
+	toDate,
+	toInputDateString,
+	viewRangeOf,
+	withTime
 } from '../../modules/interaction/calendar';
 export {
 	AccessibilityToolbar,
@@ -1075,8 +1094,10 @@ export {
 	CONTACT_FORM_MESSAGES,
 	ContactForm,
 	FeedbackScenario,
+	FormConsent,
 	FormFooter,
 	FormHeader,
+	FormHoneypot,
 	FormManager,
 	FormSelection,
 	FormWithValidation,
@@ -1244,16 +1265,20 @@ export {
 	getTokenIconKind
 } from '../../modules/sandbox/token';
 export type {
+	CanvasBoardRole,
 	CanvasBoardStyle,
+	CanvasChange,
 	CanvasFont,
 	CanvasFontFamily,
 	CanvasHistory,
 	CanvasObject,
+	CanvasRecognition,
 	CanvasResizeHandle,
 	CanvasShapeKind,
 	CanvasStroke,
 	CanvasToolbarDrawingTool,
 	CanvasUser,
+	CanvasView,
 	CanvasViewport,
 	FoundationAxis,
 	FoundationDepthThreshold,
@@ -1439,7 +1464,6 @@ export type {
 	ComparisonTableProduct,
 	FilterSchema,
 	FilterType,
-	RowExpandableProps,
 	TableSchema,
 	TokenSortDirection
 } from '../../modules/information/table';
@@ -1543,7 +1567,6 @@ export type {
 } from '../../modules/architecture/canvas';
 export type {
 	RecipeErdDependency,
-	RecipeErdSchemaView,
 	RecipeErdTable,
 	RecipeErdTableField,
 	RecipeErdTableHeader,
@@ -1552,10 +1575,8 @@ export type {
 	RecipeSchemaHeader,
 	RecipeSchemaText,
 	RecipeSchemaTool,
-	SlotErdHeader,
-	SlotErdSettings,
-	SlotErdText,
-	SlotErdTool
+	RecipeSchemaView,
+	SlotErdSettings
 } from '../../modules/architecture/erd';
 export type {
 	ArchitectureScene,
@@ -1591,7 +1612,6 @@ export type {
 	SceneMaterial,
 	SceneMolecule,
 	SceneText,
-	SlotFieldHighlighter,
 	SlotFieldHighlighterSelectedField,
 	SlotGraphEdge,
 	SlotGraphNode,
@@ -1620,8 +1640,7 @@ export type {
 	RecipeInterferenceFieldScene,
 	RecipeSceneLauncher,
 	RecipeShaderField,
-	RecipeTurtleDissolveScene,
-	SlotShaderField
+	RecipeTurtleDissolveScene
 } from '../../modules/architecture/webgl';
 export type {
 	GraphNodeDraft,
@@ -1840,8 +1859,7 @@ export type {
 	RecipeStepsSection,
 	SlotBadge,
 	SlotComposite,
-	SlotDimensionable,
-	SlotDivider
+	SlotDimensionable
 } from '../../modules/design-system/layout';
 export type {
 	ContractLocaleContext,
@@ -1852,9 +1870,7 @@ export type {
 	RecipeLocaleProvider,
 	RecipeLocaleSwitcher,
 	RecipeTranslationEditor,
-	SlotExtendedTranslationEditor,
 	SlotLanguageSelectorStyleClasses,
-	SlotLocaleSwitcher,
 	SlotLocaleSwitcherLocale
 } from '../../modules/design-system/localization';
 export type {
@@ -1911,7 +1927,6 @@ export type {
 	RecipeSvgTimeline,
 	SlotIcon,
 	SlotSvgName,
-	SlotSvgShorts,
 	SlotSvgTimeline
 } from '../../modules/design-system/svg';
 export type {
@@ -1960,9 +1975,7 @@ export type {
 	RecipeAudioSlider,
 	RecipeAudioVisualizer,
 	RecipeTranscriber,
-	SlotAudioPlayer,
 	SlotAudioRecording,
-	SlotAudioSlider,
 	SlotAudioVisualizer,
 	SlotTranscriptionResult
 } from '../../modules/information/audio';
@@ -2024,9 +2037,7 @@ export type {
 	BehaviorArticleBlockEditor,
 	BehaviorArticleReader,
 	RecipeArticleBlockEditor,
-	RecipeArticleReader,
-	SlotArticleBlockEditor,
-	SlotArticleReader
+	RecipeArticleReader
 } from '../../modules/information/content';
 export type {
 	RecipeCanvasImageEditor,
@@ -2045,9 +2056,7 @@ export type {
 	RecipeDragAndDropList,
 	RecipeListItemMarker,
 	RecipeSortableList,
-	SlotDragAndDrop,
 	SlotDragAndDropListItem,
-	SlotSortableList,
 	SlotSortableListItem
 } from '../../modules/information/list';
 export type {
@@ -2059,11 +2068,10 @@ export type {
 	RecipeNotificationBadge,
 	RecipeNotificationCenter,
 	RecipeNotificationList,
-	RecipeNotificationOptions,
 	RecipeNotificationSettings,
 	RecipeScheduledNotification,
-	RecipeToast,
-	RecipeToastStack
+	RecipeToastStack,
+	SlotToast
 } from '../../modules/information/notification';
 export type {
 	RecipeCell,
@@ -2085,12 +2093,9 @@ export type {
 	RecipeTable,
 	RecipeTableListPanel,
 	SlotColumnConfig,
-	SlotColumnManager,
 	SlotDataTable,
 	SlotDataTableShell,
-	SlotFilterBar,
-	SlotFilterPills,
-	SlotFilterText
+	SlotFilterPills
 } from '../../modules/information/table';
 export type {
 	RecipeCatalog,
@@ -2145,10 +2150,7 @@ export type {
 	RecipeVectorScene,
 	RecipeWaveSurf,
 	RecipeWhaleSpout,
-	SlotCarouselImages,
-	SlotComponentLibraryStats,
-	SlotTiltCard,
-	SlotTiltShowcase
+	SlotComponentLibraryStats
 } from '../../modules/interaction/animation';
 export type {
 	ButtonPreset,
@@ -2162,7 +2164,6 @@ export type {
 	RecipeCloseButton,
 	RecipeCopyButton,
 	RecipeFillButton,
-	RecipeFocusable,
 	RecipeFollowButton,
 	RecipeGlowButton,
 	RecipeIconButton,
@@ -2173,7 +2174,8 @@ export type {
 	RecipeToolButton,
 	RecipeWhatsappButton,
 	SlotButtonAttributesBase,
-	SlotButtonDom
+	SlotButtonDom,
+	SlotFocusable
 } from '../../modules/interaction/button';
 export type {
 	BehaviorTimetable,
@@ -2193,12 +2195,12 @@ export type {
 	RecipeMonthRangePicker,
 	RecipeTimeGrid,
 	RecipeTimePicker,
+	RecipeTimeSlot,
 	RecipeTimeline,
 	RecipeTimetable,
 	SlotCalendarDay,
 	SlotCalendarEvent,
-	SlotDatePicker,
-	SlotTimetable
+	SlotDatePicker
 } from '../../modules/interaction/calendar';
 export type {
 	BehaviorSelectable,
@@ -2211,33 +2213,26 @@ export type {
 	RecipeFocusState,
 	RecipeIconToolbar,
 	RecipeMultiSelect,
-	RecipeOverlay,
 	RecipeRadio,
 	RecipeRangeInput,
 	RecipeRangeSlider,
-	RecipeSelect,
 	RecipeSelectionState,
 	RecipeSelector,
 	RecipeShortcutsPanel,
-	RecipeSlider,
 	RecipeSliderWithInput,
 	RecipeStepper,
 	RecipeSwitch,
 	RecipeTag,
 	RecipeTick,
-	RecipeTimeSlot,
 	RecipeToggleGroupItem,
 	RecipeToggleGroupRoot,
 	RecipeZoomControls,
-	SlotAutocompleteDropdown,
 	SlotAutocompleteDropdownOption,
 	SlotComboboxItem,
 	SlotComboboxStyleClasses,
 	SlotMultiSelectOption,
 	SlotRangeInput,
-	SlotRangeSlider,
 	SlotSelectStyleClasses,
-	SlotSliderWithInput,
 	SlotToggle,
 	SlotToggleBase,
 	SlotToggleGroupContext,
@@ -2269,15 +2264,8 @@ export type {
 	RecipeTabPanels,
 	RecipeTabs,
 	RecipeTextInputDialog,
-	SlotAccordion,
-	SlotAccordionGroup,
-	SlotAccordionLayout,
-	SlotConfirmationDialog,
-	SlotDialog,
-	SlotModal,
 	SlotTab,
 	SlotTabContainer,
-	SlotTabPanel,
 	StylistTabItem
 } from '../../modules/interaction/dialog';
 export type {
@@ -2302,34 +2290,30 @@ export type {
 	RecipeZipViewer,
 	SlotAttachment,
 	SlotDataItem,
-	SlotDocumentPreview,
 	SlotDragDropFile,
 	SlotDragDropUploadFile,
 	SlotDropItem,
 	SlotDropZoneStyleClasses,
 	SlotExportPanelStyleClasses,
 	SlotFileItem,
-	SlotFileManager,
-	SlotFileStorage,
 	SlotFileSystemItem,
 	SlotFolderItem,
 	SlotMediaItem,
 	SlotUploadFile,
-	SlotUploadProgress,
 	SlotZipEntry,
 	SlotZipViewerStyleClasses
 } from '../../modules/interaction/file';
 export type {
 	BehaviorRatingFeedback,
-	RecipeAccountForms,
 	RecipeAddressForm,
 	RecipeContactForm,
 	RecipeFeedbackScenario,
+	RecipeFormConsent,
 	RecipeFormFooter,
 	RecipeFormHeader,
+	RecipeFormHoneypot,
 	RecipeFormSelection,
 	RecipeFormWithValidation,
-	RecipeInteractionForms,
 	RecipeLoginForm,
 	RecipeRatingFeedback,
 	RecipeSchemaFormDialog,
@@ -2338,15 +2322,9 @@ export type {
 	RecipeToggleButtonGroup,
 	RecipeValidation,
 	SlotAddressData,
-	SlotContactFormMessages,
-	SlotFeedbackScenario,
 	SlotFormData,
-	SlotFormFooter,
-	SlotFormHeader,
 	SlotFormSelectionState,
 	SlotLoginCredentials,
-	SlotRatingFeedback,
-	SlotSupportCounter,
 	SlotValidationErrors
 } from '../../modules/interaction/form';
 export type {
@@ -2374,14 +2352,10 @@ export type {
 	RecipeTextArea,
 	SlotInputBase,
 	SlotInputCore,
-	SlotInputLabel,
 	SlotInputStateOptions,
 	SlotInputWithHelper,
 	SlotInputWithLabel,
-	SlotInputWithValidation,
-	SlotNumberInput,
-	SlotPhoneNumberInput,
-	SlotTagInput
+	SlotInputWithValidation
 } from '../../modules/interaction/input';
 export type {
 	BehaviorSiteMenu,
@@ -2400,8 +2374,7 @@ export type {
 	SlotMegaMenuColumn,
 	SlotMegaMenuFeature,
 	SlotMegaMenuLink,
-	SlotMegaMenuSection,
-	SlotSiteMenu
+	SlotMegaMenuSection
 } from '../../modules/interaction/menu';
 export type {
 	BehaviorSectionSelect,
@@ -2424,10 +2397,7 @@ export type {
 	RecipeSectionBar,
 	RecipeSidebar,
 	RecipeTopAppBar,
-	RecipeWorkspaceMenu,
-	SlotNavigationPatterns,
-	SlotSectionBar,
-	SlotWorkspaceMenu
+	RecipeWorkspaceMenu
 } from '../../modules/interaction/navigation';
 export type {
 	RecipeCarousel,
@@ -2445,15 +2415,7 @@ export type {
 	RecipeSearchResults,
 	RecipeSearchSuggestion,
 	RecipeSearchToggle,
-	SlotAutoComplete,
-	SlotSearchBar,
-	SlotSearchField,
-	SlotSearchForm,
-	SlotSearchOverlay,
-	SlotSearchResults,
-	SlotSearchSkin,
-	SlotSearchSuggestion,
-	SlotSearchToggle
+	SlotSearchSkin
 } from '../../modules/interaction/search';
 export type {
 	RecipeCardClose,
