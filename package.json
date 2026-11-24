@@ -122,7 +122,15 @@
 		"!dist/**/story-*.svelte.d.ts",
 		"!dist/**/*.test.*",
 		"!dist/**/*.spec.*",
-		"!dist/server/**"
+		"!dist/server/**",
+		"!dist/tools/**",
+		"!dist/access-control/**",
+		"!dist/blender/**",
+		"!dist/maplibre/**",
+		"!dist/motion/**",
+		"!dist/object-registry/**",
+		"!dist/task-processor/**",
+		"!dist/weather/**"
 	],
 	"peerDependencies": {
 		"svelte": "^5.0.0"

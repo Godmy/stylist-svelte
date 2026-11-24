@@ -39,7 +39,7 @@ family. Stories загружаются через glob по физическим
 Манифест хранится в
 `modules/sandbox/domain/data/json/domain-page-manifest/index.json`. Он содержит
 только `tree`; массива `descriptors` нет. В git лежит только публичная часть;
-`stylist/auditor` рядом пишет игнорируемый `index.full.json` со всеми модулями
+`modules/sandbox/tools/scripts/manifest.mjs` пишет игнорируемый `index.full.json` со всеми модулями
 (то же для `domain-files` и `domain-component-import-diagnostics`). Плагин `publicSandbox` в `vite dev`
 подставляет полный файл и вырезает домены, скрытые `STYLIST_MODULES`; в сборке
 полный файл берётся только без скрытых модулей. Из корня workspace
