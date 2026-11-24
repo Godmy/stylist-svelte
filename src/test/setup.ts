@@ -14,3 +14,25 @@ if (typeof window !== 'undefined' && typeof window.matchMedia !== 'function') {
 		dispatchEvent: () => false
 	});
 }
+
+// jsdom has no native dialog methods. Model their open state so render tests
+// exercise settings panels that use the browser's dialog API.
+if (typeof HTMLDialogElement !== 'undefined') {
+	if (typeof HTMLDialogElement.prototype.show !== 'function') {
+		HTMLDialogElement.prototype.show = function () {
+			this.open = true;
+		};
+	}
+	if (typeof HTMLDialogElement.prototype.showModal !== 'function') {
+		HTMLDialogElement.prototype.showModal = function () {
+			this.open = true;
+		};
+	}
+	if (typeof HTMLDialogElement.prototype.close !== 'function') {
+		HTMLDialogElement.prototype.close = function (returnValue?: string) {
+			if (returnValue !== undefined) this.returnValue = returnValue;
+			this.open = false;
+			this.dispatchEvent(new Event('close'));
+		};
+	}
+}
