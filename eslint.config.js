@@ -36,7 +36,12 @@ export default tseslint.config(
 				}
 			],
 			'@typescript-eslint/no-explicit-any': 'warn',
-			'@typescript-eslint/no-empty-object-type': 'warn',
+			// SAMO names every recipe/slot as its own interface, often a bare
+			// `interface RecipeX extends ComputeIntersectAll<[...]> {}`: a named alias, not a mistake.
+			'@typescript-eslint/no-empty-object-type': [
+				'warn',
+				{ allowInterfaces: 'with-single-extends' }
+			],
 			'svelte/require-each-key': 'warn',
 			'svelte/no-useless-children-snippet': 'warn',
 			'svelte/no-navigation-without-resolve': 'warn',
