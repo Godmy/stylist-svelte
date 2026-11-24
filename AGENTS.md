@@ -106,7 +106,10 @@
 
 #### ADR-008-02 - Policy for Component Reactivity and State-File Exports (Mandatory)
 
-- If a component requires reactive behavior, all logic for that behavior must be encapsulated in a file named `state.svelte.ts`.
+- Owned mutable state (`$state`), computations containing logic blocks, and effects managing data or processes are encapsulated in `state.svelte.ts`.
+- A simple component does not require a state file: `$props`, `$bindable`, DOM references, and `$derived` expressions without local callbacks, assignments or asynchronous logic may stay next to the markup. Calling an imported function in such an expression is allowed; `$derived.by(() => expression)` is allowed under the same restrictions.
+- A small `$effect` for DOM binding may stay in the component: reading dependencies, obtaining a sibling element, writing DOM properties, and calling an imported function with a DOM reference as its first argument, including returning a cleanup function. Conditions, loops, asynchronous operations and writes outside the DOM require a state file. DOM references are identified by DOM types, not by the component name or its atom/molecule level.
+- The presence of `$derived`, `$effect` or a local function alone does not require a state file. Standalone local functions remain subject to entity placement rules.
 - `const state = stateFn(() => props)` is the basic pattern for invoking a state function inside a component to reactively read the current props.
 - `$state()` is used as a variable initializer. The state-file card includes an example of returning a reactive value through a getter.
 - `state.svelte.ts` contains one `export function`, identified through `export default <function-name>` and counted as one exported entity.
