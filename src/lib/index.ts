@@ -1,13 +1,25 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export {
+	CANVAS_BOARD_GLYPH,
+	CANVAS_BOARD_ICON,
 	CANVAS_CANVAS_TOOLBAR_MESSAGE,
 	CANVAS_COLLABORATIVE_EDITOR_MESSAGE,
 	CANVAS_COLOR_PALETTE_MESSAGE,
+	CANVAS_COLOR_SWATCH,
+	CANVAS_FONT_FAMILY,
 	CANVAS_SCREENSHOT_SELECTOR_MESSAGE,
+	CANVAS_SHAPE_KIND,
 	CANVAS_SHARED_CANVAS_MESSAGE,
 	CANVAS_TOOLBAR_DRAWING_TOOL,
+	CANVAS_ZOOM_LIMITS,
+	CanvasBoardManager,
+	CanvasGeometryManager,
+	CanvasHistoryManager,
 	CanvasManager,
+	CanvasShapeManager,
+	CanvasSurfaceManager,
 	CanvasToolbar,
+	CanvasViewportManager,
 	CollaborativeEditor,
 	ColorPalette,
 	DEFAULT_FOUNDATION_CAMERA,
@@ -31,7 +43,8 @@ export {
 	SemanticZoomManager,
 	SharedCanvas,
 	TOKEN_FOUNDATION_AXES,
-	TOKEN_FOUNDATION_AXIS_DIRECTIONS
+	TOKEN_FOUNDATION_AXIS_DIRECTIONS,
+	canvasColor
 } from '../../modules/architecture/canvas';
 export {
 	DEFAULT_SCHEMA_TEXT,
@@ -525,18 +538,22 @@ export {
 	SvgPolygon,
 	SvgPolyline,
 	SvgRect,
+	SvgShorts,
 	SvgText,
+	SvgTimeline,
 	TOKEN_FLAG_REGISTRY,
 	TOKEN_ICON_REGISTRY,
 	TOKEN_ICON_SIZE,
 	buildSvgMarkup,
+	createSvgPlayback,
 	escapeAttr,
 	isIconName,
 	joinClasses,
 	normalizeIconName,
 	resolveFlagSvg,
 	resolveIconSvg,
-	resolveSize
+	resolveSize,
+	svgShortDemo
 } from '../../modules/design-system/svg';
 export {
 	ColorPicker,
@@ -1227,7 +1244,17 @@ export {
 	getTokenIconKind
 } from '../../modules/sandbox/token';
 export type {
+	CanvasBoardStyle,
+	CanvasFont,
+	CanvasFontFamily,
+	CanvasHistory,
+	CanvasObject,
+	CanvasResizeHandle,
+	CanvasShapeKind,
+	CanvasStroke,
 	CanvasToolbarDrawingTool,
+	CanvasUser,
+	CanvasViewport,
 	FoundationAxis,
 	FoundationDepthThreshold,
 	FoundationSemanticZoomStage,
@@ -1358,6 +1385,8 @@ export type {
 	MathmlTag
 } from '../../modules/design-system/mathml';
 export type {
+	SvgPlaybackSnapshot,
+	SvgTimelineTrack,
 	TokenIconName,
 	TokenIconSize
 } from '../../modules/design-system/svg';
@@ -1864,6 +1893,9 @@ export type {
 	SlotMathmlGlobal
 } from '../../modules/design-system/mathml';
 export type {
+	BehaviorSvgPlayback,
+	BehaviorSvgPreview,
+	ContractSvgPlayback,
 	RecipeFlag,
 	RecipeIcon,
 	RecipeSvg,
@@ -1874,9 +1906,13 @@ export type {
 	RecipeSvgPolygon,
 	RecipeSvgPolyline,
 	RecipeSvgRect,
+	RecipeSvgShorts,
 	RecipeSvgText,
+	RecipeSvgTimeline,
 	SlotIcon,
-	SlotSvgName
+	SlotSvgName,
+	SlotSvgShorts,
+	SlotSvgTimeline
 } from '../../modules/design-system/svg';
 export type {
 	BehaviorThemeMode,

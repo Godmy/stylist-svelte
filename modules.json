@@ -144,6 +144,12 @@
 		"private": true,
 		"domains": ["yoga"]
 	},
+	"school": {
+		"path": "modules/business/school",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["school"]
+	},
 	"management": {
 		"path": "modules/management",
 		"private": true,
@@ -177,7 +183,7 @@
 	"prototype": {
 		"path": "modules/prototype",
 		"private": true,
-		"domains": ["demo", "prototype-school", "prototype-shop"],
+		"domains": ["demo", "prototype-shop"],
 		"sourceRoot": "."
 	},
 	"prezi": {
