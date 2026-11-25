@@ -206,4 +206,6 @@
 6. Update consumers when addresses or names change. Specify which generated exports need to be updated.
 7. Run the available project checks and report their actual results. If generation is unavailable in the received library, pass the requirement to the maintainer.
 
+`index.story.ts` and `index.test.ts` are entry points for the sandbox and test runner. A lack of ordinary consumers does not trigger `GRAPH/ORPHAN` or `GRAPH/PLACEMENT` for these files; their dependencies remain in the graph.
+
 This sequence brings together the application of the policies above; it does not require access to private workspace tools.
