@@ -144,11 +144,35 @@
 		"private": true,
 		"domains": ["yoga"]
 	},
+	"school": {
+		"path": "modules/business/school",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["school"]
+	},
 	"management": {
 		"path": "modules/management",
 		"private": true,
 		"domains": ["management", "marketing", "portfolio", "science"],
 		"sourceRoot": "."
+	},
+	"task-processor": {
+		"path": "modules/management/task-processor",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["task-processor"]
+	},
+	"object-registry": {
+		"path": "modules/management/object-registry",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["object-registry"]
+	},
+	"access-control": {
+		"path": "modules/management/access-control",
+		"domainRoot": true,
+		"private": true,
+		"domains": ["access-control"]
 	},
 	"global": {
 		"path": "modules/global",
@@ -159,7 +183,7 @@
 	"prototype": {
 		"path": "modules/prototype",
 		"private": true,
-		"domains": ["demo", "prototype-school", "prototype-shop"],
+		"domains": ["demo", "prototype-shop"],
 		"sourceRoot": "."
 	},
 	"prezi": {

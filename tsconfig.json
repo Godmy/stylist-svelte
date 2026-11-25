@@ -54,6 +54,9 @@
 		"modules/management/marketing/**/*",
 		"modules/customer/landing/**/*",
 		"modules/management/portfolio/**/*",
+		"modules/management/task-processor/**/*",
+		"modules/management/object-registry/**/*",
+		"modules/management/access-control/**/*",
 		"modules/management/science/**/*",
 		"modules/architecture/graph/**/*",
 		"modules/architecture/erd/**/*",
@@ -62,7 +65,6 @@
 		"modules/architecture/canvas/**/*",
 		"modules/architecture/treejs/**/*",
 		"modules/prototype/demo/**/*",
-		"modules/prototype/prototype-school/**/*",
 		"modules/prototype/prototype-shop/**/*",
 		"modules/prototype/presentation/**/*",
 		"modules/architecture/webgl/**/*",
@@ -106,6 +108,7 @@
 		"modules/business/spanish/**/*",
 		"modules/business/farm/**/*",
 		"modules/business/yoga/**/*",
+		"modules/business/school/**/*",
 		"modules/sandbox/development/**/*",
 		"modules/customer/ai/**/*",
 		"modules/prototype/scratch/**/*",
@@ -118,6 +121,10 @@
 		"modules/prototype/blender/type/**/*",
 		"modules/prototype/blender/test/**/*",
 		"modules/prototype/prototype-*/**/*",
-		"modules/information/content/**/*"
+		"modules/information/content/**/*",
+		"modules/sandbox/tools/src/lib/**/*",
+		"modules/management/task-processor/**/*",
+		"modules/management/object-registry/**/*",
+		"modules/management/access-control/**/*"
 	]
 }
