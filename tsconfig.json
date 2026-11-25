@@ -119,5 +119,17 @@
 		"modules/prototype/blender/test/**/*",
 		"modules/prototype/prototype-*/**/*",
 		"modules/information/content/**/*"
+	],
+	"exclude": [
+		"node_modules/**",
+		"src/service-worker.js",
+		"src/service-worker/**/*.js",
+		"src/service-worker.ts",
+		"src/service-worker/**/*.ts",
+		"src/service-worker.d.ts",
+		"src/service-worker/**/*.d.ts",
+		"modules/sandbox/tools/src/lib/index.ts",
+		"modules/sandbox/tools/src/lib/class/**",
+		"modules/sandbox/tools/src/lib/test/**"
 	]
 }

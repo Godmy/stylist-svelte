@@ -72,6 +72,8 @@ export default defineConfig(() => {
 		assetsInclude: ['**/*.vert', '**/*.frag'],
 		test: {
 			include: ['src/**/*.{test,spec}.{js,ts}', 'modules/*/*/**/*.{test,spec}.{js,ts}'],
+			// stylist-svelte-tools is a Node CLI with its own Vitest run (npm test in modules/sandbox/tools).
+			exclude: ['**/node_modules/**', 'modules/sandbox/tools/**'],
 			globals: true,
 			environment: 'jsdom',
 			setupFiles: ['./src/test/setup.ts'],
