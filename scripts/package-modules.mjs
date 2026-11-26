@@ -30,16 +30,36 @@ const packageDir = outDir ? resolve(outDir) : root;
 // except server and tools. It never goes to ./dist, so it cannot be published by mistake.
 const full = process.argv.includes('--full') || process.env[MODULES_ENV] === 'all';
 if (full && !outDir) throw new Error('A full (private) package needs --out <dir> outside ./dist');
+// --name <package> renames the local package, e.g. @godmy/stylist-svelte for GitHub Packages.
+const nameIndex = process.argv.indexOf('--name');
+const packageName = nameIndex === -1 ? null : process.argv[nameIndex + 1];
+if (nameIndex !== -1 && (!packageName || packageName.startsWith('--') || !outDir))
+	throw new Error('--name needs a package name and --out');
 
 /** Package manifest for a local copy: only what consumers resolve, no scripts or dev tooling. */
 async function writeLocalPackage() {
 	const manifest = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'));
-	const keep = ['name', 'version', 'description', 'type', 'license', 'sideEffects', 'exports'];
+	const keep = [
+		'name',
+		'version',
+		'description',
+		'type',
+		'license',
+		'repository',
+		'sideEffects',
+		'exports'
+	];
 	const local = Object.fromEntries(
 		keep.filter((key) => key in manifest).map((key) => [key, manifest[key]])
 	);
 	for (const key of ['peerDependencies', 'peerDependenciesMeta', 'dependencies', 'svelte', 'types'])
 		if (key in manifest) local[key] = manifest[key];
+	// GitHub Packages needs a scoped name (@godmy/stylist-svelte) and its own registry.
+	if (packageName) {
+		local.name = packageName;
+		if (packageName.startsWith('@'))
+			local.publishConfig = { registry: 'https://npm.pkg.github.com' };
+	}
 	await writeFile(join(packageDir, 'package.json'), `${JSON.stringify(local, null, '\t')}\n`);
 	for (const file of ['README.md', 'LICENSE'])
 		if (existsSync(join(root, file))) await copyFile(join(root, file), join(packageDir, file));

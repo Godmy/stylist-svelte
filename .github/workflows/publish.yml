@@ -1,0 +1,65 @@
+# Publishes a GitHub release of stylist-svelte twice:
+# - npm:             stylist-svelte, public domains only (trusted publishing, no stored npm token);
+# - GitHub Packages: @godmy/stylist-svelte, every module (private package, GITHUB_TOKEN).
+# The release tag must match package.json "version" (v2.1.0 -> 2.1.0).
+name: Publish release
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+jobs:
+  npm-public:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # trusted publishing (OIDC) and provenance
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+      - run: corepack enable
+      - name: Check the tag against package.json
+        run: test "v$(node -p "require('./package.json').version")" = "${GITHUB_REF_NAME}"
+      # Public owners only; private modules and the nested tools repository stay out.
+      - run: bash experiments/prepare-local-build.sh
+      - run: yarn install --immutable
+      # package-modules.mjs rejects any public source that imports a private one.
+      - run: yarn build
+      # Trusted publishing needs npm 11.5+.
+      - run: npm install --global npm@11
+      - run: npm publish --access public
+
+  github-full:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write # GITHUB_TOKEN publishes to npm.pkg.github.com
+    steps:
+      # Private submodules need a token that can read every Godmy/stylist-svelte-* repository.
+      - uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.STYLIST_MODULES_TOKEN }}
+      - name: Check the tag against package.json
+        run: test "v$(node -p "require('./package.json').version")" = "${GITHUB_REF_NAME}"
+      - name: Check out every module, including private ones
+        run: git submodule update --init --recursive --checkout
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@godmy'
+      - run: corepack enable
+      - run: yarn install --immutable
+      # index.full.ts is not committed: the manifest runs stylist-indexation over every module.
+      - run: npm ci
+        working-directory: modules/sandbox/tools
+      # The first run can stop on a component whose barrel the same run creates; the second passes.
+      - run: node modules/sandbox/tools/scripts/manifest.mjs || node modules/sandbox/tools/scripts/manifest.mjs
+      - run: node scripts/package-modules.mjs --full --out "$RUNNER_TEMP/stylist-svelte-full" --name @godmy/stylist-svelte
+      - run: npm publish
+        working-directory: ${{ runner.temp }}/stylist-svelte-full
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
