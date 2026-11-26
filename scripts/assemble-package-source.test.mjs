@@ -55,3 +55,48 @@ test('physical modules validate and assemble one public package without private 
 		await rm(root, { recursive: true, force: true });
 	}
 });
+
+test('the full package starts from index.full.ts and keeps private modules but not server or tools', async () => {
+	const root = await mkdtemp(join(tmpdir(), 'stylist-assembly-full-'));
+	try {
+		const files = {
+			'modules.json': JSON.stringify({
+				common: { path: 'modules/common', sourceRoot: '.', domains: ['button'] },
+				travel: {
+					path: 'modules/travel/travel',
+					domainRoot: true,
+					private: true,
+					packageName: 'stylist-svelte-travel',
+					domains: ['travel']
+				},
+				sandbox: { path: 'modules/sandbox', sourceRoot: '.', domains: ['server', 'tools'] }
+			}),
+			'src/lib/index.ts': "export { BUTTON } from '../../modules/common/button';",
+			'src/lib/index.full.ts':
+				"export { BUTTON } from '../../modules/common/button';\nexport { TRIP } from '../../modules/travel/travel';",
+			'modules/common/button/index.ts': 'export const BUTTON = 1;',
+			'modules/travel/travel/index.ts': 'export const TRIP = 1;',
+			'modules/sandbox/server/index.ts': 'export const SERVER = 1;',
+			'modules/sandbox/tools/index.ts': 'export const TOOLS = 1;'
+		};
+		for (const [name, text] of Object.entries(files)) {
+			await mkdir(join(root, name, '..'), { recursive: true });
+			await writeFile(join(root, name), text);
+		}
+		const stage = await assemblePackageSource(root, join(root, '.package-input'), { full: true });
+		assert.equal(
+			await readFile(join(stage, 'index.ts'), 'utf8'),
+			"export { BUTTON } from './button';\nexport { TRIP } from './travel';"
+		);
+		await stat(join(stage, 'travel/index.ts'));
+		for (const name of ['server', 'tools', 'index.full.ts']) {
+			await assert.rejects(stat(join(stage, name)), /ENOENT/);
+		}
+		const tsconfig = JSON.parse(await readFile(join(root, 'tsconfig.package.json'), 'utf8'));
+		assert.deepEqual(tsconfig.compilerOptions.paths['stylist-svelte-travel/*'], [
+			'./.package-input/travel/*'
+		]);
+	} finally {
+		await rm(root, { recursive: true, force: true });
+	}
+});

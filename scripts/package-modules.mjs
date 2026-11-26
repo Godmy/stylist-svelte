@@ -3,9 +3,14 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import { watch, existsSync } from 'node:fs';
 import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
-import { assemblePackageSource, packageTsconfig } from './assemble-package-source.mjs';
+import {
+	FULL_PACKAGE_EXCLUDED_DOMAINS,
+	assemblePackageSource,
+	packageTsconfig,
+	stagedPackageAliases
+} from './assemble-package-source.mjs';
 import { checkPackageSource } from './check-package-source.mjs';
-import { moduleSources } from './prepare-module-sources.mjs';
+import { MODULES_ENV, excludedPackageDomains, moduleSources } from './prepare-module-sources.mjs';
 import config from '../svelte.config.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -21,6 +26,10 @@ const outDir = outIndex === -1 ? null : process.argv[outIndex + 1];
 if (outIndex !== -1 && (!outDir || outDir.startsWith('--')))
 	throw new Error('--out needs a directory');
 const packageDir = outDir ? resolve(outDir) : root;
+// --full or STYLIST_MODULES=all: a private local package from index.full.ts with every module
+// except server and tools. It never goes to ./dist, so it cannot be published by mistake.
+const full = process.argv.includes('--full') || process.env[MODULES_ENV] === 'all';
+if (full && !outDir) throw new Error('A full (private) package needs --out <dir> outside ./dist');
 
 /** Package manifest for a local copy: only what consumers resolve, no scripts or dev tooling. */
 async function writeLocalPackage() {
@@ -37,8 +46,11 @@ async function writeLocalPackage() {
 }
 
 async function packageModules() {
-	await checkPackageSource(root);
-	const input = await assemblePackageSource(root, join(root, '.package-input'));
+	// The public check rejects private sources, which the full package includes on purpose.
+	if (!full) await checkPackageSource(root);
+	const input = await assemblePackageSource(root, join(root, '.package-input'), { full });
+	const excluded = new Set(full ? FULL_PACKAGE_EXCLUDED_DOMAINS : excludedPackageDomains(root));
+	const packageAliases = stagedPackageAliases(root, input, excluded);
 	await mkdir(packageDir, { recursive: true });
 	await build({
 		cwd: root,
@@ -47,8 +59,12 @@ async function packageModules() {
 		types: true,
 		preserve_output: false,
 		tsconfig: packageTsconfig(root),
-		config: { ...config, kit: { alias: { $stylist: input, 'stylist-svelte': input } } }
+		config: {
+			...config,
+			kit: { alias: { $stylist: input, 'stylist-svelte': input, ...packageAliases } }
+		}
 	});
+	console.log(`Package (${full ? 'full' : 'public'}): ${join(packageDir, 'dist')}`);
 	if (outDir) await writeLocalPackage();
 }
 await packageModules();
